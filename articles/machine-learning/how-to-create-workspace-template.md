@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: f8ceacf88968d884de666b764c1037db9e63450f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d64dfdad0c51950228288b704b3fdb7579496abb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214919"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488073"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -285,7 +285,7 @@ Ustawiając `vnetOption` wartość parametru na `new` lub `existing` , można ut
 Jeśli skojarzone zasoby nie znajdują się za siecią wirtualną, można ustawić parametr **privateEndpointType** na `AutoAproval` lub `ManualApproval` wdrożyć obszar roboczy za prywatnym punktem końcowym. Można to zrobić w przypadku nowych i istniejących obszarów roboczych. Podczas aktualizowania istniejącego obszaru roboczego Wypełnij parametry szablonu informacjami z istniejącego obszaru roboczego.
 
 > [!IMPORTANT]
-> Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
+> Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 

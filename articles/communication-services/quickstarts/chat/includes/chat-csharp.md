@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 70287a837b17268f2cddebfb2cf3344a8fe66ffe
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b4f058d9829a23748b8ef61daea5b3f12ce5fedf
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445591"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489716"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
-- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Zainstaluj [program Visual Studio](https://visualstudio.microsoft.com/downloads/) 
+- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Zainstaluj [program Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - Utwórz zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../../create-communication-resource.md). Musisz zarejestrować **punkt końcowy** zasobu dla tego przewodnika Szybki Start.
 - [Token dostępu użytkownika](../../access-tokens.md). Upewnij się, że ustawiono zakres "Rozmowa" i zanotuj ciąg tokenu, a także ciąg identyfikatora użytkownika.
 
@@ -47,7 +47,7 @@ Zainstaluj bibliotekę kliencką rozmowy komunikacyjnej platformy Azure dla plat
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+```
 
 ## <a name="object-model"></a>Model obiektów
 
@@ -60,7 +60,7 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu 
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
-Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z `Administration` biblioteki klienta, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
+Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z biblioteki klienta tożsamości, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
 
 Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
 
@@ -95,7 +95,7 @@ Użyj `createChatThread` metody z chatClient, aby utworzyć wątek rozmowy
 - Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateTopic` funkcji.
 - Użyj `participants` właściwości, aby przekazać listę `ChatParticipant` obiektów do dodania do wątku rozmowy. `ChatParticipant`Obiekt jest inicjowany z `CommunicationIdentifier` obiektem. `CommunicationIdentifier` może być typu `CommunicationUserIdentifier` `MicrosoftTeamsUserIdentifier` lub `PhoneNumberIdentifier` . Na przykład aby uzyskać `CommunicationIdentifier` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-an-identity)
 
-Obiekt Response z metody createChatThread zawiera szczegóły chatThread. Aby współdziałać z operacjami wątku rozmowy, takimi jak dodawanie uczestników, wysyłanie komunikatu, usuwanie komunikatu itp., wystąpienie klienta chatThreadClient musi zostać utworzone przy użyciu metody GetChatThreadClient na kliencie ChatClient. 
+Obiekt Response z `createChatThread` metody zawiera `chatThread` szczegóły. Aby można było korzystać z operacji wątku rozmowy, takich jak dodawanie uczestników, wysyłanie komunikatu, usuwanie komunikatu itp., `chatThreadClient` wystąpienie klienta musi być tworzone przy użyciu `GetChatThreadClient` metody na `ChatClient` kliencie.
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))

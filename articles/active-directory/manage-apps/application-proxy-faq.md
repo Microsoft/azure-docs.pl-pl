@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370822"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487750"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -37,6 +37,21 @@ Jeśli licencja wygaśnie, serwer proxy aplikacji zostanie automatycznie wyłąc
 Upewnij się, że masz co najmniej licencję na Azure AD — wersja Premium P1 lub P2 oraz zainstalowano łącznik usługi Azure serwer proxy aplikacji usługi Azure AD. Po pomyślnym zainstalowaniu pierwszego łącznika usługa Azure serwer proxy aplikacji usługi Azure AD zostanie włączona automatycznie.
 
 ## <a name="connector-configuration"></a>Konfiguracja łącznika
+
+### <a name="why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version"></a>Dlaczego mój łącznik nadal używa starszej wersji i nie jest aktualizowana do najnowszej wersji?
+
+Może to być spowodowane nieprawidłowym działaniem usługi Aktualizator lub brakiem dostępnych nowych aktualizacji, które mogą zostać zainstalowane przez usługę.
+
+Usługa Aktualizator jest w dobrej kondycji, jeśli jest uruchomiona i nie ma błędów zarejestrowanych w dzienniku zdarzeń (Dzienniki aplikacji i usług — > Microsoft-> AadApplicationProxy-> Aktualizator-> administrator). 
+
+> [!IMPORTANT]
+> Do autouaktualniania są udostępniane tylko wersje główne. Zalecamy ręczne aktualizowanie łącznika zgodnie z regularnym harmonogramem. Aby uzyskać więcej informacji na temat nowych wersji, typ wydania (pobieranie, Autouaktualnianie), poprawki błędów i nowe funkcje, zobacz [serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji](application-proxy-release-version-history.md).
+
+Aby ręcznie uaktualnić łącznik:
+
+-  Pobierz najnowszą wersję łącznika. (Znajdziesz go w obszarze serwer proxy aplikacji w witrynie Azure Portal. Możesz również znaleźć link na [platformie Azure serwer proxy aplikacji usługi Azure AD: historia](application-proxy-release-version-history.md)wersji.
+-   Instalator ponownie uruchamia usługi łącznika usługi Azure serwer proxy aplikacji usługi Azure AD. W niektórych przypadkach może być konieczne ponowne uruchomienie serwera, jeśli Instalator nie może zastąpić wszystkich plików. Dlatego zalecamy zamknięcie wszystkich aplikacji (tj. Podgląd zdarzeń) przed rozpoczęciem uaktualniania.
+-   Uruchom instalatora. Proces uaktualniania jest szybki i nie wymaga podawania żadnych poświadczeń, a łącznik nie zostanie ponownie zarejestrowany.
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>Czy usługi łącznika serwera proxy aplikacji mogą działać w innym kontekście użytkownika niż domyślny?
 

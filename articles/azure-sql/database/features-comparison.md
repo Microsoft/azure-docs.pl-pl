@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 03/08/2021
-ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447473"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489773"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -33,8 +33,8 @@ Azure SQL Database i wystąpienie zarządzane SQL współużytkują wspólną ba
 Platforma Azure zarządza bazami danych i gwarantuje wysoką dostępność. Niektóre funkcje, które mogą mieć wpływ na wysoką dostępność lub nie mogą być używane w PaaS świecie, mają ograniczone funkcje w SQL Database i wystąpieniu zarządzanym SQL. Te funkcje są opisane w poniższych tabelach.
 
 Jeśli potrzebujesz więcej szczegółowych informacji o różnicach, możesz je znaleźć na oddzielnych stronach:
-- [Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
-- [Wystąpienie zarządzane Azure SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+- [Azure SQL Database a SQL Server różnice](transact-sql-tsql-differences-sql-server.md)
+- [Wystąpienia zarządzane usługi Azure SQL a SQL Server różnice](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Funkcje SQL Database i wystąpienia zarządzanego SQL
 

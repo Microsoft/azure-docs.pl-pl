@@ -5,17 +5,17 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488090"
 ---
-# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
+# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Dostrajanie wydajności zapytań za pomocą Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB udostępnia [interfejs API SQL do wykonywania zapytań dotyczących danych](./sql-query-getting-started.md), bez konieczności stosowania indeksów schematu lub pomocniczego. Ten artykuł zawiera następujące informacje dla deweloperów:
@@ -143,7 +143,6 @@ Poniżej przedstawiono najbardziej typowe czynniki wpływające na wydajność z
 | Aprowizowana przepływność | Zmierz wartość RU na zapytanie i upewnij się, że masz wymaganą przepustowość zainicjowaną dla zapytań. | 
 | Partycjonowanie i klucze partycji | Preferuj zapytania z wartością klucza partycji w klauzuli filtru w przypadku małych opóźnień. |
 | Opcje zestawu SDK i zapytania | Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi zestawu SDK, takimi jak łączność bezpośrednia, i dostrojenie opcji wykonywania zapytań |
-| Opóźnienie sieci | Konto do obsługi obciążeń sieci w miarę i Użyj interfejsów API multihostingu, aby odczytać z najbliższego regionu. |
 | Zasady indeksowania | Upewnij się, że masz wymagane ścieżki indeksowania/zasady dla zapytania. |
 | Metryki wykonywania zapytania | Analizuj metryki wykonywania zapytania, aby identyfikować potencjalne wielokrotne zapisywanie kształtów zapytań i danych.  |
 
@@ -239,7 +238,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Metryka | Jednostka | Opis | 
+| Metric | Jednostka | Opis | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milisekundy | Czas wykonywania zapytania | 
 | `queryCompileTimeInMs` | milisekundy | Czas kompilowania zapytania  | 

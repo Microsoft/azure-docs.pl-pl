@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124955"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489790"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Często zadawane pytania dotyczące maszyn wirtualnych w portalu Azure Marketplace
 
@@ -49,6 +49,19 @@ Więcej informacji można znaleźć w następujących artykułach:
 Za każdym razem, gdy próbuję utworzyć obraz z moich wirtualnych dysków twardych, otrzymuję komunikat o błędzie "wirtualny dysk twardy jest już zarejestrowany w repozytorium obrazów jako zasób" w Azure PowerShell. Nie utworzono żadnego obrazu wcześniej ani nie znaleziono żadnego obrazu o tej nazwie na platformie Azure. Jak rozwiązać ten problem?
 
 Ten problem zwykle występuje, gdy utworzono maszynę wirtualną z dysku VHD, który ma blokadę. Upewnij się, że maszyna wirtualna nie została przypisana z tego wirtualnego dysku twardego, a następnie spróbuj ponownie wykonać operację. Jeśli ten problem będzie się powtarzać, Otwórz bilet pomocy technicznej. Zobacz [Pomoc techniczna dla Centrum partnerskiego](support.md).
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Jak mogę przetestować ukrytego obrazu podglądu?
+
+Możesz wdrażać ukryte obrazy w wersji zapoznawczej przy użyciu szablonów szybkiego startu.
+Aby wdrożyć obraz w wersji zapoznawczej systemu Linux, 
+1. Przejdź do tego [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux), a następnie wybierz pozycję "wdróż na platformie Azure". Powinno to potrwać Azure Portal
+2. W Azure Portal wybierz pozycję "Edytuj szablon".
+3. W szablonie JSON Wyszukaj pozycję elementu imagereference i zaktualizuj publisherID, OfferId, identyfikatora skuId i wersję obrazu. Aby przetestować obraz podglądu, Dołącz "-PREVIEW" do OfferId.
+ ![obraz](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Klikanie pozycji Zapisz.
+5. Wypełnij pozostałe szczegóły. Przejrzyj i Utwórz
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726771"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487882"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -30,7 +30,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 | ---------------------- | ---------------------------------------- |
 | Zaległe zdarzenia wejściowe       | Liczba zarejestrowanych zdarzeń wejściowych. Wartość różna od zera dla tej metryki oznacza, że zadanie nie jest w stanie zachować liczby zdarzeń przychodzących. Jeśli ta wartość jest powoli zwiększana lub konsekwentnie różna od zera, należy przeskalować zadanie. Więcej informacji można znaleźć w [opisie i dostosowaniu jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
 | Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Drop", aby porzucić zdarzenia, które napotykają ten scenariusz. |
-| Użycie procesora CPU (%) (wersja zapoznawcza)       | Procent użycia procesora CPU przez zadanie. Jeśli ta Metryka jest stale wyższa niż 80%, może to oznaczać, że zadanie jest wąskie w przypadku użycia procesora CPU i prawdopodobnie spowoduje, że zdarzenia wejściowe będą mogły zostać zarejestrowane. Można zwiększyć liczbę programów SUs przydzieloną do zadania, aby wyeliminować takie problemy. |
+| Użycie procesora CPU (%) (wersja zapoznawcza)       | Procent użycia procesora CPU przez zadanie. Nawet jeśli ta wartość jest bardzo wysoka (90% lub nowsza), nie należy zwiększać liczby programów SUs opartych na tej metryki. Jeśli liczba zaległych zdarzeń wejściowych lub opóźnienia zostanie zwiększona, można użyć tej metryki użycia procesora CPU (%), aby określić, czy procesor CPU jest wąskim gardłem. Jest możliwe, że ta Metryka gwałtownie się kończy. Zaleca się przeprowadzenie testów skalowania, aby określić górną granicę zadania, po upływie którego dane wejściowe powodują wzrost opóźnień lub limitu czasu dla znaku wodnego z powodu wąskiego gardła procesora. |
 | Wczesne zdarzenia wejściowe       | Zdarzenia, których sygnatura czasowa aplikacji jest wcześniejsza niż ich czas przybycia o więcej niż 5 minut. |
 | Nieudane żądania funkcji | Liczba wywołań funkcji zakończonych niepowodzeniem Azure Machine Learning (jeśli istnieją). |
 | Zdarzenia funkcji        | Liczba zdarzeń wysyłanych do funkcji Azure Machine Learning (jeśli istnieje). |

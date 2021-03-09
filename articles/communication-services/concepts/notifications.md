@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 88a5ad66cb401715790bcff8c773e6d7881b103d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660161"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487699"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Usługa Azure Communication Services chat i wywołująca biblioteki klienckie umożliwiają utworzenie kanału obsługi komunikatów w czasie rzeczywistym, który umożliwia sygnalizowanie wiadomości do klientów podłączonych w skuteczny i niezawodny sposób. Dzięki temu można tworzyć rozbudowane funkcje komunikacji w czasie rzeczywistym w aplikacjach bez konieczności implementowania skomplikowanej logiki sondowania protokołu HTTP. Jednak w przypadku aplikacji mobilnych ten kanał sygnalizujący pozostanie połączony tylko wtedy, gdy aplikacja jest aktywna na pierwszym planie. Jeśli chcesz, aby użytkownicy odbierali wywołania przychodzące lub wiadomości czatu, gdy aplikacja jest w tle, należy używać powiadomień wypychanych.
 

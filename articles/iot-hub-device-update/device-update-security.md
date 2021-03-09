@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: cf05d5f93180db91658d0e94a23359edd5b0f7ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663637"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489433"
 ---
 # <a name="device-update-security-model"></a>Model zabezpieczeń aktualizacji urządzenia
 
@@ -54,7 +54,7 @@ Posiadanie kluczy głównych i podpisywania pozwala firmie Microsoft na okresowe
 
 ### <a name="json-web-signature-jws"></a>Podpis internetowy JSON (JWS)
 
-`updateManifestSignature`Służy do upewnienia się, że informacje zawarte w programie `updateManifest` nie zostały naruszone. `updateManifestSignature`Jest tworzony przy użyciu podpisu internetowego JSON z kluczami sieci Web JSON, umożliwiając weryfikację źródła. Sygnatura jest zakodowanym ciągiem Base64Url z trzema sekcjami w postaci ".".  Zapoznaj się z metodami pomocnika jws_util. h na potrzeby analizowania i weryfikowania kluczy i tokenów JSON.
+`updateManifestSignature`Służy do upewnienia się, że informacje zawarte w programie `updateManifest` nie zostały naruszone. `updateManifestSignature`Jest tworzony przy użyciu podpisu internetowego JSON z kluczami sieci Web JSON, umożliwiając weryfikację źródła. Sygnatura jest zakodowanym ciągiem Base64Url z trzema sekcjami w postaci ".".  Zapoznaj się z [metodami pomocnika jws_util. h](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) na potrzeby analizowania i weryfikowania kluczy i tokenów JSON.
 
 Podpis internetowy JSON to powszechnie używany [proponowany Standard IETF](https://tools.ietf.org/html/rfc7515) do podpisywania zawartości przy użyciu struktur danych opartych na notacji JSON. Jest to sposób zapewnienia integralności danych przez zweryfikowanie podpisu danych. Więcej informacji można znaleźć w [dokumencie 7515 RFC](https://www.rfc-editor.org/info/rfc7515)w sieci Web JWS (JSON).
 

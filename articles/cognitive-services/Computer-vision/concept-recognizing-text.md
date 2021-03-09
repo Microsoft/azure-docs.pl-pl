@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e0247560afa8229f4fa5c25ec7dfbbca4f7defb2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362798"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486102"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -133,17 +133,17 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 ```
 
 ## <a name="natural-reading-order-output-latin-only"></a>Dane wyjściowe z porządkiem naturalnym odczytywania (tylko łacińskie)
-Za pomocą [interfejsu API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)Określ kolejność, w której wiersze tekstowe są wyprowadzane za pomocą `readingOrder` parametru zapytania. Użyj, `natural` Aby uzyskać bardziej przyjazny dla człowieka wynik z kolejnością odczytywania, jak pokazano w poniższym przykładzie. Ta funkcja jest obsługiwana tylko w przypadku języków łacińskich.
+Za pomocą [interfejsu API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)Określ kolejność, w której wiersze tekstowe są wyprowadzane za pomocą `readingOrder` parametru zapytania. Użyj, `natural` Aby uzyskać bardziej przyjazny dla człowieka wynik z kolejnością odczytywania, jak pokazano w poniższym przykładzie. Ta funkcja jest obsługiwana tylko w przypadku języków łacińskich.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Przykład kolejności odczytywania OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Klasyfikacja odręczna dla linii tekstowych (tylko łaciński)
-Odpowiedź w [interfejsie API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) obejmuje klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu ma styl pisma ręcznego, czy nie, oraz ocenę ufności. Ta funkcja jest obsługiwana tylko w przypadku języków łacińskich. Poniższy przykład pokazuje klasyfikację odręczne dla tekstu w obrazie.
+Odpowiedź w [interfejsie API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) obejmuje klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu ma styl pisma ręcznego, czy nie, oraz ocenę ufności. Ta funkcja jest obsługiwana tylko w przypadku języków łacińskich. Poniższy przykład pokazuje klasyfikację odręczne dla tekstu w obrazie.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Przykład klasyfikacji pisma ręcznego OCR":::
 
 ## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Wybieranie stron lub zakresów stron do wyodrębniania tekstu
-Za pomocą [interfejsu API odczytu 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)w przypadku dużych dokumentów wielostronicowych Użyj `pages` parametru zapytania, aby określić numery stron lub zakresy stron w celu wyodrębnienia tekstu z tylko tych stron. Poniższy przykład pokazuje dokument zawierający 10 stron z tekstem wyodrębnionym dla obu przypadków — wszystkie strony (1-10) i wybrane strony (3-6).
+Za pomocą [interfejsu API odczytu 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)w przypadku dużych dokumentów wielostronicowych Użyj `pages` parametru zapytania, aby określić numery stron lub zakresy stron w celu wyodrębnienia tekstu z tylko tych stron. Poniższy przykład pokazuje dokument zawierający 10 stron z tekstem wyodrębnionym dla obu przypadków — wszystkie strony (1-10) i wybrane strony (3-6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Wybrane strony wyjściowe":::
 
@@ -166,4 +166,4 @@ W przypadku wdrożenia lokalnego [odczytywanie kontenera Docker (wersja zapoznaw
 
 - Rozpocznij pracę z [interfejsem API REST przetwarzanie obrazów lub z przewodnikiem Szybki Start dla biblioteki klienta](./quickstarts-sdk/client-library.md).
 - Dowiedz się więcej o [interfejsie API REST do odczytu 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) z obsługą łącznej liczby języków 73.
+- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) z obsługą łącznej liczby języków 73.

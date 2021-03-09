@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: 766f6cb0515f45fa11ee26ba23e79ae51fff5ce3
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 333d4327e233d8101ece9f4272357a43cec47e56
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436094"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489824"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
@@ -45,7 +45,12 @@ Następnie uruchom polecenia instalacji specyficzne dla dystrybucji.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Pobierz i zainstaluj sterowniki CUDA z witryny internetowej firmy NVIDIA. Na przykład dla Ubuntu 16,04 LTS:
+1. Pobierz i zainstaluj sterowniki CUDA z witryny internetowej firmy NVIDIA. 
+    > [!NOTE]
+   >  W poniższym przykładzie przedstawiono ścieżkę pakietu CUDA dla Ubuntu 16,04. Zastąp ścieżkę specyficzną dla wersji, która ma zostać użyta. 
+   >  
+   >  Odwiedź [centrum pobierania NVIDIA] ( https://developer.download.nvidia.com/compute/cuda/repos/) Aby uzyskać pełną ścieżkę specyficzną dla każdej wersji. 
+   > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
@@ -59,6 +64,7 @@ Następnie uruchom polecenia instalacji specyficzne dla dystrybucji.
    ```
 
    Instalacja może potrwać kilka minut.
+ 
 
 2. Aby opcjonalnie zainstalować kompletny zestaw narzędzi CUDA, wpisz:
 

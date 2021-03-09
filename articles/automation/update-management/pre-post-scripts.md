@@ -3,14 +3,14 @@ title: Zarządzanie skryptami wstępnymi i skryptami we wdrożeniu Update Manage
 description: W tym artykule opisano sposób konfigurowania i zarządzania skryptami wstępnymi i skryptami dla wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701505"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485541"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -19,6 +19,8 @@ Przed skryptami i po nim skrypty są elementami Runbook, które są uruchamiane 
 ## <a name="pre-script-and-post-script-requirements"></a>Wymagania przed skryptami i po skrypcie
 
 Aby element Runbook był używany jako skrypt poprzedzający lub po skrypcie, należy zaimportować go do konta usługi Automation i [opublikować element Runbook](../manage-runbooks.md#publish-a-runbook).
+
+Obecnie tylko elementy Runbook programu PowerShell i języka Python 2 są obsługiwane jako skrypty poprzedzające i końcowe. Inne typy elementów Runbook, takie jak Python 3, graficzne, przepływ pracy programu PowerShell, graficzny przepływ pracy programu PowerShell nie są obecnie obsługiwane jako skrypty poprzedzające i końcowe.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parametry przed skryptami i po skrypcie
 
@@ -91,9 +93,6 @@ Pełny przykład ze wszystkimi właściwościami można znaleźć w: [Pobieranie
 > [!NOTE]
 > `SoftwareUpdateConfigurationRunContext`Obiekt może zawierać zduplikowane wpisy dla maszyn. Może to spowodować, że skrypty i skrypty są uruchamiane wiele razy na tym samym komputerze. Aby obejść to zachowanie, użyj, `Sort-Object -Unique` Aby wybrać tylko unikatowe nazwy maszyn wirtualnych.
 
-> [!NOTE]
-> Obecnie tylko elementy Runbook programu PowerShell są obsługiwane jako skrypty poprzedzające i końcowe. Inne typy elementów Runbook, takie jak Python, graficzne, przepływ pracy programu PowerShell, graficzne przepływy pracy programu PowerShell nie są obecnie obsługiwane jako skrypty poprzedzające/końcowe.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Używanie skryptu wstępnego lub skryptu po wdrożeniu
 
 Aby użyć skryptu wstępnego lub po skrypcie w wdrożeniu aktualizacji, Zacznij od utworzenia wdrożenia aktualizacji. Wybierz polecenie **pre-scripts + post-scripts**. Ta akcja powoduje otwarcie strony **Wybieranie skryptów przed skryptami + po skrypcie** .
@@ -120,7 +119,7 @@ Po wybraniu przebiegu wdrożenia aktualizacji są wyświetlane dodatkowe szczeg�
 
 ## <a name="stop-a-deployment"></a>Zatrzymaj wdrożenie
 
-Jeśli chcesz zatrzymać wdrożenie na podstawie skryptu wstępnego, musisz [zgłosić](../automation-runbook-execution.md#throw) wyjątek. Jeśli tego nie zrobisz, wdrożenie i skrypt po skrypcie będą nadal działać. Poniższy fragment kodu pokazuje, jak zgłosić wyjątek.
+Jeśli chcesz zatrzymać wdrożenie na podstawie skryptu wstępnego, musisz [zgłosić](../automation-runbook-execution.md#throw) wyjątek. Jeśli tego nie zrobisz, wdrożenie i skrypt po skrypcie będą nadal działać. Poniższy fragment kodu pokazuje, jak zgłosić wyjątek przy użyciu programu PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+W języku Python 2 Obsługa wyjątków jest zarządzana w bloku [try](https://www.python-course.eu/exception_handling.php) .
 
 ## <a name="interact-with-machines"></a>Korzystanie z maszyn
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+Jeśli w języku Python 2 chcesz zgłosić błąd w przypadku wystąpienia pewnego warunku, [Użyj instrukcji throw](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) .
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Samples

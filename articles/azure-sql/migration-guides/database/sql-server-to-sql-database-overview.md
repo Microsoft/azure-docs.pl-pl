@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368051"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488277"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Przegląd migracji: SQL Server do SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ Poniższa tabela zawiera listę zalecanych narzędzi migracji:
 
 |Technologia | Opis|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate usługi Azure SQL umożliwia odnajdywanie i ocenianie danych SQL w odpowiedniej skali w przypadku programu VMware, dostarczając zaleceń dotyczących wdrażania usługi Azure SQL, określanie rozmiaru docelowej i miesięczne oszacowania. | 
 |[Narzędzie Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant to narzędzie pulpitu, które zapewnia bezproblemową ocenę SQL Server i migracji do Azure SQL Database (schemat i dane). Narzędzie można zainstalować lokalnie na serwerze lub na komputerze lokalnym, który ma łączność ze źródłowymi bazami danych. Proces migracji jest logicznym przenoszeniem danych między obiektami w źródłowej i docelowej bazie danych. </br> -Migruj pojedyncze bazy danych (schemat i dane)|
 |[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Usługa platformy Azure dla pierwszej strony, która może migrować bazy danych SQL Server do Azure SQL Database przy użyciu Azure Portal lub zautomatyzowanego za pomocą programu PowerShell. Usługa Azure DMS wymaga wybrania preferowanej usługi Azure Virtual Network (VNet) podczas aprowizacji, aby upewnić się, że istnieje łączność ze źródłowymi bazami danych SQL Server. </br> — Migrowanie pojedynczych baz danych lub na dużą skalę. |
 | | |

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712706"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487223"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -38,6 +38,13 @@ Podczas eksportowania danych jest tworzony oddzielny plik dla każdego typu zaso
 
 Ponadto sprawdzanie stanu eksportu za pośrednictwem adresu URL zwróconego przez nagłówek lokalizacji podczas kolejkowania jest obsługiwane wraz z anulowaniem rzeczywistego zadania eksportu.
 
+### <a name="exporting-fhir-data-to-adls-gen2"></a>Eksportowanie danych FHIR do ADLS Gen2
+
+Obecnie obsługujemy $export dla ADLS Gen2 włączonych kont magazynu z następującymi ograniczeniami:
+
+- Użytkownik nie może jeszcze korzystać z [hierarchicznych obszarów nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) ; nie istnieje sposób, aby można było eksportować do określonego podkatalogu w kontenerze. Zapewniamy tylko możliwość kierowania określonego kontenera (w przypadku tworzenia nowego folderu dla każdego eksportu).
+
+- Po zakończeniu eksportu nigdy nie eksportuje niczego do tego folderu, ponieważ kolejne eksporty do tego samego kontenera będą znajdować się wewnątrz nowo utworzonego folderu.
 
 
 ## <a name="settings-and-parameters"></a>Ustawienia i parametry

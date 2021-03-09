@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258222"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487954"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 
@@ -161,7 +161,7 @@ Jeśli nadal nie możesz wykonać tego postępu, pomoc techniczna firmy Microsof
 ## <a name="other-scenarios"></a>Inne scenariusze
 
 - Usługa Azure Application proxy żąda biletu protokołu Kerberos przed wysłaniem żądania do aplikacji. Niektóre aplikacje innych firm nie są podobne do tej metody uwierzytelniania. Aplikacje te oczekują bardziej konwencjonalnych negocjacji. Pierwsze żądanie jest anonimowe, co umożliwia aplikacji reagowanie na typy uwierzytelniania obsługiwane przez 401. Ten typ negocjacji Kerberos można włączyć, wykonując czynności opisane w tym dokumencie: [ograniczone delegowanie protokołu Kerberos na potrzeby logowania](application-proxy-configure-single-sign-on-with-kcd.md)jednokrotnego.
-- Uwierzytelnianie z użyciem wieloskładnikowym jest często używane w scenariuszach, w których aplikacja jest warstwowa, z zapleczem i frontonem, gdzie oba wymagają uwierzytelniania, takie jak SQL Server Reporting Services. Aby skonfigurować scenariusz wielodostępny, zobacz artykuł pomocy technicznej [ograniczone delegowanie protokołu Kerberos może wymagać przejścia do protokołu w scenariuszach z przeskokiem](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Uwierzytelnianie z użyciem wieloskładnikowym jest często używane w scenariuszach, w których aplikacja jest warstwowa, z zapleczem i frontonem, gdzie oba wymagają uwierzytelniania, takie jak SQL Server Reporting Services. Aby uzyskać więcej informacji, zobacz [jak skonfigurować ograniczone delegowanie protokołu Kerberos dla stron proxy rejestracji w sieci Web](/troubleshoot/windows-server/identity/configure-kerberos-constrained-delegation).
 
 ## <a name="next-steps"></a>Następne kroki
 

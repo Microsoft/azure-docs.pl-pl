@@ -292,6 +292,8 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Migrowanie z interfejsów API EA do MCA
           href: costs/migrate-cost-management-api.md
+        - name: Przypisywanie ról do nazw SPN
+          href: manage/assign-roles-azure-service-principals.md
     - name: Kupowanie rezerwacji i administrowanie nimi
       items:
         - name: 'Określanie, co kupić'

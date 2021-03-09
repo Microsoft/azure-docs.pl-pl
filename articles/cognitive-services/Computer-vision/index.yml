@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 46b82f85b8aea9534bc7e3e526b769fc4fa2fd2f
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 050290bd893e561b4e8c80f5764981c57c96597c
+  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102432812"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102488889"
 landingContent:
 - title: Informacje o przetwarzaniu obrazów
   linkLists:
@@ -160,12 +160,12 @@ landingContent:
       url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
     - text: Dane, prywatność i zabezpieczenia
       url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-- title: Odwołanie
+- title: Dokumentacja
   linkLists:
   - linkListType: reference
     links:
     - text: Interfejs API przetwarzania obrazów w wersji 3.2 (wersja zapoznawcza)
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
     - text: Interfejs API przetwarzania obrazów w wersji 3.1
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
     - text: Interfejs API przetwarzania obrazów v2.1

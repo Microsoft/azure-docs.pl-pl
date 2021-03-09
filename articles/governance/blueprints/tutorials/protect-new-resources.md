@@ -1,25 +1,25 @@
 ---
 title: 'Samouczek: Ochrona nowych zasobów przy użyciu blokad'
 description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plans tylko do odczytu i nie usuwaj, aby chronić nowo wdrożone zasoby.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915410"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485745"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
 
-Dzięki [zablokowaniu zasobów](../concepts/resource-locking.md)platformy Azure można chronić nowo wdrożone zasoby przed zmianą, nawet przez konto z rolą _właściciela_ . Tę ochronę można dodać w definicjach planów zasobów utworzonych przez artefakt szablonu Azure Resource Manager (szablon ARM).
+Dzięki [zablokowaniu zasobów](../concepts/resource-locking.md)platformy Azure można chronić nowo wdrożone zasoby przed zmianą, nawet przez konto z rolą _właściciela_ . Tę ochronę można dodać w definicjach planów zasobów utworzonych przez artefakt szablonu Azure Resource Manager (szablon ARM). Blokada zasobów strategii jest ustawiana podczas przypisywania planu.
 
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > - Tworzenie definicji strategii
 > - Oznacz swoją definicję planu jako **opublikowaną**
-> - Przypisywanie definicji planu do istniejącej subskrypcji
+> - Przypisywanie definicji planu do istniejącej subskrypcji (**Ustawianie blokad zasobów**)
 > - Inspekcja nowej grupy zasobów
 > - Cofnij przypisanie planu w celu usunięcia blokad
 
@@ -56,6 +56,9 @@ Najpierw Utwórz definicję planu.
    1. Wybierz **Dodaj wiersz artefaktu** w ramach wpisu **RGtoLock** .
    1. Wybierz **szablon Azure Resource Manager** w obszarze **Typ artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount** i pozostaw pole **Opis** puste.
    1. Na karcie **szablon** wklej następujący szablon ARM do pola Edytor. Po wklejeniu szablonu wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
+
+      > [!NOTE]
+      > Ten krok określa zasoby, które mają zostać wdrożone, które są blokowane przez blokadę zasobów planu, ale nie obejmują blokad zasobów planu. Blokady zasobów planu są ustawiane jako parametr przypisania planu.
 
    ```json
    {
@@ -142,6 +145,9 @@ Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie z
    - **Przypisanie blokady**
 
      Wybierz tryb blokowania **tylko do odczytu** . Aby uzyskać więcej informacji, zobacz [blokowanie zasobów strategii](../concepts/resource-locking.md).
+
+     > [!NOTE]
+     > Ten krok umożliwia skonfigurowanie blokady zasobów planu dla nowo wdrożonych zasobów.
 
    - **Tożsamość zarządzana**
 

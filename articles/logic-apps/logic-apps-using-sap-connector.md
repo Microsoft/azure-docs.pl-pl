@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489841"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -752,7 +752,7 @@ Można skonfigurować SAP, aby [wysyłał IDocs w pakietach](https://help.sap.co
 
 Oto przykład, który pokazuje, jak wyodrębnić poszczególne IDocs z pakietu przy użyciu [ `xpath()` funkcji](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Przed rozpoczęciem potrzebna jest aplikacja logiki z wyzwalaczem SAP. Jeśli nie masz jeszcze tej aplikacji logiki, wykonaj kroki opisane w tym temacie, aby [skonfigurować aplikację logiki z wyzwalaczem SAP](#receive-message-from-sap).
+1. Przed rozpoczęciem potrzebna jest aplikacja logiki z wyzwalaczem SAP. Jeśli nie masz jeszcze tego elementu w aplikacji logiki, wykonaj poprzednie kroki w tym temacie, aby [skonfigurować aplikację logiki z wyzwalaczem SAP](#receive-message-from-sap).
 
     > [!IMPORTANT]
     > W **identyfikatorze programu** SAP rozróżniana jest wielkość liter. Upewnij się, że podczas konfigurowania aplikacji logiki i serwera SAP dla **identyfikatora programu** ciągle używany jest ten sam format wielkości liter. W przeciwnym razie podczas próby wysłania IDoc do SAP mogą pojawić się następujące błędy monitora tRFC (T-Code SM58):
@@ -765,6 +765,14 @@ Oto przykład, który pokazuje, jak wyodrębnić poszczególne IDocs z pakietu p
    Na przykład:
 
    ![Dodawanie wyzwalacza SAP do aplikacji logiki](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Dodaj akcję odpowiedzi do aplikacji logiki](/azure/connectors/connectors-native-reqres#add-a-response-action) , aby natychmiast odpowiedzieć na stan żądania SAP. Najlepszym rozwiązaniem jest dodanie tej akcji natychmiast po wyzwalaczu w celu zwolnienia kanału komunikacyjnego z serwerem SAP. Wybierz jeden z następujących kodów stanu ( `statusCode` ), który ma być używany w akcji odpowiedzi:
+
+    * **202** zostało zaakceptowane, co oznacza, że żądanie zostało zaakceptowane do przetwarzania, ale przetwarzanie nie zostało jeszcze ukończone.
+
+    * **204 Brak zawartości**, co oznacza, że serwer pomyślnie spełnił żądanie i nie ma dodatkowej zawartości do wysłania w treści ładunku odpowiedzi. 
+
+    * **200 OK**. Ten kod stanu zawsze zawiera ładunek, nawet jeśli serwer generuje treść ładunku o zerowej długości. 
 
 1. Pobierz główną przestrzeń nazw z IDoc XML, którą aplikacja logiki otrzymuje od SAP. Aby wyodrębnić tę przestrzeń nazw z dokumentu XML, należy dodać krok, który tworzy zmienną ciągu lokalnego i zapisuje tę przestrzeń nazw przy użyciu `xpath()` wyrażenia:
 

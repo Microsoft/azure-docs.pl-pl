@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718730"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487855"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -50,6 +50,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. storagesync](#microsoftstoragesync) |
 | [Microsoft. StorSimple](#microsoftstorsimple) |
 | **Sieć Web** |
+| [Microsoft. AppPlatform](#microsoftappplatform) |
 | [Microsoft. CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft. DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft. Maps](#microsoftmaps) |
@@ -86,7 +87,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. Synapse](#microsoftsynapse) |
 | **Łańcuch bloków** |
 | [Microsoft. łańcucha bloków](#microsoftblockchain) |
-| **Sztuczna inteligencja i uczenie maszynowe** |
+| **AI i uczenie maszynowe** |
 | [Microsoft. BotService](#microsoftbotservice) |
 | [Microsoft. CognitiveServices](#microsoftcognitiveservices) |
 | [Microsoft. MachineLearning](#microsoftmachinelearning) |
@@ -283,7 +284,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -662,7 +663,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -2047,6 +2048,62 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
 ## <a name="web"></a>Internet
+
+### <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+Usługa platformy Azure: [chmura wiosnowa platformy Azure](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Akcja | Opis |
+> | --- | --- |
+> | Microsoft. AppPlatform/Register/Action | Zarejestruj subskrypcję dostawcy zasobów Microsoft. AppPlatform |
+> | Microsoft. AppPlatform/Unregister/Action | Wyrejestrowywanie subskrypcji z dostawcy zasobów Microsoft. AppPlatform |
+> | Microsoft. AppPlatform/Locations/checkNameAvailability/Action | Sprawdź dostępność nazwy zasobu |
+> | Microsoft. AppPlatform/Locations/operationResults/Sprężyna/odczyt | Odczytaj wynik operacji zasobu |
+> | Microsoft. AppPlatform/Locations/operationStatus/operationId/Read | Odczytaj stan operacji zasobu |
+> | Microsoft. AppPlatform/Operations/Read | Wyświetl listę dostępnych operacji Microsoft Azure wiosennej chmury |
+> | Microsoft. AppPlatform/jednostki SKU/odczyt | Wyświetl dostępne jednostki SKU z chmury Microsoft Azure wiosennej |
+> | Microsoft. AppPlatform/Sprężyna/zapis | Utwórz lub zaktualizuj określone wystąpienie usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/usuwanie | Usuwanie określonego wystąpienia usługi w chmurze ze sprężyną Azure |
+> | Microsoft. AppPlatform/Sprężyna/odczyt | Pobierz wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/enableTestEndpoint/akcja | Włącz funkcję testowego punktu końcowego dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/disableTestEndpoint/akcja | Wyłącz funkcję testowego punktu końcowego dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/listTestKeys/akcja | Wyświetl listę kluczy testowych dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/regenerateTestKey/akcja | Wygeneruj ponownie klucz testowy dla określonego wystąpienia usługi w chmurze Azure wiosną |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/zapis | Utwórz lub zaktualizuj aplikację dla określonego wystąpienia usługi w chmurze Azure wiosną |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/usuwanie | Usuwanie aplikacji dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/odczyt | Pobierz aplikacje dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/getResourceUploadUrl/akcja | Pobierz adres URL przekazywania zasobu dla konkretnej aplikacji w chmurze Microsoft Azure wiosennej |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/validateDomain/akcja | Weryfikowanie domeny niestandardowej dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania/zapis | Utwórz lub zaktualizuj powiązanie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania/usuwanie | Usuwanie powiązania dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania/odczyt | Pobierz powiązania dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/zapis | Utwórz lub zaktualizuj wdrożenie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/Usuń | Usuń wdrożenie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/odczyt | Pobierz wdrożenia dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/uruchomienie/akcja | Rozpocznij wdrażanie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/Apps/Deployments/Stop/Action | Zatrzymaj wdrożenie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/ponowne uruchomienie/akcja | Uruchom ponownie wdrożenie dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/getLogFileUrl/akcja | Pobierz adres URL pliku dziennika określonego Microsoft Azure sprężynowego wdrożenia aplikacji w chmurze |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/wdrożenia/jednostki SKU/odczyt | Wyświetl listę dostępnych jednostek SKU wdrożenia aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/domeny/zapis | Utwórz lub zaktualizuj domenę niestandardową dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/domeny/usuwanie | Usuń domenę niestandardową dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/aplikacje/domeny/odczyt | Pobieranie domen niestandardowych dla określonej aplikacji |
+> | Microsoft. AppPlatform/Sprężyna/certyfikaty/zapis | Utwórz lub zaktualizuj certyfikat dla określonego wystąpienia usługi w chmurze Azure wiosną |
+> | Microsoft. AppPlatform/Sprężyna/certyfikaty/usuwanie | Usuń certyfikat dla określonego wystąpienia usługi w chmurze Azure wiosennej |
+> | Microsoft. AppPlatform/Wiosenn/Certificates/Read | Pobierz certyfikaty dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/configServers/odczyt | Pobierz serwer konfiguracji dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/configServers/zapis | Utwórz lub zaktualizuj serwer konfiguracji dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/wdrożenia/odczyt | Pobierz wdrożenia dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/detektory/odczyt | Pobierz detektory dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/monitoringSettings/odczyt | Pobierz ustawienie monitorowania dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/monitoringSettings/zapis | Utwórz lub zaktualizuj ustawienie monitorowania dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | **Akcja dataaction** | **Opis** |
+> | Microsoft. AppPlatform/Sprężyna/pliku ConfigService/odczyt | Odczytaj zawartość konfiguracji (na przykład Application. YAML) dla określonego wystąpienia usługi w chmurze Azure wiosną |
+> | Microsoft. AppPlatform/Sprężyna/eurekaService/odczyt | Odczytaj informacje o rejestracji aplikacji użytkownika dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/eurekaService/zapis | Napisz informacje o rejestracji aplikacji użytkownika dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/eurekaService/usuwanie | Usuń informacje o rejestracji aplikacji użytkownika dla określonego wystąpienia usługi w chmurze Azure wiosny |
+> | Microsoft. AppPlatform/Sprężyna/logstreamService/odczyt | Przeczytaj dziennik przesyłania strumieniowego aplikacji użytkownika dla określonego wystąpienia usługi w chmurze Azure wiosny |
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 

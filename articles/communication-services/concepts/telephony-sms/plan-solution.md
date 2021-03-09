@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a811a033a2d6e2229c83899e237f996ccddd7b3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 380792db21932ed2c6cffb4227df09b27f0cdf5e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430415"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487496"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Typy numerów telefonów w usłudze Azure Communications Services
 
@@ -37,10 +37,10 @@ Dostępność numeru telefonu jest obecnie ograniczona do subskrypcji platformy 
 
 
 ## <a name="number-types-and-features"></a>Typy i funkcje liczbowe
-Usługi komunikacyjne oferują dwa typy numerów telefonów: **lokalna** i **bezpłatna**. 
+Usługi komunikacyjne oferują dwa typy numerów telefonów: **lokalna** i **bezpłatna**.
 
 ### <a name="local-numbers"></a>Numery lokalne
-Numery lokalne (geograficzne) to 10-cyfrowy numer telefonu składający się z lokalnych kodów obszaru w Stany Zjednoczone. Na przykład `+1 (206) XXX-XXXX` jest numerem lokalnym z kodem obszaru `206` . Ten kod obszaru jest przypisywany do miasta Seattle. Te numery telefonów są zwykle używane przez użytkowników indywidualnych i lokalnych. Usługi Azure Communication Services oferują numery lokalne w Stany Zjednoczone. Te liczby mogą służyć do nawiązywać połączeń telefonicznych, ale nie do wysyłania wiadomości SMS. 
+Numery lokalne (geograficzne) to 10-cyfrowy numer telefonu składający się z lokalnych kodów obszaru w Stany Zjednoczone. Na przykład `+1 (206) XXX-XXXX` jest numerem lokalnym z kodem obszaru `206` . Ten kod obszaru jest przypisywany do miasta Seattle. Te numery telefonów są zwykle używane przez użytkowników indywidualnych i lokalnych. Usługi Azure Communication Services oferują numery lokalne w Stany Zjednoczone. Te liczby mogą służyć do nawiązywać połączeń telefonicznych, ale nie do wysyłania wiadomości SMS.
 
 ### <a name="toll-free-numbers"></a>Bezpłatne numery telefonów
 Numer bezpłatny to 10-cyfrowe numery telefonów z unikatowymi kodami obszarów, które można wywoływać z dowolnego numeru telefonu. Na przykład `+1 (800) XXX-XXXX` jest numerem bezpłatnym w Ameryka Północna regionie. Te numery telefonów są zwykle używane na potrzeby obsługi klienta. Usługi Azure Communication Services oferują bezpłatne numery telefonów w Stanach Zjednoczonych. Te liczby mogą służyć do nawiązywać połączeń telefonicznych i wysyłania wiadomości SMS. Numery bezpłatne nie mogą być używane przez osoby i mogą być przypisane tylko do aplikacji.
@@ -49,9 +49,9 @@ Numer bezpłatny to 10-cyfrowe numery telefonów z unikatowymi kodami obszarów,
 
 Jeśli Twój numer telefonu będzie używany przez aplikację (na przykład w celu wykonywania wywołań lub wysyłania komunikatów w imieniu usługi), możesz wybrać numer bezpłatny lub lokalny. Możesz wybrać numer bezpłatny, jeśli aplikacja wysyła wiadomości SMS i/lub wykonujące wywołania.
 
-Jeśli Twój numer telefonu jest używany przez osobę (na przykład użytkownika aplikacji wywołującej), należy użyć lokalnego numeru telefonu (geograficznego). 
+Jeśli Twój numer telefonu jest używany przez osobę (na przykład użytkownika aplikacji wywołującej), należy użyć lokalnego numeru telefonu (geograficznego).
 
-W poniższej tabeli zestawiono te typy numerów telefonów: 
+W poniższej tabeli zestawiono te typy numerów telefonów:
 
 | Typ numeru telefonu | Przykład                              | Dostępność kraju    | Możliwość numeru telefonu |Typowy przypadek użycia                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ W poniższej tabeli zestawiono te typy numerów telefonów:
 | Toll-Free         | + 1 (bezpłatny *numer* kierunkowy) XXX XX XX | USA                      | Wywoływanie (wychodzące), SMS (przychodzące/wychodzące)| Przypisywanie numerów telefonów do interaktywnych systemów odpowiedzi głosowych (IVR)/botów, aplikacji SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Funkcje numeru telefonu w usłudze Azure Communications Services 
+### <a name="phone-number-features-in-azure-communication-services"></a>Funkcje numeru telefonu w usłudze Azure Communications Services
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -67,7 +67,7 @@ W przypadku większości numerów telefonów pozwalamy skonfigurować zestaw fun
 
 Funkcje, które są dostępne dla użytkownika, zależą od kraju, w którym pracujesz, w przypadku użycia i wybranego typu numeru telefonu. Te funkcje różnią się w zależności od kraju ze względu na wymagania prawne. Usługi Azure Communication Services oferują następujące funkcje numeru telefonu:
 
-- **Jednokierunkowe wychodzące wiadomości SMS** Ta opcja umożliwia wysyłanie wiadomości SMS do użytkowników. Może to być przydatne w scenariuszach powiadamiania i uwierzytelniania dwuskładnikowego. 
+- **Jednokierunkowe wychodzące wiadomości SMS** Ta opcja umożliwia wysyłanie wiadomości SMS do użytkowników. Może to być przydatne w scenariuszach powiadamiania i uwierzytelniania dwuskładnikowego.
 - **Dwukierunkowe przychodzące i wychodzące wiadomości SMS** Ta opcja umożliwia wysyłanie i odbieranie wiadomości od użytkowników przy użyciu numerów telefonów. Może to być przydatne w scenariuszach obsługi klienta.
 - **Jednokierunkowe połączenie wychodzące telefonu** Ta opcja umożliwia nawiązywanie połączeń z użytkownikami i Konfigurowanie identyfikatora rozmówcy dla wywołań wychodzących umieszczonych przez usługę. Może to być przydatne w scenariuszach obsługi klienta i powiadomień głosowych.
 

@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 01/06/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 7fedd45585698aef9248318a1b055cb656f25d02
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 6bdb167990afeb5c1b6c68185f24a8f930287bed
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335132"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487903"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Globalna dystrybucja danych przy użyciu usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Współczesne aplikacje muszą zapewniać szybki czas reakcji i zawsze działać w trybie online. Aby zapewnić małe opóźnienia i wysoką dostępność, wystąpienia tych aplikacji powinny być wdrażane w centrach danych, które są blisko ich użytkowników. Te aplikacje są zwykle wdrażane w wielu centrach danych i są nazywane globalnie dystrybuowanymi. Globalnie dystrybuowane aplikacje muszą mieć globalnie dystrybuowaną bazę danych, która może w sposób przezroczysty replikować dane w dowolnym miejscu na świecie, aby umożliwić aplikacjom działanie na kopii danych znajdującej się blisko użytkowników. 
+Współczesne aplikacje muszą zapewniać szybki czas reakcji i zawsze działać w trybie online. Aby zapewnić małe opóźnienia i wysoką dostępność, wystąpienia tych aplikacji powinny być wdrażane w centrach danych, które są blisko ich użytkowników. Te aplikacje zazwyczaj są wdrażane w wielu centrach danych i nazywane globalnie dystrybuowanymi. Globalnie dystrybuowane aplikacje muszą mieć globalnie dystrybuowaną bazę danych, która może w sposób przezroczysty replikować dane w dowolnym miejscu na świecie, aby umożliwić aplikacjom działanie na kopii danych znajdującej się blisko użytkowników. 
 
-Azure Cosmos DB to globalnie dystrybuowany system bazy danych, który umożliwia odczytywanie i zapisywanie danych z lokalnych replik bazy danych. Azure Cosmos DB w sposób przezroczysty replikuje dane do wszystkich regionów skojarzonych z Twoim kontem Cosmos. Azure Cosmos DB to globalnie dystrybuowana usługa bazy danych, która została zaprojektowana w celu zapewnienia małych opóźnień, elastycznej skalowalności, dobrze zdefiniowanej semantyki pod kątem spójności danych i wysokiej dostępności. W krótkim czasie, jeśli Twoja aplikacja potrzebuje szybkiego czasu odpowiedzi w dowolnym miejscu na świecie, jeśli wymagane jest zawsze w trybie online i wymaga nieograniczonej i elastycznej skalowalności przepływności i magazynu, należy skompilować aplikację na Azure Cosmos DB.
+Azure Cosmos DB to globalnie rozproszony system bazy danych, który umożliwia odczytywanie i zapisywanie danych w lokalnych replikach bazy danych. Usługa Azure Cosmos DB w sposób niewidoczny dla użytkownika replikuje dane we wszystkich regionach skojarzonych z kontem Cosmos. Azure Cosmos DB to globalnie dystrybuowana usługa bazy danych, która została zaprojektowana w celu zapewnienia małych opóźnień, elastycznej skalowalności, dobrze zdefiniowanej semantyki pod kątem spójności danych i wysokiej dostępności. W krótkim czasie, jeśli Twoja aplikacja potrzebuje szybkiego czasu odpowiedzi w dowolnym miejscu na świecie, jeśli wymagane jest zawsze w trybie online i wymaga nieograniczonej i elastycznej skalowalności przepływności i magazynu, należy skompilować aplikację na Azure Cosmos DB.
 
-Bazy danych można skonfigurować tak, aby były one dystrybuowane globalnie i dostępne w dowolnym regionie świadczenia usługi Azure. Aby zmniejszyć opóźnienie, umieść dane blisko miejsca, w którym znajdują się użytkownicy. Wybór wymaganych regionów zależy od globalnego zasięgu aplikacji i miejsca, w którym znajdują się użytkownicy. Cosmos DB w sposób przezroczysty replikuje dane do wszystkich regionów skojarzonych z Twoim kontem Cosmos. Udostępnia on pojedynczy obraz systemu dla globalnie rozproszonej bazy danych usługi Azure Cosmos i kontenerów, które aplikacja może odczytać i zapisać lokalnie. 
+Bazy danych można skonfigurować tak, aby były one dystrybuowane globalnie i dostępne w dowolnym regionie świadczenia usługi Azure. Aby zmniejszyć opóźnienie, umieść dane blisko miejsca, w którym znajdują się użytkownicy. Wybór wymaganych regionów zależy od globalnego zasięgu aplikacji i miejsca, w którym znajdują się użytkownicy. Cosmos DB w sposób przezroczysty replikuje dane do wszystkich regionów skojarzonych z Twoim kontem Cosmos. Udostępnia on pojedynczy obraz systemu dla globalnie rozproszonej bazy danych usługi Azure Cosmos i kontenerów, które aplikacja może odczytać i zapisać lokalnie.
 
-Za pomocą Azure Cosmos DB możesz w dowolnym momencie dodać lub usunąć regiony skojarzone z Twoim kontem. Aby można było dodać lub usunąć region, aplikacja nie musi być wstrzymana ani ponownie wdrożona. Jest ono ciągle dostępne przez cały czas ze względu na funkcje wielomultihostingune zapewniane przez usługę.
+Za pomocą Azure Cosmos DB możesz w dowolnym momencie dodać lub usunąć regiony skojarzone z Twoim kontem. Aby można było dodać lub usunąć region, aplikacja nie musi być wstrzymana ani ponownie wdrożona.
 
 :::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="Topologia wdrożenia o wysokiej dostępności" border="false":::
 
@@ -35,7 +35,7 @@ Za pomocą Azure Cosmos DB możesz w dowolnym momencie dodać lub usunąć regio
 - 99,999% dostępności odczytu i zapisu na całym świecie.
 - Gwarantowane odczyty i zapisy obsługiwane w czasie krótszym niż 10 milisekund w 99 percentylu.
 
-Korzystając z Azure Cosmos DB interfejsów API multihostingu, aplikacja rozpoznaje najbliższy region i może wysyłać żądania do tego regionu. Najbliższy region jest identyfikowany bez żadnych zmian konfiguracji. Po dodaniu i usunięciu regionów do i z konta usługi Azure Cosmos, aplikacja nie musi być ponownie wdrażana ani wstrzymywana, przez cały czas będzie nadal mieć wysoką dostępność.
+Po dodaniu i usunięciu regionów do i z konta usługi Azure Cosmos, aplikacja nie musi być ponownie wdrażana ani wstrzymywana, przez cały czas będzie nadal mieć wysoką dostępność.
 
 **Twórz wysoce reagujące aplikacje.** Aplikacja może wykonywać operacje odczytu i zapisu niemal w czasie rzeczywistym względem wszystkich regionów wybranych dla bazy danych. Azure Cosmos DB wewnętrznie obsługuje replikację danych między regionami z gwarancją poziomu spójności wybranego poziomu.
 

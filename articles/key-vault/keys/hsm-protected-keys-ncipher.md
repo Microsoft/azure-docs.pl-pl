@@ -8,23 +8,24 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 511544f81f6de887014545e3f4bbc7a4172fc91e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092333"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488753"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importuj klucze chronione przez moduł HSM dla Key Vault (oprogramowanie wspomagające nCipher)
+
+> [!WARNING]
+> Metoda importowania klucza HSM opisana w tym dokumencie jest **przestarzała** i nie będzie obsługiwana w przyszłości. Działa on tylko z rodziną oprogramowanie wspomagające nCipher sprzętowego nshield of sprzętowych modułów zabezpieczeń z oprogramowaniem układowym 12.40.2 lub 12,50 z poprawką. Używanie [nowej metody do importowania kluczy HSM](hsm-protected-keys-byok.md) jest zdecydowanie zalecane.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Aby uzyskać gwarancję, w przypadku korzystania z Azure Key Vault można importować lub generować klucze w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń), które nigdy nie opuszczają granicy modułu HSM. Ten scenariusz jest często określany jako *używania własnego klucza* (BYOK). W celu ochrony kluczy Azure Key Vault używa rodziny oprogramowanie wspomagające nCipher sprzętowego nshield sprzętowych modułów zabezpieczeń (zweryfikowany poziom 2 trybu FIPS 140-2).
 
-> [!NOTE]
-> Metoda importowania klucza HSM opisana w tym dokumencie działa tylko z rodziną oprogramowanie wspomagające nCipher sprzętowego nshield sprzętowych modułów zabezpieczeń. Aby zaimportować klucze HSM z innych sprzętowych modułów zabezpieczeń, [Zobacz tutaj](hsm-protected-keys-byok.md).
 
 Informacje przedstawione w tym temacie ułatwiają planowanie, generowanie i transferowanie własnych kluczy chronionych przez moduł HSM w celu korzystania z Azure Key Vault. 
 

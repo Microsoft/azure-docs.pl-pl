@@ -4,15 +4,15 @@ description: Usługi na rynku — w tej sekcji opisano zasoby firmy Microsoft, k
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/03/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246251"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489473"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -38,7 +38,7 @@ Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najle
 
 Szczegółowe opisy wszystkich korzyści z programu można znaleźć w tej [prezentacji programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 
-Wprowadzenie jest proste:
+## <a name="getting-started-is-easy"></a>Wprowadzenie jest proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
 2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
@@ -49,19 +49,19 @@ Wprowadzenie jest proste:
     1. Podaj numer telefonu i preferowany język osoby kontaktowej ds. marketingu. Po zakończeniu wprowadzania tych informacji wybierz pozycję **Przypisz użytkownika**.
     1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści członek zespołu ds. programu Rewards skontaktuje się z wyznaczoną osobą w ciągu tygodnia.
 
-### <a name="technical-benefits"></a>Korzyści techniczne
+> [!NOTE]
+> Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.
 
-1. Możesz skorzystać z korzyści technicznych, aby zażądać pomocy technicznej w fazie opracowywania aplikacji w chmurze i rozwiązaniach hybrydowych. Aby poprosić o pomoc, Wypełnij formularz żądania, a następnie wybierz pozycję **Prześlij żądanie**.
-2. Korzystanie z korzyści sponsorowanych przez platformę Azure będzie udostępniane za pośrednictwem poczty e-mail podczas odblokowywania tych korzyści.
-
->[!NOTE]
->Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.<br><br>Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
+Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu komercyjnym. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, wersja próbna i korzyści z konsultacji
 
-W przypadku opublikowania wersji próbnej lub konsultacji dotyczącej koncepcji, implementacji lub warsztatu zostanie przypisany Menedżer zaangażowania przez trzy miesiące, który pomoże Ci w zaistnieniu planu "przejdź do rynku". Możesz powtórzyć to trzykrotne zaangażowanie przy każdym opublikowaniu nowej oferty, aby pomóc w uzyskaniu każdej nowej oferty.
+Za każdym razem, gdy publikujesz się w witrynie Microsoft AppSource lub Azure Marketplace, będziesz mieć dostęp do nowego zestawu korzyści. Po przejściu na żywo oferty przejdź do [Centrum partnerskiego](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) , aby aktywować odpowiednie korzyści marketingowe, handlowe i techniczne.
+
+> [!NOTE]
+> Wszystkie korzyści z wersji próbnej i konsultingowej wygasają po 3 miesiącach.
 
 W poniższej tabeli zestawiono wymagania dotyczące uprawnień dla ofert list, wersji próbnej i konsultingowej:
 

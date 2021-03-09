@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "100366589"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489416"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
 
@@ -33,7 +33,7 @@ Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwan
 
 |Nazwa dostawcy|Typ dostawcy|Obsługiwane modele HSM|Obsługiwana metoda modułu HSM — transfer klucza|
 |---|---|---|---|
-|[Oprogramowanie wspomagające nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Rodzina sprzętowego nshield sprzętowych modułów zabezpieczeń</li><li>Sprzętowego nshield jako usługa</ul>|**Metoda 1:** [oprogramowanie wspomagające nCipher BYOK](hsm-protected-keys-ncipher.md) (z silnym zaświadczeniem dotyczącym importowania kluczy i walidacji modułu HSM)<br/>**Metoda 2.** [Użyj nowej metody BYOK](hsm-protected-keys-byok.md) |
+|[Oprogramowanie wspomagające nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Rodzina sprzętowego nshield sprzętowych modułów zabezpieczeń</li><li>Sprzętowego nshield jako usługa</ul>|**Metoda 1:** [oprogramowanie wspomagające nCipher BYOK](hsm-protected-keys-ncipher.md) (przestarzałe)<br/>**Metoda 2.** [Użyj metody New BYOK](hsm-protected-keys-byok.md) (zalecane)|
 |Firmy Thales|Producent|<ul><li>Rodzina Luna HSM 7 z oprogramowaniem układowym w wersji 7,3 lub nowszej</li></ul>| [Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Usługa zarządzania kluczami Self-Defending (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Firmy|Producent|Wszystkie LiquidSecurity sprzętowych modułów zabezpieczeń with<ul><li>Oprogramowanie układowe w wersji 2.0.4 lub nowszej</li><li>Oprogramowanie układowe w wersji 3,2 lub nowszej</li></ul>|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|

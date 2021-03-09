@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659260"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487394"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Wymagania dotyczące infrastruktury interfejsu SIP 
 
@@ -158,12 +158,12 @@ Zakres portów procesorów multimediów przedstawiono w poniższej tabeli:
 
 ## <a name="media-traffic-media-processors-geography"></a>Ruch związany z multimediami: dane geograficzne procesorów multimedialnych
 
-Ruch związany z multimediami odbywa się za pośrednictwem składników nazywanych procesorami nośników. Procesory multimediów są umieszczane w tych samych centrach danych co serwery proxy SIP. Ponadto dostępne są dodatkowe procesory multimedialne pozwalające zoptymalizować przepływ multimediów. Na przykład nie mamy teraz składnika proxy SIP w Australii (SIP przepływy przez Singapur lub Hongkong), ale oferujemy procesor multimediów lokalnie w Australii. Konieczność lokalnego przetworzenia procesorów multimedialnych zależy od opóźnień, które zapewnia, że ruch jest długi, na przykład od Australii do Singapuru lub Hongkong. Chociaż opóźnienie w przykładzie ruchu pochodzącego z Australii do Hongkongu lub Singapuru jest akceptowalne w celu zachowania dobrej jakości wywołań dla ruchu SIP, ruch związany z multimediami w czasie rzeczywistym nie jest obsługiwany.
+Ruch związany z multimediami odbywa się za pośrednictwem składników nazywanych procesorami nośników. Procesory multimediów są umieszczane w tych samych centrach danych co serwery proxy SIP. Ponadto dostępne są dodatkowe procesory multimedialne pozwalające zoptymalizować przepływ multimediów. Na przykład firma Microsoft nie ma teraz składnika proxy SIP w Australii (SIP Flows przez Singapur lub Hongkong SAR), ale oferujemy procesor multimediów lokalnie w Australii. Konieczność lokalnego przetworzenia procesorów multimedialnych zależy od opóźnień, które zapewnia, że ruch jest długi, na przykład od Australii do Singapuru lub Hongkong SAR. Podczas gdy opóźnienie w przykładzie ruchu pochodzącego z Australii do Hongkong SAR lub Singapur jest akceptowalne, można zachować dobrą jakość wywołań dla ruchu SIP, w przypadku ruchu multimedialnego w czasie rzeczywistym.
 
 Lokalizacje, w których wdrożono zarówno serwer proxy SIP, jak i składniki procesora multimediów:
 - US (dwa w zachodnich stanach USA i regionach USA)
 - Europa (Amsterdam i Dublin centra danych)
-- Azja (Singapur i Hongkong centrów danych)
+- Azja (Singapur i Hongkong SAR)
 - Australia (AU wschód i Południowo-środkowe centra danych)
 
 Lokalizacje, w których wdrożono tylko procesory multimedialne (przepływy SIP przez najbliższe centrum danych wymienione powyżej):

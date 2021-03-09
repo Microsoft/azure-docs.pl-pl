@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043018"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487121"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -24,10 +24,11 @@ W Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją **`search`** opera
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ Parametry używane podczas wykonywania zapytania obejmują:
 
 + **`queryType`** Ustawia parser, który jest [domyślnym prostym analizatorem zapytań](search-query-simple-examples.md) (optymalnym dla wyszukiwania pełnotekstowego) lub [pełnym parserem zapytań Lucene](search-query-lucene-examples.md) , używanym do zaawansowanych konstrukcji zapytań, takich jak wyrażenia regularne, wyszukiwanie w sąsiedztwie, rozmyte i wieloznaczne wyszukiwanie, aby określić nazwę.
 
++ **`searchMode`** Określa, czy dopasowania są oparte na kryteriach "All" lub "any" w wyrażeniu. Wartość domyślna to Any.
+
 + **`search`** zawiera kryteria dopasowywania, zwykle całe warunki lub frazy, z operatorami lub bez. Każde pole, które jest przypisane do *wyszukiwania* w schemacie indeksu, jest kandydatem dla tego parametru.
 
-+ **`searchFields`** ogranicza wykonywanie zapytania do określonych pól z możliwością wyszukiwania.
++ **`searchFields`** ogranicza wykonywanie zapytania do określonych pól z możliwością wyszukiwania. Podczas opracowywania warto używać tej samej listy pól do wyboru i wyszukiwania. W przeciwnym razie dopasowanie może opierać się na wartościach pól, które nie są widoczne w wynikach, tworząc niepewną, dlaczego dokument został zwrócony.
 
 Parametry używane do kształtowania odpowiedzi:
 
@@ -114,4 +117,4 @@ Aby bliżej zapoznać się z implementacją zapytania, przejrzyj przykłady dla 
 
 + [Przykłady prostych zapytań](search-query-simple-examples.md)
 + [Przykłady zapytań składni Lucene w celu tworzenia zaawansowanych zapytań](search-query-lucene-examples.md)
-+ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md)git

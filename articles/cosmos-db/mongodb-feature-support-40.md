@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691131"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485405"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB API for MongoDB (wersja serwera 4,0): obsługiwane funkcje i składnia
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,6 +24,9 @@ Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
 Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. W przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, nowsze i wersje kont mają punkt końcowy w formacie, `*.mongo.cosmos.azure.com` podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com` .
+
+> [!NOTE]
+> W tym artykule wymieniono tylko obsługiwane polecenia serwera i wykluczono funkcje otoki po stronie klienta. Funkcje otoki po stronie klienta, takie jak `deleteMany()` i `updateMany()` wewnętrznie `delete()` używają `update()` poleceń i serwera. Funkcje wykorzystujące obsługiwane polecenia serwera są zgodne z interfejsem API Azure Cosmos DB dla MongoDB.
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 

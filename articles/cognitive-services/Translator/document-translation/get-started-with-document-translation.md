@@ -5,13 +5,13 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738161"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486662"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -19,27 +19,27 @@ ms.locfileid: "101738161"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+> [!NOTE]
+> Ogólnie rzecz biorąc, podczas tworzenia zasobu usługi poznawczej w Azure Portal można utworzyć klucz subskrypcji dla jednej usługi lub klucz subskrypcji jednousługowej. Jednak tłumaczenie dokumentów jest obecnie obsługiwane tylko w usłudze Translator (Single-Service) i **nie** jest uwzględniony w zasobie Cognitive Services (wiele usług).
+
 Aby rozpocząć, musisz:
 
 * Aktywne [**konto platformy Azure**](https://azure.microsoft.com/free/cognitive-services/).  Jeśli go nie masz, możesz [**utworzyć bezpłatne konto**](https://azure.microsoft.com/free/).
 
-* Zasób usługi [**translatora**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**nie** jest zasobem Cognitive Services). 
+* Zasób usługi [**translatora**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**nie** jest zasobem Cognitive Services).
 
-* [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Cały dostęp do usługi Azure Storage odbywa się za pośrednictwem konta magazynu.
+* [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz tworzyć kontenery do przechowywania i organizowania danych obiektów BLOB na koncie magazynu.
 
 * [**Formularz tłumaczenie ukończonych dokumentów (wersja zapoznawcza)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) umożliwiający korzystanie z funkcji tłumaczenia nowych dokumentów na subskrypcję platformy Azure.
-
-> [!NOTE]
-> Tłumaczenie dokumentów jest obecnie obsługiwane tylko w ramach zasobu translatora (pojedynczej usługi), a **nie** do zasobu Cognitive Services (wiele usług).
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Pobierz niestandardową nazwę domeny i klucz subskrypcji
 
 > [!IMPORTANT]
 >
-> * Nie można użyć punktu końcowego znalezionego na stronie klucze zasobów Azure Portal _i punktu_ końcowego ani globalnego punktu końcowego usługi Translator — `api.cognitive.microsofttranslator.com` w celu żądania protokołu HTTP do tłumaczenia dokumentów.
+> * Nie zostanie użyty punkt końcowy znaleziony na stronie klucze zasobów Azure Portal _i punkt_ końcowy ani globalny punkt końcowy usługi Translator — `api.cognitive.microsofttranslator.com` w celu żądania HTTP do tłumaczenia dokumentów.
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
 
-### <a name="what-is-the-custom-domain-endpoint"></a>Co to jest punkt końcowy domeny niestandardowej? 
+### <a name="what-is-the-custom-domain-endpoint"></a>Co to jest punkt końcowy domeny niestandardowej?
 
 Punkt końcowy domeny niestandardowej to adres URL sformatowany przy użyciu nazwy zasobu, nazwy hosta i podkatalogów translatora:
 
@@ -72,9 +72,9 @@ Należy  [**utworzyć kontenery**](../../../storage/blobs/storage-quickstart-blo
 * **Kontener docelowy**. W tym kontenerze znajdują się pliki przetłumaczone (wymagane).  
 * **Kontener słownika**. Ten kontener jest miejscem, w którym można przekazać pliki słownika (opcjonalnie).  
 
-*Zobacz* **Tworzenie tokenów dostępu SAS na potrzeby tłumaczenia dokumentów**
+### <a name="create-sas-access-tokens-for-document-translation"></a>**Utwórz tokeny dostępu SAS na potrzeby tłumaczenia dokumentów**
 
-`sourceUrl`Parametry, `targetUrl` i opcjonalne `glossaryUrl` muszą zawierać token sygnatury dostępu współdzielonego (SAS), dołączane jako ciąg zapytania. Token może być przypisany do kontenera lub określonych obiektów BLOB.
+`sourceUrl`Parametry, `targetUrl` i opcjonalne `glossaryUrl` muszą zawierać token sygnatury dostępu współdzielonego (SAS), dołączane jako ciąg zapytania. Token może być przypisany do kontenera lub określonych obiektów BLOB. *Zobacz* [**Tworzenie tokenów sygnatury dostępu współdzielonego dla procesu tłumaczenia dokumentu**](create-sas-tokens.md).
 
 * Kontener **źródłowy** lub obiekt BLOB musi mieć wyznaczono dostęp do  **odczytu** i **listy** .
 * **Docelowy** kontener lub obiekt BLOB muszą mieć wyznaczono dostęp do **zapisu** i **listy** .
@@ -271,7 +271,9 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 
 > [!IMPORTANT]
 >
-> W przypadku przykładów kodu poniżej może być konieczne zaktualizowanie następujących pól w zależności od operacji:
+> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
+>
+> Może być konieczne zaktualizowanie następujących pól w zależności od operacji:
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -280,13 +282,18 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 >> * `glossaryURL`
 >> * `id`  (identyfikator zadania)
 >>
-> Gdzie można znaleźć `id` wartość:
-> * Zadanie można znaleźć `id`  w adresie URL nagłówka odpowiedzi metody post `Operation-Location`  . Ostatni parametr adresu URL to zadanie operacji **`id`** .  
-> * Możesz również użyć żądania GET Jobs, aby pobrać zadanie `id`  dla operacji tłumaczenia dokumentu.
+
+#### <a name="locating--the-id-value"></a>Lokalizowanie `id` wartości
+
+* `id`W polu adres URL nagłówka odpowiedzi metody post znajdziesz zadanie `Operation-Location` . Ostatni parametr adresu URL to zadanie operacji **`id`** :
+
+|**Nagłówek odpowiedzi**|**Adres URL wyniku**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>nazwę>. cognitiveservices.Azure.com/translator/Text/Batch/v1.0-Preview.1/Batches/9dce0aa9-78dc-41BA-8cae-2e2f3c2ff8ec</span>
+
+* Możesz również użyć żądania **Get Jobs** , aby pobrać zadanie tłumaczenia dokumentu `id` .
+
 >
-> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  
->
-> Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
 
 ## <a name="_post-document-translation_-request"></a>Żądanie _tłumaczenia po dokumencie_
 

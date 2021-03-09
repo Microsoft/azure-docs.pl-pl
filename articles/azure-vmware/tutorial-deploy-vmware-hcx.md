@@ -3,21 +3,21 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: e1df53a7aea0b7642828bba80cd7237e26a7182f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728233"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488309"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
 W tym artykule opisano sposób wdrażania i konfigurowania lokalnego łącznika VMware HCX dla chmury prywatnej rozwiązania Azure VMware. Dzięki oprogramowaniu VMware HCX można migrować obciążenia oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji za pomocą różnych typów migracji. Ponieważ rozwiązanie VMware platformy Azure wdraża i konfiguruje program HCX Cloud Manager, należy pobrać, aktywować i skonfigurować łącznik HCX w lokalnym centrum danych VMware.
 
-Łącznik programu VMware HCX Advanced został wstępnie wdrożony w rozwiązaniu VMware platformy Azure. Obsługuje ona maksymalnie trzy połączenia z lokacją (lokalnie do chmury lub w chmurze do chmury). Jeśli potrzebujesz więcej niż trzech połączeń witryny, Prześlij [żądanie pomocy technicznej](https://portal.azure.com/#create/Microsoft.Support) , aby włączyć dodatek [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) . Dodatek jest obecnie w wersji zapoznawczej. 
+Łącznik programu VMware HCX Advanced został wstępnie wdrożony w rozwiązaniu VMware platformy Azure. Obsługuje ona maksymalnie trzy połączenia z lokacją (lokalnie do chmury lub w chmurze do chmury). Jeśli potrzebujesz więcej niż trzech połączeń witryny, Prześlij [żądanie pomocy technicznej](https://portal.azure.com/#create/Microsoft.Support) , aby włączyć dodatek [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) .  
 
 >[!TIP]
->Mimo że maksymalne narzędzie konfiguracji programu VMware zawiera opis par witryn, które są maksymalnie 25 między łącznikiem lokalnym a programem Cloud Manager, Licencjonowanie ogranicza tę wartość do trzech w przypadku wersji Advanced i 10 dla przedsiębiorstw.
+>Chociaż maksymalne narzędzie konfiguracji oprogramowania VMware zawiera opis par witryn, które są maksymalnie 25 między łącznikiem lokalnym a programem Cloud Manager, licencje te ograniczają się do trzech dla HCX Advanced i 10 dla HCX Enterprise Edition.
 
 >[!NOTE]
 >Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware jako usługi w wersji zapoznawczej. Jest ona bezpłatna i podlega postanowieniom dotyczącym usługi w wersji zapoznawczej. Po ogólnym udostępnieniu usługi VMware HCX Enterprise uzyskasz 30-dniową informację o tym, że opłaty zostaną przełączone. Będziesz również mieć możliwość wyłączenia lub rezygnacji z usługi. Nie ma żadnej prostej ścieżki obniżenia poziomu oprogramowania VMware HCX Enterprise do programu VMware HCX Advanced. W przypadku podjęcia decyzji o obniżeniu poziomu należy przeprowadzić ponowne wdrożenie, co potrwa przestoje.
@@ -58,9 +58,9 @@ Upewnij się, że lokalne środowisko vSphere (środowisko źródłowe) spełnia
 
 ### <a name="network-and-ports"></a>Sieć i porty
 
-* [Usługa Azure ExpressRoute Global REACH](tutorial-expressroute-global-reach-private-cloud.md) jest konfigurowana między lokalnym i roztworem VMware SDDC ExpressRoute.
+* [Usługa Azure ExpressRoute Global REACH](tutorial-expressroute-global-reach-private-cloud.md) jest konfigurowana między lokalnymi i opartymi na platformie Azure maszynami prywatnymi.
 
-* [Wszystkie wymagane porty](https://ports.vmware.com/home/VMware-HCX) są otwarte do komunikacji między składnikami lokalnymi i rozwiązaniem Azure VMware SDDC.
+* [Wszystkie wymagane porty](https://ports.vmware.com/home/VMware-HCX) są otwarte do komunikacji między składnikami lokalnymi i rozwiązaniem Azure VMware Private.
 
 ### <a name="ip-addresses"></a>Adresy IP
 
@@ -169,7 +169,7 @@ Po ponownym uruchomieniu usług zobaczysz program vCenter wyświetlany jako ziel
 Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązanie Azure VMware: Activate HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) video.
 
    > [!IMPORTANT]
-   > Niezależnie od tego, czy korzystasz z programu VMware HCX Advanced, czy VMware HCX Enterprise, może być konieczne zainstalowanie poprawki z [artykułu KB 81558](https://kb.vmware.com/s/article/81558). 
+   > Bez względu na to, czy korzystasz z usługi HCX Advanced, czy HCX Enterprise, może być konieczne zainstalowanie poprawki z [artykułu KB 81558](https://kb.vmware.com/s/article/81558). 
 
 ## <a name="configure-the-vmware-hcx-connector"></a>Konfigurowanie łącznika VMware HCX
 
@@ -282,7 +282,7 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz temat [rozwi
 
 ### <a name="create-a-service-mesh"></a>Tworzenie siatki usługi
 
-Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i rozwiązaniem Azure VMware SDDC.
+Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i chmurą prywatną rozwiązania VMware platformy Azure.
 
 
 
@@ -369,7 +369,7 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązani
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli tunel połączenia urządzenia jest w stanie **up** i zielonym, można migrować maszyny wirtualne rozwiązań VMware platformy Azure i chronić je za pomocą programu VMware HCX. Rozwiązanie VMware platformy Azure obsługuje migracje obciążeń (z rozszerzeniem sieci lub bez niego). Nadal można migrować obciążenia w środowisku vSphere, a także lokalne tworzenie sieci i wdrażanie maszyn wirtualnych w tych sieciach.  
+Jeśli stan tunelu programu HCX Interconnect jest **ustawiony** na wartość zielony, można migrować maszyny wirtualne rozwiązań VMware platformy Azure i chronić je za pomocą programu VMware HCX. Rozwiązanie VMware platformy Azure obsługuje migracje obciążeń (z rozszerzeniem sieci lub bez niego). Nadal można migrować obciążenia w środowisku vSphere, a także lokalne tworzenie sieci i wdrażanie maszyn wirtualnych w tych sieciach.  
 
 Aby uzyskać więcej informacji na temat korzystania z HCX, przejdź do dokumentacji technicznej programu VMware:
 

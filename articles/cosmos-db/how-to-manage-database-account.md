@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339873"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489756"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Zarządzanie kontem usługi Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -198,7 +198,7 @@ Zobacz [Ustawianie priorytetu trybu failover przy użyciu interfejsu wiersza pol
 
 Zobacz [Ustawianie priorytetu trybu failover przy użyciu programu PowerShell](manage-with-powershell.md#modify-failover-priority)
 
-## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Wykonaj ręczną pracę awaryjną na koncie usługi Azure Cosmos
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Ręczne przechodzenie do trybu failover na koncie usługi Azure Cosmos
 
 > [!IMPORTANT]
 > Aby ta operacja zakończyła się pomyślnie, należy skonfigurować konto usługi Azure Cosmos do ręcznego przełączania do trybu failover.
@@ -206,7 +206,7 @@ Zobacz [Ustawianie priorytetu trybu failover przy użyciu programu PowerShell](m
 Proces przeprowadzania ręcznej pracy awaryjnej polega na zmianie regionu zapisu konta (priorytetu trybu failover = 0) w innym regionie skonfigurowanym dla tego konta.
 
 > [!NOTE]
-> Kont z wieloma regionami zapisu nie można przełączyć ręcznie do trybu failover. W przypadku aplikacji korzystających z zestawu SDK usługi Azure Cosmos zestaw SDK wykrywa, kiedy region stanie się niedostępny, a następnie przekierowuje automatycznie do następnego najbliższego regionu, jeśli używany jest interfejs API multihostingu w zestawie SDK.
+> Kont z wieloma regionami zapisu nie można przełączyć ręcznie do trybu failover. W przypadku aplikacji korzystających z zestawu SDK usługi Azure Cosmos zestaw SDK wykrywa, kiedy region stanie się niedostępny, a następnie przekierować automatycznie do następnego najbliższego regionu.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 

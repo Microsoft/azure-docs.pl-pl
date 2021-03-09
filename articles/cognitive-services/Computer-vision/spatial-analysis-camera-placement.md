@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185482"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487427"
 ---
 # <a name="camera-placement-guide"></a>Przewodnik umieszczania w aparacie
 
@@ -72,12 +72,12 @@ Skorzystaj z poniższej tabeli, aby określić odległość aparatu od punktu od
 
 | Wysokość kamery | Odległość między kamerą a punktem ogniskowym (min/max) |  
 | ------------- | ---------------------------------------- |  
-| 0,8            | 10 '-13 '                                  |  
-| dziesięć           | 7 '-13 '                                   |  
-| dwunastomiesięcznych           | 10 ' – 17 '                                  |  
-| 14,5           | 11 '-18 '                                  |  
-| 16           | 12 '-22 '                                  |  
-| 20C           | 15 '-30 '                                  |  
+| 0,8            | 4.6 '-8 '                                  |  
+| dziesięć           | 5.8 '-10 '                                 |  
+| dwunastomiesięcznych           | 7 '-12 '                                   |  
+| 14,5           | 8 "-14" "                                  |  
+| 16           | 9.2 '-16 '                                 |  
+| 20C           | 11,5 '-20 '                                |  
 
 Poniższa ilustracja symuluje widoki aparatu z najbliższych i najbardziej odległych odległości między aparatami.
 
@@ -91,15 +91,9 @@ W tej sekcji opisano akceptowalne zakresy instalowania kąta aparatu. Te zakresy
 
 ### <a name="line-configuration"></a>Konfiguracja linii
 
-W poniższej tabeli przedstawiono zalecenia dotyczące kamer skonfigurowanych dla operacji **cognitiveservices. Vision. spatialanalysis-personcrossingline** . Aby można było wykryć maskę czołową, program +/-30 stopni jest optymalnym kątem montażu aparatu w zakresie od 8 do 12.
+Dla operacji **cognitiveservices. Vision. spatialanalysis-personcrossingline** , program +/-5 ° jest optymalnym kątem montażu aparatu do zmaksymalizowania dokładności.
 
-| Wysokość kamery | Odległość między kamerą a punktem ogniskowym | Optymalny kąt montażu w aparacie (min/max) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 0,8            | 9                             | +/-40 °                                     |  
-| dziesięć           | dziesięć                            | +/-30 °                                     |  
-| dwunastomiesięcznych           | trzynast                            | +/-20 °                                     |  
-| 16           | postanowienia                            | +/-10 °                                     |  
-| 20C           | 22                            | +/-10 °                                     |  
+Aby można było wykryć maskę czołową, program +/-30 stopni jest optymalnym kątem montażu aparatu w zakresie od 8 do 12.
 
 Poniższa ilustracja symuluje widoki aparatu przy użyciu funkcji **cognitiveservices. Vision. spatialanalysis-personcrossingline** , aby można było zliczać wejścia w prawo.
 

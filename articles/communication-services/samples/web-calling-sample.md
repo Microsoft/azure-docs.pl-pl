@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658101"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486407"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
@@ -23,6 +23,9 @@ Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako
 Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie pracy z usługami komunikacyjnymi. Interfejs użytkownika jest podzielony na wiele sekcji, z których każdy zawiera przycisk "Pokaż kod", który umożliwia kopiowanie kodu bezpośrednio z przeglądarki do własnej aplikacji usług komunikacyjnych.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 > [!IMPORTANT]
 > [Ten przykład jest dostępny w witrynie GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)

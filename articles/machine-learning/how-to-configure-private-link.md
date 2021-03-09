@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 34b37fde83ca957e7c90302561589e2568beb59b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 752f38c0a44d40f2bf7e7b5961dca7743fbf4b76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215055"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488039"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -36,7 +36,7 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 * Aby utworzyć prywatny punkt końcowy w programie, musisz mieć istniejącą sieć wirtualną. Przed dodaniem prywatnego punktu końcowego należy również [wyłączyć zasady sieciowe dla prywatnych punktów końcowych](../private-link/disable-private-endpoint-network-policy.md) .
 ## <a name="limitations"></a>Ograniczenia
 
-* Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
+* Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government.
 * Jeśli włączysz publiczny dostęp dla obszaru roboczego zabezpieczonego za pomocą linku prywatnego i używasz programu Azure Machine Learning Studio za pośrednictwem publicznej sieci Internet, niektóre funkcje, takie jak projektant, mogą nie mieć dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego

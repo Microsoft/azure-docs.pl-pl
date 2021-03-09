@@ -5,19 +5,19 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739440"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489637"
 ---
-# <a name="create-sas-tokens-for-document-translation"></a>Utwórz tokeny sygnatury dostępu współdzielonego na potrzeby tłumaczenia dokumentu
+# <a name="create-sas-tokens-for-document-translation-processing"></a>Utwórz tokeny sygnatury dostępu współdzielonego na potrzeby przetwarzania tłumaczenia dokumentów
 
 W tym artykule dowiesz się, jak tworzyć tokeny sygnatury dostępu współdzielonego (SAS) przy użyciu Eksplorator usługi Azure Storage lub Azure Portal. Token sygnatury dostępu współdzielonego zapewnia bezpieczny, delegowany dostęp do zasobów na koncie usługi Azure Storage.
 
-## <a name="create-sas-tokens-with-azure-storage-explorer"></a>Tworzenie tokenów SAS przy użyciu Eksplorator usługi Azure Storage
+## <a name="create-your-sas-tokens-with-azure-storage-explorer"></a>Utwórz tokeny sygnatury dostępu współdzielonego za pomocą Eksplorator usługi Azure Storage
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -65,7 +65,7 @@ W tym artykule dowiesz się, jak tworzyć tokeny sygnatury dostępu współdziel
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Utwórz tokeny sygnatury dostępu współdzielonego dla obiektów BLOB w Azure Portal
 
 > [!NOTE]
-> Tworzenie tokenów sygnatury dostępu współdzielonego dla kontenerów bezpośrednio w Azure Portal nie jest obecnie obsługiwane. Można jednak utworzyć token sygnatury dostępu współdzielonego z [**Eksplorator usługi Azure Storage**](#create-sas-tokens-with-azure-storage-explorer) lub wykonać zadanie [programowo](../../../storage/blobs/sas-service-create.md).
+> Tworzenie tokenów sygnatury dostępu współdzielonego dla kontenerów bezpośrednio w Azure Portal nie jest obecnie obsługiwane. Można jednak utworzyć token sygnatury dostępu współdzielonego z [**Eksplorator usługi Azure Storage**](#create-your-sas-tokens-with-azure-storage-explorer) lub wykonać zadanie [programowo](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Wymagania wstępne
@@ -74,7 +74,7 @@ Aby rozpocząć, musisz:
 
 * Aktywne [**konto platformy Azure**](https://azure.microsoft.com/free/cognitive-services/).  Jeśli go nie masz, możesz [**utworzyć bezpłatne konto**](https://azure.microsoft.com/free/).
 * Zasób usługi [**translatora**](https://ms.portal.azure.com/#create/Microsoft) (**nie** Cognitive Services zasobu wieloskładnikowego.  *Zobacz* [Tworzenie nowego zasobu platformy Azure](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Cały dostęp do usługi Azure Storage odbywa się za pośrednictwem konta magazynu.
+* [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz tworzyć kontenery do przechowywania i organizowania danych obiektów BLOB na koncie magazynu.
 
 ### <a name="create-your-tokens"></a>Tworzenie tokenów
 

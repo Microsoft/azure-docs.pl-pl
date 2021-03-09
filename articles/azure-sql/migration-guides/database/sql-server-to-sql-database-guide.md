@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d43eda404a5257c0ec28a884b6ebf182330ba51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690944"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488419"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Przewodnik migracji: SQL Server do SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,6 +58,8 @@ Alternatywnie możesz ocenić bieżącą infrastrukturę IT przy użyciu [zest
 Aby uzyskać więcej informacji o narzędziach dostępnych do użycia w fazie odnajdywania, zobacz temat [usługi i narzędzia dostępne dla scenariuszy migracji danych](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Ocena 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Po odnalezieniu źródeł danych Oceń wszystkie lokalne SQL Server baz danych, które można migrować do Azure SQL Database w celu zidentyfikowania blokowania migracji lub problemów ze zgodnością. 
 
@@ -157,7 +159,7 @@ Aby przyspieszyć migrację do Azure SQL Database, należy wziąć pod uwagę na
 |  | Rywalizacja o zasoby | Zalecenie |
 |--|--|--|
 | **Źródło (zazwyczaj lokalnie)** |Podstawowe wąskie gardło podczas migracji w źródle to dane we/wy i opóźnienie dla pliku danych, które należy uważnie monitorować.  |W oparciu o dane we/wy i opóźnienia plików danych i w zależności od tego, czy jest to maszyna wirtualna czy serwer fizyczny, należy skontaktować się z administratorem magazynu i poznać opcje w celu ograniczenia wąskiego gardła. |
-|**Cel (Azure SQL Database)**|Największym czynnikiem ograniczającym jest szybkość generowania dzienników i czas oczekiwania na plik dziennika. W przypadku Azure SQL Database można uzyskać maksymalnie 96 MB/s szybkości generowania dzienników. | Aby przyspieszyć migrację, Skaluj w górę docelową bazę danych SQL do Krytyczne dla działania firmy 5 rdzeń 8 rdzeń wirtualny, aby uzyskać maksymalną częstotliwość generowania dzienników wynoszącą 96 MB/s, a także uzyskać małe opóźnienia dla pliku dziennika. Warstwa usługi do [skalowania](../../database/service-tier-hyperscale.md) zapewnia 100 MB/s, niezależnie od wybranego poziomu usługi |
+|**Cel (Azure SQL Database)**|Największym czynnikiem ograniczającym jest szybkość generowania dzienników i czas oczekiwania na plik dziennika. W przypadku Azure SQL Database można uzyskać maksymalnie 96 MB/s szybkości generowania dzienników. | Aby przyspieszyć migrację, Skaluj w górę docelową bazę danych SQL do Krytyczne dla działania firmy 5 rdzeń 8 rdzeń wirtualny, aby uzyskać maksymalną częstotliwość generowania dzienników wynoszącą 96 MB/s, a także uzyskać małe opóźnienia dla pliku dziennika. Warstwa usługi do [skalowania](../../database/service-tier-hyperscale.md) zapewnia 100 MB/s częstotliwość rejestrowania niezależnie od wybranego poziomu usługi |
 |**Sieć** |Wymagana przepustowość sieci jest równa maksymalnej szybkości pozyskiwania dziennika 96 MB/s (768 MB/s) |W zależności od łączności sieciowej z lokalnego centrum danych na platformę Azure Sprawdź przepustowość sieci (zazwyczaj [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)), aby uwzględnić maksymalną szybkość pozyskiwania dzienników. |
 |**Maszyna wirtualna używana do Data Migration Assistant (DMA)** |Procesor to podstawowe wąskie gardło dla maszyny wirtualnej z systemem DMA |Zagadnienia, które należy wziąć pod uwagę w celu przyspieszenia migracji danych za pomocą </br>— Maszyny wirtualne intensywnie korzystające z obliczeń Azure </br>-Użyj co najmniej F8s_v2 maszyny wirtualnej (8 rdzeń wirtualny) do uruchamiania usługi DMA </br>-Upewnij się, że maszyna wirtualna jest uruchomiona w tym samym regionie platformy Azure co element docelowy |
 |**Usługa Azure Database Migration Service (DMS)** |Zagadnienie związane z rywalizacją o zasoby obliczeniowe i obiekty bazy danych dla usługi DMS |Użyj Premium 4 rdzeń wirtualny. Usługa DMS automatycznie przyjmuje obiekty bazy danych, takie jak klucze obce, wyzwalacze, ograniczenia i indeksy nieklastrowane i nie wymaga ręcznej interwencji.  |

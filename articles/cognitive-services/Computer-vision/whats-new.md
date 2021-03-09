@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738229"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487104"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
+
+## <a name="march-2021"></a>Marzec 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Aktualizacja publicznej wersji zapoznawczej przetwarzanie obrazów 3,2
+
+Publiczna wersja zapoznawcza interfejs API przetwarzania obrazów v 3.2 została zaktualizowana. Wersja zapoznawcza zawiera wszystkie funkcje przetwarzanie obrazów wraz z zaktualizowanymi interfejsami API odczytu i analizowania.
+
+> [!div class="nextstepaction"]
+> [Zobacz przetwarzanie obrazów v 3.2 — publiczna wersja zapoznawcza 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -34,7 +43,7 @@ Informacje o wersji zapoznawczej interfejsu API v 3.2 przetwarzanie obrazów dos
 [Dowiedz się więcej](concept-recognizing-text.md) o interfejsie API odczytu.
 
 > [!div class="nextstepaction"]
-> [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.

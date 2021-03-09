@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9c13a914a002f63f3c0d5bd988b0d76b951586dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124690"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485762"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
 
@@ -247,7 +247,7 @@ Odp.: dyski tymczasowe nie obsługują:
 
 > [!NOTE]
 > 
-> Dysk tymczasowych nie będzie dostępny za poorednictwem portalu. Podczas uzyskiwania dostępu do dysku tymczasowych może zostać wyświetlony komunikat o błędzie "nie znaleziono zasobu" lub "404".
+> Dysk tymczasowych nie będzie dostępny za poorednictwem portalu. Podczas uzyskiwania dostępu do dysku tymczasowych Oczekiwano błędu "nie znaleziono zasobu" lub "404".
 > 
  
 ## <a name="next-steps"></a>Następne kroki

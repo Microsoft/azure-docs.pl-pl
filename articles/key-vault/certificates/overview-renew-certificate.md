@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287691"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487189"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Odnawianie certyfikatów Azure Key Vault
 
@@ -73,13 +73,16 @@ Aby uzyskać więcej informacji na temat tworzenia nowego CSR, zobacz [Tworzenie
 Azure Key Vault obsługuje również automatyczne odnawianie certyfikatów z podpisem własnym. Aby dowiedzieć się więcej na temat zmiany zasad wystawiania i aktualizowania atrybutów cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji certyfikatów w Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-Jeśli wystawiony certyfikat jest w stanie *wyłączenia* w Azure Portal, przejdź do **operacji certyfikat** , aby wyświetlić komunikat o błędzie certyfikatu.
+* Jeśli wystawiony certyfikat jest w stanie *wyłączenia* w Azure Portal, przejdź do **operacji certyfikat** , aby wyświetlić komunikat o błędzie certyfikatu.
+* Typ błędu "kod CSR używany do pobierania certyfikatu został już użyty. Spróbuj wygenerować nowy certyfikat z nowym CSR. "
+  Przejdź do sekcji "Zasady zaawansowane" w certyfikacie i sprawdź, czy opcja **"Użyj ponownie klucza przy odnawianiu"** jest wyłączona.
+
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 **Jak można przetestować funkcję autorotacji certyfikatu?**
 
-Utwórz certyfikat o ważności **1 miesiąca** , a następnie ustaw akcję okresu istnienia dla rotacji o **1%**. To ustawienie spowoduje obrócenie certyfikatu co 7,2 godzin.
+Utwórz certyfikat o ważności **1 miesiąca**, a następnie ustaw akcję okresu istnienia dla rotacji o **1%**. To ustawienie spowoduje obrócenie certyfikatu co 7,2 godzin.
   
 **Czy Tagi zostaną zreplikowane po autoodnowieniu certyfikatu?**
 

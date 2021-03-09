@@ -151,7 +151,7 @@
           items:
             - name: Funkcja GitHub Actions
               href: quickstart-mysql-github-actions.md
-    - name: Sieć
+    - name: Networking
       items:
         - name: Punkty końcowe usługi dla sieci wirtualnej
           items:
@@ -430,6 +430,8 @@
               href: flexible-server/quickstart-create-arm-template.md
         - name: Nawiązywanie połączeń i wykonywanie zapytań
           items:
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: flexible-server/connect-azure-cli.md
             - name: PHP
               href: flexible-server/connect-php.md
             - name: MySQL Workbench
@@ -481,7 +483,7 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Uruchom ponownie serwer przy użyciu Azure Portal
           href: flexible-server/how-to-restart-server-portal.md
-    - name: Sieć
+    - name: Networking
       items:
         - name: Pojęcia
           href: flexible-server/concepts-networking.md

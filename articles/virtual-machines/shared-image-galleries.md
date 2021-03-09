@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091896"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487257"
 ---
 # <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 
@@ -104,7 +104,7 @@ Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkr
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
-Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>Limity 
 
@@ -325,4 +325,3 @@ Ponadto możesz ogłosić pytanie i oznaczyć je za pomocą `azure-virtual-machi
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak wdrażać obrazy udostępnione przy użyciu [interfejsu wiersza polecenia platformy Azure](shared-images-cli.md) lub [programu PowerShell](shared-images-powershell.md).
-
