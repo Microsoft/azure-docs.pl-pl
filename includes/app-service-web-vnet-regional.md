@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98225521"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473817"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -38,6 +38,8 @@ Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chce
 
 > [!NOTE]
 > Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega sieciowych grup zabezpieczeń i UDR, które są stosowane do podsieci integracji. W przypadku kierowania całego ruchu wychodzącego do sieci wirtualnej adresy wychodzące nadal są adresami wychodzącymi wymienionymi we właściwościach aplikacji, chyba że zostaną podane trasy do wysyłania ruchu w innym miejscu.
+> 
+> W ramach regionalnej integracji sieci wirtualnej nie można użyć portu 25.
 
 Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514921"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473713"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
 
@@ -42,24 +42,26 @@ Izolowane rozmiary maszyn wirtualnych mają ograniczoną cykl życia sprzętową
 
 | Rozmiar | Data wycofania izolacji | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 15 maja 2020 |
-| Standard_D15_v2<sup>1</sup>  | 15 maja 2020 |
-
-<sup>1</sup>  Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
+| Standard_DS15_v2 | 15 maja 2020 |
+| Standard_D15_v2  | 15 maja 2020 |
+| Standard_G5  | 15 lutego 2021 |
+| Standardowa_GS5  | 15 lutego 2021 |
+| Standard_E64i_v3  | 15 lutego 2021 |
+| Standard_E64is_v3  | 15 lutego 2021 |
 
 
 ## <a name="faq"></a>Często zadawane pytania
 ### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko jego funkcję "izolacja"?
-Odp **.: Jeśli** rozmiar maszyny wirtualnej nie ma indeksu dolnego "i", tylko funkcja "izolacja" zostanie wycofana. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami. Przykładami mogą być Standard_DS15_v2, Standard_D15_v2, Standard_M128ms itd. Jeśli rozmiar maszyny wirtualnej obejmuje indeks dolny, rozmiar zostanie wycofany.
+Odp **.: obecnie** trwa wycofywanie tylko funkcji izolowania rozmiarów maszyn wirtualnych. Przestarzałe rozmiary izolowane będą nadal istnieć w stanie nieizolowanym. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: czy w przypadku maszyn wirtualnych znajdujących się na innym sprzęcie nie jest wyizolowany?
-Odp **.: Jeśli** nie ma potrzeby izolacji, nie jest wymagana żadna akcja i nie będzie przestoje.
+Odp **.: Jeśli** nie ma potrzeby izolacji, nie jest wymagana żadna akcja i nie będzie przestoje. W przeciwieństwie do tego, czy izolacja jest wymagana, nasz anons będzie zawierać zalecany rozmiar zastępczy. Wybranie rozmiaru wymiany będzie wymagało od naszych klientów zmiany rozmiaru maszyn wirtualnych.  
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: czy istnieją jakieś różnice kosztów w przypadku przechodzenia do nieizolowanej maszyny wirtualnej?
 Odp **.:** nie
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: Kiedy inne izolowane rozmiary są wycofywane?
-Odp **.: będziemy** podawać przypomnienia 12 miesięcy przed oficjalnym wyizolowanym rozmiarem.
+Odp **.: będziemy** podawać przypomnienia 12 miesięcy przed oficjalnym wyizolowanym rozmiarem. Nasz najnowszy anons obejmuje wycofanie funkcji izolacji Standard_G5, Standard_GS5, Standard_E64i_v3 i Standard_E64i_v3.  
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Pytanie: jestem klientem Service Fabricm na platformie Azure, opierając się na warstwach trwałości Silver lub Gold. Czy ta zmiana wpłynie na mnie?
 Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) będą nadal działać nawet po tej zmianie. Jeśli wymagana jest izolacja sprzętowa fizycznego z innych powodów, może być konieczne wykonanie jednej z opisanych powyżej czynności. 
@@ -69,11 +71,20 @@ Odp **.:**
  
 | Date (Data) | Akcja |
 |---|---| 
-| 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) | 
-| 14 maja 2020 | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 
-| 15 maja 2020 | Gwarancja izolacji D/DS15_v2 usunięta | 
-| 15 maja 2021 | Wycofaj D/DS15i_v2 (wszyscy klienci, z wyjątkiem sytuacji, w których zakupił 3-letni RI) D/DS15_v2 przed 18 listopada, 2019)| 
-| 17 listopada 2022 | Wycofaj D/DS15i_v2 po 3-letnich usługach RIs (w przypadku klientów, którzy kupili 3-letnie RI) D/DS15_v2 przed 18 listopada, 2019) |
+| 15 maja, 2019<sup>1</sup> | Anons dotyczący oddalenia izolacji D/DS15_v2| 
+| 15 maja 2020 | Gwarancja izolacji D/DS15_v2 usunięta| 
+
+<sup>1</sup> istniejący klient korzystający z tych rozmiarów otrzyma wiadomość e-mail z powiadomieniem ze szczegółowymi instrukcjami dotyczącymi następnych kroków.  
+
+### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>P: Jakie są punkty kontrolne dla wycofania, Gs5, E64i_v3 i E64is_v3 odtrwania izolacji? 
+Odp **.:** 
+ 
+| Date (Data) | Akcja |
+|---|---|
+| 15 lutego, 2020<sup>1</sup> | Anons dotyczący wycofania/GS5/E64i_v3/E64is_v3 |
+| 15 lutego 2021 | Usunięto gwarancję izolacji/GS5/E64i_v3/E64is_v3 |
+
+<sup>1</sup> istniejący klient korzystający z tych rozmiarów otrzyma wiadomość e-mail z powiadomieniem ze szczegółowymi instrukcjami dotyczącymi następnych kroków.  
 
 ## <a name="next-steps"></a>Następne kroki
 

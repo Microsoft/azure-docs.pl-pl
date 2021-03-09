@@ -5,15 +5,15 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/08/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 29beee279e9171971aa333bd89953648932b7b22
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81d80e7d3ae00c8afe8630634e647e850fe9cc61
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995023"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473756"
 ---
 > [!IMPORTANT]
-> StorSimple Virtual Array (Seria 1200) osiągnie [koniec cyklu życia](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%201200%20Series) w grudniu 2020. Jeśli rozważasz nowe wdrożenia macierzy wirtualnej StorSimple, zalecamy zapoznanie się z innymi alternatywami, takimi jak [Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) lub [Azure Data Box urządzeń online](../articles/databox-online/index.yml) dla obciążeń.
+> StorSimple Virtual Array (Seria 1200) osiągnie [koniec cyklu życia](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%201200%20Series) w grudniu 2022. Jeśli rozważasz nowe wdrożenia macierzy wirtualnej StorSimple, zalecamy zapoznanie się z innymi alternatywami, takimi jak [Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) lub [Azure Data Box urządzeń online](../articles/databox-online/index.yml) dla obciążeń.

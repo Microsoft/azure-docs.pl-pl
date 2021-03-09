@@ -5,14 +5,14 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
-ms.openlocfilehash: 887d185249f96b5d3be4aab6a96aa3c6c4a85690
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231416"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473649"
 ---
-W tym artykule opisano sposób wykonywania różnych operacji zarządzania przy użyciu [ **zestawu SDK** usługi Azure Digital bliźniaczych reprezentacji .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true). Te same wywołania zarządzania można także połączyć przy użyciu innych zestawów SDK języka opisanych w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](../articles/digital-twins/how-to-use-apis-sdks.md).
+W tym artykule opisano sposób wykonywania różnych operacji zarządzania przy użyciu [ **zestawu SDK** usługi Azure Digital bliźniaczych reprezentacji .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management). Te same wywołania zarządzania można także połączyć przy użyciu innych zestawów SDK języka opisanych w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](../articles/digital-twins/how-to-use-apis-sdks.md).
 
 > [!TIP] 
 > Należy pamiętać, że wszystkie metody zestawu SDK są dostępne w wersjach synchronicznych i asynchronicznych. W przypadku wywołań stronicowania metody asynchroniczne zwracają, `AsyncPageable<T>` gdy zwracane są wersje synchroniczne `Pageable<T>` .
