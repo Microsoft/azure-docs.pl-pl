@@ -3,12 +3,12 @@ title: Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasow
 description: Dowiedz się, jak analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych przy użyciu centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719461"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506019"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasowych
 
@@ -44,17 +44,19 @@ Dostępne są następujące widoki:
 
 1. **Podsumowanie** — Użyj tej karty, aby uzyskać ogólne omówienie funkcji tworzenia kopii zapasowych. [Dowiedz się więcej](./configure-reports.md#summary)
 
-1. **Elementy kopii zapasowej** — ta karta służy do wyświetlania informacji i trendów w magazynie w chmurze zużywanych na poziomie elementu kopii zapasowej. [Dowiedz się więcej](./configure-reports.md#backup-items)
+2. **Elementy kopii zapasowej** — ta karta służy do wyświetlania informacji i trendów w magazynie w chmurze zużywanych na poziomie elementu kopii zapasowej. [Dowiedz się więcej](./configure-reports.md#backup-items)
 
-1. **Użycie** — ta karta służy do wyświetlania kluczowych parametrów rozliczania dla kopii zapasowych. [Dowiedz się więcej](./configure-reports.md#usage)
+3. **Użycie** — ta karta służy do wyświetlania kluczowych parametrów rozliczania dla kopii zapasowych. [Dowiedz się więcej](./configure-reports.md#usage)
 
-1. **Zadania** — Użyj tej karty, aby wyświetlić długotrwałe trendy na zadaniach, takie jak liczba zadań zakończonych niepowodzeniem dziennie i Najczęstsze przyczyny niepowodzenia zadania. [Dowiedz się więcej](./configure-reports.md#jobs)
+4. **Zadania** — Użyj tej karty, aby wyświetlić długotrwałe trendy na zadaniach, takie jak liczba zadań zakończonych niepowodzeniem dziennie i Najczęstsze przyczyny niepowodzenia zadania. [Dowiedz się więcej](./configure-reports.md#jobs)
 
-1. **Zasady** — Użyj tej karty, aby wyświetlić informacje dotyczące wszystkich aktywnych zasad, takich jak liczba skojarzonych elementów i łączny magazyn w chmurze zużyty przez elementy, których kopia zapasowa jest wykonywana w ramach danej zasady. [Dowiedz się więcej](./configure-reports.md#policies)
+5. **Zasady** — Użyj tej karty, aby wyświetlić informacje dotyczące wszystkich aktywnych zasad, takich jak liczba skojarzonych elementów i łączny magazyn w chmurze zużyty przez elementy, których kopia zapasowa jest wykonywana w ramach danej zasady. [Dowiedz się więcej](./configure-reports.md#policies)
 
-1. **Optymalizacja** — Użyj tej karty, aby uzyskać wgląd w potencjalne możliwości optymalizacji kosztów dla kopii zapasowych. [Dowiedz się więcej](./configure-reports.md#optimize)
+6. **Optymalizacja** — Użyj tej karty, aby uzyskać wgląd w potencjalne możliwości optymalizacji kosztów dla kopii zapasowych. [Dowiedz się więcej](./configure-reports.md#optimize)
 
-1. **Przestrzeganie zasad** — Użyj tej karty, aby uzyskać wgląd w to, czy każde wystąpienie kopii zapasowej miało co najmniej jedną pomyślną kopię zapasową dziennie.
+7. **Przestrzeganie zasad** — Użyj tej karty, aby uzyskać wgląd w to, czy każde wystąpienie kopii zapasowej miało co najmniej jedną pomyślną kopię zapasową dziennie. [Dowiedz się więcej](./configure-reports.md#policy-adherence)
+
+Możesz również skonfigurować wiadomości e-mail dla każdego z tych raportów za pomocą funkcji [raport e-mail](backup-reports-email.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

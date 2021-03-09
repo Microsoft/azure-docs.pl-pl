@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: fd599c69b3072831461acc94827d97c4520292e9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 19ece696dabc81e643e8a904d506d22e40eaa099
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182455"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499156"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Uwierzytelnianie za pomocą usługi Azure Container Registry z poziomu usługi Azure Kubernetes Service
 
 W przypadku korzystania z Azure Container Registry (ACR) z usługą Azure Kubernetes Service (AKS) należy nawiązać mechanizm uwierzytelniania. Ta operacja jest zaimplementowana w ramach interfejsu wiersza polecenia i środowiska portalu, przyznając wymagane uprawnienia do ACR. W tym artykule przedstawiono przykłady konfigurowania uwierzytelniania między tymi dwiema usługami platformy Azure. 
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AKS do integracji z ACR w kilku prostych poleceniach. Ta integracja przypisuje rolę AcrPull do jednostki usługi skojarzonej z klastrem AKS.
+Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AKS do integracji z ACR w kilku prostych poleceniach. Ta integracja przypisuje rolę AcrPull do zarządzanej tożsamości skojarzonej z klastrem AKS.
 
 > [!NOTE]
 > W tym artykule opisano automatyczne uwierzytelnianie między AKS i ACR. Jeśli musisz ściągnąć obraz z prywatnego rejestru zewnętrznego, użyj [hasła ściągania obrazu][Image Pull Secret].
@@ -28,11 +28,11 @@ Te przykłady wymagają:
 * Rola **właściciela** lub **administratora konta platformy Azure** w **subskrypcji platformy Azure**
 * Interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej
 
-Aby uniknąć konieczności korzystania z roli **właściciela** lub **administratora konta platformy Azure** , można skonfigurować jednostkę usługi ręcznie lub użyć istniejącej jednostki usługi do uwierzytelniania ACR z AKS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie ACR za pomocą jednostek usługi](../container-registry/container-registry-auth-service-principal.md) lub [uwierzytelnianie z Kubernetes przy użyciu klucza tajnego ściągania](../container-registry/container-registry-auth-kubernetes.md).
+Aby uniknąć potrzeby roli **właściciela** lub **administratora konta platformy Azure** , można skonfigurować tożsamość zarządzaną ręcznie lub użyć istniejącej tożsamości zarządzanej do uwierzytelniania ACR z AKS. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanej przez platformę Azure do uwierzytelniania w usłudze Azure Container Registry](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Utwórz nowy klaster AKS z integracją ACR
 
-Integrację AKS i ACR można skonfigurować podczas początkowego tworzenia klastra AKS.  Aby umożliwić klastrowi AKS współdziałanie z ACR, używana jest jednostka **usługi** Azure Active Directory. Następujące polecenie interfejsu wiersza polecenia pozwala autoryzować istniejące ACR w ramach subskrypcji i skonfigurować odpowiednią rolę **ACRPull** dla jednostki usługi. Podaj prawidłowe wartości parametrów poniżej.
+Integrację AKS i ACR można skonfigurować podczas początkowego tworzenia klastra AKS.  Aby umożliwić klastrowi AKS współdziałanie z usługą ACR, używana jest **tożsamość zarządzana** Azure Active Directory. Następujące polecenie interfejsu wiersza polecenia pozwala autoryzować istniejące ACR w ramach subskrypcji i skonfigurować odpowiednią rolę **ACRPull** dla tożsamości zarządzanej. Podaj prawidłowe wartości parametrów poniżej.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique

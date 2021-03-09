@@ -3,12 +3,12 @@ title: Azure Backup słownik
 description: W tym artykule opisano warunki pomocne podczas korzystania z Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723918"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502029"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup słownik
 
@@ -299,6 +299,18 @@ Tworzy kopię zapasową plików systemu operacyjnego. Ta kopia zapasowa umożliw
 ## <a name="tenant"></a>Dzierżawa
 
 Dzierżawa reprezentuje organizację. Jest to dedykowane wystąpienie usługi Azure AD, którą organizacja lub deweloper aplikacji otrzymuje po utworzeniu relacji z firmą Microsoft, na przykład zarejestrowaniu się na platformie Azure, w usłudze Microsoft Intune lub Microsoft 365.
+
+## <a name="tier"></a>Warstwa
+
+Obecnie Azure Backup obsługuje następujące warstwy magazynu kopii zapasowych:
+
+### <a name="snapshot-tier"></a>Warstwa migawek
+
+(Termin określony dla obciążenia) W pierwszej fazie tworzenia kopii zapasowej maszyny wirtualnej tworzona migawka jest przechowywana razem z dyskiem. Ta forma magazynu jest nazywana warstwą migawek. Przywracanie warstwy migawek jest szybsze (niż przywracanie z magazynu), ponieważ eliminuje czas oczekiwania na skopiowanie migawek do z magazynu przed wyzwoleniem operacji przywracania.
+
+### <a name="vault-standard-tier"></a>Warstwa Vault-Standard
+
+Dane kopii zapasowej dla wszystkich obciążeń obsługiwanych przez Azure Backup są przechowywane w magazynach, które przechowują magazyn kopii zapasowych, czyli automatyczne skalowanie zestawu kont magazynu zarządzanych przez Azure Backup. Warstwa Vault-Standard to warstwa magazynu online, która umożliwia przechowywanie izolowanej kopii zapasowych danych w ramach dzierżawy zarządzanej przez firmę Microsoft, co pozwala utworzyć dodatkową warstwę ochrony. W przypadku obciążeń, w których jest obsługiwana warstwa migawek, istnieje kopia kopii zapasowych w warstwie migawek i w warstwie Standardowa magazynu. Magazyn — warstwa standardowa gwarantuje, że dane kopii zapasowej są dostępne nawet wtedy, gdy kopia zapasowa zostanie usunięta lub naruszona.
 
 ## <a name="unmanaged-disk"></a>Dysk niezarządzany
 

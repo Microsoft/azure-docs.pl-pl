@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002083"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510830"
 ---
 Użyj powiązania danych wyjściowych Event Hubs do zapisywania zdarzeń w strumieniu zdarzeń. Musisz mieć uprawnienie do wysłania do centrum zdarzeń, aby zapisywać w nim zdarzenia.
 
@@ -274,7 +274,7 @@ Istnieją dwie opcje wyprowadzania komunikatu centrum zdarzeń z funkcji:
 
 - **Wartość zwracana**: Ustaw `name` Właściwość w *function.jsna* wartość `$return` . W przypadku tej konfiguracji wartość zwracana przez funkcję jest utrwalana jako komunikat centrum zdarzeń.
 
-- Bezwzględnie **: Przekaż** wartość do metody [Set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) parametru zadeklarowanego jako typ [out](/python/api/azure-functions/azure.functions.out?view=azure-python) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
+- Bezwzględnie **: Przekaż** wartość do metody [Set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) parametru zadeklarowanego jako typ [out](/python/api/azure-functions/azure.functions.out) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -288,6 +288,6 @@ Istnieją dwie opcje wyprowadzania komunikatu centrum zdarzeń z funkcji przy u�
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Odwołanie |
+| Wiązanie | Dokumentacja |
 |---|---|
 | Centrum zdarzeń | [Przewodnik obsługi](/rest/api/eventhub/publisher-policy-operations) |

@@ -3,14 +3,14 @@ title: Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak monitorować i obsługiwać kopie zapasowe na dużą skalę przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719546"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506129"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorowanie i wykonywanie kopii zapasowych przy użyciu centrum kopii zapasowych
 
 Jako administrator kopii zapasowej można użyć centrum kopii zapasowych jako jednego okienka Glass do monitorowania zadań i spisu kopii zapasowych w codziennym okresie. Centrum kopii zapasowych umożliwia również wykonywanie zwykłych operacji, takich jak reagowanie na żądania kopii zapasowych na żądanie, przywracanie kopii zapasowych, tworzenie zasad tworzenia kopii zapasowych i tak dalej.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: dcfc19700d24ca51d6e28aa511197c1c9e79e521
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c939c1d061f4e01a00bc2b886056e42f0b059ad5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428191"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510795"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -19,7 +19,7 @@ ms.locfileid: "102428191"
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Windows:
 
 1. W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia.
-1. Zainstaluj [zestaw SDK platformy .NET Core 3,1](/dotnet/core/install/linux).
+1. Zainstaluj [zestaw SDK platformy .NET Core 3,1](/dotnet/core/install/windows).
 2. Zainstaluj interfejs wiersza polecenia mowy przy użyciu NuGet, wprowadzając następujące polecenie:
 
    ```console
@@ -52,7 +52,7 @@ Obsługiwane są następujące dystrybucje systemu Linux dla architektury x64 za
 
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Linux na PROCESORze x64:
 
-1. Zainstaluj program [.NET Core 3,1](/dotnet/core/install/linux).
+1. Zainstaluj [zestaw SDK platformy .NET Core 3,1](/dotnet/core/install/linux).
 2. Zainstaluj interfejs wiersza polecenia mowy przy użyciu NuGet, wprowadzając następujące polecenie:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`

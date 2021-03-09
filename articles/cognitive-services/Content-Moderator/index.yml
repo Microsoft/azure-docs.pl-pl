@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 6b49c748d134ac76e07dac258953e2c4d2553dd2
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: b9cfeefd4124dea5911faba2902609805cc5e3fd
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102431724"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102509306"
 landingContent:
 - title: Informacje o pakiecie Content Moderator
   linkLists:
@@ -137,7 +137,7 @@ landingContent:
     - text: Zestaw SDK .NET
       url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - text: Zestaw SDK dla języka Python
-      url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-contentmoderator/
     - text: Zestaw SDK Java
       url: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - text: Zestaw SDK dla platformy Node.js

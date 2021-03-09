@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć statyczny adres IP i używać go w usł
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651893"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509476"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS w usłudze Azure Kubernetes Service (AKS)
 
@@ -63,16 +63,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Tworzenie usługi przy użyciu statycznego adresu IP
 
-Przed utworzeniem usługi upewnij się, że nazwa główna usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów. Na przykład:
+Przed utworzeniem usługi upewnij się, że tożsamość klastra używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów. Na przykład:
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-Alternatywnie można użyć tożsamości zarządzanej przypisanej przez system do uprawnień zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
 
 > [!IMPORTANT]
 > W przypadku dostosowania wychodzącego adresu IP upewnij się, że tożsamość klastra ma uprawnienia zarówno do wychodzącego publicznego adresu IP, jak i tego przychodzącego publicznego adresu IP.

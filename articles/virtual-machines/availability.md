@@ -1,78 +1,62 @@
 ---
-title: Opcje dostępności
-description: Dowiedz się więcej o funkcjach dostępności do uruchamiania maszyn wirtualnych na platformie Azure
-author: cynthn
-ms.author: cynthn
+title: Opcje dostępności dla Virtual Machines platformy Azure
+description: Informacje o opcjach dostępności dla uruchomionych maszyn wirtualnych na platformie Azure
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 0af9d27561649a559913912165e63e913a32ff2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/08/2021
+ms.reviewer: cynthn
+ms.openlocfilehash: 1ea87d40430dbf3edabd557b80ab1456b49f4605
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178290"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507878"
 ---
-# <a name="availability-options-for-virtual-machines-in-azure"></a>Opcje dostępności maszyn wirtualnych na platformie Azure
+# <a name="availability-options-for-azure-virtual-machines"></a>Opcje dostępności dla Virtual Machines platformy Azure
+Ten artykuł zawiera omówienie opcji dostępności dla maszyn wirtualnych platformy Azure.
 
-Ten artykuł zawiera omówienie funkcji dostępności maszyn wirtualnych platformy Azure.
+## <a name="availability-zones"></a>Strefy dostępności
 
-## <a name="high-availability"></a>Wysoka dostępność
+[Strefy dostępności](../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context) rozszerzają poziom kontroli, aby zachować dostępność aplikacji i danych na maszynach wirtualnych. Strefa dostępności to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Istnieją trzy Strefy dostępności na obsługiwany region platformy Azure. 
 
-Obciążenia są zwykle rozpraszane na różnych maszynach wirtualnych w celu uzyskania dużej przepływności, wydajności i tworzenia nadmiarowości na wypadek, gdyby maszyna wirtualna miała wpływ na aktualizację lub inne zdarzenie. 
+Każda strefa dostępności ma oddzielne źródło zasilania, sieć i chłodzenie. Projektując rozwiązania do korzystania z replikowanych maszyn wirtualnych w strefach, możesz chronić aplikacje i dane przed utratą centrum danych. W przypadku naruszenia zabezpieczeń jednej strefy zreplikowane aplikacje i dane są natychmiast dostępne w innej strefie. 
 
-Istnieje kilka opcji zapewniających wysoką dostępność systemu Azure. Najpierw porozmawiamy o podstawowych konstrukcjach. 
-
-### <a name="availability-zones"></a>Strefy dostępności
-
-[Strefy dostępności](../availability-zones/az-overview.md) rozszerzają poziom kontroli, aby zachować dostępność aplikacji i danych na maszynach wirtualnych. Strefa dostępności to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Istnieją trzy Strefy dostępności na obsługiwany region platformy Azure. 
-
-Każda strefa dostępności ma oddzielne źródło zasilania, sieć i chłodzenie. Dzięki zaprojektowaniu rozwiązań do korzystania z replikowanych maszyn wirtualnych w strefach można chronić aplikacje i dane przed utratą centrum danych. W przypadku naruszenia zabezpieczeń jednej strefy zreplikowane aplikacje i dane są natychmiast dostępne w innej strefie. 
-
-![Strefy dostępności](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-Dowiedz się więcej o wdrażaniu maszyny wirtualnej z [systemem Windows](./windows/create-powershell-availability-zone.md) lub [Linux](./linux/create-cli-availability-zone.md) w strefie dostępności.
-
-
-### <a name="fault-domains"></a>Domeny błędów
-
-Domena błędów to logiczne grupowanie odpowiednich elementów sprzętu, które współdzielą źródła zasilania i przełącznik sieciowy, podobnie jak w przypadku regału w lokalnym centrum danych. 
-
-### <a name="update-domains"></a>Domeny aktualizacji
-
-Domena aktualizacji to logiczne grupowanie odpowiednich elementów sprzętu, które mogą być w tym samym czasie poddawane konserwacji lub ponownie uruchamiane. 
-
-To podejście zapewnia, że zawsze działa co najmniej jedno wystąpienie aplikacji, gdy platforma Azure jest poddawana okresowej konserwacji. Kolejność domen aktualizacji, które są ponownie uruchamiane, może nie przebiegać sekwencyjnie podczas konserwacji, ale tylko jedna domena aktualizacji jest uruchamiana ponownie.
+## <a name="availability-sets"></a>Zestawy dostępności
+[Zestaw dostępności](availability-set-overview.md) to logiczna Grupa maszyn wirtualnych, dzięki której platforma Azure może zrozumieć, w jaki sposób aplikacja została utworzona w celu zapewnienia nadmiarowości i dostępności. Zalecamy, aby co najmniej dwie maszyny wirtualne zostały utworzone w ramach zestawu dostępności, aby zapewnić wysoką dostępność aplikacji i spełnić warunki [umowy SLA na 99,95%](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Dla samego zestawu dostępności opłaty są naliczane tylko za każde utworzone wystąpienie maszyny wirtualnej.
 
 
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines zestawy skalowania 
 
-Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają tworzenie i Zarządzanie grupą maszyn wirtualnych o zrównoważonym obciążeniu. Liczba wystąpień maszyn wirtualnych może automatycznie zwiększać się lub zmniejszać w reakcji na zapotrzebowanie lub według zdefiniowanego harmonogramu. Zestawy skalowania zapewniają wysoką dostępność aplikacji i umożliwiają centralne zarządzanie, Konfigurowanie i aktualizowanie wielu maszyn wirtualnych. Zalecamy, aby co najmniej dwie maszyny wirtualne zostały utworzone w ramach zestawu skalowania, aby zapewnić wysoką dostępność aplikacji i spełnić warunki [umowy SLA na 99,95%](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Nie ma kosztu dla samego zestawu skalowania, płacisz tylko za każde utworzone wystąpienie maszyny wirtualnej. Jeśli jedna maszyna wirtualna korzysta z [usługi Azure Premium dysków SSD](./disks-types.md#premium-ssd), umowa SLA platformy Azure ma zastosowanie do nieplanowanych zdarzeń konserwacji. Maszyny wirtualne w zestawie skalowania można wdrożyć w wielu domenach aktualizacji i domenach błędów w celu zmaksymalizowania dostępności i odporności na awarie z powodu przestoju centrum danych oraz planowanych lub nieplanowanych zdarzeń konserwacji. Maszyny wirtualne w zestawie skalowania można również wdrożyć w pojedynczej strefie dostępności lub w regionalnie. Opcje wdrożenia strefy dostępności mogą się różnić w zależności od trybu aranżacji.
+[Zestawy skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context) umożliwiają tworzenie i Zarządzanie grupą maszyn wirtualnych o zrównoważonym obciążeniu. Liczba wystąpień maszyn wirtualnych może automatycznie zwiększać się lub zmniejszać w reakcji na zapotrzebowanie lub według zdefiniowanego harmonogramu. Zestawy skalowania zapewniają wysoką dostępność aplikacji i umożliwiają centralne zarządzanie, Konfigurowanie i aktualizowanie wielu maszyn wirtualnych. Zalecamy, aby co najmniej dwie maszyny wirtualne zostały utworzone w ramach zestawu skalowania, aby zapewnić wysoką dostępność aplikacji i spełnić warunki [umowy SLA na 99,95%](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Nie ma kosztu dla samego zestawu skalowania, płacisz tylko za każde utworzone wystąpienie maszyny wirtualnej.
 
-**Domeny błędów i domeny aktualizacji**
+Maszyny wirtualne w zestawie skalowania można również wdrożyć w pojedynczej strefie dostępności lub w regionalnie. Opcje wdrożenia strefy dostępności mogą się różnić w zależności od [trybu aranżacji](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
 
-Zestawy skalowania maszyn wirtualnych upraszczają projektowanie pod kątem wysokiej dostępności przez wyrównywanie domen błędów i aktualizowanie domen. W przypadku zestawu skalowania będzie konieczne tylko zdefiniowanie domen błędów. Liczba domen błędów dostępnych dla zestawów skalowania może różnić się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](./manage-availability.md).
-
-**Tryby aranżacji dla zestawów skalowania**
-
-Tryby aranżacji zestawów skalowania maszyn wirtualnych umożliwiają większą kontrolę nad sposobem, w jaki wystąpienia maszyn wirtualnych są zarządzane przez zestaw skalowania. Na zestawie skalowania można włączyć jednolity lub elastyczny tryb aranżacji. Jednolita aranżacja jest zoptymalizowana pod kątem obciążeń bezstanowych na dużą skalę z identycznymi wystąpieniami. Elastyczna aranżacja (wersja zapoznawcza) jest przeznaczona do wysokiej dostępności na dużą skalę z identycznymi lub wieloma typami maszyn wirtualnych. Dowiedz się więcej o tych [trybach aranżacji](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) i sposobach ich włączania.
+## <a name="load-balancer"></a>Moduł równoważenia obciążenia
+Połącz [Azure Load Balancer](../load-balancer/load-balancer-overview.md) ze strefą dostępności lub zestawem dostępności w celu uzyskania większości odporności aplikacji. Usługa Azure Load Balancer dystrybuuje ruch między wieloma maszynami wirtualnymi. W przypadku naszych maszyn wirtualnych w warstwie Standardowa usługa Azure Load Balancer jest uwzględniana. Nie wszystkie warstwy maszyn wirtualnych obejmują usługę Azure Load Balancer. Aby uzyskać więcej informacji na temat równoważenia obciążenia maszyn wirtualnych, zobacz **równoważenie obciążenia maszyn wirtualnych** dla systemu [Linux](linux/tutorial-load-balancer.md) lub [Windows](windows/tutorial-load-balancer.md).
 
 
-## <a name="availability-sets"></a>Zestawy dostępności
-Zestaw dostępności to logiczne grupowanie maszyn wirtualnych, które umożliwia platformie Azure zrozumienie sposobu kompilacji aplikacji w celu zapewnienia nadmiarowości i dostępności. Zalecamy, aby co najmniej dwie maszyny wirtualne zostały utworzone w ramach zestawu dostępności, aby zapewnić wysoką dostępność aplikacji i spełnić warunki [umowy SLA na 99,95%](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Dla samego zestawu dostępności opłaty są naliczane tylko za każde utworzone wystąpienie maszyny wirtualnej. Jeśli jedna maszyna wirtualna korzysta z [usługi Azure Premium dysków SSD](./disks-types.md#premium-ssd), umowa SLA platformy Azure ma zastosowanie do nieplanowanych zdarzeń konserwacji.
+## <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
+Usługa Azure Storage zawsze przechowuje wiele kopii danych w taki sposób, aby była chroniona przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowymi awariami sprzętowymi, siecią lub przestojem, a także ogromnymi klęskami żywiołowymi. Nadmiarowość gwarantuje, że Twoje konto magazynu spełnia jego dostępność i cele trwałości nawet w przypadku awarii.
 
-W zestawie dostępności maszyny wirtualne są automatycznie dystrybuowane w tych domenach błędów. To podejście ogranicza wpływ potencjalnych awarii sprzętu fizycznego, przestojów sieci lub przerw w dostawie prądu.
+Decydując o tym, która opcja nadmiarowości jest Najlepsza dla danego scenariusza, należy wziąć pod uwagę kompromisy między niższymi kosztami i wyższą dostępnością. Czynniki pomagające w ustaleniu, która opcja nadmiarowości należy wybrać:
+- Jak dane są replikowane w regionie podstawowym
+- Bez względu na to, czy dane są replikowane do drugiego regionu, który jest geograficznie odległy do regionu podstawowego, aby chronić przed awariami regionalnymi
+- Czy aplikacja wymaga dostępu do odczytu replikowanych danych w regionie pomocniczym, jeśli region podstawowy stał się niedostępny z dowolnego powodu
 
-Maszyny wirtualne korzystające z usługi [Azure Managed Disks](./faq-for-disks.md) są przydzielane do domen błędów dysków zarządzanych w przypadku korzystania z zarządzanego zestawu dostępności. Dzięki takiemu dopasowaniu wszystkie dyski zarządzane dołączone do maszyny wirtualnej działają w tej samej domenie błędów dysku zarządzanego. 
+Aby uzyskać więcej informacji, zobacz [nadmiarowość usługi Azure Storage](../storage/common/storage-redundancy.md)
 
-W zarządzanym zestawie dostępności można tworzyć tylko maszyny wirtualne z użyciem dysków zarządzanych. Liczba domen błędów dysku zarządzanego zależy od regionu — dwie lub trzy domeny błędów dysku zarządzanego na region. Więcej informacji o tych domenach błędów dysków zarządzanych można znaleźć na [maszynach wirtualnych systemu Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) lub [maszynach wirtualnych z systemem Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+## <a name="azure-site-recovery"></a>Azure Site Recovery
+Jako organizacja należy wdrożyć strategię ciągłości działania i odzyskiwania po awarii (BCDR), która zapewnia bezpieczeństwo danych, a Twoje aplikacje i obciążenia są dostępne w trybie online, gdy wystąpią planowane i nieplanowane przestoje.
 
-![Zarządzany zestaw dostępności](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) pomaga zapewnić ciągłość działania, dzięki czemu aplikacje biznesowe i obciążenia działają w trakcie awarii. Usługa Site Recovery replikuje obciążenia uruchomione na maszynach fizycznych i wirtualnych z lokacji podstawowej do lokacji dodatkowej. W przypadku awarii w lokacji głównej ma miejsce przełączenie w tryb failover do lokacji dodatkowej, z poziomu której możliwy jest dostęp do aplikacji. Po ponownym uruchomieniu lokacji głównej możliwy jest do niej powrót po awarii.
 
-
-Maszyny wirtualne w zestawie dostępności są również automatycznie dystrybuowane w różnych domenach aktualizacji. 
-
-![Zestawy dostępności](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+Usługa Site Recovery może zarządzać replikacją dla:
+- Maszyn wirtualnych platformy Azure replikowanych między regionami świadczenia usługi Azure.
+- Lokalne maszyny wirtualne, Azure Stack maszyny wirtualne i serwery fizyczne.
 
 ## <a name="next-steps"></a>Następne kroki
-Możesz teraz rozpocząć korzystanie z tych funkcji dostępności i nadmiarowości podczas kompilowania środowiska platformy Azure. Aby uzyskać informacje o najlepszych rozwiązaniach, zobacz [Azure availability best practices](/azure/architecture/checklist/resiliency-per-service) (Najlepsze rozwiązania dotyczące dostępności platformy Azure).
+- [Tworzenie maszyny wirtualnej w strefie dostępności](/linux/create-cli-availability-zone.md)
+- [Tworzenie maszyny wirtualnej w zestawie dostępności](/linux/tutorial-availability.md)
+- [Tworzenie zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/quick-create-portal.md)

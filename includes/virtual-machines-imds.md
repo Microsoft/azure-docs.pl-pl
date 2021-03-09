@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175718"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510862"
 ---
 Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych. Służy do zarządzania maszynami wirtualnymi i ich konfigurowania.
 Te informacje obejmują jednostki SKU, magazyn, konfiguracje sieci i nadchodzące zdarzenia konserwacji. Aby uzyskać pełną listę dostępnych danych, zobacz [Podsumowanie kategorii punktów końcowych](#endpoint-categories).
@@ -345,8 +345,8 @@ Podział schematu:
 | `osType` | System Linux lub Windows | 2017-04-02
 | `placementGroupId` | [Grupa umieszczania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) zestawu skalowania maszyn wirtualnych | 2017-08-01
 | `plan` | [Planowanie](/rest/api/compute/virtualmachines/createorupdate#plan) zawierające nazwę, produkt i wydawcę maszyny wirtualnej, jeśli jest to obraz portalu Azure Marketplace | 2018-04-02
-| `platformUpdateDomain` |  [Aktualizuj domenę](../articles/virtual-machines/manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
-| `platformFaultDomain` | [Domena błędów](../articles/virtual-machines/manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
+| `platformUpdateDomain` |  [Aktualizuj domenę](../articles/virtual-machines/availability.md) , w której działa maszyna wirtualna | 2017-04-02
+| `platformFaultDomain` | [Domena błędów](../articles/virtual-machines/availability.md) , w której działa maszyna wirtualna | 2017-04-02
 | `priority` | Priorytet maszyny wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [maszynami wirtualnymi](../articles/virtual-machines/spot-vms.md) | 2020-12-01
 | `provider` | Dostawca maszyny wirtualnej | 2018-10-01
 | `publicKeys` | [Kolekcja kluczy publicznych](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) przypisanych do maszyny wirtualnej i ścieżek | 2018-04-02

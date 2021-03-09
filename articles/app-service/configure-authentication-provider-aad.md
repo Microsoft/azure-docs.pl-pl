@@ -5,35 +5,31 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630034"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509442"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-W tym artykule opisano sposób konfigurowania Azure App Service lub Azure Functions do używania Azure Active Directory (Azure AD) jako dostawcy uwierzytelniania.
+W tym artykule opisano sposób konfigurowania uwierzytelniania dla Azure App Service lub Azure Functions, dzięki czemu aplikacja loguje się do użytkowników przy użyciu usługi Azure Active Directory (Azure AD) jako dostawcy uwierzytelniania.
 
-> [!NOTE]
-> Przepływ ustawień ekspresowych konfiguruje rejestrację aplikacji usługi AAD w wersji 1. Jeśli chcesz używać [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (w tym [MSAL](../active-directory/develop/msal-overview.md)), postępuj zgodnie z [instrukcjami dotyczącymi konfiguracji zaawansowanej](#advanced).
-
-Podczas konfigurowania aplikacji i uwierzytelniania postępuj zgodnie z następującymi najlepszymi rozwiązaniami:
-
-- Nadaj każdej aplikacji App Service swoje własne uprawnienia i zgodę.
-- Skonfiguruj każdą aplikację App Service ze swoją rejestracją.
-- Unikaj udostępniania uprawnień między środowiskami przy użyciu oddzielnych rejestracji aplikacji dla oddzielnych miejsc wdrożenia. W przypadku testowania nowego kodu to rozwiązanie może pomóc zapobiec problemom związanym z aplikacją produkcyjną.
-
-> [!NOTE]
-> Ta funkcja nie jest obecnie dostępna w planie zużycia systemu Linux dla Azure Functions
+Ta funkcja nie jest obecnie dostępna w planie zużycia systemu Linux dla Azure Functions.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Skonfiguruj przy użyciu ustawień ekspresowych
 
+Opcja **ekspresowa** została zaprojektowana, aby umożliwić proste Włączanie uwierzytelniania i wymaga zaledwie kilku kliknięć.
+
+Ustawienia ekspresowe automatycznie spowodują rejestrację aplikacji korzystającą z punktu końcowego Azure Active Directory v1. Aby użyć [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (w tym [MSAL](../active-directory/develop/msal-overview.md)), postępuj zgodnie z [instrukcjami dotyczącymi konfiguracji zaawansowanej](#advanced).
+
 > [!NOTE]
 > Opcja **ekspresowa** nie jest dostępna dla chmur dla instytucji rządowych.
+
+Aby włączyć uwierzytelnianie przy użyciu opcji **Express** , wykonaj następujące kroki:
 
 1. W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację.
 2. W lewym okienku nawigacji wybierz pozycję **uwierzytelnianie/autoryzacja**  >  **na**.
@@ -58,27 +54,24 @@ Przykład konfigurowania logowania do usługi Azure AD dla aplikacji sieci Web, 
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Konfiguruj z ustawieniami zaawansowanymi
 
-Ustawienia aplikacji można skonfigurować ręcznie, jeśli chcesz użyć rejestracji aplikacji z innej dzierżawy usługi Azure AD. Aby ukończyć tę konfigurację niestandardową:
-
-1. Utwórz rejestrację w usłudze Azure AD.
-2. Podaj niektóre szczegóły rejestracji do App Service.
+Aby usługa Azure AD działała jako dostawca uwierzytelniania dla aplikacji, musisz zarejestrować aplikację. Opcja ekspresowa robi to automatycznie. Opcja zaawansowane umożliwia ręczne rejestrowanie aplikacji, dostosowanie rejestracji i ręczne wprowadzenie szczegółów rejestracji z powrotem do App Service. Jest to przydatne, jeśli na przykład chcesz użyć rejestracji aplikacji z innej dzierżawy usługi Azure AD niż ta, w której znajduje się App Service.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Tworzenie rejestracji aplikacji w usłudze Azure AD dla aplikacji App Service
 
-Podczas konfigurowania aplikacji App Service będą potrzebne następujące informacje:
+Najpierw utworzysz rejestrację aplikacji. W takim przypadku należy zebrać poniższe informacje, które będą potrzebne później podczas konfigurowania uwierzytelniania w aplikacji App Service:
 
 - Identyfikator klienta
 - Identyfikator dzierżawy
 - Klucz tajny klienta (opcjonalnie)
 - Identyfikator URI identyfikatora aplikacji
 
-Wykonaj następujące czynności:
+Aby zarejestrować aplikację, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal], Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. Zanotuj **adres URL** aplikacji. Zostanie ona użyta do skonfigurowania rejestracji aplikacji Azure Active Directory.
-1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **nową rejestrację**.
+1. W menu portalu wybierz pozycję **Azure Active Directory**, a następnie przejdź do karty **rejestracje aplikacji** i wybierz pozycję **Nowa rejestracja**.
 1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji.
 1. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **Sieć Web** i wpisz `<app-url>/.auth/login/aad/callback` . Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Wybierz pozycję **zarejestruj**.
+1. Wybierz pozycję **Zarejestruj**.
 1. Po utworzeniu rejestracji aplikacji Skopiuj **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** w przyszłości.
 1. Wybierz pozycję **Uwierzytelnianie**. W obszarze **niejawne Przyznaj** **tokeny identyfikatora** , aby zezwolić OpenID Connect na logowanie użytkowników z App Service.
 1. Obowiązkowe Wybierz **znakowanie**. W polu **adres URL strony głównej** wprowadź adres url aplikacji App Service i wybierz pozycję **Zapisz**.
@@ -113,9 +106,13 @@ Wykonaj następujące czynności:
 
 Teraz można przystąpić do uwierzytelniania w aplikacji App Service za pomocą Azure Active Directory.
 
-## <a name="configure-a-native-client-application"></a>Konfigurowanie natywnej aplikacji klienckiej
+## <a name="configure-client-apps-to-access-your-app-service"></a>Skonfiguruj aplikacje klienckie, aby uzyskiwać dostęp do App Service
 
-Możesz zarejestrować natywnych klientów, aby zezwolić na uwierzytelnianie w sieci Web API hostowanej w aplikacji przy użyciu biblioteki klienckiej, takiej jak **Active Directory Authentication Library**.
+W poprzedniej sekcji zarejestrowano App Service lub funkcję platformy Azure w celu uwierzytelniania użytkowników. W tej sekcji opisano sposób rejestrowania natywnych aplikacji klienta lub demonów, dzięki czemu mogą oni zażądać dostępu do interfejsów API narażonych przez App Service w imieniu użytkowników lub na siebie. Wykonanie kroków opisanych w tej sekcji nie jest wymagane, jeśli chcesz tylko uwierzytelniać użytkowników.
+
+### <a name="native-client-application"></a>Natywna aplikacja kliencka
+
+Możesz zarejestrować natywnych klientów, aby zażądać dostępu do interfejsów API aplikacji App Service w imieniu zalogowanego użytkownika.
 
 1. W [Azure Portal]wybierz pozycję **Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji.
@@ -129,9 +126,9 @@ Możesz zarejestrować natywnych klientów, aby zezwolić na uwierzytelnianie w 
 1. Wybierz rejestrację aplikacji utworzoną wcześniej dla aplikacji App Service. Jeśli nie widzisz rejestracji aplikacji, upewnij się, że dodano zakres **user_impersonation** w temacie [Tworzenie rejestracji aplikacji w usłudze Azure AD dla aplikacji App Service](#register).
 1. W obszarze **delegowane uprawnienia** wybierz pozycję **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
-Już skonfigurowano natywną aplikację kliencką, która może uzyskiwać dostęp do aplikacji App Service w imieniu użytkownika.
+Skonfigurowano natywną aplikację kliencką, która może zażądać dostępu do aplikacji App Service w imieniu użytkownika.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Konfigurowanie aplikacji klienckiej demona dla wywołań Service to Service
+### <a name="daemon-client-application-service-to-service-calls"></a>Aplikacja kliencka demona (wywołania między usługami)
 
 Aplikacja może uzyskać token do wywoływania internetowego interfejsu API hostowanego w App Service lub aplikacji funkcji w imieniu samego siebie (a nie w imieniu użytkownika). Ten scenariusz jest przydatny w przypadku aplikacji nieinterakcyjnego demona, które wykonują zadania bez zalogowanego użytkownika. Używa on standardowego udzielenia [poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2,0.
 
@@ -155,6 +152,14 @@ Teraz dzięki temu _każda_ aplikacja kliencka w dzierżawie usługi Azure AD ż
 1. W App Service docelowym lub kodzie aplikacji funkcji można teraz sprawdzić, czy oczekiwane role są obecne w tokenie (nie jest to wykonywane przez App Service uwierzytelniania/autoryzacji). Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims).
 
 Już skonfigurowano aplikację kliencką demona, która może uzyskiwać dostęp do aplikacji App Service przy użyciu własnej tożsamości.
+
+## <a name="best-practices"></a>Najlepsze rozwiązania
+
+Niezależnie od konfiguracji używanej do konfigurowania uwierzytelniania, następujące najlepsze rozwiązania spowodują, że Twoja dzierżawa i aplikacje będą bezpieczniejsze:
+
+- Nadaj każdej aplikacji App Service swoje własne uprawnienia i zgodę.
+- Skonfiguruj każdą aplikację App Service ze swoją rejestracją.
+- Unikaj udostępniania uprawnień między środowiskami przy użyciu oddzielnych rejestracji aplikacji dla oddzielnych miejsc wdrożenia. W przypadku testowania nowego kodu to rozwiązanie może pomóc zapobiec problemom związanym z aplikacją produkcyjną.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 

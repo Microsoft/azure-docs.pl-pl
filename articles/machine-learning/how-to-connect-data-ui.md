@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461436"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508235"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ W poniższej tabeli zdefiniowano i podsumowano zalety magazynów danych i zestaw
 
 Aby zrozumieć, w jaki sposób magazyny danych i zestawy danych mieszczą się w ogólnym przepływie pracy Azure Machine Learning, zobacz artykuł [bezpieczny dostęp do](concept-data.md#data-workflow) danych.
 
-Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) w programie:
+Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/) w programie:
 * [Nawiązywanie połączenia z usługami Azure Storage z magazynami danych](how-to-access-data.md). 
 * [Utwórz Azure Machine Learning zestawy danych](how-to-create-register-datasets.md). 
 
@@ -113,11 +113,11 @@ W każdym przypadku profil danych Azure Machine Learning DataSet obejmuje:
 
 |Statystyka|Opis
 |------|------
-|Cechy| Nazwa sumowanej kolumny.
+|Cecha| Nazwa sumowanej kolumny.
 |Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 |Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 |Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
-|Min.| Minimalna wartość kolumny. Puste wpisy są wyświetlane dla funkcji, których typ nie ma własnej kolejności (np. wartości logicznych).
+|Min| Minimalna wartość kolumny. Puste wpisy są wyświetlane dla funkcji, których typ nie ma własnej kolejności (np. wartości logicznych).
 |Maks.| Maksymalna wartość kolumny. 
 |Liczba| Łączna liczba brakujących i nieobecnych wpisów w kolumnie.
 |Liczba niebrakujących| Liczba wpisów w kolumnie, których nie ma. Puste ciągi i błędy są traktowane jako wartości, więc nie będą wchodzić w skład "niebrakującej liczby".

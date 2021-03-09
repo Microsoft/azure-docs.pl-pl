@@ -4,12 +4,12 @@ description: Tworzenie jednostki usługi Azure Active Directory dla klastra w us
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: b4b5b3eedb2e63686e1bb26580ea653e3a50a910
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475441"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507827"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Jednostki usługi w usłudze Azure Kubernetes Service (AKS)
 
@@ -128,7 +128,7 @@ Podczas korzystania z jednostek usług AKS i Azure AD należy pamiętać o nast�
 - Jeśli nie przekażesz podmiotu usługi do dodatkowych poleceń interfejsu wiersza polecenia AKS, zostanie użyta domyślna nazwa główna usługi `~/.azure/aksServicePrincipal.json` .  
 - Opcjonalnie można również usunąć aksServicePrincipal.jsw pliku, a AKS utworzy nową nazwę główną usługi.
 - Usunięcie klastra AKS utworzonego za pomocą polecenia [az aks create][az-aks-create] nie powoduje usunięcia utworzonej automatycznie jednostki usługi.
-    - Aby usunąć nazwę główną usługi, wykonaj zapytanie dotyczące klastra *servicePrincipalProfile. clientId* , a następnie usuń z [AZ AD Sp DELETE] [AZ-AD-Sp-DELETE]. Zastąp następujące nazwy klastra i grupy zasobów własnymi wartościami:
+    - Aby usunąć nazwę główną usługi, wykonaj zapytanie dotyczące klastra *servicePrincipalProfile. clientId* , a następnie usuń za pomocą [AZ AD Sp Delete][az-ad-sp-delete]. Zastąp następujące nazwy klastra i grupy zasobów własnymi wartościami:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -162,6 +162,7 @@ Aby uzyskać informacje na temat aktualizowania poświadczeń, zobacz [Aktualizo
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md

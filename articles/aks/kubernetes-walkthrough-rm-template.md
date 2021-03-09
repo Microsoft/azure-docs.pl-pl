@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 56bacf1ae68081d5822fdb0e80762926d4eb581c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f17e42915968f52aee8bd106b5cadd26457998ff
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173736"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501326"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu szablonu ARM
 
@@ -32,7 +32,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 - Ten artykuł wymaga wersji 2.0.61 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-- Aby utworzyć klaster AKS przy użyciu szablonu Menedżer zasobów, należy podać klucz publiczny SSH i Azure Active Directory nazwę główną usługi. Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi w celu uzyskania uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję: w przeciwnym razie przejdź do sekcji [przeglądanie szablonu](#review-the-template) .
+- Aby utworzyć klaster AKS przy użyciu szablonu Menedżer zasobów, należy podać klucz publiczny SSH. Jeśli potrzebujesz tego zasobu, zapoznaj się z następującą sekcją. w przeciwnym razie przejdź do sekcji [przeglądanie szablonu](#review-the-template) .
 
 ### <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
@@ -47,28 +47,6 @@ ssh-keygen -t rsa -b 2048
 ```
 
 Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na platformie Azure][ssh-keys].
-
-### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
-
-Jednostka usługi Azure Active Directory zezwala klastrowi usługi AKS na interakcje z innymi zasobami platformy Azure. Utwórz jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametr `--skip-assignment` umożliwia ograniczenie przypisywania dodatkowych uprawnień. Domyślnie ta jednostka usługi jest ważna przez rok. Należy pamiętać, że można użyć tożsamości zarządzanej zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-Dane wyjściowe są podobne do poniższego przykładu:
-
-```json
-{
-  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-  "displayName": "azure-cli-2019-04-19-21-42-11",
-  "name": "http://azure-cli-2019-04-19-21-42-11",
-  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-Zwróć uwagę na wartości *appId* i *password*. Te wartości są używane w kolejnych krokach.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -95,13 +73,10 @@ Więcej przykładów AKS można znaleźć w witrynie [szablonów szybkiego start
     * **Prefiks DNS**: wprowadź unikatowy prefiks DNS dla klastra, taki jak *myakscluster*.
     * **Nazwa użytkownika administratora systemu Linux**: Wprowadź nazwę użytkownika, aby nawiązać połączenie przy użyciu protokołu SSH, takiego jak *azureuser*.
     * **Klucz publiczny SSH RSA**: Skopiuj i wklej *publiczną* część pary kluczy SSH (domyślnie zawartość *~/.ssh/id_rsa. pub*).
-    * **Identyfikator klienta jednostki usługi**: Skopiuj i wklej *identyfikator appid* swojej jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
-    * **Klucz tajny klienta jednostki usługi**: Skopiuj i wklej *hasło* jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia**: zaznacz to pole wyboru, aby zgadzać się.
 
     ![Menedżer zasobów szablon do tworzenia klastra usługi Azure Kubernetes w portalu](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Wybierz pozycję **Kup**.
+3. Wybierz pozycję **Przejrzyj i utwórz**.
 
 Utworzenie klastra AKS może potrwać kilka minut. Poczekaj na pomyślne wdrożenie klastra, zanim przejdziesz do kolejnego kroku.
 

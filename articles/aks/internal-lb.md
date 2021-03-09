@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i użyć wewnętrznego modułu równowa
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285887"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505634"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service (AKS)
 
@@ -23,11 +23,11 @@ Aby ograniczyć dostęp do aplikacji w usłudze Azure Kubernetes Service (AKS), 
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
-Nazwa główna usługi klastra AKS wymaga uprawnień do zarządzania zasobami sieci, jeśli używana jest istniejąca podsieć lub Grupa zasobów. Aby uzyskać więcej informacji, zobacz [Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)][use-kubenet] lub [Konfigurowanie sieci CNI platformy Azure w usłudze Azure KUBERNETES Service (AKS)][advanced-networking]. W przypadku konfigurowania modułu równoważenia obciążenia do używania [adresu IP w innej podsieci][different-subnet]upewnij się, że jednostka usługi klastra AKS ma również dostęp do odczytu do tej podsieci.
+Tożsamość klastra klastrów AKS wymaga uprawnień do zarządzania zasobami sieci, jeśli używana jest istniejąca podsieć lub Grupa zasobów. Aby uzyskać więcej informacji, zobacz [Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)][use-kubenet] lub [Konfigurowanie sieci CNI platformy Azure w usłudze Azure KUBERNETES Service (AKS)][advanced-networking]. W przypadku konfigurowania modułu równoważenia obciążenia do używania [adresu IP w innej podsieci][different-subnet]upewnij się, że tożsamość klastra AKS ma również dostęp do odczytu do tej podsieci.
 
-Zamiast nazwy głównej usługi można także użyć przypisanej tożsamości zarządzanej przez system do uprawnień. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md). Aby uzyskać więcej informacji o uprawnieniach, zobacz [delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
+Aby uzyskać więcej informacji o uprawnieniach, zobacz [delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Może być konieczne przyznanie jednostce usługi dla klastra AKS roli *współautor sieci* do grupy zasobów, w której są wdrożone zasoby sieci wirtualnej platformy Azure. Wyświetl nazwę główną usługi za pomocą [AZ AKS show][az-aks-show], taką jak `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"` . Aby utworzyć przypisanie roli, użyj polecenia [AZ role przypisanie Create][az-role-assignment-create] .
+> Może być konieczne przyznanie tożsamości klastra dla klastra AKS do grupy zasobów *, w* której są wdrożone zasoby sieci wirtualnej platformy Azure. Wyświetl tożsamość klastra za pomocą [AZ AKS show][az-aks-show], na przykład `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"` . Aby utworzyć przypisanie roli, użyj polecenia [AZ role przypisanie Create][az-role-assignment-create] .
 
 ## <a name="specify-a-different-subnet"></a>Określ inną podsieć
 

@@ -1,24 +1,20 @@
 ---
-title: Wspólne lokalizowanie maszyn wirtualnych
-description: Dowiedz się więcej na temat sposobu lokalizowania zasobów maszyn wirtualnych platformy Azure w celu uzyskania lepszych opóźnień.
+title: Grupy umieszczania w pobliżu
+description: Dowiedz się więcej na temat używania grup umieszczania sąsiedztwa na platformie Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: e193b7d084723ad50ddc0d1a40e0b6c8a111af73
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 584d98c93083bc0b203276c8eda2801841da3ad7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924414"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507861"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Wspólne lokalizowanie zasobów w celu ulepszenia opóźnień
-
-Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. 
-
-## <a name="proximity-placement-groups"></a>Grupy umieszczania w pobliżu
+# <a name="proximity-placement-groups"></a>Grupy umieszczania w pobliżu
 
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza odległość fizyczną między wystąpieniami. Umieszczenie ich w ramach pojedynczej strefy dostępności spowoduje również, że zostaną one fizycznie bliżej siebie. Jednak w miarę zwiększania się rozmiaru platformy Azure jedna strefa dostępności może obejmować wiele fizycznych centrów danych, co może skutkować opóźnieniami sieciowymi wpływającymi na aplikację. 
 

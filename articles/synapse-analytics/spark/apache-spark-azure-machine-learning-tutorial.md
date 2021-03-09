@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc9909614a9d557c19a22e215b7513a038f88c33
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942331"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498680"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Samouczek: uczenie modelu w języku Python za pomocą automatycznej uczenia maszynowego
 
@@ -144,7 +144,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Konwertowanie ramki Dataframe na zestaw danych Azure Machine Learning
-Aby przesłać zdalny eksperyment, przekonwertuj zestaw danych na wystąpienie Azure Machine Learning ```TabularDatset``` . [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie podanych plików.
+Aby przesłać zdalny eksperyment, przekonwertuj zestaw danych na wystąpienie Azure Machine Learning ```TabularDatset``` . [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) reprezentuje dane w formacie tabelarycznym przez analizowanie podanych plików.
 
 Poniższy kod pobiera istniejący obszar roboczy i domyślny magazyn danych Azure Machine Learning. Następnie przekazuje magazyn danych i lokalizacje plików do parametru Path, aby utworzyć nowe ```TabularDataset``` wystąpienie. 
 

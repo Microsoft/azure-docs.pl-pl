@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419823086fd7ba05ba5023216be302576350e30a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687293"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500812"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -171,7 +171,7 @@ Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej do
 | ----- | ----- | ----- | ----- |
 | Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
 | Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Wzajemn | Zarządzanie | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Wzajemn | Zarządzanie | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana. Lokalna nazwa UPN musi być synchronizowana z     `onPremisesUserPrincipalName` atrybutem w usłudze Azure AD |
 | Bez obsługi routingu | Zarządzanie | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki

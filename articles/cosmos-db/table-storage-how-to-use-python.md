@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 341615bf8fe231eafa606411948ad014399b8261
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 12ee827f297729682b0a5e1b1808afe312c657a4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079550"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499071"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Rozpoczynanie pracy z usługą Azure Table Storage oraz interfejsem API tabel usługi Azure Cosmos DB przy użyciu języka Python
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -35,7 +35,7 @@ Ten przykład pokazuje, jak zastosować [zestaw SDK tabel usługi Azure Cosmos D
 * Wstawianie jednostek i wykonywanie zapytań
 * Modyfikowanie jednostek
 
-Podczas pracy ze scenariuszami w tym przykładzie może być przydatna [dokumentacja interfejsu API zestawu SDK usługi Azure Cosmos DB dla języka Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python).
+Podczas pracy ze scenariuszami w tym przykładzie może być przydatna [dokumentacja interfejsu API zestawu SDK usługi Azure Cosmos DB dla języka Python](/python/api/overview/azure/cosmosdb).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +49,7 @@ Do pomyślnego ukończenia pracy z przykładem wymagane są następujące elemen
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-**Utwórz konto usługi Azure Storage**
+**Tworzenie konta usługi Azure Storage**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -119,7 +119,7 @@ table_service.insert_entity('tasktable', task)
 
 ### <a name="partitionkey-and-rowkey"></a>Właściwości PartitionKey i RowKey
 
-Należy pamiętać, że dla każdej jednostki konieczne jest określenie właściwości **PartitionKey** i **RowKey** . Są to unikatowe identyfikatory jednostek, które wspólnie tworzą klucz podstawowy jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
+Należy pamiętać, że dla każdej jednostki konieczne jest określenie właściwości **PartitionKey** i **RowKey**. Są to unikatowe identyfikatory jednostek, które wspólnie tworzą klucz podstawowy jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
 
 W usłudze Table Storage właściwość **PartitionKey** jest używana do inteligentnego rozłożenia jednostki tabeli pomiędzy węzłami magazynu. Obiekty z taką samą wartością **PartitionKey** są przechowywane w tym samym węźle. Właściwość **RowKey** to unikatowy identyfikator jednostki w ramach partycji, do której należy.
 
@@ -193,7 +193,7 @@ print(task.priority)
 
 ## <a name="query-a-set-of-entities"></a>Wykonywanie zapytania względem zestawu jednostek
 
-Możesz wykonać zapytanie dotyczące zestawu jednostek, podając ciąg filtru przy użyciu parametru **filter** . W tym przykładzie znalezione zostaną wszystkie zadania w lokalizacji Seattle przy użyciu filtru wartości PartitionKey:
+Możesz wykonać zapytanie dotyczące zestawu jednostek, podając ciąg filtru przy użyciu parametru **filter**. W tym przykładzie znalezione zostaną wszystkie zadania w lokalizacji Seattle przy użyciu filtru wartości PartitionKey:
 
 ```python
 tasks = table_service.query_entities(
@@ -205,7 +205,7 @@ for task in tasks:
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
 
-Możesz również ograniczyć zestaw właściwości zwracanych dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcją* , zmniejsza użycie przepustowości i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj parametru **select** i wprowadź nazwy właściwości, które chcesz zwrócić do klienta.
+Możesz również ograniczyć zestaw właściwości zwracanych dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcją*, zmniejsza użycie przepustowości i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj parametru **select** i wprowadź nazwy właściwości, które chcesz zwrócić do klienta.
 
 Zapytanie w poniższym kodzie zwraca wyłącznie opisy jednostek w tabeli.
 
@@ -238,22 +238,22 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Następne kroki
 
 * [FAQ — Develop with the Table API (Opracowywanie zawartości przy użyciu interfejsu API tabel — często zadawane pytania)](./faq.md)
-* [Azure Cosmos DB SDK for Python API reference (Dokumentacja zestawu SDK usługi Azure Cosmos DB dla języka Python)](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)
+* [Azure Cosmos DB SDK for Python API reference (Dokumentacja zestawu SDK usługi Azure Cosmos DB dla języka Python)](/python/api/overview/azure/cosmosdb)
 * [Centrum deweloperów języka Python](https://azure.microsoft.com/develop/python/)
 * [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md): bezpłatna, wieloplatformowa aplikacja umożliwiająca wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * [Working with Python in Visual Studio (Windows) (Korzystanie z języka Python w programie Visual Studio w systemie Windows)](/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 
 
-[py_commit_batch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_create_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_delete_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_get_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_insert_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_insert_or_replace_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_Entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity?preserve-view=true&view=azure-python
-[py_merge_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python&preserve-view=true
+[py_commit_batch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_create_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_delete_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_get_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_insert_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_insert_or_replace_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_Entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity
+[py_merge_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice

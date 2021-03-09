@@ -75,14 +75,14 @@
       href: sample-get-cloud-service.md
     - name: Zresetuj usługę w chmurze
       href: sample-reset-cloud-service.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Przykładowe pliki wdrożenia
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: AZ. CloudService — moduł
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Polecenia cmdlet programu PowerShell
-      href: /powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+      href: /powershell/module/az.cloudservice/#cloudservice
     - name: Dokumentacja szablonu ARM
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST

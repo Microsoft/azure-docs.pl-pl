@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 05d312296b48f35ea87c5443cc587989e2d11fd5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c73f6884a0bf9dc1e12e97439166c8aeabe6e35a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587968"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504562"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
@@ -38,8 +38,8 @@ Aby można było wdrożyć szablon Azure Resource Manager dla narzędzia, należ
 
 Przed rozpoczęciem pracy należy również zainstalować te dwa moduły programu PowerShell:
 
-- [Moduł programu Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
-- [Moduł usługi Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
+- [Moduł programu Azure PowerShell](/powershell/azure/install-az-ps)
+- [Moduł usługi Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0&preserve-view=true)
 
 Upewnij się, że Twój identyfikator subskrypcji jest gotowy do momentu zalogowania się.
 

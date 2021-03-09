@@ -4,29 +4,29 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 95422ace63c9f79583de5a2c86d777ad4d0a8834
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e17f14d3acf8d74d1715d14fbd914ee536d29931
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025932"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511032"
 ---
-Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
+Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
 
 | Jednostka JSON | Parametr metody | Opis |
 | ----- | ----- | ----- |
-| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. Dla AKS wartość musi być `aks` . |
-| `autoScaler` | Nie dotyczy | Zawiera elementy konfiguracji skalowania automatycznego. Zobacz tabelę skalowania automatycznego. |
+| `computeType` | NA | Docelowy zasób obliczeniowy. Dla AKS wartość musi być `aks` . |
+| `autoScaler` | NA | Zawiera elementy konfiguracji skalowania automatycznego. Zobacz tabelę skalowania automatycznego. |
 | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web. Jeśli `numReplicas`  =  `0` `True` ; w przeciwnym razie, `False` . |
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `1` . |
 | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Maksymalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `10` . |
 | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Jak często automatyczne skalowanie próbuje skalować tę usługę sieci Web. Wartość domyślna `1` . |
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Użycie docelowe (w procentach z 100), które ma być podejmowane przez Autoskalowanie dla tej usługi sieci Web. Wartość domyślna `70` . |
-| `dataCollection` | Nie dotyczy | Zawiera elementy konfiguracji do zbierania danych. |
+| `dataCollection` | NA | Zawiera elementy konfiguracji do zbierania danych. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Określa, czy włączyć zbieranie danych modelu dla usługi sieci Web. Wartość domyślna `False` . |
 | `authEnabled` | `auth_enabled` | Określa, czy należy włączyć uwierzytelnianie klucza dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą być `True` . Wartość domyślna `True` . |
 | `tokenAuthEnabled` | `token_auth_enabled` | Określa, czy włączyć uwierzytelnianie tokenu dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą być `True` . Wartość domyślna `False` . |
-| `containerResourceRequirements` | Nie dotyczy | Kontener dla jednostek procesora i pamięci. |
+| `containerResourceRequirements` | NA | Kontener dla jednostek procesora i pamięci. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Liczba rdzeni procesora CPU do przydzielenia dla tej usługi sieci Web. Wartości domyślne `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci Web. Wartooć `0.5` |
 | `appInsightsEnabled` | `enable_app_insights` | Określa, czy należy włączyć rejestrowanie Application Insights dla usługi sieci Web. Wartość domyślna `False` . |
@@ -34,11 +34,11 @@ Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AksWebserv
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maksymalna liczba współbieżnych żądań na węzeł dla tej usługi sieci Web. Wartość domyślna `1` . |
 | `maxQueueWaitMs` | `max_request_wait_time` | Maksymalny czas pozostawania żądania w kolejce Thee (w milisekundach) przed zwróceniem błędu 503. Wartość domyślna `500` . |
 | `numReplicas` | `num_replicas` | Liczba kontenerów do przydzielenia dla tej usługi sieci Web. Brak wartości domyślnej. Jeśli ten parametr nie jest ustawiony, automatyczne skalowanie jest domyślnie włączone. |
-| `keys` | Nie dotyczy | Zawiera elementy konfiguracji dla kluczy. |
+| `keys` | NA | Zawiera elementy konfiguracji dla kluczy. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Podstawowy klucz uwierzytelniania, który ma być używany dla tej usługi sieci Web |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | Pomocniczy klucz uwierzytelniania, który będzie używany przez tę usługę sieci Web |
 | `gpuCores` | `gpu_cores` | Liczba rdzeni procesora GPU (dla repliki kontenerów) do przydzielenia dla tej usługi sieci Web. Domyślna wartość wynosi 1. Obsługuje tylko wartości całkowite. |
-| `livenessProbeRequirements` | Nie dotyczy | Zawiera elementy konfiguracji dla wymagań sondowania na żywo. |
+| `livenessProbeRequirements` | NA | Zawiera elementy konfiguracji dla wymagań sondowania na żywo. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | Jak często (w sekundach) przeprowadzenia sondy na żywo. Wartość domyślna to 10 sekund. Wartość minimalna to 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Liczba sekund od momentu rozpoczęcia sondowania na żywo przez kontener. Wartość domyślna to 310 |
 | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Liczba sekund, po upływie których limit czasu sondy jest aktywny. Wartość domyślna to 2 sekundy. Wartość minimalna to 1 |

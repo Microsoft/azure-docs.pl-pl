@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 381cba23175086a4d9bac7cc0ba71807bc248056
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4298c10d6344a1b0173a2ea79aeba9b8bbfffe4c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750887"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510768"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -93,6 +93,24 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
+Alternatywnie możesz oddzielić punkt końcowy i klucz dostępu.
+```javascript
+// This code demonstrates how to fetch your endpoint and access key
+// from an environment variable.
+const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
+const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
+const tokenCredential = new AzureKeyCredential(accessKey);
+// Instantiate the identity client
+const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
+```
+
+Jeśli masz skonfigurowaną tożsamość zarządzaną, zobacz [Korzystanie z tożsamości zarządzanych](../managed-identity.md), ale także uwierzytelnianie przy użyciu tożsamości zarządzanej.
+```javascript
+const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
+const tokenCredential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+```
+
 ## <a name="create-an-identity"></a>Tworzenie tożsamości
 
 Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
@@ -104,11 +122,11 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## <a name="issue-access-tokens"></a>Wystawianie tokenów dostępu
 
-Użyj `issueToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
+Użyj `getToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
-let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
@@ -131,7 +149,7 @@ console.log(token);
 
 ## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-Odświeżanie tokenów dostępu jest tak proste jak wywoływanie `issueToken` z tą samą tożsamością, która została użyta do wystawiania tokenów. Należy również podać `scopes` odświeżone tokeny. 
+Odświeżanie tokenów dostępu jest tak proste jak wywoływanie `getToken` z tą samą tożsamością, która została użyta do wystawiania tokenów. Należy również podać `scopes` odświeżone tokeny.
 
 ```javascript
 // // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
@@ -143,7 +161,7 @@ let refreshedTokenResponse = await identityClient.issueToken(identityResponse, [
 
 W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `revokeTokens` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
 
-```javascript  
+```javascript
 await identityClient.revokeTokens(identityResponse);
 console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```

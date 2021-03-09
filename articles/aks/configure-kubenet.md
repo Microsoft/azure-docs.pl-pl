@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 564ebfd0a0a8aa8500b38edbc37c9a42b02b06ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 639bed3dcd8f3f443b73f51efb60e7c8aeaa00a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735169"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504222"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* u
 * Sieć wirtualna klastra AKS musi zezwalać na wychodzącą łączność z Internetem.
 * Nie należy tworzyć więcej niż jednego klastra AKS w tej samej podsieci.
 * Klastry AKS nie mogą korzystać z zakresów adresów usługi Kubernetes,,, ani ich zakresu, z zakresu adresów `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` lub zakresu adresów sieci wirtualnej klastra.
-* Nazwa główna usługi używana przez klaster AKS musi mieć co najmniej rolę [współautor sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Musisz również mieć odpowiednie uprawnienia, takie jak właściciel subskrypcji, aby utworzyć nazwę główną usługi i przypisać im uprawnienia. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
+* Tożsamość klastra używana przez klaster AKS musi mieć co najmniej rolę [współautor sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Musisz również mieć odpowiednie uprawnienia, takie jak właściciel subskrypcji, aby utworzyć tożsamość klastra i przypisać im uprawnienia. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 

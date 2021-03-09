@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8473d3a19a86027b5b01af59d24833dc40cd1fe9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e89716d0560cbf7960cb7bde67156c8df0045a31
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242359"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499224"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure
 > [!IMPORTANT]
@@ -32,7 +32,7 @@ Korzystając z funkcji zarządzanego klucza konta magazynu, należy rozważyć n
 - Tylko jeden obiekt Key Vault powinien zarządzać kluczami konta magazynu. Nie Zezwalaj na zarządzanie kluczami z wielu obiektów.
 - Wygeneruj ponownie klucze, używając tylko Key Vault. Nie należy ręcznie generować ponownie kluczy konta magazynu.
 
-## <a name="service-principal-application-id"></a>Identyfikator aplikacji głównej usługi
+## <a name="service-principal-application-id"></a>Identyfikator aplikacji jednostki usługi
 
 Dzierżawa usługi Azure AD udostępnia każdą zarejestrowaną aplikację z jednostką [usługi](../../active-directory/develop/developer-glossary.md#service-principal-object). Jednostka usługi służy jako identyfikator aplikacji, który jest używany podczas konfigurowania autoryzacji w celu uzyskania dostępu do innych zasobów platformy Azure za pośrednictwem usługi Azure RBAC.
 
@@ -56,7 +56,7 @@ Aby ukończyć ten przewodnik, należy najpierw wykonać następujące czynnośc
 
 ### <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 
-Uwierzytelnij sesję interfejsu wiersza polecenia platformy Azure za pomocą polecenia [AZ login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) .
+Uwierzytelnij sesję interfejsu wiersza polecenia platformy Azure za pomocą polecenia [AZ login](/powershell/module/az.accounts/connect-azaccount) .
 
 ```azurecli-interactive
 az login

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919934"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507215"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -91,7 +91,7 @@ Zasady dotyczące certyfikatów zawierają informacje dotyczące sposobu tworzen
 
 Po utworzeniu certyfikatu Key Vault od podstaw należy podać zasady. Zasady określają sposób tworzenia tej wersji certyfikatu Key Vault lub następnej wersji certyfikatu Key Vault. Po ustanowieniu zasad nie jest to wymagane z kolejnymi operacjami tworzenia dla przyszłych wersji. Istnieje tylko jedno wystąpienie zasad dla wszystkich wersji certyfikatu Key Vault.  
 
-Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)):  
 
 -   Właściwości certyfikatu x509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
 -   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz. 

@@ -3,12 +3,12 @@ title: Dodaj repozytorium artefaktów do laboratorium w Azure DevTest Labs | Mic
 description: Dowiedz się, jak określić własne repozytorium artefaktów dla laboratorium w Azure DevTest Labs, aby przechowywać narzędzia niedostępne w repozytorium artefaktów publicznych.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512015"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502199"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w DevTest Labs
 DevTest Labs pozwala określić artefakt, który ma zostać dodany do maszyny wirtualnej podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Ten artefakt może być narzędziem lub aplikacją, która ma zostać zainstalowana na maszynie wirtualnej. Artefakty są zdefiniowane w pliku JSON załadowanym z repozytorium GitHub lub Azure DevOps git.
@@ -48,7 +48,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
    2. Z listy **organizacja** wybierz pozycję **wszystkie dostępne organizacje**.
    3. Na liście **wygaśnięcie (UTC)** wybierz pozycję **90 dni** lub niestandardowy okres ważności.
    4. Wybierz opcję **pełny dostęp** dla zakresów.
-   5. Wybierz pozycję **Utwórz**.
+   5. Wybierz przycisk **Utwórz**.
 9. Nowy token zostanie wyświetlony na liście **osobiste tokeny dostępu** . Wybierz pozycję **Kopiuj token**, a następnie Zapisz wartość tokenu do późniejszego użycia.
 10. Przejdź do sekcji Łączenie laboratorium z repozytorium.
 
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Po pomyślnym uruchomieniu New-AzResourceGroupDeployment polecenie generuje ważne informacje, takie jak stan aprowizacji (powinno być zakończone powodzeniem) i wszelkie dane wyjściowe szablonu.
 
 ## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
-Ta sekcja zawiera przykładowy skrypt programu PowerShell, który może służyć do dodawania repozytorium artefaktów do laboratorium. Jeśli nie masz Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/?view=azps-1.2.0) , aby uzyskać szczegółowe instrukcje dotyczące instalacji.
+Ta sekcja zawiera przykładowy skrypt programu PowerShell, który może służyć do dodawania repozytorium artefaktów do laboratorium. Jeśli nie masz Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) , aby uzyskać szczegółowe instrukcje dotyczące instalacji.
 
 ### <a name="full-script"></a>Pełny skrypt
 Oto pełny skrypt, w tym wszystkie komunikaty i komentarze pełne:

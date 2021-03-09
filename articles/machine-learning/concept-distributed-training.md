@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: f87175500fcf5bdbcf9a5c2f499f6bab96b37b63
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358579"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498969"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Uczenie rozproszone z Azure Machine Learning
 
@@ -24,7 +24,7 @@ W przypadku szkoleń rozproszonych obciążenie związane z modelem są dzielone
 
 ## <a name="deep-learning-and-distributed-training"></a>Uczenie głębokie i szkolenia rozproszone 
 
-Istnieją dwa główne typy szkoleń rozproszonych: [równoległości danych](#data-parallelism) i [równoległości modeli](#model-parallelism). W przypadku szkoleń rozproszonych dotyczących modeli uczenia głębokiego [zestaw SDK Azure Machine Learning w języku Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) obsługuje integracje z popularnymi strukturami, PyTorch i TensorFlow. Obie platformy wykorzystują równoległość danych do szkolenia rozproszonego i mogą wykorzystać [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) do optymalizacji szybkości obliczeniowej. 
+Istnieją dwa główne typy szkoleń rozproszonych: [równoległości danych](#data-parallelism) i [równoległości modeli](#model-parallelism). W przypadku szkoleń rozproszonych dotyczących modeli uczenia głębokiego [zestaw SDK Azure Machine Learning w języku Python](/python/api/overview/azure/ml/intro) obsługuje integracje z popularnymi strukturami, PyTorch i TensorFlow. Obie platformy wykorzystują równoległość danych do szkolenia rozproszonego i mogą wykorzystać [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) do optymalizacji szybkości obliczeniowej. 
 
 * [Trenowanie rozproszone przy użyciu platformy PyTorch](how-to-train-pytorch.md#distributed-training)
 

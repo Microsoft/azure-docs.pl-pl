@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e8c21df3b783241a3a4bfdbe28b28b2bceb89b4d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704473"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509119"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Tworzenie kompletnej maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 Aby szybko utworzyć maszynę wirtualną (VM) na platformie Azure, możesz użyć jednego polecenia platformy Azure, które korzysta z wartości domyślnych, aby utworzyć wymagane zasoby pomocnicze. Zasoby, takie jak sieć wirtualna, publiczny adres IP i reguły sieciowej grupy zabezpieczeń, są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym, możesz utworzyć te zasoby przed czasem, a następnie dodać do nich maszyny wirtualne. W tym artykule opisano sposób tworzenia maszyny wirtualnej i wszystkich zasobów pomocniczych.
@@ -434,7 +434,7 @@ Domeny błędów definiują grupowanie maszyn wirtualnych, które współużytku
 
 Domeny aktualizacji wskazują grupy maszyn wirtualnych i bazowego sprzętu fizycznego, które mogą być ponownie uruchamiane w tym samym czasie. Podczas planowanej konserwacji kolejność, w której domeny aktualizacji są ponownie uruchamiane, może nie być sekwencyjna, ale tylko jedna domena aktualizacji jest uruchamiana ponownie.
 
-Platforma Azure automatycznie dystrybuuje maszyny wirtualne w domenach błędów i aktualizacji, umieszczając je w zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../manage-availability.md).
+Platforma Azure automatycznie dystrybuuje maszyny wirtualne w domenach błędów i aktualizacji, umieszczając je w zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../availability.md).
 
 Utwórz zestaw dostępności dla maszyny wirtualnej za pomocą [AZ VM Availability-Set Create](/cli/azure/vm/availability-set). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
 

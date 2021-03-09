@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511043"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -34,7 +34,7 @@ Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyśln
 - Można ją włączyć tylko na dyskach danych, a nie na dyskach systemu operacyjnego.
 - Buforowanie hosta **tylko do odczytu** nie jest dostępne dla dysków SSD Premium z `maxShares>1` .
 - Nie można uzyskać dostępu do dysków w warstwie Premium dysków SSD z `maxShares>1` .
-- W przypadku używania zestawów dostępności i zestawów skalowania maszyn wirtualnych z dyskami udostępnionymi platformy Azure [wyrównanie domeny błędów magazynu](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) z domeną błędów maszyny wirtualnej nie jest wymuszane dla udostępnionego dysku danych.
+- W przypadku używania zestawów dostępności i zestawów skalowania maszyn wirtualnych z dyskami udostępnionymi platformy Azure [wyrównanie domeny błędów magazynu](../articles/virtual-machines/availability.md) z domeną błędów maszyny wirtualnej nie jest wymuszane dla udostępnionego dysku danych.
 - W przypadku korzystania z [grup umieszczania w sąsiedztwie (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md)wszystkie maszyny wirtualne, które udostępniają dysk, muszą być częścią tego samego PPGu.
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](/windows-server/failover-clustering/clustering-requirements).
 - Obsługa Azure Site Recovery nie jest jeszcze dostępna.

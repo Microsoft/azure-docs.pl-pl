@@ -3,14 +3,14 @@ title: Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii 
 description: Dowiedz się, jak zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych z centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893850"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506213"
 ---
-# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Zarządzanie brakiem kopii zapasowej za pomocą centrum kopii zapasowych (wersja zapoznawcza)
+# <a name="govern-your-backup-estate-using-backup-center"></a>Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii zapasowych
 
 Centrum kopii zapasowych pomaga zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych. Poniżej wymieniono niektóre funkcje ładu centrum kopii zapasowych:
 

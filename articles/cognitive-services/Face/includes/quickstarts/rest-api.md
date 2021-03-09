@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 9bdc153d88dceec37ae62bdcc6b38b32b4bc7787
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5523d89548ba08dfc5a43f5c21b5a12a5e5955c3
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445450"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510635"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu interfejsu API REST twarzy. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -32,7 +32,7 @@ Użyj interfejsu API REST do:
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z Face API. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* Program [PowerShell w wersji 6.0](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)lub podobnej aplikacji w wierszu polecenia.
+* Program [PowerShell w wersji 6.0](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)lub podobnej aplikacji w wierszu polecenia.
 
 
 ## <a name="detect-faces-in-an-image"></a>Wykrywanie twarzy na obrazie

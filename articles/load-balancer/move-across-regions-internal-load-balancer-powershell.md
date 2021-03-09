@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 73a9356de555e33996b92f05c3bbbabb651f1c9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c89ad69207a51a92b56d268c685aa2be4118cf1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014231"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507589"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Przenoszenie wewnętrznej Load Balancer platformy Azure do innego regionu przy użyciu programu PowerShell
 
@@ -43,18 +43,18 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon sieci wirtualnej i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2.  Uzyskaj identyfikator zasobu sieci wirtualnej, która ma zostać przeniesiona do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+2.  Uzyskaj identyfikator zasobu sieci wirtualnej, która ma zostać przeniesiona do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Wyeksportuj źródłową sieć wirtualną do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Wyeksportuj źródłową sieć wirtualną do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,7 +98,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
     ```
   
-7. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
+7. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation) programu Azure PowerShell, uruchamiając następujące polecenie:
 
     ```azurepowershell-interactive
 
@@ -107,7 +107,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
     ```
 8.  W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry w pliku **\<resource-group-name> JSON** :
 
-    * **Przestrzeń adresowa** — przed zapisaniem można zmienić przestrzeń adresową sieci wirtualnej, modyfikując sekcję **resources**  >  **addressSpace** zasobów i zmieniając właściwość **addressPrefixes** w pliku **\<resource-group-name> JSON** :
+    * **Przestrzeń adresowa** — przed zapisaniem można zmienić przestrzeń adresową sieci wirtualnej, modyfikując sekcję   >  **addressSpace** zasobów i zmieniając właściwość **addressPrefixes** w pliku **\<resource-group-name> JSON** :
 
         ```json
                 "resources": [
@@ -196,20 +196,20 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 9.  Zapisz plik **\<resource-group-name> JSON** .
 
-10. Utwórz grupę zasobów w regionie docelowym dla docelowej sieci wirtualnej, która ma zostać wdrożona przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+10. Utwórz grupę zasobów w regionie docelowym dla docelowej sieci wirtualnej, która ma zostać wdrożona przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Wdróż edytowany plik **\<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Wdróż edytowany plik **\<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
     ```
-12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) i [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
     
     ```azurepowershell-interactive
 
@@ -224,19 +224,19 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
     ```
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon wewnętrznego modułu równoważenia obciążenia i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Uzyskaj identyfikator zasobu wewnętrznego modułu równoważenia obciążenia, który chcesz przenieść do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+2. Uzyskaj identyfikator zasobu wewnętrznego modułu równoważenia obciążenia, który chcesz przenieść do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
 
     ```azurepowershell-interactive
     $sourceIntLBID = (Get-AzLoadBalancer -Name <source-internal-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Wyeksportuj konfigurację źródłową wewnętrznego modułu równoważenia obciążenia do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Wyeksportuj konfigurację źródłową wewnętrznego modułu równoważenia obciążenia do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
@@ -263,7 +263,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
              }
     ```
  
-6. Aby edytować wartość docelowej sieci wirtualnej, która została przeniesiona powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do pliku **\<resource-group-name> JSON** .  Aby uzyskać identyfikator, użyj polecenie [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+6. Aby edytować wartość docelowej sieci wirtualnej, która została przeniesiona powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do pliku **\<resource-group-name> JSON** .  Aby uzyskać identyfikator, użyj polecenie [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -306,7 +306,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
                 },
     ```
 
-11. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
+11. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation) programu Azure PowerShell, uruchamiając następujące polecenie:
 
     ```azurepowershell-interactive
 
@@ -315,7 +315,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
     ```
 12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
     
-    * **Jednostka SKU** — można zmienić jednostkę SKU wewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w pliku **\<resource-group-name> JSON** :
+    * **Jednostka SKU** — można zmienić jednostkę SKU wewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >   w pliku **\<resource-group-name> JSON** :
 
         ```json
         "resources": [
@@ -433,12 +433,12 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
     
 13. Zapisz plik **\<resource-group-name> JSON** .
     
-10. Utwórz lub grupę zasobów w regionie docelowym dla docelowego wewnętrznego modułu równoważenia obciążenia, który ma zostać wdrożony przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). W ramach tego procesu można także ponownie użyć istniejącej grupy zasobów z powyższych elementów:
+10. Utwórz lub grupę zasobów w regionie docelowym dla docelowego wewnętrznego modułu równoważenia obciążenia, który ma zostać wdrożony przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W ramach tego procesu można także ponownie użyć istniejącej grupy zasobów z powyższych elementów:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Wdróż edytowany plik **\<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Wdróż edytowany plik **\<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -446,7 +446,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
     
     ```
 
-12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) i [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
     
     ```azurepowershell-interactive
 
@@ -462,7 +462,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ## <a name="discard"></a>Odrzuć 
 
-Jeśli po wdrożeniu chcesz zacząć od początku lub odrzucić sieć wirtualną i moduł równoważenia obciążenia w miejscu docelowym, Usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiona Sieć wirtualna i moduł równoważenia obciążenia zostaną usunięte.  Aby usunąć grupę zasobów, użyj polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Jeśli po wdrożeniu chcesz zacząć od początku lub odrzucić sieć wirtualną i moduł równoważenia obciążenia w miejscu docelowym, Usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiona Sieć wirtualna i moduł równoważenia obciążenia zostaną usunięte.  Aby usunąć grupę zasobów, użyj polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 
@@ -472,7 +472,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, Usuń źródło sieciowej grupy zabezpieczeń lub grupę zasobów, użyj [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) lub [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0) i [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, Usuń źródło sieciowej grupy zabezpieczeń lub grupę zasobów, użyj [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) lub [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork) i [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer)
 
 ```azurepowershell-interactive
 

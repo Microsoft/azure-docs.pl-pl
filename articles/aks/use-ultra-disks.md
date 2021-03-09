@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć i skonfigurować Ultra disks w klastrz
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178851"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502573"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -84,7 +84,7 @@ Jeśli chcesz utworzyć klastry bez obsługi Ultra Disk, możesz to zrobić, pom
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Włącz Ultra disks w istniejącym klastrze
 
-Można włączyć opcję Ultra disks w istniejących klastrach, dodając do klastra nową pulę węzłów, która obsługuje Ultra Disks. Skonfiguruj nową pulę węzłów do korzystania z szyfrowania opartego na hoście przy użyciu `--aks-custom-headers` flagi.
+Można włączyć opcję Ultra disks w istniejących klastrach, dodając do klastra nową pulę węzłów, która obsługuje Ultra Disks. Skonfiguruj nową pulę węzłów do używania Ultra disks przy użyciu `--aks-custom-headers` flagi.
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
