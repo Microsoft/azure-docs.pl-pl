@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218846"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519201"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
@@ -36,7 +36,7 @@ Triton to struktura, która jest *zoptymalizowana pod kątem wnioskowania*. Zape
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 * Znajomość [sposobu i miejsca wdrożenia modelu](how-to-deploy-and-where.md) z Azure Machine Learning.
-* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/?view=azure-ml-py) **lub** [interfejs wiersza polecenia platformy Azure](/cli/azure/) i [rozszerzenie uczenia maszynowego](reference-azure-machine-learning-cli.md).
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/) **lub** [interfejs wiersza polecenia platformy Azure](/cli/azure/) i [rozszerzenie uczenia maszynowego](reference-azure-machine-learning-cli.md).
 * Działająca instalacja platformy Docker na potrzeby testowania lokalnego. Aby uzyskać informacje na temat instalowania i weryfikowania platformy Docker, zobacz [Orientacja i konfiguracja](https://docs.docker.com/get-started/) w dokumentacji platformy Docker.
 
 ## <a name="architectural-overview"></a>Omówienie architektury
@@ -134,7 +134,7 @@ model = Model.register(
 )
 
 ```
-Aby uzyskać więcej informacji, zobacz dokumentację [klasy model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+Aby uzyskać więcej informacji, zobacz dokumentację [klasy model](/python/api/azureml-core/azureml.core.model.model).
 
 ---
 
@@ -276,7 +276,7 @@ Konfiguracja wnioskowania umożliwia używanie skryptu wejścia, a także proces
 > [!IMPORTANT]
 > Należy określić `AzureML-Triton` [środowisko nadzorowane](./resource-curated-environments.md).
 >
-> Przykład kodu w języku Python klonuje `AzureML-Triton` do innego środowiska o nazwie `My-Triton` . Kod interfejsu wiersza polecenia platformy Azure używa również tego środowiska. Aby uzyskać więcej informacji na temat klonowania środowiska, zobacz odwołanie do [środowiska. klonowania ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) .
+> Przykład kodu w języku Python klonuje `AzureML-Triton` do innego środowiska o nazwie `My-Triton` . Kod interfejsu wiersza polecenia platformy Azure używa również tego środowiska. Aby uzyskać więcej informacji na temat klonowania środowiska, zobacz odwołanie do [środowiska. klonowania ()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 
@@ -337,7 +337,7 @@ Aby uzyskać informacje na temat sposobu tworzenia klienta wysyłającego żąda
 
 ### <a name="setting-the-number-of-workers"></a>Ustawianie liczby procesów roboczych
 
-Aby ustawić liczbę procesów roboczych we wdrożeniu, należy ustawić zmienną środowiskową `WORKER_COUNT` . Jeśli masz obiekt [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) o nazwie `env` , możesz wykonać następujące czynności:
+Aby ustawić liczbę procesów roboczych we wdrożeniu, należy ustawić zmienną środowiskową `WORKER_COUNT` . Jeśli masz obiekt [środowiska](/python/api/azureml-core/azureml.core.environment.environment) o nazwie `env` , możesz wykonać następujące czynności:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

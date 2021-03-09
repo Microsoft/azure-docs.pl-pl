@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f2b01b7a04958c4bd1f97332b54a1ff4fc32356
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369032"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522329"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
@@ -92,7 +92,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Obszar roboczy](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) nawiązuje połączenie z obszarem roboczym Azure Machine Learning, dzięki czemu można komunikować się z zasobami Azure Machine Learning.
+      [Obszar roboczy](/python/api/azureml-core/azureml.core.workspace.workspace) nawiązuje połączenie z obszarem roboczym Azure Machine Learning, dzięki czemu można komunikować się z zasobami Azure Machine Learning.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -100,7 +100,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Eksperyment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) zapewnia prosty sposób organizowania wielu przebiegów w ramach jednej nazwy. Później można zobaczyć, jak eksperymenty ułatwiają porównywanie metryk między dziesiątami z przebiegów.
+      [Eksperyment](/python/api/azureml-core/azureml.core.experiment.experiment) zapewnia prosty sposób organizowania wielu przebiegów w ramach jednej nazwy. Później można zobaczyć, jak eksperymenty ułatwiają porównywanie metryk między dziesiątami z przebiegów.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -108,7 +108,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, w których będzie wykonywany skrypt. W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, w których będzie wykonywany skrypt. W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -116,7 +116,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
+       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](/python/api/azureml-core/azureml.core.run%28class%29). Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
    :::column-end:::
 :::row-end:::
 :::row:::

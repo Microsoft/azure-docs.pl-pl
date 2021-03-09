@@ -1,18 +1,20 @@
 ---
 title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
-description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
+description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: efefb6706794bc2488aa4d4fef6c4ecc082b41a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/04/2021
+ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881269"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521632"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
-W tym artykule wyjaśniono, jak używać Azure PowerShell z szablonami Azure Resource Manager (szablony ARM) do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
+W tym artykule wyjaśniono, jak używać Azure PowerShell z szablonami Azure Resource Manager (szablony ARM) lub plików Bicep do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md) lub [Przegląd Bicep](bicep-overview.md).
+
+Do wdrożenia plików Bicep jest wymagany [Azure PowerShell wersja 5.6.0 lub nowsza](/powershell/azure/install-az-ps).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,13 +34,13 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 - Aby wdrożyć w **grupie zasobów**, użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
   ```
 
 - Aby wdrożyć w **ramach subskrypcji**, użyj polecenia [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) , które jest aliasem elementu `New-AzDeployment` cmdlet:
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
@@ -46,7 +48,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 - Aby wdrożyć w **grupie zarządzania**, użyj polecenie [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
@@ -54,7 +56,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 - Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy](deploy-to-tenant.md).
@@ -89,7 +91,7 @@ W przypadku określenia unikatowej nazwy dla każdego wdrożenia można uruchomi
 
 Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpisy w historii wdrożenia, należy nadać każdemu wdrożeniu unikatową nazwę.
 
-## <a name="deploy-local-template"></a>Wdrażanie szablonu lokalnego
+## <a name="deploy-local-template-or-bicep-file"></a>Wdróż plik szablonu lokalnego lub Bicep
 
 Szablon można wdrożyć z komputera lokalnego lub z niego, który jest przechowywany zewnętrznie. W tej sekcji opisano Wdrażanie szablonu lokalnego.
 
@@ -99,18 +101,21 @@ Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Aby wdrożyć szablon lokalny, użyj `-TemplateFile` parametru w poleceniu wdrażania. Poniższy przykład pokazuje również, jak ustawić wartość parametru, która pochodzi z szablonu.
+Aby wdrożyć szablon lokalny lub plik Bicep, użyj `-TemplateFile` parametru w poleceniu Deployment. Poniższy przykład pokazuje również, jak ustawić wartość parametru, która pochodzi z szablonu.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template-or-bicep>
 ```
 
 Wdrożenie może potrwać kilka minut.
 
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
+
+> [!NOTE]
+> Obecnie Azure PowerShell nie obsługuje wdrażania plików zdalnych Bicep. Aby wdrożyć zdalny plik Bicep, użyj Bicep interfejsu wiersza polecenia, aby najpierw skompilować plik Bicep do szablonu JSON.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 
@@ -145,6 +150,8 @@ Aby uzyskać więcej informacji, zobacz [Używanie ścieżki względnej dla poł
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
+> [!NOTE]
+> Obecnie Azure PowerShell nie obsługuje tworzenia specyfikacji szablonu przez dostarczanie plików Bicep. Można jednak utworzyć plik Bicep z zasobem [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) w celu wdrożenia specyfikacji szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
 W poniższych przykładach pokazano, jak utworzyć i wdrożyć specyfikację szablonu.
@@ -187,7 +194,7 @@ Aby przekazać parametry wbudowane, Podaj nazwy parametru za pomocą `New-AzReso
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -197,7 +204,7 @@ Możesz również pobrać zawartość pliku i podać tę zawartość jako parame
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -211,13 +218,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleArray $subnetArray
 ```
 
 ### <a name="parameter-files"></a>Pliki parametrów
 
-Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametru może być plikiem lokalnym lub zewnętrznym z dostępnym identyfikatorem URI.
+Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametru może być plikiem lokalnym lub zewnętrznym z dostępnym identyfikatorem URI. Zarówno szablon ARM, jak i plik Bicep używają plików parametrów JSON.
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
@@ -225,7 +232,7 @@ Aby przekazać lokalny plik parametrów, użyj `TemplateParameterFile` parametru
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 

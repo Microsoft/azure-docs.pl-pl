@@ -11,16 +11,16 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: ee41ae2a705ceaa0e9742c91552d6bdae26820ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b5511c8ecc33238e0409b5ee4c1c7a11adddeac5
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690281"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522159"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Rozwiązywanie problemów z klasą ParallelRunStep
 
-W tym artykule dowiesz się, jak rozwiązywać problemy w przypadku wystąpienia błędów przy użyciu klasy [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) z [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+W tym artykule dowiesz się, jak rozwiązywać problemy w przypadku wystąpienia błędów przy użyciu klasy [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) z [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro).
 
 Ogólne porady dotyczące rozwiązywania problemów z potokiem można znaleźć w temacie [Rozwiązywanie problemów z potokami uczenia maszynowego](how-to-debug-pipelines.md).
 
@@ -212,7 +212,7 @@ def run(mini_batch):
 
 Użytkownik może przekazać dane referencyjne do skryptu przy użyciu parametru side_inputs ParalleRunStep. Wszystkie zestawy danych podane jako side_inputs zostaną zainstalowane na każdym węźle procesu roboczego. Użytkownik może uzyskać lokalizację instalacji, przekazując argument.
 
-Utwórz [zestaw](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) danych zawierający dane referencyjne i zarejestruj go w obszarze roboczym. Przekaż go do `side_inputs` parametru `ParallelRunStep` . Ponadto możesz dodać swoją ścieżkę w `arguments` sekcji, aby łatwo uzyskać dostęp do jej zainstalowanej ścieżki:
+Utwórz [zestaw](/python/api/azureml-core/azureml.core.dataset.dataset) danych zawierający dane referencyjne i zarejestruj go w obszarze roboczym. Przekaż go do `side_inputs` parametru `ParallelRunStep` . Ponadto możesz dodać swoją ścieżkę w `arguments` sekcji, aby łatwo uzyskać dostęp do jej zainstalowanej ścieżki:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -262,6 +262,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * Zobacz te [notesy Jupyter pokazujące potoki Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-Pipeline-etaps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) . Wyświetl [dokumentację](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) referencyjną dla klasy ParallelRunStep.
+* Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-Pipeline-etaps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) . Wyświetl [dokumentację](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) referencyjną dla klasy ParallelRunStep.
 
 * Postępuj zgodnie z [zaawansowanym samouczkiem](tutorial-pipeline-batch-scoring-classification.md) dotyczącym używania potoków z ParallelRunStep. W tym samouczku pokazano, jak przekazać inny plik jako dane wejściowe.

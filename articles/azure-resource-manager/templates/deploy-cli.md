@@ -2,19 +2,19 @@
 title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741127"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521700"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
-W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) lub pliku Bicep do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md) lub [Przegląd Bicep](bicep-overview.md).
+W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) lub plików Bicep do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md) lub [Przegląd Bicep](bicep-overview.md).
 
-Polecenia wdrożenia zmieniły się w interfejsie CLI platformy Azure w wersji 2.2.0. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej.
+Polecenia wdrożenia zmieniły się w interfejsie CLI platformy Azure w wersji 2.2.0. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Do wdrożenia plików Bicep wymagany jest [interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -85,7 +85,7 @@ Wdrożenie może potrwać kilka minut. Po zakończeniu zobaczysz komunikat, któ
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
 
 > [!NOTE]
-> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania plików Remove Bicep.
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania zdalnych plików Bicep. Aby wdrożyć zdalny plik Bicep, użyj Bicep interfejsu wiersza polecenia, aby najpierw skompilować plik Bicep do szablonu JSON.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 
@@ -148,7 +148,7 @@ Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpi
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
 > [!NOTE]
-> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje tworzenia specyfikacji szablonu przez udostępnienie plików Bicep. Można jednak utworzyć szablon ARM lub plik Bicep za pomocą zasobu [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) w celu wdrożenia specyfikacji szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje tworzenia specyfikacji szablonu przez udostępnienie plików Bicep. Można jednak utworzyć plik Bicep z zasobem [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) w celu wdrożenia specyfikacji szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 

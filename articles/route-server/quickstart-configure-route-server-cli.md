@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef41c52fa1b63094d952dc34f81db36f7aeaac95
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695247"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521292"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Szybki Start: Tworzenie i Konfigurowanie serwera tras przy użyciu interfejsu wiersza polecenia platformy Azure 
 
@@ -56,8 +56,8 @@ az account set --subscription "<subscription ID>"
 Aby można było utworzyć serwer tras platformy Azure, musisz mieć sieć wirtualną do hostowania wdrożenia. Użyj poniższego polecenia, aby utworzyć grupę zasobów i sieć wirtualną. Jeśli masz już sieć wirtualną, możesz przejść do następnej sekcji.
 
 ```azurecli-interactive
-az group create -n “RouteServerRG” -l “westus” 
-az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --address-prefix “10.0.0.0/16” 
+az group create -n "RouteServerRG" -l "westus" 
+az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix "10.0.0.0/16" 
 ``` 
 
 ### <a name="add-a-subnet"></a>Dodawanie podsieci 
@@ -65,13 +65,13 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 1. Dodaj podsieć o nazwie *RouteServerSubnet* , aby wdrożyć serwer tras platformy Azure w programie. Ta podsieć jest dedykowaną podsiecią tylko dla serwera tras platformy Azure. RouteServerSubnet musi mieć wartość/27 lub krótszy prefiks (na przykład/26,/25) lub podczas dodawania serwera usługi Azure Route zostanie wyświetlony komunikat o błędzie.
 
     ```azurecli-interactive 
-    az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
+    az network vnet subnet create -g "RouteServerRG" --vnet-name "myVirtualNetwork" --name "RouteServerSubnet" --address-prefix "10.0.0.0/24"  
     ``` 
 
 1. Uzyskaj identyfikator RouteServerSubnet. Aby wyświetlić identyfikator zasobu wszystkich podsieci w sieci wirtualnej, użyj tego polecenia: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
+    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 Identyfikator RouteServerSubnet wygląda następująco: 
@@ -83,7 +83,7 @@ Identyfikator RouteServerSubnet wygląda następująco:
 Utwórz serwer tras za pomocą tego polecenia: 
 
 ```azurecli-interactive
-az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
+az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-subnet $subnet_id  
 ``` 
 
 Lokalizacja musi być zgodna z lokalizacją sieci wirtualnej. HostedSubnet jest IDENTYFIKATORem RouteServerSubnet uzyskanym w poprzedniej sekcji. 
@@ -94,7 +94,7 @@ Użyj następującego polecenia, aby ustanowić komunikację równorzędną z se
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA1_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +104,7 @@ Aby skonfigurować komunikację równorzędną z różnymi urządzenie WUS lub i
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA2_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Ukończ konfigurację na urządzenie WUS 
@@ -112,7 +112,7 @@ az network routeserver peering create --routeserver-name “myRouteServer” -g 
 Aby ukończyć konfigurację urządzenie WUS i włączyć sesje protokołu BGP, wymagany jest adres IP i ASN serwera usługi Azure Route. Te informacje można uzyskać za pomocą tego polecenia: 
 
 ```azurecli-interactive 
-az network routeserver show -g “RouteServerRG” -n “myRouteServer” 
+az network routeserver show -g "RouteServerRG" -n "myRouteServer" 
 ``` 
 
 Dane wyjściowe zawierają następujące informacje. 
@@ -143,14 +143,14 @@ Jeśli masz bramę ExpressRoute i bramę sieci VPN platformy Azure w tej samej s
 1. Aby włączyć wymianę tras między serwerem tras platformy Azure i bramami, użyj tego polecenia:
 
 ```azurecli-interactive 
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic true 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic true 
 
 ``` 
 
 2. Aby wyłączyć wymianę tras między serwerem tras platformy Azure i bramami, użyj tego polecenia:
 
 ```azurecli-interactive
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic false 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic false 
 ``` 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów 
@@ -169,13 +169,13 @@ Jeśli serwer tras platformy Azure nie jest już potrzebny, Użyj tych poleceń,
 1. Usuń komunikację równorzędną BGP między serwerem tras platformy Azure i urządzenie WUS za pomocą tego polecenia:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
+az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Usuń serwer tras platformy Azure za pomocą tego polecenia: 
 
 ```azurecli-interactive 
-az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
+az network routeserver delete -n "myRouteServer" -g "RouteServerRG" 
 ``` 
 
 ## <a name="next-steps"></a>Następne kroki

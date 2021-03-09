@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518685"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -69,9 +69,14 @@ W następnych pięciu sekcjach pokazano, jak zabezpieczyć scenariusz sieci opis
 Wykonaj następujące kroki, aby zabezpieczyć obszar roboczy i skojarzone zasoby. Te kroki umożliwiają komunikację usług w sieci wirtualnej.
 
 1. Utwórz [prywatny obszar roboczy z obsługą linków](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) , aby umożliwić komunikację między siecią wirtualną i obszarem roboczym.
-1. Dodaj Azure Key Vault do sieci wirtualnej za pomocą [punktu końcowego usługi](../key-vault/general/overview-vnet-service-endpoints.md) lub [prywatnego punktu końcowego](../key-vault/general/private-link-service.md). Ustaw Key Vault na ["Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Dodaj konto usługi Azure Storage do sieci wirtualnej przy użyciu [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Skonfiguruj Azure Container Registry tak, aby korzystał z prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+1. Dodaj następujące usługi do sieci wirtualnej _przy użyciu_ __punktu końcowego usługi__ lub __prywatnego punktu końcowego__. Należy również zezwolić zaufanym usługom firmy Microsoft na dostęp do tych usług:
+    
+    | Usługa | Informacje o punkcie końcowym | Zezwalaj na zaufane informacje |
+    | ----- | ----- | ----- |
+    | __Usługa Azure Key Vault__| [Punkt końcowy usługi](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Prywatny punkt końcowy](../key-vault/general/private-link-service.md) | [Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Konto usługi Azure Storage__ | [Punkt końcowy usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Prywatny punkt końcowy](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Udzielanie dostępu zaufanym usługom platformy Azure](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Punkt końcowy usługi](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Prywatny punkt końcowy](../container-registry/container-registry-private-link.md) | [Zezwalaj na zaufane usługi](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagram architektury pokazujący, jak obszar roboczy i powiązane zasoby komunikują się ze sobą za pośrednictwem punktów końcowych usługi lub prywatnych punktów końcowych wewnątrz sieci wirtualnej](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

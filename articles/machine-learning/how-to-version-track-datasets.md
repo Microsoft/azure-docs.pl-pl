@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: d72d2d094e220bd4e460cfca6b422f0609c083af
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fde25e4ba75bfb86c9837582d7168f85335836b6
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880071"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520544"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>Wersja i śledzenie Azure Machine Learning zestawy danych
 
@@ -31,7 +31,7 @@ Typowe scenariusze obsługi wersji:
 
 W celu skorzystania z tego samouczka potrzebne są następujące elementy:
 
-- [Azure Machine Learning zestawu SDK dla języka Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Ten zestaw SDK zawiera pakiet [Azure-DataSets](/python/api/azureml-core/azureml.core.dataset?preserve-view=true&view=azure-ml-py) .
+- [Azure Machine Learning zestawu SDK dla języka Python](/python/api/overview/azure/ml/install). Ten zestaw SDK zawiera pakiet [Azure-DataSets](/python/api/azureml-core/azureml.core.dataset) .
     
 - [Obszar roboczy Azure Machine Learning](concept-workspace.md). Pobierz istniejący kod lub [Utwórz nowy obszar roboczy](how-to-manage-workspace.md).
 
@@ -62,7 +62,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Pobieranie zestawu danych według nazwy
 
-Domyślnie metoda [get_by_name ()](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) `Dataset` klasy zwraca najnowszą wersję zestawu danych zarejestrowanego w obszarze roboczym. 
+Domyślnie metoda [get_by_name ()](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) `Dataset` klasy zwraca najnowszą wersję zestawu danych zarejestrowanego w obszarze roboczym. 
 
 Poniższy kod pobiera wersję 1 `titanic_ds` zestawu danych.
 
@@ -182,7 +182,7 @@ Poniżej przedstawiono scenariusze, w których dane są śledzone jako **wyjści
 
 Dla każdego Machine Learning eksperymentu można łatwo śledzić zestawy danych używane jako dane wejściowe z `Run` obiektem eksperymentu.
 
-Poniższy kod używa [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) metody do śledzenia, które wejściowe zestawy danych zostały użyte z przebiegiem eksperymentu:
+Poniższy kod używa [`get_details()`](/python/api/azureml-core/azureml.core.run.run#get-details--) metody do śledzenia, które wejściowe zestawy danych zostały użyte z przebiegiem eksperymentu:
 
 ```Python
 # get input datasets

@@ -5,23 +5,23 @@ description: Możesz użyć własnego klucza szyfrowania do ochrony danych na ko
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218574"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517535"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
 Możesz użyć własnego klucza szyfrowania do ochrony danych na koncie magazynu. Gdy określisz klucz zarządzany przez klienta, ten klucz będzie używany w celu ochrony i kontroli dostępu do klucza szyfrującego dane. Klucze zarządzane przez klienta zapewniają większą elastyczność zarządzania kontrolą dostępu.
 
-Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vault lub Azure Key Vault zarządzanego modelu zabezpieczeń sprzętu (HSM) (wersja zapoznawcza). Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub zarządzanym module HSM lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Konto magazynu i Magazyn kluczy lub zarządzany moduł HSM muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
+Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vault lub Azure Key Vault zarządzanego sprzętowego modułu zabezpieczeń (HSM) (wersja zapoznawcza). Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub zarządzanym module HSM lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Konto magazynu i Magazyn kluczy lub zarządzany moduł HSM muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
 
 Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../../key-vault/general/overview.md).
 

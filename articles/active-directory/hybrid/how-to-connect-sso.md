@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937633"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517705"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On (Bezproblemowe logowanie jednokrotne w usłudze Azure Active Directory)
 
@@ -37,7 +37,7 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 
 ## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>Logowanie jednokrotne za pomocą podstawowego tokenu odświeżania a bezproblemowe logowanie jednokrotne
 
-W przypadku systemu Windows 10 zaleca się używanie logowania jednokrotnego za pośrednictwem podstawowego tokenu odświeżania (PRT). W przypadku systemów Windows 7 i 8,1 zaleca się używanie bezproblemowego logowania jednokrotnego.
+W przypadku systemu Windows 10, Windows Server 2016 i nowszych wersji zaleca się używanie logowania jednokrotnego za pośrednictwem podstawowego tokenu odświeżania (PRT). W przypadku systemów Windows 7 i 8,1 zaleca się używanie bezproblemowego logowania jednokrotnego.
 Bezproblemowe logowanie jednokrotne wymaga, aby urządzenie użytkownika zostało przyłączone do domeny, ale nie jest używane na [urządzeniach dołączonych do usługi Azure AD](../devices/concept-azure-ad-join.md) systemu Windows 10 ani w [hybrydowych urządzeniach usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md). Logowanie jednokrotne w usłudze Azure AD, dołączona hybrydowa usługa Azure AD oraz zarejestrowane urządzenia usługi Azure AD działają na podstawie [podstawowego tokenu odświeżania (PRT)](../devices/concept-primary-refresh-token.md)
 
 Logowanie jednokrotne za pośrednictwem PRT działa po zarejestrowaniu urządzeń w usłudze Azure AD dla hybrydowej usługi Azure AD, przyłączonej do usługi Azure AD lub osobistych zarejestrowanych urządzeń za pośrednictwem konta służbowego. Aby uzyskać więcej informacji na temat działania logowania jednokrotnego z systemem Windows 10 przy użyciu usługi PRT, zobacz: [Primary Refresh token (PRT) i Azure AD](../devices/concept-primary-refresh-token.md)

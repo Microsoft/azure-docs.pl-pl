@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 342ae2f590f4bf4ce88f64d6d545defff358ad72
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215225"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519388"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 
@@ -43,7 +43,7 @@ Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, kt
 
 - Model uczenia maszynowego zarejestrowany w obszarze roboczym. Jeśli nie masz zarejestrowanego modelu, zapoznaj [się z tematem jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
-- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - W fragmentach kodu w języku __Python__ w tym artykule założono, że ustawiono następujące zmienne:
 
@@ -169,10 +169,10 @@ print(service.get_logs())
 
 Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w tym przykładzie, zobacz następujące dokumenty referencyjne:
 
-* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
-* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
-* [Model. deploy](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration)
+* [Model. deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -236,7 +236,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Aby uzyskać więcej informacji na temat ustawienia `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` , zobacz odwołanie do modułu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
+Aby uzyskać więcej informacji na temat ustawienia `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` , zobacz odwołanie do modułu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Wdróż modele do AKS przy użyciu kontrolowanego wdrożenia (wersja zapoznawcza)
 
@@ -350,7 +350,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
+> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29)
 
 ### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 

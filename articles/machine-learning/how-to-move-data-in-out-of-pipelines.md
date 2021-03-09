@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 8f1cea6e9bc833c6d441c39c401f60d872cd9099
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174941"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518708"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 
@@ -36,7 +36,7 @@ Potrzebne będą następujące elementy:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub dostęp do programu [Azure Machine Learning Studio](https://ml.azure.com/).
+- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro)lub dostęp do programu [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Obszar roboczy usługi Azure Machine Learning.
   
@@ -55,7 +55,7 @@ Potrzebne będą następujące elementy:
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Użyj `Dataset` obiektów dla wstępnie istniejących danych 
 
-Preferowanym sposobem pozyskiwania danych do potoku jest użycie obiektu [zestawu danych](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) . `Dataset` obiekty reprezentują dane trwałe dostępne w obszarze roboczym.
+Preferowanym sposobem pozyskiwania danych do potoku jest użycie obiektu [zestawu danych](/python/api/azureml-core/azureml.core.dataset%28class%29) . `Dataset` obiekty reprezentują dane trwałe dostępne w obszarze roboczym.
 
 Istnieje wiele sposobów tworzenia i rejestrowania `Dataset` obiektów. Tabelaryczne zestawy danych to dane, które są dostępne w jednym lub kilku plikach. Zestawy danych plików to dane binarne (takie jak obrazy) lub dla analizowanych danych. Najprostszym sposobem tworzenia `Dataset` obiektów jest korzystanie z istniejących bloków BLOB w magazynie obszarów roboczych lub publicznych adresów URL:
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Użyj `OutputFileDatasetConfig` dla danych pośrednich
 
-Gdy `Dataset` obiekty reprezentują tylko trwałe dane, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) można używać obiektów do tymczasowego wyprowadzania danych z kroków potoku **i** trwałych danych wyjściowych. `OutputFileDatasetConfig` obsługuje zapisywanie danych do magazynu obiektów blob, plików adlsgen1 lub adlsgen2. Obsługuje zarówno tryb instalacji, jak i tryb przekazywania. W trybie instalacji pliki zapisane w zainstalowanym katalogu są trwale przechowywane, gdy plik jest zamknięty. W trybie przekazywania pliki zapisywane w katalogu wyjściowym są przekazywane na końcu zadania. Jeśli zadanie nie powiedzie się lub zostanie anulowane, katalog wyjściowy nie zostanie przekazany.
+Gdy `Dataset` obiekty reprezentują tylko trwałe dane, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) można używać obiektów do tymczasowego wyprowadzania danych z kroków potoku **i** trwałych danych wyjściowych. `OutputFileDatasetConfig` obsługuje zapisywanie danych do magazynu obiektów blob, plików adlsgen1 lub adlsgen2. Obsługuje zarówno tryb instalacji, jak i tryb przekazywania. W trybie instalacji pliki zapisane w zainstalowanym katalogu są trwale przechowywane, gdy plik jest zamknięty. W trybie przekazywania pliki zapisywane w katalogu wyjściowym są przekazywane na końcu zadania. Jeśli zadanie nie powiedzie się lub zostanie anulowane, katalog wyjściowy nie zostanie przekazany.
 
  `OutputFileDatasetConfig` domyślne zachowanie obiektu to zapis w domyślnym magazynie danych obszaru roboczego. Przekaż swoje `OutputFileDatasetConfig` obiekty do `PythonScriptStep` `arguments` parametru.
 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: f2060d023e0c05fb368b6362bd137c7fd1afe848
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b66c768011c05e1105f1351ebe4ed7c3c9700b70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435682"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519167"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Rozwiązywanie problemów dotyczących zautomatyzowanych eksperymentów ML w języku Python
 
-W tym przewodniku dowiesz się, jak identyfikować i rozwiązywać znane problemy w zautomatyzowanym doświadczeniu uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+W tym przewodniku dowiesz się, jak identyfikować i rozwiązywać znane problemy w zautomatyzowanym doświadczeniu uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro).
 
 ## <a name="version-dependencies"></a>Zależności wersji
 

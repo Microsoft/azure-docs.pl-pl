@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951625"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518061"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Zarządzanie dostępem użytkowników w Azure Active Directory B2C
 
@@ -78,12 +78,58 @@ Poniższe kroki pokazują logikę, która jest używana do obliczania **grupy wi
 
 4. Jeśli żadna z obliczeń nie zwraca wartości true, obliczenia zwracają wartość **dorosłą**.
 
-Jeśli aplikacja ma niezawodne dane DOB lub kraju/regionu według innych metod, aplikacja może używać interfejs API programu Graph do aktualizowania rekordu użytkownika przy użyciu tych informacji. Przykład:
+Jeśli aplikacja ma niezawodne dane DOB lub kraju/regionu według innych metod, aplikacja może używać interfejs API programu Graph do aktualizowania rekordu użytkownika przy użyciu tych informacji. Na przykład:
 
 - Jeśli użytkownik jest znany jako osoba dorosła, należy zaktualizować atrybut katalogu **grupy wiekowej** wartością **dorosłą**.
 - Jeśli użytkownik jest znany jako pomocniczy, należy zaktualizować atrybut katalogu **grupy wiekowej** o wartości **mniejszości** i ustawić **consentProvidedForMinor**, zgodnie z potrzebami.
 
-Aby uzyskać więcej informacji na temat zbierania danych DOB, zobacz [Korzystanie z kontroli wieku w Azure AD B2C](basic-age-gating.md).
+## <a name="minor-calculation-rules"></a>Reguły obliczeń pomocniczych
+
+Wiek kontroli obejmuje dwie wartości wiekowe: wiek, którego ktoś nie jest już traktowany jako drobny, a okres ważności musi mieć zgodę rodzicielską. W poniższej tabeli wymieniono reguły dotyczące wieku, które są używane do definiowania drobnych i drobnych wyrazów wymagających zgody.
+
+| Kraj/region | Nazwa kraju/regionu | Niewielki wiek zgody | Wiek pomocniczy |
+| -------------- | ------------------- | ----------------- | --------- |
+| Domyślne | Brak | Brak | 18 |
+| AE | Zjednoczone Emiraty Arabskie | Brak | 21 |
+| AT | Austria | 14 | 18 |
+| BE | Belgia | 14 | 18 |
+| BG | Bułgaria | 16 | 18 |
+| BH | Bahrajn | Brak | 21 |
+| CM | Kamerun | Brak | 21 |
+| CY | Cypr | 16 | 18 |
+| CZ | Republika Czeska | 16 | 18 |
+| DE | Niemcy | 16 | 18 |
+| DK | Dania | 16 | 18 |
+| EE | Estonia | 16 | 18 |
+| EG | Egipt | Brak | 21 |
+| ES | Hiszpania | 13 | 18 |
+| PW | Francja | 16 | 18 |
+| GB | Zjednoczone Królestwo | 13 | 18 |
+| GR | Grecja | 16 | 18 |
+| HR | Chorwacja | 16 | 18 |
+| HU | Węgry | 16 | 18 |
+| IE | Irlandia | 13 | 18 |
+| IT | Włochy | 16 | 18 |
+| KR | Korea Południowa | 14 | 18 |
+| LT | Litwa | 16 | 18 |
+| LU | Luksemburg | 16 | 18 |
+| LV | Łotwa | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| NA | Namibia | Brak | 21 |
+| NL | Holandia | 16 | 18 |
+| PL | Polska | 13 | 18 |
+| PT | Portugalia | 16 | 18 |
+| RO | Rumunia | 16 | 18 |
+| SE | Szwecja | 13 | 18 |
+| SG | Singapur | Brak | 21 |
+| SI | Słowenia | 16 | 18 |
+| SK | Słowacja | 16 | 18 |
+| TD | Czad | Brak | 21 |
+| TH | Tajlandia | Brak | 20 |
+| TW | Tajwan | Brak | 20 |
+| USA | Stany Zjednoczone | 13 | 18 |
+
+
 
 ## <a name="capture-terms-of-use-agreement"></a>Przechwyć umowę dotyczącą warunków użytkowania
 
@@ -175,5 +221,6 @@ Poniżej znajduje się przykład zgody na użycie warunków użytkowania w ramac
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Włącz kontroli wieku w Azure AD B2C](age-gating.md).
 - Aby dowiedzieć się, jak usunąć i wyeksportować dane użytkowników, zobacz [Zarządzanie danymi użytkownika](manage-user-data.md).
 - Aby zapoznać się z przykładowymi zasadami niestandardowymi, które implementują monit dotyczący warunków użytkowania, zobacz [B2C IEF Custom Policy — Rejestracja i logowanie przy użyciu wiersza polecenia "warunki użytkowania"](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

@@ -10,19 +10,19 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1c05ff1bf1956943230bf523584025787495d57f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108097"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517858"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Wersje przepływu użytkownika w Azure Active Directory B2C
 
 Przepływy użytkowników w Azure Active Directory B2C (Azure AD B2C) ułatwiają konfigurowanie typowych [zasad](user-flow-overview.md) , które w pełni opisują środowiska tożsamości klientów. Te doświadczenia obejmują rejestrowanie, logowanie, Resetowanie hasła lub edytowanie profilów. W poniższych tabelach opisano przepływy użytkowników, które są dostępne w Azure AD B2C.
 
 > [!IMPORTANT]
-> Zmieniono sposób odwołania do wersji przepływu użytkownika. Wcześniej oferujemy wersje V1 (produkcyjne gotowe) i wersje 1.1 i v2 (wersja zapoznawcza). Teraz zostały skonsolidowane przepływy użytkowników w dwie wersje:
+> Zmieniliśmy sposób odwoływania się do wersji przepływów użytkownika. Wcześniej oferowaliśmy wersje V1 (gotowe do zastosowań produkcyjnych) oraz wersje V1.1 i V2 (wersje zapoznawcze). Teraz zostały skonsolidowane przepływy użytkowników w dwie wersje:
 >
 >- **Zalecane** przepływy użytkowników to nowe wersje zapoznawcze przepływów użytkowników. Są one dokładnie przetestowane i łączą wszystkie funkcje starszych wersji **v2** i **1.1** . W przód nowe zalecane przepływy użytkowników zostaną utrzymane i zaktualizowane. Po przejściu do tych nowych zalecanych przepływów użytkowników będziesz mieć dostęp do nowych funkcji po ich udostępnieniu.
 >- **Standardowe** przepływy użytkowników, znane wcześniej jako **V1**, są ogólnie dostępne, gotowe do użycia w środowisku produkcyjnym. Jeśli przepływ użytkownika jest krytyczny i zależy od wysoce stabilnych wersji, można nadal używać standardowych przepływów użytkowników, w przypadku których te wersje nie będą przechowywane i aktualizowane.
@@ -35,11 +35,11 @@ Zalecane przepływy użytkowników to wersje w wersji zapoznawczej, które łąc
 
 | Przepływ użytkownika | Opis |
 | --------- | ----------- |
-| Resetowanie hasła (wersja zapoznawcza) | Umożliwia użytkownikowi wybranie nowego hasła po zweryfikowaniu poczty e-mail. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>Ustawienia zgodności tokenu</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Resetowanie hasła (wersja zapoznawcza) | Umożliwia użytkownikowi wybranie nowego hasła po zweryfikowaniu poczty e-mail. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>Ustawienia zgodności tokenu</li><li>[Kontrola wieku](age-gating.md)</li><li>[wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
 | Edytowanie profilu (wersja zapoznawcza) | Umożliwia użytkownikowi skonfigurowanie atrybutów użytkownika. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li></ul> |
-| Logowanie (wersja zapoznawcza) | Umożliwia użytkownikowi zalogowanie się do swojego konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>Dostosowywanie strony logowania</li></ul> |
-| Rejestracja (wersja zapoznawcza) | Umożliwia użytkownikowi utworzenie konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
-| Rejestracja i logowanie (wersja zapoznawcza) | Umożliwia użytkownikowi utworzenie konta lub zalogowanie się do niego. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Logowanie (wersja zapoznawcza) | Umożliwia użytkownikowi zalogowanie się do swojego konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](age-gating.md)</li><li>Dostosowywanie strony logowania</li></ul> |
+| Rejestracja (wersja zapoznawcza) | Umożliwia użytkownikowi utworzenie konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Rejestracja i logowanie (wersja zapoznawcza) | Umożliwia użytkownikowi utworzenie konta lub zalogowanie się do niego. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Kontrola wieku](age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Standardowe przepływy użytkownika
 

@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Opisuje proces usługi CloudSimple na potrzeby zaplanowanej konserwacji i aktualizacji
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1cbd708f6c1f5159655099d5d72900ab0c608147
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120712"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522312"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple konserwacja i aktualizacje
 
@@ -102,7 +102,7 @@ Aktualizacje oprogramowania obejmują:
 
 CloudSimple testuje krytyczną poprawkę zabezpieczeń, gdy tylko staną się dostępne z programu VMware. 
 
-CloudSimple dostarcza kwartalne aktualizacje dla składników oprogramowania VMware. Po udostępnieniu nowej wersji głównej oprogramowania VMware CloudSimple współpracuje z klientami w celu koordynowania odpowiedniego okna obsługi w celu uaktualnienia.
+Udokumentowane obejścia programu VMware zostaną zaimplementowane zamiast instalowania odpowiedniej poprawki, dopóki nie zostaną wdrożone kolejne zaplanowane aktualizacje. 
 
 ## <a name="next-steps"></a>Następne kroki
 

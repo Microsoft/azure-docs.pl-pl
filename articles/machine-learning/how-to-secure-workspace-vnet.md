@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6d23b0204cc597898eb2202a329d93ff349f8c13
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176216"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518538"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -65,7 +65,7 @@ Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z
 >
 > Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
 >
-> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
+> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
 
 Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
 
@@ -195,8 +195,6 @@ Aby używać Azure Container Registry wewnątrz sieci wirtualnej, należy spełn
 
     Gdy ACR znajduje się za siecią wirtualną, Azure Machine Learning nie może użyć jej do bezpośredniego tworzenia obrazów platformy Docker. Zamiast tego klaster obliczeniowy jest używany do kompilowania obrazów.
 
-* Przed użyciem ACR z Azure Machine Learning w sieci wirtualnej, należy otworzyć zdarzenie obsługi, aby włączyć tę funkcję. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure Container Registry.
 
 1. Znajdź nazwę Azure Container Registry w obszarze roboczym, korzystając z jednej z następujących metod:
@@ -232,66 +230,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
     > [!IMPORTANT]
     > Twoje konto magazynu, klaster obliczeniowy i Azure Container Registry muszą znajdować się w tej samej podsieci sieci wirtualnej.
     
-    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
-
-1. Zastosuj następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR.
-
-    ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "keyVaultArmId": {
-        "type": "string"
-        },
-        "workspaceName": {
-        "type": "string"
-        },
-        "containerRegistryArmId": {
-        "type": "string"
-        },
-        "applicationInsightsArmId": {
-        "type": "string"
-        },
-        "storageAccountArmId": {
-        "type": "string"
-        },
-        "location": {
-        "type": "string"
-        }
-    },
-    "resources": [
-        {
-        "type": "Microsoft.MachineLearningServices/workspaces",
-        "apiVersion": "2019-11-01",
-        "name": "[parameters('workspaceName')]",
-        "location": "[parameters('location')]",
-        "identity": {
-            "type": "SystemAssigned"
-        },
-        "sku": {
-            "tier": "basic",
-            "name": "basic"
-        },
-        "properties": {
-            "sharedPrivateLinkResources":
-    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
-            "keyVault": "[parameters('keyVaultArmId')]",
-            "containerRegistry": "[parameters('containerRegistryArmId')]",
-            "applicationInsights": "[parameters('applicationInsightsArmId')]",
-            "storageAccount": "[parameters('storageAccountArmId')]"
-        }
-        }
-    ]
-    }
-    ```
-
-    Ten szablon służy do tworzenia _prywatnego punktu końcowego_ dla dostępu do sieci z obszaru roboczego do ACR. Poniższy zrzut ekranu przedstawia przykład tego prywatnego punktu końcowego.
-
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Ustawienia prywatnego punktu końcowego ACR":::
-
-    > [!IMPORTANT]
-    > Nie usuwaj tego punktu końcowego! Jeśli przypadkowo usuniesz ten szablon, możesz go ponownie zastosować w tym kroku, aby utworzyć nowy.
+    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
 ## <a name="next-steps"></a>Następne kroki
 

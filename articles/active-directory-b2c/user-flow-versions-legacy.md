@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cdfd6cb8947fb3b56fcbfe92874c8b9b27a8db1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1fbe93c93b5ede2c6b031dab53a1450da473f802
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108131"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517807"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Starsze wersje przepływu użytkowników w Azure Active Directory B2C
 
@@ -47,8 +47,8 @@ W poniższej tabeli, chyba że przepływ użytkownika zostanie zidentyfikowany j
 
 | Przepływ użytkownika | Zalecane | Opis |
 | --------- | ----------- | ----------- |
-| Resetowanie hasła v2 | Nie | Umożliwia użytkownikowi wybranie nowego hasła po zweryfikowaniu poczty e-mail. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>Ustawienia zgodności tokenu</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Resetowanie hasła v2 | Nie | Umożliwia użytkownikowi wybranie nowego hasła po zweryfikowaniu poczty e-mail. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>Ustawienia zgodności tokenu</li><li>[Kontrola wieku](age-gating.md)</li><li>[wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
 | Edytowanie profilu v2 | Tak | Umożliwia użytkownikowi skonfigurowanie atrybutów użytkownika. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li></ul> |
-| Zaloguj się w wersji 2 | Nie | Umożliwia użytkownikowi zalogowanie się do swojego konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>Dostosowywanie strony logowania</li></ul> |
-| Zarejestruj się w wersji 2 | Nie | Umożliwia użytkownikowi utworzenie konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
-| Rejestracja i logowanie w wersji 2 | Nie | Umożliwia użytkownikowi utworzenie konta lub zalogowanie się do niego. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Kontrola wieku](basic-age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Zaloguj się w wersji 2 | Nie | Umożliwia użytkownikowi zalogowanie się do swojego konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](age-gating.md)</li><li>Dostosowywanie strony logowania</li></ul> |
+| Zarejestruj się w wersji 2 | Nie | Umożliwia użytkownikowi utworzenie konta. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Okres istnienia tokenu](tokens-overview.md)</li><li>Ustawienia zgodności tokenu</li><li>Zachowanie sesji</li><li>[Kontrola wieku](age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |
+| Rejestracja i logowanie w wersji 2 | Nie | Umożliwia użytkownikowi utworzenie konta lub zalogowanie się do niego. Korzystając z tego przepływu użytkownika, można skonfigurować: <ul><li>[Uwierzytelnianie wieloskładnikowe](multi-factor-authentication.md)</li><li>[Kontrola wieku](age-gating.md)</li><li>[Wymagania dotyczące złożoności hasła](password-complexity.md)</li></ul> |

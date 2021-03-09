@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590642"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521360"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -39,7 +39,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 | :-------------------       | :------------------- |
 | **Host funkcji Hyper-V**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze.<br/><br/> Na hoście funkcji Hyper-V można uruchomić system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2. Instalacja Server Core tych systemów operacyjnych również jest obsługiwana. <br/>Nie można ocenić maszyn wirtualnych znajdujących się na hostach funkcji Hyper-V z systemem Windows Server 2012.
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. <br/> Jeśli nie chcesz przypisywać uprawnień administratora, Utwórz konto użytkownika lokalnego lub domeny, a następnie Dodaj konto użytkownika do tych grup — Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności. |
-| **Komunikacja zdalna programu PowerShell**   | [Komunikacja zdalna programu PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) musi być włączona na każdym hoście funkcji Hyper-V. |
+| **Komunikacja zdalna programu PowerShell**   | [Komunikacja zdalna programu PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) musi być włączona na każdym hoście funkcji Hyper-V. |
 | **Hyper-V Replica**       | W przypadku korzystania z funkcji Hyper-V Replica (lub korzystania z wielu maszyn wirtualnych z tymi samymi identyfikatorami maszyn wirtualnych) i odnajdywania zarówno oryginalnej, jak i zreplikowanej maszyny wirtualnej przy użyciu Azure Migrate, Ocena wygenerowana przez Azure Migrate może być niedokładna. |
 
 

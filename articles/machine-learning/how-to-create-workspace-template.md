@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503185"
+ms.locfileid: "102522210"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -32,12 +32,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 * Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](/powershell/azure/) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-* Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Te scenariusze są następujące:
-
-    * __Obszar roboczy z włączoną usługą Private Link i kluczem zarządzanym przez klienta__
-    * __Usługa Azure Container Registry w przypadku obszaru roboczego poza Twoją siecią wirtualną__
-
-    Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Na przykład użycie prywatnego obszaru roboczego z obsługą linku z kluczem zarządzanym przez klienta. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Ograniczenia
 

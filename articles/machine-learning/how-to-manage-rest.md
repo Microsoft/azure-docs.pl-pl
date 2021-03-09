@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fba7fd9faed9a587aebc198c7038b13e26d2ceac
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218268"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520323"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
 
 
-Istnieje kilka sposobów zarządzania zasobami usługi Azure ML. Możesz użyć [portalu](https://portal.azure.com/), [interfejsu wiersza polecenia](/cli/azure)lub [zestawu SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Można też wybrać interfejs API REST. Interfejs API REST używa zleceń HTTP w standardowym sposobie tworzenia, pobierania, aktualizowania i usuwania zasobów. Interfejs API REST działa z dowolnym językiem lub narzędziem, które może wykonywać żądania HTTP. Prosta struktura usługi REST często sprawia, że jest dobrym wyborem w środowiskach skryptów i automatyzacji MLOps. 
+Istnieje kilka sposobów zarządzania zasobami usługi Azure ML. Możesz użyć [portalu](https://portal.azure.com/), [interfejsu wiersza polecenia](/cli/azure)lub [zestawu SDK języka Python](/python/api/overview/azure/ml/intro). Można też wybrać interfejs API REST. Interfejs API REST używa zleceń HTTP w standardowym sposobie tworzenia, pobierania, aktualizowania i usuwania zasobów. Interfejs API REST działa z dowolnym językiem lub narzędziem, które może wykonywać żądania HTTP. Prosta struktura usługi REST często sprawia, że jest dobrym wyborem w środowiskach skryptów i automatyzacji MLOps. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 

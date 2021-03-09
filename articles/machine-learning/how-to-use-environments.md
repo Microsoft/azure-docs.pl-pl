@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 75882701984dfff3005aa3661274a8dc94b22a28
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 038e1394c68df63221d99b87449e5502ae62fadc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596355"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521037"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 
 
-W tym artykule dowiesz się, jak tworzyć [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py)Azure Machine Learning i zarządzać nimi. Używaj środowisk do śledzenia i odtwarzania zależności oprogramowania projektów podczas ich rozwoju.
+W tym artykule dowiesz się, jak tworzyć [środowiska](/python/api/azureml-core/azureml.core.environment.environment)Azure Machine Learning i zarządzać nimi. Używaj środowisk do śledzenia i odtwarzania zależności oprogramowania projektów podczas ich rozwoju.
 
 Zarządzanie zależnościami oprogramowania to typowe zadanie dla deweloperów. Chcesz upewnić się, że kompilacje są odtwarzalne bez rozbudowanej ręcznej konfiguracji oprogramowania. Klasy Azure Machine Learning są `Environment` kontami dla lokalnych rozwiązań programistycznych, takich jak PIP i Conda i rozbudowane programowanie w chmurze za pomocą możliwości platformy Docker.
 
@@ -36,7 +36,7 @@ Aby uzyskać ogólne omówienie sposobu działania środowisk w Azure Machine Le
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="create-an-environment"></a>Tworzenie środowiska
@@ -87,7 +87,7 @@ for env in envs:
 
 ### <a name="use-conda-dependencies-or-pip-requirements-files"></a>Korzystanie z Conda zależności lub plików wymagań PIP
 
-Środowisko można utworzyć na podstawie specyfikacji Conda lub pliku wymagań PIP. Użyj [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-conda-specification-name--file-path-) metody lub [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-pip-requirements-name--file-path-) metody. W argumencie metody Podaj nazwę środowiska i ścieżkę do pliku, który chcesz. 
+Środowisko można utworzyć na podstawie specyfikacji Conda lub pliku wymagań PIP. Użyj [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) metody lub [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) metody. W argumencie metody Podaj nazwę środowiska i ścieżkę do pliku, który chcesz. 
 
 ```python
 # From a Conda specification file
@@ -103,7 +103,7 @@ myenv = Environment.from_pip_requirements(name = "myenv",
 
 Po włączeniu platformy Docker Azure Machine Learning kompiluje obraz platformy Docker i utworzy środowisko Python w tym kontenerze z uwzględnieniem specyfikacji. Obrazy platformy Docker są buforowane i ponownie używane: pierwszy przebieg w nowym środowisku zazwyczaj trwa dłużej, gdy obraz jest kompilowany.
 
-[`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection?preserve-view=true&view=azure-ml-py) `Environment` Klasa Azure Machine Learning umożliwia precyzyjne dostosowywanie i kontrolowanie systemu operacyjnego gościa, w którym jest uruchamiane szkolenie. `arguments`Zmienna może służyć do określania dodatkowych argumentów do przekazania do polecenia Docker Run.
+[`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) `Environment` Klasa Azure Machine Learning umożliwia precyzyjne dostosowywanie i kontrolowanie systemu operacyjnego gościa, w którym jest uruchamiane szkolenie. `arguments`Zmienna może służyć do określania dodatkowych argumentów do przekazania do polecenia Docker Run.
 
 ```python
 # Creates the environment inside a Docker container.
@@ -179,7 +179,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 
 #### <a name="retrieve-image-details"></a>Pobierz szczegóły obrazu
 
-W przypadku zarejestrowanego środowiska można pobrać szczegóły obrazu przy użyciu następującego kodu, gdzie `details` jest wystąpieniem [DockerImageDetails](/python/api/azureml-core/azureml.core.environment.dockerimagedetails?preserve-view=true&view=azure-ml-py) (azure Python SDK >= 1,11) i zawiera wszystkie informacje o obrazie środowiska, takie jak pliku dockerfile, rejestr i nazwa obrazu.
+W przypadku zarejestrowanego środowiska można pobrać szczegóły obrazu przy użyciu następującego kodu, gdzie `details` jest wystąpieniem [DockerImageDetails](/python/api/azureml-core/azureml.core.environment.dockerimagedetails) (azure Python SDK >= 1,11) i zawiera wszystkie informacje o obrazie środowiska, takie jak pliku dockerfile, rejestr i nazwa obrazu.
 
 ```python
 details = environment.get_image_details(workspace=ws)
@@ -195,14 +195,14 @@ details = run.get_environment().get_image_details(workspace=ws)
 
 Jeśli masz istniejące środowisko Conda na komputerze lokalnym, możesz użyć usługi do utworzenia obiektu środowiska. Korzystając z tej strategii, można ponownie użyć lokalnego środowiska interaktywnego na zdalnych uruchomieniach.
 
-Poniższy kod tworzy obiekt środowiska z istniejącego środowiska Conda `mycondaenv` . Używa [`from_existing_conda_environment()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-existing-conda-environment-name--conda-environment-name-) metody.
+Poniższy kod tworzy obiekt środowiska z istniejącego środowiska Conda `mycondaenv` . Używa [`from_existing_conda_environment()`](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-) metody.
 
 ``` python
 myenv = Environment.from_existing_conda_environment(name="myenv",
                                                     conda_environment_name="mycondaenv")
 ```
 
-Definicję środowiska można zapisać w katalogu w łatwo edytowalnym formacie za pomocą [`save_to_directory()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-to-directory-path--overwrite-false-) metody. Po zmodyfikowaniu nowe środowisko można utworzyć wystąpienie przez załadowanie plików z katalogu.
+Definicję środowiska można zapisać w katalogu w łatwo edytowalnym formacie za pomocą [`save_to_directory()`](/python/api/azureml-core/azureml.core.environment.environment#save-to-directory-path--overwrite-false-) metody. Po zmodyfikowaniu nowe środowisko można utworzyć wystąpienie przez załadowanie plików z katalogu.
 
 ```python
 # save the enviroment
@@ -232,13 +232,13 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="add-packages-to-an-environment"></a>Dodawanie pakietów do środowiska
 
-Dodaj pakiety do środowiska przy użyciu plików Conda, PIP lub Private koła. Określ każdą zależność pakietu przy użyciu [`CondaDependency`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?preserve-view=true&view=azure-ml-py) klasy. Dodaj go do środowiska `PythonSection` .
+Dodaj pakiety do środowiska przy użyciu plików Conda, PIP lub Private koła. Określ każdą zależność pakietu przy użyciu [`CondaDependency`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies) klasy. Dodaj go do środowiska `PythonSection` .
 
 ### <a name="conda-and-pip-packages"></a>Pakiety Conda i PIP
 
 Jeśli pakiet jest dostępny w repozytorium pakietu Conda, zalecamy użycie instalacji programu Conda zamiast instalacji PIP. Pakiety Conda są zwykle dołączone do wstępnie skompilowanych plików binarnych, które zwiększają niezawodność instalacji.
 
-Poniższy przykład dodaje do środowiska `myenv` . Dodaje wersję 1.17.0 `numpy` . Dodaje również `pillow` pakiet. W przykładzie zastosowano [`add_conda_package()`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-conda-package-conda-package-) odpowiednio metodę i [`add_pip_package()`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-pip-package-pip-package-) metodę.
+Poniższy przykład dodaje do środowiska `myenv` . Dodaje wersję 1.17.0 `numpy` . Dodaje również `pillow` pakiet. W przykładzie zastosowano [`add_conda_package()`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies#add-conda-package-conda-package-) odpowiednio metodę i [`add_pip_package()`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies#add-pip-package-pip-package-) metodę.
 
 ```python
 from azureml.core.environment import Environment
@@ -276,7 +276,7 @@ Zarządzaj środowiskami, aby można było je aktualizować, śledzić i ponowni
 
 ### <a name="register-environments"></a>Zarejestruj środowiska
 
-Środowisko jest automatycznie rejestrowane w obszarze roboczym podczas przesyłania uruchomienia lub wdrożenia usługi sieci Web. Możesz również ręcznie zarejestrować środowisko przy użyciu [`register()`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-workspace-) metody. Ta operacja powoduje, że środowisko jest śledzone i zgodne z wersją w chmurze. Jednostka może być współdzielona między użytkownikami obszaru roboczego.
+Środowisko jest automatycznie rejestrowane w obszarze roboczym podczas przesyłania uruchomienia lub wdrożenia usługi sieci Web. Możesz również ręcznie zarejestrować środowisko przy użyciu [`register()`](/python/api/azureml-core/azureml.core.environment%28class%29#register-workspace-) metody. Ta operacja powoduje, że środowisko jest śledzone i zgodne z wersją w chmurze. Jednostka może być współdzielona między użytkownikami obszaru roboczego.
 
 Poniższy kod rejestruje środowisko w `myenv` `ws` obszarze roboczym.
 
@@ -292,11 +292,11 @@ W przypadku korzystania ze środowiska po raz pierwszy w szkole lub wdrożeniu z
 
 #### <a name="view-a-list-of-environments"></a>Wyświetlanie listy środowisk
 
-Wyświetl środowiska w obszarze roboczym przy użyciu [`Environment.list(workspace="workspace_name")`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelist-workspace-) klasy. Następnie wybierz środowisko do ponownego użycia.
+Wyświetl środowiska w obszarze roboczym przy użyciu [`Environment.list(workspace="workspace_name")`](/python/api/azureml-core/azureml.core.environment%28class%29#list-workspace-) klasy. Następnie wybierz środowisko do ponownego użycia.
 
 #### <a name="get-an-environment-by-name"></a>Pobieranie środowiska według nazwy
 
-Możesz również uzyskać określone środowisko według nazwy i wersji. Poniższy kod używa [`get()`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-workspace--name--version-none-) metody do pobierania wersji `1` `myenv` środowiska w `ws` obszarze roboczym.
+Możesz również uzyskać określone środowisko według nazwy i wersji. Poniższy kod używa [`get()`](/python/api/azureml-core/azureml.core.environment%28class%29#get-workspace--name--version-none-) metody do pobierania wersji `1` `myenv` środowiska w `ws` obszarze roboczym.
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
@@ -304,7 +304,7 @@ restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
 
 #### <a name="train-a-run-specific-environment"></a>Uczenie środowiska określonego dla uruchamiania
 
-Aby uzyskać środowisko, które zostało użyte do określonego uruchomienia po zakończeniu szkolenia, użyj [`get_environment()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-environment--) metody w `Run` klasie.
+Aby uzyskać środowisko, które zostało użyte do określonego uruchomienia po zakończeniu szkolenia, użyj [`get_environment()`](/python/api/azureml-core/azureml.core.run.run#get-environment--) metody w `Run` klasie.
 
 ```python
 from azureml.core import Run
@@ -319,7 +319,7 @@ Aby zaktualizować wersję pakietu języka Python w istniejącym środowisku, ok
 
 ### <a name="debug-the-image-build"></a>Debuguj kompilację obrazu
 
-Poniższy przykład używa [`build()`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) metody do ręcznego tworzenia środowiska jako obrazu platformy Docker. Monitoruje dzienniki wyjściowe z kompilacji obrazu przy użyciu [`wait_for_completion()`](/python/api/azureml-core/azureml.core.image%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-creation-show-output-false-) . Utworzony obraz zostanie wyświetlony w wystąpieniu Azure Container Registry obszaru roboczego. Te informacje ułatwiają debugowanie.
+Poniższy przykład używa [`build()`](/python/api/azureml-core/azureml.core.environment%28class%29#build-workspace--image-build-compute-none-) metody do ręcznego tworzenia środowiska jako obrazu platformy Docker. Monitoruje dzienniki wyjściowe z kompilacji obrazu przy użyciu [`wait_for_completion()`](/python/api/azureml-core/azureml.core.image%28class%29#wait-for-creation-show-output-false-) . Utworzony obraz zostanie wyświetlony w wystąpieniu Azure Container Registry obszaru roboczego. Te informacje ułatwiają debugowanie.
 
 ```python
 from azureml.core import Image
@@ -327,7 +327,7 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-local-workspace--platform-none----kwargs-) metody. Aby skompilować obraz platformy Docker, ustaw opcjonalny parametr `useDocker=True` . Aby wypchnąć otrzymany obraz do rejestru kontenerów obszaru roboczego platformy Azure, ustaw polecenie `pushImageToWorkspaceAcr=True` .
+Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](/python/api/azureml-core/azureml.core.environment.environment#build-local-workspace--platform-none----kwargs-) metody. Aby skompilować obraz platformy Docker, ustaw opcjonalny parametr `useDocker=True` . Aby wypchnąć otrzymany obraz do rejestru kontenerów obszaru roboczego platformy Azure, ustaw polecenie `pushImageToWorkspaceAcr=True` .
 
 ```python
 build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
@@ -342,7 +342,7 @@ Aby przesłać przebieg szkolenia, należy połączyć środowisko, [obiekt doce
 
 Podczas przesyłania przebiegu szkoleniowego Kompilowanie nowego środowiska może potrwać kilka minut. Czas trwania zależy od rozmiaru wymaganych zależności. Środowiska są buforowane przez usługę. Tak długo, jak definicja środowiska pozostaje niezmieniona, ponosisz pełny czas instalacji tylko raz.
 
-Poniższy przykład lokalnego uruchomienia skryptu pokazuje, gdzie używać [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) jako obiektu otoki.
+Poniższy przykład lokalnego uruchomienia skryptu pokazuje, gdzie używać [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) jako obiektu otoki.
 
 ```python
 from azureml.core import ScriptRunConfig, Experiment
@@ -371,7 +371,7 @@ Jeśli nie określisz środowiska w konfiguracji uruchomieniowej, usługa utworz
 
 Jeśli definiujesz własne środowisko wdrożenia usługi sieci Web, musisz wyświetlić listę `azureml-defaults` z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web.
 
-Aby wdrożyć usługę sieci Web, Połącz środowisko, obliczenia wnioskowania, skrypt oceniania i zarejestrowany model w obiekcie wdrożenia [`deploy()`](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) . Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+Aby wdrożyć usługę sieci Web, Połącz środowisko, obliczenia wnioskowania, skrypt oceniania i zarejestrowany model w obiekcie wdrożenia [`deploy()`](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) . Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
 W tym przykładzie przyjęto założenie, że zostało wykonane uruchomienie szkoleniowe. Teraz chcesz wdrożyć ten model do Azure Container Instances. Podczas kompilowania usługi sieci Web pliki modelu i oceniania są instalowane na obrazie, a do obrazu zostanie dodany stos wnioskowania Azure Machine Learning.
 
@@ -437,4 +437,4 @@ az ml environment download -n myenv -d downloaddir
 
 * Aby użyć zarządzanego obiektu docelowego obliczeń do uczenia modelu, zobacz [Samouczek: uczenie modelu](tutorial-train-models-with-aml.md).
 * Po uzyskaniu przeszkolonego modelu Dowiedz się, [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
-* Wyświetl [ `Environment` odwołanie do zestawu SDK klasy](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py).
+* Wyświetl [ `Environment` odwołanie do zestawu SDK klasy](/python/api/azureml-core/azureml.core.environment%28class%29).

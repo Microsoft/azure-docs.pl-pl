@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454740"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521649"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
 Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizować wydajność i ekonomiczne użycie wystąpienia usługi Azure cache for Redis.
@@ -30,6 +30,8 @@ Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizowa
  * **Znajdź wystąpienie pamięci podręcznej i swoją aplikację w tym samym regionie.**  Łączenie się z pamięcią podręczną w innym regionie może znacznie zwiększyć opóźnienie i ograniczyć niezawodność.  Istnieje możliwość nawiązania połączenia poza platformą Azure, ale nie jest to zalecane, *szczególnie w przypadku korzystania z Redis jako pamięci podręcznej*.  Jeśli używasz Redis jako samego magazynu klucz/wartość, opóźnienie może nie być zasadniczym problemem. 
 
  * **Ponowne użycie połączeń.**  Tworzenie nowych połączeń jest kosztowne i zwiększa opóźnienia, dlatego należy ponownie używać połączeń, tak jak to możliwe. Jeśli zdecydujesz się na utworzenie nowych połączeń, przed ich wydaniem upewnij się, że zostały zamknięte stare połączenia (nawet w językach zarządzanych, takich jak .NET lub Java).
+
+* **Używaj przetwarzania potokowego.**  Spróbuj wybrać klienta Redis, który obsługuje [przetwarzanie potokowe Redis](https://redis.io/topics/pipelining) w celu zapewnienia najbardziej wydajnego wykorzystania sieci, aby uzyskać najlepszą przepustowość.
 
  * **Skonfiguruj bibliotekę klienta tak, aby korzystała z *limitu czasu połączenia* wynoszącego co najmniej 15 sekund**, co zapewnia czas systemowy do połączenia nawet w wyższych warunkach CPU.  Niewielka wartość limitu czasu połączenia nie gwarantuje, że połączenie jest ustanowione w tym czasie.  Jeśli coś się nie powiedzie (wysoki procesor CPU klienta, wysoki procesor CPU i tak dalej), wówczas wartość limitu czasu połączenia zostanie spowodowana błędem połączenia. Takie zachowanie często sprawia, że zła sytuacja jest gorsza.  W przeciwieństwie do krótszych limitów czasu pogłębić problem, wymuszając system, aby ponownie uruchomić proces próby ponownego nawiązania połączenia, co może prowadzić do *niepowodzenia > pętli ponawiania próby połączenia >* . Zwykle zaleca się pozostawienie limitu czasu połączenia co 15 sekund. Lepszym rozwiązaniem jest ponowienie próby połączenia po 15 lub 20 sekundach, aby szybko się nie przekroczyć. Taka pętla ponawiania może spowodować wydłużenie czasu przestoju, niż w przypadku dłuższego wydłużenia systemu.  
      > [!NOTE]

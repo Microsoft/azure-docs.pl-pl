@@ -1,18 +1,18 @@
 ---
 title: Jak używać parametrów i wyrażeń w Azure Data Factory
 description: Ten artykuł zawiera informacje o wyrażeniach i funkcjach, których można użyć podczas tworzenia jednostek fabryki danych.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 9cf37d554081ddd300a3ea4c16e2f167c5b98895
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/08/2020
+ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510498"
+ms.locfileid: "102520306"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Jak używać parametrów, wyrażeń i funkcji w Azure Data Factory
 
@@ -21,7 +21,11 @@ ms.locfileid: "102510498"
 > * [Bieżąca wersja](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule omówiono głównie koncepcje uczenia się z przykładami i samouczkami dotyczącymi eksplorowania możliwości tworzenia sparametryzowanych potoków danych w Azure Data Factory. Wyrażenia parametryzacja i Dynamic są takimi, które są istotnymi dodatkami do usługi ADF, ponieważ mogą zaoszczędzić dużo czasu i pozwalają na znacznie bardziej elastyczne rozwiązanie wyodrębniania, przekształcania, ładowania (ETL) lub wyodrębniania, obciążenia, przekształcania (ELT), co znacznie zmniejsza koszty konserwacji rozwiązań i przyspiesza implementację nowych funkcji w istniejących potokach. Te zyski wynikają z faktu, że parametryzacja minimalizuje ilość twardych kodowania i zwiększa liczbę obiektów wielokrotnego użytku i procesów w rozwiązaniu.
+W tym dokumencie będziemy przede wszystkim skupić się na podstawowych pojęciach związanych z różnymi przykładami, aby poznać możliwość tworzenia sparametryzowanych potoków danych w ramach Azure Data Factory. Wyrażenia "parametryzacja" i "dynamiczne" to takie, które są istotnymi dodatkami do usługi ADF, ponieważ mogą zaoszczędzić dużo czasu i umożliwiają znacznie bardziej elastyczne rozwiązanie wyodrębniania, przekształcania, ładowania (ETL) lub wyodrębniania, obciążenia, przekształcania (ELT), co znacznie zmniejsza koszty konserwacji rozwiązań i przyspiesza implementację nowych funkcji w istniejących potokach. Te zyski wynikają z faktu, że parametryzacja minimalizuje ilość twardych kodowania i zwiększa liczbę obiektów wielokrotnego użytku i procesów w rozwiązaniu.
+
+## <a name="azure-data-factory-ui-and-parameters"></a>Interfejs użytkownika i parametry usługi Azure Data Factory
+
+Jeśli jesteś nowym użytkownikiem użycia parametrów usługi Azure Data Factory w interfejsie użytkownika funkcji ADF, przejrzyj [Informacje o interfejsie użytkownika usługi Data Factory dla połączonych usług z parametrami](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  i [interfejsem użytkownika usługi Data Factory dla potoku opartego na metadanych z parametrami](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) dla wyjaśnienia wizualnego.
 
 ## <a name="parameter-and-expression-concepts"></a>Pojęcia dotyczące parametrów i wyrażeń 
 
@@ -39,7 +43,7 @@ Na przykład:
 "name": "@pipeline().parameters.password"
 ```
 
-Wyrażenia mogą znajdować się w dowolnym miejscu w wartości ciągu JSON i zawsze dawać inną wartość JSON. Jeśli wartość JSON jest wyrażeniem, treść wyrażenia jest wyodrębniana przez usunięcie znaku ( \@ ). Jeśli ciąg literału jest wymagany, który zaczyna się od \@ , należy użyć polecenia \@ \@ . W poniższych przykładach pokazano, jak są oceniane wyrażenia.  
+Wyrażenia mogą znajdować się w dowolnym miejscu w wartości ciągu JSON i zawsze dawać inną wartość JSON. W tym miejscu *hasło* jest parametrem potoku w wyrażeniu. Jeśli wartość JSON jest wyrażeniem, treść wyrażenia jest wyodrębniana przez usunięcie znaku ( \@ ). Jeśli ciąg literału jest wymagany, który zaczyna się od \@ , należy użyć polecenia \@ \@ . W poniższych przykładach pokazano, jak są oceniane wyrażenia.  
   
 |Wartość JSON|Wynik|  
 |----------------|------------|  
@@ -301,13 +305,20 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [taktów](control-flow-expression-language-functions.md#ticks) | Zwraca `ticks` wartość właściwości dla określonego sygnatury czasowej. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Zwróć bieżącą sygnaturę czasową jako ciąg. |
 
-## <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Szczegółowy potok kopiowania usługi Azure Data Factory z parametrami 
+## <a name="detailed-examples-for-practice"></a>Szczegółowe przykłady dotyczące ćwiczeń
+
+### <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Szczegółowy potok kopiowania usługi Azure Data Factory z parametrami 
 
 Ten [parametr potoku kopiowania usługi Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) jest przeszukiwany przez proces przekazywania parametrów między potokiem a działaniem oraz między działaniami.
 
-## <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Szczegółowy potok przepływu danych mapowania z parametrami 
+### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Szczegółowy potok przepływu danych mapowania z parametrami 
 
 Postępuj zgodnie z informacjami o [mapowaniu przepływu danych z parametrami](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) , aby uzyskać pełny przykład użycia parametrów w przepływie danych.
+
+### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Szczegółowy potok oparty na metadanych z parametrami
+
+Aby dowiedzieć się więcej na temat używania parametrów do projektowania potoków opartych na metadanych, należy postępować według [potoku opartego na metadanych z parametrami](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) . Jest to popularny przypadek użycia dla parametrów.
+
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać listę zmiennych systemowych, których można używać w wyrażeniach, zobacz [zmienne systemowe](control-flow-system-variables.md).

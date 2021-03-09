@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693870"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519711"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -391,7 +391,7 @@ Dostosuj właściwości:
 - **validExitCodes** — opcjonalne, prawidłowe kody, które mogą być zwracane z skryptu/polecenia wbudowanego, pozwoli to uniknąć zgłaszanego błędu skryptu/polecenia wbudowanego.
 - **runElevated** — opcjonalne, wartość logiczna, obsługa uruchamiania poleceń i skryptów z podniesionymi uprawnieniami.
 - **sha256Checksum** — wartość sumy kontrolnej SHA256 pliku, wygenerowana lokalnie, a następnie Konstruktor obrazów będzie obliczać sumę kontrolną i sprawdzać poprawność.
-    * Aby wygenerować sha256Checksum przy użyciu programu PowerShell w systemie Windows [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * Aby wygenerować sha256Checksum przy użyciu programu PowerShell w systemie Windows [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
 
 ### <a name="file-customizer"></a>Konfigurator plików
@@ -456,7 +456,7 @@ Dostosuj właściwości:
 - **updateLimit** — opcjonalne, definiuje liczbę aktualizacji, które mogą być instalowane, domyślnie 1000.
  
 > [!NOTE]
-> Windows Update konfigurator może zakończyć się niepowodzeniem, jeśli istnieją jakiekolwiek zaległe ponowne uruchomienia systemu Windows lub instalacje aplikacji nadal działają, zazwyczaj ten błąd może pojawić się w temacie Customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Zdecydowanie odradzamy Dodawanie w systemie Windows ponownego uruchamiania i/lub zezwalanie aplikacjom na ukończenie instalacji przy użyciu funkcji [uśpienia] lub oczekiwanie poleceń ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) w poleceniach wbudowanych lub w skryptach przed uruchomieniem Windows Update.
+> Windows Update konfigurator może zakończyć się niepowodzeniem, jeśli istnieją jakiekolwiek zaległe ponowne uruchomienia systemu Windows lub instalacje aplikacji nadal działają, zazwyczaj ten błąd może pojawić się w temacie Customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Zdecydowanie zalecamy, aby rozważyć dodanie do ponownego uruchomienia systemu Windows i/lub zezwolenie aplikacjom na ukończenie instalacji przy użyciu poleceń [uśpienia](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) lub oczekiwania w poleceniach wbudowanych lub skryptach przed uruchomieniem Windows Update.
 
 ### <a name="generalize"></a>Generalize 
 Domyślnie program Azure Image Builder uruchomi również kod "anulowania aprowizacji" na końcu każdej fazy dostosowywania obrazu do "generalize" obrazu. Uogólnianie to proces, w którym obraz jest skonfigurowany tak, aby można go było ponownie wykorzystać do tworzenia wielu maszyn wirtualnych. W przypadku maszyn wirtualnych z systemem Windows usługa Azure Image Builder używa programu Sysprep. W przypadku systemu Linux usługa Azure Image Builder uruchamia polecenie "waagent-dezastrzeganie". 

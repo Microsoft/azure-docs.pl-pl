@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: da973cf377ceace4a92d1cdd1e956321a5592e6a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692219"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520510"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 
@@ -37,7 +37,7 @@ Automatyczna tablica w potoku jest reprezentowana przez `AutoMLStep` obiekt. `Au
 
 Istnieje kilka podklas `PipelineStep` . Oprócz programu, w `AutoMLStep` tym artykule przedstawiono `PythonScriptStep` przygotowanie do przygotowania danych i inne do zarejestrowania modelu.
 
-Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Dataset` obiektami. Aby przenieść dane _między_ krokami i możliwymi zapisami wyjściowymi danych z przebiegów, preferowanym sposobem jest z [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py) obiektami i. Aby można było używać `AutoMLStep` go z, `PipelineData` obiekt musi być przekształcony w `PipelineOutputTabularDataset` obiekt. Aby uzyskać więcej informacji, zobacz [dane wejściowe i wyjściowe z potoków ml](how-to-move-data-in-out-of-pipelines.md).
+Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Dataset` obiektami. Aby przenieść dane _między_ krokami i możliwymi zapisami wyjściowymi danych z przebiegów, preferowanym sposobem jest z [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) obiektami i. Aby można było używać `AutoMLStep` go z, `PipelineData` obiekt musi być przekształcony w `PipelineOutputTabularDataset` obiekt. Aby uzyskać więcej informacji, zobacz [dane wejściowe i wyjściowe z potoków ml](how-to-move-data-in-out-of-pipelines.md).
 
 `AutoMLStep`Konfiguracja jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig` jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](./how-to-configure-auto-train.md#configure-your-experiment-settings). 
 

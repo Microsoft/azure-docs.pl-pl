@@ -8,16 +8,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805533"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517875"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Rozwiązywanie problemów z synchronizacją w chmurze
 
-Synchronizacja w chmurze dotyka wielu różnych rzeczy i ma wiele różnych zależności. Ten rozległy zakres może prowadzić do różnych problemów. Ten artykuł pomaga w rozwiązywaniu tych problemów. Przedstawiono w nim typowe obszary, w których można skoncentrować się na tym, jak zbierać dodatkowe informacje i różne techniki, których można użyć do śledzenia problemów.
+Synchronizacja z chmurą obejmuje wiele zagadnień i ma wiele różnych zależności. Ten szeroki zakres może przyczyniać się do powstawania różnych problemów. Ten artykuł pomaga w rozwiązywaniu tych problemów. Przedstawiono w nim typowe obszary, na które należy zwrócić uwagę, sposób zbierania dodatkowych informacji oraz różne techniki umożliwiające śledzenie problemów.
 
 
 ## <a name="common-troubleshooting-areas"></a>Typowe obszary rozwiązywania problemów
@@ -120,7 +120,7 @@ Podczas instalowania agenta aprowizacji w chmurze może zostać wyświetlony kom
 
 Ten problem jest zwykle spowodowany tym, że Agent nie może wykonać skryptów rejestracji programu PowerShell z powodu lokalnych zasad wykonywania programu PowerShell.
 
-Aby rozwiązać ten problem, Zmień zasady wykonywania programu PowerShell na serwerze. Zasady komputera i użytkownika muszą mieć ustawioną wartość *undefined* lub *RemoteSigned*. Jeśli są ustawione jako *nieograniczone*, zobaczysz ten błąd. Aby uzyskać więcej informacji, zobacz [zasady wykonywania programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Aby rozwiązać ten problem, Zmień zasady wykonywania programu PowerShell na serwerze. Zasady komputera i użytkownika muszą mieć ustawioną wartość *undefined* lub *RemoteSigned*. Jeśli są ustawione jako *nieograniczone*, zobaczysz ten błąd. Aby uzyskać więcej informacji, zobacz [zasady wykonywania programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Pliki dziennika
 

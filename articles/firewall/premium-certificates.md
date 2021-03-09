@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 31948d5e98ea3024c838bf0fa4b05609a5662ec5
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485524"
+ms.locfileid: "102520289"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certyfikaty usługi Azure firewall Premium Preview 
 
@@ -96,7 +96,7 @@ Aby skonfigurować certyfikat urzędu certyfikacji w zasadach warstwy Premium za
 Aby ułatwić testowanie i weryfikowanie inspekcji protokołu TLS, można użyć następujących skryptów do utworzenia własnego głównego urzędu certyfikacji z podpisem własnym i pośredniego urzędu certyfikacji.
 
 > [!IMPORTANT]
-> W przypadku produkcji należy użyć firmowej infrastruktury kluczy publicznych, aby utworzyć certyfikat pośredniego urzędu certyfikacji. Firmowa infrastruktura PKI wykorzystuje istniejącą infrastrukturę i obsługuje dystrybucję głównego urzędu certyfikacji na wszystkie maszyny wirtualne.
+> W przypadku produkcji należy użyć firmowej infrastruktury kluczy publicznych, aby utworzyć certyfikat pośredniego urzędu certyfikacji. Firmowa infrastruktura PKI wykorzystuje istniejącą infrastrukturę i obsługuje dystrybucję głównego urzędu certyfikacji na wszystkie maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [wdrażanie i Konfigurowanie certyfikatów urzędu certyfikacji przedsiębiorstwa na potrzeby wersji zapoznawczej zapory platformy Azure](premium-deploy-certificates-enterprise-ca.md).
 
 Istnieją dwie wersje tego skryptu:
 - skrypt bash `cert.sh` 

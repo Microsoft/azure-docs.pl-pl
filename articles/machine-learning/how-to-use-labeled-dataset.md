@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2eec512af9b139b2707c435fd0c78b7d50ac1b11
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981514"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521054"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Tworzenie i eksplorowanie zestawu danych Azure Machine Learning przy użyciu etykiet
 
@@ -27,8 +27,8 @@ Odwołujemy się do Azure Machine Learning zestawów danych z etykietami jako ze
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://aka.ms/AMLFree) .
-* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub dostęp do programu [Azure Machine Learning Studio](https://ml.azure.com/).
-    * Instalowanie pakietu [Azure-contrib-DataSet](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py)
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro)lub dostęp do programu [Azure Machine Learning Studio](https://ml.azure.com/).
+    * Instalowanie pakietu [Azure-contrib-DataSet](/python/api/azureml-contrib-dataset/)
 * Obszar roboczy Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 * Dostęp do projektu etykietowania danych Azure Machine Learning. Jeśli nie masz projektu etykietowania, utwórz go za pomocą [tych kroków](how-to-create-labeling-projects.md).
 
@@ -55,7 +55,7 @@ Załaduj zestawy danych z etykietami do Pandas Dataframe lub Torchvision DataSet
 
 ### <a name="pandas-dataframe"></a>Ramka dataPandas
 
-Zestawy danych z etykietami można ładować do Pandas Dataframe z [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodą z `azureml-contrib-dataset` klasy. Zainstaluj klasę przy użyciu następującego polecenia powłoki: 
+Zestawy danych z etykietami można ładować do Pandas Dataframe z [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodą z `azureml-contrib-dataset` klasy. Zainstaluj klasę przy użyciu następującego polecenia powłoki: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -90,7 +90,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Torchvision zbiory danych
 
-Można załadować zestawy danych z etykietami do Torchvision DataSet z metodą [to_torchvision ()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) również z `azureml-contrib-dataset` klasy. Aby można było użyć tej metody, należy zainstalować [PyTorch](https://pytorch.org/) . 
+Można załadować zestawy danych z etykietami do Torchvision DataSet z metodą [to_torchvision ()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset#to-torchvision--) również z `azureml-contrib-dataset` klasy. Aby można było użyć tej metody, należy zainstalować [PyTorch](https://pytorch.org/) . 
 
 W poniższym kodzie `animal_labels` zestaw danych jest danymi wyjściowymi z projektu etykietowego, który został wcześniej zapisany w obszarze roboczym.
 

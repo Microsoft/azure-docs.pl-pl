@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584217"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517671"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -241,7 +241,7 @@ Gdy zostanie wykonane żądanie dodania zweryfikowanego wydawcy, do oceny ryzyka
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli zostały sprawdzone wszystkie poprzednie informacje i nadal pojawiają się błędy z Microsoft Graph, Zbierz możliwie najwięcej z poniższych informacji związanych z błędnym żądaniem i [skontaktuj się z pomocą techniczną firmy Microsoft](developer-support-help-options.md#open-a-support-request).
+Jeśli zostały sprawdzone wszystkie poprzednie informacje i nadal pojawiają się błędy z Microsoft Graph, Zbierz możliwie najwięcej z poniższych informacji związanych z błędnym żądaniem i [skontaktuj się z pomocą techniczną firmy Microsoft](developer-support-help-options.md#create-an-azure-support-request).
 
 - Znacznik czasu 
 - CorrelationId 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019724"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521870"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Szybki Start: Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu szablonu ARM
 
@@ -82,7 +82,7 @@ Aby uzyskać pełny przegląd właściwości obiektów dzienników przepływu si
 
 Jeśli używasz szablonów ARM po raz pierwszy, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o szablonach usługi ARM:
 
-- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Poniższy przykład jest kompletnym szablonem. Jest to również najprostsza wersja szablonu. Przykład zawiera minimalne parametry, które są przesyłane w celu skonfigurowania dzienników przepływu sieciowej grupy zabezpieczeń. Aby uzyskać więcej przykładów, zobacz artykuł Omówienie [Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Dostępne są dwie opcje, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie:
 
 - Konsola programu PowerShell pokazuje `ProvisioningState` jako `Succeeded` .
-- Przejdź do [strony portalu sieciowej grupy zabezpieczeń Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) , aby potwierdzić zmiany. 
+- Przejdź do [strony portalu sieciowej grupy zabezpieczeń Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) , aby potwierdzić zmiany.
 
 Jeśli wystąpiły problemy ze wdrożeniem, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

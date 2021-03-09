@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526242"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518049"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ ms.locfileid: "100526242"
 - Jeśli jeszcze tego nie zrobiono, [Utwórz dzierżawę Azure AD B2C](tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 - [Zarejestruj swoją aplikację](tutorial-register-applications.md) w utworzonej dzierżawie, aby mogła ona komunikować się z Azure AD B2C.
 - Wykonaj kroki opisane w temacie [Konfigurowanie rejestracji i logowania przy użyciu konta w serwisie Facebook](identity-provider-facebook.md) , aby skonfigurować aplikację w serwisie Facebook. Mimo że aplikacja Facebook nie jest wymagana do korzystania z zasad niestandardowych, jest używana w tym instruktażu, aby zademonstrować włączenie logowania do sieci społecznościowej w zasadach niestandardowych.
+
+> [!TIP]
+> W tym artykule wyjaśniono, jak ręcznie skonfigurować dzierżawę. Możesz zautomatyzować cały proces z tego artykułu. Automatyzacja spowoduje wdrożenie pakietu Azure AD B2C [SocialAndLocalAccountsWithMFA Starter](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), który zapewni rejestrację i logowanie, resetowanie haseł i przeszukiwanie profilów. Aby zautomatyzować poniższe przewodnik, odwiedź [aplikację instalatora IEF](https://aka.ms/iefsetup) i postępuj zgodnie z instrukcjami.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Dodaj klucze podpisywania i szyfrowania
 

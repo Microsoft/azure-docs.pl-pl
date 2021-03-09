@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd1f21f150094094a6bf856b04a64a02963f35a8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225156"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521717"
 ---
-# <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Content Delivery Network
+# <a name="azure-web-application-firewall-on-azure-content-delivery-network-from-microsoft"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Content Delivery Network od firmy Microsoft
 
 Zapora aplikacji sieci Web platformy Azure (WAF) w usłudze Azure Content Delivery Network (CDN) firmy Microsoft zapewnia scentralizowaną ochronę zawartości sieci Web. WAF obrony usług sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach. Zapewnia ona wysoką dostępność usługi dla użytkowników i pomaga spełnić wymagania dotyczące zgodności.
 
@@ -35,7 +35,7 @@ Można skonfigurować zasady WAF i skojarzyć te zasady z co najmniej jednym pun
 
 - zarządzane zestawy reguł, które są kolekcjami wstępnie skonfigurowanych reguł platformy Azure.
 
-Gdy obie są obecne, reguły niestandardowe są przetwarzane przed przetworzeniem reguł w zarządzanym zestawie reguł. Reguła zawiera warunek dopasowania, priorytet i akcję. Obsługiwane typy akcji to: *Zezwalaj*, *Blokuj*, *Rejestruj*i *Przekieruj*. Można utworzyć w pełni dostosowane zasady spełniające określone wymagania dotyczące ochrony aplikacji przez połączenie reguł zarządzanych i niestandardowych.
+Gdy obie są obecne, reguły niestandardowe są przetwarzane przed przetworzeniem reguł w zarządzanym zestawie reguł. Reguła zawiera warunek dopasowania, priorytet i akcję. Obsługiwane typy akcji to: *Zezwalaj*, *Blokuj*, *Rejestruj* i *Przekieruj*. Można utworzyć w pełni dostosowane zasady spełniające określone wymagania dotyczące ochrony aplikacji przez połączenie reguł zarządzanych i niestandardowych.
 
 Reguły w ramach zasad są przetwarzane w kolejności priorytetów. Priority to unikatowy numer, który definiuje kolejność reguł do przetworzenia. Mniejsza liczba jest wyższym priorytetem, a reguły są oceniane przed regułami o większej wartości. Po dopasowaniu reguły odpowiednia akcja zdefiniowana w regule zostanie zastosowana do żądania. Gdy takie dopasowanie zostanie przetworzone, reguły o niższych priorytetach nie są przetwarzane więcej.
 
@@ -104,7 +104,7 @@ Domyślny zestaw reguł jest domyślnie włączony w trybie *wykrywania* w zasad
 
 Reguły niestandardowe są zawsze stosowane przed oceną reguł w domyślnym zestawie reguł. Jeśli żądanie jest zgodne z regułą niestandardową, zostanie zastosowana odpowiednia akcja reguły. Żądanie jest blokowane lub przenoszone do zaplecza. Nie są przetwarzane żadne inne reguły niestandardowe lub reguły w domyślnym zestawie reguł. Można również usunąć domyślny zestaw reguł z zasad WAFymi.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

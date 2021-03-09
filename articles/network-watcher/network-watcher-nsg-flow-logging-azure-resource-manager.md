@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 06e70bd31e2045925c1fe7b4088e1a0b1d560b2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a7244aebef6adcfbf96884d377592b575e2c3acb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011071"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519881"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager
 
@@ -76,7 +76,7 @@ Aby utworzyć zasób Microsoft. Network/networkWatchers/flowLogs, Dodaj powyższ
 
 Jeśli używasz szablonów Azure Resource Manager po raz pierwszy, możesz dowiedzieć się więcej na ich temat, korzystając z poniższych linków.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -144,7 +144,7 @@ Poniżej przedstawiono dwa przykłady kompletnych szablonów służących do kon
         },
         "format": {
           "type": "JSON",
-          "version": 2          
+          "version": 2
         }
       }
     }

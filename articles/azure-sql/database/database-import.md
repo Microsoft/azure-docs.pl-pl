@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8d246f06db9fc9f4e6916ea69ec49ddaf8cf0667
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040164"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519779"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: Importowanie pliku BACPAC do bazy danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi 
 > [!NOTE]
 > Komputery przetwarzające żądania importu/eksportu przesłane za pomocą Azure Portal lub PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez Data-Tier Application Framework (DacFX). Wymagane miejsce na dysku zmienia się w różnych bazach danych o takim samym rozmiarze i może wymagać wolnego miejsca na dysku do 3 razy większym niż rozmiar bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W rezultacie niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu `There is not enough space on the disk` . W takim przypadku obejście ma na celu uruchomienie sqlpackage.exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Zachęcamy do używania sqlpackage do importowania/eksportowania baz danych większych niż 150 GB, aby uniknąć tego problemu.
 
-1. Aby zaimportować plik BACPAC do nowej pojedynczej bazy danych przy użyciu Azure Portal, Otwórz odpowiednią stronę serwera, a następnie na pasku narzędzi wybierz pozycję **Importuj bazę danych** .  
+1. Aby zaimportować plik BACPAC do nowej pojedynczej bazy danych przy użyciu Azure Portal, Otwórz odpowiednią stronę serwera, a następnie na pasku narzędzi wybierz pozycję **Importuj bazę danych**.  
 
    ![Import1 bazy danych](./media/database-import/sql-server-import-database.png)
 
@@ -52,13 +52,13 @@ Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi 
 
    ![Import2 bazy danych](./media/database-import/sql-server-import-database-settings.png)
 
-1. Kliknij pozycję **OK** .
+1. Kliknij przycisk **OK**.
 
-1. Aby monitorować postęp importowania, Otwórz stronę serwera bazy danych, a następnie w obszarze **Ustawienia** wybierz pozycję **historia importowania/eksportowania** . Po pomyślnym zaimportowaniu stan **zakończył** się.
+1. Aby monitorować postęp importowania, Otwórz stronę serwera bazy danych, a następnie w obszarze **Ustawienia** wybierz pozycję **historia importowania/eksportowania**. Po pomyślnym zaimportowaniu stan **zakończył** się.
 
    ![Stan importowania bazy danych](./media/database-import/sql-server-import-database-history.png)
 
-1. Aby sprawdzić, czy baza danych jest aktywna na serwerze, wybierz opcję **bazy danych SQL** i sprawdź, czy nowa baza danych jest w **trybie online** .
+1. Aby sprawdzić, czy baza danych jest aktywna na serwerze, wybierz opcję **bazy danych SQL** i sprawdź, czy nowa baza danych jest w **trybie online**.
 
 ## <a name="using-sqlpackage"></a>Korzystanie z sqlpackage
 
@@ -68,7 +68,7 @@ W przypadku skalowania i wydajności zalecamy użycie elementu sqlpackage w wię
 
 Model aprowizacji oparty na jednostkach DTU obsługuje wartości wybierz wartość maksymalnego rozmiaru bazy danych dla każdej warstwy. Podczas importowania bazy danych [Użyj jednej z tych obsługiwanych wartości](/sql/t-sql/statements/create-database-transact-sql). 
 
-Następujące polecenie sqlpackage importuje bazę danych **AdventureWorks2008R2** z magazynu lokalnego do logicznego serwera SQL o nazwie **mynewserver20170403** . Tworzy nową bazę danych o nazwie **myMigratedDatabase** z warstwą usługi **Premium** i celem usługi **P6** . Zmień te wartości zgodnie z potrzebami w danym środowisku.
+Następujące polecenie sqlpackage importuje bazę danych **AdventureWorks2008R2** z magazynu lokalnego do logicznego serwera SQL o nazwie **mynewserver20170403**. Tworzy nową bazę danych o nazwie **myMigratedDatabase** z warstwą usługi **Premium** i celem usługi **P6** . Zmień te wartości zgodnie z potrzebami w danym środowisku.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -91,7 +91,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > Komputery przetwarzające żądania importu/eksportu przesłane za pomocą portalu lub programu PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez Data-Tier Application Framework (DacFX). Wymagane miejsce na dysku zmienia się znacznie w baz danych z tym samym rozmiarem i może trwać do 3 razy rozmiaru bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W związku z tym niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu "nie ma wystarczającej ilości miejsca na dysku". W takim przypadku obejście ma na celu uruchomienie sqlpackage.exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Podczas importowania/eksportowania baz danych o rozmiarze większym niż 150 GB należy użyć sqlpackage, aby uniknąć tego problemu.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell (RM) jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
@@ -144,6 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 > [!TIP]
 > Aby zapoznać się z innym przykładem skryptu, zobacz [Importowanie bazy danych z pliku BACPAC](scripts/import-from-bacpac-powershell.md).
+
+## <a name="cancel-the-import-request"></a>Anuluj żądanie importu
+
+Użyj [interfejsu API operacje bazy danych — Anuluj](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) lub [polecenie PowerShell Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0), w tym przykładzie polecenia programu PowerShell.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## <a name="limitations"></a>Ograniczenia
 

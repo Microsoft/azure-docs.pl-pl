@@ -2,17 +2,17 @@
 title: Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
 description: Skonfiguruj usługę Windows Server Failover Clustering (WSFC) w rozwiązaniu Azure VMware i Skorzystaj z rozwiązań wymagających możliwości korzystania z usługi WSFC.
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 84bb846cd3fb6dd1b138308670db7ccf122b2187
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/09/2021
+ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491300"
+ms.locfileid: "102518997"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
 
-Ten artykuł zawiera instrukcje dotyczące konfigurowania klastra trybu failover systemu Windows Server w rozwiązaniu VMware platformy Azure. Implementacja w tym artykule jest przeznaczona do sprawdzenia koncepcji i celów pilotażowych.
+Ten artykuł zawiera instrukcje dotyczące konfigurowania klastra trybu failover systemu Windows Server w rozwiązaniu VMware platformy Azure. Implementacja w tym artykule jest przeznaczona do sprawdzenia koncepcji i celów pilotażowych. Zalecamy używanie konfiguracji klastra w polu (CIB) do momentu udostępnienia zasad umieszczania.
 
 Windows Server failover Cluster (WSFC), wcześniej znany jako usługa Microsoft Service Cluster Service (MSCS), jest funkcją systemu operacyjnego Windows Server (OS). WSFC to funkcja o kluczowym znaczeniu dla firmy, a w przypadku wielu aplikacji jest wymagane. Na przykład dla następujących konfiguracji jest wymagany program WSFC:
 
@@ -143,7 +143,7 @@ Następujące działania nie są obsługiwane i mogą spowodować przejście w t
         
       - **Sprawdź poprawność komunikacji sieciowej**. Test sprawdzania poprawności klastra zgłosi ostrzeżenie, że dostępny jest tylko jeden interfejs sieciowy dla każdego węzła klastra. Można zignorować to ostrzeżenie. Rozwiązanie Azure VMware zapewnia wymaganą dostępność i wydajność, ponieważ węzły są połączone z jednym z segmentów NSX-T. Należy jednak zachować ten element w ramach testu walidacji klastra, ponieważ będzie on sprawdzać poprawność innych aspektów komunikacji sieciowej.
 
-16. Utwórz regułę DRS, aby rozdzielić maszyny wirtualne usługi WSFC między węzłami rozwiązań VMware platformy Azure. Użyj następujących reguł: jednej koligacji między hostami i MASZYNami wirtualnymi i jednej reguły antykoligacji maszyny wirtualnej na MASZYNę wirtualną. W ten sposób węzły klastra nie będą działać na tym samym hoście rozwiązań VMware platformy Azure.
+16. Utwórz regułę DRS, aby umieścić maszyny wirtualne usługi WSFC w tych samych węzłach rozwiązań VMware platformy Azure. W tym celu należy mieć regułę koligacji między hostami i MASZYNami wirtualnymi. W ten sposób węzły klastra zostaną uruchomione na tym samym hoście rozwiązań VMware platformy Azure. To polecenie jest przeznaczone do celów pilotażowych do momentu udostępnienia zasad umieszczania.
 
     >[!NOTE]
     > W tym celu należy utworzyć bilet żądania pomocy technicznej. Nasza organizacja pomocy technicznej systemu Azure będzie mogła Ci pomóc.

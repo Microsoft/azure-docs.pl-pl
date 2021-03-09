@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e80f33e6c36e1525eff954376d17c8a8b76204cb
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 807174fdbede2e4631b3ca1df7220904038da4c8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796027"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518300"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Uczenie scikit — uczenie modeli na dużą skalę dzięki Azure Machine Learning
 
@@ -35,7 +35,7 @@ Uruchom ten kod w dowolnym z następujących środowisk:
 
  - Własny serwer Jupyter Notebook
 
-    - [Zainstaluj zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0).
+    - [Zainstaluj zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Utwórz plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
 
 ## <a name="set-up-the-experiment"></a>Konfigurowanie eksperymentu
@@ -44,7 +44,7 @@ Ta sekcja umożliwia skonfigurowanie eksperymentu szkoleniowego przez załadowan
 
 ### <a name="initialize-a-workspace"></a>Inicjowanie obszaru roboczego
 
-[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia ono scentralizowane miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) obiektu.
+[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia ono scentralizowane miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) obiektu.
 
 Utwórz obiekt obszaru roboczego z `config.json` pliku utworzonego w [sekcji wymagania wstępne](#prerequisites).
 
@@ -162,7 +162,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Zarejestruj model w obszarze roboczym przy użyciu następującego kodu. Przez określenie parametrów `model_framework` , `model_framework_version` , i `resource_configuration` , wdrożenie modelu No-Code jest niedostępne. Wdrożenie modelu bez kodu pozwala bezpośrednio wdrożyć model jako usługę sieci Web z zarejestrowanego modelu, a [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?preserve-view=true&view=azure-ml-py) obiekt definiuje zasób obliczeniowy dla usługi sieci Web.
+Zarejestruj model w obszarze roboczym przy użyciu następującego kodu. Przez określenie parametrów `model_framework` , `model_framework_version` , i `resource_configuration` , wdrożenie modelu No-Code jest niedostępne. Wdrożenie modelu bez kodu pozwala bezpośrednio wdrożyć model jako usługę sieci Web z zarejestrowanego modelu, a [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration) obiekt definiuje zasób obliczeniowy dla usługi sieci Web.
 
 ```Python
 from azureml.core import Model
@@ -175,13 +175,13 @@ model = run.register_model(model_name='sklearn-iris',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
-## <a name="deployment"></a>Wdrażanie
+## <a name="deployment"></a>Wdrożenie
 
 Właśnie zarejestrowany model można wdrożyć w taki sam sposób jak każdy inny zarejestrowany model na platformie Azure ML. Wdrożenie How-to zawiera sekcję dotyczącą rejestrowania modeli, ale możesz przejść bezpośrednio do tworzenia celu [obliczeń](how-to-deploy-and-where.md#choose-a-compute-target) dla wdrożenia, ponieważ istnieje już zarejestrowany model.
 
 ### <a name="preview-no-code-model-deployment"></a>Przeglądania Wdrożenie modelu bez kodu
 
-Zamiast tradycyjnej trasy wdrożenia można również użyć funkcji wdrażania bez kodu (wersja zapoznawcza) dla scikit — uczenie się. Nie jest obsługiwane wdrożenie modelu bez kodu dla wszystkich wbudowanych typów modeli scikit. Rejestrując model, jak pokazano powyżej z `model_framework` `model_framework_version` `resource_configuration` parametrami, i, można po prostu użyć [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) funkcji statycznej do wdrożenia modelu.
+Zamiast tradycyjnej trasy wdrożenia można również użyć funkcji wdrażania bez kodu (wersja zapoznawcza) dla scikit — uczenie się. Nie jest obsługiwane wdrożenie modelu bez kodu dla wszystkich wbudowanych typów modeli scikit. Rejestrując model, jak pokazano powyżej z `model_framework` `model_framework_version` `resource_configuration` parametrami, i, można po prostu użyć [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) funkcji statycznej do wdrożenia modelu.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

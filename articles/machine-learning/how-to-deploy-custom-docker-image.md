@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 4a9e374923f6317f7a325979dca1810fad91aeb6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 749ef16139bbab2742c43a81e985fb0a49e9393b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209477"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519337"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -42,7 +42,7 @@ Ten dokument jest podzielony na dwie sekcje:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](how-to-manage-workspace.md) .
-* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install). 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * [Azure Container Registry](../container-registry/index.yml) lub innych rejestrów platformy Docker, które są dostępne w Internecie.
@@ -234,7 +234,7 @@ Aby uzyskać więcej informacji, zobacz repozytorium [kontenerów Azure Machine 
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Korzystanie z obrazu z zestawem SDK Azure Machine Learning
 
-Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego** lub **dostępnego publicznie rejestru kontenerów**, ustaw następujące atrybuty [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) :
+Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego** lub **dostępnego publicznie rejestru kontenerów**, ustaw następujące atrybuty [środowiska](/python/api/azureml-core/azureml.core.environment.environment) :
 
 + `docker.enabled=True`
 + `docker.base_image`: Ustaw rejestr i ścieżkę do obrazu.
@@ -268,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Musisz dodać wartość "Azure-Defaults" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Należy również ustawić właściwość inferencing_stack_version w środowisku na "Najnowsza". spowoduje to zainstalowanie określonych pakietów apt wymaganych przez usługę sieci Web. 
 
-Po zdefiniowaniu środowiska należy użyć go z obiektem [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) , aby zdefiniować środowisko wnioskowania, w którym zostanie uruchomiony model i usługa sieci Web.
+Po zdefiniowaniu środowiska należy użyć go z obiektem [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) , aby zdefiniować środowisko wnioskowania, w którym zostanie uruchomiony model i usługa sieci Web.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -297,7 +297,7 @@ Aby uzyskać więcej informacji na temat dostosowywania środowiska języka Pyth
 > [!IMPORTANT]
 > Obecnie interfejs wiersza polecenia Machine Learning może używać obrazów z Azure Container Registry dla obszaru roboczego lub publicznie dostępnych repozytoriów. Nie można używać obrazów z autonomicznych rejestrów prywatnych.
 
-Przed wdrożeniem modelu przy użyciu interfejsu wiersza polecenia Machine Learning Utwórz [środowisko](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) , które używa obrazu niestandardowego. Następnie utwórz plik konfiguracji wnioskowania, który odwołuje się do środowiska. Możesz również zdefiniować środowisko bezpośrednio w pliku konfiguracyjnym wnioskowania. Poniższy dokument JSON pokazuje, jak odwoływać się do obrazu w rejestrze kontenera publicznego. W tym przykładzie środowisko zostało zdefiniowane w tekście:
+Przed wdrożeniem modelu przy użyciu interfejsu wiersza polecenia Machine Learning Utwórz [środowisko](/python/api/azureml-core/azureml.core.environment.environment) , które używa obrazu niestandardowego. Następnie utwórz plik konfiguracji wnioskowania, który odwołuje się do środowiska. Możesz również zdefiniować środowisko bezpośrednio w pliku konfiguracyjnym wnioskowania. Poniższy dokument JSON pokazuje, jak odwoływać się do obrazu w rejestrze kontenera publicznego. W tym przykładzie środowisko zostało zdefiniowane w tekście:
 
 ```json
 {

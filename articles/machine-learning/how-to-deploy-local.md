@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 8f22f1af04d59b4c1fb7f19a3d6815b61cac5fbd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: a7d1212d1106f0883d05a860b498b90e4e5f8e00
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211231"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517518"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Wdrażanie modeli szkolonych za pomocą Azure Machine Learning na maszynach lokalnych 
 
@@ -31,7 +31,7 @@ Scenariusze wdrożenia lokalnego obejmują:
 
 - Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 - Model i środowisko. Jeśli nie masz przeszkolonego modelu, możesz użyć modelu i plików zależności, które są dostępne w [tym samouczku](tutorial-train-models-with-aml.md).
-- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro).
 - Conda Manager, na przykład Anaconda lub Miniconda, jeśli chcesz dublować Azure Machine Learning zależności pakietów.
 - Docker, jeśli chcesz używać kontenera Azure Machine Learning środowiska.
 

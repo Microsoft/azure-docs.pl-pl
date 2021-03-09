@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201893"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522397"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -164,7 +164,7 @@ Zostaną wyświetlone następujące dane wyjściowe:
     WSManStackVersion              3.0
 ```
 
-Jeśli wersja jest starsza niż 6.2.4, należy uaktualnić wersję programu Windows PowerShell. Aby zainstalować najnowszą wersję programu Windows PowerShell, zobacz [install Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Jeśli wersja jest starsza niż 6.2.4, należy uaktualnić wersję programu Windows PowerShell. Aby zainstalować najnowszą wersję programu Windows PowerShell, zobacz [install Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Instalowanie modułów Azure PowerShell i urządzenie Data Box**
 
@@ -355,22 +355,34 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     ![Rozwinięte opcje przenoszenia własnych haseł dla urządzenie Data Box zamówienie importu](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Aby użyć własnego hasła dla nowego urządzenia, **Ustaw preferencję hasła urządzenia**, wybierz opcję **Użyj własnego hasła**, a następnie wpisz hasło spełniające wymagania dotyczące zabezpieczeń.
+     
+     Hasło musi być alfanumeryczne i zawierać od 12 do 15 znaków, z co najmniej jedną wielką literą, jedną małą literą, pojedynczym znakiem specjalnym i jedną cyfrą. 
+
+     - Dozwolone znaki specjalne: @ #-$% ^! + = ; : _ ( )
+     - Znaki nie są dozwolone: I i L o O O 0
    
      ![Opcje używania własnego hasła urządzenia na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Aby użyć własnych haseł dla udziałów:
 
-   - Ustawiając **preferencję dla haseł udostępniania**, wybierz opcję **Użyj własnych haseł** , a następnie **Wybierz hasła dla udziałów**.
+   1. Ustawiając **preferencję dla haseł udostępniania**, wybierz opcję **Użyj własnych haseł** , a następnie **Wybierz hasła dla udziałów**.
      
-        ![Opcje używania własnych haseł udostępniania na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opcje używania własnych haseł udostępniania na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Wpisz hasło dla każdego konta magazynu w kolejności. Hasło będzie używane dla wszystkich udziałów dla konta magazynu.
-     
-        Aby użyć tego samego hasła dla wszystkich kont magazynu, wybierz opcję **Kopiuj do wszystkich**. Po zakończeniu wybierz pozycję **Zapisz**.
-     
-        ![Ekran służący do wprowadzania haseł udostępniania dla zamówienia urządzenie Data Box importu](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Wpisz hasło dla każdego konta magazynu w kolejności. Hasło będzie używane dla wszystkich udziałów dla konta magazynu.
+    
+       Hasło musi być alfanumeryczne i zawierać od 12 do 64 znaków, z co najmniej jedną wielką literą, jedną małą literą, pojedynczym znakiem specjalnym i jedną cyfrą.
 
-       Aby zmienić hasła, na ekranie **zabezpieczenia** można użyć **widoku lub zmienić hasła** .
+       - Dozwolone znaki specjalne: @ #-$% ^! + = ; : _ ( )
+       - Znaki nie są dozwolone: I i L o O O 0
+     
+    1. Aby użyć tego samego hasła dla wszystkich kont magazynu, wybierz opcję **Kopiuj do wszystkich**. 
+
+    1. Po zakończeniu wybierz pozycję **Zapisz**.
+     
+       ![Ekran służący do wprowadzania haseł udostępniania dla zamówienia urządzenie Data Box importu](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    Aby zmienić hasła, na ekranie **zabezpieczenia** można użyć **widoku lub zmienić hasła** .
 
 16. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, rozwiń pozycję **podwójne szyfrowanie (w przypadku wysoce bezpiecznych środowisk)**, a następnie wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**.
 

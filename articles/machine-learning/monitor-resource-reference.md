@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575079"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521343"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorowanie odwołań do danych usługi Azure Machine Learning
 
@@ -88,7 +88,7 @@ Azure Machine Learning ma powiązane z nimi wymiary.
 | NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione. Dostępne tylko dla CpuUtilization i GpuUtilization. |
 | RunId | Identyfikator uruchomienia/zadania. Dostępne tylko dla CpuUtilization i GpuUtilization. |
 | Computetype | Typ obliczeń używany do uruchomienia. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
-| PipelineStepType | Typ [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) używany w przebiegu. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
+| PipelineStepType | Typ [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) używany w przebiegu. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
 | PublishedPipelineId | Identyfikator opublikowanego potoku używanego w przebiegu. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
 | RunType | Typ uruchomienia. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
 

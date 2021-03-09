@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992050"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521071"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Szyfrowanie danych za pomocą Azure Machine Learning
 
@@ -26,10 +26,10 @@ Azure Machine Learning używa różnych usług magazynu danych platformy Azure i
 >
 > Wystąpienie obliczeniowe Azure Machine Learning jest środowiskiem deweloperskim/testowym. W przypadku korzystania z tego programu zalecamy przechowywanie plików, takich jak Notesy i skrypty, w udziale plików. Dane powinny być przechowywane w magazynie danych.
 
-## <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+## <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 
 > [!IMPORTANT]
-> Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
+> Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
 
 `hbi_workspace`Flaga kontroluje ilość [danych zbieranych przez firmę Microsoft do celów diagnostycznych](#microsoft-collected-data) i umożliwia [dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft](../security/fundamentals/encryption-atrest.md). Ponadto włącza następujące akcje:
 
@@ -39,7 +39,7 @@ Azure Machine Learning używa różnych usług magazynu danych platformy Azure i
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
 * W obszarze roboczym HBI nie są obsługiwane wystąpienia obliczeniowe.
 
-### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 Azure Machine Learning przechowuje migawki, dane wyjściowe i dzienniki na koncie usługi Azure Blob Storage, które jest powiązane z obszarem roboczym Azure Machine Learning i subskrypcją. Wszystkie dane przechowywane w usłudze Azure Blob Storage są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
@@ -68,7 +68,7 @@ Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskr
     * `cmk_keyvault`: Ten parametr jest IDENTYFIKATORem zasobu magazynu kluczy w subskrypcji. Ten magazyn kluczy musi znajdować się w tym samym regionie i subskrypcji, który będzie używany dla obszaru roboczego Azure Machine Learning. 
     
         > [!NOTE]
-        > To wystąpienie magazynu kluczy może być inne niż magazyn kluczy tworzony przez Azure Machine Learning podczas aprowizacji obszaru roboczego. Jeśli chcesz użyć tego samego wystąpienia magazynu kluczy dla obszaru roboczego, Przekaż ten sam magazyn kluczy podczas aprowizacji obszaru roboczego za pomocą [parametru key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > To wystąpienie magazynu kluczy może być inne niż magazyn kluczy tworzony przez Azure Machine Learning podczas aprowizacji obszaru roboczego. Jeśli chcesz użyć tego samego wystąpienia magazynu kluczy dla obszaru roboczego, Przekaż ten sam magazyn kluczy podczas aprowizacji obszaru roboczego za pomocą [parametru key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -105,7 +105,7 @@ Aby użyć klucza podczas wdrażania modelu w usłudze Azure Container instance,
 
 Aby uzyskać więcej informacji na temat tworzenia i używania konfiguracji wdrożenia, zobacz następujące artykuły:
 
-* Informacje o [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Informacje o [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Gdzie i jak wdrażać modele](how-to-deploy-and-where.md)
 * [Wdrażanie modelu w usłudze Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
@@ -148,7 +148,7 @@ Aby zabezpieczyć wywołania zewnętrzne w punkcie końcowym oceniania, Azure Ma
 
 Firma Microsoft może zbierać informacje o tożsamościach nienależących do użytkownika, takie jak nazwy zasobów (np. Nazwa zestawu danych lub nazwa eksperymentu usługi Machine Learning) lub zmienne środowiskowe zadań dla celów diagnostycznych. Wszystkie takie dane są przechowywane przy użyciu kluczy zarządzanych przez firmę Microsoft w magazynie hostowanym w subskrypcjach firmy Microsoft i zgodne ze [standardowymi zasadami ochrony prywatności firmy Microsoft i standardami obsługi danych](https://privacy.microsoft.com/privacystatement).
 
-Firma Microsoft zaleca również, aby nie przechowywać poufnych informacji (takich jak wpisy tajne klucza konta) w zmiennych środowiskowych. Zmienne środowiskowe są rejestrowane, szyfrowane i przechowywane przez nas. Podobnie podczas nazewnictwa [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)należy unikać uwzględniania poufnych informacji, takich jak nazwy użytkowników lub nazwy projektów tajnych. Te informacje mogą pojawić się w dziennikach telemetrii dostępnych dla pomoc techniczna firmy Microsoft inżynierów.
+Firma Microsoft zaleca również, aby nie przechowywać poufnych informacji (takich jak wpisy tajne klucza konta) w zmiennych środowiskowych. Zmienne środowiskowe są rejestrowane, szyfrowane i przechowywane przez nas. Podobnie podczas nazewnictwa [run_id](/python/api/azureml-core/azureml.core.run%28class%29)należy unikać uwzględniania poufnych informacji, takich jak nazwy użytkowników lub nazwy projektów tajnych. Te informacje mogą pojawić się w dziennikach telemetrii dostępnych dla pomoc techniczna firmy Microsoft inżynierów.
 
 Możesz zrezygnować z zbierania danych diagnostycznych, ustawiając `hbi_workspace` parametr na `TRUE` czas inicjowania obsługi obszaru roboczego. Ta funkcja jest obsługiwana w przypadku korzystania z zestawu SDK środowiska Azure Python, interfejsu wiersza polecenia, interfejsów API REST lub Azure Resource Manager szablonów.
 
@@ -166,7 +166,7 @@ Każdy obszar roboczy ma skojarzoną w systemie tożsamość zarządzaną, któr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Nawiązywanie połączenia z usługą Azure Storage](how-to-access-data.md)
+* [Łączenie z usługą Azure Storage](how-to-access-data.md)
 * [Pobieranie danych z magazynu danych](how-to-create-register-datasets.md)
 * [Łączenie z danymi](how-to-connect-data-ui.md)
 * [Szkolenie przy użyciu zestawów danych](how-to-train-with-datasets.md)

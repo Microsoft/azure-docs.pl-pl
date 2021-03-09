@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 570bfed5ae5fc6fafea36b9ed1f2673a0daae22b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184088"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521513"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii
 
@@ -138,7 +138,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Potoki usługi Machine Learning nie mogą być uruchamiane lokalnie, dlatego można je uruchamiać w zasobach w chmurze lub *zdalnych celach obliczeniowych*. Zdalny obiekt docelowy obliczeń to wirtualne środowisko obliczeniowe wielokrotnego użytku, w którym można uruchamiać eksperymenty i przepływy pracy uczenia maszynowego. 
 
-Uruchom następujący kod, aby utworzyć obiekt docelowy z obsługą procesora GPU [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) , a następnie dołącz go do obszaru roboczego. Aby uzyskać więcej informacji na temat obiektów docelowych obliczeń, zobacz [artykuł koncepcyjny](./concept-compute-target.md).
+Uruchom następujący kod, aby utworzyć obiekt docelowy z obsługą procesora GPU [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) , a następnie dołącz go do obszaru roboczego. Aby uzyskać więcej informacji na temat obiektów docelowych obliczeń, zobacz [artykuł koncepcyjny](./concept-compute-target.md).
 
 
 ```python
@@ -301,7 +301,7 @@ Krok potoku to obiekt, który hermetyzuje wszystko, czego potrzebujesz do urucho
 * Dane wejściowe i wyjściowe oraz dowolne parametry niestandardowe
 * Odwołanie do skryptu lub logiki zestawu SDK do uruchomienia w ramach tego kroku
 
-Wiele klas dziedziczy z klasy nadrzędnej [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) . Możesz wybrać klasy do użycia określonych platform lub stosów, aby skompilować krok. W tym przykładzie użyto `ParallelRunStep` klasy do zdefiniowania logiki krokowej przy użyciu niestandardowego skryptu języka Python. Jeśli argument skryptu jest danymi wejściowymi do kroku lub danych wyjściowych kroku, argument musi być zdefiniowany *zarówno* w `arguments` tablicy, *jak i* w `input` lub jako `output` parametr. 
+Wiele klas dziedziczy z klasy nadrzędnej [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) . Możesz wybrać klasy do użycia określonych platform lub stosów, aby skompilować krok. W tym przykładzie użyto `ParallelRunStep` klasy do zdefiniowania logiki krokowej przy użyciu niestandardowego skryptu języka Python. Jeśli argument skryptu jest danymi wejściowymi do kroku lub danych wyjściowych kroku, argument musi być zdefiniowany *zarówno* w `arguments` tablicy, *jak i* w `input` lub jako `output` parametr. 
 
 W scenariuszach, w których występuje więcej niż jeden krok, odwołanie do obiektu w `outputs` tablicy jest dostępne jako *dane wejściowe* dla kolejnego kroku potoku.
 
@@ -325,7 +325,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Aby zapoznać się z listą wszystkich klas, których można użyć dla różnych typów etapów, zobacz [pakiet kroków](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
+Aby zapoznać się z listą wszystkich klas, których można użyć dla różnych typów etapów, zobacz [pakiet kroków](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
 
 ## <a name="submit-the-pipeline"></a>Prześlij potok
 
@@ -382,9 +382,9 @@ published_pipeline
 
 Aby można było uruchomić potok z punktu końcowego REST, potrzebny jest nagłówek uwierzytelniania typu "OAuth2". W poniższym przykładzie użyto uwierzytelniania interaktywnego (w celach ilustracyjnych), ale w przypadku większości scenariuszy produkcyjnych, które wymagają automatycznego lub bezobsługowego uwierzytelniania, należy użyć uwierzytelniania nazwy głównej usługi zgodnie [z opisem w tym artykule](how-to-setup-authentication.md).
 
-Uwierzytelnianie jednostki usługi polega na utworzeniu *rejestracji aplikacji* w *Azure Active Directory*. Najpierw należy wygenerować klucz tajny klienta, a następnie przyznać roli głównej usługi *dostęp* do obszaru roboczego uczenia maszynowego. Użyj [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) klasy, aby zarządzać przepływem uwierzytelniania. 
+Uwierzytelnianie jednostki usługi polega na utworzeniu *rejestracji aplikacji* w *Azure Active Directory*. Najpierw należy wygenerować klucz tajny klienta, a następnie przyznać roli głównej usługi *dostęp* do obszaru roboczego uczenia maszynowego. Użyj [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) klasy, aby zarządzać przepływem uwierzytelniania. 
 
-Oba [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) i `ServicePrincipalAuthentication` dziedziczą z `AbstractAuthentication` . W obu przypadkach należy użyć [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) funkcji w taki sam sposób, aby można było pobrać nagłówek:
+Oba [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication) i `ServicePrincipalAuthentication` dziedziczą z `AbstractAuthentication` . W obu przypadkach należy użyć [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication#get-authentication-header--) funkcji w taki sam sposób, aby można było pobrać nagłówek:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

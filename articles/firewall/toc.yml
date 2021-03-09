@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Wdrażanie i Konfigurowanie warstwy Premium zapory
       href: premium-deploy.md
+    - name: Wdróż certyfikaty urzędu certyfikacji przedsiębiorstwa dla wersji Premium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrowanie do usługi Azure firewall Premium
       href: premium-migrate.md
 - name: Dokumentacja

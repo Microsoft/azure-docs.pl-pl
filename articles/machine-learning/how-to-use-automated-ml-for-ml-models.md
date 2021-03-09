@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692423"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520641"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 
@@ -136,7 +136,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     ------|------
     Metryka podstawowa| Główna Metryka używana do oceniania modelu. [Dowiedz się więcej o metrykach modelu](how-to-configure-auto-train.md#primary-metric).
     Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby wyświetlić wyjaśnienia dla zalecanego najlepszego modelu. <br> Ta funkcja nie jest obecnie dostępna w przypadku [niektórych algorytmów prognozowania](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)*: jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki*: minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
     Walidacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. <br> [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognozowanie obsługuje tylko wzajemne sprawdzanie poprawności.
     Współbieżność| *Maksymalna liczba współbieżnych iteracji*: maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji. Dowiedz się więcej o tym, jak zautomatyzowanej ML wykonuje [wiele podrzędnych przebiegów w klastrach](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).

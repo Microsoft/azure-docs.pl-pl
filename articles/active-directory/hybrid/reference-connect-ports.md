@@ -16,12 +16,12 @@ ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 681d92ed162feff0510067556d7eeaa47b12d988
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80331089"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520034"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Wymagane porty i protokoły dotyczące tożsamości hybrydowej
 Poniższy dokument to dokumentacja techniczna dotycząca wymaganych portów i protokołów w celu wdrożenia hybrydowego rozwiązania do tworzenia tożsamości. Skorzystaj z poniższej ilustracji i zapoznaj się z odpowiednią tabelą.
@@ -39,7 +39,7 @@ W tej tabeli opisano porty i protokoły, które są wymagane do komunikacji mię
 | LDAP |389 (TCP/UDP) |Służy do importowania danych z usługi AD. Dane są szyfrowane przy użyciu podpisywania protokołu Kerberos & zapieczętować. |
 | SMB | 445 (TCP) |Używane przez bezproblemowe logowanie jednokrotne w celu utworzenia konta komputera w lesie usługi AD. |
 | LDAP/SSL |636 (TCP/UDP) |Służy do importowania danych z usługi AD. Transfer danych jest podpisany i szyfrowany. Używane tylko w przypadku korzystania z protokołu TLS. |
-| Zdalne wywołanie procedury |49152 – 65535 (losowo wysoki port RPC) (TCP) |Używane podczas początkowej konfiguracji Azure AD Connect, gdy jest ona powiązana z lasami usług AD i podczas synchronizacji haseł. Aby uzyskać więcej informacji, zobacz [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017)i [KB224196](https://support.microsoft.com/kb/224196) . |
+| Zdalne wywołanie procedury |49152 – 65535 (losowo wysoki port RPC) (TCP) |Używane podczas początkowej konfiguracji Azure AD Connect, gdy jest ona powiązana z lasami usług AD i podczas synchronizacji haseł. Jeśli port dynamiczny został zmieniony, należy otworzyć ten port. Aby uzyskać więcej informacji, zobacz [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017)i [KB224196](https://support.microsoft.com/kb/224196) . |
 |WinRM  | 5985 (TCP) |Używane tylko w przypadku instalowania AD FS przy użyciu kreatora gMSA przez Azure AD Connect|
 |AD DS usług sieci Web | 9389 (TCP) |Używane tylko w przypadku instalowania AD FS przy użyciu kreatora gMSA przez Azure AD Connect |
 
@@ -104,8 +104,8 @@ W tej tabeli opisano następujące porty i protokoły wychodzące, które są wy
 
 | Protokół | Porty | Opis |
 | --- | --- | --- |
-| HTTPS |443 (TCP) |Outbound |
-| Azure Service Bus |5671 (TCP) |Outbound |
+| HTTPS |443 (TCP) |Wychodzący |
+| Usługa Azure Service Bus |5671 (TCP) |Wychodzący |
 
 Azure Service Bus port 5671 nie jest już wymagany dla najnowszej wersji agenta. Najnowsza wersja agenta Azure AD Connect Health wymagana tylko przez port 443.
 
