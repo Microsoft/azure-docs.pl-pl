@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 4193e58c28b481297df38bca8f18d2ea766ce886
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443135"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519014"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-W tym artykule opisano typy certyfikatów, które można zainstalować na urządzeniu z systemem Azure Stack brzeg Pro. Artykuł zawiera również szczegóły dotyczące każdego typu certyfikatu wraz z procedurą instalacji i identyfikacji daty wygaśnięcia. 
+W tym artykule opisano typy certyfikatów, które można zainstalować na urządzeniu z systemem Azure Stack brzeg Pro. Artykuł zawiera również szczegóły dotyczące każdego typu certyfikatu wraz z procedurą instalacji i identyfikacji daty wygaśnięcia.  
 
 ## <a name="about-certificates"></a>Informacje o certyfikatach
 
@@ -400,7 +400,7 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
 ## <a name="supported-certificate-algorithms"></a>Obsługiwane algorytmy certyfikatów
 
- Tylko certyfikaty Rivest – Shamir – Adleman (RSA) są obsługiwane przez urządzenie Azure Stack EDGE Pro. Jeśli używane są certyfikaty algorytmu Digital Signature Algorithm (ECDSA), zachowanie urządzenia jest nieokreślone.
+ Tylko certyfikaty Rivest – Shamir – Adleman (RSA) są obsługiwane przez urządzenie Azure Stack EDGE Pro. Certyfikaty algorytmu podpisywania cyfrowego (ECDSA) krzywej eliptyczna nie są obsługiwane.
 
  Certyfikaty zawierające klucz publiczny RSA są określane jako certyfikaty RSA. Certyfikaty, które zawierają klucz publiczny (ECC), są określane jako ECDSA (algorytm podpisywania cyfrowego krzywej eliptyczna). 
 

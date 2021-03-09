@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449870"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522295"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -60,7 +60,7 @@ Brama ExpressRoute będzie ogłaszać *przestrzenie adresowe* sieci wirtualnej p
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Ile prefiksów może być anonsowanych z sieci wirtualnej do lokalnej komunikacji równorzędnej ExpressRoute?
 
-Istnieje maksymalnie 200 prefiksów anonsowanych w pojedynczym połączeniu ExpressRoute lub za pośrednictwem komunikacji równorzędnej sieci wirtualnej przy użyciu funkcji tranzytu bramy. Na przykład jeśli w jednej sieci wirtualnej podłączonej do obwodu usługi ExpressRoute znajdują się przestrzenie adresowe 199, wszystkie 199 te prefiksy będą anonsowane w środowisku lokalnym. Alternatywnie, jeśli masz włączoną sieć wirtualną zezwalającą na tranzyt bramy z 1 przestrzenią adresową i 150 szprych sieci wirtualnych z włączoną opcją "Zezwalaj na bramę zdalną", Sieć wirtualna wdrożona z bramą będzie ogłaszać prefiksy 151 w środowisku lokalnym.
+Istnieje maksymalnie 1000 prefiksów anonsowanych w pojedynczym połączeniu ExpressRoute lub za pośrednictwem komunikacji równorzędnej sieci wirtualnej przy użyciu funkcji tranzytu bramy. Na przykład jeśli w jednej sieci wirtualnej podłączonej do obwodu usługi ExpressRoute znajdują się przestrzenie adresowe 199, wszystkie 199 te prefiksy będą anonsowane w środowisku lokalnym. Alternatywnie, jeśli masz włączoną sieć wirtualną zezwalającą na tranzyt bramy z 1 przestrzenią adresową i 150 szprych sieci wirtualnych z włączoną opcją "Zezwalaj na bramę zdalną", Sieć wirtualna wdrożona z bramą będzie ogłaszać prefiksy 151 w środowisku lokalnym.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Co się stanie w przypadku przekroczenia limitu prefiksu dla połączenia ExpressRoute?
 

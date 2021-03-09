@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605602"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521547"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
 
@@ -29,7 +29,7 @@ Do wystąpienia API Management można przyznać dwa typy tożsamości:
 
 ## <a name="create-a-system-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez system
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w Azure Portal, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
 
@@ -264,12 +264,25 @@ Poniższy przykład przedstawia szablon Azure Resource Manager, który zawiera n
 
 Można użyć tożsamości przypisanej do systemu do uwierzytelniania na zapleczu za pomocą zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
 
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Nawiązywanie połączenia z zasobami platformy Azure za zaporą IP przy użyciu tożsamości zarządzanej przypisanej przez system
+
+
+API Management to zaufana usługa firmy Microsoft do następujących zasobów. Umożliwia to usłudze łączenie się z następującymi zasobami za zaporą. Po jawnie przypisaniu odpowiedniej roli platformy Azure do [zarządzanej tożsamości przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu zakres dostępu dla tego wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
+
+
+|Usługa platformy Azure | Link|
+|---|---|
+|Azure Storage | [Zaufane — dostęp do platformy Azure — magazyn](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Usługa Azure Service Bus | [Zaufane — dostęp do platformy Azure — Service-Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Centrum zdarzeń Azure | [Trused — dostęp do platformy Azure — centrum zdarzeń](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
+
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
 > [!NOTE]
 > Można skojarzyć wystąpienie API Management z maksymalnie 10 tożsamościami zarządzanymi przez użytkownika.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
 
@@ -401,7 +414,7 @@ Aby uzyskać pełny szablon, zobacz [API Management z użyciem protokołu SSL op
 
 W tym szablonie zostaną wdrożone następujące narzędzia:
 
-* Azure API Management
+* Usługa Azure API Management
 * Tożsamość przypisana przez użytkownika zarządzanego przez platformę Azure
 * Magazyn kluczy platformy Azure do przechowywania certyfikatu SSL/TLS
 

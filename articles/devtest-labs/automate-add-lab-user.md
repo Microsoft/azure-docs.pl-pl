@@ -3,12 +3,12 @@ title: Automatyzowanie dodawania użytkownika laboratorium w Azure DevTest Labs 
 description: W tym artykule pokazano, jak zautomatyzować Dodawanie użytkownika do laboratorium w Azure DevTest Labs przy użyciu szablonów Azure Resource Manager, programu PowerShell i interfejsu wiersza polecenia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6dddf06289da79e16cbd7e64869fa77f0a40dd22
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: dc5522cfe694f193b9bbeeb3145808a367a62c12
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508830"
+ms.locfileid: "102519405"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatyzuj Dodawanie użytkownika laboratorium do laboratorium w Azure DevTest Labs
 Azure DevTest Labs umożliwia szybkie tworzenie samoobsługowych środowisk deweloperskich i testowych przy użyciu Azure Portal. Jeśli jednak masz kilka zespołów i kilka wystąpień DevTest Labs, Automatyzacja procesu tworzenia może zaoszczędzić czas. [Szablony Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) umożliwiają tworzenie laboratoriów, maszyn wirtualnych w laboratorium, obrazów niestandardowych, formuł i Dodawanie użytkowników w zautomatyzowany sposób. W tym artykule opisano sposób dodawania użytkowników do wystąpienia DevTest Labs.
@@ -161,7 +161,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 
 Należy pamiętać, że nazwa wdrożenia grupy i identyfikator GUID przypisania roli muszą być unikatowe. Jeśli spróbujesz wdrożyć przypisanie zasobu z nieunikatowym identyfikatorem GUID, zostanie wyświetlony `RoleAssignmentUpdateNotPermitted` komunikat o błędzie.
 
-Jeśli planujesz użyć szablonu kilka razy, aby dodać kilka Active Directory obiektów do roli użytkownika DevTest Labs dla laboratorium, rozważ użycie obiektów dynamicznych w poleceniu programu PowerShell. W poniższym przykładzie za pomocą polecenia cmdlet [New-GUID](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) można dynamicznie określić nazwę wdrożenia grupy zasobów i identyfikator GUID przypisania roli.
+Jeśli planujesz użyć szablonu kilka razy, aby dodać kilka Active Directory obiektów do roli użytkownika DevTest Labs dla laboratorium, rozważ użycie obiektów dynamicznych w poleceniu programu PowerShell. W poniższym przykładzie za pomocą polecenia cmdlet [New-GUID](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) można dynamicznie określić nazwę wdrożenia grupy zasobów i identyfikator GUID przypisania roli.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"

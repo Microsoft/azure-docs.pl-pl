@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878956"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520391"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -124,7 +124,7 @@ Nie można wywoływać limitów dla maszyn wirtualnych powyżej wartości podany
 
 Aby uzyskać więcej informacji, zobacz [limity Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Usługa Azure Storage ma limit 250 kont magazynu na region na subskrypcję. Ten limit obejmuje konta magazynu w warstwie Standardowa i Premium.
 
 Aby zwiększyć limit, należy wysłać żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage będzie przeglądać swój przypadek i może zatwierdzić do 250 kont magazynu dla regionu.
@@ -189,7 +189,6 @@ Azure Machine Learning tworzy zasoby w ramach subskrypcji (klienta), ale niektó
  W następujących scenariuszach może być konieczne zażądanie limitu przydziału w ramach subskrypcji firmy Microsoft:
 
 * Obszar roboczy z włączonym linkiem prywatnym platformy Azure z kluczem zarządzanym przez klienta (CMK)
-* Usługa Azure Container Registry w przypadku obszaru roboczego poza Twoją siecią wirtualną
 * Dołączanie klastra usługi Azure Kubernetes Service z włączoną usługą Private Link do obszaru roboczego
 
 Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynności:

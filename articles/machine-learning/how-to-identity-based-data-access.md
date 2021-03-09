@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: dbfb4ea729b8360c7065d75cb3efbaf42b82c0da
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663141"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520017"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Łączenie z magazynem za pomocą dostępu do danych opartych na tożsamościach (wersja zapoznawcza)
 
 >[!IMPORTANT]
-> Funkcje przedstawione w tym artykule są w wersji zapoznawczej i powinny być uznawane za [eksperymentalne](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcje w wersji zapoznawczej, które mogą ulec zmianie w dowolnym momencie.
+> Funkcje przedstawione w tym artykule są w wersji zapoznawczej i powinny być uznawane za [eksperymentalne](/python/api/overview/azure/ml/#stable-vs-experimental) funkcje w wersji zapoznawczej, które mogą ulec zmianie w dowolnym momencie.
 
-W tym artykule dowiesz się, jak nawiązać połączenie z usługami magazynu na platformie Azure z dostępem do danych opartymi na tożsamościach i Azure Machine Learning magazynami dostępu za pośrednictwem [Azure Machine Learning zestawu SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).  
+W tym artykule dowiesz się, jak nawiązać połączenie z usługami magazynu na platformie Azure z dostępem do danych opartymi na tożsamościach i Azure Machine Learning magazynami dostępu za pośrednictwem [Azure Machine Learning zestawu SDK języka Python](/python/api/overview/azure/ml/intro).  
 
 Zwykle magazyny danych wykorzystują dostęp oparty na poświadczeniach, aby potwierdzić, że masz uprawnienia dostępu do usługi magazynu. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu, w [Key Vault](https://azure.microsoft.com/services/key-vault/) , które są skojarzone z obszarem roboczym. Gdy tworzysz magazyn danych, który korzysta z dostępu opartego na tożsamościach, logowanie do platformy Azure ([token Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)) służy do potwierdzenia, że masz uprawnienia dostępu do usługi magazynu. W tym scenariuszu poświadczenia uwierzytelniania nie są zapisywane i tylko informacje o kontach magazynu są przechowywane w magazynie danych. 
 
@@ -67,7 +67,7 @@ Niektóre scenariusze uczenia maszynowego obejmują modele szkoleniowe z danymi 
     - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
     - [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md)
 
-- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install).
 
 - Obszar roboczy usługi Azure Machine Learning.
   
@@ -105,7 +105,7 @@ W poniższym kodzie Zwróć uwagę na brak parametrów uwierzytelniania, takich 
 
 ### <a name="azure-blob-container"></a>Kontener obiektów blob platformy Azure
 
-Aby zarejestrować kontener obiektów blob platformy Azure jako magazyn danych, użyj elementu [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
+Aby zarejestrować kontener obiektów blob platformy Azure jako magazyn danych, użyj elementu [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
 Poniższy kod tworzy i rejestruje magazyn danych `credentialless_blob` w `ws` obszarze roboczym i przypisuje go do zmiennej `blob_datastore` . Ten magazyn danych uzyskuje dostęp do `my_container_name` kontenera obiektów BLOB na `my-account-name` koncie magazynu.
 
@@ -119,7 +119,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-1"></a>Azure Data Lake Storage generacja 1
 
-W przypadku magazynu danych Azure Data Lake Storage Generation 1 (ADLS Gen 1) Użyj [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) do zarejestrowania magazynu obiektów, który nawiązuje połączenie z magazynem usługi Azure datalake Generation 1.
+W przypadku magazynu danych Azure Data Lake Storage Generation 1 (ADLS Gen 1) Użyj [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) do zarejestrowania magazynu obiektów, który nawiązuje połączenie z magazynem usługi Azure datalake Generation 1.
 
 Poniższy kod tworzy i rejestruje magazyn danych `credentialless_adls1` w `workspace` obszarze roboczym i przypisuje go do zmiennej `adls_dstore` . Ten magazyn danych uzyskuje dostęp do `adls_storage` konta magazynu Azure Data Lake Store.
 
@@ -133,7 +133,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage generacja 2
 
-W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) Użyj [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu obiektów, który nawiązuje połączenie z magazynem usługi Azure datalake Gen 2.
+W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) Użyj [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu obiektów, który nawiązuje połączenie z magazynem usługi Azure datalake Gen 2.
 
 Poniższy kod tworzy i rejestruje magazyn danych `credentialless_adls2` w `ws` obszarze roboczym i przypisuje go do zmiennej `adls2_dstore` . Ten magazyn danych uzyskuje dostęp do systemu plików `tabular` na `myadls2` koncie magazynu.  
 

@@ -237,7 +237,7 @@
         - name: Konfigurowanie dostępu warunkowego
           href: conditional-access-user-flow.md
     - name: Konfigurowanie kontroli wieku
-      href: basic-age-gating.md
+      href: age-gating.md
     - name: Łączniki interfejsu API (wersja zapoznawcza)
       items:
         - name: Omówienie

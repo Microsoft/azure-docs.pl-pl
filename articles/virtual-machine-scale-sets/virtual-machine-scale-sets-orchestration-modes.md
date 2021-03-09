@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502420"
+ms.locfileid: "102521751"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -128,7 +128,7 @@ W poniższej tabeli porównano elastyczny tryb aranżacji, jednolity tryb aranż
 |         Alerty platformy Azure  |            Nie  |            Tak  |            Tak  |
 |         Szczegółowe informacje o maszynie wirtualnej  |            Nie  |            Tak  |            Tak  |
 |         Azure Backup  |            Tak  |            Tak  |            Tak  |
-|         Azure Site Recovery  |            Tak, tylko program PowerShell  |            Tak  |            Tak  |
+|         Azure Site Recovery  |            Nie  |            Nie  |            Tak  |
 |         Dodaj/Usuń istniejącą maszynę wirtualną do grupy  |            Nie  |            Nie  |            Nie  | 
 
 

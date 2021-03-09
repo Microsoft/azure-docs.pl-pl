@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd917bcf54022564640d22a5968738c27f75ff38
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383809"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519048"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Reguły niestandardowe dla zapory aplikacji sieci Web V2 na platformie Azure Application Gateway
 
@@ -26,7 +26,7 @@ Reguły niestandardowe obsługują używanie logiki złożonej do bardziej zaawa
 
 Różne warunki dopasowywania w ramach tej samej reguły są zawsze składane przy użyciu **i**. Na przykład Zablokuj ruch z określonego adresu IP i tylko wtedy, gdy korzystają z określonej przeglądarki.
 
-Jeśli chcesz **lub** dwa różne warunki, te dwa warunki muszą być w różnych regułach. Na przykład Zablokuj ruch z określonego adresu IP lub Zablokuj ruch, jeśli korzysta z określonej przeglądarki.
+Jeśli chcesz użyć **lub** między dwoma różnymi warunkami, te dwa warunki muszą się znajdować w różnych regułach. Na przykład Zablokuj ruch z określonego adresu IP lub Zablokuj ruch, jeśli korzysta z określonej przeglądarki.
 
 > [!NOTE]
 > Maksymalna liczba reguł niestandardowych WAF to 100. Aby uzyskać więcej informacji na temat limitów Application Gateway, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).

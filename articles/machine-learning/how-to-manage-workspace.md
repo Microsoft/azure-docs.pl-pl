@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739590"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518929"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
-W tym artykule opisano tworzenie, wyświetlanie i usuwanie [**Azure Machine Learning obszarów roboczych**](concept-workspace.md) dla [Azure Machine Learning](overview-what-is-azure-ml.md)przy użyciu Azure Portal lub [zestawu SDK dla języka Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
+W tym artykule opisano tworzenie, wyświetlanie i usuwanie [**Azure Machine Learning obszarów roboczych**](concept-workspace.md) dla [Azure Machine Learning](overview-what-is-azure-ml.md)przy użyciu Azure Portal lub [zestawu SDK dla języka Python](/python/api/overview/azure/ml/)
 
 Wraz ze zmianami lub wymaganiami dotyczącymi usługi Automation można także tworzyć i usuwać obszary robocze [przy użyciu interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)lub [za pośrednictwem rozszerzenia vs Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
-* W przypadku korzystania z zestawu SDK języka Python [Zainstaluj zestaw SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* W przypadku korzystania z zestawu SDK języka Python [Zainstaluj zestaw SDK](/python/api/overview/azure/ml/install).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -111,7 +111,7 @@ Domyślnie tworzenie obszaru roboczego tworzy również Azure Container Registry
                              exist_ok=False)
    ```
 
-Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru roboczego](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru roboczego](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](how-to-setup-authentication.md), a także [uwierzytelnianie w Azure Machine Learning](https://aka.ms/aml-notebook-auth) notesie.
 
@@ -138,7 +138,7 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
    Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML**. Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
    Region (Region) | Wybierz region platformy Azure znajdujący się najbliżej Twoich użytkowników i zasoby danych, aby utworzyć obszar roboczy.
    | Konto magazynu | Domyślne konto magazynu dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
-   | Usługa Key Vault | Azure Key Vault używany przez obszar roboczy. Domyślnie zostanie utworzony nowy. |
+   | Key Vault | Azure Key Vault używany przez obszar roboczy. Domyślnie zostanie utworzony nowy. |
    | Application Insights | Wystąpienie usługi Application Insights dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
    | Container Registry | Azure Container Registry obszaru roboczego. Domyślnie nowy element _nie_ jest początkowo tworzony dla obszaru roboczego. Zamiast tego jest tworzony, gdy będzie potrzebny podczas tworzenia obrazu platformy Docker podczas uczenia lub wdrożenia. |
 
@@ -167,7 +167,7 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
 
 # <a name="python"></a>[Python](#tab/python)
 
-Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) , która może być używana z elementem [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) w celu utworzenia obszaru roboczego z prywatnym punktem końcowym. Ta klasa wymaga istniejącej sieci wirtualnej.
+Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) , która może być używana z elementem [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) w celu utworzenia obszaru roboczego z prywatnym punktem końcowym. Ta klasa wymaga istniejącej sieci wirtualnej.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ Aby uzyskać więcej informacji, zobacz [Konfiguracja DNS prywatnego punktu koń
 
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Więcej informacji można znaleźć w temacie  [Azure Container Registry Scanning image Security Center](../security-center/defender-for-container-registries-introduction.md) i [Azure Kubernetes Services integration with a Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
-### <a name="advanced"></a>Zaawansowane
+### <a name="advanced"></a>Zaawansowany
 
 Domyślnie metadane obszaru roboczego są przechowywane w wystąpieniu Azure Cosmos DBnym przez firmę Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
@@ -363,7 +363,7 @@ Domyślna akcja nie powoduje usunięcia zasobów skojarzonych z obszarem roboczy
 
 W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Usuń**  w górnej części obszaru roboczego, który chcesz usunąć.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Usuwanie obszaru roboczego":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Usuń obszar roboczy":::
 
 ---
 

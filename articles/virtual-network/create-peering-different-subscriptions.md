@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f8b7162787e870337918794f353ab8dc94c1965
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694958"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518249"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
 
@@ -276,7 +276,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
    }
    ```
 
-3. Zaloguj się do platformy Azure jako UserA i Wdróż szablon przy użyciu [portalu](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [programu PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)lub [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Określ nazwę pliku, na przykład tekst JSON zapisany w kroku 2 do.
+3. Zaloguj się do platformy Azure jako UserA i Wdróż szablon przy użyciu [portalu](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [programu PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file)lub [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Określ nazwę pliku, na przykład tekst JSON zapisany w kroku 2 do.
 4. Skopiuj przykładowy kod JSON z kroku 2 do pliku na komputerze i wprowadź zmiany w wierszach rozpoczynających się od:
    - **name**: Zmień *myVnetA/myVnetAToMyVnetB* na *myVnetB/myVnetBToMyVnetA*.
    - **Identyfikator**: ZAstąp `<subscription ID>` identyfikatorem subskrypcji UserB i Zmień *myVnetB* na *myVnetA*.
@@ -311,7 +311,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    az group delete --name myResourceGroupB --yes
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>Narzędzia
 
 1. Zaloguj się do platformy Azure jako UserA i wykonaj następujące polecenie:
 

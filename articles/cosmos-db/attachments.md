@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501995"
+ms.locfileid: "102521224"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB załączników
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
@@ -42,9 +42,9 @@ Zarządzane załączniki Azure Cosmos DB są różne od ich obsługi dla element
 - Zarządzane załączniki nie są zgodne z dystrybucją globalną Azure Cosmos DB i nie są replikowane między regionami.
 
 > [!NOTE]
-> Azure Cosmos DB API for MongoDB w wersji 3,2 wykorzystuje zarządzane załączniki dla GridFS, które podlegają takim samym ograniczeniom jak zarządzane załączniki Azure Cosmos DB.
+> Azure Cosmos DB API for MongoDB w wersji 3,2 wykorzystuje zarządzane załączniki dla GridFS i podlegają tym samym ograniczeniom.
 >
-> Zaleca się, aby deweloperzy korzystali z zestawu funkcji MongoDB GridFS w celu uaktualnienia do Azure Cosmos DB API dla MongoDB w wersji 3,6 lub nowszej, która jest oddzielona od załączników i zapewnia silniejsze i bardziej niezawodne środowisko. Deweloperzy korzystający z zestawu funkcji MongoDB GridFS powinni również rozważyć użycie Blob Storage platformy Azure, która jest tworzona specjalnie do przechowywania zawartości obiektów blob i oferuje rozszerzoną funkcję przy niższych kosztach w porównaniu z GridFS.
+> Zalecamy, aby deweloperzy korzystali z funkcji MongoDB GridFS, która umożliwia uaktualnienie do Azure Cosmos DB API dla MongoDB w wersji 3,6 lub nowszej, która jest oddzielona od załączników i zapewnia lepszy komfort pracy. Deweloperzy korzystający z zestawu funkcji MongoDB GridFS powinni również rozważyć użycie Blob Storage platformy Azure, która jest tworzona specjalnie do przechowywania zawartości obiektów blob i oferuje rozszerzoną funkcję przy niższych kosztach w porównaniu z GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrowanie załączników do usługi Azure Blob Storage
 

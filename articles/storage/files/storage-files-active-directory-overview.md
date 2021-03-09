@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695898"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519796"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -128,7 +128,7 @@ Po włączeniu uwierzytelniania AD DS platformy Azure AD DS lub lokalnego można
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurowanie uprawnień na poziomie katalogu lub pliku dla Azure Files
 
-Udziały plików platformy Azure wymuszają standardowe uprawnienia do plików systemu Windows zarówno na poziomie katalogu, jak i pliku, łącznie z katalogiem głównym. Konfiguracja uprawnień na poziomie katalogu lub pliku jest obsługiwana w przypadku protokołu SMB i REST. Zainstaluj docelowy udział plików z maszyny wirtualnej i Skonfiguruj uprawnienia za pomocą Eksploratora plików systemu Windows, [icacls](/windows-server/administration/windows-commands/icacls)systemu Windows lub polecenia [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
+Udziały plików platformy Azure wymuszają standardowe uprawnienia do plików systemu Windows zarówno na poziomie katalogu, jak i pliku, łącznie z katalogiem głównym. Konfiguracja uprawnień na poziomie katalogu lub pliku jest obsługiwana w przypadku protokołu SMB i REST. Zainstaluj docelowy udział plików z maszyny wirtualnej i Skonfiguruj uprawnienia za pomocą Eksploratora plików systemu Windows, [icacls](/windows-server/administration/windows-commands/icacls)systemu Windows lub polecenia [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl) .
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Użyj klucza konta magazynu dla uprawnień administratora
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aaa7dbf2ae7c8acb3b3beeb3e9098c5058af26a7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c45b819f9fc02fae40c2bf7fc5c2247c8c0a6147
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918192"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517484"
 ---
 # <a name="deploy-mlflow-models-as-azure-web-services-preview"></a>Wdrażanie modeli MLflow jako usług sieci Web platformy Azure (wersja zapoznawcza)
 
@@ -44,14 +44,14 @@ Na poniższym diagramie przedstawiono, że za pomocą interfejsu API wdrażania 
 * Model uczenia maszynowego. Jeśli nie masz nauczonego modelu, Znajdź przykładowy Notes, który najlepiej pasuje do scenariusza obliczeń w [tym repozytorium](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) , i postępuj zgodnie z instrukcjami. 
 * [Skonfiguruj identyfikator URI śledzenia MLflow, aby połączyć Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
 * Zainstaluj pakiet `azureml-mlflow`. 
-    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
+    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
 * Zobacz, które [uprawnienia dostępu należy wykonać, aby wykonywać operacje MLflow w Twoim obszarze roboczym](how-to-assign-roles.md#mlflow-operations). 
 
 ## <a name="deploy-to-azure-container-instance-aci"></a>Wdróż w usłudze Azure Container Instance (ACI)
 
 Aby wdrożyć model MLflow w usłudze sieci Web Azure Machine Learning, należy skonfigurować model przy użyciu [identyfikatora URI śledzenia MLflow w celu nawiązania połączenia z Azure Machine Learning](how-to-use-mlflow.md). 
 
-Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
+Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -84,7 +84,7 @@ webservice.wait_for_deployment(show_output=True)
 
 Aby wdrożyć model MLflow w usłudze sieci Web Azure Machine Learning, należy skonfigurować model przy użyciu [identyfikatora URI śledzenia MLflow w celu nawiązania połączenia z Azure Machine Learning](how-to-use-mlflow.md). 
 
-Aby wdrożyć AKS, należy najpierw utworzyć klaster AKS. Utwórz klaster AKS przy użyciu metody [ComputeTarget. Create ()](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) . Utworzenie nowego klastra może potrwać 20-25 minut.
+Aby wdrożyć AKS, należy najpierw utworzyć klaster AKS. Utwórz klaster AKS przy użyciu metody [ComputeTarget. Create ()](/python/api/azureml-core/azureml.core.computetarget#create-workspace--name--provisioning-configuration-) . Utworzenie nowego klastra może potrwać 20-25 minut.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -104,7 +104,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
+Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -139,7 +139,7 @@ Wdrożenie usługi może potrwać kilka minut.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie planujesz używać wdrożonej usługi sieci Web, użyj, `service.delete()` Aby usunąć ją z notesu.  Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą usługi [WebService. Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
+Jeśli nie planujesz używać wdrożonej usługi sieci Web, użyj, `service.delete()` Aby usunąć ją z notesu.  Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą usługi [WebService. Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--).
 
 ## <a name="example-notebooks"></a>Przykładowe notesy
 

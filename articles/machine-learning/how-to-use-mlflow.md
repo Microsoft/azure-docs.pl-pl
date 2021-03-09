@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ed9d41a84e455241ed3cfc41b905a671f2a2d499
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 02684ba91c207357e15684870a6fa0ceab3e17ff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912958"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520969"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Uczenie i śledzenie modeli ML przy użyciu MLflow i Azure Machine Learning (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
  Poniższa tabela zawiera podsumowanie różnych klientów, którzy mogą używać Azure Machine Learning i ich możliwości funkcji.
 
- Śledzenie MLflow oferuje funkcje rejestrowania metryk i magazynu artefaktów, które są dostępne tylko w innym przypadku za pośrednictwem [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+ Śledzenie MLflow oferuje funkcje rejestrowania metryk i magazynu artefaktów, które są dostępne tylko w innym przypadku za pośrednictwem [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 
 | Możliwość | MLflow śledzenie & | Azure Machine Learning Python SDK |  Interfejs wiersza polecenia usługi Azure Machine Learning | Studio uczenia maszynowego Azure|
 |---|---|---|---|---|
@@ -63,7 +63,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstaluj pakiet `azureml-mlflow`. 
-    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
+    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
 * [Utwórz obszar roboczy usługi Azure Machine Learning](how-to-manage-workspace.md).
     * Zobacz, które [uprawnienia dostępu należy wykonać, aby wykonywać operacje MLflow w Twoim obszarze roboczym](how-to-assign-roles.md#mlflow-operations).
 
@@ -71,7 +71,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
 Śledzenie MLflow za pomocą Azure Machine Learning umożliwia przechowywanie zarejestrowanych metryk i artefaktów z lokalnych przebiegów w obszarze roboczym Azure Machine Learning.
 
-Zaimportuj `mlflow` klasy i, [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
+Zaimportuj `mlflow` klasy i, [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
 
 W poniższym kodzie `get_mlflow_tracking_uri()` Metoda przypisuje unikatowy adres URI śledzenia do obszaru roboczego, `ws` a następnie wskazuje na ten `set_tracking_uri()` adres identyfikator URI śledzenia MLflow.
 
@@ -118,7 +118,7 @@ dependencies:
     - numpy
 ```
 
-W skrypcie Skonfiguruj środowisko uruchomieniowe obliczeniowe i szkoleniowe z [`Environment`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) klasą. Następnie Utwórz  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) z użyciem obliczeń zdalnych jako element docelowy obliczeń.
+W skrypcie Skonfiguruj środowisko uruchomieniowe obliczeniowe i szkoleniowe z [`Environment`](/python/api/azureml-core/azureml.core.environment.environment) klasą. Następnie Utwórz  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) z użyciem obliczeń zdalnych jako element docelowy obliczeń.
 
 ```Python
 import mlflow
@@ -145,7 +145,7 @@ Zainstaluj `azureml-mlflow` pakiet, aby korzystać z funkcji śledzenia MLflow z
 pip install azureml-mlflow
 ```
 
-Zaimportuj `mlflow` klasy i, [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
+Zaimportuj `mlflow` klasy i, [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
 
 ```Python
 import mlflow

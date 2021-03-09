@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: bc8d14f3d4621a41c2d2845802313033d0809b4b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 40065189f3c1dd52f462985aef344e9cbeb12f0b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442132"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522380"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Wdrażanie bezstanowej aplikacji Kubernetes za pośrednictwem polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
@@ -27,7 +27,7 @@ Aby można było utworzyć klaster Kubernetes i użyć `kubectl` narzędzia wier
 
 - Poświadczenia logowania są dostępne na urządzeniu z 1 węzłem Azure Stack Edge.
 
-- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia Azure Stack EDGE Pro. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
+- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia Azure Stack EDGE Pro. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
 - Obliczenia są włączane na urządzeniu Azure Stack EDGE Pro. Aby włączyć obliczenia, przejdź do strony **obliczenia** w lokalnym interfejsie użytkownika urządzenia. Następnie wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń. Wybierz pozycję **Włącz**. Włączenie obliczeń powoduje utworzenie przełącznika wirtualnego na urządzeniu w tym interfejsie sieciowym. Aby uzyskać więcej informacji, zobacz [Włączanie usługi COMPUTE Network w Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

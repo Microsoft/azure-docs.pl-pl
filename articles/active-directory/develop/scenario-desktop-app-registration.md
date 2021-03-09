@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 155df45d975a30991edc80d587445d699a8d2695
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 8a1a2d7f5272def78cd162da1f6ac0265d4fb30b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517740"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
@@ -43,7 +43,7 @@ Identyfikatory URI przekierowania do użycia w aplikacji klasycznej zależą od 
 - Jeśli używasz uwierzytelniania interakcyjnego lub przepływu kodu urządzenia, użyj `https://login.microsoftonline.com/common/oauth2/nativeclient` . Aby osiągnąć tę konfigurację, wybierz odpowiedni adres URL w sekcji **uwierzytelnianie** dla swojej aplikacji.
 
   > [!IMPORTANT]
-  > Używanie `https://login.microsoftonline.com/common/oauth2/nativeclient` jako najlepszych rozwiązań w zakresie zabezpieczeń zaleca się użycie identyfikatora URI przekierowania.  Jeśli nie określono identyfikatora URI przekierowania, MSAL.NET `urn:ietf:wg:oauth:2.0:oob` domyślnie używa, które nie jest zalecane.  Ta wartość domyślna zostanie zaktualizowana jako istotna zmiana w następnej wersji.
+  > Używanie `https://login.microsoftonline.com/common/oauth2/nativeclient` jako najlepszych rozwiązań w zakresie zabezpieczeń zaleca się użycie identyfikatora URI przekierowania.  Jeśli nie określono identyfikatora URI przekierowania, MSAL.NET używa domyślnie, `urn:ietf:wg:oauth:2.0:oob` co nie jest zalecane.  Ta wartość domyślna zostanie zaktualizowana jako istotna zmiana w następnej wersji.
 
 - W przypadku tworzenia natywnej aplikacji "cel-C" lub "Swift" dla usługi macOS należy zarejestrować identyfikator URI przekierowania na podstawie identyfikatora pakietu aplikacji w następującym formacie: `msauth.<your.app.bundle.id>://auth` . Zastąp `<your.app.bundle.id>` identyfikatorem pakietu aplikacji.
 - Jeśli aplikacja używa tylko zintegrowanego uwierzytelniania systemu Windows lub nazwy użytkownika i hasła, nie trzeba rejestrować identyfikatora URI przekierowania dla aplikacji. Te przepływy umożliwiają przeprowadzenie rundy w punkcie końcowym Microsoft Identity platform v 2.0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.

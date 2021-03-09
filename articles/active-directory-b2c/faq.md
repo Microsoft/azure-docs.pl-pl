@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498833"
+ms.locfileid: "102517994"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -145,13 +145,13 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Usuń wszystkie **przepływy użytkowników (zasady)** w dzierżawie Azure AD B2C.
+1. Usuń wszystkich **dostawców tożsamości** w dzierżawie Azure AD B2C.
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz kartę **wszystkie aplikacje** .
 1. Usuń wszystkie zarejestrowane aplikacje.
 1. Usuń **B2C-Extensions-App**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
-1. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika**.
 1. W obszarze **Zarządzaj** wybierz pozycję **Właściwości** .
 1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** wybierz pozycję **Tak**, a następnie wybierz przycisk **Zapisz**.
 1. Wyloguj się z Azure Portal a następnie zaloguj się ponownie, aby odświeżyć dostęp.

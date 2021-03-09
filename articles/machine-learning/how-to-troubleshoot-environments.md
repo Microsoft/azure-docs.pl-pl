@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: da3e5bd9efcdd7d82dd3d3937918c4a64f69edbd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215650"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519133"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Rozwiązywanie problemów z kompilacjami obrazu środowiska
 
@@ -24,7 +24,7 @@ Dowiedz się, jak rozwiązywać problemy z kompilacjami obrazów środowiska Doc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
-* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Aby debugować lokalnie, musisz mieć działającą instalację platformy Docker w systemie lokalnym.
@@ -158,7 +158,7 @@ Możliwe problemy:
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Wystąpił błąd 401 z rejestru kontenerów obszaru roboczego
 
-Ponownie zsynchronizuj klucze magazynu za pomocą [WS.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Ponownie zsynchronizuj klucze magazynu za pomocą [WS.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>Środowisko ciągle zgłasza "Oczekiwanie na zakończenie innych operacji Conda..." Porn
 

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cb556466a5a76cbb9447538e98a5a2385f7b5614
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b1cb14e07f6c0e402510abad6f1cb160f5215c63
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661005"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518385"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli PyTorch na dużą skalę za pomocą Azure Machine Learning
 
@@ -36,7 +36,7 @@ Uruchom ten kod w dowolnym z następujących środowisk:
     - W folderze przykłady głębokiego uczenia na serwerze notesu Znajdź ukończony i rozwinięty Notes, przechodząc do tego katalogu: **How to-use-azure > ml-frameworks > pytorch > uczenie-parametr-dostrajania-Deploy-with-pytorch** . 
  
  - Własny serwer Jupyter Notebook
-    - [Zainstaluj zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Zainstaluj zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Utwórz plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
     - [Pobierz pliki przykładowego skryptu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
@@ -64,7 +64,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicjowanie obszaru roboczego
 
-[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia ono scentralizowane miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) obiektu.
+[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia ono scentralizowane miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) obiektu.
 
 Utwórz obiekt obszaru roboczego z `config.json` pliku utworzonego w [sekcji wymagania wstępne](#prerequisites).
 
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji na temat tworzenia i używania środowisk, zobac
 
 ### <a name="create-a-scriptrunconfig"></a>Utwórz ScriptRunConfig
 
-Utwórz obiekt [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) , aby określić szczegóły konfiguracji zadania szkoleniowego, w tym skrypt szkoleniowy, środowisko, które ma być używane, oraz miejsce docelowe obliczeń do uruchomienia. Wszystkie argumenty skryptu szkoleniowego zostaną przekazane za pośrednictwem wiersza polecenia, jeśli zostało to określone w `arguments` parametrze. 
+Utwórz obiekt [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) , aby określić szczegóły konfiguracji zadania szkoleniowego, w tym skrypt szkoleniowy, środowisko, które ma być używane, oraz miejsce docelowe obliczeń do uruchomienia. Wszystkie argumenty skryptu szkoleniowego zostaną przekazane za pośrednictwem wiersza polecenia, jeśli zostało to określone w `arguments` parametrze. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -203,7 +203,7 @@ Aby uzyskać więcej informacji na temat konfigurowania zadań przy użyciu usł
 
 ## <a name="submit-your-run"></a>Prześlij swój przebieg
 
-[Obiekt Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) udostępnia interfejs do historii uruchamiania, gdy zadanie jest uruchomione i po jego zakończeniu.
+[Obiekt Run](/python/api/azureml-core/azureml.core.run%28class%29) udostępnia interfejs do historii uruchamiania, gdy zadanie jest uruchomione i po jego zakończeniu.
 
 ```Python
 run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
@@ -267,7 +267,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Aby można było wykonać zadanie rozproszone przy użyciu MPI/Horovod na platformie Azure ML, należy określić [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) do `distributed_job_config` parametru konstruktora ScriptRunConfig. Poniższy kod spowoduje skonfigurowanie zadania rozproszonego 2-węzłowego, na którym uruchomiono jeden proces na węzeł. Jeśli chcesz również uruchomić wiele procesów na węzeł (tj. Jeśli jednostka SKU klastra ma wiele procesorów GPU), należy dodatkowo określić `process_count_per_node` parametr w MpiConfiguration (wartość domyślna to `1` ).
+Aby można było wykonać zadanie rozproszone przy użyciu MPI/Horovod na platformie Azure ML, należy określić [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) do `distributed_job_config` parametru konstruktora ScriptRunConfig. Poniższy kod spowoduje skonfigurowanie zadania rozproszonego 2-węzłowego, na którym uruchomiono jeden proces na węzeł. Jeśli chcesz również uruchomić wiele procesów na węzeł (tj. Jeśli jednostka SKU klastra ma wiele procesorów GPU), należy dodatkowo określić `process_count_per_node` parametr w MpiConfiguration (wartość domyślna to `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -294,7 +294,7 @@ Nie istnieją podstawowe różnice między tymi opcjami uruchamiania; jest on w 
 #### <a name="per-process-launch"></a>Uruchamianie na proces
 Aby użyć tej opcji do uruchomienia zadania rozproszonego PyTorch, wykonaj następujące czynności:
 1. Określ skrypt i argumenty szkoleniowe
-2. Utwórz [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) i określ, jak `process_count` również `node_count` . `process_count`Odnosi się do łącznej liczby procesów, które mają być uruchamiane dla danego zadania. Zwykle powinna to być taka sama jak liczba procesorów GPU na węzeł pomnożona przez liczbę węzłów. Jeśli `process_count` nie zostanie określony, usługa Azure ml będzie domyślnie uruchamiać jeden proces na węzeł.
+2. Utwórz [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) i określ, jak `process_count` również `node_count` . `process_count`Odnosi się do łącznej liczby procesów, które mają być uruchamiane dla danego zadania. Zwykle powinna to być taka sama jak liczba procesorów GPU na węzeł pomnożona przez liczbę węzłów. Jeśli `process_count` nie zostanie określony, usługa Azure ml będzie domyślnie uruchamiać jeden proces na węzeł.
 
 Platforma Azure ML ustawi następujące zmienne środowiskowe:
 * `MASTER_ADDR` -Adres IP maszyny, która będzie hostować proces z rangą 0.

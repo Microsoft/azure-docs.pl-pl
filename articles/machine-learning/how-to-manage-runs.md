@@ -12,16 +12,16 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e3aa5d5b97342d81562b3296b71a5a58a3ffadf5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d142c523862d61bf56723726be50cd6f095c5ee9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218239"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520340"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 
-[Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
+[Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
 
 W tym artykule przedstawiono przykłady następujących zadań:
 
@@ -42,7 +42,7 @@ Potrzebne będą następujące elementy:
 
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
 
-* Zestaw Azure Machine Learning SDK dla języka Python (wersja 1.0.21 lub nowsza). Aby zainstalować lub zaktualizować najnowszą wersję zestawu SDK, zobacz [Instalowanie lub aktualizowanie zestawu SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* Zestaw Azure Machine Learning SDK dla języka Python (wersja 1.0.21 lub nowsza). Aby zainstalować lub zaktualizować najnowszą wersję zestawu SDK, zobacz [Instalowanie lub aktualizowanie zestawu SDK](/python/api/overview/azure/ml/install).
 
     Aby sprawdzić wersję zestawu SDK Azure Machine Learning, użyj następującego kodu:
 
@@ -58,7 +58,7 @@ Potrzebne będą następujące elementy:
 
     # <a name="python"></a>[Python](#tab/python)
     
-    1. Skonfiguruj eksperyment przez zaimportowanie klas [obszaru roboczego](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py), [eksperymentu](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py), [uruchamiania](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)i [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) z pakietu [Azure. Core](/python/api/azureml-core/azureml.core?preserve-view=true&view=azure-ml-py) .
+    1. Skonfiguruj eksperyment przez zaimportowanie klas [obszaru roboczego](/python/api/azureml-core/azureml.core.workspace.workspace), [eksperymentu](/python/api/azureml-core/azureml.core.experiment.experiment), [uruchamiania](/python/api/azureml-core/azureml.core.run%28class%29)i [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) z pakietu [Azure. Core](/python/api/azureml-core/azureml.core) .
     
         ```python
         import azureml.core
@@ -69,7 +69,7 @@ Potrzebne będą następujące elementy:
         exp = Experiment(workspace=ws, name="explore-runs")
         ```
     
-    1. Rozpocznij przebieg i proces rejestrowania przy użyciu [`start_logging()`](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) metody.
+    1. Rozpocznij przebieg i proces rejestrowania przy użyciu [`start_logging()`](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) metody.
     
         ```python
         notebook_run = exp.start_logging()
@@ -107,7 +107,7 @@ Potrzebne będą następujące elementy:
         > [!TIP]
         > `az ml folder attach`Polecenie utworzyło `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig.
         >
-        > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
+        > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
         >
         > Więcej przykładowych plików runconfig można znaleźć w temacie [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
@@ -123,19 +123,19 @@ Potrzebne będą następujące elementy:
 
     # <a name="python"></a>[Python](#tab/python)
     
-    * Pobierz stan uruchomienia za pomocą [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-status--) metody.
+    * Pobierz stan uruchomienia za pomocą [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) metody.
     
         ```python
         print(notebook_run.get_status())
         ```
     
-    * Aby uzyskać identyfikator uruchomienia, czas wykonywania i dodatkowe szczegóły dotyczące przebiegu, użyj [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) metody.
+    * Aby uzyskać identyfikator uruchomienia, czas wykonywania i dodatkowe szczegóły dotyczące przebiegu, użyj [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) metody.
     
         ```python
         print(notebook_run.get_details())
         ```
     
-    * Po pomyślnym zakończeniu przebiegu Użyj [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) metody, aby oznaczyć ją jako zakończoną.
+    * Po pomyślnym zakończeniu przebiegu Użyj [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) metody, aby oznaczyć ją jako zakończoną.
     
         ```python
         notebook_run.complete()
@@ -209,7 +209,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
 
     # <a name="python"></a>[Python](#tab/python)
     
-    Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
+    Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
     
     ```Python
     local_run.add_properties({"author":"azureml-user"})
@@ -225,7 +225,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
         print(e)
     ```
     
-    W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) metody.
+    W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29#tag-key--value-none-) metody.
     
     ```Python
     local_run.tag("quality", "great run")
@@ -304,7 +304,7 @@ Jeśli zauważysz błąd lub jeśli wykonywanie przebiegu trwa zbyt długo, moż
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby anulować przebieg przy użyciu zestawu SDK, użyj [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecancel--) metody:
+Aby anulować przebieg przy użyciu zestawu SDK, użyj [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) metody:
 
 ```python
 src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -352,7 +352,7 @@ Utwórz uruchomienia podrzędne, aby grupować powiązane z nimi przebiegi, na p
 > [!NOTE]
 > Uruchomienia podrzędne można tworzyć tylko za pomocą zestawu SDK.
 
-Ten przykład kodu używa `hello_with_children.py` skryptu do tworzenia partii pięciu przebiegów podrzędnych z poziomu przesłanego przebiegu przy użyciu [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-) metody:
+Ten przykład kodu używa `hello_with_children.py` skryptu do tworzenia partii pięciu przebiegów podrzędnych z poziomu przesłanego przebiegu przy użyciu [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29#child-run-name-none--run-id-none--outputs-none-) metody:
 
 ```python
 !more hello_with_children.py
@@ -371,7 +371,7 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > Gdy przechodzą poza zakres, uruchomienia podrzędne są automatycznie oznaczane jako ukończone.
 
-Aby wydajnie tworzyć wiele podrzędnych przebiegów, użyj [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) metody. Ze względu na to, że każde utworzenie powoduje wywołanie sieciowe, tworzenie partii przebiegów jest bardziej wydajne niż ich tworzenie.
+Aby wydajnie tworzyć wiele podrzędnych przebiegów, użyj [`create_children()`](/python/api/azureml-core/azureml.core.run.run#create-children-count-none--tag-key-none--tag-values-none-) metody. Ze względu na to, że każde utworzenie powoduje wywołanie sieciowe, tworzenie partii przebiegów jest bardziej wydajne niż ich tworzenie.
 
 ### <a name="submit-child-runs"></a>Prześlij uruchomienia podrzędne
 
@@ -407,7 +407,7 @@ for child in run.get_children():
     child.wait_for_completion()
 ```
 
-Aby utworzyć wiele podrzędnych przebiegów z identycznymi konfiguracjami, argumentami i danymi wejściowymi, użyj [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) metody. Ze względu na to, że każde utworzenie powoduje wywołanie sieciowe, tworzenie partii przebiegów jest bardziej wydajne niż ich tworzenie.
+Aby utworzyć wiele podrzędnych przebiegów z identycznymi konfiguracjami, argumentami i danymi wejściowymi, użyj [`create_children()`](/python/api/azureml-core/azureml.core.run.run#create-children-count-none--tag-key-none--tag-values-none-) metody. Ze względu na to, że każde utworzenie powoduje wywołanie sieciowe, tworzenie partii przebiegów jest bardziej wydajne niż ich tworzenie.
 
 W ramach uruchomienia podrzędnego można wyświetlić identyfikator uruchomienia obiektu nadrzędnego:
 
@@ -419,7 +419,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>Uruchomienia podrzędne zapytania
 
-Aby zbadać podrzędne uruchomienia określonego elementu nadrzędnego, użyj [`get_children()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) metody. ``recursive = True``Argument umożliwia wykonywanie zapytań do zagnieżdżonego drzewa elementów podrzędnych i podrzędne.
+Aby zbadać podrzędne uruchomienia określonego elementu nadrzędnego, użyj [`get_children()`](/python/api/azureml-core/azureml.core.run%28class%29#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) metody. ``recursive = True``Argument umożliwia wykonywanie zapytań do zagnieżdżonego drzewa elementów podrzędnych i podrzędne.
 
 ```python
 print(parent_run.get_children())

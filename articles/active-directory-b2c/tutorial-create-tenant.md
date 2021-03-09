@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb680221447594b4784f61112655d507397b1c00
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648853"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518011"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: Tworzenie dzierżawy usługi Azure Active Directory B2C
 
@@ -23,6 +23,8 @@ Aby aplikacje mogły korzystać z Azure Active Directory B2C (Azure AD B2C), nal
 
 > [!NOTE]
 > Można utworzyć maksymalnie 20 dzierżawców na subskrypcję. Ten limit pomaga chronić przed zagrożeniami dla zasobów, takich jak ataki typu "odmowa usługi", i jest wymuszany zarówno w Azure Portal, jak i w podstawowym INTERFEJSie tworzenia dzierżawy. Jeśli musisz utworzyć więcej niż 20 dzierżawców, skontaktuj się z [Pomoc techniczna firmy Microsoft](support-options.md).
+> 
+> Jeśli chcesz ponownie użyć nazwy dzierżawy, która została wcześniej usunięta, ale po wprowadzeniu nazwy domeny zostanie wyświetlony komunikat o błędzie "jest już używany przez inny katalog", musisz [wykonać następujące kroki, aby najpierw usunąć dzierżawcę](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Wymagana jest rola co najmniej administratora subskrypcji. Po usunięciu dzierżawy może być również konieczne wylogowanie się i ponowne zalogowanie się, aby można było ponownie użyć nazwy domeny.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 

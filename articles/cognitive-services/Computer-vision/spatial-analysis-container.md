@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 0316850788a4f762680be91c8ecd86b3aa8bf6bc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433611"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519031"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -137,7 +137,7 @@ Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone 
 3. Przypisz zmienną do adresu IP urządzenia. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. Aby dodać adres IP urządzenia do listy zaufanych hostów klienta, użyj następującego polecenia: 
@@ -255,13 +255,22 @@ Utwórz wystąpienie usługi Azure IoT Hub przy użyciu interfejsu wiersza polec
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Zobacz [obsługę](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) regionów dla dostępnych regionów.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Konieczne będzie zainstalowanie [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) w wersji 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
@@ -280,6 +289,8 @@ Zainstaluj klucz publiczny programu Microsoft GPG.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -406,13 +417,22 @@ Utwórz wystąpienie usługi Azure IoT Hub przy użyciu interfejsu wiersza polec
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Zobacz [obsługę](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) regionów dla dostępnych regionów.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Konieczne będzie zainstalowanie [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) w wersji 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
@@ -431,6 +451,8 @@ Zainstaluj klucz publiczny programu Microsoft GPG.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -497,7 +519,7 @@ Po zaktualizowaniu manifestu wdrożenia dla [Azure Stack urządzeń brzegowych](
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |Parametr  |Opis  |

@@ -9,18 +9,49 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ebd4aed284869eb74760de8612a76139d26d47f5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502352"
+ms.locfileid: "102521207"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro) .
 
 __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zaktualizowana przez skopiowanie i wklejenie następującego adresu URL w czytniku kanałów informacyjnych: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-03-08"></a>2021-03-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.24.0
++ **Nowe funkcje**
+  + **azureml-automl-core**
+    + Usunięto zgodne z poprzednimi wersjami importy z `azureml.automl.core.shared` . Błędy modułu nie znaleziono w `azureml.automl.core.shared` przestrzeni nazw można rozwiązać przez zaimportowanie z `azureml.automl.runtime.shared` .
+  + **Azure-contrib-automl-DNN-Vision**
+    + Model Yolo wykrywania uwidocznionych obiektów.
+  + **azureml-contrib-dataset**
+    + Dodano funkcje do filtrowania tabelarycznych zestawów danych za pomocą wartości kolumn i plików DataSet w metadanych.
+  + **azureml-contrib-fairness**
+    + Uwzględnij schemat JSON w kole dla `azureml-contrib-fairness`
+  + **Azure-contrib-k8s**
+    + Należy teraz podać resource_id do dołączenia zamiast grupy zasobów i nazwy klastra.
+  + **Azure-contrib-Mir**
+    + Ustawienie show_output na wartość true w przypadku wdrażania modeli spowoduje, że konfiguracja wnioskowania i konfiguracja wdrożenia zostaną powtórzone przed wysłaniem żądania do serwera.
+  + **azureml-core**
+    + Dodano funkcje do filtrowania tabelarycznych zestawów danych za pomocą wartości kolumn i plików DataSet w metadanych.
+    + Wcześniej było możliwe, aby użytkownicy mogli tworzyć konfiguracje aprowizacji dla ComputeTarget, które nie spełniają wymagań dotyczących siły hasła dla `admin_user_password` pola (tj. muszą zawierać co najmniej 3 z następujących: 1 mała litera, 1 Wielka litera, 1 cyfra i 1 znak specjalny z następującego zestawu: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?`` ). Jeśli użytkownik utworzył konfigurację z słabym hasłem i uruchomiła zadanie przy użyciu tej konfiguracji, zadanie zakończy się niepowodzeniem w czasie wykonywania. Teraz wywołanie `AmlCompute.provisioning_configuration` zostanie zgłosić `ComputeTargetException` z towarzyszącym komunikatem o błędzie, wyjaśniając wymagania dotyczące siły hasła. 
+    + Ponadto również w niektórych przypadkach można określić konfigurację z ujemną liczbą węzłów. Nie jest już to możliwe. Teraz program `AmlCompute.provisioning_configuration` zgłosi wartość, `ComputeTargetException` Jeśli `max_nodes` argument jest ujemną liczbą całkowitą.
+    + W przypadku ustawienia show_output wartość true w przypadku wdrażania modeli zostanie wyświetlona konfiguracja wnioskowania i konfiguracja wdrożenia.
+    + Ustawienie show_output na wartość true podczas oczekiwania na zakończenie wdrażania modelu spowoduje wyświetlenie postępu operacji wdrażania.
+    + Zezwalaj klientowi na określony katalog konfiguracyjny uwierzytelniania Azure przy użyciu zmiennej środowiskowej: AZUREML_AUTH_CONFIG_DIR
+    + Wcześniej można było utworzyć konfigurację aprowizacji z minimalną liczbą węzłów mniejszą niż maksymalna liczba węzłów. Zadanie zostanie uruchomione, ale zakończy się niepowodzeniem w czasie wykonywania. Ten błąd został rozwiązany. Jeśli teraz podjęto próbę utworzenia konfiguracji inicjowania obsługi przy użyciu `min_nodes < max_nodes` zestawu SDK, spowoduje to wystąpienie `ComputeTargetException` .
+  + **azureml-interpret**
+    + niepokazywany pulpit nawigacyjny wyjaśnień funkcji agregowania dla wyjaśnień rozrzedzonych
+    + zoptymalizowane użycie pamięci przez ExplanationClient na platformie Azure — Interpretuj pakiet
+  + **azureml-train-automl-client**
+    +  Stała show_output = false, aby zwrócić kontrolę użytkownikowi podczas uruchamiania przy użyciu platformy Spark.
 
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lutego)
@@ -39,6 +70,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + Ulepszona szybkość i niezawodność jądra
   + Dodano wirujące koło, aby pokazać postęp dla wszystkich bieżących [operacji wystąpienia obliczeniowego](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
   + Kliknij prawym przyciskiem myszy w Eksploratorze plików. Kliknięcie prawym przyciskiem myszy dowolnego pliku spowoduje teraz otwarcie operacji na plikach. 
+
 
 ## <a name="2021-02-16"></a>2021-02-16
 
