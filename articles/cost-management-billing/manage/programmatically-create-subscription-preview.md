@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202998"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565720"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Programowe tworzenie subskrypcji platformy Azure za pomocą interfejsów API w wersji zapoznawczej
 
@@ -190,7 +190,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | Tak       | Ciąg | Identyfikator obiektu konta rejestracji, w ramach którego tworzona i rozliczana jest subskrypcja. Ta wartość to identyfikator GUID otrzymany w odpowiedzi na polecenie `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu.  |
 | `OwnerSignInName`    | Nie       | Ciąg | Adres e-mail dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `OwnerObjectId`.|
-| `OwnerApplicationId` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, która ma zostać dodana jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `OwnerObjectId`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `OwnerApplicationId` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, która ma zostać dodana jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `OwnerObjectId`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Aby wyświetlić pełną listę parametrów, zobacz [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
@@ -211,7 +211,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Tak       | Ciąg | Identyfikator obiektu konta rejestracji, w ramach którego tworzona i rozliczana jest subskrypcja. Ta wartość to identyfikator GUID otrzymany w odpowiedzi na polecenie `az billing enrollment-account list`. |
 | `owner-object-id`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu.  |
 | `owner-upn`    | Nie       | Ciąg | Adres e-mail dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`.|
-| `owner-spn` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, która ma zostać dodana jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `owner-spn` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, która ma zostać dodana jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Aby wyświetlić pełną listę parametrów, zobacz [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
 

@@ -1,25 +1,26 @@
 ---
 title: 'Samouczek: Zabezpieczanie serwera sieci Web z systemem Linux przy użyciu certyfikatów TLS/SSL na platformie Azure'
 description: Z tego samouczka dowiesz się, jak można korzystać z interfejsu wiersza polecenia platformy Azure do zabezpieczania maszyny wirtualnej z systemem Linux, na której działa internetowy serwer NGINX z certyfikatami SSL przechowywanymi w usłudze Azure Key Vault.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e4e80990b32175842556059d005563a220d14688
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3f762597ad81dfaba907115cbcf6074d81ec2fa4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878463"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549587"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Samouczek: Zabezpieczanie serwera sieci Web na maszynie wirtualnej z systemem Linux na platformie Azure przy użyciu certyfikatów TLS/SSL przechowywanych w Key Vault
 Aby zabezpieczyć serwery sieci Web, Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), można użyć certyfikatu do szyfrowania ruchu w sieci Web. Te certyfikaty TLS/SSL mogą być przechowywane w Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:

@@ -2,17 +2,17 @@
 title: Migrowanie maszyn wirtualnych platformy Azure do Managed Disks
 description: Przeprowadź migrację maszyn wirtualnych platformy Azure utworzonych przy użyciu dysków niezarządzanych na kontach magazynu, aby użyć Managed Disks.
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 65b36db5185390cd6527a66c91eecd4712623df5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487528"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564343"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do Managed Disks na platformie Azure
 

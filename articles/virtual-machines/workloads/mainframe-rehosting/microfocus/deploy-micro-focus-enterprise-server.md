@@ -1,7 +1,7 @@
 ---
 title: Wdrażanie programu Micro Focus Enterprise Server 5,0 do AKS | Microsoft Docs
 description: Przehostaj obciążenia systemu mainframe firmy IBM z/OS przy użyciu środowiska deweloperskiego i testowego na maszynach wirtualnych platformy Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5b3857c2252a939080206fb1f92cc422f326fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042543"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564360"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Wdrażanie programu Micro Focus Enterprise Server 5,0 do AKS
 
@@ -39,7 +39,7 @@ Gotowe? Zaczynajmy.
 
 ## <a name="create-the-azure-container-registry"></a>Tworzenie Azure Container Registry
 
-W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu. Na pulpicie nawigacyjnym portalu Marketplace wybierz pozycję **kontenery,** a następnie **Container Registry**. Spowoduje to przejście do okienka **Tworzenie rejestru kontenera** , w którym należy podać **nazwę rejestru**, **subskrypcję platformy Azure**, **grupę zasobów**i **lokalizację**. **Nazwa rejestru** musi zostać rozpoznana, dlatego musi być unikatowa. Wybierz **grupę zasobów** używaną w poprzednim wpisie w blogu i tę samą **lokalizację**. Wybierz opcję **Włącz** dla **użytkownika Administrator** i **podstawowa** dla **jednostki SKU**. Gdy wszystko będzie wypełnione, wybierz pozycję **Utwórz**.
+W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu. Na pulpicie nawigacyjnym portalu Marketplace wybierz pozycję **kontenery,** a następnie **Container Registry**. Spowoduje to przejście do okienka **Tworzenie rejestru kontenera** , w którym należy podać **nazwę rejestru**, **subskrypcję platformy Azure**, **grupę zasobów** i **lokalizację**. **Nazwa rejestru** musi zostać rozpoznana, dlatego musi być unikatowa. Wybierz **grupę zasobów** używaną w poprzednim wpisie w blogu i tę samą **lokalizację**. Wybierz opcję **Włącz** dla **użytkownika Administrator** i **podstawowa** dla **jednostki SKU**. Gdy wszystko będzie wypełnione, wybierz pozycję **Utwórz**.
 
 ![Utwórz interfejs rejestru kontenerów](media/deploy-image-1.png)
 
@@ -71,7 +71,7 @@ Po zalogowaniu Otwórz wiersz polecenia i zainicjuj następujące polecenia plat
 
 -   **obrazy platformy Docker** — pokazuje listę wszystkich aktualnie zainstalowanych obrazów na maszynie wirtualnej. Zwróć uwagę na **mikrofokus/es — acctdemo** , ponieważ jest to ten, z którym będziesz pracować.
 
--   **acrmf50.azurecr.IO logowania platformy Docker** — poprawny format w tym miejscu to *Docker login \<registry name\> *. Zastąp dowolną nazwę, która została użyta podczas tworzenia rejestru.
+-   **acrmf50.azurecr.IO logowania platformy Docker** — poprawny format w tym miejscu to *Docker login \<registry name\>*. Zastąp dowolną nazwę, która została użyta podczas tworzenia rejestru.
 
     -   Wymagana jest **Nazwa użytkownika** i **hasło** skopiowane z Azure Portal. Na ekranie powinna być widoczna zawartość podobna do tej z poniższej ilustracji.
 
@@ -85,7 +85,7 @@ Po zalogowaniu Otwórz wiersz polecenia i zainicjuj następujące polecenia plat
 
     ![Ekran wiersza polecenia administratora](media/deploy-image-4.png)
 
-Teraz wróć do Azure Portal, w odwrocie do **repozytorium**. W menu **repozytorium**wybierz pozycję **repozytoria**, a następnie na liście **acctdemo** . Teraz Utwórz klaster AKS.
+Teraz wróć do Azure Portal, w odwrocie do **repozytorium**. W menu **repozytorium** wybierz pozycję **repozytoria**, a następnie na liście **acctdemo** . Teraz Utwórz klaster AKS.
 
 ## <a name="create-the-azure-kubernetes-aks-cluster"></a>Tworzenie klastra usługi Azure Kubernetes (AKS)
 
@@ -113,7 +113,7 @@ Kubernetes powinna odpowiedzieć na komunikat, że wdrożenie zostało utworzone
 
 ![Zrzut ekranu przedstawiający komunikat wdrożenia](media/deploy-image-8.jpg)
 
-Aby sprawdzić, czy kontener jest w rzeczywistości uruchomiona, wpisz: **polecenia kubectl Get**Containers.
+Aby sprawdzić, czy kontener jest w rzeczywistości uruchomiona, wpisz: **polecenia kubectl Get** Containers.
 
 Powinieneś zobaczyć es-acctdemo jako uruchomiony pod, jak na poniższej ilustracji.
 

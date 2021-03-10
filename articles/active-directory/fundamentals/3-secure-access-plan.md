@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725215"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554024"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Utwórz plan zabezpieczeń dla dostępu zewnętrznego 
 
@@ -132,7 +132,7 @@ Mimo że zasady zostaną odpowiednio dostosowane do Twoich potrzeb, należy rozw
 
    * Jeśli używasz [połączonych organizacji](../governance/entitlement-management-organization.md) do grupowania wszystkich użytkowników z jednego partnera, Zaplanuj regularne przeglądy przy użyciu właściciela firmy i przedstawiciela partnera.
 
-* **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
+* **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
 
 * **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Na przykład:
 
@@ -159,7 +159,7 @@ Usługa Azure AD P2 i Microsoft 365 E5 mają pełen pakiet narzędzi zabezpiecze
 
 ### <a name="provisioning-signing-in-reviewing-access-and-deprovisioning-bolded-entries-are-preferred-methods"></a>Inicjowanie obsługi administracyjnej, logowanie, przeglądanie dostępu i cofanie aprowizacji. Pogrubione wpisy są preferowanymi metodami
 
-| Cechy| Udostępnianie użytkownikom zewnętrznym| Wymuś dotyczących logowania.| Przegląd dostępu| Cofanie aprowizacji dostępu |
+| Cecha| Udostępnianie użytkownikom zewnętrznym| Wymuś dotyczących logowania.| Przegląd dostępu| Cofanie aprowizacji dostępu |
 | - | - | - | - | - |
 | Współpraca B2B w usłudze Azure AD| Zapraszanie za pośrednictwem poczty e-mail, OTP, samoobsługowy| | **Okresowe przeglądy na partnera**| Usuń konto<br>Ogranicz logowanie |
 | Zarządzanie prawami| **Dodawanie użytkownika za pośrednictwem przypisywania lub samoobsługowego dostępu**| | Przeglądy dostępu|**Wygaśnięcie lub usunięcie z pakietu, pakiet dostępu**|
@@ -170,7 +170,7 @@ Usługa Azure AD P2 i Microsoft 365 E5 mają pełen pakiet narzędzi zabezpiecze
 
  ### <a name="access-to-resources-bolded-entries-are-preferred-methods"></a>Dostęp do zasobów. Pogrubione wpisy są preferowanymi metodami
 
-|Cechy | Dostęp do zasobów & aplikacji| Program SharePoint & dostęp do usługi OneDrive| Dostęp do zespołów| Bezpieczeństwo dokumentu & e-mail |
+|Cecha | Dostęp do zasobów & aplikacji| Program SharePoint & dostęp do usługi OneDrive| Dostęp do zespołów| Bezpieczeństwo dokumentu & e-mail |
 | - |-|-|-|-|
 | Zarządzanie prawami| **Dodawanie użytkownika za pośrednictwem przypisywania lub samoobsługowego dostępu**| **Pakiety dostępu**| **Pakiety dostępu**|  |
 | Grupa pakietu Office 365| | Dostęp do witryn (i powiązanej zawartości) dołączonych do grupy| Dostęp do zespołów (i powiązanej zawartości) dołączonych do grupy|  |
@@ -190,7 +190,7 @@ Możesz uzyskać niezawodne zarządzanie przy użyciu usługi Azure AD P1 i Micr
 ### <a name="provisioning-signing-in-reviewing-access-and-deprovisioning"></a>Inicjowanie obsługi administracyjnej, logowanie, przeglądanie dostępu i cofanie aprowizacji
 
 
-|Cechy | Udostępnianie użytkownikom zewnętrznym| Wymuś wymagania dotyczące logowania| Przegląd dostępu| Cofanie aprowizacji dostępu |
+|Cecha | Udostępnianie użytkownikom zewnętrznym| Wymuś wymagania dotyczące logowania| Przegląd dostępu| Cofanie aprowizacji dostępu |
 | - |-|-|-|-|
 | Współpraca B2B w usłudze Azure AD| **Zapraszanie za pośrednictwem poczty e-mail, OTP, samoobsługowy**| Bezpośrednia Federacja B2B| **Okresowe przeglądy na partnera**| Usuń konto<br>Ogranicz logowanie |
 | Grupy Microsoft lub Office 365| | | | Wygaśnięcie lub usunięcie grupy.<br>Usuwanie z grupy. |
@@ -200,7 +200,7 @@ Możesz uzyskać niezawodne zarządzanie przy użyciu usługi Azure AD P1 i Micr
 
  ### <a name="access-to-resources"></a>Dostęp do zasobów.
 
-|Cechy | Dostęp do zasobów & aplikacji| Program SharePoint & dostęp do usługi OneDrive| Dostęp do zespołów| Bezpieczeństwo dokumentu & e-mail |
+|Cecha | Dostęp do zasobów & aplikacji| Program SharePoint & dostęp do usługi OneDrive| Dostęp do zespołów| Bezpieczeństwo dokumentu & e-mail |
 | - |-|-|-|-|
 | Grupy Microsoft lub Office 365| | **Dostęp do witryn dołączonych do grupy (i skojarzonej zawartości)**|**Dostęp do zespołów dołączonych do grupy Microsoft 365 (i powiązanej zawartości)**|  |
 | Etykiety poufności| | Ręczne klasyfikowanie i ograniczanie dostępu| Ręczne klasyfikowanie i ograniczanie dostępu.| Ręczne klasyfikowanie w celu ograniczenia i szyfrowania |

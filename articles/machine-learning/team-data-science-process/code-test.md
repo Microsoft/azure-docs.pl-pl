@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 66853b580ba1b619bf4cc995e05bd3cfaff07cfb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656839"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565873"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testowanie kodu analizy danych na platformie Azure z zespołowym procesem nauki danych i Azure DevOps Services
 W tym artykule przedstawiono wstępne wskazówki dotyczące testowania kodu w przepływie pracy analizy danych. Takie testowanie umożliwia analitykom danych systematyczne i wydajne sprawdzanie jakości i oczekiwanego wyniku ich kodu. Korzystamy z projektu zespołowego przetwarzania danych (przetwarzania TDSP) [, który korzysta z zestawu danych dochodów dla dorosłych](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) , który został opublikowany wcześniej, aby pokazać, jak można przeprowadzić testowanie kodu. 
@@ -124,7 +124,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
     ![Lista szablonów i przycisk "pusty proces"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nadaj nazwę kompilacji i wybierz agenta. W tym miejscu możesz wybrać wartość domyślną, jeśli chcesz użyć DSVM do ukończenia procesu kompilacji. Aby uzyskać więcej informacji na temat ustawiania agentów, zobacz [kompilacje i wydania agentów](/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nadaj nazwę kompilacji i wybierz agenta. W tym miejscu możesz wybrać wartość domyślną, jeśli chcesz użyć DSVM do ukończenia procesu kompilacji. Aby uzyskać więcej informacji na temat ustawiania agentów, zobacz [kompilacje i wydania agentów](/azure/devops/pipelines/agents/agents).
     
     ![Kompilacje i wybór agentów](./media/code-test/select_agent.PNG)
 

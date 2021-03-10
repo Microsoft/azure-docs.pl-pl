@@ -1,22 +1,19 @@
 ---
 title: Rozszerzenie niestandardowego skryptu platformy Azure dla systemu Windows
 description: Automatyzowanie zadań konfiguracyjnych maszyn wirtualnych z systemem Windows przy użyciu rozszerzenia niestandardowego skryptu
-services: virtual-machines-windows
-manager: gwallace
-author: amjads1
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 08/31/2020
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.author: amjads
-ms.openlocfilehash: d06be4efae895cfe6903be4451f892660ce689f3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+author: amjads1
+ms.collection: windows
+ms.date: 08/31/2020
+ms.openlocfilehash: 13b4c4ef50ea37cabe30474d339acb19176cef97
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390134"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553905"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 

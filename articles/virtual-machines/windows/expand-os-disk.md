@@ -1,26 +1,27 @@
 ---
 title: Rozszerzanie dysku systemu operacyjnego maszyny wirtualnej z systemem Windows na platformie Azure
 description: Zwiększ rozmiar dysku systemu operacyjnego maszyny wirtualnej przy użyciu Azure PowerShell w modelu wdrażania Menedżer zasobów.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393833"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549604"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Sposób rozszerzania dysku systemu operacyjnego maszyny wirtualnej
 

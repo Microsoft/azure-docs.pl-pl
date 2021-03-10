@@ -2,18 +2,19 @@
 title: Włączanie usługi Azure Disk Encryption dla maszyn wirtualnych z systemem Linux
 description: Ten artykuł zawiera instrukcje dotyczące włączania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: de67e356e54328944c55f41dc0c9670e2540e82e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 066fb32dc9da13e8a77660a9144b53675d689f63
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694380"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553803"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -72,8 +73,8 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | RedHat | RHEL 8.1 | 8.1 | RedHat: RHEL: 8.1: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7 — LVM | 7 — LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,8 | 7,8 | RedHat: RHEL: 7.8: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RedHat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RedHat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,7 | 7.7 | RedHat: RHEL: 7.7: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,6 | 7.6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7.5 | 7,5 | RedHat: RHEL: 7.5: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,4 | 7,4 | RedHat: RHEL: 7.4: Najpóźniejsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,3 | 7.3 | RedHat: RHEL: 7.3: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
@@ -85,8 +86,8 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | OpenLogic | CentOS 8,1 | 8_1 | OpenLogic: CentOS: 8_1: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7 — LVM | 7 — LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,8 | 7,8 | OpenLogic: CentOS: 7_8: Najnowsza | System operacyjny i dysk z danymi |
-| OpenLogic | CentOS 7,7 | 7,7 | OpenLogic: CentOS: 7.7: Najnowsza | System operacyjny i dysk z danymi |
-| OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,7 | 7.7 | OpenLogic: CentOS: 7.7: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,6 | 7.6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.5 | 7,5 | OpenLogic: CentOS: 7.5: Najnowsze | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.4 | 7,4 | OpenLogic: CentOS: 7.4: Najpóźniejsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,3 | 7.3 | OpenLogic: CentOS: 7.3: Najnowsza | System operacyjny i dysk z danymi |

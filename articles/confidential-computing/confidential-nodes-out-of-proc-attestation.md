@@ -1,17 +1,17 @@
 ---
 title: Obsługa zaświadczania poza procesem przy użyciu funkcji Intel SGX Quote Helper elementu daemonset na platformie Azure (wersja zapoznawcza)
-description: Elementu daemonset do generowania oferty poza procesem aplikacji SGX. W tym artykule wyjaśniono, w jaki sposób zaświadczenie out-of-proc jest udostępniane dla poufnych obciążeń uruchomionych wewnątrz kontenera.
+description: Elementu daemonset do generowania oferty poza procesem aplikacji SGX. W tym artykule wyjaśniono, jak funkcja zaświadczania out-of-proc jest rovided dla poufnych obciążeń uruchomionych wewnątrz kontenera.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 89890740b06a399bad4678ff6ddd9be09c1cda0e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653333"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553259"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Zarządzanie oprogramowaniem platformy przy użyciu zestawu demona pomocnika cytatu SGX (wersja zapoznawcza)
 

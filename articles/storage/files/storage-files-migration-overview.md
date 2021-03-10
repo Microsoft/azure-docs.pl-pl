@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202352"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554874"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -81,13 +81,12 @@ Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawd�
 | Element źródłowy | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
 |:---|:--|:--|
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
-| System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync i wstępnie rozsiane pliki w chmurze](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
-| Windows Server 2012 i starsze | <ul><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
-| Magazyn dołączony do sieci (NAS) | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux lub Samba | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Microsoft Azure StorSimple urządzenie w chmurze 8100 lub StorSimple w chmurze 8600 | <ul><li>[Azure File Sync i urządzenie w chmurze StorSimple 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| Urządzenie w chmurze StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
-| | | |
+| System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li><li>Za pośrednictwem Azure File Sync</li></ul> |
+| Windows Server 2012 i starsze | <ul><li>Za pośrednictwem DataBox i Azure File Sync do ostatniego systemu operacyjnego serwera</li><li>Za pomocą usługi migracji magazynu na ostatni serwer z Azure File Sync, a następnie Przekaż</li></ul> | <ul><li>Za pomocą usługi migracji magazynu na ostatni serwer z Azure File Sync</li><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
+| Magazyn dołączony do sieci (NAS) | <ul><li>[Za pośrednictwem przekazywania Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Za pośrednictwem DataBox i Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
+| Linux/Samba | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
+| Microsoft Azure StorSimple urządzenie w chmurze 8100 lub StorSimple w chmurze 8600 | <ul><li>[Za pośrednictwem dedykowanej usługi w chmurze migracji danych](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| Urządzenie w chmurze StorSimple 1200 | <ul><li>[Za pośrednictwem Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## <a name="migration-toolbox"></a>Przybornik migracji
 
@@ -120,9 +119,9 @@ Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydat
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Obsługiwane. Udziały plików platformy Azure można instalować jako dyski sieciowe. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natywnie zintegrowane z udziałami plików platformy Azure. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Usługa migracji magazynu | Obsługiwane pośrednio. Udziały plików platformy Azure można instalować jako dyski sieciowe na serwerach docelowych programu SMS. | Pełna wierność. * |
-|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, wersja 10,4 lub nowsza| Obsługiwane. | Pełna wierność. * |
-|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Obsługiwane. | DataBox teraz w pełni obsługuje metadane. [Urządzenie Data Box można również używać w połączeniu z Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Eksplorator usługi Azure Storage, wersja 1,14 | Obsługiwane. | Nie kopiuje list ACL. Obsługuje sygnatury czasowe.  |
+|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>wersja 10,6 | Obsługiwane. | Program nie obsługuje kopiowania głównej listy kontroli dostępu do źródła, w przeciwnym razie pełna wierność. * </br>[Dowiedz się, jak używać AzCopy z udziałami plików platformy Azure](../common/storage-use-azcopy-files.md) |
+|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Obsługiwane. | DataBox w pełni obsługuje metadane. |
+|![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Eksplorator usługi Azure Storage </br>Wersja 1,14 | Obsługiwane. | Nie kopiuje list ACL. Obsługuje sygnatury czasowe.  |
 |![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Obsługiwane. | Nie kopiuje metadanych. |
 |||||
 
@@ -149,7 +148,7 @@ Przetestowana wersja narzędzia jest w wersji 4.4.1. Jest on zgodny z plikami w 
 1. Utwórz plan, dla którego chcesz wdrożyć udziały plików platformy Azure (tylko w chmurze lub hybrydowe).
 1. Zapoznaj się z listą dostępnych przewodników migracji, aby znaleźć szczegółowy przewodnik, który jest zgodny ze źródłem i wdrożeniem udziałów plików platformy Azure.
 
-Poniżej przedstawiono więcej informacji o Azure Files technologiach wymienionych w tym artykule:
+Więcej informacji o Azure Files technologiach wymienionych w tym artykule:
 
 * [Omówienie udziału plików platformy Azure](storage-files-introduction.md)
 * [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

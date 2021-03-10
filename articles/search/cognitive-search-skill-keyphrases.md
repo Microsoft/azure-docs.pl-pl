@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652317"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547836"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>wyodrębnianie kluczowych fraz umiejętności poznawcze
 
@@ -41,6 +41,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 |---------------------|-------------|
 | `defaultLanguageCode` | Obowiązkowe Kod języka, który ma zostać zastosowany do dokumentów, które nie określają jawnie języka.  Jeśli kod języka domyślnego nie zostanie określony, jako domyślny kod języka zostanie użyty język angielski (EN). <br/> Zapoznaj się [z pełną listą obsługiwanych języków](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | Obowiązkowe Maksymalna liczba kluczowych fraz do wygenerowania. |
+| `modelVersion`   | Obowiązkowe Wersja modelu do użycia podczas wywoływania usługi analiza tekstu. Domyślnie będzie to najnowsza dostępna wartość, gdy nie zostanie określony. Zalecamy, aby nie określać tej wartości, chyba że jest to absolutnie konieczne. Aby uzyskać więcej informacji, zobacz artykuł [przechowywanie wersji modeli w interfejs API analizy tekstu](../cognitive-services/text-analytics/concepts/model-versioning.md) . |
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
@@ -109,12 +110,12 @@ W powyższym przykładzie dane wyjściowe Twojej umiejętności będą zapisywan
 
 Możesz użyć "Document/myKeyPhrases" jako danych wejściowych w innych umiejętnościach lub jako źródło [mapowania pól wyjściowych](cognitive-search-output-field-mapping.md).
 
-## <a name="errors-and-warnings"></a>Błędy i ostrzeżenia
-Jeśli podano nieobsługiwany kod języka, zostanie wygenerowany błąd i frazy kluczy nie są wyodrębniane.
+## <a name="warnings"></a>Ostrzeżenia
+Jeśli podano nieobsługiwany kod języka, generowane jest ostrzeżenie, a frazy kluczy nie są wyodrębniane.
 Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie.
 Jeśli tekst jest większy niż 50 000 znaków, przeanalizowane zostaną tylko pierwsze 50 000 znaki i zostanie wygenerowane ostrzeżenie.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

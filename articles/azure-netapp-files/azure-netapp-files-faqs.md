@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713409"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552035"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -147,6 +147,16 @@ Upewnij się, że `CaseSensitiveLookup` włączono na kliencie systemu Windows p
 2. Zainstaluj wolumin na serwerze z systemem Windows.   
     Przykład:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Jak Azure NetApp Files obsługuje blokowanie plików z NFSv 4.1? 
+
+W przypadku klientów z systemem NFSv 4.1 Azure NetApp Files obsługuje mechanizm blokowania plików NFSv 4.1, który utrzymuje stan wszystkich blokad plików w ramach modelu opartego na dzierżawie. 
+
+Na RFC 3530 Azure NetApp Files definiuje pojedynczy okres dzierżawy dla wszystkich stanów przechowywanych przez klienta NFS. Jeśli klient nie odnowi dzierżawy w określonym przedziale czasu, wszystkie Stany skojarzone z dzierżawą klienta zostaną wydane przez serwer.  
+
+Jeśli na przykład klient instalujący wolumin przestanie odpowiadać lub ulegnie awarii poza limitem czasu, blokady zostaną wydane. Klient może odnowić swoją dzierżawę jawnie lub niejawnie, wykonując operacje, takie jak odczytywanie pliku.   
+
+Okres prolongaty definiuje okres przetwarzania specjalnego, w którym klienci mogą próbować odzyskać stan blokowania podczas odzyskiwania serwera. Domyślny limit czasu dla dzierżaw wynosi 30 sekund z okresem prolongaty równym 45 sekund. Po upływie tego czasu dzierżawa klienta zostanie wydana.   
 
 ## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
 

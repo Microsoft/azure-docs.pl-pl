@@ -1,24 +1,25 @@
 ---
 title: Aktualizowanie rozszerzenia Network Watcher do najnowszej wersji
 description: Dowiedz się, jak zaktualizować rozszerzenie Network Watcher platformy Azure do najnowszej wersji.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: damendo
 manager: balar
 editor: ''
 tags: azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: 144320ea1b2505d8a43e1885091ec14a847e4ab1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 42efe2927b4d711f7fa66a96ebd25f1a62bf654a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853666"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563612"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Aktualizowanie rozszerzenia Network Watcher do najnowszej wersji
 
@@ -144,7 +145,7 @@ Możesz sprawdzić wersję rozszerzenia przy użyciu Azure Portal, interfejsu wi
 1. Wybierz rozszerzenie **AzureNetworkWatcher** , aby wyświetlić okienko Szczegóły.
 1. W polu **wersja** Znajdź numer wersji.  
 
-#### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+#### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 Uruchom następujące polecenie w wierszu polecenia interfejsu wiersza polecenia platformy Azure:
 

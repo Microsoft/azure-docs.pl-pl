@@ -1,23 +1,24 @@
 ---
 title: Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Synchronizacja czasu dla maszyn wirtualnych z systemem Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 399022c1ef740865e4b2f7b82e2175e748a2a925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306960"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552647"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -114,7 +115,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 ### <a name="check-for-ptp-clock-source"></a>Sprawdź Źródło zegara PTP
 
-W przypadku nowszych wersji systemu Linux Źródło zegara protokołu czasu (PTP) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach Red Hat Enterprise Linux lub CentOS 7. x [usługi integracji z systemem Linux](https://github.com/LIS/lis-next) można pobrać i użyć do zainstalowania zaktualizowanego sterownika. Gdy źródło zegara PTP jest dostępne, urządzenie z systemem Linux będzie miało postać/dev/PTP*x*. 
+W przypadku nowszych wersji systemu Linux Źródło zegara protokołu czasu (PTP) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach Red Hat Enterprise Linux lub CentOS 7. x [usługi integracji z systemem Linux](https://github.com/LIS/lis-next) można pobrać i użyć do zainstalowania zaktualizowanego sterownika. Gdy źródło zegara PTP jest dostępne, urządzenie z systemem Linux będzie miało postać/dev/PTP *x*. 
 
 Zobacz, które źródła zegara PTP są dostępne.
 

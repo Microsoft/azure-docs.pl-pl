@@ -2,18 +2,19 @@
 title: Samouczek — Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych z systemem Windows za pomocą Azure Site Recovery
 description: Dowiedz się, jak włączyć odzyskiwanie po awarii dla maszyn wirtualnych z systemem Windows w innym regionie platformy Azure przy użyciu usługi Azure Site Recovery.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53cc0b820bd2ffb9fc28b37f44bb71a7b9d3cd30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380451"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555860"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Samouczek: Włączanie odzyskiwania po awarii dla maszyn wirtualnych z systemem Windows
 
@@ -42,7 +43,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     **Nazwa** | **Chmura publiczna** | **Chmura dla instytucji rządowych** | **Szczegóły**
     --- | --- | --- | ---
-    Magazyn | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Zapisz dane z maszyny wirtualnej na koncie magazynu pamięci podręcznej w regionie źródłowym. 
+    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Zapisz dane z maszyny wirtualnej na koncie magazynu pamięci podręcznej w regionie źródłowym. 
     Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Autoryzuj i uwierzytelniaj w celu Site Recovery adresów URL usługi. 
     Replikacja | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Komunikacja maszyny wirtualnej z usługą Site Recovery. 
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | Zapisywanie maszyny wirtualnej w celu Site Recovery monitorowania i danych diagnostycznych. 
@@ -62,7 +63,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. W Azure Portal Otwórz stronę właściwości maszyny wirtualnej.
 2. W obszarze **Operacja** wybierz pozycję **Odzyskiwanie po awarii**.
-3. W **Basics**  >  **obszarze region docelowy** podstawy wybierz region, do którego chcesz replikować maszynę wirtualną. Regiony źródłowe i docelowe muszą należeć do tej samej Azure Active Directory dzierżawy.
+3. W   >  **obszarze region docelowy** podstawy wybierz region, do którego chcesz replikować maszynę wirtualną. Regiony źródłowe i docelowe muszą należeć do tej samej Azure Active Directory dzierżawy.
 4. Kliknij kolejno pozycje **Recenzja + Uruchom replikację**.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Włącz replikację na stronie odzyskiwania po awarii we właściwościach maszyny wirtualnej.":::
@@ -152,7 +153,7 @@ Aby zatrzymać replikację:
 
 Rozszerzenie Site Recovery zainstalowane na maszynie wirtualnej podczas replikacji nie zostanie automatycznie usunięte. Jeśli wyłączysz replikację maszyny wirtualnej i nie chcesz jej ponownie zreplikować, możesz usunąć rozszerzenie Site Recovery ręcznie, wykonując następujące czynności: 
 
-1. Przejdź do rozszerzeń **ustawień** > maszyny wirtualnej  >  **Extensions**.
+1. Przejdź do rozszerzeń **ustawień**> maszyny wirtualnej  >  .
 2. Na stronie **rozszerzenia** zaznacz każdy wpis *Microsoft. Azure. RecoveryServices* dla systemu Linux.
 3. Na stronie właściwości rozszerzenia wybierz pozycję **Odinstaluj**.
 

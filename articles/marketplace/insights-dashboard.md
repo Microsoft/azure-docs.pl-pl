@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458283"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553939"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Analiza platformy handlowej w analizie komercyjnej platformy handlowej
 
@@ -103,6 +103,19 @@ Ta tabela zawiera widok listy wizyt stron oraz wywołania akcji wybranych stron,
 
 > [!TIP]
 > Aby pobrać dane, możesz użyć ikony pobierania w prawym górnym rogu dowolnego elementu widget. Możesz przekazać opinię na temat każdego widżetu, klikając ikonę "kciuki" lub "kciuk".
+
+| Nazwa kolumny w<br>interfejs użytkownika | Nazwa atrybutu | Definicja | Nazwa kolumny w programie programistycznym<br>Raporty dostępu |
+| ------------ | ------------- | ------------- | ------------- |
+| Date (Data) | Data wizyty | Data odwiedzania strony i/lub CTA kliknij pozycję generowanie zdarzeń na stronie oferty w witrynie Azure Marketplace i/lub AppSource. | Date (Data) |
+| Offer Name | Offer Name | Nazwa komercyjnej oferty portalu Marketplace. | OfferName |
+| Domena odwołania | Domena odwołania | Nazwa domeny referencyjnej, w której wystąpiła odwiedzanie strony. Jeśli nie ma żadnych domen odwołań przechwyconych podczas odwiedzania strony, odpowiadający wpis to "odwołanie do domeny nie istnieje". |  ReferralDomain |
+| Nazwa kraju | Nazwa kraju | Nazwa kraju, w którym wystąpiła odwiedzanie strony. | CountryName |
+| Wizyty stron | Wizyty stron | Liczba wizyt stron skojarzonych z nazwą oferty dla określonej daty. | PageVisits |
+| Pobierz teraz | Pobierz teraz | Liczba kliknięć od początku do "Pobierz teraz" na stronie oferty z określoną datą. | GetItNow |
+| Skontaktuj się z nami | Skontaktuj się z nami | Liczba kliknięć od strony "kontakt ze mną" na stronie oferty dla konkretnej daty. | ContactMe |
+| Wersja testowa | Wersja testowa | Liczba kliknięć na stronie oferty jako "Test Drive" w określonej dacie. | TestDrive |
+| Bezpłatna wersja próbna | Bezpłatna wersja próbna | Liczba kliknięć do "bezpłatnej wersji próbnej" na stronie oferty dla konkretnej daty. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>Następne kroki
 

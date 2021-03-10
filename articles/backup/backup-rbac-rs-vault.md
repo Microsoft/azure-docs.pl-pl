@@ -3,13 +3,13 @@ title: Zarządzanie kopiami zapasowymi przy użyciu kontroli dostępu opartej na
 description: Za pomocą kontroli dostępu opartej na rolach platformy Azure można zarządzać dostępem do operacji zarządzania kopiami zapasowymi w magazynie Recovery Services.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090883"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553412"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Używanie kontroli dostępu opartej na rolach na platformie Azure do zarządzania Azure Backup punktów odzyskiwania
 
@@ -28,26 +28,28 @@ Jeśli chcesz zdefiniować własne role, aby jeszcze bardziej kontrolować, zoba
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapowanie wbudowanych ról kopii zapasowej na akcje zarządzania kopiami zapasowymi
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Minimalne wymagania roli dla kopii zapasowej maszyny wirtualnej platformy Azure
+
 W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowiadającą jej minimalną rolę platformy Azure wymaganą do wykonania tej operacji.
 
-| Operacja zarządzania | Wymagana jest minimalna rola platformy Azure | Wymagany zakres |
-| --- | --- | --- |
-| Tworzenie magazynu usługi Recovery Services | Współautor kopii zapasowej | Grupa zasobów zawierająca magazyn |
-| Włącz tworzenie kopii zapasowych maszyn wirtualnych platformy Azure | Operator kopii zapasowych | Grupa zasobów zawierająca magazyn |
-| | Współautor maszyny wirtualnej | Zasób maszyny wirtualnej |
-| Tworzenie kopii zapasowej maszyny wirtualnej na żądanie | Operator kopii zapasowych | Magazyn usługi Recovery Services |
-| Przywracanie maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
-| | Współautor | Grupa zasobów, w której zostanie wdrożona maszyna wirtualna |
-| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |
+| Operacja zarządzania | Wymagana jest minimalna rola platformy Azure | Wymagany zakres | Różne |
+| --- | --- | --- | --- |
+| Tworzenie magazynu usługi Recovery Services | Współautor kopii zapasowej | Grupa zasobów zawierająca magazyn |   |
+| Włącz tworzenie kopii zapasowych maszyn wirtualnych platformy Azure | Operator kopii zapasowych | Grupa zasobów zawierająca magazyn |   |
+| | Współautor maszyny wirtualnej | Zasób maszyny wirtualnej |  Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| Tworzenie kopii zapasowej maszyny wirtualnej na żądanie | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
+| Przywracanie maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
+| | Współautor | Grupa zasobów, w której zostanie wdrożona maszyna wirtualna |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/domen/Write, Microsoft. COMPUTE/virtualMachines/Write Microsoft. Network/virtualNetworks/odczytywać Microsoft. Network/virtualNetworks/Subnets/Join/Action | 
+| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
 | Przywróć dyski niezarządzane kopia zapasowa maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
-| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |
-| | Współautor konta magazynu | Zasób konta magazynu, w którym mają zostać przywrócone dyski |
+| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono | Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| | Współautor konta magazynu | Zasób konta magazynu, w którym mają zostać przywrócone dyski |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. Storage/storageAccounts/Write |
 | Przywróć dyski zarządzane z kopii zapasowej maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
-| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |
-| | Współautor konta magazynu | Konto magazynu tymczasowego wybrane w ramach przywracania do przechowywania danych z magazynu przed przekonwertowaniem ich na dyski zarządzane |
-| | Współautor | Grupa zasobów, do której zostaną przywrócone dyski zarządzane |
+| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |    Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| | Współautor konta magazynu | Konto magazynu tymczasowego wybrane w ramach przywracania do przechowywania danych z magazynu przed przekonwertowaniem ich na dyski zarządzane |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. Storage/storageAccounts/Write |
+| | Współautor | Grupa zasobów, do której zostaną przywrócone dyski zarządzane | Alternatywnie zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. resources/subscriptions/resourceGroups/Write|
 | Przywróć pojedyncze pliki z kopii zapasowej maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
-| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |
+| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono | Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
 | Tworzenie zasad kopii zapasowych dla kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 | Modyfikowanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 | Usuwanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
@@ -58,7 +60,25 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 > [!IMPORTANT]
 > Jeśli określisz współautor maszyny wirtualnej w zakresie zasobów maszyny wirtualnej i wybierzesz pozycję **kopia zapasowa** jako część ustawień maszyny wirtualnej, zostanie otwarty ekran **Włączanie kopii zapasowej** , nawet jeśli utworzono kopię zapasową maszyny wirtualnej. Wynika to z faktu, że wywołanie weryfikacji stanu kopii zapasowej działa tylko na poziomie subskrypcji. Aby tego uniknąć, należy przejść do magazynu i otworzyć widok elementu kopii zapasowej maszyny wirtualnej lub określić rolę współautor maszyny wirtualnej na poziomie subskrypcji.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Minimalne wymagania roli dla kopii zapasowej udziału plików platformy Azure
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Minimalne wymagania roli dla kopii zapasowych obciążeń platformy Azure (kopie zapasowe baz danych SQL i HANA)
+
+W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowiadającą jej minimalną rolę platformy Azure wymaganą do wykonania tej operacji.
+
+| Operacja zarządzania | Wymagana jest minimalna rola platformy Azure | Wymagany zakres | Różne |
+| --- | --- | --- | --- |
+| Tworzenie magazynu usługi Recovery Services | Współautor kopii zapasowej | Grupa zasobów zawierająca magazyn |   |
+| Włącz tworzenie kopii zapasowych baz danych SQL i/HANA | Operator kopii zapasowych | Grupa zasobów zawierająca magazyn |   |
+| | Współautor maszyny wirtualnej | Zasób maszyny wirtualnej, w którym zainstalowano bazę danych |  Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| Tworzenie kopii zapasowej bazy danych na żądanie | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
+| Przywracanie bazy danych lub przywracanie jako plików | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
+| | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| | Współautor maszyny wirtualnej | Docelowa maszyna wirtualna, w której zostanie przywrócona baza danych lub zostaną utworzone pliki |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| Tworzenie zasad kopii zapasowych dla kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
+| Modyfikowanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
+| Usuwanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
+| Zatrzymaj kopię zapasową (z zachowaniem Zachowaj dane lub Usuń dane) na kopii zapasowej maszyny wirtualnej | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Minimalne wymagania roli dla kopii zapasowej udziału plików platformy Azure
 
 W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowiadające im role wymagane do wykonania operacji udziału plików platformy Azure.
 

@@ -9,19 +9,19 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32bb51751430dcd0208849f798d21f2b25e6b82b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430874"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563272"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Użyj tagów indeksu obiektów BLOB (wersja zapoznawcza), aby zarządzać danymi na platformie Azure Blob Storage i znajdować je
 
 Tagi indeksu obiektów BLOB klasyfikują dane na koncie magazynu przy użyciu atrybutów tagów klucz-wartość. Tagi te są automatycznie indeksowane i uwidaczniane jako wielowymiarowy indeks, który umożliwia łatwe wyszukiwanie danych. W tym artykule pokazano, jak ustawiać, pobierać i znajdować dane przy użyciu tagów indeksu obiektów BLOB.
 
 > [!IMPORTANT]
-> Tagi indeksu obiektów BLOB są obecnie w **wersji zapoznawczej** i są dostępne w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+> Tagi indeksów obiektów BLOB są obecnie w **wersji zapoznawczej** i są dostępne we wszystkich regionach publicznych. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
 
 Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz [Zarządzanie danymi obiektów blob platformy Azure za pomocą tagów indeksu obiektów BLOB (wersja zapoznawcza) i znajdowanie](storage-manage-find-blobs.md)ich.
 

@@ -4,16 +4,16 @@ description: Dowiedz się, jak możesz przednieść za plany oprogramowania, aby
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 136207afef3fef9266fadcea1e67bb0aa6a38a32
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602618"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549757"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Opłacanie planów oprogramowania platformy Azure z góry
 
@@ -31,8 +31,8 @@ W Azure Portal można kupić plany oprogramowania SUSE i RedHat. Aby kupić plan
 2. Kliknij przycisk **Dodaj** , a następnie wybierz plan oprogramowania, który chcesz kupić.
 Wypełnij pola wymagane. Wszystkie maszyny wirtualne lub maszyny wirtualne z systemem SUSE Linux, które pasują do posiadanych przez Ciebie atrybutów, pobierają rabat. Rzeczywista liczba wdrożeń, które pobiera rabat, zależy od wybranego zakresu i ilości.
 3. Wybierz subskrypcję. Jest on używany do płacenia za plan.
-Metoda płatności za subskrypcję jest naliczana za koszty związane z pozostałymi kosztami rezerwacji. Typem subskrypcji musi być Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cenami z rabatem zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P).
-    - W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie.
+Metoda płatności za subskrypcję jest naliczana za koszty związane z pozostałymi kosztami rezerwacji. Typem subskrypcji musi być Enterprise Agreement (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cenami z rabatem zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P).
+    - W przypadku subskrypcji dla przedsiębiorstw opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) rejestracji lub naliczane jako nadwyżka.
     - W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury.
 4. Wybierz zakres. Zakres może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony).
     - Pojedyncza subskrypcja — rabat planu jest stosowany do dopasowania użycia w subskrypcji.

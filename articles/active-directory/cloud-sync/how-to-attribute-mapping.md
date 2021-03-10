@@ -1,6 +1,6 @@
 ---
-title: Edytor atrybutów synchronizacji chmury Azure AD Connect
-description: W tym artykule opisano sposób korzystania z edytora atrybutów.
+title: Mapowanie atrybutów w Azure AD Connect synchronizacji w chmurze
+description: W tym artykule opisano sposób użycia funkcji synchronizacji chmury Azure AD Connect do mapowania atrybutów.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,97 +11,97 @@ ms.date: 01/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d2adbd0fe0715cb22ac158d1804f53384f8b94
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cdb043374cf6252da3929c8f0cda6c0a4be558b7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682109"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555214"
 ---
-# <a name="azure-ad-connect-cloud-sync-attribute-mapping"></a>Mapowanie atrybutu synchronizacji chmury Azure AD Connect
+# <a name="attribute-mapping-in-azure-ad-connect-cloud-sync"></a>Mapowanie atrybutów w Azure AD Connect synchronizacji w chmurze
 
-Usługa Azure AD Connect Cloud Sync wprowadziła nową funkcję, która umożliwi łatwe Mapowanie atrybutów między obiektami lokalnych użytkowników/grup i obiektami w usłudze Azure AD.  Ta funkcja została dodana do konfiguracji synchronizacji w chmurze.
+Za pomocą funkcji synchronizacji w chmurze usługi Azure Active Directory (Azure AD) Połącz się z mapowaniem atrybutów między lokalnymi obiektami użytkowników lub grup oraz obiektami w usłudze Azure AD. Ta możliwość została dodana do konfiguracji synchronizacji w chmurze.
 
-Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów.  Aby zapoznać się z listą synchronizowanych atrybutów, zobacz [atrybuty, które są synchronizowane](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
+Można dostosować (zmienić, usunąć lub utworzyć) domyślne mapowania atrybutów zgodnie z potrzebami biznesowymi. Aby zapoznać się z listą synchronizowanych atrybutów, zobacz [atrybuty synchronizowane z Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
-## <a name="understanding-attribute-mapping-types"></a>Informacje o typach mapowań atrybutów
-Mapowania atrybutów umożliwiają kontrolowanie sposobu, w jaki atrybuty są wypełniane w usłudze Azure AD.
-Obsługiwane są cztery różne typy mapowania:
+## <a name="understand-types-of-attribute-mapping"></a>Opis typów mapowania atrybutów
+Mapowanie atrybutu umożliwia kontrolowanie sposobu, w jaki atrybuty są wypełniane w usłudze Azure AD. Usługa Azure AD obsługuje cztery typy mapowania:
 
-- **Direct** — atrybut docelowy jest wypełniany wartością atrybutu obiektu połączonego w usłudze AD.
-- **Stała** — atrybut docelowy jest wypełniony określonym określonym ciągiem.
-- **Expression** — atrybut target jest wypełniany w oparciu o wynik wyrażenia przypominającego skrypt.
-  Aby uzyskać więcej informacji, zobacz [Pisanie wyrażeń do mapowania atrybutów](reference-expressions.md).
-- **Brak** — atrybut docelowy nie został zmodyfikowany. Jeśli jednak atrybut target jest kiedykolwiek pusty, zostanie wypełniony wartością domyślną, którą określisz.
+- **Direct**: atrybut target jest wypełniany wartością atrybutu obiektu połączonego w Active Directory.
+- **Stała**: atrybut docelowy jest wypełniany określonym ciągiem, który określisz.
+- **Wyrażenie**: atrybut target jest wypełniany w oparciu o wynik wyrażenia przypominającego skrypt. Aby uzyskać więcej informacji, zobacz [Pisanie wyrażeń do mapowania atrybutów w Azure Active Directory](reference-expressions.md).
+- **Brak**: atrybut docelowy nie został zmodyfikowany. Jeśli jednak atrybut target jest kiedykolwiek pusty, zostanie wypełniony wartością domyślną, którą określisz.
 
-Podobnie jak te cztery podstawowe typy, niestandardowe mapowania atrybutów obsługują koncepcję opcjonalnego przypisania wartości **domyślnych** . Przypisanie wartości domyślnej gwarantuje, że atrybut docelowy zostanie wypełniony wartością, jeśli nie istnieje wartość w usłudze Azure AD lub w obiekcie docelowym. Najbardziej typową konfiguracją jest pozostawienie tej pustej.
+Wraz z tymi typami podstawowymi mapowania atrybutów niestandardowych obsługują pojęcie opcjonalnego przypisania wartości *domyślnych* . Przypisanie wartości domyślnej gwarantuje, że atrybut docelowy zostanie wypełniony wartością, jeśli usługa Azure AD lub obiekt docelowy nie ma wartości. Najbardziej typową konfiguracją jest pozostawienie tej pustej.
 
-## <a name="understanding-attribute-mapping-properties"></a>Informacje o właściwościach mapowania atrybutów
+## <a name="understand-properties-of-attribute-mapping"></a>Informacje o właściwościach mapowania atrybutów
 
-W poprzedniej sekcji wprowadzono już do właściwości Typ mapowania atrybutu.
-Wraz z tą właściwością mapowania atrybutów obsługują również następujące atrybuty:
+Wraz z właściwością typ mapowania atrybutów obsługują następujące atrybuty:
 
-- **Atrybut źródłowy** — atrybut użytkownika z systemu źródłowego (przykład: Active Directory).
-- **Attribute** — atrybut użytkownika w systemie docelowym (przykład: Azure Active Directory).
-- **Wartość domyślna w przypadku wartości null (opcjonalnie)** — wartość, która zostanie przeniesiona do systemu docelowego, jeśli atrybut źródłowy ma wartość null. Ta wartość zostanie zainicjowana tylko wtedy, gdy użytkownik zostanie utworzony. "Wartość domyślna, gdy wartość null" nie zostanie zainicjowana podczas aktualizowania istniejącego użytkownika.  
-- **Zastosuj to mapowanie**
-  - **Zawsze** — Zastosuj to mapowanie zarówno dla akcji tworzenia i aktualizowania użytkownika.
-  - **Tylko podczas tworzenia** — Zastosuj to mapowanie tylko w przypadku akcji tworzenia użytkownika.
+- **Atrybut źródłowy**: atrybut użytkownika z systemu źródłowego (przykład: Active Directory).
+- **Atrybut target**: atrybut User w systemie docelowym (przykład: Azure Active Directory).
+- **Wartość domyślna w przypadku wartości null (opcjonalnie)**: wartość, która zostanie przeniesiona do systemu docelowego, jeśli atrybut źródłowy ma wartość null. Ta wartość zostanie zainicjowana tylko wtedy, gdy użytkownik zostanie utworzony. Nie zostanie ona zainicjowana, gdy aktualizujesz istniejącego użytkownika.  
+- **Zastosuj to mapowanie**:
+  - **Zawsze**: Zastosuj to mapowanie zarówno w przypadku akcji tworzenia przez użytkownika, jak i aktualizacji.
+  - **Tylko podczas tworzenia**: Zastosuj to mapowanie tylko w przypadku akcji tworzenia przez użytkownika.
 
 > [!NOTE]
-> W tym dokumencie opisano sposób użycia Azure Portal do mapowania atrybutów.  Aby uzyskać informacje na temat korzystania z programu Graph, zobacz [przekształcenia](how-to-transformation.md)
+> W tym artykule opisano sposób użycia Azure Portal do mapowania atrybutów.  Aby uzyskać informacje na temat korzystania z Microsoft Graph, zobacz [przekształcenia](how-to-transformation.md).
 
-## <a name="using-attribute-mapping"></a>Używanie mapowania atrybutów
+## <a name="add-an-attribute-mapping"></a>Dodawanie mapowania atrybutów
 
-Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
+Aby skorzystać z nowej możliwości, wykonaj następujące kroki:
 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
 2.  Wybierz **Azure AD Connect**.
 3.  Wybierz pozycję **Zarządzaj synchronizacją w chmurze**.
 
-    ![Zarządzanie obsługą administracyjną](media/how-to-install/install-6.png)
+    ![Zrzut ekranu przedstawiający link do zarządzania synchronizacją w chmurze.](media/how-to-install/install-6.png)
 
 4. W obszarze **Konfiguracja** wybierz konfigurację.
-5. Wybierz **pozycję kliknij, aby edytować mapowania**.  Spowoduje to otwarcie ekranu mapowania atrybutów.
+5. Wybierz **pozycję kliknij, aby edytować mapowania**.  To łącze powoduje otwarcie ekranu **mapowania atrybutów** .
 
-    ![Dodawanie atrybutów](media/how-to-attribute-mapping/mapping-6.png)
+    ![Zrzut ekranu przedstawiający link do dodawania atrybutów.](media/how-to-attribute-mapping/mapping-6.png)
 
-6.  Kliknij pozycję **Dodaj atrybut**.
+6.  Wybierz pozycję **Dodaj atrybut**.
 
-    ![Typ mapowania](media/how-to-attribute-mapping/mapping-1.png)
+    ![Zrzut ekranu pokazujący przycisk dodawania atrybutu wraz z listami atrybutów i typów mapowania.](media/how-to-attribute-mapping/mapping-1.png)
 
-7. Wybierz **Typ mapowania**.  W tym przykładzie użyto wyrażenia.
-8.  Wprowadź wyrażenie w polu.  W tym przykładzie używamy: `Replace([mail], "@contoso.com", , ,"", ,).`
-9.  Wprowadź atrybut target.  W tym przykładzie używamy ExtensionAttribute15.
-10. Wybierz, kiedy mają być stosowane, a następnie kliknij przycisk **Zastosuj** .
+7. Wybierz typ mapowania. W tym przykładzie używane jest **wyrażenie**.
+8. Wprowadź wyrażenie w polu. W tym przykładzie używamy `Replace([mail], "@contoso.com", , ,"", ,)` .
+9. Wprowadź atrybut target. W tym przykładzie korzystamy z usługi **ExtensionAttribute15**.
+10. Wybierz, kiedy zastosować to mapowanie, a następnie wybierz pozycję **Zastosuj**.
 
-    ![Edytuj mapowania](media/how-to-attribute-mapping/mapping-2a.png)
+    ![Zrzut ekranu pokazujący wypełniono pola do tworzenia mapowania atrybutów.](media/how-to-attribute-mapping/mapping-2a.png)
 
-11. Z powrotem na ekranie mapowania atrybutów powinien zostać wyświetlony nowy Mapowanie atrybutów.  
-12. Kliknij pozycję **Zapisz schemat**.
+11. Z powrotem na ekranie **mapowania atrybutów** powinien zostać wyświetlony nowy Mapowanie atrybutów.  
+12. Wybierz pozycję **Zapisz schemat**.
 
-    ![Zapisz schemat](media/how-to-attribute-mapping/mapping-3.png)
+    ![Zrzut ekranu pokazujący przycisk Zapisz schemat.](media/how-to-attribute-mapping/mapping-3.png)
 
 ## <a name="test-your-attribute-mapping"></a>Testowanie mapowania atrybutów
 
-Aby przetestować Mapowanie atrybutów, można użyć [inicjowania obsługi na żądanie](how-to-on-demand-provision.md).  Z 
+Aby przetestować Mapowanie atrybutów, można użyć [inicjowania obsługi na żądanie](how-to-on-demand-provision.md): 
 
 1. W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
 2. Wybierz **Azure AD Connect**.
 3. Wybierz pozycję **Zarządzaj obsługą**.
 4. W obszarze **Konfiguracja** wybierz konfigurację.
-5. W obszarze **Weryfikuj** kliknij przycisk **Zainicjuj obsługę użytkownika** . 
-6. Na ekranie aprowizacji na żądanie.  Wprowadź **nazwę wyróżniającą** użytkownika lub grupy, a następnie kliknij przycisk **Udostępnij** .  
-7. Po jego zakończeniu powinien pojawić się ekran o powodzeniu i 4 zielone pola wyboru wskazujące, że został on pomyślnie zainicjowany.  
+5. W obszarze **Weryfikuj** wybierz przycisk **Udostępnij użytkownikowi** . 
+6. Na ekranie **udostępnianie na żądanie** wprowadź nazwę wyróżniającą użytkownika lub grupy, a następnie wybierz przycisk **Udostępnij** . 
 
-    ![Pomyślne zainicjowanie obsługi](media/how-to-attribute-mapping/mapping-4.png)
+   Na ekranie zostanie wyświetlona wartość trwa inicjowanie obsługi administracyjnej.
 
-8. W obszarze **Wykonaj akcję** kliknij pozycję **Wyświetl szczegóły**.  Po prawej stronie powinien zostać wyświetlony synchronizowany nowy atrybut oraz zastosowane wyrażenie.
+   ![Zrzut ekranu pokazujący, że inicjowanie obsługi jest w toku.](media/how-to-attribute-mapping/mapping-4.png)
 
-  ![Wykonaj akcję](media/how-to-attribute-mapping/mapping-5.png)
+8. Po zakończeniu aprowizacji zostanie wyświetlony ekran z czterema zielonymi znacznikami wyboru. 
+
+   W obszarze **Wykonaj akcję** wybierz pozycję **Wyświetl szczegóły**. Po prawej stronie powinien zostać wyświetlony synchronizowany nowy atrybut oraz zastosowane wyrażenie.
+
+   ![Zrzut ekranu pokazujący pomyślne i eksportowe szczegóły.](media/how-to-attribute-mapping/mapping-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest Azure AD Connect Sync Cloud?](what-is-cloud-sync.md)
 - [Pisanie wyrażeń do mapowania atrybutów](reference-expressions.md)
-- [Synchronizowane atrybuty](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)
+- [Atrybuty synchronizowane z usługą Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)

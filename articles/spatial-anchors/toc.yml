@@ -107,6 +107,8 @@
       href: concepts/logging-diagnostics.md
     - name: Zgrubna ponowna lokalizacja
       href: concepts/coarse-reloc.md
+    - name: Strategia lokalizowania kotwicy
+      href: concepts/anchor-locate-strategy.md
 - name: Dokumentacja
   items:
     - name: Zestaw SDK dla aparatu Unity

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348308"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549876"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace
 
@@ -54,7 +54,7 @@ Pierwszym krokiem do korzystania z tożsamości jest upewnienie się, że strona
 
 Aby rozpocząć, postępuj zgodnie z instrukcjami dotyczącymi [rejestrowania nowej aplikacji](../active-directory/develop/quickstart-register-app.md). Aby umożliwić użytkownikom z innych firm, odwiedzanie aplikacji, należy wybrać jedną z opcji wielodostępnych, gdy zostanie wyświetlony monit, kto może korzystać z aplikacji.
 
-Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Po wybraniu uprawnień interfejsu API dla tej aplikacji wartość domyślna **User. Read** jest wystarczająca, aby zebrać podstawowe informacje o kupującym, które mają być bezproblemowo i automatyczne. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora** , ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
+Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Po wybraniu uprawnień interfejsu API dla tej aplikacji wartość domyślna **User. Read** jest wystarczająca, aby zebrać podstawowe informacje o kupującym, które mają być bezproblemowo i automatyczne. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora**, ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
 
 Jeśli potrzebujesz podwyższonych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, rozważ użycie funkcji [przyrostowej zgody](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) usługi Azure AD, aby wszyscy kupujący z portalu Marketplace mogli interaktywnie korzystać ze strony docelowej.
 
@@ -62,7 +62,7 @@ Jeśli potrzebujesz podwyższonych uprawnień w ramach procesu dołączania lub 
 
 Udostępniamy kilka przykładowych aplikacji, które implementują prostą witrynę sieci Web z włączonym logowaniem usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD blok **szybkiego startu** oferuje listę typowych typów aplikacji i stosów programowania, jak pokazano na rysunku 1. Wybierz ten, który odpowiada Twojemu środowisku, i postępuj zgodnie z instrukcjami dotyczącymi pobierania i konfigurowania.
 
-**_Rysunek 1. blok szybki start w Azure Portal_* _
+***Rysunek 1. blok szybki start w Azure Portal***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Ilustruje blok szybkiego startu w Azure Portal.":::
 
@@ -109,20 +109,20 @@ W ramach przepływu [połączenia OpenID Connect](../active-directory/develop/v2
 
 ## <a name="use-the-microsoft-graph-api"></a>Korzystanie z interfejsu API programu Microsoft Graph
 
-Token identyfikatora zawiera podstawowe informacje umożliwiające identyfikację kupującego, ale proces aktywacji może wymagać dodatkowych szczegółów, takich jak firma kupująca — w celu ukończenia procesu dołączania. Użyj [interfejsu API Microsoft Graph](/graph/use-the-api) , aby zażądać tych informacji, aby uniknąć wymuszania wprowadzania tych szczegółów przez użytkownika. Standardowe _ *użytkownika. odczyt* * domyślnie są dostępne następujące informacje.
+Token identyfikatora zawiera podstawowe informacje umożliwiające identyfikację kupującego, ale proces aktywacji może wymagać dodatkowych szczegółów, takich jak firma kupująca — w celu ukończenia procesu dołączania. Użyj [interfejsu API Microsoft Graph](/graph/use-the-api) , aby zażądać tych informacji, aby uniknąć wymuszania wprowadzania tych szczegółów przez użytkownika. Domyślnie uprawnienia **użytkownik standardowy. odczyt** zawierają następujące informacje.
 
 | Wartość | Opis |
 | ------------ | ------------- |
 | displayName | Nazwa wyświetlana w książce adresowej dla użytkownika. |
 | givenName | Imię użytkownika. |
-| Stanowiska | Stanowisko użytkownika. |
+| jobTitle | Stanowisko użytkownika. |
 | mail (poczta) | Adres SMTP użytkownika. |
 | mobilePhone | Podstawowy numer telefonu komórkowego użytkownika. |
 | preferredLanguage | Kod ISO 639-1 dla preferowanego języka użytkownika. |
 | surname | Nazwisko użytkownika. |
 |||
 
-Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji [, zobacz właściwości typu zasobu użytkownika](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) .
+Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji [, zobacz właściwości typu zasobu użytkownika](/graph/api/resources/user#properties) .
 
 Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje delegowane uprawnienia do odczytu informacji o użytkowniku z dzierżawy usługi Azure AD swojej firmy. Każdemu żądaniu do Microsoft Graph informacji musi towarzyszyć token dostępu do uwierzytelniania. Określone kroki w celu wygenerowania tokenu dostępu będą zależeć od stosu technologii, który jest używany, ale przykładowy kod będzie zawierać przykład. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](/graph/auth-v2-user).
 
