@@ -4,16 +4,16 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 03/02/2021
 ms.author: crtreasu
-ms.openlocfilehash: 8b7ab183dfb7b6721beae7835acd75bc7a05e72c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d8dfc3d4b7a8447250481b98c1adadc865a29da1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044773"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532512"
 ---
 ### <a name="upload-your-model"></a>Przekaż model
 
-Jeśli nie masz jeszcze modelu kotwic obiektów, postępuj zgodnie z instrukcjami w temacie [Tworzenie modelu](/object-anchors/quickstarts/get-started-model-conversion.md) , aby go utworzyć. Następnie wróć tutaj.
+Jeśli nie masz jeszcze modelu kotwic obiektów, postępuj zgodnie z instrukcjami w temacie [Tworzenie modelu](/azure/object-anchors/quickstarts/get-started-model-conversion) , aby go utworzyć. Następnie wróć tutaj.
 
 Za pomocą usługi HoloLens połączonej z portalem urządzeń z systemem Windows wykonaj następujące kroki, aby przekazać model używany przez aplikację:
 

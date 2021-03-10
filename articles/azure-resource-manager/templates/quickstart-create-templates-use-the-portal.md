@@ -2,15 +2,15 @@
 title: Wdróż szablon — Azure Portal
 description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager (szablon ARM) przy użyciu Azure Portal i jak go wdrożyć.
 author: mumian
-ms.date: 01/26/2021
+ms.date: 03/09/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892506"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548177"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal
 
@@ -34,7 +34,7 @@ Wielu doświadczonych deweloperów szablonów używa tej metody do generowania s
     ![Menu wybierz pozycję Utwórz zasób z Azure Portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
 1. W polu wyszukiwania wpisz ciąg **konto magazynu**, a następnie naciśnij klawisz **[ENTER]**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz strzałkę w dół obok pozycji **Utwórz**, a następnie wybierz pozycję **konto magazynu**.
 
     ![Tworzenie konta usługi Azure Storage](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 
@@ -59,7 +59,7 @@ Wielu doświadczonych deweloperów szablonów używa tej metody do generowania s
 
     W okienku głównym wyświetlany jest szablon. Jest to plik JSON z sześcioma elementami najwyższego poziomu — `schema`, `contentVersion`, `parameters`, `variables`, `resources` i `output`. Aby uzyskać więcej informacji, zobacz [Omówienie struktury i składni szablonów ARM](./template-syntax.md)
 
-    Zdefiniowano osiem parametrów. Jeden z nich jest nazywany **storageAccountName**. Druga wyróżniona część na poprzednim zrzucie ekranu pokazuje, jak odwoływać się do tego parametru w szablonie. W następnej sekcji będziesz edytować szablon w celu użycia wygenerowanej nazwy konta magazynu.
+    Zdefiniowano dziewięć parametrów. Jeden z nich jest nazywany **storageAccountName**. Druga wyróżniona część na poprzednim zrzucie ekranu pokazuje, jak odwoływać się do tego parametru w szablonie. W następnej sekcji będziesz edytować szablon w celu użycia wygenerowanej nazwy konta magazynu.
 
     W szablonie zdefiniowany jest jeden zasób platformy Azure. Typ to `Microsoft.Storage/storageAccounts` . Zapoznaj się z definicją zasobu i strukturą definicji.
 1. Wybierz pozycję **Pobierz** w górnej części ekranu.
@@ -92,72 +92,76 @@ Platforma Azure wymaga, aby każda usługa miała unikatową nazwę. Wdrożenie 
    - Usuń parametr **storageAccountName** , jak pokazano na poprzednim zrzucie ekranu.
    - Dodaj jedną zmienną o nazwie **storageAccountName** , jak pokazano na poprzednim zrzucie ekranu:
 
-       ```json
-       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       ```
+      ```json
+      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+      ```
 
-       W tym miejscu są używane dwie funkcje szablonów: `concat()` i `uniqueString()`.
+      W tym miejscu są używane dwie funkcje szablonów: `concat()` i `uniqueString()`.
    - Zaktualizuj element name zasobu **Microsoft.Storage/storageAccounts**, aby użyta została nowo zdefiniowana zmienna zamiast parametru:
 
-       ```json
-       "name": "[variables('storageAccountName')]",
-       ```
+      ```json
+      "name": "[variables('storageAccountName')]",
+      ```
 
-     Ostateczny szablon powinien wyglądać następująco:
+      Ostateczny szablon powinien wyglądać następująco:
 
-     ```json
-     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "location": {
-           "type": "string"
-         },
-         "accountType": {
-           "type": "string"
-         },
-         "kind": {
-           "type": "string"
-         },
-         "accessTier": {
-           "type": "string"
-         },
-         "minimumTlsVersion": {
-           "type": "string"
-         },
-         "supportsHttpsTrafficOnly": {
-          "type": "bool"
-         },
-         "allowBlobPublicAccess": {
-           "type": "bool"
-         }
-       },
-       "variables": {
-         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       },
-       "resources": [
-         {
-           "name": "[variables('storageAccountName')]",
-           "type": "Microsoft.Storage/storageAccounts",
-           "apiVersion": "2019-06-01",
-           "location": "[parameters('location')]",
-           "properties": {
-             "accessTier": "[parameters('accessTier')]",
-             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
-             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
-             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
-           },
-           "dependsOn": [],
-           "sku": {
-             "name": "[parameters('accountType')]"
-           },
-           "kind": "[parameters('kind')]",
-           "tags": {}
-         }
-       ],
-       "outputs": {}
-     }
-     ```
+      ```json
+      {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "location": {
+            "type": "string"
+          },
+          "accountType": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "accessTier": {
+            "type": "string"
+          },
+          "minimumTlsVersion": {
+            "type": "string"
+          },
+          "supportsHttpsTrafficOnly": {
+            "type": "bool"
+          },
+          "allowBlobPublicAccess": {
+            "type": "bool"
+          },
+          "allowSharedKeyAccess": {
+            "type": "bool"
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        },
+        "resources": [
+          {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "accessTier": "[parameters('accessTier')]",
+              "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+              "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+              "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+              "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "[parameters('kind')]",
+            "tags": {}
+          }
+        ],
+        "outputs": {}
+      }
+      ```
 
 1. Wybierz pozycję **Zapisz**.
 1. Podaj następujące wartości:
@@ -173,6 +177,7 @@ Platforma Azure wymaga, aby każda usługa miała unikatową nazwę. Wdrożenie 
     |**Minimalna wersja protokołu TLS**|Wprowadź **TLS1_0**. |
     |**Obsługuje tylko ruch https**| Wybierz wartość **true** na potrzeby tego przewodnika Szybki start. |
     |**Zezwalaj na dostęp publiczny do obiektów BLOB**| Wybierz wartość **false** na potrzeby tego przewodnika Szybki start. |
+    |**Zezwalaj na dostęp do klucza współużytkowanego**| Wybierz wartość **true** na potrzeby tego przewodnika Szybki start. |
 
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.

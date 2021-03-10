@@ -3,28 +3,28 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024375"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532544"
 ---
 | Zasób | Bezpłatna | Udostępniona | Podstawowa | Standardowa (Standard) | Premium (v1-v3) | Izolowana </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplikacje internetowe, mobilne lub API](https://azure.microsoft.com/services/app-service/) na [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup>|
-| [Plan App Service](../articles/app-service/overview-hosting-plans.md) |10 na region |10 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów|
+| [Plan usługi App Service](../articles/app-service/overview-hosting-plans.md) |10 na region |10 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów|
 | Typ wystąpienia obliczeniowego |Udostępniona |Udostępniona |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup></p> |Dedykowane<sup>3</sup>|
 | [Skalowanie w poziomie](../articles/app-service/manage-scale-up.md) (maksymalna liczba wystąpień) |1 udostępniony |1 udostępniony |3 dedykowane<sup>3</sup> |10 dedykowanych<sup>3</sup> | 20 dedykowany dla wersji 1 i v2; 30 dedykowany dla v3. <sup>3</sup>|100 dedykowany<sup>4</sup>|
 | Magazyn<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Przez ponad 250 GB przesłanie żądania pomocy technicznej. |1 TB<sup>5</sup> <br/><br/> Przydział dostępnego magazynu to 999 GB. |
 | Czas procesora CPU (5 minut)<sup>6</sup> |3 minuty |3 minuty |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a>|
 | Czas procesora CPU (dzień)<sup>6</sup> |60 minut |240 minut |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |
 | Pamięć (1 godzina) |1 024 MB na plan App Service |1 024 MB na aplikację |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |
-| Przepustowość |165 MB |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |
+| Szerokość pasma |165 MB |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |Nieograniczone, [opłaty za transfer danych](https://azure.microsoft.com/pricing/details/data-transfers/) są naliczane |
 | Architektura aplikacji |32-bitowa |32-bitowa |32-bitowa/64-bitowa |32-bitowa/64-bitowa |32-bitowa/64-bitowa |32-bitowa/64-bitowa |
 | Gniazda sieci Web na wystąpienie<sup>7</sup> |5 |35 |350 |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
-| Połączenia IP | 600 | 600 | Zależy od rozmiaru wystąpienia<sup>8</sup> | Zależy od rozmiaru wystąpienia<sup>8</sup> | Zależy od rozmiaru wystąpienia<sup>8</sup> | 16 000 |
+| Wychodzące połączenia IP na wystąpienie | 600 | 600 | Zależy od rozmiaru wystąpienia<sup>8</sup> | Zależy od rozmiaru wystąpienia<sup>8</sup> | Zależy od rozmiaru wystąpienia<sup>8</sup> | 16 000 |
 | Współbieżne [połączenia debugera](../articles/app-service/troubleshoot-dotnet-visual-studio.md) na aplikację |1 |1 |1 |5 |5 |5 |
 | App Service certyfikatów na subskrypcję<sup>9</sup>| Nieobsługiwane | Nieobsługiwane |10 |10 |10 |10 |
 | Domeny niestandardowe na aplikację</a> |0 (tylko poddomena azurewebsites.net)|500 |500 |500 |500 |500 |
