@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209631"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548465"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
 
 Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel z Parquetmi, między pulami Apache Spark i bezserwerową pulą SQL.
 
-Po utworzeniu bazy danych przez zadanie platformy Spark można utworzyć w niej tabele z platformą Spark, która używa Parquet jako formatu magazynu. Te tabele staną się natychmiast dostępne do wykonywania zapytań za pomocą dowolnych pul platformy Azure Synapse Workspace. Mogą być również używane z dowolnego zadania platformy Spark z uprawnieniami.
+Po utworzeniu bazy danych przez zadanie platformy Spark można utworzyć w niej tabele z platformą Spark, która używa Parquet jako formatu magazynu. Nazwy tabel zostaną przekonwertowane na małe litery i muszą być zapytania przy użyciu nazwy małymi literami. Te tabele staną się natychmiast dostępne do wykonywania zapytań za pomocą dowolnych pul platformy Azure Synapse Workspace. Mogą być również używane z dowolnego zadania platformy Spark z uprawnieniami.
 
 Tabele utworzone, zarządzane i zewnętrzne są również udostępniane jako tabele zewnętrzne o tej samej nazwie w odpowiedniej zsynchronizowanej bazie danych w puli SQL bezserwerowej. [Uwidacznianie tabeli Spark w programie SQL Server](#expose-a-spark-table-in-sql) zawiera więcej szczegółów na temat synchronizacji tabel.
 
@@ -101,17 +101,17 @@ W tym scenariuszu istnieje baza danych Spark o nazwie `mytestdb` . Zobacz [Tworz
 Utwórz zarządzaną tabelę Spark za pomocą SparkSQL, uruchamiając następujące polecenie:
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-To polecenie tworzy tabelę `myParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w puli SQL bezserwerowej. Na przykład Uruchom poniższą instrukcję z puli SQL bezserwerowej.
+To polecenie tworzy tabelę `myparquettable` w bazie danych `mytestdb` . Nazwy tabel zostaną przekonwertowane na małe litery. Po krótkim opóźnieniu można zobaczyć tabelę w puli SQL bezserwerowej. Na przykład Uruchom poniższą instrukcję z puli SQL bezserwerowej.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Sprawdź, czy `myParquetTable` jest uwzględniony w wynikach.
+Sprawdź, czy `myparquettable` jest uwzględniony w wynikach.
 
 >[!NOTE]
 >Tabela, która nie korzysta z Parquet, ponieważ jej format przechowywania nie zostanie zsynchronizowany.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 Teraz można odczytywać dane z puli SQL bezserwerowej w następujący sposób:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 Należy uzyskać następujący wiersz jako wynik:
@@ -160,26 +160,26 @@ W tym przykładzie należy utworzyć zewnętrzną tabelę Spark dla plików dany
 Na przykład z SparkSQL Run:
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Zastąp symbol zastępczy `<fs>` nazwą systemu plików, który jest domyślnym systemem plików obszaru roboczego i symbolem zastępczym `<synapse_ws>` z nazwą obszaru roboczego Synapse, którego używasz do uruchamiania tego przykładu.
 
-Poprzedni przykład tworzy tabelę `myExtneralParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w puli SQL bezserwerowej. Na przykład Uruchom poniższą instrukcję z puli SQL bezserwerowej.
+Poprzedni przykład tworzy tabelę `myextneralparquettable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w puli SQL bezserwerowej. Na przykład Uruchom poniższą instrukcję z puli SQL bezserwerowej.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Sprawdź, czy `myExternalParquetTable` jest uwzględniony w wynikach.
+Sprawdź, czy `myexternalparquettable` jest uwzględniony w wynikach.
 
 Teraz można odczytywać dane z puli SQL bezserwerowej w następujący sposób:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 Należy uzyskać następujący wiersz jako wynik:

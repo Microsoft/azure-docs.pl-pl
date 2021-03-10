@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441945"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564224"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -206,7 +206,7 @@ Azure File Sync nie obsługuje deduplikacji danych i warstw w chmurze na tym sam
 - Jeśli Deduplikacja danych jest włączona w woluminie po włączeniu obsługi warstw w chmurze, początkowe zadanie optymalizacji deduplikacji zoptymalizuje pliki na woluminie, które nie zostały jeszcze warstwowe i będzie miało następujący wpływ na obsługę warstw w chmurze:
     - Zasady wolnego miejsca będą nadal korzystać z warstw plików zgodnie z ilością wolnego miejsca na woluminie przy użyciu mapę cieplną.
     - Zasady dotyczące dat spowodują pominięcie warstw plików, które mogą być w inny sposób kwalifikujące się do obsługi warstw z powodu zadania optymalizacji deduplikacji uzyskującego dostęp do plików.
-- W przypadku trwających zadań optymalizacji deduplikacji Obsługa warstw w chmurze z zasadami daty zostanie opóźniona przez ustawienie [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) deduplikacji danych, jeśli plik nie jest już warstwowy. 
+- W przypadku trwających zadań optymalizacji deduplikacji Obsługa warstw w chmurze z zasadami daty zostanie opóźniona przez ustawienie [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) deduplikacji danych, jeśli plik nie jest już warstwowy. 
     - Przykład: Jeśli ustawienie MinimumFileAgeDays to siedem dni, a zasady dotyczące warstw w chmurze to 30 dni, zasady dat będą mieć pliki warstwy po 37 dniach.
     - Uwaga: gdy plik jest warstwą Azure File Sync, zadanie optymalizacji deduplikacji pominie ten plik.
 - Jeśli serwer z systemem Windows Server 2012 R2 z zainstalowanym agentem Azure File Sync został uaktualniony do systemu Windows Server 2016 lub Windows Server 2019, należy wykonać następujące czynności w celu zapewnienia obsługi deduplikacji danych i warstw w chmurze na tym samym woluminie:  
@@ -261,7 +261,7 @@ Mimo że zmiany wprowadzone bezpośrednio do udziału plików platformy Azure pr
 > [!Important]  
 > Do pomyślnego wdrożenia Azure File Sync domeny dołączenia do konta magazynu Active Directory nie jest wymagane. Jest to ściśle opcjonalny krok umożliwiający udział plików platformy Azure wymuszanie lokalnych list ACL, gdy użytkownicy instalują udział plików platformy Azure bezpośrednio.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Agent Azure File Sync komunikuje się z usługą synchronizacji magazynu i udziałem plików platformy Azure przy użyciu protokołu REST Azure File Sync i protokołu FileREST, z których korzystają zawsze protokół HTTPS przez port 443. Protokół SMB nie jest nigdy używany do przekazywania ani pobierania danych między serwerem Windows i udziałem plików platformy Azure. Ponieważ większość organizacji zezwala na ruch HTTPS na porcie 443, ponieważ wymaga to odwiedzania większości witryn sieci Web, specjalna konfiguracja sieci zwykle nie jest wymagana do wdrażania Azure File Sync.
 
 Zgodnie z zasadami organizacji lub unikatowymi wymaganiami prawnymi może być wymagana bardziej restrykcyjna komunikacja z platformą Azure, dlatego Azure File Sync udostępnia kilka mechanizmów konfigurowania sieci. Na podstawie Twoich wymagań można:

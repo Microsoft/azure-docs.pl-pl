@@ -1,21 +1,22 @@
 ---
 title: Rozszerzenie systemu Windows migawki maszyny wirtualnej dla Azure Backup
 description: Wykonaj kopię zapasową spójnej aplikacji maszyny wirtualnej z Azure Backup przy użyciu rozszerzenia migawki maszyny wirtualnej
-services: backup, virtual-machines-windows
+services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 1d1342cffc6bc8743c34cb4c028c0790de91dc50
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 834c886c15e50870ec008dbb5ceab38132cc4649
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965871"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561073"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Rozszerzenie systemu Windows migawki maszyny wirtualnej dla Azure Backup
 

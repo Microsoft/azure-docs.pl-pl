@@ -2,22 +2,22 @@
 title: Samouczek — Konfigurowanie wdrożeń programu Kanaryjskie dla maszyn wirtualnych platformy Azure z systemem Linux
 description: W tym samouczku dowiesz się, jak skonfigurować potok ciągłego wdrażania (CD). Ten potok aktualizuje grupę maszyn wirtualnych platformy Azure z systemem Linux przy użyciu strategii wdrażania niebiesko-zielonego.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961531"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552591"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania Blue-Green dla maszyn wirtualnych platformy Azure z systemem Linux
 
@@ -50,7 +50,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować wdrożenia B
 
 1. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne. Przykłady dla deweloperów, testów, przeprowadzających i produkcji. Można utworzyć nową grupę wdrożenia lub wybrać istniejącą.
 1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie deploy.ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
-1. W obszarze **strategia wdrażania**wybierz pozycję **niebieska i zielona**.
+1. W obszarze **strategia wdrażania** wybierz pozycję **niebieska i zielona**.
 1. Dodaj tag "Blue" lub "zielony" do maszyn wirtualnych, które mają być częścią wdrożeń Blue-Green. Jeśli maszyna wirtualna jest dla roli w stanie wstrzymania, oznacz ją jako "Green" (zielony). W przeciwnym razie oznacz ją jako "niebieska".
 
    ![Panel dostarczania ciągłego z wybraną wartością strategii wdrażania Blue-Green](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)

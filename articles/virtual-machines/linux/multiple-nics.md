@@ -2,18 +2,18 @@
 title: Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu wielu kart sieciowych
 description: Dowiedz się, jak utworzyć maszynę wirtualną z systemem Linux z wieloma kartami sieciowymi dołączoną przy użyciu interfejsu wiersza polecenia platformy Azure lub szablonów Menedżer zasobów.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 86910ece57d8fb72ade0c67a9e6787023c4283f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836925"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551814"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu wielu kart interfejsu sieciowego
 
@@ -23,7 +23,7 @@ W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej z wiel
 ## <a name="create-supporting-resources"></a>Tworzenie zasobów pomocniczych
 Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
-W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *mojekontomagazynu*i *myVM*.
+W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *mojekontomagazynu* i *myVM*.
 
 Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 

@@ -1,26 +1,19 @@
 ---
-title: Szybki Start — integrowanie konta usługi Azure Storage z usługą Azure CDN
-description: Dowiedz się, jak używać usługi Azure Content Delivery Network (CDN) w celu dostarczania zawartości z wysoką przepustowością dzięki buforowaniu dużych obiektów binarnych z usługi Azure Storage.
+title: 'Szybki Start: Integrowanie konta usługi Azure Storage z usługą Azure CDN'
+description: W tym przewodniku szybki start dowiesz się, jak za pomocą usługi Azure Content Delivery Network (CDN) dostarczać zawartość o wysokiej przepustowości przez buforowanie obiektów BLOB w usłudze Azure Storage.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018617"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561929"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Szybki Start: Integrowanie konta usługi Azure Storage z usługą Azure CDN
 
@@ -73,7 +66,7 @@ Aby utworzyć konto magazynu, musisz być administratorem usługi albo współad
     | **Nazwa punktu końcowego usługi CDN** | Wprowadź nazwę hosta punktu końcowego, na przykład *CDN-Endpoint-123*. Ta nazwa musi być globalnie unikatowa na platformie Azure, ponieważ umożliwia dostęp do buforowanych zasobów przy użyciu adresu URL _&lt; punktu końcowego name &gt;_. azureedge.NET. |
     | **Nazwa hosta źródła** | Domyślnie nowy punkt końcowy CDN używa jako nazwy serwera pochodzenia nazwy hosta konta magazynu. |
 
-1. Wybierz pozycję **Utwórz**. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
+1. Wybierz przycisk **Utwórz**. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
 
     ![Przechowywanie nowego punktu końcowego usługi CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -123,9 +116,6 @@ W poprzednich krokach utworzono profil i punkt końcowy usługi CDN w grupie zas
 3. Aby usunąć konto magazynu, wybierz je z pulpitu nawigacyjnego, a następnie wybierz opcję **Usuń** z górnego menu.
 
 ## <a name="next-steps"></a>Następne kroki
-
-> [!div class="nextstepaction"]
-> [Tworzenie profilu i punktu końcowego usługi Azure CDN](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Samouczek: Używanie sieci CDN do statycznej zawartości serwera z poziomu aplikacji internetowej](cdn-add-to-web-app.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954281"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555639"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klientów w komercyjnej analizie Marketplace
 
@@ -142,28 +142,28 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 
 _**Tabela 1: słownik terminów dotyczących danych**_
 
-| Nazwa kolumny | Nazwa atrybutu | Definicja |
-| ------------ | ------------- | ------------- |
-| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. |
-| DateAcquired | Data pozyskania | Pierwszy dzień zakupu opublikowanej oferty przez klienta. |
-| DateLost | Data utraty | Ostatnia data anulowania ostatniego zakupionego oferty przez klienta. |
-| Nazwa dostawcy | Nazwa dostawcy | Nazwa dostawcy występującego w relacji między firmą Microsoft a klientem. Jeśli klient jest przedsiębiorstwem do odsprzedawcy, będzie to odsprzedawca. Jeśli jest używany dostawca rozwiązań w chmurze (CSP), będzie to dostawca usług kryptograficznych. |
-| Adres E-mail dostawcy | Adres E-mail dostawcy | Adres e-mail dostawcy, który ma związek między firmą Microsoft a klientem. Jeśli klient jest przedsiębiorstwem do odsprzedawcy, będzie to odsprzedawca. Jeśli jest używany dostawca rozwiązań w chmurze (CSP), będzie to dostawca usług kryptograficznych. |
-| FirstName (Imię) | Imię klienta | Imię i nazwisko dostarczone przez klienta. Nazwa może różnić się od nazwy podanej w subskrypcji platformy Azure klienta. |
-| LastName (Nazwisko) | Nazwisko klienta | Nazwisko dostarczone przez klienta. Nazwa może różnić się od nazwy podanej w subskrypcji platformy Azure klienta. |
-| E-mail | Adres E-mail klienta | Adres e-mail dostarczony przez klienta końcowego. Adres e-mail może różnić się od adresu e-mail w subskrypcji platformy Azure klienta. |
-| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może różnić się od miasta w subskrypcji platformy Azure klienta. |
-| CustomerCity | Miasto klienta | Nazwa miasta podana przez klienta. Miasto może być inne niż miasto w subskrypcji platformy Azure klienta. |
-| Kod pocztowy klienta | Kod pocztowy klienta | Kod pocztowy dostarczony przez klienta. Kod może być inny niż kod pocztowy podany w subskrypcji platformy Azure klienta. |
-| CustomerCommunicationCulture | Język komunikacji klienta | Język preferowany przez klienta do komunikacji. |
-| CustomerCountryRegion | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
-| AzureLicenseType | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako _kanał_. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
-| PromotionalCustomers | Czy kontakt promocyjny jest wybierany | Ta wartość informuje o tym, czy klient aktywnie zabrał w celu skontaktowania się z wydawcami. W tej chwili nie prezentujemy opcji klientom, dlatego w całej tablicy podano wartość "No". Po wdrożeniu tej funkcji rozpocznie się aktualizowanie. |
-| CustomerState | Stan klienta | Stan miejsca zamieszkania dostarczonego przez klienta. Stan może być inny niż stan podany w subskrypcji platformy Azure klienta. |
-| CommerceRootCustomer | Główny klient handlowy | Jeden identyfikator konta rozliczeniowego może być skojarzony z wieloma identyfikatorami klientów.<br>Jedna kombinacja identyfikatora konta rozliczeniowego i identyfikatora klienta może być skojarzona z wieloma komercyjnymi subskrypcjami portalu Marketplace.<br>Główny klient handlowy oznacza nazwę klienta subskrypcji. |
-| Identyfikator klienta | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. |
-| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj **Identyfikator konta rozliczeniowego** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klientów, zamówień i użycia. |
-||||
+| Nazwa kolumny w<br>interfejs użytkownika | Nazwa atrybutu | Definicja | Nazwa kolumny w programie programistycznym<br>Raporty dostępu |
+| ------------ | ------------- | ------------- | ------------- |
+| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. | MarketplaceSubscriptionId |
+| DateAcquired | Data pozyskania | Pierwszy dzień zakupu opublikowanej oferty przez klienta. | DateAcquired |
+| DateLost | Data utraty | Ostatnia data anulowania ostatniego zakupionego oferty przez klienta. | DateLost |
+| Nazwa dostawcy | Nazwa dostawcy | Nazwa dostawcy występującego w relacji między firmą Microsoft a klientem. Jeśli klient jest przedsiębiorstwem do odsprzedawcy, będzie to odsprzedawca. Jeśli jest używany dostawca rozwiązań w chmurze (CSP), będzie to dostawca usług kryptograficznych. | ProviderName |
+| Adres E-mail dostawcy | Adres E-mail dostawcy | Adres e-mail dostawcy, który ma związek między firmą Microsoft a klientem. Jeśli klient jest przedsiębiorstwem do odsprzedawcy, będzie to odsprzedawca. Jeśli jest używany dostawca rozwiązań w chmurze (CSP), będzie to dostawca usług kryptograficznych. | ProviderEmail |
+| FirstName (Imię) | Imię klienta | Imię i nazwisko dostarczone przez klienta. Nazwa może różnić się od nazwy podanej w subskrypcji platformy Azure klienta. | FirstName (Imię) |
+| LastName (Nazwisko) | Nazwisko klienta | Nazwisko dostarczone przez klienta. Nazwa może różnić się od nazwy podanej w subskrypcji platformy Azure klienta. | LastName (Nazwisko) |
+| E-mail | Adres E-mail klienta | Adres e-mail dostarczony przez klienta końcowego. Adres e-mail może różnić się od adresu e-mail w subskrypcji platformy Azure klienta. | E-mail |
+| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może różnić się od miasta w subskrypcji platformy Azure klienta. | Nazwa CustomerCompany |
+| CustomerCity | Miasto klienta | Nazwa miasta podana przez klienta. Miasto może być inne niż miasto w subskrypcji platformy Azure klienta. | CustomerCity |
+| Kod pocztowy klienta | Kod pocztowy klienta | Kod pocztowy dostarczony przez klienta. Kod może być inny niż kod pocztowy podany w subskrypcji platformy Azure klienta. | Kod CustomerPostal |
+| CustomerCommunicationCulture | Język komunikacji klienta | Język preferowany przez klienta do komunikacji. | CustomerCommunicationCulture |
+| CustomerCountryRegion | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. | CustomerCountryRegion |
+| AzureLicenseType | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako _kanał_. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> | AzureLicenseType |
+| PromotionalCustomers | Czy kontakt promocyjny jest wybierany | Ta wartość informuje o tym, czy klient aktywnie zabrał w celu skontaktowania się z wydawcami. W tej chwili nie prezentujemy opcji klientom, dlatego w całej tablicy podano wartość "No". Po wdrożeniu tej funkcji rozpocznie się aktualizowanie. | PromotionalCustomers |
+| CustomerState | Stan klienta | Stan miejsca zamieszkania dostarczonego przez klienta. Stan może być inny niż stan podany w subskrypcji platformy Azure klienta. | CustomerState |
+| CommerceRootCustomer | Główny klient handlowy | Jeden identyfikator konta rozliczeniowego może być skojarzony z wieloma identyfikatorami klientów.<br>Jedna kombinacja identyfikatora konta rozliczeniowego i identyfikatora klienta może być skojarzona z wieloma komercyjnymi subskrypcjami portalu Marketplace.<br>Główny klient handlowy oznacza nazwę klienta subskrypcji. | CommerceRootCustomer |
+| Customer ID | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. | CustomerId |
+| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj **Identyfikator konta rozliczeniowego** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klientów, zamówień i użycia. | BillingAccountId |
+|||||
 
 ### <a name="customers-page-filters"></a>Filtry stron klientów
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900709"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551542"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w Azure Active Directory
 
@@ -106,7 +106,7 @@ Jeśli używasz usługi Exchange Online, niektórzy użytkownicy w organizacji m
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Aby uzyskać więcej informacji o tym problemie, zobacz ["adres serwera proxy jest już używany" w usłudze Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artykuł zawiera również informacje dotyczące [sposobu nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> Aby uzyskać więcej informacji o tym problemie, zobacz ["adres serwera proxy jest już używany" w usłudze Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artykuł zawiera również informacje dotyczące [sposobu nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell](/powershell/exchange/connect-to-exchange-online-powershell).
 
 Po rozwiązaniu problemów z adresem serwera proxy dla użytkowników, których dotyczy problem, należy wymusić przeprowadzenie przetwarzania licencji w grupie, aby upewnić się, że licencje można teraz zastosować.
 

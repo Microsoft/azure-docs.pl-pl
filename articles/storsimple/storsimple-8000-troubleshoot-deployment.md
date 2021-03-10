@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808041"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566349"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
 ## <a name="overview"></a>Omówienie
@@ -189,7 +189,7 @@ W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urząd
    * Jeśli interfejs jest w dobrej kondycji, ale nie jest włączony, stan **numer IfIndex** jest pokazywany jako **NotPresent**.
    * Jeśli interfejs nie istnieje, nie jest wyświetlany na tej liście. Interfejs użytkownika usługi StorSimple Device Manager w dalszym ciągu będzie wyświetlał tego interfejsu w stanie niepowodzenia.
 
-Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) w dokumentacji poleceń cmdlet programu Windows PowerShell.
+Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](/powershell/module/netadapter/get-netadapter) w dokumentacji poleceń cmdlet programu Windows PowerShell.
 
 W poniższych sekcjach przedstawiono przykłady danych wyjściowych z `Get-NetAdapter` polecenia cmdlet.
 

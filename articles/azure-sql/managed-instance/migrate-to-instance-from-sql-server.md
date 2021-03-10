@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917804"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565826"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,6 +59,26 @@ Jeśli zostały rozpoznane wszystkie zidentyfikowane blokady migracji i kontynuu
 - Nowe funkcje, takie jak szyfrowanie przezroczystej bazy danych (TDE) lub grupy autopracy awaryjnej, mogą mieć wpływ na użycie procesora CPU i operacji we/wy.
 
 Wystąpienie zarządzane SQL gwarantuje dostępność na 99,99% nawet w scenariuszach krytycznych, dlatego nie można wyłączyć narzutów spowodowanych przez te funkcje. Aby uzyskać więcej informacji, zobacz [główne przyczyny, które mogą spowodować inną wydajność na SQL Server i wystąpienie zarządzane usługi Azure SQL](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabele zoptymalizowane pod kątem pamięci)
+
+SQL Server zapewnia In-Memoryą funkcję OLTP, która umożliwia użycie tabel zoptymalizowanych pod kątem pamięci, typów tabel zoptymalizowanych pod kątem ilości danych i natywnie skompilowanych modułów SQL do uruchamiania obciążeń o wysokiej przepływności i wymaganiach dotyczących przetwarzania transakcyjnego o małym opóźnieniu. 
+
+> [!IMPORTANT]
+> In-Memory OLTP jest obsługiwana tylko w warstwie Krytyczne dla działania firmy w wystąpieniu zarządzanym usługi Azure SQL (i nie jest obsługiwana w warstwie Ogólnego przeznaczenia).
+
+Jeśli masz tabele zoptymalizowane pod kątem pamięci lub typy tabel zoptymalizowane pod kątem pamięci w SQL Server lokalnym i chcesz przeprowadzić migrację do wystąpienia zarządzanego usługi Azure SQL, należy wykonać następujące instrukcje:
+
+- Wybierz Krytyczne dla działania firmy warstwę dla docelowego wystąpienia zarządzanego Azure SQL, które obsługuje In-Memory OLTP lub
+- Jeśli chcesz przeprowadzić migrację do warstwy Ogólnego przeznaczenia w wystąpieniu zarządzanym usługi Azure SQL, Usuń tabele zoptymalizowane pod kątem pamięci, typy tabel zoptymalizowane pod kątem pamięci i natywnie skompilowane moduły SQL, które współpracują z obiektami zoptymalizowanymi pod kątem pamięci przed migracją baz danych. Poniższe zapytanie T-SQL może służyć do identyfikowania wszystkich obiektów, które należy usunąć przed migracją do warstwy Ogólnego przeznaczenia:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Aby dowiedzieć się więcej o technologiach w pamięci, zobacz [Optymalizowanie wydajności przy użyciu technologii w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ### <a name="create-a-performance-baseline"></a>Utwórz linię bazową wydajności
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736375"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563968"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Twórz stanowe i bezstanowe przepływy pracy w Azure Portal z podglądem Azure Logic Apps
 
@@ -236,7 +236,33 @@ Aby można było dodać wyzwalacz do pustego przepływu pracy, należy się upew
 
 1. Zapisz pracę. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-Następnie, aby przetestować przepływ pracy, ręcznie Wyzwól uruchomienie.
+1. Jeśli środowisko ma rygorystyczne wymagania sieciowe lub zapory ograniczające ruch, musisz skonfigurować uprawnienia do wszystkich połączeń wyzwalacza lub akcji, które istnieją w przepływie pracy. Aby znaleźć w pełni kwalifikowaną 
+
+   W przeciwnym razie, aby przetestować przepływ pracy, [ręcznie Wyzwól uruchomienie](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Znajdowanie nazw domen dla dostępu do zapory
+
+Przed wdrożeniem aplikacji logiki i uruchomieniem przepływu pracy w Azure Portal, jeśli środowisko ma rygorystyczne wymagania sieciowe lub zapory ograniczające ruch, musisz skonfigurować uprawnienia sieci lub zapory dla każdego wyzwalacza lub połączeń akcji w przepływach pracy, które istnieją w aplikacji logiki.
+
+Aby znaleźć w pełni kwalifikowane nazwy domen (FQDN) dla tych połączeń, wykonaj następujące kroki:
+
+1. W menu aplikacji logiki w obszarze **przepływy pracy** wybierz pozycję **połączenia**. Na karcie **połączenia interfejsu API** wybierz nazwę zasobu połączenia, na przykład:
+
+   ![Zrzut ekranu przedstawiający menu Azure Portal i aplikacji logiki z wybraną nazwą zasobu połączenia "Connections" i "offic365".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Rozwiń przeglądarkę wystarczająco szeroką, aby po pojawieniu się **widoku JSON** w prawym górnym rogu przeglądarki, wybierz pozycję **Widok JSON**.
+
+   ![Zrzut ekranu przedstawiający okienko Azure Portal i połączenia interfejsu API z wybranym elementem "widok JSON".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Znajdź, skopiuj i Zapisz `connectionRuntimeUrl` wartość właściwości w bezpiecznym miejscu, aby można było skonfigurować zaporę przy użyciu tych informacji.
+
+   ![Zrzut ekranu przedstawiający wybraną wartość właściwości "connectionRuntimeUrl".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. Dla każdego połączenia Powtórz odpowiednie kroki.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Wyzwalanie przepływu pracy
 

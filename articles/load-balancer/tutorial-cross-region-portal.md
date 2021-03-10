@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712519"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561402"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu Azure Portal
 
@@ -200,9 +200,6 @@ W tym samouczku zostały wykonane następujące czynności:
 * Utworzono regułę równoważenia obciążenia.
 * Przetestowano moduł równoważenia obciążenia.
 
-Aby uzyskać więcej informacji na temat modułu równoważenia obciążenia obejmującego wiele regionów, zobacz [moduł równoważenia obciążenia między regionami (wersja zapoznawcza)](cross-region-overview.md).
-
-
-Przejdź do następnego artykułu, aby dowiedzieć się, jak:
+Aby uzyskać więcej informacji na temat modułu równoważenia obciążenia obejmującego wiele regionów, zobacz:
 > [!div class="nextstepaction"]
-> [Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)](cross-region-overview.md)

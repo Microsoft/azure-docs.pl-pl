@@ -2,22 +2,22 @@
 title: Samouczek — Konfigurowanie wdrożeń programu Kanaryjskie dla Linux Virtual Machines platformy Azure
 description: W tym samouczku dowiesz się, jak skonfigurować potok ciągłego wdrażania (CD). Ten potok aktualizuje grupę maszyn wirtualnych platformy Azure z systemem Linux przy użyciu strategii wdrażania programu Kanaryjskie.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: fafe2ba9ae65f95d8a2258ead5715cc0630202ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bbfe6571cf075b2ce4930eea91bfd1e239470c5a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963486"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552511"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania programu Kanaryjskie dla usługi Azure Linux Virtual Machines
 
@@ -48,7 +48,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować wdrożenia p
 
 1. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne. Przykłady dla deweloperów, testów, przeprowadzających i produkcji. Można utworzyć nową grupę wdrożenia lub wybrać istniejącą.
 1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie deploy.ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
-1. W obszarze **strategia wdrażania**wybierz pozycję **Kanaryjskie**.
+1. W obszarze **strategia wdrażania** wybierz pozycję **Kanaryjskie**.
 1. Dodaj tag "Kanaryjskie" do maszyn wirtualnych, które będą częścią wdrożeń Kanaryjskich. Dodaj tag "prod" do maszyn wirtualnych, które są częścią wdrożeń wykonanych po pomyślnym wdrożeniu programu Kanaryjskie. Tagi ułatwiają kierowanie wyłącznie do maszyn wirtualnych, które mają określoną rolę.
 
    ![Panel dostarczania ciągłego z wybraną wartością strategii wdrożenia Kanaryjskich](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)

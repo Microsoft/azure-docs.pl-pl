@@ -2,18 +2,18 @@
 title: Informacje o usłudze Cloud-init
 description: Głębokie szczegółowe na potrzeby poznania udostępniania maszyny wirtualnej platformy Azure przy użyciu funkcji Cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042082"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559447"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Dokładniejsze umieszczenie w usłudze Cloud-init
 Aby dowiedzieć się więcej o programie [Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) lub rozwiązywaniu problemów z nim na wyższym poziomie, należy zrozumieć, jak działa. W tym dokumencie przedstawiono ważne części i wyjaśniono specyficzne dla platformy Azure.

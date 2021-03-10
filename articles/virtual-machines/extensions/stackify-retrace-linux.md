@@ -1,25 +1,19 @@
 ---
 title: Rozwiązania Stackify retrace rozszerzenie agenta systemu Linux platformy Azure
 description: Wdróż agenta ponownego śledzenia rozwiązania Stackify na maszynie wirtualnej z systemem Linux.
-services: virtual-machines-linux
-documentationcenter: ''
-author: darinhoward
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 04/12/2018
-ms.author: akjosh
-ms.openlocfilehash: 0f9ac4f7c88e72cb6ddadc2450947697b0e3c6ef
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1fc437637fde524da125af9191bf9de79a2e9c37
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961978"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559005"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Rozwiązania Stackify retrace rozszerzenie agenta systemu Linux
 
@@ -192,7 +186,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Błąd instalacji | activationKey jest wymagany |
 | 51 | Błąd instalacji | Dystrybucji systemu operacyjnego nie jest obsługiwana |
 | 60 | Błąd instalacji | środowisko jest wymagane |
-| 70 | Błąd instalacji | Nieznany |
+| 70 | Błąd instalacji | Nieznane |
 | 80 | Włącz błąd | Instalacja usługi nie powiodła się |
 | 90 | Włącz błąd | Uruchamianie usługi nie powiodło się |
 | 100 | Wyłącz błąd | Zatrzymanie usługi nie powiodło się |

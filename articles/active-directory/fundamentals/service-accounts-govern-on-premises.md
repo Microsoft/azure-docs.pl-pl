@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649210"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557373"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Zarządzanie kontami lokalnych usług
 
@@ -64,7 +64,7 @@ Użyj następujących ustawień z kontami użytkowników używanymi jako konta u
 
 *  **LogonWorkstations**: Ogranicz uprawnienia do miejsca, w którym można się zalogować za pomocą konta usługi. Jeśli działa lokalnie na komputerze i uzyskuje dostęp tylko do zasobów na tym komputerze, ogranicz je do logowania w dowolnym miejscu.
 
-* [**Nie można zmienić hasła**](/powershell/module/addsadministration/set-aduser?view=win10-ps): zapobiegaj zmianie własnego hasła przez konto usługi przez ustawienie parametru na false.
+* [**Nie można zmienić hasła**](/powershell/module/addsadministration/set-aduser): zapobiegaj zmianie własnego hasła przez konto usługi przez ustawienie parametru na false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Kompiluj proces zarządzania cyklem życia
@@ -151,9 +151,9 @@ Utwórz konto usługi tylko wtedy, gdy odpowiednie informacje są udokumentowane
 
 * [Wygaśnięcie konta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * W przypadku wszystkich kont użytkowników używanych jako konta usług Zdefiniuj realistyczną i niezależną datę końcową do użycia. Ustaw tę wartość przy użyciu flagi "Konto wygasa". Aby uzyskać więcej informacji, zobacz[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * W przypadku wszystkich kont użytkowników używanych jako konta usług Zdefiniuj realistyczną i niezależną datę końcową do użycia. Ustaw tę wartość przy użyciu flagi "Konto wygasa". Aby uzyskać więcej informacji, zobacz[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Zaloguj się do ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Zaloguj się do ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
 * Wymagania dotyczące [zasad haseł](../../active-directory-domain-services/password-policy.md)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: Tworzenie profilu i szablonu Menedżer zasobów punktu końcowego'
 titleSuffix: Azure Content Delivery Network
-description: Dowiedz się, jak utworzyć profil usługi Azure Content Delivery Network i punkt końcowy szablonu Menedżer zasobów
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć profil usługi Azure Content Delivery Network i punkt końcowy szablonu Menedżer zasobów
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695719"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560467"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Szybki Start: Tworzenie profilu Azure CDN i szablonu punktu końcowego
 
@@ -107,7 +107,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 
 ### <a name="powershell"></a>PowerShell
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -126,5 +126,5 @@ W tym przewodniku szybki start utworzono:
 
 Aby dowiedzieć się więcej na temat Azure CDN i Azure Resource Manager, przejdź do artykułów poniżej.
 
-* Zapoznaj się [z omówieniem Azure CDN](cdn-overview.md)
-* Dowiedz się więcej o usłudze [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+> [!div class="nextstepaction"]
+> [Samouczek: używanie usługi CDN do obsługi zawartości statycznej z poziomu aplikacji sieci Web](cdn-add-to-web-app.md)

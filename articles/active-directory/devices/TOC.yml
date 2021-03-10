@@ -80,7 +80,7 @@
     - name: Interfejs API programu Graph
       items:
         - name: Interfejs API tożsamości urządzenia
-          href: /graph/api/resources/device?view=graph-rest-1.0
+          href: /graph/api/resources/device
 - name: Zasoby
   items:
     - name: Forum z opiniami na temat platformy Azure

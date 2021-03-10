@@ -1,26 +1,19 @@
 ---
 title: Rozszerzenia i funkcje maszyny wirtualnej platformy Azure dla systemu Linux
 description: Dowiedz się, jakie rozszerzenia są dostępne dla usługi Azure Virtual Machines w systemie Linux, pogrupowane według ich udostępniania lub usprawnienia.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 03/30/2018
-ms.author: akjosh
-ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b6a834ede381ee319d3ff7678f49febd11e34a5d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672625"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559774"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856028"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559311"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET Core na platformie Azure Service Fabric przy użyciu usługi Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter również:
 * Tworzy i konfiguruje potok wydania w usłudze Azure DevOps, który konfiguruje potok ciągłej integracji/ciągłego wdrażania.
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter, aby utworzyć aplikację ASP.NET Core i wdrożyć ją w Service Fabric
@@ -82,7 +82,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 
@@ -121,7 +121,7 @@ DevOps Starter automatycznie tworzy i konfiguruje kroki niezbędne do wdrożenia
 
 Teraz możesz rozpocząć współpracę z zespołem nad aplikacją w języku Python w ramach procesu ciągłej integracji/ciągłego wdrażania, który automatycznie wdraża najnowszy kod w witrynie internetowej. Każda zmiana repozytorium usługi Git powoduje uruchomienie kompilacji, a wydanie wdraża zmiany na platformie Azure. Wykonaj procedurę opisaną w tej sekcji lub użyj innej techniki, aby zatwierdzić zmiany w repozytorium. Możesz na przykład sklonować repozytorium Git za pomocą ulubionego narzędzia lub środowiska IDE, a następnie wypchnąć zmiany do tego repozytorium.
 
-1. W menu Azure DevOps wybierz pozycję pliki **kodu**  >  **Files**, a następnie przejdź do repozytorium.
+1. W menu Azure DevOps wybierz pozycję pliki **kodu**  >  , a następnie przejdź do repozytorium.
 
 1. Przejdź do katalogu *Views\Home*, wybierz symbol wielokropka (...) obok pliku *Index.cshtml* i wybierz pozycję **Edytuj**.
 
@@ -158,4 +158,4 @@ Opcjonalnie możesz zmodyfikować potok ciągłej integracji/ciągłego wdrażan
 Aby dowiedzieć się więcej na temat usługi Service Fabric i mikrousług, zobacz:
 
 > [!div class="nextstepaction"]
-> [Use a microservices approach for building applications (Korzystanie z mikrousług podczas tworzenia aplikacji)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Use a microservices approach for building applications (Korzystanie z mikrousług podczas tworzenia aplikacji)](/azure/devops/pipelines/release/define-multistage-release-process)

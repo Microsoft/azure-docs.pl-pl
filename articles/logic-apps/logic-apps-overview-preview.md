@@ -1,28 +1,28 @@
 ---
 title: Omówienie usługi Azure Logic Apps (wersja zapoznawcza)
-description: Wersja zapoznawcza Azure Logic Apps to rozwiązanie w chmurze służące do tworzenia zautomatyzowanych stanowych i bezstanowych przepływów pracy, które integrują aplikacje, dane, usługi i systemy z minimalnym kodem dla scenariuszy na poziomie przedsiębiorstwa.
+description: Azure Logic Apps Preview to rozwiązanie w chmurze służące do tworzenia zautomatyzowanych, jednodostępnych, stanowych i bezstanowych przepływów pracy, które integrują aplikacje, dane, usługi i systemy z minimalnym kodem dla scenariuszy na poziomie przedsiębiorstwa.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442744"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561861"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
 > [!IMPORTANT]
 > Ta możliwość jest dostępna w publicznej wersji zapoznawczej, nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dzięki Azure Logic Apps wersji zapoznawczej można tworzyć rozwiązania do automatyzacji i integracji dla aplikacji, danych, usług w chmurze i systemów przez tworzenie i uruchamianie aplikacji logiki, które obejmują [ *stanowe* i *bezstanowe* przepływy pracy](#stateful-stateless) przy użyciu nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** . Przy użyciu tego nowego typu aplikacji logiki można utworzyć wiele przepływów pracy, które są obsługiwane przez przeprojektowaną wersję środowiska uruchomieniowego Azure Logic Apps Preview, która zapewnia przenośność, lepszą wydajność i elastyczność wdrażania i uruchamiania w różnych środowiskach hostingu, a nie tylko na platformie Azure, ale również kontenerów platformy Docker.
+Dzięki usłudze Azure Logic Apps Preview możesz tworzyć rozwiązania do automatyzacji i integracji dla aplikacji, danych, usług w chmurze i systemów, tworząc i uruchamiając Aplikacje logiki z jednym dzierżawcą z nowym typem zasobu **aplikacji logiki (wersja zapoznawcza)** . Korzystając z tego typu aplikacji logiki o pojedynczej dzierżawie, można tworzyć wiele [przepływów pracy *stanowych* i *bezstanowych*](#stateful-stateless) , które są obsługiwane przez przeprojektowaną Azure Logic Apps środowisko uruchomieniowe wersji zapoznawczej, co zapewnia przenośność, lepszą wydajność i elastyczność wdrażania i uruchamiania w różnych środowiskach hostingu, w tym nie tylko platformę Azure, ale również kontenerów platformy Docker.
 
-Jak to możliwe? Przeprojektowany środowisko uruchomieniowe używa [modelu rozszerzalności Azure Functions](../azure-functions/functions-bindings-register.md) i jest hostowane jako rozszerzenie w środowisku uruchomieniowym Azure Functions. Ta architektura oznacza, że można uruchomić nowy typ aplikacji logiki w dowolnym miejscu, w którym Azure Functions uruchamiane. Można hostować przeprojektowane środowisko uruchomieniowe na prawie dowolnej topologii sieci i wybrać dowolny dostępny rozmiar obliczeniowy do obsługi niezbędnego obciążenia, które jest wymagane przez przepływy pracy. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Functions](../azure-functions/functions-overview.md) i [Azure Functions wyzwalacze i powiązania](../azure-functions/functions-triggers-bindings.md).
+Jak to możliwe? Przeprojektowany środowisko uruchomieniowe używa [modelu rozszerzalności Azure Functions](../azure-functions/functions-bindings-register.md) i jest hostowane jako rozszerzenie w środowisku uruchomieniowym Azure Functions. Ta architektura oznacza, że można uruchomić w dowolnym miejscu typ aplikacji logiki o pojedynczej dzierżawie, który Azure Functions uruchomiony. Można hostować przeprojektowane środowisko uruchomieniowe na prawie dowolnej topologii sieci i wybrać dowolny dostępny rozmiar obliczeniowy do obsługi niezbędnego obciążenia, które jest wymagane przez przepływy pracy. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Functions](../azure-functions/functions-overview.md) i [Azure Functions wyzwalacze i powiązania](../azure-functions/functions-triggers-bindings.md).
 
-Zasób **aplikacji logiki (wersja zapoznawcza)** można utworzyć, [rozpoczynając od Azure Portal](create-stateful-stateless-workflows-azure-portal.md) lub przez [utworzenie projektu w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)](create-stateful-stateless-workflows-visual-studio-code.md). Ponadto w Visual Studio Code można tworzyć *i lokalnie uruchamiać* przepływy pracy w środowisku deweloperskim. Bez względu na to, czy korzystasz z portalu, czy Visual Studio Code, możesz wdrożyć i uruchomić nowy typ aplikacji logiki w tym samym rodzaju środowiskach hostingu.
+Zasób **aplikacji logiki (wersja zapoznawcza)** można utworzyć, [rozpoczynając od Azure Portal](create-stateful-stateless-workflows-azure-portal.md) lub przez [utworzenie projektu w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)](create-stateful-stateless-workflows-visual-studio-code.md). Ponadto w Visual Studio Code można tworzyć *i lokalnie uruchamiać* przepływy pracy w środowisku deweloperskim. Bez względu na to, czy korzystasz z portalu, czy Visual Studio Code, możesz wdrożyć i uruchomić typ aplikacji logiki o pojedynczej dzierżawie w tym samym rodzaju środowiskach hostingu.
 
 To omówienie obejmuje następujące zagadnienia:
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami:
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>Jak różni się wersja zapoznawcza Azure Logic Apps?
 
-Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej używa rozszerzalności [Azure Functions](../azure-functions/functions-overview.md) i jest hostowane jako rozszerzenie w środowisku uruchomieniowym Azure Functions. Ta architektura oznacza, że można uruchomić nowy typ aplikacji logiki w dowolnym miejscu, w którym Azure Functions uruchamiane. Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej można hostować na niemal dowolnej topologii sieci, a następnie wybrać dowolny dostępny rozmiar do obsługi wymaganego obciążenia, które jest potrzebne przez przepływ pracy. Aby uzyskać więcej informacji o rozszerzalności Azure Functions, zobacz [zestaw WebJobs SDK: Tworzenie niestandardowych powiązań wejściowych i wyjściowych](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej używa rozszerzalności [Azure Functions](../azure-functions/functions-overview.md) i jest hostowane jako rozszerzenie w środowisku uruchomieniowym Azure Functions. W tej architekturze można uruchomić typ aplikacji logiki o pojedynczej dzierżawie, który Azure Functions uruchomiony. Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej można hostować na niemal dowolnej topologii sieci, a następnie wybrać dowolny dostępny rozmiar do obsługi wymaganego obciążenia, które jest potrzebne przez przepływ pracy. Aby uzyskać więcej informacji o rozszerzalności Azure Functions, zobacz [zestaw WebJobs SDK: Tworzenie niestandardowych powiązań wejściowych i wyjściowych](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 Dzięki temu nowemu podejściu środowisko uruchomieniowe programu Azure Logic Apps w wersji zapoznawczej i przepływy pracy są częścią aplikacji, którą można spakować razem. Ta funkcja umożliwia wdrażanie i uruchamianie przepływów pracy przez proste Kopiowanie artefaktów do środowiska hostingu i uruchamianie aplikacji. Takie podejście zapewnia również bardziej ustandaryzowane środowisko budowania potoków wdrożenia wokół projektów przepływu pracy do uruchamiania wymaganych testów i walidacji przed wdrożeniem zmian w środowiskach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Azure Logic Apps uruchamianie w dowolnym miejscu — głębokie szczegółowe środowiska uruchomieniowego](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -57,15 +57,17 @@ W poniższej tabeli krótko podsumowano różnice w sposobie, w jaki przepływy 
 | Środowisko | Udostępnianie i użycie zasobów |
 |-------------|----------------------------------|
 | Azure Logic Apps (wiele dzierżawców) | Przepływy pracy *klientów w wielu dzierżawcach* korzystają z tego samego przetwarzania (obliczeń), magazynu, sieci i tak dalej. |
-| Azure Logic Apps (wersja zapoznawcza) | Przepływy pracy *w tej samej aplikacji logiki* korzystają z tego samego przetwarzania (obliczeń), magazynu, sieci i tak dalej. |
+| Azure Logic Apps (wersja zapoznawcza, jedna dzierżawa) | Przepływy pracy *w tej samej aplikacji logiki i pojedyncze dzierżawy* współużytkują to samo przetwarzanie (obliczenia), magazyn, Sieć i tak dalej. |
 | Środowisko usługi integracji (niedostępne w wersji zapoznawczej) | Przepływy pracy w *tym samym środowisku* korzystają z tego samego przetwarzania (obliczeń), magazynu, sieci i tak dalej. |
 ||||
 
-W tym czasie można nadal utworzyć oryginalny typ aplikacji logiki w Azure Portal i w Visual Studio Code przy użyciu oryginalnego rozszerzenia Azure Logic Apps. Chociaż środowiska programistyczne różnią się między oryginalnymi i nowymi typami aplikacji logiki, Twoja subskrypcja platformy Azure może zawierać oba typy. Możesz wyświetlać i uzyskiwać dostęp do wszystkich wdrożonych aplikacji logiki w ramach subskrypcji platformy Azure, ale aplikacje są zorganizowane w ich własne kategorie i sekcje.
+W tym czasie można nadal utworzyć typ aplikacji logiki z wieloma dzierżawcami w Azure Portal i w Visual Studio Code przy użyciu rozszerzenia Azure Logic Apps z wieloma dzierżawcami. Chociaż środowiska programistyczne różnią się w zależności od typów aplikacji logiki obejmujących wiele dzierżawców i pojedynczych dzierżawców, Twoja subskrypcja platformy Azure może zawierać oba typy. Możesz wyświetlać i uzyskiwać dostęp do wszystkich wdrożonych aplikacji logiki w ramach subskrypcji platformy Azure, ale aplikacje są zorganizowane w ich własnych kategoriach i sekcjach.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>Przepływy pracy stanowych i bezstanowych
+
+W przypadku typu aplikacji logiki o pojedynczej dzierżawie można utworzyć te typy przepływów pracy w ramach tej samej aplikacji logiki:
 
 * *Stanowe*
 
@@ -149,9 +151,9 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 
   * [Azure Logic Apps uruchamianie dowolnych możliwości sieciowych za pomocą wersji zapoznawczej Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* Wygeneruj ponownie klucze dostępu dla połączeń zarządzanych używanych przez poszczególne przepływy pracy w ramach zasobu **aplikacji logiki (wersja zapoznawcza)** . W przypadku tego zadania [wykonaj te same kroki dla zasobu **Logic Apps** , ale na poziomie pojedynczego przepływu pracy, a](logic-apps-securing-a-logic-app.md#regenerate-access-keys)nie na poziomie zasobów aplikacji logiki.
+* Wygeneruj ponownie klucze dostępu dla połączeń zarządzanych używanych przez poszczególne przepływy pracy w ramach zasobu **aplikacji logiki (wersja zapoznawcza)** . W przypadku tego zadania [wykonaj te same kroki dla zasobu **Logic Apps** z wieloma dzierżawcami, ale na poziomie pojedynczego przepływu pracy, a](logic-apps-securing-a-logic-app.md#regenerate-access-keys)nie na poziomie zasobów aplikacji logiki.
 
-* Dodaj gałęzie równoległe w nowym projektancie, wykonując te same czynności co Projektant niebędący podglądem w wersji zapoznawczej.
+* Dodaj gałęzie równoległe w projektancie jednej dzierżawy, wykonując te same czynności co w przypadku projektanta wielu dzierżawców.
 
 Aby uzyskać więcej informacji, zobacz sekcję [zmiany, ograniczone, niedostępne i nieobsługiwane](#limited-unavailable-unsupported) oraz [Logic Apps publicznej wersji zapoznawczej w](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)serwisie GitHub.
 
@@ -159,14 +161,14 @@ Aby uzyskać więcej informacji, zobacz sekcję [zmiany, ograniczone, niedostęp
 
 ## <a name="pricing-model"></a>Model cen
 
-Po utworzeniu nowego typu aplikacji logiki w Azure Portal lub wdrożeniu z Visual Studio Code musisz wybrać plan hostingu, [App Service lub Premium](../azure-functions/functions-scale.md), aby można było użyć aplikacji logiki. Ten plan określa model cen, który ma zastosowanie do uruchamiania aplikacji logiki. W przypadku wybrania planu App Service należy również wybrać [warstwę cenową](../app-service/overview-hosting-plans.md).
+Po utworzeniu typu aplikacji logiki o pojedynczej dzierżawie w Azure Portal lub wdrożeniu z Visual Studio Code musisz wybrać plan hostingu, [App Service lub Premium](../azure-functions/functions-scale.md), aby można było użyć aplikacji logiki. Ten plan określa model cen, który ma zastosowanie do uruchamiania aplikacji logiki. W przypadku wybrania planu App Service należy również wybrać [warstwę cenową](../app-service/overview-hosting-plans.md).
 
 Przepływy pracy *stanowych* korzystają z [magazynu zewnętrznego](../azure-functions/storage-considerations.md#storage-account-requirements), więc [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) dotyczy transakcji magazynu, które wykonuje środowisko uruchomieniowe w wersji zapoznawczej Azure Logic Apps. Na przykład kolejki są używane do planowania, natomiast tabele i obiekty blob są używane do przechowywania stanów przepływu pracy.
 
 > [!NOTE]
 > W publicznej wersji zapoznawczej uruchamianie aplikacji logiki na App Service nie wiąże się z *dodatkowymi* opłatami na podstawie wybranego planu.
 
-Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do tego nowego typu zasobu, przejrzyj następujące tematy:
+Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do typu zasobu o pojedynczej dzierżawie, przejrzyj następujące tematy:
 
 * [Skalowanie i hosting usługi Azure Functions](../azure-functions/functions-scale.md)
 * [Skalowanie aplikacji w górę w Azure App Service](../app-service/manage-scale-up.md)
@@ -202,9 +204,9 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
       W Azure Portal można wybrać funkcję wyzwalacza HTTP, do której masz dostęp przez utworzenie połączenia za pośrednictwem środowiska użytkownika. Jeśli sprawdzisz definicję JSON akcji funkcji w widoku kodu lub **workflow.jsw** pliku, Akcja odwołuje się do funkcji przy użyciu `connectionName` odwołania. Ta wersja dzieli informacje o funkcji jako połączenie, które można znaleźć w **connections.jsprojektu na** pliku, który jest dostępny po utworzeniu połączenia.
 
       > [!NOTE]
-      > W wersji zapoznawczej akcja funkcji obsługuje tylko uwierzytelnianie ciągu zapytania. Wersja zapoznawcza Azure Logic Apps Pobiera klucz domyślny z funkcji podczas nawiązywania połączenia, zapisuje ten klucz w ustawieniach aplikacji i używa klucza do uwierzytelniania podczas wywoływania funkcji.
+      > W wersji z jedną dzierżawą akcja funkcji obsługuje tylko uwierzytelnianie ciągu zapytania. Wersja zapoznawcza Azure Logic Apps Pobiera klucz domyślny z funkcji podczas nawiązywania połączenia, zapisuje ten klucz w ustawieniach aplikacji i używa klucza do uwierzytelniania podczas wywoływania funkcji.
       >
-      > Podobnie jak w przypadku wersji oryginalnej, w przypadku odnowienia tego klucza, na przykład za pomocą środowiska Azure Functions w portalu, akcja funkcji nie będzie już działać z powodu nieprawidłowego klucza. Aby rozwiązać ten problem, należy ponownie utworzyć połączenie z funkcją, która ma zostać wywołana lub zaktualizować ustawienia aplikacji przy użyciu nowego klucza.
+      > Podobnie jak w przypadku wersji z wieloma dzierżawcami, w przypadku odnowienia tego klucza na przykład za pomocą środowiska Azure Functions w portalu akcja funkcji nie będzie już działać z powodu nieprawidłowego klucza. Aby rozwiązać ten problem, należy ponownie utworzyć połączenie z funkcją, która ma zostać wywołana lub zaktualizować ustawienia aplikacji przy użyciu nowego klucza.
 
     * Wbudowana akcja, wbudowany kod [języka JavaScript](logic-apps-add-run-inline-code.md) jest teraz **operacją kodu śródwierszowego — uruchamiaj w wierszu JavaScript**.
 
@@ -222,7 +224,7 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
 
 * [Łączniki niestandardowe](../connectors/apis-list.md#custom-apis-and-connectors) nie są obecnie obsługiwane na potrzeby wersji zapoznawczej.
 
-* **Dostępność planu hostingu**: niezależnie od tego, czy tworzony jest nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** w Azure Portal lub Deploy from Visual Studio Code, można użyć planu hostingu Premium lub App Service na platformie Azure. Plany hostingu zużycia są niedostępne i nie są obsługiwane w przypadku wdrażania tego typu zasobu. Program można wdrożyć z Visual Studio Code do kontenera platformy Docker, ale nie do [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Dostępność planu hostingu**: niezależnie od tego, czy tworzysz typ zasobu aplikacji logiki o pojedynczej dzierżawie **(wersja zapoznawcza)** w Azure Portal lub Deploy from Visual Studio Code, można użyć planu hostingu Premium lub App Service na platformie Azure. Plany hostingu zużycia są niedostępne i nie są obsługiwane w przypadku wdrażania tego typu zasobu. Program można wdrożyć z Visual Studio Code do kontenera platformy Docker, ale nie do [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Debugowanie punktu przerwania w Visual Studio Code**: Chociaż można dodawać punkty przerwania i używać ich w **workflow.js** pliku dla przepływu pracy, punkty przerwania są obsługiwane tylko w przypadku akcji, które nie są wyzwalane. Aby uzyskać więcej informacji, zobacz [Tworzenie stanowych i bezstanowych przepływów pracy w Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -233,6 +235,17 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
    * Aby wyświetlić historię uruchamiania, Otwórz przepływ pracy w aplikacji logiki. W menu przepływ pracy w obszarze **deweloper** wybierz pozycję **Monitoruj**.
 
    * Aby przejrzeć historię wyzwalacza, Otwórz przepływ pracy w aplikacji logiki. W menu przepływ pracy w obszarze **deweloper** wybierz pozycję **Wyzwalaj historie**.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>Zezwalanie na ruch w ścisłych scenariuszach sieci i zapory
+
+Jeśli środowisko ma rygorystyczne wymagania sieciowe lub zapory ograniczające ruch, musisz zezwolić na dostęp do każdego wyzwalacza lub połączeń akcji w przepływach pracy aplikacji logiki.
+
+Aby znaleźć w pełni kwalifikowane nazwy domen (FQDN) dla tych połączeń, zapoznaj się z odpowiednimi sekcjami w tych tematach:
+
+* [Uprawnienia zapory dla aplikacji logiki o pojedynczej dzierżawie — Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Uprawnienia zapory dla aplikacji logiki o pojedynczej dzierżawie — Azure Portal](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 

@@ -1,20 +1,20 @@
 ---
-title: Tworzenie usługi Azure Private link przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak utworzyć usługę prywatnego połączenia platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Szybki Start — Tworzenie usługi Azure Private link przy użyciu interfejsu wiersza polecenia platformy Azure
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć usługę prywatnego połączenia platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 27ce0b2646b6c380e86b377d3dba287f7791794e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653734"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563119"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Tworzenie prywatnej usługi linkowej przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Rozpocznij tworzenie usługi linku prywatnego, która odwołuje się do Twojej usługi.  Udziel prywatnego linku dostępu do usługi lub zasobu wdrożonego za usługa Load Balancer w warstwie Standardowa platformy Azure.  Użytkownicy usługi mają prywatny dostęp z sieci wirtualnej.
 
