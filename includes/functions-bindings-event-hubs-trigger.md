@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556629"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608918"
 ---
 Użyj wyzwalacza funkcji, aby odpowiedzieć na zdarzenie wysłane do strumienia zdarzeń centrum zdarzeń. Aby skonfigurować wyzwalacz, musisz mieć dostęp do odczytu do odpowiedniego centrum zdarzeń. Gdy funkcja jest wyzwalana, komunikat przeszedł do funkcji jest wpisywany jako ciąg.
 
@@ -360,9 +360,59 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**eventHubName** |**EventHubName** | Funkcje 2. x i nowsze. Nazwa centrum zdarzeń. Gdy nazwa centrum zdarzeń jest również obecna w parametrach połączenia, ta wartość zastępuje tę właściwość w czasie wykonywania. Można odwoływać się za pomocą [ustawień aplikacji](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings)`%eventHubName%` |
 |**odbiorca** |**Odbiorca** | Opcjonalna właściwość, która ustawia [grupę odbiorców](../articles/event-hubs/event-hubs-features.md#event-consumers) służącą do subskrybowania zdarzeń w centrum. W przypadku pominięcia `$Default` zostanie użyta Grupa konsumentów. |
 |**kardynalności** | n/d | Używane dla wszystkich języków innych niż C #. Ustaw wartość na, aby `many` włączyć przetwarzanie wsadowe.  W przypadku pominięcia lub ustawienia wartość do `one` funkcji zostaje przekazana jedna wiadomość.<br><br>W języku C# ta właściwość jest automatycznie przypisywana za każdym razem, gdy wyzwalacz ma tablicę dla tego typu.|
-|**połączenia** |**Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia z przestrzenią nazw centrum zdarzeń. Skopiuj te parametry połączenia, klikając przycisk **Informacje o połączeniu** dla [obszaru nazw](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), a nie samego centrum zdarzeń. Te parametry połączenia muszą mieć co najmniej uprawnienia do odczytu w celu aktywowania wyzwalacza.|
+|**połączenia** |**Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia z przestrzenią nazw centrum zdarzeń. Skopiuj te parametry połączenia, klikając przycisk **Informacje o połączeniu** dla [obszaru nazw](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), a nie samego centrum zdarzeń. Te parametry połączenia muszą mieć co najmniej uprawnienia do odczytu w celu aktywowania wyzwalacza.<br><br>Jeśli używasz [wersji 5. x lub nowszej rozszerzenia](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)zamiast parametrów połączenia, możesz podać odwołanie do sekcji konfiguracji, która definiuje połączenie. Zobacz [połączenia](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>Użycie
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Domyślne
+
+Dla wyzwalającego centrum zdarzeń można użyć następujących typów parametrów:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Dodatkowe typy 
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
+
+### <a name="default"></a>Domyślne
+
+Dla wyzwalającego centrum zdarzeń można użyć następujących typów parametrów:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Dodatkowe typy 
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+Aby uzyskać szczegółowe informacje, zapoznaj się z [przykładem wyzwalacza](#example) Java.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Aby uzyskać szczegółowe informacje, zapoznaj się z [przykładem wyzwalacza](#example) JavaScript.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Zapoznaj się z [przykładem wyzwalacza](#example) języka Python, aby uzyskać szczegółowe informacje.
+
+
+---
+
 
 ## <a name="event-metadata"></a>Metadane zdarzenia
 
@@ -379,10 +429,3 @@ Wyzwalacz Event Hubs zawiera kilka [właściwości metadanych](../articles/azure
 |`SystemProperties`|`IDictionary<String,Object>`|Właściwości systemu, w tym dane zdarzenia.|
 
 Zobacz [przykłady kodu](#example) , które używają tych właściwości wcześniej w tym artykule.
-
-## <a name="hostjson-properties"></a>host.jswłaściwości
-<a name="host-json"></a>
-
-[host.jsw](../articles/azure-functions/functions-host-json.md#eventhub) pliku zawiera ustawienia sterujące zachowaniem wyzwalacza Event Hubs. Konfiguracja różni się w zależności od wersji Azure Functions.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

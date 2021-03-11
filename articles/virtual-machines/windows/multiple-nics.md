@@ -2,17 +2,18 @@
 title: Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure, które korzystają z wielu kart sieciowych
 description: Dowiedz się, jak utworzyć maszynę wirtualną z systemem Windows z wieloma kartami sieciowymi i zarządzać nią przy użyciu szablonów Azure PowerShell lub Menedżer zasobów.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2664d175818a6e29dcd3f704c6938987bae050cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974009"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555180"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią z wieloma kartami sieciowymi
 Maszyny wirtualne na platformie Azure mogą mieć dołączone do nich wiele kart interfejsów sieci wirtualnej (nic). Typowym scenariuszem jest posiadanie różnych podsieci na potrzeby łączności frontonu i zaplecza. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej, do której dołączono wiele kart sieciowych. Dowiesz się również, jak dodawać i usuwać karty sieciowe z istniejącej maszyny wirtualnej. Różne [rozmiary maszyn wirtualnych](../sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej.
@@ -285,7 +286,7 @@ Platforma Azure przypisuje bramę domyślną do pierwszego (podstawowego) interf
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    Trasa wymieniona przy użyciu *192.168.1.1* w obszarze **brama**jest trasą domyślną dla podstawowego interfejsu sieciowego. Trasa z *192.168.2.1* w obszarze **brama**jest dodaną trasą.
+    Trasa wymieniona przy użyciu *192.168.1.1* w obszarze **brama** jest trasą domyślną dla podstawowego interfejsu sieciowego. Trasa z *192.168.2.1* w obszarze **brama** jest dodaną trasą.
 
 ## <a name="next-steps"></a>Następne kroki
 Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych.

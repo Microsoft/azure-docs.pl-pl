@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95993826"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609655"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Użyj Microsoft Azure Traffic Manager, aby zarządzać limitem punktów końcowych między kluczami
 Language Understanding (LUIS) oferuje możliwość zwiększenia limitu przydziału żądania punktu końcowego poza limit przydziału pojedynczego klucza. W tym celu należy utworzyć więcej kluczy dla LUIS i dodać je do aplikacji LUIS na stronie **publikowania** w sekcji **zasoby i klucze** .
@@ -371,7 +371,7 @@ Usuń dwa klucze punktu końcowego LUIS, trzy profile Traffic Manager i grupę z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejrzyj opcje [oprogramowania pośredniczącego](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) w programie BotFramework v4, aby zrozumieć, jak ten kod zarządzania ruchem można dodać do BotFramework bot.
+Przejrzyj opcje [oprogramowania pośredniczącego](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) w programie BotFramework v4, aby zrozumieć, jak ten kod zarządzania ruchem można dodać do BotFramework bot.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

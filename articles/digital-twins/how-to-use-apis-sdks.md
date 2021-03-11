@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cab32a6c2835dc283a169f58c79ff54e7925467b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507232"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554245"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -122,18 +122,21 @@ Możesz również znaleźć dodatkowe przykłady w [repozytorium GitHub dla zest
 Pomocnicy serializacji to funkcje pomocnicze dostępne w ramach zestawu SDK umożliwiające szybkie tworzenie i deserializacja danych bliźniaczych w celu uzyskania dostępu do podstawowych informacji. Ponieważ podstawowe metody zestawu SDK zwracają dane dwuosiowe jako plik JSON domyślnie, pomocne może być użycie tych klas pomocniczych w celu dalszej przerwy w działaniu danych.
 
 Dostępne są następujące klasy pomocnika:
-* `BasicDigitalTwin`: Reprezentuje podstawowe dane dwuosiowa cyfra
-* `BasicRelationship`: Reprezentuje podstawowe dane relacji
-* `UpdateOperationUtility`: Reprezentuje informacje o poprawkach JSON używane w wywołaniach aktualizacji
-* `WriteableProperty`: Reprezentuje metadane właściwości
+* `BasicDigitalTwin`: Ogólny reprezentuje podstawowe dane dwuosiowa cyfra
+* `BasicDigitalTwinComponent`: Ogólny reprezentuje składnik we `Contents` właściwościach `BasicDigitalTwin`
+* `BasicRelationship`: Ogólny reprezentuje podstawowe dane relacji
+* `DigitalTwinsJsonPropertyName`: Zawiera stałe ciągów do użycia w serializacji i deserializacji JSON dla niestandardowych typów wieloosiowych
 
 ##### <a name="deserialize-a-digital-twin"></a>Deserializacja wieloosiowa
 
-Zawsze możesz deserializować dane przędzy przy użyciu wybranej biblioteki JSON, takiej jak `System.Test.Json` lub `Newtonsoft.Json` . W przypadku podstawowego dostępu do sznurka klasy pomocników sprawiają, że jest to nieco bardziej wygodne.
+Zawsze możesz deserializować dane przędzy przy użyciu wybranej biblioteki JSON, takiej jak `System.Text.Json` lub `Newtonsoft.Json` . W przypadku podstawowego dostępu do sznurka klasy pomocnika mogą być wygodniejsze.
 
 `BasicDigitalTwin`Klasa pomocnika zapewnia również dostęp do właściwości zdefiniowanych na sznurze, za pomocą `Dictionary<string, object>` . Aby wyświetlić listę właściwości sznurka, można użyć:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` używa `System.Text.Json` atrybutów. Aby można było użyć programu `BasicDigitalTwin` z [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), należy zainicjować klienta przy użyciu domyślnego konstruktora lub, jeśli chcesz dostosować opcję serializatora, użyj [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### <a name="create-a-digital-twin"></a>Tworzenie dwucyfrowej dwuosiowej
 

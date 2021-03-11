@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 25396da3fb9a4293633308bf2e9d3c6b3d07265d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c9309834b407ee56d29e38afd965ac947fc8a4f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041648"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612290"
 ---
 # <a name="azure-iot-hub-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure IoT Hub dla Azure Functions
 
@@ -22,6 +22,10 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 > Chociaż poniższe przykłady kodu używają interfejsu API centrum zdarzeń, dana składnia ma zastosowanie do funkcji IoT Hub.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-trigger.md)]
+
+## <a name="hostjson-properties"></a>host.jswłaściwości
+
+[host.jsw](functions-host-json.md#eventhub) pliku zawiera ustawienia kontrolujące zachowanie wyzwalacza centrum zdarzeń. Aby uzyskać szczegółowe informacje na temat dostępnych ustawień, zobacz sekcję [host.jsw ustawieniach](functions-bindings-event-iot.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,18 +5,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ab89c012c985afa8d7375ff94d0f55b0ea6941cc
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449462"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613956"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Przewodnik dotyczący uruchamiania funkcji na platformie .NET 5,0 na platformie Azure
 
-_Obsługa platformy .NET 5,0 jest obecnie dostępna w wersji zapoznawczej._
-
 Ten artykuł zawiera wprowadzenie do korzystania z języka C# do tworzenia izolowanych funkcji procesów .NET, które są uruchamiane w Azure Functions. Uruchamianie pozaprocesowe pozwala oddzielić kod funkcji z Azure Functions środowiska uruchomieniowego. Zapewnia również sposób tworzenia i uruchamiania funkcji przeznaczonych dla bieżącej wersji programu .NET 5,0. 
+
+| Wprowadzenie | Pojęcia| Samples |
+|--|--|--| 
+| <ul><li>[Korzystanie z narzędzia Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Korzystanie z narzędzi wiersza polecenia](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Korzystanie z programu Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[Monitorowanie](functions-monitoring.md)</li> | <ul><li>[Przykłady referencyjne](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 Jeśli nie musisz obsługiwać programu .NET 5,0 ani uruchamiać funkcji poza procesem, warto zamiast tego [utworzyć funkcje biblioteki klas języka C#](functions-dotnet-class-library.md).
 
@@ -80,11 +82,12 @@ A służy `HostBuilder` do kompilowania i zwracania w pełni zainicjowanego `IHo
 
 Mając dostęp do potoku konstruktora hosta, można ustawić każdą konfigurację specyficzną dla aplikacji podczas inicjacji. Te konfiguracje mają zastosowanie do aplikacji funkcji działającej w osobnym procesie. Aby wprowadzić zmiany do hosta funkcji lub wyzwalacza i konfiguracji powiązania, nadal trzeba będzie używać [host.jsw pliku](functions-host-json.md).      
 
-Poniższy przykład pokazuje, jak dodać konfigurację `args` , które są odczytywane jako argumenty wiersza polecenia: 
+<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
 
-Ta `ConfigureAppConfiguration` Metoda służy do konfigurowania pozostałej części procesu kompilacji i aplikacji. Ten przykład używa również [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), co ułatwia dodawanie wielu elementów konfiguracji. Ponieważ `ConfigureAppConfiguration` zwraca to samo wystąpienie [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) , można również wywołać je wiele razy, aby dodać wiele elementów konfiguracji. Dostęp do pełnego zestawu konfiguracji można uzyskać z obu programów [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) i [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
+Dostęp do pełnego zestawu konfiguracji można uzyskać z obu programów [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) i [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
 
 Aby dowiedzieć się więcej o konfiguracji, zobacz [Konfiguracja w ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
@@ -98,13 +101,13 @@ Poniższy przykład wprowadza zależność usługi pojedynczej:
 
 Aby dowiedzieć się więcej, zobacz [iniekcja zależności w ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-### <a name="middleware"></a>Oprogramowanie pośredniczące
+<!--### Middleware
 
-Platforma .NET izolowana również obsługuje rejestrację oprogramowania pośredniczącego, z wykorzystaniem modelu podobnego do tego, co istnieje w ASP.NET. Ten model daje możliwość iniekcji logiki do potoku wywołania oraz przed i po wykonaniu funkcji.
+.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
-Chociaż pełny zestaw rejestracji oprogramowania pośredniczącego interfejsów API nie jest jeszcze uwidoczniony, jest obsługiwana Rejestracja oprogramowania pośredniczącego i dodaliśmy przykład do aplikacji przykładowej w folderze oprogramowania pośredniczącego.
+While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
 
 ## <a name="execution-context"></a>Kontekst wykonywania
 
@@ -180,12 +183,15 @@ W tej sekcji opisano bieżący stan funkcjonalności i różnice w działaniu na
 | Trwałe funkcje | [Obsługiwane](durable/durable-functions-overview.md) | Nieobsługiwane | 
 | Bezwzględne powiązania | [Obsługiwane](functions-dotnet-class-library.md#binding-at-runtime) | Nieobsługiwane |
 | function.jsw artefaktie | Wytwarza | Nie Wygenerowano |
-| Konfigurowanie | [host.jsna](functions-host-json.md) | [host.js](functions-host-json.md) i [inicjalizacji niestandardowej](#configuration) |
+| Konfigurowanie | [host.jsna](functions-host-json.md) | [host.js](functions-host-json.md) i inicjalizacji niestandardowej |
 | Wstrzykiwanie zależności | [Obsługiwane](functions-dotnet-dependency-injection.md)  | [Obsługiwane](#dependency-injection) |
-| Oprogramowanie pośredniczące | Nieobsługiwane | [Obsługiwane](#middleware) |
+| Oprogramowanie pośredniczące | Nieobsługiwane | Obsługiwane |
 | Czasy zimnego startu | Normalne | Dłużej, z powodu uruchomienia just-in-Time. Uruchamiaj system Linux zamiast systemu Windows, aby zmniejszyć potencjalne opóźnienia. |
 | ReadyToRun | [Obsługiwane](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
+## <a name="known-issues"></a>Znane problemy
+
+Aby uzyskać informacje na temat obejścia problemów z uruchamianiem funkcji izolowanych procesów .NET, zobacz [stronę o znanych problemach](https://aka.ms/AAbh18e). Aby zgłosić problemy, [Utwórz problem w tym repozytorium GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
 
 ## <a name="next-steps"></a>Następne kroki
 

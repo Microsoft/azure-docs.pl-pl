@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 93443a321f22d232f8b2bfa6a0fe5a05a5e18175
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749051"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607904"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>Szybki Start: Tworzenie modelu kotwic obiektów z modelu 3D
 
@@ -102,7 +102,7 @@ Teraz możesz wykonać konwersję modelu 3W.
 
     | Pole                    | Opis                       |
     | ---                      | ---                               |
-    | InputAssetPath           | Ścieżka bezwzględna do modelu 3D na komputerze lokalnym (istnieje przykładowy model w `assets/models` folderze, którego można użyć). Obsługiwane formaty plików to `fbx` ,,, `ply` `obj` `glb` i `gltf` . |
+    | InputAssetPath           | Ścieżka bezwzględna do modelu 3D na komputerze lokalnym. Obsługiwane formaty plików to `fbx` ,,, `ply` `obj` `glb` i `gltf` . |
     | AssetDimensionUnit       | Jednostka miary modelu 3W. Dostęp do wszystkich obsługiwanych jednostek miary można uzyskać przy użyciu `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` wyliczenia. |
     | Ciężkości                  | Kierunek wektora ciężkości modelu 3W. Ten wektor 3W zapewnia kierunek w dół w układzie współrzędnych modelu. Na przykład jeśli `y` wartość ujemna reprezentuje kierunek w dół w miejscu trójwymiarowym modelu, to powinna być `Vector3(0.0f, -1.0f, 0.0f)` . |
 

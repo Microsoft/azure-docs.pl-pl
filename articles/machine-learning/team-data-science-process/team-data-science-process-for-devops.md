@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a84942337b3c8eb5f7509f61f9ba5bcd564d8bb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653082"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614075"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Proces nauki danych zespołu dla operacji deweloperskich
 
@@ -74,10 +74,10 @@ W poniższej tabeli przedstawiono wskazówki dotyczące poziomu, które ułatwia
 |  |  | [W tym dokumencie wyjaśniono, jak utworzyć potok danych dla rozwiązania, które można zapisać jako szablon JSON jako "pakiet"](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | Średni | Ogólne Obliczanie w tle, środowisko projektu danych |
 |  |  | [W tym temacie opisano strukturę szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | Średni | Znajomość platformy Microsoft Azure |
 |  |  | [DSC to platforma zarządzania w programie PowerShell, która umożliwia zarządzanie infrastrukturą IT i programistyczną przy użyciu konfiguracji jako kodu, zapisanej jako pakiet. To odwołanie jest przeglądem tego tematu](/powershell/scripting/dsc/overview/overview) | Konfiguracja żądanego stanu programu PowerShell | Średni | Kodowanie programu PowerShell, znajomość architektury przedsiębiorstwa, obsługa skryptów |
-|  | Release | [Ten artykuł referencyjny dotyczący kompilowania, testowania i wydawania w środowiskach ciągłej integracji/ciągłego wdrażania](/azure/devops/pipelines/?view=azure-devops) | Visual Studio Codespace | Miała | Opracowywanie oprogramowania, znajomość środowisk ciągłej integracji/ciągłego wdrażania, znajomość wydawaniu |
+|  | Release | [Ten artykuł referencyjny dotyczący kompilowania, testowania i wydawania w środowiskach ciągłej integracji/ciągłego wdrażania](/azure/devops/pipelines/) | Visual Studio Codespace | Miała | Opracowywanie oprogramowania, znajomość środowisk ciągłej integracji/ciągłego wdrażania, znajomość wydawaniu |
 |  |  | [Użyj tego poprzedniego odwołania dla elementów Runbook do automatyzowania zarządzania wersjami przy użyciu programu System Center](/system-center/orchestrator/automate-runbooks) | System Center | Miała | Środowisko pracy z programem System Center Orchestrator |
 |  |  | [Ten artykuł pomaga określić najlepszą opcję wdrożenia plików dla aplikacji sieci Web, zaplecze aplikacji mobilnej lub aplikacji interfejsu API w celu Azure App Service, a następnie przeprowadzi Cię do odpowiednich zasobów, korzystając z instrukcji specyficznych dla preferowanej opcji](../../app-service/deploy-local-git.md) | Wdrożenie Microsoft Azure | Średni | Opracowywanie oprogramowania, środowisko pracy z platformą Microsoft Azure |
-|  | Monitorowanie | [W tym dokumencie wyjaśniono Application Insights i sposób dodawania go do rozwiązań do analizy zaawansowanej](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Średni | Opracowywanie oprogramowania, znajomość platformy Microsoft Azure |
+|  | Monitor | [W tym dokumencie wyjaśniono Application Insights i sposób dodawania go do rozwiązań do analizy zaawansowanej](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Średni | Opracowywanie oprogramowania, znajomość platformy Microsoft Azure |
 |  |  | [W tym temacie objaśniono podstawowe pojęcia dotyczące Operations Manager administratora zarządzającego infrastrukturą Operations Manager i operatora, który monitoruje i obsługuje rozwiązanie do analizy zaawansowanej](/previous-versions/system-center/system-center-2012-R2/hh230741(v=sc.12)) | System Center | Miała | Znajomość monitorowania przedsiębiorstwa, System Center Operations Manager |
 |  |  | [Ten wpis w blogu wyjaśnia, jak używać Azure Data Factory do monitorowania zaawansowanego potoku analizy i zarządzania nim](https://azure.microsoft.com/blog/azure-data-factory-updates-monitoring-and-management-enhancements/) | Azure Data Factory | Średni | Znajomość Azure Data Factory |
 |  |  | [W tym filmie wideo pokazano, jak monitorować dziennik z dziennikami Azure Monitor](https://channel9.msdn.com/Shows/Data-Exposed/Enterprise-HDInsight-Monitoring-with-Operations-Management-Suite) | Dzienniki platformy Azure, program PowerShell | Miała | Znajomość platformy Azure |

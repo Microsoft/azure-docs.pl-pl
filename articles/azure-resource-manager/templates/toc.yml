@@ -326,6 +326,8 @@
       href: template-best-practices.md
     - name: Bicep
       items:
+        - name: Zainstaluj Bicep
+          href: bicep-install.md
         - name: Porównywanie kodu JSON z Bicep
           href: compare-template-syntax.md
     - name: Typy danych

@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131245"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613633"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 — Walidacja funkcjonalna i działania operacji
 
@@ -29,7 +29,7 @@ Aby ukończyć pierwsze publikowanie w [centrum partnerskim](https://partner.mic
 Dostępne są dwie opcje sprawdzania poprawności funkcjonalnej:
 
 - Poznasz 30-minutowy konferencję z nami w godzinach pracy w czasie standardowym (PST), aby przedstawić i zarejestrować środowisko i rozwiązanie [LCS](https://lcs.dynamics.com/) .
-- W centrum partnerskim przejdź do [omówienia komercyjnego portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)  >  **Overview** i przekaż pokazowy adres URL wideo i zrzuty ekranu LCS na karcie zawartość uzupełniająca oferty.
+- W centrum partnerskim przejdź do [omówienia komercyjnego portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)  >   i przekaż pokazowy adres URL wideo i zrzuty ekranu LCS na karcie zawartość uzupełniająca oferty.
 
 Zespół certyfikacji firmy Microsoft przegląda wideo i pliki, a następnie zatwierdza rozwiązanie lub wysyła wiadomość e-mail z informacjami o następnych krokach.
 
@@ -50,13 +50,13 @@ Aby zaplanować ostateczne wywołanie przeglądu, należy skontaktować się [ap
 
 2. Wykonaj następujące zrzuty ekranu środowiska [LCS](https://lcs.dynamics.com/) , które pasują do oferty lub rozwiązania, które chcesz opublikować. Muszą być wystarczająco jasne, aby zespół certyfikacji mógł odczytać tekst. Zapisz zrzuty ekranu jako pliki JPG. Możesz podać [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) uprawnienia do środowiska LCS, aby umożliwić nam zweryfikowanie Instalatora zamiast zapewniania zrzutów ekranu.
 
-    1. Przejdź do **LCS**  >  biblioteki projektów LCS **Business Process Modelarz**  >  **Project library** . Wykonaj zrzuty ekranu wszystkich kroków procesu. Uwzględnij **diagramy** i **zrecenzowane** kolumny, jak pokazano poniżej:
+    1. Przejdź do   >  biblioteki projektów LCS **Business Process Modelarz**  >  . Wykonaj zrzuty ekranu wszystkich kroków procesu. Uwzględnij **diagramy** i **zrecenzowane** kolumny, jak pokazano poniżej:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Pokazuje okno biblioteki projektu.":::
 
-      2. Przejdź do **LCS**  >  **Solution Management**  >  **pakietu rozwiązania testowego** zarządzania rozwiązaniami LCS. Wykonaj zrzuty ekranu zawierające Omówienie pakietu i treść pokazaną w poniższych przykładach:
+      2. Przejdź do   >    >  **pakietu rozwiązania testowego** zarządzania rozwiązaniami LCS. Wykonaj zrzuty ekranu zawierające Omówienie pakietu i treść pokazaną w poniższych przykładach:
 
-    | Pole | Obraz <img src="" width="400px">|
+    | Pole | Image (Obraz) |
     | --- | --- |
     | Przegląd pakietu | [![Zrzut ekranu przedstawiający okno "przegląd pakietu".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Osoby zatwierdzające rozwiązanie</li></ul> | [![Ekran przegląd pakietu](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

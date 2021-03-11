@@ -3,16 +3,17 @@ title: Łączenie z maszynami wirtualnymi z systemem Linux przy użyciu kluczy S
 description: Dowiedz się, jak generować klucze SSH i używać ich z komputera z systemem Windows, aby nawiązać połączenie z maszyną wirtualną z systemem Linux na platformie Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552783"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak używać kluczy SSH w systemie Windows na platformie Azure
 
@@ -23,9 +24,9 @@ Aby używać kluczy SSH z poziomu klienta z systemem Linux lub macOS, zobacz [sz
 
 ## <a name="overview-of-ssh-and-keys"></a>Omówienie protokołów SSH i kluczy
 
-[SSH](https://www.ssh.com/ssh/) to protokół połączenia szyfrowanego, który umożliwia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, korzystanie z haseł przy użyciu protokołu SSH nadal pozostawia maszynę wirtualną zagrożoną atakami na rachunek. Zalecamy łączenie się z maszyną wirtualną za pośrednictwem protokołu SSH przy użyciu pary kluczy publiczny-prywatny, znanych także jako *klucze SSH* . 
+[SSH](https://www.ssh.com/ssh/) to protokół połączenia szyfrowanego, który umożliwia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, korzystanie z haseł przy użyciu protokołu SSH nadal pozostawia maszynę wirtualną zagrożoną atakami na rachunek. Zalecamy łączenie się z maszyną wirtualną za pośrednictwem protokołu SSH przy użyciu pary kluczy publiczny-prywatny, znanych także jako *klucze SSH*. 
 
-Para kluczy publiczny-prywatny jest taka sama jak blokada na wierzchu drzwi. Blokada jest udostępniona **publicznie** , każda osoba mająca właściwy klucz może otworzyć drzwi. Klucz jest **prywatny** i ma tylko osoby, którym ufasz, ponieważ może służyć do odblokowania drzwi. 
+Para kluczy publiczny-prywatny jest taka sama jak blokada na wierzchu drzwi. Blokada jest udostępniona **publicznie**, każda osoba mająca właściwy klucz może otworzyć drzwi. Klucz jest **prywatny** i ma tylko osoby, którym ufasz, ponieważ może służyć do odblokowania drzwi. 
 
 - *Klucz publiczny* jest umieszczany na maszynie wirtualnej z systemem Linux podczas tworzenia maszyny wirtualnej. 
 

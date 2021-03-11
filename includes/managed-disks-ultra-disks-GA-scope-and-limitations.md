@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016640"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603310"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -26,7 +26,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 
 |Regiony  |Opcje nadmiarowości  |
 |---------|---------|
-|Brazil South     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Brazylia Południowa     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Indie Środkowe     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Azja Wschodnia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Niemcy Środkowo-Zachodnie     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
@@ -39,18 +39,16 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Australia Środkowa    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Australia Wschodnia     |Trzy strefy dostępności         |
 |Southeast Asia    |Trzy strefy dostępności        |
-|Kanada środkowa *     |Trzy strefy dostępności          |
+|Kanada Środkowa     |Trzy strefy dostępności          |
 |Central US     |Trzy strefy dostępności          |
 |East US     |Trzy strefy dostępności          |
 |Wschodnie stany USA 2     |Trzy strefy dostępności         |
 |Francja Środkowa    |Dwie strefy dostępności        |
-|Japan East    |Trzy strefy dostępności        |
+|Japonia Wschodnia    |Trzy strefy dostępności        |
 |Europa Północna    |Trzy strefy dostępności        |
 |Południowe Zjednoczone Królestwo    |Trzy strefy dostępności        |
 |West Europe    | Trzy strefy dostępności|
 |Zachodnie stany USA 2    |Trzy strefy dostępności|
-
-\* Skontaktuj się z pomocą techniczną platformy Azure, aby uzyskać dostęp do Strefy dostępności w tym regionie.
 
 - Są obsługiwane tylko przez następującą serię maszyn wirtualnych:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
@@ -63,7 +61,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [Mol](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie przy użyciu Ultra Disks.
 - Są dostępne tylko jako dyski danych. 

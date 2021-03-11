@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174839"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607921"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definiowanie atrybutów niestandardowych w Azure Active Directory B2C
 
@@ -30,6 +30,8 @@ Katalog usługi Azure AD B2C zawiera [wbudowany zestaw atrybutów](user-profile-
 * Aplikacja dołączona do klienta musi zachować atrybut **LoyaltyId** .
 * Dostawca tożsamości ma unikatowy identyfikator użytkownika ( **uniqueUserGUID**), który musi zostać utrwalony.
 * Niestandardowa podróż użytkownika wymaga utrzymania stanu użytkownika ( **migrationStatus**), w którym ma działać inna logika.
+
+*Właściwość rozszerzenia* terminów, *atrybut niestandardowy* i *niestandardowa* , odwołują się do tego samego elementu w kontekście tego artykułu. Nazwa różni się w zależności od kontekstu, takiego jak aplikacja, obiekt lub zasady.
 
 Azure AD B2C umożliwia rozbudowa zestawu atrybutów przechowywanych na poszczególnych kontach użytkowników. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](microsoft-graph-operations.md).
 
@@ -66,11 +68,7 @@ Po utworzeniu nowego użytkownika przy użyciu przepływu użytkownika, który u
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Aplikacja rozszerzeń Azure AD B2C
 
-Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet jeśli mogą zawierać dane dla użytkownika. Atrybut rozszerzenia jest dołączany do aplikacji o nazwie B2C-Extensions-App. Nie należy modyfikować tej aplikacji, ponieważ jest ona używana przez Azure AD B2C do przechowywania danych użytkownika. Tę aplikację można znaleźć w obszarze Azure AD B2C, rejestracje aplikacji.
-
-*Właściwość rozszerzenia* terminów, *atrybut niestandardowy* i *niestandardowa* , odwołują się do tego samego elementu w kontekście tego artykułu. Nazwa różni się w zależności od kontekstu, takiego jak aplikacja, obiekt lub zasady.
-
-## <a name="get-the-application-properties"></a>Pobierz właściwości aplikacji
+Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet jeśli mogą zawierać dane dla użytkownika. Atrybut rozszerzenia jest dołączony do aplikacji o nazwie `b2c-extensions-app` . Nie należy modyfikować tej aplikacji, ponieważ jest ona używana przez Azure AD B2C do przechowywania danych użytkownika. Tę aplikację można znaleźć w obszarze Azure AD B2C, rejestracje aplikacji. Pobierz właściwości aplikacji:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
@@ -80,14 +78,6 @@ Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet 
 1. Skopiuj następujące identyfikatory do schowka i Zapisz je:
     * **Identyfikator aplikacji**. Przykład: `11111111-1111-1111-1111-111111111111`.
     * **Identyfikator obiektu**. Przykład: `22222222-2222-2222-2222-222222222222`.
-
-## <a name="using-custom-attribute-with-ms-graph-api"></a>Używanie atrybutu niestandardowego z usługą MS interfejs API programu Graph
-
-Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` . Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -172,6 +162,14 @@ Poniższy przykład ilustruje użycie niestandardowego atrybutu w Azure AD B2C z
 ```
 
 ::: zone-end
+
+## <a name="using-custom-attribute-with-ms-graph-api"></a>Używanie atrybutu niestandardowego z usługą MS interfejs API programu Graph
+
+Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` . Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## <a name="next-steps"></a>Następne kroki
 

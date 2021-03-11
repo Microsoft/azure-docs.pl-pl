@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b8110323afda2ad445ffe279030ee7f3035e2b71
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455403"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609689"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie przedsiębiorstwa dla aplikacji LUIS
 Zapoznaj się z tymi strategiami projektowania aplikacji dla przedsiębiorstw.
@@ -48,10 +48,10 @@ Jeśli aplikacja jest przeznaczona do przewidywania różnorodnych wyrażenia d�
 Zaplanuj okresowe [przeglądy punktu końcowego wyrażenia długości](luis-how-to-review-endpoint-utterances.md) na potrzeby aktywnego uczenia, na przykład co dwa tygodnie, a następnie ponownie nauczenie i ponowne opublikowanie. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Jeśli potrzebujesz więcej niż 500 intencji
-Załóżmy, że opracowujesz Asystenta pakietu Office, który ma ponad 500 intencji. Jeśli 200 intencje odnoszą się do spotkań dotyczących planowania, 200 są wyświetlane przypomnienia, 200 są informacje o współpracownikach, a 200 są do wysyłania wiadomości e-mail, założeń grupowych, tak aby każda grupa była w jednej aplikacji, a następnie utworzyć aplikację najwyższego poziomu zawierającą każde zamiar. Użyj [modelu wysyłania](#dispatch-tool-and-model) , aby skompilować aplikację najwyższego poziomu. Następnie zmień bot tak, aby korzystał z wywołania kaskadowego, jak pokazano w [samouczku modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Załóżmy, że opracowujesz Asystenta pakietu Office, który ma ponad 500 intencji. Jeśli 200 intencje odnoszą się do spotkań dotyczących planowania, 200 są wyświetlane przypomnienia, 200 są informacje o współpracownikach, a 200 są do wysyłania wiadomości e-mail, założeń grupowych, tak aby każda grupa była w jednej aplikacji, a następnie utworzyć aplikację najwyższego poziomu zawierającą każde zamiar. Użyj [modelu wysyłania](#dispatch-tool-and-model) , aby skompilować aplikację najwyższego poziomu. Następnie zmień bot tak, aby korzystał z wywołania kaskadowego, jak pokazano w [samouczku modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Gdy musisz połączyć kilka aplikacji LUIS i QnA Maker
-Jeśli masz kilka aplikacji LUIS i QnA Maker, które muszą odpowiedzieć na bot, użyj [modelu wysyłania](#dispatch-tool-and-model) , aby skompilować aplikację najwyższego poziomu.  Następnie zmień bot tak, aby korzystał z wywołania kaskadowego, jak pokazano w [samouczku modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Jeśli masz kilka aplikacji LUIS i QnA Maker, które muszą odpowiedzieć na bot, użyj [modelu wysyłania](#dispatch-tool-and-model) , aby skompilować aplikację najwyższego poziomu.  Następnie zmień bot tak, aby korzystał z wywołania kaskadowego, jak pokazano w [samouczku modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Narzędzie i model wysyłania
 Za pomocą narzędzia wiersza polecenia [wysyłania][dispatch-tool] dostępnego w [BotBuilder-Tools](https://github.com/Microsoft/botbuilder-tools) można łączyć wiele aplikacji LUIS i/lub QNA Maker w aplikacji nadrzędnej Luis. Takie podejście umożliwia posiadanie domeny nadrzędnej obejmującej wszystkie tematy i różne podrzędne domeny podmiotu w oddzielnych aplikacjach. 
@@ -62,7 +62,7 @@ Domena nadrzędna jest zapisywana w LUIS z wersją nazwaną `Dispatch` na liści
 
 Usługa Chat bot odbiera wypowiedź, a następnie wysyła do aplikacji nadrzędnej LUIS w celu przewidywania. Najczęściej przewidywane zamierzenie z aplikacji nadrzędnej Określa, która aplikacja podrzędna LUIS jest wywoływana dalej. Bot rozmowy wysyła wypowiedź do aplikacji podrzędnej w celu uzyskania bardziej szczegółowego przewidywania.
 
-Dowiedz się, w jaki sposób ta hierarchia wywołań jest wykonywana z poziomu programu Dyspozytor Bot Builder v4 [— samouczek aplikacji](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0).  
+Dowiedz się, w jaki sposób ta hierarchia wywołań jest wykonywana z poziomu programu Dyspozytor Bot Builder v4 [— samouczek aplikacji](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limity zamierzeń w modelu wysyłania
 Aplikacja do wysyłania ma 500 źródłowe źródła, równoważne z intencjami 500, jako maksymalne. 
@@ -70,7 +70,7 @@ Aplikacja do wysyłania ma 500 źródłowe źródła, równoważne z intencjami 
 ## <a name="more-information"></a>Więcej informacji
 
 * [Bot Framework SDK](https://github.com/Microsoft/botframework)
-* [Samouczek dotyczący modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0)
+* [Samouczek dotyczący modelu wysyłania](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [Interfejs wiersza polecenia wysyłania](https://github.com/Microsoft/botbuilder-tools)
 * Przykład bot model wysyłania — [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 

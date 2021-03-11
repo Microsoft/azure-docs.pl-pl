@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a1b37ed1d15282224cc7de61ec6f8a98a4bbf732
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743393"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610505"
 ---
 # <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Zarządzaj Cloud Services (klasyczny) w Azure Portal
 
@@ -81,7 +81,7 @@ Istnieją dwa kluczowe wymagania wstępne dotyczące przeprowadzenia zamiany wdr
 
 - Jeśli chcesz użyć statycznego adresu IP dla miejsca produkcyjnego, musisz zarezerwować jeden dla miejsca przejściowego. W przeciwnym razie swap nie powiedzie się.
 
-- Aby można było przeprowadzić zamianę, wszystkie wystąpienia ról muszą być uruchomione. Stan wystąpień można sprawdzić w bloku **przegląd** Azure Portal. Alternatywnie możesz użyć polecenia [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) w programie Windows PowerShell.
+- Aby można było przeprowadzić zamianę, wszystkie wystąpienia ról muszą być uruchomione. Stan wystąpień można sprawdzić w bloku **przegląd** Azure Portal. Alternatywnie możesz użyć polecenia [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole) w programie Windows PowerShell.
 
 Należy pamiętać, że aktualizacje systemu operacyjnego gościa i operacje naprawy usług mogą również spowodować niepowodzenie zamiany wdrożenia. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wdrażaniem usługi w chmurze](cloud-services-troubleshoot-deployment-problems.md).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9d6bb9da67f66f46e5c72d5d64b8b6c111c98e08
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 63538661cceb7e1bdd4151a3592ccbd4de0033b0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215361"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612018"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Co to jest usługa Azure IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
@@ -52,13 +52,11 @@ Przykłady, które demonstrują komunikację między aplikacjami systemu Windows
 
 IoT Edge dla systemu Linux w systemie Windows jest obecnie w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Procesy instalacji i zarządzania mogą być inne niż w przypadku ogólnie dostępnych funkcji.
 
-Obecnie IoT Edge dla systemu Linux w systemie Windows używa wersji zapoznawczej programu Windows Administrator Center. Aby uzyskać więcej informacji o programie testów systemu Windows i zarejestrowaniu, zobacz [co to jest program testów systemu Windows?](https://insider.windows.com/about-windows-insider-program).
-
 ## <a name="support"></a>Pomoc techniczna
 
 Skorzystaj z pomocy technicznej IoT Edge i kanałów opinii, aby uzyskać pomoc dotyczącą IoT Edge dla systemu Linux w systemie Windows.
 
-**Błędy raportowania** — usterki można zgłaszać na [stronie problemy](https://github.com/azure/iotedge/issues) projektu typu "open source" IoT Edge. 
+**Błędy raportowania** — usterki można zgłaszać na [stronie problemy](https://github.com/azure/iotedge/issues) projektu typu "open source" IoT Edge. Usterki dotyczące Azure IoT Edge dla systemu Linux w systemie Windows można zgłosić na [stronie problemy z iotedge-eFlow](https://github.com/azure/iotedge-eflow/issues).
 
 **Zespół pomocy technicznej firmy Microsoft** — użytkownicy z [planem pomocy](https://azure.microsoft.com/support/plans/) technicznej mogą skontaktować się z zespołem pomocy technicznej firmy Microsoft, tworząc bilet pomocy technicznej bezpośrednio z [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
