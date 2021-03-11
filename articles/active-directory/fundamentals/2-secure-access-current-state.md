@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e4becd337c8e7b0b425a52ed46d562db5bae4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 30858e9978f7e8857c5f8a2dcdfd7455f6e97b60
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725331"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553429"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Odkryj bieżący stan współpracy zewnętrznej w organizacji 
 
@@ -34,11 +34,11 @@ Osoby w organizacji prawdopodobnie już współpracują z użytkownikami z innyc
 
 Użytkownicy inicjujący współpracę zewnętrzną najlepiej znają aplikacje, które są najbardziej odpowiednie do współpracy zewnętrznej, i kiedy ten dostęp powinien się zakończyć. Zrozumienie tych użytkowników może pomóc określić, kto ma mieć uprawnienia do delegowania użytkownikom zewnętrznym, tworzyć pakiety dostępu i dokończyć przeglądy dostępu.
 
-Aby znaleźć użytkowników, którzy obecnie współpracują z usługą, zapoznaj się z [dziennikiem inspekcji Microsoft 365 pod kątem działań związanych z udostępnianiem i żądaniem dostępu](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities). Możesz również przejrzeć [Dziennik inspekcji usługi Azure AD, aby uzyskać szczegółowe informacje na temat tego, kto zaprosił użytkowników B2B](../external-identities/auditing-and-reporting.md) do katalogu.
+Aby znaleźć użytkowników, którzy obecnie współpracują z usługą, zapoznaj się z [dziennikiem inspekcji Microsoft 365 pod kątem działań związanych z udostępnianiem i żądaniem dostępu](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#sharing-and-access-request-activities). Możesz również przejrzeć [Dziennik inspekcji usługi Azure AD, aby uzyskać szczegółowe informacje na temat tego, kto zaprosił użytkowników B2B](../external-identities/auditing-and-reporting.md) do katalogu.
 
 ## <a name="find-current-collaboration-partners"></a>Znajdź bieżących partnerów współpracy
 
-Użytkownicy zewnętrzni mogą być użytkownikami [B2B usługi Azure AD](../external-identities/what-is-b2b.md) (preferowanymi) z poświadczeniami zarządzanymi przez partnera lub użytkownikami zewnętrznymi przy użyciu poświadczeń inicjowanych lokalnie. Ci użytkownicy są zwykle (ale nie zawsze) oznaczone atrybutem UserType gościa. Użytkowników-Gości można wyliczyć za pomocą [interfejsu API Microsoft Graph](/graph/api/user-list?tabs=http&view=graph-rest-1.0), [programu PowerShell](/graph/api/user-list?tabs=http&view=graph-rest-1.0)lub [Azure Portal](../enterprise-users/users-bulk-download.md).
+Użytkownicy zewnętrzni mogą być użytkownikami [B2B usługi Azure AD](../external-identities/what-is-b2b.md) (preferowanymi) z poświadczeniami zarządzanymi przez partnera lub użytkownikami zewnętrznymi przy użyciu poświadczeń inicjowanych lokalnie. Ci użytkownicy są zwykle (ale nie zawsze) oznaczone atrybutem UserType gościa. Użytkowników-Gości można wyliczyć za pomocą [interfejsu API Microsoft Graph](/graph/api/user-list?tabs=http), [programu PowerShell](/graph/api/user-list?tabs=http)lub [Azure Portal](../enterprise-users/users-bulk-download.md).
 
 ### <a name="use-email-domains-and-companyname-property"></a>Użyj domen poczty e-mail i właściwości NazwaFirmy
 
@@ -55,7 +55,7 @@ W przypadku korzystania z funkcji zarządzania prawami można także przekazywa�
 
 ## <a name="find-access-being-granted-to-external-users"></a>Znajdowanie dostępu udzielanego użytkownikom zewnętrznym
 
-Po utworzeniu spisu użytkowników zewnętrznych i organizacji można określić dostęp udzielony dla tych użytkowników przy użyciu interfejsu API Microsoft Graph, aby określić [członkostwo w grupach](/graph/api/resources/groups-overview?view=graph-rest-1.0) usługi Azure AD lub [bezpośrednie przypisanie aplikacji](/graph/api/resources/approleassignment?view=graph-rest-1.0) w usłudze Azure AD.
+Po utworzeniu spisu użytkowników zewnętrznych i organizacji można określić dostęp udzielony dla tych użytkowników przy użyciu interfejsu API Microsoft Graph, aby określić [członkostwo w grupach](/graph/api/resources/groups-overview) usługi Azure AD lub [bezpośrednie przypisanie aplikacji](/graph/api/resources/approleassignment) w usłudze Azure AD.
 
 
 ### <a name="enumerate-application-specific-permissions"></a>Wyliczanie uprawnień specyficznych dla aplikacji
@@ -65,7 +65,7 @@ Można również wykonać Wyliczenie uprawnień specyficznych dla aplikacji. Na 
 Zapoznaj się z tym tematem, aby uzyskać dostęp do wszystkich aplikacji o znaczeniu biznesowym i ważnych dla firmy, aby uzyskać pełną świadomość dostępu zewnętrznego.
 
 ### <a name="detect-ad-hoc-sharing"></a>Wykrywanie udostępniania ad hoc
-Jeśli w Twoim planie poczty e-mail i sieci będzie można zbadać zawartość udostępnioną za pośrednictwem poczty e-mail lub nieautoryzowane oprogramowanie jako usługa (SaaS). [Ochrona przed utratą danych Microsoft 365](/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) pomaga identyfikować, zapobiegać i monitorować przypadkowe udostępnianie poufnych informacji w infrastrukturze Microsoft 365. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) może pomóc w zidentyfikowaniu użycia nieautoryzowanych aplikacji SaaS w danym środowisku.
+Jeśli w Twoim planie poczty e-mail i sieci będzie można zbadać zawartość udostępnioną za pośrednictwem poczty e-mail lub nieautoryzowane oprogramowanie jako usługa (SaaS). [Ochrona przed utratą danych Microsoft 365](/microsoft-365/compliance/data-loss-prevention-policies) pomaga identyfikować, zapobiegać i monitorować przypadkowe udostępnianie poufnych informacji w infrastrukturze Microsoft 365. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) może pomóc w zidentyfikowaniu użycia nieautoryzowanych aplikacji SaaS w danym środowisku.
 
 ## <a name="next-steps"></a>Następne kroki
 

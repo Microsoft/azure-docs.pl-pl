@@ -3,18 +3,18 @@ title: Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego obrazu
 description: Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego obrazu w galerii obrazów udostępnionych.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1c8f664c98d068e9772fd47717c07f44236db2e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6b728591aeb330c7b2af8ca5dc4770147761b5b0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881910"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552290"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego obrazu 
 

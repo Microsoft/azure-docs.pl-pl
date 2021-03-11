@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551066"
+ms.locfileid: "102609145"
 ---
 # <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 
@@ -104,7 +104,7 @@ Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkr
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
-Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
+Wszystkie regiony publiczne mogą być regionami docelowymi, ale niektóre regiony wymagają od klientów przechodzenia przez proces żądania w celu uzyskania dostępu. Aby zażądać dodania subskrypcji do listy dozwolonych dla regionu, takiego jak Australia Środkowa lub Australia Środkowa 2, Prześlij [żądanie dostępu](/troubleshoot/azure/general/region-access-request-process)
 
 ## <a name="limits"></a>Limity 
 

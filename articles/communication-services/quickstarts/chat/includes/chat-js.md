@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 24f64e19077488223e13d01e110b5b5118231673
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661636"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603368"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -140,22 +140,22 @@ Użyj `createThread` metody, aby utworzyć wątek rozmowy.
 - Użyj `topic` , aby przekazać temat do tego rozmowy. Tematy można aktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
 - Użyj, `participants` Aby wyświetlić listę uczestników, którzy mają zostać dodani do wątku rozmowy.
 
-Po rozwiązaniu `createChatThread` Metoda zwraca `CreateChatThreadResponse` . Ten model zawiera właściwość, w `chatThread` której można uzyskać dostęp do `id` nowo utworzonego wątku. Następnie można użyć, `id` Aby pobrać wystąpienie elementu `ChatThreadClient` . `ChatThreadClient`Można następnie użyć do wykonania operacji w ramach wątku, takiego jak wysyłanie komunikatów lub wyświetlanie listy uczestników.
+Po rozwiązaniu `createChatThread` Metoda zwraca `CreateChatThreadResult` . Ten model zawiera właściwość, w `chatThread` której można uzyskać dostęp do `id` nowo utworzonego wątku. Następnie można użyć, `id` Aby pobrać wystąpienie elementu `ChatThreadClient` . `ChatThreadClient`Można następnie użyć do wykonania operacji w ramach wątku, takiego jak wysyłanie komunikatów lub wyświetlanie listy uczestników.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 `getChatThreadClient`Metoda zwraca `chatThreadClient` dla wątku, który już istnieje. Może służyć do wykonywania operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itp. threadId jest unikatowym IDENTYFIKATORem istniejącego wątku rozmowy.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Wyślij wiadomość do wątku rozmowy
 
-Użyj `sendMessage` metody, aby wysłać wiadomość czatu do właśnie utworzonego wątku, identyfikowanego przez ThreadID.
+Użyj `sendMessage` metody, aby wysłać komunikat do wątku identyfikowanego przez ThreadID.
 
-`sendMessageRequest` opisuje wymagane pola żądania wiadomości czatu:
+`sendMessageRequest` służy do opisywania żądania komunikatu:
 
 - Użyj, `content` Aby podać zawartość wiadomości czatu;
 
-`sendMessageOptions` opisuje opcjonalne pola żądania wiadomości czatu:
+`sendMessageOptions` służy do opisywania opcjonalnej parametry operacji:
 
-- Służy `priority` do określania poziomu priorytetu wiadomości czatu, takiego jak "normal" lub "High". Ta właściwość może służyć do wyświetlania wskaźnika interfejsu użytkownika odbiorcy w aplikacji, aby zwrócić uwagę na komunikat lub wykonać niestandardową logikę biznesową.
 - Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy;
+- Użyj `type` , aby określić typ komunikatu, taki jak "text" lub "HTML";
 
-Odpowiedź `sendChatMessageResult` zawiera identyfikator, który jest unikatowym identyfikatorem tego komunikatu.
+`SendChatMessageResult` czy odpowiedź zwrócona przez wysłanie komunikatu, zawiera identyfikator, który jest unikatowym IDENTYFIKATORem komunikatu.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Dodaj ten kod zamiast `<SEND MESSAGE TO A CHAT THREAD>` komentarza w **client.js**, Odśwież kartę przeglądarki i sprawdź konsolę.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ Po utworzeniu wątku rozmowy można z niego dodawać i usuwać użytkowników. P
 Przed wywołaniem `addParticipants` metody upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
 
 `addParticipantsRequest` opisuje obiekt request w `participants` sposób umożliwiający wyświetlenie listy uczestników, którzy mają zostać dodani do wątku rozmowy.
-- `user`, wymagane, to użytkownik komunikacyjny, który ma zostać dodany do wątku rozmowy.
+- `id`wymagany, to identyfikator komunikacji, który ma zostać dodany do wątku rozmowy.
 - `displayName`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
 - `shareHistoryTime`, opcjonalnie, to czas, po którym historia rozmowy jest udostępniana uczestnikowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu uczestnika nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na wybraną datę.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]

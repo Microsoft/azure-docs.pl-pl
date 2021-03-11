@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033016"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558699"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
 Dzienniki zasobów platformy Azure to [dzienniki platformy](../essentials/platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](../logs/data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
@@ -28,11 +28,11 @@ Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i
 
 [Utwórz ustawienie diagnostyczne](../essentials/diagnostic-settings.md) , aby wysłać dzienniki zasobów do obszaru roboczego log Analytics. Te dane są przechowywane w tabelach zgodnie z opisem w temacie [struktura dzienników Azure monitor](../logs/data-platform-logs.md). Tabele używane przez dzienniki zasobów zależą od typu kolekcji używanej przez zasób:
 
-- Diagnostyka Azure — wszystkie dane są zapisywane w tabeli _AzureDiagnostics_ .
+- Diagnostyka Azure — wszystkie dane są zapisywane w tabeli [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) .
 - Specyficzne dla zasobów — dane są zapisywane w pojedynczej tabeli dla każdej kategorii zasobu.
 
 ### <a name="azure-diagnostics-mode"></a>Tryb diagnostyczny platformy Azure 
-W tym trybie wszystkie dane z dowolnego ustawienia diagnostycznego zostaną zebrane w tabeli _AzureDiagnostics_ . Jest to Starsza Metoda używana dzisiaj przez większość usług platformy Azure. Ponieważ wiele typów zasobów wysyła dane do tej samej tabeli, jego schemat jest nadzbiorem schematów wszystkich typów zbieranych danych.
+W tym trybie wszystkie dane z dowolnego ustawienia diagnostycznego zostaną zebrane w tabeli [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) . Jest to Starsza Metoda używana dzisiaj przez większość usług platformy Azure. Ponieważ wiele typów zasobów wysyła dane do tej samej tabeli, jego schemat jest nadzbiorem schematów wszystkich typów zbieranych danych. Zobacz [AzureDiagnostics Reference](/azure/azure-monitor/reference/tables/azurediagnostics) , aby uzyskać szczegółowe informacje na temat struktury tej tabeli i współdziałania z tą potencjalnie dużą liczbą kolumn.
 
 Rozważmy następujący przykład, w którym ustawienia diagnostyczne są zbierane w tym samym obszarze roboczym dla następujących typów danych:
 
@@ -95,16 +95,6 @@ Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczy
 Istniejące ustawienie diagnostyczne można zmodyfikować z trybem specyficznym dla zasobów. W takim przypadku dane, które zostały już zebrane, pozostaną w tabeli _AzureDiagnostics_ , dopóki nie zostanie usunięte zgodnie z ustawieniami przechowywania dla obszaru roboczego. Nowe dane zostaną zebrane w dedykowanej tabeli. Użyj operatora [Union](/azure/kusto/query/unionoperator) do wykonywania zapytań dotyczących danych w obu tabelach.
 
 Przejdź do blogu [aktualizacji platformy Azure](https://azure.microsoft.com/updates/) , aby poznać anonse dotyczące usług platformy Azure, które obsługują tryb Resource-Specific.
-
-### <a name="column-limit-in-azurediagnostics"></a>Limit kolumn w AzureDiagnostics
-Dla każdej tabeli w dziennikach Azure Monitor istnieje limit właściwości 500. Po osiągnięciu tego limitu wszystkie wiersze zawierające dane z właściwości spoza pierwszej 500 zostaną porzucone w czasie pozyskiwania. Tabela *AzureDiagnostics* jest szczególnie podatna na ten limit, ponieważ obejmuje ona właściwości wszystkich usług platformy Azure, które są w niej zapisywane.
-
-W przypadku zbierania dzienników zasobów z wielu usług _AzureDiagnostics_ może przekroczyć ten limit, a dane zostaną pominięte. Dopóki wszystkie usługi platformy Azure nie obsługują trybu określonego zasobów, należy skonfigurować zasoby do zapisu w wielu obszarach roboczych, aby zmniejszyć prawdopodobieństwo osiągnięcia limitu liczby kolumn 500.
-
-### <a name="azure-data-factory"></a>Azure Data Factory
-Azure Data Factory ze względu na szczegółowy zestaw dzienników to usługa, która jest znana, aby napisać dużą liczbę kolumn i potencjalnie spowodować przekroczenie limitu przez _AzureDiagnostics_ . W przypadku wszystkich ustawień diagnostycznych skonfigurowanych przed włączeniem trybu specyficznego dla zasobów dla każdego działania należy utworzyć nową kolumnę dla każdego unikatowego parametru użytkownika. Zostanie utworzona więcej kolumn z powodu pełnego charakteru danych wejściowych i wyjściowych działań.
- 
-Aby jak najszybciej użyć trybu określonego dla zasobu, należy przeprowadzić migrację dzienników. Jeśli nie możesz tego zrobić natychmiast, przejściową alternatywą jest izolowanie dzienników Azure Data Factory w ich własnym obszarze roboczym, aby zminimalizować prawdopodobieństwo, że te dzienniki wpływają na inne typy dzienników gromadzone w obszarach roboczych.
 
 
 ## <a name="send-to-azure-event-hubs"></a>Wyślij do Event Hubs platformy Azure

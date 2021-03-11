@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617645"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
 
@@ -95,20 +95,25 @@ Media Services obsługuje następujące wbudowane ustawienia wstępne kodowania:
 
 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) służy do ustawienia wbudowanego ustawienia wstępnego kodowania wejściowego filmu wideo przy użyciu kodera standardowego.
 
-Obecnie obsługiwane są następujące ustawienia wstępne:
+Obecnie obsługiwane są następujące wbudowane ustawienia wstępne:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: tworzy pojedynczy plik MP4 zawierający tylko dźwięk stereo zakodowany przy 192 kb/s.
-- **EncoderNamedPreset. AdaptiveStreaming** (zalecane): Aby uzyskać więcej informacji, zobacz [Autogenerowanie drabiny szybkości transmisji bitów](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncoding**: uwidacznia ustawienia wstępne dla kodowania obsługującego zawartość. Mając daną zawartość wejściową, usługa próbuje automatycznie określić optymalną liczbę warstw oraz odpowiednie ustawienia szybkości transmisji bitów i rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. Algorytmy bazowe będą nadal rozwijane z upływem czasu. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md).
-
+- **EncoderNamedPreset. AdaptiveStreaming** (zalecane): obsługuje to kodowanie H. 264 z adaptacyjną szybkością transmisji bitów. Aby uzyskać więcej informacji, zobacz [Autogenerowanie drabiny szybkości transmisji bitów](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset. H265AdaptiveStreaming** : podobny do ustawienia wstępnego AdaptiveStreaming, ale używa kodera-dekoder HEVC (H. 265). Tworzy zestaw grupę GOP wyrównanych plików MP4 z dźwiękiem H. 265 wideo i stereo AAC audio. Automatycznie generuje drabinę bitów na podstawie rozdzielczości wejścia, szybkości transmisji bitów i szybkości klatek. Automatycznie generowane ustawienie wstępne nigdy nie będzie przekroczyć rozdzielczości wejściowej. Na przykład, jeśli dane wejściowe to 720, dane wyjściowe pozostaną w najlepszy sposób.
+- **EncoderNamedPreset. ContentAwareEncoding**: uwidacznia ustawienia wstępne dla kodowania na potrzeby zawartości H. 264. Mając daną zawartość wejściową, usługa próbuje automatycznie określić optymalną liczbę warstw oraz odpowiednie ustawienia szybkości transmisji bitów i rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. Algorytmy bazowe będą nadal rozwijane z upływem czasu. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md).
+- **EncoderNamedPreset. H265ContentAwareEncoding**: udostępnia wstępnie zdefiniowane kodowanie dla HEVC (H. 265) kodowania obsługującego zawartość. Tworzy zestaw pliki MP4 wyrównany do grupę GOP przy użyciu kodowania obsługującego zawartość. Mając daną zawartość wejściową, usługa wykonuje wstępną lekkie analizy zawartości wejściowej i używa wyników do określenia optymalnej liczby warstw, odpowiedniej szybkości transmisji bitów i ustawień rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. To ustawienie wstępne jest szczególnie przydatne w przypadku wideo z niską i średnią złożonością, gdzie pliki wyjściowe będą mieć mniejsze szybkości transmisji bitów, ale z jakością, która nadal zapewnia dobre środowisko dla osób przeglądających. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio.
   > [!NOTE]
-  > Upewnij się, że używasz **ContentAwareEncoding** not ContentAwareEncodingExperimental.
+  > Upewnij się, że używasz **ContentAwareEncoding** not ContentAwareEncodingExperimental, która jest obecnie przestarzała
+
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: tworzy zestaw OŚMIU plików MP4 wyrównanych do grupę GOP, od 6000 KB/s do 400 KB/s oraz stereo AAC audio. Rozdzielczość rozpocznie się o 1080p i przejdzie w dół do 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: tworzy zestaw sześciu grupę GOP wyrównanych plików MP4, od 3400 KB/s do 400 KB/s oraz stereo AAC audio. Rozdzielczość zaczyna się od 720 i przejdzie w dół do 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: tworzy zestaw pięciu plików MP4 wyrównanych do grupę GOP, od 1600 KB/s do 400 KB/s oraz stereo AAC audio. Rozwiązanie rozpocznie się o 480p i przejdzie w dół do 360p.
 - **EncoderNamedPreset. H264SingleBitrate1080p**: tworzy plik MP4, gdzie wideo jest kodowane przy użyciu kodera-dekoder H. 264 o godzinie 6750 KB/s i wysokości obrazu 1080 pikseli, a dźwięk stereo jest zakodowany przy użyciu AAC-LC codec przy 64 KB/s.
 - **EncoderNamedPreset. H264SingleBitrate720p**: tworzy plik MP4, gdzie wideo jest kodowane przy użyciu kodera-dekoder H. 264 o godzinie 4500 KB/s i wysokości obrazu 720 pikseli, a dźwięk stereo jest zakodowany przy użyciu AAC-LC codec przy 64 KB/s.
 - **EncoderNamedPreset. H264SingleBitrateSD**: tworzy plik MP4, gdzie wideo jest kodowane przy użyciu kodera-dekoder H. 264 o godzinie 2200 KB/s i wysokości obrazu 480 pikseli, a dźwięk stereo jest zakodowany przy użyciu AAC-LC codec przy 64 KB/s.
+- **EncoderNamedPreset. H265SingleBitrate720P**: tworzy plik MP4, gdzie wideo jest zakodowane za pomocą kodera-dekoder HEVC (H. 265) o godzinie 1800 KB/s i wysokości obrazu 720 pikseli, a dźwięk stereo jest zakodowany przy użyciu kodera-LC AAC o szybkości 128 kb/s.
+- **EncoderNamedPreset. H265SingleBitrate1080p**: tworzy plik MP4, gdzie wideo jest zakodowane za pomocą kodera-dekoder HEVC (H. 265) o godzinie 3500 KB/s i wysokości obrazu 1080 pikseli, a dźwięk stereo jest zakodowany przy użyciu kodera-LC AAC o szybkości 128 kb/s.
+- **EncoderNamedPreset. H265SingleBitrate4K**: tworzy plik MP4, gdzie wideo jest zakodowane za pomocą kodera-dekoder HEVC (H. 265) o godzinie 9500 KB/s i wysokości obrazu 2160 pikseli, a dźwięk stereo jest zakodowany przy użyciu kodera-LC AAC o szybkości 128 kb/s.
 
 Aby wyświetlić listę najbardziej aktualnych ustawień predefiniowanych, zobacz [wbudowane ustawienia wstępne, które będą używane do kodowania filmów wideo](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,6 +140,7 @@ Media Services w pełni obsługuje Dostosowywanie wszystkich wartości w ustawie
 - [Dostosowywanie ustawień wstępnych przy użyciu interfejsu wiersza polecenia](custom-preset-cli-howto.md)
 - [Dostosowywanie ustawień wstępnych przy użyciu interfejsu REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Schemat ustawień wstępnych
 
 W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostkami w interfejsie API. Definicję "schemat" tych obiektów można znaleźć w temacie [Open API Specification (lub Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Możesz również wyświetlić wstępnie zdefiniowane definicje (na przykład **StandardEncoderPreset**) w [interfejsie API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [zestawie .NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (lub Media Services innej dokumentacji dotyczącej zestawu SDK w wersji v3).
@@ -142,6 +148,7 @@ W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostk
 ## <a name="scaling-encoding-in-v3"></a>Skalowanie kodowania w wersji 3
 
 Aby skalować przetwarzanie multimediów, zobacz [skalowanie przy użyciu interfejsu wiersza polecenia](media-reserved-units-cli-how-to.md).
+W przypadku kont utworzonych w programie przy użyciu wersji **2020-05-01** interfejsu API lub Azure Portal, skalowanie i jednostki zarezerwowane multimediów nie są już wymagane. Skalowanie będzie automatyczne i obsługiwane przez usługę wewnętrznie.
 
 ## <a name="billing"></a>Rozliczenia
 

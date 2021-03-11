@@ -4,16 +4,16 @@ description: Omówienie usług Azure CONFIDENTIAL (ACC)
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560829"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554194"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
@@ -49,11 +49,11 @@ TEE to środowisko, które wymusza wykonywanie tylko autoryzowanego kodu. Wszyst
 Uruchomione obciążenia w chmurze wymagają zaufania. To zaufanie należy nadać różnym dostawcom, włączając różne składniki aplikacji.
 
 
-**Dostawcy oprogramowania aplikacji** : Ufaj oprogramowaniu, wdrażając Premium, korzystając z funkcji Open Source lub tworząc oprogramowanie w firmie.
+**Dostawcy oprogramowania aplikacji**: Ufaj oprogramowaniu, wdrażając Premium, korzystając z funkcji Open Source lub tworząc oprogramowanie w firmie.
 
-**Dostawcy sprzętu** : Ufaj sprzętowi przy użyciu sprzętu lokalnego lub sprzętu wewnętrznego. 
+**Dostawcy sprzętu**: Ufaj sprzętowi przy użyciu sprzętu lokalnego lub sprzętu wewnętrznego. 
 
-**Dostawcy infrastruktury** : Ufaj dostawcom chmury lub Zarządzaj własnymi lokalnymi centrami danych.
+**Dostawcy infrastruktury**: Ufaj dostawcom chmury lub Zarządzaj własnymi lokalnymi centrami danych.
 
 
 Dane poufne na platformie Azure ułatwiają zaufanie dostawcy usług w chmurze, zmniejszając potrzebę zaufania między różnymi aspektami infrastruktury w chmurze obliczeniowej. Dane poufne platformy Azure minimalizują zaufanie do jądra systemu operacyjnego hosta, funkcji hypervisor, administratora maszyny wirtualnej i administratora hosta.
@@ -68,13 +68,13 @@ Niższa wartość TCB oznacza wyższe zabezpieczenia. Mniejsze ryzyko wystąpien
 
 Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych w środowisku zwirtualizowanym. Możesz teraz używać narzędzi, oprogramowania i infrastruktury chmurowej do kompilowania na bezpiecznym sprzęcie.  
 
-**Zapobiegaj nieautoryzowanemu dostępowi** : Uruchom poufne dane w chmurze. Dzięki temu platforma Azure zapewnia najlepszą ochronę danych, dzięki czemu nie zmienia się już dziś.
+**Zapobiegaj nieautoryzowanemu dostępowi**: Uruchom poufne dane w chmurze. Dzięki temu platforma Azure zapewnia najlepszą ochronę danych, dzięki czemu nie zmienia się już dziś.
 
-**Zgodność z przepisami** : Migruj do chmury i zapewnia pełną kontrolę nad danymi, aby zaspokoić przepisy rządowe dotyczące ochrony informacji osobistych i bezpiecznego organizacyjnego adresu IP.
+**Zgodność z przepisami**: Migruj do chmury i zapewnia pełną kontrolę nad danymi, aby zaspokoić przepisy rządowe dotyczące ochrony informacji osobistych i bezpiecznego organizacyjnego adresu IP.
 
-**Współpraca bezpiecznych i niezaufanych** : Rozwiązywanie problemów z skalowalnością w całej branży dzięki rozciąganie danych między organizacjami, nawet konkurentami, w celu odblokowania szerokiej analizy danych i dokładniejszego wglądu w dane.
+**Współpraca bezpiecznych i niezaufanych**: Rozwiązywanie problemów z skalowalnością w całej branży dzięki rozciąganie danych między organizacjami, nawet konkurentami, w celu odblokowania szerokiej analizy danych i dokładniejszego wglądu w dane.
 
-**Izolowane przetwarzanie** : oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
+**Izolowane przetwarzanie**: oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
 
 ## <a name="get-started"></a>Rozpocznij
 ### <a name="azure-compute"></a>Azure Compute

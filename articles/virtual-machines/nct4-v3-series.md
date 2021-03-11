@@ -2,17 +2,17 @@
 title: NCas T4 v3 — seria
 description: Specyfikacje dotyczące maszyn wirtualnych z serii v3 NCas T4.
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 0ead1c5772cb4a2e231867ef1e77bfa646cbb29e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7418825b4f22bfe4fe1941cb1f70ffb9f0a939b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042746"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609213"
 ---
 # <a name="ncast4_v3-series"></a>Seria NCasT4_v3 
 
@@ -28,7 +28,7 @@ Maszyny wirtualne z serii NCasT4_v3 są obsługiwane przez procesory [NVIDIA Tes
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
-NVIDIA NVLink Interconnect: nieobsługiwane<br>
+NVIDIA NVLink Interconnect: obsługiwane<br>
 <br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |

@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 409498201ac94882f1a28917693ffd3a65631fc7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583916"
+ms.locfileid: "102617407"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Zrozumienie klasy AnchorLocateCriteria
 W tym artykule opisano różne opcje, których można użyć podczas wykonywania zapytania o kotwicę. Przejdziemy do klasy AnchorLocateCriteria, jej opcji i prawidłowych kombinacji opcji.
 
 ## <a name="anchor-locate-criteria"></a>Kryteria lokalizowania kotwicy
-[Klasa AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria?view=spatialanchors-dotnet) ułatwia wykonywanie zapytań do usługi dla wcześniej utworzonych kotwic. Jeden obiekt AnchorLocateCriteria może być używany dla każdego obserwatora w dowolnym momencie. Każdy obiekt AnchorLocateCriteria musi zawierać **dokładnie jedną** z następujących właściwości: [Identifiers](#identifiers), [NearAnchor](#nearanchor)lub [NearDevice](#neardevice). W razie potrzeby można ustawić dodatkowe właściwości, takie jak [strategia](#strategy), [BypassCache](#bypasscache)i [RequestedCategories](#requestedcategories) . 
+[Klasa AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ułatwia wykonywanie zapytań do usługi dla wcześniej utworzonych kotwic. Jeden obiekt AnchorLocateCriteria może być używany dla każdego obserwatora w dowolnym momencie. Każdy obiekt AnchorLocateCriteria musi zawierać **dokładnie jedną** z następujących właściwości: [Identifiers](#identifiers), [NearAnchor](#nearanchor)lub [NearDevice](#neardevice). W razie potrzeby można ustawić dodatkowe właściwości, takie jak [strategia](#strategy), [BypassCache](#bypasscache)i [RequestedCategories](#requestedcategories) . 
 
 ### <a name="properties"></a>Właściwości
 Zdefiniuj **dokładnie jedną** z następujących właściwości w monitorze:

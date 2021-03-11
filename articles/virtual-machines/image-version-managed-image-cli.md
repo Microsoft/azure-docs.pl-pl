@@ -3,19 +3,19 @@ title: Klonowanie zarządzanego obrazu do wersji obrazu przy użyciu interfejsu 
 description: Dowiedz się, jak sklonować zarządzany obraz do wersji obrazu w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675964"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553786"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Klonowanie zarządzanego obrazu do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 Jeśli masz istniejący obraz zarządzany, który chcesz sklonować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).

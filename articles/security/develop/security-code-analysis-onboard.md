@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517074"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553922"
 ---
 # <a name="onboarding-and-installing"></a>Dołączanie i instalowanie
 
@@ -36,9 +36,9 @@ Jeśli masz jedną z następujących ofert pomocy technicznej, skontaktuj się z
 
 - Ujednolicona warstwa zaawansowanej pomocy technicznej
 - Ujednolicona warstwa wydajności wsparcia
-- pomoc techniczna Premier dla deweloperów
-- pomoc techniczna Premier dla partnerów
-- pomoc techniczna Premier dla przedsiębiorstw
+- pomoc techniczna Premium dla deweloperów
+- pomoc techniczna Premium dla partnerów
+- pomoc techniczna Premium dla przedsiębiorstw
 
 Jeśli nie masz jednego z wymienionych powyżej umów pomocy technicznej, możesz kupić rozszerzenie od jednego z naszych partnerów.
 
@@ -54,7 +54,7 @@ Jeśli spełniasz powyższe wymagania, skontaktuj się z partnerem z poniższej 
 
 ### <a name="become-a-partner"></a>Zostań partnerem
 
-Zespół ds. analizy kodu zabezpieczeń firmy Microsoft chce dołączać partnerów do pomoc techniczna Premier umowy partnerskiej. Partnerzy mogą pomóc klientom z DevOpsm się bardziej bezpiecznym programowaniem, oferując rozszerzenie klientom, którzy chcą go zakupić, ale nie mają umowy wsparcia dla przedsiębiorstw z firmą Microsoft. Zainteresowani partnerzy mogą zarejestrować się [tutaj](http://www.microsoftpartnersupport.com/msrd/opin).
+Zespół ds. analizy kodu zabezpieczeń firmy Microsoft chce dołączać partnerów do pomoc techniczna Premium umowy partnerskiej. Partnerzy mogą pomóc klientom z DevOpsm się bardziej bezpiecznym programowaniem, oferując rozszerzenie klientom, którzy chcą go zakupić, ale nie mają umowy wsparcia dla przedsiębiorstw z firmą Microsoft. Zainteresowani partnerzy mogą zarejestrować się [tutaj](http://www.microsoftpartnersupport.com/msrd/opin).
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalowanie rozszerzenia Microsoft Security code Analysis
 
@@ -73,7 +73,7 @@ Po zainstalowaniu rozszerzenia zadania tworzenia bezpiecznego opracowywania są 
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Dodawanie określonych zadań kompilacji do potoku usługi Azure DevOps
 
 1. W organizacji usługi Azure DevOps Otwórz projekt zespołowy.
-1. Wybierz **Pipelines**  >  **kompilacje** potoki.
+1. Wybierz   >  **kompilacje** potoki.
 1. Wybierz potok, do którego chcesz dodać zadania kompilacji rozszerzenia:
    - Nowy potok: wybierz pozycję **Nowy** i postępuj zgodnie z szczegółowymi krokami, aby utworzyć nowy potok.
    - Edytuj potok: wybierz istniejący potok, a następnie wybierz pozycję **Edytuj** , aby rozpocząć edytowanie potoku.
@@ -90,7 +90,7 @@ Po zainstalowaniu rozszerzenia zadania tworzenia bezpiecznego opracowywania są 
 > - Zawsze wybieraj pozycję **Kontynuuj przy błędzie** dla zadań kompilacji w celu zapewnienia bezpieczeństwa. Nawet jeśli jedno z narzędzi nie powiedzie się, inne mogą działać. Nie ma współzależności między narzędziami.
 > - Zadania kompilacji analizy kodu zabezpieczeń firmy Microsoft kończą się niepowodzeniem tylko wtedy, gdy uruchomienie narzędzia nie powiodło się. Ale zakończyły się powodzeniem, nawet jeśli narzędzie zidentyfikuje problemy w kodzie. Korzystając z zadania kompilacji po analizie, można skonfigurować kompilację do niepowodzenia, gdy narzędzie zidentyfikuje problemy w kodzie.
 > - Niektóre zadania kompilacji DevOps platformy Azure nie są obsługiwane, gdy są uruchamiane za pośrednictwem potoku wydania. Dokładniej mówiąc, usługa Azure DevOps nie obsługuje zadań, które publikują artefakty z poziomu potoku wydania.
-> - Aby uzyskać listę wstępnie zdefiniowanych zmiennych w kompilacji zespołu usługi Azure DevOps, którą można określić jako parametry, zobacz [zmienne kompilacji DevOps platformy Azure](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Aby uzyskać listę wstępnie zdefiniowanych zmiennych w kompilacji zespołu usługi Azure DevOps, którą można określić jako parametry, zobacz [zmienne kompilacji DevOps platformy Azure](/azure/devops/pipelines/build/variables?tabs=batch).
 
 ## <a name="next-steps"></a>Następne kroki
 

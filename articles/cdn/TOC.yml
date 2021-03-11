@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: Ustawianie reguł buforowania
       href: cdn-caching-rules-tutorial.md
-    - name: Wymuszanie protokołu HTTPS za pomocą aparatu reguł standardowych
-      href: cdn-standard-rules-engine.md
 - name: Samples
   items:
     - name: Przykłady kodu
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Wiele źródeł punktu końcowego
           href: endpoint-multiorigin.md
+        - name: Wymuszanie protokołu HTTPS za pomocą aparatu reguł standardowych
+          href: cdn-standard-rules-engine.md
         - name: Sterowanie zachowaniem buforowania
           items:
             - name: Sterowanie zachowaniem buforowania przy użyciu reguł buforowania

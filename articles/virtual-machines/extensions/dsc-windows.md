@@ -1,25 +1,19 @@
 ---
 title: Procedura obsługi rozszerzenia konfiguracji żądanego stanu platformy Azure
 description: Przekazywanie i stosowanie konfiguracji DSC programu PowerShell na maszynie wirtualnej platformy Azure przy użyciu rozszerzenia DSC
-services: virtual-machines-windows
-documentationcenter: ''
-author: bobbytreed
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: ''
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed
 ms.author: robreed
-ms.openlocfilehash: 5254d83c18ddc9f2a5518ed4f711d4cd73ab6de7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.collection: windows
+ms.date: 03/26/2018
+ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510944"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559991"
 ---
 # <a name="powershell-dsc-extension"></a>Rozszerzenie DSC programu PowerShell
 
@@ -100,7 +94,7 @@ Poniższy kod JSON przedstawia schemat części ustawień rozszerzenia DSC w sza
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
+| apiVersion | 2018-10-01 | data |
 | publisher | Microsoft. PowerShell. DSC | ciąg |
 | typ | DSC | ciąg |
 | typeHandlerVersion | 2,77 | int |
@@ -136,7 +130,7 @@ Przykładowy szablon Menedżer zasobów, który zawiera rozszerzenie DSC dla sys
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575876"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560382"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
@@ -68,13 +68,13 @@ Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków.
 |Włoski | `it` |✔ |✔ |✔ |
 |japoński | `ja` |✔ | |✔ |
 |Jawajski | `jv` | | |✔ |
+|Kicze  | `quc` | | |✔ |
 |Kabuverdianu | `kea` | | |✔ |
 |Kachin (łaciński) | `kac` | | |✔ |
 |Kara-Kalpak | `kaa` | | |✔ |
 |Kashubian | `csb` | | |✔ |
 |Khasi  | `kha` | | |✔ |
 |Koreański | `ko` |✔ | |✔ |
-|Kicze  | `quc` | | |✔ |
 |Kurdyjski (łaciński) | `kur` | | |✔ |
 |Luksemburski  | `lb` | | |✔ |
 |Malajski (łaciński)  | `ms` | | |✔ |
