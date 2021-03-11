@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: b0f8055dcd8bdfb2ecb3ea99448838514eeb34f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 05d136093bd509e8c23ce8622423216326b0f1f2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026203"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623399"
 ---
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
@@ -29,6 +29,26 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [Aktualizowanie rozszerzeń]: ../articles/azure-functions/functions-bindings-register.md
 [Rozszerzenie narzędzi platformy Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
+### <a name="event-hubs-extension-5x-and-higher"></a>Event Hubs rozszerzenie 5. x i nowsze
+
+Nowa wersja rozszerzenia powiązania Event Hubs jest dostępna jako [pakiet NuGet wersji zapoznawczej](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.1). W tej wersji zapoznawczej wprowadzono możliwość [nawiązywania połączenia przy użyciu tożsamości zamiast wpisu tajnego](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). W przypadku aplikacji .NET zmienia również typy, do których można utworzyć powiązanie, zastępując typy z `Microsoft.Azure.EventHubs` nowszymi typami z [platformy Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs).
+
+> [!NOTE]
+> Pakiet w wersji zapoznawczej nie jest uwzględniony w pakiecie rozszerzenia i musi być zainstalowany ręcznie. W przypadku aplikacji .NET Dodaj odwołanie do pakietu. W przypadku wszystkich innych typów aplikacji zobacz [Aktualizowanie rozszerzeń].
+
+[core tools]: ./functions-run-local.md
+[pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
+[Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
+[Rozszerzenie narzędzi platformy Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
 ### <a name="functions-1x"></a>Functions w wersji 1.x
 
 Aplikacje Functions 1. x automatycznie mają odwołanie do pakietu NuGet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) w wersji 2. x.
+
+## <a name="hostjson-settings"></a>host.jsustawień
+<a name="host-json"></a>
+
+[host.jsw](../articles/azure-functions/functions-host-json.md#eventhub) pliku zawiera ustawienia sterujące zachowaniem wyzwalacza Event Hubs. Konfiguracja różni się w zależności od wersji Azure Functions.
+
+[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

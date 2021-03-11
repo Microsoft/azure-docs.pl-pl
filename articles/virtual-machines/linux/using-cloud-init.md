@@ -2,18 +2,19 @@
 title: Omówienie obsługi funkcji Cloud-init dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Omówienie możliwości usługi Cloud-init w celu skonfigurowania maszyny wirtualnej w czasie aprowizacji na platformie Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: a4fc51c8bb8a07f768da16224b9258bbdbf6d9b4
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: ac907c2ea2ae53bd192c01232c66e0467025daae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100632938"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563237"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
 W tym artykule opisano obsługę funkcji [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te konfiguracje usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure.  
@@ -47,7 +48,7 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1.el7_6.2*|
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 września 2020) | Nie dotyczy |
-|RedHat 7,7 (Gen1)|RHEL |7,7 | 7.7.2020051912 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen1)|RHEL |7 — LVM | 7.7.2020051921 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 7lvm — Gen2 | 7.7.2020051922  | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
@@ -62,9 +63,9 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 września 2020) | Nie dotyczy |
-|OpenLogic 7,7 |CentOS | 7,7 |7.7.2020062400 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
+|OpenLogic 7,7 |CentOS | 7.7 |7.7.2020062400 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
 |OpenLogic 7,7 (Gen2) |CentOS | 7_7 — Gen2 |7.7.2020062401 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
-|OpenLogic 7,7 |CentOS — HPC | 7,7 |7.6.2020062600 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
+|OpenLogic 7,7 |CentOS — HPC | 7.7 |7.6.2020062600 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
 |OpenLogic 7,7 (Gen2) |CentOS — HPC | 7_7 — Gen2 |7.6.2020062601 |tak | tak — obsługa z wersji pakietu: `18.5-6.el7.centos.5`|
 |OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |tak | tak — obsługa z wersji pakietu: `18.5-7.el8_1.1`|
 |OpenLogic 8,1 (Gen2) |CentOS | 8_1 — Gen2 |8.1.2020062401 |tak | tak — obsługa z wersji pakietu: `18.5-7.el8_1.1`|

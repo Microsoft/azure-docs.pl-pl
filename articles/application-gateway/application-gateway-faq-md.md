@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576137"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619158"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -470,9 +470,9 @@ Zazwyczaj w przypadku zablokowania dostępu do zaplecza przez grupę zabezpiecze
 
 Ze względu na bieżące ograniczenia platformy, jeśli masz sieciowej grupy zabezpieczeń w podsieci Application Gateway v2 (Standard_v2, WAF_v2) i jeśli włączono na niej dzienniki przepływu sieciowej grupy zabezpieczeń, zobaczysz zachowanie niedeterministyczne i ten scenariusz nie jest obecnie obsługiwany.
 
-### <a name="does-application-gateway-store-customer-data"></a>Czy Application Gateway przechowywać dane klienta?
+### <a name="where-does-application-gateway-store-customer-data"></a>Gdzie Usługa Application Gateway przechowywać dane klienta?
 
-Nie, Application Gateway nie przechowuje danych klienta.
+Application Gateway nie przenosi ani nie zapisuje danych klienta z regionu, w którym jest wdrożony.
 
 ## <a name="next-steps"></a>Następne kroki
 

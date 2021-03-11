@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bdae976d5e5b7d98311d33bb38b5035f2557ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854685"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548703"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż Node.js aplikacje obsługiwane przez Azure Cosmos DB z DevOps Starter
 
@@ -26,7 +26,7 @@ DevOps Starter również:
 
 * Tworzy i konfiguruje potok zwolnienia ciągłej integracji/ciągłego wdrażania w usłudze Azure DevOps
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter do wdrożenia aplikacji Node.js obsługiwanej przez Azure Cosmos DB
@@ -51,13 +51,13 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     ![Pulpit nawigacyjny DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Wybierz **Node.js** jako środowisko uruchomieniowe, a następnie wybierz przycisk **dalej**. W obszarze **Wybierz platformę aplikacji**wybierz pozycję **Express.js**.
+1. Wybierz **Node.js** jako środowisko uruchomieniowe, a następnie wybierz przycisk **dalej**. W obszarze **Wybierz platformę aplikacji** wybierz pozycję **Express.js**.
 
 1. Włącz sekcję **Dodawanie bazy danych** dla **Cosmos DB**, a następnie wybierz pozycję **dalej**.
 
     ![Dodawanie bazy danych](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Usługa Azure DevOps Starter obsługuje różne struktury aplikacji, takie jak **Express.js**, **przykładowa aplikacja Node.js**i **Sail.js**. W tym samouczku użyjemy **Express.js**.
+    Usługa Azure DevOps Starter obsługuje różne struktury aplikacji, takie jak **Express.js**, **przykładowa aplikacja Node.js** i **Sail.js**. W tym samouczku użyjemy **Express.js**.
 
 1. Wybierz usługę platformy Azure, aby wdrożyć aplikację, a następnie wybierz pozycję **dalej**. Dostępne opcje to: Web App, Azure Kubernetes Service i Azure Web App for Containers. W tym samouczku używamy **aplikacji sieci Web systemu Windows**.
 
@@ -101,7 +101,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Okienko kompilacji](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Kliknij pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Możesz dołączać lub wykluczać gałęzie z procesu CI elementu konfiguracji.
 
@@ -119,7 +119,7 @@ DevOps Starter automatycznie tworzy i konfiguruje kroki niezbędne do wdrożenia
 
 1. Przejdź do pozycji **potoki** i wybierz pozycję **wersje**.
 
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edytuj**.
 
 1. W obszarze **Artefakty** wybierz polecenie **Porzuć**. Potok kompilacji przedstawiony w poprzednich krokach generuje dane wyjściowe używane na potrzeby artefaktu.
 
@@ -167,4 +167,4 @@ Możesz zmodyfikować potoki kompilacji i wydania, aby dopasować je do potrzeb 
 > * Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
 > * Czyszczenie zasobów
 
-Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) i następnych kroków.
+Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](/azure/devops/pipelines/release/define-multistage-release-process) i następnych kroków.

@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fc8ceddce4d41244d72632db058aa58c0d919db
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365365"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565176"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Kontrola dostępu z etykietami czułości 
 
-[Etykiety czułości](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) ułatwiają kontrolowanie dostępu do zawartości w aplikacjach pakietu Office 365 oraz w kontenerach, takich jak Microsoft Teams, Microsoft 365 Groups i SharePoint. Mogą chronić zawartość bez zakłócania współpracy użytkowników i możliwości produkcyjnych. Etykiety czułości umożliwiają wysyłanie zawartości organizacji między urządzeniami, aplikacjami i usługami, a jednocześnie chronią dane i spełnianie zasad dotyczących zgodności i zabezpieczeń. 
+[Etykiety czułości](/microsoft-365/compliance/sensitivity-labels) ułatwiają kontrolowanie dostępu do zawartości w aplikacjach pakietu Office 365 oraz w kontenerach, takich jak Microsoft Teams, Microsoft 365 Groups i SharePoint. Mogą chronić zawartość bez zakłócania współpracy użytkowników i możliwości produkcyjnych. Etykiety czułości umożliwiają wysyłanie zawartości organizacji między urządzeniami, aplikacjami i usługami, a jednocześnie chronią dane i spełnianie zasad dotyczących zgodności i zabezpieczeń. 
 
 Etykiety czułości można:
 
 * **Klasyfikuj zawartość bez dodawania ustawień ochrony**. Można przypisać klasyfikację do zawartości (np. naklejkę), która będzie trwała i przenoszona do zawartości w miarę ich używania i udostępniania. Ta klasyfikacja służy do generowania raportów użycia i wyświetlania danych o aktywności związanej z poufną zawartością.
 
-* **Wymuszaj ustawienia ochrony, takie jak szyfrowanie, znaki wodne i ograniczenia dostępu**. Na przykład użytkownicy mogą zastosować poufną etykietę do dokumentu lub wiadomości e-mail, a etykieta może [zaszyfrować zawartość](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) i dodać "poufne" znak wodny. Ponadto można [zastosować etykietę czułości do kontenera](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) , takiego jak witryna programu SharePoint, i wymusić użytkownikom zewnętrznym dostęp do zawartości, która zawiera.
+* **Wymuszaj ustawienia ochrony, takie jak szyfrowanie, znaki wodne i ograniczenia dostępu**. Na przykład użytkownicy mogą zastosować poufną etykietę do dokumentu lub wiadomości e-mail, a etykieta może [zaszyfrować zawartość](/microsoft-365/compliance/encryption-sensitivity-labels) i dodać "poufne" znak wodny. Ponadto można [zastosować etykietę czułości do kontenera](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites) , takiego jak witryna programu SharePoint, i wymusić użytkownikom zewnętrznym dostęp do zawartości, która zawiera.
 
 Etykiety czułości dotyczące poczty e-mail i innej zawartości przesyłanej z zawartością. Etykiety czułości w kontenerach mogą ograniczać dostęp do kontenera, ale zawartość w kontenerze nie dziedziczy etykiety. Na przykład użytkownik może wykonać zawartość z chronionej lokacji, pobrać ją, a następnie udostępnić bez ograniczeń, chyba że zawartość ma także etykietę czułości.
 
@@ -52,7 +52,7 @@ W miarę jak sądzisz o sposobie zarządzania dostępem zewnętrznym do zawarto�
 
 * Jak można zdefiniować, co to jest wysoki, średni lub niski wpływ na działalność (HBI, MBI, LBI)? Jeśli określone typy zawartości są udostępniane w sposób niewłaściwy, należy wziąć pod uwagę wpływ na organizację.
 
-   * Zawartość o określonych typach [zawartości poufnej](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide), takiej jak karty kredytowe lub numery paszportów
+   * Zawartość o określonych typach [zawartości poufnej](/microsoft-365/compliance/apply-sensitivity-label-automatically), takiej jak karty kredytowe lub numery paszportów
 
    * Zawartość utworzona przez określone grupy lub osoby (na przykład funkcjonariusze ds. zgodności, urzędy finansowe lub kierownicy)
 
@@ -66,21 +66,21 @@ W miarę jak sądzisz o sposobie zarządzania dostępem zewnętrznym do zawarto�
 
 * Jakie wartości domyślne powinny być stosowane w przypadku HBI danych, witryn lub grup Microsoft 365?
 
-* Gdzie będą używane etykiety czułości do [etykietowania i monitorowania](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), a nie do [wymuszania szyfrowania](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) lub [wymuszania ograniczeń dostępu do kontenera](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* Gdzie będą używane etykiety czułości do [etykietowania i monitorowania](/microsoft-365/compliance/sensitivity-labels), a nie do [wymuszania szyfrowania](/microsoft-365/compliance/encryption-sensitivity-labels) lub [wymuszania ograniczeń dostępu do kontenera](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)?
 
 **Dla wiadomości e-mail i zawartości**
 
-* Czy chcesz [automatycznie zastosować etykiety czułości](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) do zawartości lub zrobić to ręcznie?
+* Czy chcesz [automatycznie zastosować etykiety czułości](/microsoft-365/compliance/apply-sensitivity-label-automatically) do zawartości lub zrobić to ręcznie?
 
-   * Jeśli zdecydujesz się to zrobić ręcznie, czy chcesz [zalecić użytkownikom stosowanie etykiet](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)?
+   * Jeśli zdecydujesz się to zrobić ręcznie, czy chcesz [zalecić użytkownikom stosowanie etykiet](/microsoft-365/compliance/apply-sensitivity-label-automatically)?
 
 **Kontenery**
 
 * Jakie kryterium określi, czy grupy M365, zespoły lub witryny programu SharePoint wymagają ograniczenia dostępu przy użyciu etykiet czułości?
 
-* Czy chcesz, aby tylko etykieta zawartość w tych kontenerach była przenoszona do przodu czy chcesz [automatycznie oznaczyć](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) istniejące pliki w programie SharePoint i usłudze OneDrive?
+* Czy chcesz, aby tylko etykieta zawartość w tych kontenerach była przenoszona do przodu czy chcesz [automatycznie oznaczyć](/microsoft-365/compliance/apply-sensitivity-label-automatically) istniejące pliki w programie SharePoint i usłudze OneDrive?
 
-Zapoznaj się z tymi [typowymi scenariuszami etykiet czułości](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) , aby poznać inne pomysły dotyczące używania etykiet czułości.
+Zapoznaj się z tymi [typowymi scenariuszami etykiet czułości](/microsoft-365/compliance/get-started-with-sensitivity-labels) , aby poznać inne pomysły dotyczące używania etykiet czułości.
 
 ### <a name="sensitivity-labels-on-email-and-content"></a>Etykiety czułości dotyczące wiadomości e-mail i zawartości
 
@@ -100,7 +100,7 @@ Przypisanie etykiety czułości do dokumentu lub wiadomości e-mail przypomina p
 
 ### <a name="sensitivity-labels-on-containers"></a>Etykiety czułości w kontenerach
 
-Etykiety czułości można stosować w kontenerach, takich jak [grupy Microsoft 365](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)i [witryny programu SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide). Po zastosowaniu tej etykiety czułości do obsługiwanego kontenera, etykieta automatycznie stosuje ustawienia Klasyfikacja i ochrona do podłączonej lokacji lub grupy. Etykiety czułości w tych kontenerach mogą kontrolować następujące aspekty kontenerów:
+Etykiety czułości można stosować w kontenerach, takich jak [grupy Microsoft 365](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)i [witryny programu SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites). Po zastosowaniu tej etykiety czułości do obsługiwanego kontenera, etykieta automatycznie stosuje ustawienia Klasyfikacja i ochrona do podłączonej lokacji lub grupy. Etykiety czułości w tych kontenerach mogą kontrolować następujące aspekty kontenerów:
 
 * **Prywatność**. Możesz wybrać, kto może wyświetlać witrynę: określeni użytkownicy, wszyscy użytkownicy wewnętrzni lub wszyscy.
 
@@ -116,25 +116,25 @@ Etykiety czułości można stosować w kontenerach, takich jak [grupy Microsoft 
 
 Po zastosowaniu etykiety czułości do kontenera, takiego jak witryna programu SharePoint, nie jest ona stosowana do zawartości tam: etykiety czułości na kontenerach kontrolują dostęp do zawartości w kontenerze. 
 
-* Jeśli chcesz automatycznie zastosować etykiety do zawartości w kontenerze, zobacz [Automatyczne stosowanie czułości do zawartości](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
+* Jeśli chcesz automatycznie zastosować etykiety do zawartości w kontenerze, zobacz [Automatyczne stosowanie czułości do zawartości](/microsoft-365/compliance/apply-sensitivity-label-automatically).
 
-* Jeśli chcesz, aby użytkownicy mogli ręcznie zastosować etykiety do tej zawartości, upewnij się, że zostały [włączone etykiety czułości dla plików pakietu Office w programach SharePoint i OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
+* Jeśli chcesz, aby użytkownicy mogli ręcznie zastosować etykiety do tej zawartości, upewnij się, że zostały [włączone etykiety czułości dla plików pakietu Office w programach SharePoint i OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files).
 
 ### <a name="plan-to-implement-sensitivity-labels"></a>Zaplanuj implementację etykiet czułości
 
 Po ustaleniu, w jaki sposób chcesz używać etykiet informacji o czułości oraz do zawartości i witryn, które mają zostać zastosowane, zapoznaj się z poniższą dokumentacją, aby ułatwić wykonanie implementacji.
 
-1. [Wprowadzenie do etykiet czułości](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+1. [Wprowadzenie do etykiet czułości](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-2. [Tworzenie strategii wdrażania](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+2. [Tworzenie strategii wdrażania](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-3. [Tworzenie i publikowanie etykiet czułości](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
+3. [Tworzenie i publikowanie etykiet czułości](/microsoft-365/compliance/create-sensitivity-labels)
 
-4. [Ograniczanie dostępu do zawartości przy użyciu etykiet czułości do zastosowania szyfrowania](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
+4. [Ograniczanie dostępu do zawartości przy użyciu etykiet czułości do zastosowania szyfrowania](/microsoft-365/compliance/encryption-sensitivity-labels)
 
-5. [Używanie etykiet czułości z zespołami, grupami i witrynami](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
+5. [Używanie etykiet czułości z zespołami, grupami i witrynami](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 
-6. [Włącz etykiety czułości dla plików pakietu Office w programie SharePoint i usłudze OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
+6. [Włącz etykiety czułości dla plików pakietu Office w programie SharePoint i usłudze OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files)
 
 ### <a name="next-steps"></a>Następne kroki
 

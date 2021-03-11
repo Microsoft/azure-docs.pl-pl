@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 2280d6243f468708269569cd24cb8c7a3e2a8191
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 85aaf40237b6b6687c54d4b036f280805c98e7b2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202301"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618971"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Jak chronić strefy i rekordy DNS
 
@@ -202,7 +202,7 @@ Blokady zasobów na poziomie strefy można tworzyć za pomocą Azure Portal.  Na
 
 ![Blokady zasobów na poziomie strefy za pośrednictwem Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
-Blokady zasobów na poziomie strefy można także utworzyć za pośrednictwem [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
+Blokady zasobów na poziomie strefy można także utworzyć za pośrednictwem [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
 ```azurepowershell
 # Lock a DNS zone

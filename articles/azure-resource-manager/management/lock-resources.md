@@ -2,14 +2,14 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369479"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619175"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -33,6 +33,10 @@ Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszc
 Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niektóre operacje, które nie pozornie modyfikują zasobu, rzeczywiście wymagają akcji blokowanych przez blokadę. Blokady uniemożliwią wykonywanie operacji, które wymagają żądania POST do interfejsu API Azure Resource Manager. Niektóre typowe przykłady operacji blokowanych przez blokady są następujące:
 
 * Blokada tylko do odczytu na **koncie magazynu** uniemożliwia użytkownikom wyświetlanie listy kluczy konta. Operacja [kluczy list](/rest/api/storagerp/storageaccounts/listkeys) usługi Azure Storage jest obsługiwana za pomocą żądania post w celu ochrony dostępu do kluczy konta, co zapewnia pełny dostęp do danych na koncie magazynu. W przypadku skonfigurowania blokady tylko do odczytu dla konta magazynu użytkownicy, którzy nie posiadają kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub kolejek. Blokada tylko do odczytu uniemożliwia również Przypisanie ról RBAC platformy Azure objętych zakresem do konta magazynu lub kontenera danych (kontenera obiektów blob lub kolejki).
+
+* Blokada nie może zostać usunięta na **koncie magazynu** nie zapobiega usuwaniu ani modyfikowaniu danych znajdujących się na tym koncie. Ten typ blokady chroni tylko samo konto magazynu przed jego usunięciem i nie chroni danych obiektów blob, kolejek, tabel i plików w ramach tego konta magazynu. 
+
+* Blokada tylko do odczytu na **koncie magazynu** nie zapobiega usuwaniu ani modyfikowaniu danych znajdujących się na tym koncie. Ten typ blokady chroni tylko konto magazynu przed jego usunięciem lub modyfikacją i nie chroni danych obiektów blob, kolejek, tabel i plików w ramach tego konta magazynu. 
 
 * Blokada tylko do odczytu w ramach zasobu **App Service** uniemożliwia programowi Visual Studio Eksplorator serwera wyświetlanie plików dla zasobu, ponieważ ta interakcja wymaga dostępu do zapisu.
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platform
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585028"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618920"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server
 
@@ -73,7 +73,7 @@ W przypadku oprogramowania VMware 6,7 jako protokołu komunikacyjnego włączono
 
 1. Skopiuj poniższe ustawienia rejestru i wklej je do Notatnika. Następnie Zapisz plik jako TLS. REG bez rozszerzenia. txt.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    

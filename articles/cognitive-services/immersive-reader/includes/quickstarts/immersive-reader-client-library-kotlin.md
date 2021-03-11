@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-js
-ms.openlocfilehash: e29aff97d510dfed178e32aa319e5cb51ae9786c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fa28d5779c05af615479e3143713badb7842f6c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377436"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619228"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
@@ -42,7 +42,7 @@ W oknie **Wybieranie projektu** wybierz pozycję **puste działanie**, a następ
 
 ## <a name="configure-the-project"></a>Konfigurowanie projektu
 
-Nazwij projekt **QuickstartKotlin**i wybierz lokalizację, w której ma zostać zapisany. Wybierz pozycję **Kotlin** jako język programowania, a następnie wybierz pozycję **Zakończ**.
+Nazwij projekt **QuickstartKotlin** i wybierz lokalizację, w której ma zostać zapisany. Wybierz pozycję **Kotlin** jako język programowania, a następnie wybierz pozycję **Zakończ**.
 
 ![Konfigurowanie projektu — Kotlin](../../media/android/kotlin/android-studio-configure-project.png)
 
@@ -607,10 +607,11 @@ Ponieważ aplikacja musi wykonać wywołania sieciowe do zestawu SDK immersyjny 
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-Użyj Android Studio, aby uruchomić aplikację w emulatorze urządzenia. Po wybraniu **czytnika immersyjny**zostanie otwarty czytnik immersyjny z zawartością aplikacji.
+Użyj Android Studio, aby uruchomić aplikację w emulatorze urządzenia. Po wybraniu **czytnika immersyjny** zostanie otwarty czytnik immersyjny z zawartością aplikacji.
 
 ![Czytnik immersyjny — Kotlin](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](../../reference.md).
+> [!div class="nextstepaction"]
+> [Tworzenie zasobu i Konfigurowanie usługi AAD](../../how-to-create-immersive-reader.md)

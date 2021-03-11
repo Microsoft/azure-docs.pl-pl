@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542465"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547904"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Umiejętność rozpoznawania jednostek
 
@@ -53,7 +53,7 @@ W parametrach jest rozróżniana wielkość liter i są one opcjonalne.
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 > [!NOTE]
-> Nie wszystkie kategorie jednostek są obsługiwane we wszystkich językach. `"Person"` `"Location"` `"Organization"` Typy kategorii jednostek, i są obsługiwane w przypadku pełnej listy języków powyżej. Tylko _de_, _EN_, _es_, _fr_i _zh-Hans_ obsługuje wyodrębnianie `"Quantity"` typów, `"Datetime"` , `"URL"` i `"Email"` . Aby uzyskać więcej informacji, zobacz [Obsługa języka i regionu dla interfejs API analizy tekstu](../cognitive-services/text-analytics/language-support.md).  
+> Nie wszystkie kategorie jednostek są obsługiwane we wszystkich językach. `"Person"` `"Location"` `"Organization"` Typy kategorii jednostek, i są obsługiwane w przypadku pełnej listy języków powyżej. Tylko _de_, _EN_, _es_, _fr_ i _zh-Hans_ obsługuje wyodrębnianie `"Quantity"` typów, `"Datetime"` , `"URL"` i `"Email"` . Aby uzyskać więcej informacji, zobacz [Obsługa języka i regionu dla interfejs API analizy tekstu](../cognitive-services/text-analytics/language-support.md).  
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
@@ -189,8 +189,8 @@ W parametrach jest rozróżniana wielkość liter i są one opcjonalne.
 
 Należy zauważyć, że przesunięcia zwrócone dla jednostek w danych wyjściowych tej umiejętności są zwracane bezpośrednio z [interfejs API analizy tekstu](../cognitive-services/text-analytics/overview.md), co oznacza, że są one używane do indeksowania w oryginalnym ciągu, należy użyć klasy [StringInfo](/dotnet/api/system.globalization.stringinfo) w programie .NET w celu wyodrębnienia poprawnej zawartości.  [Więcej szczegółów można znaleźć tutaj.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## <a name="error-cases"></a>Przypadki błędów
-Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracany jest błąd i nie są wyodrębniane żadne jednostki.
+## <a name="warning-cases"></a>Przypadki ostrzegawcze
+Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracane jest ostrzeżenie i nie są wyodrębniane żadne jednostki.
 
 ## <a name="see-also"></a>Zobacz też
 

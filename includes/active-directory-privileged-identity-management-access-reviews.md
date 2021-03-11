@@ -2,18 +2,18 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102194003"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623345"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Utwórz co najmniej jedną weryfikację dostępu
 
@@ -38,6 +38,7 @@ ms.locfileid: "102194003"
     > [!NOTE]
     > - Role wybrane w tym miejscu obejmują zarówno [role trwałe, jak i kwalifikujące się](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Wybranie więcej niż jednej roli spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu ról spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
+    > - W przypadku ról z przypisanymi do nich grupami dostęp do każdej grupy połączonej z rolą objętą przeglądem zostanie przejrzany jako część przeglądu dostępu.
 
     Jeśli tworzysz przegląd dostępu **ról usługi Azure AD**, poniżej przedstawiono przykład listy członkostwo.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102194003"
     ![Lista recenzentów wybranych użytkowników lub członków (własnych)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Wybrani użytkownicy** — Użyj tej opcji, jeśli nie wiesz, kto potrzebuje dostępu. Po wybraniu tej opcji można przypisać przegląd do właściciela zasobu lub Menedżera grupy, aby zakończyć.
-    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról.
-    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu.
+    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. Grupy przypisane do roli nie będą częścią przeglądu, gdy ta opcja jest zaznaczona.
+    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. Grupy przypisane do roli będą przeglądane przez recenzenta powrotu, jeśli został wybrany. 
 
 ### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
 
