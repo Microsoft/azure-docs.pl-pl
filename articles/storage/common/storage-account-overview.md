@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051228"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561895"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -71,7 +71,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 - Tabele
 
 > [!NOTE]
-> Firma Microsoft zaleca korzystanie z konta magazynu ogólnego przeznaczenia w wersji 2 dla większości scenariuszy. Możesz łatwo uaktualnić konto do ogólnego przeznaczenia w wersji 1 lub do wersji 2, które nie ma przestoju i bez konieczności kopiowania danych.
+> Firma Microsoft zaleca korzystanie z konta magazynu ogólnego przeznaczenia w wersji 2 dla większości scenariuszy. Możesz łatwo uaktualnić konto do ogólnego przeznaczenia w wersji 1 lub do wersji 2, które nie ma przestoju i bez konieczności kopiowania danych. Nie można jednak cofnąć uaktualnienia.
 >
 > Aby uzyskać więcej informacji na temat uaktualniania do konta ogólnego przeznaczenia w wersji 2, zobacz [uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2](storage-account-upgrade.md).
 
@@ -87,13 +87,18 @@ Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystk
 - Kolejki
 - Tabele
 
-Firma Microsoft zaleca korzystanie z kont ogólnego przeznaczenia w wersji 2 w przypadku większości scenariuszy. W tych scenariuszach można używać kont ogólnego przeznaczenia w wersji 1:
+W tych scenariuszach można używać kont ogólnego przeznaczenia w wersji 1:
 
 - Twoje aplikacje wymagają klasycznego modelu wdrażania platformy Azure. Konta ogólnego przeznaczenia w wersji 2 i konta magazynu obiektów BLOB obsługują tylko Azure Resource Manager model wdrażania.
 
 - Aplikacje zajmują wiele transakcji lub wykorzystują znaczną przepustowość replikacji geograficznej, ale nie wymagają dużej pojemności. W takim przypadku, ogólnego przeznaczenia w wersji 1 może być najbardziej ekonomiczny.
 
 - Używana jest wersja [interfejsu API REST usług Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) , która jest wcześniejsza niż 2014-02-14 lub Biblioteka kliencka o wersji niższej niż 4. x. Nie można uaktualnić aplikacji.
+
+> [!NOTE]
+> Mimo że firma Microsoft zaleca konta ogólnego przeznaczenia w wersji 2 dla większości scenariuszy, firma Microsoft będzie nadal obsługiwała konta ogólnego przeznaczenia w wersji 1 dla nowych i istniejących klientów. W nowych regionach można tworzyć konta magazynu ogólnego przeznaczenia w wersji 1, gdy usługa Azure Storage jest dostępna w tych regionach. Firma Microsoft nie ma obecnie planu na wycofanie pomocy technicznej dla kont ogólnego przeznaczenia w wersji 1 i udostępnienie co najmniej jednego roku przed wycofaniem jakiejkolwiek funkcji usługi Azure Storage. Firma Microsoft będzie nadal dostarczać aktualizacje zabezpieczeń dla kont ogólnego przeznaczenia w wersji 1, ale dla tego typu konta nie jest oczekiwane tworzenie nowych funkcji.
+>
+> Od 1 października 2020 ceny dla kont ogólnego przeznaczenia w wersji 1 w nowych regionach usługi Azure Storage są równoważne z cenami dla kont ogólnego przeznaczenia v2 w tych regionach. Cennik w istniejących regionach usługi Azure Storage nie został zmieniony. Szczegóły cennika kont ogólnego przeznaczenia w wersji 1 w określonym regionie znajdują się na stronie cennika usługi Azure Storage. Wybierz region, a następnie w obszarze **oferty cennika** wybierz pozycję **inne**.
 
 ### <a name="blockblobstorage-accounts"></a>Konta BlockBlobStorage
 

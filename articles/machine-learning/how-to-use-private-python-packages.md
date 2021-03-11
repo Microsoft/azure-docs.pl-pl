@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: b922c25561843d140f1e2b8221f62fad89ea00c8
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 5cc1025528959f8c81aa80703e3fc26d59c5266f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520901"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618104"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Używanie prywatnych pakietów języka Python z Azure Machine Learning
 
@@ -52,11 +52,11 @@ Wewnętrznie usługa Azure Machine Learning zastępuje adres URL za pomocą bezp
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Korzystanie z repozytorium pakietów z poziomu źródła danych Azure DevOps
 
-Jeśli aktywnie opracowujesz pakiety języka Python dla aplikacji Machine Learning, możesz hostować je w repozytorium usługi Azure DevOps jako artefakty i publikować je jako źródło danych. Takie podejście umożliwia integrację przepływu pracy DevOps na potrzeby kompilowania pakietów przy użyciu Obszar roboczy usługi Azure Machine Learning. Aby dowiedzieć się, jak skonfigurować kanały informacyjne języka Python przy użyciu usługi Azure DevOps, przeczytaj artykuł Wprowadzenie [do pakietów języka Python w Azure Artifacts](/azure/devops/artifacts/quickstarts/python-packages?preserve-view=true&view=azure-devops)
+Jeśli aktywnie opracowujesz pakiety języka Python dla aplikacji Machine Learning, możesz hostować je w repozytorium usługi Azure DevOps jako artefakty i publikować je jako źródło danych. Takie podejście umożliwia integrację przepływu pracy DevOps na potrzeby kompilowania pakietów przy użyciu Obszar roboczy usługi Azure Machine Learning. Aby dowiedzieć się, jak skonfigurować kanały informacyjne języka Python przy użyciu usługi Azure DevOps, przeczytaj artykuł Wprowadzenie [do pakietów języka Python w Azure Artifacts](/azure/devops/artifacts/quickstarts/python-packages)
 
 To podejście używa osobistego tokenu dostępu do uwierzytelniania w repozytorium. Takie samo podejście ma zastosowanie do innych repozytoriów z uwierzytelnianiem opartym na tokenach, takich jak prywatne repozytoria GitHub. 
 
- 1. [Utwórz osobisty token dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) dla wystąpienia usługi Azure DevOps. Ustaw zakres tokenu do __spakowania > odczytać__. 
+ 1. [Utwórz osobisty token dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?tabs=preview-page#create-a-pat) dla wystąpienia usługi Azure DevOps. Ustaw zakres tokenu do __spakowania > odczytać__. 
 
  2. Dodaj adres URL i DevOps platformy Azure jako właściwości obszaru roboczego przy użyciu metody [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) .
 

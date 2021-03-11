@@ -3,12 +3,12 @@ title: Obsługa warstwy archiwum (wersja zapoznawcza)
 description: Dowiedz się więcej o obsłudze warstwy Archiwum dla Azure Backup
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 30a7915332d1d7ecab87b0db1ddc6dacc0fa69c9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050656"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609856"
 ---
 # <a name="archive-tier-support-preview"></a>Obsługa warstwy archiwum (wersja zapoznawcza)
 
@@ -40,7 +40,12 @@ Obsługiwani klienci:
 
 ## <a name="get-started-with-powershell"></a>Wprowadzenie do programu PowerShell
 
-1. Pobierz [najnowszy moduł programu PowerShell](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) (wersja zapoznawcza).
+1. Uruchom następujące polecenie w programie PowerShell:
+  
+    ```azurepowershell
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    ```
+
 1. Połącz się z platformą Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 1. Zaloguj się do subskrypcji:
 

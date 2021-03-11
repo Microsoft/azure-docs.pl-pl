@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202675"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547559"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
+
+Ten artykuł migracji jest jednym z kilku obejmujących słowa kluczowe NAS i Azure File Sync. Sprawdź, czy ten artykuł dotyczy Twojego scenariusza:
+
+> [!div class="checklist"]
+> * Źródło danych: magazyn dołączony do sieci (NAS)
+> * Trasa migracji: &rArr; przekazywanie i synchronizowanie serwera nas systemu Windows Server &rArr; za pomocą udziałów plików platformy Azure
+> * Buforowanie plików lokalnie: tak, ostateczny cel to wdrożenie Azure File Sync.
+
+Jeśli Twój scenariusz jest inny, przejrzyj [tabelę przewodników migracji](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync działa w odniesieniu do lokalizacji magazynu bezpośrednio dołączonego (DAS) i nie obsługuje synchronizacji z lokalizacjami magazynu sieciowego (NAS).
 Ten fakt powoduje, że migracja plików jest konieczna, a w tym artykule opisano planowanie i wykonywanie takich migracji.
 
 ## <a name="migration-goals"></a>Cele migracji
 
-Celem jest przeniesienie udziałów znajdujących się na urządzeniu NAS do systemu Windows Server. Następnie użyj Azure File Sync do wdrożenia chmury hybrydowej. Migracja musi być realizowana w sposób gwarantujący integralność danych produkcyjnych, a także dostępność podczas migracji. Druga z nich wymaga utrzymywania przestoju w minimalnym stopniu, dzięki czemu może być dłuższa niż w zwykłych oknach obsługi lub tylko nieco.
+Celem jest przeniesienie udziałów znajdujących się na urządzeniu NAS do systemu Windows Server. Następnie użyj Azure File Sync do wdrożenia chmury hybrydowej. Na ogół migracje muszą być wykonywane w sposób, który Guaranty integralność danych produkcyjnych i jest dostępny podczas migracji. Druga z nich wymaga utrzymywania przestoju w minimalnym stopniu, dzięki czemu może być dłuższa niż w zwykłych oknach obsługi lub tylko nieco.
 
 ## <a name="migration-overview"></a>Omówienie migracji
 
@@ -45,14 +54,14 @@ Jak wspomniano w [artykule Omówienie migracji](storage-files-migration-overview
 * Utwórz system Windows Server 2019 — co najmniej 2012R2 maszyny wirtualnej lub serwera fizycznego. Obsługiwany jest również klaster trybu failover systemu Windows Server.
 * Udostępnianie lub Dodawanie bezpośredniego dołączonego magazynu (DAS w porównaniu z serwerem NAS, co nie jest obsługiwane).
 
-    Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na urządzeniu NAS, jeśli używana jest funkcja obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) w usłudze Azure File Sync.
+    Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na urządzeniu NAS. Ta konfiguracja wymaga również użycia funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) usługi Azure File Sync.
     Jednak podczas kopiowania plików z większej ilości miejsca do usługi NAS do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać czynności w partiach:
 
     1. Przenoszenie zestawu plików, który pasuje do dysku
     2. Zezwalaj na synchronizację plików i obsługę warstw w chmurze
-    3. Po utworzeniu większej ilości wolnego miejsca na woluminie przejdź do następnej partii plików. 
+    3. Po utworzeniu większej ilości wolnego miejsca na woluminie przejdź do następnej partii plików. Alternatywnie można przejrzeć polecenie RoboCopy w nadchodzącej [sekcji Robocopy](#phase-7-robocopy) , aby użyć nowego `/LFSM` przełącznika. Korzystanie `/LFSM` z programu może znacznie uprościć zadania Robocopy, ale nie jest zgodne z innymi przełącznikami Robocopy, które mogą być od siebie zależne.
     
-    Takie podejście wsadowe można uniknąć, udostępniając odpowiednie miejsce na serwerze z systemem Windows, które zajmują pliki na urządzeniu NAS. Należy rozważyć deduplikację na serwerze NAS/Windows. Jeśli nie chcesz trwale zatwierdzić tej dużej ilości miejsca do magazynowania w systemie Windows Server, możesz zmniejszyć rozmiar woluminu po migracji i przed dopasowaniem zasad obsługi warstw w chmurze. Powoduje to utworzenie mniejszej lokalnej pamięci podręcznej udziałów plików platformy Azure.
+    Takie podejście wsadowe można uniknąć, udostępniając odpowiednie miejsce na serwerze z systemem Windows, które zajmują pliki na urządzeniu NAS. Należy rozważyć deduplikację na serwerze NAS/Windows. Jeśli nie chcesz trwale zatwierdzić tej dużej ilości miejsca do magazynowania w systemie Windows Server, możesz zmniejszyć rozmiar woluminu po migracji i zmienić zasady dotyczące warstw w chmurze. Powoduje to utworzenie mniejszej lokalnej pamięci podręcznej udziałów plików platformy Azure.
 
 Konfiguracja zasobów (obliczeniowa i pamięć RAM) wdrażanego systemu Windows zależy przede wszystkim od liczby elementów (plików i folderów), które zostaną zsynchronizowane. W przypadku jakichkolwiek problemów zalecamy przeprowadzenie wyższej konfiguracji wydajności.
 
@@ -108,76 +117,7 @@ Następujące polecenie RoboCopy skopiuje pliki z magazynu NAS do folderu docelo
 W przypadku zainicjowania obsługi mniejszej ilości miejsca w systemie Windows Server niż pliki na urządzeniu NAS, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest pełny, obsługa [warstw w chmurze](storage-sync-cloud-tiering-overview.md) zostanie rozpoczęta i pliki warstw, które zostały już pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z urządzenia NAS. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby zobaczyć, co zostało zsynchronizowane, i zwolnić miejsce na dysku, aby uzyskać dostęp do 99% wolnego miejsca na woluminie.
 Jest możliwe, że RoboCopy przenosi pliki szybciej niż można zsynchronizować lokalnie z chmurą i warstwą, w rezultacie kończy się miejsce na dysku lokalnym. RoboCopy zakończy się niepowodzeniem. Zalecane jest, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia to. Na przykład nie uruchamiaj zadań RoboCopy dla wszystkich udziałów w tym samym czasie lub przenosi tylko udziały pasujące do bieżącej ilości wolnego miejsca w systemie Windows Server, aby wymienić kilka.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Tle
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Zezwala na uruchamianie wielowątkowości przez RoboCopy. Wartość domyślna to 8, wartość maksymalna to 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Wyprowadza stan do pliku dziennika jako UNICODE (Zastępuje istniejący dziennik).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Dane wyjściowe do okna konsoli. Używane w połączeniu z danymi wyjściowymi do pliku dziennika.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Uruchamia RoboCopy w tym samym trybie, w którym będzie używana aplikacja kopii zapasowej. Umożliwia RoboCopy przenoszenie plików, do których bieżący użytkownik nie ma uprawnień.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      wierność kopiowania plików (wartość domyślna to/COPY: DAT), Copy flags: D = Data, A = Attributes, T = Timestamps, S = Security = NTFS list ACL, O = Owner info, U = informacje o inspekcji
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Kopiuj wszystkie informacje o pliku (równoważne do/COPY: DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      wierność kopiowania katalogów (wartość domyślna to/DCOPY: DA), Copy flags: D = Data, A = Attributes, T = Timestamps
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Faza 8: wycinanie użytkownika
 
@@ -196,7 +136,7 @@ Drugi raz, który zakończy się szybciej, ponieważ wymaga jedynie transportowa
 
 Powtarzaj ten proces do momentu, gdy okaże się, że czas potrzebny na zakończenie RoboCopy dla określonej lokalizacji znajduje się w akceptowalnym oknie do przestoju.
 
-Jeśli zauważasz o przestoje akceptowalne i przygotowano do przełączenia lokalizacji NAS w tryb offline: aby użytkownicy mieli dostęp do trybu offline, można zmienić listy ACL w katalogu głównym udziału, aby nie mogli już uzyskiwać dostępu do tej lokalizacji ani podejmować innych odpowiednich kroków, które uniemożliwiają zmianę zawartości w tym folderze na serwerze NAS.
+Po rozważeniu niedopuszczalnego przestoju należy usunąć dostęp użytkowników do udziałów opartych na protokole NAS. Można to zrobić, wykonując czynności, które uniemożliwiają użytkownikom zmianę struktury plików i folderów oraz zawartości. Przykładem jest wskazanie nieistniejącej lokalizacji DFS-Namespace lub zmianę głównych list kontroli dostępu w udziale.
 
 Uruchom jeden ostatni RoboCopy zaokrąglenie. Spowoduje to pobranie wszelkich zmian, które mogły zostać pominięte.
 Jak długo trwa ten ostatni krok, zależy od szybkości skanowania RoboCopy. Możesz oszacować czas (który jest równy przestoju), mierząc, jak długo trwało wykonywanie poprzedniego uruchomienia.

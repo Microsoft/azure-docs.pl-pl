@@ -2,14 +2,14 @@
 title: Najlepsze rozwiązania dotyczące poprawy wydajności przy użyciu Azure Service Bus
 description: Opisuje, w jaki sposób używać Service Bus do optymalizowania wydajności podczas wymiany komunikatów obsługiwanych przez brokera.
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c775555f82258c532d72917220129e3913ad314
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 10435f74cfb7c87ccb28b64e1b3f136add1dc927
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456049"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561878"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące zwiększania wydajności przy użyciu komunikatów usługi Service Bus
 
@@ -44,17 +44,22 @@ Aby uzyskać więcej informacji o minimalnej obsłudze platformy .NET Standard, 
 # <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
 Obiekty Service Bus, które współpracują z usługą, takie jak [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)i [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), powinny być zarejestrowane na potrzeby iniekcji zależności jako pojedyncze (lub są tworzone raz i udostępnione). ServiceBusClient można zarejestrować na potrzeby iniekcji zależności z [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
-Nie zaleca się zamykania ani usuwania tych obiektów po wysłaniu lub odebraniu poszczególnych komunikatów. Zamykanie lub likwidowanie obiektów specyficznych dla obiektu (ServiceBusSender/Receiver/procesor) powoduje przerwanie połączenia z usługą Service Bus. Likwidacja ServiceBusClient skutkuje rozbiciem połączenia z usługą Service Bus. Nawiązywanie połączenia jest kosztowną operacją, którą można uniknąć przez ponowne użycie tego samego ServiceBusClient i utworzenie niepotrzebnych obiektów właściwych dla jednostki z tego samego wystąpienia ServiceBusClient. Można bezpiecznie używać tych obiektów klienta do równoczesnych operacji asynchronicznych i z wielu wątków.
+Nie zaleca się zamykania ani usuwania tych obiektów po wysłaniu lub odebraniu poszczególnych komunikatów. Zamykanie lub likwidowanie obiektów specyficznych dla obiektu (ServiceBusSender/Receiver/procesor) powoduje przerwanie połączenia z usługą Service Bus. Likwidacja ServiceBusClient skutkuje rozbiciem połączenia z usługą Service Bus. 
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
-Service Bus obiektów klienta, takich jak implementacje [`IQueueClient`][QueueClient] lub [`IMessageSender`][MessageSender] , powinny być zarejestrowane na potrzeby iniekcji zależności jako pojedyncze (lub są tworzone raz i udostępnione). Firma Microsoft zaleca, aby nie zamykać fabryk komunikatów, kolejek, tematów lub klientów subskrypcji po wysłaniu wiadomości, a następnie utworzyć je ponownie po wysłaniu kolejnej wiadomości. Zamknięcie fabryki komunikatów powoduje usunięcie połączenia z usługą Service Bus. Podczas ponownego tworzenia fabryki jest nawiązywane nowe połączenie. Nawiązywanie połączenia jest kosztowną operacją, którą można uniknąć przez ponowne użycie tych samych obiektów Factory i Client dla wielu operacji. Można bezpiecznie używać tych obiektów klienta do równoczesnych operacji asynchronicznych i z wielu wątków.
+Service Bus obiektów klienta, takich jak implementacje [`IQueueClient`][QueueClient] lub [`IMessageSender`][MessageSender] , powinny być zarejestrowane na potrzeby iniekcji zależności jako pojedyncze (lub są tworzone raz i udostępnione). Firma Microsoft zaleca, aby nie zamykać fabryk komunikatów, kolejek, tematów lub klientów subskrypcji po wysłaniu wiadomości, a następnie utworzyć je ponownie po wysłaniu kolejnej wiadomości. Zamknięcie fabryki komunikatów powoduje usunięcie połączenia z usługą Service Bus. Podczas ponownego tworzenia fabryki jest nawiązywane nowe połączenie. 
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Service Bus obiektów klienta, takich jak `QueueClient` lub `MessageSender` , są tworzone za pomocą obiektu [MessagingFactory][MessagingFactory] , który również zapewnia wewnętrzne zarządzanie połączeniami. Firma Microsoft zaleca, aby nie zamykać fabryk komunikatów, kolejek, tematów lub klientów subskrypcji po wysłaniu wiadomości, a następnie utworzyć je ponownie po wysłaniu kolejnej wiadomości. Zamknięcie fabryki komunikatów powoduje usunięcie połączenia z usługą Service Bus i nawiązanie nowego połączenia podczas odtwarzania fabryki. Nawiązywanie połączenia jest kosztowną operacją, którą można uniknąć przez ponowne użycie tych samych obiektów Factory i Client dla wielu operacji. Można bezpiecznie używać tych obiektów klienta do równoczesnych operacji asynchronicznych i z wielu wątków.
+Service Bus obiektów klienta, takich jak `QueueClient` lub `MessageSender` , są tworzone za pomocą obiektu [MessagingFactory][MessagingFactory] , który również zapewnia wewnętrzne zarządzanie połączeniami. Firma Microsoft zaleca, aby nie zamykać fabryk komunikatów, kolejek, tematów lub klientów subskrypcji po wysłaniu wiadomości, a następnie utworzyć je ponownie po wysłaniu kolejnej wiadomości. Zamknięcie fabryki komunikatów powoduje usunięcie połączenia z usługą Service Bus i nawiązanie nowego połączenia podczas odtwarzania fabryki. 
 
 ---
+
+Następująca Uwaga dotyczy wszystkich zestawów SDK:
+
+> [!NOTE]
+> Nawiązywanie połączenia jest kosztowną operacją, którą można uniknąć przez ponowne użycie tych samych obiektów Factory i Client dla wielu operacji. Można bezpiecznie używać tych obiektów klienta do równoczesnych operacji asynchronicznych i z wielu wątków.
 
 ## <a name="concurrent-operations"></a>Operacje współbieżne
 Operacje, takie jak wysyłanie, odbieranie, usuwanie i tak dalej, zajmuje trochę czasu. Ten czas obejmuje czas, przez jaki usługa Service Bus podejmuje proces przetwarzania operacji oraz opóźnienia żądania i odpowiedzi. Aby zwiększyć liczbę operacji na czas, operacje muszą być wykonywane współbieżnie.

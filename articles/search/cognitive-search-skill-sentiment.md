@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519cd952bd1265b4daad3b77b29aabd47ea4cc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935283"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547479"
 ---
 # <a name="sentiment-cognitive-skill"></a>Umiejętność tonacji
 
@@ -110,11 +110,9 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 }
 ```
 
-## <a name="notes"></a>Uwagi
-Jeśli wartość jest pusta, wynik tonacji nie jest zwracany dla tych rekordów.
-
-## <a name="error-cases"></a>Przypadki błędów
-Jeśli język nie jest obsługiwany, zostanie wygenerowany błąd i nie zostanie zwrócony żaden wynik tonacji.
+## <a name="warning-cases"></a>Przypadki ostrzegawcze
+Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie i nie zostanie zwrócony żaden wynik tonacji.
+Jeśli język nie jest obsługiwany, zostanie wygenerowane ostrzeżenie i nie zostanie zwrócony żaden wynik tonacji.
 
 ## <a name="see-also"></a>Zobacz też
 

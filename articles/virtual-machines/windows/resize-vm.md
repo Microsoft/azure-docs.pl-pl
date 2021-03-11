@@ -2,18 +2,18 @@
 title: Zmienianie rozmiaru maszyny wirtualnej z systemem Windows na platformie Azure
 description: Zmień rozmiar maszyny wirtualnej używany przez maszynę wirtualną platformy Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832250"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560654"
 ---
 # <a name="resize-a-windows-vm"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Windows
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak przenieść maszynę wirtualną do innego [rozmiaru
 
 Po utworzeniu maszyny wirtualnej można skalować ją w górę lub w dół, zmieniając rozmiar maszyny wirtualnej. W niektórych przypadkach należy najpierw cofnąć alokację maszyny wirtualnej. Może się tak zdarzyć, jeśli nowy rozmiar nie jest dostępny w klastrze sprzętowym hostującym maszynę wirtualną.
 
-Jeśli maszyna wirtualna używa Premium Storage, upewnij się, że wybrano wersję **s** rozmiaru do uzyskania pomocy technicznej Premium Storage. Na przykład wybierz Standard_E4**s**_v3 zamiast Standard_E4_v3.
+Jeśli maszyna wirtualna używa Premium Storage, upewnij się, że wybrano wersję **s** rozmiaru do uzyskania pomocy technicznej Premium Storage. Na przykład wybierz Standard_E4 **s** _v3 zamiast Standard_E4_v3.
 
 ## <a name="use-the-portal"></a>Używanie portalu
 

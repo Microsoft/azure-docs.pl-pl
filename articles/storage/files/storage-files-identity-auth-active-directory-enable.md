@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6098497e89ad66fad7659aa64c9a7849380f8c43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95739999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547518"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -33,10 +33,14 @@ Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalec
 
 Po włączeniu AD DS dla udziałów plików platformy Azure za pośrednictwem protokołu SMB komputery przyłączone do AD DS mogą instalować udziały plików platformy Azure przy użyciu istniejących poświadczeń AD DS. Tę możliwość można włączyć za pomocą środowiska AD DS hostowanego na maszynach Premium lub hostowanych na platformie Azure.
 
-> [!NOTE]
-> Aby ułatwić konfigurację Azure Files uwierzytelniania usługi AD w przypadku niektórych typowych przypadków użycia, opublikowano dwa filmy wideo z szczegółowymi wskazówkami krok po kroku dla następujących scenariuszy:
-> - [Zastępowanie lokalnych serwerów plików Azure Files (łącznie z konfiguracją prywatnego linku do plików i uwierzytelniania w usłudze AD)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Używanie Azure Files jako kontenera profilu dla pulpitu wirtualnego systemu Windows (w tym Instalatora uwierzytelniania usługi AD i konfiguracji FsLogix)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## <a name="videos"></a>Filmy wideo
+
+Aby ułatwić konfigurację Azure Files uwierzytelniania usługi AD w przypadku niektórych typowych przypadków użycia, opublikowano dwa filmy wideo z szczegółowymi wskazówkami krok po kroku dla następujących scenariuszy:
+
+| Zastępowanie lokalnych serwerów plików Azure Files (łącznie z konfiguracją prywatnego linku do plików i uwierzytelniania w usłudze AD) | Używanie Azure Files jako kontenera profilu dla pulpitu wirtualnego systemu Windows (w tym Instalatora uwierzytelniania usługi AD i konfiguracji FsLogix)  |
+|-|-|
+| [![Zrzut ekranu przedstawiający wideo z zastępowaniem lokalnych serwerów plików — kliknij, aby odtworzyć.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Zrzut ekranu przedstawiający Azure Files przy użyciu usługi jako kontenera profilu wideo — kliknij, aby odtworzyć.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 

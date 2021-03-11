@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650978"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609910"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Ochrona Microsoft 365 z wykorzystaniem lokalnych ataków
 
@@ -69,7 +69,7 @@ Aby rozwiązać opisane wcześniej wektory zagrożeń, zalecamy przestrzeganie z
 
     Konta tych administratorów są kontami z ograniczeniami. *Żadne konta lokalne nie powinny mieć uprawnień administracyjnych w Microsoft 365.* 
 
-    Aby uzyskać więcej informacji, zobacz [Omówienie ról administratorów Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Zobacz też [role Microsoft 365 w usłudze Azure AD](../roles/m365-workload-docs.md).
+    Aby uzyskać więcej informacji, zobacz [Omówienie ról administratorów Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles). Zobacz też [role Microsoft 365 w usłudze Azure AD](../roles/m365-workload-docs.md).
 
 1. **Zarządzanie urządzeniami z poziomu Microsoft 365.** Użyj funkcji Dołącz do usługi Azure AD i zarządzania urządzeniami przenośnymi w chmurze, aby wyeliminować zależności od lokalnej infrastruktury zarządzania urządzeniami. Te zależności mogą naruszyć kontrolę nad urządzeniami i zabezpieczeniami.
 
@@ -151,7 +151,7 @@ W przypadku korzystania z kont hybrydowych usługa Azure-AD-z chmury i kadr opie
 
 Grupy chmury umożliwiają rozdzielenie swojej współpracy i dostępu z infrastruktury lokalnej.
 
-* **Współpraca**: Korzystaj z grup Microsoft 365 i Microsoft Teams w celu uzyskania nowoczesnej współpracy. Likwidowanie lokalnych list dystrybucyjnych i [uaktualnianie list dystrybucyjnych do grup Microsoft 365 w programie Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Współpraca**: Korzystaj z grup Microsoft 365 i Microsoft Teams w celu uzyskania nowoczesnej współpracy. Likwidowanie lokalnych list dystrybucyjnych i [uaktualnianie list dystrybucyjnych do grup Microsoft 365 w programie Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
 * **Dostęp**: Użyj grup zabezpieczeń usługi Azure AD lub grup Microsoft 365, aby autoryzować dostęp do aplikacji w usłudze Azure AD.
 * **Licencjonowanie pakietu office 365**: Użyj licencjonowania opartego na grupach, aby zainicjować pakiet Office 365 przy użyciu grup tylko w chmurze. Ta metoda oddzieli kontrolę nad członkostwem w grupie z infrastruktury lokalnej.
@@ -203,9 +203,9 @@ Użyj dostępu warunkowego usługi Azure AD, aby interpretować sygnały i używ
 
 * Użyj dostępu warunkowego, aby [zablokować starsze protokoły uwierzytelniania](../conditional-access/howto-conditional-access-policy-block-legacy.md) , gdy jest to możliwe. Ponadto należy wyłączyć starsze protokoły uwierzytelniania na poziomie aplikacji przy użyciu konfiguracji specyficznej dla aplikacji.
 
-   Aby uzyskać więcej informacji, zobacz [starsze protokoły uwierzytelniania](../fundamentals/auth-sync-overview.md). Lub Zobacz szczegółowe informacje dotyczące [usługi Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) i [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Aby uzyskać więcej informacji, zobacz [starsze protokoły uwierzytelniania](../fundamentals/auth-sync-overview.md). Lub Zobacz szczegółowe informacje dotyczące [usługi Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) i [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
-* Zaimplementuj zalecane [konfiguracje i dostęp do urządzeń](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide).
+* Zaimplementuj zalecane [konfiguracje i dostęp do urządzeń](/microsoft-365/security/office-365-security/identity-access-policies).
 
 * Jeśli używasz wersji usługi Azure AD, która nie zawiera dostępu warunkowego, upewnij się, że używasz [domyślnych ustawień zabezpieczeń usługi Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 

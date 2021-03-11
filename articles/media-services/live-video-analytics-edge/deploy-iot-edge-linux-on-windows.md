@@ -3,16 +3,16 @@ title: Wdrażanie do IoT Edge dla systemu Linux w systemie Windows — Azure
 description: Ten artykuł zawiera wskazówki dotyczące sposobu wdrażania programu w IoT Edge dla systemu Linux na urządzeniu z systemem Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042185"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618138"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Wdrażanie do IoT Edge dla systemu Linux na urządzeniu z systemem Windows (EFLOW)
 
-W tym artykule dowiesz się, jak wdrożyć analizę wideo na żywo na urządzeniu brzegowym, które ma [IoT Edge dla systemu Linux w systemie Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Po wykonaniu kroków opisanych w tym dokumencie będzie można uruchomić [Graf multimedialny](media-graph-concept.md) , który wykrywa ruch wideo i emituje te zdarzenia do centrum IoT w chmurze. Można następnie przełączać Graf multimedialny w celu zaawansowania scenariuszy i zapewnić możliwości analizy filmów wideo na żywo na urządzeniu IoT Edge z systemem Windows.
+W tym artykule dowiesz się, jak wdrożyć analizę wideo na żywo na urządzeniu brzegowym, które ma [IoT Edge dla systemu Linux w systemie Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Po wykonaniu kroków opisanych w tym dokumencie będzie można uruchomić [Graf multimedialny](media-graph-concept.md) , który wykrywa ruch wideo i emituje te zdarzenia do centrum IoT w chmurze. Można następnie przełączać Graf multimedialny w celu zaawansowania scenariuszy i zapewnić możliwości analizy filmów wideo na żywo na urządzeniu IoT Edge z systemem Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 

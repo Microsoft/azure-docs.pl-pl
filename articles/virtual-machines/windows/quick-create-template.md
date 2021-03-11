@@ -2,18 +2,19 @@
 title: 'Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu Menedżer zasobów'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu szablonu Menedżer zasobów
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2856c51ccc31b57ea567c5d0940cd260797f770
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649673"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560756"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu ARM
 
@@ -65,7 +66,7 @@ W szablonie zdefiniowano kilka zasobów:
     - **Wersja systemu operacyjnego Windows**: Wybierz wersję systemu Windows, która ma być uruchamiana na maszynie wirtualnej.
     - **Rozmiar maszyny wirtualnej**: Wybierz [rozmiar](../sizes.md) , który ma być używany przez maszynę wirtualną.
     - **Lokalizacja**: domyślnie jest to ta sama lokalizacja, w której znajduje się grupa zasobów, jeśli już istnieje.
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć i wdrożyć maszynę wirtualną.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć i wdrożyć maszynę wirtualną.
 
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).

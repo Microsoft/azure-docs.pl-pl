@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725248"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560620"
 ---
 # <a name="securing-external-access-with-groups"></a>Zabezpieczanie dostępu zewnętrznego z grupami 
 
@@ -54,7 +54,7 @@ Podczas opracowywania strategii grupy w celu zabezpieczenia zewnętrznego dostę
 
    * *Domyślnie wszyscy użytkownicy mogą tworzyć grupy i grupy M365 dla wszystkich (wewnętrznych i zewnętrznych) użytkowników w dzierżawie do przyłączenia*. 
 
-      * [Można ograniczyć tworzenie grup Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) do członków określonej grupy zabezpieczeń. Skonfiguruj to ustawienie przy użyciu programu Windows PowerShell. 
+      * [Można ograniczyć tworzenie grup Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups) do członków określonej grupy zabezpieczeń. Skonfiguruj to ustawienie przy użyciu programu Windows PowerShell. 
 
 * **Kto powinien mieć możliwość zapraszania osób do grup?** Czy wszyscy członkowie grupy mogą dodawać innych członków, czy tylko właściciele grupy dodają członków?
 
@@ -150,13 +150,13 @@ Organizacje hybrydowe mają zarówno infrastrukturę lokalną, jak i infrastrukt
 
 ## <a name="microsoft-365-groups"></a>Grupy Microsoft 365
 
-[Grupy Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) to fundamentowa usługa członkowska, która zapewnia wszystkie prawa dostępu w M365. Można je utworzyć na podstawie [Azure Portal](https://portal.azure.com/)lub [portalu M365](https://admin.microsoft.com/). Po utworzeniu grupy M365 udzielany jest dostęp do grupy zasobów używanych do współpracy. Aby zapoznać się z pełną listą tych zasobów, zobacz [Omówienie grup Microsoft 365 dla administratorów](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) .
+[Grupy Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) to fundamentowa usługa członkowska, która zapewnia wszystkie prawa dostępu w M365. Można je utworzyć na podstawie [Azure Portal](https://portal.azure.com/)lub [portalu M365](https://admin.microsoft.com/). Po utworzeniu grupy M365 udzielany jest dostęp do grupy zasobów używanych do współpracy. Aby zapoznać się z pełną listą tych zasobów, zobacz [Omówienie grup Microsoft 365 dla administratorów](/microsoft-365/admin/create-groups/office-365-groups) .
 
 Grupy M365 mają następujące wszystkie szczegóły dla ich ról
 
 * **Właściciele** — właściciele grupy mogą dodawać i usuwać członków oraz mieć unikatowe uprawnienia, takie jak możliwość usuwania konwersacji z udostępnionej skrzynki odbiorczej lub zmiany ustawień grupy. Właściciele grupy mogą zmieniać nazwę grupy, aktualizować opis lub obraz i nie tylko.
 
-* **Członkowie** — członkowie mogą uzyskiwać dostęp do wszystkich elementów w grupie, ale nie mogą zmieniać ustawień grupy. Domyślnie członkowie grupy mogą zapraszać Gości do dołączenia do grupy, chociaż można [kontrolować to ustawienie](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Członkowie** — członkowie mogą uzyskiwać dostęp do wszystkich elementów w grupie, ale nie mogą zmieniać ustawień grupy. Domyślnie członkowie grupy mogą zapraszać Gości do dołączenia do grupy, chociaż można [kontrolować to ustawienie](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Goście** — Goście grupy są członkami spoza organizacji. Domyślnie Goście mają pewne ograniczenia dotyczące funkcjonalności w zespołach.
 

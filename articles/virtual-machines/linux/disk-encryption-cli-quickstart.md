@@ -3,17 +3,18 @@ title: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu 
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737019"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561045"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2a5c3c107f9a574842c469c5535992c66f37414b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 4951e86b7fd14809811ebc2cb8e50442a8d28248
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428119"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609461"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -23,6 +23,7 @@ ms.locfileid: "102428119"
 |[Certyfikaty powinny używać dozwolonych typów kluczy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) |Zarządzaj wymaganiami dotyczącymi zgodności organizacji, ograniczając typy kluczy dozwolone dla certyfikatów. |Inspekcja, Odmów, wyłączone |[2.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_AllowedKeyTypes.json) |
 |[Certyfikaty używające kryptografii krzywej eliptycznej powinny mieć dozwolone nazwy krzywych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) |Zarządzaj dozwolonymi nazwami krzywej eliptyczna dla certyfikatów ECC przechowywanych w magazynie kluczy. Więcej informacji można znaleźć pod adresem [https://aka.ms/akvpolicy](https://aka.ms/akvpolicy) . |Inspekcja, Odmów, wyłączone |[2.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_EC_AllowedCurveNames.json) |
 |[Certyfikaty używające kryptografii RSA powinny mieć określony minimalny rozmiar klucza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |Zarządzaj wymaganiami dotyczącymi zgodności organizacji, określając minimalny rozmiar klucza dla certyfikatów RSA przechowywanych w magazynie kluczy. |Inspekcja, Odmów, wyłączone |[2.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |
+|[Wdróż — Skonfiguruj ustawienia diagnostyczne dla Azure Key Vault do Log Analytics obszaru roboczego](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) |Wdraża ustawienia diagnostyczne dla Azure Key Vault w celu przesyłania strumieniowego dzienników zasobów do Log Analytics obszaru roboczego, gdy dowolna Key Vault, w której brakuje tych ustawień diagnostycznych, zostanie utworzona lub zaktualizowana. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/DataConnectorsAzureKeyVault_PolicyAssignment.json) |
 |[Wdróż — Konfigurowanie ustawień diagnostycznych w obszarze roboczym Log Analytics, które mają być włączone na Azure Key Vault zarządzanym module HSM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb3884c81-31aa-473d-a9bb-9466fe0ec2a0) |Wdraża ustawienia diagnostyczne dla Azure Key Vault zarządzanego modułu HSM, aby przesyłać strumieniowo do obszaru roboczego Log Analytics regionalnej, gdy zostanie utworzony lub zaktualizowany dowolny Azure Key Vault zarządzanym modułem HSM, w którym brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ManagedHsm_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Wdróż — Skonfiguruj ustawienia diagnostyczne do centrum zdarzeń, aby można je było włączyć na Azure Key Vault zarządzanym module HSM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) |Wdraża ustawienia diagnostyczne dla Azure Key Vault zarządzanego modułu HSM na potrzeby przesyłania strumieniowego do regionalnego centrum zdarzeń, Azure Key Vault gdy jest tworzony lub aktualizowany moduł HSM, w którym brakuje tego ustawienia diagnostycznego. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_DiagnosticLog_Deploy.json) |
 |[Wdróż ustawienia diagnostyczne dla Key Vault w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |Wdraża ustawienia diagnostyczne dla Key Vault w celu przesyłania strumieniowego do regionalnego centrum zdarzeń, gdy jest tworzony lub aktualizowany dowolny Key Vault, dla którego brakuje tych ustawień diagnostycznych. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |

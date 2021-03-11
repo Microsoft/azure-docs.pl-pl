@@ -4,16 +4,17 @@ description: Dowiedz się, jak tworzyć obrazy maszyn wirtualnych na platformie 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 16d0a4ea2353778b16803bd9b92a7f8af6e4ba88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cd6152f9c8e75223fcf1aab77fee7700223979
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325916"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561011"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.

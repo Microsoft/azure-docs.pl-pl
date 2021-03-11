@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde82a0ad50c2172e70337ad202b91af0a62c530
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535529"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547819"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Wbudowane umiejętności poznawcze do przetwarzania tekstu i obrazów podczas indeksowania (Azure Wyszukiwanie poznawcze)
 
@@ -34,7 +34,7 @@ Kilka umiejętności jest elastycznych do użycia lub produkcji. Ogólnie rzecz 
 | Czy | Opis |
 |-------|-------------|
 |[Microsoft. umiejętności. Text. CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz.|
-| [Microsoft. umiejętności. Text. KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Ta umiejętność używa przedniego modelu do wykrywania ważnych fraz opartych na rozmieszczeniu, regułach językowych, sąsiedztwie z innymi postanowieniami oraz o tym, jak nietypowy termin znajduje się w danych źródłowych. |
+| [Microsoft. umiejętności. Text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | Ta umiejętność używa przedniego modelu do wykrywania ważnych fraz opartych na rozmieszczeniu, regułach językowych, sąsiedztwie z innymi postanowieniami oraz o tym, jak nietypowy termin znajduje się w danych źródłowych. |
 | [Microsoft. umiejętności. Text. LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Ta umiejętność używa preszkolenego modelu do wykrywania używanego języka (jeden identyfikator języka na dokument). Gdy w tych samych segmentach tekstu są używane wiele języków, dane wyjściowe są identyfikatorem LCID gotowego do użycia języka.|
 | [Microsoft. umiejętności. Text. MergeSkill](cognitive-search-skill-textmerger.md) | Konsoliduje tekst z kolekcji pól w jedno pole.  |
 | [Microsoft. umiejętności. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Ta umiejętność używa przedniego modelu do ustanowienia jednostek dla ustalonego zestawu kategorii: ludzie, lokalizacja, organizacja, wiadomości e-mail, adresy URL, pola DateTime. |

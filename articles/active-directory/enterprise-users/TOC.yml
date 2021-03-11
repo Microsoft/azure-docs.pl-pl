@@ -175,10 +175,10 @@
 - name: Dokumentacja
   items:
     - name: Interfejs API programu Graph
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/azure-ad-overview
     - name: Interfejs wiersza polecenia usługi Azure AD
       href: /cli/azure/ad
     - name: Moduł Azure AD PowerShell dla programu Graph
-      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+      href: /powershell/azure/active-directory/install-adv2
     - name: Limity usługi Azure AD
       href: directory-service-limits-restrictions.md

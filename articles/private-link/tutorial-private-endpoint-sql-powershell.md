@@ -1,5 +1,5 @@
 ---
-title: Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — PowerShell
+title: 'Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — PowerShell'
 description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak utworzyć serwer Azure SQL przy użyciu prywatnego punktu końcowego za pomocą Azure PowerShell
 services: private-link
 author: asudbring
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4999d8b5d5ebe5d44aae782589b5c63324a4027b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8668bdb9dc391582234bf5741c0dd287d026defd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096517"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554942"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure PowerShell
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure PowerShell
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
@@ -338,8 +338,6 @@ W tym samouczku utworzono:
 
 Maszyna wirtualna została użyta do bezpiecznego testowania łączności z programem SQL Server przez prywatny punkt końcowy.
 
-W następnym kroku warto również zainteresować [aplikację internetową z prywatnym połączeniem z architekturą usługi Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
-
-Dowiedz się, jak utworzyć usługę linku prywatnego:
+W następnym kroku warto również zainteresować **aplikację internetową z prywatnym połączeniem z architekturą usługi Azure SQL Database** , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
 > [!div class="nextstepaction"]
-> [Tworzenie usługi łącza prywatnego](create-private-link-service-portal.md)
+> [Aplikacja internetowa z łącznością prywatną z usługą Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

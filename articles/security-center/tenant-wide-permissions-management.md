@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107948"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617492"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Udziel i Żądaj widoczności dla całej dzierżawy
 
 Użytkownik z rolą Azure Active Directory (AD) **administratora globalnego** może korzystać z obowiązków obejmujących wiele dzierżawców, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. Podniesienie uprawnień jest wymagane, ponieważ przypisania ról usługi Azure AD nie zapewniają dostępu do zasobów platformy Azure. 
-
-> [!TIP]
-> Dowiedz się więcej na temat podniesienia uprawnień roli administratora globalnego w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Przyznaj sobie uprawnienia na poziomie dzierżawy
 
@@ -45,6 +42,14 @@ Aby przypisać własne uprawnienia na poziomie dzierżawy:
 1. Wyloguj się z Azure Portal, a następnie zaloguj się ponownie.
 
 1. Po uzyskaniu podwyższonego poziomu uprawnień Otwórz lub Odśwież Azure Security Center, aby sprawdzić, czy masz wgląd we wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. 
+
+W powyższym procesie proces wykonuje wiele operacji automatycznie:
+
+1. Uprawnienia użytkownika są tymczasowo podwyższone.
+1. Przy użyciu nowych uprawnień użytkownik jest przypisany do odpowiedniej roli RBAC platformy Azure w głównej grupie zarządzania.
+1. Uprawnienia z podwyższonym poziomem uprawnień są usuwane.
+
+Aby uzyskać więcej informacji o procesie podniesienia uprawnień usługi Azure AD, zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Żądaj uprawnień na poziomie dzierżawy, gdy są niewystarczające

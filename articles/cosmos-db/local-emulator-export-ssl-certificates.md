@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
-ms.openlocfilehash: 6c144f33f32422e27916e1987e0b2e8693f97945
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 952be09662c2c74f883d63de72bba2b9cb58d0e0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656482"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554007"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Eksportowanie Azure Cosmos DB certyfikatów emulatora do użycia z aplikacjami Java, Python i Node.js
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Należy wyeksportować certyfikat emulatora, aby pomyślnie korzystać z punktu 
 
 W przypadku uruchamiania aplikacji Java lub aplikacji MongoDB, które korzystają z klienta opartego na języku Java, łatwiej jest zainstalować certyfikat w domyślnym magazynie certyfikatów Java niż w przypadku przekazywania `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flag. Na przykład uwzględniona aplikacja demonstracyjna Java ( `https://localhost:8081/_explorer/index.html` ) zależy od domyślnego magazynu certyfikatów.
 
-Postępuj zgodnie z instrukcjami w temacie [Dodawanie certyfikatu do magazynu certyfikatów Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) , aby zaimportować certyfikat X. 509 do domyślnego magazynu certyfikatów języka Java. Pamiętaj, że będziesz pracować w katalogu *% JAVA_HOME%* podczas uruchamiania narzędzia. Po zaimportowaniu certyfikatu do magazynu certyfikatów klienci programu SQL i interfejsu API Azure Cosmos DB dla MongoDB będą mogli nawiązywać połączenia z emulatorem Azure Cosmos DB.
+Postępuj zgodnie z instrukcjami w temacie [Dodawanie certyfikatu do magazynu certyfikatów Java](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) , aby zaimportować certyfikat X. 509 do domyślnego magazynu certyfikatów języka Java. Pamiętaj, że będziesz pracować w katalogu *% JAVA_HOME%* podczas uruchamiania narzędzia. Po zaimportowaniu certyfikatu do magazynu certyfikatów klienci programu SQL i interfejsu API Azure Cosmos DB dla MongoDB będą mogli nawiązywać połączenia z emulatorem Azure Cosmos DB.
 
 Alternatywnie można uruchomić następujący skrypt bash w celu zaimportowania certyfikatu:
 

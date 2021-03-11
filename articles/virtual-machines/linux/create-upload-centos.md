@@ -2,16 +2,17 @@
 title: Tworzenie i przekazywanie wirtualnego dysku twardego systemu Linux opartego na CentOS
 description: Zapoznaj się z tematem tworzenie i przekazywanie wirtualnego dysku twardego (VHD) platformy Azure, który zawiera system operacyjny Linux oparty na CentOS.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 018df112c344fc08f2839752fcda3dfd9370af4e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4745e631bd92675f8dd1ef0d390baa88f7666552
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682595"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554670"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie CentOS dla platformy Azure
 

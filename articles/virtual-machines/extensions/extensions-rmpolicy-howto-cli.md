@@ -1,25 +1,19 @@
 ---
 title: Używanie Azure Policy do ograniczania instalacji rozszerzenia maszyny wirtualnej (Linux)
 description: Użyj Azure Policy, aby ograniczyć wdrożenia rozszerzenia maszyny wirtualnej.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 03/23/2018
-ms.author: akjosh
-ms.reviewer: cynthn
-ms.openlocfilehash: 41457f26c22e3b8ed529ce77cfaf452618b03655
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 582f690c00ff8bdd06e4d2867724aa482bcacaf3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737646"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559974"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Używanie Azure Policy do ograniczania instalacji rozszerzeń na maszynach wirtualnych z systemem Linux
 

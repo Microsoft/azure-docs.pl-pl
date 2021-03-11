@@ -1,22 +1,22 @@
 ---
 title: Rozszerzenie maszyny wirtualnej z systemem Linux dla Azure Backup
 description: Utwórz kopię zapasową spójną na poziomie aplikacji maszyny wirtualnej z Azure Backup przy użyciu rozszerzenia migawki maszyny wirtualnej Linux.
-services: backup, virtual-machines-linux
+services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 2bf653bb42351c9ab4811fde695c8f821fd42d7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ea984fdc4abeb08f4b080e913a0c34b99c59d93c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966772"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561113"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Rozszerzenie maszyny wirtualnej z systemem Linux dla Azure Backup
 

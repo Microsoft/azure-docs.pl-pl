@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 1. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832827"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608958"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsw odwołaniu dla Azure Functions 1. x
 
@@ -149,7 +149,7 @@ Ustawienia konfiguracji dla [wyzwalacza Azure Cosmos DB i powiązań](functions-
 
 ## <a name="eventhub"></a>eventHub
 
-Ustawienia konfiguracji dla [wyzwalaczy i powiązań centrum zdarzeń](functions-bindings-event-hubs-trigger.md#functions-1x).
+Ustawienia konfiguracji dla [wyzwalaczy i powiązań centrum zdarzeń](functions-bindings-event-hubs.md#functions-1x).
 
 ## <a name="functions"></a> — funkcje
 
