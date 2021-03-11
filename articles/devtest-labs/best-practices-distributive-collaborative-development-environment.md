@@ -3,12 +3,12 @@ title: Rozdystrybuowane programowanie do współpracy Azure DevTest Labs zasobó
 description: Zapewnia najlepsze rozwiązania dotyczące konfigurowania rozproszonego i współpracy środowiska programistycznego w celu opracowywania zasobów DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592368"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550080"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Najlepsze rozwiązania dotyczące rozbudowanych i rozwijających się zasobów Azure DevTest Labs
 Rozdystrybuowane programowanie do współpracy umożliwia różnym zespołom i innym osobom programowanie i konserwację kodu. Aby się powieść, proces programowania zależy od możliwości tworzenia, udostępniania i integrowania informacji. Ta zasada tworzenia klucza może być używana w Azure DevTest Labs. Istnieje kilka rodzajów zasobów w środowisku laboratoryjnym, które są powszechnie dystrybuowane między różnymi laboratoriami w przedsiębiorstwie. Różne typy zasobów koncentrują się na dwóch obszarach:
@@ -27,7 +27,7 @@ Możesz mieć wspólne źródło obrazów niestandardowych, które są wdrażane
 [Formuły](devtest-lab-manage-formulas.md) są specyficzne dla laboratorium i nie mają mechanizmu dystrybucji. Członkowie laboratorium wykonują wszystkie czynności w zakresie tworzenia formuł. 
 
 ## <a name="code-repository-based-resources"></a>Zasoby oparte na repozytorium kodu
-Istnieją dwie różne funkcje, które są oparte na repozytoriach kodu, artefaktach i środowiskach. W tym artykule opisano funkcje i sposób najwydajniejszego konfigurowania repozytoriów i przepływu pracy w celu umożliwienia dostosowywania dostępnych artefaktów i środowisk na poziomie organizacji lub na szczeblu zespołu.  Ten przepływ pracy jest oparty na standardowej [strategii rozgałęziania kontroli kodu źródłowego](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+Istnieją dwie różne funkcje, które są oparte na repozytoriach kodu, artefaktach i środowiskach. W tym artykule opisano funkcje i sposób najwydajniejszego konfigurowania repozytoriów i przepływu pracy w celu umożliwienia dostosowywania dostępnych artefaktów i środowisk na poziomie organizacji lub na szczeblu zespołu.  Ten przepływ pracy jest oparty na standardowej [strategii rozgałęziania kontroli kodu źródłowego](/azure/devops/repos/tfvc/branching-strategies-with-tfvc). 
 
 ### <a name="key-concepts"></a>Kluczowe pojęcia
 Informacje o źródle artefaktów obejmują metadane i skrypty. Informacje źródłowe dla środowisk obejmują metadane i szablony Menedżer zasobów z dowolnymi plikami pomocniczymi, takimi jak skrypty programu PowerShell, skrypty DSC, pliki zip itd.  
@@ -39,7 +39,7 @@ Najbardziej typową konfiguracją kontroli kodu źródłowego (SCC) jest skonfig
 - Zasoby jednostkowe/działy dla całej firmy
 - Zasoby specyficzne dla zespołu.
 
-Każdy z tych poziomów łączy się z innym repozytorium, w którym główna gałąź musi być jakością produkcyjną. [Gałęzie](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) w każdym repozytorium są przeznaczone do tworzenia tych konkretnych zasobów (artefaktów lub szablonów). Ta struktura jest dobrze dopasowana do DevTest Labs, ponieważ w tym samym czasie można łatwo połączyć wiele repozytoriów i wiele gałęzi z laboratoriami organizacji. Nazwa repozytorium jest zawarta w interfejsie użytkownika, aby uniknąć pomyłek w przypadku, gdy istnieją identyczne nazwy, opis i Wydawca.
+Każdy z tych poziomów łączy się z innym repozytorium, w którym główna gałąź musi być jakością produkcyjną. [Gałęzie](/azure/devops/repos/git/git-branching-guidance) w każdym repozytorium są przeznaczone do tworzenia tych konkretnych zasobów (artefaktów lub szablonów). Ta struktura jest dobrze dopasowana do DevTest Labs, ponieważ w tym samym czasie można łatwo połączyć wiele repozytoriów i wiele gałęzi z laboratoriami organizacji. Nazwa repozytorium jest zawarta w interfejsie użytkownika, aby uniknąć pomyłek w przypadku, gdy istnieją identyczne nazwy, opis i Wydawca.
      
 Na poniższym diagramie przedstawiono dwa repozytoria: repozytorium firmy utrzymywane przez dział IT oraz repozytorium dzielenia utrzymywane przez dział R&D.
 

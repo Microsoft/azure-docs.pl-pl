@@ -3,17 +3,17 @@ title: Szybki Start — Tworzenie maszyny wirtualnej do przetwarzania poufnego p
 description: Rozpocznij pracę z wdrożeniami, zapoznaj się z tematem, jak szybko utworzyć poufną maszynę wirtualną obliczeniową w portalu Marketplace.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 82d9c143f84dfced639c928bf12693024079c2ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409497"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566638"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w portalu Marketplace
 
@@ -52,7 +52,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
    * **Region**: wybierz odpowiedni region platformy Azure.
 
         > [!NOTE]
-        > Poufne maszyny wirtualne obliczeniowe są uruchamiane tylko na wyspecjalizowanym sprzęcie dostępnym w określonych regionach. Najnowsze dostępne regiony dla maszyn wirtualnych z serii DCsv2 można znaleźć w temacie [dostępne regiony](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        > Poufne maszyny wirtualne obliczeniowe są uruchamiane tylko na wyspecjalizowanym sprzęcie dostępnym w określonych regionach. Najnowsze dostępne regiony dla DCsv2-Series maszyn wirtualnych można znaleźć w temacie [dostępne regiony](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
     
     * **Wybierz obraz**: zaznacz dowolny obraz. Jeśli chcesz ukończyć ten konkretny samouczek, wybierz pozycję Ubuntu 18,04 (Gen 2). W przeciwnym razie nastąpi przekierowanie do odpowiednich kroków poniżej. 
 
@@ -72,24 +72,24 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 1. Wybierz przycisk **Dalej: ustawienia maszyny wirtualnej** w dolnej części ekranu.
 
     > [!IMPORTANT]
-    > Zaczekaj na zaktualizowanie strony. *Nie powinien zostać* wyświetlony komunikat informujący o tym, że maszyny wirtualne z serii DCsv2 są dostępne w ograniczonej liczbie regionów. " Jeśli ten komunikat będzie nadal występował, Wróć do poprzedniej strony i wybierz dostępny region serii DCsv2.
+    > Zaczekaj na zaktualizowanie strony. *Nie powinien zostać* wyświetlony komunikat informujący o tym, że maszyny wirtualne z serii DCsv2 są dostępne w ograniczonej liczbie regionów. " Jeśli ten komunikat będzie nadal występował, Wróć do poprzedniej strony i wybierz dostępny region DCsv2-Series.
 
 1. Aby **zmienić rozmiar**, wybierz maszynę wirtualną z możliwością obliczeń poufną w selektorze rozmiarów. 
 
     > [!TIP]
-    > Powinny być widoczne rozmiary **DC1s_v2**, **DC2s_v2**, **DC4s_V2**i **DC8_v2**. Są to jedyne rozmiary maszyn wirtualnych, które obecnie obsługują dane poufne. [Dowiedz się więcej](virtual-machine-solutions.md).
+    > Powinny być widoczne rozmiary **DC1s_v2**, **DC2s_v2**, **DC4s_V2** i **DC8_v2**. Są to jedyne rozmiary maszyn wirtualnych, które obecnie obsługują dane poufne. [Dowiedz się więcej](virtual-machine-solutions.md).
 
-1. W obszarze **typ dysku systemu operacyjnego**wybierz typ dysku.
+1. W obszarze **typ dysku systemu operacyjnego** wybierz typ dysku.
 
-1. W przypadku **Virtual Network**Utwórz nowy element lub wybierz go z istniejącego zasobu.
+1. W przypadku **Virtual Network** Utwórz nowy element lub wybierz go z istniejącego zasobu.
 
-1. W obszarze **podsieć**Utwórz nową lub wybierz jeden z istniejących zasobów.
+1. W obszarze **podsieć** Utwórz nową lub wybierz jeden z istniejących zasobów.
 
-1. W obszarze **Wybierz publiczne porty przychodzące**wybierz pozycję **SSH (Linux)/RDP (Windows)**. W tym przewodniku szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji Open enklawy SDK. 
+1. W obszarze **Wybierz publiczne porty przychodzące** wybierz pozycję **SSH (Linux)/RDP (Windows)**. W tym przewodniku szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji Open enklawy SDK. 
 
-1. W przypadku **diagnostyki rozruchu**pozostaw to pole wyłączone w tym przewodniku Szybki Start. 
+1. W przypadku **diagnostyki rozruchu** pozostaw to pole wyłączone w tym przewodniku Szybki Start. 
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami 
 
 ## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu SDK open enklawy (zestaw SDK programu OE) <a id="Install"></a>
 
-Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować [zestaw OE SDK](https://github.com/openenclave/openenclave) na maszynie wirtualnej z serii DCsv2, na której działa obraz Ubuntu 18,04 LTS Gen 2. 
+Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować [zestaw programu OE SDK](https://github.com/openenclave/openenclave) na maszynie wirtualnej DCsv2-Series z Ubuntu 18,04 LTS generacji 2. 
 
 Jeśli maszyna wirtualna jest uruchamiana na Ubuntu 16,04 LTS Gen 2, należy postępować zgodnie z [instrukcjami instalacji dla Ubuntu 16,04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
 

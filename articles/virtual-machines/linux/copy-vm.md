@@ -2,17 +2,18 @@
 title: Kopiowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak utworzyć kopię maszyny wirtualnej z systemem Linux platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i Managed Disks.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 7f9ac0ab9eacb90bde70c85ea06bc19a18aa0c05
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 05b45745565dface6b29f5a05cb1b557f4a49f6e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201148"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558404"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Tworzenie kopii maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Managed Disks
 

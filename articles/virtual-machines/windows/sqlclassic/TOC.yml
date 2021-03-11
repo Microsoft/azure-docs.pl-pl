@@ -35,7 +35,7 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: /powershell/azure/?view=azuresmps-3.7.0
+      href: /powershell/azure/
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/
     - name: T-SQL

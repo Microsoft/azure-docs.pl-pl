@@ -120,6 +120,8 @@
       href: concepts/authentication.md
     - name: Prywatność
       href: concepts/privacy.md
+    - name: Cennik
+      href: concepts/pricing.md
     - name: Powiadomienia wypychane
       href: concepts/notifications.md
     - name: Współdziałanie usługi Teams

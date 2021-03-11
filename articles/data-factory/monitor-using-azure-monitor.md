@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586856"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550301"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Data Factory monitorowania i alertów za pomocą Azure Monitor
 
@@ -76,7 +76,7 @@ Utwórz lub Dodaj ustawienia diagnostyczne dla fabryki danych.
    ![Nadaj nazwę ustawieniom i wybierz obszar roboczy usługi log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [log Analytics znane ograniczenia](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
+    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [Dokumentacja dzienników AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -574,7 +574,7 @@ Poniżej przedstawiono atrybuty dziennika operacji uruchamiania/zatrzymywania i 
 | **integrationRuntimeName** | Ciąg | Nazwa Twojego środowiska IR usług SSIS                                      | `MySSISIR` |
 | **poziom**                  | Ciąg | Poziom dzienników diagnostycznych                                  | `Informational` |
 | **Result**             | Ciąg | Wynik operacji w podczerwieni SSIS                          | `Started/InProgress/Succeeded/Failed` |
-| **Komunikat**                | Ciąg | Komunikat wyjściowy operacji środowiska IR programu SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **message**                | Ciąg | Komunikat wyjściowy operacji środowiska IR programu SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **Identyfikator**             | Ciąg | Unikatowy identyfikator zasobu ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atrybuty dziennika kontekstu komunikatów zdarzeń SSIS
@@ -667,7 +667,7 @@ Poniżej znajdują się atrybuty dziennika komunikatów zdarzeń, które są gen
 | **Czas komunikatu**            | Ciąg | Godzina utworzenia komunikatu o zdarzeniu w formacie UTC          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | Ciąg | Typ komunikatu o zdarzeniu                                     | `70`(zobacz [więcej typów komunikatów](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
 | **messageSourceType**      | Ciąg | Typ źródła komunikatu zdarzenia                              | `20`(zobacz [więcej typów źródeł komunikatów](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
-| **Komunikat**                | Ciąg | Tekst komunikatu o zdarzeniu                                     | `MyPackage:Validation has started.` |
+| **message**                | Ciąg | Tekst komunikatu o zdarzeniu                                     | `MyPackage:Validation has started.` |
 | **Nr pakietu**            | Ciąg | Nazwa wykonanego pliku pakietu                             | `MyPackage.dtsx` |
 | **eventName**              | Ciąg | Nazwa powiązanego zdarzenia czasu wykonywania                                 | `OnPreValidate` |
 | **messageSourceName**      | Ciąg | Nazwa składnika pakietu jako źródło komunikatu o zdarzeniu         | `Data Flow Task` |

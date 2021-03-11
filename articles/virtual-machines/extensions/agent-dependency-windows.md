@@ -1,26 +1,19 @@
 ---
 title: Azure Monitor rozszerzenie maszyny wirtualnej zależności dla systemu Windows
 description: Wdróż agenta zależności Azure Monitor na maszynie wirtualnej z systemem Windows przy użyciu rozszerzenia maszyny wirtualnej.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0151e7b3a30cd4b00dba75b7490563923cd5b8ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.collection: windows
+ms.date: 03/29/2019
+ms.openlocfilehash: 429cc01f466c55283985729c3395bb2137e38fa6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580296"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566309"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Azure Monitor rozszerzenie maszyny wirtualnej zależności dla systemu Windows
 

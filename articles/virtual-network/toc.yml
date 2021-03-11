@@ -409,15 +409,13 @@
               href: move-across-regions-publicip-powershell.md
     - name: NAT
       items:
-        - name: Tworzenie bramy translatora adresów sieciowych — PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
+        - name: Tworzenie i weryfikowanie bramy translatora adresów sieciowych — PowerShell
+          href: tutorial-create-nat-gateway-powershell.md
         - name: Tworzenie bramy translatora adresów sieciowych — interfejs wiersza polecenia
           href: quickstart-create-nat-gateway-cli.md
         - name: Tworzenie bramy translatora adresów sieciowych — szablon usługi Resource Manager
           displayname: Resource Manager
           href: quickstart-create-nat-gateway-template.md
-        - name: Tworzenie i weryfikowanie bramy translatora adresów sieciowych — PowerShell
-          href: tutorial-create-validate-nat-gateway-powershell.md
         - name: Tworzenie i weryfikowanie bramy translatora adresów sieciowych — interfejs wiersza polecenia
           href: tutorial-create-validate-nat-gateway-cli.md
     - name: Rozwiązywanie problemów

@@ -2,18 +2,19 @@
 title: Szybki Start — Tworzenie maszyny wirtualnej z systemem Linux w Azure Portal
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Linux przy użyciu Azure Portal.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c1ccd2df3a1fd6b2f1f1cb5b2d3250e8bbfcc327
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016050"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549740"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux w witrynie Azure Portal
 
@@ -21,7 +22,7 @@ Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Port
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego nie zrobiono.
 
@@ -46,7 +47,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego n
 
     ![Zrzut ekranu przedstawiający sekcję konta administratora, w której wybierasz typ uwierzytelniania i podaj poświadczenia administratora](./media/quick-create-portal/administrator-account.png)
 
-1. W obszarze publiczne porty przychodzące dla **reguł portów ruchu** przychodzącego  >  **Public inbound ports** wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **SSH (22)** i **http (80)** z listy rozwijanej. 
+1. W obszarze publiczne porty przychodzące dla **reguł portów ruchu** przychodzącego  >  wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **SSH (22)** i **http (80)** z listy rozwijanej. 
 
     ![Zrzut ekranu przedstawiający sekcję reguły portów ruchu przychodzącego, w której wybierane są dozwolone porty przychodzące](./media/quick-create-portal/inbound-port-rules.png)
 

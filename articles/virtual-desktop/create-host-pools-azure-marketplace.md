@@ -4,15 +4,15 @@ description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows prz
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651463"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617351"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -101,18 +101,16 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
 1. W obszarze **Grupa zasobów** wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne. Może to być inna grupa zasobów niż ta, która została użyta dla puli hostów.
 
-2. Wybierz **lokalizację maszyny wirtualnej** , w której chcesz utworzyć maszyny wirtualne. Mogą być takie same lub różne od regionu wybranego dla puli hostów.
+2. Następnie podaj **prefiks nazwy** , aby nazwać maszyny wirtualne tworzone przez proces instalacji. Sufiks będzie `-` z liczbami zaczynającymi się od 0.
 
-3. Następnie wybierz **rozmiar maszyny wirtualnej** , której chcesz użyć. Domyślny rozmiar można zachować jako-lub wybierz **Zmień rozmiar** , aby zmienić rozmiar. W przypadku wybrania opcji **Zmień rozmiar** w wyświetlonym oknie Wybierz rozmiar maszyny wirtualnej odpowiedni dla danego obciążenia.
+3. Wybierz **lokalizację maszyny wirtualnej** , w której chcesz utworzyć maszyny wirtualne. Mogą być takie same lub różne od regionu wybranego dla puli hostów.
+   
+4. Następnie wybierz opcję dostępność, która najlepiej odpowiada Twoim potrzebom. Aby dowiedzieć się więcej o tym, która opcja jest dla Ciebie odpowiednia, zobacz [Opcje dostępności dla maszyn wirtualnych na platformie Azure](../virtual-machines/availability.md) i [naszych często zadawanych pytań](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [Zrzut ekranu przedstawiający menu rozwijane strefa dostępności. Zaznaczona jest opcja "strefa dostępności".](media/availability-zone.png)
 
-4. W obszarze **Liczba maszyn wirtualnych** podaj liczbę maszyn wirtualnych, które chcesz utworzyć dla puli hostów.
-
-    >[!NOTE]
-    >Proces instalacji może utworzyć do 400 maszyn wirtualnych podczas konfigurowania puli hostów, a każdy proces instalacji maszyn wirtualnych tworzy cztery obiekty w grupie zasobów. Ponieważ proces tworzenia nie sprawdza limitu przydziału subskrypcji, upewnij się, że liczba wprowadzonych maszyn wirtualnych znajduje się w granicach maszyny wirtualnej i interfejsów API platformy Azure dla Twojej grupy zasobów i subskrypcji. Po zakończeniu tworzenia puli hostów można dodać więcej maszyn wirtualnych.
-
-5. Następnie podaj **prefiks nazwy** , aby nazwać maszyny wirtualne tworzone przez proces instalacji. Sufiks będzie `-` z liczbami zaczynającymi się od 0.
-
-6. Następnie wybierz obraz, który ma zostać użyty do utworzenia maszyny wirtualnej. Możesz wybrać opcję **obiekt BLOB** **galerii** lub magazynu.
+5. Następnie wybierz obraz, który ma zostać użyty do utworzenia maszyny wirtualnej. Możesz wybrać opcję **obiekt BLOB** **galerii** lub magazynu.
 
     - W przypadku wybrania opcji **Galeria** wybierz z menu rozwijanego jeden z zalecanych obrazów:
 
@@ -122,23 +120,30 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
       - Wiele sesji systemu Windows 10 Enterprise, wersja 2004
       - Wiele sesji systemu Windows 10 Enterprise, wersja 2004 + Microsoft 365 aplikacje
 
-     Jeśli nie widzisz żądanego obrazu, wybierz opcję **Przeglądaj wszystkie obrazy i dyski**, które umożliwiają wybranie innego obrazu w galerii lub obrazu dostarczonego przez firmę Microsoft i innych wydawców. Upewnij się, że wybrany obraz jest jednym z [obsługiwanych obrazów systemu operacyjnego](overview.md#supported-virtual-machine-os-images).
+      Jeśli nie widzisz żądanego obrazu, wybierz pozycję **Pokaż wszystkie obrazy**, co umożliwi wybranie innego obrazu w galerii lub obrazu dostarczonego przez firmę Microsoft i innych wydawców. Upewnij się, że wybrany obraz jest jednym z [obsługiwanych obrazów systemu operacyjnego](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Zrzut ekranu przedstawiający witrynę Marketplace z listą obrazów wyświetlanych od firmy Microsoft.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Zrzut ekranu przedstawiający witrynę Marketplace z listą obrazów wyświetlanych od firmy Microsoft.](media/marketplace-images.png)
 
-     Możesz również przejść do **pozycji moje elementy** i wybrać obraz niestandardowy, który został już przekazany.
+      Możesz również przejść do **pozycji moje elementy** i wybrać obraz niestandardowy, który został już przekazany.
 
-     > [!div class="mx-imgBorder"]
-     > ![Zrzut ekranu przedstawiający kartę Moje elementy.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Zrzut ekranu przedstawiający kartę Moje elementy.](media/my-items.png)
 
     - W przypadku wybrania **obiektu BLOB Storage** możesz użyć własnej kompilacji obrazu za pomocą funkcji Hyper-V lub na maszynie wirtualnej platformy Azure. Wystarczy wprowadzić lokalizację obrazu w obiekcie blob magazynu jako identyfikator URI.
+   
+   Lokalizacja obrazu jest niezależna od opcji dostępności, ale odporność strefy obrazu Określa, czy ten obraz może być używany z strefą dostępności. W przypadku wybrania strefy dostępności podczas tworzenia obrazu upewnij się, że używasz obrazu z galerii z włączonym odpornością strefy. Aby dowiedzieć się więcej na temat opcji odporności strefy, której należy użyć, zobacz [często zadawane pytania](faq.md#which-availability-option-is-best-for-me).
 
-7. Wybierz rodzaje dysków systemu operacyjnego, które mają być używane przez maszyny wirtualne: SSD w warstwie Standardowa, SSD w warstwie Premium lub HDD w warstwie Standardowa.
+6. Następnie wybierz **rozmiar maszyny wirtualnej** , której chcesz użyć. Domyślny rozmiar można zachować jako-lub wybierz **Zmień rozmiar** , aby zmienić rozmiar. W przypadku wybrania opcji **Zmień rozmiar** w wyświetlonym oknie Wybierz rozmiar maszyny wirtualnej odpowiedni dla danego obciążenia.
 
-8. W obszarze Sieć i zabezpieczenia wybierz **sieć wirtualną** i **podsieć** , w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Serwery DNS wybranej sieci wirtualnej powinny być skonfigurowane do korzystania z adresu IP kontrolera domeny.
+7. W obszarze **Liczba maszyn wirtualnych** podaj liczbę maszyn wirtualnych, które chcesz utworzyć dla puli hostów.
 
-9. Następnie wybierz, czy chcesz uzyskać publiczny adres IP dla maszyn wirtualnych. Zalecamy wybranie opcji **nie** , ponieważ prywatny adres IP jest bezpieczniejszy.
+    >[!NOTE]
+    >Proces instalacji może utworzyć do 400 maszyn wirtualnych podczas konfigurowania puli hostów, a każdy proces instalacji maszyn wirtualnych tworzy cztery obiekty w grupie zasobów. Ponieważ proces tworzenia nie sprawdza limitu przydziału subskrypcji, upewnij się, że liczba wprowadzonych maszyn wirtualnych znajduje się w granicach maszyny wirtualnej i interfejsów API platformy Azure dla Twojej grupy zasobów i subskrypcji. Po zakończeniu tworzenia puli hostów można dodać więcej maszyn wirtualnych.
+
+8. Wybierz rodzaje dysków systemu operacyjnego, które mają być używane przez maszyny wirtualne: SSD w warstwie Standardowa, SSD w warstwie Premium lub HDD w warstwie Standardowa.
+
+9. W obszarze Sieć i zabezpieczenia wybierz **sieć wirtualną** i **podsieć** , w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Serwery DNS wybranej sieci wirtualnej powinny być skonfigurowane do korzystania z adresu IP kontrolera domeny.
 
 10. Wybierz typ grupy zabezpieczeń: **podstawowy**, **Zaawansowany** lub **Brak**.
 
@@ -154,9 +159,9 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
 11. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Opcjonalnie możesz dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
 
-  - Podczas określania jednostki organizacyjnej upewnij się, że używasz pełnej ścieżki (nazwy wyróżniającej) i bez znaków cudzysłowu.
+    - Po określeniu jednostki organizacyjnej upewnij się, że używasz pełnej ścieżki (nazwy wyróżniającej) i bez znaków cudzysłowu.
 
-12. W obszarze konto administratora wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej. To konto nie może mieć włączonej usługi uwierzytelniania wieloskładnikowego (MFA). Podczas dołączania do domeny Azure Active Directory Domain Services (Azure AD DS) konto musi należeć do grupy administratorów kontrolera domeny usługi Azure AD, a hasło konta musi działać na platformie Azure AD DS.
+12. W obszarze konto administratora domeny wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej. To konto nie może mieć włączonej usługi uwierzytelniania wieloskładnikowego (MFA). Podczas dołączania do domeny Azure Active Directory Domain Services (Azure AD DS) konto musi należeć do grupy administratorów kontrolera domeny usługi Azure AD, a hasło konta musi działać na platformie Azure AD DS.
 
 13. Wybierz pozycję **Dalej: obszar roboczy >**.
 

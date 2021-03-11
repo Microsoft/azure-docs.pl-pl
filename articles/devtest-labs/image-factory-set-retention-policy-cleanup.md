@@ -3,12 +3,12 @@ title: Konfigurowanie zasad przechowywania w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować zasady przechowywania, wyczyścić fabrykę i wycofać stare obrazy z DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476057"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550029"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Konfigurowanie zasad przechowywania w Azure DevTest Labs
 W tym artykule opisano konfigurowanie zasad przechowywania, czyszczenie fabryki oraz wycofywanie starych obrazów ze wszystkich innych laboratoriów DevTest w organizacji. 
@@ -60,11 +60,11 @@ Po zakończeniu definiowania kompilacji Utwórz kolejkę nowej kompilacji, aby u
 ## <a name="summary"></a>Podsumowanie
 Teraz masz działającą fabrykę obrazu, która umożliwia generowanie i dystrybucję obrazów niestandardowych do laboratoriów na żądanie. W tym momencie jest to bardzo ważne, aby zapewnić prawidłowe skonfigurowanie obrazów i zidentyfikowanie laboratoriów docelowych. Jak wspomniano w poprzednim artykule, **Labs.js** pliku znajdującego się w folderze **konfiguracyjnym** określa, które obrazy należy udostępnić w każdej z laboratoriów docelowych. Po dodaniu innych laboratoriów DevTest do organizacji wystarczy dodać wpis w Labs.jsna potrzeby nowego laboratorium.
 
-Dodawanie nowego obrazu do fabryki jest również proste. Jeśli chcesz dołączyć nowy obraz do fabryki, Otwórz [Azure Portal](https://portal.azure.com), przejdź do portalu fabryki DevTest Labs, wybierz przycisk, aby dodać maszynę wirtualną, a następnie wybierz żądany obraz i artefakty witryny Marketplace. Zamiast wybierać przycisk **Utwórz** , aby utworzyć nową maszynę wirtualną, wybierz pozycję **Wyświetl Azure Resource Manager szablon**i Zapisz szablon jako plik JSON w miejscu w folderze **GoldenImages** w repozytorium. Przy następnym uruchomieniu fabryki obrazu zostanie utworzony niestandardowy obraz.
+Dodawanie nowego obrazu do fabryki jest również proste. Jeśli chcesz dołączyć nowy obraz do fabryki, Otwórz [Azure Portal](https://portal.azure.com), przejdź do portalu fabryki DevTest Labs, wybierz przycisk, aby dodać maszynę wirtualną, a następnie wybierz żądany obraz i artefakty witryny Marketplace. Zamiast wybierać przycisk **Utwórz** , aby utworzyć nową maszynę wirtualną, wybierz pozycję **Wyświetl Azure Resource Manager szablon** i Zapisz szablon jako plik JSON w miejscu w folderze **GoldenImages** w repozytorium. Przy następnym uruchomieniu fabryki obrazu zostanie utworzony niestandardowy obraz.
 
 
 ## <a name="next-steps"></a>Następne kroki
-1. [Zaplanuj kompilację/wydanie](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) , aby okresowo uruchamiać fabrykę obrazu. W regularnych odstępach czasu odświeżane są obrazy generowane przez fabrykę.
+1. [Zaplanuj kompilację/wydanie](/azure/devops/pipelines/build/triggers?tabs=designer) , aby okresowo uruchamiać fabrykę obrazu. W regularnych odstępach czasu odświeżane są obrazy generowane przez fabrykę.
 2. Utwórz więcej złota obrazów dla fabryki. Możesz również rozważyć [utworzenie artefaktów](devtest-lab-artifact-author.md) , aby dodać do skryptu dodatkowe fragmenty zadań konfiguracyjnych maszyny wirtualnej i uwzględnić artefakty w obrazach fabryki.
 4. Utwórz [oddzielną kompilację/wydanie](/azure/devops/pipelines/overview?view=azure-devops-2019) , aby osobno uruchomić skrypt **DistributeImages** . Ten skrypt można uruchomić po wprowadzeniu zmian do Labs.jsi pobrania obrazów skopiowanych do laboratoriów docelowych bez konieczności ponownego tworzenia wszystkich obrazów.
 

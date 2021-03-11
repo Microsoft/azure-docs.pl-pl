@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 03aed175b105ad650407acb4a839c5a5b8004465
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
-ms.translationtype: HT
+ms.openlocfilehash: f9707ab48d64ede2e796675eb3a0a6e7820c7073
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102532529"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603279"
 ---
 W zależności od systemu operacyjnego klienta procedury zdalnego łączenia się z urządzeniem są różne.
 
@@ -68,7 +68,7 @@ Wykonaj następujące kroki, aby zdalnie nawiązać połączenie z klientem NFS.
 
 1. Aby otworzyć sesję programu PowerShell, wpisz:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. Aby nawiązać połączenie przy użyciu klienta zdalnego, wpisz:
 
