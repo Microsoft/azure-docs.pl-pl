@@ -7,14 +7,14 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 8dbde1f74c700e772823d61b3e35a464f9bbc17e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 63daa7cda2f10448e9a0f8e250412137dc2af892
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120967"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563901"
 ---
-# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej Redis Enterprise (wersja zapoznawcza)
+# <a name="quickstart-create-a-redis-enterprise-cache"></a>Szybki Start: tworzenie pamięci podręcznej Redis przedsiębiorstwa
 
 Usługa Azure cache for Redis "warstwy przedsiębiorstwa zapewniają w pełni zintegrowane i zarządzane [Redis przedsiębiorstwa](https://redislabs.com/redis-enterprise/) na platformie Azure. Są one obecnie dostępne jako wersja zapoznawcza. W tej wersji zapoznawczej są dostępne dwie nowe warstwy:
 * Enterprise, która używa pamięci lotnej (DRAM) na maszynie wirtualnej do przechowywania danych

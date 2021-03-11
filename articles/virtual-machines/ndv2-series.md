@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f4031893ae5d45902f9d0ab2ccb1cf984724a69e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2f062aa43132543a2c149039eb50c0a0ab22d83d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562252"
+ms.locfileid: "102618563"
 ---
 # <a name="updated-ndv2-series"></a>Zaktualizowana seria NDv2
 
@@ -39,7 +39,7 @@ Krytycznie, NDv2 jest zbudowany na potrzeby skalowania w górę i skalowalnego w
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
 [Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
-[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
+[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
 InfiniBand: obsługiwane<br>
 NVIDIA NVLink Interconnect: obsługiwane<br>
 <br>

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: ef90a21ab8fad0e18542c1c88ee808237ff150c5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 3/08/2021
+ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032589"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563782"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Przegląd współpracy z zespołami i partnerami sprzedaży firmy Microsoft
 
@@ -37,11 +37,16 @@ Okazja do sprzedaży to wszelka współpraca z zespołami sprzedaży firmy Micro
 
 ## <a name="co-sell-statuses"></a>Stany współsprzedażu
 
-Istnieją cztery poziomy stanu współsprzedaży, które można zastosować do oferty:
+Są to poziomy stanu współsprzedaży, które można zastosować do oferty.
+
+Stany współsprzedawanej platformy Azure:
 
 - Nie Współpracuj gotowy
 - Gotowe do rozłożenia
 - Usługa Azure IP zachęcani — sprzedawanie
+
+Zarządzanie Stanami dla aplikacji firmowych
+- BIZ Apps ISV Connect Standard
 - BIZ Apps ISV Connect Premium  
 
 Aby uzyskać szczegółowe informacje o wymaganiach dotyczących osiągania tych stanów współsprzedażowych, zobacz [wymagania dotyczące wspólnych transakcji](co-sell-requirements.md).
@@ -54,7 +59,7 @@ Aby dowiedzieć się, jak uzyskać informacje o gotowym do obsprzedawaniu i stat
 
 ## <a name="benefits-of-co-sell-incentivized-status"></a>Zalety zachęcani
 
-Stan _zachęcani współsprzedawanych_ , obejmuje _usługi Azure IP zachęcani_ i _BIZ Apps ISV Connect Premium_. Te Stany incentivize partnerzy do sprzedaży oferty. Aby osiągnąć ten stan, należy również uzyskać stan gotowej współpracy. Status zachęcani do sprzedaży uzyskuje wszystkie korzyści płynące z rozwiązań do współsprzedaży i może uzyskać dodatkowe zachęty dla zespołów Microsoft Sales Teams i kwalifikować się do większej liczby komercyjnych korzyści z witryny Marketplace.
+_Zachęcani_ status, obejmujący _usługę Azure IP współsprzedaż zachęcani_ i _BIZ Apps ISV Connect Standard lub Premium_. Te Stany incentivizeją zespoły sprzedaży firmy Microsoft do sprzedaży oferty. Aby osiągnąć ten stan, należy również uzyskać stan gotowej współpracy. Status zachęcani do sprzedaży uzyskuje wszystkie korzyści płynące ze stanu do współsprzedaży i mogą uzyskać dodatkowe zachęty dla zespołów Microsoft Sales Teams i kwalifikować się do większej liczby komercyjnych korzyści z witryny Marketplace.
 
 Stan zachęcani usługi Azure IP do współsprzedaży można zastosować do tych typów ofert:
 
@@ -64,18 +69,17 @@ Stan zachęcani usługi Azure IP do współsprzedaży można zastosować do tych
 - Moduł IoT Edge
 - Oprogramowanie jako usługa (SaaS)
 
-Do tych typów ofert można zastosować pakiet BIZ Apps ISV Connect Premium.
+Do tych typów ofert można zastosować pakiet BIZ Apps ISV Connect Standard lub Premium.
 
-- Dynamics 365 Business Central
 - Dynamics 365 dla zaangażowania klienta & PowerApps
 - Dynamics 365 dla operacji
 
-Oferty, które osiągają status _zachęcani "współsprzedaż usługi Azure IP"_ , uzyskują następujące korzyści komercyjne:
+Oferty, które uzyskują dostęp _do usługi Azure IP zachęcani_ lub _BIZ Apps ISV Connect Standard lub Premium,_ uzyskują następujące korzyści komercyjne w witrynie Marketplace:
 
 - Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy rozwiązań infrastruktury jako usługi (IaaS) lub rozwiązania oprogramowania jako usługi (SaaS) sprzedawanego za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [komercyjne opłaty za usługę Marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży rozwiązania IaaS lub oferty SaaS. Aby dowiedzieć się więcej na temat programu CSP, zobacz [program Cloud Solution Provider](cloud-solution-providers.md).
 - Sprzedaż oferty za pomocą komercyjnej witryny Marketplace będzie współtworzyć zobowiązania dotyczące użycia platformy Azure dla klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **korzyść platformy Azure kwalifikującą się** w Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md).
-- Oferty mające na celu osiągnięcie _usługi Azure IP zachęcani_ lub _BIZ Apps ISV Connect Premium status zachęty_ będą otrzymywać **preferowany wskaźnik rozwiązań** na stronie aukcji oferty w sklepach online. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania. Aby dowiedzieć się więcej, zobacz [preferowane rozwiązania w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
+- Oferty mające na celu osiągnięcie _usługi Azure IP współsprzedaży zachęcani_ lub _BIZ Apps ISV Connect Standard lub Premium_ będą otrzymywać **preferowane rozwiązania firmy Microsoft** na stronie aukcji oferty w sklepach online. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania.
 
 Aby dowiedzieć się, jak uzyskać informacje o stanie "współsprzedaż" i "współsprzedaż" z zachęcanim, zobacz wspólne i współsprzedażowe [wymagania zachęcani](co-sell-requirements.md).
 

@@ -9,19 +9,19 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: e1fc3771eaf5e8fa59b297e2052d232150ccfab3
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 3d2dd7691ac601e690e9f477b0450da07233e201
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006295"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553463"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Tworzenie aplikacji usługi App Service z ciągłym wdrażaniem przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie konfiguruje ciągłe wdrażanie z repozytorium usługi Azure DevOps. Do pracy z tym przykładem potrzebne są:
 
 * Repozytorium Azure DevOps z kodem aplikacji, dla którego masz uprawnienia administracyjne.
-* [Osobisty token dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) organizacji pakietu Azure DevOps.
+* [Osobisty token dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) organizacji pakietu Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

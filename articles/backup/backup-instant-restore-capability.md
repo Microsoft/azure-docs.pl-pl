@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014452"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618580"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -112,7 +112,13 @@ Nowy model nie zezwala na usuwanie punktu przywracania (SVR), chyba że migawka 
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Dlaczego moja migawka nadal istnieje, nawet po upływie ustawionego okresu przechowywania w zasadach tworzenia kopii zapasowych?
 
-Jeśli punkt odzyskiwania zawiera migawkę i jest dostępny najnowszy punkt odzyskiwania, jest zachowywany do momentu następnej pomyślnej kopii zapasowej. Jest to uzależnione od wydanych zasad "wyrzucania elementów bezużytecznych" (GC). Jest to wymagane, aby zawsze był obecny co najmniej jeden najnowszy punkt odzyskiwania, w przypadku gdy wszystkie kolejne kopie zapasowe kończą się niepowodzeniem z powodu problemu z maszyną wirtualną. W normalnych scenariuszach punkty odzyskiwania są czyszczone przez maksymalnie 24 godziny od momentu ich wygaśnięcia.
+Jeśli punkt odzyskiwania zawiera migawkę i jest dostępny najnowszy punkt odzyskiwania, jest zachowywany do momentu następnej pomyślnej kopii zapasowej. Jest to uzależnione od wydanych zasad "wyrzucania elementów bezużytecznych" (GC). Jest to wymagane, aby zawsze był obecny co najmniej jeden najnowszy punkt odzyskiwania, w przypadku gdy wszystkie kolejne kopie zapasowe kończą się niepowodzeniem z powodu problemu z maszyną wirtualną. W normalnych scenariuszach punkty odzyskiwania są czyszczone przez maksymalnie 24 godziny od momentu ich wygaśnięcia. W rzadkich scenariuszach może istnieć co najmniej jedna dodatkowa migawka oparta na grubszym obciążeniu w module wyrzucania elementów bezużytecznych (GC).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>Dlaczego widzę więcej migawek niż moje zasady przechowywania?
+
+W scenariuszu, w którym zasady przechowywania są ustawione na wartość "1", można znaleźć dwie migawki. To wymaga, aby zawsze był obecny co najmniej jeden najnowszy punkt odzyskiwania, w przypadku gdy wszystkie kolejne kopie zapasowe zakończą się niepowodzeniem z powodu problemu z maszyną wirtualną. Może to spowodować obecność dwóch migawek.<br></br>Tak więc, jeśli zasady dotyczą migawek "n", można znaleźć migawki "n + 1" w czasie. Jeszcze więcej migawek "n + 1 + 2" można znaleźć, jeśli istnieje opóźnienie wyrzucania elementów bezużytecznych. Może się to zdarzyć w rzadkich przypadkach:
+- Trwa oczyszczanie migawek, które są wklejane.
+- Moduł wyrzucania elementów bezużytecznych (GC) w zapleczu jest mocno obciążony.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Nie potrzebuję funkcji natychmiastowego przywracania. Czy można ją wyłączyć?
 
@@ -120,5 +126,5 @@ Funkcja natychmiastowego przywracania jest włączona dla wszystkich i nie możn
 
 ### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>Czy można bezpiecznie ponownie uruchomić maszynę wirtualną w trakcie procesu transferu (może to potrwać wiele godzin)? Czy nastąpi ponowne uruchomienie przerwania maszyny wirtualnej lub spowolnienie transferu?
 
-Tak bezpieczne i nie ma żadnego wpływu na szybkość transferu danych.
+Tak jest bezpieczne i nie ma żadnego wpływu na szybkość transferu danych.
 

@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202692"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564258"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z systemu Linux do wdrożenia chmury hybrydowej za pomocą Azure File Sync
+
+Ten artykuł migracji jest jednym z kilku obejmujących słowa kluczowe systemu plików NFS i Azure File Sync. Sprawdź, czy ten artykuł dotyczy Twojego scenariusza:
+
+> [!div class="checklist"]
+> * Źródło danych: magazyn dołączony do sieci (NAS)
+> * Marszruta migracji: serwer z systemem Linux z &rArr; systemem Windows Server 2012R2 lub nowszym &rArr; Synchronizacja z udziałami plików platformy Azure
+> * Buforowanie plików lokalnie: tak, ostateczny cel to wdrożenie Azure File Sync.
+
+Jeśli Twój scenariusz jest inny, przejrzyj [tabelę przewodników migracji](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync działa w wystąpieniach systemu Windows Server z bezpośrednio dołączonym magazynem (DAS). Nie obsługuje synchronizacji z i od klientów systemu Linux ani udziałów zdalnego bloku komunikatów serwera (SMB) ani udziału sieciowego systemu plików (NFS).
 
@@ -22,13 +31,13 @@ W związku z tym przekształcenia usług plików w wdrożenie hybrydowe powoduj�
 
 ## <a name="migration-goals"></a>Cele migracji
 
-Celem jest przeniesienie udziałów znajdujących się na serwerze z systemem Linux Samba do wystąpienia systemu Windows Server. Następnie użyj Azure File Sync do wdrożenia chmury hybrydowej. Migracja musi być realizowana w sposób gwarantujący integralność danych produkcyjnych, a także dostępność podczas migracji. Druga z nich wymaga utrzymywania przestoju w minimalnym stopniu, dzięki czemu może być dłuższa niż w zwykłych oknach obsługi lub tylko nieco.
+Celem jest przeniesienie udziałów znajdujących się na serwerze z systemem Linux Samba do wystąpienia systemu Windows Server. Następnie użyj Azure File Sync do wdrożenia chmury hybrydowej. Migracja musi być realizowana w sposób gwarantujący integralność danych produkcyjnych i dostępności podczas migracji. Druga z nich wymaga utrzymywania przestoju w minimalnym stopniu, dzięki czemu może być dłuższa niż w zwykłych oknach obsługi lub tylko nieco.
 
 ## <a name="migration-overview"></a>Omówienie migracji
 
 Jak wspomniano w [artykule Omówienie migracji](storage-files-migration-overview.md)Azure Files przy użyciu prawidłowego narzędzia do kopiowania i podejścia jest ważne. Serwer z systemem Linux Samba udostępnia udziały SMB bezpośrednio w sieci lokalnej. Robocopy wbudowane w system Windows Server to najlepszy sposób na przeniesienie plików w tym scenariuszu migracji.
 
-Jeśli nie korzystasz z programu Samba na serwerze z systemem Linux i nie chcesz migrować folderów do wdrożenia hybrydowego w systemie Windows Server, możesz użyć narzędzi do kopiowania systemu Linux zamiast Robocopy. Jeśli tak, należy pamiętać o możliwościach dokładności w narzędziu do kopiowania plików. Zapoznaj się z [sekcją informacje o migracji](storage-files-migration-overview.md#migration-basics) w artykule Omówienie migracji, aby dowiedzieć się, co należy szukać w narzędziu do kopiowania.
+Jeśli nie korzystasz z programu Samba na serwerze z systemem Linux i nie chcesz migrować folderów do wdrożenia hybrydowego w systemie Windows Server, możesz użyć narzędzi do kopiowania systemu Linux zamiast Robocopy. Należy pamiętać o możliwościach dokładności narzędzia kopiowania. Zapoznaj się z [sekcją informacje o migracji](storage-files-migration-overview.md#migration-basics) w artykule Omówienie migracji, aby dowiedzieć się, co należy szukać w narzędziu do kopiowania.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Faza 1: określenie, ile potrzebnych udziałów plików platformy Azure
 
@@ -39,11 +48,13 @@ Jeśli nie korzystasz z programu Samba na serwerze z systemem Linux i nie chcesz
 * Utwórz wystąpienie systemu Windows Server 2019 jako maszynę wirtualną lub serwer fizyczny. System Windows Server 2012 R2 jest minimalnym wymaganiem. Jest również obsługiwany klaster trybu failover z systemem Windows Server.
 * Inicjowanie obsługi administracyjnej lub Dodawanie bezpośredniego dołączonego magazynu (DAS). Magazyn dołączony do sieci (NAS) nie jest obsługiwany.
 
-  Ilość dostępnego miejsca do magazynowania może być mniejsza niż obecnie używane na serwerze z systemem Linux Samba, jeśli używasz funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) Azure File Sync. Jednak w przypadku kopiowania plików z większej ilości wolnego miejsca serwera z systemem Linux do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać następujące czynności:
+  Ilość dostępnego miejsca do magazynowania może być mniejsza niż obecnie używane na serwerze z systemem Linux Samba, jeśli używasz funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) Azure File Sync. 
+
+Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na serwerze z systemem Linux Samba. Ta konfiguracja wymaga również użycia funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) usługi Azure File Sync. Jednak w przypadku kopiowania plików z większej ilości wolnego miejsca serwera z systemem Linux do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać następujące czynności:
 
   1. Przenieś zestaw plików, który mieści się na dysku.
   2. Zezwalaj na synchronizację plików i obsługę warstw w chmurze.
-  3. Po utworzeniu większej ilości wolnego miejsca na woluminie przejdź do następnej partii plików. 
+  3. Po utworzeniu większej ilości wolnego miejsca na woluminie przejdź do następnej partii plików. Alternatywnie można przejrzeć polecenie RoboCopy w nadchodzącej [sekcji Robocopy](#phase-7-robocopy) , aby użyć nowego `/LFSM` przełącznika. Korzystanie `/LFSM` z programu może znacznie uprościć zadania Robocopy, ale nie jest zgodne z innymi przełącznikami Robocopy, które mogą być od siebie zależne.
     
   Możesz uniknąć tego podejścia wsadowego, udostępniając odpowiednie miejsce w wystąpieniu systemu Windows Server, że pliki zajmują na serwerze z systemem Linux. Rozważ włączenie deduplikacji w systemie Windows. Jeśli nie chcesz trwale zatwierdzić tej dużej ilości miejsca w magazynie w wystąpieniu systemu Windows Server, możesz zmniejszyć rozmiar woluminu po migracji i przed dopasowaniem zasad obsługi warstw w chmurze. Powoduje to utworzenie mniejszej lokalnej pamięci podręcznej udziałów plików platformy Azure.
 
@@ -100,78 +111,9 @@ Następujące polecenie Robocopy skopiuje pliki z magazynu serwera z systemem Li
 
 W przypadku obsługi mniejszej ilości miejsca w magazynie w wystąpieniu systemu Windows Server, gdy pliki zostaną wdrożone na serwerze z systemem Linux Samba, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest zapełniony, obsługa [warstw w chmurze](storage-sync-cloud-tiering-overview.md) zostanie uruchomiona i pliki warstw, które zostały pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z serwera z systemem Linux Samba. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby sprawdzić, co zostało zsynchronizowane i zwolnić miejsce na dysku w celu osiągnięcia zasad o 99% wolnego miejsca na woluminie.
 
-Możliwe jest, że Robocopy przenosi pliki szybciej, niż można zsynchronizować lokalnie z chmurą i warstwą, co powoduje brak miejsca na dysku lokalnym. Robocopy zakończy się niepowodzeniem. Firma Microsoft zaleca, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia problem. Rozważmy na przykład nieuruchamianie zadań Robocopy dla wszystkich udziałów w tym samym czasie. Lub Rozważ przeniesienie udziałów pasujących do bieżącej ilości wolnego miejsca w wystąpieniu systemu Windows Server. Jeśli zadanie Robocopy zakończy się niepowodzeniem, zawsze można uruchomić polecenie tak długo, jak w przypadku korzystania z następującej opcji dublowania/przeczyszczania:
+Możliwe jest, że Robocopy przenosi pliki szybciej, niż można zsynchronizować lokalnie z chmurą i warstwą, co powoduje brak miejsca na dysku lokalnym. Robocopy zakończy się niepowodzeniem. Firma Microsoft zaleca, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia problem. Rozważmy na przykład nieuruchamianie zadań Robocopy dla wszystkich udziałów w tym samym czasie. Lub Rozważ przeniesienie udziałów pasujących do bieżącej ilości wolnego miejsca w wystąpieniu systemu Windows Server. Jeśli zadanie Robocopy zakończy się niepowodzeniem, można zawsze ponownie uruchomić polecenie, o ile jest używana następująca opcja dublowania/przeczyszczania:
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Tle
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Zezwala na uruchamianie wielowątkowości przez Robocopy. Wartość domyślna to 8, maksimum to 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Wyprowadza stan do pliku dziennika jako Unicode (Zastępuje istniejący dziennik).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Dane wyjściowe do okna konsoli. Używane w połączeniu z danymi wyjściowymi do pliku dziennika.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Uruchamia Robocopy w tym samym trybie, w którym będzie używana aplikacja kopii zapasowej. Umożliwia Robocopy przenoszenie plików, do których bieżący użytkownik nie ma uprawnień.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Umożliwia uruchamianie tego polecenia Robocopy kilka razy, sekwencyjnie, w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje i pomija elementy, które zostały wcześniej skopiowane. Przetwarzane są tylko zmiany, dodatki i usunięcia, które wystąpiły od ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga **/Mir** jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Wierność kopiowania plików (wartość domyślna to/COPY: DAT). Copy Flags to: D = Data, A = Attributes, T = Timestamps, S = Security = NTFS list ACL, O = informacje o właścicielu, U = informacje inspekcji.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Kopiuj wszystkie informacje o pliku (równoważne do/COPY: DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Wierność kopiowania katalogów (wartość domyślna to/DCOPY: DA). Flagi kopiowania to: D = dane, A = atrybuty, T = sygnatury czasowe.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Faza 8: wycinanie użytkownika
 

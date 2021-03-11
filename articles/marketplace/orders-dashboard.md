@@ -1,5 +1,5 @@
 ---
-title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace, Microsoft AppSource i Azure Marketplace
+title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace | Microsoft AppSource i Azure Marketplace
 description: Dowiedz się, w jaki sposób uzyskiwać dostęp do raportów analitycznych zamówień komercyjnych portalu Marketplace w formacie graficznym i do pobrania.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955029"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561385"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
@@ -73,7 +73,7 @@ Oferty SaaS mogą korzystać z jednego z dwóch modeli cenowych w każdym planie
 - **Na użytkownika**: umożliwia dostęp do oferty przy użyciu ceny na podstawie liczby użytkowników, którzy mają dostęp do oferty lub zajmują stanowiska. Korzystając z tego modelu opartego na użyciu, można ustawić minimalną i maksymalną liczbę użytkowników obsługiwaną przez plan. Można utworzyć wiele planów w celu skonfigurowania różnych punktów cenowych na podstawie liczby użytkowników. Te pola są opcjonalne. Jeśli pole pozostanie puste, liczba użytkowników zostanie zinterpretowana jako nie mającej limitu (minimum od 1 do maksimum, tak jak usługa może obsługiwać). Te pola można edytować w ramach aktualizacji planu.
 - Opłaty **taryfowe**: według stawki za stawkę ryczałtową. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom za użycie, które nie są objęte stałą stawką.
 
-Aby uzyskać więcej informacji na temat rozliczeń na stanowisku, witrynie i mierzonych opłatach, zobacz [How to plan The SaaS Offer for the Commercial Marketplace](plan-saas-offer.md).
+Aby uzyskać więcej informacji na temat rozliczeń opartych na stanowisku, witrynie i naliczaniu, zobacz artykuł [jak zaplanować ofertę SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md).
 
 ### <a name="orders-by-offers-and-skus"></a>Zamówienia według ofert i jednostek SKU
 
@@ -111,32 +111,32 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 - Zastosuj filtry do tabeli **Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Filtruj według kraju/regionu, typu licencji platformy Azure, typu licencji komercyjnej witryny Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, subskrypcji portalu Marketplace, identyfikatora klienta i nazwy firmy.
 - Gdy zamówienie jest kupowane przez chronionego klienta, informacje w obszarze **szczegółowe dane zamówień** są maskowane (* * * * * * * * * * * *).
 
-**_Tabela 1: słownik terminów dotyczących danych_* _
+***Tabela 1: słownik terminów dotyczących danych***
 
-| Nazwa kolumny | Nazwa atrybutu | Definicja |
-| ------------ | ------------- | ------------- |
-| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. |
-| MonthStartDate | Data rozpoczęcia miesiąca | Data rozpoczęcia miesiąca reprezentuje miesiąc zakupu. |
-| Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. |
-| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
-| Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Różne wartości to:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> |
-| Jednostka SKU | Jednostka SKU | Plan skojarzony z ofertą |
-| Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
-| Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość będzie informować o tym, czy jest oznaczona jako wersja zapoznawcza. Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". |
-| Identyfikator zamówienia | Identyfikator zamówienia | Unikatowy identyfikator zamówienia klienta dla komercyjnej usługi portalu Marketplace. Oferty oparte na użyciu maszyny wirtualnej nie są skojarzone z kolejnością. |
-| Zamówiona ilość | Zamówiona ilość | Liczba zasobów skojarzonych z IDENTYFIKATORem zamówienia dla aktywnych zamówień |
-| Nazwa wystąpienia chmury | Nazwa wystąpienia chmury | Microsoft Cloud, w którym wystąpiło wdrożenie maszyny wirtualnej. |
-| Jest nowym klientem | Jest nowym klientem | Wartość określa, czy nowy klient uzyskał co najmniej jedną ofertę po raz pierwszy. Wartość będzie równa "yes", jeśli w ramach tego samego miesiąca kalendarzowego dla "Data pozyskania". Wartość będzie równa "No", jeśli klient kupił dowolne oferty przed zgłoszonym miesiącem kalendarzowym. |
-| Stan zamówienia | Stan zamówienia | Stan komercyjnego zamówienia witryny Marketplace w momencie ostatniego odświeżenia danych. |
-| Data anulowania zamówienia | Data anulowania zamówienia | Data anulowania komercyjnego zamówienia witryny Marketplace. |
-| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może różnić się od miasta w subskrypcji platformy Azure klienta. |
-| Zamówienie daty zakupu | Zamówienie daty zakupu | Data utworzenia komercyjnego zamówienia witryny Marketplace. |
-| Offer Name | Offer Name | Nazwa komercyjnej oferty portalu Marketplace. |
-| Data zakończenia okresu próbnego | Data zakończenia okresu próbnego | Data zakończenia okresu próbnego dla tego zamówienia lub zostanie ona zakończona. |
-| Identyfikator klienta | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. |
-| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj _ *Identyfikator konta rozliczeń** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klient, zamówienie i użycie. |
-| AssetCount | Liczba zasobów | Liczba zasobów skojarzonych z IDENTYFIKATORem zamówienia. |
-||||
+| Nazwa kolumny w<br>interfejs użytkownika | Nazwa atrybutu | Definicja | Nazwa kolumny w programie programistycznym<br>Raporty dostępu |
+| ------------ | ------------- | ------------- | ------------- |
+| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. | Identyfikator subskrypcji witryny Marketplace |
+| MonthStartDate | Data rozpoczęcia miesiąca | Data rozpoczęcia miesiąca reprezentuje miesiąc zakupu. Format to rrrr-mm-dd. | MonthStartDate |
+| Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. | OfferType |
+| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> | AzureLicenseType |
+| Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Różne wartości to:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Plan skojarzony z ofertą | SKU |
+| Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. | CustomerCountry |
+| Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość będzie informować o tym, czy jest oznaczona jako wersja zapoznawcza. Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". | IsPreviewSKU |
+| Identyfikator zamówienia | Identyfikator zamówienia | Unikatowy identyfikator zamówienia klienta dla komercyjnej usługi portalu Marketplace. Oferty oparte na użyciu maszyny wirtualnej nie są skojarzone z kolejnością. | OrderId (Identyfikator zamówienia) |
+| Zamówiona ilość | Zamówiona ilość | Liczba zasobów skojarzonych z IDENTYFIKATORem zamówienia dla aktywnych zamówień | OrderQuantity (Zamówiona ilość) |
+| Nazwa wystąpienia chmury | Nazwa wystąpienia chmury | Microsoft Cloud, w którym wystąpiło wdrożenie maszyny wirtualnej. | CloudInstanceName |
+| Jest nowym klientem | Jest nowym klientem | Wartość określa, czy nowy klient uzyskał co najmniej jedną ofertę po raz pierwszy. Wartość będzie równa "yes", jeśli w ramach tego samego miesiąca kalendarzowego dla "Data pozyskania". Wartość będzie równa "No", jeśli klient kupił dowolne oferty przed zgłoszonym miesiącem kalendarzowym. | IsNewCustomer |
+| Stan zamówienia | Stan zamówienia | Stan komercyjnego zamówienia witryny Marketplace w momencie ostatniego odświeżenia danych. | OrderStatus |
+| Data anulowania zamówienia | Data anulowania zamówienia | Data anulowania komercyjnego zamówienia witryny Marketplace. | OrderCancelDate |
+| Nazwa firmy klienta | Nazwa firmy klienta | Nazwa firmy podana przez klienta. Nazwa może różnić się od miasta w subskrypcji platformy Azure klienta. | CustomerCompanyName |
+| Zamówienie daty zakupu | Zamówienie daty zakupu | Data utworzenia komercyjnego zamówienia witryny Marketplace. Format to rrrr-mm-dd. | OrderPurchaseDate |
+| Offer Name | Offer Name | Nazwa komercyjnej oferty portalu Marketplace. | OfferName |
+| Data zakończenia okresu próbnego | Data zakończenia okresu próbnego | Data zakończenia okresu próbnego dla tego zamówienia lub zostanie ona zakończona. | TrialEndDate |
+| Customer ID | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. | CustomerId |
+| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj **Identyfikator konta rozliczeniowego** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klientów, zamówień i użycia. | BillingAccountId |
+| AssetCount | Liczba zasobów | Liczba zasobów skojarzonych z IDENTYFIKATORem zamówienia. | Przestarzałe |
+|||||
 
 ### <a name="orders-page-filters"></a>Filtry stron zamówień
 

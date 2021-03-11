@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644871"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609994"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ Content-type: application/json
 
 Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworzy konto [użytkownika](/graph/azuread-users-concept-overview) przy użyciu [Microsoft Graph](/graph/use-the-api). Sposób, w jaki system zatwierdzania, zależy od dostawcy tożsamości, który był używany przez użytkownika.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>Dla federacyjnego użytkownika usługi Google lub Facebook
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Dla federacyjnego użytkownika usługi Google lub Facebook i wiadomości E-mail jednorazowe
 
 > [!IMPORTANT]
-> System zatwierdzania powinien jawnie sprawdzić `identities` , czy `identities[0]` `identities[0].issuer` istnieją i czy ma `identities[0].issuer` wartość "Facebook" lub "Google", aby użyć tej metody.
+> System zatwierdzania powinien jawnie sprawdzić `identities` , czy `identities[0]` `identities[0].issuer` istnieją i czy ma `identities[0].issuer` wartość "Facebook", "Google" lub "mail", aby użyć tej metody.
 
-Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook, można użyć [interfejsu API tworzenia użytkownika](/graph/api/user-post-users?tabs=http).
+Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook lub wysyła wiadomość E-mail jednorazowo, można użyć [interfejsu API tworzenia użytkownika](/graph/api/user-post-users?tabs=http).
 
 1. System zatwierdzania używa odbierania żądania HTTP z przepływu użytkownika.
 
@@ -331,9 +327,9 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | Nie       | Inne wbudowane atrybuty, takie jak `displayName` , `city` i inne. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | Nie       | Atrybuty niestandardowe użytkownika. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>Dla użytkownika federacyjnego Azure Active Directory
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>Dla użytkownika federacyjnego Azure Active Directory lub konto Microsoft użytkownika
 
-Jeśli użytkownik zaloguje się za pomocą konta Azure Active Directory federacyjnego, należy użyć [interfejsu API zaproszenia](/graph/api/invitation-post) do utworzenia użytkownika, a następnie opcjonalnie [zaktualizować interfejs API aktualizacji użytkownika](/graph/api/user-update) , aby przypisać więcej atrybutów do użytkownika.
+Jeśli użytkownik zaloguje się za pomocą konta usługi federacyjnej Azure Active Directory lub konto Microsoft, należy użyć [interfejsu API zaproszenia](/graph/api/invitation-post) do utworzenia użytkownika, a następnie opcjonalnie [zaktualizować interfejs API aktualizacji użytkownika](/graph/api/user-update) , aby przypisać więcej atrybutów do użytkownika.
 
 1. System zatwierdzania odbiera żądanie HTTP z przepływu użytkownika.
 

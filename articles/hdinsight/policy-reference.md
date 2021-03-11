@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad usługi Azure HDInsight
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usługi Azure HDInsight. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f2f73f43edd8d1a801222e8f1547352ba1dd5f60
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ad47253b32ca0f66a46157796a48793aac052698
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434269"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610160"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Azure Policy wbudowane definicje dla usługi Azure HDInsight
 

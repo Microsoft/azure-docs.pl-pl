@@ -7,19 +7,19 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: d9d0739704a9f5f16bdbde80661192b2f1ca9bb1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099424"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561266"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Skonfiguruj funkcję autoaprowizacji dla agentów i rozszerzeń z Azure Security Center
 
-Security Center zbiera dane z zasobów przy użyciu odpowiedniego agenta lub rozszerzeń dla tego zasobu oraz typu zbieranych danych. Użyj precedures poniżej, aby upewnić się, że w tym artykule opisano sposób konfigurowania autoaprowizacji agenta Log Analytics i innych agentów i rozszerzeń używanych przez Azure Security Center
+Azure Security Center zbiera dane z zasobów przy użyciu odpowiedniego agenta lub rozszerzeń dla tego zasobu oraz typu zbieranych danych. Użyj poniższych procedur, aby upewnić się, że zasoby mają wymaganych agentów i rozszerzeń używanych przez Security Center.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
+Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się w celu uzyskania [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="availability"></a>Dostępność
 
@@ -35,7 +35,9 @@ Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja 
 
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym lokalnych) maszyn do monitorowania luk w zabezpieczeniach i zagrożeń. 
 
-Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualizacje, nieprawidłowej konfiguracji ustawień zabezpieczeń systemu operacyjnego, stanu programu Endpoint Protection oraz ochrony kondycji i zagrożeń. Zbieranie danych jest wymagana tylko w przypadku zasobów obliczeniowych (maszyn wirtualnych, zestawów skalowania maszyn wirtualnych, kontenerów IaaS i komputerów spoza platformy Azure). Możesz skorzystać z Azure Security Center, nawet jeśli nie zainicjujesz agentów. jednak będziesz mieć ograniczone zabezpieczenia i możliwości wymienione powyżej nie są obsługiwane.  
+Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualizacje, nieprawidłowej konfiguracji ustawień zabezpieczeń systemu operacyjnego, stanu programu Endpoint Protection oraz ochrony kondycji i zagrożeń. Zbieranie danych jest wymagana tylko w przypadku zasobów obliczeniowych, takich jak maszyny wirtualne, zestawy skalowania maszyn wirtualnych, kontenery IaaS i komputery spoza platformy Azure. 
+
+Możesz skorzystać z Azure Security Center, nawet jeśli nie zainicjujesz agentów. Jednak będziesz mieć ograniczone zabezpieczenia i możliwości wymienione powyżej nie są obsługiwane.  
 
 Dane są zbierane przy użyciu:
 
@@ -51,7 +53,7 @@ Dowolny Agent i rozszerzenia opisane na tej stronie *można* zainstalować ręcz
 Zalecamy włączenie obsługi autoaprowizacji, ale jest ona domyślnie wyłączona.
 
 ## <a name="how-does-auto-provisioning-work"></a>Jak działa funkcja autoaprowizacji?
-Ustawienia autoaprowizacji Security Center są dostępne dla każdego typu obsługiwanego rozszerzenia. Po włączeniu autoaprowizacji rozszerzenia należy przypisać odpowiednie zasady **wdrażania, jeśli nie istnieje** , aby upewnić się, że rozszerzenie jest obsługiwane we wszystkich istniejących i przyszłych zasobach tego typu.
+Ustawienia autoaprowizacji Security Center są dostępne dla każdego typu obsługiwanego rozszerzenia. Po włączeniu autoaprowizacji rozszerzenia przypiszesz odpowiednie zasady **wdrażania, jeśli nie istnieje** . Ten typ zasad zapewnia, że rozszerzenie jest obsługiwane we wszystkich istniejących i przyszłych zasobach tego typu.
 
 > [!TIP]
 > Dowiedz się więcej na temat Azure Policy efektów, w tym do wdrożenia, jeśli nie istnieje w temacie [Azure Policy efekty](../governance/policy/concepts/effects.md).
@@ -282,4 +284,4 @@ Aby wyłączyć automatyczne Inicjowanie obsługi agenta:
 
 
 ## <a name="next-steps"></a>Następne kroki
-Na tej stronie wyjaśniono, jak włączyć funkcję autoaprowizacji dla agenta Log Analytics i innych rozszerzeń Security Center. Opisano w nim również sposób definiowania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać szczegółowe informacje o cenach w wybranej walucie i według regionu, zobacz [Security Center Cennik](https://azure.microsoft.com/pricing/details/security-center/).
+Na tej stronie wyjaśniono, jak włączyć funkcję autoaprowizacji dla agenta Log Analytics i innych rozszerzeń Security Center. Opisano w nim również sposób definiowania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nanieść większe opłaty za przechowywanie danych. Aby uzyskać szczegółowe informacje o cenach w wybranej walucie i według regionu, zobacz [Security Center Cennik](https://azure.microsoft.com/pricing/details/security-center/).

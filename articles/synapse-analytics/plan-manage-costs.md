@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599039"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561249"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planowanie i zarządzanie kosztami usługi Azure Synapse Analytics
 
@@ -113,7 +113,12 @@ Aby dowiedzieć się więcej o kosztach puli SQL bezserwerowej, zobacz [Zarządz
 
 Możesz kontrolować koszty dedykowanej puli SQL, wstrzymując zasób, gdy nie jest on używany. Na przykład jeśli baza danych nie będzie używana w porze nocnej i w weekendy, możesz ją wstrzymać w tych godzinach i wznowić ją w ciągu dnia. Aby uzyskać więcej informacji [, zobacz Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL za pomocą Azure Portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-<!-- ### Serverless Apache Spark pool -->
+### <a name="serverless-apache-spark-pool"></a>Bezserwerowa Pula Apache Spark
+
+Aby kontrolować koszty puli Apache Spark bezserwerowej, Włącz opcję bezserwerowa Apache Spark Automatyczne wstrzymywanie i odpowiednio ustaw wartość limitu czasu.  W przypadku korzystania z programu Synapse Studio do celów deweloperskich program Studio wysyła komunikat Keep Alive, aby zachować aktywną sesję, która również jest konfigurowalna, więc ustaw krótką wartość limitu czasu dla automatycznego wstrzymania.  Gdy skończysz, Zamknij sesję, a pula Apache Spark zostanie automatycznie wstrzymana po osiągnięciu limitu czasu.
+ 
+Podczas tworzenia należy utworzyć wiele definicji puli Apache Spark różnych rozmiarów.  Tworzenie definicji puli Apache Spark jest bezpłatne i zostanie naliczona opłata tylko za użycie.  Apache Spark użycia w usłudze Azure Synapse jest naliczana za rdzeń wirtualny godzinę i proporcjonalnie do liczby minut.  Na przykład używaj małych rozmiarów puli do tworzenia kodu i walidacji przy użyciu większych rozmiarów puli do testowania wydajności.
+
 
 ### <a name="data-integration---pipelines-and-data-flows"></a>Integracja danych — potoki i przepływy danych 
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/04/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: a26f1a297837a01089783b1e920d1a6a17bc6cdc
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489280"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618325"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -86,7 +86,7 @@ Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek, które są obe
 | Windows * * *                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-* Obsługiwane są wersje Safari 13.1 +. 
+* Obsługiwane są wersje Safari 13.1 +, 1:1 wywołania nie są obsługiwane w przeglądarce Safari. 
 
 * * Przeglądarka Safari 14 +/macOS 11 + wymagana do obsługi wychodzącego wideo. 
 

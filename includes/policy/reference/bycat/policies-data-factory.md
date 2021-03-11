@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 200cfbcaf8da3a2129daa59299f098ce94f5fab2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f6e77b69bf85d65bc759aea83c40f1e08c17ebd8
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429510"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611128"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -21,3 +21,4 @@ ms.locfileid: "102429510"
 |[\[Wersja zapoznawcza \] : Azure Data Factory połączone usługi powinny używać uwierzytelniania tożsamości zarządzanej przez system, jeśli jest obsługiwana](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78ccdb4-7bf4-4106-8647-270491d2978a) |Używanie tożsamości zarządzanej przypisanej przez system podczas komunikacji z magazynami danych za pośrednictwem połączonych usług pozwala uniknąć używania mniej zabezpieczonych poświadczeń, takich jak hasła lub parametry połączenia. |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/LinkedService_All_Auth_Audit_except_MSI.json) |
 |[\[Wersja zapoznawcza \] : Azure Data Factory powinna używać repozytorium Git na potrzeby kontroli źródła](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77d40665-3120-4348-b539-3192ec808307) |Włącz kontrolę źródła na fabrykach danych, aby uzyskać funkcje, takie jak śledzenie zmian, współpraca, ciągła integracja i wdrażanie. |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/Factory_None_GIT_Audit.json) |
 |[Dostęp do sieci publicznej na Azure Data Factory powinien być wyłączony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cf164be-6819-4a50-b8fa-4bcaa4f98fb6) |Wyłączenie publicznej właściwości dostępu do sieci zwiększa bezpieczeństwo, zapewniając dostęp do Azure Data Factory tylko z prywatnego punktu końcowego. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PublicNetworkAccess_Audit.json) |
+|[SQL Server Integration Services środowiska Integration Runtime na Azure Data Factory powinny być dołączone do sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |Wdrożenie usługi Azure Virtual Network zapewnia ulepszone zabezpieczenia i izolację SQL Server Integration Services środowiska Integration Runtime w Azure Data Factory, a także podsieci, zasady kontroli dostępu i inne funkcje, aby dodatkowo ograniczyć dostęp. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |

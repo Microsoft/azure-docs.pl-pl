@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341570"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562881"
 ---
 # <a name="access-built-in-metrics"></a>Uzyskiwanie dostępu do wbudowanych metryk
 
@@ -44,7 +44,9 @@ Uzyskaj dostęp do metryk z hosta, ujawniając i mapując port metryk z modułu 
 Wybierz różne i unikatowe numery portów hosta, jeśli mapujesz punkty końcowe metryk edgeHub i edgeAgent.
 
 > [!NOTE]
-> Jeśli chcesz wyłączyć metryki, ustaw `MetricsEnabled` dla zmiennej środowiskowej wartość `false` dla **edgeAgent**.
+> Zmienna środowiskowa `httpSettings__enabled` nie powinna być ustawiona na `false` potrzeby wbudowanych metryk, aby można było uzyskać dostęp do kolekcji.
+>
+> Zmienne środowiskowe, które mogą służyć do wyłączania metryk, są wymienione w [dokumencie Azure/iotedge Repos](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## <a name="available-metrics"></a>Dostępne metryki
 

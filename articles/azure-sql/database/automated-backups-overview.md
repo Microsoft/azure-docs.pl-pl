@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690627"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609927"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -140,9 +140,12 @@ W przypadku wystąpienia zarządzanego zarówno SQL Database, jak i SQL można s
 
 Aby uzyskać więcej informacji na temat LTR, zobacz [długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md).
 
-## <a name="storage-costs"></a>Koszty magazynowania
+## <a name="backup-storage-costs"></a>Koszty magazynu kopii zapasowych
 
 Cena magazynu kopii zapasowych jest różna i zależy od modelu zakupu (DTU lub rdzeń wirtualny), wybranej opcji nadmiarowości magazynu kopii zapasowych, a także w Twoim regionie. W magazynie kopii zapasowych jest naliczana opłata za GB/miesiąc zużyte. Cennik można znaleźć na stronie [Azure SQL Database cennika](https://azure.microsoft.com/pricing/details/sql-database/single/) oraz na stronie [cennika wystąpienia zarządzanego usługi Azure SQL](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
+
+> [!NOTE]
+> Na fakturze platformy Azure będzie widoczny tylko wykorzystany nadmierny magazyn kopii zapasowych, a nie całe użycie magazynu kopii zapasowej. Na przykład w hipotetycznym scenariuszu, jeśli masz zainicjowany 4 TB magazynu danych, uzyskasz 4 TB wolnego miejsca do magazynowania kopii zapasowych. W przypadku użycia całkowitej ilości 5,8 TB miejsca do magazynowania kopii zapasowych na fakturze platformy Azure zostanie wyświetlona tylko 1.8 TB, ponieważ jest naliczana opłata za nadmierny magazyn kopii zapasowych.
 
 ### <a name="dtu-model"></a>Model jednostki DTU
 
@@ -446,7 +449,7 @@ Pełną listę wbudowanych definicji zasad dla SQL Database i wystąpienia zarz�
 Aby wymusić wymagania dotyczące miejsca zamieszkania danych na poziomie organizacji, te zasady można przypisać do subskrypcji. Po przypisaniu tych użytkowników na poziomie subskrypcji użytkownicy w danej subskrypcji nie będą mogli utworzyć bazy danych ani wystąpienia zarządzanego z magazynem kopii zapasowych nadmiarowym geograficznie za pośrednictwem Azure Portal lub Azure PowerShell. 
 
 > [!IMPORTANT]
-> Zasady platformy Azure nie są wymuszane podczas tworzenia bazy danych przy użyciu języka T-SQL. Aby wymusić zamiejscowe dane podczas tworzenia bazy danych przy użyciu języka T-SQL, [należy użyć elementu "Local" lub "Zone" jako danych wejściowych do BACKUP_STORAGE_REDUNDANCY parametr w instrukcji CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Zasady platformy Azure nie są wymuszane podczas tworzenia bazy danych przy użyciu języka T-SQL. Aby wymusić zamiejscowe dane podczas tworzenia bazy danych przy użyciu języka T-SQL, [należy użyć elementu "Local" lub "Zone" jako danych wejściowych do BACKUP_STORAGE_REDUNDANCY parametr w instrukcji CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Dowiedz się, jak przypisywać zasady przy użyciu [Azure Portal](../../governance/policy/assign-policy-portal.md) lub [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -458,4 +461,5 @@ Dowiedz się, jak przypisywać zasady przy użyciu [Azure Portal](../../governan
 - Uzyskaj więcej informacji na temat [przywracania bazy danych do punktu w czasie za pomocą programu PowerShell](scripts/restore-database-powershell.md).
 - Aby uzyskać informacje dotyczące sposobu konfigurowania, zarządzania i przywracania długoterminowego przechowywania zautomatyzowanych kopii zapasowych w usłudze Azure Blob Storage za pomocą Azure Portal, zobacz [Zarządzanie długoterminową przechowywanie kopii zapasowych przy użyciu Azure Portal](long-term-backup-retention-configure.md).
 - Aby uzyskać informacje na temat sposobu konfigurowania, zarządzania i przywracania długoterminowego przechowywania zautomatyzowanych kopii zapasowych w usłudze Azure Blob Storage za pomocą programu PowerShell, zobacz [Zarządzanie długoterminową przechowywaniem kopii zapasowych za pomocą programu PowerShell](long-term-backup-retention-configure.md).
+- Aby dowiedzieć się więcej na temat użycia magazynu kopii zapasowych w wystąpieniu zarządzanym usługi Azure SQL, zobacz Omówienie [użycia magazynu kopii zapasowej w wystąpieniu zarządzanym](https://aka.ms/mi-backup-explained).
 - Aby dowiedzieć się, jak dostosować przechowywanie i koszty przechowywania kopii zapasowych dla wystąpienia zarządzanego usługi Azure SQL, zobacz [dostrajanie kosztów magazynu kopii zapasowych na wystąpieniu zarządzanym](https://aka.ms/mi-backup-tuning).

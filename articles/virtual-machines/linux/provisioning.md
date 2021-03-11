@@ -2,22 +2,23 @@
 title: Przegląd aprowizacji systemu Linux
 description: Omówienie sposobu przenoszenia obrazów maszyn wirtualnych z systemem Linux lub tworzenia nowych obrazów do użycia na platformie Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080152"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563222"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Inicjowanie obsługi maszyn wirtualnych z systemem Linux na platformie Azure
-Podczas tworzenia maszyny wirtualnej na podstawie uogólnionego obrazu (galerii obrazów udostępnionych lub zarządzanego obrazu) płaszczyzna kontroli umożliwi utworzenie maszyny wirtualnej i przekazanie parametrów i ustawień do maszyny wirtualnej. Ta nazwa jest nazywana *obsługą*maszyny wirtualnej. Podczas aprowizacji platforma wykonuje wymagane przez maszynę wirtualną Tworzenie wartości parametrów (nazwa hosta, nazwa użytkownika, hasło, klucze SSH, customData), które są dostępne dla maszyny wirtualnej w trakcie jej uruchamiania. 
+Podczas tworzenia maszyny wirtualnej na podstawie uogólnionego obrazu (galerii obrazów udostępnionych lub zarządzanego obrazu) płaszczyzna kontroli umożliwi utworzenie maszyny wirtualnej i przekazanie parametrów i ustawień do maszyny wirtualnej. Ta nazwa jest nazywana *obsługą* maszyny wirtualnej. Podczas aprowizacji platforma wykonuje wymagane przez maszynę wirtualną Tworzenie wartości parametrów (nazwa hosta, nazwa użytkownika, hasło, klucze SSH, customData), które są dostępne dla maszyny wirtualnej w trakcie jej uruchamiania. 
 
 Agent aprowizacji rozszerzania wewnątrz obrazu będzie interfejsem z platformą, łącząc się z wieloma niezależnymi interfejsami aprowizacji), ustaw właściwości i sygnał na platformę, która została ukończona. 
 
@@ -70,10 +71,10 @@ Przepływ informacji z platformy do agenta odbywa się za pośrednictwem dwóch 
 
 ## <a name="azure-provisioning-agent-requirements"></a>Wymagania dotyczące agenta aprowizacji platformy Azure
 Agent systemu Linux i Usługa Cloud-init są zależne od niektórych pakietów systemowych w celu poprawnego działania:
-- Środowisko Python 2.6 +
-- OpenSSL 1.0 +
-- OpenSSH 5.3 +
-- Narzędzia systemu plików: `sfdisk` , `fdisk` , `mkfs` , `parted`
+- Python 2.6 lub nowsza wersja
+- OpenSSL 1.0 lub nowsza wersja
+- OpenSSH 5.3 lub nowsza wersja
+- Narzędzia systemu plików: `sfdisk`, `fdisk`, `mkfs`, `parted`
 - Narzędzia do haseł: chpasswd, sudo
 - Narzędzia do przetwarzania tekstu: SED, grep
 - Narzędzia sieciowe: trasa IP

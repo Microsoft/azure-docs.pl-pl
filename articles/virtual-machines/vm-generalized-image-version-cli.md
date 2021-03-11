@@ -3,18 +3,18 @@ title: Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu przy użyc
 description: Utwórz maszynę wirtualną na podstawie uogólnionej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2bcaf85f61a4d8cf4d23c9c5be7f46d765d77dbb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881978"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551046"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Tworzenie maszyny wirtualnej na podstawie uogólnionej wersji obrazu przy użyciu interfejsu wiersza polecenia
 

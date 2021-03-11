@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523944"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618257"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Zarządzanie lokalną konsolą zarządzania
 
@@ -415,7 +415,21 @@ Poniższa procedura zawiera opis sposobu aktualizowania wersji oprogramowania lo
 
 1. Wybierz plik pobrany ze strony **aktualizacje** usługi Defender for IoT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="mail-server-settings"></a>Ustawienia serwera poczty
+
+Zdefiniuj ustawienia serwera poczty SMTP dla lokalnej konsoli zarządzania.
+
+Aby zdefiniować:
+
+1. Zaloguj się do interfejsu wiersza polecenia, aby zarządzać lokalnymi przy użyciu poświadczeń administracyjnych.
+1. Wpisz ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Wybierz klawisz Enter. Zostanie wyświetlony następujący komunikat.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Wprowadź nazwę serwera SMTP i nadawcę, a następnie wybierz klawisz ENTER.
+
+## <a name="see-also"></a>Zobacz też
 
 [Zarządzanie czujnikami z poziomu konsoli zarządzania](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

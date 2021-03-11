@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 08ba75b5160acb20cb5e2d172203ae48b546f17d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dda3dcd3cd1234b2d0830010297e760201ed6160
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202236"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549281"
 ---
 # <a name="security-control-identity-and-access-control"></a>Kontrola zabezpieczeń: tożsamość i Access Control
 
@@ -22,19 +22,19 @@ Zalecenia dotyczące zarządzania tożsamościami i dostępem koncentrują się 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,1 | 4.1 | Klient |
+| 3,1 | 4.1 | Customer |
 
 Usługa Azure AD ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 ## <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3.2 | 4.2 | Klient |
+| 3.2 | 4.2 | Customer |
 
 Usługa Azure AD nie ma koncepcji domyślnych haseł. Inne zasoby platformy Azure wymagające hasła wymuszają utworzenie hasła przy użyciu wymagań dotyczących złożoności i minimalnej długości hasła, które różnią się w zależności od usługi. Użytkownik jest odpowiedzialny za aplikacje innych firm i usługi Marketplace, które mogą korzystać z domyślnych haseł.
 
@@ -42,7 +42,7 @@ Usługa Azure AD nie ma koncepcji domyślnych haseł. Inne zasoby platformy Azur
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3.3 | 4.3 | Klient |
+| 3.3 | 4.3 | Customer |
 
 Tworzenie standardowych procedur operacyjnych wokół korzystania z dedykowanych kont administracyjnych. Użyj Azure Security Center Zarządzanie tożsamościami i dostępem, aby monitorować liczbę kont administracyjnych.
 
@@ -54,7 +54,7 @@ Możesz również włączyć dostęp do usługi Microsoft just-in-Time/tylko do 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3.4 | 4.4 | Klient |
+| 3.4 | 4.4 | Customer |
 
 Wszędzie tam, gdzie to możliwe, należy używać Azure Active Directory rejestracji jednokrotnej zamiast konfigurować indywidualne poświadczenia autonomiczne dla poszczególnych usług. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem.
 
@@ -64,7 +64,7 @@ Wszędzie tam, gdzie to możliwe, należy używać Azure Active Directory rejest
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,5 | 4,5, 11,5, 12,11, 16,3 | Klient |
+| 3,5 | 4,5, 11,5, 12,11, 16,3 | Customer |
 
 Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center zarządzaniem tożsamościami i dostępem.
 
@@ -76,7 +76,7 @@ Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security C
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,6 | 4,6, 11,6, 12,12 | Klient |
+| 3,6 | 4,6, 11,6, 12,12 | Customer |
 
 Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) za pomocą usługi MFA skonfigurowanej do logowania się i konfigurowania zasobów platformy Azure.
 
@@ -88,7 +88,7 @@ Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) z
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3.7 | 4,8, 4,9 | Klient |
+| 3.7 | 4,8, 4,9 | Customer |
 
 Za pomocą raportów zabezpieczeń Azure Active Directory generowanie dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
@@ -100,7 +100,7 @@ Za pomocą raportów zabezpieczeń Azure Active Directory generowanie dziennikó
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,8 | 11,7 | Klient |
+| 3,8 | 11,7 | Customer |
 
 Użyj dostępu warunkowego o nazwie lokalizacje, aby zezwolić na dostęp tylko do określonych logicznych grup zakresów adresów IP lub krajów/regionów.
 
@@ -110,7 +110,7 @@ Użyj dostępu warunkowego o nazwie lokalizacje, aby zezwolić na dostęp tylko 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3.9 | 16,1, 16,2, 16,4, 16,5, 16,6 | Klient |
+| 3.9 | 16,1, 16,2, 16,4, 16,5, 16,6 | Customer |
 
 Użyj Azure Active Directory jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
@@ -120,7 +120,7 @@ Użyj Azure Active Directory jako centralnego systemu uwierzytelniania i autoryz
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,10 | 16,9, 16,10 | Klient |
+| 3,10 | 16,9, 16,10 | Customer |
 
 Usługa Azure AD udostępnia dzienniki, które ułatwiają odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. 
 
@@ -132,7 +132,7 @@ Usługa Azure AD udostępnia dzienniki, które ułatwiają odnajdywanie starych 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,11 | 16,12 | Klient |
+| 3,11 | 16,12 | Customer |
 
 Masz dostęp do źródeł działań związanych z logowaniem do usługi Azure AD, inspekcji i zagrożeń dzienników zdarzeń, które umożliwiają integrację z dowolnym narzędziem SIEM/monitorowania.
 
@@ -144,7 +144,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,12 | 16,13 | Klient |
+| 3,12 | 16,13 | Customer |
 
 Użyj funkcji ryzyka i ochrony tożsamości usługi Azure AD, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
@@ -158,7 +158,7 @@ Użyj funkcji ryzyka i ochrony tożsamości usługi Azure AD, aby skonfigurować
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 3,13 | 16 | Klient |
+| 3,13 | 16 | Customer |
 
 W przypadku scenariuszy, w których firma Microsoft potrzebuje dostępu do danych klienta, Skrytka klienta udostępnia interfejs umożliwiający przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta.
 

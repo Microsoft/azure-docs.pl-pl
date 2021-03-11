@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089295"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563816"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -146,7 +146,7 @@ Aby uzyskać informacje na temat konfigurowania usługi Azure AD, zobacz:
 - [Add your own domain name to Azure AD (Dodawanie własnej nazwy domeny do usługi Azure Active Directory)](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD (Platforma Microsoft Azure obsługuje teraz federację z usługą AD systemu Windows Server)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrowanie katalogiem usługi Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Zarządzanie usługą Azure AD przy użyciu programu PowerShell](/powershell/azure/?view=azureadps-2.0)
+- [Zarządzanie usługą Azure AD przy użyciu programu PowerShell](/powershell/azure/)
 - [Porty i protokoły wymagane przez tożsamość hybrydową](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Zarządzanie dostępem do bazy danych

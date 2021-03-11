@@ -7,26 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 03/09/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699445"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549893"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest usługa Azure Cognitive Search?
 
 Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](whats-new.md#new-service-name)) to usługa wyszukiwania w chmurze, która zapewnia deweloperom interfejsy API i narzędzia do tworzenia bogatego środowiska wyszukiwania za pośrednictwem prywatnej, niejednorodnej zawartości w aplikacjach sieci Web, mobilnych i firmowych. 
 
+Wyszukiwanie jest podstawą dla każdej aplikacji, która wyświetla zawartość użytkownikom, z typowymi scenariuszami, takimi jak wykaz lub wyszukiwanie dokumentów, wyszukiwanie w witrynie handlu elektronicznego lub wydobycie wiedzy na potrzeby analizy danych. Interfejsy API i architektura Wyszukiwanie poznawcze upraszczają zadanie dodawania zaawansowanych danych do dowolnych rozwiązań.
+
 Usługa wyszukiwania ma następujące składniki:
 
 + Wyszukaj w aparacie wyszukiwania pełnotekstowego
 + Trwały magazyn zawartości indeksowanej użytkownika
-+ Interfejsy API do indeksowania i wykonywania zapytań
-+ Opcjonalne [wzbogacania oparte na formacie AI](cognitive-search-concept-intro.md), tworzenie zawartości z możliwością wyszukiwania poza obrazy, nieprzetworzony tekst, pliki aplikacji
-+ Opcjonalna integracja z innymi usługami platformy Azure na potrzeby danych, uczenia maszynowego/AI i zabezpieczeń
++ Interfejsy API do indeksowania i wykonywania zapytań dotyczących zawartości
++ Opcjonalne [wzbogacania oparte na formacie AI](cognitive-search-concept-intro.md), tworzenie zawartości z możliwością wyszukiwania poza obrazy, nieprzetworzony tekst bez struktury, pliki aplikacji
++ Opcjonalna integracja z innymi usługami platformy Azure na potrzeby danych, uczenia maszynowego/AI, monitorowania i zabezpieczeń
++ Opcjonalna implementacja [wyszukiwania semantycznego (wersja zapoznawcza)](semantic-search-overview.md) w celu zwiększenia istotności
 
 W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane nieindeksowane, i aplikacji klienckiej, która wysyła żądania zapytań do indeksu wyszukiwania i obsługuje odpowiedź.
 
@@ -74,8 +77,9 @@ Kompleksowa Eksploracja podstawowych funkcji wyszukiwania można osiągnąć w c
 
 1. Tworzenie [**zapytań względem indeksu**](search-query-overview.md) przy użyciu [Eksploratora wyszukiwania](search-explorer.md) w portalu, [interfejsie API REST](search-get-started-rest.md), [zestawie .NET SDK](/dotnet/api/azure.search.documents.searchclient.search)lub innym zestawie SDK.
 
-> [!TIP]
-> Zminimalizuj kroki, rozpoczynając od [**Kreatora importowania danych**](search-get-started-portal.md) i źródła danych platformy Azure, aby utworzyć, załadować i zbadać indeks w ciągu kilku minut.
+W przypadku początkowej eksploracji Rozpocznij pracę z [**kreatorem importowania danych**](search-get-started-portal.md) i wbudowanym źródłem danych platformy Azure, aby utworzyć, załadować i zbadać indeks w ciągu kilku minut.
+
+Aby uzyskać pomoc dotyczącą złożonych lub niestandardowych rozwiązań, [**skontaktuj się z partnerem**](resource-partners-knowledge-mining.md) z dogłębną wiedzą w zakresie technologii wyszukiwanie poznawcze.
 
 ## <a name="compare-search-options"></a>Porównanie opcji wyszukiwania
 
