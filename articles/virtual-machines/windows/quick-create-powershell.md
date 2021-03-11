@@ -2,18 +2,19 @@
 title: Szybki Start — Tworzenie maszyny wirtualnej z systemem Windows przy użyciu Azure PowerShell
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows za pomocą programu Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d23bc83d9cfd60585a63df0acbfb2b4076cd83f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78b912dd649ff942e0187f9b3602d9213383b8c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077328"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560739"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Windows za pomocą programu Azure PowerShell
 
@@ -70,7 +71,7 @@ Użyj następującego polecenia, aby utworzyć sesję usług pulpitu zdalnego z 
 mstsc /v:publicIpAddress
 ```
 
-W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako **localhost** \\ *nazwę użytkownika*localhost, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
+W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako  \\ *nazwę użytkownika* localhost, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
 
 Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **tak** lub **Kontynuuj** , aby utworzyć połączenie
 

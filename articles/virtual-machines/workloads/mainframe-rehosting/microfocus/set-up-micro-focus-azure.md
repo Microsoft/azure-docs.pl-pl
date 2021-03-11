@@ -1,7 +1,7 @@
 ---
 title: Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure | Microsoft Docs
 description: W tym artykule dowiesz się, jak zainstalować program Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0d0a7d9060d751dbf05d39545b332c13010cbfae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483066"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553582"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure
 
@@ -87,7 +87,7 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 1.  Rozpocznij Administrowanie licencjami programu Micro Focus.
 
-2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> **License Administration**, a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład w przypadku pliku w **pliku licencji** przejdź do `mflic` pliku * przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję **Zainstaluj licencje**.
+2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> , a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład w przypadku pliku w **pliku licencji** przejdź do `mflic` pliku * przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję **Zainstaluj licencje**.
 
     ![Zrzut ekranu przedstawia okno dialogowe Administrowanie licencjami w programie Micro Focus, w którym można wybrać pozycję Zainstaluj licencje.](media/install-image-3.png)
 
@@ -115,7 +115,7 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
     ![Komunikat o pomyślnym skonfigurowaniu](media/install-image-6.png)
 
-6.  Uruchom Menedżera licencji programu Micro Focus tak samo jak w przypadku programu Enterprise Server. Wybierz **Start** \> **Micro Focus License Manager** \> kolejno pozycje Start **Zarządzanie** licencjami Menedżer licencji, a następnie kliknij kartę **Instaluj** .
+6.  Uruchom Menedżera licencji programu Micro Focus tak samo jak w przypadku programu Enterprise Server. Wybierz  \>  \> kolejno pozycje Start **Zarządzanie** licencjami Menedżer licencji, a następnie kliknij kartę **Instaluj** .
 
 7.  Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji** przejdź do `mflic` pliku przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję  **Zainstaluj licencje**.
 

@@ -1,39 +1,44 @@
 ---
-title: Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji za pomocą AutoRest
+title: Tworzenie zestawów SDK języka niestandardowego za pomocą AutoRest
 titleSuffix: Azure Digital Twins
-description: Zobacz, jak generować niestandardowe zestawy SDK, aby używać usługi Azure Digital bliźniaczych reprezentacji z innymi językami niż C#.
+description: Dowiedz się, jak używać usługi AutoRest do generowania zestawów SDK języka niestandardowego na potrzeby pisania kodu bliźniaczych reprezentacji Digital w innych językach, które nie mają opublikowanych zestawów SDK.
 author: baanders
 ms.author: baanders
-ms.date: 4/24/2020
+ms.date: 3/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
-ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.custom:
+- devx-track-js
+- contperf-fy21q3
+ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049801"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561844"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
+# <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie zestawów SDK języka niestandardowego dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
-Obecnie jedynymi opublikowanymi zestawami SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure są dla platformy .NET (C#), JavaScript i Java. Informacje o tych zestawach SDK i interfejsów API ogólnie można znaleźć w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule przedstawiono sposób generowania własnego zestawu SDK płaszczyzny danych w wybranym języku przy użyciu funkcji AutoRest.
+Jeśli musisz pracować z usługą Azure Digital bliźniaczych reprezentacji przy użyciu języka, który nie ma [opublikowanego zestawu SDK Digital bliźniaczych reprezentacji platformy Azure](how-to-use-apis-sdks.md), w tym artykule przedstawiono sposób użycia funkcji AutoRest w celu wygenerowania własnego zestawu SDK w wybranym języku. 
 
->[!NOTE]
-> Możesz również użyć AutoRest do wygenerowania zestawu SDK płaszczyzny kontroli, jeśli chcesz. Aby to zrobić, wykonaj kroki opisane w tym artykule przy użyciu najnowszego pliku z płaszczyzną **kontroli Swagger** (openapi) z poziomu [folderu Swagger płaszczyzny kontroli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) , a nie płaszczyzny danych.
+W przykładach w tym artykule przedstawiono tworzenie [zestawu SDK płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis), ale ten proces będzie działał również w celu WYGENEROWANIA  [zestawu SDK płaszczyzny kontroli](how-to-use-apis-sdks.md#overview-control-plane-apis) .
 
-## <a name="set-up-your-machine"></a>Konfigurowanie maszyny
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wygenerować zestaw SDK, potrzebne są:
-* [AutoRest](https://github.com/Azure/autorest), wersja 2.0.4413 (wersja 3 nie jest obecnie obsługiwana)
-* [Node.js](https://nodejs.org) jako warunek wstępny do AutoRest
-* Najnowsza usługa Azure Digital bliźniaczych reprezentacji **Data — plik struktury Swagger** (openapi) z [folderu płaszczyzny danych programu Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)oraz dołączonego folderu przykładów.  Pobierz plik struktury Swagger *digitaltwins.json* i jego folder przykładów na maszynę lokalną.
+Aby wygenerować zestaw SDK, należy najpierw wykonać następujące czynności konfiguracyjne na komputerze lokalnym:
+* Zainstaluj program [**AutoRest**](https://github.com/Azure/autorest), wersja 2.0.4413 (wersja 3 nie jest obecnie obsługiwana)
+* Zainstaluj [**Node.js**](https://nodejs.org), która jest warunkiem wstępnym korzystania z funkcji AutoRest
+* Zainstaluj [ **program Visual Studio**](https://visualstudio.microsoft.com/downloads/)
+* Pobierz najnowszą wersję pliku **struktury Swagger** (openapi) usługi Azure Digital bliźniaczych reprezentacji z [folderu płaszczyzny danych](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Plik struktury Swagger jest tym, *digitaltwins.json*.
+
+>[!TIP]
+> Aby zamiast tego utworzyć **zestaw SDK płaszczyzny kontroli** , wykonaj kroki opisane w tym artykule przy użyciu najnowszego pliku z płaszczyzną kontroli **Swagger** (openapi) z poziomu [folderu Swagger płaszczyzny kontroli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) zamiast z płaszczyzny danych.
 
 Gdy Twoja maszyna jest wyposażona w wszystko z powyższej listy, możesz użyć AutoRest do utworzenia zestawu SDK.
 
-## <a name="create-the-sdk-with-autorest"></a>Tworzenie zestawu SDK przy użyciu AutoRest 
+## <a name="create-the-sdk-using-autorest"></a>Tworzenie zestawu SDK przy użyciu funkcji AutoRest 
 
-Jeśli zainstalowano Node.js, możesz uruchomić to polecenie, aby upewnić się, że masz zainstalowaną odpowiednią wersję narzędzia AutoRest:
+Po zainstalowaniu Node.js można uruchomić to polecenie, aby upewnić się, że jest zainstalowana wymagana wersja narzędzia AutoRest:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```
@@ -51,11 +56,11 @@ W związku z tym zobaczysz nowy folder o nazwie *DigitalTwinsApi* w katalogu rob
 
 AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
-## <a name="add-the-sdk-to-a-visual-studio-project"></a>Dodawanie zestawu SDK do projektu programu Visual Studio
+## <a name="make-the-sdk-into-a-class-library"></a>Tworzenie zestawu SDK w bibliotece klas
 
-Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Istnieje jednak możliwość dołączenia zestawu SDK usługi Azure Digital bliźniaczych reprezentacji do kilku oddzielnych projektów (aplikacji klienckich, Azure Functions aplikacji itd.). Z tego powodu pomocne może być skompilowanie oddzielnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do kilku rozwiązań jako odwołanie do projektu.
+Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Istnieje jednak możliwość dołączenia zestawu SDK usługi Azure Digital bliźniaczych reprezentacji do kilku oddzielnych projektów (aplikacji klienckich, Azure Functions aplikacji i innych). Z tego powodu pomocne może być skompilowanie oddzielnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do kilku rozwiązań jako odwołanie do projektu.
 
-Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Te kroki są zależne od **programu Visual Studio** (można zainstalować najnowszą wersję z tego [miejsca](https://visualstudio.microsoft.com/downloads/)).
+Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Te kroki są zależne od **programu Visual Studio**.
 
 Oto konkretne kroki:
 
@@ -81,7 +86,7 @@ Aby je dodać, Otwórz *narzędzia > Menedżer pakietów nuget > zarządzanie pa
 
 Teraz można skompilować projekt i dołączyć go jako odwołanie do projektu w dowolnej zapisanej aplikacji Digital bliźniaczych reprezentacji systemu Azure.
 
-## <a name="general-guidelines-for-generated-sdks"></a>Ogólne wytyczne dotyczące wygenerowanych zestawów SDK
+## <a name="tips-for-using-the-sdk"></a>Porady dotyczące korzystania z zestawu SDK
 
 Ta sekcja zawiera ogólne informacje i wskazówki dotyczące korzystania z wygenerowanego zestawu SDK.
 

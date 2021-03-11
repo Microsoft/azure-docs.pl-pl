@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048016"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612069"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Skalowanie migracji maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów
 
@@ -147,10 +147,10 @@ Aby ukończyć rejestrację urządzenia skalowalnego w poziomie, kliknij przycis
 1. W oknie podręcznym otwartym w poprzednim kroku wybierz lokalizację skopiowanego pliku zip konfiguracji, a następnie kliknij przycisk **Zapisz**.
 
 Po pomyślnym zaimportowaniu plików Rejestracja urządzenia skalowalnego w poziomie zostanie zakończona i zostanie wyświetlona sygnatura czasowa ostatniego pomyślnego importowania. Możesz również wyświetlić szczegóły rejestracji, klikając przycisk **Wyświetl szczegóły**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importowanie powiodło się":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Zrzut ekranu przedstawia rejestrowanie urządzenia skalowalnego w poziomie przy użyciu projektu Azure Migrate.":::
 
 W tym momencie należy ponownie sprawdzić, czy urządzenie skalowalne w poziomie może połączyć się z serwerem vCenter. Kliknij przycisk **Sprawdź** ponownie, aby sprawdzić poprawność łączności vCenter Server z urządzenia skalowalnego w poziomie.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importowanie powiodło się":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Zrzut ekranu przedstawia poświadczenia widoku i źródła odnajdywania do zweryfikowania.":::
 
 > [!IMPORTANT]
 > Jeśli edytujesz poświadczenia vCenter Server na urządzeniu podstawowym, upewnij się, że pliki konfiguracji zostały ponownie zaimportowane na urządzenie skalowalne w poziomie, aby uzyskać najnowszą konfigurację i kontynuować wszystkie bieżące replikacje.<br/> Jeśli urządzenie skalowalne w poziomie nie jest dłużej potrzebne, należy wyłączyć urządzenie skalowalne w poziomie. [**Dowiedz się więcej**](./common-questions-appliance.md) na temat sposobu wyłączania urządzenia skalowalnego w poziomie, gdy nie jest to konieczne.

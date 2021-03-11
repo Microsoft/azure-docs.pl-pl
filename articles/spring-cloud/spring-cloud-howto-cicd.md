@@ -8,22 +8,22 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff54c1dc62189f2a00528c6a82abe26c667c5538
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 331ef39facb9f7cf8f069f2a238be325f53de2d0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038700"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618037"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>Ciągłej integracji/ciągłego wdrażania w chmurze platformy Azure
 
-Narzędzia do ciągłej integracji i ciągłego dostarczania umożliwiają szybkie wdrażanie aktualizacji istniejących aplikacji z minimalnym nakładem pracy i ryzykiem. Usługa Azure DevOps pomaga organizować i kontrolować te kluczowe zadania. Obecnie chmura Wiosnowa platformy Azure nie oferuje określonej wtyczki usługi Azure DevOps.  Można jednak zintegrować aplikacje w chmurze wiosny z DevOps za pomocą [zadania interfejsu wiersza polecenia platformy Azure](/azure/devops/pipelines/tasks/deploy/azure-cli?preserve-view=true&view=azure-devops).
+Narzędzia do ciągłej integracji i ciągłego dostarczania umożliwiają szybkie wdrażanie aktualizacji istniejących aplikacji z minimalnym nakładem pracy i ryzykiem. Usługa Azure DevOps pomaga organizować i kontrolować te kluczowe zadania. Obecnie chmura Wiosnowa platformy Azure nie oferuje określonej wtyczki usługi Azure DevOps.  Można jednak zintegrować aplikacje w chmurze wiosny z DevOps za pomocą [zadania interfejsu wiersza polecenia platformy Azure](/azure/devops/pipelines/tasks/deploy/azure-cli).
 
 W tym artykule pokazano, jak używać zadania interfejsu wiersza polecenia platformy Azure z chmurą Azure wiosennej w celu integracji z usługą Azure DevOps.
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Utwórz połączenie usługi Azure Resource Manager
 
-Przeczytaj [ten artykuł](/azure/devops/pipelines/library/connect-to-azure?preserve-view=true&view=azure-devops) , aby dowiedzieć się, jak utworzyć połączenie usługi Azure Resource Manager do projektu usługi Azure DevOps. Pamiętaj, aby wybrać tę samą subskrypcję, która jest używana dla wystąpienia usługi w chmurze ze sprężyną na platformie Azure.
+Przeczytaj [ten artykuł](/azure/devops/pipelines/library/connect-to-azure) , aby dowiedzieć się, jak utworzyć połączenie usługi Azure Resource Manager do projektu usługi Azure DevOps. Pamiętaj, aby wybrać tę samą subskrypcję, która jest używana dla wystąpienia usługi w chmurze ze sprężyną na platformie Azure.
 
 ## <a name="azure-cli-task-templates"></a>Szablony zadań interfejsu wiersza polecenia platformy Azure
 ::: zone pivot="programming-language-csharp"

@@ -1,24 +1,25 @@
 ---
 title: Dystrybucje systemu Linux zatwierdzone na platformie Azure
 description: Dowiedz się więcej o dystrybucji z systemem Linux na platformie Azure, w tym wskazówki dotyczące Ubuntu, CentOS, Oracle i SUSE.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 01/03/2021
 ms.author: guybo
-ms.openlocfilehash: 9d278582840404702bfef3e5fc9af395f659d844
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 091a06fd608763ac7265670733890e93bf71dde1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898083"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547411"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 

@@ -1,26 +1,19 @@
 ---
 title: Szybki Start — Tworzenie profilu Azure CDN i punktu końcowego
 description: W tym przewodniku Szybki start przedstawiono sposób włączania usługi Azure CDN przez utworzenie nowego profilu usługi CDN i punktu końcowego usługi CDN.
-services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 45edf57ed41f8cf7be839edade5038a0787424a4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367297"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555707"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Szybki start: tworzenie profilu i punktu końcowego usługi Azure CDN
 
@@ -82,6 +75,3 @@ W poprzednich krokach utworzono profil i punkt końcowy usługi CDN w grupie zas
 
 > [!div class="nextstepaction"]
 > [Samouczek: używanie usługi CDN do obsługi zawartości statycznej z poziomu aplikacji sieci Web](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Samouczek: dodawanie domeny niestandardowej do punktu końcowego usługi Azure CDN](cdn-map-content-to-custom-domain.md)

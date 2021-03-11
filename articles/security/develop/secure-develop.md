@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576620"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548448"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -34,7 +34,7 @@ Załóżmy, że aplikacja zostanie użyta w sposób, który nie był używany. P
 
 ### <a name="perform-code-reviews"></a>Wykonaj przeglądy kodu
 
-Przed zapisaniem kodu Przeprowadź [przeglądy kodu](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) w celu zwiększenia ogólnej jakości kodu i zmniejszenia ryzyka związanego z tworzeniem błędów. Możesz użyć [programu Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) , aby zarządzać procesem przeglądu kodu.
+Przed zapisaniem kodu Przeprowadź [przeglądy kodu](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) w celu zwiększenia ogólnej jakości kodu i zmniejszenia ryzyka związanego z tworzeniem błędów. Możesz użyć [programu Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) , aby zarządzać procesem przeglądu kodu.
 
 ### <a name="perform-static-code-analysis"></a>Wykonywanie statycznej analizy kodu
 

@@ -2,16 +2,17 @@
 title: Tworzenie i przekazywanie obrazu OpenBSD
 description: Dowiedz się, jak utworzyć i przekazać wirtualny dysk twardy (VHD) zawierający system operacyjny OpenBSD, aby utworzyć maszynę wirtualną platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3437fcd2d1d521aad237ecf6d3f7937b4835d376
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685093"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554602"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Tworzenie i przekazywanie obrazu dysku OpenBSD na platformę Azure
 W tym artykule przedstawiono sposób tworzenia i przekazywania wirtualnego dysku twardego (VHD) zawierającego system operacyjny OpenBSD. Po przekazaniu można użyć go jako własnego obrazu do utworzenia maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure.
@@ -87,7 +88,7 @@ Teraz możesz zamknąć maszynę wirtualną.
 
 
 ## <a name="prepare-the-vhd"></a>Przygotowywanie wirtualnego dysku twardego
-Format VHDX nie jest obsługiwany na platformie Azure, tylko **stałego dysku VHD**. Dysk można przekonwertować na stały format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) programu PowerShell. Przykład jest następujący.
+Format VHDX nie jest obsługiwany na platformie Azure, tylko **stałego dysku VHD**. Dysk można przekonwertować na stały format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) programu PowerShell. Przykład jest następujący.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895943"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553242"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -236,6 +236,8 @@ Jeśli chcesz podać wartość domyślną w przypadku braku danych wejściowych,
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Ostrzeżenie: dane wejściowe umiejętności "languageCode" zawierają następujące kody języka: "X, Y, Z", co najmniej jeden z nich jest nieprawidłowy.
 Co najmniej jedna wartość przeniesiona do opcjonalnego `languageCode` danych wejściowych z poziomu umiejętności podrzędnej nie jest obsługiwana. Taka sytuacja może wystąpić, jeśli przekazujesz dane wyjściowe [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) do kolejnych umiejętności, a dane wyjściowe składają się z większej liczby języków niż jest to obsługiwane w tych umiejętnościach podrzędnych.
+
+Należy zauważyć, że można również otrzymać ostrzeżenie podobne do tego, jeśli nieprawidłowe `countryHint` dane wejściowe zostaną przesłane do LanguageDetectionSkill. Jeśli tak się stanie, sprawdź, czy pole, którego używasz ze źródła danych dla tego danych wejściowych zawiera prawidłowe kody krajów ISO 3166-1 Alpha-2 2. Jeśli niektóre z nich są prawidłowe i niektóre z nich są nieprawidłowe, przejdź do poniższych wskazówek, ale Zastąp ciąg `languageCode` `countryHint` i `defaultLanguageCode` with, `defaultCountryHint` Aby dopasować się do Twojego przypadku użycia.
 
 Jeśli wiesz, że zestaw danych znajduje się w jednym języku, należy usunąć [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) i `languageCode` dane wejściowe dotyczące umiejętności, a `defaultLanguageCode` zamiast tego użyć parametru umiejętności dla tej umiejętności, przy założeniu, że język jest obsługiwany dla tej umiejętności.
 

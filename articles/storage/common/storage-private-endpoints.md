@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617259"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613565"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 
@@ -49,9 +49,15 @@ Możesz zabezpieczyć konto magazynu tak, aby akceptowało tylko połączenia z 
 > [!NOTE]
 > Podczas kopiowania obiektów BLOB między kontami magazynu klient musi mieć dostęp sieciowy do obu kont. Dlatego jeśli zdecydujesz się użyć prywatnego linku tylko dla jednego konta (źródła lub lokalizacji docelowej), upewnij się, że klient ma dostęp sieciowy do tego konta. Aby dowiedzieć się więcej na temat innych sposobów konfigurowania dostępu do sieci, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
 
-### <a name="private-endpoints-for-azure-storage"></a>Prywatne punkty końcowe usługi Azure Storage
+<a id="private-endpoints-for-azure-storage"></a>
 
-Podczas tworzenia prywatnego punktu końcowego należy określić konto magazynu i usługę magazynu, z którą nawiąże połączenie. Potrzebujesz osobnego prywatnego punktu końcowego dla każdej usługi magazynu na koncie magazynu, do której należy uzyskać dostęp, czyli [obiektów BLOB](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [plików](../files/storage-files-introduction.md), [kolejek](../queues/storage-queues-introduction.md), [tabel](../tables/table-storage-overview.md)lub [statycznych witryn sieci Web](../blobs/storage-blob-static-website.md).
+## <a name="creating-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
+
+Podczas tworzenia prywatnego punktu końcowego należy określić konto magazynu i usługę magazynu, z którą nawiąże połączenie. 
+
+Wymagany jest oddzielny prywatny punkt końcowy dla każdego zasobu magazynu, do którego trzeba uzyskać dostęp, czyli [obiekty blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [pliki](../files/storage-files-introduction.md), [kolejki](../queues/storage-queues-introduction.md), [tabele](../tables/table-storage-overview.md)lub [statyczne witryny sieci Web](../blobs/storage-blob-static-website.md). W prywatnym punkcie końcowym te usługi magazynu są definiowane jako **docelowe zasoby podrzędne** skojarzonego konta magazynu. 
+
+Jeśli utworzysz prywatny punkt końcowy dla zasobu magazynu Data Lake Storage Gen2, należy również utworzyć go dla zasobu usługi BLOB Storage. Wynika to z faktu, że operacje ukierunkowane na punkt końcowy Data Lake Storage Gen2 mogą zostać przekierowane do punktu końcowego obiektu BLOB. Tworząc prywatny punkt końcowy dla obu zasobów, upewnij się, że operacje mogą zakończyć się pomyślnie.
 
 > [!TIP]
 > Utwórz oddzielny prywatny punkt końcowy dla dodatkowego wystąpienia usługi Storage, aby uzyskać lepszą wydajność odczytu na kontach RA-GRS.
@@ -66,18 +72,20 @@ Aby uzyskać bardziej szczegółowe informacje na temat tworzenia prywatnego pun
 - [Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](../../private-link/create-private-endpoint-cli.md)
 - [Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="connecting-to-private-endpoints"></a>Nawiązywanie połączenia z prywatnymi punktami końcowymi
+<a id="connecting-to-private-endpoints"></a>
+
+## <a name="connecting-to-a-private-endpoint"></a>Nawiązywanie połączenia z prywatnym punktem końcowym
 
 Klienci w sieci wirtualnej korzystającej z prywatnego punktu końcowego powinni używać tych samych parametrów połączenia dla konta magazynu, ponieważ klienci nawiązują połączenie z publicznym punktem końcowym. Firma Microsoft korzysta z rozpoznawania nazw DNS, aby automatycznie kierować połączenia z sieci wirtualnej do konta magazynu za pośrednictwem prywatnego linku.
 
 > [!IMPORTANT]
-> Użyj tych samych parametrów połączenia, aby nawiązać połączenie z kontem magazynu za pomocą prywatnych punktów końcowych, jak w przeciwnym razie. Nie łącz się z kontem magazynu przy użyciu adresu URL poddomeny "*privatelink*".
+> Użyj tych samych parametrów połączenia, aby nawiązać połączenie z kontem magazynu za pomocą prywatnych punktów końcowych, jak w przeciwnym razie. Nie łącz się z kontem magazynu przy użyciu `privatelink` adresu URL jego domeny podrzędnej.
 
 Utworzymy [prywatną strefę DNS](../../dns/private-dns-overview.md) dołączoną do sieci wirtualnej z domyślnymi aktualizacjami dla prywatnych punktów końcowych. Jeśli jednak używasz własnego serwera DNS, może być konieczne wprowadzenie dodatkowych zmian w konfiguracji DNS. W sekcji dotyczącej [zmian w systemie DNS](#dns-changes-for-private-endpoints) poniżej opisano aktualizacje wymagane dla prywatnych punktów końcowych.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
 
-Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla konta magazynu zostanie zaktualizowany do aliasu w poddomenie z prefiksem "*privatelink*". Domyślnie tworzymy również [prywatną strefę DNS](../../dns/private-dns-overview.md), odpowiadającą poddomeną "*privatelink*", z rekordem zasobów DNS dla prywatnych punktów końcowych.
+Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla konta magazynu zostanie zaktualizowany do aliasu w poddomenie z prefiksem `privatelink` . Domyślnie tworzymy również [prywatną strefę DNS](../../dns/private-dns-overview.md)odpowiadającą `privatelink` poddomeną, z rekordem zasobów DNS a dla prywatnych punktów końcowych.
 
 Po rozwiązaniu adresu URL punktu końcowego magazynu spoza sieci wirtualnej z prywatnym punktem końcowym jest on rozpoznawany jako publiczny punkt końcowy usługi magazynu. Po rozwiązaniu problemu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego magazynu jest rozpoznawany jako adres IP prywatnego punktu końcowego.
 
@@ -103,18 +111,18 @@ Takie podejście umożliwia dostęp do konta magazynu **przy użyciu tych samych
 Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą mieć możliwość rozpoznania nazwy FQDN dla punktu końcowego konta magazynu na prywatnym adresie IP punktu końcowego. Należy skonfigurować serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej lub skonfigurować rekordy A dla "*StorageAccountA.privatelink.blob.Core.Windows.NET*" z prywatnym adresem IP punktu końcowego.
 
 > [!TIP]
-> W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS w celu rozpoznania nazwy konta magazynu w poddomenie "privatelink" do prywatnego adresu IP punktu końcowego. Można to zrobić przez delegowanie poddomeny "privatelink" do prywatnej strefy DNS sieci wirtualnej lub skonfigurowanie strefy DNS na serwerze DNS oraz dodanie rekordu A usługi DNS.
+> W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS do rozpoznawania nazwy konta magazynu w `privatelink` poddomenie na adres IP prywatnego punktu końcowego. Można to zrobić przez delegowanie `privatelink` poddomeny do prywatnej strefy DNS sieci wirtualnej lub skonfigurowanie strefy DNS na serwerze DNS i dodanie rekordu A DNS a.
 
-Zalecane nazwy stref DNS dla prywatnych punktów końcowych usług magazynu to:
+Zalecane nazwy stref DNS dla prywatnych punktów końcowych usług magazynu oraz powiązane z nimi zasoby podrzędne punktu końcowego są następujące:
 
-| Usługa magazynu        | Nazwa strefy                            |
-| :--------------------- | :----------------------------------- |
-| Blob service           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Usługa plików           | `privatelink.file.core.windows.net`  |
-| usługa kolejki          | `privatelink.queue.core.windows.net` |
-| Table service          | `privatelink.table.core.windows.net` |
-| Statyczne witryny sieci Web        | `privatelink.web.core.windows.net`   |
+| Usługa magazynu        | Docelowy zasób podrzędny | Nazwa strefy                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Blob service           | blob                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | DF                 | `privatelink.dfs.core.windows.net`   |
+| Usługa plików           |  — plik                | `privatelink.file.core.windows.net`  |
+| usługa kolejki          | kolejka               | `privatelink.queue.core.windows.net` |
+| Table service          | tabela               | `privatelink.table.core.windows.net` |
+| Statyczne witryny sieci Web        | web                 | `privatelink.web.core.windows.net`   |
 
 Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do obsługi prywatnych punktów końcowych, zapoznaj się z następującymi artykułami:
 
@@ -137,7 +145,7 @@ To ograniczenie jest wynikiem zmian wprowadzonych w systemie DNS, gdy konto a2 t
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reguły sieciowej grupy zabezpieczeń dla podsieci z prywatnymi punktami końcowymi
 
-Obecnie nie można skonfigurować zasad [sieciowych grup zabezpieczeń](../../virtual-network/network-security-groups-overview.md) (sieciowej grupy zabezpieczeń) i tras zdefiniowanych przez użytkownika dla prywatnych punktów końcowych. Reguły sieciowej grupy zabezpieczeń stosowane do podsieci obsługującej prywatny punkt końcowy są stosowane tylko do innych punktów końcowych (np. kart sieciowych) niż prywatny punkt końcowy. Ograniczone obejście tego problemu polega na implementacji reguł dostępu dla prywatnych punktów końcowych w podsieciach źródłowych, chociaż takie podejście może wymagać wyższego obciążenia zarządzania.
+Obecnie nie można skonfigurować zasad [sieciowych grup zabezpieczeń](../../virtual-network/network-security-groups-overview.md) (sieciowej grupy zabezpieczeń) i tras zdefiniowanych przez użytkownika dla prywatnych punktów końcowych. Reguły sieciowej grupy zabezpieczeń zastosowane do podsieci obsługującej prywatny punkt końcowy nie są stosowane do prywatnego punktu końcowego. Są one stosowane tylko do innych punktów końcowych (na przykład: Kontrolery interfejsu sieciowego). Ograniczone obejście tego problemu polega na implementacji reguł dostępu dla prywatnych punktów końcowych w podsieciach źródłowych, chociaż takie podejście może wymagać wyższego obciążenia zarządzania.
 
 ## <a name="next-steps"></a>Następne kroki
 

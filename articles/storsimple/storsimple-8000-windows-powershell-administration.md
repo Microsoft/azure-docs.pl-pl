@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e41d2e531a051738a31325b4ea33961bfb39e7f9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808029"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611950"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
 
@@ -29,7 +29,7 @@ Po przeczytaniu tego artykułu będzie można:
 
 > [!NOTE]
 > * Polecenia cmdlet program Windows PowerShell dla usługi StorSimple umożliwiają zarządzanie urządzeniem StorSimple z poziomu konsoli szeregowej lub zdalnie za pośrednictwem komunikacji zdalnej programu Windows PowerShell. Aby uzyskać więcej informacji na temat poszczególnych poleceń cmdlet, które mogą być używane w tym interfejsie, przejdź do [dokumentacji poleceń cmdlet dla program Windows PowerShell dla usługi StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps&preserve-view=true).
-> * Polecenia cmdlet programu Azure PowerShell StorSimple są różnymi kolekcjami poleceń cmdlet, które umożliwiają automatyzację StorSimple zadań dotyczących poziomu usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet platformy Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0&preserve-view=true#azure).
+> * Polecenia cmdlet programu Azure PowerShell StorSimple są różnymi kolekcjami poleceń cmdlet, które umożliwiają automatyzację StorSimple zadań dotyczących poziomu usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet platformy Azure StorSimple](/powershell/module/servicemanagement/azure.service/#azure).
 
 
 Dostęp do program Windows PowerShell dla usługi StorSimple można uzyskać przy użyciu jednej z następujących metod:

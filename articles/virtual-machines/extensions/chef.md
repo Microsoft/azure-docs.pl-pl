@@ -1,25 +1,19 @@
 ---
 title: Rozszerzenie Chef dla maszyn wirtualnych platformy Azure
 description: Wdróż klienta Chef na maszynie wirtualnej przy użyciu rozszerzenia maszyny wirtualnej Chef.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: linux
 ms.date: 09/21/2018
-ms.author: akjosh
-ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968370"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554789"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Rozszerzenie maszyny wirtualnej Chef dla systemów Linux i Windows
 
@@ -79,15 +73,15 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Roz
 
 | Nazwa | Wartość/przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ----
-| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | T |
-| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | T |
-| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | T |
+| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | Y |
+| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | Y |
+| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | Y |
 
 ### <a name="protected-settings"></a>Ustawienia chronione
 
 | Nazwa | Przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | T |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | Y |
 
 <!--
 ### Linux-specific settings

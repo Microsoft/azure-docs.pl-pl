@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429266"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618002"
 ---
 # <a name="microsoft-azure-attestation"></a>Usługa Microsoft Azure Attestation 
 
@@ -78,10 +78,10 @@ Zaświadczanie o platformie Azure jest preferowanym wyborem dla zaświadczania T
 Klastry wdrożone w dwóch regionach będą działać niezależnie w normalnych warunkach. W przypadku awarii lub awarii jednego regionu należy wykonać następujące czynności:
 
 - BCDR zaświadczania o platformie Azure zapewnia bezproblemową pracę w trybie failover, w której klienci nie muszą podejmować dodatkowych kroków w celu odzyskania
-- [Traffic Manager platformy Azure](../traffic-manager/index.yml) dla regionu wykryje pogorszenie sondy kondycji i przełączenie punktu końcowego na sparowany region
+- [Traffic Manager platformy Azure](../traffic-manager/index.yml) dla regionu wykryje, że sonda kondycji ma obniżoną wydajność i przełącza punkt końcowy na sparowany region
 - Istniejące połączenia nie będą działały i otrzymają wewnętrzny błąd serwera lub problemy z przekroczeniem limitu czasu
-- Wszystkie operacje płaszczyzny kontroli zostaną zablokowane. Klienci nie będą mogli tworzyć dostawców zaświadczania i aktualizować zasad w regionie podstawowym
-- Wszystkie operacje płaszczyzny danych, w tym zaświadczanie wywołań, będą nadal działały w regionie podstawowym
+- Wszystkie operacje płaszczyzny kontroli zostaną zablokowane. Klienci nie będą mogli tworzyć dostawców zaświadczania w regionie podstawowym
+- Wszystkie operacje płaszczyzny danych, w tym zaświadczanie wywołań i konfiguracji zasad, będą obsługiwane przez region pomocniczy. Klienci mogą nadal korzystać z operacji na płaszczyźnie danych przy użyciu oryginalnego identyfikatora URI odpowiadającego regionowi podstawowemu.
 
 ## <a name="next-steps"></a>Następne kroki
 - Informacje o [podstawowych pojęciach dotyczących zaświadczania platformy Azure](basic-concepts.md)

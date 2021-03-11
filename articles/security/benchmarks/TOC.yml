@@ -76,7 +76,7 @@
     - name: Punkt odniesienia zabezpieczeń usługi Azure Bastion
       href: ../../bastion/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Bot Network
-      href: /azure/bot-service/security-baseline?view=azure-bot-service-4.0
+      href: /azure/bot-service/security-baseline
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Cognitive Search

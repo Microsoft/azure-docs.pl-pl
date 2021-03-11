@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596642"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612528"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie i usuwanie sieci wirtualnej
 
@@ -53,7 +53,7 @@ Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące
      > Jeśli sieć wirtualna ma zakresy adresów, które nakładają się na inną sieć wirtualną lub sieć lokalną, nie można połączyć obu tych sieci. Przed zdefiniowaniem zakresu adresów należy rozważyć, czy w przyszłości warto połączyć sieć wirtualną z innymi sieciami wirtualnymi lub sieciami lokalnymi. Firma Microsoft zaleca skonfigurowanie zakresów adresów sieci wirtualnej z prywatną przestrzenią adresową lub publiczną przestrzenią adresową posiadaną przez organizację.
      >
 
-     - **Nazwa podsieci**: Nazwa podsieci musi być unikatowa w obrębie sieci wirtualnej. Po utworzeniu podsieci nie można zmienić jej nazwy. Portal wymaga zdefiniowania jednej podsieci podczas tworzenia sieci wirtualnej, nawet jeśli sieć wirtualna nie jest wymagana do posiadania żadnych podsieci. W portalu można zdefiniować tylko jedną podsieć podczas tworzenia sieci wirtualnej. Później można dodać więcej podsieci do sieci wirtualnej po utworzeniu sieci wirtualnej. Aby dodać podsieć do sieci wirtualnej, zobacz [Zarządzanie podsieciami](virtual-network-manage-subnet.md). Sieć wirtualną z wieloma podsieciami można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
+     - **Nazwa podsieci**: Nazwa podsieci musi być unikatowa w obrębie sieci wirtualnej. Po utworzeniu podsieci nie można zmienić jej nazwy. Portal wymaga zdefiniowania jednej podsieci podczas tworzenia sieci wirtualnej, nawet jeśli sieć wirtualna nie jest wymagana do posiadania żadnych podsieci. W portalu można zdefiniować co najmniej jedną podsieć podczas tworzenia sieci wirtualnej. Później można dodać więcej podsieci do sieci wirtualnej po utworzeniu sieci wirtualnej. Aby dodać podsieć do sieci wirtualnej, zobacz [Zarządzanie podsieciami](virtual-network-manage-subnet.md). Sieć wirtualną z wieloma podsieciami można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
        >[!TIP]
        >Czasami administratorzy tworzą różne podsieci do filtrowania lub kontrolowania routingu ruchu między podsieciami. Przed zdefiniowaniem podsieci należy rozważyć sposób filtrowania i kierowania ruchu między podsieciami. Aby dowiedzieć się więcej o filtrowaniu ruchu między podsieciami, zobacz [sieciowe grupy zabezpieczeń](./network-security-groups-overview.md). Platforma Azure automatycznie kieruje ruchem między podsieciami, ale można zastąpić trasy domyślne platformy Azure. Aby dowiedzieć się więcej o domyślnym routingu ruchu podsieci platformy Azure, zobacz [Omówienie routingu](virtual-networks-udr-overview.md).

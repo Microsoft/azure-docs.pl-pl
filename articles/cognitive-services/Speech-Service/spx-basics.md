@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: trbye
-ms.openlocfilehash: 4a6c7b36665c7a38534ce8e470bc8b327c274d95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 53138a22c58e89ade4af234630e9429a19738a6a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "99095188"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556472"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Wprowadzenie do interfejsu wiersza polecenia usługi Azure Speech
 
@@ -86,7 +86,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 Można również zapisać dane wyjściowe z syntezą w pliku. W tym przykładzie utworzymy plik o nazwie `my-sample.wav` w katalogu, w którym uruchomiono polecenie.
 
 ```console
-spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
+spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 W tych przykładach zakłada się, że testy są testowane w języku angielskim. Jednak firma Microsoft obsługuje syntezę mowy w wielu językach. Pełną listę głosów można ściągnąć za pomocą tego polecenia lub odwiedzając [stronę pomocy technicznej języka](./language-support.md).

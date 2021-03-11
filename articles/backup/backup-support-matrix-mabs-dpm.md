@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: e888b43ea5641f1943a096f045747d547c52fcfa
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986060"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609757"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -60,9 +60,9 @@ Program DPM/serwera usługi MAB można wdrożyć zgodnie z podsumowaniem w poni�
 
 **Wdrożenie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-**Wdrożone lokalnie** | Serwer fizyczny<br/><br/>Maszyna wirtualna funkcji Hyper-V<br/><br/> Maszyna wirtualna VMware | Więcej informacji można znaleźć w [macierzy ochrony](backup-mabs-protection-matrix.md) . 
+**Wdrożone lokalnie** | Serwer fizyczny, ale nie w klastrze fizycznym.<br/><br/>Maszyna wirtualna funkcji Hyper-V. SERWERA usługi MAB jako maszynę gościa można wdrożyć w autonomicznej funkcji hypervisor lub w klastrze. Nie można go wdrożyć w węźle klastra lub autonomicznej funkcji hypervisor. Azure Backup Server jest przeznaczony do działania na dedykowanym, wyznaczonym do tego celu serwerze.<br/><br/> Jako maszynę wirtualną systemu Windows w środowisku VMware. | Lokalne serwery serwera usługi MAB nie mogą chronić obciążeń opartych na platformie Azure. <br><br> Aby uzyskać więcej informacji, zobacz [macierz ochrony](backup-mabs-protection-matrix.md).
 **Wdrożono jako maszynę wirtualną Azure Stack** | Tylko serwera usługi MAB | Programu DPM nie można używać do tworzenia kopii zapasowych maszyn wirtualnych Azure Stack.
-**Wdrożono jako maszynę wirtualną platformy Azure** | Ochrona maszyn wirtualnych platformy Azure i obciążeń uruchomionych na tych maszynach wirtualnych | W programie DPM/serwera usługi MAB działającym na platformie Azure nie można tworzyć kopii zapasowych maszyn lokalnych.
+**Wdrożono jako maszynę wirtualną platformy Azure** | Ochrona maszyn wirtualnych platformy Azure i obciążeń uruchomionych na tych maszynach wirtualnych | W programie DPM/serwera usługi MAB działającym na platformie Azure nie można tworzyć kopii zapasowych maszyn lokalnych. Może chronić tylko obciążenia działające na maszynach wirtualnych usługi Azure IaaS.
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Obsługiwane systemy operacyjne serwera usługi MAB i DPM
 
@@ -87,6 +87,9 @@ Azure Backup może tworzyć kopie zapasowe wystąpień programu DPM/serwera usł
 **Storage** | Nowoczesne magazyny kopii zapasowych (MB) jest obsługiwane przez program DPM 2016/serwera usługi MAB v2 i nowsze. Nie jest on dostępny dla serwera usługi MAB v1.
 **SERWERA usługi MAB uaktualnienie** | Można bezpośrednio zainstalować serwera usługi MAB v3 lub uaktualnić do serwera usługi MAB v3 z wersji serwera usługi MAB v2. [Dowiedz się więcej](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Przesuwanie serwera usługi MAB** | Przeniesienie serwera usługi MAB na nowy serwer podczas zachowywania magazynu jest obsługiwane, jeśli używasz MB.<br/><br/> Serwer musi mieć taką samą nazwę jak oryginalna. Nie można zmienić nazwy, jeśli chcesz zachować tę samą pulę magazynów i użyć tej samej bazy danych serwera usługi MAB do przechowywania punktów odzyskiwania danych.<br/><br/> Konieczna będzie kopia zapasowa bazy danych serwera usługi MAB, ponieważ należy ją przywrócić.
+
+>[!NOTE]
+>Zmiana nazwy serwera DPM/serwera usługi MAB nie jest obsługiwana.
 
 ## <a name="mabs-support-on-azure-stack"></a>Obsługa serwera usługi MAB w Azure Stack
 
@@ -168,11 +171,19 @@ Brak łączności przez ponad 15 dni | Wygasłe lub anulowano obsługę administ
 |Wymaganie |Szczegóły |
 |---------|---------|
 |Domena    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
+|Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) <br><br> Aby utworzyć kopię zapasową klastrów serwerów funkcji Hyper-V, muszą one znajdować się w tej samej domenie co serwer serwera usługi MAB lub w domenie zaufanej lub podrzędnej. Można wykonać kopię zapasową obciążeń, serwerów i klastrów w niezaufanej domenie z uwierzytelnianiem przy użyciu protokołu NTLM lub certyfikatu dla jednego serwera albo z uwierzytelnianiem tylko przy użyciu certyfikatu dla klastra.  |
 
 ## <a name="dpmmabs-storage-support"></a>Obsługa magazynu programu DPM/serwera usługi MAB
 
 Dane, których kopię zapasową utworzono w programie DPM/serwera usługi MAB, są przechowywane na dysku lokalnym.
+
+USB lub dyski wymienne nie są obsługiwane.
+
+Kompresja NTFS nie jest obsługiwana na woluminach programu DPM/serwera usługi MAB.
+
+Funkcję BitLocker można włączyć tylko po dodaniu dysku do puli magazynów. Nie włączaj funkcji BitLocker przed dodaniem jej.
+
+Magazyn dołączony do sieci (NAS) nie jest obsługiwany do użycia w puli magazynów programu DPM.
 
 **Storage** | **Szczegóły**
 --- | ---
@@ -199,6 +210,38 @@ Aby uzyskać informacje na temat różnych serwerów i obciążeń, które możn
 
 - Klastrowane obciążenia tworzone w ramach programu DPM/serwera usługi MAB powinny znajdować się w tej samej domenie co program DPM/serwera usługi MAB lub w domenie podrzędnej/zaufanej.
 - Przy użyciu uwierzytelniania NTLM/Certificate można tworzyć kopie zapasowe danych w niezaufanych domenach lub grupach roboczych.
+
+## <a name="deduplicated-volumes-support"></a>Obsługa woluminów z deduplikacją
+
+>[!NOTE]
+> Obsługa deduplikacji dla usługi serwera usługi MAB zależy od obsługi systemu operacyjnego.
+
+### <a name="for-ntfs-volumes"></a>Dla woluminów NTFS
+
+| System operacyjny serwera chronionego  | System operacyjny serwera serwera usługi MAB  | Wersja serwera usługi MAB  | Obsługa deduplikacji |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| System Windows Server 2019                       | System Windows Server 2019                  | SERWERA usługi MAB v3            | Y                    |
+| System Windows Server 2016                       | System Windows Server 2019                  | SERWERA usługi MAB v3            | T                   |
+| System Windows Server 2012 R2                    | System Windows Server 2019                  | SERWERA usługi MAB v3            | N                    |
+| System Windows Server 2012                       | System Windows Server 2019                  | SERWERA usługi MAB v3            | N                    |
+| System Windows Server 2019                       | System Windows Server 2016                  | SERWERA usługi MAB v3            | Y * *                  |
+| System Windows Server 2016                       | System Windows Server 2016                  | SERWERA usługi MAB v3            | Y                    |
+| System Windows Server 2012 R2                    | System Windows Server 2016                  | SERWERA usługi MAB v3            | Y                    |
+| System Windows Server 2012                       | System Windows Server 2016                  | SERWERA usługi MAB v3            | Y                    |
+
+- \* W przypadku ochrony woluminu z deduplikacją systemu plików NTFS 2016 z serwera usługi MAB v3 uruchomionym w usłudze WS 2019 może to wpłynąć na odzyskiwanie. Mamy poprawkę dotyczącą operacji odzyskiwania w sposób nieduplikowany. Skontaktuj się z pomocą techniczną serwera usługi MAB, jeśli potrzebujesz tej poprawki na serwera usługi MAB v3 UR1.
+- \** W przypadku ochrony woluminu z deduplikacją systemu plików NTFS 2019 z serwera usługi MAB V3 w WS 2016, kopie zapasowe i przywracanie nie będą deduplikowane. Oznacza to, że kopie zapasowe będą zużywać więcej miejsca na serwerze serwera usługi MAB niż oryginalny wolumin NTFS z deduplikacją.
+
+**Problem**: w przypadku uaktualniania chronionego serwera systemu operacyjnego z systemu windows Server 2016 do systemu windows Server 2019, będzie to miało oddziaływać na kopię zapasową woluminu z deduplikacją NTFS.
+
+**Obejście**: skontaktuj się z pomocą techniczną usługi serwera usługi MAB w przypadku, gdy potrzebna jest ta poprawka dla serwera usługi MAB v3 UR1.
+
+### <a name="for-refs-volumes"></a>Woluminy systemu plików ReFS
+
+>[!NOTE]
+> Zidentyfikowano kilka problemów z kopiami zapasowymi deduplikowanych woluminów ReFS. Pracujemy nad naprawianiem tych elementów i zaktualizujemy tę sekcję zaraz po udostępnieniu poprawki. Do tego czasu usuwamy obsługę kopii zapasowych deduplikowanych woluminów ReFS z serwera usługi MAB v3.
+>
+> SERWERA usługi MAB v3 UR1 i nowsze wersje nadal obsługują ochronę i odzyskiwanie normalnych woluminów ReFS.
 
 ## <a name="next-steps"></a>Następne kroki
 

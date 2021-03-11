@@ -14,6 +14,8 @@
       href: tutorial-move-region-virtual-machines.md
     - name: Przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure do innego regionu
       href: tutorial-move-region-encrypted-virtual-machines.md
+    - name: Przenoszenie zasobów między regionami przy użyciu programu PowerShell
+      href: tutorial-move-region-powershell.md
     - name: Przenoszenie zasobów SQL do innego regionu
       href: tutorial-move-region-sql.md
 - name: Pojęcia
@@ -28,8 +30,6 @@
   items:
     - name: Przechodzenie między regionami
       items:
-        - name: Przechodzenie między regionami przy użyciu programu PowerShell
-          href: move-region-powershell.md
         - name: Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
           href: move-region-availability-zone.md
         - name: Przechodzenie między regionami (z grupy zasobów)

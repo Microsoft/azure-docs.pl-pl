@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e85b698e1b3c3a1c3e8730ab85e8b72b7b0d9f6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856011"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548482"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET i kodu Azure SQL Database za pomocą usługi Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter również:
 * Konfiguruje potok wydania na potrzeby ciągłego wdrażania. 
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Użyj platformy Azure DevOps Starter, aby wdrożyć aplikację ASP.NET i kod Azure SQL Database
@@ -66,7 +66,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz usługi subskrypcji platformy Azure. Możesz również wybrać link **Zmień**, aby wyświetlić dodatkowe ustawienia konfiguracji platformy Azure, a następnie określić nazwę użytkownika w sekcji **Szczegóły logowania na serwerze bazy danych**. Zachowaj nazwę użytkownika, aby użyć jej w dalszych krokach tego samouczka. Jeśli możesz wykonać ten krok opcjonalny, zamknij obszar konfiguracji platformy Azure przed wybraniem pozycji **Gotowe**.
  
-1. Wybierz pozycję **Gotowe**. Po kilku minutach proces zostanie ukończony i zostanie otwarty pulpit nawigacyjny DevOps Starter w Azure Portal. Możesz również przejść do pulpitu nawigacyjnego bezpośrednio z obszaru **Wszystkie zasoby** w witrynie Azure Portal. Po prawej stronie wybierz pozycję **Przeglądaj**, aby wyświetlić uruchomioną aplikację.
+1. Kliknij **Gotowe**. Po kilku minutach proces zostanie ukończony i zostanie otwarty pulpit nawigacyjny DevOps Starter w Azure Portal. Możesz również przejść do pulpitu nawigacyjnego bezpośrednio z obszaru **Wszystkie zasoby** w witrynie Azure Portal. Po prawej stronie wybierz pozycję **Przeglądaj**, aby wyświetlić uruchomioną aplikację.
     
 ## <a name="examine-the-ci-pipeline"></a>Badanie potoku ciągłej integracji
 
@@ -76,7 +76,7 @@ DevOps Starter automatycznie konfiguruje pełny potok ciągłej integracji/ciąg
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie źródeł z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych do wdrożenia.
 
@@ -190,7 +190,7 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process)
 
 ## <a name="videos"></a>Filmy wideo
 

@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 7972385ba017059407b994029c37f347b919cad3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435124"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631476"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Używanie spisu obiektów BLOB usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)
 
@@ -205,4 +205,5 @@ Przykładowe zdarzenie:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Oblicz liczbę i łączny rozmiar obiektów BLOB na kontener](calculate-blob-count-size.md)
+- [Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)

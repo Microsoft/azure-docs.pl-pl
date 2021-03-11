@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178366"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623505"
 ---
 ## <a name="disk-level-bursting"></a>Szeregowanie na poziomie dysku
 
@@ -147,7 +147,7 @@ Po uruchomieniu maszyny wirtualnej będzie ona żądała przekroczenia limitu 1 
 
 Po uruchomieniu należy uruchomić aplikację, która ma niekrytyczne obciążenie. Ta aplikacja wymaga 15 MB/s, która umożliwia równomierne rozmieszczenie na wszystkich dyskach.
 
-![Aplikacja wysyła żądanie o 15 MB/s do maszyny wirtualnej, maszyna wirtualna przyjmuje żądanie i wysyła do każdego z nich żądanie dotyczące 5 MB/s, a każdy dysk zwraca 5 MB/s, maszyna wirtualna zwraca 15 MB/s do aplikacji.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![Aplikacja wysyła żądanie dotyczące 15 MB/s przepływności do maszyny wirtualnej, maszyna wirtualna przyjmuje żądanie i wysyła do każdego z nich żądanie dotyczące 5 MB/s, a każdy dysk zwraca 5 MB/s odpowiedzi, maszyna wirtualna zwraca 15 MB/s do aplikacji.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 360 MB/s. Standard_L8s_v2 serii, aby spełnić te zapotrzebowanie, a następnie żądania. Dysk systemu operacyjnego wymaga tylko 20 MB/s. Pozostałe 340 MB/s są obsługiwane przez dyski danych P4.
 

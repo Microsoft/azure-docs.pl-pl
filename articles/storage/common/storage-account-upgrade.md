@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357368"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555010"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
 
@@ -24,6 +24,15 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 
 > [!IMPORTANT]
 > Uaktualnianie konta ogólnego przeznaczenia v1 lub BLOB Storage do ogólnego przeznaczenia w wersji 2 jest trwałe i nie można go cofnąć.
+
+> [!NOTE]
+> Mimo że firma Microsoft zaleca konta ogólnego przeznaczenia w wersji 2 dla większości scenariuszy, firma Microsoft będzie nadal obsługiwała konta ogólnego przeznaczenia w wersji 1 dla nowych i istniejących klientów. W nowych regionach można tworzyć konta magazynu ogólnego przeznaczenia w wersji 1, gdy usługa Azure Storage jest dostępna w tych regionach. Firma Microsoft nie ma obecnie planu na wycofanie pomocy technicznej dla kont ogólnego przeznaczenia w wersji 1 i udostępnienie co najmniej jednego roku przed wycofaniem jakiejkolwiek funkcji usługi Azure Storage. Firma Microsoft będzie nadal dostarczać aktualizacje zabezpieczeń dla kont ogólnego przeznaczenia w wersji 1, ale dla tego typu konta nie jest oczekiwane tworzenie nowych funkcji.
+>
+> Od 1 października 2020 ceny dla kont ogólnego przeznaczenia w wersji 1 w nowych regionach usługi Azure Storage są równoważne z cenami dla kont ogólnego przeznaczenia v2 w tych regionach. Cennik w istniejących regionach usługi Azure Storage nie został zmieniony. Szczegóły cennika kont ogólnego przeznaczenia w wersji 1 w określonym regionie znajdują się na stronie cennika usługi Azure Storage. Wybierz region, a następnie w obszarze **oferty cennika** wybierz pozycję **inne**.
+
+## <a name="upgrade-an-account"></a>Uaktualnianie konta
+
+Aby uaktualnić konto usługi Microsoft w wersji 1 lub BLOB do konta ogólnego przeznaczenia w wersji 2, użyj Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -47,6 +56,7 @@ Następnie Wywołaj następujące polecenie, aby uaktualnić konto, podstawiają
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby uaktualnić konto ogólnego przeznaczenia w wersji 1 do konta ogólnego przeznaczenia w wersji 2 przy użyciu interfejsu wiersza polecenia platformy Azure, najpierw zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia, zobacz [Instalacja interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).

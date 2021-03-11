@@ -5,12 +5,12 @@ description: Dowiedz się, jak ręcznie utworzyć wolumin z Azure Files na potrz
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246965"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609077"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Ręczne tworzenie i używanie woluminu z udziałem Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,8 @@ Użyj `kubectl create secret` polecenia, aby utworzyć wpis tajny. Poniższy prz
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## <a name="mount-the-file-share-as-a-volume"></a>Instalowanie udziału plików jako woluminu
+## <a name="mount-file-share-as-an-inline-volume"></a>Zainstaluj udział plików jako wolumin wbudowany
+> Uwaga: począwszy od 1.18.15, 1.19.7, 1.20.2, 1.21.0, wpisu tajnego w `azureFile` woluminie wbudowanym można ustawić tylko jako `default` przestrzeń nazw, aby określić inną przestrzeń nazw wpisu tajnego, zamiast tego użyj poniżej przykładowego woluminu trwałego.
 
 Aby zainstalować udział Azure Files w obszarze, skonfiguruj wolumin w specyfikacji kontenera. Utwórz nowy plik o nazwie `azure-files-pod.yaml` z następującą zawartością. Jeśli zmieniono nazwę udziału plików lub nazwy wpisu tajnego, zaktualizuj wartości *ShareName* i *secretname*. W razie potrzeby zaktualizuj `mountPath` ścieżkę, która jest ścieżką, w której udział plików jest instalowany w obszarze. W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
 
@@ -131,9 +132,10 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Mount options (Opcje instalacji)
+## <a name="mount-file-share-as-an-persistent-volume"></a>Zainstaluj udział plików jako wolumin trwały
+ - Mount options (Opcje instalacji)
 
-Domyślna wartość *parametru FileMode* i *dirMode* to *0755* dla Kubernetes w wersji 1.9.1 lub nowszej. W przypadku używania klastra z Kubernetes w wersji 1.8.5 lub nowszej i statycznego tworzenia trwałego obiektu woluminu należy określić opcje instalacji w obiekcie *PersistentVolume* . W poniższym przykładzie są ustawiane *0777*:
+Domyślna wartość *parametru FileMode* i *dirMode* to *0777* dla Kubernetes w wersji 1,15 lub nowszej. Poniższy przykład ustawia *0755* na obiekcie *PersistentVolume* :
 
 ```yaml
 apiVersion: v1
@@ -147,18 +149,17 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
+    secretNamespace: default
     shareName: aksshare
     readOnly: false
   mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
+  - dir_mode=0755
+  - file_mode=0755
   - uid=1000
   - gid=1000
   - mfsymlinks
   - nobrl
 ```
-
-W przypadku korzystania z klastra w wersji 1.8.0-1.8.4 kontekstu zabezpieczeń można określić z wartością *runAsUser* ustawioną na *0*. Aby uzyskać więcej informacji na temat kontekstu zabezpieczeń pod, zobacz [Konfigurowanie kontekstu zabezpieczeń][kubernetes-security-context].
 
 Aby zaktualizować opcje instalacji, Utwórz plik *azurefile-Mount-Options-wa. YAML* z *PersistentVolume*. Na przykład:
 

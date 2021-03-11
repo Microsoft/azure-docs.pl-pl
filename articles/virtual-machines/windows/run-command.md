@@ -3,22 +3,23 @@ title: Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z syste
 description: W tym temacie opisano sposób uruchamiania skryptów programu PowerShell na maszynie wirtualnej z systemem Windows Azure przy użyciu funkcji run polecenia
 services: automation
 ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: eac6201f45b11cae223e2293644bd9d0144e6e31
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203358"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560688"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom
 
-Funkcja Run command używa agenta maszyny wirtualnej do uruchamiania skryptów programu PowerShell na maszynie wirtualnej z systemem Windows Azure. Za pomocą tych skryptów można zarządzać ogólnymi maszynami lub aplikacjami. Mogą one pomóc w szybkim zdiagnozowaniu i rozpoczęciu problemów z dostępem do maszyn wirtualnych i rozpoczęciu pracy z powrotem do dobrego stanu.
+Funkcja Run command używa agenta maszyny wirtualnej do uruchamiania skryptów programu PowerShell na maszynie wirtualnej z systemem Windows Azure. Za pomocą tych skryptów można ogólnie zarządzać maszynami lub aplikacjami. Mogą one pomóc w szybkim zdiagnozowaniu i rozpoczęciu problemów z dostępem do maszyn wirtualnych i rozpoczęciu pracy z powrotem do dobrego stanu.
 
 
 
@@ -102,7 +103,7 @@ W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](/p
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run
+## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do uruchamiania polecenia
 
 Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia na poziomie subskrypcji. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
 
