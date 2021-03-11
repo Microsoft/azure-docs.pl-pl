@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854651"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566604"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter
 
@@ -97,9 +97,9 @@ Usługa Azure DevOps Starter automatycznie konfiguruje potok ciągłej integracj
 
    ![Strona kompilacje Azure Pipelines](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Kliknij pozycję **Edytuj**.
+1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Wybierz pozycję **Edytuj**.
 
-1. Kompilacja wykonuje różne zadania, takie jak pobieranie źródeł z repozytorium, przywracanie zależności i publikowanie danych wyjściowych dla wdrożeń. Po prawej stronie w polu **Nazwa**Zmień nazwę potoku kompilacji na coś bardziej opisowego. Wybierz pozycję **zapisz & kolejkę**, a następnie wybierz pozycję **Zapisz**. Wprowadź komentarz, a następnie wybierz pozycję **Zapisz** ponownie.
+1. Kompilacja wykonuje różne zadania, takie jak pobieranie źródeł z repozytorium, przywracanie zależności i publikowanie danych wyjściowych dla wdrożeń. Po prawej stronie w polu **Nazwa** Zmień nazwę potoku kompilacji na coś bardziej opisowego. Wybierz pozycję **zapisz & kolejkę**, a następnie wybierz pozycję **Zapisz**. Wprowadź komentarz, a następnie wybierz pozycję **Zapisz** ponownie.
 
    ![Strona kompilacji usługi Azure DevOps](_img/azure-devops-project-github/buildpage.png)
 
@@ -118,7 +118,7 @@ Po skonfigurowaniu procesu ciągłej integracji/ciągłego wdrażania w ramach t
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process)
 
 Aby dowiedzieć się więcej o monitorowaniu aplikacji, zobacz:
   

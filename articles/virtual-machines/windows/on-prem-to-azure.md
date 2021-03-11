@@ -3,19 +3,20 @@ title: Migrowanie z AWS i innych platform do Managed Disks na platformie Azure
 description: Twórz maszyny wirtualne na platformie Azure przy użyciu wirtualnych dysków twardych, takich jak AWS lub inne platformy wirtualizacji, i korzystaj z Managed Disks platformy Azure.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c817528ff26dd10112eaf69c7ad20f8fb5813695
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200893"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550403"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrowanie z Amazon Web Services (AWS) i innych platform do Managed Disks na platformie Azure
 

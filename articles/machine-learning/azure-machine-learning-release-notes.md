@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521207"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608686"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -59,8 +59,8 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + [Terminal macierzysty (ga)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem zintegrowanego terminalu.
   + [Fragmenty notesu (wersja zapoznawcza)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Najpopularniejsze fragmenty kodu usługi Azure ML są teraz dostępne na wyręką. Przejdź do panelu fragmenty kodu, dostępnego za pośrednictwem paska narzędzi lub Aktywuj menu fragmenty w kodzie za pomocą klawiszy CTRL + SPACJA.  
   + [Skróty klawiaturowe](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Pełna zgodność ze skrótami klawiaturowymi dostępnymi w Jupyter. 
-  + Wskaż parametry komórki. Pokazuje, że użytkownicy z komórką w notesie są komórką parametrów i mogą uruchamiać sparametryzowane notesy za pośrednictwem [Papermill](https://github.com/nteract/papermill) na wystąpieniu obliczeniowym.
-  + Terminal i Menedżer sesji jądra: użytkownicy będą mogli zarządzać wszystkimi jądrami i sesjami terminali uruchomionymi w ramach obliczeń.
+  + Wskaż parametry komórki. Pokazuje użytkowników, którzy komórki w notesie są komórkami parametrycznymi i mogą uruchamiać sparametryzowane notesy za pośrednictwem [Papermill](https://github.com/nteract/papermill) na wystąpieniu obliczeniowym.
+  + Menedżer sesji terminalu i jądra: użytkownicy będą mogli zarządzać wszystkimi jądrami i sesjami terminali działającymi w ramach obliczeń.
   + Przycisk udostępniania. Użytkownicy mogą teraz udostępniać dowolny plik w Eksploratorze plików notesu, klikając go prawym przyciskiem myszy i korzystając z przycisku Udostępnij.
 
 

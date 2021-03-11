@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 15e1dff37e1782baf5740a3fb35119bbbbffc297
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931725"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558801"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -23,7 +23,7 @@ Rozszerzenie Durable Functions obsługuje obecnie następujące języki:
 
 * **C#**: zarówno [prekompilowane biblioteki klas](../functions-dotnet-class-library.md), jak i [skrypt języka C#](../functions-reference-csharp.md).
 * **JavaScript**: obsługiwany tylko w przypadku wersji 2.x środowiska uruchomieniowego usługi Azure Functions. Wymaga rozszerzenia Durable Functions w wersji 1.7.0 lub nowszej. 
-* **Python**: wymaga wersji 2.3.1 rozszerzenia Durable Functions lub nowszej wersji. Pomoc techniczna dla Durable Functions jest obecnie dostępna w publicznej wersji zapoznawczej.
+* **Python**: wymaga wersji 2.3.1 rozszerzenia Durable Functions lub nowszej wersji.
 * **F#**: prekompilowane biblioteki klas i skrypt języka F#. Skrypt języka F# jest obsługiwany tylko w przypadku wersji 1.x środowiska uruchomieniowego usługi Azure Functions.
 * **PowerShell**: wsparcie dla Durable Functions jest obecnie dostępne w publicznej wersji zapoznawczej. Obsługiwane tylko w wersji 3. x środowiska uruchomieniowego Azure Functions i programu PowerShell 7. Wymaga wersji 2.2.2 rozszerzenia Durable Functions lub nowszej wersji. Obecnie obsługiwane są tylko następujące wzorce: [łańcuchy funkcji](#chaining), [wentylatory/wentylatory](#fan-in-out), [asynchroniczne interfejsy API protokołu HTTP](#async-http).
 
@@ -710,7 +710,7 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 
 W tych przewodnikach szybki start utworzysz i testujesz funkcję trwałego "Hello World". Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 Poniższy klip wideo prezentuje zalety rozszerzenia Durable Functions:
 

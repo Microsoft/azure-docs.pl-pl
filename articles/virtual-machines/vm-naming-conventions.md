@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650965"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551018"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Konwencje nazewnictwa maszyn wirtualnych platformy Azure
 
@@ -21,13 +21,14 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 
 ## <a name="naming-convention-explanation"></a>Wyjaśnienie konwencji nazewnictwa
 
-**[Rodzina]**  +  **[Podrodzina *]**  +  **[# z procesorów wirtualnych vCPU]**  +  **[Funkcje dodatków]**  +  **[Typ akceleratora *]**  +  **[Wersja]**
+**[Rodzina]**  +  **[Podrodzina *]**  +  **[# z procesorów wirtualnych vCPU]**  +  **[Ograniczone procesorów wirtualnych vCPU *]**  +  **[Funkcje dodatków]**  +  **[Typ akceleratora *]**  +  **[Wersja]**
 
-|Wartość | Objaśnienie|
+|Wartość | Wyjaśnienie|
 |---|---|
 | Family | Wskazuje serię rodzin maszyn wirtualnych| 
 | * Podrodzina | Używany tylko do celów specjalnych odróżniania maszyn wirtualnych|
 | Liczba procesorów wirtualnych vCPU| Wskazuje liczbę procesorów wirtualnych vCPU maszyny wirtualnej |
+| * Ograniczone procesorów wirtualnych vCPU| Używany tylko w przypadku niektórych rozmiarów maszyn wirtualnych. Wskazuje liczbę procesorów wirtualnych vCPU dla [ograniczonego rozmiaru vCPU](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
 | Funkcje dodatków | Co najmniej jedna małe litery oznacza funkcje dodatków, takie jak: <br> a = procesor oparty na procesorze AMD <br> d = dysk (lokalny dysk tymczasowy jest obecny); dotyczy to nowszych maszyn wirtualnych platformy Azure, zobacz [Ddv4 i Ddsv4 — seria](./ddv4-ddsv4-series.md) <br> h = możliwość hibernacji <br> i = rozmiar izolowany <br> l = mało pamięci; mniejsza ilość pamięci niż rozmiar intensywnie korzystający z pamięci <br> m = intensywna pamięć; Największa ilość pamięci w określonym rozmiarze <br> t = mała ilość pamięci; najmniejsza ilość pamięci w określonym rozmiarze <br> r = obsługa RDMA <br> s = Premium Storage możliwości, w tym możliwe użycie [SSD w warstwie Ultra](./disks-types.md#ultra-disk) (Uwaga: Niektóre nowsze rozmiary bez atrybutu s nadal mogą obsługiwać Premium Storage np. M128, M64 itd.)<br> |
 | * — Typ akceleratora | Wskazuje typ akceleratora sprzętowego w jednostkach JSZ wyspecjalizowanych/GPU. Tylko nowe jednostki SKU wyspecjalizowanych/GPU uruchomione z kwartału Q3 2020 będą miały akcelerator sprzętu w nazwie. |
 | Wersja | Oznacza wersję serii rodziny maszyn wirtualnych |
@@ -38,7 +39,7 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 
 ### <a name="example-1-m416ms_v2"></a>Przykład 1: M416ms_v2
 
-|Wartość | Objaśnienie|
+|Wartość | Wyjaśnienie|
 |---|---|
 | Family | M | 
 | Liczba procesorów wirtualnych vCPU | 416 |
@@ -47,7 +48,7 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 
 ### <a name="example-2-nv16as_v4"></a>Przykład 2: NV16as_v4
 
-|Wartość | Objaśnienie|
+|Wartość | Wyjaśnienie|
 |---|---|
 | Family | N | 
 | Podrodzina | V |
@@ -57,7 +58,7 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 
 ### <a name="example-3-nc4as_t4_v3"></a>Przykład 3: NC4as_T4_v3
 
-|Wartość | Objaśnienie|
+|Wartość | Wyjaśnienie|
 |---|---|
 | Family | N | 
 | Podrodzina | C |
@@ -65,6 +66,16 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 | Funkcje dodatków | a = procesor oparty na procesorze AMD <br> s = Premium Storage może |
 | Typ akceleratora | T4 |
 | Wersja | v3 |
+
+### <a name="example-4-m8-2ms_v2-constrained-vcpu"></a>Przykład 4: M8-2ms_v2 (vCPU z ograniczeniami)
+
+|Wartość | Wyjaśnienie|
+|---|---|
+| Family | M | 
+| Liczba procesorów wirtualnych vCPU | 8 |
+| Liczba ograniczonych (rzeczywistych) procesorów wirtualnych vCPU | 2 |
+| Funkcje dodatków | m = intensywność pamięci <br> s = Premium Storage może |
+| Wersja | v2 |
 
 ## <a name="next-steps"></a>Następne kroki
 

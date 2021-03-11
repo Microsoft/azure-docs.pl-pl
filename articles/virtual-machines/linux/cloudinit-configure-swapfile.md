@@ -3,16 +3,17 @@ title: Konfigurowanie partycji wymiany na maszynie wirtualnej z systemem Linux p
 description: Jak używać funkcji Cloud-init do konfigurowania partycji wymiany na maszynie wirtualnej z systemem Linux podczas tworzenia przy użyciu interfejsu wiersza polecenia platformy Azure
 author: rickstercdn
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371944"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559379"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Konfigurowanie partycji wymiany na maszynie wirtualnej z systemem Linux przy użyciu funkcji Cloud-init
 W tym artykule przedstawiono sposób użycia usługi [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania partycji wymiany dla różnych dystrybucji systemu Linux. Partycja wymiany jest tradycyjnie konfigurowana przez agenta systemu Linux (WALA) na podstawie tego, które z nich są wymagane.  W tym dokumencie opisano proces tworzenia partycji wymiany na żądanie podczas aprowizacji czasu przy użyciu funkcji Cloud-init.  Aby uzyskać więcej informacji na temat sposobu, w jaki usługa Cloud-init działa natywnie na platformie Azure i obsługiwanych dystrybucje z systemem Linux, zobacz [Omówienie usługi Cloud-init](using-cloud-init.md)

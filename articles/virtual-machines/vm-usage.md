@@ -5,17 +5,17 @@ services: virtual-machines
 documentationcenter: ''
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488569"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550951"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../cost-management-billing/understand/review-individual-bill.md).

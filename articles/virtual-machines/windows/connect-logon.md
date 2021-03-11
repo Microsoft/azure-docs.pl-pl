@@ -2,18 +2,18 @@
 title: Nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server
 description: Dowiedz się, jak nawiązać połączenie i zalogować się do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal i Menedżer zasobów model wdrażania.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dacf34d7098472e98c7f68f7f60fa9bac1a4e5ec
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5d14160a47789e10f1881fa0e55afd4af122c990
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875775"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550760"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows
 Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego z poziomu pulpitu systemu Windows. Najpierw Nawiąż połączenie z maszyną wirtualną, a następnie zaloguj się.

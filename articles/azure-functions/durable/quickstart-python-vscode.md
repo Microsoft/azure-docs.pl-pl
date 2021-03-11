@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 749dea2d9d46cb69d0c7c8a799a3f82c04d020e8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936179"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549468"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Tworzenie pierwszej trwałej funkcji w języku Python
 
@@ -58,22 +58,7 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
 
 Visual Studio Code instaluje Azure Functions Core Tools, w razie konieczności. Tworzy również projekt aplikacji funkcji w folderze. Ten projekt zawiera [host.js](../functions-host-json.md) i [local.settings.js](../functions-run-local.md#local-settings-file) plików konfiguracyjnych.
 
-Plik requirements.txt jest również tworzony w folderze głównym. Określa pakiety języka Python niezbędne do uruchomienia aplikacji funkcji.
-
-## <a name="update-azure-functions-extension-bundles-version"></a>Aktualizacja wersji pakietów rozszerzenia Azure Functions
-
-Azure Functions Python wymaga wersji 2. x [rozszerzeń rozszerzenia Azure Functions](../functions-bindings-register.md#access-extensions-in-non-net-languages). Zestawy rozszerzeń są konfigurowane w *host.jsna*.
-
-1. Otwórz *host.js* w projekcie. Zaktualizuj pakiet rozszerzeń `version` do programu `[2.*, 3.0.0)` . Określa zakres wersji, który jest większy niż lub równy 2,0 i mniejszy niż 3,0.
-
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
-    }
-    ```
-
-1. VS Code należy ponownie załadować przed odzwierciedleniem zaktualizowanej wersji pakietu rozszerzeń. W palecie poleceń Uruchom polecenie Wyszukaj dla *dewelopera: Załaduj ponownie okno* i uruchom je.
+Plik *requirements.txt* jest również tworzony w folderze głównym. Określa pakiety języka Python niezbędne do uruchomienia aplikacji funkcji.
 
 ## <a name="install-azure-functions-durable-from-pypi"></a>Instalowanie platformy Azure-Functions — trwałe z PyPI
 
@@ -83,7 +68,7 @@ Podczas tworzenia projektu rozszerzenie Azure Functions VS Code automatycznie ut
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b12
+    azure-functions-durable
     ```
 
 1. Otwórz zintegrowany terminal edytora w bieżącym folderze (<kbd>Ctrl + Shift + '</kbd>).

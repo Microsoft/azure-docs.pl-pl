@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123279"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608635"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń usługi Azure IoT Edge z aplikacją usługi Azure IoT Central
 
@@ -74,8 +74,6 @@ Na poniższym diagramie przedstawiono połączenia z urządzeniem bramy IoT Edge
 Urządzenia podrzędne mogą łączyć się z urządzeniem bramy IoT Edge przy użyciu wielu modułów niestandardowych. Na poniższym diagramie przedstawiono urządzenia podrzędne łączące się za pomocą modułu niestandardowego Modbus, modułu niestandardowego dla sieci i modułu *IoT Edge Hub*  :
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagram łączenia przy użyciu wielu modułów niestandardowych" border="false":::
-
-<!-- To do: add link to how to configure gateway article? -->
 
 ## <a name="iot-edge-devices-and-iot-central"></a>IoT Edge urządzeń i IoT Central
 
@@ -286,7 +284,7 @@ Aby dowiedzieć się, gdzie można uruchomić środowisko uruchomieniowe IoT Edg
 
 Jeśli wybrano urządzenie IoT Edge jako urządzenie bramy, można dodać relacje podrzędne do modeli urządzeń dla urządzeń, które mają być połączone z urządzeniem bramy.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+Aby dowiedzieć się więcej, zobacz [jak podłączyć urządzenia za poorednictwem niewidocznej bramy IoT Edge](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

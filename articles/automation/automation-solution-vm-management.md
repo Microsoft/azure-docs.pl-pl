@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732279"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559362"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
-Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/alerts/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
+Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/alerts/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy.
 
 Ta funkcja używa polecenia cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](/powershell/module/az.compute/stop-azvm) .
 
@@ -34,6 +34,9 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 - Zarządza maszynami wirtualnymi w dowolnym regionie, ale mogą być używane tylko w tej samej subskrypcji co konto Azure Automation.
 - Jest ona dostępna na platformie Azure i Azure Government dla każdego regionu, który obsługuje Log Analytics obszar roboczy, konto Azure Automation i alerty. Regiony Azure Government obecnie nie obsługują funkcji poczty e-mail.
+
+> [!NOTE]
+> Przed zainstalowaniem tej wersji będziemy wiedzieć o [następnej wersji](https://github.com/microsoft/startstopv2-deployments), która jest teraz w wersji zapoznawczej.  Ta nowa wersja (wersja 2) oferuje wszystkie funkcje, które są takie same, ale zaprojektowano w celu wykorzystania nowszej technologii platformy Azure. Dodaje niektóre z często zażądanych funkcji od klientów, takich jak obsługa wielosubskrypcji z jednego wystąpienia uruchamiania/zatrzymywania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

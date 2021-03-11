@@ -3,18 +3,18 @@ title: Udostępnianie obrazów maszyn wirtualnych z udostępnionymi galeriami
 description: Dowiedz się, jak używać udostępnionych galerii obrazów do udostępniania obrazów maszyn wirtualnych z systemem Linux w całej organizacji.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487257"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551066"
 ---
 # <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 

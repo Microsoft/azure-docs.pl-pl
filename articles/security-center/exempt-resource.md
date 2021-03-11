@@ -3,16 +3,16 @@ title: Zwolnij zalecenie dotyczące Azure Security Center z zasobu, subskrypcji,
 description: Dowiedz się, jak utworzyć reguły wykluczające zalecenia dotyczące zabezpieczeń z subskrypcji lub grup zarządzania i uniemożliwić im wpływ na bezpieczny wynik
 author: memildin
 ms.author: memildin
-ms.date: 01/22/2021
+ms.date: 03/10/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7a010b1014181ed325500fa501212579ef67d26
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709380"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617577"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z bezpiecznego wyniku 
 
@@ -30,13 +30,14 @@ W takich przypadkach można utworzyć wykluczenie dla zalecenia:
 
 ## <a name="availability"></a>Dostępność
 
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Wpisaną|Jest to funkcja Premium platformy Azure oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.|
-|Wymagane role i uprawnienia:|**Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
-|||
+| Aspekt                          | Szczegóły                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stan wydania:                  | Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Wpisaną                        | Jest to funkcja Premium platformy Azure oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.                                                                                                                                                                 |
+| Wymagane role i uprawnienia: | **Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Ograniczenia:                    | Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, test porównawczy zabezpieczeń platformy Azure. Nie można wykluczać zaleceń, które są generowane na podstawie inicjatyw niestandardowych. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md). |
+| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Definiowanie wykluczenia
 
@@ -44,6 +45,9 @@ Aby dostosować zalecenia dotyczące zabezpieczeń, które Security Center dla s
 
 - Oznacz określone **zalecenie** lub jako "skorygowane" lub "zaakceptowane ryzyko". Można utworzyć wykluczenia rekomendacji dla subskrypcji, wielu subskrypcji lub całej grupy zarządzania.
 - Oznacz **co najmniej jeden zasób** jako "skorygowany" lub "ryzyko zaakceptowania" dla konkretnego zalecenia.
+
+> [!NOTE]
+> Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, test porównawczy zabezpieczeń platformy Azure. Zalecenia, które są generowane na podstawie dowolnych niestandardowych inicjatyw przypisanych do subskrypcji, nie mogą być wykluczone. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md).
 
 > [!TIP]
 > Możesz również utworzyć wykluczenia przy użyciu interfejsu API. Przykładowy kod JSON i objaśnienie odpowiednich struktur znajdują się w temacie [Azure Policy Structure](../governance/policy/concepts/exemption-structure.md).
@@ -161,7 +165,7 @@ Dowiedz się więcej na następujących stronach:
 
 
 
-## <a name="exemption-rule-faq"></a>Reguła wykluczania — często zadawane pytania
+## <a name="faq---exemption-rules"></a>Często zadawane pytania — reguły wykluczania
 
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>Co się stanie, gdy jedno zalecenie dotyczy wielu inicjatyw dotyczących zasad?
 
