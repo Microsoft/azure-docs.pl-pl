@@ -8,16 +8,23 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13f78691a3652cc82e261f807c690c04cebec3b4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9356da9516ea17243be8e0e5519ec4b19e06db8a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175520"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200872"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu Trusted Platform Module (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń Azure IoT Edge przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Obecnie funkcja automatycznej aprowizacji przy użyciu uwierzytelniania modułu TPM nie jest obsługiwana w IoT Edge w wersji 1,2.
+:::moniker-end
 
 Zadania są następujące:
 

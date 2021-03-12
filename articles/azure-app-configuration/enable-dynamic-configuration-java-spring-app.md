@@ -3,26 +3,47 @@ title: Używanie konfiguracji dynamicznej w aplikacji do rozruchu sprężynowego
 titleSuffix: Azure App Configuration
 description: Dowiedz się, jak dynamicznie aktualizować dane konfiguracji dla aplikacji do rozruchu sprężynowego
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 08/06/2020
+ms.date: 12/09/2020
 ms.custom: devx-track-java
-ms.author: alkemper
-ms.openlocfilehash: c32e928bd4a83b4884c99e3ec3a9c647f5433e87
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.author: mametcal
+ms.openlocfilehash: 076ab0bb7dbc85a31b626a24d977e6fea558143e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929161"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636542"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ze sprężyną Java
 
-Biblioteka klienta sieci komputerowej ze sprężyną konfiguracji aplikacji obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Biblioteka klienta buforuje każde ustawienie, aby uniknąć zbyt wielu wywołań magazynu konfiguracji. Operacja odświeżania nie aktualizuje wartości do momentu wygaśnięcia wartości w pamięci podręcznej, nawet jeśli wartość została zmieniona w magazynie konfiguracji. Domyślny czas wygaśnięcia dla każdego żądania wynosi 30 sekund. W razie potrzeby można go zastąpić.
+Konfiguracja aplikacji ma dwie biblioteki do sprężyny. `spring-cloud-azure-appconfiguration-config` wymaga sprężyny rozruchu i bierze zależność od `spring-cloud-context` . `spring-cloud-azure-appconfiguration-config-web` wymaga sprężyny sieci Web, a także rozruchu sprężynowego. Obie biblioteki obsługują Ręczne wyzwalanie w celu sprawdzenia odświeżonych wartości konfiguracyjnych. `spring-cloud-azure-appconfiguration-config-web` dodaje również obsługę automatycznego sprawdzania odświeżania konfiguracji.
 
-Możesz sprawdzić dostępność zaktualizowanych ustawień na żądanie, wywołując `AppConfigurationRefresh` `refreshConfigurations()` metodę.
+Odświeżanie umożliwia odświeżenie wartości konfiguracyjnych bez konieczności ponownego uruchamiania aplikacji, ale spowoduje to ponowne utworzenie wszystkich ziaren w programie `@RefreshScope` . Biblioteka klienta buforuje identyfikator skrótu aktualnie załadowanych konfiguracji, aby uniknąć zbyt wielu wywołań magazynu konfiguracji. Operacja odświeżania nie aktualizuje wartości do momentu wygaśnięcia wartości w pamięci podręcznej, nawet jeśli wartość została zmieniona w magazynie konfiguracji. Domyślny czas wygaśnięcia dla każdego żądania wynosi 30 sekund. W razie potrzeby można go zastąpić.
 
-Alternatywnie można użyć `spring-cloud-azure-appconfiguration-config-web` pakietu, który ma zależność od `spring-web` do obsługi zautomatyzowanego odświeżania.
+`spring-cloud-azure-appconfiguration-config-web`zautomatyzowane odświeżanie jest wyzwalane w oparciu o aktywność, w odróżnieniu od sieci Web `ServletRequestHandledEvent` . Jeśli `ServletRequestHandledEvent` nie jest wyzwalane, `spring-cloud-azure-appconfiguration-config-web` zautomatyzowane odświeżanie nie spowoduje wyzwolenia odświeżenia, nawet jeśli upłynął limit czasu wygaśnięcia pamięci podręcznej.
+
+## <a name="use-manual-refresh"></a>Użyj ręcznego odświeżania
+
+Konfiguracja aplikacji `AppConfigurationRefresh` , która może służyć do sprawdzenia, czy pamięć podręczna wygasła, a jeśli wygasła, wyzwala odświeżanie.
+
+```java
+import com.microsoft.azure.spring.cloud.config.AppConfigurationRefresh;
+
+...
+
+@Autowired
+private AppConfigurationRefresh appConfigurationRefresh;
+
+...
+
+public void myConfigurationRefreshCheck() {
+    Future<Boolean> triggeredRefresh = appConfigurationRefresh.refreshConfigurations();
+}
+```
+
+`AppConfigurationRefresh``refreshConfigurations()`zwraca wartość `Future` , która ma wartość true, jeśli zostało wyzwolone odświeżenie, i wartość false, jeśli nie. Wartość false oznacza, że upłynął limit czasu wygaśnięcia pamięci podręcznej, nie wprowadzono zmian lub inny wątek aktualnie sprawdza odświeżanie.
 
 ## <a name="use-automated-refresh"></a>Użyj automatycznego odświeżania
 
@@ -59,7 +80,7 @@ Następnie otwórz plik *pom.xml* w edytorze tekstów i Dodaj `<dependency>` do 
     mvn spring-boot:run
     ```
 
-1. Otwórz okno przeglądarki i przejdź do adresu URL: `http://localhost:8080` .  Zobaczysz komunikat skojarzony z kluczem. 
+1. Otwórz okno przeglądarki i przejdź do adresu URL: `http://localhost:8080` .  Zobaczysz komunikat skojarzony z kluczem.
 
     Można również użyć *zwinięcie* do testowania aplikacji, na przykład: 
     

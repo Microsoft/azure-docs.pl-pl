@@ -3,7 +3,7 @@ title: Używanie elementów webhook platformy Azure do monitorowania powiadomie�
 description: Dowiedz się, jak używać elementów webhook platformy Azure do monitorowania powiadomień dotyczących zadań Media Services. Przykładowy kod jest pisany w języku C# i używa zestawu SDK Media Services dla platformy .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e99d2c2676d05772106296d8b960dd55fd30501c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5ae1bdfeeffdb904ba80ed42919e4f51411871c3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696476"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016156"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Używanie elementów webhook platformy Azure do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET
 
@@ -78,7 +78,7 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 3. Wybierz **ogólny element webhook — C#**.
 4. Nadaj nazwę elementowi webhook i naciśnij pozycję **Utwórz**.
 
-### <a name="files"></a>Files
+### <a name="files"></a>Pliki
 
 Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Domyślnie funkcja jest skojarzona z plikami **function.json** i **Run. CSX** (C#). Musisz dodać **project.js** do pliku. W pozostałej części tej sekcji przedstawiono definicje tych plików.
 

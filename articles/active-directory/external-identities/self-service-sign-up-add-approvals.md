@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 68ac8eab22054099a6ba6735c020f0ba70d1037f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609994"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634274"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -264,12 +264,12 @@ Content-type: application/json
 
 Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworzy konto [użytkownika](/graph/azuread-users-concept-overview) przy użyciu [Microsoft Graph](/graph/use-the-api). Sposób, w jaki system zatwierdzania, zależy od dostawcy tożsamości, który był używany przez użytkownika.
 
-### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Dla federacyjnego użytkownika usługi Google lub Facebook i wiadomości E-mail jednorazowe
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Dla federacyjnego użytkownika usługi Google lub Facebook i wiadomości e-mail jednorazowe
 
 > [!IMPORTANT]
 > System zatwierdzania powinien jawnie sprawdzić `identities` , czy `identities[0]` `identities[0].issuer` istnieją i czy ma `identities[0].issuer` wartość "Facebook", "Google" lub "mail", aby użyć tej metody.
 
-Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook lub wysyła wiadomość E-mail jednorazowo, można użyć [interfejsu API tworzenia użytkownika](/graph/api/user-post-users?tabs=http).
+Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook lub wysyła wiadomość e-mail jednorazowo, można użyć [interfejsu API tworzenia użytkownika](/graph/api/user-post-users?tabs=http).
 
 1. System zatwierdzania używa odbierania żądania HTTP z przepływu użytkownika.
 

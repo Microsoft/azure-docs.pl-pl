@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734059"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021413"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -57,6 +57,7 @@ ms.locfileid: "101734059"
 | Maksymalna liczba żądań | 200 żądań w ciągu 30 sekund na użytkownika lub adres IP klienta usługi Azure AD | Aby uzyskać szczegółowe informacje, zobacz [limity szybkości](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
 
 **Łącznik dzienników usługi Azure Monitor**
+
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
 | Maksymalna liczba rekordów | 500 000 | |

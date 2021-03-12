@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: dce4c41d0d6f15ac9dc33e687c9a5ac7b7b96e06
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951319"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200784"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurowanie połączenia z indeksatora Wyszukiwanie poznawcze platformy Azure do SQL Server na maszynie wirtualnej platformy Azure
 
@@ -73,20 +73,11 @@ Poniższe linki zawierają instrukcje dotyczące konfiguracji sieciowej grupy za
 Adresowanie IP może stanowić kilka wyzwań, które można łatwo przezwyciężyć, jeśli masz świadomość problemu i potencjalnych obejść. Pozostałe sekcje zawierają zalecenia dotyczące obsługi problemów związanych z adresami IP na liście ACL.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Ograniczanie dostępu do Wyszukiwanie poznawcze platformy Azure
-Zdecydowanie zalecamy, aby ograniczyć dostęp do adresu IP usługi wyszukiwania oraz zakresu adresów IP usługi `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) na liście ACL, a nie do otwierania maszyn wirtualnych usługi SQL Azure na wszystkich żądaniach połączeń.
+Zdecydowanie zalecamy, aby ograniczyć dostęp do adresu IP usługi wyszukiwania oraz zakresu adresów IP usługi `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) na liście ACL, a nie do otwierania maszyn wirtualnych usługi SQL Azure na wszystkich żądaniach połączeń.
 
-Adres IP można sprawdzić, wysyłając polecenie ping do nazwy FQDN (na przykład `<your-search-service-name>.search.windows.net` ) usługi wyszukiwania.
+Adres IP można sprawdzić, wysyłając polecenie ping do nazwy FQDN (na przykład `<your-search-service-name>.search.windows.net` ) usługi wyszukiwania. Chociaż istnieje możliwość zmiany adresu IP usługi wyszukiwania, jest mało prawdopodobne, że zostanie on zmieniony. Adres IP jest statyczny przez okres istnienia usługi.
 
-Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
-
-#### <a name="managing-ip-address-fluctuations"></a>Zarządzanie fluktuacjami adresów IP
-Jeśli usługa wyszukiwania ma tylko jedną jednostkę wyszukiwania (czyli jedną replikę i jedną partycję), adres IP ulegnie zmianie podczas rutynowych ponownych uruchomień usługi. unieważnienie istniejącej listy kontroli dostępu przy użyciu adresu IP usługi wyszukiwania.
-
-Jednym ze sposobów uniknięcia kolejnego błędu łączności jest użycie więcej niż jednej repliki i jednej partycji na platformie Azure Wyszukiwanie poznawcze. Zwiększa to koszt, ale również rozwiązuje problem z adresem IP. W usłudze Azure Wyszukiwanie poznawcze adresy IP nie zmieniają się, jeśli masz więcej niż jedną jednostkę wyszukiwania.
-
-Drugim podejściem jest umożliwienie niepowodzenia połączenia, a następnie ponowne skonfigurowanie list kontroli dostępu w sieciowej grupy zabezpieczeń. Średnio można oczekiwać, że adresy IP są zmieniane co kilka tygodni. W przypadku klientów, którzy przeprowadzają nierzadko kontrolowane indeksowanie, takie podejście może być w dobrej kondycji.
-
-Trzecią żywotną (ale nieszczególnie bezpieczną) podejściem jest określenie zakresu adresów IP regionu platformy Azure, w którym Zainicjowano obsługę usługi wyszukiwania. Lista zakresów adresów IP, z których publiczne adresy IP są przypisywane do zasobów platformy Azure, jest publikowana w [zakresach adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Uwzględnij adresy IP portalu usługi Azure Wyszukiwanie poznawcze
 Jeśli używasz Azure Portal do tworzenia indeksatora, logika portalu usługi Azure Wyszukiwanie poznawcze wymaga również dostępu do maszyny wirtualnej usługi SQL Azure podczas jej tworzenia. Adresy IP portalu usługi Azure Wyszukiwanie poznawcze można znaleźć za pomocą polecenia ping `stamp2.search.ext.azure.com` .

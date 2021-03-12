@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633182"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201596"
 ---
 # <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Bliźniaczych reprezentacji modułów na platformie Azure IoT Hub umożliwia monitorowanie łączności i kondycji wdrożeń IoT Edge. Moduł bliźniaczych reprezentacji przechowuje przydatne informacje w usłudze IoT Hub dotyczące wydajności uruchomionych modułów. [IoT Edge Agent](iot-edge-runtime.md#iot-edge-agent) i moduły środowiska uruchomieniowego [Centrum IoT Edge](iot-edge-runtime.md#iot-edge-hub) każdy z nich utrzymuje bliźniaczych reprezentacji modułów `$edgeAgent` i `$edgeHub` , odpowiednio:
 

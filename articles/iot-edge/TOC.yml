@@ -115,8 +115,6 @@
       href: support.md
     - name: Lista kontrolna dotycząca wdrażania w środowisku produkcyjnym
       href: production-checklist.md
-    - name: Słownik usługi IoT Edge
-      href: iot-edge-glossary.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie urządzenia usługi IoT Edge
@@ -259,6 +257,8 @@
   items:
     - name: Opcje wsparcia technicznego i pomocy
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    - name: Słownik IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub

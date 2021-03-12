@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176726"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199370"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -106,7 +106,7 @@ W **regionie głównym** jest wdrażany moduł równoważenia obciążenia międ
 * Azja Wschodnia
 
 > [!NOTE]
-> Moduł równoważenia obciążenia między regionami można wdrożyć tylko w jednym z 8 regionów powyżej.
+> Moduł równoważenia obciążenia między regionami można wdrożyć tylko w jednym z siedmiu regionów powyżej.
 
 **Region uczestniczący** to miejsce, w którym dostępny jest globalny publiczny adres IP usługi równoważenia obciążenia. 
 

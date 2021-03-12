@@ -3,7 +3,7 @@ title: Przydziały i ograniczenia Media Services | Microsoft Docs
 description: W tym temacie opisano przydziały i ograniczenia związane z Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
-ms.author: juliako
-ms.openlocfilehash: a2e80fa8eaec1dbf4137ba72662dfb178b6c9b1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 89c8cae9a13225ec76b0a26954b6063332d76495
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329668"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009474"
 ---
 # <a name="quotas-and-limitations"></a>Przydziały i ograniczenia
 
@@ -39,6 +39,6 @@ W Azure Portal przejdź do [pomocy i obsługi technicznej](https://portal.azure.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

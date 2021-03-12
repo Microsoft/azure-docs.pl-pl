@@ -295,6 +295,8 @@
               href: storage-blob-copy.md
             - name: Używanie tagów indeksu obiektów blob
               href: storage-blob-index-how-to.md
+            - name: Oblicz liczbę obiektów blob i łączny rozmiar
+              href: calculate-blob-count-size.md
         - name: Autoryzowanie dostępu do danych obiektów blob
           items:
             - name: Opcje autoryzacji dla użytkowników

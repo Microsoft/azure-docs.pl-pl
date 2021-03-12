@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 03/12/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d912707a1f41a0c3063d6f3fb67aa6914bd2d390
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bad8ae86827144269e816a6c2e01d6af3f4d88ac
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592297"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225422"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretuj schemat dzienników logowania usługi Azure AD w Azure Monitor
 
@@ -143,29 +143,31 @@ W tym artykule opisano schemat dziennika logowania Azure Active Directory (Azure
 
 ## <a name="field-descriptions"></a>Opisy pól
 
-| Nazwa pola | Opis |
-|------------|-------------|
-| Godzina | Data i godzina w formacie UTC. |
-| ResourceId | Ta wartość jest niezamapowana i można bezpiecznie zignorować to pole.  |
-| OperationName | W przypadku logowania ta wartość jest zawsze *aktywność logowania*. |
-| OperationVersion | Wersja interfejsu API REST, która jest wymagana przez klienta programu. |
-| Kategoria | W przypadku logowania ta wartość jest zawsze *rejestracja*. | 
-| TenantId | Identyfikator GUID dzierżawy, który jest skojarzony z dziennikami. |
-| ResultType | Wynik operacji logowania może być spowodowany *sukcesem* lub *niepowodzeniem*. | 
-| ResultSignature | Zawiera kod błędu (jeśli istnieje) dla operacji logowania. |
-| ResultDescription | Zawiera opis błędu dla operacji logowania. |
+| Nazwa pola | Klucz | Opis |
+| --- | --- | --- | 
+| Godzina |  - | Data i godzina w formacie UTC. |
+| ResourceId | - | Ta wartość jest niezamapowana i można bezpiecznie zignorować to pole.  |
+| OperationName | - | W przypadku logowania ta wartość jest zawsze *aktywność logowania*. |
+| OperationVersion | - | Wersja interfejsu API REST, która jest wymagana przez klienta programu. |
+| Kategoria | - | W przypadku logowania ta wartość jest zawsze *rejestracja*. | 
+| TenantId | - | Identyfikator GUID dzierżawy, który jest skojarzony z dziennikami. |
+| ResultType | - | Wynik operacji logowania może być spowodowany *sukcesem* lub *niepowodzeniem*. | 
+| ResultSignature | - | Zawiera kod błędu (jeśli istnieje) dla operacji logowania. |
+| ResultDescription | Nie dotyczy lub puste | Zawiera opis błędu dla operacji logowania. |
 | riskDetail | riskDetail | Zapewnia "powód" w odniesieniu do określonego stanu ryzykownego użytkownika, logowania lub wykrywania ryzyka. Możliwe wartości to: `none` ,,,, `adminGeneratedTemporaryPassword` ,,,, `userPerformedSecuredPasswordChange` `userPerformedSecuredPasswordReset` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `adminConfirmedSigninCompromised` , `unknownFutureValue` . Wartość `none` oznacza, że nie wykonano żadnych akcji na użytkowniku lub logowanie do tej pory. <br>**Uwaga:** Szczegóły tej właściwości wymagają licencji na Azure AD — wersja Premium P2. Inne licencje zwracają wartość `hidden` . |
 | riskEventTypes | riskEventTypes | Typy wykrywania ryzyka skojarzone z logowaniem. Możliwe wartości to:,,,,,,,, `unlikelyTravel` `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `investigationsThreatIntelligence`  `generic` , i `unknownFutureValue` . |
+| authProcessingDetails | Biblioteka uwierzytelniania aplikacji usługi Azure AD | Zawiera informacje o rodzinie, bibliotece i platformie w formacie: "Rodzina: Biblioteka ADAL: ADAL.JS 1.0.0 Platform: JS" |
+| authProcessingDetails | IsCAEToken | Wartości mają wartość PRAWDA lub FAŁSZ |
 | riskLevelAggregated | riskLevel | Zagregowany poziom ryzyka. Możliwe wartości to: `none` ,,,, `low` `medium` `high` `hidden` i `unknownFutureValue` . Wartość `hidden` oznacza, że użytkownik lub logowanie nie zostało włączone dla Azure AD Identity Protection. **Uwaga:** Szczegóły dotyczące tej właściwości są dostępne tylko dla klientów Azure AD — wersja Premium P2. Zostaną zwrócone wszyscy klienci `hidden` . |
 | riskLevelDuringSignIn | riskLevel | Poziom ryzyka podczas logowania. Możliwe wartości to: `none` ,,,, `low` `medium` `high` `hidden` i `unknownFutureValue` . Wartość `hidden` oznacza, że użytkownik lub logowanie nie zostało włączone dla Azure AD Identity Protection. **Uwaga:** Szczegóły dotyczące tej właściwości są dostępne tylko dla klientów Azure AD — wersja Premium P2. Zostaną zwrócone wszyscy klienci `hidden` . |
 | riskState | riskState | Zgłasza stan ryzykownego użytkownika, logowania lub wykrywania ryzyka. Możliwe wartości to:,,,,, `none` `confirmedSafe` `remediated` `dismissed` `atRisk` `confirmedCompromised` , `unknownFutureValue` . |
-| DurationMs |  Ta wartość jest niezamapowana i można bezpiecznie zignorować to pole. |
-| CallerIpAddress | Adres IP klienta, który wykonał żądanie. | 
-| CorrelationId | Opcjonalny identyfikator GUID, który jest przesyłany przez klienta. Ta wartość może pomóc skorelować operacje po stronie klienta przy użyciu operacji po stronie serwera i jest przydatna podczas śledzenia dzienników obejmujących usługi. |
-| Tożsamość | Tożsamość z tokenu, która została przedstawiona podczas żądania. Może to być konto użytkownika, konto System lub nazwa główna usługi. |
-| Poziom | Udostępnia typ komunikatu. W przypadku inspekcji zawsze jest to *informacja*. |
-| Lokalizacja | Udostępnia lokalizację działania związanego z logowaniem. |
-| Właściwości | Wyświetla wszystkie właściwości, które są skojarzone z logowaniem. Aby uzyskać więcej informacji, zobacz [Microsoft Graph dokumentacja interfejsu API](/graph/api/resources/signin?view=graph-rest-beta). Ten schemat używa tych samych nazw atrybutów co zasób logowania, co umożliwia ich czytelność.
+| DurationMs | - | Ta wartość jest niezamapowana i można bezpiecznie zignorować to pole. |
+| CallerIpAddress | - | Adres IP klienta, który wykonał żądanie. | 
+| CorrelationId | - | Opcjonalny identyfikator GUID, który jest przesyłany przez klienta. Ta wartość może pomóc skorelować operacje po stronie klienta przy użyciu operacji po stronie serwera i jest przydatna podczas śledzenia dzienników obejmujących usługi. |
+| Tożsamość | - | Tożsamość z tokenu, która została przedstawiona podczas żądania. Może to być konto użytkownika, konto System lub nazwa główna usługi. |
+| Poziom | - | Udostępnia typ komunikatu. W przypadku inspekcji zawsze jest to *informacja*. |
+| Lokalizacja | - | Udostępnia lokalizację działania związanego z logowaniem. |
+| Właściwości | - | Wyświetla wszystkie właściwości, które są skojarzone z logowaniem.|
 
 ## <a name="next-steps"></a>Następne kroki
 

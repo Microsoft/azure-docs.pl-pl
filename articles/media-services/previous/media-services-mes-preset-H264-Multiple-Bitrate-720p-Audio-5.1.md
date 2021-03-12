@@ -1,7 +1,7 @@
 ---
 title: Wielokrotna H264 audio 5,1 o wielu szybkościach transmisji bitów Microsoft Docs
 description: Temat zawiera andverview ustawienia wstępnego zadania **Audio 5,1 o wielu szybkościach transmisji bitów 720** .
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 4a42870f2ef2f1e11b6bfd7c401661aeb0f4708e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 8c4d28255d08f1931124a570d31554bf0b5f2ea0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265800"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011276"
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>Wielokrotna szybkość transmisji bitów H264 720p Audio 5.1
 

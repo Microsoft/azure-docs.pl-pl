@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 02/03/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0b3dfe6d974f2cc2449faf54c4549589e0baa7cf
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550865"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199850"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -25,8 +25,8 @@ W tym artykule omówiono zbiór najlepszych rozwiązań i przydatne porady dotyc
 
 - **Tryb alokacji puli** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika**. W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **"cloudServiceConfiguration" lub "virtualMachineConfiguration".**
-    należy użyć "virtualMachineConfiguration". Wszystkie funkcje zadań wsadowych są obsługiwane przez pule "virtualMachineConfiguration". Nie wszystkie funkcje są obsługiwane dla pul "cloudServiceConfiguration" i nie są planowane żadne nowe możliwości.
+- **"virtualMachineConfiguration" lub "virtualMachineConfiguration".**
+    Obecnie można tworzyć pule przy użyciu jednej z konfiguracji, nowe pule należy konfigurować przy użyciu "virtualMachineConfiguration", a nie "virtualMachineConfiguration". Wszystkie bieżące i nowe funkcje wsadowe będą obsługiwane przez pule konfiguracji maszyny wirtualnej. Pule konfiguracji Cloud Services nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości. Nie będzie można tworzyć nowych pul "CloudServiceConfiguration" ani dodawać nowych węzłów do istniejących pul [po 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Aby uzyskać więcej informacji, zobacz [Migrowanie konfiguracji puli partii z Cloud Services do maszyny wirtualnej](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **Podczas określania zadania do mapowania puli należy wziąć pod uwagę czas wykonywania zadania i zadania.**
     Jeśli zadania składają się głównie z zadań wykonywanych przed chwilą, a oczekiwana całkowita liczba zadań jest mała, w związku z czym ogólna oczekiwany czas wykonywania zadania nie jest długa, nie należy przydzielać nowej puli dla każdego zadania. Czas wykonywania tego zadania będzie zmniejszać czas ich alokacji.

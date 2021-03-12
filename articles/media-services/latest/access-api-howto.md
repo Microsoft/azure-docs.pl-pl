@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f55d1dcc3364f119faab0c728f6e3b7f5ecbb06
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265885"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614942"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services
 
@@ -37,7 +37,7 @@ W tym artykule opisano procedurę uzyskiwania poświadczeń w celu uzyskania dos
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services przy użyciu Azure Portal](create-account-howto.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
@@ -47,8 +47,8 @@ W tym artykule opisano procedurę uzyskiwania poświadczeń w celu uzyskania dos
 Strona **dostęp do interfejsu API** umożliwia wybranie metody uwierzytelniania, która ma być używana do nawiązywania połączenia z interfejsem API. Na stronie znajdują się również wartości potrzebne do nawiązania połączenia z interfejsem API.
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz swoje konto Media Services.
-2. Wybierz blok **dostęp do interfejsu API (nowy)** na lewym pasku nawigacyjnym.
-3. W obszarze **Połącz z interfejsem api Media Services**wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie (wersja 3 to Najnowsza wersja usługi).
+2. Wybierz blok **dostęp do interfejsu API** na lewym pasku nawigacyjnym.
+3. W obszarze **Połącz z interfejsem api Media Services** wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie (wersja 3 to Najnowsza wersja usługi).
 
 ### <a name="service-principal-authentication--recommended"></a>Uwierzytelnianie jednostki usługi (zalecane)
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092184"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224983"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 
@@ -48,6 +48,15 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty &** wpisy tajne  >  **nowy klucz tajny klienta**.  Pozostaw opis pusty i domyślny czas wygaśnięcia, a następnie wybierz pozycję **Dodaj**.
 > 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w Azure Portal
+> Aby przykład kodu dla tego przewodnika Szybki Start działał, należy utworzyć klucz tajny klienta i dodać adres URL odpowiedzi jako **http://localhost:3000/redirect** .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Wprowadź tę zmianę automatycznie]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Już skonfigurowano](media/quickstart-v2-windows-desktop/green-check.png) Twoja aplikacja została skonfigurowana za pomocą tych atrybutów.
 
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
 
@@ -91,16 +100,17 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > Zmodyfikuj wartości w `config` sekcji zgodnie z opisem w tym miejscu:
 >
 > - `Enter_the_Application_Id_Here` to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
+>
+>    Aby znaleźć wartość **identyfikatora aplikacji (klienta)**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
 > - `Enter_the_Client_Secret_Here` jest **wartością** **wpisu tajnego klienta** dla zarejestrowanej aplikacji.
+>
+>    Aby pobrać lub wygenerować nowy **klucz tajny klienta**, w obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**.
 >
 > Wartość domyślna `authority` reprezentuje główną (globalną) chmurę platformy Azure:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > Aby znaleźć wartość **identyfikatora aplikacji (klienta)**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal. Przejdź do pozycji **certyfikaty & wpisy tajne** , aby pobrać lub wygenerować nowy **klucz tajny klienta**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia

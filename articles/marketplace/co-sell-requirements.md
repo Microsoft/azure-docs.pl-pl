@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120134"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225068"
 ---
 # <a name="co-sell-requirements"></a>Wymagania dotyczące wspólnych transakcji
 
@@ -24,7 +24,7 @@ W tej tabeli przedstawiono wszystkie możliwe stany współsprzedażowe:
 | ------------ | ------------- |
 | Nie Współpracuj gotowy | Nie spełniono minimalnych [wymagań dotyczących stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) . |
 | Gotowe do rozłożenia | Wszystkie [wymagania dotyczące stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) zostały spełnione. |
-| Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](#requirements-for-ip-co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
+| Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](#requirements-for-azure-ip-co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
 | BIZ Apps ISV Connect Premium  | Ten stan ma zastosowanie do oferty Dynamics 365 i usługi dla aplikacji zaawansowanych i wskazuje, że spełniono wszystkie [wymagania dotyczące tego stanu](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
 |||
 
@@ -35,7 +35,7 @@ Aby uzyskać ofertę osiągnięcia stanu gotowości do sprzedaży, musisz spełn
 **Wszyscy partnerzy**:
 
 - Mieć identyfikator MPN i aktywne [komercyjne konto portalu Marketplace w centrum partnerskim](./partner-center-portal/create-account.md).
-- Upewnij się, że masz pełny [profil biznesowy](/partner-center/create-a-marketing-profile.md) w centrum partnerskim. Jako uprawniony partner firmy Microsoft Twój profil biznesowy pomaga klientom, którzy poszukują Twoich unikatowych rozwiązań i wiedzą, w zakresie zaspokajania potrzeb firmy, co wynika z [odwołań](/partner-center/referrals.md).
+- Upewnij się, że masz pełny [profil biznesowy](/partner-center/create-a-marketing-profile) w centrum partnerskim. Jako uprawniony partner firmy Microsoft Twój profil biznesowy pomaga klientom, którzy poszukują Twoich unikatowych rozwiązań i wiedzą, w zakresie zaspokajania potrzeb firmy, co wynika z [odwołań](/partner-center/referrals).
 - Ukończ **sprzedawanie z kartami firmy Microsoft** i Opublikuj ofertę na komercyjnym rynku.
 - Podaj kontakt sprzedaży dla każdej sprzedawanej lokalizacji geograficznej i wymaganego zestawienia materiałów)
 
@@ -60,7 +60,7 @@ Udostępniamy szablony ułatwiające tworzenie tych dokumentów. Aby uzyskać wi
 
 Aby można było zakwalifikować się do sprzedaży w stanie gotowości, oferta lub rozwiązanie musi zostać opublikowane na żywo co najmniej jednego sklepu online Marketplace: Azure Marketplace lub Microsoft AppSource. Aby uzyskać informacje o publikowaniu ofert do komercyjnej witryny Marketplace, zobacz [Publikowanie przewodnika według typu oferty](publisher-guide-by-offer-type.md). Jeśli jeszcze nie opublikowano oferty w komercyjnej witrynie Marketplace, upewnij się, że masz [komercyjne konto w portalu Marketplace](./partner-center-portal/create-account.md).
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Wymagania dotyczące zachęcaniego dla współsprzedażu adresu IP
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Wymagania dotyczące usługi Azure IP zachęcani
 
 Stan zachęcani współsprzedaży platformy Azure w ramach adresu IP dotyczący następujących typów ofert:
 

@@ -3,7 +3,7 @@ title: Konfigurowanie telemetrii Azure Media Services przy użyciu interfejsu RE
 description: W tym artykule pokazano, jak używać telemetrii Azure Media Services przy użyciu interfejsu API REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 7fec4a958e730c485c998d1f0591b8e4d61df050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 37276240835fe1a06928ee54383f81fa95690ece
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264202"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015493"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurowanie telemetrii Azure Media Services przy użyciu interfejsu REST
 
@@ -264,6 +264,6 @@ Informacje o korzystaniu z informacji telemetrycznych znajdują się w [tym](med
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

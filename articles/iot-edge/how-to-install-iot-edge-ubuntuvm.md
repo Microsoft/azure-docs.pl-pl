@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629966"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201095"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Uruchom Azure IoT Edge na Ubuntu Virtual Machines
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Środowisko uruchomieniowe Azure IoT Edge to włączenie urządzenia do urządzenia IoT Edge. Środowisko uruchomieniowe można wdrożyć na urządzeniach jako niewielkich jako Raspberry Pi lub jako serwer przemysłowy. Po skonfigurowaniu urządzenia przy użyciu środowiska uruchomieniowego usługi IoT Edge można rozpocząć wdrażanie na nim logiki biznesowej z chmury.
 
@@ -26,7 +28,10 @@ Aby dowiedzieć się więcej o tym, jak działa środowisko uruchomieniowe IoT E
 W tym artykule wymieniono kroki wdrażania maszyny wirtualnej Ubuntu 18,04 LTS z zainstalowanym środowiskiem uruchomieniowym Azure IoT Edge i skonfigurowanym za pomocą wstępnie podanych parametrów połączenia urządzenia. Wdrożenie jest realizowane przy użyciu [szablonu Azure Resource Manager](../azure-resource-manager/templates/overview.md) opartego na [init w chmurze](../virtual-machines/linux/using-cloud-init.md
 ) , który jest przechowywany w repozytorium [iotedge-VM-Deploy](https://github.com/Azure/iotedge-vm-deploy) Project.
 
-Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [instaluje najnowszą wersję środowiska uruchomieniowego Azure IoT Edge za pośrednictwem usługi Cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). Ustawia również dostarczone parametry połączenia przed uruchomieniem środowiska uruchomieniowego, co pozwala łatwo skonfigurować i połączyć urządzenie IoT Edge bez konieczności uruchamiania usługi SSH lub sesji pulpitu zdalnego. 
+Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [instaluje najnowszą wersję środowiska uruchomieniowego Azure IoT Edge za pośrednictwem usługi Cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). Ustawia również dostarczone parametry połączenia przed uruchomieniem środowiska uruchomieniowego, co pozwala łatwo skonfigurować i połączyć urządzenie IoT Edge bez konieczności uruchamiania usługi SSH lub sesji pulpitu zdalnego.
+
+>[!NOTE]
+>Szablon używany w tym artykule instaluje IoT Edge wersji 1,1.
 
 ## <a name="deploy-using-deploy-to-azure-button"></a>Wdrażanie przy użyciu przycisku Wdróż na platformie Azure
 

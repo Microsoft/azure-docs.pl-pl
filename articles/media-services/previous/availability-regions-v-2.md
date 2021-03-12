@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 125f2be205760618ab6ffa3175f719f5e91e8c05
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695801"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012262"
 ---
 # <a name="media-services-regional-availability"></a>Media Services dostępność regionalna
 
@@ -82,7 +82,7 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Regiony|
 |---|---|---| 
-|Magazyn|Ogólna dostępność|Wszystko|
+|Storage|Ogólna dostępność|Wszystko|
 |Klucze AES-128|Ogólna dostępność|Wszystko|
 |FairPlay|Ogólna dostępność|Wszystko|
 |PlayReady|Ogólna dostępność|Wszystko|

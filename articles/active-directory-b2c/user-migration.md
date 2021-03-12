@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661157"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010171"
 ---
-# <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do Azure AD B2C
+# <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do usługi Azure AD B2C
 
 Migrowanie z innego dostawcy tożsamości do Azure Active Directory B2C (Azure AD B2C) może również wymagać migrowania istniejących kont użytkowników. W tym miejscu omówiono dwie metody migracji — *wstępna migracja* i *bezproblemowe Migrowanie*. W obu przypadkach konieczne jest napisanie aplikacji lub skryptu, który używa [interfejsu API Microsoft Graph](microsoft-graph-operations.md) do tworzenia kont użytkowników w Azure AD B2C.
 
@@ -50,7 +50,7 @@ Bezproblemowy przepływ migracji ma dwie fazy: *wstępne Migrowanie* i *Ustawian
 ### <a name="phase-1-pre-migration"></a>Faza 1: premigracja
 
 1. Aplikacja do migracji odczytuje konta użytkowników ze starego dostawcy tożsamości.
-1. Aplikacja migracji tworzy odpowiednie konta użytkowników w katalogu Azure AD B2C, ale nie *Ustawia haseł*.
+1. Aplikacja migracji tworzy odpowiednie konta użytkowników w katalogu Azure AD B2C, ale ustawia wygenerowane *losowo hasła* .
 
 ### <a name="phase-2-set-credentials"></a>Faza 2: Ustawianie poświadczeń
 

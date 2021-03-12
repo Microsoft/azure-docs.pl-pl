@@ -1,9 +1,9 @@
 ---
 title: Omówienie interfejsu API REST Media Services operacji | Microsoft Docs
-description: Interfejs API "Media Services Operations REST" służy do tworzenia zadań, zasobów, kanałów na żywo i innych zasobów na koncie Media Services. Ten artykuł zawiera omówienie interfejsu API REST Azure Media Services V2.
+description: Interfejs API REST usługi Media Services Operations jest używany do tworzenia zadań, zasobów, kanałów na żywo i innych zasobów na koncie Media Services. Ten artykuł zawiera omówienie interfejsu API REST Azure Media Services V2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696231"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010052"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations
 

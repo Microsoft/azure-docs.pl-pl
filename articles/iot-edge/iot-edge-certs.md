@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: e5b1950935e6279995b44c2e07931519e82359d2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040638"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200232"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Dowiedz się, jak Azure IoT Edge używa certyfikatów
 
@@ -90,7 +90,7 @@ Ponieważ procesy produkcyjne i operacyjne są rozdzielone, podczas przygotowywa
 
 ## <a name="devtest-implications"></a>Implikacje tworzenia i testowania
 
-Aby ułatwić tworzenie i testowanie scenariuszy, firma Microsoft udostępnia zestaw [wygodnych skryptów](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) służących do generowania certyfikatów nieprodukcyjnych odpowiednich dla IoT Edge w scenariuszu dla bramy przezroczystej. Przykłady działania skryptów znajdują się w temacie [Create demonstracyjne Certificates to test IoT Edge Features](how-to-create-test-certificates.md).
+Aby ułatwić tworzenie i testowanie scenariuszy, firma Microsoft udostępnia zestaw [wygodnych skryptów](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) służących do generowania certyfikatów nieprodukcyjnych odpowiednich dla IoT Edge w scenariuszu dla bramy przezroczystej. Przykłady działania skryptów znajdują się w temacie [Create demonstracyjne Certificates to test IoT Edge Features](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Aby połączyć urządzenia "liścia" IoT "i aplikacje korzystające z naszego zestawu SDK urządzenia IoT za pomocą IoT Edge, należy dodać opcjonalny parametr GatewayHostName na końcu parametrów połączenia urządzenia. Po wygenerowaniu certyfikatu serwera centrum brzegowego jest on oparty na niższej wersji nazwy hosta z pliku konfiguracji, dlatego w celu pomyślnego nadania nazw i weryfikacji certyfikatu TLS należy wprowadzić parametr GatewayHostName w małych przypadkach.
