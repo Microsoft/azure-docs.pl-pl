@@ -3,16 +3,16 @@ title: Zwolnij zalecenie dotyczące Azure Security Center z zasobu, subskrypcji,
 description: Dowiedz się, jak utworzyć reguły wykluczające zalecenia dotyczące zabezpieczeń z subskrypcji lub grup zarządzania i uniemożliwić im wpływ na bezpieczny wynik
 author: memildin
 ms.author: memildin
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7a010b1014181ed325500fa501212579ef67d26
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102617577"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149736"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z bezpiecznego wyniku 
 
@@ -35,7 +35,7 @@ W takich przypadkach można utworzyć wykluczenie dla zalecenia:
 | Stan wydania:                  | Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Wpisaną                        | Jest to funkcja Premium platformy Azure oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.                                                                                                                                                                 |
 | Wymagane role i uprawnienia: | **Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Ograniczenia:                    | Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, test porównawczy zabezpieczeń platformy Azure. Nie można wykluczać zaleceń, które są generowane na podstawie inicjatyw niestandardowych. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md). |
+| Ograniczenia:                    | Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, testu porównawczego zabezpieczeń platformy Azure lub dowolnych z dostarczonych, standardowych inicjatyw prawnych. Nie można wykluczać zaleceń, które są generowane na podstawie inicjatyw niestandardowych. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md). |
 | Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -47,7 +47,7 @@ Aby dostosować zalecenia dotyczące zabezpieczeń, które Security Center dla s
 - Oznacz **co najmniej jeden zasób** jako "skorygowany" lub "ryzyko zaakceptowania" dla konkretnego zalecenia.
 
 > [!NOTE]
-> Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, test porównawczy zabezpieczeń platformy Azure. Zalecenia, które są generowane na podstawie dowolnych niestandardowych inicjatyw przypisanych do subskrypcji, nie mogą być wykluczone. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md).
+> Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, testu porównawczego zabezpieczeń platformy Azure lub któregokolwiek z dostarczonych standardowych inicjatyw prawnych. Zalecenia, które są generowane na podstawie dowolnych niestandardowych inicjatyw przypisanych do subskrypcji, nie mogą być wykluczone. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md).
 
 > [!TIP]
 > Możesz również utworzyć wykluczenia przy użyciu interfejsu API. Przykładowy kod JSON i objaśnienie odpowiednich struktur znajdują się w temacie [Azure Policy Structure](../governance/policy/concepts/exemption-structure.md).

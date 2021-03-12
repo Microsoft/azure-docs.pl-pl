@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 83758f63b7e60d08a31f1da9da4a6eec6ba7d4a4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095240"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632071"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
-Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji, dzięki czemu możesz zalogować użytkowników i uzyskać dostęp do danych, pisząc kod minimalny lub bez kodu w aplikacji sieci Web, interfejsie API RESTful i zapleczu mobilnego, a także [Azure Functions](../azure-functions/functions-overview.md). W tym artykule opisano sposób, w jaki App Service upraszczają uwierzytelnianie i autoryzację aplikacji.
+Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji (czasami nazywaną "łatwym uwierzytelnianiem"), dzięki czemu możesz zalogować użytkowników i uzyskiwać dostęp do danych, pisząc kod minimalny lub bez kodu w aplikacji sieci Web, interfejsie API RESTful oraz zaplecze urządzenia przenośnego, a także [Azure Functions](../azure-functions/functions-overview.md). W tym artykule opisano sposób, w jaki App Service upraszczają uwierzytelnianie i autoryzację aplikacji.
 
 Bezpieczne uwierzytelnianie i autoryzacja wymagają dokładnego poznania zabezpieczeń, w tym Federacji, szyfrowania, zarządzania [tokenami sieci Web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) , [typów dotacji](https://oauth.net/2/grant-types/)i tak dalej. App Service udostępnia te narzędzia, dzięki czemu można poświęcać więcej czasu i energii na zapewnienie klientom wartości biznesowej.
 
@@ -24,9 +24,6 @@ Bezpieczne uwierzytelnianie i autoryzacja wymagają dokładnego poznania zabezpi
 >
 > W ASP.NET Core 2,1 i nowszych wersjach hostowanych przez App Service są już zainstalowane poprawki dla tej istotnej zmiany i obsługują odpowiednio program Chrome 80 i starsze przeglądarki. Ponadto ta sama poprawka dla programu ASP.NET Framework 4.7.2 została wdrożona w App Service wystąpieniach w styczniu 2020. Aby uzyskać więcej informacji, zobacz [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
-
-> [!NOTE]
-> Funkcja uwierzytelniania/autoryzacji jest również czasami określana jako "Łatwa autoryzacja".
 
 > [!NOTE]
 > Włączenie tej funkcji spowoduje, że **wszystkie** niezabezpieczone żądania HTTP do aplikacji będą automatycznie przekierowywane do protokołu HTTPS, niezależnie od ustawienia konfiguracji App Service [wymuszania protokołu HTTPS](configure-ssl-bindings.md#enforce-https). W razie potrzeby można je wyłączyć za pomocą `requireHttps` Ustawienia w [pliku konfiguracyjnym ustawień uwierzytelniania](app-service-authentication-how-to.md#configuration-file-reference), ale należy pamiętać o zapewnieniu, że tokeny zabezpieczające nie są przekazywane za pośrednictwem niezabezpieczonych połączeń HTTP.
@@ -150,7 +147,7 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 > [!NOTE]
 > Domyślnie każdy użytkownik w dzierżawie usługi Azure AD może zażądać tokenu dla aplikacji z usługi Azure AD. Można [skonfigurować aplikację w usłudze Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) , jeśli chcesz ograniczyć dostęp do aplikacji do zdefiniowanego zestawu użytkowników.
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 * [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w aplikacji sieci Web, która uzyskuje dostęp do usługi Azure Storage i Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  

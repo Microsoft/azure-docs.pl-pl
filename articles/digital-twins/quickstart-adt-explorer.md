@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434206"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232425"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji przy użyciu programu Azure Digital bliźniaczych reprezentacji Explorer
 
@@ -93,13 +93,16 @@ Otwórz okno konsoli w lokalizacji folderu **Azure_Digital_Twins__ADT__explorer/
 
 1. Wprowadź adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji, który został zebrany wcześniej w sekcji [Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji](#set-up-an-azure-digital-twins-instance) w formacie *https://{Nazwa hosta wystąpienia}*.
 
->[!NOTE]
-> Te informacje można ponownie odwiedzać lub edytować w dowolnym momencie, wybierając tę samą ikonę w celu ponownego otwarcia pola **Zaloguj** . Dane zostaną zachowane.
-
 > [!TIP]
 > Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia pojawi się komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://*.
 
+> [!TIP]
+> Jeśli zostanie wyświetlony błąd uwierzytelniania, możesz chcieć sprawdzić zmienne środowiskowe, aby upewnić się, że wszystkie podane poświadczenia są prawidłowe dla usługi Azure Digital bliźniaczych reprezentacji. DefaultAzureCredential próbuje uwierzytelnić [typy poświadczeń](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) w określonej kolejności, a zmienne środowiskowe są oceniane jako pierwsze.
+
 Jeśli zobaczysz **wymagane uprawnienia** do okna podręcznego od firmy Microsoft, przyznaj zgodę na tę aplikację i zaakceptuj ją, aby kontynuować.
+
+>[!NOTE]
+> Te informacje można ponownie odwiedzać lub edytować w dowolnym momencie, wybierając tę samą ikonę w celu ponownego otwarcia pola **Zaloguj** . Dane zostaną zachowane.
 
 ## <a name="add-the-sample-data"></a>Dodawanie przykładowych danych
 

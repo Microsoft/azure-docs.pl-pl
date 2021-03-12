@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 4e9ea1ec85067a59c5ee6bcd27993e294559f410
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561351"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232090"
 ---
 # <a name="region-availability-and-data-residency"></a>Dostępność w poszczególnych regionach i miejsce przechowywania danych
 
@@ -51,12 +51,14 @@ Za pomocą Azure Portal lub Azure Resource Manager interfejsów API z usługami 
 
 ### <a name="telephone-number-management"></a>Zarządzanie numerami telefonów
 
-Usługi komunikacyjne Azure obsługują katalog numerów telefonów skojarzonych z zasobem usług komunikacyjnych. Użyj tych interfejsów API, aby pobrać numery telefonów i je usunąć:
+Usługi komunikacyjne Azure obsługują katalog numerów telefonów skojarzonych z zasobem usług komunikacyjnych. Użyj [interfejsów API administracji numerów telefonów](/rest/api/communication/phonenumberadministration) , aby pobrać numery telefonów i je usunąć:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Czat
 
-Wątki rozmowy i komunikaty są zachowywane do momentu usunięcia ich jawnie. W pełni bezczynny wątek zostanie automatycznie usunięty po upływie 30 dni. [Interfejsy API rozmowy](/rest/api/communication/chat/deletechatmessage/deletechatmessage) umożliwiają pobieranie, wyświetlanie, aktualizowanie i usuwanie komunikatów.
+Wątki rozmowy i komunikaty są zachowywane do momentu usunięcia ich jawnie. W pełni bezczynny wątek zostanie automatycznie usunięty po upływie 30 dni. [Interfejsy API rozmowy](/rest/api/communication/chat/chatthread) umożliwiają pobieranie, wyświetlanie, aktualizowanie i usuwanie komunikatów.
 
 - `Get Thread`
 - `Get Message`

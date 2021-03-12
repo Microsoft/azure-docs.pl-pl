@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 0f8476a8759dd445500c2eb6c029cd618a7ff8ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 125d4a02d06e2792f9a2a4e646c3788dcf223318
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718985"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612834"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus).
@@ -23,7 +23,7 @@ Uaktualnienie obejmuje dwa etapy:
 2. Uruchom skrypt programu PowerShell, aby zakończyć uaktualnianie i migrację ruchu.
 
 > [!IMPORTANT]
-> Skrypt jest obecnie objęty konserwacją. W [tym miejscu](../virtual-network/virtual-network-public-ip-address-upgrade.md?tabs=option-upgrade-cli%2coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) można zapoznać się z instrukcjami dotyczącymi uaktualniania publicznych adresów IP z podstawowej jednostki SKU i standardowej jednostki SKU.
+> Skrypt jest obecnie objęty konserwacją. W [tym miejscu](../virtual-network/virtual-network-public-ip-address-upgrade.md) można zapoznać się z instrukcjami dotyczącymi uaktualniania publicznych adresów IP z podstawowej jednostki SKU i standardowej jednostki SKU.
 
 ## <a name="upgrade-overview"></a>Omówienie uaktualnienia
 

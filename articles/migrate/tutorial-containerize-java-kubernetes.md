@@ -1,43 +1,43 @@
 ---
-title: Konteneryzowanie aplikacje sieci Web Java i Migruj do usługi Azure Kubernetes Service
-description: Dowiedz się, jak konteneryzowanie aplikacje sieci Web Java i przeprowadzić migrację do usługi Azure Kubernetes.
+title: Konteneryzowanie & Migrowanie aplikacji sieci Web Java do usługi Azure Kubernetes.
+description: 'Samouczek: Konteneryzowanie & Migrowanie aplikacji sieci Web Java do usługi Azure Kubernetes Service.'
 services: ''
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: d85edf71ba78e2370a85e470c502d3f648af1f9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 71d0e219a84e018eef363732169ab2ec9c43dde2
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748124"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233342"
 ---
 # <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Konteneryzowanie aplikacje sieci Web Java i Migruj do usługi Azure Kubernetes Service
 
-W tym artykule dowiesz się, jak konteneryzowanie aplikacje sieci Web Java (uruchomione w Apache Tomcat) i migrować je do [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) przy użyciu narzędzia Azure Migrate: App kontenerach. Proces kontenerach nie wymaga dostępu do bazy kodu i zapewnia łatwy sposób konteneryzowanie istniejących aplikacji. Narzędzie działa przy użyciu stanu uruchomienia aplikacji na serwerze w celu określenia składników aplikacji i ułatwia ich spakowanie w obrazie kontenera. Aplikację kontenerową można następnie wdrożyć w usłudze Azure Kubernetes Service (AKS). 
+W tym artykule dowiesz się, jak konteneryzowanie aplikacje sieci Web Java (uruchomione w Apache Tomcat) i migrować je do [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) przy użyciu narzędzia Azure Migrate: App kontenerach. Proces kontenerach nie wymaga dostępu do bazy kodu i zapewnia łatwy sposób konteneryzowanie istniejących aplikacji. Narzędzie działa przy użyciu stanu uruchomienia aplikacji na serwerze w celu określenia składników aplikacji i ułatwia ich spakowanie w obrazie kontenera. Aplikację kontenerową można następnie wdrożyć w usłudze Azure Kubernetes Service (AKS).
 
-Narzędzie Azure Migrate: App kontenerach obecnie obsługuje — 
+Narzędzie Azure Migrate: App kontenerach obecnie obsługuje —
 
-- Konteneryzowania ASP.NET aplikacje i wdrażaj je w kontenerach systemu Windows na AKS. [Dowiedz się więcej](./tutorial-containerize-aspnet-kubernetes.md) 
-- Konteneryzowania Web Apps Java na platformie Apache Tomcat (na serwerach z systemem Linux) i wdrażaj je w kontenerach systemu Linux na platformie AKS. 
+- Konteneryzowania ASP.NET aplikacje i wdrażaj je w kontenerach systemu Windows na AKS. [Dowiedz się więcej](./tutorial-containerize-aspnet-kubernetes.md)
+- Konteneryzowania Web Apps Java na platformie Apache Tomcat (na serwerach z systemem Linux) i wdrażaj je w kontenerach systemu Linux na platformie AKS.
 
 
-Azure Migrate: App kontenerach Tool ułatwia 
+Azure Migrate: App kontenerach Tool ułatwia
 
 - **Odkryj aplikację**: Narzędzie zdalnie nawiązuje połączenie z serwerami aplikacji z uruchomioną aplikacją sieci Web w języku Java (działającą w systemie Apache Tomcat) i odnajduje składniki aplikacji. Narzędzie tworzy pliku dockerfile, którego można użyć do utworzenia obrazu kontenera dla aplikacji.
 - **Tworzenie obrazu kontenera**: możesz sprawdzać i dostosowywać pliku dockerfile zgodnie z wymaganiami aplikacji i używać go do kompilowania obrazu kontenera aplikacji. Obraz kontenera aplikacji jest wypychany do określonego Azure Container Registry.
-- **Wdróż w usłudze Azure Kubernetes Service**: narzędzie generuje następnie pliki definicji zasobów Kubernetes YAML, które są konieczne do wdrożenia aplikacji kontenera w klastrze usługi Azure Kubernetes. Można dostosować pliki YAML i użyć ich do wdrożenia aplikacji na AKS. 
+- **Wdróż w usłudze Azure Kubernetes Service**: narzędzie generuje następnie pliki definicji zasobów Kubernetes YAML, które są konieczne do wdrożenia aplikacji kontenera w klastrze usługi Azure Kubernetes. Można dostosować pliki YAML i użyć ich do wdrożenia aplikacji na AKS.
 
 > [!NOTE]
-> Narzędzie Azure Migrate: App kontenerach ułatwia odnajdywanie określonych typów aplikacji (aplikacji sieci Web ASP.NET i Java na platformie Apache Tomcat) oraz ich składników na serwerze aplikacji. Aby odnajdywać serwery i spis aplikacji, ról i funkcji uruchomionych na maszynach lokalnych, użyj Azure Migrate: funkcji odnajdywania i oceny. [Dowiedz się więcej](./tutorial-discover-vmware.md) 
+> Narzędzie Azure Migrate: App kontenerach ułatwia odnajdywanie określonych typów aplikacji (aplikacji sieci Web ASP.NET i Java na platformie Apache Tomcat) oraz ich składników na serwerze aplikacji. Aby odnajdywać serwery i spis aplikacji, ról i funkcji uruchomionych na maszynach lokalnych, użyj Azure Migrate: funkcji odnajdywania i oceny. [Dowiedz się więcej](./tutorial-discover-vmware.md)
 
 Mimo że wszystkie aplikacje nie będą korzystać z prostych przesunięć do kontenerów bez znacznego przetworzenia architektury, niektóre korzyści wynikające z przeniesienia istniejących aplikacji do kontenerów bez ponownego zapisywania obejmują:
 
-- **Ulepszone wykorzystanie infrastruktury:** W przypadku kontenerów wiele aplikacji może współużytkować zasoby i być hostowane w tej samej infrastrukturze. Może to ułatwić skonsolidowanie infrastruktury i zwiększenie wykorzystania. 
+- **Ulepszone wykorzystanie infrastruktury:** W przypadku kontenerów wiele aplikacji może współużytkować zasoby i być hostowane w tej samej infrastrukturze. Może to ułatwić skonsolidowanie infrastruktury i zwiększenie wykorzystania.
 - **Uproszczone zarządzanie:** Hosting aplikacji na nowoczesnej zarządzanej platformie infrastruktury, takiej jak AKS, pozwala uprościć swoje praktyki zarządzania przy zachowaniu kontroli nad infrastrukturą. Można to osiągnąć przez wycofanie lub zmniejszenie procesów konserwacji i zarządzania infrastrukturą, które są tradycyjnie wykonywane z posiadaną infrastrukturą.
-- **Przenośność aplikacji:** Dzięki zwiększonemu wdrażaniu i standaryzacji formatów specyfikacji kontenera oraz platformom aranżacji, przenośność aplikacji nie jest już problemem. 
+- **Przenośność aplikacji:** Dzięki zwiększonemu wdrażaniu i standaryzacji formatów specyfikacji kontenera oraz platformom aranżacji, przenośność aplikacji nie jest już problemem.
 - **Wdrażaj nowoczesne zarządzanie za pomocą DevOps:** Pomaga w wdrażaniu i standaryzacji nowoczesnych praktyk związanych z zarządzaniem i zabezpieczeniami przy użyciu infrastruktury jako kodu i przejścia do DevOps.
 
 
@@ -59,7 +59,7 @@ Przed rozpoczęciem tego samouczka należy:
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami i maszynami wirtualnymi hostującym aplikacje ASP.NET.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6) 
+**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami i maszynami wirtualnymi hostującym aplikacje ASP.NET.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
 **Serwery aplikacji** | -Włącz połączenie Secure Shell (SSH) na porcie 22 na serwerach z uruchomionymi aplikacjami Java do kontenerów. <br/>
 **Aplikacja internetowa Java** | Narzędzie obsługuje obecnie <br/><br/> -Aplikacje działające w Tomcat 8 lub nowszym.<br/> -Serwery aplikacji na Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> — Aplikacje korzystające z języka Java w wersji 7 lub nowszej.  <br/><br/> Narzędzie nie obsługuje obecnie <br/><br/> -Aplikacje serwerów z wieloma wystąpieniami Tomcat <br/>  
 
@@ -78,7 +78,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
     ![Wyszukaj w polu wyszukiwania subskrypcję platformy Azure.](./media/tutorial-discover-vmware/search-subscription.png)
 
-2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate. 
+2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate.
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
 4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
 5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
@@ -100,14 +100,14 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 ## <a name="download-and-install-azure-migrate-app-containerization-tool"></a>Pobieranie i Instalowanie Azure Migrate: App kontenerach Tool
 
 1. [Pobierz](https://go.microsoft.com/fwlink/?linkid=2134571) Azure Migrate: App kontenerach Installer na komputerze z systemem Windows.
-2. Uruchom program PowerShell w trybie administratora i zmień katalog programu PowerShell w folder zawierający Instalatora. 
+2. Uruchom program PowerShell w trybie administratora i zmień katalog programu PowerShell w folder zawierający Instalatora.
 3. Uruchom skrypt instalacyjny przy użyciu polecenia
 
    ```powershell
    .\App ContainerizationInstaller.ps1
    ```
 
-## <a name="launch-the-app-containerization-tool"></a>Uruchamianie narzędzia kontenerach aplikacji 
+## <a name="launch-the-app-containerization-tool"></a>Uruchamianie narzędzia kontenerach aplikacji
 
 1. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną z systemem Windows, na którym działa narzędzie kontenerach aplikacji, a następnie otwórz adres URL narzędzia: **https://*Nazwa komputera lub adres IP*: 44368**.
 
@@ -115,7 +115,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
 2. Jeśli zostanie wyświetlone ostrzeżenie informujące o tym, że połączenie nie jest prywatne, kliknij pozycję Zaawansowane i wybierz opcję przejścia do witryny sieci Web. To ostrzeżenie jest wyświetlane, gdy interfejs sieci Web używa certyfikatu TLS/SSL z podpisem własnym.
 3. Na ekranie logowania Użyj konta administratora lokalnego na komputerze, aby się zalogować.
-4. W polu Określ typ aplikacji wybierz pozycję **aplikacje sieci Web Java w systemie Tomcat** jako typ aplikacji, którą chcesz konteneryzowanie. 
+4. W polu Określ typ aplikacji wybierz pozycję **aplikacje sieci Web Java w systemie Tomcat** jako typ aplikacji, którą chcesz konteneryzowanie.
 
     ![Domyślne ładowanie dla narzędzia App kontenerach.](./media/tutorial-containerize-apps-aks/tool-home.png)
 
@@ -129,36 +129,36 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
      - Obsługiwane są tylko serwery proxy HTTP.
      - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
    - **Zainstaluj aktualizacje**: Narzędzie automatycznie sprawdzi dostępność najnowszych aktualizacji i zainstaluje je. Możesz również ręcznie zainstalować najnowszą wersję narzędzia z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2134571).
-   - **Włącz Secure Shell (SSH)**: Narzędzie powiadomi użytkownika o tym, że Secure Shell (SSH) jest włączona na serwerach aplikacji, na których działają aplikacje sieci Web języka Java w celu ich kontenera. 
-   
+   - **Włącz Secure Shell (SSH)**: Narzędzie powiadomi użytkownika o tym, że Secure Shell (SSH) jest włączona na serwerach aplikacji, na których działają aplikacje sieci Web języka Java w celu ich kontenera.
+
 
 ## <a name="login-to-azure"></a>Logowanie na platformie Azure
 
-Kliknij pozycję **Zaloguj** , aby zalogować się do konta platformy Azure. 
+Kliknij pozycję **Zaloguj** , aby zalogować się do konta platformy Azure.
 
-1. Do uwierzytelnienia w systemie Azure potrzebny jest kod urządzenia. Kliknięcie przycisku Zaloguj spowoduje otwarcie modalnego kodu urządzenia. 
+1. Do uwierzytelnienia w systemie Azure potrzebny jest kod urządzenia. Kliknięcie przycisku Zaloguj spowoduje otwarcie modalnego kodu urządzenia.
 2. Kliknij pozycję **Kopiuj kod & login** , aby skopiować kod urządzenia i otworzyć monit logowania platformy Azure na nowej karcie przeglądarki. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
 
     ![Modalne wyświetlanie kodu urządzenia.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
 3. Na nowej karcie Wklej kod urządzenia i Zakończ logowanie się przy użyciu poświadczeń konta platformy Azure. Możesz zamknąć kartę przeglądarki po zakończeniu logowania i wrócić do interfejsu internetowego narzędzia kontenerach aplikacji.
 4. Wybierz **dzierżawę platformy Azure** , której chcesz użyć.
-5. Określ **subskrypcję platformy Azure** , której chcesz użyć. 
+5. Określ **subskrypcję platformy Azure** , której chcesz użyć.
 
 ## <a name="discover-java-web-applications"></a>Odnajdywanie aplikacji sieci Web w języku Java
 
 Narzędzie pomocnika kontenerach aplikacji łączy się zdalnie z serwerami aplikacji przy użyciu podanych poświadczeń i podejmuje próbę odnalezienia aplikacji sieci Web w języku Java (działających na platformie Apache Tomcat) hostowanych na serwerach aplikacji.
 
-1. Określ **adres IP/nazwę FQDN oraz poświadczenia** serwera z uruchomioną aplikacją sieci Web Java, które powinny być używane do zdalnego łączenia się z serwerem na potrzeby odnajdywania aplikacji. 
-    - Podane poświadczenia muszą dotyczyć konta głównego (Linux) na serwerze aplikacji. 
-    - W przypadku kont domeny (użytkownik musi być administratorem na serwerze aplikacji), poprzedź nazwę użytkownika nazwą domeny w formacie *<domena \ nazwa_użytkownika>*. 
-    - Odnajdywanie aplikacji można uruchomić maksymalnie pięć serwerów jednocześnie. 
+1. Określ **adres IP/nazwę FQDN oraz poświadczenia** serwera z uruchomioną aplikacją sieci Web Java, które powinny być używane do zdalnego łączenia się z serwerem na potrzeby odnajdywania aplikacji.
+    - Podane poświadczenia muszą dotyczyć konta głównego (Linux) na serwerze aplikacji.
+    - W przypadku kont domeny (użytkownik musi być administratorem na serwerze aplikacji), poprzedź nazwę użytkownika nazwą domeny w formacie *<domena \ nazwa_użytkownika>*.
+    - Odnajdywanie aplikacji można uruchomić maksymalnie pięć serwerów jednocześnie.
 
 2. Kliknij przycisk **Sprawdź poprawność** , aby sprawdzić, czy serwer aplikacji jest dostępny z komputera z uruchomionym narzędziem i czy poświadczenia są prawidłowe. Po pomyślnej weryfikacji w kolumnie Stan zostanie wyświetlony stan **zamapowane**.  
 
     ![Zrzut ekranu przedstawiający adres IP serwera i poświadczenia.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
 
-3. Kliknij przycisk **Kontynuuj** , aby uruchomić odnajdywanie aplikacji na wybranych serwerach aplikacji.   
+3. Kliknij przycisk **Kontynuuj** , aby uruchomić odnajdywanie aplikacji na wybranych serwerach aplikacji.
 
 4. Po pomyślnym zakończeniu odnajdywania aplikacji możesz wybrać listę aplikacji do konteneryzowanie.
 
@@ -168,10 +168,10 @@ Narzędzie pomocnika kontenerach aplikacji łączy się zdalnie z serwerami apli
 4. Użyj pola wyboru, aby wybrać aplikacje do konteneryzowanie.
 5. **Określ nazwę kontenera**: Określ nazwę kontenera docelowego dla każdej wybranej aplikacji. Nazwa kontenera powinna być określona jako nazwa <*: tag*>, gdzie tag jest używany dla obrazu kontenera. Na przykład, można określić nazwę kontenera docelowego jako *nazwa_aplikacji: V1*.   
 
-### <a name="parameterize-application-configurations"></a>Konfiguracje aplikacji Sparametryzuj 
+### <a name="parameterize-application-configurations"></a>Konfiguracje aplikacji Sparametryzuj
 Parametryzacja konfiguracja powoduje, że jest ona dostępna jako parametr czasu wdrożenia. Pozwala to na skonfigurowanie tego ustawienia podczas wdrażania aplikacji, w przeciwieństwie do tego, że jest on zakodowany na określoną wartość w obrazie kontenera. Na przykład ta opcja jest przydatna w przypadku parametrów połączenia bazy danych.
-1. Kliknij pozycję **konfiguracje aplikacji** , aby przejrzeć wykryte konfiguracje. 
-2. Zaznacz pole wyboru, aby Sparametryzuj wykryte konfiguracje aplikacji. 
+1. Kliknij pozycję **konfiguracje aplikacji** , aby przejrzeć wykryte konfiguracje.
+2. Zaznacz pole wyboru, aby Sparametryzuj wykryte konfiguracje aplikacji.
 3. Po wybraniu konfiguracji do Sparametryzuj kliknij pozycję **Zastosuj** .
 
    ![Zrzut ekranu przedstawiający aplikację parametryzacja ASP.NET App Configuration.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
@@ -179,13 +179,13 @@ Parametryzacja konfiguracja powoduje, że jest ona dostępna jako parametr czasu
 ### <a name="externalize-file-system-dependencies"></a>Externalize zależności systemu plików
 
  Możesz dodać inne foldery używane przez aplikację. Określ, czy powinny być częścią obrazu kontenera, czy mają być zewnętrzne za pomocą woluminów trwałych w udziale plików platformy Azure. Używanie woluminów trwałych działa doskonale w przypadku aplikacji stanowych, które przechowują stan poza kontenerem lub zawierają inną zawartość statyczną przechowywaną w systemie plików. [Dowiedz się więcej](https://docs.microsoft.com/azure/aks/concepts-storage)
- 
-1. Kliknij przycisk **Edytuj** w obszarze foldery aplikacji, aby przejrzeć wykryte foldery aplikacji. Wykryte foldery aplikacji zostały zidentyfikowane jako obowiązkowe artefakty wymagane przez aplikację i zostaną skopiowane do obrazu kontenera. 
-    
-2. Kliknij pozycję **Dodaj foldery** i określ ścieżki folderów do dodania. 
-3. Aby dodać wiele folderów do tego samego woluminu, podaj `,` wartości rozdzielone przecinkami (). 
-4. Wybierz pozycję **trwały wolumin** jako opcję magazyn, jeśli chcesz, aby foldery były przechowywane poza kontenerem na woluminie trwałym. 
-5. Po przejrzeniu folderów aplikacji kliknij przycisk **Zapisz** . 
+
+1. Kliknij przycisk **Edytuj** w obszarze foldery aplikacji, aby przejrzeć wykryte foldery aplikacji. Wykryte foldery aplikacji zostały zidentyfikowane jako obowiązkowe artefakty wymagane przez aplikację i zostaną skopiowane do obrazu kontenera.
+
+2. Kliknij pozycję **Dodaj foldery** i określ ścieżki folderów do dodania.
+3. Aby dodać wiele folderów do tego samego woluminu, podaj `,` wartości rozdzielone przecinkami ().
+4. Wybierz pozycję **trwały wolumin** jako opcję magazyn, jeśli chcesz, aby foldery były przechowywane poza kontenerem na woluminie trwałym.
+5. Po przejrzeniu folderów aplikacji kliknij przycisk **Zapisz** .
    ![Zrzut ekranu przedstawiający wybór magazynu dla woluminów aplikacji.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
 
 6. Kliknij przycisk **Kontynuuj** , aby przejść do fazy kompilacji obrazu kontenera.
@@ -205,61 +205,60 @@ Parametryzacja konfiguracja powoduje, że jest ona dostępna jako parametr czasu
 
 4. **Stan kompilacji śledzenia**: można także monitorować postęp kroku kompilacji, klikając link **Kompiluj w toku** w kolumnie Stan. Po wyzwoleniu procesu kompilacji łącze potrwa kilka minut.  
 
-5. Po zakończeniu kompilacji kliknij pozycję **Kontynuuj** , aby określić ustawienia wdrożenia. 
+5. Po zakończeniu kompilacji kliknij pozycję **Kontynuuj** , aby określić ustawienia wdrożenia.
 
     ![Zrzut ekranu przedstawiający ukończenie kompilacji obrazu kontenera aplikacji.](./media/tutorial-containerize-apps-aks/build-java-app-completed.png)
 
 ## <a name="deploy-the-containerized-app-on-aks"></a>Wdróż aplikację z kontenerem w witrynie AKS
 
-Po skompilowaniu obrazu kontenera następnym krokiem jest wdrożenie aplikacji jako kontenera w [usłudze Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 
+Po skompilowaniu obrazu kontenera następnym krokiem jest wdrożenie aplikacji jako kontenera w [usłudze Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/).
 
-1. **Wybierz klaster usługi Azure Kubernetes**: Określ klaster AKS, na którym ma zostać wdrożona aplikacja. 
+1. **Wybierz klaster usługi Azure Kubernetes**: Określ klaster AKS, na którym ma zostać wdrożona aplikacja.
 
-     - Wybrany klaster AKS musi mieć pulę węzłów systemu Linux. 
-     - Klaster musi być skonfigurowany tak, aby zezwalał na ściąganie obrazów z Azure Container Registry, które zostały wybrane do przechowywania obrazów. 
+     - Wybrany klaster AKS musi mieć pulę węzłów systemu Linux.
+     - Klaster musi być skonfigurowany tak, aby zezwalał na ściąganie obrazów z Azure Container Registry, które zostały wybrane do przechowywania obrazów.
          - Uruchom następujące polecenie w interfejsie wiersza polecenia platformy Azure, aby dołączyć klaster AKS do ACR.
            ``` Azure CLI
            az aks update -n <cluster-name> -g <cluster-resource-group> --attach-acr <acr-name>
            ```  
      - Jeśli nie masz klastra AKS lub chcesz utworzyć nowy klaster AKS do wdrażania aplikacji w programie, możesz wybrać opcję Utwórz za pomocą narzędzia, klikając pozycję **Utwórz nowy klaster AKS**.      
-          - Klaster AKS utworzony za pomocą narzędzia zostanie utworzony z pulą węzłów systemu Linux. Klaster zostanie skonfigurowany tak, aby zezwalał na ściąganie obrazów z Azure Container Registry, które zostały utworzone wcześniej (Jeśli wybrano opcję Utwórz nowy rejestr). 
+          - Klaster AKS utworzony za pomocą narzędzia zostanie utworzony z pulą węzłów systemu Linux. Klaster zostanie skonfigurowany tak, aby zezwalał na ściąganie obrazów z Azure Container Registry, które zostały utworzone wcześniej (Jeśli wybrano opcję Utwórz nowy rejestr).
      - Po wybraniu klastra AKS kliknij pozycję **Kontynuuj** .
 
-2. **Określ udział plików platformy Azure**: Jeśli dodano więcej folderów i wybrano opcję trwały wolumin, określ udział plików platformy Azure, który ma być używany przez Azure Migrate: App kontenerach Tool w procesie wdrażania. Narzędzie utworzy nowe katalogi w tym udziale plików platformy Azure w celu skopiowania folderów aplikacji skonfigurowanych dla trwałego magazynu woluminów. Po zakończeniu wdrażania aplikacji Narzędzie czyści udział plików platformy Azure, usuwając katalogi, które zostały utworzone. 
+2. **Określ udział plików platformy Azure**: Jeśli dodano więcej folderów i wybrano opcję trwały wolumin, określ udział plików platformy Azure, który ma być używany przez Azure Migrate: App kontenerach Tool w procesie wdrażania. Narzędzie utworzy nowe katalogi w tym udziale plików platformy Azure w celu skopiowania folderów aplikacji skonfigurowanych dla trwałego magazynu woluminów. Po zakończeniu wdrażania aplikacji Narzędzie czyści udział plików platformy Azure, usuwając katalogi, które zostały utworzone.
 
      - Jeśli nie masz udziału plików platformy Azure lub chcesz utworzyć nowy udział plików platformy Azure, możesz wybrać opcję Utwórz za pomocą narzędzia, klikając pozycję **Utwórz nowe konto magazynu i udział plików**.  
 
 3. **Konfiguracja wdrażania aplikacji**: po wykonaniu powyższych czynności należy określić konfigurację wdrożenia dla aplikacji. Kliknij pozycję **Konfiguruj** , aby dostosować wdrożenie aplikacji. W kroku Konfigurowanie można wprowadzić następujące dostosowania:
      - **Ciąg prefiksu**: Określ ciąg prefiksu do użycia w nazwie dla wszystkich zasobów, które są tworzone dla aplikacji kontenera w klastrze AKS.
      - **Zestawy replik**: Określ liczbę wystąpień aplikacji (na podst.), które powinny być uruchamiane wewnątrz kontenerów.
-     - **Typ modułu równoważenia obciążenia**: wybierz opcję *zewnętrzny* , jeśli aplikacja kontenera powinna być dostępna z sieci publicznych. 
+     - **Typ modułu równoważenia obciążenia**: wybierz opcję *zewnętrzny* , jeśli aplikacja kontenera powinna być dostępna z sieci publicznych.
      - **Konfiguracja aplikacji**: dla wszystkich konfiguracji aplikacji, które zostały sparametryzowane, podaj wartości, które mają być używane dla bieżącego wdrożenia.
-     - **Magazyn**: w przypadku wszystkich folderów aplikacji, które zostały skonfigurowane dla trwałego magazynu woluminów, określ, czy wolumin powinien być współużytkowany między wystąpieniami aplikacji, czy powinien być inicjowany indywidualnie z każdym wystąpieniem w kontenerze. Domyślnie wszystkie foldery aplikacji na woluminach trwałych są konfigurowane jako współużytkowane. 
+     - **Magazyn**: w przypadku wszystkich folderów aplikacji, które zostały skonfigurowane dla trwałego magazynu woluminów, określ, czy wolumin powinien być współużytkowany między wystąpieniami aplikacji, czy powinien być inicjowany indywidualnie z każdym wystąpieniem w kontenerze. Domyślnie wszystkie foldery aplikacji na woluminach trwałych są konfigurowane jako współużytkowane.
      - Kliknij przycisk **Zastosuj** , aby zapisać konfigurację wdrożenia.
      - Kliknij przycisk **Kontynuuj** , aby wdrożyć aplikację.
 
     ![Zrzut ekranu przedstawiający konfigurację aplikacji wdrożenia.](./media/tutorial-containerize-apps-aks/deploy-java-app-config.png)
 
-4. **Wdróż aplikację**: po zapisaniu konfiguracji wdrażania dla aplikacji narzędzie wygeneruje KUBERNETES wdrożenia YAML dla aplikacji. 
-     - Kliknij przycisk **Edytuj** , aby przejrzeć i dostosować KUBERNETES wdrożenia YAML dla aplikacji. 
+4. **Wdróż aplikację**: po zapisaniu konfiguracji wdrażania dla aplikacji narzędzie wygeneruje KUBERNETES wdrożenia YAML dla aplikacji.
+     - Kliknij przycisk **Edytuj** , aby przejrzeć i dostosować KUBERNETES wdrożenia YAML dla aplikacji.
      - Wybierz aplikację do wdrożenia.
      - Kliknij przycisk **Wdróż** , aby rozpocząć wdrożenia dla wybranych aplikacji
 
          ![Zrzut ekranu przedstawiający konfigurację wdrażania aplikacji.](./media/tutorial-containerize-apps-aks/deploy-java-app-deploy.png)
 
-     - Po wdrożeniu aplikacji można kliknąć kolumnę *stan wdrożenia* , aby śledzić zasoby, które zostały wdrożone dla aplikacji. 
+     - Po wdrożeniu aplikacji można kliknąć kolumnę *stan wdrożenia* , aby śledzić zasoby, które zostały wdrożone dla aplikacji.
 
 ## <a name="download-generated-artifacts"></a>Pobierz wygenerowane artefakty
 
-Wszystkie artefakty, które są używane do kompilowania i wdrażania aplikacji w AKS, w tym pliki specyfikacji pliku dockerfile i Kubernetes YAML, są przechowywane na komputerze, na którym działa narzędzie. Artefakty znajdują się w witrynie *C:\ProgramData\Microsoft Azure Migrate App kontenerach*. 
+Wszystkie artefakty, które są używane do kompilowania i wdrażania aplikacji w AKS, w tym pliki specyfikacji pliku dockerfile i Kubernetes YAML, są przechowywane na komputerze, na którym działa narzędzie. Artefakty znajdują się w witrynie *C:\ProgramData\Microsoft Azure Migrate App kontenerach*.
 
 Pojedynczy folder jest tworzony dla każdego serwera aplikacji. Można wyświetlić i pobrać wszystkie pośrednie artefakty używane w procesie kontenerach, przechodząc do tego folderu. Folder odpowiadający serwerowi aplikacji zostanie oczyszczony na początku każdego uruchomienia narzędzia dla określonego serwera.
 
 ## <a name="troubleshoot-issues"></a>Rozwiązywanie problemów
 
-Aby rozwiązać wszelkie problemy z narzędziem, można sprawdzić pliki dziennika na komputerze z systemem Windows, na którym jest uruchomione narzędzie App kontenerach. Pliki dziennika narzędzi znajdują się w folderze *C:\ProgramData\Microsoft Azure Migrate App Containerization\Logs* . 
+Aby rozwiązać wszelkie problemy z narzędziem, można sprawdzić pliki dziennika na komputerze z systemem Windows, na którym jest uruchomione narzędzie App kontenerach. Pliki dziennika narzędzi znajdują się w folderze *C:\ProgramData\Microsoft Azure Migrate App Containerization\Logs* .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Konteneryzowania ASP.NET aplikacje i wdrażaj je w kontenerach systemu Windows na AKS. [Dowiedz się więcej](./tutorial-containerize-aspnet-kubernetes.md) 
-
+- Konteneryzowania ASP.NET aplikacje i wdrażaj je w kontenerach systemu Windows na AKS. [Dowiedz się więcej](./tutorial-containerize-aspnet-kubernetes.md)

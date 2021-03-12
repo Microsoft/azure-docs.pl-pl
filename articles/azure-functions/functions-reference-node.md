@@ -3,14 +3,14 @@ title: Dokumentacja dla deweloperów języka JavaScript dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614908"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -507,20 +507,20 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje Node.js dla każ
 
 | Wersja funkcji | Wersja węzła (system Windows) | Wersja węzła (Linux) |
 |---|---| --- |
+| 3. x (zalecane) | `~14` Rekomendowane<br/>`~12`<br/>`~10` | `node|14` Rekomendowane<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (zablokowany przez środowisko uruchomieniowe) | n/d |
-| 2.x  | `~8`<br/>`~10` Rekomendowane<br/>`~12` | `node|8`<br/>`node|10` Rekomendowane  |
-| wersji | `~10`<br/>`~12` Rekomendowane<br/>`~14` przeglądania  | `node|10`<br/>`node|12` Rekomendowane<br/>`node|14` przeglądania |
 
 Bieżącą wersję, która jest używana przez środowisko uruchomieniowe, można zobaczyć, logując się `process.version` z dowolnej funkcji.
 
 ### <a name="setting-the-node-version"></a>Ustawianie wersji węzła
 
-W przypadku aplikacji funkcji systemu Windows należy określić wersję na platformie Azure, ustawiając dla `WEBSITE_NODE_DEFAULT_VERSION` [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) obsługiwaną wersję LTS, na przykład `~12` .
+W przypadku aplikacji funkcji systemu Windows należy określić wersję na platformie Azure, ustawiając dla `WEBSITE_NODE_DEFAULT_VERSION` [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) obsługiwaną wersję LTS, na przykład `~14` .
 
 W przypadku aplikacji funkcji systemu Linux Uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, aby zaktualizować wersję węzła.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>Zarządzanie zależnościami
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>Moduły języka ECMAScript (wersja zapoznawcza)
+
+> [!NOTE]
+> Ponieważ moduły ECMAScript są aktualnie oznaczone jako *eksperymentalne* w Node.js 14, są one dostępne jako funkcja w wersji zapoznawczej w Node.js 14 Azure Functions. Do momentu, aż Node.js 14 dla modułów ECMAScript staną się *stabilne*, oczekiwano możliwych zmian w jego interfejsie API lub zachowaniu.
+
+[Moduły języka ECMAScript](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (moduły) to nowy oficjalny system standardowego modułu do Node.js. Do tej pory przykłady kodu w tym artykule używają składni CommonJS. Podczas uruchamiania Azure Functions w Node.js 14 można wybrać opcję pisania funkcji przy użyciu składni modułów ES.
+
+Aby użyć modułów ES w funkcji, Zmień nazwę pliku, aby użyć `.mjs` rozszerzenia. Poniższy przykład pliku *index. MJS* to funkcja wyzwalana przez protokół http, która używa SKŁADNI modułów es do importowania `uuid` biblioteki i zwracania wartości.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 

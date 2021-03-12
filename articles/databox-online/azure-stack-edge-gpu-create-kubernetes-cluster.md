@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5289f9b558a200bf3dbefdf584eab59d1792439b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437744"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631964"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pomocą polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
@@ -105,7 +105,7 @@ W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy s
 
 4. Plik konfiguracji powinien znajdować się na żywo w `.kube` folderze profilu użytkownika na komputerze lokalnym. Skopiuj plik do tego folderu w profilu użytkownika.
 
-    ![Lokalizacja pliku konfiguracji na kliencie](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Lokalizacja pliku konfiguracji na kliencie](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Skojarz przestrzeń nazw z utworzonym użytkownikiem. Wpisz:
 
@@ -169,9 +169,9 @@ Teraz możesz wdrażać aplikacje w przestrzeni nazw, a następnie wyświetlać 
 
 Aby usunąć klaster Kubernetes, należy usunąć konfigurację IoT Edge.
 
-Aby uzyskać szczegółowe instrukcje, przejdź do obszaru [Usuwanie konfiguracji IoT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Aby uzyskać szczegółowe instrukcje, przejdź do obszaru [Zarządzanie konfiguracją IoT Edge](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdróż bezstanową aplikację na Azure Stack Edge](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Wdróż bezstanową aplikację na Azure Stack Edge](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

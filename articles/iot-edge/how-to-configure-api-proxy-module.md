@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024674"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200582"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Skonfiguruj moduł proxy interfejsu API dla scenariusza hierarchii bramy (wersja zapoznawcza)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Moduł proxy interfejsu API umożliwia urządzeniom IoT Edge wysyłanie żądań HTTP za pośrednictwem bram zamiast bezpośredniego połączenia z usługami w chmurze. W tym artykule opisano opcje konfiguracji umożliwiające dostosowanie modułu do wymagań hierarchii bramy.
 
@@ -228,7 +230,7 @@ Skonfiguruj następujący moduł na dowolnej **niższej warstwie** w tym scenari
 Wykonaj następujące kroki, aby przekazać pakiet obsługi lub plik dziennika do modułu BLOB Storage znajdującego się w górnej warstwie:
 
 1. Utwórz kontener obiektów BLOB przy użyciu Eksplorator usługi Azure Storage lub interfejsów API REST. Aby uzyskać więcej informacji, zobacz artykuł [Przechowuj dane na krawędzi za pomocą usługi Azure Blob Storage w IoT Edge](how-to-store-data-blob.md).
-1. Poproś o dziennik lub Załaduj pakiet pomocy technicznej zgodnie z instrukcjami w temacie [pobieranie dzienników z wdrożeń IoT Edge](how-to-retrieve-iot-edge-logs.md), ale Użyj nazwy domeny `$upstream` i portu open proxy zamiast adresu modułu usługi BLOB Storage. Przykład:
+1. Poproś o dziennik lub Załaduj pakiet pomocy technicznej zgodnie z instrukcjami w temacie [pobieranie dzienników z wdrożeń IoT Edge](how-to-retrieve-iot-edge-logs.md), ale Użyj nazwy domeny `$upstream` i portu open proxy zamiast adresu modułu usługi BLOB Storage. Na przykład:
 
    ```json
    {

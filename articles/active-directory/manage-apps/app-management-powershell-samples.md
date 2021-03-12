@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/18/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 46297f7f0f648c8bebc887a9093e25dfea99f695
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f5f7ec8245a43440a400b9ca6b55bf1093eb62cc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561504"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636192"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Przykłady programu Azure Active Directory PowerShell dla zarządzania aplikacjami
 
@@ -31,5 +31,5 @@ Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykład
 |**Skrypty zarządzania aplikacjami**||
 | [Eksportowanie wpisów tajnych i certyfikatów (rejestracje aplikacji)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Eksportowanie wpisów tajnych i certyfikatów dla rejestracji aplikacji w dzierżawie Azure Active Directory. |
 | [Eksportowanie wpisów tajnych i certyfikatów (aplikacje dla przedsiębiorstw)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md) | Eksportuj wpisy tajne i certyfikaty dla aplikacji dla przedsiębiorstw w dzierżawie Azure Active Directory. |
-| [Eksportuj wpisy tajne i certyfikaty wygasające](scripts/powershell-export-apps-with-expriring-secrets.md) | Eksportuj aplikacje z wygaśniemi wpisami tajnymi i certyfikatami w dzierżawie Azure Active Directory. |
-| [Eksport wpisów tajnych i certyfikatów wygasających poza datą wymaganą](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Eksportuj aplikacje z kluczami tajnymi i certyfikatami, które wygasają poza wymaganą datą w dzierżawie Azure Active Directory. |
+| [Eksportuj wpisy tajne i certyfikaty wygasające](scripts/powershell-export-apps-with-expriring-secrets.md) | Eksportuj rejestracje aplikacji z wygasaniem wpisów tajnych i certyfikatów oraz ich właścicieli w dzierżawie Azure Active Directory. |
+| [Eksport wpisów tajnych i certyfikatów wygasających poza datą wymaganą](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Wyeksportuj rejestracje aplikacji z kluczami tajnymi i certyfikatami, które wygasają poza datą wymaganą w dzierżawie Azure Active Directory. Powoduje to użycie nieinteraktywnego przepływu OAuth Client_Credentials. |

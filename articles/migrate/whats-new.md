@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043052"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614636"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
@@ -20,7 +20,9 @@ ms.locfileid: "102043052"
 
 ## <a name="update-march-2021"></a>Aktualizacja (marzec 2021)
 - Obsługa dostarczania wielu poświadczeń serwera na Azure Migrate urządzeniu w celu odnajdywania zainstalowanych aplikacji (spisu oprogramowania), analizy zależności bez wykorzystania agentów oraz odnajdywania wystąpień SQL Server i baz danych w środowisku programu VMware. [Dowiedz się więcej](tutorial-discover-vmware.md#provide-server-credentials)
-- Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. [Więcej informacji](concepts-azure-sql-assessment-calculation.md)<br/>Aby wypróbować tę funkcję, użyj [tego linku](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Aby rozpocząć, zapoznaj się z samouczkami [odnajdywania](tutorial-discover-vmware.md) i [oceny](tutorial-assess-sql.md) .
+- Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. [Więcej informacji](concepts-azure-sql-assessment-calculation.md)<br/>Aby wypróbować tę funkcję, użyj [tego linku](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Aby rozpocząć pracę, zapoznaj się z samouczkami dotyczącymi [odnajdywania](tutorial-discover-vmware.md) i [oceny](tutorial-assess-sql.md).
+- Migracja oprogramowania VMware bez agenta obsługuje teraz współbieżną replikację maszyn wirtualnych 500 na program vCenter.
+- Azure Migrate teraz automatycznie instaluje agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych VMware podczas migrowania ich do platformy Azure przy użyciu metody bez agenta migracji VMware.
 
 ## <a name="update-january-2021"></a>Aktualizacja (styczeń 2021)
 -  Azure Migrate: Narzędzie do migracji serwera umożliwia teraz Migrowanie maszyn wirtualnych VMware, serwerów fizycznych i maszyn wirtualnych z innych chmur do maszyn wirtualnych platformy Azure z dyskami szyfrowanymi przy użyciu szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta (CMK).

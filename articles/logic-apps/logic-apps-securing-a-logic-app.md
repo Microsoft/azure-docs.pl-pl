@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177287"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556387"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -933,7 +933,7 @@ W tej tabeli przedstawiono typy uwierzytelniania, które są dostępne dla wyzwa
 | [Certyfikat klienta](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Nieprzetworzone](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
-| [Tożsamość zarządzana](#managed-identity-authentication) | **Wbudowane wyzwalacze i akcje** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, webhook protokołu HTTP <p><p>**Łączniki zarządzane** <p><p>Azure AD Identity Protection, Azure Automation, wystąpienie kontenera platformy Azure, Eksplorator danych platformy Azure, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central v3, Azure Key Vault, Log Analytics platformy Azure, dzienniki Azure Monitor, Azure Resource Manager, wskaźnik platformy Azure, protokół HTTP z usługą Azure AD <p><p>**Uwaga**: obsługa łączników zarządzanych jest obecnie w wersji zapoznawczej. |
+| [Tożsamość zarządzana](#managed-identity-authentication) | **Wbudowane wyzwalacze i akcje** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, webhook protokołu HTTP <p><p>**Łączniki zarządzane** <p><p>Azure AD Identity Protection, Azure Automation, wystąpienie kontenera platformy Azure, Eksplorator danych platformy Azure, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central v3, Azure Key Vault, Azure Resource Manager, Azure — Wskaźnikowanie, HTTP z usługą Azure AD <p><p>**Uwaga**: obsługa łączników zarządzanych jest obecnie w wersji zapoznawczej. |
 |||
 
 <a name="basic-authentication"></a>

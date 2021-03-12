@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719019"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200695"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Pobierz dzienniki z wdrożeń IoT Edge bez konieczności dostępu fizycznego ani SSH do urządzenia za pomocą metod bezpośrednich zawartych w module agenta IoT Edge. Metody bezpośrednie są implementowane na urządzeniu, a następnie mogą być wywoływane z chmury. Agent IoT Edge obejmuje metody bezpośrednie, które ułatwiają zdalne monitorowanie urządzeń IoT Edge i zarządzanie nimi. Metody bezpośrednie omówione w tym artykule są ogólnie dostępne w wersji 1.0.10.
 

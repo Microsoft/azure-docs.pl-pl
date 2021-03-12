@@ -1,5 +1,5 @@
 ---
-title: Skrypty systemu Windows dla Azure IoT Edge | Microsoft Docs
+title: Skrypty Azure IoT Edge z kontenerami systemu Windows | Microsoft Docs
 description: Informacje referencyjne dotyczące skryptów programu IoT Edge PowerShell służących do instalowania, odinstalowywania lub aktualizowania na urządzeniach z systemem Windows
 author: kgremban
 manager: philmea
@@ -8,27 +8,27 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b7614f7ccd24d0237a043a9b5bf0ad988146d89c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630620"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615911"
 ---
-# <a name="powershell-scripts-for-iot-edge-on-windows"></a>Skrypty programu PowerShell dla IoT Edge w systemie Windows
+# <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Skrypty programu PowerShell dla IoT Edge z kontenerami systemu Windows
 
 Zapoznaj się ze skryptami programu PowerShell, które instalują, aktualizują lub Odinstalowuje IoT Edge na urządzeniach z systemem Windows.
 
 Polecenia opisane w tym artykule pochodzą z `IoTEdgeSecurityDaemon.ps1` pliku wydanego w każdej [IoT Edge wydania](https://github.com/Azure/azure-iotedge/releases). Najnowsza wersja skryptu jest zawsze dostępna pod adresem aka.ms/iotedge-win.
 
-Aby uzyskać dostęp do najnowszej wersji skryptu, można uruchomić dowolne polecenie przy użyciu `Invoke-WebRequest` polecenia cmdlet. Przykład:
+Aby uzyskać dostęp do najnowszej wersji skryptu, można uruchomić dowolne polecenie przy użyciu `Invoke-WebRequest` polecenia cmdlet. Na przykład:
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge
 ```
 
-Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia. Przykład:
+Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia. Na przykład:
 
 ```powershell
 . <path>\IoTEdgeSecurityDaemon.ps1

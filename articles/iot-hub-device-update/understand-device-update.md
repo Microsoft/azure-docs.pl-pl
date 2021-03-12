@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 17674c1a5d7acff50a3dd17b9d98f5295c2e1b19
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633040"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232379"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Aktualizacja urządzenia dla IoT Hub (wersja zapoznawcza) — Omówienie
 
@@ -23,7 +23,8 @@ Aby w pełni wykorzystać zalety transformacji cyfrowej obsługiwanej przez IoT,
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Obsługa szerokiego zakresu urządzeń IoT
 
-Aktualizacja urządzenia dla IoT Hub została zaprojektowana w celu oferowania zoptymalizowanego wdrożenia aktualizacji i usprawnień operacji dzięki integracji z [usługą Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Dzięki tej integracji można łatwo przyjąć aktualizację urządzenia na dowolnym istniejącym rozwiązaniu. Zapewnia rozwiązanie hostowane w chmurze, które umożliwia połączenie praktycznie dowolnego urządzenia. Aktualizacja urządzenia obsługuje szeroką gamę systemów operacyjnych IoT, w tym Linux i [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (system operacyjny w czasie rzeczywistym) — i jest rozszerzalna za pośrednictwem programu typu open source. Firma Microsoft opracowuje aktualizację urządzeń dla ofert IoT Hub za pomocą naszych partnerów półprzewodnikowych, takich jak STMicroelectronics, NXP, Renesas i mikroukład. Zapoznaj się z [przykładami](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) najważniejszych tablic ewaluacyjnych, które zawierają przewodniki wprowadzenie, aby dowiedzieć się, jak konfigurować, kompilować i wdrażać aktualizacje za pośrednictwem środowiska AIR (OTA) na urządzeniach klasy mikrokontrolery.
+
+Aktualizacja urządzenia dla IoT Hub została zaprojektowana w celu oferowania zoptymalizowanego wdrożenia aktualizacji i usprawnień operacji dzięki integracji z [usługą Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Dzięki tej integracji można łatwo przyjąć aktualizację urządzenia na dowolnym istniejącym rozwiązaniu. Zapewnia rozwiązanie hostowane w chmurze, które umożliwia połączenie praktycznie dowolnego urządzenia. Aktualizacja urządzenia obsługuje szeroką gamę systemów operacyjnych IoT, w tym Linux i [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (system operacyjny w czasie rzeczywistym) — i jest rozszerzalna za pośrednictwem programu typu open source. Firma Microsoft opracowuje aktualizację urządzeń dla ofert IoT Hub za pomocą naszych partnerów półprzewodnikowych, takich jak STMicroelectronics, NXP, Renesas i mikroukład. Zapoznaj się z [przykładami](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) najważniejszych tablic ewaluacyjnych, które zawierają przewodniki wprowadzenie, aby dowiedzieć się, jak konfigurować, kompilować i wdrażać aktualizacje za pośrednictwem środowiska AIR (OTA) na urządzeniach klasy mikrokontrolery. 
 
 Podano zarówno obrazy binarne i Raspberry Pi dotyczące symulatora agenta aktualizacji urządzeń.
 Aktualizacja urządzenia dla IoT Hub obsługuje również aktualizowanie urządzeń Azure IoT Edge. Agent aktualizacji urządzeń został udostępniony dla platformy Ubuntu Server 18,04 amd64. Aktualizacja urządzenia dla IoT Hub udostępnia również kod typu open source, jeśli nie uruchomiono jednej z powyższych platform. Możesz przenieść agenta do dystrybucji, która jest uruchomiona.
@@ -79,7 +80,7 @@ Po odebraniu na urządzeniu polecenia Update zostanie wykonane żądanie aktuali
 
 ### <a name="importing"></a>Importowanie
 
-Importowanie jest możliwość importowania aktualizacji do aktualizacji urządzenia. Aktualizacja urządzenia obsługuje wdrażanie jednej aktualizacji na urządzenie. Sprawia to, że jest to idealne rozwiązanie w przypadku aktualizacji w pełnym obrazie, które aktualizują całą partycję systemu operacyjnego jednocześnie, lub manifest apt, który opisuje wszystkie pakiety, które chcesz zaktualizować na urządzeniu. Aby zaimportować aktualizacje do aktualizacji urządzeń, należy najpierw utworzyć manifest importu opisujący aktualizację, przekazać pliki aktualizacji i manifest importu do lokalizacji dostępnej do Internetu. Następnie można użyć Azure Portal lub interfejsu API REST importowania aktualizacji urządzenia, aby zainicjować asynchroniczny proces importowania aktualizacji. Aktualizacja urządzenia przekazuje pliki, przetwarza je i udostępnia je do dystrybucji na urządzeniach IoT.
+Importowanie polega na tym, jak aktualizacje są pozyskiwane w ramach aktualizacji urządzenia, dzięki czemu można je wdrożyć na urządzeniach. Aktualizacja urządzenia obsługuje wdrażanie jednej aktualizacji na urządzenie. Sprawia to, że jest to idealne rozwiązanie w przypadku aktualizacji w pełnym obrazie, które aktualizują całą partycję systemu operacyjnego jednocześnie, lub manifest apt, który opisuje wszystkie pakiety, które chcesz zaktualizować na urządzeniu. Aby zaimportować aktualizacje do aktualizacji urządzeń, należy najpierw utworzyć manifest importu opisujący aktualizację, przekazać pliki aktualizacji i manifest importu do lokalizacji dostępnej do Internetu. Następnie można użyć Azure Portal lub [interfejsu API REST importowania aktualizacji urządzenia](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) , aby zainicjować asynchroniczny proces importowania aktualizacji. Aktualizacja urządzenia przekazuje pliki, przetwarza je i udostępnia je do dystrybucji na urządzeniach IoT.
 
 W przypadku zawartości poufnej należy chronić pobieranie przy użyciu sygnatury dostępu współdzielonego (SAS, Shared Access Signature), takiego jak wielohoc SAS dla usługi Azure Blob Storage. [Więcej informacji na temat sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 

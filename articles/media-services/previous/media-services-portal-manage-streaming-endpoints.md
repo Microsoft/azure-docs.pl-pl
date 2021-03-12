@@ -3,7 +3,7 @@ title: Zarządzaj punktami końcowymi przesyłania strumieniowego za pomocą Azu
 description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego za pomocą Azure Portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: bda244267e81d959abbc4ae0a8532ddce68d5726
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041977"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017396"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego przy użyciu witryny Azure Portal
 
@@ -38,7 +38,7 @@ Informacje o sposobie skalowania punktu końcowego przesyłania strumieniowego z
 Aby rozpocząć zarządzanie punktami końcowymi przesyłania strumieniowego dla Twojego konta, wykonaj następujące czynności.
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. W bloku **Ustawienia** wybierz pozycję **punkty końcowe przesyłania strumieniowego** .
+2. W bloku **Ustawienia** wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
    
     ![Zrzut ekranu przedstawiający stronę "Media Services" z opcją "punkty końcowe przesyłania strumieniowego" wybraną w bloku "Ustawienia".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
@@ -77,7 +77,7 @@ Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz [Streamin
 Punkt końcowy przesyłania strumieniowego można skonfigurować, wykonując następujące czynności:
 
 1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz skonfigurować.
-2. Kliknij polecenie **Ustawienia** .
+2. Kliknij polecenie **Ustawienia**.
 
 Poniżej znajduje się krótki opis poniższych pól.
 
@@ -99,10 +99,10 @@ Jeśli zechcesz później wyłączyć/włączyć usługę CDN, punkt końcowy pr
 
 Integracja z usługą CDN jest włączona we wszystkich centrach danych platformy Azure z wyjątkiem Chin i federalnych regionów rządowych.
 
-Gdy ta funkcja jest włączona, **Access Control** , * * niestandardowa nazwa hosta i konfiguracja **uwierzytelniania podpisów Akamai** zostaną wyłączone.
+Gdy ta funkcja jest włączona, **Access Control**, * * niestandardowa nazwa hosta i konfiguracja **uwierzytelniania podpisów Akamai** zostaną wyłączone.
  
 > [!IMPORTANT]
-> Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN z Verizon** dla standardowych punktów końcowych przesyłania strumieniowego. Punkty końcowe przesyłania strumieniowego w warstwie Premium można skonfigurować przy użyciu wszystkich **Azure CDN warstw cenowych i dostawców** . Aby uzyskać więcej informacji na temat funkcji Azure CDN, zobacz [Omówienie usługi CDN](../../cdn/cdn-overview.md).
+> Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN z Verizon** dla standardowych punktów końcowych przesyłania strumieniowego. Punkty końcowe przesyłania strumieniowego w warstwie Premium można skonfigurować przy użyciu wszystkich **Azure CDN warstw cenowych i dostawców**. Aby uzyskać więcej informacji na temat funkcji Azure CDN, zobacz [Omówienie usługi CDN](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
@@ -122,5 +122,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

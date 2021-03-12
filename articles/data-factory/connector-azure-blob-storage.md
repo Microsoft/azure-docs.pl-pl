@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 809dc6d0958b754911362f933e9fe964bce9c679
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 279d432dbc5770cc89486c517b8fcbe6392b03d1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727927"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012194"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób używania działania kopiowania w Azure Data Fact
 >[!TIP]
 >Aby dowiedzieć się więcej na temat scenariusza migracji usługi Data Lake lub magazynu danych, zobacz [używanie Azure Data Factory do migrowania danych z usług Data Lake lub Data Warehouse do platformy Azure](data-migration-guidance-overview.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik usługi Azure Blob Storage jest obsługiwany dla następujących działań:
 
@@ -229,7 +229,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. | Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . | Tak |
-| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. | Nie |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage**. <br/><br/>W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. | Nie |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Tak |
@@ -237,7 +237,9 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. | Nie |
 
 >[!NOTE]
->Jeśli konto obiektu BLOB umożliwia [usuwanie nietrwałe](../storage/blobs/soft-delete-blob-overview.md), w przepływie danych uwierzytelnianie jednostki usługi nie jest obsługiwane.
+>
+>- Jeśli konto obiektu BLOB umożliwia [usuwanie nietrwałe](../storage/blobs/soft-delete-blob-overview.md), w przepływie danych uwierzytelnianie jednostki usługi nie jest obsługiwane.
+>- Jeśli dostęp do usługi BLOB Storage odbywa się za pośrednictwem prywatnego punktu końcowego przy użyciu przepływu danych, należy pamiętać, że użycie funkcji przepływ danych przez uwierzytelnianie jednostki usługi spowoduje nawiązanie połączenia z punktem końcowym ADLS Gen2 zamiast punktu końcowego obiektu BLOB Upewnij się, że utworzono odpowiedni prywatny punkt końcowy w podajniku APD, aby umożliwić dostęp.
 
 >[!NOTE]
 >Uwierzytelnianie nazwy głównej usługi jest obsługiwane tylko przez połączoną usługę typu "AzureBlobStorage", a nie poprzednią połączoną usługę typu "AzureStorage".
@@ -289,11 +291,13 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. | Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . | Tak |
-| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. | Nie |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage**. <br/><br/>W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. | Nie |
 
 > [!NOTE]
-> Jeśli konto obiektu BLOB umożliwia [usuwanie nietrwałe](../storage/blobs/soft-delete-blob-overview.md), uwierzytelnianie tożsamości zarządzanej nie jest obsługiwane w przepływie danych.
+>
+> - Jeśli konto obiektu BLOB umożliwia [usuwanie nietrwałe](../storage/blobs/soft-delete-blob-overview.md), uwierzytelnianie tożsamości zarządzanej nie jest obsługiwane w przepływie danych.
+> - Jeśli dostęp do usługi BLOB Storage odbywa się za pośrednictwem prywatnego punktu końcowego przy użyciu przepływu danych, należy pamiętać, że użycie funkcji przepływ danych przez uwierzytelnianie tożsamości zarządzanej łączy się z punktem końcowym ADLS Gen2 zamiast punktu końcowego obiektu BLOB. Upewnij się, że utworzono odpowiedni prywatny punkt końcowy w podajniku APD, aby umożliwić dostęp.
 
 > [!NOTE]
 > Zarządzane tożsamości dla uwierzytelniania zasobów platformy Azure są obsługiwane tylko przez połączoną usługę typu "AzureBlobStorage", a nie poprzednią połączoną usługę typu "AzureStorage".

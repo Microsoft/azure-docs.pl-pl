@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 02bf0430892490b5d3cfe35a6da4bf0973373fd3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6d803d1a66c069f5eb42deead453a8526577f76b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676132"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615214"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>Błędy, które często występują podczas migracji klasycznej na Azure Resource Manager migrację
 
@@ -42,7 +42,7 @@ W tym artykule skatalogowano najbardziej typowe błędy i środki zaradcze w tra
 | Wdrożenie {nazwa_wdrożenia} w usłudze hostowanej {nazwa_usługi_hostowanej} zawiera maszynę wirtualną {nazwa_maszyny_wirtualnej} z dyskiem danych {nazwa_dysku_danych}. Rozmiar fizyczny obiektu blob ({rozmiar_obiektu_blob_pliku_vhd__dysku_danych} B) tego dysku nie jest zgodny z rozmiarem logicznym dysku danych maszyny wirtualnej ({rozmiar_dysku_danych_określony_w_API_maszyny_wirtualnej} B). Migracja będzie kontynuowana bez określania rozmiaru dysku danych maszyny wirtualnej usługi Azure Resource Manager. | Ten błąd występuje, jeśli rozmiar obiektu blob dysku VHD został zmieniony bez zaktualizowania rozmiaru w modelu interfejsu API maszyny wirtualnej. Szczegółowe kroki zaradcze przedstawiono [poniżej](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
 | Wystąpił wyjątek magazynu podczas weryfikowania dysku danych {nazwa_dysku_danych} z linkiem multimediów {identyfikator_URI_dysku_danych} dla maszyny wirtualnej {nazwa_maszyny_wirtualnej} w usłudze w chmurze {nazwa_usługi_w_chmurze}. Upewnij się, że link multimediów wirtualnego dysku twardego jest dostępny dla tej maszyny wirtualnej | Ten błąd może wystąpić, jeśli dyski maszyny wirtualnej zostały usunięte lub nie są już dostępne. Upewnij się, że dyski maszyny wirtualnej istnieją.|
 | Maszyna wirtualna {nazwa_maszyny_wirtualnej} w usłudze hostowanej {nazwa_usługi_w_chmurze} zawiera dysk z linkiem multimediów {identyfikator_URI_pliku_vhd} mającym nazwę obiektu blob {nazwa_obiektu_blob_pliku_vhd}, który nie jest obsługiwany w usłudze Azure Resource Manager. | Ten błąd występuje, gdy nazwa obiektu blob zawiera znak „/”, który nie jest aktualnie obsługiwany przez dostawcę zasobów obliczeniowych. |
-| Migracja wdrożenia {nazwa_wdrożenia} w usłudze hostowanej {nazwa_usługi_w_chmurze} nie jest dozwolona, ponieważ nie znajduje się ono w zakresie regionalnym. Aby \/ przenieść to wdrożenie do zakresu regionalnego, zapoznaj się z artykułem https:/aka.MS/regionalscope. | W 2014 r. zespół platformy Azure zapowiedział, że zasoby sieciowe zostaną przeniesione z zakresu poziomu klastra do zakresu regionalnego. [https://aka.ms/regionalscope](https://aka.ms/regionalscope)Aby uzyskać więcej informacji, zobacz. Ten błąd zdarza się, gdy migrowane wdrożenie nie zostało poddane operacji aktualizacji, która automatycznie przenosi je do zakresu regionalnego. Najlepszym obejściem jest dodanie punktu końcowego do maszyny wirtualnej lub dysku danych do maszyny wirtualnej, a następnie ponowienie próby migracji. <br> Zobacz [How to set up endpoints on a classic Windows virtual machine in Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) (Jak skonfigurować punkty końcowe na klasycznej maszynie wirtualnej z systemem Windows na platformie Azure) lub [Dołączanie dysku danych do maszyny wirtualnej systemu Windows przy użyciu klasycznego modelu wdrażania](./linux/attach-disk-portal.md)|
+| Migracja wdrożenia {nazwa_wdrożenia} w usłudze hostowanej {nazwa_usługi_w_chmurze} nie jest dozwolona, ponieważ nie znajduje się ono w zakresie regionalnym. Aby \/ przenieść to wdrożenie do zakresu regionalnego, zapoznaj się z artykułem https:/aka.MS/regionalscope. | W 2014 r. zespół platformy Azure zapowiedział, że zasoby sieciowe zostaną przeniesione z zakresu poziomu klastra do zakresu regionalnego. [https://aka.ms/regionalscope](https://aka.ms/regionalscope)Aby uzyskać więcej informacji, zobacz. Ten błąd zdarza się, gdy migrowane wdrożenie nie zostało poddane operacji aktualizacji, która automatycznie przenosi je do zakresu regionalnego. Najlepszym obejściem jest dodanie punktu końcowego do maszyny wirtualnej lub dysku danych do maszyny wirtualnej, a następnie ponowienie próby migracji. <br> Zobacz [jak skonfigurować punkty końcowe na klasycznej maszynie wirtualnej na platformie Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) lub [dołączyć dysk danych do maszyny wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania](./linux/attach-disk-portal.md)|
 | Migracja nie jest obsługiwana dla Virtual Network {VNET-Name}, ponieważ ma wdrożenia PaaS bez bramy. | Ten błąd występuje, gdy istnieją wdrożenia PaaS bez bramy, takie jak Application Gateway lub API Management usługi, które są podłączone do Virtual Network.|
 
 

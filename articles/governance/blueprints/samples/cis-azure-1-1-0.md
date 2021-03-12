@@ -1,26 +1,26 @@
 ---
-title: Przykład usługi CIS Microsoft Azure przykłady planów testów porównawczych
-description: Omówienie przykładu strategii CIS Microsoft Azure Foundations Benchmark. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 01/27/2021
+title: Przykłady usługi CIS Microsoft Azure 1.1.0 plan testu porównawczego
+description: Omówienie przykładowych 1.1.0 planów testów porównawczych usługi Microsoft Azure CIS. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918420"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197797"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Przykład usługi CIS Microsoft Azure przykłady planów testów porównawczych
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Przykłady usługi CIS Microsoft Azure 1.1.0 plan testu porównawczego
 
-Przykład strategii CIS Microsoft Azure Foundations Benchmark ułatwia zapewnienie ładu przy użyciu usługi [Azure Policy](../../policy/overview.md), pomagając ocenić konkretne zalecenia CIS Microsoft Azure Foundations Benchmark. Ta strategia ułatwia klientom wdrażanie podstawowego zestawu zasad dla dowolnej architektury wdrożonej na platformie Azure, która musi implementować zalecenia CIS Microsoft Azure Foundations Benchmark.
+Przykłady usługi CIS Microsoft Azure 1.1.0 plan testu porównawczego w wersji testowej obejmuje [Azure Policy](../../policy/overview.md) , które pomagają ocenić konkretne zalecenia dotyczące usługi CIS Microsoft Azure. Ten plan ułatwia klientom wdrożenie podstawowego zestawu zasad dla dowolnej architektury wdrożonej przez platformę Azure, która musi implementować usługi CIS Microsoft Azure zalecenia dotyczące testów porównawczych 1.1.0.
 
 ## <a name="recommendation-mapping"></a>Mapowanie zaleceń
 
-[Azure Policy mapowanie rekomendacji](../../policy/samples/cis-azure-1-1-0.md) zawiera szczegółowe informacje dotyczące definicji zasad uwzględnionych w ramach tego planu oraz sposób mapowania tych definicji zasad na **domeny zgodności** i **kontrolki** w usłudze CIS Microsoft Azure wykryto testy testowe 1.1.0. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
+[Azure Policy mapowanie rekomendacji](../../policy/samples/cis-azure-1-1-0.md) zawiera szczegółowe informacje dotyczące definicji zasad uwzględnionych w ramach tego planu oraz sposób mapowania tych definicji zasad na **zalecenia** dotyczące usługi CIS Microsoft Azure testów porównawczych 1.1.0. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
 ## <a name="deploy"></a>Wdróż
 
-Aby wdrożyć plan platformy Azure usługi CIS Microsoft Azure przykłady planów testów porównawczych, należy wykonać następujące czynności:
+Aby wdrożyć przykłady planów platformy Azure dla usługi CIS Microsoft Azure, można wykonać następujące czynności:
 
 > [!div class="checklist"]
 > - Tworzenie nowej strategii na podstawie przykładu
@@ -50,7 +50,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 ### <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 
-Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana**, zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale zmiana ta może nie przełączać się do wyrównania z zaleceń usługi CIS Microsoft Azure fundacje porównawcze.
+Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana**, zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale modyfikacje mogą nie zostać przesunięte z wyrównania z użyciem usług CIS Microsoft Azure przykłady testów porównawczych 1.1.0.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -101,8 +101,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
-|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
+|Inspekcja usług CIS Microsoft Azure fundacje testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
+|Inspekcja usług CIS Microsoft Azure fundacje testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Następne kroki
 

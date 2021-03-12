@@ -116,6 +116,16 @@
           href: fix-deployment-provisioning-failures.md
     - name: Często zadawane pytania
       href: faq.yml
+    - name: Filmy wideo
+      items:
+        - name: Synchronizowane
+          href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+        - name: Integracja z usługą platformy Azure
+          href: 'https://youtu.be/m26iLu6DHbU'
+        - name: Integracja z usługą Azure Application Gateway
+          href: 'https://youtu.be/BoQYvqzb6Y8'
+        - name: Planowanie migracji i pojemności
+          href: 'https://youtu.be/NoNG-hkksrA'
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
