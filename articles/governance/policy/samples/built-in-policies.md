@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 566a439b2b25a4c8a0a09ca190e79c2cf1dc10a9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6c98b59c14dffff746aadd1cc4cb4cfcaa321813
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429413"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611023"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
@@ -80,6 +80,10 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 ## <a name="compute"></a>Compute
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
+
+## <a name="container-instance"></a>Wystąpienie kontenera
+
+[!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
 
 ## <a name="container-registry"></a>Container Registry
 

@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078479"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201330"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Znajdź koszt jednostkowy żądania dla operacji wykonywanych w interfejsie API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB obsługuje wiele interfejsów API, takich jak SQL, MongoDB, Cassandra, Gremlin i Table. Każdy interfejs API ma swój własny zestaw operacji bazy danych. Te operacje obejmują między innymi odczyty punktów prostych i zapisów w złożonych zapytaniach. Każda operacja bazy danych zużywa zasoby systemowe na podstawie złożoności operacji.
 
-Koszt wszystkich operacji bazy danych jest normalizowany przez usługę Azure Cosmos DB i jest wyrażany za pomocą jednostek żądań (lub w skrócie RU). Możesz traktować jednostek ru jako walutę wydajności, co umożliwia abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonania operacji bazy danych obsługiwanych przez Azure Cosmos DB. Niezależnie od tego, którego interfejsu API używasz do interakcji z kontenerem usługi Azure Cosmos, koszty są zawsze mierzone za pomocą jednostek RU. Niezależnie od tego, czy operacja bazy danych jest zapisem, punktem odczytu lub zapytania, koszty są zawsze mierzone w jednostek ru. Aby dowiedzieć się więcej, zobacz artykuł [jednostki żądań i zagadnienia](request-units.md) .
+Koszt wszystkich operacji bazy danych jest normalizowany przez usługę Azure Cosmos DB i jest wyrażany za pomocą jednostek żądań (lub w skrócie RU). Opłata za żądanie jest jednostką żądania zużywaną przez wszystkie operacje bazy danych. Możesz traktować jednostek ru jako walutę wydajności, co umożliwia abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonania operacji bazy danych obsługiwanych przez Azure Cosmos DB. Niezależnie od tego, którego interfejsu API używasz do interakcji z kontenerem usługi Azure Cosmos, koszty są zawsze mierzone za pomocą jednostek RU. Niezależnie od tego, czy operacja bazy danych jest zapisem, punktem odczytu lub zapytania, koszty są zawsze mierzone w jednostek ru. Aby dowiedzieć się więcej, zobacz artykuł [jednostki żądań i zagadnienia](request-units.md) .
 
 W tym artykule przedstawiono różne sposoby znajdowania zużycia [jednostek żądań](request-units.md) (ru) dla każdej operacji wykonywanej w odniesieniu do kontenera w interfejsie API Azure Cosmos DB MongoDB. Jeśli używasz innego interfejsu API, zobacz artykuł [SQL API](find-request-unit-charge.md), [interfejs API Cassandra](find-request-unit-charge-cassandra.md), [interfejs API Gremlin](find-request-unit-charge-gremlin.md)i artykuły [interfejs API tabel](find-request-unit-charge-table.md) , aby znaleźć opłatę za ru/s.
 
@@ -34,9 +34,9 @@ Opłata za RU jest udostępniana przez niestandardowe [polecenie bazy danych](ht
 
 1. Przejdź do okienka **Eksplorator danych** , a następnie wybierz kontener, w którym chcesz rozpocząć pracę.
 
-1. Wybierz pozycję **Nowe zapytanie** .
+1. Wybierz pozycję **Nowe zapytanie**.
 
-1. Wprowadź prawidłowe zapytanie, a następnie wybierz pozycję **wykonaj zapytanie** .
+1. Wprowadź prawidłowe zapytanie, a następnie wybierz pozycję **wykonaj zapytanie**.
 
 1. Wybierz pozycję **Statystyka zapytania** , aby wyświetlić rzeczywistą opłatę za żądanie dla wykonywanego żądania.
 

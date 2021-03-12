@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c575904d994232726cf8d0d9152b02130fd29cea
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518844"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013257"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indeksowanie plików multimedialnych za pomocą Azure Media Indexer
 
@@ -36,7 +36,7 @@ Podczas indeksowania zawartości upewnij się, że używasz plików multimedialn
 
 Zadanie indeksowania może generować następujące dane wyjściowe:
 
-* Pliki napisów kodowanych w następujących formatach: **ttml**i **WebVTT**.
+* Pliki napisów kodowanych w następujących formatach: **ttml** i **WebVTT**.
   
     Pliki napisów kodowanych zawierają tag o nazwie rozpoznawalność, który ocenia zadanie indeksowania w zależności od tego, jak rozpoznawalna jest mowa w źródłowym wideo.  Można użyć wartości rozpoznawalność do wygenerowania plików wyjściowych na ekranie w celu zapewnienia użyteczności. Niska ocena oznacza niską wyniki indeksowania z powodu jakości audio.
 * Plik słów kluczowych (XML).
@@ -274,7 +274,7 @@ Obecnie obsługiwane są języki w języku angielskim i hiszpańskim.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Linki pokrewne

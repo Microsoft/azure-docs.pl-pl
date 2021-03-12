@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201757"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201254"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -61,7 +61,7 @@ Parametry połączenia są wymagane. Parametry połączenia można znaleźć w z
 }
 ```
 
-Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` (która będzie mieć pierwszeństwo, jeśli parametry połączenia są również określone w konfiguracji JSON).
 
 Ustawienie parametrów połączenia spowoduje wyłączenie agenta Java.
 
@@ -81,7 +81,7 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 
 Jeśli nazwa roli chmury nie jest ustawiona, nazwa zasobu Application Insights zostanie użyta do etykietowania składnika na mapie aplikacji.
 
-Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` .
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` (która będzie mieć pierwszeństwo, jeśli nazwa roli chmury zostanie również określona w konfiguracji JSON).
 
 ## <a name="cloud-role-instance"></a>Wystąpienie roli w chmurze
 
@@ -98,7 +98,7 @@ Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 }
 ```
 
-Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
+Można również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` (która będzie mieć pierwszeństwo, jeśli wystąpienie roli chmury zostanie również określone w konfiguracji JSON).
 
 ## <a name="sampling"></a>Próbkowanie
 
@@ -117,7 +117,7 @@ Oto przykład sposobu ustawiania próbkowania w celu przechwycenia około **1/3 
 }
 ```
 
-Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+Można również ustawić wartość procentową próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (która następnie ma pierwszeństwo, jeśli procent próbkowania jest również określony w konfiguracji JSON).
 
 > [!NOTE]
 > W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
@@ -150,9 +150,6 @@ Jeśli chcesz zebrać pewne dodatkowe metryki JMX:
 `attribute` to nazwa atrybutu w JMX MBean, który ma zostać zebrany.
 
 Obsługiwane są wartości liczbowe i logiczne metryki JMX. Metryki logiczne JMX są mapowane na `0` wartość false, a `1` dla wartości true.
-
-[//]: # "Uwaga: nie dokumentuje APPLICATIONINSIGHTS_JMX_METRICS tym miejscu"
-[//]: # "kod JSON osadzony w zmiennej ENV jest bałaganem i powinien być udokumentowany tylko dla scenariusza dołączania bezkodowego"
 
 ## <a name="custom-dimensions"></a>Wymiary niestandardowe
 
@@ -201,7 +198,7 @@ Domyślny próg Application Insights wynosi `INFO` . Jeśli chcesz zmienić ten 
 }
 ```
 
-Można również ustawić próg przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
+Możesz również ustawić poziom przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (która będzie mieć pierwszeństwo, jeśli poziom zostanie również określony w konfiguracji JSON).
 
 Są to prawidłowe `level` wartości, które można określić w `applicationinsights.json` pliku oraz jak są one zgodne z poziomami rejestrowania w różnych strukturach rejestrowania:
 
@@ -284,7 +281,7 @@ Domyślnie Application Insights Java 3,0 wysyła metrykę pulsu co 15 minut. Je�
 ```
 
 > [!NOTE]
-> Nie można zmniejszyć częstotliwości pulsu, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
+> Nie można zwiększyć interwału do dłużej niż 15 minut, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
 
 ## <a name="http-proxy"></a>Serwer proxy HTTP
 
@@ -300,6 +297,30 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 ```
 
 Application Insights Java 3,0 odnoszą się również do globalnych `-Dhttps.proxyHost` i, `-Dhttps.proxyPort` Jeśli są ustawione.
+
+## <a name="metric-interval"></a>Interwał metryk
+
+Ta funkcja jest dostępna w wersji zapoznawczej.
+
+Domyślnie metryki są przechwytywane co 60 sekund.
+
+Począwszy od wersji 3.0.3-BETA można zmienić ten interwał:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+To ustawienie ma zastosowanie do wszystkich tych metryk:
+
+* Domyślne liczniki wydajności, np. procesor CPU i pamięć
+* Domyślne metryki niestandardowe, np. czas wyrzucania elementów bezużytecznych
+* Skonfigurowane metryki JMX ([patrz powyżej](#jmx-metrics))
+* Metryki Micrometer ([patrz powyżej](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "Uwaga Obsługa OpenTelemetry jest w prywatnej wersji zapoznawczej do momentu, gdy interfejs API OpenTelemetry osiągnie 1,0"
 
@@ -349,7 +370,7 @@ Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` za
 
 `maxHistory` to liczba rzutowanych plików dziennika (oprócz bieżącego pliku dziennika).
 
-Począwszy od wersji 3.0.2 można także ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
+Rozpoczynając od wersji 3.0.2, można również ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (która będzie mieć pierwszeństwo, jeśli w `level` konfiguracji JSON zostanie także określona opcja samodiagnostyka).
 
 ## <a name="an-example"></a>Przykład
 

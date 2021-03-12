@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365514"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548754"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Program PowerShell dla ról usługi Azure AD w Privileged Identity Management
 
@@ -54,7 +54,7 @@ Ten artykuł zawiera instrukcje dotyczące korzystania z poleceń cmdlet program
     ![Znajdź identyfikator organizacji we właściwościach organizacji usługi Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod adresem [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora dzierżawy dla organizacji usługi Azure AD jako parametru resourceId.
+> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod adresem [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management) . Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora dzierżawy dla organizacji usługi Azure AD jako parametru resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Pobieranie definicji ról
 

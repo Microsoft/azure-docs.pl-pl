@@ -1,39 +1,43 @@
 ---
-title: Konfigurowanie algorytmu podobieństwa klasyfikacji
+title: Konfigurowanie algorytmu podobieństwa
 titleSuffix: Azure Cognitive Search
-description: Jak ustawić algorytm podobieństwa, aby wypróbować nowy algorytm podobieństwa na potrzeby klasyfikowania
+description: Dowiedz się, jak włączyć usługę BM25 na starszych usługach wyszukiwania oraz jak można modyfikować parametry BM25 w celu lepszego dopasowania do zawartości indeksów.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9f806b512ae8e118fca8f32115c8be3b493fd681
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 03/12/2021
+ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677787"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232838"
 ---
-# <a name="configure-ranking-algorithms-in-azure-cognitive-search"></a>Konfigurowanie algorytmów klasyfikacji w usłudze Azure Wyszukiwanie poznawcze
+# <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Skonfiguruj algorytm klasyfikacji podobieństwa na platformie Azure Wyszukiwanie poznawcze
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje dwa algorytmy klasyfikacji podobieństwa:
 
 + *Klasyczny algorytm podobieństwa* używany przez wszystkie usługi wyszukiwania do 15 lipca 2020.
 + Implementacja algorytmu *Okapi BM25* używana we wszystkich usługach wyszukiwania utworzonych po 15 lipca.
 
-Klasyfikacja BM25 jest nowym ustawieniem domyślnym, ponieważ ma on generować klasyfikacje wyszukiwania, które są lepiej dostosowane do oczekiwań użytkownika. Włącza również opcje konfiguracji dla wyników dostrajania na podstawie czynników, takich jak rozmiar dokumentu. W przypadku nowych usług utworzonych po 15 lipca 2020 BM25 jest używany automatycznie i jest to jedyny algorytm podobieństwa. Jeśli spróbujesz ustawić podobieństwo do ClassicSimilarity w nowej usłudze, zostanie zwrócony błąd HTTP 400, ponieważ ten algorytm nie jest obsługiwany przez usługę.
+Klasyfikacja BM25 jest nowym ustawieniem domyślnym, ponieważ ma on generować klasyfikacje wyszukiwania, które są lepiej dostosowane do oczekiwań użytkownika. Zawiera [Parametry](#set-bm25-parameters) dostrajania wyników na podstawie czynników, takich jak rozmiar dokumentu. 
 
-W przypadku starszych usług utworzonych przed 15 lipca 2020, klasyczny podobieństwo pozostaje algorytmem domyślnym. Starsze usługi mogą ustawiać właściwości indeksu wyszukiwania, aby wywoływać BM25, jak wyjaśniono poniżej. Jeśli przełączasz się z klasycznego do BM25, możesz oczekiwać, że zobaczysz pewne różnice w sposobie uporządkowania wyników wyszukiwania.
+W przypadku nowych usług utworzonych po 15 lipca 2020 BM25 jest używany automatycznie i jest to jedyny algorytm podobieństwa. Jeśli spróbujesz ustawić podobieństwo do ClassicSimilarity w nowej usłudze, zostanie zwrócony błąd HTTP 400, ponieważ ten algorytm nie jest obsługiwany przez usługę.
+
+W przypadku starszych usług utworzonych przed 15 lipca 2020, klasyczny podobieństwo pozostaje algorytmem domyślnym. Starsze usługi mogą być uaktualniane do BM25 na podstawie indeksu, jak wyjaśniono poniżej. Jeśli przełączasz się z klasycznego do BM25, możesz oczekiwać, że zobaczysz pewne różnice w sposobie uporządkowania wyników wyszukiwania.
 
 > [!NOTE]
-> Wyszukiwanie semantyczne to dodatkowy algorytm ponownej klasyfikacji semantycznej, który zawęża przerwy między oczekiwaniami a wynikami jeszcze więcej. W przeciwieństwie do innych algorytmów jest to funkcja dodatku, która iteruje w istniejącym zestawie wyników. Aby użyć algorytmu wyszukiwania semantycznego w wersji zapoznawczej, należy utworzyć nową usługę i należy określić [Typ kwerendy semantycznej](semantic-how-to-query-request.md). Aby uzyskać więcej informacji, zobacz [Omówienie wyszukiwania semantycznego](semantic-search-overview.md).
+> Klasyfikacja semantyczna, obecnie w wersji zapoznawczej dla usług standardowych w wybranych regionach, to dodatkowy krok w celu uzyskania bardziej istotnych wyników. W przeciwieństwie do innych algorytmów jest to funkcja dodatku, która iteruje w istniejącym zestawie wyników. Aby uzyskać więcej informacji, zobacz [Omówienie wyszukiwania semantycznego](semantic-search-overview.md) i [Klasyfikacja semantyczna](semantic-ranking.md).
 
-## <a name="create-a-search-index-for-bm25-scoring"></a>Utwórz indeks wyszukiwania dla oceny BM25
+## <a name="enable-bm25-scoring-on-older-services"></a>Włącz ocenianie BM25 na starszych usługach
 
-Jeśli używasz usługi wyszukiwania, która została utworzona przed 15 lipca 2020, możesz ustawić właściwość podobieństwa na BM25Similarity lub ClassicSimilarity w definicji indeksu. Jeśli właściwość podobieństwa zostanie pominięta lub ma wartość null, indeks używa algorytmu klasycznego.
+Jeśli używasz usługi wyszukiwania, która została utworzona przed 15 lipca 2020, możesz włączyć BM25, ustawiając właściwość podobieństwa dla nowych indeksów. Właściwość jest uwidaczniana tylko w nowych indeksach, więc jeśli chcesz BM25 na istniejącym indeksie, musisz porzucić i [skompilować ponownie indeks](search-howto-reindex.md) z nową właściwością podobieństwa o wartości "Microsoft. Azure. Search. BM25Similarity".
 
-Algorytm podobieństwa można ustawić tylko w czasie tworzenia indeksu. Jednak po utworzeniu indeksu za pomocą BM25 można zaktualizować istniejący indeks, aby ustawić lub zmodyfikować parametry BM25.
+Gdy istnieje indeks z właściwością podobieństwa, można przełączać się między BM25Similarity lub ClassicSimilarity. 
+
+Poniższe linki opisują Właściwość podobieństwa w zestawach SDK platformy Azure. 
 
 | Biblioteka kliencka | Właściwość podobieństwa |
 |----------------|---------------------|
@@ -70,7 +74,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## <a name="bm25-similarity-parameters"></a>Parametry podobieństwa BM25
+## <a name="set-bm25-parameters"></a>Ustaw parametry BM25
 
 BM25 podobieństwa dodaje dwa dostosowywalne parametry, aby kontrolować obliczony wynik istotności. Można ustawić parametry BM25 podczas tworzenia indeksu lub jako aktualizację indeksu, jeśli algorytm BM25 został określony podczas tworzenia indeksu.
 

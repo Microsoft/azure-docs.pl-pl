@@ -3,7 +3,7 @@ title: Tworzenie ContentKeys przy użyciu platformy .NET
 description: W tym artykule przedstawiono sposób tworzenia kluczy zawartości przy użyciu platformy .NET. Te klucze zapewniają bezpieczny dostęp do zasobów.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5efbc30c80a0052ed99cb129c2e5f9030482012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05bf928490e94f43b755e1958213899e9e1e98e9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261230"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014181"
 ---
 # <a name="create-contentkeys-with-net"></a>Tworzenie ContentKeys przy użyciu platformy .NET
 
@@ -32,13 +32,13 @@ ms.locfileid: "91261230"
 > 
 > 
 
-Media Services umożliwia tworzenie i dostarczanie zaszyfrowanych zasobów. **ContentKey** zapewnia bezpieczny dostęp do **zasobu**s. 
+Media Services umożliwia tworzenie i dostarczanie zaszyfrowanych zasobów. **ContentKey** zapewnia bezpieczny dostęp do **zasobu** s. 
 
-Podczas tworzenia nowego zasobu (na przykład przed [przekazaniem plików](media-services-dotnet-upload-files.md)) można określić następujące opcje szyfrowania: **StorageEncrypted**, **CommonEncryptionProtected**lub **EnvelopeEncryptionProtected**. 
+Podczas tworzenia nowego zasobu (na przykład przed [przekazaniem plików](media-services-dotnet-upload-files.md)) można określić następujące opcje szyfrowania: **StorageEncrypted**, **CommonEncryptionProtected** lub **EnvelopeEncryptionProtected**. 
 
 Po dostarczeniu zasobów klientom można [skonfigurować dla zasobów do dynamicznego szyfrowania](media-services-dotnet-configure-asset-delivery-policy.md) przy użyciu jednego z następujących dwóch szyfrowania: **DynamicEnvelopeEncryption** lub **DynamicCommonEncryption**.
 
-Zaszyfrowane zasoby muszą być skojarzone z **ContentKey**s. W tym artykule opisano sposób tworzenia klucza zawartości.
+Zaszyfrowane zasoby muszą być skojarzone z **ContentKey** s. W tym artykule opisano sposób tworzenia klucza zawartości.
 
 > [!NOTE]
 > Podczas tworzenia nowego elementu zawartości **StorageEncrypted** przy Media Services użyciu zestawu SDK platformy .NET **ContentKey** jest automatycznie tworzony i połączony z elementem zawartości.
@@ -154,6 +154,6 @@ call
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

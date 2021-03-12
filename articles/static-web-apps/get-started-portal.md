@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650573"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149532"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej lokacji statycznej w Azure Portal
 
@@ -117,7 +117,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć wystąpieni
 1. Wyszukaj **aplikację My-First-Web-static-** from na górnym pasku wyszukiwania
 1. Wybierz nazwę aplikacji
 1. Wybierz przycisk **Usuń**
-1. Wybierz pozycję **tak** , aby potwierdzić akcję usuwania
+1. Wybierz pozycję **tak** , aby potwierdzić akcję usuwania (wykonanie tej akcji może potrwać kilka minut)
 
 ## <a name="next-steps"></a>Następne kroki
 

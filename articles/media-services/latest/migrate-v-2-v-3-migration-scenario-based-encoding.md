@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563663"
+ms.locfileid: "102612505"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu
 
@@ -58,7 +58,7 @@ Kliknij poniższy obraz, aby wyświetlić większą wersję.
 
 ### <a name="v3-encoding-workflow"></a>Przepływ pracy kodowania v3
 
-[![Kodowanie przepływu pracy dla wersji v3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Kodowanie przepływu pracy dla wersji v3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Konfiguruj
     1. Utwórz element zawartości lub Użyj istniejącego elementu zawartości. W przypadku korzystania z nowego elementu zawartości Przekaż zawartość do tego zasobu. W przypadku korzystania z istniejącego elementu zawartości należy zakodować pliki, które już istnieją w elemencie zawartości. Nie należy *przekazywać większej zawartości do tego elementu zawartości.*

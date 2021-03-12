@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea9d893f825822638803394e678e6e68f57a32d9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 245998fb7229c483fb7f664ea000b62abf07eda9
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507300"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149787"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Samouczek dotyczący aktualizacji urządzenia dla platformy Azure IoT Hub przy użyciu agenta pakietu na serwerze Ubuntu 18,04 x64
 
@@ -106,7 +106,7 @@ Poniższe kroki ręcznego instalacji i konfiguracji urządzenia są równoważne
 
 Aktualizacja urządzenia dla pakietów oprogramowania platformy Azure IoT Hub podlega następującym postanowieniom licencyjnym:
   * [Aktualizacja urządzenia z licencją IoT Hub](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Licencja klienta optymalizacji dostarczania](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Licencja klienta optymalizacji dostarczania](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Przeczytaj postanowienia licencyjne przed użyciem pakietu. Instalacja i użycie pakietu oznacza akceptację tych warunków. Jeśli nie akceptujesz postanowień licencyjnych, nie używaj tego pakietu.
 

@@ -56,8 +56,6 @@
       href: create-update-group.md
     - name: Wdrażanie aktualizacji urządzenia
       href: deploy-update.md
-    - name: Wdrażanie aktualizacji urządzenia
-      href: deploy-update.md
     - name: Połączona pamięć podręczna firmy Microsoft dla jednego poziomu
       href: connected-cache-single-level.md
     - name: Zagnieżdżona pamięć podręczna firmy Microsoft
@@ -68,14 +66,14 @@
       items:
         - name: Rozwiązywanie problemów z aktualizacjami urządzeń
           href: troubleshoot-device-update.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Kody błędów klienta aktualizacji urządzenia
       href: device-update-error-codes.md
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub

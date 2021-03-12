@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 34a28768d57aac8cf18bef6bc031da66bb361936
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584435"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007901"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
 Po utworzeniu aplikacji dowiesz się, jak skonfigurować kod przy użyciu parametrów rejestracji aplikacji. Aplikacje mobilne składają się z pewnych złożoności związanych z montażem do ich struktury tworzenia.
 
-## <a name="find-msal-support-for-mobile-apps"></a>Znajdź obsługę MSAL dla aplikacji mobilnych
+## <a name="microsoft-libraries-supporting-mobile-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje mobilne
 
-Następujące typy bibliotek uwierzytelniania firmy Microsoft (MSAL) obsługują aplikacje mobilne.
+Następujące biblioteki firmy Microsoft obsługują aplikacje mobilne:
 
-BIBLIOTEKA MSAL | Opis
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Służy do tworzenia aplikacji przenośnych. Program MSAL.NET obsługuje następujące platformy do kompilowania aplikacji mobilnej: platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android.
-![MSAL. iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL. iOS | Służy do tworzenia natywnych aplikacji systemu iOS przy użyciu języka C lub SWIFT.
-![MSAL. Systemów](media/sample-v2-code/logo_android.png) <br/> MSAL. Systemów | Służy do tworzenia natywnych aplikacji systemu Android w języku Java dla systemu Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## <a name="instantiate-the-application"></a>Tworzenie wystąpienia aplikacji
 

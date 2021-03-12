@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ae447a9577feba8b43b5b03a757ec4095ee2cb4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f5c189e63a8be3c9c46c406ab7bd0250dc75ec5
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177967"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharingcloud"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SharingCloud
 
@@ -26,14 +26,13 @@ W tym samouczku dowiesz się, jak zintegrować usługę SharingCloud z usługą 
 * Zezwól użytkownikom na automatyczne logowanie się do usługi SharingCloud przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) SharingCloud.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Sapient.
+
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -46,30 +45,19 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację programu SharingCloud z usługą Azure AD, musisz dodać SharingCloud z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
-    
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-    
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
-    
 1. W sekcji **Dodaj z galerii** wpisz **SharingCloud** w polu wyszukiwania.
-
-    ![SharingCloud na liście wyników](common/search-new-app.png)
-    
 1. Wybierz pozycję **SharingCloud** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharingcloud"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla SharingCloud
+
+## <a name="configure-and-test-azure-ad-sso-for-sharingcloud"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla SharingCloud
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą SharingCloud przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w SharingCloud.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą SharingCloud, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą SharingCloud, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -82,15 +70,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **SharingCloud** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-    
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-    
+1. W Azure Portal na stronie integracja aplikacji **SharingCloud** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę **edycji** dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -98,15 +80,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     Przekaż plik metadanych przy użyciu pliku XML dostarczonego przez SharingCloud. Aby pobrać plik, skontaktuj się z [zespołem obsługi klienta SharingCloud](mailto:support@sharingcloud.com) .
 
-    ![image (obraz)](common/upload-metadata.png)
+    ![Zrzut ekranu przedstawiający podstawowy interfejs użytkownika konfiguracji języka SAML z wyróżnionym linkiem * * Przekaż plik metadanych * *.](common/upload-metadata.png)
     
     Wybierz podany plik metadanych i kliknij przycisk **Przekaż**.
 
-    ![image (obraz)](common/browse-upload-metadata.png)
+    ![Zrzut ekranu przedstawiający interfejs użytkownika pliku metadanych, z ikoną wybierz plik i * * przycisk Przekaż * *.](common/browse-upload-metadata.png)
 
 1. Aplikacja SharingCloud oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image (obraz)](common/edit_attribute.png)
+    ![Zrzut ekranu przedstawiający interfejs użytkownika atrybutów użytkownika z wyróżnioną ikoną Edytuj.](common/edit_attribute.png)
 
 1. Oprócz powyższych, aplikacja SharingCloud oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
 
@@ -119,10 +101,6 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij ikonę **Kopiuj** , aby skopiować **adres URL metadanych Federacji** z określonych opcji zgodnie z wymaganiami.
 
     ![Adres URL metadanych do skopiowania](common/copy_metadataurl.png)
-
-## <a name="configure-sharingcloud-sso"></a>Konfigurowanie logowania jednokrotnego SharingCloud
-
-Aby skonfigurować Logowanie jednokrotne na stronie **SharingCloud** , musisz wysłać skopiowany **adres URL metadanych Federacji** z Azure Portal do [zespołu pomocy technicznej SharingCloud](mailto:support@sharingcloud.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -143,16 +121,14 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **SharingCloud**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-   ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+## <a name="configure-sharingcloud-sso"></a>Konfigurowanie logowania jednokrotnego SharingCloud
+
+Aby skonfigurować Logowanie jednokrotne na stronie **SharingCloud** , musisz wysłać skopiowany **adres URL metadanych Federacji** z Azure Portal do [zespołu pomocy technicznej SharingCloud](mailto:support@sharingcloud.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-sharingcloud-test-user"></a>Utwórz użytkownika testowego SharingCloud
 
@@ -160,7 +136,20 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w SharingCloud. Sha
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-* Bezpośrednio przejdź do adresu URL usługi SharingCloud i zainicjuj w nim przepływ logowania.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
+
+#### <a name="sp-initiated"></a>Zainicjowano SP:
+
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania SharingCloud, w którym można zainicjować przepływ logowania.  
+
+* Przejdź bezpośrednio do adresu URL logowania SharingCloud i zainicjuj w nim przepływ logowania.
+
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
+
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do SharingCloud, dla którego skonfigurowano Logowanie jednokrotne 
+
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka SharingCloud w obszarze Moje aplikacje, jeśli jest skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do SharingCloud, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

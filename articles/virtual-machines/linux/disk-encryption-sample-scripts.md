@@ -2,18 +2,19 @@
 title: Przykładowe skrypty usługi Azure Disk Encryption
 description: Ten artykuł zawiera dodatek do Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: d178ae39d3af6b39047501f0bc47acbc6e792f48
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911498"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561181"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption przykładowe skrypty dla maszyn wirtualnych z systemem Linux
 
@@ -231,7 +232,7 @@ Skonfiguruj szyfrowanie do pracy z platformą Azure, wykonując następujące cz
     fi
    ```
 
-2. Zmień konfigurację Crypt w */etc/crypttab* . Powinien on wyglądać następująco:
+2. Zmień konfigurację Crypt w */etc/crypttab*. Powinien on wyglądać następująco:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -258,7 +259,7 @@ Skonfiguruj szyfrowanie do pracy z platformą Azure, wykonując następujące cz
 
 ### <a name="opensuse-132"></a>openSUSE 13.2
 Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następujące czynności:
-1. Podczas partycjonowania dysków wybierz pozycję **Szyfruj grupę woluminów** , a następnie wprowadź hasło. Jest to hasło, które zostanie przekazane do magazynu kluczy.
+1. Podczas partycjonowania dysków wybierz pozycję **Szyfruj grupę woluminów**, a następnie wprowadź hasło. Jest to hasło, które zostanie przekazane do magazynu kluczy.
 
    ![Konfiguracja openSUSE 13,2 — Zaszyfruj grupę woluminów](./media/disk-encryption/opensuse-encrypt-fig1.png)
 

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
-ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b94798580b2d4ba746c152486c0de753cf64d2c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887530"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564904"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Skonfiguruj aparat reguł standardowych dla Azure CDN
 
@@ -45,8 +45,8 @@ Aby dostosowywać sposób obsługi żądań HTTP, można użyć aparatu reguł s
 
 1. Aby zidentyfikować typ żądań, których dotyczy reguła, Utwórz warunek dopasowania:
     1. Wybierz pozycję **Dodaj warunek**, a następnie wybierz warunek dopasowania **protokołu żądania** .
-    1. W polu **Operator**wybierz pozycję **Równa się**.
-    1. W obszarze **wartość**wybierz pozycję **http**.
+    1. W polu **Operator** wybierz pozycję **Równa się**.
+    1. W obszarze **wartość** wybierz pozycję **http**.
    
    [![Warunek dopasowania reguły Azure CDN](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
    
@@ -55,7 +55,7 @@ Aby dostosowywać sposób obsługi żądań HTTP, można użyć aparatu reguł s
    
 1. Wybierz akcję, która ma zostać zastosowana do żądań, które spełniają warunek dopasowania:
    1. Wybierz pozycję **Dodaj akcję**, a następnie wybierz pozycję **Przekierowywanie adresu URL**.
-   1. W obszarze **Typ**wybierz pozycję **znaleziono (302)**.
+   1. W obszarze **Typ** wybierz pozycję **znaleziono (302)**.
    1. W polu **Protocol** (Protokół) wybierz pozycję **HTTPS**.
    1. Pozostaw puste pole, aby użyć wartości przychodzących.
    

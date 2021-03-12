@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89fa3bb94f72ab04c2ea68641b8d1dff7695aa53
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 78ed23f563fce9760768a99e5bbf58f68500d665
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741030"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012024"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Usuwanie przypisań ról z grupy w Azure Active Directory
 
@@ -28,9 +28,9 @@ W tym artykule opisano, jak administrator IT może usunąć role usługi Azure A
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
 
-1. Wybierz **role i administratorzy** > **_Nazwa roli_* _.
+1. Wybierz pozycję **role i Administratorzy**  >  **_Nazwa roli_**.
 
-1. Wybierz grupę, z której chcesz usunąć przypisanie roli, a następnie wybierz _ * usuń przypisanie * *.
+1. Wybierz grupę, z której chcesz usunąć przypisanie roli, a następnie wybierz pozycję **Usuń przypisanie**.
 
    ![Usuń przypisanie roli z wybranej grupy.](./media/groups-remove-assignment/remove-assignment.png)
 
@@ -66,9 +66,8 @@ Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id
 
 ### <a name="create-a-group-that-can-be-assigned-an-azure-ad-role"></a>Tworzenie grupy, do której można przypisać rolę usługi Azure AD
 
-```powershell
+```http
 POST https://graph.microsoft.com/beta/groups
-
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD",
 "displayName": "Contoso_Helpdesk_Administrators",
@@ -84,25 +83,25 @@ POST https://graph.microsoft.com/beta/groups
 
 ### <a name="get-the-role-definition"></a>Pobierz definicję roli
 
-```powershell
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
+```http
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=displayName+eq+'Helpdesk Administrator'
 ```
 
 ### <a name="create-the-role-assignment"></a>Utwórz przypisanie roli
 
-```powershell
+```http
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
-"principalId":"<Object Id of Group>",
-"roleDefinitionId":"<Id of role definition>",
+"principalId":"{object-id-of-group}",
+"roleDefinitionId":"{role-definition-id}",
 "directoryScopeId":"/"
 }
 ```
 
 ### <a name="delete-role-assignment"></a>Usuń przypisanie roli
 
-```powershell
-DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/<Id of role assignment>
+```http
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/{role-assignment-id}
 ```
 
 ## <a name="next-steps"></a>Następne kroki

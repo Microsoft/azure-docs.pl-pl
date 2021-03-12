@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a6a993fdf4fd266afb9459fedd13412d8796e0a5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275290"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611508"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Przepływ kodu autoryzacji OAuth 2,0 w Azure Active Directory B2C
 
@@ -69,9 +69,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Wymagane |Rozdzielana spacjami lista zakresów. Wartość jednego zakresu wskazuje na Azure Active Directory (Azure AD) wymagane uprawnienia. Użycie identyfikatora klienta jako zakresu wskazuje, że aplikacja wymaga tokenu dostępu, który może być używany w odniesieniu do własnej usługi lub internetowego interfejsu API, reprezentowanego przez ten sam identyfikator klienta.  `offline_access`Zakres wskazuje, że aplikacja wymaga tokenu odświeżania na potrzeby długotrwałego dostępu do zasobów. Można również użyć zakresu, `openid` Aby zażądać tokenu identyfikatora z Azure AD B2C. |
 | response_mode |Zalecane |Metoda używana do wysyłania podanego kodu autoryzacji z powrotem do aplikacji. Może to być `query` , `form_post` , lub `fragment` . |
 | stan |Zalecane |Wartość zawarta w żądaniu, która może być ciągiem dowolnej zawartości, która ma być używana. Zwykle jest używana losowo wygenerowana unikatowa wartość, aby zapobiec atakom na fałszowanie żądań między lokacjami. Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia. Na przykład strona, na której znajduje się użytkownik, lub przepływ użytkownika, który był wykonywany. |
-| pytać |Optional |Typ interakcji z użytkownikiem, który jest wymagany. Obecnie jedyną prawidłową wartością jest `login` , która wymusza, aby użytkownik wprowadził swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie zacznie obowiązywać. |
+| pytać |Opcjonalne |Typ interakcji z użytkownikiem, który jest wymagany. Obecnie jedyną prawidłową wartością jest `login` , która wymusza, aby użytkownik wprowadził swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie zacznie obowiązywać. |
 | code_challenge  | zalecane/wymagane | Używane do zabezpieczania kodu autoryzacji za pośrednictwem klucza testowego dla wymiany kodu (PKCE). Wymagane, jeśli `code_challenge_method` jest dołączony. Aby uzyskać więcej informacji, zobacz [dokument RFC PKCE](https://tools.ietf.org/html/rfc7636). Jest to teraz zalecane dla wszystkich typów aplikacji — natywnych aplikacji, aplikacji jednostronicowych i klientów poufnych, takich jak aplikacje sieci Web. | 
 | `code_challenge_method` | zalecane/wymagane | Metoda używana do kodowania `code_verifier` `code_challenge` parametru. *Powinno* to być `S256` , ale Specyfikacja umożliwia korzystanie z programu, `plain` Jeśli z jakiegoś powodu klient nie może obsłużyć SHA256. <br/><br/>Jeśli jest wykluczony, przyjmuje się, że jest to `code_challenge` zwykły tekst, jeśli `code_challenge` jest uwzględniony. Platforma tożsamości firmy Microsoft obsługuje programy `plain` i `S256` . Aby uzyskać więcej informacji, zobacz [dokument RFC PKCE](https://tools.ietf.org/html/rfc7636). Jest to wymagane w przypadku [aplikacji jednostronicowych przy użyciu przepływu kodu autoryzacji](tutorial-register-spa.md).|
+| login_hint | Nie| Może służyć do wstępnego wypełnienia pola nazwy logowania na stronie logowania. Aby uzyskać więcej informacji, zobacz [wstępne wypełnianie nazwy logowania](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | Nie| Zawiera wskazówkę dotyczącą Azure AD B2C na temat dostawcy tożsamości społecznościowej, który ma być używany do logowania. W przypadku uwzględnienia prawidłowej wartości użytkownik przechodzi bezpośrednio do strony logowania dostawcy tożsamości.  Aby uzyskać więcej informacji, zobacz [Przekieruj logowanie do dostawcy społecznościowego](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Parametry niestandardowe | Nie| Parametry niestandardowe, które mogą być używane z [zasadami niestandardowymi](custom-policy-overview.md). Na przykład [dynamiczny Identyfikator URI zawartości strony niestandardowej](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)lub [resolvery roszczeń klucz-wartość](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 W tym momencie użytkownik jest proszony o ukończenie przepływu pracy przepływu użytkownika. Może to oznaczać, że użytkownik wprowadza nazwę użytkownika i hasło, logując się przy użyciu tożsamości społecznościowej, rejestruje się w katalogu lub dowolną inną liczbę kroków. Akcje użytkownika zależą od sposobu definiowania przepływu użytkownika.
 
@@ -101,7 +104,7 @@ error=access_denied
 
 | Parametr | Opis |
 | --- | --- |
-| błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
+| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 | stan |Zobacz pełny opis w powyższej tabeli. Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 
@@ -162,7 +165,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
+| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 ## <a name="3-use-the-token"></a>3. Użyj tokenu
@@ -193,7 +196,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_secret | Tak, w Web Apps | Wpis tajny aplikacji, który został wygenerowany w [Azure Portal](https://portal.azure.com/). Wpisy tajne klienta są używane w tym przepływie dla scenariuszy aplikacji sieci Web, w których klient może bezpiecznie przechowywać klucz tajny klienta. W przypadku scenariuszy aplikacji natywnych (klienta publicznego) klucze tajne klienta nie mogą być bezpiecznie przechowywane i w związku z tym nie są używane w tym wywołaniu. Jeśli używasz klucza tajnego klienta, zmień go okresowo. |
 | grant_type |Wymagane |Typ dotacji. Dla tego odcinka przepływu kodu autoryzacji musi być typem Grant `refresh_token` . |
 | scope |Zalecane |Rozdzielana spacjami lista zakresów. Pojedyncza wartość zakresu wskazuje na usługę Azure AD oba wymagane uprawnienia. Użycie identyfikatora klienta jako zakresu wskazuje, że aplikacja wymaga tokenu dostępu, który może być używany w odniesieniu do własnej usługi lub internetowego interfejsu API, reprezentowanego przez ten sam identyfikator klienta.  `offline_access`Zakres wskazuje, że aplikacja będzie potrzebować tokenu odświeżania na potrzeby długotrwałego dostępu do zasobów.  Można również użyć zakresu, `openid` Aby zażądać tokenu identyfikatora z Azure AD B2C. |
-| redirect_uri |Optional |Identyfikator URI przekierowania aplikacji, w której został otrzymany kod autoryzacji. |
+| redirect_uri |Opcjonalne |Identyfikator URI przekierowania aplikacji, w której został otrzymany kod autoryzacji. |
 | refresh_token |Wymagane |Oryginalny token odświeżania uzyskany w drugim etapie przepływu. |
 
 Pomyślna odpowiedź dotycząca tokenu wygląda następująco:
@@ -228,7 +231,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
+| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>Korzystanie z własnego katalogu Azure AD B2C

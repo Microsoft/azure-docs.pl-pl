@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6f7359b2b2fb0a1ea6ce92ec52bba15fc74fc75a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727502"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017158"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
@@ -37,7 +37,7 @@ Podstawowa funkcja aplikacji telefonu komórkowego polega na zbieraniu danych z 
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Eksportuj do interfejsu API platformy Azure dla usługi FHIR&reg;
 
-Usługa Azure IoT Central jest zgodna z certyfikatami HIPAA i HITRUST &reg; . Dane kondycji pacjenta można także wysyłać do innych usług przy użyciu [interfejsu API platformy Azure dla usługi FHIR](../../healthcare-apis/overview.md). Azure API for FHIR to oparty na standardach interfejs API służący do danych klinicznych kondycji. [Łącznik usługi Azure IoT dla programu FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) umożliwia korzystanie z interfejsu API platformy Azure dla FHIR jako stałego miejsca docelowego eksportu danych z IoT Central.
+Usługa Azure IoT Central jest zgodna z certyfikatami HIPAA i HITRUST &reg; . Dane kondycji pacjenta można także wysyłać do innych usług przy użyciu [interfejsu API platformy Azure dla usługi FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR to oparty na standardach interfejs API służący do danych klinicznych kondycji. [Łącznik usługi Azure IoT dla programu FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) umożliwia korzystanie z interfejsu API platformy Azure dla FHIR jako stałego miejsca docelowego eksportu danych z IoT Central.
 
 ### <a name="machine-learning"></a>Uczenie maszynowe
 

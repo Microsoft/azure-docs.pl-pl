@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449734"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557016"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -33,6 +33,8 @@ W tym artykule pokazano, jak utworzyć aplikację logiki i przepływ pracy w Vis
 * Dodaj wyzwalacz i akcję.
 
 * Uruchom, Testuj, Debuguj i przejrzyj historię uruchamiania lokalnie.
+
+* Znajdź szczegóły nazwy domeny dla dostępu do zapory.
 
 * Wdróż na platformie Azure, w tym opcjonalne Włączanie Application Insights.
 
@@ -576,7 +578,7 @@ Aby dodać punkt przerwania, wykonaj następujące kroki:
 
 1. Aby przejrzeć dostępne informacje, gdy trafień punktu przerwania, w widoku uruchamiania Sprawdź **zmienne** okienka.
 
-1. Aby kontynuować wykonywanie przepływu pracy, na pasku narzędzi debugowania wybierz pozycję **Kontynuuj** (przycisk odtwarzania). 
+1. Aby kontynuować wykonywanie przepływu pracy, na pasku narzędzi debugowania wybierz pozycję **Kontynuuj** (przycisk odtwarzania).
 
 Punkty przerwania można dodawać i usuwać w dowolnym momencie podczas przebiegu przepływu pracy. Jednakże w przypadku aktualizacji **workflow.jsw** pliku po rozpoczęciu uruchamiania punkty przerwania nie są automatycznie aktualizowane. Aby zaktualizować punkty przerwania, uruchom ponownie aplikację logiki.
 
@@ -758,6 +760,55 @@ Po wprowadzeniu aktualizacji aplikacji logiki można uruchomić inny test, ponow
    ![Zrzut ekranu pokazujący stan każdego kroku w zaktualizowanym przepływie pracy oraz dane wejściowe i wyjściowe w rozwiniętej akcji "Response".](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. Aby zatrzymać sesję debugowania, w menu **Uruchom** wybierz polecenie **Zatrzymaj debugowanie** (Shift + F5).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Znajdowanie nazw domen dla dostępu do zapory
+
+Przed wdrożeniem i uruchomieniem przepływu pracy aplikacji logiki w Azure Portal, jeśli środowisko ma rygorystyczne wymagania sieciowe lub zapory ograniczające ruch, należy skonfigurować uprawnienia do wszelkich połączeń wyzwalacza lub akcji, które istnieją w przepływie pracy.
+
+Aby znaleźć w pełni kwalifikowane nazwy domen (FQDN) dla tych połączeń, wykonaj następujące kroki:
+
+1. W projekcie aplikacji logiki Otwórz **connections.jsw** pliku, który jest tworzony po dodaniu pierwszego wyzwalacza lub akcji opartej na połączeniu do przepływu pracy i Znajdź `managedApiConnections` obiekt.
+
+1. Dla każdego utworzonego połączenia można znaleźć, skopiować i zapisać `connectionRuntimeUrl` wartość właściwości w bezpiecznym miejscu, aby można było skonfigurować zaporę przy użyciu tych informacji.
+
+   Ten przykład **connections.jsw** pliku zawiera dwa połączenia, połączenie AS2 i połączenie z pakietem Office 365 z następującymi `connectionRuntimeUrl` wartościami:
+
+   * AS2 `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Usługa Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 

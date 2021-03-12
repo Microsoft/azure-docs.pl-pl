@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488209"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562014"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -64,6 +64,8 @@ Podczas wdrażania można wybrać zasoby obliczeniowe i magazynowe, a następnie
 
 > [!IMPORTANT]
 > Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](../../managed-instance/connectivity-architecture-overview.md#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](../../managed-instance/virtual-network-subnet-create-arm-template.md)   i [konfigurowania istniejących](../../managed-instance/vnet-existing-add-subnet.md)   sieci. 
+
+Kolejną uwagę na wybór docelowej warstwy usług w wystąpieniu zarządzanym Azure SQL (Ogólnego przeznaczenia vs Krytyczne dla działania firmy) jest dostępność niektórych funkcji, takich jak In-Memory OLTP, które są dostępne tylko w warstwie Krytyczne dla działania firmy. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternatywa maszyny wirtualnej SQL Server
 
@@ -191,6 +193,26 @@ Podczas migrowania baz danych chronionych przez  [transparent Data Encryption]
 #### <a name="system-databases"></a>Systemowe bazy danych
 
 Przywracanie systemowych baz danych nie jest obsługiwane. Aby przeprowadzić migrację obiektów na poziomie wystąpienia (przechowywanych w bazach danych Master lub msdb), zaskryptowanie ich przy użyciu języka Transact-SQL (T-SQL), a następnie utwórz je ponownie w docelowym wystąpieniu zarządzanym. 
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabele zoptymalizowane pod kątem pamięci)
+
+SQL Server zapewnia In-Memoryą funkcję OLTP, która umożliwia użycie tabel zoptymalizowanych pod kątem pamięci, typów tabel zoptymalizowanych pod kątem ilości danych i natywnie skompilowanych modułów SQL do uruchamiania obciążeń o wysokiej przepływności i wymaganiach dotyczących przetwarzania transakcyjnego o małym opóźnieniu. 
+
+> [!IMPORTANT]
+> In-Memory OLTP jest obsługiwana tylko w warstwie Krytyczne dla działania firmy w wystąpieniu zarządzanym usługi Azure SQL (i nie jest obsługiwana w warstwie Ogólnego przeznaczenia).
+
+Jeśli masz tabele zoptymalizowane pod kątem pamięci lub typy tabel zoptymalizowane pod kątem pamięci w SQL Server lokalnym i chcesz przeprowadzić migrację do wystąpienia zarządzanego usługi Azure SQL, należy wykonać następujące instrukcje:
+
+- Wybierz Krytyczne dla działania firmy warstwę dla docelowego wystąpienia zarządzanego Azure SQL, które obsługuje In-Memory OLTP lub
+- Jeśli chcesz przeprowadzić migrację do warstwy Ogólnego przeznaczenia w wystąpieniu zarządzanym usługi Azure SQL, Usuń tabele zoptymalizowane pod kątem pamięci, typy tabel zoptymalizowane pod kątem pamięci i natywnie skompilowane moduły SQL, które współpracują z obiektami zoptymalizowanymi pod kątem pamięci przed migracją baz danych. Poniższe zapytanie T-SQL może służyć do identyfikowania wszystkich obiektów, które należy usunąć przed migracją do warstwy Ogólnego przeznaczenia:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Aby dowiedzieć się więcej o technologiach w pamięci, zobacz [Optymalizowanie wydajności przy użyciu technologii w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 
 

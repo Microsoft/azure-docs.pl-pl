@@ -4,15 +4,16 @@ description: Dowiedz się, jak używać poufnych obliczeń w danym scenariuszu.
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
+ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: jencook
-ms.openlocfilehash: e1280ac90032869616830ccb931b367ff22f8bfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 47938f3a44c3a47f8b444b59d7e2f0867a274f33
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001011"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566621"
 ---
 # <a name="common-scenarios-for-azure-confidential-computing"></a>Typowe scenariusze dotyczące przetwarzania poufnego platformy Azure
 
@@ -33,7 +34,7 @@ Wiele źródeł może przekazywać swoje dane do jednego enklawy na maszynie wir
 W przypadku zabezpieczania obliczeń szyfrowanych danych odbywa się w enklawy, enklawy odszyfrowuje dane przy użyciu klucza, wykonuje analizę, pobiera wynik i zwraca zaszyfrowany wynik, który strona może odszyfrować przy użyciu wydanego klucza. 
 
 **Ochrona danych w użyciu**: 
-- Użyj maszyny wirtualnej z serii DCsv2 (VM) na platformie Azure z włączoną obsługą technologii Intel SGX. Te maszyny wirtualne są włączone przy użyciu zaufanych środowisk wykonywania (TEEs), które zabezpieczają i izolują fragmenty danych i kodu aplikacji.
+- Użyj DCsv2-Series maszyny wirtualnej na platformie Azure z włączoną obsługą technologii Intel SGX. Te maszyny wirtualne są włączone przy użyciu zaufanych środowisk wykonywania (TEEs), które zabezpieczają i izolują fragmenty danych i kodu aplikacji.
 - Użyj zestawu SDK enklawy aware, aby utworzyć enklawy wewnątrz maszyny wirtualnej. W ramach enklawy dane nie będą widoczne dla żadnej z nich, nawet dostawcy maszyny wirtualnej. Dane w enklawy będą szyfrowane przez obsługę sprzętu.
     - Na przykład można użyć [zestawu SDK programu OE](https://github.com/openenclave/openenclave) do przetwarzania po stronie serwera. 
 
@@ -67,9 +68,9 @@ Technologie łańcucha bloków stworzone na podstawie poufnego przetwarzania mog
 
 ![Sieć węzłów](./media/use-cases-scenarios/ccf.png)
 
-W CCF, zdecentralizowane księgi składają się ze rejestrowanych zmian w magazynie klucz-wartość replikowanym między wszystkimi węzłami sieci. Każdy z tych węzłów uruchamia aparat transakcji, który może zostać wyzwolony przez użytkowników łańcucha bloków za pośrednictwem protokołu TLS. W przypadku wyzwolenia punktu końcowego należy zmodyfikować magazyn klucz-wartość. Przed zarejestrowaniem zmiany zaszyfrowanej w zdecentralizowanej księdze musi ona zostać uzgodniona przez określoną liczbę węzłów do osiągnięcia konsensusu. 
+W CCF, zdecentralizowane księgi składają się ze zarejestrowanych zmian w magazynie Key-Value, który jest replikowany we wszystkich węzłach sieci. Każdy z tych węzłów uruchamia aparat transakcji, który może zostać wyzwolony przez użytkowników łańcucha bloków za pośrednictwem protokołu TLS. W przypadku wyzwolenia punktu końcowego należy zmodyfikować magazyn Key-Value. Przed zarejestrowaniem zmiany zaszyfrowanej w zdecentralizowanej księdze musi ona zostać uzgodniona przez określoną liczbę węzłów do osiągnięcia konsensusu. 
 
 ## <a name="next-steps"></a>Następne kroki
-[Wdróż](quick-create-marketplace.md) maszynę wirtualną z serii DCsv2.
+[Wdróż](quick-create-marketplace.md) DCsv2-Series maszynę wirtualną.
 
 

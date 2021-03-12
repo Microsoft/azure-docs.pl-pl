@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie przycisku czytnika immersyjnego
+title: Edytuj przycisk uruchamiania czytnika immersyjny
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano sposób dostosowywania przycisku uruchamiającego czytnik immersyjny.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
-ms.date: 01/14/2020
+ms.topic: how-to
+ms.date: 03/08/2021
 ms.author: metang
-ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d60e37a437cacda8afbe88a901089f9478a53c16
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146879"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608618"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Jak dostosować przycisk czytnika immersyjny
 

@@ -3,16 +3,17 @@ title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu Azur
 description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu kontroli konserwacji i Azure Portal.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397287"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563017"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Kontrolowanie aktualizacji z kontrolą konserwacji i Azure Portal
 
@@ -20,7 +21,7 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 
 ## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 1. Wyszukaj **konfiguracje konserwacji**.
 
@@ -38,7 +39,7 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 
    ![Zrzut ekranu przedstawiający sposób dodawania tagów do konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
-1. Przejrzyj podsumowanie. Kliknij przycisk **Utwórz**.
+1. Przejrzyj podsumowanie. Kliknij pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sposób tworzenia konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
 
@@ -70,7 +71,7 @@ Możesz również sprawdzić konfigurację określonej maszyny wirtualnej na jej
 
 ## <a name="check-for-pending-updates"></a>Wyszukaj oczekujące aktualizacje
 
-Istnieją również dwa sposoby sprawdzenia, czy aktualizacje oczekują na konfigurację konserwacji. W obszarze **Konfiguracja konserwacji**na stronie Szczegóły konfiguracji kliknij pozycję **przypisania** i sprawdź **stan konserwacji**.
+Istnieją również dwa sposoby sprawdzenia, czy aktualizacje oczekują na konfigurację konserwacji. W obszarze **Konfiguracja konserwacji** na stronie Szczegóły konfiguracji kliknij pozycję **przypisania** i sprawdź **stan konserwacji**.
 
 ![Zrzut ekranu przedstawiający sposób sprawdzania oczekujących aktualizacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending.png)
 

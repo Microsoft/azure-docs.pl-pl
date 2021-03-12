@@ -55,7 +55,7 @@
     - name: Omówienie
       items:
         - name: Co to jest Azure Stack Edge Pro R?
-          href: azure-stack-edge-j-series-overview.md
+          href: azure-stack-edge-pro-r-overview.md
     - name: Pojęcia
       items:
         - name: Bezpieczeństwo i gotowość
@@ -171,7 +171,7 @@
         - name: Wdrażanie przykładów usługi IoT Edge
           items:
             - name: Moduł z galerii firmy Nvidia
-              href: azure-stack-edge-j-series-configure-gpu-modules.md
+              href: azure-stack-edge-gpu-configure-gpu-modules.md
             - name: Moduł procesora GPU z repozytorium Git
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: Moduł procesora GPU za pośrednictwem witryny Marketplace
@@ -189,7 +189,7 @@
                 - name: Przyspieszanie obliczeń
                   href: azure-stack-edge-gpu-deploy-compute-acceleration.md
                 - name: Aplikacja bezstanowa
-                  href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
+                  href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
                 - name: Statycznie aprowizowana aplikacja stanowa
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: Dynamicznie aprowizowana aplikacja stanowa
@@ -199,7 +199,7 @@
                 - name: Aplikacja bezstanowa
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
                 - name: Tworzenie modułu języka C#
-                  href: azure-stack-edge-j-series-create-iot-edge-module.md
+                  href: azure-stack-edge-gpu-create-iot-edge-module.md
             - name: Za pośrednictwem usługi Azure Arc (wersja zapoznawcza)
               items:
                 - name: Włączanie usługi Arc w klastrze platformy Kubernetes
@@ -211,11 +211,11 @@
         - name: Konfigurowanie usługi Azure Resource Manager (wersja zapoznawcza)
           items:
             - name: Łączenie za pośrednictwem usługi Azure PowerShell
-              href: azure-stack-edge-j-series-connect-resource-manager.md
+              href: azure-stack-edge-gpu-connect-resource-manager.md
             - name: Ustawianie hasła usługi Azure Resource Manager
-              href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
+              href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
             - name: Konfigurowanie ustawień protokołu TLS klienta
-              href: azure-stack-edge-j-series-configure-tls-settings.md
+              href: azure-stack-edge-gpu-configure-tls-settings.md
         - name: Wdrażanie maszyn wirtualnych (wersja zapoznawcza)
           items:
             - name: Wdrażanie maszyn wirtualnych — Azure Portal
@@ -229,7 +229,7 @@
             - name: Wdrażanie maszyn wirtualnych — skrypt usługi Azure PowerShell
               href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
             - name: Wdrażanie maszyn wirtualnych — interfejs wiersza polecenia platformy Azure / język Python
-              href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
             - name: Wdrażanie niestandardowego rozszerzenia skryptu na maszynach wirtualnych
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Tworzenie obrazu maszyny wirtualnej
@@ -247,23 +247,23 @@
             - name: Rozwiązywanie problemów z błędami certyfikatów
               href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Zarządzanie obliczeniami brzegowymi
-          href: azure-stack-edge-j-series-manage-compute.md
+          href: azure-stack-edge-gpu-manage-compute.md
         - name: Zarządzanie rejestrem kontenerów brzegowych
           href: azure-stack-edge-gpu-edge-container-registry.md
         - name: Zarządzanie bramą magazynu
           items:
             - name: 'Dodawanie, łączenie się w celu udostępniania'
-              href: azure-stack-edge-j-series-deploy-add-shares.md
+              href: azure-stack-edge-gpu-deploy-add-shares.md
             - name: Dodawanie i nawiązywanie połączenia z kontami magazynu
-              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
+              href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
             - name: Udziały
-              href: azure-stack-edge-j-series-manage-shares.md
+              href: azure-stack-edge-gpu-manage-shares.md
             - name: Użytkownicy
-              href: azure-stack-edge-j-series-manage-users.md
+              href: azure-stack-edge-gpu-manage-users.md
             - name: Konta magazynu
-              href: azure-stack-edge-j-series-manage-storage-accounts.md
+              href: azure-stack-edge-gpu-manage-storage-accounts.md
             - name: Harmonogramy przepustowości
-              href: azure-stack-edge-j-series-manage-bandwidth-schedules.md
+              href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
         - name: Zarządzanie urządzeniem
           items:
             - name: 'Zasilanie, dostęp, łączność'
@@ -318,6 +318,9 @@
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
 - name: Azure Stack Edge Pro — FPGA
   items:
     - name: Omówienie
@@ -403,23 +406,10 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: Ogólna dostępność
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: Dokumentacja
-      items:
-        - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/#stack_edge
-        - name: Interfejs API REST
-          href: /rest/api/databoxedgegateway
-        - name: Zestaw SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 - name: Zabezpieczenia
   items:
     - name: Punkt odniesienia zabezpieczeń
       href: security-baseline.md
-- name: Odwołania
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Azure Stack Edge Pro — przykłady modułów języka C# (.NET)

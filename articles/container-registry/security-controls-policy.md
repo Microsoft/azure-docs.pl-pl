@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Container Registry
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Container Registry. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c0fdf538392241db776a6067bd40e0ce7f9a7581
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 946617d010ef5c61aa74d2ef84d64da3c11133c2
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438589"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636520"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-container-registry"></a>Azure Policy kontroli zgodności z przepisami dla Azure Container Registry
 

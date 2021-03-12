@@ -3,7 +3,7 @@ title: Zaawansowane kodowanie za pomocą Media Encoder Premium Workflow | Micros
 description: Dowiedz się, jak kodować przy użyciu Media Encoder Premium Workflow. Przykłady kodu są zapisywane w języku C# i używają zestawu Media Services SDK dla platformy .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f3efa23ad0b5e79e84a2436aaf56b67a805d05f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017237"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013503"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Zaawansowane kodowanie za pomocą usługi Media Encoder Premium Workflow
 
@@ -240,5 +240,5 @@ Możesz otworzyć bilet pomocy technicznej, przechodząc do [nowego żądania ob
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613956"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199955"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Przewodnik dotyczący uruchamiania funkcji na platformie .NET 5,0 na platformie Azure
 
@@ -84,7 +84,12 @@ Mając dostęp do potoku konstruktora hosta, można ustawić każdą konfiguracj
 
 <!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
+:::code language="csharp" 
+                .ConfigureAppConfiguration(c =>
+                {
+                    c.AddCommandLine(args);
+                })
+                :::
 
 The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
 Dostęp do pełnego zestawu konfiguracji można uzyskać z obu programów [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) i [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
@@ -172,7 +177,7 @@ W tej sekcji opisano bieżący stan funkcjonalności i różnice w działaniu na
 | Funkcja/zachowanie |  W procesie (.NET Core 3,1) | Pozaprocesowe (.NET 5,0) |
 | ---- | ---- | ---- |
 | Wersje .NET | LTS (.NET Core 3,1) | Current (.NET 5,0) |
-| Pakiety podstawowe | [Microsoft. NET. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft. Azure. Functions. Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft. Azure. Functions. Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| Pakiety podstawowe | [Microsoft. NET. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft. Azure. Functions. Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft. Azure. Functions. Worker. Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Pakiety rozszerzeń powiązań | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Systemie [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Rejestrowanie | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) przeszedł do funkcji | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) uzyskane z `FunctionContext` |
 | Tokeny anulowania | [Obsługiwane](functions-dotnet-class-library.md#cancellation-tokens) | Nieobsługiwane |
