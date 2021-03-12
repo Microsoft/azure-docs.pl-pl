@@ -2,16 +2,16 @@
 title: Samouczek — Dodawanie funkcji do Azure Resource Manager plików Bicep
 description: Dodaj funkcje do plików Bicep, aby utworzyć wartości.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748230"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633159"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Samouczek: Dodawanie funkcji do Azure Resource Manager pliku Bicep
 
@@ -37,7 +37,7 @@ Lokalizacja konta magazynu jest trwale kodowana dla **regionu Wschodnie stany US
 
 Funkcje umożliwiają dodawanie elastyczności do pliku Bicep przez dynamiczne pobieranie wartości podczas wdrażania. W tym samouczku użyjesz funkcji, aby pobrać lokalizację grupy zasobów używanej do wdrożenia.
 
-Poniższy przykład wyróżnia zmiany w celu dodania parametru o nazwie `location` . Wartość domyślna parametru wywołuje funkcję [ResourceManager](template-functions-resource.md#resourcegroup) . Ta funkcja zwraca obiekt z informacjami o grupie zasobów używanej do wdrożenia. Jedną z właściwości obiektu jest właściwość Location. W przypadku użycia wartości domyślnej Lokalizacja konta magazynu ma tę samą lokalizację co grupa zasobów. Zasoby w grupie zasobów nie muszą udostępniać tej samej lokalizacji. W razie konieczności można także podać inną lokalizację.
+Poniższy przykład pokazuje zmiany w celu dodania parametru o nazwie `location` . Wartość domyślna parametru wywołuje funkcję [ResourceManager](template-functions-resource.md#resourcegroup) . Ta funkcja zwraca obiekt z informacjami o grupie zasobów używanej do wdrożenia. Jedną z właściwości obiektu jest właściwość Location. W przypadku użycia wartości domyślnej Lokalizacja konta magazynu ma tę samą lokalizację co grupa zasobów. Zasoby w grupie zasobów nie muszą udostępniać tej samej lokalizacji. W razie konieczności można także podać inną lokalizację.
 
 Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
 

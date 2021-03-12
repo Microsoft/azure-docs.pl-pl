@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177027"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633431"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -211,7 +211,7 @@ Aby uzyskać więcej informacji, zapoznaj się [z automatyzacją aprowizacji uż
  
 10 wbudowanych ról usługi Azure AD zmieniono nazwy, aby były wyrównane do [Centrum administracyjnego Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [portalu usługi Azure AD](https://portal.azure.com/)i [Microsoft Graph](https://developer.microsoft.com/graph/). Aby dowiedzieć się więcej o nowych rolach, zapoznaj się z [uprawnieniami roli administrator w Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Tabela nowych nazw ról](media/whats-new/roles-table-rbac.png)
+![Tabela przedstawiająca nazwy ról w usłudze MS interfejs API programu Graph i Azure Portal oraz proponowaną nazwę ostateczną w interfejsach API, Azure Portal i Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -968,7 +968,7 @@ Teraz można zezwolić właścicielom aplikacji na monitorowanie aktywności prz
  
 Niektóre wbudowane role Azure Active Directory (AD) mają nazwy, które różnią się od tych, które są wyświetlane w Microsoft 365 centrum administracyjnym, portalu usługi Azure AD i Microsoft Graph. Niespójność może powodować problemy w zautomatyzowanych procesach. W przypadku tej aktualizacji zmieniamy nazwy 10 ról, aby były spójne. W poniższej tabeli znajdują się nowe nazwy ról:
 
-![Tabela nowych nazw ról](media/whats-new/azure-role.png)
+![Tabela przedstawiająca nazwy ról w usłudze MS interfejs API programu Graph i Azure Portal oraz proponowaną nową nazwę roli w centrum administracyjnym M365, Azure Portal i interfejsie API.](media/whats-new/azure-role.png)
 
 ---
 

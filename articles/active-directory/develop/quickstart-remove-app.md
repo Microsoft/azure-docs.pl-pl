@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645895"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199793"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
 
@@ -47,7 +47,8 @@ Aby usunąć aplikację, należy ją wyświetlić jako właściciela aplikacji l
 1. Wyszukaj i wybierz **Azure Active Directory**. 
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
 1. Na stronie **Przegląd** wybierz pozycję **Usuń**.
-1. Wybierz pozycję **Tak**, aby potwierdzić, że chcesz usunąć aplikację.
+1. Odczytaj konsekwencje usunięcia.  Zaznacz pole wyboru, jeśli występuje w dolnej części okienka.
+1. Wybierz pozycję **Usuń** , aby potwierdzić, że chcesz usunąć aplikację.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Usuwanie aplikacji utworzonej przez inną organizację
 

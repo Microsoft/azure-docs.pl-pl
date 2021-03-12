@@ -2,19 +2,19 @@
 title: Język Bicep dla szablonów Azure Resource Manager
 description: Opisuje język Bicep na potrzeby wdrażania infrastruktury na platformie Azure za pomocą szablonów Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036388"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232974"
 ---
 # <a name="what-is-bicep-preview"></a>Co to jest Bicep (wersja zapoznawcza)?
 
-Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure. Upraszcza to proces tworzenia, zapewniając zwięzłą składnię i lepszą obsługę ponownego użycia kodu. Bicep to język specyficzny dla domeny (DSL), który oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Bicep nie jest zamierzeniem ogólnego języka programowania do pisania aplikacji.
+Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure. Możesz użyć Bicep zamiast JSON do tworzenia szablonów Azure Resource Manager (szablony ARM). Bicep upraszcza proces tworzenia, dostarczając zwięzłą składnię, lepszą obsługę kodu i zwiększa bezpieczeństwo. Bicep to język specyficzny dla domeny (DSL), który oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Nie jest ona przeznaczona do ogólnego języka programowania do pisania aplikacji.
 
-W przeszłości opracowano Azure Resource Manager szablonów (szablony ARM) w formacie JSON. Składnia JSON dla tworzenia szablonu może być pełna i wymaga wyrażenia złożonego. Bicep Ulepsza ten proces bez utraty możliwości szablonu JSON. Jest to przezroczyste streszczenie w formacie JSON dla szablonów ARM. Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep.
+Składnia JSON dla tworzenia szablonu może być pełna i wymaga wyrażenia złożonego. Bicep Ulepsza ten proces bez utraty możliwości szablonu JSON. Jest to przezroczyste streszczenie w formacie JSON dla szablonów ARM. Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep. Bieżąca wersja zawiera pewne [znane ograniczenia](#known-limitations) .
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -55,7 +55,15 @@ Za pomocą Bicep można przerwać projekt w wielu modułach.
 
 Struktura pliku Bicep jest bardziej elastyczna niż szablon JSON. Można zadeklarować parametry, zmienne i dane wyjściowe w dowolnym miejscu w pliku. W formacie JSON należy zadeklarować wszystkie parametry, zmienne i dane wyjściowe w odpowiednich sekcjach szablonu.
 
-VS Code rozszerzenie Bicep oferuje bogatszą weryfikację i funkcję IntelliSense. Na przykład rozszerzenie ma funkcję IntelliSense do pobierania właściwości zasobu.
+VS Code rozszerzenie Bicep oferuje rozbudowaną weryfikację i funkcję IntelliSense. Na przykład można użyć funkcji IntelliSense rozszerzenia do pobierania właściwości zasobu.
+
+## <a name="known-limitations"></a>Znane ograniczenia
+
+Obecnie istnieją następujące limity:
+
+* Nie można ustawić rozmiaru trybu lub partii w pętlach kopiowania.
+* Nie można połączyć pętli i warunków.
+* Jednowierszowe obiekty i tablice, takie jak `['a', 'b', 'c']` , nie są obsługiwane.
 
 ## <a name="faq"></a>Często zadawane pytania
 

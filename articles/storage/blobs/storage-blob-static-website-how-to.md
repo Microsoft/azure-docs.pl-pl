@@ -8,21 +8,18 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2ba0e836f1be97681d677158f5cb81c5b033e915
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664753"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008505"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
-Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze na koncie usługi Azure Storage GPv2. Aby dowiedzieć się więcej, zobacz [statyczne hostowanie witryn sieci Web w usłudze Azure Storage](storage-blob-static-website.md).
+Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze w ramach konta [ogólnego przeznaczenia w wersji 2](../common/storage-account-create.md) lub [BlockBlobStorage](storage-blob-create-account-block-blob.md) . Aby dowiedzieć się więcej, zobacz [statyczne hostowanie witryn sieci Web w usłudze Azure Storage](storage-blob-static-website.md).
 
 W tym artykule opisano sposób włączania obsługi statycznej witryny sieci Web przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
-
-> [!NOTE]
-> Upewnij się, że utworzono standardowe konto magazynu ogólnego przeznaczenia w wersji 2. Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
 
 ## <a name="enable-static-website-hosting"></a>Włączanie hostingu statycznej witryny sieci Web
 

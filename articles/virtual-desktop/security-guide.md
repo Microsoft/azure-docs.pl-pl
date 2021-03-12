@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581396"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014897"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -117,7 +117,6 @@ Aby przetestować tę nową funkcję:
 >[!NOTE]
 >W trakcie okresu zapoznawczego ta funkcja obsługuje tylko pełne połączenia pulpitu z punktów końcowych systemu Windows 10.
 
-
 ### <a name="enable-endpoint-protection"></a>Włącz program Endpoint Protection
 
 Aby chronić wdrożenie przed znanym złośliwym oprogramowaniem, zalecamy włączenie programu Endpoint Protection na wszystkich hostach sesji. Można użyć programu antywirusowego Windows Defender lub program innej firmy. Aby dowiedzieć się więcej, zobacz [Przewodnik wdrażania programu antywirusowego Windows Defender w środowisku infrastruktury VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
@@ -169,6 +168,52 @@ Ograniczając możliwości systemu operacyjnego, można wzmocnić zabezpieczenia
 - Przyznaj użytkownikom ograniczone uprawnienia, gdy uzyskują dostęp do lokalnych i zdalnych systemów plików. Można ograniczyć uprawnienia, upewniając się, że lokalne i zdalne systemy plików korzystają z list kontroli dostępu z najniższymi uprawnieniami. Dzięki temu użytkownicy mogą uzyskiwać dostęp tylko do potrzebnych informacji i nie mogą zmieniać ani usuwać zasobów o znaczeniu krytycznym.
 
 - Zapobiegaj uruchamianiu niechcianego oprogramowania na hostach sesji. Można włączyć blokadę aplikacji w celu zapewnienia dodatkowych zabezpieczeń na hostach sesji, dzięki czemu można uruchamiać tylko te aplikacje, które są dozwolone na hoście.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Obsługa pulpitu wirtualnego systemu Windows na potrzeby zaufanego uruchamiania
+
+Zaufane uruchomienia to Gen2 maszyny wirtualne platformy Azure z ulepszonymi funkcjami zabezpieczeń, które mają na celu ochronę przed "dolnymi zagrożeniami stosu" przy użyciu wektorów ataków, takich jak rootkits, zestawy rozruchowe i złośliwe oprogramowanie na poziomie jądra. Poniżej przedstawiono ulepszone funkcje zabezpieczeń zaufanego uruchamiania, z których wszystkie są obsługiwane w systemie Windows Virtual Desktop. Aby dowiedzieć się więcej o zaufanych uruchomieniach, odwiedź stronę [Zaufane uruchomienia dla maszyn wirtualnych platformy Azure (wersja zapoznawcza)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Bezpieczny rozruch
+
+Bezpieczny rozruch jest trybem obsługiwanym przez oprogramowanie układowe platformy, które chroni oprogramowanie układowe przed rootkits i rozruchem opartym na złośliwym oprogramowaniu. Ten tryb umożliwia tylko podpisane systemów operacyjnych i sterowniki do uruchomienia maszyny. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Monitoruj integralność rozruchową przy użyciu zaświadczania zdalnego
+
+Zaświadczanie zdalne to doskonały sposób na sprawdzenie kondycji maszyn wirtualnych. Zaświadczanie zdalne weryfikuje, że mierzone rekordy rozruchowe są obecne, autentyczne i pochodzące z Trusted Platform Module wirtualnej (vTPM). W ramach kontroli kondycji zapewnia ona pewność kryptograficzną, że platforma została prawidłowo uruchomiona. 
+
+### <a name="vtpm"></a>vTPM
+
+VTPM to zwirtualizowana wersja Trusted Platform Module sprzętowego (TPM) z wystąpieniem wirtualnym modułu TPM na MASZYNę wirtualną. vTPM umożliwia zdalne zaświadczanie przez wykonywanie pomiarów integralności całego łańcucha rozruchowego maszyny wirtualnej (UEFI, system operacyjny, system i sterowniki). 
+
+Zalecamy włączenie vTPM na korzystanie z zdalnego zaświadczania na maszynach wirtualnych. Po włączeniu funkcji vTPM można także włączyć funkcję BitLocker, która zapewnia szyfrowanie pełnego woluminu w celu ochrony danych przechowywanych w spoczynku. Wszystkie funkcje korzystające z programu vTPM będą powodować wpisy tajne powiązane z określoną maszyną wirtualną. Gdy użytkownicy łączą się z usługą pulpitu wirtualnego systemu Windows w scenariuszu w puli, użytkownicy mogą być przekierowywani do dowolnej maszyny wirtualnej w puli hostów. W zależności od tego, jak ta funkcja jest zaprojektowana, może mieć to wpływ.
+
+>[!NOTE]
+>Funkcji BitLocker nie należy używać do szyfrowania określonego dysku, na którym są przechowywane dane profilu FSLogix.
+
+### <a name="virtualization-based-security"></a>Zabezpieczenia oparte na wirtualizacji
+
+Zabezpieczenia oparte na wirtualizacji (VBS) używają funkcji hypervisor do tworzenia i izolowania bezpiecznego regionu pamięci, która jest niedostępna dla systemu operacyjnego. Hypervisor-Protected integralność kodu (zasady wymagające WYMUSZONEJ) i Windows Defender Credential Guard używają narzędzia VBS do zapewnienia zwiększonej ochrony przed lukami w zabezpieczeniach. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Hypervisor-Protected integralność kodu
+
+ZASADY wymagające WYMUSZONEJ to zaawansowane środki zaradcze, które używają VBS do ochrony procesów trybu jądra systemu Windows przed iniekcją i wykonywaniem złośliwych lub niezweryfikowanych kodów.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+Funkcja Windows Defender Credential Guard używa funkcji VBS do izolowania i ochrony kluczy tajnych, dzięki czemu tylko uprzywilejowane oprogramowanie systemowe może uzyskiwać do nich dostęp. Zapobiega to nieautoryzowanemu dostępowi do tych kluczy tajnych i ataków kradzieży poświadczeń, takich jak ataki typu Pass-the-hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Wdrażanie zaufanego uruchomienia w środowisku pulpitu wirtualnego systemu Windows
+
+Pulpit wirtualny systemu Windows nie obsługuje obecnie automatycznego konfigurowania zaufanych uruchomień podczas procesu instalacji puli hostów. Aby można było korzystać z zaufanego uruchomienia w środowisku pulpitu wirtualnego systemu Windows, należy wdrożyć zaufane uruchomienia normalnie, a następnie ręcznie dodać maszynę wirtualną do żądanej puli hostów.
+
+## <a name="nested-virtualization"></a>Zagnieżdżone wirtualizacji
+
+Następujące systemy operacyjne obsługują uruchomioną wirtualizację zagnieżdżoną na pulpicie wirtualnym systemu Windows:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Wielosesyjna obsługa systemu Windows 10 Enterprise.
 
 ## <a name="next-steps"></a>Następne kroki
 

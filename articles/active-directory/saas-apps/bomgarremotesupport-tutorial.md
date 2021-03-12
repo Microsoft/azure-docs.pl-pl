@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: f9e4af3330ecf5fbe161f7ba92ddf96eb04880a1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1996024d163a4bf7cfa741110038bb8db5b883e8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728027"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632750"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą BeyondTrust Remote support
 
@@ -51,7 +51,7 @@ Aby skonfigurować integrację zdalnej obsługi BeyondTrust z usługą Azure AD,
 1. W sekcji **Dodaj z galerii** wpisz **BeyondTrust Remote support** w polu wyszukiwania.
 1. Wybierz pozycję **BeyondTrust Remote support** from the Results panel, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD na potrzeby zdalnej obsługi BeyondTrust
+## <a name="configure-and-test-azure-ad-sso-for-beyondtrust-remote-support"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD do obsługi zdalnej BeyondTrust
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą zdalnej obsługi BeyondTrust przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze BeyondTrust Remote support.
 
@@ -76,14 +76,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<HOSTNAME>.bomgar.com/saml`
+    a. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<HOSTNAME>.bomgar.com`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<HOSTNAME>.bomgar.com`
-
-    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    
+    c. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<HOSTNAME>.bomgar.com/saml`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Te wartości zostaną omówione w dalszej części tego samouczka.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości z rzeczywistym identyfikatorem, adresem URL odpowiedzi i adresem URL Sign-On. Te wartości zostaną omówione w dalszej części tego samouczka.
 
 1. Aplikacja do obsługi zdalnej BeyondTrust oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -167,6 +167,10 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Utwórz użytkownika testowego wsparcia zdalnego BeyondTrust
 
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w usłudze BeyondTrust Remote support. Obsługa zdalna BeyondTrust obsługuje Inicjowanie obsługi klienta just-in-Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze BeyondTrust Remote support, zostanie utworzony nowy po uwierzytelnieniu.
+
+Postępuj zgodnie z poniższą procedurą, która jest obowiązkowa do konfigurowania obsługi zdalnej usługi BeyondTrust.
+
 Skonfigurujemy tutaj ustawienia udostępniania użytkownika. Wartości użytych w tej sekcji są przywoływane w sekcji **atrybuty użytkownika & oświadczenia** w Azure Portal. Ta wartość została skonfigurowana tak, aby była wartością domyślną, która została już zaimportowana w momencie tworzenia, ale w razie potrzeby można dostosować ją.
 
 ![Zrzut ekranu przedstawia ustawienia inicjowania obsługi użytkowników, w których można skonfigurować wartości użytkownika.](./media/bomgarremotesupport-tutorial/user-attribute.png)
@@ -174,7 +178,7 @@ Skonfigurujemy tutaj ustawienia udostępniania użytkownika. Wartości użytych 
 > [!NOTE]
 > Te grupy i atrybuty poczty e-mail nie są niezbędne dla tej implementacji. W przypadku używania grup usługi Azure AD i przypisywania ich do zasad grupy obsługi zdalnej BeyondTrust dla uprawnień, identyfikator obiektu grupy musi być przywoływany za pośrednictwem jego właściwości w Azure Portal i umieszczony w sekcji "dostępne grupy". Po zakończeniu tej operacji identyfikator obiektu/Grupa usługi AD będzie teraz dostępna do przypisywania do zasad grupy w celu uzyskania uprawnień.
 
-![Zrzut ekranu przedstawia sekcję I T z członkostwem typu, źródło, typ i obiekt I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Zrzut ekranu przedstawia sekcję I T z członkostwem typu, źródło, typ i obiekt I D.](./media/bomgarremotesupport-tutorial/config-user-2.png)
 
 ![Zrzut ekranu przedstawia stronę Ustawienia podstawowe dla zasad grupy.](./media/bomgarremotesupport-tutorial/group-policy.png)
 

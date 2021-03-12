@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696172"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010482"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Rejestrowanie i skanowanie źródła Oracle (wersja zapoznawcza)
 
 W tym artykule opisano sposób rejestrowania bazy danych Oracle w programie kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Źródło Oracle obsługuje **pełne skanowanie** w celu wyodrębnienia metadanych z bazy danych programu Oracle i  pobrania elementów zawartości z zasobów.
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób rejestrowania bazy danych Oracle w programie kont
 
 3.  Upewnij się \" , Visual C++ pakiet redystrybucyjny 2012 Update 4 \" jest zainstalowany na komputerze, na którym działa środowisko Integration Runtime. Jeśli \' nie masz jeszcze zainstalowanej usługi, pobierz ją z tego [miejsca](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  Konieczne będzie ręczne pobranie sterownika Oracle JDBC o nazwie "Oracle. JDBC. Driver. OracleDriver \' na maszynie wirtualnej, na którym działa środowisko Integration Runtime.
+4.  Konieczne będzie ręczne pobranie sterownika Oracle JDBC z tego [miejsca](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) na maszynie wirtualnej, w której działa środowisko Integration Runtime.
 
     > [!Note] 
     > Sterownik powinien być dostępny dla wszystkich kont w maszynie wirtualnej. Nie należy instalować go na koncie użytkownika.

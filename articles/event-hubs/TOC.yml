@@ -136,9 +136,13 @@
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-    - name: Przewodnik dotyczący protokołu AMQP 1.0
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
+    - name: AMQP
+      items:
+        - name: Przewodnik dotyczący protokołu AMQP 1.0
+          href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+          maintainContext: true
+        - name: Błędy protokołu AMQP
+          href: event-hubs-amqp-troubleshoot.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie rejestru schematów

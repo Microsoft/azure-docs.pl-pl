@@ -3,7 +3,7 @@ title: Tworzenie filtrów za pomocą zestawu .NET SDK usługi Azure Media Servic
 description: W tym temacie opisano sposób tworzenia filtrów, aby klient mógł używać ich do przesyłania strumieniowego określonych sekcji strumienia. Media Services .NET SDK tworzy dynamiczne manifesty do osiągnięcia tego selektywnego przesyłania strumieniowego.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd5435f7a2969c486042c9447a0fffbb745229f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531631"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014115"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu SDK programu Media Services .NET
 
@@ -33,7 +33,7 @@ ms.locfileid: "90531631"
 > 
 > 
 
-Począwszy od wersji 2,17, Media Services umożliwia zdefiniowanie filtrów dla zasobów. Te filtry są regułami po stronie serwera, które umożliwiają klientom wykonywanie takich czynności jak: odtwarzanie tylko sekcji filmu wideo (zamiast odtwarzania całego filmu wideo) lub określanie tylko podzestawu plików audio i wideo, które może obsłużyć urządzenie klienta (zamiast wszystkich odwzorów skojarzonych z zasobem). Takie filtrowanie zasobów jest realizowane za pośrednictwem **dynamicznego manifestu**s, które są tworzone na żądanie klienta w celu przesyłania strumieniowego wideo na podstawie określonych filtrów.
+Począwszy od wersji 2,17, Media Services umożliwia zdefiniowanie filtrów dla zasobów. Te filtry są regułami po stronie serwera, które umożliwiają klientom wykonywanie takich czynności jak: odtwarzanie tylko sekcji filmu wideo (zamiast odtwarzania całego filmu wideo) lub określanie tylko podzestawu plików audio i wideo, które może obsłużyć urządzenie klienta (zamiast wszystkich odwzorów skojarzonych z zasobem). Takie filtrowanie zasobów jest realizowane za pośrednictwem **dynamicznego manifestu** s, które są tworzone na żądanie klienta w celu przesyłania strumieniowego wideo na podstawie określonych filtrów.
 
 Aby uzyskać bardziej szczegółowe informacje dotyczące filtrów i manifestu dynamicznego, zobacz [Omówienie manifestów dynamicznych](media-services-dynamic-manifest-overview.md).
 
@@ -136,7 +136,7 @@ W poniższych przykładach pokazano, jak dodać filtry do adresów URL przesyła
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443798"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630371"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 — informacje o wersji
 
@@ -29,7 +29,7 @@ Ten artykuł ma zastosowanie do **Azure Stack** w wersji 2101, która jest mapow
 
 Poniższe nowe funkcje są dostępne w wersji Azure Stack Edge 2101. 
 
-- **Ogólna dostępność urządzeń z systemem Azure Stack EDGE Pro r i Azure Stack Edge mini r urządzenia** — począwszy od tej wersji, dostępne są Azure Stack brzeg Pro r i Azure Stack Edge mini r urządzenia. Aby uzyskać więcej informacji, zobacz [co to jest Azure Stack Edge z krawędzią Pro r](azure-stack-edge-j-series-overview.md) i [co to jest Azure Stack Edge mini R](azure-stack-edge-k-series-overview.md).  
+- **Ogólna dostępność urządzeń z systemem Azure Stack EDGE Pro r i Azure Stack Edge mini r urządzenia** — począwszy od tej wersji, dostępne są Azure Stack brzeg Pro r i Azure Stack Edge mini r urządzenia. Aby uzyskać więcej informacji, zobacz [co to jest Azure Stack Edge z krawędzią Pro r](azure-stack-edge-pro-r-overview.md) i [co to jest Azure Stack Edge mini R](azure-stack-edge-mini-r-overview.md).  
 - **Zarządzanie chmurą Virtual Machines** — począwszy od tej wersji, można tworzyć maszyny wirtualne na urządzeniu i zarządzać nimi za pośrednictwem Azure Portal. Aby uzyskać więcej informacji, zobacz [wdrażanie maszyn wirtualnych za pośrednictwem Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integracja z Azure monitor** — teraz można używać Azure monitor do monitorowania kontenerów z aplikacji obliczeniowych uruchomionych na urządzeniu. Magazyn metryk Azure Monitor nie jest obsługiwany w tej wersji. Aby uzyskać więcej informacji, zobacz jak [włączyć Azure monitor na urządzeniu](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Rejestr kontenerów krawędzi** — w tej wersji jest dostępny rejestr kontenerów brzegowych, który udostępnia repozytorium na urządzeniu brzegowym. Za pomocą tego rejestru można przechowywać obrazy kontenerów i zarządzać nimi. Aby uzyskać więcej informacji, zobacz [Włącz rejestr kontenerów brzegowych](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 

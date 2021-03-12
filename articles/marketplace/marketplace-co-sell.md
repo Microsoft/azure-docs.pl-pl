@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 3/12/2021
+ms.openlocfilehash: 47f8f4ec3b5c5dd2d4545fc67561487d4f5a465c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199887"
+ms.locfileid: "103225317"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Przegląd współpracy z zespołami i partnerami sprzedaży firmy Microsoft
 
@@ -33,7 +33,7 @@ Okazja do sprzedaży to wszelka współpraca z zespołami sprzedaży firmy Micro
 - Współpracuj **z zespołami sprzedaży firmy Microsoft** — Pracuj z jednym lub wieloma zespołami sprzedaży firmy Microsoft, aby aktywnie zaspokajać potrzeby klientów. Może to obejmować sprzedawanie ofert lub oferty firmy Microsoft. Zespoły sprzedaży firmy Microsoft mogą identyfikować i udostępniać okazje dla klientów, w których rozwiązania mogą być dobrze dopasowane.
 - **Partner (P2P)** — współpraca z innym partnerem firmy Microsoft w celu aktywnego rozwiązywania problemu z klientem.
 - **Transakcja prywatna** — Podziel się niezależnie z pracą z firmą Microsoft, aby umożliwić jej odzwierciedlenie w systemie raportowania firmy Microsoft na potrzeby analizy i prognozowania.
-- **Ocena rozwiązania (SA)** — współpraca z partnerami, którzy są zbadane przez zespół ds. oceny rozwiązań, aby uzyskać dostęp do potrzeb technologicznych klientów, którzy korzystają z technologii firmy Microsoft lub planują korzystanie z nich.
+- **Ocena rozwiązania (SA)** — współpraca z partnerami zbadane przez zespół ds. oceny rozwiązań do oceny potrzeb klientów korzystających z technologii firmy Microsoft lub planowania korzystania z nich.
 
 ## <a name="co-sell-statuses"></a>Stany współsprzedażu
 

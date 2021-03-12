@@ -4,16 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 4a9454abc2c4e41d711a4aef6a30438a72d27edb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e013765579fd560952172166b24f898b354c1d17
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750045"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021234"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Wdrożony zasób usług komunikacyjnych. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - A, `User Access Token` Aby włączyć klienta wywołania. Aby uzyskać więcej informacji na temat [uzyskiwania `User Access Token` ](../../access-tokens.md)
 - Opcjonalnie: Ukończ Przewodnik Szybki Start dotyczący [dodawania wywołania do aplikacji](../getting-started-with-calling.md)
@@ -63,14 +63,14 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>Umieść wywołanie wychodzące
 
-Aby utworzyć i uruchomić wywołanie, należy użyć jednego z interfejsów API w programie CallAgent i udostępnić użytkownikowi, który został utworzony za pomocą biblioteki klienta Administracja usług komunikacyjnych.
+Aby utworzyć i uruchomić wywołanie, należy użyć jednego z interfejsów API w programie CallAgent i udostępnić użytkownikowi, który został utworzony za pomocą biblioteki klienta tożsamości usług komunikacyjnych.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Wystąpienie wywołania pozwala subskrybować zdarzenia.
 
 ## <a name="place-a-call"></a>Umieść wywołanie
 
 ### <a name="place-a-11-call-to-a-user-or-pstn"></a>Umieść wywołanie 1:1 dla użytkownika lub sieci PSTN
-Aby nawiązać połączenie z innym użytkownikiem usług komunikacyjnych, wywołaj `startCall` metodę na `callAgent` i przekaż CommunicationUserIdentifier wywoływany, który został [utworzony za pomocą biblioteki administracyjnej usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+Aby nawiązać połączenie z innym użytkownikiem usług komunikacyjnych, wywołaj `startCall` metodę na `callAgent` i przekaż CommunicationUserIdentifier wywoływany, który został [utworzony przy użyciu biblioteki tożsamości usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -254,10 +254,10 @@ Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `un
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -401,7 +401,7 @@ Aby wyświetlić listę strumieni wideo i strumieni udostępniania ekranu dla uc
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
- 
+
 Aby renderować a `RemoteVideoStream` , musisz subskrybować `isAvailableChanged` wydarzenie.
 Jeśli `isAvailable` Właściwość zmieni się na `true` , uczestnik zdalny wysyła strumień.
 Gdy tak się stanie, Utwórz nowe wystąpienie `Renderer` , a następnie utwórz nowe `RendererView` wystąpienie przy użyciu metody asynchronicznej `createView` .  Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika.
@@ -581,7 +581,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## <a name="call-transfer-management"></a>Zarządzanie transferem wywołań

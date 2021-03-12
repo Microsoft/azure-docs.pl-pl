@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 372efa217e400ffd4bcecd286f3c3dc7b81f64d6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756569"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007972"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
 Teraz, po utworzeniu aplikacji, dowiesz się, jak skonfigurować kod przy użyciu współrzędnych aplikacji.
 
-## <a name="microsoft-authentication-libraries"></a>Biblioteki uwierzytelniania firmy Microsoft
+## <a name="microsoft-libraries-supporting-desktop-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje klasyczne
 
-Następujące biblioteki uwierzytelniania firmy Microsoft (MSALs) obsługują aplikacje klasyczne.
+Następujące biblioteki firmy Microsoft obsługują aplikacje klasyczne:
 
-  Biblioteka uwierzytelniania firmy Microsoft | Opis
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługuje tworzenie aplikacji klasycznych na wielu platformach, takich jak Linux, Windows i macOS.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Obsługuje tworzenie aplikacji klasycznych na wielu platformach.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Obsługuje tworzenie aplikacji klasycznych na wielu platformach.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Obsługuje aplikacje klasyczne, które działają tylko na macOS.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## <a name="public-client-application"></a>Publiczna aplikacja kliencka
 
@@ -104,7 +99,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Więcej informacji
+### <a name="learn-more"></a>Więcej tutaj
 
 Aby dowiedzieć się więcej o konfigurowaniu aplikacji klasycznej MSAL.NET:
 

@@ -3,15 +3,15 @@ title: Skalowanie hostów sesji Azure Automation — Azure
 description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu Windows przy użyciu Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078558"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613123"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -41,7 +41,7 @@ W czasie użytkowania poza szczytem zadanie Określa, ile maszyn wirtualnych hos
 >[!NOTE]
 >Jeśli ręcznie ustawisz maszynę wirtualną hosta sesji do trybu opróżniania, zadanie nie będzie zarządzać maszyną wirtualną hosta sesji. Jeśli maszyna wirtualna hosta sesji jest uruchomiona i ma ustawiony tryb opróżniania, będzie traktowana jako niedostępna, co spowoduje uruchomienie dodatkowych maszyn wirtualnych do obsługi obciążenia. Zalecamy oznaczanie maszyn wirtualnych platformy Azure przed ręcznym ustawieniem ich na tryb opróżniania. Można nazwać tag przy użyciu parametru *MaintenanceTagName* podczas późniejszego tworzenia usługi Azure Logic App Scheduler. Tagi ułatwiają odróżnienie tych maszyn wirtualnych od tych, które są zarządzane przez narzędzie do skalowania. Ustawienie tagu obsługi zapobiega także wprowadzeniu zmian w maszynie wirtualnej do momentu usunięcia znacznika.
 
-Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwala na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja komputera**  >  **zasady**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **limity czasu sesji**hosta sesji. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma żadnych aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
+Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwala na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja komputera**  >  **zasady**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **limity czasu sesji** hosta sesji. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma żadnych aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
 
 W dowolnym momencie zadanie przyjmuje również *MaxSessionLimit* puli hostów, aby określić, czy bieżąca liczba sesji przekracza 90% maksymalnej wydajności. Jeśli tak jest, zadanie rozpocznie dodatkowe maszyny wirtualne hosta sesji.
 
@@ -52,6 +52,9 @@ Jednak narzędzie ma również następujące ograniczenia:
 - To rozwiązanie dotyczy tylko maszyn wirtualnych hosta sesji wielosesyjnych w puli.
 - To rozwiązanie służy do zarządzania maszynami wirtualnymi w dowolnym regionie, ale mogą być używane tylko w tej samej subskrypcji, co konto Azure Automation i aplikacja logiki platformy Azure.
 - Maksymalne środowisko uruchomieniowe zadania w elemencie Runbook to 3 godziny. Jeśli uruchamianie lub zatrzymywanie maszyn wirtualnych w puli hostów trwa dłużej niż to, zadanie zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zasoby udostępnione](../automation/automation-runbook-execution.md#fair-share).
+- Aby algorytm skalowania działał prawidłowo, należy włączyć co najmniej jedną maszynę wirtualną lub hosta sesji.
+- Narzędzie skalowania nie obsługuje skalowania na podstawie procesora CPU lub pamięci.
+- Skalowanie działa tylko z istniejącymi hostami w puli hostów. Narzędzie skalowania nie obsługuje skalowania nowych hostów sesji.
 
 >[!NOTE]
 >Narzędzie skalowania kontroluje tryb równoważenia obciążenia puli hostów, który jest obecnie skalowany. Narzędzie używa trybu o szerokim zakresie równoważenia obciążenia dla godzin szczytu i godziny poza szczytem.
@@ -284,7 +287,7 @@ Gdy zgłaszasz problem, musisz podać poniższe informacje, aby pomóc nam w roz
 
 - Data wygaśnięcia [konta Uruchom jako](#create-an-azure-automation-run-as-account). Aby to sprawdzić, Otwórz konto Azure Automation, a następnie wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta** w okienku po lewej stronie okna. Data wygaśnięcia powinna być **uwzględniona w ramach konta Uruchom jako platformy Azure**.
 
-### <a name="log-analytics"></a>Usługa Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 
 Jeśli zamierzasz używać Log Analytics, możesz wyświetlić wszystkie dane dziennika w dzienniku niestandardowym o nazwie **WVDTenantScale_CL** w obszarze **dzienniki niestandardowe** w widoku **dzienniki** w obszarze roboczym log Analytics. Wystawiłeś przykładowe zapytania, które mogą być przydatne.
 

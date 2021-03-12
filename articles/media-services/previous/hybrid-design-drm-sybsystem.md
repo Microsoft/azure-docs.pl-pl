@@ -3,7 +3,7 @@ title: Hybrydowe projektowanie podsystemów DRM przy użyciu Azure Media Service
 description: W tym temacie omówiono hybrydowe projektowanie podsystemów DRM przy użyciu Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266905"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016274"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM
 
@@ -83,7 +83,7 @@ Za pomocą konfiguracji klucza zawartości można kontrolować następujące atr
 * Klucz zawartości używany do dynamicznego szyfrowania DRM.
 * Zawartość licencji DRM do dostarczenia przez usługi dostarczania licencji: prawa, klucz zawartości i ograniczenia.
 * Typ **ograniczeń zasad autoryzacji klucza zawartości**: otwarte, IP lub ograniczenia tokenu.
-* W przypadku użycia typu **tokenu** **ograniczenia zasad autoryzacji klucza zawartości**należy spełnić **ograniczenie zasad autoryzacji klucza zawartości** przed wystawieniem licencji.
+* W przypadku użycia typu **tokenu** **ograniczenia zasad autoryzacji klucza zawartości** należy spełnić **ograniczenie zasad autoryzacji klucza zawartości** przed wystawieniem licencji.
 
 ### <a name="asset-delivery-policy"></a>Zasady dostarczania zasobów
 
@@ -95,7 +95,7 @@ Za pomocą konfiguracji zasad dostarczania elementów zawartości można kontrol
 
 ## <a name="scenarios-and-samples"></a>Scenariusze i przykłady
 
-Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy hybrydowych używa odpowiednich **Content key** - kombinacji konfiguracji**zasad dostarczania zasobów** klucza zawartości (przykłady wymienione w ostatniej kolumnie są zgodne z tabelą):
+Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy hybrydowych używa odpowiednich  - kombinacji konfiguracji **zasad dostarczania zasobów** klucza zawartości (przykłady wymienione w ostatniej kolumnie są zgodne z tabelą):
 
 |**Źródło & hostingu zawartości**|**Szyfrowanie DRM**|**Dostarczanie licencji DRM**|**Konfiguruj klucz zawartości**|**Konfigurowanie zasad dostarczania elementów zawartości**|**Przykład**|
 |---|---|---|---|---|---|
@@ -142,5 +142,5 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

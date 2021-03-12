@@ -4,12 +4,12 @@ description: Poznaj Azure Functions koncepcje i techniki, które są potrzebne d
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386904"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614823"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions — przewodnik dla deweloperów
 W Azure Functions określone funkcje udostępniają kilka podstawowych pojęć i składników technicznych, niezależnie od używanego języka lub powiązania. Przed przejściem do szczegółów szczegółowych informacji dotyczących danego języka lub powiązania należy zapoznać się z tym omówieniem, który ma zastosowanie do wszystkich z nich.
@@ -116,10 +116,11 @@ Niektóre połączenia w Azure Functions są skonfigurowane do używania tożsam
 
 Połączenia oparte na tożsamości są obsługiwane przez następujący wyzwalacz i rozszerzenia powiązań:
 
-| Nazwa rozszerzenia | Wersja rozszerzenia                                                                                     | Obsługa połączeń opartych na tożsamościach w planie zużycia |
+| Nazwa rozszerzenia | Wersja rozszerzenia                                                                                     | Obsługiwane w planie zużycia |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Obiekt bob Azure     | [Wersja 5.0.0-beta1 lub nowsza](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Nie                                    |
 | Azure Queue    | [Wersja 5.0.0-beta1 lub nowsza](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Nie                                    |
+| Azure Event Hubs    | [Wersja 5.0.0-beta1 lub nowsza](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Nie                                    |
 
 > [!NOTE]
 > Obsługa połączeń opartych na tożsamościach nie jest jeszcze dostępna dla połączeń magazynu używanych przez środowisko uruchomieniowe funkcji dla zachowań podstawowych. Oznacza to, że `AzureWebJobsStorage` ustawienie musi być parametrami połączenia.
@@ -128,9 +129,10 @@ Połączenia oparte na tożsamości są obsługiwane przez następujący wyzwala
 
 Połączenie oparte na tożsamości dla usługi platformy Azure akceptuje następujące właściwości:
 
-| Właściwość    | Zmienna środowiskowa | Jest wymagana | Opis |
+| Właściwość    | Wymagane dla rozszerzeń | Zmienna środowiskowa | Opis |
 |---|---|---|---|
-| Identyfikator URI usługi | `<CONNECTION_NAME_PREFIX>__serviceUri` | Tak | Identyfikator URI płaszczyzny danych usługi, z którą nawiązujesz połączenie. |
+| Identyfikator URI usługi | Obiekt blob platformy Azure, kolejka platformy Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  Identyfikator URI płaszczyzny danych usługi, z którą nawiązujesz połączenie. |
+| W pełni kwalifikowana przestrzeń nazw | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | W pełni kwalifikowana przestrzeń nazw centrum zdarzeń. |
 
 Dodatkowe opcje mogą być obsługiwane dla danego typu połączenia. Zapoznaj się z dokumentacją składnika, który nawiązuje połączenie.
 
@@ -152,14 +154,26 @@ W niektórych przypadkach warto określić użycie innej tożsamości. Możesz d
 > [!NOTE]
 > Następujące opcje konfiguracji nie są obsługiwane, jeśli są hostowane w usłudze Azure Functions.
 
-Aby nawiązać połączenie przy użyciu jednostki usługi Azure Active Directory przy użyciu identyfikatora klienta i klucza tajnego, zdefiniuj połączenie z następującymi właściwościami:
+Aby nawiązać połączenie przy użyciu jednostki usługi Azure Active Directory z IDENTYFIKATORem klienta i kluczem tajnym, zdefiniuj połączenie z następującymi wymaganymi właściwościami oprócz [Właściwości połączenia](#connection-properties) powyżej:
 
-| Właściwość    | Zmienna środowiskowa | Jest wymagana | Opis |
-|---|---|---|---|
-| Identyfikator URI usługi | `<CONNECTION_NAME_PREFIX>__serviceUri` | Tak | Identyfikator URI płaszczyzny danych usługi, z którą nawiązujesz połączenie. |
-| Identyfikator dzierżawy | `<CONNECTION_NAME_PREFIX>__tenantId` | Tak | Identyfikator dzierżawy Azure Active Directory (katalog). |
-| Identyfikator klienta | `<CONNECTION_NAME_PREFIX>__clientId` | Tak |  Identyfikator klienta (aplikacji) rejestracji aplikacji w dzierżawie. |
-| Klucz tajny klienta | `<CONNECTION_NAME_PREFIX>__clientSecret` | Tak | Wpis tajny klienta wygenerowany dla rejestracji aplikacji. |
+| Właściwość    | Zmienna środowiskowa | Opis |
+|---|---|---|
+| Identyfikator dzierżawy | `<CONNECTION_NAME_PREFIX>__tenantId` | Identyfikator dzierżawy Azure Active Directory (katalog). |
+| Identyfikator klienta | `<CONNECTION_NAME_PREFIX>__clientId` |  Identyfikator klienta (aplikacji) rejestracji aplikacji w dzierżawie. |
+| Klucz tajny klienta | `<CONNECTION_NAME_PREFIX>__clientSecret` | Wpis tajny klienta wygenerowany dla rejestracji aplikacji. |
+
+Przykład `local.settings.json` właściwości wymaganych dla połączenia opartego na tożsamościach z obiektem blob platformy Azure: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Udziel uprawnienia do tożsamości
 

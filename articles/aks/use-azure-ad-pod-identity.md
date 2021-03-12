@@ -3,13 +3,13 @@ title: Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudz
 description: Dowiedz się, jak za pomocą usługi AAD zarządzane tożsamości zarządzane w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176318"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233500"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -24,13 +24,13 @@ Azure Active Directory tożsamości zarządzanych przez program używają prymit
 
 Musisz mieć zainstalowany następujący zasób:
 
-* Interfejs wiersza polecenia platformy Azure w wersji 2.8.0 lub nowszej
-* `azure-preview`Rozszerzenie w wersji 0.4.68 lub nowszej
+* Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
+* `azure-preview`Rozszerzenie w wersji 0.5.5 lub nowszej
 
 ### <a name="limitations"></a>Ograniczenia
 
-* Dla klastra można używać maksymalnie 50 tożsamości.
-* Dla klastra można używać maksymalnie 50 wyjątków tożsamości.
+* Dla klastra można używać maksymalnie 200 tożsamości.
+* Dla klastra można używać maksymalnie 200 wyjątków tożsamości.
 * Tożsamości zarządzane pod względem systemu są dostępne tylko w pulach węzłów systemu Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Zarejestruj `EnablePodIdentityPreview`
@@ -66,6 +66,21 @@ Użyj [AZ AKS Get-Credentials][az-aks-get-credentials] , aby zalogować się do 
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Tworzenie klastra AKS za pomocą wtyczki sieciowej korzystającą wtyczki kubenet
+
+Utwórz klaster AKS z wtyczką sieci korzystającą wtyczki kubenet i włączoną tożsamością zarządzaną pod.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Aktualizowanie istniejącego klastra AKS za pomocą wtyczki sieciowej korzystającą wtyczki kubenet
+
+Zaktualizuj istniejący klaster AKS z wtyczką sieci Kubnet w celu uwzględnienia tożsamości zarządzanej pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Tworzenie tożsamości

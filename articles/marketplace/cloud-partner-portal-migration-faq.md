@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880342"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613616"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -22,7 +22,7 @@ Portal Cloud Partner przeszedł do Centrum partnerskiego. Centrum partnerskie of
 
 Możesz kontynuować działalność w centrum partnerskim:
 
-| Warstwowy<img src="" width=200px> | Zmiany |
+| Warstwowy | Zmiany |
 | --- | --- |
 | Konto | Nie ma potrzeby tworzenia nowego konta Centrum partnerskiego; Możesz użyć istniejących poświadczeń portal Cloud Partner, aby zalogować się do Centrum partnerskiego, w którym będziesz teraz zarządzać kontem, użytkownikami, uprawnieniami i rozliczeniami. Informacje o umowie dotyczące publikowania i profilu firmy są migrowane do nowego konta Centrum partnerskiego wraz z informacjami o profilu wypłaty, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami. Dowiedz się więcej na temat [zarządzania kontem komercyjnej witryny Marketplace w centrum partnerskim](partner-center-portal/manage-account.md). |
 | Oferowanie funkcji publikowania i zarządzania ofertami | Twoje dane oferty zostały przeniesione z portal Cloud Partner do Centrum partnerskiego. Teraz będziesz uzyskiwać dostęp do ofert w centrum partnerskim, które oferują Ulepszone środowisko użytkownika i intuicyjny interfejs. Dowiedz się [, jak zaktualizować istniejącą ofertę w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md). |
@@ -41,7 +41,7 @@ Nie, Twoje konto zostanie zachowane. Oznacza to, że jeśli jesteś istniejącym
 
 Poniżej znajdują się linki Centrum partnerskiego dla stron, które są często używane w portal Cloud Partner. Jeśli Zapisano portal Cloud Partner linki jako zakładki, należy je zaktualizować.
 
-| Strona portal Cloud Partner <img src="" width=100px>| portal Cloud Partner łącze strony | Link do strony Centrum partnerskiego |
+| Strona portal Cloud Partner | portal Cloud Partner łącze strony | Link do strony Centrum partnerskiego |
 | --- | --- | --- |
 | Strona ze wszystkimi ofertami | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | Strona wszystkich wydawców | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -75,7 +75,7 @@ Wszystkie typy ofert, które wcześniej były obsługiwane w portal Cloud Partne
 
 W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty zostały przeniesione niezależnie od ich stanu. wersje robocza, de-figurowe i Preview są również przenoszone.
 
-| Typ oferty <img src="" width=150px>| Przenosisz do Centrum partnerskiego? <img src="" width=100px>| Następne kroki |
+| Typ oferty | Przenosisz do Centrum partnerskiego? | Następne kroki |
 | --- | --- | --- |
 | SaaS | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md). |
 | Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty maszyny wirtualnej](marketplace-virtual-machines.md). |
@@ -181,7 +181,7 @@ Możesz poprosić o [zaprzestanie sprzedaży oferty](partner-center-portal/updat
 
 Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i nadal będą działały. Przejście do Centrum partnerskiego wprowadza niewielkie zmiany. Zapoznaj się z tabelą poniżej, aby upewnić się, że kod będzie nadal działał w centrum partnerskim.
 
-| Interfejs API <img src="" width=100px>| Zmień opis | Wpływ |
+| Interfejs API | Zmień opis | Wpływ |
 | --- | --- | --- |
 | Publikuj publikowanie, GoLive, Anuluj | W przypadku zmigrowanych ofert nagłówek odpowiedzi będzie miał inny format, ale będzie nadal działał w taki sam sposób, co oznacza ścieżkę względną do pobrania stanu operacji. | Podczas wysyłania dowolnego z odpowiednich żądań POST dla oferty nagłówek lokalizacji będzie miał jeden z dwóch formatów w zależności od stanu migracji oferty: <ul><li>Oferty bez migracji: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Zmigrowane oferty: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Pobierz operację | W przypadku ofert, które wcześniej obsługiwały w odpowiedzi pole "notification-email", to pole będzie przestarzałe i nie będzie już zwracane dla zmigrowanych ofert. | W przypadku zmigrowanych ofert nie będą już wysyłane powiadomienia do listy wiadomości e-mail określonych w żądaniach. Zamiast tego usługa API zostanie wyrównuje z procesem powiadomień e-mail w centrum partnerskim w celu wysyłania wiadomości e-mail. W każdym przypadku powiadomienia o postępie operacji będą wysyłane na adres e-mail ustawiony w sekcji informacje kontaktowe sprzedawcy ustawień konta w centrum partnerskim.<br><br>Upewnij się, że adres e-mail jest ustawiony w sekcji informacje kontaktowe sprzedawcy w obszarze [Ustawienia konta](https://partner.microsoft.com/dashboard/account/management) w centrum partnerskim, aby otrzymywać powiadomienia. |

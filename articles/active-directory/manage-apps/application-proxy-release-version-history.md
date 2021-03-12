@@ -1,6 +1,6 @@
 ---
-title: 'Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji'
-description: W tym artykule wymieniono wszystkie wersje platformy Azure serwer proxy aplikacji usługi Azure AD i opisano nowe funkcje oraz naprawione problemy
+title: 'Serwer proxy aplikacji usługi Azure Active Directory: historia wersji'
+description: W tym artykule wymieniono wszystkie wersje serwer proxy aplikacji usługi Azure Active Directory i opisano nowe funkcje oraz naprawione problemy.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.reviewer: japere
+ms.openlocfilehash: 0244e0ca66f452649d3136eb122d1c2666182ae2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686720"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200968"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji
 W tym artykule wymieniono wersje i funkcje serwera proxy aplikacji Azure Active Directory (Azure AD), który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje serwer proxy aplikacji przy użyciu nowych funkcji i funkcjonalności. Łączniki serwera proxy aplikacji są aktualizowane automatycznie po wydaniu nowej wersji. 
@@ -25,11 +26,11 @@ Zalecamy, aby upewnić się, że funkcja autoaktualizacje jest włączona dla ł
 
 Poniżej znajduje się lista powiązanych zasobów:
 
-Zasób |  Szczegóły
---------- | --------- |
-Jak włączyć serwer proxy aplikacji | Wymagania wstępne dotyczące włączania serwera proxy aplikacji oraz instalowania i rejestrowania łącznika są opisane w tym [samouczku](application-proxy-add-on-premises-application.md).
-Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure | Dowiedz się więcej o [zarządzaniu łącznikami](application-proxy-connectors.md) i sposobach [uaktualniania](application-proxy-connectors.md#automatic-updates)łączników.
-Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [Pobierz najnowszy łącznik](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+| Zasób                                         | Szczegóły                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| Jak włączyć serwer proxy aplikacji                  | Wymagania wstępne dotyczące włączania serwera proxy aplikacji oraz instalowania i rejestrowania łącznika są opisane w tym [samouczku](application-proxy-add-on-premises-application.md). |
+| Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure | Dowiedz się więcej o [zarządzaniu łącznikami](application-proxy-connectors.md) i sposobach [uaktualniania](application-proxy-connectors.md#automatic-updates)łączników. |
+| Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD    | [Pobierz najnowszy łącznik](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
 ## <a name="1519750"></a>1.5.1975.0
 
@@ -41,6 +42,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 -   Ulepszona obsługa Azure Government środowiska chmury. Aby uzyskać instrukcje dotyczące prawidłowej instalacji łącznika dla programu Azure Government Cloud, zapoznaj się z [wymaganiami wstępnymi](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) i [procedurą instalacji](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Obsługa korzystania z klienta sieci Web Usługi pulpitu zdalnego z serwerem proxy aplikacji. Aby uzyskać więcej informacji, zobacz temat [publikowanie pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md) .
 - Ulepszone negocjowanie rozszerzeń protokołu WebSocket. 
+- Obsługa zoptymalizowanego routingu między grupami łączników i usługami w chmurze serwera proxy aplikacji w oparciu o region. Aby uzyskać więcej informacji, zobacz [Optymalizacja przepływu ruchu za pomocą serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md) . 
 
 ### <a name="fixed-issues"></a>Naprawione problemy
 - Rozwiązano problem z użyciem protokołu WebSocket z wymuszonymi małymi literami.

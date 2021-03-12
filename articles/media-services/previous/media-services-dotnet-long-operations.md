@@ -3,7 +3,7 @@ title: Sondowanie Long-Running operacji | Microsoft Docs
 description: Azure Media Services oferuje interfejsy API, które wysyłają żądania do Media Services do uruchamiania operacji (na przykład tworzenia, uruchamiania, zatrzymywania lub usuwania kanału), te operacje są długotrwałe. W tym temacie pokazano, jak sondować długotrwałe operacje.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44cecbd8d2cdc95e342d7aaf2b33f6cc0192e182
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7926f7aaa427d49d13cab5e13f5153bcd22e5898
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262036"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013826"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Dostarczanie przesyłania strumieniowego na żywo za pomocą Azure Media Services
 
@@ -33,9 +33,9 @@ Microsoft Azure Media Services oferuje interfejsy API, które wysyłają żądan
 Zestaw Media Services .NET SDK udostępnia interfejsy API, które wysyłają żądanie i oczekują na ukończenie operacji (wewnętrznie interfejsy API są sondowane w przypadku postępów operacji w określonych odstępach czasu). Na przykład po wywołaniu kanału. Start () — Metoda zwraca po uruchomieniu kanału. Można również użyć wersji asynchronicznej: await kanału. StartAsync () (Aby uzyskać informacje na temat wzorca asynchronicznego opartego na zadaniach, zobacz [TAP](./media-services-mes-schema.md)). Interfejsy API, które wysyłają żądanie operacji, a następnie sondowania stanu do momentu zakończenia operacji, są nazywane "metodami sondowania". Te metody (szczególnie wersja Async) są zalecane w przypadku rozbudowanych aplikacji klienckich i/lub usług stanowych.
 
 Istnieją scenariusze, w których aplikacja nie może czekać na długotrwałe żądanie HTTP i chce przeprowadzić ręczne sondowanie postępu operacji. Typowym przykładem jest przeglądarka korzystająca z bezstanowej usługi sieci Web: gdy przeglądarka żąda utworzenia kanału, usługa sieci Web inicjuje długotrwałą operację i zwraca identyfikator operacji do przeglądarki. Przeglądarka może następnie poprosił usługi sieci Web o uzyskanie stanu operacji na podstawie identyfikatora. Zestaw SDK Media Services platformy .NET udostępnia interfejsy API, które są przydatne w tym scenariuszu. Te interfejsy API są nazywane "metodami niesondowania".
-"Metody, które nie są sondowane" mają następujący wzorzec nazewnictwa:*sendname operacji (* na przykład SendCreateOperation). Metody*operacji sendname*zwracają obiekt **IOperation** ; zwrócony obiekt zawiera informacje, które mogą być używane do śledzenia operacji. Metody*sendname*OperationAsync zwracają **zadanie \<IOperation> **.
+"Metody, które nie są sondowane" mają następujący wzorzec nazewnictwa:*sendname operacji (* na przykład SendCreateOperation). Metody *operacji sendname* zwracają obiekt **IOperation** ; zwrócony obiekt zawiera informacje, które mogą być używane do śledzenia operacji. Metody *sendname* OperationAsync zwracają **zadanie \<IOperation>**.
 
-Obecnie następujące klasy obsługują metody inne niż sondowanie:  **Channel**, **StreamingEndpoint**i **program**.
+Obecnie następujące klasy obsługują metody inne niż sondowanie:  **Channel**, **StreamingEndpoint** i **program**.
 
 Aby przeprowadzić sondowanie w poszukiwaniu stanu operacji, użyj metody **getoperation** w klasie **OperationBaseCollection** . Aby sprawdzić stan operacji dla operacji **kanału** i **StreamingEndpoint** , użyj następujących interwałów: 30 sekund; w przypadku operacji **programu** Użyj 10 sekund.
 
@@ -216,5 +216,5 @@ Console.WriteLine(channelId);
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

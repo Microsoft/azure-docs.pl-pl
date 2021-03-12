@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 4d429b7136158723fa6110975326217c5540bc2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180996"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200905"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -69,32 +69,35 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną 
 
 Aby uruchomić klaster AKS, który obsługuje pule węzłów dla kontenerów systemu Windows Server, klaster musi używać zasad sieciowych, które korzystają z wtyczki sieciowej [Azure CNI][azure-cni-about] (Advanced). Aby uzyskać bardziej szczegółowe informacje ułatwiające planowanie wymaganych zakresów podsieci i zagadnień dotyczących sieci, zobacz [Konfigurowanie usługi Azure CNI Networking][use-advanced-networking]. Użyj polecenia [AZ AKS Create][az-aks-create] , aby utworzyć klaster AKS o nazwie *myAKSCluster*. To polecenie spowoduje utworzenie niezbędnych zasobów sieciowych, jeśli nie istnieją.
 
-* Klaster jest skonfigurowany z dwoma węzłami
-* Parametry *Windows-Admin-Password* i *Windows-admin-username* ustawiają poświadczenia administratora dla wszystkich kontenerów systemu Windows Server utworzonych w klastrze i muszą spełniać [wymagania dotyczące hasła systemu Windows Server][windows-server-password].
-* Pula węzłów używa `VirtualMachineScaleSets`
+* Klaster jest skonfigurowany z dwoma węzłami.
+* `--windows-admin-password`Parametry i `--windows-admin-username` ustawiają poświadczenia administratora dla wszystkich kontenerów systemu Windows Server utworzonych w klastrze i muszą spełniać [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli nie określisz parametru *Windows-Admin-Password* , zostanie wyświetlony monit o podanie wartości.
+* Pula węzłów używa `VirtualMachineScaleSets` .
 
 > [!NOTE]
 > Aby zapewnić niezawodne działanie klastra, należy uruchomić co najmniej 2 (dwa) węzły w domyślnej puli węzłów.
 
-Podaj własne bezpieczne *PASSWORD_WIN* (Pamiętaj, że polecenia w tym artykule są wprowadzane do powłoki bash):
+Utwórz nazwę użytkownika do użycia jako poświadczenia administratora dla kontenerów systemu Windows Server w klastrze. Następujące polecenia monitują o podanie nazwy użytkownika i ustawienie jej WINDOWS_USERNAME do użycia w późniejszym poleceniu (należy pamiętać, że polecenia w tym artykule są wprowadzane do powłoki BASH).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
 
+Utwórz klaster, upewniając się, że określisz `--windows-admin-username` parametr. Poniższe przykładowe polecenie tworzy klaster przy użyciu wartości z *WINDOWS_USERNAME* ustawionych w poprzednim poleceniu. Alternatywnie można podać inną nazwę użytkownika bezpośrednio w parametrze zamiast używać *WINDOWS_USERNAME*. Następujące polecenie spowoduje również wyświetlenie monitu o utworzenie hasła dla poświadczeń administratora dla kontenerów systemu Windows Server w klastrze. Alternatywnie możesz użyć parametru *Windows-Admin-Password* i określić własną wartość w tym miejscu.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
 > [!NOTE]
-> Jeśli zostanie wyświetlony komunikat o błędzie weryfikacji hasła, sprawdź, czy parametr *Windows-Admin-Password* spełnia [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli hasło spełnia wymagania, spróbuj utworzyć grupę zasobów w innym regionie. Następnie spróbuj utworzyć klaster przy użyciu nowej grupy zasobów.
+> Jeśli zostanie wyświetlony komunikat o błędzie weryfikacji hasła, sprawdź, czy ustawione hasło spełnia [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli hasło spełnia wymagania, spróbuj utworzyć grupę zasobów w innym regionie. Następnie spróbuj utworzyć klaster przy użyciu nowej grupy zasobów.
 
 Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Czasami klaster może trwać dłużej niż kilka minut. W takich przypadkach Zezwalaj na maksymalnie 10 minut.
 

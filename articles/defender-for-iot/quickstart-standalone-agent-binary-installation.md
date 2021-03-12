@@ -1,27 +1,27 @@
 ---
-title: Instalowanie usługi Defender dla programu IoT Micro Agent
+title: Instalowanie usługi Defender for IoT Micro Agent (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Informacje na temat instalowania i uwierzytelniania programu Defender Micro Agent.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 3/3/2021
+ms.date: 3/9/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ccf28c47e2e1438a141e2497da70d32c1832ddb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120440"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611679"
 ---
-# <a name="install-defender-for-iot-micro-agent"></a>Instalowanie usługi Defender dla programu IoT Micro Agent 
+# <a name="install-defender-for-iot-micro-agent-preview"></a>Instalowanie usługi Defender for IoT Micro Agent (wersja zapoznawcza)
 
 Ten artykuł zawiera wyjaśnienie sposobu instalowania i uwierzytelniania programu Defender Micro Agent.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed zainstalowaniem modułu Defender for IoT należy utworzyć tożsamość modułu w IoT Hub. Aby uzyskać więcej informacji na temat tworzenia tożsamości modułu, zobacz [Tworzenie sznurka modułu usługi Defender IoT Micro Agent ](quickstart-create-micro-agent-module-twin.md).
+Przed zainstalowaniem modułu Defender for IoT należy utworzyć tożsamość modułu w IoT Hub. Aby uzyskać więcej informacji na temat tworzenia tożsamości modułu, zobacz [Tworzenie sznurka modułu usługi Defender IoT Micro Agent (wersja zapoznawcza)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Zainstaluj pakiet
 
@@ -49,13 +49,37 @@ sudo apt-get install defender-iot-micro-agent
 
 Dwie opcje używane do uwierzytelniania usługi Defender dla programu IoT Micro Agent są następujące: 
 
-- Parametry połączenia. 
+- Parametry połączenia tożsamości modułu. 
 
 - Certyfikatu.
 
-### <a name="authenticate-using-a-connection-string"></a>Uwierzytelnianie przy użyciu parametrów połączenia
+### <a name="authenticate-using-a-module-identity-connection-string"></a>Uwierzytelnianie przy użyciu parametrów połączenia tożsamości modułu
 
-Aby uwierzytelnić się przy użyciu parametrów połączenia:
+Upewnij się, że [wymagania wstępne](#prerequisites) dotyczące tego artykułu zostały spełnione i że utworzono tożsamość modułu przed rozpoczęciem wykonywania tych kroków. 
+
+#### <a name="get-the-module-identity-connection-string"></a>Pobierz parametry połączenia tożsamości modułu
+
+Aby uzyskać parametry połączenia tożsamości modułu z IoT Hub: 
+
+1. Przejdź do IoT Hub i wybierz centrum.
+
+1. W menu po lewej stronie w sekcji **Explorer** wybierz pozycję **urządzenia IoT**.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="Wybierz pozycję urządzenia IoT z menu po lewej stronie.":::
+
+1. Wybierz urządzenie z listy Identyfikator urządzenia, aby wyświetlić stronę **szczegółów urządzenia** .
+
+1. Wybierz kartę **tożsamości modułów**   , a następnie wybierz moduł **DefenderIotMicroAgent**   z listy tożsamości modułów skojarzonych z urządzeniem.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Wybierz kartę tożsamości modułów.":::
+
+1. Na stronie **szczegóły tożsamości modułu** skopiuj klucz podstawowy, wybierając przycisk **Kopiuj** .
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Wybierz przycisk Kopiuj, aby skopiować klucz podstawowy.":::
+
+#### <a name="configure-authentication-using-a-module-identity-connection-string"></a>Konfigurowanie uwierzytelniania przy użyciu parametrów połączenia tożsamości modułu
+
+Aby skonfigurować agenta do uwierzytelniania przy użyciu parametrów połączenia tożsamości modułu:
 
 1. Umieść plik o nazwie `connection_string.txt` zawierający parametry połączenia zakodowane w formacie UTF-8 w ścieżce katalogu agenta usługi Defender `/var/defender_iot_micro_agent` , wprowadzając następujące polecenie:
 
@@ -63,7 +87,7 @@ Aby uwierzytelnić się przy użyciu parametrów połączenia:
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
-    Teraz powinien znajdować się `connection_string.txt` w następującej lokalizacji ścieżki `/var/defender_iot_micro_agent/connection_string.txt` .
+    Powinna znajdować się `connection_string.txt` w następującej lokalizacji ścieżki `/var/defender_iot_micro_agent/connection_string.txt` .
 
 1. Uruchom ponownie usługę za pomocą tego polecenia:  
 

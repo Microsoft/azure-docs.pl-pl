@@ -103,6 +103,12 @@
           href: ./samples/nist-sp-800-53-r4.md
         - name: NIST SP 800-171 R2
           href: ./samples/nist-sp-800-171-r2.md
+    - name: Linie bazowe konfiguracji gościa
+      items:
+        - name: Podstawowy system Linux dla platformy Azure Security test
+          href: ./samples/guest-configuration-baseline-linux.md
+        - name: Plan bazowy systemu Windows dla usługi Azure Security test
+          href: ./samples/guest-configuration-baseline-windows.md
 - name: Pojęcia
   items:
     - name: Struktura definicji

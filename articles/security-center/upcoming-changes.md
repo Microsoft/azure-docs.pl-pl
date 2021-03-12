@@ -1,23 +1,18 @@
 ---
 title: Ważne zmiany dotyczące Azure Security Center
 description: Nadchodzące zmiany w Azure Security Center, które mogą być potrzebne, i dla których może być konieczne zaplanowanie
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49141f7f11c0e8ead090459238e15b56f57b990b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051620"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633720"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -32,7 +27,6 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 ## <a name="planned-changes"></a>Planowane zmiany
 
 - [Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
-- [Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Wycofanie z 11 alertów usługi Azure Defender](#deprecation-of-11-azure-defender-alerts)
@@ -53,21 +47,6 @@ Dzięki tej zmianie dwa zestawy zaleceń AWS zostaną przeniesione do wersji og�
 
 Gdy są one dostępne, a oceny są uruchamiane w swoich zasobach AWS, wyniki będą miały wpływ na łączny, bezpieczny wynik dla wszystkich zasobów chmurowych i hybrydowych. 
 
-
-
-### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure 
-
-**Szacowana data zmiany:** Marzec 2021
-
-Security Center przekazuje dane dla niemal wszystkich zaleceń dotyczących zabezpieczeń, aby Azure Advisor, które z kolei zapisują je do [dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md).
-
-W przypadku dwóch zaleceń dane są zapisywane równocześnie bezpośrednio w dzienniku aktywności platformy Azure. W przypadku tej zmiany Security Center przestaną zapisywać dane dla tych starszych zaleceń dotyczących zabezpieczeń bezpośrednio do dziennika aktywności. Zamiast tego eksportuje dane do Azure Advisor jak w przypadku wszystkich innych zaleceń. 
-
-Istnieją dwa starsze zalecenia:
-- Na maszynach należy rozwiązać problemy dotyczące kondycji programu Endpoint Protection
-- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
-
-Jeśli uzyskano dostęp do informacji dotyczących tych dwóch zaleceń w kategorii "zalecenia dotyczące typu TaskDiscovery", nie będzie to już możliwe.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 

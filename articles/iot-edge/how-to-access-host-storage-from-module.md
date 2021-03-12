@@ -8,14 +8,16 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53d1504b03e3dbe99cbdeac23df2623a5390b3d9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635425"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200479"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Zapewnianie modułom dostępu do magazynu lokalnego na urządzeniu
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Oprócz przechowywania danych przy użyciu usług Azure Storage lub magazynu kontenerów na urządzeniu można również przeznaczyć magazyn na hoście IoT Edge samo urządzenie w celu zwiększenia niezawodności, szczególnie w przypadku działania w trybie offline.
 

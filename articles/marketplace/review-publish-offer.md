@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/27/2020
-ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/10/2021
+ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247169"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630898"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Jak przejrzeć i opublikować ofertę w portalu komercyjnym
 
@@ -74,6 +74,13 @@ Pierwszym krokiem w procesie publikowania jest zestaw zautomatyzowanych walidacj
 - **Sprawdzanie poprawności i rejestracja zarządzania potencjalnymi klientami** (<15 min)
 
     Upewnij się, że Twój system zarządzania potencjalnymi klientami może odbierać potencjalnych klientów w oparciu o szczegóły podane na stronie **Konfiguracja oferty** . Ten krok dotyczy tylko ofert z włączonym zarządzaniem potencjalnym klientem.
+
+- **Sprawdzanie poprawności oferty** (<30 min)
+
+    Tylko w przypadku ofert SaaS wykonujemy szybkie sprawdzanie poprawności zawartości i konfiguracji technicznych. Tworzenie podglądu nie zostanie zablokowane w przypadku problemów z walidacją wykrytych w tym kroku. Jeśli znajdziesz jakiekolwiek problemy, które mogą zakończyć się niepowodzeniem certyfikacji, na stronie **Przegląd oferty** zostanie wyświetlone łącze **Wyświetl raport weryfikacji** . Raport będzie zawierać opisy wszelkich naruszeń zasad.
+
+    > [!IMPORTANT]
+    > Przed wybraniem przycisku **Przejdź na żywo** upewnij się, że zostały przejrzane i Rozpoznaj wszystkie ostrzeżenia z kroku weryfikacji oferty. W przeciwnym razie nastąpi ryzyko niepowodzenia certyfikacji, co spowoduje opóźnienia Twojej oferty.
 
 ## <a name="certification-phase"></a>Faza certyfikacji
 
@@ -143,16 +150,19 @@ Jeśli chcesz opublikować ofertę w późniejszym czasie, musisz rozpocząć pr
 
 Gdy oferta będzie gotowa do przejrzenia i wylogowania, wyślemy wiadomość e-mail z prośbą o zażądanie przejrzenia i zaakceptowania wersji zapoznawczej oferty. Możesz również odświeżyć stronę **przeglądu oferty** w przeglądarce, aby sprawdzić, czy Twoja oferta osiągnęła fazę wylogowania wydawcy. Jeśli ma, dostępny jest przycisk **Przejdź na żywo** i linki do wersji zapoznawczej.
 
-Poniższy zrzut ekranu przedstawia stronę **omówienia oferty** dla oferty SaaS. Kroki walidacji, które zobaczysz na tej stronie, różnią się w zależności od typu oferty i opcji dokonanych podczas tworzenia oferty.
+Poniższy zrzut ekranu przedstawia stronę **omówienia oferty** w programie komercyjnym Marketplace w centrum partnerskim. Kroki walidacji, które zobaczysz na tej stronie, różnią się w zależności od typu oferty i opcji dokonanych podczas tworzenia oferty. Należy pamiętać, że fazy certyfikacji mogą wystąpić podczas przesłania do wersji zapoznawczej lub przesłania do usługi Live w zależności od typu oferty.
 
 ![Przedstawia stronę omówienia oferty dla oferty w centrum partnerskim. Widoczny jest przycisk Przejdź na żywo i linki do wersji zapoznawczej.](./media/publish-status-publisher-signoff.png)
 
 ### <a name="previewing-and-approving-your-offer"></a>Wyświetlanie podglądu i zatwierdzanie oferty
 
 > [!IMPORTANT]
-> Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty. Jeśli oferta jest wyświetlona na liście kontakt ze mną, sprawdź, czy potencjalny klient został utworzony zgodnie z oczekiwaniami, dostarczając szczegóły osoby kontaktowej w wersji zapoznawczej.
+> Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty. Jeśli oferta jest wyświetlona na liście _kontakt ze mną_ , sprawdź, czy potencjalny klient został utworzony zgodnie z oczekiwaniami, dostarczając szczegóły osoby kontaktowej w wersji zapoznawczej.
 
 Na stronie **Przegląd oferty** zobaczysz linki do wersji zapoznawczej w obszarze przycisk **Przejdź na żywo** . Będzie dostępny link do wersji zapoznawczej AppSource, wersji zapoznawczej platformy Azure Marketplace lub w zależności od opcji wybranych podczas tworzenia oferty. W przypadku wybrania opcji sprzedaży oferty przez firmę Microsoft każda osoba, która została dodana do odbiorców w wersji zapoznawczej, może przetestować nabycie i wdrożenie oferty, aby upewnić się, że spełnia Twoje wymagania na tym etapie.
+
+> [!IMPORTANT]
+> Przed wybraniem przycisku **Przejdź na żywo** upewnij się, że zostały przejrzane i Rozpoznaj wszystkie ostrzeżenia z kroku _weryfikacji oferty_ . W przeciwnym razie nastąpi ryzyko niepowodzenia certyfikacji, co spowoduje opóźnienia Twojej oferty.
 
 Po zatwierdzeniu wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę na żywo w witrynie komercyjnej. 
 
@@ -225,7 +235,7 @@ Możesz użyć filtrów, aby zawęzić pełną historię oferty do określonych 
 Istnieją cztery filtry:
 * Zdarzenia
 * Użytkownicy
-* Date
+* Date (Data)
 * Strony
 
 Po wybraniu filtru **strony** można wybrać dowolne ze stron Centrum partnerskiego, które mają zastosowanie do danego typu oferty. Po zastosowaniu filtr **strony** pokazuje całą **przesłaną ofertę, aby wyświetlić podgląd** zdarzeń ze zmianami wybranej strony.

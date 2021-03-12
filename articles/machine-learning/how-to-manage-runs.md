@@ -12,23 +12,27 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d142c523862d61bf56723726be50cd6f095c5ee9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520340"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634786"
 ---
-# <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
+# <a name="start-monitor-and-track-runs"></a>Uruchamianie, monitorowanie i Śledzenie przebiegów 
 
 [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
 
 W tym artykule przedstawiono przykłady następujących zadań:
 
 * Monitoruj wydajność uruchamiania.
+* Monitoruj powiadomienie o stanie uruchomienia za pomocą wiadomości e-mail.
+* Tagi i Znajdź uruchomienia.
+* Dodaj opis uruchomienia. 
+* Uruchom wyszukiwanie. 
 * Anulowanie lub niepowodzenie uruchomienia.
 * Utwórz uruchomienia podrzędne.
-* Tagi i Znajdź uruchomienia.
+ 
 
 > [!TIP]
 > Jeśli szukasz informacji o monitorowaniu usługi Azure Machine Learning i skojarzonych usługach platformy Azure, zobacz [Jak monitorować Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -50,7 +54,8 @@ Potrzebne będą następujące elementy:
     print(azureml.core.VERSION)
     ```
 
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/) i [rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest) i [rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
 
 ## <a name="monitor-run-performance"></a>Monitorowanie wydajności przebiegu
 
@@ -96,7 +101,7 @@ Potrzebne będą następujące elementy:
     
         To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i Conda. Zawiera również `config.json` plik, który jest używany do komunikowania się z obszarem roboczym Azure Machine Learning.
     
-        Aby uzyskać więcej informacji, zobacz [AZ ml folder Attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
+        Aby uzyskać więcej informacji, zobacz [AZ ml folder Attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
     2. Aby uruchomić przebieg, użyj następującego polecenia. Korzystając z tego polecenia, należy określić nazwę pliku runconfig (tekst przed \* . runconfig, Jeśli przeglądasz system plików) z parametrem-c.
     
@@ -111,7 +116,7 @@ Potrzebne będą następujące elementy:
         >
         > Więcej przykładowych plików runconfig można znaleźć w temacie [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
-        Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+        Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
     # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -162,7 +167,7 @@ Potrzebne będą następujące elementy:
     
         To polecenie zwraca dokument JSON zawierający informacje o przebiegach dla tego eksperymentu.
     
-        Aby uzyskać więcej informacji, zobacz [AZ ml eksperyment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
+        Aby uzyskać więcej informacji, zobacz [AZ ml eksperyment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
     
     * Aby wyświetlić informacje dotyczące określonego przebiegu, użyj następującego polecenia. Zamień na `runid` Identyfikator przebiegu:
     
@@ -172,7 +177,7 @@ Potrzebne będą następujące elementy:
     
         To polecenie zwraca dokument JSON, który zawiera listę informacji o przebiegu.
     
-        Aby uzyskać więcej informacji, zobacz [AZ ml Run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show).
+        Aby uzyskać więcej informacji, zobacz [AZ ml Run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
     
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
@@ -192,6 +197,29 @@ Potrzebne będą następujące elementy:
     1. Aby wyświetlić dzienniki uruchamiania, wybierz konkretny przebieg i na karcie dane **wyjściowe + dzienniki** możesz znaleźć dzienniki diagnostyki i błędów dla przebiegu.
     
     ---
+
+## <a name="monitor-the-run-status-by-email-notification"></a>Monitoruj powiadomienie o stanie uruchamiania według poczty e-mail
+
+1. W [Azure Portal](https://ms.portal.azure.com/)na lewym pasku nawigacyjnym wybierz kartę **monitorowanie** . 
+
+1. Wybierz pozycję **Ustawienia diagnostyczne** , a następnie wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
+
+    ![Zrzut ekranu przedstawiający ustawienia diagnostyczne powiadomienia e-mail](./media/how-to-manage-runs/diagnostic-setting.png)
+
+1. W ustawieniu diagnostycznym 
+    1. w obszarze **szczegóły kategorii** wybierz pozycję **AmlRunStatusChangedEvent**. 
+    1. W obszarze **szczegóły lokalizacji docelowej** wybierz **obszar roboczy Wyślij do log Analytics**  i określ **subskrypcję** i **log Analytics obszar roboczy**. 
+
+    > [!NOTE]
+    > **Obszar roboczy platformy azure log Analytics** jest innym typem zasobów platformy Azure niż **obszar roboczy usługi Azure Machine Learning**. Jeśli na liście nie ma żadnych opcji, możesz [utworzyć obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    
+    ![Miejsce zapisania powiadomienia e-mail](./media/how-to-manage-runs/log-location.png)
+
+1. Na karcie **dzienniki** Dodaj **nową regułę alertu**. 
+
+    ![Nowa reguła alertu](./media/how-to-manage-runs/new-alert-rule.png)
+
+1. Zobacz [, jak tworzyć alerty dzienników i zarządzać nimi za pomocą Azure monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
 
 ## <a name="run-description"></a>Opis uruchomienia 
 
@@ -253,7 +281,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update).
+    Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
@@ -287,17 +315,17 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](/cli/azure/query-azure-cli).
+    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    1. Przejdź do listy  **wszystkie uruchomienia** .
+    Aby wyszukać konkretne uruchomienia, przejdź do listy  **wszystkie uruchomienia** . Dostępne są dwie opcje:
     
-    1. Użyj paska wyszukiwania, aby odfiltrować metadane uruchamiania, takie jak Tagi, opisy, nazwy eksperymentów i nazwisko osoby przesyłającej. Filtr tagów może również służyć do filtrowania tagów. 
+    1. Użyj przycisku **Dodaj filtr** i wybierz pozycję Filtruj według tagów, aby odfiltrować uruchomienia przez tag, który został przypisany do przebiegów. <br><br>
+    LUB
     
-    ---
-
-
+    1. Użyj paska wyszukiwania, aby szybko znaleźć przebiegi, wyszukując metadane uruchamiania, takie jak stan uruchomienia, opisy, nazwy eksperymentów i nazwisko osoby przesyłającej. 
+    
 ## <a name="cancel-or-fail-runs"></a>Anulowanie lub niepowodzenie przebiegów
 
 Jeśli zauważysz błąd lub jeśli wykonywanie przebiegu trwa zbyt długo, możesz anulować przebieg.
@@ -331,7 +359,7 @@ Aby anulować uruchomienie przy użyciu interfejsu wiersza polecenia, należy u�
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml Run Cancel](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel).
+Aby uzyskać więcej informacji, zobacz [AZ ml Run Cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -375,7 +403,7 @@ Aby wydajnie tworzyć wiele podrzędnych przebiegów, użyj [`create_children()`
 
 ### <a name="submit-child-runs"></a>Prześlij uruchomienia podrzędne
 
-Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. Nie można utworzyć przebiegu podrzędnego bez elementu nadrzędnego: nawet wtedy, gdy uruchomienie nadrzędne nic nie robi, ale uruchomienia podrzędnego, nadal trzeba utworzyć hierarchię. Stan wszystkich przebiegów jest niezależny: element nadrzędny może być w `"Completed"` stanie pomyślnym, nawet jeśli co najmniej jedno uruchomienie podrzędne zostało anulowane lub zakończyło się niepowodzeniem.  
+Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. Nie można utworzyć przebiegu podrzędnego bez elementu nadrzędnego: nawet wtedy, gdy uruchomienie nadrzędne nic nie robi, ale uruchomienia podrzędnego, nadal trzeba utworzyć hierarchię. Stan wszystkich przebiegów jest niezależny: element nadrzędny może być w `"Completed"` stanie pomyślnym, nawet jeśli co najmniej jeden przebieg podrzędny został anulowany lub zakończył się niepowodzeniem.  
 
 Możesz chcieć, aby dziecko uruchomiło inną konfigurację przebiegu niż uruchomienie nadrzędne. Na przykład można użyć mniej zaawansowanej konfiguracji opartej na procesorach CPU dla elementu nadrzędnego, a jednocześnie używać konfiguracji opartych na procesorze GPU dla elementów podrzędnych. Innym typowym pragnieniem jest przekazanie każdego elementu podrzędnego różnych argumentów i danych. Aby dostosować uruchomienie podrzędne, Utwórz `ScriptRunConfig` obiekt dla uruchomienia podrzędnego. Poniższy kod wykonuje następujące czynności:
 

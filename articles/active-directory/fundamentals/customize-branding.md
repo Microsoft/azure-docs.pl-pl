@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996665"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008778"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
 Użyj logo organizacji i niestandardowych schematów kolorów, aby zapewnić spójny wygląd i działanie na stronach logowania Azure Active Directory (Azure AD). Strony logowania są wyświetlane, gdy użytkownicy logują się do aplikacji sieci Web w organizacji, takich jak Microsoft 365, które korzystają z usługi Azure AD jako dostawcy tożsamości.
@@ -58,7 +58,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
         - **Logo transparentu.** Wybierz plik PNG lub jpg logo do wyświetlania na stronie logowania, gdy użytkownik wprowadzi nazwę użytkownika i na stronie portalu **Moje aplikacje** .
             
-            Rozmiar obrazu nie może być większy niż 60 pikseli lub większy niż 280 pikseli. Zalecamy używanie przezroczystego obrazu, ponieważ tło może nie być zgodne z tłem logo. Zalecamy również, aby nie dodawać dopełnienia obrazu lub spowodować, że logo jest nieco małe.
+            Rozmiar obrazu nie może przekraczać 60 pikseli lub większy niż 280 pikseli, a plik nie powinien być większy niż 10 KB. Zalecamy używanie przezroczystego obrazu, ponieważ tło może nie być zgodne z tłem logo. Zalecamy również, aby nie dodawać dopełnienia obrazu lub spowodować, że logo jest nieco małe. 
 
         - **Wskazówka nazwy użytkownika.** Wpisz tekst wskazówki, który pojawia się dla użytkowników w przypadku zapomnienia ich nazwy użytkownika. Ten tekst musi być w formacie Unicode, bez linków lub kodu i nie może przekraczać 64 znaków. Jeśli Goście logują się do aplikacji, sugerujemy, aby nie dodawać tej wskazówki.
 

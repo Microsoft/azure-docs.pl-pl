@@ -312,6 +312,8 @@
           href: search-query-create.md
         - name: Tworzenie zapytania semantycznego
           href: semantic-how-to-query-request.md
+        - name: Zwróć odpowiedź semantyczną
+          href: semantic-answers.md
         - name: Dodawanie sprawdzania pisowni do zapytań
           href: speller-how-to-add.md
         - name: Typy i kompozycja zapytań
@@ -330,6 +332,8 @@
               href: index-add-suggesters.md
             - name: Dodawanie autouzupełniania i sugestii
               href: search-autocomplete-tutorial.md
+        - name: Stronicowanie i zliczenia
+          href: search-pagination-page-layout.md
         - name: Dokumentacja składni
           items:
             - name: Prosta składnia zapytań
@@ -352,16 +356,14 @@
           href: search-query-understand-collection-filters.md
         - name: Filtrowanie według języka
           href: search-filters-language.md
-    - name: Wyniki
+    - name: Trafność
       items:
-        - name: Praca z wynikami
-          href: search-pagination-page-layout.md
-        - name: Struktura odpowiedzi semantycznej
-          href: semantic-how-to-query-response.md
+        - name: Klasyfikacja podobieństwa
+          href: index-ranking-similarity.md
+        - name: Klasyfikacja semantyczna
+          href: semantic-ranking.md
         - name: Profile oceniania
           href: index-add-scoring-profiles.md
-        - name: Algorytm podobieństwa
-          href: index-ranking-similarity.md
     - name: Zabezpieczenia
       items:
         - name: Szyfrowanie danych

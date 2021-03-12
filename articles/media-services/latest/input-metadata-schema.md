@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360058"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634689"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
 
@@ -39,9 +39,7 @@ Przykład schematu JSON można znaleźć na końcu tego artykułu.
 Zawiera kolekcję elementów AssetFile dla zadania kodowania.  
 
 > [!NOTE]
-> Następujące cztery elementy podrzędne muszą występować w sekwencji.  
-> 
-> 
+> Następujące cztery elementy podrzędne muszą występować w sekwencji.
 
 | Nazwa  | Opis |
 | --- | --- | 
@@ -67,12 +65,12 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 
 | Nazwa | Opis |
 | --- | --- |
-| **FourCC**<br />Wymagane |Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.<br /><br />Przykład: `"FourCC": "avc1"` |
+| **FourCC**<br />Wymagane |Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.<br /><br />Przykład: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **Profil** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
 | **Poziomie** |Poziom ścieżki wideo. <br /><br />Przykład: `"Level": "3.2"`|
 | **PixelFormat** |Format piksela ścieżki wideo. <br /><br />Przykład: `"PixelFormat": "yuv420p"`|
 | **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
-| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
+| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Wymagane |Licznik współczynnik proporcji wyświetlania wideo.<br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo. <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Przykładowy współczynnik proporcji filmu wideo. <br /><br />Przykład: `"SampleAspectRatioNumerator": 1.0`|
@@ -82,9 +80,9 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 | **HasBFrames** |Numer ścieżki wideo klatek B. <br /><br />Przykład: `"HasBFrames": 2`|
 | **Metadane** |Ogólne ciągi klucz/wartość, których można użyć do przechowywania różnych informacji. <br />Zobacz pełny przykład na końcu artykułu. |
 | **#C1**<br />Wymagane |Indeks tej ścieżki audio lub wideo liczony od zera.<br /><br /> Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. <br /><br />Przykład: `"Id": 2`|
-| **Wymaga** |Ciąg kodera-dekoder śledzenia wideo. <br /><br />Przykład: `"Codec": "h264"`|
+| **Wymaga** |Ciąg kodera-dekoder śledzenia wideo. <br /><br />Przykład: `"Codec": "h264 | hev1"`|
 | **CodecLongName** |Długa nazwa kodera-dekoder dla ścieżki audio lub wideo. <br /><br />Przykład: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
-| **Wymaga** |Ciąg kodera-dekoder śledzenia wideo. <br /><br />Przykład: `"Codec": "h264"`|
+| **Wymaga** |Ciąg kodera-dekoder śledzenia wideo. <br /><br />Przykład: `"Codec": "h264 | hev1"`|
 | **Ujemną**<br />Wymagane |Podstawa czasu.<br /><br />Przykład: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Liczba ramek (obecnych dla ścieżek wideo). <br /><br />Przykład: `"NumberOfFrames": 2107`|
 | **Rozpoczęcia** |Godzina rozpoczęcia śledzenia.<br /><br />Przykład: `"StartTime": "PT0.033S"` |
