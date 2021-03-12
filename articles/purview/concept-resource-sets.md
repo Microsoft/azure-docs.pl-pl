@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387856"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200812"
 ---
 # <a name="understanding-resource-sets"></a>Informacje o zestawach zasobów
 
@@ -21,7 +21,7 @@ Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure kontrolą korzysta 
 
 Systemy przetwarzania danych w skali zwykle przechowują pojedynczą tabelę na dysku jako wiele plików. Pojęcie to jest reprezentowane w usłudze Azure kontrolą za pomocą zestawów zasobów. Zestaw zasobów jest pojedynczym obiektem w katalogu, który reprezentuje dużą liczbę zasobów w magazynie.
 
-Załóżmy na przykład, że klaster Spark spowodował trwałą ramkę danych w ADLS (Azure Data Lake Storage) Gen2. Chociaż w platformie Spark, tabela wygląda jak pojedynczy zasób logiczny, na dysku prawdopodobnie tysiące plików Parquet, z których każdy reprezentuje partycję całkowitej zawartości ramki danych. Dane dotyczące danych IoT i dzienników sieci Web są takie same. Wyobraź sobie, że masz czujnik, który wyprowadza pliki dzienników kilka razy na sekundę. Nie zajmie to nawet setek tysięcy plików dziennika z tego samego czujnika.
+Załóżmy na przykład, że klaster Spark utrwalono ramkę danych w Azure Data Lake Storage (ADLS) Gen2 źródło. Chociaż w platformie Spark, tabela wygląda jak pojedynczy zasób logiczny, na dysku prawdopodobnie tysiące plików Parquet, z których każdy reprezentuje partycję całkowitej zawartości ramki danych. Dane dotyczące danych IoT i dzienników sieci Web są takie same. Wyobraź sobie, że masz czujnik, który wyprowadza pliki dzienników kilka razy na sekundę. Nie zajmie to nawet setek tysięcy plików dziennika z tego samego czujnika.
 
 Aby rozwiązać problem związany z mapowaniem dużej liczby zasobów danych do pojedynczego zasobu logicznego, usługa Azure kontrolą używa zestawów zasobów.
 

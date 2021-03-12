@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7080f79ca85a401ddcd3d421bb4a0292994508dd
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439633"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636678"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -36,6 +36,7 @@ Aktualizacje w marcu obejmują:
 - [Azure Monitor skoroszyty zintegrowane z Security Center i trzema udostępnionymi szablonami](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Pulpit nawigacyjny zgodności z przepisami zawiera teraz raporty inspekcji platformy Azure (wersja zapoznawcza)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
 - [Aktualizacje zasad wdrażania automatyzacji przepływu pracy](#updates-to-the-policies-for-deploying-workflow-automation)
+- [Dwa starsze zalecenia nie zapisują już danych bezpośrednio w dzienniku aktywności platformy Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Zarządzanie zaporą platformy Azure zintegrowane z usługą Security Center
@@ -113,6 +114,19 @@ Istnieją dwie aktualizacje funkcji tych zasad:
 Wprowadzenie do [szablonów automatyzacji przepływu pracy](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
 Dowiedz się więcej o [automatyzowaniu odpowiedzi na wyzwalacze Security Center](workflow-automation.md).
+
+
+### <a name="two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log"></a>Dwa starsze zalecenia nie zapisują już danych bezpośrednio w dzienniku aktywności platformy Azure 
+
+Security Center przekazuje dane dla niemal wszystkich zaleceń dotyczących zabezpieczeń, aby Azure Advisor, które z kolei zapisują je do [dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md).
+
+W przypadku dwóch zaleceń dane są zapisywane równocześnie bezpośrednio w dzienniku aktywności platformy Azure. W przypadku tej zmiany Security Center przestaje zapisywać dane dla tych starszych zaleceń dotyczących zabezpieczeń bezpośrednio do dziennika aktywności. Zamiast tego eksportujemy dane do Azure Advisor tak jak w przypadku wszystkich innych zaleceń.
+
+Istnieją dwa starsze zalecenia:
+- Na maszynach należy rozwiązać problemy dotyczące kondycji programu Endpoint Protection
+- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
+
+Jeśli uzyskano dostęp do informacji na temat tych dwóch zaleceń w kategorii "zalecenia dotyczące typu TaskDiscovery", to nie jest już dostępne.
 
 
 

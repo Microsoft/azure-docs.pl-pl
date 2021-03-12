@@ -1,7 +1,7 @@
 ---
 title: Schemat Media Encoder Standard | Microsoft Docs
 description: W tym artykule opisano niektóre elementy i typy schematu XML, na których bazują ustawienia wstępne Media Encoder Standard.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261516"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015662"
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat usługi Media Encoder Standard
 
@@ -64,7 +64,7 @@ Zawiera sekwencję następujących elementów:
 | **TwoPass**<br/><br/> minOccurs = "0" |**XS: wartość logiczna** |Obecnie obsługiwane jest tylko kodowanie jednokrotne. |
 | **KeyFrameInterval**<br/><br/> minOccurs = "0"<br/><br/> **wartość domyślna = "00:00:02"** |**XS: godzina** |Określa stałe odstępy między ramkami IDR w jednostkach sekund. Określany również jako czas trwania grupę GOP. Zobacz **SceneChangeDetection** , aby kontrolować, czy koder może odbiegać od tej wartości. |
 | **SceneChangeDetection**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "false" |**XS: wartość logiczna** |W przypadku ustawienia wartości true koder próbuje wykryć zmiany sceny w wideo i wstawia ramkę IDR. |
-| **Stopień**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "Zrównoważona" |**XS: ciąg** |Steruje handlem między szybkością kodowania a jakością wideo. Może to być jedna z następujących wartości: **szybkość**, **zrównoważona**lub **jakość**<br/><br/> Domyślne: **zrównoważone** |
+| **Stopień**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "Zrównoważona" |**XS: ciąg** |Steruje handlem między szybkością kodowania a jakością wideo. Może to być jedna z następujących wartości: **szybkość**, **zrównoważona** lub **jakość**<br/><br/> Domyślne: **zrównoważone** |
 | **Syncmode**<br/><br/> minOccurs = "0" | |Funkcja zostanie udostępniona w przyszłej wersji. |
 | **H264Layers**<br/><br/> minOccurs = "0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Kolekcja wyjściowych warstw wideo. |
 
@@ -99,8 +99,8 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | **Multimedia**<br/><br/> minOccurs = "0" |**XS: int** |Szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Maksymalna szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "00:00:05" |**XS: godzina** |Długość buforu wideo. |
-| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
 | **BFrames**<br/><br/> minOccurs = "0" |**XS: int** |Liczba klatek między ramkami referencyjnymi. |
 | **ReferenceFrames**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "3" |**XS: int** |Liczba ramek odwołań w grupę GOP. |
 | **Entropia**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "CABAC" |**XS: ciąg** |Może to być jedna z następujących wartości: **CABAC** i **Cavlc**. |
@@ -117,7 +117,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1**lub **HEAACV2**. |
+| **Profil**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1** lub **HEAACV2**. |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -127,7 +127,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 ### <a name="groups"></a>Grupy
 
-| Tematy pomocy | Opis |
+| Dokumentacja | Opis |
 | --- | --- |
 | [Audio](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis obiektu [audio](media-services-mes-schema.md#AudioGroup) , aby poznać odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
 
@@ -217,8 +217,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -231,8 +231,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -245,8 +245,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 | **Jakość**<br/><br/> minOccurs = "0" |**XS: int** |Prawidłowe wartości: 1 (najgorszy) — 100 (Najlepsza) |
 
 ### <a name="attributes"></a>Atrybuty
@@ -303,6 +303,6 @@ Zobacz przykłady ustawień wstępnych XML, które są tworzone w oparciu o ten 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

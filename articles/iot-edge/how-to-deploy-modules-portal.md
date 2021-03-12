@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048036"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200316"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Wdróż moduły Azure IoT Edge z Azure Portal
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Po utworzeniu modułów IoT Edge za pomocą logiki biznesowej należy wdrożyć je na urządzeniach, aby działały na brzegu. Jeśli masz wiele modułów, które współpracują ze sobą w celu zbierania i przetwarzania danych, możesz wdrożyć je wszystkie jednocześnie i zadeklarować reguły routingu, które je łączą.
 
@@ -32,7 +34,7 @@ W tym artykule pokazano, jak Azure Portal prowadzi użytkownika przez proces two
 
 Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Aby uzyskać więcej informacji na temat działania manifestów wdrożenia i sposobu ich tworzenia, zobacz [Opis sposobu używania, konfigurowania i ponownego użycia modułów IoT Edge](module-composition.md).
 
-Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON. Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
+Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON. Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras** i **przeglądanie wdrożenia**.
 
 >[!NOTE]
 >Kroki opisane w tym artykule odzwierciedlają najnowszą wersję schematu IoT Edge agenta i centrum. Wersja schematu 1,1 została wydana wraz z IoT Edge wersja 1.0.10 i włącza funkcje kolejności uruchamiania modułu i określania priorytetów trasy.
@@ -105,7 +107,7 @@ Sprawdź, czy moduł został wdrożony w IoT Hub w Azure Portal. Wybierz urządz
 Możesz szybko wdrożyć moduł z portalu Azure Marketplace na urządzeniu w IoT Hub w Azure Portal.
 
 1. W Azure Portal przejdź do IoT Hub.
-1. W okienku po lewej stronie w obszarze **Automatyczne zarządzanie urządzeniami**wybierz pozycję **IoT Edge**.
+1. W okienku po lewej stronie w obszarze **Automatyczne zarządzanie urządzeniami** wybierz pozycję **IoT Edge**.
 1. Wybierz urządzenie IoT Edge, na którym ma zostać odebrane wdrożenie.
 1. Na górnym pasku wybierz pozycję **Ustaw moduły**.
 1. W sekcji **IoT Edge modułów** kliknij pozycję **Dodaj**, a następnie wybierz pozycję **moduł Marketplace** z menu rozwijanego.

@@ -475,8 +475,6 @@
           items:
             - name: Zarządzanie alertami metryk
               href: alerts/alerts-metric.md
-            - name: Dostępność
-              href: app/monitor-web-app-availability.md
             - name: Używanie progów dynamicznych
               href: alerts/alerts-dynamic-thresholds.md
             - name: Pojedyncze alerty dla wielu szeregów czasowych

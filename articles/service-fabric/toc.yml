@@ -106,8 +106,6 @@
           href: service-fabric-tutorial-standalone-clean-up.md
 - name: Najlepsze rozwiązania
   items:
-    - name: Omówienie najlepszych rozwiązań usługi Service Fabric
-      href: service-fabric-best-practices-overview.md
     - name: Zabezpieczenia
       href: service-fabric-best-practices-security.md
     - name: Networking

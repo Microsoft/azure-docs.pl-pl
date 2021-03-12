@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee9b38343176eec82d8e227e86faa97814f5be13
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712185"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616540"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -65,7 +65,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 |Usługa Azure Service Bus | Cały region publiczny<br/>Wszystkie regiony rządowe  | Obsługiwane w warstwie Premium Azure Service Bus. [Wybierz dla warstw](../service-bus-messaging/service-bus-premium-messaging.md) | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Service Bus.](../service-bus-messaging/private-link-service.md)    |
 |Azure Relay | Wszystkie regiony publiczne      |  | Wersja zapoznawcza <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Event Grid| Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe       |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Event Grid.](../event-grid/network-security.md) |
-|Aplikacje internetowe platformy Azure | Wszystkie regiony publiczne      | Obsługiwane z planem Premium PremiumV2, PremiumV3 lub Function  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Web Apps platformy Azure.](./tutorial-private-endpoint-webapp-portal.md)   |
+|Aplikacje internetowe platformy Azure | Wszystkie regiony publiczne<br/> Chiny Północne 2 & wschód 2    | Obsługiwane z planem Premium PremiumV2, PremiumV3 lub Function  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Web Apps platformy Azure.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 | Azure Automation  | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe |  | Wersja zapoznawcza </br> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla IoT Hub platformy Azure.](../iot-hub/virtual-network-support.md) |

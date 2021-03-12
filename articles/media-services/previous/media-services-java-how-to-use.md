@@ -3,7 +3,7 @@ title: Rozpoczynanie korzystania z zestawu SDK Java dla usług Azure Media Servi
 description: W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu języka Java.
 services: media-services
 documentationcenter: java
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-java
-ms.openlocfilehash: f05b78c777fdfa633e07bc03266c862f9e85ee0c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5fa9f1eb4c9468c5cabaab6ee0430f165f339ed6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695725"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014914"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services
 

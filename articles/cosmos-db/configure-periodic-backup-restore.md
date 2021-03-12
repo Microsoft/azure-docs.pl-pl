@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527530"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565839"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Skonfiguruj konto Azure Cosmos DB przy użyciu okresowej kopii zapasowej
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB automatycznie pobiera kopie zapasowe danych w regularnych odstępach czasu. Automatyczne kopie zapasowe są wykonywane bez wpływu na wydajność ani dostępność operacji bazy danych. Wszystkie kopie zapasowe są przechowywane oddzielnie w usłudze magazynu, a te kopie zapasowe są replikowane globalnie w celu odporności na awarie regionalne. W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasowe danych są wysoce nadmiarowe i odporne na awarie regionalne. Poniższe kroki pokazują, jak Azure Cosmos DB wykonuje kopię zapasową danych:
+Usługa Azure Cosmos DB automatycznie tworzy kopie zapasowe danych w regularnych odstępach czasu. Automatyczne kopie zapasowe są wykonywane bez wpływu na wydajność i dostępność operacji bazy danych. Wszystkie kopie zapasowe są przechowywane oddzielnie w usłudze magazynu, a te kopie zapasowe są replikowane globalnie w celu odporności na awarie regionalne. W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasowe danych są wysoce nadmiarowe i odporne na awarie regionalne. Poniższe kroki pokazują, jak Azure Cosmos DB wykonuje kopię zapasową danych:
 
 * Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową bazy danych co 4 godziny i w dowolnym momencie, domyślnie są przechowywane tylko najnowsze kopie zapasowe. Jeśli domyślne interwały nie są wystarczające dla obciążeń, można zmienić interwał tworzenia kopii zapasowych i okres przechowywania z Azure Portal. Konfigurację kopii zapasowej można zmienić podczas tworzenia konta usługi Azure Cosmos lub po nim. W przypadku usunięcia kontenera lub bazy danych Azure Cosmos DB zachowywania istniejących migawek danego kontenera lub bazy danych przez 30 dni.
 
@@ -33,7 +33,7 @@ Azure Cosmos DB automatycznie pobiera kopie zapasowe danych w regularnych odstę
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modyfikowanie interwału i okresu przechowywania kopii zapasowych
 
-Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Można zmienić domyślny interwał tworzenia kopii zapasowych i okres przechowywania podczas tworzenia konta usługi Azure Cosmos lub po utworzeniu konta. Konfiguracja kopii zapasowej jest ustawiana z poziomu konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie opcje tworzenia kopii zapasowej można zmienić tylko w witrynie Azure Portal.
+Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Domyślny interwał tworzenia kopii zapasowej i okres przechowywania można zmienić podczas tworzenia konta usługi Azure Cosmos lub po jego utworzeniu. Konfiguracja kopii zapasowej jest ustawiana z poziomu konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie opcje tworzenia kopii zapasowej można zmienić tylko w witrynie Azure Portal.
 
 Jeśli dane zostały przypadkowo usunięte lub uszkodzone, **przed utworzeniem żądania obsługi w celu przywrócenia danych należy zwiększyć czas przechowywania kopii zapasowej dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od tego zdarzenia.** Dzięki temu zespół Azure Cosmos DB ma wystarczająco dużo czasu na przywrócenie konta.
 
@@ -115,7 +115,7 @@ Jeśli zainicjujesz przepływność na poziomie bazy danych, proces tworzenia ko
 Podmioty zabezpieczeń będące częścią roli [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), Owner lub współautor mogą żądać przywrócenia lub zmienić okres przechowywania.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Informacje o kosztach dodatkowych kopii zapasowych
-Dwa kopie zapasowe są udostępniane bezpłatnie, a dodatkowe kopie zapasowe są naliczone zgodnie z cennikiem opartym na regionie dla magazynu kopii zapasowych opisanym w [cenniku usługi Backup Storage](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Na przykład jeśli przechowywanie kopii zapasowych jest skonfigurowane na 240 godz., 10 dni i interwał tworzenia kopii zapasowej do 24 godzin. To oznacza 10 kopii kopii zapasowych danych. Zakładając, że 1 TB danych w regionie zachodnie stany USA 2, 1000 * 0,12 ~ $120 dla magazynu kopii zapasowych w danym miesiącu. 
+Dwa kopie zapasowe są udostępniane bezpłatnie, a dodatkowe kopie zapasowe są naliczone zgodnie z cennikiem opartym na regionie dla magazynu kopii zapasowych opisanym w [cenniku usługi Backup Storage](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Na przykład jeśli przechowywanie kopii zapasowych jest skonfigurowane na 240 godz., 10 dni i interwał tworzenia kopii zapasowej do 24 godzin. To oznacza 10 kopii kopii zapasowych danych. Przy założeniu, że 1 TB danych w regionie zachodnie stany USA 2, koszt będzie wynosił 0,12 * 1000 * 8 dla magazynu kopii zapasowych w danym miesiącu. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi

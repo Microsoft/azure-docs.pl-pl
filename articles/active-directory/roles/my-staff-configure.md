@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z mojego personelu do delegowania zarządzania użytkownikami (wersja zapoznawcza) — Azure AD | Microsoft Docs
+title: Korzystanie z mojego personelu do delegowania zarządzania użytkownikami — Azure AD | Microsoft Docs
 description: Delegowanie zarządzania użytkownikami przy użyciu funkcji mój personel i jednostki administracyjne
 services: active-directory
 documentationcenter: ''
@@ -9,28 +9,26 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 1a380c8a3d766c3c11d8cba1148383d924f65a1b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090947"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225000"
 ---
-# <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
+# <a name="manage-your-users-with-my-staff"></a>Zarządzanie użytkownikami za pomocą mojego personelu
 
-Moi pracownicy umożliwiają delegowanie do zespołu ds. usług, takich jak kierownik sklepu lub potencjalny klient, uprawnienia do zapewnienia, że ich członkowie będą mieli dostęp do swoich kont usługi Azure AD. Zamiast polegać na centralnej pomocy technicznej, organizacje mogą delegować typowe zadania, takie jak resetowanie haseł lub zmienianie numerów telefonów z menedżerem zespołu. W przypadku mojego personelu użytkownik, który nie może uzyskać dostępu do swojego konta, może odzyskać dostęp tylko w kilku kliknięciach, bez pomocy technicznej lub personelu działu IT.
+Moi pracownicy umożliwiają delegowanie uprawnień do zespołu ds. usług, takich jak Menedżer sklepu lub potencjalny klient, aby mieć pewność, że członkowie personelu będą mogli uzyskać dostęp do swoich kont usługi Azure AD. Zamiast polegać na centralnej pomocy technicznej, organizacje mogą delegować typowe zadania, takie jak resetowanie haseł lub zmiana numerów telefonów w lokalnym programie Team Manager. W przypadku mojego personelu użytkownik, który nie może uzyskać dostępu do swojego konta, może odzyskać dostęp tylko w kilku kliknięciach, bez pomocy technicznej lub personelu działu IT.
 
-Przed skonfigurowaniem personelu dla organizacji zalecamy zapoznanie się z tą dokumentacją oraz [dokumentację dotyczącą użytkowników](../user-help/my-staff-team-manager.md) , aby poznać funkcje i wpływ tej funkcji na użytkowników. Można wykorzystać dokumentację użytkownika do uczenia i przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
-
-Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure
+Przed skonfigurowaniem pracowników w organizacji zalecamy zapoznanie się z tą dokumentacją oraz [dokumentację dotyczącą użytkownika](../user-help/my-staff-team-manager.md) , aby zrozumieć, jak to działa i jak ma to wpływ na użytkowników. Można wykorzystać dokumentację użytkownika do uczenia i przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
 
 ## <a name="how-my-staff-works"></a>Jak działa mój personel
 
-Mój personel jest oparty na jednostkach administracyjnych (Australia), które są kontenerami zasobów, których można użyć do ograniczenia zakresu kontroli administracyjnej przypisania roli. W obszarze mój personel należy określić podzbiór użytkowników organizacji, takich jak sklep lub dział. Następnie na przykład menedżer zespołu może zostać przypisany do roli, której zakres jest jeden lub więcej. W poniższym przykładzie użytkownikowi została udzielona rola administracyjna uwierzytelniania, a trzecia jest zakresem roli. Aby uzyskać więcej informacji o jednostkach administracyjnych, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory](administrative-units.md).
+Mój personel jest oparty na jednostkach administracyjnych, które są kontenerami zasobów, których można użyć do ograniczenia zakresu kontroli administracyjnej przypisania roli. Aby uzyskać więcej informacji, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory](administrative-units.md). W obszarze mój personel jednostki administracyjne mogą zawierać grupę użytkowników w sklepie lub dziale. Menedżer zespołów można następnie przypisać do roli administracyjnej w zakresie jednej lub większej liczby jednostek.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -51,7 +49,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="how-to-enable-my-staff"></a>Jak włączyć personel
 
-Po skonfigurowaniu określania zespołu, możesz zastosować ten zakres do użytkowników, którzy uzyskują dostęp do mojego personelu. Tylko użytkownicy, którym przypisano rolę administracyjną, mogą uzyskać dostęp do mojego personelu. Aby włączyć personel, wykonaj następujące czynności:
+Po skonfigurowaniu jednostek administracyjnych możesz zastosować ten zakres do użytkowników, którzy uzyskują dostęp do mojego personelu. Tylko użytkownicy, którym przypisano rolę administracyjną, mogą uzyskać dostęp do mojego personelu. Aby włączyć personel, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal jako administrator użytkownika.
 2. Przejdź do **Azure Active Directory**  >  **Ustawienia użytkownika** wersje  >    >  **zapoznawcze funkcji użytkownika Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
@@ -64,40 +62,37 @@ Po skonfigurowaniu określania zespołu, możesz zastosować ten zakres do użyt
 
 Portal mojego personelu można chronić za pomocą zasad dostępu warunkowego usługi Azure AD. Użyj jej do zadań, takich jak wymaganie uwierzytelniania wieloskładnikowego przed uzyskaniem dostępu do mojego personelu.
 
-Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu warunkowego usługi Azure AD](../conditional-access/index.yml). Aby zastosować zasady dostępu warunkowego do mojego personelu, musisz ręcznie utworzyć główną nazwę usługi Personaler przy użyciu programu PowerShell.
+Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu warunkowego usługi Azure AD](../conditional-access/index.yml). Aby zastosować zasady dostępu warunkowego do mojego personelu, należy najpierw odwiedzić witrynę My Personal, aby automatycznie zainicjować obsługę administracyjną jednostki usługi w dzierżawie do użycia przez dostęp warunkowy.
 
-### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Zastosuj zasady dostępu warunkowego do mojego personelu
+Podczas tworzenia zasad dostępu warunkowego, które mają zastosowanie do aplikacji w chmurze my personel, zostanie wyświetlona nazwa główna usługi.
 
-1. Zainstaluj [polecenia cmdlet programu PowerShell w programie Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
-1. Uruchom następujące polecenia:
-
-   ```powershell
-   Connect-Graph -Scopes "Directory.AccessAsUser.All"
-   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-   ```
-1. Utwórz zasady dostępu warunkowego, które mają zastosowanie do aplikacji w chmurze my-personel.
-
-    ![Tworzenie zasad dostępu warunkowego dla aplikacji My Personal](./media/my-staff-configure/conditional-access.png)
+![Tworzenie zasad dostępu warunkowego dla aplikacji My Personal](./media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>Korzystanie z mojego personelu
 
-Gdy użytkownik przechodzi do mojego pracownika, są wyświetlane nazwy [jednostek administracyjnych](administrative-units.md) , do których mają uprawnienia administracyjne. W [dokumentacji użytkownika mojego personelu](../user-help/my-staff-team-manager.md)do odwoływania się do jednostek administracyjnych używamy terminu "lokalizacja". Jeśli uprawnienia administratora nie mają zakresu funkcji AU, uprawnienia są stosowane w całej organizacji. Po włączeniu mojego pracownika użytkownicy, którzy zostali włączeni i mają przypisaną rolę administracyjną, mogą uzyskać do niej dostęp [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Można wybrać pozycję "Uruchom", aby wyświetlić użytkowników w tej funkcji, i wybrać użytkownika, aby otworzyć swój profil.
+Gdy użytkownik przechodzi do mojego pracownika, są wyświetlane nazwy [jednostek administracyjnych](administrative-units.md) , do których mają uprawnienia administracyjne. W [dokumentacji użytkownika mojego personelu](../user-help/my-staff-team-manager.md)do odwoływania się do jednostek administracyjnych używamy terminu "lokalizacja". Jeśli uprawnienia administratora nie mają zakresu jednostki administracyjnej, uprawnienia są stosowane w całej organizacji. Po włączeniu mojego pracownika użytkownicy, którzy zostali włączeni i mają przypisaną rolę administracyjną, mogą uzyskać do niej dostęp [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Mogą wybrać jednostkę administracyjną, aby wyświetlić użytkowników w tej jednostce, a następnie wybrać użytkownika, aby otworzyć swój profil.
 
 ## <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
 
+Aby hasła były przechowywane dla użytkowników lokalnych, należy spełnić następujące warunki wstępne. Aby uzyskać szczegółowe instrukcje, zobacz artykuł Włączanie samoobsługowego [resetowania hasła](../authentication/tutorial-enable-sspr-writeback.md) .
+
+* Konfigurowanie uprawnień do zapisywania zwrotnego haseł
+* Włącz funkcję zapisywania zwrotnego haseł w Azure AD Connect
+* Włącz funkcję zapisywania zwrotnego haseł w funkcji samoobsługowego resetowania hasła w usłudze Azure AD (SSPR)
+
 Następujące role mają uprawnienia do resetowania hasła użytkownika:
 
-- [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
-- [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
-- [Administrator globalny](permissions-reference.md#global-administrator)
-- [Administrator pomocy technicznej](permissions-reference.md#helpdesk-administrator)
-- [Administrator użytkowników](permissions-reference.md#user-administrator)
-- [Administrator haseł](permissions-reference.md#password-administrator)
+* [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
+* [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
+* [Administrator globalny](permissions-reference.md#global-administrator)
+* [Administrator pomocy technicznej](permissions-reference.md#helpdesk-administrator)
+* [Administrator użytkowników](permissions-reference.md#user-administrator)
+* [Administrator haseł](permissions-reference.md#password-administrator)
 
 W obszarze **mój personel** Otwórz profil użytkownika. Wybierz pozycję **Resetuj hasło**.
 
-- Jeśli użytkownik jest tylko w chmurze, można wyświetlić hasło tymczasowe, które można nadać użytkownikowi.
-- Jeśli użytkownik jest synchronizowany z Active Directory lokalnego, można wprowadzić hasło spełniające Twoje lokalne zasady usługi AD. Następnie możesz nadać temu użytkownikowi hasło.
+* Jeśli użytkownik jest tylko w chmurze, można wyświetlić hasło tymczasowe, które można nadać użytkownikowi.
+* Jeśli użytkownik jest synchronizowany z Active Directory lokalnego, można wprowadzić hasło spełniające Twoje lokalne zasady usługi AD. Następnie możesz nadać temu użytkownikowi hasło.
 
     ![Wskaźnik postępu resetowania hasła i powiadomienia o powodzeniu](./media/my-staff-configure/reset-password.png)
 
@@ -107,23 +102,23 @@ Użytkownik musi zmienić hasło przy następnym logowaniu.
 
 W obszarze **mój personel** Otwórz profil użytkownika.
 
-- Wybierz sekcję **Dodawanie numeru telefonu** , aby dodać numer telefonu użytkownika
-- Wybierz pozycję **Edytuj numer telefonu** , aby zmienić numer telefonu
-- Wybierz pozycję **Usuń numer telefonu** , aby usunąć numer telefonu użytkownika
+* Wybierz sekcję **Dodawanie numeru telefonu** , aby dodać numer telefonu użytkownika
+* Wybierz pozycję **Edytuj numer telefonu** , aby zmienić numer telefonu
+* Wybierz pozycję **Usuń numer telefonu** , aby usunąć numer telefonu użytkownika
 
 W zależności od ustawień użytkownik może następnie użyć numeru telefonu skonfigurowanego do logowania za pomocą wiadomości SMS, przeprowadzenia uwierzytelniania wieloskładnikowego i przeprowadzenia samoobsługowego resetowania hasła.
 
 Aby zarządzać numerem telefonu użytkownika, należy przypisać jedną z następujących ról:
 
-- [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
-- [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
-- [Administrator globalny](permissions-reference.md#global-administrator)
+* [Administrator uwierzytelniania](permissions-reference.md#authentication-administrator)
+* [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
+* [Administrator globalny](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>Wyszukaj
 
-Na pasku wyszukiwania w obszarze Moi pracownicy można wyszukiwać w swojej organizacji jednostki organizacyjne i użytkowników. Możesz przeszukiwać wszystkich jednostek i użytkowników w organizacji, ale możesz wprowadzać zmiany tylko dla użytkowników, którzy znajdują się w usłudze AU, w której masz uprawnienia administratora.
+Możesz wyszukiwać jednostki administracyjne i użytkowników w organizacji za pomocą paska wyszukiwania w obszarze mój personel. Możesz przeszukiwać wszystkie jednostki administracyjne i użytkowników w organizacji, ale możesz wprowadzać zmiany tylko dla użytkowników, którzy znajdują się w jednostce administracyjnej, w której masz uprawnienia administratora.
 
-Możesz również wyszukać użytkownika w ramach funkcji aktualizacji automatycznych. Aby to zrobić, użyj paska wyszukiwania w górnej części listy użytkowników.
+Możesz również wyszukać użytkownika w jednostce administracyjnej. Aby to zrobić, użyj paska wyszukiwania w górnej części listy użytkowników.
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 

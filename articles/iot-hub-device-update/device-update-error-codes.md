@@ -1,17 +1,17 @@
 ---
 title: Kody błędów klienta dla aktualizacji urządzenia dla platformy Azure IoT Hub | Microsoft Docs
 description: Ten dokument zawiera tabelę kodów błędów klienta dla różnych składników aktualizacji urządzeń.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5251d0cb09e40305d1efd89c31d3af0fa36ad385
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663649"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200338"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>Aktualizacja urządzenia dla IoT Hub kodów błędów
 
@@ -59,26 +59,19 @@ Reprezentacja szesnastkowa bez znaku `-536870781` is ma wartość `FFFFFFFF E000
 ## <a name="delivery-optimization-agent"></a>Agent optymalizacji dostarczania
 Poniższa tabela zawiera listę kodów błędów odnoszących się do składnika optymalizacji dostarczania (DO) klienta aktualizacji urządzenia. Składnik do jest odpowiedzialny za pobieranie zawartości aktualizacji na urządzenie IoT.
 
-Kod błędu DO można uzyskać, sprawdzając wyjątki zgłoszone w odpowiedzi na wywołanie interfejsu API.
+Kod błędu DO można uzyskać, sprawdzając wyjątki zgłoszone w odpowiedzi na wywołanie interfejsu API. Wszystkie kody błędów można zidentyfikować za pomocą prefiksu 0x80D0.
 
 | Kod błędu  | Błąd ciągu                       | Typ                 | Opis |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | n/d                  | Optymalizacja dostarczania nie mogła zapewnić usługi |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Pobierz zadanie         | Pobieranie pliku nie podano postępu w określonym okresie |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Pobierz zadanie         | Nie znaleziono zadania |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Pobierz zadanie         | Obecnie nie istnieją żadne pobrania |
-| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Pobierz zadanie         | Zadanie nie zostało ukończone lub zostało anulowane przed osiągnięciem maksymalnego progu wieku |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Pobierz zadanie         | Metoda SetProperty () lub GetProperty () wywołana z nieznanym IDENTYFIKATORem właściwości |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Pobierz zadanie         | Nie można wywołać metody SetProperty () na właściwości tylko do odczytu |
 | 0x80D02013L | DO_E_INVALID_STATE                 | Pobierz zadanie         | Żądana akcja jest niedozwolona w bieżącym stanie zadania. Zadanie mogło zostać anulowane lub zakończone transfer. Jest to teraz w stanie tylko do odczytu. |
 | 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Pobierz zadanie         | Nie można rozpocząć pobierania, ponieważ nie określono ujścia pobierania (lokalny plik lub interfejs strumienia) |
 | 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload, interfejs| Pobieranie zostało rozpoczęte bez podawania identyfikatora URI |
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Warunki przejściowe | Pobieranie zostało wstrzymane ze względu na utratę łączności sieciowej |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | Serwer HTTP zwrócił odpowiedź o rozmiarze danych, która nie jest równa zażądanemu |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | Sprawdzanie poprawności certyfikatu serwera HTTP nie powiodło się |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | Określony zakres bajtów jest nieprawidłowy |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | Serwer nie obsługuje wymaganego protokołu HTTP. Optymalizacja dostarczania (DO) wymaga, aby serwer obsługiwał nagłówek protokołu zakresu |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | Lista zakresów bajtów zawiera nakładające się zakresy, które nie są obsługiwane. |
+
 ## <a name="device-update-content-service"></a>Aktualizacja urządzenia — usługa zawartości
 Poniższa tabela zawiera listę kodów błędów dotyczących składnika usługi zawartości usługi aktualizacji urządzenia. Składnik usługi zawartości jest odpowiedzialny za obsługę importowania zawartości aktualizacji.
 

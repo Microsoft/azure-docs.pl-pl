@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453066"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200202"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Twojego Azure Stack EDGE Pro
 
@@ -103,7 +103,7 @@ Poza domyślnym trybem w pełni połączonym urządzenie można również urucho
 
 - W **pełni połączony** — jest to normalny tryb domyślny, w którym działa urządzenie. W tym trybie jest włączone przekazywanie i pobieranie danych w chmurze. Aby zarządzać urządzeniem, można użyć Azure Portal lub lokalnego interfejsu użytkownika sieci Web.
 
-- **Częściowo Rozłączono** — w tym trybie urządzenie nie może przekazywać ani pobierać danych udostępnionych, jednak można nimi zarządzać za pośrednictwem Azure Portal.
+- **Częściowo połączone** — w tym trybie urządzenie nie może przekazywać ani pobierać danych udostępnionych, jednak można nimi zarządzać za pośrednictwem Azure Portal.
 
     Ten tryb jest zazwyczaj używany w przypadku taryfowej sieci satelitarnej i celem jest Minimalizacja użycia przepustowości sieci. W przypadku operacji monitorowania urządzeń może nadal występować minimalne zużycie sieci.
 

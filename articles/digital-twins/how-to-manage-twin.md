@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433271"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149707"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -127,13 +127,15 @@ Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` 
 }
 ```
 
-Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
-* Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
-* `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web.
-* Inne właściwości w `$metadata` sekcji. Są one następujące:
-    - DTMI modelu dwuosiowy cyfrowo.
-    - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
-    - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
+Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują następujące wartości:
+* `$dtId`: Identyfikator dwucyfrowego przędzy w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
+* `$etag`: Standardowe pole HTTP przypisane przez serwer sieci Web. Ta wartość jest aktualizowana do nowej wartości za każdym razem, gdy jest ona aktualizowana, co może być przydatne do określenia, czy dane z sznurka zostały zaktualizowane na serwerze od czasu poprzedniej kontroli. Można go również używać w nagłówkach HTTP w następujący sposób:
+  - za pomocą operacji odczytu, aby uniknąć pobierania zawartości, która nie została zmieniona
+  - przy użyciu operacji zapisu do obsługi optymistycznej współbieżności
+* `$metadata`: Zestaw innych właściwości, w tym:
+  - DTMI modelu dwuosiowy cyfrowo.
+  - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
+  - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
 
 Więcej informacji na temat klas pomocnika serializacji, takich `BasicDigitalTwin` jak [*: korzystanie z interfejsów API i zestawów SDK usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-apis-sdks.md).
 

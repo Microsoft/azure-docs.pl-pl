@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/11/2021
+ms.openlocfilehash: 4f03236176acea14bed2dfaac53b1a1e6cf7a1e2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716542"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197871"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -333,6 +333,10 @@ Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu,
 #### <a name="datasets"></a>Zestawy danych
 
 * Chociaż dostosowanie specyficzne dla typu jest dostępne dla zestawów danych, można zapewnić konfigurację bez jawnego \* konfigurowania. W poprzednim przykładzie wszystkie właściwości zestawu danych w obszarze `typeProperties` są sparametryzowane.
+
+> [!NOTE]
+> **Alerty i macierze platformy Azure**  w przypadku skonfigurowania potoku nie są obecnie obsługiwane jako parametry wdrożeń usługi ARM. Aby ponownie zastosować alerty i macierze w nowym środowisku, postępuj zgodnie z [Data Factory monitorowaniem, alertami i macierzami.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Domyślny szablon parametryzacja
 
@@ -678,6 +682,8 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 -   Nie można publikować z gałęzi prywatnych.
 
 -   Obecnie nie można hostować projektów w BitBucket.
+
+-   Obecnie nie można eksportować i importować alertów i macierzy jako parametrów. 
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Przykładowy skrypt przed wdrożeniem i po wdrożeniu
 

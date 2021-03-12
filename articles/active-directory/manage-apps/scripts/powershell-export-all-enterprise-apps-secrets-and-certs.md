@@ -11,15 +11,15 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 5c0b661f80bf7100215b25a66e5b5337af01ba75
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 20caefe74a7c047fb8690bb1d9e6f4eb9da7e9b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584503"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635199"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>Eksportuj wpisy tajne i certyfikaty dla aplikacji dla przedsiębiorstw
-Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne i certyfikaty dla określonych aplikacji przedsiębiorstwa z katalogu do pliku CSV.
+Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne, certyfikaty i właścicieli dla określonych aplikacji przedsiębiorstwa z katalogu do pliku CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,8 +36,9 @@ Możesz zmodyfikować zmienną "$Path" bezpośrednio w programie PowerShell, uż
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Pobiera aplikację z katalogu. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Pobiera właścicieli aplikacji z katalogu. |
+| [Get-AzureADServicePrincipal](/powershell/module/azuread/Get-azureADServicePrincipal?view=azureadps-2.0&preserve-view=true) | Pobiera aplikację przedsiębiorstwa z katalogu. |
+| [Get-AzureADServicePrincipalOwner](/powershell/module/azuread/Get-AzureADServicePrincipalOwner?view=azureadps-2.0&preserve-view=true) | Pobiera właścicieli aplikacji przedsiębiorstwa z katalogu. |
+
 
 ## <a name="next-steps"></a>Następne kroki
 

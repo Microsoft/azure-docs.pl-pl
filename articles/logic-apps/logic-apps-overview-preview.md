@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 03/10/2021
+ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561861"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636339"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -59,7 +59,7 @@ W poniższej tabeli krótko podsumowano różnice w sposobie, w jaki przepływy 
 | Azure Logic Apps (wiele dzierżawców) | Przepływy pracy *klientów w wielu dzierżawcach* korzystają z tego samego przetwarzania (obliczeń), magazynu, sieci i tak dalej. |
 | Azure Logic Apps (wersja zapoznawcza, jedna dzierżawa) | Przepływy pracy *w tej samej aplikacji logiki i pojedyncze dzierżawy* współużytkują to samo przetwarzanie (obliczenia), magazyn, Sieć i tak dalej. |
 | Środowisko usługi integracji (niedostępne w wersji zapoznawczej) | Przepływy pracy w *tym samym środowisku* korzystają z tego samego przetwarzania (obliczeń), magazynu, sieci i tak dalej. |
-||||
+|||
 
 W tym czasie można nadal utworzyć typ aplikacji logiki z wieloma dzierżawcami w Azure Portal i w Visual Studio Code przy użyciu rozszerzenia Azure Logic Apps z wieloma dzierżawcami. Chociaż środowiska programistyczne różnią się w zależności od typów aplikacji logiki obejmujących wiele dzierżawców i pojedynczych dzierżawców, Twoja subskrypcja platformy Azure może zawierać oba typy. Możesz wyświetlać i uzyskiwać dostęp do wszystkich wdrożonych aplikacji logiki w ramach subskrypcji platformy Azure, ale aplikacje są zorganizowane w ich własnych kategoriach i sekcjach.
 
@@ -122,7 +122,10 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 
 * Twórz aplikacje logiki i ich przepływy pracy za pośrednictwem [ponad 400 łączników](/connectors/connector-reference/connector-reference-logicapps-connectors) dla aplikacji typu "oprogramowanie jako usługa" (SaaS) i platformy jako usługi (PaaS) oraz łączników dla systemów lokalnych.
 
-  * Niektóre zarządzane łączniki, takie jak Azure Service Bus, Azure Event Hubs, SQL Server i MQ, działają podobnie jak wbudowane wyzwalacze i akcje, które są natywne dla środowiska uruchomieniowego Azure Logic Apps Preview, na przykład wyzwalacz żądania i akcja HTTP.
+  * Niektóre zarządzane łączniki są teraz dostępne jako wbudowane wersje, które działają podobnie jak wbudowane wyzwalacze i akcje, takie jak wyzwalacz żądań i akcja HTTP, które są uruchamiane natywnie w środowisku uruchomieniowym Azure Logic Apps Preview. Na przykład te nowe wbudowane łączniki obejmują Azure Service Bus, Event Hubs platformy Azure, SQL Server i MQ.
+
+    > [!NOTE]
+    > W przypadku wbudowanego łącznika SQL Server tylko Akcja **wykonaj zapytanie** może bezpośrednio łączyć się z sieciami wirtualnymi platformy Azure bez konieczności korzystania z [lokalnej bramy danych](logic-apps-gateway-connection.md).
 
   * Tworzenie własnych wbudowanych łączników dla dowolnej usługi, której potrzebujesz, za pomocą [struktury rozszerzalności wersji zapoznawczej](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Podobnie jak w przypadku wbudowanych łączników, takich jak Azure Service Bus i SQL Server, ale w przeciwieństwie do [łączników niestandardowych](../connectors/apis-list.md#custom-apis-and-connectors) , które nie są obecnie obsługiwane w wersji zapoznawczej, te łączniki zapewniają wyższą przepływność, małe opóźnienia, łączność lokalną i działają natywnie w tym samym procesie co środowisko uruchomieniowe w wersji zapoznawczej.
 

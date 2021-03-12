@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: edca5a278414288ceb3c3d13f5d49e723e0ee5c2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045993"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615928"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera szczegółowe informacje o systemach i składnikach obsług
 
 Jeśli wystąpią problemy podczas korzystania z usługi Azure IoT Edge, istnieje kilka sposobów poszukiwania pomocy technicznej. Wypróbuj jeden z następujących kanałów, aby uzyskać pomoc techniczną:
 
-**Zgłoś błędy** — większość programowania, która przechodzi do produktu Azure IoT Edge, odbywa się w IoT Edge projekcie typu open source. Usterki można zgłaszać na [stronie problemy](https://github.com/azure/iotedge/issues) projektu. Poprawki są szybko wprowadzane do projektu w programie do aktualizacji produktów.
+**Raportowanie błędów** — większość programowania, która przechodzi do produktu Azure IoT Edge, odbywa się w IoT Edge projekcie typu open source. Usterki można zgłaszać na [stronie problemy](https://github.com/azure/iotedge/issues) projektu. Usterki dotyczące Azure IoT Edge dla systemu Linux w systemie Windows można zgłosić na [stronie problemy z iotedge-eFlow](https://github.com/azure/iotedge-eflow/issues). Poprawki są szybko wprowadzane przez projekty w programie do aktualizacji produktów.
 
 **Zespół pomocy technicznej firmy Microsoft** — użytkownicy z [planem pomocy](https://azure.microsoft.com/support/plans/) technicznej mogą skontaktować się z zespołem pomocy technicznej firmy Microsoft, tworząc bilet pomocy technicznej bezpośrednio z [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9fa6a1758bc2e2a76291efc3bb239c5249a6e21e
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504937"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149345"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Skonfiguruj cele obliczeniowe dla szkolenia i wdrażania modelu
 
@@ -64,11 +64,7 @@ W przypadku korzystania z komputera lokalnego do **wnioskowania** należy zainst
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Zdalne maszyny wirtualne
 
-Azure Machine Learning obsługuje również pobieranie własnego zasobu obliczeniowego i dołączanie go do obszaru roboczego. Jeden taki typ zasobu jest dowolną zdalną maszyną wirtualną, o ile jest dostępny z Azure Machine Learning. Zasób może być maszyną wirtualną platformy Azure, serwerem zdalnym w organizacji lub lokalnym. W odniesieniu do adresów IP i poświadczeń (nazwy użytkownika i hasła lub klucza SSH) można użyć dowolnej dostępnej maszyny wirtualnej do zdalnego uruchomienia.
-
-Można użyć [wbudowanego w systemie środowiska Conda](how-to-use-environments.md), już istniejącego [środowiska Python](how-to-configure-environment.md#local)lub [kontenera Docker](https://docs.docker.com/engine/install/ubuntu/). Aby można było wykonać operację na kontenerze platformy Docker, na maszynie wirtualnej musi być uruchomiony aparat platformy Docker. Ta funkcja jest szczególnie przydatna w przypadku bardziej elastycznego, opartego na chmurze środowiska deweloperskiego/eksperymentowania niż na komputerze lokalnym.
-
-W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako maszyny wirtualnej platformy Azure. Ta maszyna wirtualna jest wstępnie skonfigurowanym środowiskiem programistycznym do analizy danych i AI na platformie Azure. Maszyna wirtualna oferuje świadome wybór narzędzi i struktur na potrzeby tworzenia uczenia maszynowego w pełnym cyklu życia. Aby uzyskać więcej informacji na temat używania DSVM z Azure Machine Learning, zobacz [Konfigurowanie środowiska deweloperskiego](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning również obsługuje dołączanie maszyny wirtualnej platformy Azure. Maszyna wirtualna musi być Data Science Virtual Machineem platformy Azure (DSVM). Ta maszyna wirtualna jest wstępnie skonfigurowanym środowiskiem programistycznym do analizy danych i AI na platformie Azure. Maszyna wirtualna oferuje świadome wybór narzędzi i struktur na potrzeby tworzenia uczenia maszynowego w pełnym cyklu życia. Aby uzyskać więcej informacji na temat używania DSVM z Azure Machine Learning, zobacz [Konfigurowanie środowiska deweloperskiego](./how-to-configure-environment.md#dsvm).
 
 1. **Utwórz**: Utwórz DSVM przed użyciem go do uczenia modelu. Aby utworzyć ten zasób, zapoznaj [się z tematem obsługa Data Science Virtual Machine dla systemu Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 

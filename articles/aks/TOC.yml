@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -136,8 +136,10 @@
       items:
         - name: Skalowanie klastra AKS
           href: scale-cluster.md
-        - name: Zatrzymywanie klastra AKS (wersja zapoznawcza)
+        - name: Zatrzymaj klaster AKS
           href: start-stop-cluster.md
+        - name: Użyj planowanej konserwacji (wersja zapoznawcza)
+          href: planned-maintenance.md
         - name: Uaktualnianie klastra AKS
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701811"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015220"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -285,7 +285,7 @@ Przypisań ról platformy Azure dziedziczą. Przepływy zadań z subskrypcji, gr
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Czy Data Lake Storage Gen2 obsługuje dziedziczenie list ACL?
 
-Domyślne listy ACL mogą służyć do ustawiania list ACL dla nowych podkatalogów podrzędnych i plików utworzonych w katalogu nadrzędnym. Aby zaktualizować listy ACL dla istniejących elementów podrzędnych, należy dodać, zaktualizować lub usunąć listy ACL rekursywnie dla żądanej hierarchii katalogów. Więcej informacji można znaleźć w sekcji [Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2](#set-access-control-lists). 
+Domyślne listy ACL mogą służyć do ustawiania list ACL dla nowych podkatalogów podrzędnych i plików utworzonych w katalogu nadrzędnym. Aby zaktualizować listy ACL dla istniejących elementów podrzędnych, należy dodać, zaktualizować lub usunąć listy ACL rekursywnie dla żądanej hierarchii katalogów. Aby uzyskać wskazówki, zobacz sekcję [jak ustawić listy ACL](#set-access-control-lists) w tym artykule. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Które uprawnienia są wymagane do rekursywnego usunięcia katalogu i jego zawartości?
 

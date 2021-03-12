@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004616"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149481"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
 
@@ -53,13 +53,13 @@ Nowy harmonogram dla elementów Runbook można utworzyć w Azure Portal lub przy
     >Harmonogramy automatyzacji nie obsługują obecnie znaków specjalnych w nazwie harmonogramu.
     >
 
-4. Określ, czy harmonogram ma być uruchamiany raz, czy w harmonogramie, wybierając **jeden raz** lub **cyklicznie**. Jeśli wybierzesz **jeden raz**, określ godzinę rozpoczęcia, a następnie wybierz pozycję **Utwórz**. W przypadku wybrania opcji **cyklicznie**określ godzinę rozpoczęcia. Dla opcji **Powtarzaj co**należy określić, jak często element Runbook ma być powtarzany. Wybierz według godziny, dnia, tygodnia lub miesiąca.
+4. Określ, czy harmonogram ma być uruchamiany raz, czy w harmonogramie, wybierając **jeden raz** lub **cyklicznie**. Jeśli wybierzesz **jeden raz**, określ godzinę rozpoczęcia, a następnie wybierz pozycję **Utwórz**. W przypadku wybrania opcji **cyklicznie** określ godzinę rozpoczęcia. Dla opcji **Powtarzaj co** należy określić, jak często element Runbook ma być powtarzany. Wybierz według godziny, dnia, tygodnia lub miesiąca.
 
-    * W przypadku wybrania wartości **tydzień**dni tygodnia są prezentowane w celu wybrania opcji. Wybierz dowolną liczbę dni. Pierwsze uruchomienie harmonogramu zostanie wykonane pierwszego dnia wybranego po czasie rozpoczęcia. Na przykład, aby wybrać harmonogram weekendowy, wybierz soboty i niedziela.
+    * W przypadku wybrania wartości **tydzień** dni tygodnia są prezentowane w celu wybrania opcji. Wybierz dowolną liczbę dni. Pierwsze uruchomienie harmonogramu zostanie wykonane pierwszego dnia wybranego po czasie rozpoczęcia. Na przykład, aby wybrać harmonogram weekendowy, wybierz soboty i niedziela.
 
     ![Ustawianie cyklicznego harmonogramu weekendu](../media/schedules/week-end-weekly-recurrence.png)
 
-    * W przypadku wybrania **miesiąca**są dostępne różne opcje. Dla opcji **miesięczne wystąpienia** wybierz opcję **miesiąc** lub dni **tygodnia**. Jeśli wybierzesz **miesiąc dni**, zostanie wyświetlony kalendarz, aby można było wybrać dowolną liczbę dni. Jeśli wybierzesz datę, taką jak 31, która nie występuje w bieżącym miesiącu, harmonogram nie zostanie uruchomiony. Jeśli chcesz, aby harmonogram był uruchamiany w ostatnim dniu miesiąca, wybierz pozycję **tak** w obszarze **Uruchom w ostatnim dniu**. Jeśli wybierzesz **tydzień dni**, zostanie wyświetlona opcja **Powtarzaj każdy** z nich. Wybierz **pierwszy**, **drugi**, **trzeci**, **czwarty**lub **ostatni**. Na koniec wybierz dzień do powtórzenia.
+    * W przypadku wybrania **miesiąca** są dostępne różne opcje. Dla opcji **miesięczne wystąpienia** wybierz opcję **miesiąc** lub dni **tygodnia**. Jeśli wybierzesz **miesiąc dni**, zostanie wyświetlony kalendarz, aby można było wybrać dowolną liczbę dni. Jeśli wybierzesz datę, taką jak 31, która nie występuje w bieżącym miesiącu, harmonogram nie zostanie uruchomiony. Jeśli chcesz, aby harmonogram był uruchamiany w ostatnim dniu miesiąca, wybierz pozycję **tak** w obszarze **Uruchom w ostatnim dniu**. Jeśli wybierzesz **tydzień dni**, zostanie wyświetlona opcja **Powtarzaj każdy** z nich. Wybierz **pierwszy**, **drugi**, **trzeci**, **czwarty** lub **ostatni**. Na koniec wybierz dzień do powtórzenia.
 
     ![Harmonogram miesięczny pierwszego, piętnastu i ostatniego dnia miesiąca](../media/schedules/monthly-first-fifteenth-last.png)
 
@@ -119,6 +119,47 @@ Poniższy przykład pokazuje, jak utworzyć cykliczny harmonogram, który jest u
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Tworzenie harmonogramu przy użyciu szablonu Menedżer zasobów
+
+W tym przykładzie używamy szablonu usługi Automation Menedżer zasobów (ARM), który tworzy nowy harmonogram zadań. Aby uzyskać ogólne informacje na temat tego szablonu do zarządzania harmonogramami zadań usługi Automation, zobacz [Dokumentacja szablonu Microsoft. Automation automationAccounts/jobSchedules](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+Skopiuj ten plik szablonu do edytora tekstu:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edytuj poniższe wartości parametrów i Zapisz szablon jako plik JSON:
+
+* Nazwa obiektu harmonogramu zadań: identyfikator GUID (unikatowy identyfikator globalny) jest używany jako nazwa obiektu harmonogramu zadań.
+
+   >[!IMPORTANT]
+   > Dla każdego harmonogramu zadań wdrożonego za pomocą szablonu ARM identyfikator GUID musi być unikatowy. Nawet w przypadku ponownego planowania istniejącego harmonogramu należy zmienić identyfikator GUID. Dotyczy to nawet sytuacji, gdy wcześniej został usunięty istniejący harmonogram zadań, który został utworzony przy użyciu tego samego szablonu. Ponowne użycie tego samego identyfikatora GUID spowoduje niepowodzenie wdrożenia.</br></br>
+   > Istnieją usługi online, które mogą generować nowy identyfikator GUID, na przykład ten [bezpłatny Generator identyfikatorów GUID w trybie online](https://guidgenerator.com/).
+
+* Nazwa harmonogramu: reprezentuje nazwę harmonogramu zadań automatyzacji, który zostanie połączony z określonym elementem Runbook.
+* Nazwa elementu Runbook: reprezentuje nazwę elementu Runbook usługi Automation, z którym ma zostać skojarzony harmonogram zadań.
+
+Po zapisaniu pliku można utworzyć harmonogram zadań elementu Runbook za pomocą następującego polecenia programu PowerShell. Polecenie używa parametru, `TemplateFile` Aby określić ścieżkę i nazwę pliku szablonu.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## <a name="link-a-schedule-to-a-runbook"></a>Łączenie harmonogramu z elementem Runbook

@@ -1,14 +1,14 @@
 ---
 title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624762"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633805"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -32,7 +32,9 @@ Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typa
 |ResourceContainers |Tak |Obejmuje subskrypcję (w wersji zapoznawczej-- `Microsoft.Resources/subscriptions` ) i grupy zasobów ( `Microsoft.Resources/subscriptions/resourcegroups` ) oraz typy zasobów i dane. |
 |AdvisorResources |Tak (wersja zapoznawcza) |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
 |AlertsManagementResources |Tak (wersja zapoznawcza) |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
+|ExtendedLocationResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.ExtendedLocation` . |
 |GuestConfigurationResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.GuestConfiguration` . |
+|KubernetesConfigurationResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.KubernetesConfiguration` . |
 |MaintenanceResources |Częściowe, Dołącz tylko _do_ . (wersja zapoznawcza) |Obejmuje zasoby _związane_ z programem `Microsoft.Maintenance` . |
 |PatchAssessmentResources|Nie |Obejmuje zasoby _związane_ z oceną poprawek Virtual Machines platformy Azure. |
 |PatchInstallationResources|Nie |Obejmuje zasoby _związane_ z instalacją poprawek Virtual Machines platformy Azure. |
@@ -40,6 +42,7 @@ Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typa
 |RecoveryServicesResources |Częściowe, Dołącz tylko _do_ . (wersja zapoznawcza) |Obejmuje zasoby _związane_ z `Microsoft.DataProtection` i `Microsoft.RecoveryServices` . |
 |SecurityResources |Częściowe, Dołącz tylko _do_ . (wersja zapoznawcza) |Obejmuje zasoby _związane_ z programem `Microsoft.Security` . |
 |ServiceHealthResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
+|WorkloadMonitorResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.WorkloadMonitor` . |
 
 Aby uzyskać pełną listę, w tym typy zasobów, zobacz temat [Reference: obsługiwane tabele i typy zasobów](../reference/supported-tables-resources.md).
 
@@ -126,7 +129,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 
 |KQL |Zapytanie przykładowe grafu zasobów |Uwagi |
 |---|---|---|
-|[liczbą](/azure/kusto/query/countoperator) |[Liczenie magazynów kluczy](../samples/starter.md#count-keyvaults) | |
+|[count](/azure/kusto/query/countoperator) |[Liczenie magazynów kluczy](../samples/starter.md#count-keyvaults) | |
 |[itp](/azure/kusto/query/distinctoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
 |[sunąć](/azure/kusto/query/extendoperator) |[Liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-os) | |
 |[Złącza](/azure/kusto/query/joinoperator) |[Magazyn kluczy z nazwą subskrypcji](../samples/advanced.md#join) |Obsługiwane typy sprzężeń: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [wewnętrzne](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit 3 `join` w pojedynczym zapytaniu, z którym może być wiele tabel `join` . Jeśli wszystkie użycie między tabelami `join` jest między _zasobami_ i _ResourceContainers_, to 3 `join` . Niestandardowe strategie dołączania, takie jak sprzężenie emisji, nie są dozwolone. W których tabelach można używać `join` , zobacz [tabele grafów zasobów](#resource-graph-tables). |
@@ -141,7 +144,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[czasochłonn](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `limit` . Nie działa z [pominięciem](./work-with-data.md#skipping-records). |
 |[Do góry](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
 |[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] . Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
-|[miejscu](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
+|[gdzie](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
 
 Istnieje domyślny limit 3 `join` i 3 `mv-expand` operatorów w jednym ZAPYTANIU zestawu SDK wykresu zasobów. Możesz zażądać zwiększenia limitów dla dzierżawy w ramach **pomocy i obsługi technicznej**.
 

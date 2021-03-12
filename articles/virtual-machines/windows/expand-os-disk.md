@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: af57bc396349286c3edcaefc8385ddbaec066226
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549604"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199472"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Sposób rozszerzania dysku systemu operacyjnego maszyny wirtualnej
 
@@ -49,21 +49,21 @@ Podczas tworzenia nowej maszyny wirtualnej w grupie zasobów przez wdrożenie ob
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Zrzut ekranu przedstawiający okienko dyski z wybraną nazwą dysku.":::
 
-4. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **Konfiguracja**.
+4. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **rozmiar i wydajność**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Zrzut ekranu pokazujący opcję konfiguracji wybraną w sekcji Ustawienia w menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Zrzut ekranu przedstawiający opcję rozmiaru i wydajności wybraną w sekcji Ustawienia w menu.":::
 
-5. W polu **rozmiar (GIB)** wybierz żądany rozmiar dysku.
+5. W obszarze **rozmiar i wydajność** wybierz żądany rozmiar dysku.
    
    > [!WARNING]
    > Nowy rozmiar powinien być większy niż istniejący rozmiar dysku. Maksymalna dozwolona liczba dysków systemu operacyjnego to 2 048 GB. (Istnieje możliwość rozszerzenia obiektu BLOB dysku VHD poza ten rozmiar, ale system operacyjny działa tylko z pierwszym 2 048 GB miejsca).
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Zrzut ekranu pokazujący okienko konfiguracji z wybranym rozmiarem dysku.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Zrzut ekranu przedstawiający okienko rozmiaru i wydajności z wybranym rozmiarem dysku.":::
 
-6. Wybierz pozycję **Zapisz**.
+6. Wybierz pozycję **Zmień rozmiar** w dolnej części strony.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Zrzut ekranu pokazujący okienko konfiguracji z wybranym przyciskiem Zapisz.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Zrzut ekranu pokazujący okienko rozmiaru i wydajności z wybranym przyciskiem Zmień rozmiar.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Zmiana rozmiaru dysku zarządzanego przy użyciu programu PowerShell

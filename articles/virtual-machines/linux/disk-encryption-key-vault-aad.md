@@ -2,18 +2,19 @@
 title: Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption za pomocą usługi Azure AD (poprzednia wersja)
 description: Ten artykuł zawiera wymagania wstępne dotyczące używania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3862a07eea2dcec3e67c0145fcdcff8140d19ec3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20cb94dd8bfca6adeba151d2169b1896cc7ff5a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746779"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557883"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption z usługą Azure AD (poprzednią wersją) dla maszyn wirtualnych z systemem Linux
 
@@ -61,7 +62,7 @@ Można utworzyć magazyn kluczy z Azure PowerShell przy użyciu polecenia cmdlet
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Zanotuj **nazwę magazynu** , **nazwę grupy zasobów** , **Identyfikator zasobu** , identyfikator **URI magazynu** i **Identyfikator obiektu** , który jest zwracany do późniejszego użycia podczas szyfrowania dysków. 
+4. Zanotuj **nazwę magazynu**, **nazwę grupy zasobów**, **Identyfikator zasobu**, identyfikator **URI magazynu** i **Identyfikator obiektu** , który jest zwracany do późniejszego użycia podczas szyfrowania dysków. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Tworzenie magazynu kluczy za pomocą interfejsu wiersza polecenia platformy Azure
@@ -80,14 +81,14 @@ Możesz zarządzać swoim magazynem kluczy za pomocą interfejsu wiersza polecen
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Zanotuj **nazwę magazynu** (nazwę), **nazwę grupy zasobów** , **Identyfikator zasobu** (identyfikator), **Identyfikator URI magazynu** i **Identyfikator obiektu** , który jest zwracany do użycia później. 
+4. Zanotuj **nazwę magazynu** (nazwę), **nazwę grupy zasobów**, **Identyfikator zasobu** (identyfikator), **Identyfikator URI magazynu** i **Identyfikator obiektu** , który jest zwracany do użycia później. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Tworzenie magazynu kluczy przy użyciu szablonu Menedżer zasobów
 
 Magazyn kluczy można utworzyć przy użyciu [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure** .
-2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, nazwę Key Vault, identyfikator obiektu, postanowienia prawne i umowę, a następnie kliknij przycisk **Kup** . 
+1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure**.
+2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, nazwę Key Vault, identyfikator obiektu, postanowienia prawne i umowę, a następnie kliknij przycisk **Kup**. 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a> Konfigurowanie aplikacji usługi Azure AD i nazwy głównej usługi 
@@ -161,10 +162,10 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a> Ustawianie zasad dostępu magazynu kluczy dla aplikacji usługi Azure AD przy użyciu portalu
 
 1. Otwórz grupę zasobów z magazynem kluczy.
-2. Wybierz magazyn kluczy, przejdź do pozycji **zasady dostępu** , a następnie kliknij przycisk **Dodaj nowe** .
+2. Wybierz magazyn kluczy, przejdź do pozycji **zasady dostępu**, a następnie kliknij przycisk **Dodaj nowe**.
 3. W obszarze **Wybierz podmiot zabezpieczeń** Wyszukaj utworzoną aplikację usługi Azure AD i wybierz ją. 
-4. W przypadku **uprawnień kluczowych** zaznacz pole **Zawijanie klucza** w obszarze **operacje kryptograficzne** .
-5. W przypadku uprawnień do wpisów **tajnych** zaznacz pozycję **Ustaw** w obszarze **operacje zarządzania kluczami tajnymi** .
+4. W przypadku **uprawnień kluczowych** zaznacz pole **Zawijanie klucza** w obszarze **operacje kryptograficzne**.
+5. W przypadku uprawnień do wpisów **tajnych** zaznacz pozycję **Ustaw** w obszarze **operacje zarządzania kluczami tajnymi**.
 6. Kliknij przycisk **OK** , aby zapisać zasady dostępu. 
 
 ![Azure Key Vault operacji kryptograficznych — klawisz zawijania](./media/disk-encryption/keyvault-portal-fig3.png)
@@ -217,10 +218,10 @@ Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć s
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Ustawianie zaawansowanych zasad dostępu magazynu kluczy za pomocą Azure Portal
 
-1. Wybierz swój magazyn kluczy, przejdź do pozycji **zasady dostępu** , a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu** .
-2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów** .
-3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu** , jeśli jest to konieczne. 
-4. Kliknij pozycję **Zapisz** .
+1. Wybierz swój magazyn kluczy, przejdź do pozycji **zasady dostępu**, a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu**.
+2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów**.
+3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu**, jeśli jest to konieczne. 
+4. Kliknij pozycję **Zapisz**.
 
 ![Zaawansowane zasady dostępu magazynu kluczy platformy Azure](./media/disk-encryption/keyvault-portal-fig4.png)
 

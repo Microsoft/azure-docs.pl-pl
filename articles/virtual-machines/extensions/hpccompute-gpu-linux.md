@@ -1,25 +1,26 @@
 ---
 title: Rozszerzenie sterownika NVIDIA GPU — maszyny wirtualne platformy Azure z systemem Linux
 description: Microsoft Azure rozszerzenia do instalowania sterowników NVIDIA GPU na maszynach wirtualnych obliczeniowych serii N z systemem Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 manager: gwallace
 editor: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: amverma
-ms.openlocfilehash: a241086e6a590096cf40cbdb7a84838b14889f73
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fa2b82f3246fd87830010f572ba23aa2df075053
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678292"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566230"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Rozszerzenie sterownika GPU NVIDIA dla systemu Linux
 
@@ -74,7 +75,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | NvidiaGpuDriverLinux | ciąg |
 | typeHandlerVersion | 1.3 | int |

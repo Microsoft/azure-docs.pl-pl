@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/24/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6e5b553ea3be7e5b4b1d8cb396b35fdf2d5796a9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721773"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615571"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -83,6 +83,6 @@ W usłudze Azure Firewall występują następujące znane problemy:
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Szybki Start: Tworzenie zapory platformy Azure i zasad zapory — szablon ARM](../firewall-manager/quick-firewall-policy.md)
+- [Szybki Start: wdrażanie zapory platformy Azure przy użyciu szablonu Strefy dostępności-ARM](deploy-template.md)
 - [Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal](tutorial-firewall-deploy-portal.md)
-- [Wdrażanie usługi Azure Firewall przy użyciu szablonu](deploy-template.md)
-- [Tworzenie środowiska testowego usługi Azure Firewall](scripts/sample-create-firewall-test.md)

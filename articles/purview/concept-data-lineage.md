@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: ceb30cee194994e5b31db312f191194932c937b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554107"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200728"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Odchodzenie danych w usłudze Azure kontrolą Data Catalog Client
 
@@ -53,7 +53,7 @@ Ta sekcja zawiera szczegółowe informacje na temat stopnia szczegółowości in
 
 ### <a name="column-or-attribute-level-lineage"></a>Atrybut poziomu kolumny lub atrybutu
 
-Zidentyfikuj atrybuty jednostki źródłowej, która jest używana do tworzenia lub wyprowadzania atrybutów w jednostce docelowej. Nazwa atrybutu źródłowego można zachować lub zmienić jego nazwę w obiekcie docelowym. Systemy takie jak ADF mogą wykonać kopię jednokrotną ze środowiska lokalnego do chmury. Przykład: `Table1/ColumnA -> Table2/ColumnA`.
+Zidentyfikuj atrybuty jednostki źródłowej, która jest używana do tworzenia lub wyprowadzania atrybutów w jednostce docelowej. Nazwa atrybutu źródłowego można zachować lub zmienić jego nazwę w obiekcie docelowym. Systemy takie jak ADF mogą wykonać kopię jednokrotną ze środowiska lokalnego do chmury. Na przykład: `Table1/ColumnA -> Table2/ColumnA`.
 
 ### <a name="process-execution-status"></a>Stan wykonywania procesu
 

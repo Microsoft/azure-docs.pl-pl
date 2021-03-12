@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 855765648d68756598f2942e0c994fa939bcbda0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 679df881e928825496a03b2fef7c9374d61593f7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695672"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199984"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
-W tym dokumencie opisano, jak użytkownicy mogą odczytywać dane z plików przechowywanych w usłudze Azure Storage w puli SQL bezserwerowej. Użytkownicy mają następujące opcje dostępu do magazynu:
+W tym artykule opisano, jak użytkownicy mogą odczytywać dane z plików przechowywanych w usłudze Azure Storage w puli SQL bezserwerowej. Użytkownicy mają następujące opcje dostępu do magazynu:
 
 - Funkcja [OPENROWSET](develop-openrowset.md) , która umożliwia wykonywanie zapytań ad hoc w plikach w usłudze Azure Storage.
 - [Zewnętrzna tabela](develop-tables-external-tables.md) , która jest wstępnie zdefiniowaną strukturą danych utworzoną na podstawie zestawu plików zewnętrznych.

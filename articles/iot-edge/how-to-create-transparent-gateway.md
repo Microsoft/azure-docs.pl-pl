@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f7f05fb84ff6cbe320e8f479912bdcdefdc41021
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046027"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201650"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Ten artykuł zawiera szczegółowe instrukcje dotyczące konfigurowania urządzenia IoT Edge jako przezroczystej bramy dla innych urządzeń w celu komunikowania się z IoT Hub. W tym artykule jest wykorzystywana *IoT Edge Brama* do odwoływania się do urządzenia IoT Edge skonfigurowanego jako nieprzezroczysta brama. Aby uzyskać więcej informacji, zobacz [jak urządzenie IoT Edge może być używane jako brama](./iot-edge-as-gateway.md).
 
@@ -142,10 +144,10 @@ Jeśli certyfikaty zostały utworzone na innym komputerze, skopiuj je na urządz
 
 1. Zapisz i zamknij plik.
 
-1. Uruchom ponownie IoT Edge.
+1. Zastosuj zmiany.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end

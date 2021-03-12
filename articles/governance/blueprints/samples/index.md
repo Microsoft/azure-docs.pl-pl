@@ -1,14 +1,14 @@
 ---
 title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
-ms.date: 02/08/2020
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: c64bc02c1dea4e2c53d4ff195add2ac7fa57874f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0873de5879a40b13bea03c97e0b78d146f0d6696
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370958"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200987"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -22,7 +22,8 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 | [Test porównawczy zabezpieczeń platformy Azure](./azure-security-benchmark.md) | Zapewnia zabezpieczenia zgodności z wytycznymi [testu porównawczego zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md). |
 | [Usługa Azure Security test Foundation](./azure-security-benchmark-foundation/index.md) | Wdraża i konfiguruje platformę Azure Security test Foundation. |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Zapewnia zabezpieczenia zgodności zgodnie z wytycznymi Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
-| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Udostępnia zestaw zasad pomagających w zachowaniu zgodności z zaleceniami CIS Microsoft Azure Foundations Benchmark. |
+| [Usługa CIS Microsoft Azure wykryto testy testowe 1.3.0](./cis-azure-1-3-0.md)| Zawiera zestaw zasad, które ułatwiają przestrzeganie zaleceń dotyczących usługi CIS Microsoft Azure 1.3.0. |
+| [CIS Microsoft Azure Foundations Benchmark 1.1.0](./cis-azure-1-1-0.md)| Zawiera zestaw zasad, które ułatwiają przestrzeganie zaleceń dotyczących usługi CIS Microsoft Azure 1.1.0. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem DoD Impact Level 5. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem FedRAMP Moderate. |

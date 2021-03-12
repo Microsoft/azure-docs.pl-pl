@@ -2,7 +2,7 @@
 title: Azure Media Services wersja 3 — Omówienie: Azure Media Services opis: ogólne omówienie Azure Media Services v3 z linkami do przewodników Szybki Start, samouczków i przykładów kodu.
 usługi: Media-Services documentationcenter: na Author: IngridAtMicrosoft Manager: femila Editor: "" Tags: "" słowa kluczowe: usługi Azure Media Services, Stream, broadcast, Live, offline
 
-MS. Service: Media-Services MS. devlang: Multiple MS. temat: przegląd ms.tgt_pltfrm: wiele MS. obciążenie: Media MS. Date: 08/31/2020 MS. Author: inhenkel MS. Custom: MVC
+MS. Service: Media-Services MS. devlang: Multiple MS. temat: przegląd ms.tgt_pltfrm: wiele MS. obciążenie: Media MS. Date: 3/10/2021 MS. Author: inhenkel MS. Custom: MVC
 #<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intencja klienta: jako deweloper lub dostawca zawartości chcę kodować, przesyłać strumieniowo (na żądanie lub na żywo), analizować zawartość multimedialną, aby moi klienci mogli: wyświetlać zawartość w wielu różnych przeglądarkach i urządzeniach, uzyskiwać cenne informacje z zapisanej zawartości.
 ---
 
@@ -13,9 +13,6 @@ MS. Service: Media-Services MS. devlang: Multiple MS. temat: przegląd ms.tgt_pl
 Azure Media Services to oparta na chmurze platforma umożliwiająca tworzenie rozwiązań pozwalających na osiągnięcie przesyłania strumieniowego wideo w jakości odpowiedniej do emisji, zwiększenie dostępności i dystrybucji, analizowanie zawartości i wykonywanie wielu innych operacji. Bez względu na to, czy jesteś deweloperem aplikacji, działem obsługi, agencją rządową, czy firmą rozrywkową, Media Services pomaga w tworzeniu aplikacji, które zapewniają obsługę multimediów dla dużych odbiorców na współczesnych najpopularniejszych urządzeniach przenośnych i przeglądarek.
 
 Zestawy SDK Media Services V3 są oparte na [specyfikacji Media Services v3 openapi (Swagger)](https://aka.ms/ams-v3-rest-sdk).
-
-> [!NOTE]
-> Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services [v3, Wyświetl](assets-concept.md)(nie Zarządzaj) v3, [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

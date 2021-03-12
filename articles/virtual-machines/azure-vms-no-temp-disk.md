@@ -4,15 +4,16 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 author: brbell
 ms.service: virtual-machines
 ms.topic: conceptual
+ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 4dd078205989872179b0b2474974a29cf6b88dad
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507844"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565465"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).

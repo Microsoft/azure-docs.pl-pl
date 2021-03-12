@@ -4,14 +4,14 @@ description: Dowiedz się, jak tworzyć i debugować funkcje języka C# przy uż
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 70eacc5ec7f6adb65ba6e01c55acc6c6e3075ca9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584138"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201367"
 ---
-# <a name="develop-and-publish-net-5-function-using-azure-functions"></a>Opracowywanie i publikowanie funkcji platformy .NET 5 przy użyciu Azure Functions 
+# <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Opracowywanie i publikowanie funkcji platformy .NET 5 przy użyciu Azure Functions 
 
 W tym artykule pokazano, jak pracować z funkcjami języka C# przy użyciu programu .NET 5,0, który uruchamia się poza procesem w środowisku uruchomieniowym Azure Functions. Dowiesz się, jak tworzyć, debugować lokalnie i publikować te funkcje procesów izolowanych .NET na platformie Azure. Na platformie Azure te funkcje są uruchamiane w procesie izolowanym, który obsługuje platformę .NET 5,0. Aby dowiedzieć się więcej, zobacz [Przewodnik dotyczący uruchamiania funkcji na platformie .net 5,0 na platformie Azure](dotnet-isolated-process-guide.md).
 
@@ -152,7 +152,7 @@ W tym momencie można uruchomić `func start` polecenie z poziomu katalogu głó
  
 1. W danych wyjściowych środowiska uruchomieniowego Azure Functions Zanotuj identyfikator procesu hosta, do którego zostanie dołączony debuger. Należy również zwrócić uwagę na adres URL funkcji lokalnej.
 
-1. Z menu **Debuguj** w programie Visual Studio wybierz pozycję **Dołącz do procesu...**, Znajdź proces dotnet.exe, który jest zgodny z identyfikatorem procesu, a następnie wybierz pozycję **Dołącz**. 
+1. Z menu **Debuguj** w programie Visual Studio wybierz pozycję **Dołącz do procesu...**, Znajdź proces zgodny z identyfikatorem procesu, a następnie wybierz pozycję **Dołącz**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Dołącz debuger do procesu hosta funkcji":::    
 

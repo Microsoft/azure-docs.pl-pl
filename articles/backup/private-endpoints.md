@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728216"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224711"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -24,7 +24,7 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci, łącznie z tymi używanymi przez Azure Backup na potrzeby magazynu. Ta liczba może być większa (do 25) w przypadku niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
 - Magazyn Recovery Services jest używany przez program (oba) Azure Backup i Azure Site Recovery w tym artykule omówiono użycie prywatnych punktów końcowych tylko dla Azure Backup.
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
-- Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.
+- Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy [wyłączyć zasady sieci](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) .
 - Należy ponownie zarejestrować dostawcę zasobów Recovery Services z subskrypcją, jeśli został on zarejestrowany przed 1 2020 maja. Aby ponownie zarejestrować dostawcę, przejdź do subskrypcji w Azure Portal, przejdź do pozycji **dostawca zasobów** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **Microsoft. RecoveryServices** i wybierz pozycję **zarejestruj ponownie**.
 - [Przywracanie między regionami](backup-create-rs-vault.md#set-cross-region-restore) dla kopii zapasowych SQL i SAP HANA bazy danych nie jest obsługiwane, jeśli magazyn ma włączone prywatne punkty końcowe.
 - Gdy przeniesiesz magazyn Recovery Services już korzystający z prywatnych punktów końcowych do nowej dzierżawy, musisz zaktualizować magazyn Recovery Services, aby ponownie utworzyć i ponownie skonfigurować tożsamość zarządzaną magazynu i utworzyć nowe prywatne punkty końcowe zgodnie z potrzebami (które powinny znajdować się w nowej dzierżawie). Jeśli to nie zrobisz, operacje tworzenia kopii zapasowej i przywracania zakończą się niepowodzeniem. Ponadto należy zmienić konfigurację wszystkich uprawnień kontroli dostępu opartej na rolach (RBAC) skonfigurowanych w ramach subskrypcji.
@@ -297,6 +297,10 @@ W przypadku korzystania z agenta MARS do tworzenia kopii zapasowych zasobów lok
 
 Jeśli jednak usuniesz prywatne punkty końcowe dla magazynu po zarejestrowaniu agenta MARS, należy ponownie zarejestrować kontener w magazynie. Nie musisz zatrzymać ochrony dla nich.
 
+## <a name="deleting-private-endpoints"></a>Usuwanie prywatnych punktów końcowych
+
+Zapoznaj się z [tą sekcją](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) , aby dowiedzieć się, jak usunąć prywatne punkty końcowe.
+
 ## <a name="additional-topics"></a>Tematy dodatkowe
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Tworzenie magazynu Recovery Services przy użyciu klienta Azure Resource Manager
@@ -554,4 +558,4 @@ A. Po przeprowadzeniu procedury przedstawionej w tym artykule nie trzeba wykonyw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj o wszystkich [funkcjach zabezpieczeń w programie Azure Backup](security-overview.md)
+- Przeczytaj o wszystkich [funkcjach zabezpieczeń w Azure Backup](security-overview.md).

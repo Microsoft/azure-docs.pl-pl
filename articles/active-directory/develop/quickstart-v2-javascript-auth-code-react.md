@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 3ffd739b12bdda577c3bc302635472768160f50f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 0bf08c45e82dc6f36d4e179e95e1b58e655b14db
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122667"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224371"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w reakcji SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -119,12 +119,18 @@ Ten przewodnik Szybki Start używa reakcji MSAL z przepływem kodu autoryzacji. 
 > Zmodyfikuj wartości w `msalConfig` sekcji zgodnie z opisem w tym miejscu:
 >
 > - `Enter_the_Application_Id_Here` to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
+>
+>    Aby znaleźć wartość **identyfikatora aplikacji (klienta)**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
 > - `Enter_the_Cloud_Instance_Id_Here` jest wystąpieniem chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość `https://login.microsoftonline.com/` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` jest ustawiony na jedną z następujących wartości:
 >   - Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zamień tę wartość na **Identyfikator dzierżawy** lub **nazwę dzierżawy**. Na przykład `contoso.microsoft.com`.
+>
+>    Aby znaleźć wartość **identyfikatora katalogu (dzierżawy)**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` . **W tym przewodniku szybki start Użyj programu** `common` .
 >   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
+>
+>    Aby znaleźć wartość **obsługiwanych typów kont**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
 > - `Enter_the_Redirect_Uri_Here` to `http://localhost:3000/`.
 >
 > `authority`Wartość w *authConfig.js* powinna wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) chmury platformy Azure:
@@ -133,9 +139,6 @@ Ten przewodnik Szybki Start używa reakcji MSAL z przepływem kodu autoryzacji. 
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Aby znaleźć wartości **identyfikatora aplikacji (klienta)**, **identyfikatora katalogu (dzierżawy)** i **obsługiwanych typów kont**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
 > Twój projekt został skonfigurowany z wartościami właściwości aplikacji.

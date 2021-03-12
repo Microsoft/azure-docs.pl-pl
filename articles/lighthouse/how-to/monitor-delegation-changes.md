@@ -1,20 +1,20 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593142"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199056"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
 Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [usługi Azure Lighthouse](../overview.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
 
-W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
+W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszelkie dodane lub usunięte delegowania z dzierżawców klientów.
 
 W tym temacie objaśniono uprawnienia potrzebne do monitorowania działania delegowania dla dzierżawy (dla wszystkich klientów). Zawiera również przykładowy skrypt, który pokazuje jedną metodę wykonywania zapytań i raportowania na tych danych.
 

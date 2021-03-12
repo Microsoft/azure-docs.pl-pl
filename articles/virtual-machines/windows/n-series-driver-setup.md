@@ -3,19 +3,21 @@ title: Konfiguracja sterowników procesora GPU NVIDIA dla systemu Windows na pla
 description: Jak skonfigurować sterowniki NVIDIA GPU dla maszyn wirtualnych serii N z systemem Windows Server lub Windows na platformie Azure
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.collection: windows
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38d9727cadd925b944809956eaee51103499a2df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 05487db1d0522634eda606dcb2ba22876fc341db
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200910"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557441"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Windows 
 
@@ -39,7 +41,7 @@ Po instalacji sterownika siatki na maszynie wirtualnej wymagane jest ponowne uru
 
 Należy pamiętać, że Panel sterowania NVIDIA jest dostępny tylko w przypadku instalacji sterownika siatki. Jeśli zainstalowano sterowniki CUDA, Panel sterowania NVIDIA nie będzie widoczny.
 
-Instalację sterownika można sprawdzić w Menedżer urządzeń. Poniższy przykład przedstawia pomyślne Konfigurowanie karty Tesla K80 na maszynie wirtualnej Azure NC.
+Instalację sterownika można sprawdzić w Device Manager. Poniższy przykład przedstawia pomyślne Konfigurowanie karty Tesla K80 na maszynie wirtualnej Azure NC.
 
 ![Właściwości sterownika procesora GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
