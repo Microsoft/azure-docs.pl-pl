@@ -4,17 +4,17 @@ description: Zapisz obiekty blob z magazynu archiwum, aby uzyskać dostęp do da
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165675"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225085"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Przeodwodnione dane obiektów blob z warstwy Archiwum
 
@@ -29,6 +29,10 @@ Gdy obiekt BLOB znajduje się w warstwie dostępu archiwizowania, jest traktowan
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Zarządzanie cyklem życia
+
+Ponownego wypełniania obiekt BLOB nie zmienia jego `Last-Modified` czasu. Za pomocą funkcji [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) można utworzyć scenariusz, w którym obiekt BLOB jest ponownie usuwany, a następnie zasady zarządzania cyklem życia przenosiją obiekt BLOB z powrotem do archiwum, ponieważ `Last-Modified` czas przekracza próg ustawiony dla zasad. Aby uniknąć tego scenariusza, użyj metody *[copy a archiwalny obiekt BLOB do warstwy online](#copy-an-archived-blob-to-an-online-tier)* . Metoda Copy Tworzy nowe wystąpienie obiektu BLOB ze zaktualizowanym `Last-Modified` czasem i nie wyzwala zasad zarządzania cyklem życia.
+
 ## <a name="monitor-rehydration-progress"></a>Postęp ponownego uzupełniania monitorów
 
 Podczas ponownego wypełniania Użyj operacji pobierania właściwości obiektu BLOB, aby sprawdzić atrybut **stanu archiwum** i potwierdzić, kiedy zmiana warstwy zostanie zakończona. Właściwość ta ma wartość „rehydrate-pending-to-hot” (ponowne wypełnianie w celu przejścia do warstwy gorącej) lub „rehydrate-pending-to-cool” (ponowne wypełnianie w celu przejścia do warstwy chłodnej) w zależności od warstwy docelowej. Po zakończeniu tego procesu właściwość obiektu blob „stan archiwum” jest usuwana, a wartość właściwości **Warstwa dostępu** odpowiada nowej warstwie Gorąca lub Chłodna.
@@ -42,7 +46,7 @@ Kopiowanie obiektu BLOB z archiwum może zająć kilka godzin, w zależności od
 > [!IMPORTANT]
 > Nie usuwaj źródłowego obiektu BLOB, dopóki kopia nie zostanie pomyślnie ukończona w miejscu docelowym. Jeśli źródłowy obiekt BLOB zostanie usunięty, docelowy obiekt BLOB nie może zakończyć kopiowania i będzie pusty. Aby określić stan operacji kopiowania, można sprawdzić *stan x-MS-Copy-status* .
 
-Obiekty blob archiwalne mogą być kopiowane tylko do warstwy docelowej online w ramach tego samego konta magazynu. Kopiowanie obiektu BLOB archiwum do innego obiektu BLOB archiwum nie jest obsługiwane. W poniższej tabeli przedstawiono możliwości CopyBlob.
+Obiekty blob archiwalne mogą być kopiowane tylko do warstwy docelowej online w ramach tego samego konta magazynu. Kopiowanie obiektu BLOB archiwum do innego obiektu BLOB archiwum nie jest obsługiwane. W poniższej tabeli przedstawiono możliwości operacji **kopiowania obiektu BLOB** .
 
 |                                           | **Źródło warstwy gorącej**   | **Źródło warstwy chłodnej** | **Źródło warstwy Archiwum**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

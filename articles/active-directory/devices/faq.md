@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365824"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199713"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -147,7 +147,7 @@ Odp **.:** oczekiwanie wskazuje, że urządzenie nie jest zarejestrowane. Ten st
 
 ### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: nie mogę dodać więcej niż 3 kont użytkowników usługi Azure AD w ramach tej samej sesji użytkownika na urządzeniu z systemem Windows 10. Dlaczego?
 
-Odp **.: usługa** Azure AD dodaliśmy obsługę wielu kont usługi Azure AD w systemie Windows 10 1803 Release. Jednak system Windows 10 ogranicza liczbę kont usługi Azure AD na urządzeniu do 3, aby ograniczyć rozmiar żądań tokenów i włączyć niezawodne Logowanie jednokrotne. Po dodaniu 3 kont użytkownicy zobaczą błąd w przypadku kolejnych kont. Dodatkowe informacje o problemie na ekranie błędu zawierają następujący komunikat wskazujący przyczynę — "Dodawanie konta jest zablokowane, ponieważ osiągnięto limit AccOUT". 
+Odp **.: usługa** Azure AD dodaliśmy obsługę wielu kont usługi Azure AD w systemie Windows 10 1803 Release. Jednak system Windows 10 ogranicza liczbę kont usługi Azure AD na urządzeniu do 3, aby ograniczyć rozmiar żądań tokenów i włączyć niezawodne Logowanie jednokrotne. Po dodaniu 3 kont użytkownicy zobaczą błąd w przypadku kolejnych kont. Dodatkowe informacje o problemie na ekranie błędu zawierają następujący komunikat informujący o tym, że operacja dodawania konta jest zablokowana, ponieważ osiągnięto limit konta. 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Usługa Azure AD Join — często zadawane pytania

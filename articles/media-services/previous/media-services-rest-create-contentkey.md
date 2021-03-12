@@ -3,7 +3,7 @@ title: Tworzenie kluczy zawartości przy użyciu interfejsu REST | Microsoft Doc
 description: W tym artykule pokazano, jak utworzyć klucze zawartości zapewniające bezpieczny dostęp do zasobów.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 5038a6d70f3293dfa1556d72b2f85aa930794949
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: a9960ece05b7cab4ddd26fdac7516f4adbccf5b0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256977"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017260"
 ---
 # <a name="create-content-keys-with-rest"></a>Tworzenie kluczy zawartości przy użyciu interfejsu REST
 
@@ -31,13 +31,13 @@ ms.locfileid: "89256977"
 > 
 > 
 
-Media Services umożliwia dostarczanie zaszyfrowanych zasobów. **ContentKey** zapewnia bezpieczny dostęp do **zasobu**s. 
+Media Services umożliwia dostarczanie zaszyfrowanych zasobów. **ContentKey** zapewnia bezpieczny dostęp do **zasobu** s. 
 
-Podczas tworzenia nowego zasobu (na przykład przed [przekazaniem plików](media-services-rest-upload-files.md)) można określić następujące opcje szyfrowania: **StorageEncrypted**, **CommonEncryptionProtected**lub **EnvelopeEncryptionProtected**. 
+Podczas tworzenia nowego zasobu (na przykład przed [przekazaniem plików](media-services-rest-upload-files.md)) można określić następujące opcje szyfrowania: **StorageEncrypted**, **CommonEncryptionProtected** lub **EnvelopeEncryptionProtected**. 
 
 Po dostarczeniu zasobów klientom można [skonfigurować dla zasobów do dynamicznego szyfrowania](media-services-rest-configure-asset-delivery-policy.md) przy użyciu jednego z następujących dwóch szyfrowania: **DynamicEnvelopeEncryption** lub **DynamicCommonEncryption**.
 
-Zaszyfrowane zasoby muszą być skojarzone z **ContentKey**s. W tym artykule opisano sposób tworzenia klucza zawartości.
+Zaszyfrowane zasoby muszą być skojarzone z **ContentKey** s. W tym artykule opisano sposób tworzenia klucza zawartości.
 
 Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawartości skojarzonych z zasobami, które mają być szyfrowane. 
 
@@ -71,7 +71,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
      }
     ```
 
-5. Utwórz klucz zawartości z **EncryptedContentKey** (przekonwertowanym na ciąg szyfrowany algorytmem Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**i wartościami **sum kontrolnych** , które zostały odebrane w poprzednich krokach.
+5. Utwórz klucz zawartości z **EncryptedContentKey** (przekonwertowanym na ciąg szyfrowany algorytmem Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** i wartościami **sum kontrolnych** , które zostały odebrane w poprzednich krokach.
 6. Skojarz jednostkę **ContentKey** z jednostką **zasobu** za pomocą operacji $Links.
 
 W tym artykule nie pokazano, jak wygenerować klucz AES, zaszyfrować klucza i obliczyć sumę kontrolną. 
@@ -269,5 +269,5 @@ HTTP/1.1 204 No Content
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

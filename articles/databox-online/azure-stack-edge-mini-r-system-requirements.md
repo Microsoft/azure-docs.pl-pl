@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834072"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634196"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Azure Stack graniczny R wymagania systemowe
 
@@ -38,7 +38,7 @@ Wymagania systemowe dotyczące Azure Stack krawędzi mini R obejmują:
 
 ## <a name="supported-edge-storage-accounts"></a>Obsługiwane konta magazynu Edge
 
-Następujące konta magazynu brzegowego są obsługiwane w interfejsie REST urządzenia. Konta magazynu brzegowego są tworzone na urządzeniu. Aby uzyskać więcej informacji, zobacz [konta magazynu Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)
+Następujące konta magazynu brzegowego są obsługiwane w interfejsie REST urządzenia. Konta magazynu brzegowego są tworzone na urządzeniu. Aby uzyskać więcej informacji, zobacz [konta magazynu Edge](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)
 
 |Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|

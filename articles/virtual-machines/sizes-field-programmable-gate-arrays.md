@@ -3,17 +3,17 @@ title: Rozmiary maszyn wirtualnych platformy Azure dla nieprogramowalnych tablic
 description: Wyświetla listę różnych FPGA zoptymalizowanych rozmiarów dostępnych dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-fpga
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: vikancha
-ms.openlocfilehash: b05c3198f6c3d84f852d9535a3cf0b67f66e01f6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9eb0d5bc93cbe9c2a7cbae56c336115bb227b04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417613"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557679"
 ---
 # <a name="fpga-optimized-virtual-machine-sizes"></a>FPGA zoptymalizowane rozmiary maszyn wirtualnych
 

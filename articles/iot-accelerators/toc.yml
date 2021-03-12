@@ -92,6 +92,8 @@
   items:
     - name: Opcje wsparcia technicznego i pomocy
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: Słownik IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub

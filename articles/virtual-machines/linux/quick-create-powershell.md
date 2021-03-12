@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5711e3f406af04d0dc3a233031379c9ef18244ba
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2cef611fe79ca04303840076b09b4cf6344b7e7d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549655"
+ms.locfileid: "102616234"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux za pomocą programu Azure PowerShell
 
@@ -34,7 +34,7 @@ Użyj protokołu [ssh-keygen](https://www.ssh.com/ssh/keygen/) do utworzenia par
 
 
 ```azurepowershell-interactive
-ssh-keygen -m PEM -t rsa -b 4096
+ssh-keygen -t rsa -b 4096
 ```
 
 Zostanie wyświetlony monit o podanie nazwy pliku dla pary kluczy lub można nacisnąć klawisz **Enter** , aby użyć domyślnej lokalizacji `/home/<username>/.ssh/id_rsa` . Możesz również utworzyć hasło dla kluczy, jeśli chcesz.

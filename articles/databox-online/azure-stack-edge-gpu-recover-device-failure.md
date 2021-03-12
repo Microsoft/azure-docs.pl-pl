@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442166"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636644"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Odzyskiwanie po awarii urządzenia GPU z niepowodzeniem Azure Stack Edge 
 
@@ -52,10 +52,10 @@ Teraz można przystąpić do wdrażania obciążeń, które były uruchomione na
 
 Wykonaj następujące kroki, aby przywrócić dane z udziałów w chmurze Edge na urządzeniu:
 
-1. [Dodaj udziały](azure-stack-edge-j-series-manage-shares.md#add-a-share) o tych samych nazwach udziałów utworzonych wcześniej na urządzeniu zakończonym niepowodzeniem. Upewnij się, że podczas tworzenia udziałów **Wybierz pozycję kontener obiektów BLOB** , aby **użyć istniejącej** opcji, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
-1. [Dodaj użytkowników](azure-stack-edge-j-series-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
-1. [Dodaj konta magazynu](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) skojarzone z udziałami wcześniej na urządzeniu. Podczas tworzenia kont magazynu Edge wybierz z istniejącego kontenera i wskaż kontener, który został zmapowany na konto usługi Azure Storage zamapowane na poprzednim urządzeniu. Wszystkie dane z urządzenia, które zostały zapisana na koncie magazynu brzegowego na poprzednim urządzeniu, zostały przekazane do wybranego kontenera magazynu na mapowanym koncie usługi Azure Storage.
-1. [Odśwież dane udziału](azure-stack-edge-j-series-manage-shares.md#refresh-shares) z platformy Azure. Spowoduje to pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
+1. [Dodaj udziały](azure-stack-edge-gpu-manage-shares.md#add-a-share) o tych samych nazwach udziałów utworzonych wcześniej na urządzeniu zakończonym niepowodzeniem. Upewnij się, że podczas tworzenia udziałów **Wybierz pozycję kontener obiektów BLOB** , aby **użyć istniejącej** opcji, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
+1. [Dodaj użytkowników](azure-stack-edge-gpu-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
+1. [Dodaj konta magazynu](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) skojarzone z udziałami wcześniej na urządzeniu. Podczas tworzenia kont magazynu Edge wybierz z istniejącego kontenera i wskaż kontener, który został zmapowany na konto usługi Azure Storage zamapowane na poprzednim urządzeniu. Wszystkie dane z urządzenia, które zostały zapisana na koncie magazynu brzegowego na poprzednim urządzeniu, zostały przekazane do wybranego kontenera magazynu na mapowanym koncie usługi Azure Storage.
+1. [Odśwież dane udziału](azure-stack-edge-gpu-manage-shares.md#refresh-shares) z platformy Azure. Spowoduje to pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
 
 ## <a name="restore-edge-local-shares"></a>Przywróć lokalne udziały krawędzi
 
@@ -73,7 +73,7 @@ Po całkowitym skonfigurowaniu urządzenia zastępczego włącz je na potrzeby l
 Wykonaj następujące kroki, aby odzyskać dane z udziałów lokalnych:
 
 1. [Skonfiguruj obliczenia na urządzeniu](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Dodaj udział lokalny](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) .
+1. [Dodaj udział lokalny](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) .
 1. Uruchom procedurę odzyskiwania dostarczoną przez wybór rozwiązania do ochrony danych. Zobacz odwołania z powyższej tabeli.
 
 ## <a name="restore-vm-files-and-folders"></a>Przywracanie plików i folderów maszyny wirtualnej
@@ -82,7 +82,7 @@ Aby przygotować się do potencjalnego błędu urządzenia, można wdrożyć jed
 
 
 
-| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwany system operacyjny   | Odwołanie                                                                |
+| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwany system operacyjny   | Dokumentacja                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Integracja Microsoft Azure, Krótki opis rozwiązania Backup & Recovery](https://www.cohesity.com/solution/cloud/azure) <br>Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.                          |

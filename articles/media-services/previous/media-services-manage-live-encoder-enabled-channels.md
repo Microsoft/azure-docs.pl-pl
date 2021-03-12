@@ -3,7 +3,7 @@ title: Przesyłanie strumieniowe na żywo przy użyciu Azure Media Services do t
 description: W tym temacie opisano sposób konfigurowania kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów z kodera lokalnego, a następnie wykonuje kodowanie na żywo w strumieniu adaptacyjnej szybkości transmisji bitów przy użyciu Media Services.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268309"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013214"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
 
@@ -33,7 +33,7 @@ ms.locfileid: "89268309"
 W Azure Media Services (AMS) **kanał** reprezentuje potok służący do przetwarzania zawartości przesyłania strumieniowego na żywo. **Kanał** odbiera strumienie wejściowe na żywo na jeden z dwóch sposobów:
 
 * Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału, w którym włączono obsługę kodowania na żywo za pomocą Media Services w jednym z następujących formatów: RTMP lub Smooth Streaming (fragmentacja MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
-* Lokalny koder na żywo wysyła protokół **RTMP** o dużej szybkości transmisji bitów lub **Smooth Streaming** (pofragmentowany plik MP4) do kanału, w którym nie włączono kodowania na żywo z użyciem usługi AMS. Pozyskiwane strumienie są przekazywane przez **kanał**bez żadnego dalszego przetwarzania. Ta metoda jest nazywana **przekazywaniem**. Można użyć następujących koderów na żywo, które wychodzące z wieloszybkościowej transmisji bitów Smooth Streaming: MediaExcel, ATEME, Wyobraź Communications, Envivio, Cisco i element. Następujące kodery dynamiczne są wyprowadzane przez RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, kodery Teradek.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła protokół **RTMP** o dużej szybkości transmisji bitów lub **Smooth Streaming** (pofragmentowany plik MP4) do kanału, w którym nie włączono kodowania na żywo z użyciem usługi AMS. Pozyskiwane strumienie są przekazywane przez **kanał** bez żadnego dalszego przetwarzania. Ta metoda jest nazywana **przekazywaniem**. Można użyć następujących koderów na żywo, które wychodzące z wieloszybkościowej transmisji bitów Smooth Streaming: MediaExcel, ATEME, Wyobraź Communications, Envivio, Cisco i element. Następujące kodery dynamiczne są wyprowadzane przez RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, kodery Teradek.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
   > [!NOTE]
   > Użycie metody przekazującej to najbardziej ekonomiczny sposób na przesyłanie strumieniowe na żywo.
@@ -221,12 +221,12 @@ Określa ustawienie wstępne, które ma być używane przez koder na żywo w ram
 
 | Multimedia | Width | Height | MaxFPS | Profil | Nazwa strumienia wyjściowego |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Wysoki |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Wysoki |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Wysoki |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Wysoki |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Wysoki |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Wysoki |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Wys. |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Wys. |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Wys. |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Wys. |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Wys. |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Wys. |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Wyjściowy strumień audio
 
@@ -352,7 +352,7 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Powiązane tematy

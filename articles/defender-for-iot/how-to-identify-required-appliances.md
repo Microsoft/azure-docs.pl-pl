@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937139"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149306"
 ---
 # <a name="identify-required-appliances"></a>Identyfikowanie wymaganych urządzeń
 
@@ -38,13 +38,13 @@ Usługa Defender for IoT obsługuje wdrożenia fizyczne i wirtualne.
 
 Ta sekcja zawiera omówienie dostępnych modeli czujnika fizycznego. Można kupić czujniki ze wstępnie skonfigurowanym oprogramowaniem lub niewstępnie skonfigurowanymi czujnikami zakupu.
 
-| Typ wdrożenia | Firmowe | Przedsiębiorstwa | SMB |
-|--|--|--|--|
-| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: |
-| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| Monitorowanie portów | Do 15 RJ45 lub 8 OPT | Do 8 RJ45 lub 6 OPT | 4 RJ45 |
-| Maksymalna przepustowość [1](#anchortext) | 3 GB na sekundę | 1 GB na sekundę | 200 MB na sekundę |
-| Maksymalna liczba chronionych urządzeń | 30 000 | 15 000 | 1000 |
+| Typ wdrożenia | Firmowe | Przedsiębiorstwa | Montowanie w stojaku SMB| Protokół SMB został wzmocniony|
+|--|--|--|--|--|
+| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="Model na poziomie opartym na protokole SMB."::: |
+| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
+| Monitorowanie portów | Do 15 RJ45 lub 8 OPT | Do 8 RJ45 lub 6 OPT | 4 RJ45 | Do 5 |
+| Maksymalna przepustowość [1](#anchortext) | 3 GB/s | 1 GB/s | 200 MB/s | 100 MB/s |
+| Maksymalna liczba chronionych urządzeń | 30 000 | 15 000 | 1000 | 800 |
 
 Informacje o wymaganiach dostawcy można znaleźć w temacie [specyfikacje urządzeń](#appliance-specifications) .
 
@@ -100,7 +100,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 | Procesor | Intel Xeon Silver 4215 R 3,2 GHz, pamięć podręczna 11M, 8c/16T, 130 W |
 | Mikroukładu | Intel C621 |
 | Pamięć | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
-| Magazyn | 6 x 1,2-TB SAS 12G Enterprise 10 SFF (2,5 w) w Hot-Plug dysku twardym — RAID 5 |
+| Storage | 6 x 1,2-TB SAS 12G Enterprise 10 SFF (2,5 w) w Hot-Plug dysku twardym — RAID 5 |
 | Kontroler sieci | Na płycie: 2 x 1 GB Broadcom BCM5720<br>Na płycie LOM: karta portu iDRAC 1 – GB Broadcom BCM5720<br><br>Zewnętrzna: 1 x karta serwera Intel Ethernet I350 wystawcy 1 GB, niski profil |
 | Zarządzanie | HPE MOP — zaawansowane |
 | Dostęp do urządzenia | Dwa tylne USB 3,0<br>Jeden z przodu USB 2,0<br>Jeden wewnętrzny port USB 3,0 |
@@ -136,7 +136,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 | Procesor | Intel Xeon E-2234, 3,6 GHz, 4C/8T, 71 W |
 | Mikroukładu | Intel C242 |
 | Pamięć | 2 x 16 GB z podwójną rangą x8 DDR4-2666 |
-| Magazyn | 3 x 1 TB SATA 6G Midline 7,2 K SFF (2,5 w) — RAID 5 z inteligentną P408i |
+| Storage | 3 x 1 TB SATA 6G Midline 7,2 K SFF (2,5 w) — RAID 5 z inteligentną P408i |
 | Kontroler sieci | Na płycie: 2 x 1 GB <br>Na płycie: karta portu MOP 1 GB <br>Zewnętrzna: 1 x HPE Ethernet 1 GB 4-Port 366FLR adapter |
 | Zarządzanie | HPE MOP — zaawansowane |
 | Dostęp do urządzenia | Przód: 1 x USB 3,0, 1 x port usługi MOP USB <br>Tył: 2 x USB 3,0 <br>Wewnętrzny: 1 x USB 3,0 |
@@ -171,7 +171,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 | Procesor | Intel Xeon E-2224, 3,4 GHz, 4C, 71 W |
 | Mikroukładu | Intel C242 |
 | Pamięć | 1 x 8 GB z podwójną rangą x8 DDR4-2666 |
-| Magazyn | 2 x 1 TB SATA 6G Midline 7,2 K SFF (2,5 w) — RAID 1 z inteligentną tablicą P208i-a |
+| Storage | 2 x 1 TB SATA 6G Midline 7,2 K SFF (2,5 w) — RAID 1 z inteligentną tablicą P208i-a |
 | Kontroler sieci | Na płycie: 2 x 1 GB <br>Na płycie: karta portu MOP 1 GB <br>Zewnętrzna: 1 x HPE Ethernet 1 GB 4-Port 366FLR adapter |
 | Zarządzanie | HPE MOP — zaawansowane |
 | Dostęp do urządzenia | Przód: 1 x USB 3,0, 1 x port usługi MOP USB <br>Tył: 2 x USB 3,0 <br>Wewnętrzny: 1 x USB 3,0 |
@@ -195,6 +195,45 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 | 512485 – B21 | HPE MOP ADV 1 — Pomoc techniczna w 1 roku | 1 |
 | 775612 – B21 | Zestaw szyn krótkich HPE 1U | 1 |
 
+## <a name="smb-rugged-hpe-edgeline-el300"></a>SMB odporność: HPE Edgeline EL300
+
+| Składnik | Specyfikacje techniczne |
+|--|--|
+| Budownictwo | Aluminium, fanless &, projekt sprawdzający pył |
+| Wymiary (wysokość x szerokość x głębokości) | 200.5 mm (7,9 ") wysokie, 232mm (9,14") szerokie przez 100mm (3,9 ") głębokie |
+| Waga | 4,91 KG (10,83 funtów) |
+| Procesor CPU | Intel Core i7-8650U (1,9 GHz/4-rdzeń/15W) |
+| Mikroukładu | Centrum kontrolera platformy Intel® Q170 |
+| Pamięć | SODIMM temperatury 8 GB DDR4 2133MHz |
+| Storage | dysk SSD 128 GB 3ME3 Wide mSATA |
+| Kontroler sieci | porty Gigabit Ethernet 6X z technologią Intel® I219 |
+| Dostęp do urządzenia  | 4 USBs: 2 wierzchy; 2 tylne; 1 wewnętrzny |
+| Zasilacz | 250V/10A |
+| Pokazują | Zestaw montażowy, Szyna DIN |
+| Temperatura operacyjna | 0C do + 70C  |
+| Wilgotność | 10% ~ 90%, bez kondensacji |
+| Wibracj | 0,3 Grms 10Hz do 300Hz, 15 minut na oś — Szyna DIN   |
+| Trwa | 10G 10 ms, Half-sinus, trzy dla każdej osi. (Dodatnie impulsy ujemne &) — Szyna DIN |
+
+### <a name="appliance-bom"></a>BOM urządzenia
+| Produkt | Opis |
+|--|--|
+| P25828-B21 | System HPE Edgeline EL300 v2 z zbieżnością |
+| P25828-B21 B19 | System graniczny HPE EL300 v2 |
+| P25833-B21 | Intel Core i7-8650U (1,9 GHz/4-Core/15W) FIO podstawowy zestaw procesorów dla HPE Edgeline EL300 |
+| P09176-B21 | HPE Edgeline 8 GB (1x8GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 zarejestrowana pamięć FIO zestaw |
+| P09188-B21 | HPE Edgeline 256GB SATA 6G intensywnie M. 2 2242 3yr wty Wide temp SSD |
+| P04054-B21 | HPE Edgeline EL300 SFF do M. 2 |
+| P08120-B21 | HPE Edgeline EL300 12VDC FIO |
+| P08641-B21 | HPE Edgeline EL300 80W 12VDC zasilacz |
+| AF564A | HPE C13-SI-32 IL 250V 10Amp 1.83 m |
+| P25835-B21 | HPE EL300 v2 FIO Board |
+| R1P49AAE | HPE EL300 iSM ADV 3yr 24x7 Sup_Upd E-LTU |
+| P08018 — B21 opcjonalne | HPE Edgeline EL300 — zestaw dla małych profilów  |
+| P08019 — B21 opcjonalne | Zestaw instalacji szynowych HPE Edgeline EL300 DIN |
+| P08020 — B21 opcjonalne | HPE Edgeline EL300 — zestaw instalacji ściany |
+| P03456 — B21 opcjonalne | HPE Edgeline 1GbE 4-Port TSN FIO Karta podrzędna |
+
 ## <a name="virtual-appliance-specifications"></a>Specyfikacje urządzenia wirtualnego
 
 ### <a name="sensors"></a>Sensor
@@ -203,7 +242,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 |--|--|--|--|
 | Procesor wirtualny | 32 | 8 | 4 |
 | Pamięć | 32 GB | 32 GB | 8 GB |
-| Magazyn | 5,6 TB | 1,8 TB | 500 GB |
+| Storage | 5,6 TB | 1,8 TB | 500 GB |
 
 ### <a name="on-premises-management-console-appliance"></a>Lokalne urządzenie konsoli zarządzania
 
@@ -212,7 +251,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 | Opis | Wirtualne urządzenie dla typów wdrożeń w przedsiębiorstwie |
 | Procesor wirtualny | 8 |
 | Pamięć | 32 GB |
-| Magazyn | 1,8 TB |
+| Storage | 1,8 TB |
 
 Obsługiwane funkcje hypervisor: VMware ESXi w wersji 5,0 lub nowszej, funkcja Hyper-V
 
@@ -238,13 +277,13 @@ Po zakupie urządzenia przejdź do usługi **Defender for IoT**  >  **Network Se
 
 | Składnik | Specyfikacje techniczne |
 |--|--|
-| Obudowa | serwer stojaków o rozmiarze 1U |
+| Obudowa | serwer stojaków o rozmiarze 1U
 | Wymiary | 42,8 x 434,0 x 596 (mm)/1,67 "x 17,09" x 23,5 "(w) |
 | Waga | Maks 29,98 lb/13,6 kg |
 | Procesor | Intel Xeon E-2144G 3,6 GHz, pamięci podręcznej 8 M, 4C/8T, Turbo (71 W) |
 | Mikroukładu | Intel C246 |
 | Pamięć | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
-| Magazyn | 3 x 2-TB 7,2 K RPM SATA 6-GB/s 512n 3,5-w Hot-Plug dysk twardy — RAID 5 |
+| Storage | 3 x 2-TB 7,2 K RPM SATA 6-GB/s 512n 3,5-w Hot-Plug dysk twardy — RAID 5 |
 | Kontroler sieci | Na płycie: 2 x 1 GB Broadcom BCM5720<br>Na płycie LOM: karta portu iDRAC 1 – GB Broadcom BCM5720 <br><br>Zewnętrzna: 1 x karta serwera Intel Ethernet I350 wystawcy 1 GB, niski profil |
 | Zarządzanie | iDRAC dziewięć przedsiębiorstw |
 | Dostęp do urządzenia | Dwa tylne USB 3,0 <br> Jeden z przodu USB 3,0 |
@@ -260,3 +299,4 @@ Po zakupie urządzenia przejdź do usługi **Defender for IoT**  >  **Network Se
 [Informacje o instalacji usługi Azure Defender for IoT](how-to-install-software.md)
 
 [Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja](how-to-set-up-your-network.md)
+

@@ -11,20 +11,18 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 3572f481cc2cbcb1df73b33eb2543e32256ad9fb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9c0e5508830343561833785fbce31f547a8a7428
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584395"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149685"
 ---
 # <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Eksportowanie aplikacji z użyciem wpisów tajnych i certyfikatów wygasających poza wymaganą datą
 
-Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne aplikacji i certyfikaty wygasające poza wymaganą datą dla określonych aplikacji z katalogu w pliku CSV.
+Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne rejestracji aplikacji i certyfikaty, które wygasają po upływie wymaganego okresu dla określonych aplikacji z katalogu w pliku CSV, nieinteraktywnie.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) lub [AzureAD v2 PowerShell dla programu Graph (wersja zapoznawcza](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) ) (AzureADPreview).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -32,13 +30,14 @@ Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
+Ten skrypt działa nieinteraktywnie. Administrator korzystający z tego programu będzie musiał zmienić wartości w sekcji "#PARAMETERS do zmiany" z IDENTYFIKATORem aplikacji, wpisem tajnym aplikacji, nazwą dzierżawy, okresem ważności poświadczeń aplikacji oraz ścieżką, w której będzie eksportowany wolumin CSV.
+Ten skrypt używa [przepływu Client_Credential OAuth](../../develop/v2-oauth2-client-creds-grant-flow.md) funkcja "RefreshToken" kompiluje token dostępu na podstawie wartości parametrów zmodyfikowanych przez administratora.
+
 Polecenie "Add-member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
-Możesz zmodyfikować zmienną "$Path" bezpośrednio w programie PowerShell, używając ścieżki pliku CSV, na wypadek, gdyby eksport nie był interaktywny.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Pobiera aplikację z katalogu. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Pobiera właścicieli aplikacji z katalogu. |
+| [Invoke-żądanie](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1) | Wysyła żądania HTTP i HTTPS do strony sieci Web lub usługi sieci Web. Analizuje odpowiedź i zwraca kolekcje linków, obrazów i innych istotnych elementów HTML. |
 
 ## <a name="next-steps"></a>Następne kroki
 

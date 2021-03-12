@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915712"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632088"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla administratorów
 
@@ -56,7 +56,7 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przy
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie** wybierz pozycję **role katalogu (wersja zapoznawcza)** i wybierz co najmniej następujące role:
+   1. W obszarze **dołączanie** wybierz pozycję **role katalogu** i wybierz role wbudowane, takie jak:
       * Administrator uwierzytelniania
       * Administrator rozliczeń
       * Administrator dostępu warunkowego
@@ -69,12 +69,11 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przy
       * Administrator użytkowników
    
       > [!WARNING]
-      > Zasady dostępu warunkowego nie obsługują użytkowników, którym przypisano rolę katalogu [zakresu do jednostki administracyjnej](../roles/admin-units-assign-roles.md) lub ról katalogu w zakresie bezpośrednio do obiektu, na przykład za pomocą [ról niestandardowych](../roles/custom-create.md).
+      > Zasady dostępu warunkowego obsługują role wbudowane. Zasady dostępu warunkowego nie są wymuszane dla innych typów ról, w tym ról [administracyjnych należących do zakresu jednostki](../roles/admin-units-assign-roles.md) lub [niestandardowych](../roles/custom-create.md).
 
    1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
-1. W **obszarze warunki**  >  **aplikacje klienta** Przełącz pozycję **Konfiguruj** na **wartość tak** , a następnie w obszarze **Wybierz aplikacje klienckie, które będą stosowane przez te zasady** , a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **przyznawanie** wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.

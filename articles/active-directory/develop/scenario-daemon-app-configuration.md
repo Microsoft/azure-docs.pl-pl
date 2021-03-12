@@ -11,26 +11,22 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 300df35918ea4868664fcb7c5882709eee4090ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582894"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008007"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
 
 Dowiedz się, jak skonfigurować kod dla aplikacji demona, która wywołuje interfejsy API sieci Web.
 
-## <a name="msal-libraries-that-support-daemon-apps"></a>Biblioteki MSAL obsługujące aplikacje demona
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje demona
 
-Te biblioteki firmy Microsoft obsługują aplikacje demona:
+Następujące biblioteki firmy Microsoft obsługują aplikacje demona:
 
-  Biblioteka MSAL | Opis
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Platformy .NET Framework i .NET Core są obsługiwane na potrzeby tworzenia aplikacji demona. (Platformy UWP, Xamarin. iOS i Xamarin. Android nie są obsługiwane, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich).
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Obsługa aplikacji demona w języku Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Obsługa aplikacji demona w języku Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## <a name="configure-the-authority"></a>Konfigurowanie urzędu
 

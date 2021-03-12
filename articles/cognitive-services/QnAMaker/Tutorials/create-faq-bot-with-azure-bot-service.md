@@ -5,17 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ab6607175c596a0d82cf75f0ad786a76e85b6959
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350963"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612154"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Samouczek: Tworzenie bot często zadawanych pytań za pomocą Azure Bot Service
 Utwórz bot często zadawanych pytań z usługami QnA Maker i Azure [bot Service](https://azure.microsoft.com/services/bot-service/) bez kodu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -62,7 +62,7 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
 
 1. Na stronie tworzenia Azure Bot Service zostanie otwarta nowa karta przeglądarki dla Azure Portal. Skonfiguruj usługę Azure bot. Bot i QnA Maker mogą korzystać z planu usługi aplikacji sieci Web, ale nie mogą udostępniać aplikacji sieci Web. Oznacza to, że **Nazwa aplikacji** dla bot musi być inna niż nazwa aplikacji dla usługi QNA Maker.
 
-    * **Nie**
+    * **Zalecenia**
         * Zmień obsługę bot — Jeśli nie jest unikatowa.
         * Wybierz pozycję język zestawu SDK. Po utworzeniu bot można pobrać kod do lokalnego środowiska deweloperskiego i kontynuować proces opracowywania.
     * **Zakazy**
@@ -80,4 +80,4 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
     Bot rozmowy reaguje na odpowiedź z bazy wiedzy.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.":::
-1. PoBot się z dodatkowymi [obsługiwanymi kanałami](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0).
+1. PoBot się z dodatkowymi [obsługiwanymi kanałami](/azure/bot-service/bot-service-manage-channels).

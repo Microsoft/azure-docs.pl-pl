@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e644b7937f6ccb23b4833405b8f4ed3119879a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3aff7b99dad910a9691eef2004df856ca883789
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362288"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224388"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalacja agenta Azure AD Connect Health
 
@@ -38,7 +38,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące korzystania z Azure AD Co
 | Jesteś administratorem globalnym w usłudze Azure AD. |Domyślnie tylko Administratorzy globalni mogą instalować i konfigurować agentów kondycji, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w Azure AD Connect Health. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można zezwolić innym użytkownikom w organizacji na dostęp do Azure AD Connect Health. Aby uzyskać więcej informacji, zobacz [Azure RBAC dla Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Ważne**: Użyj konta służbowego, aby zainstalować agentów. Nie można użyć konto Microsoft. Aby uzyskać więcej informacji, zobacz [Rejestrowanie się w usłudze Azure jako organizacja](../fundamentals/sign-up-organization.md). |
 | Agent Azure AD Connect Health jest instalowany na każdym serwerze dodanym. | Agenci kondycji muszą być zainstalowani i skonfigurowani na serwerach, aby mogły odbierać dane i zapewniać możliwości monitorowania i analizy. <br /><br />Na przykład aby uzyskać dane z infrastruktury Active Directory Federation Services (AD FS), należy zainstalować agenta na serwerze AD FS i serwerze proxy aplikacji sieci Web. Podobnie Aby uzyskać dane z infrastruktury lokalnej Azure AD Domain Services (Azure AD DS), należy zainstalować agenta na kontrolerach domeny.  |
 | Punkty końcowe usługi platformy Azure mają łączność wychodzącą. | Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli zapory blokują łączność wychodzącą, Dodaj [punkty końcowe łączności wychodzącej](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) do listy dozwolonych. |
-|Łączność wychodząca jest oparta na adresach IP. | Informacje o filtrowaniu zapory na podstawie adresów IP znajdują się w temacie [zakresy adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
+|Łączność wychodząca jest oparta na adresach IP. | Informacje o filtrowaniu zapory na podstawie adresów IP znajdują się w temacie [zakresy adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519).|
 | Inspekcja protokołu TLS dla ruchu wychodzącego jest filtrowana lub wyłączona. | Krok rejestracji agenta lub operacje przekazywania danych mogą się nie powieść, jeśli istnieje Inspekcja lub przerwa dla ruchu wychodzącego w warstwie sieciowej. Aby uzyskać więcej informacji, zobacz [Konfigurowanie inspekcji protokołu TLS](/previous-versions/tn-archive/ee796230(v=technet.10)). |
 | Na portach zapory na serwerze jest uruchomiony Agent programu. |Agent wymaga otwarcia następujących portów zapory, aby mógł komunikować się z punktami końcowymi usługi Azure AD Connect Health: <br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Najnowsza wersja agenta nie wymaga portu 5671. Uaktualnij do najnowszej wersji, aby wymagany był tylko port 443. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące portów i protokołów dla tożsamości hybrydowej](./reference-connect-ports.md). |
 | W przypadku włączenia zwiększonych zabezpieczeń programu Internet Explorer Zezwalaj na określone witryny sieci Web.  |W przypadku włączenia zwiększonych zabezpieczeń programu Internet Explorer na serwerze, na którym jest instalowany Agent, należy zezwolić na następujące witryny sieci Web:<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.NET</li><li>Serwer federacyjny dla organizacji, który jest zaufany przez usługę Azure AD (na przykład https: \/ /STS.contoso.com)</li> <br />Aby uzyskać więcej informacji, zobacz [jak skonfigurować program Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Jeśli masz serwer proxy w sieci, zobacz uwagę, która pojawia się na końcu tej tabeli.|

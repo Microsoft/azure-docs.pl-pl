@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521751"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225034"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -128,12 +128,22 @@ W poniższej tabeli porównano elastyczny tryb aranżacji, jednolity tryb aranż
 |         Alerty platformy Azure  |            Nie  |            Tak  |            Tak  |
 |         Szczegółowe informacje o maszynie wirtualnej  |            Nie  |            Tak  |            Tak  |
 |         Azure Backup  |            Tak  |            Tak  |            Tak  |
-|         Azure Site Recovery  |            Nie  |            Nie  |            Tak  |
+|         Azure Site Recovery  |     Nie  |            Nie  |            Tak  |
 |         Dodaj/Usuń istniejącą maszynę wirtualną do grupy  |            Nie  |            Nie  |            Nie  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Zarejestruj się, aby zarządzać elastycznym trybem aranżacji
 Przed wdrożeniem zestawów skalowania maszyn wirtualnych w trybie elastycznej aranżacji należy najpierw zarejestrować swoją subskrypcję dla funkcji w wersji zapoznawczej. Rejestracja może potrwać kilka minut. Aby zarejestrować się, można użyć następujących Azure PowerShell lub poleceń interfejsu wiersza polecenia platformy Azure.
+
+### <a name="azure-portal"></a>Azure Portal
+Przejdź do strony szczegółów subskrypcji, dla której chcesz utworzyć zestaw skalowania w trybie elastycznej aranżacji, a następnie wybierz pozycję funkcje w wersji zapoznawczej z menu. Wybierz dwie funkcje programu Orchestrator, które mają być włączone: _VMOrchestratorSingleFD_ i _VMOrchestratorMultiFD_, a następnie naciśnij przycisk Zarejestruj. Rejestracja funkcji może potrwać do 15 minut.
+
+![Rejestracja funkcji.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Po zarejestrowaniu funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych. Przejdź do karty dostawcy zasobów dla subskrypcji, wybierz pozycję Microsoft. COMPUTE, a następnie kliknij pozycję Zarejestruj ponownie.
+
+![Zarejestruj ponownie](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Aby włączyć podgląd subskrypcji, użyj polecenia cmdlet [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) . 

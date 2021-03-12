@@ -9,14 +9,17 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: kgremban
-ms.openlocfilehash: c24389a1957f9e0cfb23e3bb5b8604c34e57a915
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+monikerRange: iotedge-2018-06
+ms.openlocfilehash: bb87d09b67658f9a3d7c68f635bfcd9a29de675c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609519"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201627"
 ---
 # <a name="install-and-manage-azure-iot-edge-with-windows-containers"></a>Instalowanie Azure IoT Edge z kontenerami systemu Windows i zarządzanie nimi
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Środowisko uruchomieniowe Azure IoT Edge to włączenie urządzenia do urządzenia IoT Edge. Po skonfigurowaniu urządzenia przy użyciu środowiska uruchomieniowego usługi IoT Edge można rozpocząć wdrażanie na nim logiki biznesowej z chmury. Aby dowiedzieć się więcej, zobacz [Omówienie środowiska uruchomieniowego Azure IoT Edge i jego architektury](iot-edge-runtime.md).
 

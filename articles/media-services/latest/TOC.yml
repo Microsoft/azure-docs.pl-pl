@@ -49,8 +49,6 @@
       items:
         - name: Tworzenie konta za pomocą usługi ARM
           href: quickstart-arm-template-account.md
-    - name: Podstawowe kodowanie języka Python — Szybki Start
-      href: quickstart-basic-encoding-python.md
 - name: Samouczki
   items:
     - name: .NET
@@ -86,6 +84,10 @@
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — Node.js
           href: stream-files-nodejs-quickstart.md
+    - name: Python
+      items:
+        - name: Podstawowe kodowanie języka Python — Szybki Start
+          href: quickstart-basic-encoding-python.md
     - name: Azure Portal
       items:
         - name: Klucze zarządzane przez klienta lub BYOK — samouczek

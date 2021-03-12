@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497065"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199867"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu przepływów danych mapowania
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
 W tym samouczku użyjesz interfejsu użytkownika Azure Data Factory, aby utworzyć potok, który kopiuje i przekształca dane ze źródła Azure Data Lake Storage (ADLS) Gen2 do ujścia ADLS Gen2 przy użyciu przepływu danych mapowania. Wzorzec konfiguracji w tym samouczku można rozszerzyć przy przekształcaniu danych przy użyciu przepływu danych mapowania
 
+ >[!NOTE]
+   >Ten samouczek jest przeznaczony do ogólnego mapowania przepływów danych. Przepływy danych są dostępne zarówno w Azure Data Factory, jak i w potokach Synapse. Jeśli dopiero zaczynasz przepływy danych w potokach usługi Azure Synapse, postępuj zgodnie z [przepływem danych przy użyciu potoków usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
@@ -62,7 +65,7 @@ W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby 
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -131,7 +134,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
     Jeśli klaster debugowania jest aktywny, można sprawdzić logikę, klikając przycisk **Odśwież** , aby wyświetlić dane wyjściowe wyrażenia w porównaniu z używanymi danymi wejściowymi. Istnieje więcej niż jedna odpowiedź, na którą można wykonać tę logikę przy użyciu języka wyrażeń przepływu danych.
 
-    ![Zostaną przefiltrowane](media/tutorial-data-flow/filter2.png)
+    ![Filtr](media/tutorial-data-flow/filter2.png)
 
     Kliknij przycisk **Zapisz i Zakończ,** gdy skończysz pracę z wyrażeniem.
 
