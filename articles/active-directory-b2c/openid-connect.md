@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5095e077ad1f2259c227c37f789dbcaf1f6d1cd7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509805"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611865"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C
 
@@ -57,6 +57,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Nie | `redirect_uri`Parametr aplikacji, w którym odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie odpowiadać jednemu z `redirect_uri` parametrów zarejestrowanych w Azure Portal, z tą różnicą, że musi on być zakodowany w adresie URL. |
 | response_mode | Nie | Metoda, która jest używana do wysyłania podanego kodu autoryzacji z powrotem do aplikacji. Może to być albo `query` , `form_post` , lub `fragment` .  W `form_post` celu uzyskania najlepszych zabezpieczeń zaleca się używanie trybu odpowiedzi. |
 | stan | Nie | Wartość zawarta w żądaniu, która jest również zwracana w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu zapobiegania atakom na fałszerstwo żądań między witrynami. Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, na przykład na stronie, w której znajdowały się. |
+| login_hint | Nie| Może służyć do wstępnego wypełnienia pola nazwy logowania na stronie logowania. Aby uzyskać więcej informacji, zobacz [wstępne wypełnianie nazwy logowania](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | Nie| Zawiera wskazówkę dotyczącą Azure AD B2C na temat dostawcy tożsamości społecznościowej, który ma być używany do logowania. W przypadku uwzględnienia prawidłowej wartości użytkownik przechodzi bezpośrednio do strony logowania dostawcy tożsamości.  Aby uzyskać więcej informacji, zobacz [Przekieruj logowanie do dostawcy społecznościowego](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Parametry niestandardowe | Nie| Parametry niestandardowe, które mogą być używane z [zasadami niestandardowymi](custom-policy-overview.md). Na przykład [dynamiczny Identyfikator URI zawartości strony niestandardowej](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)lub [resolvery roszczeń klucz-wartość](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 W tym momencie użytkownik zostanie poproszony o ukończenie przepływu pracy. Użytkownik może wprowadzić nazwę użytkownika i hasło, zalogować się przy użyciu tożsamości społecznościowej lub zarejestrować się w katalogu. Może istnieć jakakolwiek inna liczba kroków w zależności od sposobu definiowania przepływu użytkownika.
 

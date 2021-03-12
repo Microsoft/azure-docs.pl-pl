@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467895"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630966"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Konfigurowanie sieci VPN na urządzeniu z systemem Azure Stack Edge mini R za pośrednictwem Azure PowerShell
 
@@ -238,7 +238,7 @@ W tym kroku zostanie pobrany profil sieci VPN dla Twojego urządzenia.
 
     ![Włącz konfigurację P2S 3](media/azure-stack-edge-mini-r-configure-vpn-powershell/extract-exe.png)
 
-3. Utwórz ścieżkę tymczasową. Przykład:
+3. Utwórz ścieżkę tymczasową. Na przykład:
 
     `C:\NewTemp\vnet\tmp`
 
@@ -303,7 +303,7 @@ Wykonaj następujące kroki w lokalnym interfejsie użytkownika urządzenia brze
 
 ## <a name="validate-data-transfer-through-vpn"></a>Weryfikowanie transferu danych za pośrednictwem sieci VPN
 
-Aby upewnić się, że sieć VPN działa, skopiuj dane do udziału SMB. Wykonaj kroki opisane w temacie [Dodawanie udziału](azure-stack-edge-j-series-manage-shares.md#add-a-share) na urządzeniu Azure Stack Edge. 
+Aby upewnić się, że sieć VPN działa, skopiuj dane do udziału SMB. Wykonaj kroki opisane w temacie [Dodawanie udziału](azure-stack-edge-gpu-manage-shares.md#add-a-share) na urządzeniu Azure Stack Edge. 
 
 1. Skopiuj plik, na przykład \data\pictures\waterfall.jpg do udziału SMB, który został zainstalowany w systemie klienta. 
 2. Aby sprawdzić, czy dane przechodzą przez sieć VPN, podczas gdy dane są kopiowane:

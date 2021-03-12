@@ -2,15 +2,15 @@
 title: Samouczek — Eksportowanie szablonu JSON z Azure Portal na potrzeby tworzenia Bicep
 description: Dowiedz się, jak za pomocą wyeksportowanego szablonu JSON ukończyć programowanie Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748160"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632553"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Samouczek: korzystanie z wyeksportowanego szablonu JSON z Azure Portal
 
@@ -79,7 +79,7 @@ Obecnie Azure Portal obsługuje tylko eksportowanie szablonów JSON. Istnieją n
 
 Niezgodny szablon wyeksportowany daje większość potrzebnych Bicep, ale należy go dostosować do pliku Bicep. Należy zwrócić szczególną uwagę na różnice między parametrami i zmiennymi między plikiem Bicep a wyeksportowanym plikiem Bicep. Oczywiście proces eksportowania nie wie o parametry i zmienne, które zostały już zdefiniowane w pliku Bicep.
 
-Poniższy przykład wyróżnia Dodatki do pliku Bicep. Zawiera eksportowany kod i pewne zmiany. Najpierw zmienia nazwę parametru zgodnie z konwencją nazewnictwa. Następnie używa parametru Location dla lokalizacji planu usługi App Service. Po trzecie usuwa niektóre właściwości, w których wartość domyślna jest dobra.
+Poniższy przykład pokazuje Dodatki do pliku Bicep. Zawiera eksportowany kod i pewne zmiany. Najpierw zmienia nazwę parametru zgodnie z konwencją nazewnictwa. Następnie używa parametru Location dla lokalizacji planu usługi App Service. Po trzecie usuwa niektóre właściwości, w których wartość domyślna jest dobra.
 
 Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
 

@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 6b345f159ca30d93e43aae8fe34e7d469c57795b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556659"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630626"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
@@ -40,7 +40,7 @@ Aby uzyskać uproszczoną wersję tego artykułu oraz testowanie, ocenianie lub 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Krok 1. Anulowanie aprowizacji maszyny wirtualnej
-Najpierw należy anulować obsługę administracyjną maszyny wirtualnej przy użyciu agenta maszyny wirtualnej platformy Azure w celu usunięcia plików i danych specyficznych dla maszyny. Użyj `waagent` polecenia z `-deprovision+user` parametrem na ŹRÓDŁOWEJ maszynie wirtualnej z systemem Linux. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md).
+Najpierw należy anulować obsługę administracyjną maszyny wirtualnej przy użyciu agenta maszyny wirtualnej platformy Azure w celu usunięcia plików i danych specyficznych dla maszyny. Użyj `waagent` polecenia z `-deprovision+user` parametrem na ŹRÓDŁOWEJ maszynie wirtualnej z systemem Linux. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md). Nie można odwrócić tego procesu.
 
 1. Nawiązywanie połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta SSH.
 2. W oknie SSH wprowadź następujące polecenie:

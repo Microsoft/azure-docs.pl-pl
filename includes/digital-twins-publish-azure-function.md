@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750831"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630281"
 ---
 Aby opublikować projekt w aplikacji funkcji na platformie Azure, zaznacz projekt prawym przyciskiem myszy w *Eksplorator rozwiązań* a następnie wybierz polecenie **Publikuj**.
 
@@ -57,6 +57,4 @@ W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie 
 >
 > Postępuj zgodnie z monitami, aby przeprowadzić uaktualnienie do najnowszej wersji środowiska uruchomieniowego Azure Functions. Ten problem może wystąpić, jeśli używasz starszej wersji programu Visual Studio.
 
-Aplikacja funkcji jest teraz publikowana na platformie Azure. 
-
-Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system z uprawnieniami dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.
+Aplikacja funkcji jest teraz publikowana na platformie Azure.

@@ -2,15 +2,15 @@
 title: Samouczek — Dodawanie parametrów do pliku Azure Resource Manager Bicep
 description: Dodaj parametry do pliku Bicep, aby umożliwić jego wielokrotne użycie.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748211"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632785"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>Samouczek: Dodawanie parametrów do pliku Azure Resource Manager Bicep
 
@@ -34,7 +34,7 @@ Być może zauważono, że wystąpił problem z tym plikiem Bicep. Nazwa konta m
 
 ## <a name="make-bicep-file-reusable"></a>Utwórz plik Bicep do ponownego wykorzystania
 
-Aby umożliwić wielokrotne użycie pliku Bicep, dodajmy parametr, którego można użyć do przekazania nazwy konta magazynu. Wyróżnione Bicep w poniższym przykładzie pokazują, co zmieniło się w pliku. `storageName`Parametr jest identyfikowany jako ciąg. Maksymalna długość jest równa 24 znaków, aby zapobiec nazwom, które są zbyt długie.
+Aby umożliwić wielokrotne użycie pliku Bicep, dodajmy parametr, którego można użyć do przekazania nazwy konta magazynu. Następujący plik Bicep pokazuje, co zmieniło się w pliku. `storageName`Parametr jest identyfikowany jako ciąg. Maksymalna długość jest równa 24 znaków, aby zapobiec nazwom, które są zbyt długie.
 
 Skopiuj cały plik i zastąp go poniższą zawartością.
 

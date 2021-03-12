@@ -2,16 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4139992c2bd07c87000076ec68e56549a01f3528
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b443728ed28a1ec288451fc7fc6fc11b496212b3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429654"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611256"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[Usługa Azure Wyszukiwanie poznawcze powinna używać jednostki SKU, która obsługuje link prywatny](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa049bf77-880b-470f-ba6d-9f21c530cf83) |W przypadku obsługiwanych jednostek SKU usługi Azure Wyszukiwanie poznawcze link prywatny platformy Azure umożliwia połączenie sieci wirtualnej z usługami platformy Azure bez publicznego adresu IP w lokalizacji źródłowej lub docelowej. Platforma linków prywatnych obsługuje łączność między klientem i usługami za pośrednictwem sieci szkieletowej platformy Azure. Mapując prywatne punkty końcowe do usługi wyszukiwania, zmniejsza się ryzyko wycieku danych. Dowiedz się więcej o: [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](https://aka.ms/azure-cognitive-search/inbound-private-endpoints) . |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePrivateLinkSupportedResource_Deny.json) |
+|[Usługa Azure Wyszukiwanie poznawcze Services powinna wyłączyć dostęp do sieci publicznej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee980b6d-0eca-4501-8d54-f6290fd512c3) |Wyłączenie dostępu do sieci publicznej zwiększa bezpieczeństwo przez zapewnienie, że usługa Azure Wyszukiwanie poznawcze nie jest ujawniona w publicznym Internecie. Tworzenie prywatnych punktów końcowych może ograniczyć widoczność usługi wyszukiwania. Dowiedz się więcej o: [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](https://aka.ms/azure-cognitive-search/inbound-private-endpoints) . |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePublicNetworkAccessDisabled_Deny.json) |
+|[Skonfiguruj usługi Wyszukiwanie poznawcze Azure, aby wyłączyć dostęp do sieci publicznej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9cee519f-d9c1-4fd9-9f79-24ec3449ed30) |Wyłącz dostęp do sieci publicznej dla usługi Wyszukiwanie poznawcze platformy Azure, aby nie był dostępny za pośrednictwem publicznej sieci Internet. Może to zmniejszyć ryzyko wycieku danych. Dowiedz się więcej o: [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](https://aka.ms/azure-cognitive-search/inbound-private-endpoints) . |Modyfikowanie, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PublicNetworkAccessDisabled_Modify.json) |
+|[Konfigurowanie usług Wyszukiwanie poznawcze platformy Azure do używania prywatnych stref DNS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbc14a67-53e4-4932-abcc-2049c6706009) |Użyj prywatnych stref DNS, aby zastąpić rozpoznawanie nazw DNS dla prywatnego punktu końcowego. Prywatna strefa DNS łączy się z siecią wirtualną w celu rozpoznania jej w usłudze Azure Wyszukiwanie poznawcze. Dowiedz się więcej o: [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](https://aka.ms/azure-cognitive-search/inbound-private-endpoints) . |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PrivateDNSZone_DeployIfNotExists.json) |
 |[Należy włączyć dzienniki zasobów w usługach wyszukiwania](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |Inspekcja włączenia dzienników zasobów. Pozwala to na ponowne utworzenie śladów aktywności do użycia w celach dochodzeniowych; gdy wystąpi zdarzenie związane z bezpieczeństwem lub w przypadku naruszenia bezpieczeństwa sieci |AuditIfNotExists, wyłączone |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |

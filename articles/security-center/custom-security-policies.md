@@ -1,7 +1,6 @@
 ---
 title: Tworzenie niestandardowych zasad zabezpieczeń w Azure Security Center | Microsoft Docs
 description: Definicje zasad niestandardowych platformy Azure monitorowane przez Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100869"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441061"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
 
@@ -23,6 +22,9 @@ Aby pomóc w zabezpieczeniu systemów i środowiska, Azure Security Center gener
 Korzystając z tej funkcji, możesz dodać własne inicjatywy *niestandardowe* . Następnie otrzymasz zalecenia, jeśli środowisko nie będzie zgodne z tworzonymi zasadami. Wszelkie utworzone inicjatywy niestandardowe będą wyświetlane wraz z wbudowanymi inicjatywami na pulpicie nawigacyjnym zgodności z przepisami, zgodnie z opisem w samouczku [poprawa zgodności z przepisami](security-center-compliance-dashboard.md).
 
 Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), gdy określisz lokalizację dla inicjatywy niestandardowej, musi to być grupa zarządzania lub subskrypcja. 
+
+> [!TIP]
+> Aby zapoznać się z omówieniem najważniejszych pojęć na tej stronie, zobacz [co to są zasady zabezpieczeń, inicjatywy i rekomendacje?](security-policy-concept.md).
 
 ::: zone pivot="azure-portal"
 

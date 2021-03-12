@@ -6,15 +6,29 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: github-2407
 ms.author: krsh
-ms.date: 10/15/2020
-ms.openlocfilehash: a9698981b1a658664bfc14886628bbfd0a4a64d2
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.date: 02/19/2020
+ms.openlocfilehash: 48e41e870676bf6939ccaf5268c462f885e67572
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976932"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630184"
 ---
 # <a name="test-a-virtual-machine-image"></a>Testowanie obrazu maszyny wirtualnej
+
+W tym temacie opisano kroki testowania obrazu maszyny wirtualnej w celu wdrożenia w portalu Azure Marketplace.
+
+## <a name="deploy-an-azure-vm"></a>Wdróż maszynę wirtualną platformy Azure
+
+Aby wdrożyć maszynę wirtualną z obrazu udostępnionego galerii obrazów:
+
+1. Przejdź do wersji obrazu udostępnionej galerii obrazów
+1. Kliknij pozycję Utwórz maszynę wirtualną
+1. Podaj nazwę maszyny wirtualnej i wybierz rozmiar maszyny wirtualnej
+1. Kliknij przycisk przegląd + Utwórz. Po przekazaniu walidacji kliknij pozycję Utwórz.
+
+> [!NOTE]
+> Jeśli musisz utworzyć maszynę wirtualną na podstawie pliku VHD, postępuj zgodnie z instrukcjami podanymi w poniższych artykułach, [Przygotuj szablon Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) lub [Wdróż maszynę wirtualną platformy Azure przy użyciu programu PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
 
 W tym artykule opisano sposób testowania i przesyłania obrazu maszyny wirtualnej (VM) w komercyjnej witrynie Marketplace, aby upewnić się, że spełnia on najnowsze wymagania dotyczące publikowania w witrynie Azure Marketplace.
 
@@ -22,520 +36,6 @@ Przed przesłaniem oferty maszyny wirtualnej wykonaj następujące kroki:
 
 - Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu; Zobacz [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej podstawy](azure-vm-create-using-approved-base.md) lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md).
 - Uruchamianie walidacji.
-
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu
-
-W tej sekcji opisano sposób wdrażania uogólnionego obrazu wirtualnego dysku twardego (VHD) w celu utworzenia nowego zasobu maszyny wirtualnej platformy Azure. W przypadku tego procesu użyjemy podanego szablonu Azure Resource Manager i Azure PowerShell skryptu.
-
-### <a name="prepare-an-azure-resource-manager-template"></a>Przygotowywanie szablonu Azure Resource Manager
-
-W tej sekcji opisano sposób tworzenia i wdrażania obrazu maszyny wirtualnej (VM) dostarczonej przez użytkownika. Można to zrobić przez udostępnienie obrazów dysków VHD systemu operacyjnego i danych z wirtualnego dysku twardego wdrożonego na platformie Azure. W tych krokach wdrożono maszynę wirtualną przy użyciu uogólnionego wirtualnego dysku twardego.
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Przekaż uogólniony wirtualny dysk twardy systemu operacyjnego i dyski danych do konta usługi Azure Storage.
-3. Na stronie głównej wybierz pozycję **Utwórz zasób**, Wyszukaj pozycję "wdrożenie szablonu" i wybierz pozycję **Utwórz**.
-4. Wybierz opcję **Kompiluj własny szablon w edytorze**.
-
-    :::image type="content" source="media/vm/template-deployment.png" alt-text="Pokazuje wybór szablonu.":::
-
-5. Wklej następujący szablon JSON do edytora i wybierz pozycję **Zapisz**.
-
-```JSON
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "userStorageAccountName": {
-            "type": "String"
-        },
-        "userStorageContainerName": {
-            "defaultValue": "vhds",
-            "type": "String"
-        },
-        "dnsNameForPublicIP": {
-            "type": "String"
-        },
-        "adminUserName": {
-            "defaultValue": "isv",
-            "type": "String"
-        },
-        "adminPassword": {
-            "defaultValue": "",
-            "type": "SecureString"
-        },
-        "osType": {
-            "defaultValue": "windows",
-            "allowedValues": [
-                "windows",
-                "linux"
-            ],
-            "type": "String"
-        },
-        "subscriptionId": {
-            "type": "String"
-        },
-        "location": {
-            "type": "String"
-        },
-        "vmSize": {
-            "type": "String"
-        },
-        "publicIPAddressName": {
-            "type": "String"
-        },
-        "vmName": {
-            "type": "String"
-        },
-        "virtualNetworkName": {
-            "type": "String"
-        },
-        "nicName": {
-            "type": "String"
-        },
-        "vhdUrl": {
-            "type": "String",
-            "metadata": {
-                "description": "VHD Url..."
-            }
-        }
-    },
-    "variables": {
-        "addressPrefix": "10.0.0.0/16",
-        "subnet1Name": "Subnet-1",
-        "subnet2Name": "Subnet-2",
-        "subnet1Prefix": "10.0.0.0/24",
-        "subnet2Prefix": "10.0.1.0/24",
-        "publicIPAddressType": "Dynamic",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-        "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-        "hostDNSNameScriptArgument": "[concat(parameters('dnsNameForPublicIP'),'.',parameters('location'),'.cloudapp.azure.com')]",
-        "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2015-06-15",
-            "name": "[parameters('publicIPAddressName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2015-06-15",
-            "name": "[parameters('virtualNetworkName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnet1Name')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet1Prefix')]"
-                        }
-                    },
-                    {
-                        "name": "[variables('subnet2Name')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet2Prefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
-            "name": "[parameters('nicName')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
-                            },
-                            "subnet": {
-                                "id": "[variables('subnet1Ref')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2015-06-15",
-            "name": "[parameters('vmName')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "osProfile": {
-                    "computername": "[parameters('vmName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "osDisk": {
-                        "name": "[concat(parameters('vmName'),'-osDisk')]",
-                        "osType": "[parameters('osType')]",
-                        "caching": "ReadWrite",
-                        "image": {
-                            "uri": "[parameters('vhdUrl')]"
-                        },
-                        "vhd": {
-                            "uri": "[variables('osDiskVhdName')]"
-                        },
-                        "createOption": "FromImage"
-                    }
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
-
-<br>
-
-6. Podaj wartości parametrów dla wyświetlanych stron właściwości wdrożenia niestandardowego.
-
-    | ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy używać tego samego RG, co Magazyn kluczy. |
-    | --- | --- |
-    | TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage.jsna. |
-    | userStorageAccountName | Nazwa konta magazynu. |
-    | dnsNameForPublicIP | Nazwa DNS publicznego adresu IP; musi być małymi literami. |
-    | subscriptionId | Identyfikator subskrypcji platformy Azure. |
-    | Lokalizacja | Standardowa lokalizacja geograficzna platformy Azure grupy zasobów. |
-    | vmName | Nazwa maszyny wirtualnej. |
-    | vhdUrl | Adres internetowy wirtualnego dysku twardego. |
-    | vmSize | Rozmiar wystąpienia maszyny wirtualnej. |
-    | publicIPAddressName | Nazwa publicznego adresu IP. |
-    | virtualNetworkName | Nazwa sieci wirtualnej. |
-    | nicName | Nazwa karty sieciowej sieci wirtualnej. |
-    | adminUserName | Nazwa użytkownika konta administratora. |
-    | adminPassword | Hasło administratora. |
-
-
-7. Po podaniu tych wartości wybierz pozycję **Kup**.
-
-Platforma Azure rozpocznie wdrażanie. Tworzy nową maszynę wirtualną z określonym niezarządzanym wirtualnym dyskiem twardym w określonej ścieżce konta magazynu. Postęp można śledzić w Azure Portal, wybierając pozycję **Virtual Machines** po lewej stronie portalu. Po utworzeniu maszyny wirtualnej stan zmieni się z Start na uruchomiony.
-
-#### <a name="for-generation-2-vm-deployment-use-this-template"></a>W przypadku wdrożenia maszyny wirtualnej generacji 2 Użyj tego szablonu:
-
-```JSON
-{
-   "$schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "userStorageAccountName":{
-         "type":"String"
-      },
-      "userStorageContainerName":{
-         "type":"String",
-         "defaultValue":"vhds-86350-720-f4efbbb2-611b-4cd7-ad1e-afdgfuadfluad"
-      },
-      "dnsNameForPublicIP":{
-         "type":"String"
-      },
-      "adminUserName":{
-         "defaultValue":"isv",
-         "type":"String"
-      },
-      "adminPassword":{
-         "type":"securestring",
-         "defaultValue":"Certcare@86350"
-      },
-      "osType":{
-         "type":"string",
-         "defaultValue":"linux",
-         "allowedValues":[
-            "windows",
-            "linux"
-         ]
-      },
-      "subscriptionId":{
-         "type":"string"
-      },
-      "location":{
-         "type":"string"
-      },
-      "vmSize":{
-         "type":"string"
-      },
-      "publicIPAddressName":{
-         "type":"string"
-      },
-      "vmName":{
-         "type":"string"
-      },
-      "vNetNewOrExisting":{
-         "defaultValue":"existing",
-         "allowedValues":[
-            "new",
-            "existing"
-         ],
-         "type":"String",
-         "metadata":{
-            "description":"Specify whether to create a new or existing virtual network for the VM."
-         }
-      },
-      "virtualNetworkName":{
-         "type":"String",
-         "defaultValue":""
-      },
-      "SubnetName":{
-         "defaultValue":"subnet-5",
-         "type":"String"
-      },
-      "SubnetPrefix":{
-         "defaultValue":"10.0.5.0/24",
-         "type":"String"
-      },
-      "nicName":{
-         "type":"string"
-      },
-      "vhdUrl":{
-         "type":"string",
-         "metadata":{
-            "description":"VHD Url..."
-         }
-      },
-      "Datadisk1":{
-         "type":"string",
-         "metadata":{
-            "description":"datadisk1 Url..."
-         }
-      },
-      "Datadisk2":{
-         "type":"string",
-         "metadata":{
-            "description":"datadisk2 Url..."
-         }
-      },
-      "Datadisk3":{
-         "type":"string",
-         "metadata":{
-            "description":"datadisk2 Url..."
-         }
-      }
-   },
-   "variables":{
-      "addressPrefix":"10.0.0.0/16",
-      "subnet1Name":"[parameters('SubnetName')]",
-      "subnet1Prefix":"[parameters('SubnetPrefix')]",
-      "publicIPAddressType":"Static",
-      "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-      "subnet1Ref":"[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-      "osDiskVhdName":"[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]",
-      "dataDiskVhdName":"[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'datadisk')]",
-      "imageName":"[concat(parameters('vmName'), '-image')]"
-   },
-   "resources":[
-      {
-         "apiVersion":"2015-05-01-preview",
-         "type":"Microsoft.Network/publicIPAddresses",
-         "name":"[parameters('publicIPAddressName')]",
-         "location":"[parameters('location')]",
-         "properties":{
-            "publicIPAllocationMethod":"[variables('publicIPAddressType')]",
-            "dnsSettings":{
-               "domainNameLabel":"[parameters('dnsNameForPublicIP')]"
-            }
-         }
-      },
-      {
-         "type":"Microsoft.Compute/images",
-         "apiVersion":"2019-12-01",
-         "name":"[variables('imageName')]",
-         "location":"[parameters('location')]",
-         "properties":{
-            "storageProfile":{
-               "osDisk":{
-                  "osType":"[parameters('osType')]",
-                  "osState":"Generalized",
-                  "blobUri":"[parameters('vhdUrl')]",
-                  "storageAccountType":"Standard_LRS"
-               },
-               "dataDisks":[
-                  {
-                     "lun":0,
-                     "blobUri":"[parameters('Datadisk1')]",
-                     "storageAccountType":"Standard_LRS"
-                  },
-                  {
-                     "lun":1,
-                     "blobUri":"[parameters('Datadisk2')]",
-                     "storageAccountType":"Standard_LRS"
-                  },
-                  {
-                     "lun":2,
-                     "blobUri":"[parameters('Datadisk3')]",
-                     "storageAccountType":"Standard_LRS"
-                  }
-               ]
-            },
-            "hyperVGeneration":"V2"
-         }
-      },
-      {
-         "apiVersion":"2015-05-01-preview",
-         "type":"Microsoft.Network/virtualNetworks",
-         "name":"[parameters('virtualNetworkName')]",
-         "location":"[parameters('location')]",
-         "properties":{
-            "addressSpace":{
-               "addressPrefixes":[
-                  "[variables('addressPrefix')]"
-               ]
-            },
-            "subnets":[
-               {
-                  "name":"[variables('subnet1Name')]",
-                  "properties":{
-                     "addressPrefix":"[variables('subnet1Prefix')]"
-                  }
-               }
-            ]
-         },
-         "condition":"[equals(parameters('vNetNewOrExisting'), 'new')]"
-      },
-      {
-         "apiVersion":"2016-09-01",
-         "type":"Microsoft.Network/networkInterfaces",
-         "name":"[parameters('nicName')]",
-         "location":"[parameters('location')]",
-         "dependsOn":[
-            "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-            "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-         ],
-         "properties":{
-            "ipConfigurations":[
-               {
-                  "name":"ipconfig1",
-                  "properties":{
-                     "privateIPAllocationMethod":"Dynamic",
-                     "publicIPAddress":{
-                        "id":"[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
-                     },
-                     "subnet":{
-                        "id":"[variables('subnet1Ref')]"
-                     }
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "apiVersion":"2019-12-01",
-         "type":"Microsoft.Compute/virtualMachines",
-         "name":"[parameters('vmName')]",
-         "location":"[parameters('location')]",
-         "dependsOn":[
-            "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
-            "[variables('imageName')]"
-         ],
-         "properties":{
-            "hardwareProfile":{
-               "vmSize":"[parameters('vmSize')]"
-            },
-            "osProfile":{
-               "computername":"[parameters('vmName')]",
-               "adminUsername":"[parameters('adminUsername')]",
-               "adminPassword":"[parameters('adminPassword')]"
-            },
-            "storageProfile":{
-               "imageReference":{
-                  "id":"[resourceId('Microsoft.Compute/images', variables('imageName'))]"
-               },
-               "dataDisks":[
-                  {
-                     "name":"[concat(parameters('vmName'),'_DataDisk0')]",
-                     "lun":0,
-                     "createOption":"FromImage",
-                     "managedDisk":{
-                        "storageAccountType":"Standard_LRS"
-                     }
-                  },
-                  {
-                     "name":"[concat(parameters('vmName'),'_DataDisk1')]",
-                     "lun":1,
-                     "createOption":"FromImage",
-                     "managedDisk":{
-                        "storageAccountType":"Standard_LRS"
-                     }
-                  },
-                  {
-                     "name":"[concat(parameters('vmName'),'_DataDisk2')]",
-                     "lun":2,
-                     "createOption":"FromImage",
-                     "managedDisk":{
-                        "storageAccountType":"Standard_LRS"
-                     }
-                  }
-               ],
-               "osDisk":{
-                  "name":"[concat(parameters('vmName'),'-OSDisk')]",
-                  "createOption":"FromImage",
-                  "managedDisk":{
-                     "storageAccountType":"Standard_LRS"
-                  }
-               }
-            },
-            "networkProfile":{
-               "networkInterfaces":[
-                  {
-                     "id":"[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-                  }
-               ]
-            }
-         }
-      }
-   ]
-}
-```
-
-### <a name="deploy-an-azure-vm-using-powershell"></a>Wdrażanie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell
-
-Skopiuj i edytuj następujący skrypt, aby podać wartości `$storageaccount` `$vhdUrl` zmiennych i. Wykonaj tę operację, aby utworzyć zasób maszyny wirtualnej platformy Azure na podstawie istniejącego uogólnionego wirtualnego dysku twardego.
-
-```PowerShell
-# storage account of existing generalized VHD
-$storageaccount = "testwinrm11815"
-# generalized VHD URL
-$vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
-
-echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl
-$objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
-
-# deploying VM with existing VHD
-New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd
-```
 
 ## <a name="run-validations"></a>Wykonaj walidacje
 
@@ -566,7 +66,7 @@ Narzędzie Test certyfikacji dla certyfikatu platformy Azure jest uruchamiane na
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Pokazuje wybór nazwy użytkownika i hasła maszyny wirtualnej.":::
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz opcję **Dalej**.
 
 #### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacji
 
@@ -576,7 +76,7 @@ Po zakończeniu testu automatycznego podaj dodatkowe informacje o obrazie maszyn
 
 Ostatni ekran umożliwia podanie dodatkowych informacji, takich jak informacje o dostępie SSH dla obrazu maszyny wirtualnej z systemem Linux, oraz wyjaśnienie ewentualnych ocen zakończonych niepowodzeniem, jeśli szukasz wyjątków.
 
-Na koniec wybierz pozycję Generuj raport, aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz. 
+Na koniec wybierz pozycję Generuj raport, aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz.
 > [!Note]
 > Kilku wydawców ma scenariusze, w których maszyny wirtualne muszą być zablokowane, ponieważ mają one oprogramowanie takie jak zapory zainstalowane na maszynie wirtualnej. W takim przypadku Pobierz narzędzie do [testowania certyfikowane](https://aka.ms/AzureCertificationTestTool) tutaj i prześlij raport [w centrum partnerskim.](https://aka.ms/marketplacepublishersupport)
 
@@ -726,7 +226,7 @@ W tym przykładzie zwinięcie zostanie użyte do nawywołania interfejsu API do 
 
    Upewnij się, że poprawne wartości są zastępowane w żądaniu zwinięcie.
 
-   ```
+   ```JSON
    curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
    --header 'Content-Type: application/x-www-form-urlencoded' \
    --data-urlencode 'grant_type=client_credentials' \
@@ -734,7 +234,9 @@ W tym przykładzie zwinięcie zostanie użyte do nawywołania interfejsu API do 
    --data-urlencode 'client_secret={CLIENT_SECRET}' \
    --data-urlencode 'resource=https://management.core.windows.net'
    ```
+
    Oto przykład odpowiedzi z żądania:
+
    ```JSON
    {
        "token_type": "Bearer",
@@ -751,7 +253,7 @@ W tym przykładzie zwinięcie zostanie użyte do nawywołania interfejsu API do 
 
    Upewnij się, że token i parametry okaziciela są zastępowane prawidłowymi wartościami.
 
-   ```
+   ```JSON
    curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
    --header 'Content-Type: application/json' \
    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS…' \
@@ -768,6 +270,7 @@ W tym przykładzie zwinięcie zostanie użyte do nawywołania interfejsu API do 
    ```
 
    Przykładowa odpowiedź z wywołania interfejsu API samoobsługowego testowania maszyn wirtualnych
+
    ```JSON
    {
        "TrackingId": "9bffc887-dd1d-40dd-a8a2-34cee4f4c4c3",
@@ -777,4 +280,4 @@ W tym przykładzie zwinięcie zostanie użyte do nawywołania interfejsu API do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego](azure-vm-get-sas-uri.md)
+- Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/).

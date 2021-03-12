@@ -82,7 +82,7 @@
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub

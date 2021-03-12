@@ -153,18 +153,18 @@
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ochrona danych
           items:
+            - name: Usuwanie nietrwałe dla kontenerów
+              href: soft-delete-container-overview.md
             - name: Obsługa wersji
               href: versioning-overview.md
             - name: Usuwanie nietrwałe dla obiektów blob
               href: soft-delete-blob-overview.md
-            - name: Usuwanie nietrwałe dla kontenerów
-              href: soft-delete-container-overview.md
+            - name: Przywracanie do określonego momentu
+              href: point-in-time-restore-overview.md
             - name: Migawki
               href: snapshots-overview.md
             - name: Źródło zmian
               href: storage-blob-change-feed.md
-            - name: Przywracanie do określonego momentu
-              href: point-in-time-restore-overview.md
             - name: Niezmienne obiekty blob
               href: storage-blob-immutable-storage.md
         - name: Nadmiarowość i odzyskiwanie po awarii
@@ -401,18 +401,20 @@
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ochrona danych obiektów BLOB
           items:
+            - name: Zablokuj konto magazynu
+              href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Włączanie usuwania nietrwałego dla kontenerów
+              href: soft-delete-container-enable.md
             - name: Włączanie obsługi wersji obiektów blob
               href: versioning-enable.md
             - name: Włączanie usuwania nietrwałego dla obiektów blob
               href: soft-delete-blob-enable.md
-            - name: Włączanie usuwania nietrwałego dla kontenerów
-              href: soft-delete-container-enable.md
+            - name: Włączanie przywracania do punktu w czasie
+              href: point-in-time-restore-manage.md
             - name: Tworzenie migawek (.NET)
               href: snapshots-manage-dotnet.md
             - name: Dzienniki źródła zmian procesu
               href: storage-blob-change-feed-how-to.md
-            - name: Włączanie przywracania do punktu w czasie
-              href: point-in-time-restore-manage.md
             - name: Ustawianie zasad niezmienności i zarządzanie nimi
               href: storage-blob-immutability-policies-manage.md
         - name: Zarządzanie nadmiarowością i trybem failover

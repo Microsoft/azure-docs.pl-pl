@@ -1,6 +1,6 @@
 ---
-title: Przykład programu PowerShell — eksport rejestracji aplikacji, wpisów tajnych i certyfikatów w dzierżawie Azure Active Directory.
-description: Przykład programu PowerShell, który eksportuje wszystkie rejestracje aplikacji, wpisy tajne i certyfikaty dla określonych aplikacji w dzierżawie Azure Active Directory.
+title: Przykład programu PowerShell — eksportowanie wpisów tajnych i certyfikatów dla rejestracji aplikacji w dzierżawie Azure Active Directory.
+description: Przykład programu PowerShell eksportujący wszystkie wpisy tajne i certyfikaty dla określonych rejestracji aplikacji w dzierżawie Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
-ms.date: 02/18/2021
+ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 768f2f3241144085acb7a218b60034cdfa9e45b9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185391"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556557"
 ---
-# <a name="export-app-registrations-secrets-and-certificates"></a>Eksportowanie rejestracji aplikacji, wpisów tajnych i certyfikatów
+# <a name="export-secrets-and-certificates-for-app-registrations"></a>Eksportowanie wpisów tajnych i certyfikatów na potrzeby rejestracji aplikacji
 
-Ten przykładowy skrypt programu PowerShell eksportuje wszystkie rejestracje aplikacji, wpisy tajne i certyfikaty dla określonych aplikacji w katalogu.
+Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne i certyfikaty dla określonych rejestracji aplikacji z katalogu do pliku CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,13 +28,17 @@ Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all app registrations, secrets, and certificates for the specified apps in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all secrets and certificates for the specified app registrations in your directory.")]
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
+Polecenie "Add-member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
+Możesz zmodyfikować zmienną "$Path" bezpośrednio w programie PowerShell, używając ścieżki pliku CSV, na wypadek, gdyby eksport nie był interaktywny.
+
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Eksportuje wszystkie rejestracje, wpisy tajne i certyfikaty aplikacji dla określonych aplikacji w katalogu. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Pobiera aplikację z katalogu. |
+| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner) | Pobiera właścicieli aplikacji z katalogu. |
 
 ## <a name="next-steps"></a>Następne kroki
 

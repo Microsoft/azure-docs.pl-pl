@@ -4,15 +4,15 @@ description: Usługi na rynku — w tej sekcji opisano zasoby firmy Microsoft, k
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489473"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631056"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -34,7 +34,7 @@ W przypadku partnerów Transact w miarę rozwoju rozliczanej sprzedaży za pomoc
 
 Minimalnym wymaganiem do opublikowania w sklepach online jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner może rozwijać swoją firmę za pomocą komercyjnej witryny Marketplace jako platformy.
 
-Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można także [samodzielnie przejrzeć](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Uzyskasz pomoc techniczną w zrozumieniu zasobów dostępnych dla Ciebie i implementacji najlepszych rozwiązań, które można także [samodzielnie przejrzeć](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Szczegółowe opisy wszystkich korzyści z programu można znaleźć w tej [prezentacji programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 
@@ -50,18 +50,16 @@ Szczegółowe opisy wszystkich korzyści z programu można znaleźć w tej [prez
     1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści członek zespołu ds. programu Rewards skontaktuje się z wyznaczoną osobą w ciągu tygodnia.
 
 > [!NOTE]
-> Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.
-
-Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
+> Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.<br><br>Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, zgłoś bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu komercyjnym. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, wersja próbna i korzyści z konsultacji
 
-Za każdym razem, gdy publikujesz się w witrynie Microsoft AppSource lub Azure Marketplace, będziesz mieć dostęp do nowego zestawu korzyści. Po przejściu na żywo oferty przejdź do [Centrum partnerskiego](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) , aby aktywować odpowiednie korzyści marketingowe, handlowe i techniczne.
+Za każdym razem, gdy publikujesz się w witrynie Microsoft AppSource lub Azure Marketplace, będziesz mieć dostęp do nowego zestawu korzyści. Po przejściu na żywo oferty przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard) , aby aktywować odpowiednie korzyści marketingowe, handlowe i techniczne.
 
-> [!NOTE]
-> Wszystkie korzyści z wersji próbnej i konsultingowej wygasają po 3 miesiącach.
+> [!IMPORTANT]
+> Wszystkie korzyści z wersji próbnej i konsultingowej wygasają po upływie trzech miesięcy.
 
 W poniższej tabeli zestawiono wymagania dotyczące uprawnień dla ofert list, wersji próbnej i konsultingowej:
 
@@ -80,13 +78,19 @@ Te korzyści są przeznaczone do obsługi działań marketingowych, handlowych i
 
 Wszyscy partnerzy, którzy posiadają ofertę na żywo, mogą współpracować z dedykowanym menedżerem zaangażowania w celu wybrania działań najwyższej wartości dla portfela komercyjnych ofert w portalu Marketplace. To zaangażowanie jest Evergreen na ofertę, co oznacza, że możesz wybrać swoje działania i czas trwania tych działań, aby dostosować się do czasu, w którym te działania mają być wyrównane do szerszej strategii marketingowej i sprzedaży firmy.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Korzyści marketingowe dla ofert Transact
+
 ![Korzyści marketingowe](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Korzyści z sprzedaży dla ofert Transact
 
 ![Korzyści z sprzedaży](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Korzyści techniczne dla ofert Transact
+
 ![Korzyści techniczne](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
+Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
 
 Szczegółowe opisy wszystkich tych korzyści można znaleźć na [talii programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 

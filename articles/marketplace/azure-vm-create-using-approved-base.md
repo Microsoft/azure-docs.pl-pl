@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 01/06/2021
-ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.date: 02/18/2021
+ms.openlocfilehash: 7ed3f707ad69c60111bcc97e139c0825fd503d8e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976864"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630115"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Jak utworzyć maszynę wirtualną przy użyciu zatwierdzonej podstawy
 
-W tym artykule opisano sposób korzystania z platformy Azure w celu utworzenia maszyny wirtualnej zawierającej wstępnie skonfigurowany, zatwierdzonego systemu operacyjnego. Jeśli to nie jest zgodne z rozwiązaniem, można [utworzyć i skonfigurować lokalną maszynę wirtualną](azure-vm-create-using-own-image.md) przy użyciu zatwierdzonego systemu operacyjnego, a następnie skonfigurować i przygotować ją do przekazania zgodnie z opisem w artykule [Przygotowywanie wirtualnego dysku twardego systemu Windows lub VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+W tym artykule opisano sposób korzystania z platformy Azure w celu utworzenia maszyny wirtualnej zawierającej wstępnie skonfigurowany, zatwierdzonego systemu operacyjnego. Jeśli to nie jest zgodne z rozwiązaniem, można [utworzyć i skonfigurować lokalną maszynę wirtualną](azure-vm-create-using-own-image.md) przy użyciu zatwierdzonego systemu operacyjnego.
 
 > [!NOTE]
 > Przed rozpoczęciem tej procedury zapoznaj się z [wymaganiami technicznymi](marketplace-virtual-machines.md#technical-requirements) dotyczącymi ofert maszyn wirtualnych platformy Azure, łącznie z wymaganiami dotyczącymi wirtualnego dysku twardego (VHD).
@@ -78,5 +78,5 @@ Zapoznaj się z poniższą dokumentacją, aby nawiązać połączenie z maszyną
 ## <a name="next-steps"></a>Następne kroki
 
 - Zalecany następny krok: [Testowanie obrazu maszyny wirtualnej](azure-vm-image-test.md) w celu upewnienia się, że spełnia on wymagania dotyczące publikowania w witrynie Azure Marketplace. Jest to opcjonalne.
-- Jeśli nie testujesz obrazu maszyny wirtualnej, Kontynuuj [generowanie identyfikatora URI sygnatury dostępu współdzielonego](azure-vm-get-sas-uri.md).
+- Jeśli nie chcesz testować obrazu maszyny wirtualnej, zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/) , aby opublikować obraz.
 - Jeśli wystąpił problem podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [często zadawane pytania dotyczące maszyn wirtualnych dla witryny Azure Marketplace](azure-vm-create-faq.md).

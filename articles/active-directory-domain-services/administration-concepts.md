@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 03/10/2021
 ms.author: justinha
-ms.openlocfilehash: 76af477af8290634d2658c58574b8f96cff7b1fb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620345"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631391"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Pojęcia dotyczące zarządzania kontami użytkowników, hasłami i administracją w programie Azure Active Directory Domain Services
 
@@ -80,8 +80,8 @@ Na platformie Azure AD DS dostępna wydajność i funkcje są oparte na jednostk
 
 | Nazwa jednostki SKU   | Maksymalna liczba obiektów | Częstotliwość wykonywania kopii zapasowych | Maksymalna liczba wychodzących relacji zaufania lasów |
 |------------|----------------------|------------------|----|
-| Standardowa   | Nieograniczona liczba            | Co 7 dni     | 0  |
-| Enterprise | Nieograniczona liczba            | Co 3 dni     | 5  |
+| Standardowa   | Nieograniczona liczba            | Co 5 dni     | 0  |
+| Przedsiębiorstwa | Nieograniczona liczba            | Co 3 dni     | 5  |
 | Premium    | Nieograniczona liczba            | Codziennie            | 10 |
 
 Przed rozpoczęciem korzystania z tych jednostek SKU AD DS platformy Azure zostanie użyty model rozliczeń oparty na liczbie obiektów (konta użytkowników i komputerów) w domenie zarządzanej. Nie ma już zmiennych cenowych na podstawie liczby obiektów w domenie zarządzanej.

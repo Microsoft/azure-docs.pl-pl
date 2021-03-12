@@ -3,14 +3,14 @@ title: Zabezpieczenia danych Azure Automation
 description: Ten artykuł pomaga dowiedzieć się, jak Azure Automation chroni prywatność i zabezpiecza dane.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050821"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616120"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -22,11 +22,11 @@ Aby zapewnić bezpieczeństwo danych podczas przesyłania do Azure Automation, z
 
 * Wywołania elementu webhook
 
-* Hybrydowe procesy robocze elementów Runbook, w tym maszyny zarządzane przez Update Management i Change Tracking i spisu.
+* Hybrydowe procesy robocze elementów Runbook, które obejmują maszyny zarządzane przez Update Management i Change Tracking i spis.
 
 * Węzły DSC
 
-Starsze wersje protokołu TLS/Secure Sockets Layer (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
+Starsze wersje protokołu TLS/Secure Sockets Layer (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejsze protokołów, które staną się dostępne, takich jak TLS 1,3.
 
 Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
@@ -68,7 +68,7 @@ Elementy Runbook można eksportować do plików skryptów przy użyciu Azure Por
 
 ### <a name="integration-modules"></a>Moduły integracji
 
-Nie można eksportować modułów integracji z Azure Automation. Musisz udostępnić je poza kontem usługi Automation.
+Nie można eksportować modułów integracji z Azure Automation, muszą one zostać udostępnione poza kontem usługi Automation.
 
 ### <a name="assets"></a>Elementy zawartości
 
@@ -84,7 +84,10 @@ Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure P
 
 Replikacja geograficzna jest standardowa w ramach kont Azure Automation. Podczas konfigurowania konta możesz wybrać region podstawowy. Wewnętrzna usługa replikacji geograficznej automatyzacji automatycznie przypisuje region pomocniczy do konta. Następnie usługa ciągle tworzy kopię zapasową danych konta z regionu podstawowego do regionu pomocniczego. Pełną listę regionów podstawowych i pomocniczych można znaleźć w obszarze [ciągłość biznesowa i odzyskiwanie po awarii (BCDR): wielodostępne regiony platformy Azure](../best-practices-availability-paired-regions.md).
 
-Kopia zapasowa utworzona przez usługę replikacji geograficznej automatyzacji to kompletna kopia zasobów usługi Automation, konfiguracji i podobne. Tej kopii zapasowej można użyć, jeśli region podstawowy ulegnie awarii i utraci dane. W prawdopodobnym zdarzeniu, gdy dane dla regionu podstawowego zostaną utracone, firma Microsoft podejmie próbę jego odzyskania. Jeśli firma nie może odzyskać danych podstawowych, używa automatycznej pracy awaryjnej i informuje Cię o sytuacji za pośrednictwem subskrypcji platformy Azure.
+Kopia zapasowa utworzona przez usługę replikacji geograficznej automatyzacji to kompletna kopia zasobów usługi Automation, konfiguracji i podobne. Tej kopii zapasowej można użyć, jeśli region podstawowy ulegnie awarii i utraci dane. W prawdopodobnym zdarzeniu, gdy dane dla regionu podstawowego zostaną utracone, firma Microsoft podejmie próbę jego odzyskania.
+
+> [!NOTE]
+> Azure Automation przechowuje dane klienta w regionie wybranym przez klienta. Na potrzeby BCDR, dla wszystkich regionów z wyjątkiem Brazylii Południowe i Azja Południowo-Wschodnia, Azure Automation dane są przechowywane w innym regionie (region sparowany na platformie Azure). Tylko w regionie Brazylia Południowa (stan Świętego Paulo) regionu geograficznego i Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej, przechowujemy Azure Automation dane w tym samym regionie w celu uwzględnienia wymagań zamieszkania danych dla tych regionów.
 
 Usługa replikacji geograficznej usługi Automation nie jest dostępna bezpośrednio dla klientów zewnętrznych, jeśli wystąpi awaria regionalna. Jeśli chcesz zachować konfigurację automatyzacji i elementy Runbook w trakcie awarii regionalnych:
 

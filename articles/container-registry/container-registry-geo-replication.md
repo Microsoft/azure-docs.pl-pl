@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705170"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632394"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replikacja geograficzna w usłudze Azure Container Registry
 
@@ -22,6 +22,7 @@ Rejestr z replikacją geograficzną zapewnia następujące korzyści:
 * Poprawianie wydajności i niezawodności wdrożeń regionalnych przy użyciu sieci i dostępu do rejestru
 * Zmniejsz koszty transferu danych, pobierając warstwy obrazu z lokalnego, zreplikowanego rejestru w tym samym lub w pobliżu regionu, w którym znajduje się host kontenera
 * Ujednolicone zarządzanie rejestrem w wielu regionach
+* Odporność na rejestry w przypadku wystąpienia awarii regionalnej
 
 > [!NOTE]
 > Jeśli zachodzi potrzeba obsługi kopii obrazów kontenerów w więcej niż jednym rejestrze kontenerów platformy Azure, usługa Azure Container Registry obsługuje również [importowanie obrazów](container-registry-import-images.md). Na przykład w ramach przepływu pracy DevOps można zaimportować obraz z rejestru deweloperskiego do rejestru produkcyjnego bez konieczności używania poleceń platformy Docker.
@@ -59,6 +60,7 @@ Funkcja replikacji geograficznej usługi Azure Container Registry zapewnia nast�
 * Zarządzaj pojedynczą konfiguracją wdrożeń obrazów, ponieważ wszystkie regiony używają tego samego obrazu URL: `contoso.azurecr.io/public/products/web:1.2`
 * Wypchnij do jednego rejestru, podczas gdy ACR zarządza replikacją geograficzną. ACR replikuje tylko unikatowe warstwy, zmniejszając transfer danych między regionami. 
 * Skonfiguruj regionalne elementy [webhook](container-registry-webhook.md) w celu powiadomienia o zdarzeniach w określonych replikach.
+* Dostarcz rejestr o wysokiej dostępności odporny na awarie regionalne.
 
 Azure Container Registry obsługuje również [strefy dostępności](zone-redundancy.md) w celu utworzenia odpornego i wysokiej dostępności rejestru kontenerów platformy Azure w regionie świadczenia usługi Azure. Połączenie stref dostępności w celu zapewnienia nadmiarowości w obrębie regionu i replikacji geograficznej w wielu regionach zwiększa niezawodność i wydajność rejestru.
 

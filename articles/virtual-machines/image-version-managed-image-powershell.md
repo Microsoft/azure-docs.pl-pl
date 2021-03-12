@@ -4,17 +4,17 @@ description: Dowiedz się, jak używać Azure PowerShell do klonowania zarządza
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 6bf2054a1b9d42529c3917994e5f446b3c50ecf7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cec4f258cfaa0584c24f2cfc92ec1a536f6277cc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682719"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556984"
 ---
 # <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Klonowanie zarządzanego obrazu do obrazu udostępnionej galerii obrazów
 

@@ -2,13 +2,13 @@
 title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/11/2021
+ms.openlocfilehash: 9531e08ea4e50ae30058b0630cd12c2383d90fde
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364906"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197173"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
@@ -56,6 +56,9 @@ Na poniższym diagramie przedstawiono międzyfirmowe łączenie z chmurą prywat
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Sieć wirtualna i lokalna pełna łączność z chmurą prywatną" border="false":::
 
 W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Aby uzyskać więcej informacji na temat procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej, zobacz Samouczek dotyczący [tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md).
+
+## <a name="limitations"></a>Ograniczenia
+[!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 ## <a name="next-steps"></a>Następne kroki 
 

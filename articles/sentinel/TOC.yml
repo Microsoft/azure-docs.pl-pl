@@ -23,6 +23,8 @@
       href: tutorial-investigate-cases.md
     - name: Reagowanie na zagrożenia
       href: tutorial-respond-threats-playbook.md
+    - name: Tworzenie zapytań KQL (informacje o module)
+      href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Pojęcia
   items:
     - name: Klasyfikowanie danych przy użyciu jednostek
@@ -311,6 +313,8 @@
           href: /azure/data-explorer/kusto/query/
         - name: Krótki przewodnik po języku zapytań Kusto
           href: /azure/data-explorer/kql-quick-reference
+        - name: Optymalizacje zapytań w dzienniku Azure Monitor
+          href: /azure/azure-monitor/logs/query-optimization
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
       href: ueba-enrichments.md
 - name: Zasoby

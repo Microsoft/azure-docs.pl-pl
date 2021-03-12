@@ -2,24 +2,23 @@
 title: Moje drzwi platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera omówienie usługi Azure Front Door.
 services: frontdoor
-documentationcenter: ''
 author: duongau
-editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2020
+ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: e9d719a29bc9a4b3e0428913e5bc1a91bec16623
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a5c298c201aa2a1f968c2a96dcfd6963a410cf7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183169"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149226"
 ---
 # <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
+
+> [!IMPORTANT]
+> Ta dokumentacja dotyczy zewnętrznych drzwi platformy Azure. Szukasz informacji na temat platformy Azure w warstwie Standardowa/Premium (wersja zapoznawcza)? [Tutaj](/standard-premium/overview.md)Wyświetl.
 
 Drzwi frontonu platformy Azure to globalny, skalowalny punkt wejścia, który używa sieci Microsoft Global Edge do tworzenia szybkich, bezpiecznych i skalowalnych aplikacji sieci Web. Za pomocą przednich drzwi możesz przekształcić globalne aplikacje dla użytkowników i przedsiębiorstw na niezawodne, wysoce wydajne, nowoczesne aplikacje zawierające zawartość, która dociera do odbiorców globalnych za pomocą platformy Azure.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006880"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611899"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Konfigurowanie kontenerów platformy Docker OCR
 
@@ -39,6 +39,8 @@ Kontener ma również następujące ustawienia konfiguracji specyficzne dla kont
 |Nie|Kolejka: Azure: QueueVisibilityTimeoutInMilliseconds | tylko kontenery v3. x. Godzina, o której komunikat ma być niewidoczny w przypadku przetwarzania przez inny proces roboczy. |
 |Nie|Magazyn::D ocumentStore:: MongoDB|tylko kontenery w wersji 2.0. Włącza MongoDB na potrzeby trwałego magazynu wyników. |
 |Nie|Storage: ObjectStore: AzureBlob: ConnectionString| tylko kontenery v3. x. Parametry połączenia usługi Azure Blob Storage. |
+|Nie|Magazyn: TimeToLiveInDays| tylko kontenery v3. x. Okres ważności wyniku w dniach. Ustawienie określa, kiedy system powinien czyścić wyniki rozpoznawania. Wartość domyślna to 2 dni (48 godzin), co oznacza, że wszystkie wyniki na żywo dłużej niż ten okres nie zostaną pomyślnie pobrane. |
+|Nie|Zadanie: MaxRunningTimeSpanInMinutes| tylko kontenery v3. x. Maksymalny czas działania jednego żądania. Wartość domyślna to 60 min. |
 
 ## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji ApiKey
 
