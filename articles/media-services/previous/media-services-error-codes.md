@@ -1,7 +1,7 @@
 ---
 title: Kody błędów Azure Media Services | Microsoft Docs
 description: W zależności od problemów, takich jak tokeny uwierzytelniania, które nie są obsługiwane w programie Media Services, mogą zostać wyświetlone kody błędów HTTP z usługi. Ten artykuł zawiera omówienie kodów błędów interfejsu API Azure Media Services V2.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: c30808a46b5cecfaf2e761b3f7a611020cd2cdfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 10ade5c8f34d806ca5706ccaaf4b7ff2e05ba657
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263681"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013418"
 ---
 # <a name="azure-media-services-error-codes"></a>Kody błędów usługi Azure Media Services
 
@@ -125,5 +125,5 @@ Aby obsłużyć ten błąd, zalecamy korzystanie z logiki ponawiania prób z pow
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

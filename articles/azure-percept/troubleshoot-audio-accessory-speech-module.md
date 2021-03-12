@@ -1,18 +1,18 @@
 ---
-title: Rozwiązywanie problemów z modułami audio i Speech usługi Azure Percept
-description: Uzyskaj porady dotyczące rozwiązywania problemów w przypadku niektórych typowych problemów występujących podczas korzystania z platformy
+title: Rozwiązywanie problemów z usługą Azure Percept audio i modułem mowy
+description: Uzyskaj wskazówki dotyczące rozwiązywania problemów z usługą Azure Percept audio i azureearspeechclientmodule
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3877ea680e7b4c705f127c54e0fa10c45d3b51d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097979"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635573"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Rozwiązywanie problemów z modułem audio i mowy na platformie Azure Percept
 
@@ -23,13 +23,13 @@ Skorzystaj z poniższych wskazówek, aby rozwiązywać problemy z aplikacją asy
 Aby uruchomić te polecenia, [Połącz się z punktem dostępu do usługi Azure Percept Wi-Fi DK i Połącz się z zestawem deweloperskim za pośrednictwem protokołu SSH](./how-to-ssh-into-percept-dk.md) , a następnie wprowadź polecenia w terminalu SSH.
 
 ```console
- iotedge logs azureearspeechclientmodule
+sudo iotedge logs azureearspeechclientmodule
 ```
 
 Aby przekierować wszystkie dane wyjściowe do pliku. txt w celu dalszej analizy, należy użyć następującej składni:
 
 ```console
-[command] > [file name].txt
+sudo [command] > [file name].txt
 ```
 
 Po przekierowaniu danych wyjściowych do pliku txt Skopiuj plik na komputer hosta za pośrednictwem punktu połączenia usługi:
@@ -52,18 +52,18 @@ Jeśli stan środowiska uruchomieniowego **azureearspeechclientmodule** nie jest
 
 Możesz użyć wskaźników LED, aby zrozumieć, z jakim stanem jest urządzenie. Zwykle trwa około 2 minut, aż moduł zostanie całkowicie zainicjowany po *włączeniu funkcji włączania*. Ponieważ przechodzi przez kroki inicjowania, zobaczysz:
 
-1. DIODa świetlna 1 centralnego centrum — urządzenie jest włączone. 
-2. 1 środkowe dioda LED świecą migania — uwierzytelnianie jest w toku. 
+1. DIODa świetlna 1 centralnego centrum — urządzenie jest włączone.
+2. 1 środkowe dioda LED świecą migania — uwierzytelnianie jest w toku.
 3. Wszystkie trzy diody LED zmienią się na niebieski, gdy urządzenie zostanie uwierzytelnione i będzie gotowe do użycia.
 
-|BRANŻ|   Stan diody LED|  Wyczyść stan modelu SoM|
-|---|------------|----------------| 
-|L02|   1x biały, statyczny na |Włącz |
-|L02|   1x biały, 0,5 Hz miga|  Trwa uwierzytelnianie |
-|L01 & L02 & L03|   3. niebieskie, static on|     Oczekiwanie na słowo kluczowe|
-|L01 & L02 & L03|   Dioda LED miga, 20fps | Nasłuchiwanie lub mówienie|
-|L01 & L02 & L03|   Wyścigi tablicowe diod LED, 20fps|    Myśleć|
-|L01 & L02 & L03|   3. czerwony, statyczny na | Głos|
+|BRANŻ|Stan diody LED|Wyczyść stan modelu SoM|
+|---|---------|--------------|
+|L02|1x biały, statyczny na|Włącz |
+|L02|1x biały, 0,5 Hz miga|Trwa uwierzytelnianie |
+|L01 & L02 & L03|3. niebieskie, static on|Oczekiwanie na słowo kluczowe|
+|L01 & L02 & L03|Dioda LED miga, 20fps |Nasłuchiwanie lub mówienie|
+|L01 & L02 & L03|Wyścigi tablicowe diod LED, 20fps|Myśleć|
+|L01 & L02 & L03|3. czerwony, statyczny na |Głos|
 
 ## <a name="next-steps"></a>Następne kroki
 

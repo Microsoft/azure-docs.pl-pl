@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 1/5/2021
-ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 02/19/2021
+ms.openlocfilehash: 870482ca7894c5e260a78270fb036d6a6b22ee41
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914165"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630065"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Jak wygenerować identyfikator URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
-Podczas procesu publikowania należy podać identyfikator URI sygnatury dostępu współdzielonego (Shared Access Signature) dla każdego wirtualnego dysku twardego skojarzonego z planami (wcześniej nazywanymi jednostkami SKU). Firma Microsoft potrzebuje dostępu do tych wirtualnych dysków twardych podczas procesu certyfikacji. Ten identyfikator URI zostanie wprowadzony na karcie **plany** w centrum partnerskim.
+> [!NOTE]
+> Nie potrzebujesz identyfikatora URI sygnatury dostępu współdzielonego, aby opublikować maszynę wirtualną. Możesz po prostu udostępnić obraz w centrum danych. Zapoznaj się z tematem [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) lub [Utwórz maszynę wirtualną przy użyciu własnych instrukcji obrazu](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) .
 
 Generowanie identyfikatorów URI sygnatury dostępu współdzielonego dla wirtualnych dysków twardych ma następujące wymagania:
 
@@ -24,6 +25,71 @@ Generowanie identyfikatorów URI sygnatury dostępu współdzielonego dla wirtua
 - Wymagane są tylko uprawnienia do wyświetlania i odczytu. Nie zapewniaj dostępu do zapisu ani usuwania.
 - Czas trwania dostępu (Data wygaśnięcia) powinien mieć co najmniej trzy tygodnie od momentu utworzenia identyfikatora URI SAS.
 - Aby chronić przed zmianami czasu UTC, ustaw datę rozpoczęcia na jeden dzień przed bieżącą datą. Na przykład, jeśli bieżąca data to 16 czerwca 2020, wybierz pozycję 6/15/2020.
+
+## <a name="extract-vhd-from-a-vm"></a>Wyodrębnij wirtualny dysk twardy z maszyny wirtualnej
+
+> [!NOTE]
+> Możesz pominąć ten krok, jeśli masz już załadowany wirtualny dysk twardy na koncie magazynu.
+
+Aby wyodrębnić wirtualny dysk twardy z maszyny wirtualnej, należy wykonać migawkę dysku maszyny wirtualnej i wyodrębnić dysk VHD z migawki.
+
+Zacznij od utworzenia migawki dysku maszyny wirtualnej:
+
+1. Zaloguj się do witryny Azure Portal.
+2. Zaczynając od lewego górnego rogu, wybierz pozycję Utwórz zasób, a następnie wyszukaj i wybierz pozycję migawka.
+3. W bloku migawka wybierz pozycję Utwórz.
+4. Wprowadź nazwę migawki.
+5. Wybierz istniejącą grupę zasobów lub wprowadź nazwę nowej.
+6. W polu dysk źródłowy wybierz dysk zarządzany do utworzenia migawki.
+7. Wybierz typ konta, który ma być używany do przechowywania migawki. Użyj HDD w warstwie Standardowa, chyba że będzie to konieczne w przypadku dysku SSD o wysokiej wydajności.
+8. Wybierz pozycję Utwórz.
+
+### <a name="extract-the-vhd"></a>Wyodrębnij wirtualny dysk twardy
+
+Użyj poniższego skryptu, aby wyeksportować migawkę do dysku VHD na koncie magazynu.
+
+```azurecli
+#Provide the subscription Id where the snapshot is created
+$subscriptionId=yourSubscriptionId
+
+#Provide the name of your resource group where the snapshot is created
+$resourceGroupName=myResourceGroupName
+
+#Provide the snapshot name
+$snapshotName=mySnapshot
+
+#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
+#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
+$sasExpiryDuration=3600
+
+#Provide storage account name where you want to copy the underlying VHD file. 
+$storageAccountName=mystorageaccountname
+
+#Name of the storage container where the downloaded VHD will be stored.
+$storageContainerName=mystoragecontainername
+
+#Provide the key of the storage account where you want to copy the VHD 
+$storageAccountKey=mystorageaccountkey
+
+#Give a name to the destination VHD file to which the VHD will be copied.
+$destinationVHDFileName=myvhdfilename.vhd
+
+az account set --subscription $subscriptionId
+
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+
+az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
+```
+
+### <a name="script-explanation"></a>Objaśnienia dla skryptu
+Ten skrypt używa następujących poleceń w celu wygenerowania identyfikatora URI sygnatury dostępu współdzielonego dla migawki i skopiowania bazowego wirtualnego dysku twardego do konta magazynu przy użyciu identyfikatora URI SAS. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+
+
+|Polecenie  |Uwagi  |
+|---------|---------|
+| az disk grant-access    |     Generuje sygnaturę dostępu współdzielonego tylko do odczytu, która umożliwia skopiowanie odpowiedniego pliku wirtualnego dysku twardego na konto magazynu lub pobranie go do środowiska lokalnego    |
+|  az storage blob copy start   |    Umożliwia asynchroniczne Kopiowanie obiektu BLOB z jednego konta magazynu do innego. Użyj AZ Storage BLOB show, aby sprawdzić stan nowego obiektu BLOB.     |
+|
 
 ## <a name="generate-the-sas-address"></a>Generuj adres SAS
 

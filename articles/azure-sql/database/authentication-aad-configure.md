@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094947"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201216"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -77,7 +77,7 @@ W przypadku korzystania z Azure Active Directory z replikacją geograficzną adm
 
 Wystąpienie zarządzane SQL wymaga uprawnień do odczytu usługi Azure AD w celu pomyślnego wykonania zadań, takich jak uwierzytelnianie użytkowników za pomocą przynależności do grupy zabezpieczeń lub tworzenie nowych użytkowników. Aby to umożliwić, należy przyznać uprawnienia wystąpienia zarządzanego SQL do odczytu usługi Azure AD. Można to zrobić przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu Azure Portal, zaloguj się jako Administrator globalny w usłudze Azure AD i wykonaj następujące kroki:
 
@@ -236,7 +236,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 W poniższych dwóch procedurach pokazano, jak udostępnić administratorowi Azure Active Directory serwera w Azure Portal i przy użyciu programu PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) w prawym górnym rogu wybierz swoje połączenia, aby wyświetlić listę rozwijaną możliwych usług Active Directory. Wybierz odpowiednią usługę Active Directory jako domyślną usługę Azure AD. Ten krok łączy Active Directory skojarzone z subskrypcją z serwerem, upewniając się, że ta sama subskrypcja jest używana zarówno w przypadku usługi Azure AD, jak i serwera.
 
@@ -293,7 +293,7 @@ Poniższy skrypt inicjuje grupę administratorów usługi Azure AD o nazwie **DB
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Przykład: ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
+Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
 
 > [!NOTE]
 > Polecenie Azure PowerShell nie ```Set-AzSqlServerActiveDirectoryAdministrator``` uniemożliwia aprowizacji administratorów usługi Azure AD dla nieobsługiwanych użytkowników. Nieobsługiwany użytkownik może zostać zainicjowany, ale nie może nawiązać połączenia z bazą danych.
@@ -345,8 +345,8 @@ Na wszystkich komputerach klienckich, z których aplikacje lub użytkownicy łą
 - .NET Framework 4,6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Azure Active Directory bibliotekę uwierzytelniania dla SQL Server (*ADAL.DLL*). Poniżej znajdują się linki pobierania umożliwiające zainstalowanie najnowszego sterownika programu SSMS, ODBC i OLE DB zawierającego bibliotekę *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [Sterownik ODBC 17 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
-  - [OLE DB Driver 18 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
+  - [Sterownik ODBC 17 dla SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
+  - [OLE DB Driver 18 dla SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
 
 Wymagania te można spełnić w następujący sposób:
 
@@ -355,9 +355,9 @@ Wymagania te można spełnić w następujący sposób:
   - SSDT instaluje wersję amd64 *ADAL.DLL*.
   - Najnowsza wersja programu Visual Studio z programu [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) jest zgodna z wymaganiami dotyczącymi .NET Framework 4,6, ale nie instaluje wymaganej wersji amd64 *ADAL.DLL*.
 
-## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Utwórz zawartych użytkowników mapowanych na tożsamości usługi Azure AD
+## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Tworzenie zawartych użytkowników mapowanych na tożsamości usługi Azure AD
 
-Ponieważ wystąpienie zarządzane SQL obsługuje nazwy główne (logowania) serwera usługi Azure AD, korzystanie z użytkowników zawartej bazy danych nie jest wymagane. Nazwy główne serwera usługi Azure AD umożliwiają tworzenie nazw logowania użytkowników, grup lub aplikacji usługi Azure AD. Oznacza to, że można uwierzytelnić się za pomocą wystąpienia zarządzanego SQL, używając identyfikatora logowania serwera usługi Azure AD, a nie użytkownika zawartego w bazie danych. Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania), zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>.
+Ponieważ wystąpienie zarządzane SQL obsługuje nazwy główne (logowania) serwera usługi Azure AD, korzystanie z użytkowników zawartej bazy danych nie jest wymagane. Podmioty zabezpieczeń serwera usługi Azure AD (identyfikatory logowania) umożliwiają tworzenie danych logowania z użytkowników, grup lub aplikacji usługi Azure AD. Oznacza to, że można uwierzytelnić się za pomocą wystąpienia zarządzanego SQL, używając identyfikatora logowania serwera usługi Azure AD, a nie użytkownika zawartego w bazie danych. Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania), zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>.
 
 Jednak używanie uwierzytelniania Azure Active Directory z usługami SQL Database i Azure Synapse wymaga korzystania z użytkowników zawartej bazy danych w oparciu o tożsamość usługi Azure AD. Użytkownik zawartej bazy danych nie ma nazwy logowania w bazie danych Master i mapuje na tożsamość w usłudze Azure AD, która jest skojarzona z bazą danych. Tożsamość w usłudze Azure AD może być indywidualnym kontem użytkownika lub grupą. Aby uzyskać więcej informacji na temat użytkowników zawartej bazy danych, patrz [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) (Użytkownicy zawartych baz danych — tworzenie przenośnej bazy danych).
 

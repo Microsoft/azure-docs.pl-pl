@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440313"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149464"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem protokołów protokołu SMB i systemu plików NFS. W tym artykule omówiono elementy docelowe skalowalności i wydajności dla Azure Files i Azure File Sync.
@@ -138,9 +138,9 @@ Podczas synchronizacji przekazuje dane do udziału plików platformy Azure, nie 
 
 Synchronizacja początkowa jest zwykle ograniczona przez początkową szybkość przekazywania 20 plików na sekundę dla każdej grupy synchronizacji. Klienci mogą oszacować czas przekazywania wszystkich danych na platformę Azure, korzystając z następującej formuły, aby uzyskać czas w dniach:  
 
-   **Czas (w dniach) przekazywania plików do grupy synchronizacji = (liczba obiektów w punkcie końcowym w chmurze)/(20 * 60 * 60 * 24)**
+   **Czas (w dniach) przekazywania plików do grupy synchronizacji = (liczba obiektów w punkcie końcowym serwera)/(20 * 60 * 60 * 24)**
 
-Dzielenie danych na wiele punktów końcowych serwera i grup synchronizacji może przyspieszyć to wstępne przekazywanie danych, ponieważ przekazywanie może odbywać się równolegle dla wielu grup synchronizacji z częstotliwością 20 elementów na sekundę. Tak więc dwie grupy synchronizacji byłyby uruchomione ze łączną szybkością 40 elementów na sekundę. Łączny czas do ukończenia to oszacowanie czasu dla grupy synchronizacji z największą liczbą plików do zsynchronizowania
+Dzielenie danych na wiele punktów końcowych serwera i grup synchronizacji może przyspieszyć to wstępne przekazywanie danych, ponieważ przekazywanie może odbywać się równolegle dla wielu grup synchronizacji z częstotliwością 20 elementów na sekundę. Tak więc dwie grupy synchronizacji byłyby uruchomione ze łączną szybkością 40 elementów na sekundę. Łączny czas do ukończenia to oszacowanie czasu dla grupy synchronizacji z największą liczbą plików do zsynchronizowania.
 
 **Przepływność pobierania przestrzeni nazw** Po dodaniu nowego punktu końcowego serwera do istniejącej grupy synchronizacji Agent Azure File Sync nie pobiera żadnej zawartości pliku z punktu końcowego w chmurze. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 

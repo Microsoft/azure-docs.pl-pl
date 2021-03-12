@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5c01b1965c38811e78909f27ca4ab65614bc7f0e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629720"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629980"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace
 
@@ -20,14 +20,14 @@ W tym artykule opisano sposób tworzenia oferty maszyny wirtualnej platformy Azu
 
 Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](partner-center-portal/create-account.md). Upewnij się, że Twoje konto zostało zarejestrowane w komercyjnym programie Marketplace.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj [się z tematem planowanie oferty maszyny wirtualnej](marketplace-virtual-machines.md). Wyjaśni wymagania techniczne dla maszyny wirtualnej oraz listę informacji i zasobów potrzebnych podczas tworzenia oferty.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3. Na stronie **Przegląd** wybierz pozycję **+ Nowa oferta**  >  **Azure Virtual Machine**.
 
     ![Zrzut ekranu przedstawiający opcje menu po lewej stronie i przycisk "Nowa oferta".](./media/create-vm/new-offer-azure-virtual-machine.png)
@@ -38,7 +38,7 @@ Jeśli jeszcze tego nie zrobiono, zapoznaj [się z tematem planowanie oferty mas
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web oferty usługi Azure Marketplace oraz w Azure PowerShell i interfejsu wiersza polecenia platformy Azure, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Identyfikator może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczony do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- Użyj tylko małych liter i cyfr. Identyfikator może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczony do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Alias oferty to nazwa, która jest używana na potrzeby oferty w centrum partnerskim.

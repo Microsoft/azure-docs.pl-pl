@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Rozpoczynanie pracy z usługą Visual Studio Code'
+title: 'Szybki Start: Rozpoczynanie pracy z usługą Azure Wyszukiwanie poznawcze przy użyciu Visual Studio Code'
 titleSuffix: Azure Cognitive Search
 description: Dowiedz się, jak zainstalować rozszerzenie Visual Studio Code dla Wyszukiwanie poznawcze platformy Azure i korzystać z niego.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122706"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015849"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Wprowadzenie do Visual Studio Code i platformy Azure Wyszukiwanie poznawcze
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Rozpoczynanie pracy z usługą Azure Wyszukiwanie poznawcze przy użyciu Visual Studio Code
 
-W tym artykule opisano sposób interaktywnego tworzenia żądań interfejsu API REST przy użyciu [interfejsów API REST usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice) i klienta interfejsu API w celu wysyłania i otrzymywania żądań. Za pomocą klienta interfejsu API i tych instrukcji można wysyłać żądania i wyświetlać odpowiedzi przed zapisaniem kodu.
+W tym artykule opisano sposób interaktywnego tworzenia żądań interfejsu API REST przy użyciu [interfejsów API REST usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice) i [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). Za pomocą [rozszerzenia programu Visual Studio Code dla platformy Azure wyszukiwanie poznawcze (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) i tych instrukcji możesz wysyłać żądania i wyświetlać odpowiedzi przed zapisaniem dowolnego kodu.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-W tym artykule jest używane rozszerzenie Visual Studio Code (wersja zapoznawcza) dla interfejsów API REST platformy Azure Wyszukiwanie poznawcze.
 
 > [!IMPORTANT] 
 > Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -35,18 +33,6 @@ Ten przewodnik Szybki Start wymaga następujących usług i narzędzi.
 + [Wyszukiwanie poznawcze platformy Azure dla Visual Studio Code (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
-
-## <a name="copy-a-key-and-url"></a>Kopiuj klucz i adres URL
-
-Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona razem z usługą, więc jeśli do subskrypcji dodano Wyszukiwanie poznawcze platformy Azure, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
-
-1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
-
-1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
-
-![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
-
-Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 

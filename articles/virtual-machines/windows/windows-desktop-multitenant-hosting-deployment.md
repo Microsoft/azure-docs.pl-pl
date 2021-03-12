@@ -2,18 +2,19 @@
 title: Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu
 description: Dowiedz się, jak zmaksymalizować korzyści z pakietu Software Assurance systemu Windows, aby zapewnić lokalne licencje na platformę Azure z wielodostępnymi prawami hostingu.
 author: mimckitt
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bb86ba6867ad796ef0f5eeb1357a6df9e93e9f9e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670057"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555775"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Prawa hostingu wielodostępnego są dostępne tylko dla systemu Windows 10 (wersja 1703 lub nowsza).
@@ -26,7 +27,7 @@ Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla system
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Licencje subskrypcyjne kwalifikujące się do wielodostępnych praw hostingu
 
-Za pomocą [Centrum administracyjnego firmy Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide)można potwierdzić, czy użytkownikowi przypisano licencję obsługiwaną dla systemu Windows 10.
+Za pomocą [Centrum administracyjnego firmy Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center)można potwierdzić, czy użytkownikowi przypisano licencję obsługiwaną dla systemu Windows 10.
 
 > [!IMPORTANT]
 > Aby można było korzystać z obrazów systemu Windows 10 na platformie Azure, użytkownicy muszą mieć jedną z poniższych licencji subskrypcyjnych. Jeśli nie masz żadnej z tych licencji subskrypcyjnych, można je zakupić przez [partnera usługi w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) lub bezpośrednio przez [firmę Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).

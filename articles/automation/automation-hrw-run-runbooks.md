@@ -3,14 +3,14 @@ title: Uruchamianie Azure Automation elementów Runbook w hybrydowym procesie ro
 description: W tym artykule opisano sposób uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub innym dostawcy chmury przy użyciu hybrydowego procesu roboczego elementu Runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633312"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149379"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -56,10 +56,10 @@ Hybrydowe procesy robocze elementów Runbook w usłudze Azure Virtual Machines m
 Wykonaj kolejne kroki, aby użyć zarządzanej tożsamości dla zasobów platformy Azure w hybrydowym procesie roboczym elementu Runbook:
 
 1. Utwórz maszynę wirtualną platformy Azure.
-2. Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej. Zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
-3. Nadaj MASZYNom wirtualnym dostęp do grupy zasobów w Menedżer zasobów. Aby [uzyskać dostęp do Menedżer zasobów, Użyj tożsamości zarządzanej przypisanej przez system Windows VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
-4. Zainstaluj hybrydowy proces roboczy elementu Runbook na maszynie wirtualnej. Zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) lub [wdrażanie hybrydowego procesu roboczego elementu Runbook z systemem Linux](automation-linux-hrw-install.md).
-5. Zaktualizuj element Runbook, aby użyć polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) z `Identity` parametrem do uwierzytelniania w zasobach platformy Azure. Ta konfiguracja zmniejsza konieczność użycia konta Uruchom jako i umożliwia zarządzanie kontami skojarzonymi.
+1. Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej. Zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+1. Nadaj MASZYNom wirtualnym dostęp do grupy zasobów w Menedżer zasobów. Aby [uzyskać dostęp do Menedżer zasobów, Użyj tożsamości zarządzanej przypisanej przez system Windows VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
+1. Zainstaluj hybrydowy proces roboczy elementu Runbook na maszynie wirtualnej. Zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) lub [wdrażanie hybrydowego procesu roboczego elementu Runbook z systemem Linux](automation-linux-hrw-install.md).
+1. Zaktualizuj element Runbook, aby użyć polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) z `Identity` parametrem do uwierzytelniania w zasobach platformy Azure. Ta konfiguracja zmniejsza konieczność użycia konta Uruchom jako i umożliwia zarządzanie kontami skojarzonymi.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -76,20 +76,24 @@ Wykonaj kolejne kroki, aby użyć zarządzanej tożsamości dla zasobów platfor
 
 Zamiast używać elementu Runbook do udostępniania zasobów lokalnych, można określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook. Aby określić konto Uruchom jako, należy zdefiniować [zasób poświadczeń](./shared-resources/credentials.md) , który ma dostęp do zasobów lokalnych. Te zasoby obejmują magazyny certyfikatów i wszystkie elementy Runbook są uruchamiane w ramach tych poświadczeń w hybrydowym procesie roboczym elementu Runbook w grupie.
 
-Nazwa użytkownika dla poświadczenia musi mieć jeden z następujących formatów:
+- Nazwa użytkownika dla poświadczenia musi mieć jeden z następujących formatów:
 
-* użytkownika
-* username@domain
-* Nazwa użytkownika (dla kont lokalnych dla komputera lokalnego)
+   * użytkownika
+   * username@domain
+   * Nazwa użytkownika (dla kont lokalnych dla komputera lokalnego)
+
+- Aby skorzystać z eksportu elementów Runbook programu PowerShell **— RunAsCertificateToHybridWorker**, należy zainstalować na komputerze lokalnym polecenie AZ module for Azure Automation.
+
+#### <a name="use-a-credential-asset-to-specify-a-run-as-account"></a>Określ konto Uruchom jako za pomocą zasobu poświadczeń
 
 Aby określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook, wykonaj czynności opisane w poniższej procedurze:
 
 1. Utwórz [zasób poświadczeń](./shared-resources/credentials.md) z dostępem do zasobów lokalnych.
-2. Otwórz konto usługi Automation w Azure Portal.
-3. Wybierz pozycję **grupy hybrydowych procesów roboczych**, a następnie wybierz konkretną grupę.
-4. Wybierz **wszystkie ustawienia**, a następnie **Ustawienia grupy hybrydowych procesów roboczych**.
-5. Zmień wartość parametru **Uruchom jako** **domyślną** na **niestandardowy**.
-6. Wybierz poświadczenie, a następnie kliknij przycisk **Zapisz**.
+1. Otwórz konto usługi Automation w Azure Portal.
+1. Wybierz pozycję **grupy hybrydowych procesów roboczych**, a następnie wybierz konkretną grupę.
+1. Wybierz **wszystkie ustawienia**, a następnie **Ustawienia grupy hybrydowych procesów roboczych**.
+1. Zmień wartość parametru **Uruchom jako** **domyślną** na **niestandardowy**.
+1. Wybierz poświadczenie, a następnie kliknij przycisk **Zapisz**.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Instalowanie certyfikatu konta Uruchom jako
 
@@ -178,11 +182,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 Aby zakończyć przygotowywanie konta Uruchom jako:
 
 1. Zapisz element Runbook **Export-RunAsCertificateToHybridWorker** na komputerze z rozszerzeniem **. ps1** .
-2. Zaimportuj ją na konto usługi Automation.
-3. Edytuj element Runbook, zmieniając wartość `Password` zmiennej na własne hasło.
-4. Opublikuj element Runbook.
-5. Uruchom element Runbook, który jest przeznaczony dla grupy hybrydowych procesów roboczych elementu Runbook, która uruchamia i uwierzytelnia elementy Runbook przy użyciu konta Uruchom jako. 
-6. Sprawdź strumień zadań, aby zobaczyć, że raport próbuje zaimportować certyfikat do lokalnego magazynu komputerowego, a następnie wiele wierszy. To zachowanie zależy od liczby kont usługi Automation zdefiniowanych w ramach subskrypcji i stopnia sukcesu uwierzytelniania.
+1. Zaimportuj ją na konto usługi Automation.
+1. Edytuj element Runbook, zmieniając wartość `Password` zmiennej na własne hasło.
+1. Opublikuj element Runbook.
+1. Uruchom element Runbook, który jest przeznaczony dla grupy hybrydowych procesów roboczych elementu Runbook, która uruchamia i uwierzytelnia elementy Runbook przy użyciu konta Uruchom jako. 
+1. Sprawdź strumień zadań, aby zobaczyć, że raport próbuje zaimportować certyfikat do lokalnego magazynu komputerowego, a następnie wiele wierszy. To zachowanie zależy od liczby kont usługi Automation zdefiniowanych w ramach subskrypcji i stopnia sukcesu uwierzytelniania.
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Pracuj z podpisanymi elementami Runbook w hybrydowym procesie roboczym elementu Runbook systemu Windows
 
@@ -267,13 +271,13 @@ Aby utworzyć GPG pęku kluczy i pary kluczy, użyj konta hybrydowego procesu ro
     sudo su – nxautomation
     ```
 
-2. Gdy korzystasz z programu **nxautomation**, wygeneruj parę kluczy GPG. GPG przeprowadzi Cię przez kroki. Musisz podać nazwę, adres e-mail, czas wygaśnięcia i hasło. Następnie poczekaj, aż na komputerze jest wystarczająca Entropia dla klucza do wygenerowania.
+1. Gdy korzystasz z programu **nxautomation**, wygeneruj parę kluczy GPG. GPG przeprowadzi Cię przez kroki. Musisz podać nazwę, adres e-mail, czas wygaśnięcia i hasło. Następnie poczekaj, aż na komputerze jest wystarczająca Entropia dla klucza do wygenerowania.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. Ponieważ katalog GPG został wygenerowany z sudo, należy zmienić jego właściciela na **nxautomation** przy użyciu następującego polecenia.
+1. Ponieważ katalog GPG został wygenerowany z sudo, należy zmienić jego właściciela na **nxautomation** przy użyciu następującego polecenia.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg

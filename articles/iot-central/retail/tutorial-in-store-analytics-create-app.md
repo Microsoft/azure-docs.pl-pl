@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832236"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014370"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
 
@@ -228,8 +228,8 @@ W tym samouczku do kompilowania aplikacji należy użyć następującego zestawu
 
 Wykonaj kroki opisane w poniższych dwóch artykułach, aby połączyć prawdziwą bramę Rigado i czujniki RuuviTag. Po zakończeniu Wróć do tego samouczka. Ponieważ szablony urządzeń zostały już utworzone w tym samouczku, nie trzeba ich utworzyć ponownie w następującym zestawie wskazówek.
 
-- Aby nawiązać połączenie z bramą usługi Rigado, zobacz [łączenie Rigado kaskada 500 z aplikacją IoT Central platformy Azure](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Aby połączyć czujniki RuuviTag, zobacz [łączenie czujnika RuuviTag z aplikacją IoT Central platformy Azure](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Możesz również użyć tych wskazówek, aby utworzyć dwie symulowane czujniki, jeśli jest to konieczne.
+- Aby nawiązać połączenie z bramą usługi Rigado, zobacz [łączenie Rigado kaskada 500 z aplikacją IoT Central platformy Azure](../core/howto-connect-rigado-cascade-500.md).
+- Aby połączyć czujniki RuuviTag, zobacz [łączenie czujnika RuuviTag z aplikacją IoT Central platformy Azure](../core/howto-connect-ruuvi.md). Możesz również użyć tych wskazówek, aby utworzyć dwie symulowane czujniki, jeśli jest to konieczne.
 
 ## <a name="add-rules-and-actions"></a>Dodawanie reguł i akcji
 W ramach korzystania z czujników w aplikacji IoT Central platformy Azure do monitorowania warunków można utworzyć reguły uruchamiania akcji w przypadku spełnienia określonych warunków. Reguła jest skojarzona z szablonem urządzenia i co najmniej jednym urządzeniem oraz zawiera warunki, które muszą zostać spełnione na podstawie danych telemetrycznych lub zdarzeń urządzeń. Reguła ma także co najmniej jedną skojarzoną akcję. Akcje mogą obejmować wysyłanie powiadomień e-mail lub wyzwalanie akcji elementu webhook w celu wysyłania danych do innych usług. Szablon aplikacji **do analizy w sklepie** zawiera kilka wstępnie zdefiniowanych reguł dla urządzeń w aplikacji.

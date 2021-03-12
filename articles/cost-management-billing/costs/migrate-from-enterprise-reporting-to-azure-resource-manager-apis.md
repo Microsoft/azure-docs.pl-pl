@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355824"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635794"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Migracja z interfejsów API raportowania korporacyjnego do interfejsów API usługi Azure Resource Manager
 
@@ -51,28 +51,7 @@ Po utworzeniu jednostki usługi w celu programowego wywoływania interfejsów AP
 
 ### <a name="azure-billing-hierarchy-access"></a>Dostęp do hierarchii rozliczeń platformy Azure
 
-Aby przypisać uprawnienia jednostki usługi do konta rozliczeniowego przedsiębiorstwa, działów lub zakresów kont rejestracji, użyj [uprawnień do rozliczeń](/rest/api/billing/2019-10-01-preview/billingpermissions), [definicji ról rozliczeń](/rest/api/billing/2019-10-01-preview/billingroledefinitions) i [przypisań ról rozliczeń](/rest/api/billing/2019-10-01-preview/billingroleassignments) interfejsów API.
-
-- Użyj interfejsów API uprawnień do rozliczeń, aby zidentyfikować uprawnienia, które jednostka usługi już ma w danym zakresie, takim jak konto rozliczeniowe lub dział.
-- Użyj interfejsów API definicji ról rozliczeń, aby wyliczyć dostępne role, które mogą być przypisane do jednostki usługi.
-  - Tym razem do jednostek usługi mogą być przypisane jedynie role administratora umowy EA z uprawnieniami tylko do odczytu i administratora działu z uprawnieniami tylko do odczytu.
-- Użyj interfejsów API przypisań ról rozliczeń, aby przypisać rolę do jednostki usługi.
-
-Poniższy przykład pokazuje, jak wywołać interfejs API przypisań ról w celu udzielenia jednostce usługi dostępu do konta rozliczeniowego. Zalecamy korzystanie z aplikacji [PostMan](https://postman.com) w celu przeprowadzenia tych jednorazowych konfiguracji uprawnień.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>Treść żądania
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+Aby przypisać uprawnienia nazwy głównej usługi do konta rozliczeń przedsiębiorstwa, działów lub zakresów kont rejestracji, zobacz [Przypisywanie ról do usługi Azure Enterprise Agreement nazw głównych usług](../manage/assign-roles-azure-service-principals.md).
 
 ### <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 

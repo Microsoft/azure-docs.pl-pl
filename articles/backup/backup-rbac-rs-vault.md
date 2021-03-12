@@ -4,12 +4,12 @@ description: Za pomocą kontroli dostępu opartej na rolach platformy Azure moż
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553412"
+ms.locfileid: "102613446"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Używanie kontroli dostępu opartej na rolach na platformie Azure do zarządzania Azure Backup punktów odzyskiwania
 
@@ -39,7 +39,7 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 | | Współautor maszyny wirtualnej | Zasób maszyny wirtualnej |  Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
 | Tworzenie kopii zapasowej maszyny wirtualnej na żądanie | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
 | Przywracanie maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |   |
-| | Współautor | Grupa zasobów, w której zostanie wdrożona maszyna wirtualna |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/domen/Write, Microsoft. COMPUTE/virtualMachines/Write Microsoft. Network/virtualNetworks/odczytywać Microsoft. Network/virtualNetworks/Subnets/Join/Action | 
+| | Współautor | Grupa zasobów, w której zostanie wdrożona maszyna wirtualna |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/domen/Write, Microsoft. COMPUTE/virtualMachines/Write Microsoft. Network/virtualNetworks/odczytywać Microsoft. Network/virtualNetworks/Subnets/Join/Action |
 | | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono |   Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
 | Przywróć dyski niezarządzane kopia zapasowa maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
 | | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono | Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
@@ -50,6 +50,7 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 | | Współautor | Grupa zasobów, do której zostaną przywrócone dyski zarządzane | Alternatywnie zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. resources/subscriptions/resourceGroups/Write|
 | Przywróć pojedyncze pliki z kopii zapasowej maszyny wirtualnej | Operator kopii zapasowych | Magazyn usługi Recovery Services |
 | | Współautor maszyny wirtualnej | Źródłowa maszyna wirtualna, której kopię zapasową utworzono | Zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: Microsoft. COMPUTE/virtualMachines/Write |
+| Przywracanie między regionami | Operator kopii zapasowych | Subskrypcja magazynu usługi Recovery Services | Jest to uzupełnienie uprawnień przywracania wymienionych powyżej. W odniesieniu do CRR zamiast wbudowanej roli można rozważyć rolę niestandardową, która ma następujące uprawnienia: "Microsoft. RecoveryServices/Locations/backupAadProperties/Read" "Microsoft. RecoveryServices/Locations/backupCrrJobs/Action" "Microsoft. RecoveryServices/Locations/backupCrrJob/Action" "Microsoft. RecoveryServices/Locations/backupCrossRegionRestore/Action" "Microsoft. RecoveryServices/Locations/backupCrrOperationResults/Read" "Microsoft. RecoveryServices/Locations/backupCrrOperationsStatus/Read" |
 | Tworzenie zasad kopii zapasowych dla kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 | Modyfikowanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 | Usuwanie zasad tworzenia kopii zapasowej maszyny wirtualnej platformy Azure | Współautor kopii zapasowej | Magazyn usługi Recovery Services |

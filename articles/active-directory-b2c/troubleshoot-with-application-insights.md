@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/16/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572893"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611831"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Zbieranie dzienników Azure Active Directory B2C z Application Insights
 
-W tym artykule przedstawiono procedurę zbierania dzienników z programu Active Directory B2C (Azure AD B2C), dzięki czemu można zdiagnozować problemy z zasadami niestandardowymi. Application Insights zapewnia sposób diagnozowania wyjątków i wizualizacji problemów z wydajnością aplikacji. Azure AD B2C zawiera funkcję wysyłania danych do Application Insights.
+W tym artykule przedstawiono procedurę zbierania dzienników z programu Active Directory B2C (Azure AD B2C), dzięki czemu można zdiagnozować problemy z zasadami niestandardowymi. Usługa Application Insights umożliwia diagnozowanie wyjątków i wizualizowanie problemów z wydajnością aplikacji. Usługa Azure AD B2C zawiera funkcję wysyłania danych do usługi Application Insights.
 
 Szczegółowe dzienniki działań opisane tutaj należy włączyć **tylko** podczas opracowywania zasad niestandardowych.
 
@@ -51,7 +51,7 @@ Jeśli jeszcze tego nie masz, Utwórz wystąpienie Application Insights w subskr
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Jeśli jeszcze nie istnieje, Dodaj `<UserJourneyBehaviors>` węzeł podrzędny do `<RelyingParty>` węzła. Musi ona znajdować się bezpośrednio po `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. Jeśli jeszcze nie istnieje, Dodaj `<UserJourneyBehaviors>` węzeł podrzędny do `<RelyingParty>` węzła. Musi ona znajdować się po `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
 1. Dodaj następujący węzeł jako element podrzędny `<UserJourneyBehaviors>` elementu. Pamiętaj, aby zastąpić `{Your Application Insights Key}` **klucz instrumentacji** Application Insights zarejestrowany wcześniej.
 
     ```xml
@@ -130,7 +130,7 @@ W celu poprawy wydajności środowiska produkcyjnego i lepszego środowiska uży
 
 ## <a name="next-steps"></a>Następne kroki
 
-Społeczność opracowała przeglądarkę podróży użytkowników w celu ułatwienia deweloperom tożsamości. Odczytuje dane z wystąpienia Application Insights i udostępnia widok dobrze skonstruowany zdarzeń podróży użytkownika. Kod źródłowy zostanie uzyskany i wdrożony we własnym rozwiązaniu.
+Społeczność opracowała przeglądarkę podróży użytkowników w celu ułatwienia pracy deweloperom tożsamości. Odczytuje dane z wystąpienia usługi Application Insights i udostępnia odpowiednio skonstruowany widok zdarzeń podróży użytkownika. Kod źródłowy zostanie uzyskany i wdrożony we własnym rozwiązaniu.
 
 Gracz podróży użytkownika nie jest obsługiwany przez firmę Microsoft i jest udostępniany w sposób niezgodny z oczekiwaniami.
 
