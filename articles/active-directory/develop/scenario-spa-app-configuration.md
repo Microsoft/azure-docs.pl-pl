@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5cbb576a7fcfb2daf492a149130aa7c99fe10ac5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fe73832ec5eaee62a2dc2d397c12f82334e2efd8
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753613"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010710"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplikacja jednostronicowa: Konfiguracja kodu
 
 Dowiedz się, jak skonfigurować kod dla aplikacji jednostronicowej (SPA).
 
-## <a name="msal-libraries-for-spas-and-supported-authentication-flows"></a>MSAL biblioteki aplikacji jednostronicowych i obsługiwane przepływy uwierzytelniania
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje jednostronicowe 
 
-Platforma tożsamości firmy Microsoft udostępnia następujące biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) do obsługi niejawnego przepływu kodu przepływu i autoryzacji z PKCE przy użyciu zalecanych przez branżę praktyk związanych z bezpieczeństwem:
+Następujące biblioteki firmy Microsoft obsługują aplikacje jednostronicowe:
 
-| Biblioteka MSAL | Przepływ | Opis |
-|--------------|------|-------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Przepływ kodu autoryzacji (PKCE) | Zwykła biblioteka języka JavaScript do użycia w dowolnej aplikacji sieci Web po stronie klienta, która jest skompilowana za pomocą języka JavaScript lub SPA platform, takich jak kątowy, Vue.js i React.js. |
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Niejawny przepływ | Zwykła biblioteka języka JavaScript do użycia w dowolnej aplikacji sieci Web po stronie klienta, która jest skompilowana za pomocą języka JavaScript lub SPA platform, takich jak kątowy, Vue.js i React.js. |
-| ![MSAL kątowy](media/sample-v2-code/logo_angular.png) <br/> [MSAL kątowy](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Niejawny przepływ | Otoka podstawowej biblioteki MSAL.js, która upraszcza korzystanie z aplikacji jednostronicowych zbudowanych za pomocą struktury kątowej. |
+[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
 ## <a name="application-code-configuration"></a>Konfiguracja kodu aplikacji
 

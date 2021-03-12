@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 746845004a7a1baf1cafb872aae9322177879b6b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027275"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011106"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informacje na temat przenoszenia własności rozliczeń subskrypcji platformy Azure
 
@@ -30,16 +30,30 @@ Jeśli jesteś klientem z Umową Enterprise (EA), administratorzy w Twoim przeds
 
 Tylko administrator rozliczeń konta może przenieść własność subskrypcji.
 
-## <a name="determine-account-billing-administrator"></a>Określanie administratora rozliczeń konta
+## <a name="determine-if-you-are-a-billing-administrator"></a>Ustalanie, czy jesteś administratorem rozliczeń
 
 <a name="whoisaa"></a>
 
-Administrator rozliczeń to osoba, która ma uprawnienia do zarządzania rozliczeniami konta. Administratorzy mogą uzyskiwać dostęp do rozliczeń w witrynie [Azure Portal](https://portal.azure.com) i wykonywać różne zadania rozliczeniowe, takie jak tworzenie subskrypcji, wyświetlanie i płacenie faktur lub aktualizowanie form płatności.
+W celu przeprowadzenia transferu Znajdź osobę, która ma dostęp, aby zarządzać rozliczeniami dla konta. Administratorzy mogą uzyskiwać dostęp do rozliczeń w witrynie [Azure Portal](https://portal.azure.com) i wykonywać różne zadania rozliczeniowe, takie jak tworzenie subskrypcji, wyświetlanie i płacenie faktur lub aktualizowanie form płatności.
 
-Aby zidentyfikować konta, dla których jesteś administratorem rozliczeń, odwiedź [stronę Cost Management + Billing w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Następnie zaznacz opcję **Wszystkie zakresy rozliczeniowe** w okienku po lewej stronie. Na stronie Subskrypcje są wyświetlane wszystkie te subskrypcje, w których jesteś administratorem rozliczeń.
+### <a name="check-if-you-have-billing-access"></a>Sprawdź, czy masz dostęp do rozliczeń
 
-Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, odwiedź [stronę Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Następnie wybierz subskrypcję, którą chcesz sprawdzić i przejrzyj **Ustawienia**. Po wybraniu pozycji **Właściwości** administrator konta subskrypcji zostanie wyświetlony w polu **Administrator konta**.
+1. Aby zidentyfikować konta, dla których masz dostęp do rozliczeń, odwiedź [stronę Cost Management i rozliczeń w Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 
+2. Wybierz pozycję **konta rozliczeń** z menu po lewej stronie.
+
+3. Na stronie lista **zakresów rozliczeń** są wyświetlane wszystkie subskrypcje, w których masz dostęp do szczegółów rozliczeń.
+
+### <a name="check-by-subscription"></a>Sprawdź według subskrypcji
+
+1. Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, odwiedź [stronę Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). 
+
+2. Wybierz subskrypcję, którą chcesz sprawdzić.
+
+3. W obszarze **Ustawienia** wybierz pozycję **Właściwości**. Skontaktuj się z administratorem **konta** , aby zrozumieć, kto jest kontem administratora subskrypcji.
+
+   > [!NOTE]
+   > Nie wszystkie typy subskrypcji pokazują właściwości.
 
 ## <a name="supported-subscription-types"></a>Obsługiwane typy subskrypcji
 

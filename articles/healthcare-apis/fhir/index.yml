@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Dokumentacja interfejsu Azure API for FHIR
+summary: Interfejs Azure API for FHIR to zarządzany, oparty na standardach interfejs API do obsługi klinicznych danych na temat zdrowia, który umożliwia tworzenie rozwiązań do praktycznych analiz i uczenia maszynowego.
+metadata:
+  title: Dokumentacja interfejsu Azure API for FHIR — samouczki i przewodniki
+  description: Interfejs Azure API for FHIR to zarządzany, oparty na standardach interfejs API do obsługi klinicznych danych na temat zdrowia, który umożliwia tworzenie rozwiązań do praktycznych analiz i uczenia maszynowego.
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page
+  ms.collection: collection
+  author: matjazl
+  ms.author: matjazl
+  ms.date: 08/13/2020
+  ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
+  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "103017444"
+landingContent:
+- title: Rozpocznij pracę z interfejsem Azure API for FHIR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest Azure API for FHIR?
+      url: overview.md
+    - text: Czym jest łącznik usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)?
+      url: overview.md#azure-iot-connector-for-fhir-preview
+  - linkListType: quickstart
+    links:
+    - text: Wdrażanie serwera interfejsu API for FHIR
+      url: fhir-paas-portal-quickstart.md
+    - text: Wdrażanie łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
+      url: iot-fhir-portal-quickstart.md
+- title: Samouczki dotyczące konfiguracji
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Wdrażanie aplikacji javascript do odczytywania danych z usługi FHIR
+      url: tutorial-web-app-fhir-server.md
+    - text: Dostęp do interfejsu API FHIR za pomocą narzędzia Postman
+      url: access-fhir-postman-tutorial.md
+    - text: Integracja specyfikacji SMART dla aplikacji innych firm i danych medycznych
+      url: use-smart-on-fhir-proxy.md
+    - text: Odbieranie danych urządzeń za pośrednictwem usługi Azure IoT Hub
+      url: device-data-through-iot-hub.md
+- title: Rejestrowanie aplikacji do uwierzytelniania za pomocą usługi AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Rejestrowanie aplikacji do obsługi zasobów
+      url: register-resource-azure-ad-client-app.md
+    - text: Rejestrowanie poufnej aplikacji klienckiej
+      url: register-confidential-azure-ad-client-app.md
+    - text: Rejestrowanie publicznej aplikacji klienckiej
+      url: register-public-azure-ad-client-app.md
+    - text: Rejestrowanie aplikacji klienckiej usługi
+      url: register-service-azure-ad-client-app.md

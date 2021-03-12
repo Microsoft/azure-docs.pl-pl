@@ -11,18 +11,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 98310f65767efc6081451d9931c4ea9772df5f3b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609400"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011209"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` do czytnika źródła danych RSS.
 
 Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na temat:
 
@@ -32,12 +30,6 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Funkcje uznane za przestarzałe
 
 ## <a name="known-issues"></a>Znane problemy
-
-> [!NOTE]
-> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, wyświetlać [zasoby](assets-concept.md) v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami) należy użyć [interfejsu API REST](/rest/api/media/accountfilters), interfejsu [wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
->
-> Aby uzyskać szczegółowe informacje, zobacz: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -54,20 +46,22 @@ Oprócz kodowania niestandardowego dostępne są następujące nowe wbudowane us
 - H265SingleBitrate1080p
 - H265SingleBitrate4K
 
-
 Klienci, którzy wcześniej korzystali z HEVC w koderze Premium w INTERFEJSie w wersji 2, powinni przeprowadzić migrację, aby używać nowej obsługi kodowania HEVC w standardowym Koderie.
 
 ### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Anons dotyczący interfejsu API Azure Media Services V2 i zestawów SDK
 
 #### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Zaktualizuj interfejs API REST Azure Media Services i zestawy SDK do wersji v3 o 29 lutego 2024
 
-Ponieważ wersja Azure Media Services 3 interfejsu API REST i zestawy SDK klienta dla programu .NET i środowiska Java oferują więcej możliwości niż wersja 2, firma Microsoft aktualizuje wersję 2 Azure Media Services interfejsu API REST i zestawów SDK klienta dla programów .NET i Java. Zachęcamy do przełączenia tego przełącznika, aby uzyskać bogatsze korzyści z wersji Azure Media Services 3 interfejsu API REST i zestawów SDK klienta dla platformy .NET i środowiska Java. Wersja 3 oferuje następujące informacje: 
+Ponieważ wersja Azure Media Services 3 interfejsu API REST i zestawy SDK klienta dla programu .NET i środowiska Java oferują więcej możliwości niż wersja 2, firma Microsoft aktualizuje wersję 2 Azure Media Services interfejsu API REST i zestawów SDK klienta dla programów .NET i Java.
+
+Zachęcamy do przełączenia tego przełącznika, aby uzyskać bogatsze korzyści z wersji Azure Media Services 3 interfejsu API REST i zestawów SDK klienta dla platformy .NET i środowiska Java.
+Wersja 3 oferuje następujące informacje:
  
 - Obsługa zdarzeń na żywo usługi 24x7
 - Interfejsy API REST usługi ARM, zestawy SDK klienta dla platformy .NET Core, Node.js, Python, Java, go i Ruby.
-- Klucze zarządzane przez klienta, integracja z zaufaną magazynem, obsługa linków prywatnych i [inne](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Klucze zarządzane przez klienta, integracja z zaufaną magazynem, obsługa linków prywatnych i [inne](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
-#### <a name="action-required"></a>Wymagana akcja:
+#### <a name="action-required"></a>Wymagana akcja
 
 Aby zminimalizować zakłócenia w obciążeniu, zapoznaj się z [przewodnikiem migracji](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) , aby przenieść kod z interfejsu API wersji 2 i zestawów SDK do wersji 3 interfejsu API i zestawu SDK przed 29 lutego 2024.
 **Po 29 lutego 2024** Azure Media Services nie będzie już akceptować ruchu w interfejsie API REST w wersji 2, interfejsie API zarządzania kontami ARM w wersji 2015-10-01 lub z zestawów SDK klienta .NET w wersji 2. Obejmuje to wszystkie zestawy SDK klienta Open-Source innych firm, które mogą wywołać interfejs API w wersji 2.  
@@ -76,9 +70,9 @@ Zapoznaj się z oficjalnym [ogłoszeniem aktualizacji platformy Azure](https://a
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>Obsługa kodera standardowego dla funkcji interfejsu API w wersji 2
 
-Oprócz nowej obsługi kodowania HEVC (H. 265) następujące funkcje są teraz dostępne w wersji 2020-05-01 interfejsu API kodowania. 
+Oprócz nowej obsługi kodowania HEVC (H. 265) następujące funkcje są teraz dostępne w wersji 2020-05-01 interfejsu API kodowania.
 
-- Obsługa wielu plików wejściowych jest teraz obsługiwana przy użyciu nowej obsługi **JobInputClip** . 
+- Obsługa wielu plików wejściowych jest teraz obsługiwana przy użyciu nowej obsługi **JobInputClip** .
     - Przykład jest dostępny dla platformy .NET, w którym pokazano, jak połączyć [dwa zasoby jednocześnie](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets).
 - Wybór ścieżki audio umożliwia klientom Wybieranie i mapowanie przychodzących ścieżek audio i kierowanie ich do danych wyjściowych w celu kodowania
     - Zobacz [OPENAPI API REST, aby uzyskać szczegółowe informacje](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) na temat **AudioTrackDescriptor** i śledzić wybór
@@ -96,6 +90,15 @@ Zaktualizuj najnowsze zestawy SDK klienta w bazach kodu przy użyciu Menedżera 
 - [Node.js 8.1.0 wersja języka TypeScript](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Python Azure-zarządzanie 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0 — beta. 2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
+
+### <a name="new-security-features-available-in-the-2020-05-01-version-of-the-azure-media-services-api"></a>Nowe funkcje zabezpieczeń dostępne w wersji 2020-05-01 interfejsu API Azure Media Services
+
+- **[Klucze zarządzane przez klienta](concept-use-customer-managed-keys-byok.md)**: klucze zawartości i inne dane przechowywane na kontach utworzonych za pomocą interfejsu API wersji "2020-05-01" są szyfrowane przy użyciu klucza konta. Klienci mogą podać klucz służący do szyfrowania klucza konta.
+
+- **[Zaufany magazyn](concept-trusted-storage.md)**: Media Services można skonfigurować w taki sposób, aby uzyskiwać dostęp do usługi Azure Storage przy użyciu tożsamości zarządzanej skojarzonej z kontem Media Services. Po uzyskaniu dostępu do kont magazynu przy użyciu tożsamości zarządzanej klienci mogą konfigurować bardziej restrykcyjne listy ACL sieci na koncie magazynu bez blokowania Media Services scenariuszy.
+
+- **[Zarządzane tożsamości](concept-managed-identities.md)**: klienci mogą włączyć tożsamość zarządzaną przez system dla konta Media Services, aby zapewnić dostęp do magazynów kluczy (dla kluczy zarządzanych przez klienta) i kont magazynu (dla zaufanego magazynu).
+
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Zaktualizowano przykłady Node.js TypeScript przy użyciu zestawu SDK isomorphic dla języka JavaScript
 
@@ -143,7 +146,8 @@ Funkcja kodowania na żywo umożliwia teraz dodanie fragmentów interwału stał
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
 ### <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
-Obsługa starszego formatu szyfrowania plików międzyoperacyjnego (PIFF 1,1) w formacie oprogramowania PlayReady jest teraz dostępna w Pakowarce dynamicznym. Zapewnia to obsługę starszych zestawów inteligentnych programów telewizyjnych z firmy Samsung i LG, które zaimplementowali wczesne wersje robocze Common Encryption Standard (CENC) opublikowane przez firmę Microsoft.  Format PIFF 1,1 jest również znany jako format szyfrowania, który był wcześniej obsługiwany przez bibliotekę kliencką Silverlight. Obecnie jedynym scenariuszem przypadku użycia tego formatu szyfrowania jest ukierunkowanie starszej wersji programu Smart TV, w której w niektórych regionach pozostała nieprosta liczba inteligentnych telewizorów, które obsługują tylko Smooth Streaming z szyfrowaniem PIFF 1,1. 
+
+Obsługa starszego formatu szyfrowania plików międzyoperacyjnego (PIFF 1,1) w formacie oprogramowania PlayReady jest teraz dostępna w Pakowarce dynamicznym. Zapewnia to obsługę starszych zestawów inteligentnych programów telewizyjnych z firmy Samsung i LG, które zaimplementowali wczesne wersje robocze Common Encryption Standard (CENC) opublikowane przez firmę Microsoft.  Format PIFF 1,1 jest również znany jako format szyfrowania, który był wcześniej obsługiwany przez bibliotekę kliencką Silverlight. Obecnie jedynym scenariuszem przypadku użycia tego formatu szyfrowania jest ukierunkowanie starszej wersji programu Smart TV, w której w niektórych regionach pozostała nieprosta liczba inteligentnych telewizorów, które obsługują tylko Smooth Streaming z szyfrowaniem PIFF 1,1.
 
 Aby użyć nowej obsługi szyfrowania w programie PIFF 1,1, Zmień wartość szyfrowania na "PIFF" w ścieżce URL lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [omówienie Content Protection.](content-protection-overview.md)
 Na przykład: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|

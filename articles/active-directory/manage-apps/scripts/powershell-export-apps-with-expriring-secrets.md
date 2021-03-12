@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 7123c87d8883d9ac309797255152611fb9fb81d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c8a37b08db5cdb35bc9328cbc29caa04a5cdf412
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584387"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010834"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Eksportowanie aplikacji z wygaśniemi wpisami tajnymi i certyfikatami
 
-Ten przykładowy skrypt programu PowerShell eksportuje wszystkie aplikacje z wpisami tajnymi i certyfikatami dla określonych aplikacji z katalogu w pliku CSV.
+Ten przykładowy skrypt programu PowerShell eksportuje wszystkie rejestracje aplikacji z wygasłymi wpisami tajnymi, certyfikatami i ich właścicielami dla określonych aplikacji z katalogu w pliku CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,6 +33,7 @@ Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
 Polecenie "Add-member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
+Polecenie "New-Object" tworzy obiekt, który będzie używany dla kolumn w pliku CSV.
 Możesz zmodyfikować zmienną "$Path" bezpośrednio w programie PowerShell, używając ścieżki pliku CSV, na wypadek, gdyby eksport nie był interaktywny.
 
 | Polecenie | Uwagi |

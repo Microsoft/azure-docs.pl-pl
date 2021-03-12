@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e79bbb2ac6febb39fec27aa6ac3c82ff58f81122
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8056e95b731b1818e10d7415cb813d6aba0ec7fa
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575825"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149071"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Włączanie Azure Active Directory Domain Services przy użyciu programu PowerShell
 
@@ -39,6 +39,13 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
     * Upewnij się, że logujesz się do dzierżawy usługi Azure AD przy użyciu polecenia cmdlet [Connect-AzureAD][Connect-AzureAD] .
 * Aby włączyć usługę Azure AD DS, musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD.
 * Aby utworzyć wymagane zasoby usługi Azure AD DS, musisz mieć uprawnienia *współautora* w ramach subskrypcji platformy Azure.
+
+  > [!IMPORTANT]
+  > Mimo że moduł **AZ. ADDomainServices** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet.
+
+  ```azurepowershell-interactive
+  Install-Module -Name Az.ADDomainServices
+  ```
 
 ## <a name="create-required-azure-ad-resources"></a>Tworzenie wymaganych zasobów usługi Azure AD
 
@@ -93,13 +100,13 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 
 Najpierw Zarejestruj dostawcę zasobów Azure AD Domain Services za pomocą polecenia cmdlet [register-AzResourceProvider][Register-AzResourceProvider] :
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 Następnie utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][New-AzResourceGroup] . W poniższym przykładzie grupa zasobów ma nazwę moja *zasobów* i jest tworzona w regionie *zachodnim* . Użyj własnej nazwy i żądanego regionu:
 
-```powershell
+```azurepowershell-interactive
 $ResourceGroupName = "myResourceGroup"
 $AzureLocation = "westus"
 
@@ -113,7 +120,7 @@ Utwórz sieć wirtualną i podsieci dla Azure AD Domain Services. Dwie podsieci 
 
 Utwórz podsieci przy użyciu polecenia cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] , a następnie Utwórz sieć wirtualną za pomocą polecenia cmdlet [New-AzVirtualNetwork][New-AzVirtualNetwork] .
 
-```powershell
+```azurepowershell-interactive
 $VnetName = "myVnet"
 
 # Create the dedicated subnet for Azure AD Domain Services.
@@ -142,7 +149,7 @@ Aby zabezpieczyć porty wymagane dla domeny zarządzanej i zablokować cały ruc
 
 Następujące polecenia cmdlet programu PowerShell wykorzystują polecenie [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig] do tworzenia reguł, a następnie tworzenia sieciowej grupy zabezpieczeń w programie [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup] . Sieciowe grupy zabezpieczeń i reguły są następnie skojarzone z podsiecią sieci wirtualnej przy użyciu polecenia cmdlet [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig] .
 
-```powershell
+```azurepowershell-interactive
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -196,17 +203,24 @@ Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia u
 
 Nie ma niczego do skonfigurowania na potrzeby dystrybuowania AD DS platformy Azure między strefami. Platforma Azure automatycznie obsługuje dystrybucję zasobów. Aby uzyskać więcej informacji i sprawdzić dostępność regionów, zobacz [co to są strefy dostępności na platformie Azure?][availability-zones]
 
-```powershell
+```azurepowershell-interactive
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Utworzenie zasobu i zwrócenie kontroli do wiersza polecenia programu PowerShell trwa kilka minut. Domena zarządzana jest w dalszym ciągu obsługiwana w tle, a ukończenie wdrożenia może potrwać do godziny. W Azure Portal strona **Przegląd** dla domeny zarządzanej pokazuje bieżący stan w tym etapie wdrażania.
@@ -224,7 +238,7 @@ Poniższy kompletny skrypt programu PowerShell łączy wszystkie zadania przedst
 > [!NOTE]
 > Aby włączyć usługę Azure AD DS, musisz być administratorem globalnym dla dzierżawy usługi Azure AD. Musisz również mieć co najmniej uprawnienia *współautora* w ramach subskrypcji platformy Azure.
 
-```powershell
+```azurepowershell-interactive
 # Change the following values to match your deployment.
 $AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
@@ -292,7 +306,7 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
-  
+
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -336,12 +350,19 @@ Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
 $vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Utworzenie zasobu i zwrócenie kontroli do wiersza polecenia programu PowerShell trwa kilka minut. Domena zarządzana jest w dalszym ciągu obsługiwana w tle, a ukończenie wdrożenia może potrwać do godziny. W Azure Portal strona **Przegląd** dla domeny zarządzanej pokazuje bieżący stan w tym etapie wdrażania.

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046673"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634162"
 ---
 # <a name="enable-vm-insights-overview"></a>Omówienie włączania usługi VM Insights
 
@@ -54,6 +54,7 @@ Usługi VM Insights obsługują wszystkie systemy operacyjne, które obsługują
 > [!IMPORTANT]
 > Funkcja kondycji gościa usługi VM Insights ma ograniczoną obsługę systemu operacyjnego, gdy jest w publicznej wersji zapoznawczej. Aby uzyskać szczegółową listę, zobacz [Włączanie kondycji gościa usługi VM Insights (wersja zapoznawcza)](../vm/vminsights-health-enable.md) .
 
+### <a name="linux-considerations"></a>Zagadnienia dotyczące systemu Linux
 Zapoznaj się z poniższą listą zagadnień związanych z obsługą usługi VM w systemie Linux:
 
 - Obsługiwane są tylko wersje domyślne i wersje SMP jądra systemu Linux.
@@ -61,7 +62,22 @@ Zapoznaj się z poniższą listą zagadnień związanych z obsługą usługi VM 
 - Niestandardowe jądra, w tym ponowne kompilacje standardowych jądra, nie są obsługiwane.
 - W przypadku Debian dystrybucje innych niż wersja 9,4 funkcja map nie jest obsługiwana, a funkcja wydajność jest dostępna tylko z menu Azure Monitor. Nie jest ona dostępna bezpośrednio z okienka po lewej stronie maszyny wirtualnej platformy Azure.
 - CentOSPlus jądro jest obsługiwane.
-- Dla luki w zabezpieczeniach Spectre należy zainstalować jądro systemu Linux. Aby uzyskać więcej informacji, skontaktuj się z dostawcą dystrybucji systemu Linux.
+
+W przypadku luk w zabezpieczeniach Spectre i Meltdown należy zastosować poprawki jądra systemu Linux. Aby uzyskać więcej informacji, skontaktuj się z dostawcą dystrybucji systemu Linux. Uruchom następujące polecenie, aby sprawdzić, czy jest dostępne, jeśli Spectre/Meltdown został skorygowany:
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+Dane wyjściowe tego polecenia będą wyglądać podobnie do poniższego i określić, czy komputer jest narażony na dowolny problem. Jeśli te pliki są niedostępne, komputer jest niepoprawiony.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
 Szczegółowe informacje o maszynie wirtualnej wymagają obszaru roboczego Log Analytics. Aby uzyskać szczegółowe informacje i wymagania tego obszaru roboczego, zobacz sekcję [Konfigurowanie obszaru roboczego log Analytics na potrzeby usługi VM Insights](vminsights-configure-workspace.md) .
 ## <a name="agents"></a>Agenci

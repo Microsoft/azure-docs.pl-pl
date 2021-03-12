@@ -41,7 +41,7 @@
           href: test-drive-hosted-detailed-config.md
         - name: Konfigurowanie subskrypcji platformy Azure dla hostowanych wersji testowych
           href: test-drive-azure-subscription-setup.md
-    - name: Udział partnera w zakresie użycia platformy Azure przez klienta
+    - name: Przypisanie użycia klienta platformy Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opcje wejścia na rynek
       items:

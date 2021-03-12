@@ -2,17 +2,19 @@
 title: Tworzenie i przekazywanie Oracle Linux wirtualnego dysku twardego
 description: Zapoznaj się z tematem tworzenie i przekazywanie wirtualnego dysku twardego (VHD) platformy Azure zawierającego Oracle Linux system operacyjny.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 34ebc126ba4a1ae725325f8d888899af2dd72a59
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9984589b19f15ab00e895bca75c295a92a68d0fe
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875672"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557798"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Przygotuj Oracle Linux maszynę wirtualną dla platformy Azure
 

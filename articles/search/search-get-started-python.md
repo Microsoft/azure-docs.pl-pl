@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071634"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225221"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Python przy użyciu Jupyter Notebook
 
@@ -271,9 +271,9 @@ Aby załadować dokumenty, Utwórz kolekcję dokumentów przy użyciu [akcji ind
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu [dokumentów wyszukiwania (REST)](/rest/api/searchservice/search-documents).
+W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu metody **Search** [klasy Search. Client](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. Dla tej operacji Użyj search_client. To zapytanie wykonuje puste wyszukiwanie ( `search=*` ), zwracając listę niesklasyfikowaną (wynik wyszukiwania = 1,0) dowolnych dokumentów. Ponieważ nie ma żadnych kryteriów, wszystkie dokumenty są zawarte w wynikach. To zapytanie drukuje tylko dwa pola w każdym dokumencie. Dodaje także `include_total_count=True` do wszystkich dokumentów (4) w wynikach.
+1. Poniższy krok wykonuje puste wyszukiwanie ( `search=*` ), zwracając listę niesklasyfikowaną (wynik wyszukiwania = 1,0) dowolnych dokumentów. Ponieważ nie ma żadnych kryteriów, wszystkie dokumenty są zawarte w wynikach. To zapytanie drukuje tylko dwa pola w każdym dokumencie. Dodaje także `include_total_count=True` do wszystkich dokumentów (4) w wynikach.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)

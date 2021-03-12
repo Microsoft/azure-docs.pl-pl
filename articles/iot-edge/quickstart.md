@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a00e5d262724f4799f8b7b91a54e4b2710f4ce2b
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 6170f91d11b47a43e15488bcbb0e91ff3f7c906e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008081"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616098"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu z systemem Windows (wersja zapoznawcza)
 
@@ -51,9 +51,16 @@ Utwórz grupę zasobów w chmurze, aby zarządzać wszystkimi zasobami, które b
 
 Upewnij się, że urządzenie IoT Edge spełnia następujące wymagania:
 
-* KOMPUTER z systemem Windows lub Server, wersja 1809 lub nowsza
-* Co najmniej 4 GB pamięci, zalecane 8 GB pamięci
-* 10 GB wolnego miejsca na dysku
+* Wersje
+  * Windows 10 w wersji 1809 lub nowszej; Kompilacja 17763 lub nowsza
+    * Professional, Enterprise, IoT Enterprise
+  * Windows Server 2019 kompilacja 17763 lub nowsza
+
+  
+* Wymagania sprzętowe
+  * Minimalna ilość wolnej pamięci: 2 GB
+  * Minimalna ilość wolnego miejsca na dysku: 10 GB
+
 
 >[!NOTE]
 >Ten przewodnik Szybki Start używa centrum administracyjnego systemu Windows, aby utworzyć wdrożenie IoT Edge dla systemu Linux w systemie Windows. Można również użyć programu PowerShell. Jeśli chcesz użyć programu PowerShell do utworzenia wdrożenia, wykonaj kroki opisane w przewodniku krok po [instalacji i aprowizacji Azure IoT Edge dla systemu Linux na urządzeniu z systemem Windows](how-to-install-iot-edge-on-windows.md).
@@ -108,7 +115,7 @@ Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu i skonfi
 
 ![Diagram przedstawiający krok do uruchomienia środowiska uruchomieniowego IoT Edge.](./media/quickstart/start-runtime.png)
 
-1. [Pobierz centrum administracyjne systemu Windows](https://aka.ms/WACDownloadEFLOW).
+1. [Pobierz centrum administracyjne systemu Windows](https://aka.ms/wacdownload).
 
 1. Postępuj zgodnie z monitami wyświetlanymi w Kreatorze instalacji, aby skonfigurować centrum administracyjne systemu Windows na urządzeniu.
 

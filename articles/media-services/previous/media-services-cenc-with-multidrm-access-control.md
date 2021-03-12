@@ -3,7 +3,7 @@ title: Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyc
 description: Dowiedz się więcej na temat licencjonowania zestawu portów Microsoft Smooth Streaming Clienting Kit.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010915"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017141"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services
 
@@ -221,7 +221,7 @@ Implementacja obejmuje następujące kroki:
     | **PlayReady** |Microsoft Edge lub Internet Explorer 11 w systemie Windows 10 |Połączyć |Niepowodzenie |
     | **Widevine** |Chrome, Firefox, Opera |Połączyć |Niepowodzenie |
     | **FairPlay** |Safari w witrynie macOS      |Połączyć |Niepowodzenie |
-    | **AES-128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
+    | **AES — 128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
 
 Aby uzyskać informacje na temat sposobu konfigurowania usługi Azure AD dla aplikacji odtwarzacza ASP.NET MVC, zobacz [Integrowanie aplikacji opartej na platformie mvc Azure Media Services Owin z Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -488,6 +488,6 @@ Ten dokument omawiający CENC z wielonatywną obsługą technologii DRM i kontro
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

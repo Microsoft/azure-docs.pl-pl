@@ -1,46 +1,26 @@
-- name: Dokumentacja interfejsu API przetwarzania obrazów
+- name: Dokumentacja dotycząca przetwarzania obrazów
   href: index.yml
 - name: Omówienie
   expanded: true
   items:
     - name: Czym jest przetwarzanie obrazów?
       href: overview.md
+    - name: Obsługa języków
+      href: language-support.md
+    - name: Ceny i limity
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
     - name: Co nowego
       href: whats-new.md
-- name: Przewodniki Szybki start
+    - name: przetwarzanie obrazów często zadawane pytania
+      href: FAQ.md
+- name: przetwarzanie obrazów — Szybki Start
+  href: quickstarts-sdk/client-library.md
+- name: Samples
   items:
-    - name: Korzystanie z bibliotek klienta lub interfejsu API REST
-      href: quickstarts-sdk/client-library.md
-- name: Samouczki
-  items:
-    - name: Generowanie metadanych dla obrazów
-      href: Tutorials/storage-lab-tutorial.md
-- name: Pojęcia
-  items:
-    - name: Optyczne rozpoznawanie znaków (OCR)
-      href: concept-recognizing-text.md
-    - name: Wykrywanie obiektów
-      href: concept-object-detection.md
-    - name: Wykrywanie marek
-      href: concept-brand-detection.md
-    - name: Tagi zawartości
-      href: concept-tagging-images.md
-    - name: Kategoryzacja obrazów
-      href: concept-categorizing-images.md
-    - name: Opisy obrazów
-      href: concept-describing-images.md
-    - name: Wykrywanie twarzy
-      href: concept-detecting-faces.md
-    - name: Wykrywanie typu obrazów
-      href: concept-detecting-image-types.md
-    - name: Zawartość specyficzna dla domeny
-      href: concept-detecting-domain-content.md
-    - name: Wykrywanie schematu kolorów
-      href: concept-detecting-color-schemes.md
-    - name: Inteligentnie przycinane miniatury
-      href: concept-generating-thumbnails.md
-    - name: Wykrywanie zawartości dla dorosłych
-      href: concept-detecting-adult-content.md
+    - name: Zapoznanie z aplikacją do przetwarzania obrazów
+      href: Tutorials/CSharpTutorial.md
+    - name: Inne przykłady przetwarzania obrazów
+      href: /samples/browse/?products=azure&terms=computer-vision
 - name: Odpowiedzialne użycie sztucznej inteligencji
   items:
     - name: Analiza przestrzenna
@@ -48,111 +28,139 @@
         - name: Uwagi dotyczące przezroczystości
           items:
             - name: Przypadki użycia analizy przestrzennej
-              href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context
             - name: Charakterystyka i ograniczenia
-              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
         - name: Integracja i odpowiedzialne użycie
           items:
             - name: Odpowiedzialne użycie we wdrożeniach AI
-              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/computer-vision/context/context
             - name: Wytyczne dotyczące projektowania ujawniania
-              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/computer-vision/context/context
             - name: Analizy badań
-              href: /legal/cognitive-services/computer-vision/research-insights?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: /legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/computer-vision/context/context
         - name: 'Dane, prywatność i zabezpieczenia'
-          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-- name: Containers
-  items:
-    - name: Odczytywanie kontenera interfejsu API
-      items:
-        - name: Instalowanie i uruchamianie kontenerów
-          href: computer-vision-how-to-install-containers.md
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
-        - name: Konfigurowanie kontenerów
-          href: computer-vision-resource-container-config.md
-        - name: Migrowanie do wersji 3 kontenera odczytu
-          href: read-container-migration-guide.md
-          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
-        - name: Używanie z usługą Kubernetes i rozwiązaniem Helm
-          href: deploy-computer-vision-on-premises.md
-          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
-        - name: Korzystanie z wystąpień kontenerów
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-          displayName: 'container instances, container, containers, images'
-    - name: Kontener analizy przestrzennej
-      items:
-        - name: Przegląd analizy przestrzennej
-          href: intro-to-spatial-analysis-public-preview.md
-        - name: Konfigurowanie komputera-hosta i uruchamianie kontenera
-          href: spatial-analysis-container.md
-        - name: Konfigurowanie operacji
-          href: spatial-analysis-operations.md
-        - name: Wdrażanie aplikacji internetowej zliczającej osoby
-          href: Spatial-analysis-web-app.md
-        - name: Rejestrowanie i rozwiązywanie problemów
-          href: spatial-analysis-logging.md
-        - name: Umieszczanie stref i linii
-          href: spatial-analysis-zone-line-placement.md
-        - name: Umieszczanie kamery
-          href: spatial-analysis-camera-placement.md
-    - name: Dokumentacja kontenerów usługi Cognitive Services
-      href: ../containers/index.yml
+          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
 - name: Przewodniki z instrukcjami
   items:
     - name: Wywoływanie interfejsu API przetwarzania obrazów
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analizowanie klipów wideo w czasie rzeczywistym
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-- name: Dokumentacja
-  items:
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.cognitiveservices/
-    - name: Interfejs API przetwarzania obrazów w wersji 3.2 (wersja zapoznawcza)
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
-    - name: Interfejs API przetwarzania obrazów w wersji 3.1
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
-    - name: Interfejs API przetwarzania obrazów v2.1
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
-    - name: Interfejs API przetwarzania obrazów v1.0
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
-    - name: Zestawy SDK
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
-        - name: Node.js
-          href: /javascript/api/@azure/cognitiveservices-computervision/
-        - name: Python
-          href: /python/api/overview/azure/cognitiveservices/computervision
-        - name: Przejdź
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision'
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/computervision
-- name: Zasoby
-  items:
-    - name: Opcje pomocy technicznej
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Samples
-      items:
-        - name: Zapoznanie z aplikacją do przetwarzania obrazów
-          href: Tutorials/CSharpTutorial.md
-        - name: Inne przykłady przetwarzania obrazów
-          href: /samples/browse/?products=azure&terms=computer-vision
-    - name: Często zadawane pytania
-      href: FAQ.md
-    - name: Taksonomia kategorii
-      href: Category-Taxonomy.md
-    - name: Obsługa języków
-      href: language-support.md
-    - name: Ceny i limity
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Dostępność regionalna
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Jak skonfigurować sieci wirtualne
+      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
     - name: Uaktualnienie z wersji Read 2.x do wersji Read 3.x
       href: upgrade-api-versions.md
+    - name: Jak skonfigurować uwierzytelnianie w usłudze AAD
+      href: /azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Jak używać kluczy zarządzanych przez klienta
+      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+- name: Wdróż przetwarzanie obrazów
+  items:
+    - name: Kontenery
+      items:
+        - name: Dokumentacja kontenerów usługi Cognitive Services
+          href: ../containers/index.yml
+        - name: Odczytywanie kontenera interfejsu API
+          items:
+            - name: Instalowanie i uruchamianie kontenerów
+              href: computer-vision-how-to-install-containers.md
+              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
+            - name: Konfigurowanie kontenerów
+              href: computer-vision-resource-container-config.md
+            - name: Migrowanie do wersji 3 kontenera odczytu
+              href: read-container-migration-guide.md
+              displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+            - name: Używanie z usługą Kubernetes i rozwiązaniem Helm
+              href: deploy-computer-vision-on-premises.md
+              displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+            - name: Korzystanie z wystąpień kontenerów
+              maintainContext: true
+              href: ../containers/azure-container-instance-recipe.md
+              displayName: 'container instances, container, containers, images'
+        - name: Kontener analizy przestrzennej
+          items:
+            - name: Przegląd analizy przestrzennej
+              href: intro-to-spatial-analysis-public-preview.md
+            - name: Konfigurowanie komputera-hosta i uruchamianie kontenera
+              href: spatial-analysis-container.md
+            - name: Konfigurowanie operacji
+              href: spatial-analysis-operations.md
+            - name: Wdrażanie aplikacji internetowej zliczającej osoby
+              href: Spatial-analysis-web-app.md
+            - name: Rejestrowanie i rozwiązywanie problemów
+              href: spatial-analysis-logging.md
+            - name: Umieszczanie stref i linii
+              href: spatial-analysis-zone-line-placement.md
+            - name: Umieszczanie kamery
+              href: spatial-analysis-camera-placement.md
+- name: Pojęcia
+  items:
+    - name: Środka
+      items:
+        - name: Optyczne rozpoznawanie znaków (OCR)
+          href: concept-recognizing-text.md
+        - name: Wykrywanie obiektów
+          href: concept-object-detection.md
+        - name: Wykrywanie marek
+          href: concept-brand-detection.md
+        - name: Tagi zawartości
+          href: concept-tagging-images.md
+        - name: Kategoryzacja obrazów
+          href: concept-categorizing-images.md
+        - name: Taksonomia kategorii
+          href: Category-Taxonomy.md
+        - name: Opisy obrazów
+          href: concept-describing-images.md
+        - name: Wykrywanie twarzy
+          href: concept-detecting-faces.md
+        - name: Wykrywanie typu obrazów
+          href: concept-detecting-image-types.md
+        - name: Zawartość specyficzna dla domeny
+          href: concept-detecting-domain-content.md
+        - name: Wykrywanie schematu kolorów
+          href: concept-detecting-color-schemes.md
+        - name: Inteligentnie przycinane miniatury
+          href: concept-generating-thumbnails.md
+        - name: Wykrywanie zawartości dla dorosłych
+          href: concept-detecting-adult-content.md
+- name: Samouczki
+  items:
+    - name: Generowanie metadanych dla obrazów
+      href: Tutorials/storage-lab-tutorial.md
+- name: Dokumentacja
+  items:
+    - name: Przetwarzanie obrazów API REST v 3.2 (wersja zapoznawcza)
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+    - name: Przetwarzanie obrazów API REST v 3.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
+    - name: Przetwarzanie obrazów API REST v 2.1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
+    - name: Przetwarzanie obrazów API REST v 1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+    - name: Przejdź
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision'
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.cognitiveservices/
+- name: Zasoby
+  items:
+    - name: Obsługa regionów
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: UCZENIe modułów
+      href: 'https://docs.microsoft.com/en-us/learn/paths/explore-computer-vision-microsoft-azure/'
+    - name: Pomoc techniczna &
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Zgodność
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Aktualizacje platformy Azure
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

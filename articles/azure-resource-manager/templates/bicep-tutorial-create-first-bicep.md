@@ -2,16 +2,16 @@
 title: Samouczek — Tworzenie & wdrażanie Azure Resource Manager plików Bicep
 description: Utwórz pierwszy plik Bicep do wdrażania zasobów platformy Azure. Samouczek zawiera informacje na temat składni pliku Bicep oraz sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036353"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632581"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Samouczek: Tworzenie i wdrażanie pierwszego Azure Resource Manager pliku Bicep
 
@@ -76,7 +76,7 @@ Teraz możesz zacząć uczenie się o Bicep.
     Deklaracja zasobu ma cztery składniki:
 
     - **Resource**: słowo kluczowe.
-    - **Nazwa symboliczna** (STG): Nazwa symboliczna jest identyfikatorem do odwoływania się do zasobu w pliku Bicep. Nie jest to nazwa zasobu, który będzie wdrażany. Nazwa zasobu jest definiowana przez właściwość **name** .  Zapoznaj się z czwartym składnikiem na tej liście. Aby ułatwić korzystanie z samouczków, **STG** jest używany jako Nazwa symboliczna zasobu konta magazynu w tej serii samouczków.
+    - **Nazwa symboliczna** (STG): Nazwa symboliczna jest identyfikatorem do odwoływania się do zasobu w pliku Bicep. Nie jest to nazwa zasobu, który będzie wdrażany. Nazwa zasobu jest definiowana przez właściwość **name** .  Zapoznaj się z czwartym składnikiem na tej liście. Aby ułatwić korzystanie z samouczków, **STG** jest używany jako Nazwa symboliczna zasobu konta magazynu w tej serii samouczków. Aby dowiedzieć się, jak użyć nazwy symbolicznej, aby uzyskać pełną listę właściwości obiektu, zobacz [Dodawanie danych wyjściowych](./bicep-tutorial-add-outputs.md).
     - **Typ zasobu** ( Microsoft.Storage/storageAccounts@2019-06-01 ): składa się z dostawcy zasobów (Microsoft. Storage), typu zasobu (StorageAccounts) i apiVersion (2019-06-01). Każdy dostawca zasobów publikuje własne wersje interfejsu API, więc ta wartość jest specyficzna dla tego typu. Więcej typów i apiVersions dla różnych zasobów platformy Azure można znaleźć w temacie [odwołanie do szablonu ARM](/azure/templates/).
     - **Właściwości** (wszystko w elemencie = {...}): są to określone właściwości, które chcesz określić dla danego typu zasobu. Są to dokładnie te same właściwości, które są dostępne dla użytkownika w szablonie ARM. Każdy zasób ma `name` Właściwość. Większość zasobów ma również `location` Właściwość, która ustawia region, w którym zasób jest wdrażany. Inne właściwości różnią się w zależności od typu zasobu i wersji interfejsu API. Ważne jest, aby zrozumieć połączenie między wersją interfejsu API i dostępnymi właściwościami, więc Przyjrzyjmy się bardziej szczegółowo.
 

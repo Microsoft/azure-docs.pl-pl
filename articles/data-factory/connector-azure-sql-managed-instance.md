@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 5c2023ffa4446760c85b07659f13e421e62e6020
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/12/2021
+ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383793"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225255"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Data Factory
 
@@ -20,7 +20,7 @@ ms.locfileid: "100383793"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z oraz do wystąpienia zarządzanego usługi Azure SQL i używania przepływu danych w celu przekształcania danych w wystąpieniu zarządzanym usługi Azure SQL. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik wystąpienia zarządzanego SQL jest obsługiwany dla następujących działań:
 
@@ -761,7 +761,7 @@ Więcej szczegółów:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Aby użyć **Data Factory uwierzytelniania tożsamości zarządzanej**: 
+    - W przypadku uruchamiania samoobsługowego Integration Runtime na maszynie wirtualnej platformy Azure można użyć **uwierzytelniania tożsamości zarządzanej** z TOŻSAMOŚCIĄ maszyny wirtualnej platformy Azure: 
 
         1. Wykonaj te same [wymagania wstępne](#managed-identity) , aby utworzyć użytkownika bazy danych dla zarządzanej tożsamości i udzielić odpowiedniej roli w bazie danych.
         2. W polu połączona usługa Określ parametry połączenia ODBC poniżej, a następnie wybierz opcję uwierzytelnianie **anonimowe** jako parametry połączenia `Authentication=ActiveDirectoryMsi` .

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44faaa6f05a325c2c64040938a1c9d0eb3e864e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0706fad1e5340625c32eab691ac3e4d58eeafc9f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574160"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012125"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
@@ -69,10 +69,15 @@ W razie potrzeby można zmodyfikować wartości ujęte w znaki cudzysłowu.
 
 ### <a name="use-microsoft-graph"></a>Użyj Microsoft Graph
 
+Żądanie
+
 ```http
-Http Request
 POST /administrativeUnits
-Request body
+```
+
+Treść
+
+```http
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
@@ -94,18 +99,23 @@ W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
 ```powershell
-$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
 ```
 
 Wartości, które są ujęte w znaki cudzysłowu, można modyfikować zgodnie z wymaganiami określonego środowiska.
 
 ### <a name="use-the-graph-api"></a>Użycie interfejsu Graph API
 
+Żądanie
+
 ```http
-HTTP request
-DELETE /administrativeUnits/{Admin id}
-Request body
+DELETE /administrativeUnits/{admin-unit-id}
+```
+
+Treść
+
+```http
 {}
 ```
 

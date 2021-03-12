@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bebc2e629193944c840948c9c573462a43e3032e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702202"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201705"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez wykorzystania agentów)
 
@@ -111,7 +111,7 @@ Aby włączyć replikację:
     > Jeśli chcesz wybrać inną opcję dostępności dla zestawów maszyn wirtualnych, przejdź do kroku 1 i powtórz kroki, wybierając różne opcje dostępności po uruchomieniu replikacji dla jednego zestawu maszyn wirtualnych.
 
 
- ![Ustawienia obliczeniowe maszyny wirtualnej](./media/tutorial-migrate-vmware/compute-settings.png)
+
 
 12. W obszarze **Dyski** określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowe dyski SSD/dyski twarde lub dyski zarządzane w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
    
@@ -189,7 +189,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
 ## <a name="complete-the-migration"></a>Kończenie migracji
 
 1. Po zakończeniu migracji kliknij prawym przyciskiem myszy maszynę wirtualną, > **zatrzymać replikację**. Spowoduje to zatrzymanie replikacji maszyny lokalnej i oczyszczenie informacji o stanie replikacji dla maszyny wirtualnej.
-2. Zainstaluj agenta maszyny wirtualnej z [systemem Linux](../virtual-machines/extensions/agent-linux.md) na zmigrowanych maszynach, jeśli komputer ma system operacyjny Linux. Podczas migracji automatycznie instalujemy agenta maszyny wirtualnej dla maszyn wirtualnych z systemem Windows.
+2. Podczas migracji automatycznie instalujemy agenta maszyny wirtualnej dla maszyn wirtualnych z systemem Windows i systemu Linux. Zapoznaj się z [wymaganiami](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) agenta maszyny wirtualnej systemu Linux na zmigrowanych maszynach, jeśli komputer ma system operacyjny Linux, aby upewnić się, że Instalacja agenta maszyny wirtualnej z systemem Linux jest prawidłowa. 
 3. Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web.
 4. Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
 5. Obcinaj ruch do zmigrowanego wystąpienia maszyny wirtualnej platformy Azure.

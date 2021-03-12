@@ -11,19 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041216"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009270"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja na potrzeby interfejsu API usługi Azure Time Series Insights
 
-W zależności od potrzeb firmy Twoje rozwiązanie może zawierać co najmniej jedną aplikację kliencką używaną do współpracy z [interfejsami API](/rest/api/time-series-insights/reference-data-access-overview)środowiska Azure Time Series Insights. Azure Time Series Insights wykonuje uwierzytelnianie przy użyciu [tokenów zabezpieczeń usługi Azure AD opartych na protokole OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Aby uwierzytelnić klientów, należy uzyskać token okaziciela z właściwymi uprawnieniami i przekazać go wraz z wywołaniami interfejsu API. W tym dokumencie opisano kilka metod uzyskiwania poświadczeń, których można użyć w celu uzyskania tokenu okaziciela i uwierzytelnienia.
-
-
-  Jak zarejestrować aplikację w Azure Active Directory przy użyciu nowego bloku Azure Active Directory. Aplikacje zarejestrowane w Azure Active Directory umożliwiają użytkownikom uwierzytelnianie w usłudze i Zezwalanie na korzystanie z interfejsu API usługi Azure Time Series Insights skojarzonego ze środowiskiem Azure Time Series Insights.
+W zależności od potrzeb firmy Twoje rozwiązanie może zawierać co najmniej jedną aplikację kliencką używaną do współpracy z [interfejsami API](/rest/api/time-series-insights/reference-data-access-overview)środowiska Azure Time Series Insights. Azure Time Series Insights wykonuje uwierzytelnianie przy użyciu [tokenów zabezpieczeń usługi Azure AD opartych na protokole OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Aby uwierzytelnić klientów, należy uzyskać token okaziciela z właściwymi uprawnieniami i przekazać go wraz z wywołaniami interfejsu API. W tym dokumencie opisano kilka metod uzyskiwania poświadczeń, których można użyć w celu uzyskania tokenu okaziciela i uwierzytelnienia, w tym za pomocą tożsamości zarządzanej i Azure Active Directory rejestracji aplikacji.
 
 ## <a name="managed-identities"></a>Tożsamości zarządzane
 
@@ -108,10 +105,7 @@ Gdy zarządzana tożsamość lub Rejestracja aplikacji została zainicjowana i p
 
 Podczas uzyskiwania dostępu do Azure App Service lub funkcji postępuj zgodnie ze wskazówkami zawartymi w temacie [Uzyskiwanie tokenów dla zasobów platformy Azure](../app-service/overview-managed-identity.md).
 
-> [!TIP]
-> W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zarządzaną tożsamością jest użycie [biblioteki Azure Identity Client Library](/dotnet/api/overview/azure/identity-readme) dla platformy .NET. 
-
-W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zarządzaną tożsamością jest pakiet Microsoft. Azure. Services. AppAuthentication. Ten pakiet jest popularny ze względu na prostotę i bezpieczeństwo. Deweloperzy mogą napisać kod raz i pozwolić bibliotece klienta ustalić sposób uwierzytelniania w oparciu o środowisko aplikacji — czy na stacji roboczej dewelopera korzysta z konta dewelopera lub wdrożonego na platformie Azure przy użyciu tożsamości usługi zarządzanej. Aby uzyskać wskazówki dotyczące migracji z biblioteki AppAuthentication poprzednik, Przeczytaj [AppAuthentication na platformie Azure. wskazówki dotyczące migracji tożsamości](/dotnet/api/overview/azure/app-auth-migration).
+W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zarządzaną tożsamością jest użycie [biblioteki Azure Identity Client Library](/dotnet/api/overview/azure/identity-readme) dla platformy .NET. Ta Biblioteka kliencka jest popularna ze względu na prostotę i bezpieczeństwo. Deweloperzy mogą napisać kod raz i pozwolić bibliotece klienta ustalić sposób uwierzytelniania w oparciu o środowisko aplikacji — czy na stacji roboczej dewelopera korzysta z konta dewelopera lub wdrożonego na platformie Azure przy użyciu tożsamości usługi zarządzanej. Aby uzyskać wskazówki dotyczące migracji z biblioteki AppAuthentication poprzednik, Przeczytaj [AppAuthentication na platformie Azure. wskazówki dotyczące migracji tożsamości](/dotnet/api/overview/azure/app-auth-migration).
 
 Zażądaj tokenu Azure Time Series Insights przy użyciu języka C# i biblioteki klienta tożsamości platformy Azure dla platformy .NET:
 

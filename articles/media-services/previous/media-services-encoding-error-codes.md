@@ -3,7 +3,7 @@ title: Kody błędów kodowania Azure Media Services | Microsoft Docs
 description: Ten temat zawiera listę kodów błędów, które mogą zostać zwrócone w przypadku wystąpienia błędu podczas wykonywania zadania kodowania.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 7e6848fb49dd63fa67a639d09754a28dd5953a32
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269033"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013486"
 ---
 # <a name="encoding-error-codes"></a>Kody błędów kodowania
 
@@ -45,7 +45,7 @@ Aby uzyskać pomoc od zespołu **Media Services** , Otwórz [bilet pomocy techni
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Pokrewne artykuły:

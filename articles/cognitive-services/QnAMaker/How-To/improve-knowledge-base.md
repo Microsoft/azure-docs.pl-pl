@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3fe6ee8336872c04e85b732713494adf0fefa28a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592028"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011446"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -79,25 +79,24 @@ Po ponownym zaimportowaniu tej aplikacji aktywna nauka nadal zbiera informacje i
 
 Bot lub inna aplikacja kliencka powinna używać następującego przepływu architektury do korzystania z usługi Active Learning:
 
-* Bot [Pobiera odpowiedź z bazy wiedzy](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) z interfejsem API GenerateAnswer przy użyciu właściwości, `top` Aby uzyskać wiele odpowiedzi.
+1. Bot [Pobiera odpowiedź z bazy wiedzy](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) z interfejsem API GenerateAnswer przy użyciu właściwości, `top` Aby uzyskać wiele odpowiedzi.
 
-    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Użyj właściwości Top w żądaniu GenerateAnswer, aby uzyskać kilka pasujących odpowiedzi
-
-    Podczas przesyłania pytania do QnA Maker na potrzeby odpowiedzi `top` Właściwość treści JSON ustawia liczbę odpowiedzi do zwrócenia.
-
-    ```json
-    {
-        "question": "wi-fi",
-        "isTest": false,
-        "top": 3
-    }
-    ```
-
-* Bot określa jawną opinię:
+2. Bot określa jawną opinię:
     * Korzystając z własnej [niestandardowej logiki biznesowej](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), odfiltruj niskie wyniki.
     * W bot lub aplikacji klienta Wyświetl listę możliwych odpowiedzi dla użytkownika i uzyskaj odpowiedź wybraną przez użytkownika.
-* Bot [wysyła zaznaczoną odpowiedź z powrotem do QNA Maker](#bot-framework-sample-code) za pomocą [interfejsu API uczenia](#train-api).
+3. Bot [wysyła zaznaczoną odpowiedź z powrotem do QNA Maker](#bot-framework-sample-code) za pomocą [interfejsu API uczenia](#train-api).
 
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Użyj właściwości Top w żądaniu GenerateAnswer, aby uzyskać kilka pasujących odpowiedzi
+
+Podczas przesyłania pytania do QnA Maker na potrzeby odpowiedzi `top` Właściwość treści JSON ustawia liczbę odpowiedzi do zwrócenia.
+
+```json
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
+```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Korzystanie z właściwości Score wraz z logiką biznesową w celu uzyskania listy odpowiedzi na potrzeby wyświetlania użytkownika
 

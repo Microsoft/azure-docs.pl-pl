@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 6a7f50268a09ae451b1e9dda2ca354ded31efb68
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095175"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200750"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -67,11 +67,11 @@ Aby zapewnić wysoką dostępność w środowisku produkcyjnym, zalecamy użycie
 > Klucz można ustawić za pomocą programu PowerShell przy użyciu następującego polecenia.
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
->
+> ```
 
 #### <a name="recommendations-for-the-connector-server"></a>Zalecenia dotyczące serwera łącznika
 
-1. Serwer łącznika powinien znajdować się blisko serwerów aplikacji, aby wydajność komunikacji między łącznikiem a aplikacją była optymalna. Aby uzyskać więcej informacji, zobacz [Network topology considerations (Kwestie związane z topologią sieci)](application-proxy-network-topology.md).
+1. Serwer łącznika powinien znajdować się blisko serwerów aplikacji, aby wydajność komunikacji między łącznikiem a aplikacją była optymalna. Aby uzyskać więcej informacji, zobacz [Optymalizacja przepływu ruchu przy użyciu serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md).
 1. Serwer łącznika i serwery aplikacji sieci Web powinny należeć do tej samej domeny Active Directory lub zakresu zaufanych domen. Posiadanie serwerów w tej samej domenie lub domen ufających jest wymaganiem do korzystania z logowania jednokrotnego (SSO) ze zintegrowanym uwierzytelnianiem systemu Windows (IWA) i ograniczonego delegowania protokołu Kerberos (KCD). Jeśli serwer łącznika znajduje się w innej domenie usługi Active Directory niż serwery aplikacji internetowych, korzystanie z logowania jednokrotnego wymaga użycia delegowania opartego na zasobach. Aby uzyskać więcej informacji, zobacz [KCD for single sign-on with Application Proxy (Ograniczone delegowanie Kerberos dla logowania jednokrotnego przy użyciu serwera proxy aplikacji)](application-proxy-configure-single-sign-on-with-kcd.md).
 
 > [!WARNING]
@@ -115,10 +115,10 @@ Zacznij od włączenia komunikacji do centrów danych platformy Azure w celu prz
 
 Otwórz następujące porty dla ruchu **wychodzącego**.
 
-   | Numer portu | Zastosowanie |
-   | --- | --- |
-   | 80 | Pobieranie list odwołania certyfikatów (CRL) podczas weryfikowania certyfikatu TLS/SSL |
-   | 443 | Cała komunikacja wychodząca do usługi serwera proxy aplikacji |
+| Numer portu | Zastosowanie |
+| ----------- | ------------------------------------------------------------ |
+| 80          | Pobieranie list odwołania certyfikatów (CRL) podczas weryfikowania certyfikatu TLS/SSL |
+| 443         | Cała komunikacja wychodząca do usługi serwera proxy aplikacji |
 
 Jeśli zapora wymusza ruch odpowiednio dla użytkowników, którzy go generują, otwórz również porty 80 i 443 dla ruchu pochodzącego z usług systemu Windows działających jako usługi sieciowe.
 
@@ -127,11 +127,11 @@ Jeśli zapora wymusza ruch odpowiednio dla użytkowników, którzy go generują,
 Zezwól na dostęp do następujących adresów URL:
 
 | Adres URL | Port | Zastosowanie |
-| --- | --- | --- |
-| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Łącznik używa tych adresów URL do weryfikowania certyfikatów. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Łącznik używa tych adresów URL podczas procesu rejestracji. |
-| ctldl.windowsupdate.com | 80/HTTP |Łącznik używa tego adresu URL podczas procesu rejestracji. |
+| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net         | 443/HTTPS | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP   | Łącznik używa tych adresów URL do weryfikowania certyfikatów.        |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS | Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| ctldl.windowsupdate.com                                      | 80/HTTP   | Łącznik używa tego adresu URL podczas procesu rejestracji. |
 
 Można zezwolić na połączenia z &ast; . msappproxy.NET, &ast; . ServiceBus.Windows.NET i innych adresów URL powyżej, Jeśli zapora lub serwer proxy umożliwia skonfigurowanie reguł dostępu na podstawie sufiksów domeny. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP i tagów usług platformy Azure — chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Zakresy adresów IP są aktualizowane co tydzień.
 
@@ -157,6 +157,7 @@ Aby zainstalować łącznik:
 1. Zapoznaj się z warunkami użytkowania usługi. Gdy wszystko będzie gotowe, wybierz pozycję **Akceptuj postanowienia & Pobierz**.
 1. W dolnej części okna wybierz pozycję **Uruchom** , aby zainstalować łącznik. Zostanie otwarty kreator instalacji.
 1. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować usługę. Po wyświetleniu monitu o zarejestrowanie łącznika na serwerze proxy aplikacji w dzierżawie usługi Azure AD, wprowadź swoje poświadczenia administratora aplikacji.
+   
     - Jeśli korzystasz z programu Internet Explorer (IE) i opcja **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** ma wartość **Wł**, ekran rejestracji może nie być widoczny. Aby uzyskać dostęp, wykonaj instrukcje podane w komunikacie o błędzie. Upewnij się, że **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** jest **wyłączona**.
 
 ### <a name="general-remarks"></a>Uwagi ogólne
@@ -164,6 +165,8 @@ Aby zainstalować łącznik:
 Jeśli wcześniej zainstalowano łącznik, zainstaluj go ponownie, aby uzyskać najnowszą wersję. Aby wyświetlić informacje o poprzednio wydanych wersjach i ich zmianach, zobacz [serwer proxy aplikacji: historia wersji](application-proxy-release-version-history.md).
 
 Jeśli masz więcej niż jeden serwer systemu Windows dla aplikacji lokalnych, musisz zainstalować i zarejestrować łącznik na każdym serwerze. Możesz tworzyć grupy łączników. Aby uzyskać więcej informacji, zobacz [Grupy łączników](application-proxy-connector-groups.md).
+
+Jeśli masz zainstalowane łączniki w różnych regionach, możesz zoptymalizować ruch, wybierając najbliższy region usługi serwera proxy aplikacji do użycia z każdą grupą łączników, zobacz [Optymalizacja przepływu ruchu za pomocą serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md)
 
 Jeśli do łączenia się z Internetem w Twojej organizacji są używane serwery proxy, musisz je skonfigurować pod kątem serwera proxy aplikacji.  Aby uzyskać więcej informacji, zobacz [Work with existing on-premises proxy servers (Praca z istniejącymi lokalnymi serwerami proxy)](application-proxy-configure-connectors-with-proxy-servers.md). 
 
@@ -208,20 +211,20 @@ Po przygotowaniu środowiska i zainstalowaniu łącznika możemy dodać aplikacj
 4. Wybierz przycisk **Dodaj aplikację lokalną** , która jest wyświetlana w połowie strony w sekcji **aplikacje lokalne** . Alternatywnie możesz wybrać opcję **Utwórz własną aplikację** w górnej części strony, a następnie wybrać pozycję **Konfiguruj serwer proxy aplikacji, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnej**.
 5. W sekcji **Dodawanie własnej aplikacji lokalnej** podaj następujące informacje o aplikacji:
 
-    | Pole | Opis |
-    | :---- | :---------- |
+    | Pole  | Opis |
+    | :--------------------- | :----------------------------------------------------------- |
     | **Nazwa** | Nazwa aplikacji, która będzie wyświetlana w moich aplikacjach i w Azure Portal. |
     | **Wewnętrzny adres URL** | Ten adres URL umożliwia dostęp do aplikacji w sieci prywatnej. Możesz wprowadzić określoną ścieżkę na serwerze zaplecza, która zostanie opublikowana, podczas gdy pozostała część serwera pozostanie nieopublikowana. W ten sposób możesz opublikować wiele lokacji jako różne aplikacje na tym samym serwerze, nadając im różne nazwy i reguły dostępu.<br><br>W przypadku publikowania ścieżki upewnij się, że zawiera ona wszystkie niezbędne obrazy, skrypty i arkusze stylów dla aplikacji. Jeśli na przykład aplikacja jest w sieci https: \/ /yourapp/App i używa obrazów znajdujących się w protokole https: \/ /yourapp/Media, należy opublikować https: \/ /yourapp/jako ścieżkę. Wewnętrzny adres URL nie musi być stroną docelową widoczną dla użytkowników. Aby uzyskać więcej informacji, zobacz [Set a custom home page for published apps (Ustawianie niestandardowej strony głównej dla opublikowanych aplikacji)](application-proxy-configure-custom-home-page.md). |
-    | **Zewnętrzny adres URL** | Ten adres umożliwia użytkownikom dostęp do aplikacji spoza sieci. Jeśli nie chcesz używać domyślnej domeny serwera proxy aplikacji, zobacz [Custom domains in Azure AD Application Proxy (Domeny niestandardowe na serwerze proxy aplikacji usługi Azure AD)](application-proxy-configure-custom-domain.md).|
+    | **Zewnętrzny adres URL** | Ten adres umożliwia użytkownikom dostęp do aplikacji spoza sieci. Jeśli nie chcesz używać domyślnej domeny serwera proxy aplikacji, zobacz [Custom domains in Azure AD Application Proxy (Domeny niestandardowe na serwerze proxy aplikacji usługi Azure AD)](application-proxy-configure-custom-domain.md). |
     | **Wstępne uwierzytelnianie** | Sposób, w jaki serwer proxy aplikacji weryfikuje użytkowników przed udzieleniem im dostępu do aplikacji.<br><br>**Azure Active Directory** — serwer proxy aplikacji przekierowuje użytkowników do zalogowania się w usłudze Azure AD, co umożliwia uwierzytelnienie ich uprawnień do katalogu i aplikacji. Zaleca się pozostawienie tej opcji jako domyślnej, dzięki czemu można korzystać z funkcji zabezpieczeń usługi Azure AD, takich jak dostęp warunkowy i Multi-Factor Authentication. Usługa **Azure Active Directory** jest wymagana do monitorowania aplikacji za pomocą usługi Microsoft Cloud Application Security.<br><br>**Przekazywanie** — użytkownicy nie muszą uwierzytelniać się w usłudze Azure AD w celu uzyskania dostępu do aplikacji. Można jednak na zapleczu skonfigurować wymagania dotyczące uwierzytelniania. |
-    | **Grupa łączników** | Łączniki umożliwiają przetwarzanie zdalnego dostępu do aplikacji, a grupy łączników pozwalają klasyfikować łączniki i aplikacje według regionu, sieci lub przeznaczenia. Jeśli nie masz jeszcze żadnych grup łączników, Twoja aplikacja zostanie przypisana do grupy **Domyślne**.<br><br>Jeśli nawiązywanie połączeń w aplikacji odbywa się za pomocą elementów WebSocket, wszystkie łączniki w grupie muszą być w wersji 1.5.612.0 lub nowszej.|
+    | **Grupa łączników** | Łączniki umożliwiają przetwarzanie zdalnego dostępu do aplikacji, a grupy łączników pozwalają klasyfikować łączniki i aplikacje według regionu, sieci lub przeznaczenia. Jeśli nie masz jeszcze żadnych grup łączników, Twoja aplikacja zostanie przypisana do grupy **Domyślne**.<br><br>Jeśli nawiązywanie połączeń w aplikacji odbywa się za pomocą elementów WebSocket, wszystkie łączniki w grupie muszą być w wersji 1.5.612.0 lub nowszej. |
 
 6. W razie potrzeby skonfiguruj **dodatkowe ustawienia**. W przypadku większości aplikacji należy pozostawić domyślne wartości tych ustawień. 
 
     | Pole | Opis |
-    | :---- | :---------- |
+    | :------------------------------ | :----------------------------------------------------------- |
     | **Limit czasu aplikacji zaplecza** | Opcję tę ustaw na wartość **Długi** tylko wtedy, gdy uwierzytelnianie aplikacji i łączenie się z nią trwa długo. Domyślnie limit czasu aplikacji zaplecza ma długość 85 sekund. Po ustawieniu na wartość Long limit czasu zaplecza zostanie zwiększony do 180 sekund. |
-    | **Użyj pliku cookie tylko HTTP** | Ustawienie wartości **Tak** powoduje, że pliki cookie serwera proxy aplikacji będą zawierały flagę HTTPOnly w nagłówku odpowiedzi HTTP. Jeśli korzystasz z usług pulpitu zdalnego, ustaw tę wartość na **Nie**.|
+    | **Użyj pliku cookie tylko HTTP** | Ustawienie wartości **Tak** powoduje, że pliki cookie serwera proxy aplikacji będą zawierały flagę HTTPOnly w nagłówku odpowiedzi HTTP. Jeśli korzystasz z usług pulpitu zdalnego, ustaw tę wartość na **Nie**. |
     | **Użyj bezpiecznego pliku cookie**| Ustawienie wartości **Tak** powoduje przesyłanie plików cookie za pośrednictwem bezpiecznego kanału, takiego jak zaszyfrowane żądanie HTTPS.
     | **Używaj trwałego pliku cookie**| Pozostaw wartość **Nie**. Tego ustawienia należy używać tylko w przypadku aplikacji, które nie mogą udostępniać plików cookie między procesami. Aby uzyskać więcej informacji na temat ustawień plików cookie, zobacz [Ustawienia plików cookie dotyczące uzyskiwania dostępu do aplikacji lokalnych w Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Przekształć adresy URL w nagłówkach** | Pozostaw wartość **Tak**, chyba że aplikacja wymaga, aby żądanie uwierzytelnienia zawierało nagłówek oryginalnego hosta. |

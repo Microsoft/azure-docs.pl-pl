@@ -2,16 +2,16 @@
 title: Samouczek — Dodawanie tagów do zasobów w pliku Azure Resource Manager Bicep
 description: Dodawanie tagów do zasobów wdrażanych w plikach Bicep. Tagi pozwalają logicznie organizować zasoby.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748166"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632610"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Samouczek: Dodawanie tagów w Azure Resource Manager Bicep plików
 
@@ -37,7 +37,7 @@ Po wdrożeniu tych zasobów może być konieczne śledzenie kosztów i znajdowan
 
 Zasoby taguje się, aby dodać wartości, które ułatwiają identyfikację ich zastosowania. Na przykład można dodać tagi, które wyświetlają środowisko i projekt. Można dodać tagi, które identyfikują centrum kosztów lub zespół, który jest właścicielem zasobu. Dodaj dowolne wartości, które są istotne dla Twojej organizacji.
 
-Poniższy przykład wyróżnia zmiany w pliku Bicep. Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
+Poniższy przykład przedstawia zmiany w pliku Bicep. Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

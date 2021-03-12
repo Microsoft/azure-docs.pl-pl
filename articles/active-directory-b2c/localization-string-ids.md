@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448648"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631187"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -356,7 +356,7 @@ Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacyjnej](d
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
-|intro_msg| Konieczna jest weryfikacja. Kliknij przycisk Wyślij.|
+|intro_msg <sup>*</sup>| Konieczna jest weryfikacja. Kliknij przycisk Wyślij.|
 |success_send_code_msg | Kod weryfikacyjny został wysłany. Skopiuj ją do poniższego pola wejściowego.|
 |failure_send_code_msg | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie.|
 |success_verify_code_msg | Zweryfikowano adres E-mail. Teraz można kontynuować.|
@@ -365,6 +365,12 @@ Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacyjnej](d
 |but_verify_code | Zweryfikuj kod|
 |but_send_new_code | Wyślij nowy kod|
 |but_change_claims | Zmień adres e-mail|
+
+Uwaga: `intro_msg` element jest ukryty i nie jest wyświetlany na stronie z własnym poproszonym. Aby je wyświetlić, użyj [Customiztion HTML](customize-ui-with-html.md) z kaskadowe arkusze stylów. Na przykład:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Przykład kontrolki wyświetlania weryfikacji
 

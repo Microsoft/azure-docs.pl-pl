@@ -53,48 +53,50 @@
         - name: Wyświetlanie działań dostawcy usług
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
-    - name: Dołączanie klienta do usługi Azure Lighthouse
-      displayName: resource management
-      href: ./how-to/onboard-customer.md
-    - name: Publikowanie ofert usługi zarządzanej w witrynie Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish, marketplace'
-      href: ./how-to/publish-managed-services-offers.md
+    - name: Zarządzanie dołączaniem i delegowaniem
+      items:
+        - name: Dołączanie klientów
+          displayName: 'ARM, template, delegation, authorization, resource management'
+          href: ./how-to/onboard-customer.md
+        - name: Publikowanie ofert usługi zarządzanej w witrynie Azure Marketplace
+          displayName: 'managed services offer, azure marketplace, publish, marketplace'
+          href: ./how-to/publish-managed-services-offers.md
+        - name: Aktualizowanie delegowania
+          displayName: upgrade
+          href: ./how-to/update-delegation.md
+        - name: Usuwanie dostępu do delegowania
+          displayName: 'delete, undelegate'
+          href: ./how-to/remove-delegation.md
+        - name: Monitorowanie zmian delegacji
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Wyświetlanie klientów i zarządzanie nimi
       displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Łączenie identyfikatora partnera
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
-    - name: Aktualizowanie delegacji
-      displayName: upgrade
-      href: ./how-to/update-delegation.md
-    - name: Usuwanie dostępu do delegacji
-      displayName: 'delete, undelegate'
-      href: ./how-to/remove-delegation.md
-    - name: Integracja z usługą Azure Arc
-      displayName: 'server, kubernetes, hybrid, infrastructure'
-      href: ./how-to/manage-hybrid-infrastructure-arc.md
-    - name: Integracja z usługą Azure Migrate
-      displayName: 'migration, project, on-prem'
-      href: ./how-to/migration-at-scale.md
-    - name: Integracja z usługą Azure Monitor
+    - name: Integracja usługi platformy Azure
       items:
-        - name: Używanie dzienników usługi Azure Monitor na dużą skalę
+        - name: Integracja z usługą Azure Arc
+          displayName: 'server, kubernetes, hybrid, infrastructure'
+          href: ./how-to/manage-hybrid-infrastructure-arc.md
+        - name: Integracja z usługą Azure Migrate
+          displayName: 'migration, project, on-prem'
+          href: ./how-to/migration-at-scale.md
+        - name: Integracja z usługą Azure Monitor
           displayName: 'log, analytics, analyze, activity'
           href: ./how-to/monitor-at-scale.md
-        - name: Monitorowanie zmian delegacji
-          displayName: activity log
-          href: ./how-to/monitor-delegation-changes.md
-    - name: Integracja z usługą Azure Policy
-      items:
-        - name: Wdrażanie zasad w dużej skali
-          displayName: storage
-          href: ./how-to/policy-at-scale.md
-        - name: 'Wdrażanie zasad, które można skorygować'
-          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
-          href: ./how-to/deploy-policy-remediation.md
-    - name: Integracja z usługą Azure Sentinel
-      href: ./how-to/manage-sentinel-workspaces.md
+        - name: Integracja z usługą Azure Policy
+          items:
+            - name: Wdrażanie zasad w dużej skali
+              displayName: storage
+              href: ./how-to/policy-at-scale.md
+            - name: 'Wdrażanie zasad, które można skorygować'
+              displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+              href: ./how-to/deploy-policy-remediation.md
+        - name: Integracja z usługą Azure Sentinel
+          href: ./how-to/manage-sentinel-workspaces.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

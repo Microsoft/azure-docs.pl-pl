@@ -108,7 +108,10 @@
         - name: Automatyzowanie odpowiedzi na rekomendacje
           displayName: workflow
           href: workflow-automation.md
-        - name: Wykluczanie zasobu z rekomendacji
+        - name: Wyłącz zalecenie
+          href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+        - name: 'Wyklucz zalecenia dla zasobu, subskrypcji lub grupy zarządzania'
+          displayName: disable
           href: exempt-resource.md
         - name: Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
           href: custom-security-policies.md
@@ -233,7 +236,8 @@
       href: security-center-partner-integration.md
     - name: Ochrona zasobów sieciowych
       href: security-center-network-recommendations.md
-    - name: Ochrona tożsamości i dostępu
+    - name: Wymuszanie usługi MFA i zarządzanie nią
+      displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
       href: security-center-identity-access.md
     - name: Użyj dodatkowej ochrony przed zagrożeniami w Security Center
       href: other-threat-protections.md
@@ -278,7 +282,7 @@
         - name: Automatyzowanie odpowiedzi na alerty
           displayName: workflow
           href: workflow-automation.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Zarchiwizowane informacje o wersji (starsze niż sześć miesięcy)
       displayName: 'changelog, news'
