@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d1c4d05748fd9efdc51e18396c8df14e12df63d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2ead9bd72691dc120afb60c025ce563684716038
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185405"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199334"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onshape"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory przy użyciu kształtu onshape
 
@@ -74,26 +74,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie Zarządzanie integracją **aplikacji Znajdź** sekcję **Zarządzaj** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
-
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
-
-1. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
-
-1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
-
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.onshape.com`
-
-    > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta](mailto:support@onshape.com) w celu uzyskania wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
-
-1. Kliknij pozycję **Zapisz**.
-
+1. Jeśli zostanie wyświetlony monit o zapisanie ustawienia rejestracji jednokrotnej, wybierz pozycję **tak**. 
 1. Aplikacja onshape oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
     ![image (obraz)](common/default-attributes.png)
 
-1. Oprócz powyższych, aplikacja onshape oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
+1. Oprócz powyższych, aplikacja onshape oczekuje, że kilka więcej atrybutów przedstawionych poniżej do przesłania do niego w odpowiedzi SAML. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
     
     | Nazwa |  Atrybut źródłowy|
     | --------------- | --------- |
@@ -102,7 +88,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > Edytuj wartość "NazwaFirmy" z "prefiksem domeny". Na przykład, jeśli klient uzyskuje dostęp do aplikacji onshape przy użyciu adresu URL https://acme.onshape.com , na przykład, jego prefiks domeny to "Acme". Wartość atrybutu musi być tylko prefiksem, a nie całą nazwą DNS.
+    > _Należy_ zmienić wartość atrybutu **NazwaFirmy** na *prefiks domeny* dla przedsiębiorstwa onshape. Na przykład, Jeśli uzyskujesz dostęp do aplikacji onshape przy użyciu adresu URL `https://acme.onshape.com` , takiego jak, prefiks domeny to *Acme*. Wartość atrybutu musi być tylko prefiksem, a nie całą nazwą DNS.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -137,7 +123,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-onshape-sso"></a>Skonfiguruj onshape SSO
 
-Aby skonfigurować Logowanie jednokrotne na **stronie,** musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej](mailto:support@onshape.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby uzyskać informacje na temat sposobu konfigurowania logowania jednokrotnego na stronie **onshape** , zobacz [integrowanie z Microsoft Azure AD](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
 
 ### <a name="create-onshape-test-user"></a>Utwórz użytkownika testowego onshape
 

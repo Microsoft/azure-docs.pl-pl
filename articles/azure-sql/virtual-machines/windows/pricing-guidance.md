@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360105"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615605"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,9 +58,9 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 
 | Wydanie programu SQL Server | Obciążenie |
 |-----|-----|
-| Sieć Web | Małe witryny sieci Web |
+| Internet | Małe witryny sieci Web |
 | Standardowa | Małe i średnie obciążenia |
-| Enterprise | Duże lub krytyczne dla działalności obciążenia|
+| Przedsiębiorstwa | Duże lub krytyczne dla działalności obciążenia|
 
 Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)*.
 
@@ -97,10 +97,7 @@ Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 prz
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Bring your own license (BYOL)
 
-Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność licencji**, nazywanego również **BYOL**, oznacza użycie istniejącej licencji zbiorczej SQL Server z programem Software Assurance na maszynie wirtualnej platformy Azure. Maszyna wirtualna w SQL Server przy użyciu usługi BYOL nalicza opłaty tylko za koszt działania maszyny wirtualnej, a nie do licencjonowania SQL Server, zważywszy, że licencje i program Software Assurance zostały już nabyte za pośrednictwem programu licencjonowania zbiorowego.
-
-> [!IMPORTANT]
-> Obrazy BYOL wymagają Umowa Enterprise z programem Software Assurance. W tej chwili nie są dostępne jako część partnera rozwiązań w chmurze (CSP) platformy Azure. Klienci korzystający z programu CSP mogą przenieść własną licencję przez wdrożenie obrazu z opcją płatność zgodnie z rzeczywistym użyciem, a następnie włączenie [korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md).
+Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność licencji**, nazywanego również **BYOL**, oznacza użycie istniejącej licencji zbiorczej SQL Server z programem Software Assurance na maszynie wirtualnej platformy Azure. SQL Server maszyny wirtualnej korzystającej z BYOL opłaty są naliczane tylko za koszt działania maszyny wirtualnej, a nie do licencjonowania SQL Server, pod warunkiem, że licencje i program Software Assurance zostały już nabyte za pośrednictwem programu licencjonowania zbiorowego lub przez partnera rozwiązań w chmurze (CSP).
 
 > [!NOTE]
 > Obrazy BYOL są obecnie dostępne tylko dla maszyn wirtualnych z systemem Windows. Można jednak ręcznie zainstalować SQL Server na maszynie wirtualnej z systemem Linux. Zapoznaj się z wytycznymi w [SQL Server na maszynie wirtualnej z systemem Linux — często zadawane pytania](../linux/frequently-asked-questions-faq.md).

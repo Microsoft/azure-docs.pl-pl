@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e90a374917239ae1a20d25795757811a12cee80c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e387653d73105911f10bb184f9179e33e22671d4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84200313"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021911"
 ---
 ---
 | Identyfikator limitu | Limit | Komentarze |
@@ -15,6 +15,6 @@ ms.locfileid: "84200313"
 | Maksymalna liczba funkcji na zadanie |60 |Istnieje stały limit 60 funkcji na zadanie Stream Analytics. |
 | Maksymalna liczba jednostek przesyłania strumieniowego na zadanie |192 |Istnieje stały limit 192 jednostek przesyłania strumieniowego na zadanie Stream Analytics. |
 | Maksymalna liczba zadań na region |1500 |Każda subskrypcja może mieć do 1 500 zadań na region geograficzny. |
-| Rozmiar obiektu blob danych referencyjnych w MB | 300 | Dane referencyjne obiektów BLOB nie mogą być większe niż 300 MB. |
+| Rozmiar obiektu blob danych referencyjnych w MB | 5 GB | Do 5 GB w przypadku używania 6 usług SUs lub więcej. |
 | Maksymalna liczba znaków w zapytaniu | 512000 | W zapytaniu zadania Azure Stream Analytics istnieje stały limit 512k znaków.|
 

@@ -6,21 +6,21 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 16ecd2166604d29fbc2242229f625b30ffd684e5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636548"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617696"
 ---
 # <a name="how-to-store-user-preferences"></a>Jak przechowywać preferencje użytkownika
 
-W tym artykule przedstawiono sposób przechowywania ustawień interfejsu użytkownika, które są znane jako **Preferencje użytkownika** , za pomocą opcji [-Preferences](./reference.md#options) i [-onPreferencesChanged](./reference.md#options) dbreader zestawu SDK.
+W tym artykule przedstawiono sposób przechowywania ustawień interfejsu użytkownika, które są znane jako **Preferencje użytkownika**, za pomocą opcji [-Preferences](./reference.md#options) i [-onPreferencesChanged](./reference.md#options) dbreader zestawu SDK.
 
-Gdy opcja zestawu [CookiePolicy](./reference.md#cookiepolicy-options) SDK jest ustawiona na wartość *włączone* , aplikacja czytnika immersyjny przechowuje **Preferencje użytkownika** (rozmiar tekstu, kolor motywu, czcionkę itd.) w plikach cookie, które są lokalne dla konkretnej przeglądarki i urządzenia. Za każdym razem, gdy użytkownik uruchamia czytnik immersyjny w tej samej przeglądarce i urządzeniu, zostanie on otwarty z preferencjami użytkownika z ostatniej sesji na tym urządzeniu. Jeśli jednak użytkownik otworzy czytnik immersyjny w innej przeglądarce lub urządzeniu, ustawienia zostaną początkowo skonfigurowane z domyślnymi ustawieniami czytnika immersyjny, a użytkownik będzie musiał ponownie ustawić swoje preferencje i tak dalej dla każdego używanego urządzenia. `-preferences` `-onPreferencesChanged` Opcje zestawu SDK czytnika immersyjny umożliwiają aplikacjom mobilny dostęp do preferencji użytkownika w różnych przeglądarkach i urządzeniach, dzięki czemu użytkownik ma spójne środowisko, wszędzie tam, gdzie korzystają z aplikacji.
+Gdy opcja zestawu [CookiePolicy](./reference.md#cookiepolicy-options) SDK jest ustawiona na wartość *włączone*, aplikacja czytnika immersyjny przechowuje **Preferencje użytkownika** (rozmiar tekstu, kolor motywu, czcionkę itd.) w plikach cookie, które są lokalne dla konkretnej przeglądarki i urządzenia. Za każdym razem, gdy użytkownik uruchamia czytnik immersyjny w tej samej przeglądarce i urządzeniu, zostanie on otwarty z preferencjami użytkownika z ostatniej sesji na tym urządzeniu. Jeśli jednak użytkownik otworzy czytnik immersyjny w innej przeglądarce lub urządzeniu, ustawienia zostaną początkowo skonfigurowane z domyślnymi ustawieniami czytnika immersyjny, a użytkownik będzie musiał ponownie ustawić swoje preferencje i tak dalej dla każdego używanego urządzenia. `-preferences` `-onPreferencesChanged` Opcje zestawu SDK czytnika immersyjny umożliwiają aplikacjom mobilny dostęp do preferencji użytkownika w różnych przeglądarkach i urządzeniach, dzięki czemu użytkownik ma spójne środowisko, wszędzie tam, gdzie korzystają z aplikacji.
 
 Po pierwsze, dostarczając `-onPreferencesChanged` opcję zestawu SDK wywołania zwrotnego podczas uruchamiania aplikacji czytnik immersyjny, czytnik immersyjny wyśle ciąg z `-preferences` powrotem do aplikacji hosta za każdym razem, gdy użytkownik zmieni Preferencje podczas sesji czytnika. Aplikacja hosta jest odpowiedzialna za przechowywanie preferencji użytkownika w ich własnym systemie. Następnie, gdy ten sam użytkownik ponownie uruchomi czytnik immersyjny, aplikacja hosta może pobrać preferencje tego użytkownika z magazynu, a następnie podać je jako `-preferences` opcję zestawu ciąg SDK podczas uruchamiania aplikacji czytnika immersyjny, aby przywrócić preferencje użytkownika.
 

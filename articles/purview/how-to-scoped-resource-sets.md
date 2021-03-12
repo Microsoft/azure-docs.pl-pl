@@ -1,5 +1,5 @@
 ---
-title: 'Instrukcje: Tworzenie konfiguracji zestawu zasobów w zakresie'
+title: Jak utworzyć konfigurację zestawu zasobów w zakresie
 description: Dowiedz się, jak utworzyć regułę konfiguracji zestawu zasobów w zakresie, aby zastąpić sposób grupowania zasobów w zestawy zasobów
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668439"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608006"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Tworzenie reguł konfiguracji zestawu zasobów w zakresie
 
@@ -24,20 +24,29 @@ Podczas skanowania konta magazynu usługa Azure kontrolą używa zestawu zdefini
 
 Wykonaj poniższe kroki, aby utworzyć nową konfigurację zestawu zasobów w zakresie:
 
-1. Przejdź do centrum zarządzania. Z menu wybierz pozycję **zestawy zasobów z zakresem** . Kliknij pozycję **+ Nowy** , aby utworzyć nowy zestaw reguł konfiguracji.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Utwórz nową regułę zestawu zasobów w zakresie" border="true":::
+1. Przejdź do centrum zarządzania. Z menu wybierz pozycję **zestawy zasobów z zakresem** . Wybierz pozycję **+ Nowy** , aby utworzyć nowy zestaw reguł konfiguracji.
 
-1. Wprowadź zakres konfiguracji zestawu zasobów z zakresem. Wybierz typ konta magazynu i nazwę konta magazynu, dla którego chcesz utworzyć zestaw reguł. Każdy zestaw reguł jest stosowany względem zakresu ścieżki folderu określonego w polu **ścieżka folderu** . 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Utwórz nową regułę zestawu zasobów w zakresie" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Utwórz nową regułę zestawu zasobów w zakresie" border="true":::
+
+1. Wprowadź zakres konfiguracji zestawu zasobów z zakresem. Wybierz typ konta magazynu i nazwę konta magazynu, dla którego chcesz utworzyć zestaw reguł. Każdy zestaw reguł jest stosowany względem zakresu ścieżki folderu określonego w polu **ścieżka folderu** .
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Tworzenie konfiguracji zestawu zasobów w zakresie" border="true":::
 
 1. Aby wprowadzić regułę dla zakresu konfiguracji, wybierz pozycję **+ Nowa reguła**.
+
 1. Wprowadź następujące pola, aby utworzyć regułę:
-    1. **Nazwa reguły:** Nazwa reguły konfiguracji. To pole nie ma wpływu na zasoby, których dotyczy reguła.
-    1. **Nazwa kwalifikowana:** Kwalifikowana ścieżka, która używa kombinacji tekstu, elementów dynamicznych i zastępczych, aby dopasować zasoby do reguły konfiguracji. Ta ścieżka jest określana względem zakresu reguły konfiguracji. Zapoznaj się z sekcją [składnia](#syntax) poniżej, aby uzyskać szczegółowe instrukcje dotyczące określania kwalifikowanych nazw. 
-    1. **Nazwa wyświetlana:** Nazwa wyświetlana elementu zawartości. To pole jest opcjonalne. Użyj zwykłego tekstu i elementów statycznych, aby dostosować sposób wyświetlania zasobów w katalogu. Aby uzyskać bardziej szczegółowe instrukcje, zobacz sekcję [składnia](#syntax) poniżej.
-    1. **Nie Grupuj jako zestawu zasobów:** Jeśli ta funkcja jest włączona, dopasowany zasób nie zostanie pogrupowany w zestawie zasobów. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Utwórz nową regułę zestawu zasobów w zakresie" border="true"::: 
-1. Zapisz regułę, klikając przycisk **Dodaj**. 
+
+   1. **Nazwa reguły:** Nazwa reguły konfiguracji. To pole nie ma wpływu na zasoby, których dotyczy reguła.
+
+   1. **Nazwa kwalifikowana:** Kwalifikowana ścieżka, która używa kombinacji tekstu, elementów dynamicznych i zastępczych, aby dopasować zasoby do reguły konfiguracji. Ta ścieżka jest określana względem zakresu reguły konfiguracji. Zapoznaj się z sekcją [składnia](#syntax) poniżej, aby uzyskać szczegółowe instrukcje dotyczące określania kwalifikowanych nazw.
+
+   1. **Nazwa wyświetlana:** Nazwa wyświetlana elementu zawartości. To pole jest opcjonalne. Użyj zwykłego tekstu i elementów statycznych, aby dostosować sposób wyświetlania zasobów w katalogu. Aby uzyskać bardziej szczegółowe instrukcje, zobacz sekcję [składnia](#syntax) poniżej.
+
+   1. **Nie Grupuj jako zestawu zasobów:** Jeśli ta funkcja jest włączona, dopasowany zasób nie zostanie pogrupowany w zestawie zasobów.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Utwórz nową regułę konfiguracji." border="true":::
+
+1. Zapisz regułę, klikając przycisk **Dodaj**.
 
 ## <a name="scoped-resource-set-syntax"></a><a name="syntax"></a> Składnia zestawu zasobów w zakresie
 
@@ -69,21 +78,23 @@ Poniżej znajdują się dostępne typy, które mogą być używane w statycznych
 | ---- | --------- |
 | ciąg | Seria 1 lub więcej znaków Unicode, w tym ograniczników takich jak spacje. |
 | int | Seria 1 lub więcej znaków ASCII 0-9 może być poprzedzona 0 (np. 0,001). |
-| guid | Seria 32 lub 8-4-4-4-12 ciąg reprezentujący identyfikator UUID jako defineddefa w https://tools.ietf.org/html/rfc4122 |
-| data | Seria 6 lub 8 0-9 znaków ASCII z opcjonalnymi separatorami: RRRRMMDD, rrrr-mm-dd, YYMMDD, RR-mm-dd, określony w https://tools.ietf.org/html/rfc3339 |
-| time | Seria 4 lub 6 0-9 znaków ASCII z opcjonalnymi separatorami: HHmm, gg: mm, HHmmss, gg: mm: SS określony w https://tools.ietf.org/html/rfc3339 |
-| sygnatura czasowa | Seria 12 lub 14 0-9 znaków ASCII z opcjonalnymi separatorami: RRRR-MM-DDTgg: mm, yyyyMMddhhmm, RRRR-MM-DDTgg: mm: SS, rrrrmmddggmmss określony w https://tools.ietf.org/html/rfc3339 |
+| guid | Seria 32 lub 8-4-4-4-12 ciąg reprezentujący identyfikator UUID jako defineddefa w [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| data | Seria 6 lub 8 0-9 znaków ASCII z opcjonalnymi separatorami: RRRRMMDD, rrrr-mm-dd, YYMMDD, RR-mm-dd, określone w [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| time | Seria 4 lub 6 0-9 znaków ASCII z opcjonalnymi separatorami: HHmm, gg: mm, HHmmss, gg: mm: SS określony w [dokumencie RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| sygnatura czasowa | Seria 12 lub 14 0-9 znaków ASCII z opcjonalnymi separatorami: RRRR-MM-DDTgg: mm, yyyyMMddhhmm, RRRR-MM-DDTgg: mm: SS, rrrrmmddggmmss określona w [dokumencie RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | boolean | Może zawierać wartość "true" lub "false", bez uwzględniania wielkości liter. |
-| liczba | Seria 0 lub więcej znaków w kodzie ASCII 0-9 może być poprzedzona 0 (np. 0,001), a po tym opcjonalnie kropka "." i seria 1 lub więcej znaków ASCII 0-9, może być to 0 przyrostka (np. 100) | 
+| liczba | Seria 0 lub więcej znaków ASCII 0-9 może być poprzedzona 0 (np. 0,001), a po tym opcjonalnie kropka "." oraz seria 1 lub 0-9 więcej znaków w kodzie ASCII, może być równa 0 (np. 100) |
 | hex | Seria 1 lub więcej znaków ASCII z zestawu 0-1 i A-F, wartość może być z prefiksem 0 |
-| locale | Ciąg, który jest zgodny z składnią określoną w https://tools.ietf.org/html/rfc5646 |
+| locale | Ciąg, który jest zgodny z składnią określoną w [dokumencie RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Zostanie zastosowana kolejność reguł zestawu zasobów objętych zakresem.
+## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Kolejność stosowania reguł zestawu zasobów objętych zakresem
 
 Poniżej znajduje się kolejność operacji zastosowania reguł zestawu zasobów w zakresie:
 
-1. Jeśli zasób jest zgodny z dwoma regułami, będzie miał pierwszeństwo. Na przykład reguły w zakresie `container/folder` zostaną zastosowane przed regułami w zakresie `container` . 
+1. Jeśli zasób jest zgodny z dwoma regułami, będzie miał pierwszeństwo. Na przykład reguły w zakresie `container/folder` zostaną zastosowane przed regułami w zakresie `container` .
+
 1. Kolejność reguł w określonym zakresie. Można to edytować w interfejsie użytkownika.
+
 1. Jeśli zasób nie jest zgodny z żadną określoną regułą, stosowane są domyślne algorytmy heurystyczne zestawu zasobów.
 
 ## <a name="examples"></a>Przykłady
@@ -95,16 +106,16 @@ Wyodrębnianie danych SAP do obciążeń pełnych i różnicowych
 #### <a name="inputs"></a>Dane wejściowe
 
 Plikach
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie
 
-**Zakres:**https://myazureblob.blob.core.windows.net/bar/
+**Zakres:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **Nazwa wyświetlana:** "Klient zewnętrzny"
 
@@ -112,7 +123,7 @@ Plikach
 
 **Zestaw zasobów:** prawda
 
-#### <a name="output"></a>Dane wyjściowe 
+#### <a name="output"></a>Dane wyjściowe
 
 Jeden zasób zestawu zasobów
 
@@ -124,17 +135,18 @@ Jeden zasób zestawu zasobów
 
 Dane IoT w formacie Avro
 
-#### <a name="inputs"></a>Dane wejściowe 
+#### <a name="inputs"></a>Dane wejściowe
 
 Plikach
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rules"></a>Reguły zestawu zasobów w zakresie 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Zakres:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rules"></a>Reguły zestawu zasobów w zakresie
+
+**Zakres:**`https://myazureblob.blob.core.windows.net/bar/`
 
 Reguła 1
 
@@ -150,11 +162,11 @@ Reguła 2
 
 **Nazwa kwalifikowana:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Zestaw zasobów: prawda* 
+#### <a name="resource-set-true"></a>*Zestaw zasobów: prawda*
 
-#### <a name="outputs"></a>Dane wyjściowe 
+#### <a name="outputs"></a>Dane wyjściowe
 
-2 zestawy zasobów 
+2 zestawy zasobów
 
 Zestaw zasobów 1
 
@@ -172,17 +184,18 @@ Zestaw zasobów 2
 
 Dane IoT w formacie Avro
 
-#### <a name="inputs"></a>Dane wejściowe 
+#### <a name="inputs"></a>Dane wejściowe
 
 Plikach
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Zakres:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie
+
+**Zakres:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **Nazwa wyświetlana:** "Machine-{{MachineID}}"
 
@@ -190,7 +203,7 @@ Plikach
 
 **Zestaw zasobów:** prawda
 
-#### <a name="outputs"></a>Dane wyjściowe 
+#### <a name="outputs"></a>Dane wyjściowe
 
 Zestaw zasobów 1
 
@@ -208,25 +221,26 @@ Zestaw zasobów 2
 
 Nie Grupuj do zestawów zasobów
 
-#### <a name="inputs"></a>Dane wejściowe 
+#### <a name="inputs"></a>Dane wejściowe
 
 Plikach
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Zakres:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie
 
-**Nazwa wyświetlana:** "Machine-{{MachineID}}"
+**Zakres:**`https://myazureblob.blob.core.windows.net/bar/`
+
+**Nazwa wyświetlana:**`Machine-{{machineid}}`
 
 **Nazwa kwalifikowana:**`raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **Zestaw zasobów:** FAŁSZ
 
-#### <a name="outputs"></a>Dane wyjściowe 
+#### <a name="outputs"></a>Dane wyjściowe
 
 4 poszczególne zasoby
 

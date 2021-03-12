@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baa783d0dfb54e0e606e3f6c6d5397941ae7b7bc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724510"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011633"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -128,7 +128,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Czytnik rejestru schematu (wersja zapoznawcza)](#schema-registry-reader-preview) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Łańcuch bloków** |  |  |
 > | [Dostęp do węzła elementu członkowskiego łańcucha bloków (wersja zapoznawcza)](#blockchain-member-node-access-preview) | Zezwala na dostęp do węzłów składowych łańcucha bloków | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
-> | **Sztuczna inteligencja i uczenie maszynowe** |  |  |
+> | **AI i uczenie maszynowe** |  |  |
 > | [Współautor Cognitive Services](#cognitive-services-contributor) | Umożliwia tworzenie, odczytywanie, aktualizowanie, usuwanie i zarządzanie kluczami Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Współautor Custom Vision Cognitive Services](#cognitive-services-custom-vision-contributor) | Pełny dostęp do projektu, w tym możliwość wyświetlania, tworzenia, edytowania lub usuwania projektów. | c1ff6cc2-C111-46fe-8896-e0ef812ad9f3 |
 > | [Wdrożenie Custom Vision Cognitive Services](#cognitive-services-custom-vision-deployment) | Publikowanie, cofanie publikowania i eksportowanie modeli. Wdrożenie może wyświetlić projekt, ale nie można go zaktualizować. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
@@ -426,7 +426,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -719,7 +719,7 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 }
 ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 
 ### <a name="cdn-endpoint-contributor"></a>Współautor punktu końcowego usługi CDN
@@ -6702,7 +6702,7 @@ Umożliwia odczytanie subskrypcji zdarzeń EventGrid. [Dowiedz się więcej](../
 
 ### <a name="fhir-data-contributor"></a>Współautor danych FHIR
 
-Rola pozwala użytkownikowi lub głównemu pełny dostęp do danych FHIR [dowiedzieć się więcej](../healthcare-apis/configure-azure-rbac.md)
+Rola pozwala użytkownikowi lub głównemu pełny dostęp do danych FHIR [dowiedzieć się więcej](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -6741,7 +6741,7 @@ Rola pozwala użytkownikowi lub głównemu pełny dostęp do danych FHIR [dowied
 
 ### <a name="fhir-data-exporter"></a>FHIR — eksport danych
 
-Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i eksportowanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
+Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i eksportowanie danych FHIR [Dowiedz się więcej](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -6782,7 +6782,7 @@ Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i ekspo
 
 ### <a name="fhir-data-reader"></a>Czytnik danych FHIR
 
-Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
+Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -6821,7 +6821,7 @@ Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie danych 
 
 ### <a name="fhir-data-writer"></a>Moduł zapisywania danych FHIR
 
-Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i zapisywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
+Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i zapisywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |

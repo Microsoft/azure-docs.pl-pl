@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 3/08/2021
-ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563782"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199887"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Przegląd współpracy z zespołami i partnerami sprzedaży firmy Microsoft
 
@@ -46,8 +46,8 @@ Stany współsprzedawanej platformy Azure:
 - Usługa Azure IP zachęcani — sprzedawanie
 
 Zarządzanie Stanami dla aplikacji firmowych
-- BIZ Apps ISV Connect Standard
-- BIZ Apps ISV Connect Premium  
+- BIZ Apps ISV Connect Standard lub Premium
+- BIZ Apps ISV Connect Standard lub Premium Premium  
 
 Aby uzyskać szczegółowe informacje o wymaganiach dotyczących osiągania tych stanów współsprzedażowych, zobacz [wymagania dotyczące wspólnych transakcji](co-sell-requirements.md).
 
@@ -74,12 +74,12 @@ Do tych typów ofert można zastosować pakiet BIZ Apps ISV Connect Standard lub
 - Dynamics 365 dla zaangażowania klienta & PowerApps
 - Dynamics 365 dla operacji
 
-Oferty, które uzyskują dostęp _do usługi Azure IP zachęcani_ lub _BIZ Apps ISV Connect Standard lub Premium,_ uzyskują następujące korzyści komercyjne w witrynie Marketplace:
+Oferty, które osiągają status _zachęcani "współsprzedaż usługi Azure IP"_ , uzyskują następujące korzyści komercyjne:
 
 - Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy rozwiązań infrastruktury jako usługi (IaaS) lub rozwiązania oprogramowania jako usługi (SaaS) sprzedawanego za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [komercyjne opłaty za usługę Marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży rozwiązania IaaS lub oferty SaaS. Aby dowiedzieć się więcej na temat programu CSP, zobacz [program Cloud Solution Provider](cloud-solution-providers.md).
 - Sprzedaż oferty za pomocą komercyjnej witryny Marketplace będzie współtworzyć zobowiązania dotyczące użycia platformy Azure dla klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **korzyść platformy Azure kwalifikującą się** w Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md).
-- Oferty mające na celu osiągnięcie _usługi Azure IP współsprzedaży zachęcani_ lub _BIZ Apps ISV Connect Standard lub Premium_ będą otrzymywać **preferowane rozwiązania firmy Microsoft** na stronie aukcji oferty w sklepach online. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania.
+- Oferty mające na celu osiągnięcie _usługi Azure IP zachęcani_ lub _BIZ Apps ISV Connect Standard lub Premium._ na stronie z listą ofert w sklepach online zostanie wyświetlony stan **Microsoft dla preferowanych rozwiązań** . Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania.
 
 Aby dowiedzieć się, jak uzyskać informacje o stanie "współsprzedaż" i "współsprzedaż" z zachęcanim, zobacz wspólne i współsprzedażowe [wymagania zachęcani](co-sell-requirements.md).
 

@@ -1,14 +1,14 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 01/19/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 03968b3aa3eaf8f32019cfc5e9e2430c71419f62
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a243f0a2130e0ec2ebafe726f48e07c148807c1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038139"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016087"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -140,7 +140,7 @@ Ta funkcja jest obecnie obsługiwana w przypadku metryk platformy (nie metryk ni
 
 | Usługa | Publiczna platforma Azure | Instytucje rządowe | Chiny |
 |:--------|:--------|:--------|:--------|
-| Maszyny wirtualne<sup>1</sup>  | **Tak** | **Tak** | Nie |
+| Maszyny wirtualne<sup>1</sup>  | **Tak** | **Tak** | **Tak** |
 | Bazy danych programu SQL Server | **Tak** | **Tak** | **Tak** |
 | Elastyczne pule programu SQL Server | **Tak** | **Tak** | **Tak** |
 | Pule pojemności plików NetApp | **Tak** | **Tak** | **Tak** |

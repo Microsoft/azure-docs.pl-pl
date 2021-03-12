@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618777"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198958"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z blokadą konta przy użyciu domeny zarządzanej Azure Active Directory Domain Services
 
@@ -83,6 +83,23 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
+
+**Uwaga**
+
+Możesz znaleźć na 4776 i 4740 szczegóły zdarzenia "źródłowa stacja robocza:" puste. Wynika to z faktu, że nieprawidłowe hasło podczas logowania do sieci za pośrednictwem innych urządzeń.
+Na przykład: Jeśli masz serwer RADIUS, który może przekazywać uwierzytelnianie do usługi AAD DS. Aby upewnić się, że włączono protokół RDP do zaplecza kontrolera domeny, skonfiguruj dzienniki usługi Netlogon.
+
+03/04 19:07:29 [logowanie] [10752] Contoso: SamLogon: nadano przechodnie logowanie do sieci contoso\Nagappan.Veerappan z (za pośrednictwem LOB11-RADIUS) 
+
+03/04 19:07:29 [logowanie] [10752] Contoso: SamLogon: przechodnie logowanie do sieci z contoso\Nagappan.Veerappan z (za pośrednictwem LOB11-RADIUS) zwraca 0xC000006A
+
+03/04 19:07:35 [logowanie] [10753] Contoso: SamLogon: nadano przechodnie logowanie do sieci contoso\Nagappan.Veerappan z (za pośrednictwem LOB11-RADIUS) 
+
+03/04 19:07:35 [logowanie] [10753] Contoso: SamLogon: przechodnie logowanie do sieci z contoso\Nagappan.Veerappan z (za pośrednictwem LOB11-RADIUS) zwraca 0xC000006A
+
+Włącz protokół RDP dla kontrolerów domeny w sieciowej grupy zabezpieczeń do zaplecza, aby skonfigurować przechwytywanie diagnostyki (tj. Netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules Jeśli już zmodyfikowano sieciowej grupy zabezpieczeń domyślne, postępuj zgodnie z PSlet sposób, aby włączyć https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+
+Aby włączyć dziennik Netlogon na dowolnym serwerze https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
 
 ## <a name="next-steps"></a>Następne kroki
 

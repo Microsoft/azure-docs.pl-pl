@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054858"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607615"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure
 
@@ -76,6 +76,10 @@ W przypadku subskrypcji następujących typów, które zostały utworzone po 15 
 Aby móc wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz wykonać żądanie, otwierając zgłoszenie do pomocy technicznej, korzystając z następującego typu **problemu:**  >  **Virtual Network**  >  **łączności**  >  **nie można wysłać wiadomości e-mail (SMTP/port 25)**. Pamiętaj, aby dodać szczegółowe informacje o tym, dlaczego wdrożenie musi wysyłać pocztą bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekaźnika. Żądania będą analizowane i zatwierdzane według uznania firmy Microsoft. Żądania będą udzielane dopiero po zakończeniu dodatkowych sprawdzeń związanych z oszustwem. 
 
 Gdy subskrypcja zostanie zwolniona, a maszyny wirtualne zostały zatrzymane i uruchomione ponownie w Azure Portal, wszystkie maszyny wirtualne w tej subskrypcji zostaną wykluczone do przodu. Wyłączenie dotyczy tylko ruchu maszyn wirtualnych, który jest kierowany bezpośrednio do Internetu.
+
+## <a name="changing-subscription-type"></a>Zmienianie typu subskrypcji
+
+Jeśli zmienisz typ subskrypcji lub dostawcę rozwiązań w chmurze lub subskrypcję z płatność zgodnie z rzeczywistym użyciem, musisz zatrzymać, cofnąć przydział, a następnie ponownie uruchomić maszynę wirtualną, aby nowe zasady zaczęły obowiązywać. Podobnie, jeśli masz typ subskrypcji, który jest dozwolony domyślnie, a następnie zmienisz na typ subskrypcji niedozwolony, port 25 może zostać zablokowany ze względu na zmiany wdrożenia.
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 

@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012635"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232889"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zestaw SDK zarządzania .NET: Konfigurowanie i uruchamianie zadań analitycznych za pomocą interfejsu API Azure Stream Analytics dla platformy .NET
 Informacje na temat konfigurowania i uruchamiania zadań analitycznych przy użyciu interfejsu API Stream Analytics dla platformy .NET przy użyciu zestawu .NET SDK zarządzania. Skonfiguruj projekt, twórz źródła danych wejściowych i wyjściowych, przekształcenia oraz zadania uruchamiania i zatrzymywania. W przypadku zadań analitycznych można przesyłać strumieniowo dane z magazynu obiektów blob lub z centrum zdarzeń.
@@ -207,6 +207,12 @@ Metoda **TestConnection** testuje, czy zadanie Stream Analytics może nawiązać
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+Wynik wywołania TestConnection to obiekt *ResourceTestResult* , który zawiera dwie właściwości:
+
+- *stan*: może to być jeden z następujących ciągów: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *błąd*: jest to typ zwrócono zawierający następujące właściwości:
+   - *kod*: wymagana właściwość typu String. Wartość to standardowy system .NET. HttpStatusCode otrzymany podczas testowania.
+   - *komunikat*: wymagana właściwość typu String reprezentująca błąd. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Tworzenie elementu docelowego danych wyjściowych Stream Analytics
 Tworzenie elementu docelowego danych wyjściowych jest podobne do tworzenia źródła danych wejściowych Stream Analytics. Podobnie jak źródła wejściowe, cele wyjściowe są powiązane z konkretnym zadaniem. Aby użyć tego samego elementu docelowego danych wyjściowych dla różnych zadań, należy wywołać metodę ponownie i określić inną nazwę zadania.

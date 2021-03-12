@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f190b8ffbb98c6ff5465af869305de4c9135cc3f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102610108"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008726"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -59,12 +59,12 @@ Aby utworzyć certyfikat, można użyć [Azure Key Vault](../../key-vault/certif
 
 Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemnego uwierzytelniania TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) , aby dowiedzieć się, jak włączyć i zweryfikować certyfikat z punktu końcowego interfejsu API.
 
-Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Wszystkie łączniki interfejsu API** i kliknij przycisk **Przekaż nowy łącznik**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie użyty automatycznie przez Azure Active Directory.
+Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Wszystkie łączniki interfejsu API** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie użyty automatycznie przez Azure Active Directory.
 
 ### <a name="api-key"></a>Klucz interfejsu API
-Niektóre usługi używają mechanizmu "klucz interfejsu API", aby utrudnić dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+Niektóre usługi używają mechanizmu "klucz interfejsu API", aby zasłaniać dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-Nie jest to mechanizm, który powinien być używany tylko w środowisku produkcyjnym. W związku z tym konfiguracja uwierzytelniania podstawowego lub certyfikatu jest zawsze wymagana. Jeśli chcesz zaimplementować dowolną metodę uwierzytelniania (niezalecane) do celów programistycznych, możesz wybrać opcję Uwierzytelnianie podstawowe i użyć wartości tymczasowych dla programu, `username` a `password` interfejs API można zignorować podczas implementowania autoryzacji w interfejsie API.
+Nie jest to mechanizm, który powinien być używany tylko w środowisku produkcyjnym. W związku z tym konfiguracja uwierzytelniania podstawowego lub certyfikatu jest zawsze wymagana. Jeśli nie chcesz zaimplementować żadnej metody uwierzytelniania (niezalecanej) do celów programistycznych, możesz wybrać uwierzytelnianie podstawowe i użyć wartości tymczasowych dla programu `username` oraz `password` , że interfejs API może być pomijany podczas implementowania autoryzacji w interfejsie API.
 
 ## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
 Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](/graph/api/resources/user#properties) właściwości użytkownika. 
@@ -76,7 +76,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -138,7 +138,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -189,7 +189,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",

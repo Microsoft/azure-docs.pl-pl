@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8ed21d8689bf5340c1bde0a7f782bb8614f7cf11
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700205"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618478"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informacje o usłudze Azure Cloud Services (obsługa rozszerzona)
 
@@ -57,7 +57,7 @@ Główne różnice między Cloud Services (klasyczne) i Cloud Services (obsługa
 
 ## <a name="migration-to-azure-resource-manager"></a>Migracja do Azure Resource Manager
 
-Cloud Services (obsługa rozszerzona) oferuje dwie ścieżki migracji z [usługi Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) do [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Cloud Services (obsługa rozszerzona) oferuje dwie ścieżki migracji z [usługi Azure Service Manager](/powershell/azure/servicemanagement/overview) do [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Klienci wdrażają usługi w chmurze bezpośrednio w Azure Resource Manager a następnie usuwali starą usługę w chmurze na platformie Azure Service Manager. 
 2) Migracja w miejscu obsługuje możliwość migrowania Cloud Services (klasyczny) z minimalnym czasem przestoju do Cloud Services (obsługa rozszerzona). 
 

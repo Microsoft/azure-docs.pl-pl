@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804874"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617186"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 > [!IMPORTANT]
-> Wersja zapoznawcza usługi Virtual Network jest obecnie wstrzymana we wszystkich regionach platformy Azure. Możesz wysłać wiadomość e-mail na adres <azurevnettap@microsoft.com> przy użyciu identyfikatora subskrypcji, aby powiadomić Cię o przyszłych aktualizacjach dotyczących wersji zapoznawczej. W tymczasowym systemie można używać rozwiązań opartych na agentach lub urządzenie WUS, które udostępniają funkcję widoczności dla [rozwiązań](#virtual-network-tap-partner-solutions) firmy Microsoft w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> Wersja zapoznawcza usługi Virtual Network jest obecnie wstrzymana we wszystkich regionach platformy Azure. Możesz wysłać wiadomość e-mail na adres <azurevnettap@microsoft.com> przy użyciu identyfikatora subskrypcji, aby powiadomić Cię o przyszłych aktualizacjach dotyczących wersji zapoznawczej. W tymczasowym systemie można używać rozwiązań opartych na agentach lub urządzenie WUS, które udostępniają funkcję widoczności dla [rozwiązań](#virtual-network-tap-partner-solutions) firmy Microsoft w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Usługa Azure Virtual Network TAP (punkt dostępu terminalu) umożliwia ciągłą przesyłanie strumieniowego ruchu sieciowego maszyny wirtualnej do narzędzia do zbierania pakietów sieciowych lub narzędzi analitycznych. Moduł zbierający lub narzędzie analityczne jest dostarczany przez partnera [wirtualnego urządzenia sieciowego](https://azure.microsoft.com/solutions/network-appliances/) . Aby uzyskać listę rozwiązań partnerskich, które są sprawdzane pod kątem współpracy z siecią wirtualną, zobacz [rozwiązania partnerskie](#virtual-network-tap-partner-solutions).
 Na poniższej ilustracji przedstawiono sposób działania narzędzia Virtual Network TAP. Możesz dodać konfigurację TAP w [interfejsie sieciowym](virtual-network-network-interface.md) , który jest dołączony do maszyny wirtualnej wdrożonej w sieci wirtualnej. Lokalizacją docelową jest adres IP sieci wirtualnej w tej samej sieci wirtualnej co monitorowany interfejs sieciowy lub [równorzędna Sieć wirtualna](virtual-network-peering-overview.md) . Rozwiązanie modułu zbierającego dla programu Virtual Network TAP można wdrożyć za pomocą wewnętrznego modułu równoważenia obciążenia platformy Azure w celu zapewnienia wysokiej dostępności.
@@ -64,6 +64,7 @@ Konta używane do zastosowania konfiguracji TAP w interfejsach sieciowych muszą
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [VSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Zabezpieczenia NoName](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [® Platformę monitora RSA](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)

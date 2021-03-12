@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722691"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016529"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -181,7 +181,7 @@ Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objecti
 
 [Maszyny wirtualne przypięte strefy platformy Azure](../virtual-machines/windows/create-portal-availability-zone.md) można przywrócić w [strefach dostępności](../availability-zones/az-overview.md) tego samego regionu.
 
-W procesie przywracania zostanie wyświetlona **strefa dostępności opcji.** Najpierw zobaczysz strefę domyślną. Aby wybrać inną strefę, wybierz wybraną liczbę wybranych stref. Jeśli przypięta strefa jest niedostępna, nie będzie można przywrócić danych do innej strefy, ponieważ dane kopii zapasowej nie zonally zreplikowane.
+W procesie przywracania zostanie wyświetlona **strefa dostępności opcji.** Najpierw zobaczysz strefę domyślną. Aby wybrać inną strefę, wybierz wybraną liczbę wybranych stref. Jeśli przypięta strefa jest niedostępna, nie będzie można przywrócić danych do innej strefy, ponieważ dane kopii zapasowej nie zonally zreplikowane. Przywracanie w strefach dostępności jest możliwe tylko z punktów odzyskiwania w warstwie magazynu.
 
 ![Wybierz strefę dostępności](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

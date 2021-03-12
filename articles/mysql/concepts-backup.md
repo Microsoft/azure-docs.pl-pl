@@ -6,22 +6,22 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492815"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010358"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
-Azure Database for MySQL automatycznie tworzy kopie zapasowe serwera i przechowuje je w ramach użytkownika skonfigurowanego lokalnie nadmiarowy lub geograficznie nadmiarowy. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości działania, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
+Usługa Azure Database for MySQL automatycznie tworzy kopie zapasowe serwera i przechowuje je w skonfigurowanym przez użytkownika magazynie lokalnie nadmiarowym lub magazynie geograficznie nadmiarowym. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości biznesowej, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
 Azure Database for MySQL wykonuje kopie zapasowe plików danych i dziennika transakcji. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można [skonfigurować ją](howto-restore-server-portal.md#set-backup-configuration) do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
-Te pliki kopii zapasowej nie są uwidaczniane przez użytkownika i nie można ich eksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MySQL. Możesz użyć [mysqldump](concepts-migrate-dump-restore.md) , aby skopiować bazę danych.
+Te pliki kopii zapasowej nie są uwidaczniane dla użytkownika i nie można ich wyeksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MySQL. Możesz użyć [mysqldump](concepts-migrate-dump-restore.md) , aby skopiować bazę danych.
 
 Typ kopii zapasowej i częstotliwość są zależne od magazynu zaplecza serwerów.
 
@@ -86,7 +86,17 @@ Dostępne są dwa typy przywracania:
 - **Przywracanie do punktu w czasie** jest dostępne z opcją nadmiarowości kopii zapasowych i tworzy nowy serwer w tym samym regionie, w którym znajduje się oryginalny serwer korzystający z kombinacji kopii zapasowych dziennika pełnego i transakcji.
 - **Przywracanie geograficzne** jest dostępne tylko wtedy, gdy skonfigurowano serwer dla magazynu geograficznie nadmiarowego i umożliwia przywrócenie serwera do innego regionu przy użyciu najnowszej kopii zapasowej.
 
-Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary bazy danych, rozmiar dziennika transakcji, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Czas odzyskiwania jest zwykle krótszy niż 12 godzin.
+Szacowany czas na odzyskanie serwera zależy od kilku czynników:
+* Rozmiar baz danych.
+* Liczba użytych dzienników transakcji
+* Ilość działań, które muszą być odtwarzane w celu odzyskania do punktu przywracania
+* Przepustowość sieci, jeśli przywracanie jest w innym regionie
+* Liczba współbieżnych żądań przywrócenia przetwarzanych w regionie docelowym
+* Obecność klucza podstawowego w tabelach w bazie danych. Aby przyspieszyć odzyskiwanie, należy rozważyć dodanie klucza podstawowego dla wszystkich tabel w bazie danych. Aby sprawdzić, czy tabele mają klucz podstawowy, można użyć następującego zapytania:
+```sql
+select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+W przypadku dużej lub bardzo aktywnej bazy danych Przywracanie może potrwać kilka godzin. Jeśli w regionie występuje długotrwała awaria, możliwe jest zainicjowanie dużej liczby żądań przywracania geograficznego na potrzeby odzyskiwania po awarii. Jeśli istnieje wiele żądań, można zwiększyć czas odzyskiwania poszczególnych baz danych. Większość przywracania bazy danych kończy się w czasie krótszym niż 12 godzin.
 
 > [!IMPORTANT]
 > Usunięte serwery można przywrócić w ciągu **pięciu dni** po usunięciu kopii zapasowych. Kopia zapasowa bazy danych jest dostępna i przywracana tylko w ramach subskrypcji platformy Azure, w której znajduje się serwer. Aby przywrócić usunięty serwer, zapoznaj się z [opisanymi krokami](howto-restore-dropped-server.md). Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](../azure-resource-manager/management/lock-resources.md).

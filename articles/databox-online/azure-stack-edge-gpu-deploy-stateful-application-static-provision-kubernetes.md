@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520714"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610488"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes przy użyciu PersistentVolume na urządzeniu Azure Stack EDGE Pro
 
@@ -21,7 +21,7 @@ ms.locfileid: "102520714"
 
 W tym artykule pokazano, jak wdrożyć aplikację stanową pojedynczego wystąpienia w programie Kubernetes przy użyciu PersistentVolume (PV) i wdrożenia. Wdrożenie używa `kubectl` poleceń w istniejącym klastrze Kubernetes i wdraża aplikację MySQL. 
 
-Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-storage.md) i znają koncepcje [magazynu Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-storage.md) i znają koncepcje [magazynu Kubernetes](https://kubernetes.io/docs/concepts/storage/). 
 
 Azure Stack EDGE Pro obsługuje również uruchamianie kontenerów usługi Azure SQL Edge i można je wdrożyć w podobny sposób, jak w przypadku programu MySQL. Aby uzyskać więcej informacji, zobacz [Azure SQL Edge](../azure-sql-edge/overview.md).
 
@@ -62,7 +62,8 @@ Możesz przystąpić do wdrażania aplikacji stanowej na urządzeniu, na którym
 Aby statycznie zainicjować obsługę PV, należy utworzyć udział na urządzeniu. Wykonaj następujące kroki, aby zainicjować obsługę PV w udziale SMB. 
 
 > [!NOTE]
-> Konkretny przykład użyty w tym artykule zawierającym instrukcje nie działa z udziałami NFS. Ogólnie rzecz biorąc, udziały NFS mogą być obsługiwane na urządzeniu z systemem Azure Stack Edge przy użyciu aplikacji innych niż bazy danych.
+> - Konkretny przykład użyty w tym artykule zawierającym instrukcje nie działa z udziałami NFS. Ogólnie rzecz biorąc, udziały NFS mogą być obsługiwane na urządzeniu z systemem Azure Stack Edge przy użyciu aplikacji innych niż bazy danych.
+> - Aby wdrożyć aplikacje stanowe korzystające z woluminów magazynu w celu zapewnienia trwałego magazynu, zalecamy korzystanie z programu `StatefulSet` . Ten przykład używa `Deployment` tylko z jedną repliką i jest odpowiedni do tworzenia i testowania. 
 
 1. Wybierz, czy chcesz utworzyć udział graniczny lub udział lokalny krawędzi. Postępuj zgodnie z instrukcjami w temacie [Dodawanie udziału](azure-stack-edge-manage-shares.md#add-a-share) , aby utworzyć udział. Pamiętaj, aby zaznaczyć pole wyboru **Użyj udziału z obliczeniem krawędzi**.
 

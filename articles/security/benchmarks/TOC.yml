@@ -191,6 +191,8 @@
       href: ../../iot-hub/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Key Vault
       href: ../../key-vault/general/security-baseline.md
+    - name: Linia bazowa zabezpieczeń obliczeń systemu Linux
+      href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
     - name: Punkt odniesienia zabezpieczeń usługi Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia usługi Microsoft Cloud App Security
@@ -229,6 +231,8 @@
       href: ../../virtual-wan/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi VPN Gateway
       href: ../../vpn-gateway/security-baseline.md
+    - name: Linia bazowa zabezpieczeń obliczeń systemu Windows
+      href: ../../governance/policy/samples/guest-configuration-baseline-windows.md?toc=/azure/security/benchmarks/toc.json
     - name: Linia bazowa zabezpieczeń systemu Windows Virtual Desktop
       href: ../../virtual-desktop/security-baseline.md
 - name: Zasoby

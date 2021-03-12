@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103995"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199573"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -326,6 +326,8 @@ Na przykład jeśli masz identyfikator URI przekierowania z `msauth://com.micros
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Aby uzyskać więcej informacji o konfigurowaniu aplikacji dla przeglądarki systemowej i pomocy technicznej dla systemu Android 11, zobacz [Aktualizacja manifestu systemu Android dla obsługi przeglądarki](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 Alternatywnie można skonfigurować MSAL, aby powracać do osadzonej przeglądarki, która nie polega na identyfikatorze URI przekierowania:
 
 ```csharp
@@ -344,22 +346,22 @@ Poniżej przedstawiono kilka wskazówek dotyczących unikania problemów podczas
 
     Przykład: w przypadku pierwszej instalacji Microsoft Authenticator a następnie zainstalowania Intune — Portal firmy uwierzytelnianie przez brokera będzie miało miejsce *tylko* w Microsoft Authenticator.
 - **Dzienniki** — w przypadku wystąpienia problemu z uwierzytelnianiem przez brokera Wyświetlanie dzienników brokera może ułatwić zdiagnozowanie przyczyny.
-  - Wyświetlanie dzienników Microsoft Authenticator:
+  - Pobierz dzienniki Microsoft Authenticator:
 
     1. Wybierz przycisk menu w prawym górnym rogu aplikacji.
-    1. Wybierz pozycję **Pomoc**  >  **wysyłanie dzienników**  >  **Wyświetl dzienniki**.
-    1. Wybierz pozycję **Kopiuj wszystko** , aby skopiować dzienniki brokera do schowka urządzenia.
+    1. Wybierz pozycję **Wyślij opinię** z  >  **problemami?**.
+    1. W obszarze **co próbujesz zrobić?** wybierz opcję i Dodaj opis.
+    1. Aby wysłać dzienniki, wybierz strzałkę w prawym górnym rogu aplikacji.
 
-    Najlepszym sposobem na Debugowanie za pomocą tych dzienników jest wysłanie ich pocztą e-mail i wyświetlenie ich na komputerze deweloperskim. Łatwiejsze może okazać się analizowanie dzienników na komputerze, a nie na samym urządzeniu. Możesz również użyć edytora testów w systemie Android, aby zapisać dzienniki jako plik tekstowy, a następnie użyć kabla USB, aby skopiować plik na komputer.
+    Po wysłaniu dzienników zostanie wyświetlone okno dialogowe z IDENTYFIKATORem zdarzenia. Zapisz identyfikator zdarzenia i Uwzględnij go podczas żądania pomocy.
 
-  - Wyświetlanie dzienników Intune — Portal firmy:
+  - Pobierz dzienniki Intune — Portal firmy:
 
-    1. Wybierz przycisk menu w lewym górnym rogu aplikacji
-    1. Wybierz **Ustawienia**  >  **dane diagnostyczne**
-    1. Wybierz opcję **Kopiuj dzienniki** , aby skopiować dzienniki brokera na kartę SD urządzenia.
-    1. Podłącz urządzenie do komputera za pomocą kabla USB, aby wyświetlić dzienniki na komputerze deweloperskim.
+    1. Wybierz przycisk menu w lewym górnym rogu aplikacji.
+    1. Wybierz pozycję **Pomoc**  >  **obsługa poczty e-mail**.
+    1. Aby wysłać dzienniki, wybierz opcję **Przekaż tylko dzienniki**.
 
-    Po umieszczeniu dzienników możesz przeszukiwać je w celu uwierzytelnienia za pomocą identyfikatora korelacji. Identyfikator korelacji jest dołączany do każdego żądania uwierzytelnienia. Aby znaleźć błędy zwrócone przez punkt końcowy uwierzytelniania platformy tożsamości firmy Microsoft, wyszukaj ciąg `AADSTS` .
+    Po wysłaniu dzienników zostanie wyświetlone okno dialogowe z IDENTYFIKATORem zdarzenia. Zapisz identyfikator zdarzenia i Uwzględnij go podczas żądania pomocy.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/12/2021
+ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487152"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232747"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
-> Typ zapytania semantycznego jest w publicznej wersji zapoznawczej, dostępny za pomocą interfejsu API REST i Azure Portal. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Podczas początkowego uruchamiania podglądu nie jest naliczana opłata za wyszukiwanie semantyczne. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
+> Typ zapytania semantycznego jest w publicznej wersji zapoznawczej, dostępny za pomocą interfejsu API REST i Azure Portal. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
-W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania, które korzysta z klasyfikacji semantycznej i tworzy podpisy semantyczne i odpowiedzi.
+W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania, które używa klasyfikacji semantycznej. Żądanie zwróci podpisy semantyczne i opcjonalne [odpowiedzi semantyczne](semantic-answers.md), z wyróżnieniami na najbardziej odpowiednie terminy i frazy.
 
-Zapytania semantyczne najlepiej sprawdzają się w przypadku indeksów wyszukiwania, które są zbudowane z zawartości z dużą ilością tekstu, takich jak pliki PDF lub dokumenty z dużymi fragmentami tekstu.
+Zarówno napisy, jak i odpowiedzi są wyodrębniane Verbatim z tekstu w dokumencie wyszukiwania. Podsystem semantyczny określa, jaka zawartość ma cechy podpisu lub odpowiedzi, ale nie tworzy nowych zdań ani fraz. Z tego powodu zawartość obejmująca wyjaśnienia lub definicje działają najlepiej w przypadku wyszukiwania semantycznego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,13 +36,13 @@ Zapytania semantyczne najlepiej sprawdzają się w przypadku indeksów wyszukiwa
 
   Klient wyszukiwania musi obsługiwać interfejsy API REST w wersji zapoznawczej na żądanie zapytania. Możesz użyć programu [Poster](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)lub kodu, który został zmodyfikowany, aby zapewnić wywołania REST do interfejsów API w wersji zapoznawczej. Możesz również użyć [Eksploratora wyszukiwania](search-explorer.md) w Azure Portal, aby przesłać zapytanie semantyczne.
 
-+ Żądanie [wyszukiwania dokumentów](/rest/api/searchservice/preview-api/search-documents) z opcją semantyczną i innymi parametrami opisanymi w tym artykule.
++ [Żądanie zapytania](/rest/api/searchservice/preview-api/search-documents) musi zawierać opcję semantyczną i inne parametry opisane w tym artykule.
 
 ## <a name="whats-a-semantic-query"></a>Co to jest zapytanie semantyczne?
 
 W Wyszukiwanie poznawcze zapytanie jest sparametryzowanym żądaniem, które określa przetwarzanie zapytań i kształt odpowiedzi. *Zapytanie semantyczne* dodaje parametry, które wywołują semantyczny model klasyfikacji, który może ocenić kontekst i znaczenie pasujących wyników, podwyższyć poziom dopasowania do góry i zwrócić semantykę odpowiedzi i podpisy.
 
-Poniższe żądanie jest reprezentatywne dla podstawowej kwerendy semantycznej (bez odpowiedzi).
+Poniższe żądanie jest reprezentatywne dla minimalnej kwerendy semantycznej (bez odpowiedzi).
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -54,15 +54,25 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Podobnie jak w przypadku wszystkich zapytań w Wyszukiwanie poznawcze, żądanie odwołuje się do kolekcji dokumentów jednego indeksu. Co więcej, zapytanie semantyczne przeprowadzi tę samą sekwencję analizy, analizy i skanowania jako zapytanie niesemantyczne. Różnica polega na tym, jak istotność jest obliczana. Zgodnie z definicją w tej wersji zapoznawczej, zapytanie semantyczne jest jednym, którego *wyniki* są ponownie przetwarzane przy użyciu zaawansowanych algorytmów, co pozwala na wykorzystanie dopasowań uważanych za najbardziej odpowiednie przez rangę semantyczną, a nie wyniki przypisane przez domyślny algorytm klasyfikacji podobieństwa. 
+Podobnie jak w przypadku wszystkich zapytań w Wyszukiwanie poznawcze, żądanie odwołuje się do kolekcji dokumentów jednego indeksu. Co więcej, zapytanie semantyczne przeprowadzi tę samą sekwencję analizy, analizy, skanowania i oceny jako zapytania niesemantycznego. 
 
-Tylko górne dopasowania 50 z wyników początkowych mogą być semantycznie klasyfikowane i wszystkie zawierają podpisy w odpowiedzi. Opcjonalnie można określić **`answer`** parametr w żądaniu w celu wyodrębnienia potencjalnej odpowiedzi. Ten model przedstawia maksymalnie pięć potencjalnych odpowiedzi do zapytania, które można wybrać w górnej części strony wyszukiwania.
+Różnica polega na znaczeniu i ocenie. Zgodnie z definicją w tej wersji zapoznawczej, zapytanie semantyczne jest jednym, którego *wyniki* są ponownie klasyfikowane przy użyciu modelu języka semantycznego, co pozwala na wykorzystanie dopasowań uznawanych za najbardziej odpowiednie przez rangę semantyczną, a nie wyniki przypisane przez domyślny algorytm klasyfikacji podobieństwa.
 
-## <a name="query-using-rest-apis"></a>Zapytanie przy użyciu interfejsów API REST
+Tylko górne dopasowania 50 z wyników początkowych mogą być semantycznie klasyfikowane i wszystkie zawierają podpisy w odpowiedzi. Opcjonalnie można określić **`answer`** parametr w żądaniu w celu wyodrębnienia potencjalnej odpowiedzi. Aby uzyskać więcej informacji, zobacz [odpowiedzi semantyczne](semantic-answers.md).
 
-Pełną specyfikację interfejsu API REST można znaleźć w [dokumencie wyszukiwania (wersja zapoznawcza)](/rest/api/searchservice/preview-api/search-documents).
+## <a name="query-with-search-explorer"></a>Wykonywanie zapytań przy użyciu Eksploratora wyszukiwania
 
-Zapytania semantyczne zapewniają automatyczne wyróżnianie napisów. Jeśli chcesz, aby odpowiedź zawierała odpowiedzi, możesz dodać opcjonalny **`answer`** parametr do żądania. Ten parametr, a także konstrukcja samego ciągu zapytania, spowoduje wygenerowanie odpowiedzi w odpowiedzi.
+[Eksplorator wyszukiwania](search-explorer.md) został zaktualizowany w celu uwzględnienia opcji zapytań semantycznych. Te opcje staną się widoczne w portalu po uzyskaniu dostępu do wersji zapoznawczej. Opcje zapytania umożliwiają włączenie zapytań semantycznych, searchFields i korekcji pisowni.
+
+Wymagane parametry zapytania można także wkleić do ciągu zapytania.
+
+:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Opcje zapytania w Eksploratorze wyszukiwania" border="true":::
+
+## <a name="query-using-rest"></a>Zapytanie przy użyciu REST
+
+Użyj [dokumentów wyszukiwania (wersja zapoznawcza REST)](/rest/api/searchservice/preview-api/search-documents) , aby programowo sformułować żądanie.
+
+Odpowiedź zawiera podpisy i wyróżnianie automatycznie. Jeśli chcesz, aby odpowiedź zawierała korekcję pisowni lub odpowiedzi, **`speller`** w żądaniu Dodaj opcjonalny lub **`answers`** parametr.
 
 Poniższy przykład używa hoteli-Sample-index do tworzenia żądania zapytania semantycznego z odpowiedziami semantycznymi i napisami:
 
@@ -81,6 +91,16 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "count": true
 }
 ```
+
+Poniższa tabela zawiera podsumowanie parametrów zapytania używanych w kwerendzie semantycznej, dzięki czemu można je zobaczyć całościowo. Aby uzyskać listę wszystkich parametrów, zobacz [Wyszukiwanie dokumentów (wersja zapoznawcza REST)](/rest/api/searchservice/preview-api/search-documents)
+
+| Parametr | Typ | Opis |
+|-----------|-------|-------------|
+| Znak | Ciąg | Prawidłowe wartości to proste, pełne i semantyczne. Dla zapytań semantycznych jest wymagana wartość "semantyka". |
+| queryLanguage | Ciąg | Wymagane dla zapytań semantycznych. Obecnie jest zaimplementowana tylko wartość "en-us". |
+| searchFields | Ciąg | Rozdzielana przecinkami lista pól do przeszukiwania. Opcjonalne, ale zalecane. Określa pola, w których występuje Klasyfikacja semantyczna. </br></br>W przeciwieństwie do prostych i pełnych typów zapytań, kolejność, w której pola są wyświetlane, określa pierwszeństwo. Aby uzyskać więcej informacji na temat sposobu użycia, zobacz [krok 2: Set searchFields](#searchfields). |
+| sprawdzania pisowni | Ciąg | Opcjonalny parametr, niecharakterystyczny dla zapytań semantycznych, który poprawia błędne pisownię warunków przed osiągnięciem przez nich aparatu wyszukiwania. Aby uzyskać więcej informacji, zobacz [Dodawanie poprawek pisowni do zapytań](speller-how-to-add.md). |
+| uzyskiwan |Ciąg | Parametry opcjonalne, które określają, czy odpowiedzi semantyczne są uwzględniane w wyniku. Obecnie tylko "Wyodrębnianie" jest implementowane. Odpowiedzi można skonfigurować tak, aby zwracały maksymalnie pięć. Wartość domyślna to 1. Ten przykład przedstawia liczbę trzech odpowiedzi: "Extract \| count3" ". Aby uzyskać więcej informacji, zobacz [Zwróć odpowiedzi semantyczne](semantic-answers.md).|
 
 ### <a name="formulate-the-request"></a>Formułowanie żądania
 
@@ -109,7 +129,7 @@ Ten parametr jest opcjonalny, ponieważ nie ma żadnego błędu, jeśli go opusz
 
 Parametr searchFields służy do identyfikowania fragmentów, które mają zostać ocenione pod kątem "podobieństwa semantycznego" do zapytania. W przypadku wersji zapoznawczej nie zaleca się pozostawienia searchFields pustej, ponieważ model wymaga wskazówki co do tego, jakie pola są najważniejsze do przetworzenia.
 
-Kolejność searchFields jest krytyczna. Jeśli używasz już searchFields w istniejących prostych lub pełnych zapytaniach, upewnij się, że ten parametr jest ponownie odwiedzany podczas przełączania do typu zapytania semantycznego.
+Kolejność searchFields jest krytyczna. Jeśli już korzystasz z usługi searchFields w istniejących prostych lub pełnych zapytaniach, upewnij się, że ten parametr jest ponownie sprawdzany w celu sprawdzenia kolejności pól podczas przełączania do typu zapytania semantycznego.
 
 Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po określeniu co najmniej dwóch searchFields:
 
@@ -117,11 +137,11 @@ Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po 
 
 + Pierwsze pole powinno być zawsze zwięzłe (takie jak tytuł lub nazwa), najlepiej pod 25 słowami.
 
-+ Jeśli indeks zawiera pole adresu URL, które jest typu tekst (przez człowieka, np `www.domain.com/name-of-the-document-and-other-details` ., a nie z fokusem maszynowym, na przykład `www.domain.com/?id=23463&param=eis` ), umieść je na liście (lub jako pierwsze, jeśli nie ma zwięzłego pola tytułu).
++ Jeśli indeks zawiera pole adresu URL, które jest typu tekstowego (np `www.domain.com/name-of-the-document-and-other-details` ., a nie na stanowisko, na przykład `www.domain.com/?id=23463&param=eis` ), umieść je na liście (lub najpierw Jeśli nie ma zwięzłego pola title).
 
 + Obserwuj te pola według opisowych pól, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu.
 
-Jeśli określone jest tylko jedno pole, Użyj pól opisowych, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość.
+Jeśli określone jest tylko jedno pole, użyj pola opisowego, w którym można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość. Aby zapewnić czasowe przetwarzanie, tylko pierwszych 20 000 tokenów zbiorczej zawartości searchFields poddawanej ocenie semantycznej i klasyfikacji.
 
 #### <a name="step-3-remove-orderby-clauses"></a>Krok 3. Usuwanie klauzul orderBy
 
@@ -129,15 +149,7 @@ Usuń wszystkie klauzule orderBy, jeśli istnieją one w istniejącym żądaniu.
 
 #### <a name="step-4-add-answers"></a>Krok 4. Dodawanie odpowiedzi
 
-Opcjonalnie możesz dodać "odpowiedzi", jeśli chcesz dołączyć dodatkowe przetwarzanie, które zapewnia odpowiedź. Odpowiedzi (i podpisy) są formułowane ze fragmentów znalezionych w polach wymienionych w searchFields. Pamiętaj, aby uwzględnić pola rozbudowane zawartości w programie searchFields, aby uzyskać najlepsze odpowiedzi i podpisy w odpowiedzi.
-
-Istnieją jawne i niejawne warunki generujące odpowiedzi. 
-
-+ Jawne warunki obejmują dodanie "odpowiedzi = Extract". Dodatkowo, aby określić liczbę odpowiedzi zwracanych w odpowiedzi ogólnej, należy dodać "Count", po którym następuje liczba: `"answers=extractive|count=3"` .  Wartość domyślna to 1. Wartość maksymalna to pięć.
-
-+ Niejawne warunki obejmują konstruowanie ciągu zapytania, który umożliwia przełączenie się do odpowiedzi. Zapytanie złożone z "w jakim hotelu ma zieloną sali", prawdopodobnie jest "odpowiedzią" niż zapytanie złożone z instrukcji takiej jak "Hotel z ozdobną częścią". Zgodnie z oczekiwaniami zapytanie nie może być nieokreślone ani mieć wartości null.
-
-Ważną kwestią jest to, że jeśli zapytanie nie przypomina pytania, przetwarzanie odpowiedzi jest pomijane, nawet jeśli parametr "odpowiedzi" jest ustawiony.
+Opcjonalnie możesz dodać "odpowiedzi", jeśli chcesz dołączyć dodatkowe przetwarzanie, które zapewnia odpowiedź. Odpowiedzi (i podpisy) są wyodrębniane z fragmentów znalezionych w polach wymienionych w searchFields. Pamiętaj, aby uwzględnić pola rozbudowane zawartości w programie searchFields, aby uzyskać najlepsze odpowiedzi w odpowiedzi. Aby uzyskać więcej informacji, zobacz [jak zwracać semantykę odpowiedzi](semantic-answers.md).
 
 #### <a name="step-5-add-other-parameters"></a>Krok 5. Dodawanie innych parametrów
 
@@ -145,129 +157,33 @@ Ustaw wszystkie inne parametry, które mają być używane w żądaniu. Parametr
 
 Opcjonalnie można dostosować styl podświetlania zastosowany do napisów. Podpisy mają wyróżnione formatowanie dla fragmentów klucza w dokumencie, który podsumowuje odpowiedź. Wartość domyślna to `<em>`. Jeśli chcesz określić typ formatowania (na przykład żółte tło), możesz ustawić highlightPreTag i highlightPostTag.
 
-### <a name="review-the-response"></a>Przejrzyj odpowiedź
+## <a name="evaluate-the-response"></a>Ocenianie odpowiedzi
 
-Odpowiedź na powyższe zapytanie zwraca następujące dopasowanie jako pierwsze pobranie. Podpisy są zwracane automatycznie, z zwykłym tekstem i wyróżnionymi wersjami. Aby uzyskać więcej informacji na temat odpowiedzi semantycznych, zobacz [Klasyfikacja i odpowiedzi semantyczne](semantic-how-to-query-response.md).
+Podobnie jak w przypadku wszystkich zapytań, odpowiedź składa się ze wszystkich pól oznaczonych jako możliwy do pobierania lub tylko te pola wymienione w parametrze SELECT. Zawiera on oryginalny wynik istotności i może również obejmować licznik lub wyniki wsadowe w zależności od sposobu sformułowania żądania.
+
+W kwerendzie semantycznej odpowiedź zawiera dodatkowe elementy: nowy, semantycznie ranga Ocena istotności, napisy w postaci zwykłego tekstu i z wyróżnieniami oraz opcjonalnie odpowiedź.
+
+W aplikacji klienckiej można tworzyć struktury strony wyszukiwania w taki sposób, aby zawierała podpis jako opis dopasowania, a nie całej zawartości określonego pola. Jest to przydatne, gdy pojedyncze pola są zbyt gęste dla strony wyników wyszukiwania.
+
+Odpowiedź na powyższe przykładowe zapytanie zwraca następujące dopasowanie jako pierwsze pobranie. Podpisy są zwracane automatycznie, z zwykłym tekstem i wyróżnionymi wersjami. Odpowiedzi są pomijane z przykładu, ponieważ nie można określić dla tego konkretnego zapytania i korpus.
 
 ```json
-"@odata.count": 29,
+"@odata.count": 35,
+"@search.answers": [],
 "value": [
     {
-        "@search.score": 1.8920634,
-        "@search.rerankerScore": 1.1091284966096282,
+        "@search.score": 1.8810667,
+        "@search.rerankerScore": 1.1446577133610845,
         "@search.captions": [
             {
-                "text": "Oceanside Resort. Budget. New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-                "highlights": "<strong>Oceanside Resort.</strong> Budget. New Luxury Hotel. Be the first to stay.<strong> Bay views</strong> from every room, location near the pier, rooftop pool, waterfront dining & more."
+                "text": "Oceanside Resort. Luxury. New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+                "highlights": "<strong>Oceanside Resort.</strong> Luxury. New Luxury Hotel. Be the first to stay.<strong> Bay</strong> views from every room, location near the pier, rooftop pool, waterfront dining & more."
             }
         ],
-        "HotelId": "18",
         "HotelName": "Oceanside Resort",
-        "Description": "New Luxury Hotel.  Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-        "Category": "Budget"
+        "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+        "Category": "Luxury"
     },
-```
-
-### <a name="parameters-used-in-a-semantic-query"></a>Parametry używane w zapytaniach semantycznych
-
-Poniższa tabela zawiera podsumowanie parametrów zapytania używanych w kwerendzie semantycznej, dzięki czemu można je zobaczyć całościowo. Aby uzyskać listę wszystkich parametrów, zobacz [Wyszukiwanie dokumentów (wersja zapoznawcza REST)](/rest/api/searchservice/preview-api/search-documents)
-
-| Parametr | Typ | Opis |
-|-----------|-------|-------------|
-| Znak | Ciąg | Prawidłowe wartości to proste, pełne i semantyczne. Dla zapytań semantycznych jest wymagana wartość "semantyka". |
-| queryLanguage | Ciąg | Wymagane dla zapytań semantycznych. Obecnie jest zaimplementowana tylko wartość "en-us". |
-| searchFields | Ciąg | Rozdzielana przecinkami lista pól do przeszukiwania. Opcjonalne, ale zalecane. Określa pola, w których występuje Klasyfikacja semantyczna. </br></br>W przeciwieństwie do prostych i pełnych typów zapytań, kolejność, w której pola są wyświetlane, określa pierwszeństwo.|
-| uzyskiwan |Ciąg | Pole opcjonalne, aby określić, czy w wyniku mają być uwzględniane semantyki odpowiedzi. Obecnie tylko "Wyodrębnianie" jest implementowane. Odpowiedzi można skonfigurować tak, aby zwracały maksymalnie pięć. Wartość domyślna to 1. Ten przykład przedstawia liczbę trzech odpowiedzi: "Extract \| count3" ". |
-
-## <a name="query-with-search-explorer"></a>Wykonywanie zapytań przy użyciu Eksploratora wyszukiwania
-
-Następujące zapytanie odwołuje się do wbudowanego przykładu hoteli w hotelach, przy użyciu interfejsu API w wersji 2020-06-30-Preview i działa w Eksploratorze wyszukiwania. `$select`Klauzula ogranicza wyniki do zaledwie kilku pól, ułatwiając skanowanie w pełnym formacie JSON w Eksploratorze wyszukiwania.
-
-### <a name="with-querytypesemantic"></a>Z semantyką querytype =
-
-```json
-search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
-```
-
-Poniżej przedstawiono kilka pierwszych wyników.
-
-```json
-{
-    "@search.score": 0.38330218,
-    "@search.rerankerScore": 0.9754053303040564,
-    "HotelId": "18",
-    "HotelName": "Oceanside Resort",
-    "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-    "Tags": [
-        "view",
-        "laundry service",
-        "air conditioning"
-    ]
-},
-{
-    "@search.score": 1.8920634,
-    "@search.rerankerScore": 0.8829904259182513,
-    "HotelId": "36",
-    "HotelName": "Pelham Hotel",
-    "Description": "Stunning Downtown Hotel with indoor Pool. Ideally located close to theatres, museums and the convention center. Indoor Pool and Sauna and fitness centre. Popular Bar & Restaurant",
-    "Tags": [
-        "view",
-        "pool",
-        "24-hour front desk service"
-    ]
-},
-{
-    "@search.score": 0.95706713,
-    "@search.rerankerScore": 0.8538530203513801,
-    "HotelId": "22",
-    "HotelName": "Stone Lion Inn",
-    "Description": "Full breakfast buffet for 2 for only $1.  Excited to show off our room upgrades, faster high speed WiFi, updated corridors & meeting space. Come relax and enjoy your stay.",
-    "Tags": [
-        "laundry service",
-        "air conditioning",
-        "restaurant"
-    ]
-},
-```
-
-### <a name="with-querytype-default"></a>Z querytype (wartość domyślna)
-
-W celu porównania Uruchom takie samo zapytanie jak powyżej, usuwając `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags` . Zwróć uwagę, że nie ma żadnych `"@search.rerankerScore"` w tych wynikach i że różne Hotele pojawiają się w trzech pierwszych pozycjach.
-
-```json
-{
-    "@search.score": 8.633856,
-    "HotelId": "3",
-    "HotelName": "Triple Landscape Hotel",
-    "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-    "Tags": [
-        "air conditioning",
-        "bar",
-        "continental breakfast"
-    ]
-},
-{
-    "@search.score": 6.407289,
-    "HotelId": "40",
-    "HotelName": "Trails End Motel",
-    "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport.",
-    "Tags": [
-        "continental breakfast",
-        "view",
-        "view"
-    ]
-},
-{
-    "@search.score": 5.843788,
-    "HotelId": "14",
-    "HotelName": "Twin Vertex Hotel",
-    "Description": "New experience in the Making.  Be the first to experience the luxury of the Twin Vertex. Reserve one of our newly-renovated guest rooms today.",
-    "Tags": [
-        "bar",
-        "restaurant",
-        "air conditioning"
-    ]
-},
 ```
 
 ## <a name="next-steps"></a>Następne kroki
