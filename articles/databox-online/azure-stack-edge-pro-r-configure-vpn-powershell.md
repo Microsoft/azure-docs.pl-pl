@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 2139080367cdce9a5f018afab0970a7bd0e7504c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467308"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634179"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Skonfiguruj sieć VPN na urządzeniu Azure Stack EDGE Pro urządzenie R za pośrednictwem Azure PowerShell
 
@@ -165,7 +165,7 @@ Następnie skonfigurujesz sieć VPN w lokalnym interfejsie użytkownika sieci We
 
 ## <a name="validate-data-transfer-through-vpn"></a>Weryfikowanie transferu danych za pośrednictwem sieci VPN
 
-Aby upewnić się, że sieć VPN działa, skopiuj dane do udziału SMB. Wykonaj kroki opisane w temacie [Dodawanie udziału](azure-stack-edge-j-series-manage-shares.md#add-a-share) na urządzeniu Azure Stack EDGE Pro R. 
+Aby upewnić się, że sieć VPN działa, skopiuj dane do udziału SMB. Wykonaj kroki opisane w temacie [Dodawanie udziału](azure-stack-edge-gpu-manage-shares.md#add-a-share) na urządzeniu Azure Stack EDGE Pro R. 
 
 1. Skopiuj plik, na przykład \data\pictures\waterfall.jpg do udziału SMB, który został zainstalowany w systemie klienta. 
 2. Sprawdź, czy ten plik jest wyświetlany na koncie magazynu w chmurze.

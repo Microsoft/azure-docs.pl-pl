@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199370"
+ms.locfileid: "103225629"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -94,7 +94,7 @@ Pula zaplecza modułu równoważenia obciążenia między regionami zawiera co n
 
 Dodaj istniejące wdrożenia modułu równoważenia obciążenia do międzyregionowego modułu równoważenia obciążenia w przypadku wdrożenia o wysokiej dostępności.
 
-W **regionie głównym** jest wdrażany moduł równoważenia obciążenia między regionami. Ten region nie ma wpływu na sposób, w jaki ruch będzie kierowany. W przypadku przekroczenia regionu macierzystego nie ma to żadnego wpływu na przepływ ruchu.
+**Region domowy** to miejsce, w którym wdrożono moduł równoważenia obciążenia między regionami lub publiczny adres IP warstwy globalnej. Ten region nie ma wpływu na sposób, w jaki ruch będzie kierowany. W przypadku przekroczenia regionu macierzystego nie ma to żadnego wpływu na przepływ ruchu.
 
 ### <a name="home-regions"></a>Regiony domowe
 * Wschodnie stany USA 2
@@ -106,7 +106,7 @@ W **regionie głównym** jest wdrażany moduł równoważenia obciążenia międ
 * Azja Wschodnia
 
 > [!NOTE]
-> Moduł równoważenia obciążenia między regionami można wdrożyć tylko w jednym z siedmiu regionów powyżej.
+> Moduł równoważenia obciążenia między regionami lub publiczny adres IP w warstwie globalnej można wdrożyć tylko w jednym z siedmiu regionów powyżej.
 
 **Region uczestniczący** to miejsce, w którym dostępny jest globalny publiczny adres IP usługi równoważenia obciążenia. 
 

@@ -8,14 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 11279c552cb599c24b72473d6574175450ca7ab0
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106301"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200852"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Tworzenie i Inicjowanie obsługi symulowanego urządzenia IoT Edge przy użyciu wirtualnego modułu TPM w systemie Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Urządzenia Azure IoT Edge mogą być obsługiwane przy użyciu [usługi Device Provisioning](../iot-dps/index.yml) , podobnie jak dla urządzeń, które nie są włączone. Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
 
@@ -24,7 +26,7 @@ Usługa DPS obsługuje zaświadczenie klucza symetrycznego dla IoT Edge urządze
 W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na symulowanym urządzeniu IoT Edge, wykonując następujące czynności:
 
 * Utwórz wystąpienie IoT Hub Device Provisioning Service (DPS).
-* Utwórz symulowane urządzenie na maszynie z systemem Windows z symulowanym moduł TPM (TPM) na potrzeby zabezpieczeń sprzętowych.
+* Utwórz symulowane urządzenie na maszynie z systemem Windows z symulowanym Trusted Platform Module (TPM) na potrzeby zabezpieczeń sprzętowych.
 * Utwórz rejestrację indywidualną dla urządzenia.
 * Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz urządzenie z IoT Hub.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430568"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199789"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Zarządzanie wystąpieniami w Durable Functions na platformie Azure
 
@@ -202,6 +202,9 @@ Metoda zwraca obiekt o następujących właściwościach:
   * **Niepowodzenie**: wystąpienie nie powiodło się z powodu błędu.
   * **Przerwano**: wystąpienie zostało zatrzymane w sposób nieoczekiwany.
 * **Historia**: historia wykonywania aranżacji. To pole jest wypełniane tylko wtedy `showHistory` , gdy jest ustawione na `true` .
+
+> [!NOTE]
+> Program Orchestrator nie jest oznaczony jako `Completed` do momentu zakończenia wszystkich zaplanowanych zadań _, a_ koordynator zwrócił. Innymi słowy, nie jest wystarczające, aby program Orchestrator osiągnął jego instrukcję, aby `return` można było go oznaczyć jako `Completed` . Jest to szczególnie istotne w przypadku przypadków `WhenAny` użycia; te koordynatorzy często `return` przed wykonaniem wszystkich zaplanowanych zadań.
 
 Ta metoda zwraca `null` (.NET), `undefined` (JavaScript) lub `None` (Python), jeśli wystąpienie nie istnieje.
 

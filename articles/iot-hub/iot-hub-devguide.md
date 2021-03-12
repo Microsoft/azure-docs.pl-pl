@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735935"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009202"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Przewodnik dla deweloperów IoT Hub platformy Azure
 
@@ -56,7 +56,7 @@ Ten przewodnik dla deweloperów IoT Hub obejmuje następujące artykuły:
 
 * [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md) opisuje model zabezpieczeń używany do udzielania dostępu do IoT Hub funkcji dla urządzeń i składników w chmurze. Artykuł zawiera informacje na temat używania tokenów i certyfikatów X. 509 oraz szczegóły uprawnień, które można udzielić.
 
-* [Aby synchronizować stan i konfiguracje, należy użyć bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md) . *device twin* W tym artykule opisano również funkcje udostępniane przez bliźniaczych reprezentacji urządzenia, takie jak Synchronizowanie urządzenia z jego sznurem. Artykuł zawiera informacje o danych przechowywanych w ramach sznurka urządzenia.
+* [Aby synchronizować stan i konfiguracje, należy użyć bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md) .  W tym artykule opisano również funkcje udostępniane przez bliźniaczych reprezentacji urządzenia, takie jak Synchronizowanie urządzenia z jego sznurem. Artykuł zawiera informacje o danych przechowywanych w ramach sznurka urządzenia.
 
 * [Wywoływanie metody bezpośredniej na urządzeniu](iot-hub-devguide-direct-methods.md) opisuje cykl życia metody bezpośredniej. W tym artykule opisano sposób wywoływania metod na urządzeniu z poziomu aplikacji zaplecza i obsługi metody bezpośredniej na urządzeniu.
 
@@ -75,5 +75,3 @@ Ten przewodnik dla deweloperów IoT Hub obejmuje następujące artykuły:
 * [Zestawy SDK dla urządzeń i usług zawierają](iot-hub-devguide-sdks.md) listę zestawów SDK usługi Azure IoT do tworzenia aplikacji dla urządzeń i usług, które współpracują z Centrum IoT. Artykuł zawiera linki do dokumentacji interfejsu API online.
 
 * [Dokumentacja-IoT Hub obsługa MQTT](iot-hub-mqtt-support.md) zawiera szczegółowe informacje dotyczące sposobu, w jaki IoT Hub obsługuje protokół MQTT. W tym artykule opisano obsługę protokołu MQTT wbudowanego w zestawach SDK usługi Azure IoT i podano informacje na temat bezpośredniego używania protokołu MQTT.
-
-* [Glossary](iot-hub-devguide-glossary.md) Utwórz listę typowych warunków związanych z IoT Hub.

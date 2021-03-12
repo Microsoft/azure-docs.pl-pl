@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348300"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197471"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Konfigurowanie aplikacji Microsoft Authenticator jako metody weryfikacji
 
@@ -46,10 +46,10 @@ Metody informacji zabezpieczających są używane do weryfikacji zabezpieczeń d
 
 W zależności od ustawień organizacji może być możliwe użycie aplikacji uwierzytelniania jako jednej z metod informacji zabezpieczających. Nie jest wymagane korzystanie z aplikacji Microsoft Authenticator i można wybrać inną aplikację podczas procesu konfiguracji. Jednak w tym artykule jest stosowana aplikacja Microsoft Authenticator.
 
->[!Important]
-> Jeśli masz Instalatora Microsoft Authenticator aplikacji na 5 różnych urządzeniach lub 5 tokenów sprzętowych, nie będzie można skonfigurować szóstej i zobaczyć następujący komunikat o błędzie.
+> [!IMPORTANT]
+> Jeśli aplikacja Microsoft Authenticator została skonfigurowana na pięciu różnych urządzeniach lub użyto pięciu tokenów sprzętowych, nie będzie można skonfigurować szóstej i może zostać wyświetlony następujący komunikat o błędzie:
 > 
-> **Nie można skonfigurować Microsoft Authenticator, ponieważ masz już pięć aplikacji lub tokenów sprzętowych uwierzytelniania. Skontaktuj się z administratorem, aby usunąć jedną z aplikacji uwierzytelniania lub tokenów sprzętowych.**
+> **Nie można skonfigurować Microsoft Authenticator, ponieważ masz już pięć aplikacji uwierzytelniania lub tokenów sprzętowych. Skontaktuj się z administratorem, aby usunąć jedną z aplikacji uwierzytelniania lub tokenów sprzętowych.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Aby skonfigurować aplikację Microsoft Authenticator
 
@@ -57,7 +57,7 @@ W zależności od ustawień organizacji może być możliwe użycie aplikacji uw
 
     ![Strona mój profil zawierająca wyróżnione linki do informacji zabezpieczających](media/security-info/securityinfo-myprofile-page.png)
 
-2. W okienku nawigacji po lewej stronie wybierz pozycję **informacje zabezpieczające** lub link w bloku **informacje zabezpieczające** , a następnie wybierz pozycję **Dodaj metodę** ze strony **informacje zabezpieczające** .
+2. W menu po lewej stronie wybierz pozycję **informacje zabezpieczające** lub Użyj linku w okienku **informacje zabezpieczające** . Jeśli użytkownik jest już zarejestrowany, zostanie wyświetlony monit o weryfikację dwuskładnikową. Następnie wybierz pozycję **Dodaj metodę** w okienku **informacje zabezpieczające** .
 
     ![Strona z informacjami o zabezpieczeniach z wyróżnioną opcją dodawania metody](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

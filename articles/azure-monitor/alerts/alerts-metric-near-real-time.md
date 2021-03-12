@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: c282e6890d56fe047b319f72e05cdc97de76cfcf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/11/2021
+ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038190"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016104"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -36,6 +36,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Automation/automationAccounts | Tak| Nie | [Konta automatyzacji](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. Automatyczna synchronizacja/privateClouds | Nie | Nie | [Rozwiązanie Azure VMware](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Tak | Nie | [Konta usługi Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft. BotService/botServices | Tak | Nie | [Usługi bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft. cache/Redis | Tak | Tak | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft. ClassicCompute/domainNames/gniazda/role | Nie | Nie | [Cloud Services klasyczny](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft. ClassicCompute/virtualMachines | Nie | Nie | [Virtual Machines klasyczny](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
@@ -45,6 +46,8 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. ClassicStorage/storageAccounts/queueServices | Tak | Nie | [Konta magazynu (klasyczne) — kolejki](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft. ClassicStorage/storageAccounts/tableServices | Tak | Nie | [Konta magazynu (klasyczne) — tabele](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft. CognitiveServices/konta | Tak | Nie | [Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft. COMPUTE/cloudServices | Tak | Nie |  [Usługi w chmurze](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
+|Microsoft. COMPUTE/cloudServices/role | Tak | Nie |  [Role usługi w chmurze](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Tak | Tak<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Zestawy skalowania maszyn wirtualnych](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft. ContainerInstance/containerGroups | Tak| Nie | [Grupy kontenerów](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
@@ -56,9 +59,10 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. dataudział/konta | Tak | Nie | [Udziały danych](../essentials/metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft. DBforMariaDB/serwery | Nie | Nie | [Baza danych dla MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft. DBforMySQL/serwery | Nie | Nie |[Baza danych dla programu MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | [DB for PostgreSQL (serwery elastyczne)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft. DBforPostgreSQL/serverGroupsv2 | Tak | Nie | DB for PostgreSQL (skalowanie) |
 |Microsoft. DBforPostgreSQL/serwery | Nie | Nie | [Baza danych dla PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft. DBforPostgreSQL/serversv2 | Nie | Nie | [DB for PostgreSQL v2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | [DB for PostgreSQL (serwery elastyczne)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft. Devices/IotHubs | Tak | Nie |[IoT Hub](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft. Devices/provisioningServices| Tak | Nie | [Usługi Device Provisioning](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | [Digital Twins](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
@@ -75,6 +79,8 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Logic/integrationServiceEnvironments | Tak | Nie |[Środowiska usługi integracji](../essentials/metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft. Logic/przepływy pracy | Nie | Nie |[Logic Apps](../essentials/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft. MachineLearningServices/obszary robocze | Tak | Nie | [Usługa Machine Learning](../essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft. MachineLearningServices/Workspaces/onlineEndpoints | Tak | Nie | Machine Learning — punkty końcowe |
+|Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Deployments | Tak | Nie | Wdrożenia punktów końcowych Machine Learning |
 |Microsoft. Maps/konta | Tak | Nie | [Mapuje konta](../essentials/metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft. Media/MediaServices | Nie | Nie | [Media Services](../essentials/metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft. Media/MediaServices/streamingEndpoints | Tak | Nie | [Media Services punkty końcowe przesyłania strumieniowego](../essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 68267cdedd2f0b64549791866e8750cf42928ab4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181758"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201243"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL
 
@@ -52,7 +52,7 @@ Obsługa tej funkcji jest przydatna w procesach automatyzacji aplikacji usługi 
 
 Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Synapse w imieniu aplikacji usługi Azure AD, wymagane są następujące ustawienia:
 
-1. Przypisz tożsamość serwera. Przypisana tożsamość serwera reprezentuje tożsamość systemu zarządzanego (MSI). Obecnie tożsamość serwera usługi Azure SQL nie obsługuje tożsamości zarządzanej przez użytkownika (UMI).
+1. Przypisz tożsamość serwera. Przypisana tożsamość serwera reprezentuje tożsamość usługi zarządzanej (MSI). Obecnie tożsamość serwera usługi Azure SQL nie obsługuje tożsamości zarządzanej przez użytkownika (UMI).
     - Dla nowego serwera logicznego SQL platformy Azure wykonaj następujące polecenie programu PowerShell:
     
     ```powershell

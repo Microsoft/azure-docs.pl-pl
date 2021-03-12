@@ -14,20 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390644"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614415"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawianie systemu operacyjnego Windows w klastrze Service Fabric
 
-> [!IMPORTANT]
-> Od 30 kwietnia 2019, aplikacja aranżacji poprawek w wersji 1,2. * nie jest już obsługiwana. Upewnij się, że uaktualniono do najnowszej wersji. Uaktualnienia maszyny wirtualnej, w których "Windows Update" stosuje poprawki systemu operacyjnego bez zastępowania dysku systemu operacyjnego nie są obsługiwane. 
+## <a name="automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazu systemu operacyjnego
 
-> [!NOTE]
-> Korzystanie z [automatycznych uaktualnień obrazu systemu operacyjnego w zestawie skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to najlepsze rozwiązanie w celu zachowania poprawek systemu operacyjnego na platformie Azure. Automatyczne uaktualnienia obrazu systemu operacyjnego oparte na zestawie skalowania maszyn wirtualnych są wymagane do zastosowania Silver lub wyższej trwałości w zestawie skalowania. W przypadku typów węzłów z brązową warstwą trwałości nie jest to obsługiwane. w takim przypadku należy użyć aplikacji aranżacji patch.
+[Korzystanie z automatycznych uaktualnień obrazu systemu operacyjnego na Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) jest najlepszym rozwiązaniem do zachowania poprawek systemu operacyjnego na platformie Azure. Automatyczne uaktualnienia obrazu systemu operacyjnego oparte na zestawie skalowania maszyn wirtualnych są wymagane do zastosowania Silver lub wyższej trwałości w zestawie skalowania.
+
+Wymagania dotyczące automatycznych uaktualnień obrazu systemu operacyjnego przez Virtual Machine Scale Sets
+-   [Poziom trwałości](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Service Fabric to Silver lub Gold, a nie brązowy.
+-   Rozszerzenie Service Fabric w definicji modelu zestawu skalowania musi mieć wartość TypeHandlerVersion 1,1 lub nowszą.
+-   Poziom trwałości powinien być taki sam w przypadku klastra Service Fabric i rozszerzenia Service Fabric w definicji modelu zestawu skalowania.
+- Dodatkowa sonda kondycji lub użycie rozszerzenia kondycji aplikacji dla Virtual Machine Scale Sets nie jest wymagane.
+
+Upewnij się, że ustawienia trwałości nie są niezgodne w przypadku klastra Service Fabric i rozszerzenia Service Fabric, ponieważ niezgodność spowoduje błędy uaktualniania. Poziomy trwałości można modyfikować zgodnie z wytycznymi opisanymi na [tej stronie](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+W przypadku trwałości Bronze automatyczne uaktualnianie obrazu systemu operacyjnego jest niedostępne. Mimo że [aplikacja aranżacji poprawek](#patch-orchestration-application ) (przeznaczona tylko dla klastrów hostowanych poza platformą Azure) *nie jest zalecana* dla poziomów trwałości Silver lub większej, jest to jedyna opcja automatyzacji aktualizacji systemu Windows w odniesieniu do domen uaktualnienia Service Fabric.
+
+> [!IMPORTANT]
+> Uaktualnienia w maszynie wirtualnej, w których "Windows Update" stosuje poprawki systemu operacyjnego bez zastępowania dysku systemu operacyjnego nie są obsługiwane w usłudze Azure Service Fabric.
+
+Należy wykonać dwa kroki, aby włączyć funkcję z wyłączonym Windows Update w systemie operacyjnym.
+
+1. Włączanie automatycznego uaktualniania obrazu systemu operacyjnego, wyłączanie programu Windows Updates ARM 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Aktualizuj model zestawu skalowania po zmianie tej konfiguracji, aby zaktualizować model zestawu skalowania, konieczna jest zmiana obrazu wszystkich maszyn, tak aby zmiany zostały zastosowane.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+Aby uzyskać dalsze instrukcje, zapoznaj się z [automatycznymi uaktualnieniami obrazu systemu operacyjnego, Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) .
+
+## <a name="patch-orchestration-application"></a>Aplikacja aranżacji poprawek
+
+> [!IMPORTANT]
+> Od 30 kwietnia 2019, aplikacja aranżacji poprawek w wersji 1,2. * nie jest już obsługiwana. Upewnij się, że uaktualniono do najnowszej wersji.
 
 Poprawka Orchestration Application (POA) to otoka obejmująca usługę Azure Service Fabric Menedżer naprawy, która umożliwia planowanie poprawek systemu operacyjnego opartych na konfiguracji dla klastrów hostowanych poza platformą Azure. POA nie jest wymagany w przypadku klastrów hostowanych poza platformą Azure, ale planowanie instalacji poprawek przy użyciu domeny aktualizacji jest wymagane do poprawki Service Fabric hostach klastra bez ponoszenia przestojów.
 

@@ -7,14 +7,18 @@ ms.author: mikben
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 00721a5c7763663a17b1e67cf0ac3ae59fd9448a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 1d5bd8179d07477d8ae0cf60d4de291ed0e00201
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204572"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201074"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Szybki Start: Dodawanie 1:1 wideo dla aplikacji (JavaScript)
+
+## <a name="download-code"></a>Pobierz kod
+
+Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Uzyskaj konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -323,7 +327,7 @@ Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać w
 Wychodzące połączenie wideo 1:1 można wykonać, podając identyfikator użytkownika w polu tekstowym, a następnie klikając przycisk Rozpocznij połączenie. 
 
 ## <a name="sample-code"></a>Przykładowy kod
-Przykładową aplikację można pobrać z witryny [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling).
+Przykładową aplikację można pobrać z witryny [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).

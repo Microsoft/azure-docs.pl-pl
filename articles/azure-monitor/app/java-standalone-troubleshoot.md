@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199615"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225578"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -41,7 +41,9 @@ Te zmiany obejmują:
 
 ## <a name="some-logging-is-not-auto-collected"></a>Niektóre funkcje rejestrowania nie są zbierane w sposób autozbierany
 
-Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełni skonfigurowany próg dla struktur rejestrowania, a druga również spełnia wartość Application Insights skonfigurowany próg.
+Rejestrowanie jest przechwytywane tylko wtedy, gdy jest ono najpierw zgodne z poziomem skonfigurowanym dla struktury rejestrowania, a drugi, również spełnia poziom skonfigurowany dla Application Insights.
+
+Na przykład jeśli struktura rejestrowania jest skonfigurowana do rejestrowania `WARN` (i powyżej) z pakietu `com.example` , a Application Insights jest skonfigurowana do przechwytywania `INFO` (i powyżej), wówczas Application Insights będzie przechwytywać tylko `WARN` (i powyżej) z pakietu `com.example` .
 
 Najlepszym sposobem, aby sprawdzić, czy określone oświadczenie rejestrowania spełnia warunki skonfigurowanej progu rejestrowania, ma potwierdzić, że jest on wyświetlany w normalnym dzienniku aplikacji (np. pliku lub konsoli).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518168"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200527"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
 
@@ -44,7 +44,7 @@ Aby skonfigurować komunikację równorzędną sieci wirtualnych dla sieci wirtu
 >
 > * Maszyny wirtualne (VM) za podstawową jednostką SKU wewnętrznego modułu równoważenia obciążenia (ILB)
 > * Pamięć podręczna Redis (używa podstawowej jednostki SKU ILB)
-> * Application Gateway (używa podstawowej jednostki SKU ILB)
+> * Application Gateway V1 (używa podstawowej jednostki SKU ILB)
 > * Zestawy skalowania maszyn wirtualnych (używa podstawowej jednostki SKU ILB)
 > * Klastry usługi Azure Service Fabric (używa podstawowej jednostki SKU ILB)
 > * SQL Server zawsze włączone (używa podstawowej jednostki SKU ILB)

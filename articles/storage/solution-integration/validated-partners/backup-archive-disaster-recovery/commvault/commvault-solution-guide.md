@@ -9,12 +9,12 @@ ms.date: 11/11/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f340a06f3b6b7c8fc0d78051fb0496dcab11fb5d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bc5bcca394fa66cea9cbf6bc20ac7d164c671cf7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122752"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632955"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>Tworzenie kopii zapasowej na platformie Azure za pomocą programu CommVault
 
@@ -161,11 +161,11 @@ Ta sekcja zawiera krótki przewodnik dotyczący dodawania usługi Azure Storage 
 
 9. Następnie przejdź do pozycji "magazyn" — > "Chmura" w centrum poleceń programu CommVault. Wybierz pozycję "Dodaj". Wprowadź przyjazną nazwę konta magazynu, a następnie wybierz pozycję "Microsoft Azure Storage" z listy "typ". Wybierz serwer programu Media Agent, który ma być używany do transferu kopii zapasowych do usługi Azure Storage. Dodaj utworzony kontener, wybierz warstwę magazynowania, która ma być używana w ramach konta usługi Azure Storage, a następnie wybierz poświadczenia utworzone w kroku #8. Na koniec wybierz, czy mają być transferowane deduplikowane kopie zapasowe, czy nie i lokalizacja bazy danych deduplikacji.
     
-     ![Oprogramowanie CommVault Add Storage](../media/commvault-add-storage.png)
+     ![Zrzut ekranu przedstawiający interfejs użytkownika Dodaj chmurę. W menu rozwijanym archiwum * jest zaznaczone polecenie * * archiwalne * *.](../media/commvault-add-storage.png)
 
 10. Na koniec Dodaj nowy zasób usługi Azure Storage do istniejącego lub nowego planu w centrum poleceń programu CommVault za pośrednictwem "zarządzania"-> "plany" jako "miejsce docelowe kopii zapasowej".
 
-    ![Oprogramowanie CommVault Add Storage](../media/commvault-plan.png)
+    ![Zrzut ekranu przedstawiający interfejs użytkownika centrum poleceń programu COMMVAULT. W lewym okienku nawigacji w obszarze * * jest zaznaczone polecenie * * Zarządzanie * *, * * plany * *.](../media/commvault-plan.png)
 
 11. ***(Opcjonalnie)*** Jeśli planujesz korzystać z platformy Azure jako lokacji odzyskiwania lub programu CommVault do migrowania serwerów i aplikacji na platformę Azure, najlepszym rozwiązaniem jest wdrożenie serwera proxy VSA na platformie Azure. Szczegółowe instrukcje można znaleźć [tutaj](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).  
 

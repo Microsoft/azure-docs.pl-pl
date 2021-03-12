@@ -63,6 +63,8 @@
       href: tutorials/hmac-header-tutorial.md
     - name: Przygotowywanie aplikacji sieci Web dla usług komunikacyjnych (Node.js)
       href: tutorials/building-app-start.md
+    - name: Podpisywanie i wykonywanie żądań do interfejsu API SMS usługi ACS za pomocą programu Poster
+      href: tutorials/postman-tutorial.md
 - name: Pojęcia
   expanded: false
   items:
@@ -145,9 +147,9 @@
     - name: Wywoływanie bibliotek
       items:
         - name: Wywoływanie (JavaScript)
-          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Wywoływanie (Android/Java)
-          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+          href: /java/api/com.azure.communication.calling
         - name: Wywoływanie (iOS)
           href: /objectivec/communication-services/calling/
     - name: Biblioteki czatu

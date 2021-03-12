@@ -21,13 +21,6 @@
         - name: Szablon ARM
           displayName: Resource Manager
           href: quick-create-template.md
-- name: Pojęcia
-  items:
-    - name: Udostępnianie pulpitów nawigacyjnych za pomocą kontroli dostępu opartej na rolach na platformie Azure
-      href: azure-portal-dashboard-share-access.md
-    - name: Programowe tworzenie pulpitów nawigacyjnych platformy Azure
-      href: azure-portal-dashboards-create-programmatically.md
-      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie ustawieniami i preferencjami witryny Azure Portal
@@ -38,8 +31,13 @@
       href: manage-filter-resource-views.md
     - name: Tworzenie pulpitów nawigacyjnych platformy Azure
       items:
-        - name: Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure
+        - name: Tworzenie pulpitu nawigacyjnego platformy Azure
           href: azure-portal-dashboards.md
+        - name: Udostępnianie pulpitu nawigacyjnego platformy Azure
+          href: azure-portal-dashboard-share-access.md
+        - name: Programowe tworzenie pulpitu nawigacyjnego platformy Azure
+          href: azure-portal-dashboards-create-programmatically.md
+          displayName: 'Azure CLI, az portal dashboard, az portal'
         - name: Używanie kafelka niestandardowego z kodem Markdown
           href: azure-portal-markdown-tile.md
     - name: Seria instruktażowych wideo dla witryny Azure Portal

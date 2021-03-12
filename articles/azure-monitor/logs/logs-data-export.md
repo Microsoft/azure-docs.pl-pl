@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449496"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615588"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -117,7 +117,7 @@ Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wy
 ### <a name="create-or-update-data-export-rule"></a>Utwórz lub zaktualizuj regułę eksportu danych
 Reguła eksportu danych definiuje tabele, dla których dane są eksportowane i miejsce docelowe. Dla każdego miejsca docelowego można utworzyć pojedynczą regułę.
 
-Jeśli potrzebujesz listy tabel w workapce na potrzeby konfiguracji reguł eksportu, Uruchom to zapytanie w obszarze roboczym.
+Reguła eksportu powinna zawierać tabele, które znajdują się w obszarze roboczym. Uruchom to zapytanie, aby wyświetlić listę dostępnych tabel w obszarze roboczym.
 
 ```kusto
 find where TimeGenerated > ago(24h) | distinct Type
