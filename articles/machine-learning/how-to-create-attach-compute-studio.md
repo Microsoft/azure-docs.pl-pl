@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031032"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149362"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
 
@@ -132,7 +132,7 @@ Utwórz lub Dołącz klaster usługi Azure Kubernetes Service (AKS) dla dużej s
 |---------|---------|
 |Nazwa obiektu obliczeniowego     |  <li>Nazwa jest wymagana. Nazwa musi składać się z od 2 do 16 znaków. </li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i  **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-**  jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
 |Kubernetes Service | Wybierz pozycję **Utwórz nowy** i Wypełnij resztę formularza.  Lub wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejący klaster AKS z subskrypcji.
-|Region |  Wybierz region, w którym zostanie utworzony klaster |
+|Region (Region) |  Wybierz region, w którym zostanie utworzony klaster |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cel klastra  | Wybierz **produkcję lub tworzenie** i **testowanie** |
 |Liczba węzłów | Liczba węzłów pomnożona przez liczbę rdzeni (procesorów wirtualnych vCPU) maszyny wirtualnej musi być większa lub równa 12. |
@@ -147,7 +147,7 @@ Wykonaj [powyższe kroki](#portal-create) , aby dołączyć obliczenia.  Następ
 
 1. Wprowadź nazwę dla elementu docelowego obliczeń. 
 1. Wybierz typ obliczeń do dołączenia. Nie wszystkie typy obliczeniowe mogą być dołączane z programu Azure Machine Learning Studio. Typy obliczeń, które są obecnie dołączone do szkolenia, obejmują:
-    * Zdalna maszyna wirtualna
+    * Maszyna wirtualna platformy Azure (w celu dołączenia Data Science Virtual Machine)
     * Azure Databricks (do użycia w potokach uczenia maszynowego)
     * Azure Data Lake Analytics (do użycia w potokach uczenia maszynowego)
     * Azure HDInsight

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221055"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196861"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą GitHub AE
 
@@ -101,9 +101,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij pozycję **Wybierz grupy** i Wyszukaj **grupę** , w której mają zostać uwzględnione te żądania, z których członkowie powinni być administratorami programu GHAE.
 
-1. Wybierz opcję **atrybut** dla **źródła** i wprowadź wartość **true** dla tej **wartości**. 
+1. Wybierz opcję **atrybut** dla **źródła** i wprowadź wartość **true** (bez cudzysłowów) dla tej **wartości**. 
 
-10. Kliknij pozycję **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
     ![Zarządzanie usługą Claim](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
-    ![Link do pobierania certyfikatu](common/certificateBase64.png)
+    ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
 1. W sekcji **Konfigurowanie usługi GITHUB AE** skopiuj odpowiednie adresy URL na podstawie wymagań.
 

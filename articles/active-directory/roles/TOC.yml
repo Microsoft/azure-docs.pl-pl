@@ -108,10 +108,10 @@
     - name: Dokumentacja ról platformy Microsoft 365
       href: m365-workload-docs.md
     - name: Interfejs API programu Graph
-      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole
     - name: Interfejs wiersza polecenia usługi Azure AD
       href: /cli/azure/ad
     - name: Moduł Azure AD PowerShell dla programu Graph
-      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+      href: /powershell/azure/active-directory/install-adv2
     - name: Limity usługi Azure AD
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

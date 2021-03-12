@@ -3,17 +3,17 @@ title: Rozmiary maszyn wirtualnych platformy Azure — zoptymalizowane pod kąte
 description: Wyświetla listę różnych rozmiarów zoptymalizowanych pod kątem obliczeń dostępnych dla maszyn wirtualnych na platformie Azure. Wyświetla listę informacji o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych, a także przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 58ade8dfdde2c906cbe7c61a232f2643708e19b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eba7bff571a8db25591b8bfa5c5e712511588f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832471"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557696"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem obliczeń
 

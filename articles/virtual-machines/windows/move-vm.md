@@ -2,17 +2,18 @@
 title: Przenoszenie zasobu maszyny wirtualnej z systemem Windows na platformie Azure
 description: Przenieś maszynę wirtualną z systemem Windows do innej subskrypcji platformy Azure lub grupy zasobów w Menedżer zasobów model wdrażania.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 1f919a4af85a15bbe80d7176c316100c3bad634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5d3445144178ce855a5ce904b42d6e68a8e7d29
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86998922"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555248"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Przenoszenie maszyny wirtualnej z systemem Windows do innej subskrypcji platformy Azure lub grupy zasobów
 W tym artykule pokazano, jak przenieść maszynę wirtualną z systemem Windows między grupami zasobów lub subskrypcjami. Przenoszenie między subskrypcjami może być przydatne, jeśli pierwotnie utworzono maszynę wirtualną w prywatnej subskrypcji, a teraz chcesz przenieść ją do subskrypcji firmy, aby kontynuować pracę. Nie jest konieczne zatrzymanie maszyny wirtualnej w celu przeniesienia jej i kontynuowanie jej działania podczas przenoszenia.

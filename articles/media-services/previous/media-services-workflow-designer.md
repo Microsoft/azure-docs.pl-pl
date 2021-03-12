@@ -3,7 +3,7 @@ title: Tworzenie zaawansowanych przepływów pracy kodowania za pomocą Projekta
 description: Dowiedz się, jak tworzyć zaawansowane przepływy pracy kodowania przy użyciu Projektant przepływu pracy.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: a53027ec1f775c240164f67e7ee0473a44690964
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262689"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011157"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Tworzenie zaawansowanych przepływów pracy kodowania za pomocą projektanta przepływu pracy
 
@@ -91,7 +91,7 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

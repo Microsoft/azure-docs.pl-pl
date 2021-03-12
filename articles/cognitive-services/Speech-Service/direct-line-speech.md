@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601114"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611797"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
@@ -60,11 +60,11 @@ Bezpośrednia obsługa mowy liniowej i skojarzonych z nią funkcji dla asystent�
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 * [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
-* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot Service](/azure/bot-service/)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)
-* [Tworzenie i wdrażanie podstawowego bota](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Tworzenie i wdrażanie podstawowego bota](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 * [Pobierz rozwiązanie dla Asystenta wirtualnego i szablonu przedsiębiorstwa](https://github.com/Microsoft/AI)

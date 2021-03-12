@@ -2,16 +2,17 @@
 title: Jak zmienić rozmiar maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Jak skalować w górę lub w dół maszynę wirtualną z systemem Linux, zmieniając rozmiar maszyny wirtualnej.
 author: DavidCBerry13
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
 ms.author: daberry
-ms.openlocfilehash: a93b1dcfe803fdead0d741553c45894f1675372b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.collection: linux
+ms.openlocfilehash: 290c42cadd840e5a292201247b1555059b5b4381
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556642"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 
 

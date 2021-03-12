@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547252"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611967"
 ---
-# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Najlepsze rozwiązania dotyczące kompilowania aplikacji za pomocą Azure Database for MySQL 
+# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Najlepsze rozwiązania dotyczące tworzenia aplikacji z użyciem usługi Azure Database for MySQL 
 
 Poniżej przedstawiono niektóre najlepsze rozwiązania ułatwiające tworzenie aplikacji gotowych do użycia w chmurze za pomocą Azure Database for MySQL. Te najlepsze rozwiązania mogą skrócić czas projektowania aplikacji. 
 
@@ -76,7 +76,7 @@ Zauważysz zwłokę między źródłem a repliką, ponieważ replikacja jest asy
 ## <a name="database-deployment"></a>Wdrażanie bazy danych 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Konfigurowanie zadania usługi Azure Database for MySQL w potoku wdrażania CI/CD
-Czasami należy wdrożyć zmiany w bazie danych. W takich przypadkach można korzystać z ciągłej integracji (CI) i ciągłego dostarczania (CD) za pomocą [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) i używać zadania dla [serwera MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) do aktualizowania bazy danych przez uruchomienie skryptu niestandardowego względem tego programu.
+Czasami należy wdrożyć zmiany w bazie danych. W takich przypadkach można korzystać z ciągłej integracji (CI) i ciągłego dostarczania (CD) za pomocą [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) i używać zadania dla [serwera MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) do aktualizowania bazy danych przez uruchomienie skryptu niestandardowego względem tego programu.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Zastosuj obowiązujący proces ręcznego wdrażania bazy danych 
 Podczas ręcznego wdrażania bazy danych wykonaj następujące kroki, aby zminimalizować przestoje lub ograniczyć ryzyko niepowodzenia wdrożenia: 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: eff63510f70dd7b4cdd522cc5a2a68096cda7166
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058654"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548720"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Application Gateway konfigurację adresu IP frontonu
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące App
 
 Publiczny adres IP nie jest wymagany dla wewnętrznego punktu końcowego, który nie jest narażony na Internet. Jest on znany jako punkt końcowy *wewnętrznego modułu równoważenia obciążenia* (ILB) lub prywatny adres IP frontonu. ILB bramy aplikacji jest przydatne w przypadku wewnętrznych aplikacji biznesowych, które nie są dostępne w Internecie. Jest on również przydatny w przypadku usług i warstw w aplikacji wielowarstwowej w ramach granicy zabezpieczeń, która nie jest dostępna w Internecie, ale wymaga dystrybucji obciążenia z działaniem okrężnym, lepkość sesji lub zakończenia protokołu TLS.
 
-Obsługiwany jest tylko jeden publiczny adres IP lub jeden prywatny adres IP. Adres IP frontonu jest wybierany podczas tworzenia bramy aplikacji.
+Obsługiwany jest tylko jeden publiczny adres IP i jeden prywatny adres IP. Adres IP frontonu jest wybierany podczas tworzenia bramy aplikacji.
 
 - W przypadku publicznego adresu IP można utworzyć nowy publiczny adres IP lub użyć istniejącego publicznego adresu IP w tej samej lokalizacji, w której znajduje się Brama aplikacji. Aby uzyskać więcej informacji, zobacz [statyczny i dynamiczny publiczny adres IP](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 

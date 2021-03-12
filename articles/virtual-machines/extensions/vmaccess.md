@@ -1,27 +1,19 @@
 ---
 title: Resetowanie dostępu do maszyny wirtualnej platformy Azure z systemem Linux
 description: Jak zarządzać użytkownikami administracyjnymi i resetować dostęp na maszynach wirtualnych z systemem Linux przy użyciu rozszerzenia VMAccess i interfejsu wiersza polecenia platformy Azure
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 05/10/2018
-ms.author: akjosh
-ms.openlocfilehash: e46f7f3d51d2841a2287c86f9e8dddd7460b1a5d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016441"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557050"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Zarządzanie użytkownikami administracyjnymi, SSH oraz sprawdzaniem i naprawianiem dysków na maszynach wirtualnych z systemem Linux przy użyciu rozszerzenia VMAccess z interfejsem wiersza polecenia platformy Azure
 ## <a name="overview"></a>Omówienie

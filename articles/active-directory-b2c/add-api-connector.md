@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611622"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008437"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
@@ -61,9 +61,9 @@ Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemn
 Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Łączniki interfejsu API (wersja zapoznawcza)** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie użyty automatycznie przez Azure AD B2C.
 
 ### <a name="api-key"></a>Klucz interfejsu API
-Niektóre usługi używają mechanizmu "klucz interfejsu API", aby utrudnić dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+Niektóre usługi używają mechanizmu "klucz interfejsu API", aby zasłaniać dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-Nie jest to mechanizm, który powinien być używany tylko w środowisku produkcyjnym. W związku z tym konfiguracja uwierzytelniania podstawowego lub certyfikatu jest zawsze wymagana. Jeśli chcesz zaimplementować dowolną metodę uwierzytelniania (niezalecane) do celów programistycznych, możesz wybrać opcję Uwierzytelnianie podstawowe i użyć wartości tymczasowych dla programu, `username` a `password` interfejs API można zignorować podczas implementowania autoryzacji w interfejsie API.
+Nie jest to mechanizm, który powinien być używany tylko w środowisku produkcyjnym. W związku z tym konfiguracja uwierzytelniania podstawowego lub certyfikatu jest zawsze wymagana. Jeśli nie chcesz zaimplementować żadnej metody uwierzytelniania (niezalecanej) do celów programistycznych, możesz wybrać uwierzytelnianie podstawowe i użyć wartości tymczasowych dla programu `username` oraz `password` , że interfejs API może być pomijany podczas implementowania autoryzacji w interfejsie API.
 
 ## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
 Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](/graph/api/resources/user#properties) właściwości użytkownika. 

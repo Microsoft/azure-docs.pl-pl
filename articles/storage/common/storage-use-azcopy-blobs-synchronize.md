@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ab1da88899ba2b90e303da107631e3878b3a8b58
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617276"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635879"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Synchronizacja z usługą Azure Blob Storage za pomocą AzCopy v10
 
@@ -26,14 +26,14 @@ Zawartość lokalnego systemu plików można zsynchronizować z kontenerem obiek
 
 Aby zobaczyć przykłady dla innych typów zadań, takich jak przekazywanie plików, pobieranie obiektów blob lub kopiowanie obiektów BLOB między kontami, zobacz linki przedstawione w sekcji [następne kroki](#next-steps) tego artykułu.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
 > [!NOTE] 
 > W przykładach w tym artykule przyjęto założenie, że poświadczenia autoryzacji zostały podane przy użyciu Azure Active Directory (Azure AD).
 >
-> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'` . krzysztof> ' '.
+> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="guidelines"></a>Wytyczne
 

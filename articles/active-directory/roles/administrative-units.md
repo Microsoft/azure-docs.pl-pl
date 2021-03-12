@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740333"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558019"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Jednostki administracyjne w Azure Active Directory
 
@@ -47,8 +47,8 @@ Aby korzystać z jednostek administracyjnych, należy Azure Active Directory —
 Jednostkami administracyjnymi można zarządzać za pomocą Azure Portal, poleceń cmdlet programu PowerShell i skryptów lub Microsoft Graph. Aby uzyskać więcej informacji, zobacz:
 
 - [Tworzenie, usuwanie, zapełnianie i Dodawanie ról do jednostek administracyjnych](admin-units-manage.md): zawiera kompletne procedury postępowania.
-- [Współpraca z jednostkami administracyjnymi](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): obejmuje sposób pracy z jednostkami administracyjnymi przy użyciu programu PowerShell.
-- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): zawiera szczegółową dokumentację dotyczącą Microsoft Graph dla jednostek administracyjnych.
+- [Współpraca z jednostkami administracyjnymi](/powershell/azure/active-directory/working-with-administrative-units): obejmuje sposób pracy z jednostkami administracyjnymi przy użyciu programu PowerShell.
+- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit): zawiera szczegółową dokumentację dotyczącą Microsoft Graph dla jednostek administracyjnych.
 
 ### <a name="plan-your-administrative-units"></a>Planowanie jednostek administracyjnych
 

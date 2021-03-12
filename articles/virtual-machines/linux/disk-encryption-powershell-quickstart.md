@@ -3,17 +3,18 @@ title: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu 
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Linux przy użyciu programu Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32387ed6c124798155b912bc88cd717a30cb264c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1833b25554df53a480af9a8fc643755dbc2bbdb8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89074325"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564683"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu Azure PowerShell
 
@@ -56,7 +57,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Zaszyfruj maszynę wirtualną za pomocą [opcji Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
 
-Set-AzVmDiskEncryptionExtension wymaga pewnych wartości z obiektu Key Vault. Możesz uzyskać te wartości, przekazując unikatową nazwę magazynu kluczy do [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
+Set-AzVmDiskEncryptionExtension wymaga pewnych wartości z Key Vault obiektu. Możesz uzyskać te wartości, przekazując unikatową nazwę magazynu kluczy do [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
 
 ```azurepowershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup"

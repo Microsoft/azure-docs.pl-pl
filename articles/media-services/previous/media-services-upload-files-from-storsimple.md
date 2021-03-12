@@ -3,7 +3,7 @@ title: Przekazywanie plików na konto usługi Azure Media Services z rozwiązani
 description: Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. Artykuł zawiera również linki do samouczków, które przedstawiają sposób wyodrębniania danych z rozwiązania StorSimple i przekazywania ich jako elementów zawartości na konto usługi Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: d1d43f11c1a90456b24f02a5ec43982d5fdc3de7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0521904f0ed46b4c5309e5f9df980b1cd7d7d858
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694524"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009032"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Przekazywanie plików na konto usługi Azure Media Services z rozwiązania Azure StorSimple 
 
@@ -47,7 +47,7 @@ Usługa [Azure StorSimple](../../storsimple/index.yml) używa magazynu w chmurze
 
     Gdy zadanie zacznie działać, zostanie utworzona kolejka magazynu. Jest ona wypełniana przy użyciu komunikatów dotyczących przekształconych obiektów blob, gdy będą gotowe. Nazwa tej kolejki jest taka sama jak nazwa definicji zadania. Za pomocą tej kolejki można określić, czy element zawartości jest gotowy i wywołać żądaną operację usługi Media Services do uruchomienia w jego obrębie. Tej kolejki można na przykład użyć do wyzwalania funkcji Azure Function, która zawiera niezbędny kod usługi Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Użyj zestawu SDK platformy .NET do wyzwalania zadań w Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

@@ -3,15 +3,15 @@ title: Pulpity wirtualne systemu Windows — często zadawane pytania — Azure
 description: Często zadawane pytania i najlepsze rozwiązania dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720277"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613973"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -140,3 +140,22 @@ Na koniec po włączeniu dostawcy zasobów z poziomu konta właściciela dostawc
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Jak często należy włączyć maszynę wirtualną, aby zapobiec problemom z rejestracją?
 
 Po zarejestrowaniu maszyny wirtualnej w puli hostów w ramach usługi pulpitu wirtualnego systemu Windows Agent regularnie odświeża token maszyny wirtualnej za każdym razem, gdy maszyna wirtualna jest aktywna. Certyfikat dla tokenu rejestracji jest ważny przez 90 dni. Ze względu na 90 dzienny limit zalecamy rozpoczęcie maszyn wirtualnych co 90 dni. Włączenie tej maszyny wirtualnej w tym limicie czasu uniemożliwi wygaśnięcie tokenu rejestracji lub jego nieprawidłowość. Jeśli maszyna wirtualna została uruchomiona po upływie 90 dni i występują problemy z rejestracją, postępuj zgodnie z instrukcjami w [przewodniku rozwiązywania problemów agenta usług pulpitu wirtualnego systemu Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) , aby usunąć maszynę wirtualną z puli hostów, ponownie zainstaluj agenta i zarejestruj go w puli.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Czy mogę ustawić opcje dostępności podczas tworzenia pul hostów?
+
+Tak. Pule hostów usług pulpitu wirtualnego systemu Windows mają opcję wyboru zestawu dostępności lub stref dostępności podczas tworzenia maszyny wirtualnej. Te opcje dostępności są takie same, jak w przypadku użycia obliczeń na platformie Azure. W przypadku wybrania strefy dla maszyny wirtualnej utworzonej w puli hostów ustawienie to automatycznie dotyczy wszystkich maszyn wirtualnych utworzonych w ramach tej strefy. Jeśli wolisz rozłożyć maszyny wirtualne puli hostów w wielu strefach, musisz postępować zgodnie z instrukcjami w temacie [Dodawanie maszyn wirtualnych z Azure Portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) , aby ręcznie wybrać nową strefę dla każdej nowo utworzonej maszyny wirtualnej.
+
+## <a name="which-availability-option-is-best-for-me"></a>Która opcja dostępności jest Najlepsza dla mnie?
+
+Opcja dostępności, która powinna być używana dla maszyn wirtualnych, zależy od lokalizacji obrazu i pól dysku zarządzanego. W poniższej tabeli opisano relacje poszczególnych ustawień z tymi zmiennymi, które pomogą ustalić, która opcja jest Najlepsza dla danego wdrożenia. 
+
+| Opcja dostępności | Lokalizacja obrazu | Przycisk opcji używania dysku zarządzanego (przycisk radiowy) |
+|---|---|---|
+| Brak | Galeria | Wyłączone z opcją "tak" jako domyślne |
+| Brak | Blob Storage | Włączone z opcją "No" jako domyślne |
+| Strefa dostępności | Galeria (opcja magazynu obiektów BLOB wyłączona) | Wyłączone z opcją "tak" jako domyślne |
+| Zestaw dostępności z zarządzaną jednostką SKU (dysk zarządzany) | Galeria | Wyłączone z opcją "tak" jako domyślne |
+| Zestaw dostępności z zarządzaną jednostką SKU (dysk zarządzany) | Blob Storage | Włączone z opcją "No" jako domyślne |
+| Zestaw dostępności z zarządzaną jednostką SKU (dysk zarządzany) | BLOB Storage (opcja Galeria wyłączona) | Wyłączone z opcją "No" jako domyślne |
+| Zestaw dostępności (nowo utworzony przez użytkownika) | Galeria | Wyłączone z opcją "tak" jako domyślne |
+| Zestaw dostępności (nowo utworzony przez użytkownika) | Blob Storage | Włączone z opcją "No" jako domyślne |

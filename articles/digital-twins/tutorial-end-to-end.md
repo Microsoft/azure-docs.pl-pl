@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424584"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634978"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -120,6 +120,8 @@ Spowoduje to otwarcie Menedżera pakietów NuGet. Wybierz kartę *aktualizacje* 
 Wróć do okna programu Visual Studio, w którym otwarty jest projekt _**AdtE2ESample**_ , Znajdź projekt _**SampleFunctionsApp**_ w okienku *Eksplorator rozwiązań* .
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system z uprawnieniami dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
 
