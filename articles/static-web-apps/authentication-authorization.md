@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826545"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419290"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)
 
 Usługa Azure static Web Apps usprawnia proces uwierzytelniania, zarządzając uwierzytelnianiem przy użyciu następujących dostawców:
 
-- Usługa Azure Active Directory
+- Azure Active Directory
 - GitHub
 - Facebook
 - Google<sup>1</sup>
@@ -55,14 +55,14 @@ Zaproszenia są specyficzne dla poszczególnych dostawców autoryzacji, dlatego 
 
 | Dostawca autoryzacji | Uwidacznia użytkownikowi  |
 | ---------------------- | ----------------- |
-| Usługa Azure Active Directory | Adres e-mail     |
+| Azure Active Directory | Adres e-mail     |
 | Facebook               | Adres e-mail     |
 | GitHub                 | nazwa użytkownika          |
 | Google<sup>1</sup>     | Adres e-mail     |
 | Twitter                | nazwa użytkownika          |
 
 1. Przejdź do statycznego zasobu Web Apps w [Azure Portal](https://portal.azure.com).
-1. W obszarze _Ustawienia_kliknij pozycję **Zarządzanie rolami**.
+1. W obszarze _Ustawienia_ kliknij pozycję **Zarządzanie rolami**.
 1. Kliknij przycisk **Zaproś** .
 1. Wybierz _dostawcę autoryzacji_ z listy opcji.
 1. W polu _Zaproś szczegóły_ Dodaj nazwę użytkownika lub adres e-mail adresata.
@@ -84,7 +84,7 @@ Gdy użytkownik kliknie link w zaproszeniu, zostanie wyświetlony monit o zalogo
 ### <a name="update-role-assignments"></a>Aktualizowanie przypisań ról
 
 1. Przejdź do statycznego zasobu Web Apps w [Azure Portal](https://portal.azure.com).
-1. W obszarze _Ustawienia_kliknij pozycję **Zarządzanie rolami**.
+1. W obszarze _Ustawienia_ kliknij pozycję **Zarządzanie rolami**.
 1. Kliknij użytkownika na liście.
 1. Edytuj listę ról w polu _rola_ .
 1. Kliknij przycisk **Aktualizuj** .
@@ -92,7 +92,7 @@ Gdy użytkownik kliknie link w zaproszeniu, zostanie wyświetlony monit o zalogo
 ### <a name="remove-user"></a>Usuwanie użytkownika
 
 1. Przejdź do statycznego zasobu Web Apps w [Azure Portal](https://portal.azure.com).
-1. W obszarze _Ustawienia_kliknij pozycję **Zarządzanie rolami**.
+1. W obszarze _Ustawienia_ kliknij pozycję **Zarządzanie rolami**.
 1. Znajdź użytkownika na liście.
 1. Zaznacz pole wyboru w wierszu użytkownika.
 1. Kliknij przycisk **Usuń**.
@@ -131,7 +131,7 @@ Skorzystaj z poniższej tabeli, aby znaleźć trasę logowania specyficzną dla 
 
 | Dostawca autoryzacji | Trasa logowania             |
 | ---------------------- | ----------------------- |
-| Usługa Azure Active Directory | `/.auth/login/aad`      |
+| Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
 | Google<sup>1</sup>     | `/.auth/login/google`   |
@@ -145,19 +145,18 @@ Na przykład, aby zalogować się za pomocą usługi GitHub, możesz dołączyć
 
 Jeśli wybrano obsługę więcej niż jednego dostawcy, należy udostępnić link specyficzny dla dostawcy dla każdego z nich w witrynie sieci Web.
 
-Możesz użyć [reguły trasy](routes.md) , aby zamapować domyślnego dostawcę na przyjazną trasę, taką jak _/login_.
+Możesz użyć [reguły trasy](./configuration.md#routes) , aby zamapować domyślnego dostawcę na przyjazną trasę, taką jak _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>Przekierowanie po zalogowaniu
 
 Jeśli chcesz, aby użytkownik powrócił do określonej strony po zalogowaniu, podaj adres URL w `post_login_redirect_uri` parametrze ciągu zapytania.
-
 
 ## <a name="logout"></a>Logout
 
@@ -167,12 +166,12 @@ Jeśli chcesz, aby użytkownik powrócił do określonej strony po zalogowaniu, 
 <a href="/.auth/logout">Log out</a>
 ```
 
-Możesz użyć [reguły trasy](routes.md) do mapowania przyjaznej trasy, takiej jak _/Logout_.
+Możesz użyć [reguły trasy](./configuration.md#routes) do mapowania przyjaznej trasy, takiej jak _/Logout_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

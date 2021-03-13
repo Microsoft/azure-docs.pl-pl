@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806968"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418066"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -54,7 +54,7 @@ Publiczne adresy IP jednostki SKU:
 - Ich dostosowywalny limit czasu bezczynności dla przepływu opartego na ruchu przychodzącym wynosi od 4 do 30 minut przy domyślnej wartości 4 minut, a stały limit czasu bezczynności dla przepływu opartego na ruchu wychodzącym wynosi 4 minuty.
 - Zabezpiecz domyślnie i zamknięto w ruchu przychodzącym. Zezwalaj na wyświetlanie listy ruchu przychodzącego z [sieciową grupą zabezpieczeń](./network-security-groups-overview.md#network-security-groups).
 - Przypisane do interfejsów sieciowych, standardowych publicznych modułów równoważenia obciążenia lub bram aplikacji. Aby uzyskać więcej informacji na temat usługi równoważenia obciążenia w warstwie Standardowa, zobacz [Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Mogą być nadmiarowe strefowo (wydzielone ze wszystkich 3 stref), zona (gwarantowane w określonej wstępnie wybranej strefie dostępności) lub bez strefy (nieskojarzonej z określoną wstępnie wybraną strefą dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Nadmiarowe adresy IP stref można tworzyć tylko w regionach, w których znajdują się [3 strefy dostępności](../availability-zones/az-region.md) .** Adresy IP utworzone przed na żywo nie będą strefowo nadmiarowe.
+- Mogą być nadmiarowe strefy (anonsowane ze wszystkich 3 stref), zona (gwarantowane w określonej wstępnie wybranej strefie dostępności) lub bez strefy (nieskojarzonej z określoną wstępnie wybraną strefą dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Nadmiarowe adresy IP stref można tworzyć tylko w regionach, w których znajdują się [3 strefy dostępności](../availability-zones/az-region.md) .** Adresy IP utworzone przed na żywo nie będą strefowo nadmiarowe.
 - Mogą być używane jako adresy IP frontonu dla [międzyregionowych modułów równoważenia obciążenia](../load-balancer/cross-region-overview.md) (funkcji wersji zapoznawczej).
  
 > [!NOTE]
@@ -162,14 +162,17 @@ Aby uzyskać więcej informacji na temat jednostek SKU usługi Azure Load Balanc
 * Sieci wirtualne platformy Azure
 * Sieci lokalne. 
 
-Publiczny adres IP jest przypisywany do VPN Gateway, aby umożliwić komunikację z siecią zdalną. Do bramy sieci VPN możesz przypisać tylko *dynamiczny* podstawowy publiczny adres IP.
+Publiczny adres IP jest przypisywany do VPN Gateway, aby umożliwić komunikację z siecią zdalną. 
+
+* Przypisz **dynamiczny** podstawowy adres IP do konfiguracji frontonu VPNGw 1-5 jednostki SKU.
+* Przypisz **statyczny** publiczny adres IP do konfiguracji FRONTONU jednostki SKU VPNGwAZ 1-5.
 
 ## <a name="application-gateways"></a>Bramy aplikacji
 
 Publiczny adres IP możesz skojarzyć z usługą [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure, przypisując go do konfiguracji **frontonu** bramy. 
 
 * Przypisz **dynamiczny** podstawowy adres IP do konfiguracji frontonu bramy aplikacji w wersji 1. 
-* Przypisz **statyczny** standardowy adres jednostki SKU do konfiguracji frontonu w wersji 2.
+* Przypisz **statyczny** , standardowy adres IP do konfiguracji frontonu w wersji 2.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 

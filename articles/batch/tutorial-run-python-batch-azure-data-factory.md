@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 6c96c5b03a3561ae57807ad2788064f2a568f84c
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106278"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418712"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Uwierzytelnianie przy użyciu kont usług Batch i Storage
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Zainstalowana dystrybucja języka [Python](https://www.python.org/downloads/) do testowania lokalnego.
 * Pakiet [Azure-Storage-BLOB](https://pypi.org/project/azure-storage-blob/) `pip` .
-* [Zestaw danychiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* [Zestaw danychiris.csv](https://github.com/Azure-Samples/batch-adf-pipeline-tutorial/blob/master/iris.csv)
 * Konto usługi Azure Batch i połączone konto usługi Azure Storage. Zobacz [Tworzenie konta usługi Batch](quick-create-portal.md#create-a-batch-account) , aby uzyskać więcej informacji na temat tworzenia i łączenia kont usługi Batch z kontami magazynu.
 * Konto Azure Data Factory. Aby uzyskać więcej informacji na temat tworzenia fabryki danych za pomocą Azure Portal, zobacz temat [Tworzenie fabryki danych](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) .
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -67,7 +67,7 @@ Tutaj utworzysz kontenery obiektów blob, które będą przechowywać pliki wej�
 1. Zaloguj się, aby Eksplorator usługi Storage przy użyciu poświadczeń platformy Azure.
 1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * W tym przykładzie wywołamy nasz kontener wejściowy `input` oraz nasz kontener wyjściowy `output` .
-1. Przekaż [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) do kontenera wejściowego `input` za pomocą Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Przekaż [`iris.csv`](https://github.com/Azure-Samples/batch-adf-pipeline-tutorial/blob/master/iris.csv) do kontenera wejściowego `input` za pomocą Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Opracowywanie skryptu w języku Python
 
@@ -75,32 +75,28 @@ Poniższy skrypt w języku Python ładuje `iris.csv` zestaw danych z `input` kon
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlobServiceClient
+from azure.storage.blob import BlobClient
 import pandas as pd
 
 # Define parameters
-storageAccountURL = "<storage-account-url>"
-storageKey         = "<storage-account-key>"
-containerName      = "output"
+connectionString = "<storage-account-connection-string>"
+containerName = "output"
+outputBlobName  = "iris_setosa.csv"
 
 # Establish connection with the blob storage account
-blob_service_client = BlockBlobService(account_url=storageAccountURL,
-                               credential=storageKey
-                               )
+blob = BlobClient.from_connection_string(conn_str=connectionString, container_name=containerName, blob_name=outputBlobName)
 
 # Load iris dataset from the task node
 df = pd.read_csv("iris.csv")
 
-# Subset records
+# Take a subset of the records
 df = df[df['Species'] == "setosa"]
 
 # Save the subset of the iris dataframe locally in task node
-df.to_csv("iris_setosa.csv", index = False)
+df.to_csv(outputBlobName, index = False)
 
-# Upload iris dataset
-container_client = blob_service_client.get_container_client(containerName)
-with open("iris_setosa.csv", "rb") as data:
-    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
+with open(outputBlobName, "rb") as data:
+    blob.upload_blob(data)
 ```
 
 Zapisz skrypt jako `main.py` i przekaż go do kontenera **usługi Azure Storage** `input` . Przed przekazaniem do kontenera obiektów BLOB upewnij się, że funkcja jest testowana i sprawdzana lokalnie.
@@ -119,19 +115,17 @@ W tej sekcji utworzysz potok i zweryfikujesz go za pomocą skryptu języka Pytho
 
     ![Na karcie Ogólne ustaw nazwę potoku jako "Uruchom Python".](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
-1. W polu **działania** rozwiń pozycję **Usługa Batch**. Przeciągnij działanie niestandardowe z przybornika **działania** na powierzchnię projektanta potoku.
-1. Na karcie **Ogólne** Określ **testPipeline** dla nazwy
-
-    ![Na karcie Ogólne Określ testPipeline dla nazwy](./media/run-python-batch-azure-data-factory/create-custom-task.png)
-1. Na karcie **Azure Batch** Dodaj **konto wsadowe** , które zostało utworzone w poprzednich krokach, i **Test connection** , aby upewnić się, że zakończyło się pomyślnie
-
+1. W polu **działania** rozwiń pozycję **Usługa Batch**. Przeciągnij działanie niestandardowe z przybornika **działania** na powierzchnię projektanta potoku. Wypełnij następujące karty dla działania niestandardowego:
+    1. Na karcie **Ogólne** Określ **testPipeline** dla nazwy ![ na karcie Ogólne, określ testPipeline dla nazwy](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    1. Na karcie **Azure Batch** Dodaj **konto wsadowe** , które zostało utworzone w poprzednich krokach, i **Test connection** , aby upewnić się, że zakończyło się pomyślnie.
     ![Na karcie Azure Batch Dodaj konto usługi Batch, które zostało utworzone w poprzednich krokach, a następnie Testuj połączenie](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    1. Na karcie **Ustawienia** :
+        1. Ustaw **polecenie** jako `python main.py` .
+        1. W przypadku **połączonej usługi zasobów** Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
+        1. W **ścieżce folderu** wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
 
-1. Na karcie **Ustawienia** wprowadź polecenie `python main.py` .
-1. W przypadku **połączonej usługi zasobów** Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
-1. W **ścieżce folderu** wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
+        ![W ścieżce folderu wybierz nazwę kontenera Blob Storage platformy Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 
-    ![W ścieżce folderu wybierz nazwę kontenera Blob Storage platformy Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Aby sprawdzić poprawność ustawień potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi potoku powyżej kanwy. Sprawdź, czy potok został pomyślnie zweryfikowany. Wybierz przycisk &gt;&gt; (strzałka w prawo), aby zamknąć dane wyjściowe weryfikacji.
 1. Kliknij pozycję **Debuguj** , aby przetestować potok i upewnić się, że działa prawidłowo.
 1. Kliknij przycisk **Opublikuj** , aby opublikować potok.

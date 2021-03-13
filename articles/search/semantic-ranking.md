@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: a008551ac6f149617feedd01e256b637f83e975d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235063"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418848"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Klasyfikacja semantyczna na platformie Azure Wyszukiwanie poznawcze
 
@@ -30,9 +30,9 @@ W przypadku klasyfikacji semantycznej model używa zarówno zrozumiałych do czy
 
 1. Dla każdego dokumentu, ranga semantyczna ocenia pola w parametrze searchFields w kolejności, konsolidując zawartość w jeden duży ciąg.
 
-1. Ciąg zostanie następnie przycięty, aby upewnić się, że ogólna długość nie przekracza 20 000 tokenów. Jeśli masz bardzo duże dokumenty z polem zawartości lub merged_content polem zawierającym wiele stron zawartości, będą używane tylko pierwsze tokeny 20 000.
+1. Ciąg zostanie następnie przycięty, aby upewnić się, że ogólna długość nie przekracza 8 000 tokenów. Jeśli masz bardzo duże dokumenty, z polem zawartości lub merged_content polem zawierającym wiele stron zawartości, wszystkie elementy po limicie tokenów zostaną zignorowane.
 
-1. Każdy z 50 dokumentów jest teraz reprezentowany przez pojedynczy długi ciąg, który jest do 20 000 tokenów. Ten ciąg jest wysyłany do modelu podsumowania. Model podsumowania zawiera podpisy (i odpowiedzi), dzięki czemu można zidentyfikować fragmenty, które pojawiają się w celu podsumowania zawartości lub udzielenia odpowiedzi na pytanie. Dane wyjściowe modelu podsumowania to dalej skrócony ciąg, który ma co najwyżej 128 tokenów.
+1. Każdy z 50 dokumentów jest teraz reprezentowany przez pojedynczy długi ciąg. Ten ciąg jest wysyłany do modelu podsumowania. Model podsumowania zawiera podpisy (i odpowiedzi), dzięki czemu można zidentyfikować fragmenty, które pojawiają się w celu podsumowania zawartości lub udzielenia odpowiedzi na pytanie. Dane wyjściowe modelu podsumowania to dalej skrócony ciąg, który ma co najwyżej 128 tokenów.
 
 1. Mniejszy ciąg zmieni się na podpis dokumentu i reprezentuje najbardziej odpowiednie fragmenty Znalezione w większym ciągu. Zestaw 50 (lub mniej) jest następnie klasyfikowany jako istotny w kolejności. 
 

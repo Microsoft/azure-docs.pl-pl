@@ -1,14 +1,14 @@
 ---
 title: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 description: W przypadku korzystania z usługi Azure Lighthouse ważne jest uwzględnienie zabezpieczeń i kontroli dostępu.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843727"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419307"
 ---
 # <a name="recommended-security-practices"></a>Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -17,7 +17,7 @@ W przypadku korzystania z [usługi Azure Lighthouse](../overview.md)ważne jest 
 > [!TIP]
 > Te zalecenia dotyczą również [przedsiębiorstw zarządzających wieloma dzierżawcami](enterprise.md) za pomocą usługi Azure Lighthouse.
 
-## <a name="require-azure-ad-multi-factor-authentication"></a>Wymagaj Multi-Factor Authentication usługi Azure AD
+## <a name="require-azure-ad-multi-factor-authentication"></a>Wymaganie uwierzytelniania wieloskładnikowego w usłudze Azure AD
 
 [Usługa Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (znana także jako weryfikacja dwuetapowa) zapobiega uzyskaniu dostępu do konta przez osoby atakujące, wymagając wielu kroków uwierzytelniania. Należy wymagać Multi-Factor Authentication dla wszystkich użytkowników w dzierżawie zarządzającej, w tym użytkowników, którzy będą mieli dostęp do delegowanych zasobów klientów.
 
@@ -47,5 +47,6 @@ Należy pamiętać, że po dołączeniu [klientów za pomocą publicznej oferty 
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Zapoznaj się z [informacjami o linii bazowej zabezpieczeń](../security-baseline.md) , aby poznać sposób, w jaki wskazówki z testu porównawczego zabezpieczeń platformy Azure dotyczą usługi Azure Lighthouse.
 - [Wdróż usługę Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](cross-tenant-management-experience.md).

@@ -2,26 +2,24 @@
 title: 'SQL Server usługi Azure Synapse Analytics: Przewodnik migracji'
 description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację baz danych SQL do puli SQL usługi Azure Synapse Analytics.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 09914b409c7d8412f6ba30d4412e28e264bd50f6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 9a7888d3ccf7e033f15f184227c65c746780aa12
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225789"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418032"
 ---
 # <a name="migration-guide-sql-server-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Przewodnik migracji: SQL Server do dedykowanej puli SQL w usłudze Azure Synapse Analytics 
-W poniższych sekcjach zawarto informacje na temat tego, czego dotyczy Migrowanie istniejącego rozwiązania magazynu danych SQL Server do puli SQL usługi Azure Synapse Analytics
+W poniższych sekcjach zawarto informacje na temat tego, czego dotyczy Migrowanie istniejącego rozwiązania magazynu danych SQL Server do puli SQL usługi Azure Synapse Analytics.
 
 ## <a name="overview"></a>Omówienie
-Przed przeprowadzeniem migracji należy sprawdzić, czy usługa Azure Synapse Analytics jest najlepszym rozwiązaniem dla obciążenia. Azure Synapse Analytics to rozproszony system przeznaczony do przeprowadzania analiz w przypadku dużych ilości danych. Migrowanie do usługi Azure Synapse Analytics wymaga pewnych zmian projektowych, które nie są trudne do zrozumienia, ale mogą one zająć trochę czasu. Jeśli Twoja firma wymaga hurtowni danych klasy korporacyjnej, korzyści są nadające się do tego nakładu pracy. Jeśli jednak nie potrzebujesz możliwości usługi Azure Synapse Analytics, jest to bardziej ekonomiczne użycie [SQL Server](https://docs.microsoft.com/sql/sql-server/) lub [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
+Przed przeprowadzeniem migracji należy sprawdzić, czy usługa Azure Synapse Analytics jest najlepszym rozwiązaniem dla obciążenia. Azure Synapse Analytics to rozproszony system przeznaczony do przeprowadzania analiz w przypadku dużych ilości danych. Migrowanie do usługi Azure Synapse Analytics wymaga wprowadzenia pewnych zmian projektowych, które nie są trudne do zrozumienia, ale mogą one zająć trochę czasu. Jeśli Twoja firma wymaga hurtowni danych klasy korporacyjnej, korzyści są nadające się do tego nakładu pracy. Jeśli jednak nie potrzebujesz możliwości analizy usługi Azure Synapse, jest to bardziej ekonomiczne użycie [SQL Server](/sql/sql-server/) lub [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 Rozważ użycie usługi Azure Synapse Analytics:
 - Mieć co najmniej jeden terabajt danych.
@@ -44,10 +42,10 @@ Aby przeprowadzić migrację SQL Server do usługi Azure Synapse Analytics, upew
 - [Dedykowana Pula SQL](../get-started-create-workspace.md) w obszarze roboczym usługi Azure Synapse. 
 
 ## <a name="pre-migration"></a>Przed migracją
-Po podjęciu decyzji o migracji istniejącego rozwiązania do usługi Azure Synapse Analytics ważne jest zaplanowanie migracji przed rozpoczęciem pracy. Głównym celem planowania jest upewnienie się, że dane, schematy tabel i kod są zgodne z usługą Azure Synapse Analytics. Istnieją pewne różnice zgodności między bieżącym systemem i SQL Data Warehouse, które należy obejść. Ponadto Migrowanie dużych ilości danych na platformę Azure trwa. Staranne planowanie przyspiesza proces pobierania danych na platformę Azure. Innym najważniejszym celem planowania jest dostosowanie projektu, aby upewnić się, że rozwiązanie w pełni korzysta z wysokiej wydajności zapytań, którą zapewnia usługa Azure Synapse Analytics. Projektowanie magazynów danych na potrzeby skalowania wprowadza unikatowe wzorce projektowe, dlatego tradycyjne podejścia nie zawsze są najlepszym rozwiązaniem. Niektóre dostosowania projektu można wykonać po migracji, dzięki czemu zmiany wprowadzone we wcześniejszej części procesu spowodują zaoszczędzenie czasu.
+Po podjęciu decyzji o migracji istniejącego rozwiązania do usługi Azure Synapse Analytics ważne jest zaplanowanie migracji przed rozpoczęciem pracy. Głównym celem planowania jest upewnienie się, że dane, schematy tabel i kod są zgodne z usługą Azure Synapse Analytics. Istnieją pewne różnice zgodności między bieżącym systemem i SQL Data Warehouse, które należy obejść. Migrowanie dużych ilości danych na platformę Azure trwa także. Staranne planowanie przyspiesza proces pobierania danych na platformę Azure. Innym najważniejszym celem planowania jest dostosowanie projektu, aby upewnić się, że rozwiązanie w pełni korzysta z wysokiej wydajności zapytań, którą zapewnia usługa Azure Synapse Analytics. Projektowanie magazynów danych na potrzeby skalowania wprowadza unikatowe wzorce projektowe, dlatego tradycyjne podejścia nie zawsze są najlepszym rozwiązaniem. Niektóre dostosowania projektu można wykonać po migracji, dzięki czemu zmiany wprowadzone we wcześniejszej części procesu spowodują zaoszczędzenie czasu.
 
 ## <a name="azure-synapse-pathway"></a>Ścieżka usługi Azure Synapse
-Jeden z najważniejszych użytkowników z zażądanymi członkami jest tłumaczy swój kod SQL podczas migracji z jednego systemu do drugiego. [Usługa Azure Synapseing](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ułatwia uaktualnienie do nowoczesnej platformy magazynu danych przez Automatyzowanie translacji kodu istniejącego magazynu danych. Jest to bezpłatne, intuicyjne i łatwe w użyciu narzędzie, które automatyzuje tłumaczenie kodu umożliwiające szybszą migrację do usługi Azure Synapse Analytics.
+Jeden z najważniejszych użytkowników z zażądanymi członkami jest tłumaczy swój kod SQL podczas migracji z jednego systemu do drugiego. [Usługa Azure Synapseing](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ułatwia uaktualnienie do nowoczesnej platformy magazynu danych przez Automatyzowanie translacji kodu istniejącego magazynu danych. Jest to bezpłatne, intuicyjne i łatwe w użyciu narzędzie, które automatyzuje tłumaczenie kodu umożliwiające szybszą migrację do usługi Azure Synapse Analytics.
 
 ## <a name="migrate"></a>Migrate
 Wykonanie pomyślnej migracji wymaga przeprowadzenia migracji schematów, kodu i danych tabeli. Aby uzyskać bardziej szczegółowe wskazówki dotyczące tych tematów, zobacz:

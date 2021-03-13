@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216992"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419018"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie i usuwanie adresów IP dla interfejsów sieciowych platformy Azure
 
@@ -29,7 +29,7 @@ Dowiedz się, jak dodawać, zmieniać i usuwać publiczne i prywatne adresy IP d
 
 Jeśli musisz utworzyć, zmienić lub usunąć interfejs sieciowy, zapoznaj się z artykułem [Zarządzanie interfejsem sieciowym](virtual-network-network-interface.md) . Jeśli zachodzi potrzeba dodania interfejsów sieciowych do lub usunięcia interfejsów sieciowych z maszyny wirtualnej, przeczytaj artykuł [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) .
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -192,8 +192,6 @@ Można przypisać zero lub jeden prywatny adres [IPv6](#ipv6) do jednej dodatkow
 
 > [!NOTE]
 > Chociaż można utworzyć interfejs sieciowy z adresem IPv6 przy użyciu portalu, nie można dodać istniejącego interfejsu sieciowego do nowej lub istniejącej maszyny wirtualnej przy użyciu portalu. Użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć interfejs sieciowy z prywatnym adresem IPv6, a następnie Dołącz interfejs sieciowy podczas tworzenia maszyny wirtualnej. Nie można dołączyć interfejsu sieciowego z przypisanym prywatnym adresem IPv6 do istniejącej maszyny wirtualnej. Nie można dodać prywatnego adresu IPv6 do konfiguracji protokołu IP dla dowolnego interfejsu sieciowego dołączonego do maszyny wirtualnej przy użyciu narzędzi (Portal, interfejsu wiersza polecenia lub programu PowerShell).
-
-Nie można przypisać publicznego adresu IPv6 do konfiguracji podstawowej lub pomocniczego adresu IP.
 
 ## <a name="skus"></a>Jednostki SKU
 

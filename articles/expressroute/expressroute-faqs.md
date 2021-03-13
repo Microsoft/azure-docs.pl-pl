@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 89c754c0fc70273a81eb047d695b1cae20f99376
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522295"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418695"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -104,6 +104,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Serwer uwierzytelniania wieloskładnikowego (starsza wersja)
 * Traffic Manager
+* Logic Apps
 
 ### <a name="public-peering"></a>Publiczna komunikacja równorzędna
 

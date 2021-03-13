@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/12/2021
+ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175876"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418100"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF 
 
@@ -178,19 +178,21 @@ Azure Resource Manager ogranicza rozmiar szablonu do 4 MB. Ogranicz rozmiar szab
 
 W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi [korzystania z szablonów połączonych i zagnieżdżonych](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise"></a>Nie można nawiązać połączenia z przedsiębiorstwem GIT 
+### <a name="cannot-connect-to-git-enterprise-cloud"></a>Nie można nawiązać połączenia z chmurą usługi GIT Enterprise 
 
 ##### <a name="issue"></a>Problem
 
-Nie można nawiązać połączenia z przedsiębiorstwem GIT z powodu problemów z uprawnieniami. Zobaczysz błąd, jak **422-obiekt nieprzetwarzany.**
+Nie można nawiązać połączenia z chmurą usługi GIT Enterprise z powodu problemów z uprawnieniami. Zobaczysz błąd, jak **422-obiekt nieprzetwarzany.**
 
 #### <a name="cause"></a>Przyczyna
 
-Nie skonfigurowano uwierzytelniania OAuth dla usługi ADF. Twój adres URL jest niepoprawnie skonfigurowany.
+* Używasz usługi git Enterprise na serwerze Premium. 
+* Nie skonfigurowano uwierzytelniania OAuth dla usługi ADF. 
+* Twój adres URL jest niepoprawnie skonfigurowany.
 
 ##### <a name="resolution"></a>Rozwiązanie
 
-Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klienta. Na przykład, ADF najpierw podejmie próbę *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* i zakończy się niepowodzeniem. Następnie zostanie podjęta próba *https://hostname/api/v3/orgs/ <org> / <repo> ...* i powodzenie. 
+Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klienta. Na przykład program ADF spróbuje ponowić próbę *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* i zakończyć się niepowodzeniem. Następnie zostanie podjęta próba *https://hostname/api/v3/orgs/ <org> / <repo> ...* i powodzenie. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Odzyskaj z usuniętej fabryki danych
 

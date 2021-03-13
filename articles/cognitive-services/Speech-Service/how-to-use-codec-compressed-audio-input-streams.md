@@ -12,12 +12,12 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 410c0942b9040a6707a51e4ff9f375b9d4728668
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821574"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417710"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Korzystanie z kodera-dekoder skompresowanego audio przy użyciu zestawu Speech SDK
 
@@ -25,13 +25,14 @@ Interfejs API **strumienia danych wejściowych audio** usługi Speech Service SD
 
 Platforma | Języki | Obsługiwana wersja GStreamer
 | :--- | ---: | :---:
-Windows (z wyłączeniem platformy UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
+Windows (z wyłączeniem platformy UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [obsługiwane dystrybucje systemu Linux i architektury docelowe](~/articles/cognitive-services/speech-service/speech-sdk.md)
-Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
 
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Wersja zestawu Speech SDK wymagana przez dane wejściowe skompresowanego dźwięku
 * Zestaw Speech SDK w wersji 1.10.0 lub nowszej jest wymagany dla RHEL 8 i CentOS 8
 * Dla systemu Windows wymagany jest pakiet Speech SDK w wersji 1.11.0 lub nowszej.
+* Zestaw Speech SDK w wersji 1.16.0 lub nowszej dla najnowszej GStreamer w systemach Windows i Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

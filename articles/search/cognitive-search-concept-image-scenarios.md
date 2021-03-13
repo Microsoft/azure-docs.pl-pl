@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020222"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419595"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Jak przetwarzać i wyodrębniać informacje z obrazów w scenariuszach wzbogacania AI
 
@@ -213,6 +213,77 @@ Jako pomocnik, jeśli konieczne jest przekształcenie znormalizowanych współrz
             return original;
         }
 ```
+## <a name="passing-images-to-custom-skills"></a>Przekazywanie obrazów do umiejętności niestandardowych
+
+W scenariuszach, w których do pracy z obrazami wymagana jest niestandardowa umiejętność, można przekazać obrazy do niestandardowej umiejętności i zwrócić tekst lub obrazy. Przykład przetwarzania obrazu w języku [Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) pokazuje przepływ pracy. Następujący zestawu umiejętności pochodzi z przykładu.
+
+Poniższe zestawu umiejętności pobiera znormalizowany obraz (uzyskany podczas łamania dokumentów) i wyprowadza wycinków obrazu.
+
+#### <a name="sample-skillset"></a>Przykład zestawu umiejętności
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### <a name="custom-skill"></a>Niestandardowa umiejętność
+
+Sama niestandardowa umiejętność jest zewnętrzna zestawu umiejętności. W tym przypadku jest to kod w języku Python, który najpierw tworzy pętlę w szczegółowej części rekordu żądania w niestandardowym formacie umiejętności, a następnie konwertuje ciąg szyfrowany algorytmem Base64 na obraz.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Podobnie, aby zwrócić obraz, zwróć zakodowany ciąg Base64 w obrębie obiektu JSON z `$type` właściwością `file` .
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
 
 ## <a name="see-also"></a>Zobacz też
 + [Utwórz indeksator (REST)](/rest/api/searchservice/create-indexer)
@@ -221,3 +292,4 @@ Jako pomocnik, jeśli konieczne jest przekształcenie znormalizowanych współrz
 + [Umiejętność scalania tekstu](cognitive-search-skill-textmerger.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)
++ [Jak przekazać obrazy do umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

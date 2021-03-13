@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: ca8b9a511de1b71e5d03b8aac7631fc8f524500f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2cf72da8f7ca82c37088cd6456f094ada2580982
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177940"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418967"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -36,7 +36,7 @@ Więcej informacji o przepływie integracji usługi Azure AD znajduje się w dok
 * Jeśli używasz [Helm](https://github.com/helm/helm), minimalna wersja Helm 3,3.
 
 > [!Important]
-> Musisz użyć polecenia kubectl z minimalną wersją 1.18.1 lub kubelogin. Jeśli nie używasz poprawnej wersji, zobaczysz problemy z uwierzytelnianiem.
+> Musisz użyć polecenia kubectl z minimalną wersją 1.18.1 lub kubelogin. Różnica między wersjami pomocniczymi Kubernetes i polecenia kubectl nie powinna być większa niż 1. Jeśli nie używasz poprawnej wersji, zobaczysz problemy z uwierzytelnianiem.
 
 Aby zainstalować polecenia kubectl i kubelogin, użyj następujących poleceń:
 

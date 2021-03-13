@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401546"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419936"
 ---
 # <a name="what-is-azure-purview"></a>Co to jest usługa Azure Purview?
 
@@ -69,6 +69,9 @@ Po zarejestrowaniu źródła danych możesz wzbogacić swoje metadane. Użytkown
 Wykrywanie źródeł danych i ich zrozumienie to główny cel rejestrowania źródeł. Użytkownicy w organizacji mogą potrzebować danych do analizy biznesowej, projektowania aplikacji, analizy danych lub innych zadań, w których wymagane są odpowiednie dane. Wykorzystują one środowisko odnajdywania usługi Data Catalog, aby szybko znaleźć dane, które pasują do swoich potrzeb, zrozumieć dane umożliwiające ocenę przydatności do tego celu i wykorzystać dane przez otwarcie źródła danych w wybranym przez siebie narzędziu.
 
 Jednocześnie użytkownicy mogą wnieść swój wkład do wykazu danych poprzez znakowanie, dokumentowanie i dodawanie adnotacji do zarejestrowanych już źródeł. Mogą także rejestrować nowe źródła danych, które są następnie wykrywane, zrozumiałe i zużywane przez społeczność użytkowników wykazu.
+
+## <a name="in-region-data-residency"></a>Zamieszkania danych w regionie
+Usługa Azure kontrolą nie przenosi ani nie zapisuje danych klienta z regionu, w którym został wdrożony.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -156,6 +156,9 @@
       href: container-instances-reference-yaml.md
     - name: Łącznik
       href: /connectors/aci
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

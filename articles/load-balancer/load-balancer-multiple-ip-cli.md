@@ -13,14 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: d928a86f958e54552f5cc8d030b0fb74fa3bd3c2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 67f3ffa15b46eec9f352e08b0fe7c8b1bb15ac7e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214511"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417794"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu interfejsu wiersza polecenia platformy Azure
+
+> [!div class="op_single_selector"]
+> * [Portal](load-balancer-multiple-ip.md)
+> * [Interfejs wiersza polecenia](load-balancer-multiple-ip-cli.md)
+> * [Program PowerShell](load-balancer-multiple-ip-powershell.md)
 
 W tym artykule opisano, jak używać Azure Load Balancer z wieloma adresami IP w dodatkowym interfejsie sieciowym. W tym scenariuszu istnieją dwie maszyny wirtualne z systemem Windows, z których każdy ma podstawową i pomocniczą kartę sieciową. Każda z pomocniczych kart sieciowych ma dwie konfiguracje IP. Każda maszyna wirtualna hostuje zarówno witryny sieci Web contoso.com, jak i fabrikam.com. Każda witryna sieci Web jest powiązana z jedną z konfiguracji protokołu IP na pomocniczej karcie sieciowej. Używamy Azure Load Balancer, aby uwidocznić dwa adresy IP frontonu, jeden dla każdej witryny sieci Web, aby dystrybuować ruch do odpowiedniej konfiguracji protokołu IP dla witryny sieci Web. W tym scenariuszu jest stosowany ten sam numer portu dla obu frontonów, a także adresy IP puli zaplecza.
 

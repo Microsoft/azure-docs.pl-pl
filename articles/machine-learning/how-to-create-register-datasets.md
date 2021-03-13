@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522193"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417641"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 Aby ponownie użyć zestawów danych i udostępnić je w ramach eksperymentów w obszarze roboczym, [zarejestruj ten element dataset](#register-datasets).
 
+## <a name="wrangle-data"></a>Wrangle dane
+Po utworzeniu i [zarejestrowaniu](#register-datasets) zestawu danych możesz załadować go do notesu w celu przetwarzanie danych i [eksploracji](#explore-data) przed modelem szkoleń. 
+
+Jeśli nie musisz wykonywać żadnych przetwarzanie związanych z danymi lub eksploracji, zobacz jak korzystać z zestawów danych w skryptach szkoleniowych na potrzeby przesyłania eksperymentów ML w [połączeniu z zestawami danych](how-to-train-with-datasets.md).
+
+### <a name="filter-datasets-preview"></a>Filtruj zestawy danych (wersja zapoznawcza)
+Możliwości filtrowania są zależne od typu posiadanego zestawu danych. 
+> [!IMPORTANT]
+> Filtrowanie zestawów danych za pomocą metody publicznej wersji zapoznawczej [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) to funkcja [eksperymentalnej](/python/api/overview/azure/ml/#stable-vs-experimental) wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
+> 
+**W przypadku TabularDatasets** można zachować lub usunąć kolumny z metodami [keep_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) i [drop_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) .
+
+Aby odfiltrować wiersze według określonej wartości kolumny w TabularDataset, użyj metody [Filter ()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) (wersja zapoznawcza). 
+
+Poniższe przykłady zwracają niezarejestrowanego zestawu danych na podstawie określonych wyrażeń.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**W FileDatasets** każdy wiersz odpowiada ścieżce pliku, więc filtrowanie według wartości kolumny nie jest pomocne. Można jednak [filtrować ()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) wiersze na podstawie metadanych, takich jak, CreationTime, size itd.
+
+Poniższe przykłady zwracają niezarejestrowanego zestawu danych na podstawie określonych wyrażeń.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+**Zestawy danych z etykietami** utworzone na podstawie [projektów etykietowania z danymi](how-to-create-labeling-projects.md) są szczególnym przypadkiem. Te zestawy danych są typu TabularDataset składającego się z plików obrazów. Dla tych typów zestawów danych można [filtrować ()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) obrazy według metadanych oraz wartości kolumn takich jak `label` i `image_details` .
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>Eksplorowanie danych
 
-Po utworzeniu i [zarejestrowaniu](#register-datasets) zestawu danych można załadować go do notesu w celu przeprowadzenia eksploracji danych przed modelem. Jeśli nie musisz wykonywać żadnej eksploracji danych, zobacz jak używać zestawów danych w skryptach szkoleniowych do przesyłania eksperymentów [z wodą przy użyciu zestawów danych](how-to-train-with-datasets.md).
+Po zakończeniu przetwarzanie danych możesz [zarejestrować](#register-datasets) zestaw danych, a następnie załadować go do notesu w celu przeprowadzenia eksploracji danych przed modelem.
 
 W przypadku FileDatasets można **zainstalować** lub **pobrać** zestaw danych oraz zastosować biblioteki języka Python, które zwykle są używane do eksploracji danych. [Dowiedz się więcej o instalacji i pobieraniu](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Tworzenie zestawów danych przy użyciu Azure Resource Manager
 
-Istnieje kilka szablonów [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) , których można użyć do tworzenia zestawów danych.
+Istnieje wiele szablonów [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) , których można użyć do tworzenia zestawów danych.
 
 Aby uzyskać informacje na temat korzystania z tych szablonów, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
 

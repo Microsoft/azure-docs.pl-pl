@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 874cb283f0076905393aa529e4ff9e1bad3ae047
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222432"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419681"
 ---
 # <a name="public-ip-address-prefix"></a>Prefiks publicznego adresu IP
 
@@ -63,7 +63,7 @@ Można skojarzyć następujące zasoby ze statycznym publicznym adresem IP z pre
 |Maszyny wirtualne| Skojarzenie publicznych adresów IP z prefiksu do maszyn wirtualnych na platformie Azure zmniejsza obciążenie związane z zarządzaniem w przypadku dodawania adresów IP do listy dozwolonych w zaporze. Można dodać cały prefiks z pojedynczą regułą zapory. W miarę skalowania maszyn wirtualnych na platformie Azure można kojarzyć adresy IP z tego samego prefiksu oszczędności, czasu i kosztów zarządzania.| Aby skojarzyć adresy IP z prefiksem do maszyny wirtualnej: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. [Skojarz adres IP z interfejsem sieciowym maszyny wirtualnej.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Można także [skojarzyć adresy IP z zestawem skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Usługi równoważenia obciążenia w warstwie Standardowa | Skojarzenie publicznych adresów IP z prefiksu do konfiguracji adresu IP frontonu lub reguły ruchu wychodzącego modułu równoważenia obciążenia zapewnia uproszczenie publicznej przestrzeni adresów IP platformy Azure. Uprość ten scenariusz dzięki pielęgnacji połączeń wychodzących z zakresu sąsiadujących adresów IP. | Aby skojarzyć adresy IP z prefiksem do modułu równoważenia obciążenia: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas tworzenia modułu równoważenia obciążenia wybierz lub zaktualizuj adres IP utworzony w kroku 2 powyżej jako adres IP frontonu modułu równoważenia obciążenia. |
 | Azure Firewall | Możesz użyć publicznego adresu IP z prefiksu dla wychodzącego elementu Republic. Cały ruch wychodzący sieci wirtualnej jest tłumaczony na publiczny adres IP [zapory platformy Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . | Aby skojarzyć adres IP od prefiksu do zapory: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas [wdrażania zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)należy wybrać adres IP, który został wcześniej przekazany z prefiksu.|
-| Application Gateway (wersja 2) | Możesz użyć publicznego adresu IP z prefiksu do automatycznego skalowania i strefowo nadmiarowej bramy aplikacji w wersji 2. | Aby skojarzyć adres IP od prefiksu do bramy: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas [wdrażania Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)upewnij się, że wybrano adres IP, który został wcześniej przekazany z prefiksu.|
+| VPN Gateway (AZ SKU) lub Application Gateway v2 | Możesz użyć publicznego adresu IP z prefiksu dla strefy — nadmiarowego sieci VPN lub bramy aplikacji w wersji 2. | Aby skojarzyć adres IP od prefiksu do bramy: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas wdrażania [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/tutorial-create-gateway-portal) lub [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)upewnij się, że wybrano adres IP, który został wcześniej przekazany z prefiksu.|
 
 ## <a name="constraints"></a>Ograniczenia
 

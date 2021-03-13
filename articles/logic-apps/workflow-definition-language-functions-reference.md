@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/12/2021
+ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702491"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420038"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -135,7 +135,7 @@ Aby działać z warunkami, porównywać wartości i wyniki wyrażeń lub ocenia�
 | [wcześniejsz](../logic-apps/workflow-definition-language-functions-reference.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](../logic-apps/workflow-definition-language-functions-reference.md#not) | Sprawdź, czy wyrażenie ma wartość false. |
-| [oraz](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
+| [lub](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
 |||
 
 <a name="conversion-functions"></a>
@@ -4708,16 +4708,22 @@ workflow().<property>
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wartość*> | Nie | Ciąg | Nazwa właściwości przepływu pracy, której wartość ma być <p>Obiekt przepływu pracy ma następujące właściwości: **name**, **Type**, **ID**, **Location** i **Run**. Wartość właściwości **Run** jest również obiektem, który ma następujące właściwości: **name**, **Type** i **ID**. |
+| <*wartość*> | Nie | Ciąg | Nazwa właściwości przepływu pracy, której wartość ma być <p><p>Domyślnie obiekt przepływu pracy ma następujące właściwości: `name` ,,, `type` , `id` `location` `run` i `tags` . <p><p>- `run` Wartość właściwości jest obiektem JSON, który zawiera następujące właściwości: `name` , `type` , i `id` . <p><p>- `tags` Właściwość jest obiektem JSON, który zawiera [Tagi, które są skojarzone z aplikacją logiki w Azure Logic Apps lub przepływ w programie do automatyzowania](../azure-resource-manager/management/tag-resources.md) oraz wartości tych tagów. Aby uzyskać więcej informacji na temat tagów w zasobach platformy Azure, przejrzyj [zasoby tagów, grupy zasobów i subskrypcje dla organizacji logicznej na platformie Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Uwaga**: Domyślnie aplikacja logiki nie ma żadnych tagów, ale przepływ automatyzacji ma `flowDisplayName` `environmentName` znaczniki i. |
 |||||
 
-*Przykład*
+*Przykład 1*
 
 Ten przykład zwraca nazwę bieżącego przebiegu przepływu pracy:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Przykład 2*
+
+Jeśli używasz automatyzacji, możesz utworzyć `@workflow()` wyrażenie używające `tags` Właściwości Output do pobrania wartości z przepływu `flowDisplayName` lub `environmentName` właściwości.
+
+Na przykład możesz wysyłać niestandardowe powiadomienia e-mail z samego przepływu, który łączy się z powrotem do przepływu. Powiadomienia te mogą zawierać link HTML, który zawiera nazwę wyświetlaną przepływu w tytule wiadomości e-mail i ma następującą składnię:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

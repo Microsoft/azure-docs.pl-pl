@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620951"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439084"
 ---
 W wersji zapoznawczej system plików NFS ma następujące ograniczenia:
 
@@ -25,6 +25,7 @@ W wersji zapoznawczej system plików NFS ma następujące ograniczenia:
 - Dostępne tylko dla warstwy Premium.
 - Udziały NFS akceptują tylko numeryczne UID/GID. Aby uniknąć wysyłania alfanumerycznych identyfikatorów UID/GID przez klientów, należy wyłączyć mapowanie identyfikatorów.
 - Udziały można instalować tylko z jednego konta magazynu na poszczególnych maszynach wirtualnych, korzystając z linków prywatnych. Próba zainstalowania udziałów z innych kont magazynu zakończy się niepowodzeniem.
+- Najlepiej opierać się na uprawnieniach przypisanych do grupy podstawowej. Czasami uprawnienia przydzieleni do grupy niepodstawowej użytkownika mogą spowodować odmowa dostępu z powodu znanego błędu.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Funkcje usługi Azure Storage nie są jeszcze obsługiwane
 

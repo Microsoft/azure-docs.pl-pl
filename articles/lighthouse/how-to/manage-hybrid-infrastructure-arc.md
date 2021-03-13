@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usługi Azure Arc
 description: Dowiedz się, jak efektywnie zarządzać maszynami klientów i klastrami Kubernetes poza platformą Azure.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336619"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419340"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usługi Azure Arc
 
@@ -18,9 +18,9 @@ Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usłu
 
 Dzięki [serwerom z obsługą usługi Azure Arc](../../azure-arc/servers/overview.md)klienci mogą zarządzać wszystkimi maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej w taki sam sposób, jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Po połączeniu maszyny hybrydowej z platformą Azure będzie ona traktowana jak zasób na platformie Azure. Dostawcy usług mogą następnie zarządzać tymi maszynami spoza platformy Azure wraz z zasobami platformy Azure dla klientów.
 
-[Usługa Azure ARC z włączonym Kubernetes (wersja zapoznawcza)](../../azure-arc/kubernetes/overview.md) umożliwia klientom dołączanie i konfigurowanie klastrów Kubernetes w ramach platformy Azure lub poza nią. Po dołączeniu klastra Kubernetes do usługi Azure Arc zostanie on wyświetlony w Azure Portal z IDENTYFIKATORem Azure Resource Manager i tożsamością zarządzaną. Klastry są dołączone do standardowych subskrypcji platformy Azure, znajdują się w grupie zasobów i mogą odbierać Tagi tak samo jak każdy inny zasób platformy Azure.
+[Usługa Azure Arc Kubernetes](../../azure-arc/kubernetes/overview.md) umożliwia klientom dołączanie i konfigurowanie klastrów Kubernetes w ramach platformy Azure lub poza nią. Po dołączeniu klastra Kubernetes do usługi Azure Arc zostanie on wyświetlony w Azure Portal z IDENTYFIKATORem Azure Resource Manager i tożsamością zarządzaną. Klastry są dołączone do standardowych subskrypcji platformy Azure, znajdują się w grupie zasobów i mogą odbierać Tagi tak samo jak każdy inny zasób platformy Azure.
 
-Ten temat zawiera omówienie sposobu, w jaki dostawcy usług mogą korzystać z serwerów z obsługą usługi Azure Arc i usługi Azure Arc Kubernetes (wersja zapoznawcza) w skalowalny sposób do zarządzania środowiskiem hybrydowym klientów, z widocznością dla wszystkich zarządzanych dzierżawców klientów.
+Ten temat zawiera omówienie sposobu, w jaki dostawcy usług mogą korzystać z serwerów z obsługą usługi Azure Arc i usługi Azure Arc Kubernetes w sposób skalowalny do zarządzania środowiskiem hybrydowym klientów, dzięki wglądowi we wszystkie zarządzane dzierżawy klientów.
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
@@ -33,10 +33,7 @@ Podczas przeglądania zasobów dla delegowanej subskrypcji w Azure Portal zostan
 
 Można na przykład [upewnić się, że ten sam zestaw zasad jest stosowany przez maszyny hybrydowe klientów](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). Możesz również użyć Azure Security Center do monitorowania zgodności we wszystkich środowiskach hybrydowych klientów lub [użyć Azure monitor do zbierania danych bezpośrednio z maszyn hybrydowych](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) w log Analytics obszarze roboczym. [Rozszerzenia maszyn wirtualnych](../../azure-arc/servers/manage-vm-extensions.md) można wdrażać na maszynach wirtualnych z systemem innym niż Azure lub Linux, upraszczając zarządzanie komputerami hybrydowymi klientów.
 
-## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes-preview"></a>Zarządzanie hybrydowymi klastrami Kubernetes na dużą skalę przy użyciu usługi Azure Arc Kubernetes (wersja zapoznawcza)
-
-> [!NOTE]
-> Usługa Azure ARC z włączonym Kubernetes jest obecnie w wersji zapoznawczej. W tej chwili nie zalecamy obsługi obciążeń produkcyjnych.
+## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Zarządzanie hybrydowymi klastrami Kubernetes na dużą skalę przy użyciu usługi Azure Arc Kubernetes
 
 Można zarządzać klastrami Kubernetes, które zostały [połączone z subskrypcją klienta za pomocą usługi Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), tak jakby były one uruchomione na platformie Azure.
 
@@ -48,9 +45,8 @@ Możliwe jest również monitorowanie podłączonych klastrów przy użyciu Azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z Jumpstarts i przykładami w [repozytorium usługi Azure Arc](https://github.com/microsoft/azure_arc)w witrynie GitHub. 
+- Zapoznaj się z Jumpstarts i przykładami w [repozytorium usługi Azure Arc](https://github.com/microsoft/azure_arc)w witrynie GitHub.
 - Poznaj [obsługiwane scenariusze dla serwerów z obsługą usługi Azure Arc](../../azure-arc/servers/overview.md#supported-scenarios).
 - Informacje [na temat dystrybucji Kubernetes obsługiwanych przez usługę Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
 - Dowiedz się, jak [wdrażać zasady w odpowiedniej skali](policy-at-scale.md).
 - Dowiedz się, jak [używać dzienników Azure monitor na dużą skalę](monitor-at-scale.md).
-

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 1bccfa4d36ad39aec79a50c8a6b6c50260370223
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235077"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418899"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Zwracanie semantyki odpowiedzi na platformie Azure Wyszukiwanie poznawcze
 
@@ -63,7 +63,7 @@ Parametr "searchFields" ma kluczowe znaczenie dla zwrócenia odpowiedzi o wysoki
 
 + Ciąg zapytania nie może mieć wartości null i powinien być sformułowany jako pytanie. W tej wersji zapoznawczej wartości "querytype" i "queryLanguage" muszą być ustawione dokładnie tak, jak pokazano w przykładzie.
 
-+ Parametr "searchFields" określa, które pola dostarczają tokeny do modelu wyodrębniania. W trakcie pobierania tokenu są używane maksymalnie 20 000 tokeny, dlatego należy uruchomić listę pól ze zwięzłymi polami, a następnie postępować w polach tekstu sformatowanego. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ Parametr "searchFields" określa, które pola dostarczają tokeny do modelu wyodrębniania. Pamiętaj, aby ustawić ten parametr. Musisz mieć co najmniej jedno pole typu String, ale dołączyć dowolne pole ciągu, które uważasz, że jest to przydatne w przypadku udzielenia odpowiedzi. Do modelu są przesyłane tylko informacje o 8 000 tokenach na dokument. Uruchom listę pól ze zwięzłymi polami, a następnie postępuj według pól tekstu sformatowanego. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + W przypadku "odpowiedzi", konstrukcja podstawowego parametru to `"answers": "extractive"` , gdzie zwracana jest domyślna liczba odpowiedzi. Można zwiększyć liczbę odpowiedzi, dodając liczbę, maksymalnie pięć.  Niezależnie od tego, czy potrzebujesz więcej niż jednej odpowiedzi, zależy od środowiska użytkownika aplikacji i sposobu renderowania wyników.
 

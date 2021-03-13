@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547863"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418083"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -260,7 +260,7 @@ Odp **.: aplikacja Authenticator ma już** wysoki poziom zabezpieczeń na potrze
 
 **P**: czy Moi pracownicy lub studenci mogą korzystać z automatycznego wypełniania haseł w aplikacji uwierzytelniania?
 
-Odp.: tak, funkcja Autowypełniania **działa w przypadku** większości użytkowników w przedsiębiorstwie, nawet gdy do aplikacji uwierzytelniającej jest dodawane konto służbowe. Możesz wypełnić formularz, aby skonfigurować (Zezwalaj lub Odmów) Autowypełniania dla organizacji i [wysyłać ją do zespołu wystawcy uwierzytelnienia](https://aka.ms/ConfigureAutofillInAuthenticator).
+Odp **.: tak**, funkcja Autowypełniania dla [osobistych kont Microsoft](https://go.microsoft.com/fwlink/?linkid=2144423) działa teraz w przypadku większości użytkowników w przedsiębiorstwie, nawet gdy do aplikacji Authenticator zostanie dodane konto służbowe. Możesz wypełnić formularz, aby zezwolić na automatyczne Autowypełnianie w organizacji i [wysłać go do zespołu wystawcy uwierzytelnienia](https://aka.ms/ConfigureAutofillInAuthenticator). Autowypełnianie nie jest obecnie dostępne dla kont służbowych.
 
 **P**: czy hasło konta służbowego użytkownika lub szkoły zostanie automatycznie zsynchronizowane?
 

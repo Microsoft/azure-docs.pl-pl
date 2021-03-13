@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
-ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.custom: references_regions
+ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453431"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419953"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funkcje usługi Azure firewall Premium w wersji zapoznawczej
 
@@ -100,6 +101,44 @@ lub
 
 Witamy w przesłaniu żądania o [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
  
+## <a name="supported-regions"></a>Obsługiwane regiony
+
+Usługa Azure firewall Premium w wersji zapoznawczej jest obsługiwana w następujących regionach:
+
+- Europa Zachodnia (Public/Europa)
+- Wschodnie stany USA (Public/Stany Zjednoczone)
+- Australia Wschodnia (Public/Australia)
+- Azja Południowo-Wschodnia (Public/Azja i Pacyfik)
+- Południowe Zjednoczone Królestwo (Public/Wielka Brytania)
+- Europa Północna (Public/Europa)
+- Wschodnie stany USA 2 (publiczne/Stany Zjednoczone)
+- Południowo-środkowe stany USA (publiczne/Stany Zjednoczone)
+- Zachodnie stany USA 2 (publiczne/Stany Zjednoczone)
+- Zachodnie stany USA (publiczne/Stany Zjednoczone)
+- Środkowe stany USA (publiczne/Stany Zjednoczone)
+- Północno-środkowe stany USA (publiczne/Stany Zjednoczone)
+- Japonia Wschodnia (Public/Japonia)
+- Azja Wschodnia (Public/Azja i Pacyfik)
+- Kanada Środkowa (Public/Kanada)
+- Francja Środkowa (Public/Francja)
+- Północna Republika Południowej Afryki (Public/Republika Południowej Afryki)
+- Północne Zjednoczone Emiraty Arabskie (Public/Zjednoczone Emiraty Arabskie)
+- Szwajcaria Północna (Public/Szwajcaria)
+- Brazylia Południowa (Public/Brazylia)
+- Norwegia Wschodnia (Public/Norwegia)
+- Australia Środkowa (Public/Australia)
+- Australia Środkowa 2 (Public/Australia)
+- Australia Południowo-Wschodnia (Public/Australia)
+- Kanada Wschodnia (Public/Kanada)
+- Środkowe stany USA — EUAP (Public/Kanaryjskie (USA))
+- Francja Południowa (Public/Francja)
+- Japonia Zachodnia (Public/Japonia)
+- Korea Południowa (Public/Korea)
+- Europa Środkowa (Public/Zjednoczone Emiraty Arabskie)
+- Zachodnie Zjednoczone Królestwo (Public/Wielka Brytania)
+- Zachodnio-środkowe stany USA (Public/Stany Zjednoczone)
+- Indie Zachodnie (Public/Indie)
+
 
 ## <a name="known-issues"></a>Znane problemy
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232747"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418882"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
 
@@ -141,7 +141,7 @@ Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po 
 
 + Obserwuj te pola według opisowych pól, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu.
 
-Jeśli określone jest tylko jedno pole, użyj pola opisowego, w którym można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość. Aby zapewnić czasowe przetwarzanie, tylko pierwszych 20 000 tokenów zbiorczej zawartości searchFields poddawanej ocenie semantycznej i klasyfikacji.
+Jeśli określone jest tylko jedno pole, użyj pola opisowego, w którym można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość. Aby zapewnić czasowe przetwarzanie, tylko informacje o 8 000 tokenach zbiorczych zawartości searchFields przechodzą na ocenę semantyczną i klasyfikację.
 
 #### <a name="step-3-remove-orderby-clauses"></a>Krok 3. Usuwanie klauzul orderBy
 

@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: b7418825b4f22bfe4fe1941cb1f70ffb9f0a939b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609213"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417811"
 ---
 # <a name="ncast4_v3-series"></a>Seria NCasT4_v3 
 
@@ -46,6 +46,8 @@ NVIDIA NVLink Interconnect: obsługiwane<br>
 Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych z serii NCasT4_v3 platformy Azure z systemem Windows lub Linux, należy zainstalować sterowniki NVIDIA GPU.
 
 Aby ręcznie zainstalować sterowniki procesora GPU firmy NVIDIA, zobacz [konfigurację sterowników procesora GPU dla systemu Windows](./windows/n-series-driver-setup.md) w przypadku obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacji.
+
+Rozszerzenie sterownika GPU NVIDIA platformy Azure spowoduje wdrożenie sterowników CUDA na maszynach wirtualnych z serii NCasT4_v3. W przypadku obciążeń graficznych i wizualizacji ręcznie zainstaluj sterowniki siatki obsługiwane przez platformę Azure.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 

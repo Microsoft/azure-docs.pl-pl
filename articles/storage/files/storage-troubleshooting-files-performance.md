@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737634"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417675"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -39,7 +39,8 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp d
     W przypadku standardowych udziałów plików następujące typy odpowiedzi są rejestrowane, jeśli żądanie jest ograniczone:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     W przypadku udziałów plików w warstwie Premium następujące typy odpowiedzi są rejestrowane, jeśli żądanie jest ograniczone:
 
@@ -244,7 +245,8 @@ Aby potwierdzić, możesz użyć metryk platformy Azure w portalu —
     W przypadku standardowych udziałów plików wybierz następujące typy odpowiedzi:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     W przypadku udziałów plików w warstwie Premium wybierz następujące typy odpowiedzi:
 

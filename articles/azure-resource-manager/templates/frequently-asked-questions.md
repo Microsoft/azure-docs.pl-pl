@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036144"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419409"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -100,7 +100,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy oferujesz narzędzie do konwersji szablonów JSON do nowego języka szablonów?**
 
-  Tak. Zobacz [dekompilacja JSON do Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+  Tak. Zobacz [konwertowanie szablonów ARM między elementami JSON i Bicep](bicep-decompile.md).
 
 ## <a name="template-specs"></a>Specyfikacje szablonu
 

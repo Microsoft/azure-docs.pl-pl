@@ -2,13 +2,13 @@
 title: Porównanie składni Azure Resource Manager szablonów w formacie JSON i Bicep
 description: Porównuje Azure Resource Manager szablony opracowane za pomocą notacji JSON i Bicep oraz pokazują, jak konwertować między językami.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 85f85e66e69eede68bab847e4bc68514e65115eb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036218"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418049"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Porównanie JSON i Bicep dla szablonów
 
@@ -40,42 +40,7 @@ Jeśli wiesz już, jak tworzyć szablony ARM przy użyciu formatu JSON, Skorzyst
 * Użyj spójnej wielkości liter dla identyfikatorów. Jeśli nie masz pewności, jakiego typu użyta jest wielkość liter, wypróbuj notacji CamelCase wielkości liter. Na przykład `param myCamelCasedParameter string`.
 * Dodaj opis do parametru tylko wtedy, gdy opis zawiera podstawowe informacje dla użytkowników. `//`Aby uzyskać pewne informacje, można użyć komentarzy.
 
-## <a name="decompile-json-to-bicep"></a>Dekompilowanie pliku JSON do Bicep
-
-Interfejs wiersza polecenia Bicep udostępnia polecenie do dekompilowania istniejącego szablonu ARM do pliku Bicep. Aby dekompilować plik JSON, użyj: `bicep decompile "path/to/file.json"`
-
-To polecenie udostępnia punkt początkowy dla tworzenia Bicep, ale polecenie nie działa dla wszystkich szablonów. Polecenie może się nie powieść lub może być konieczne naprawienie problemów po zakończeniu dekompilacji. Obecnie zagnieżdżone szablony mogą być dekompilowane tylko wtedy, gdy używają zakresu oceny wyrażenia "Inner".
-
-Możesz wyeksportować szablon dla grupy zasobów, a następnie przekazać go bezpośrednio do polecenia dekompilowania Bicep. Poniższy przykład pokazuje, jak dekompilować wyeksportowany szablon.
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-```azurecli
-az group export --name "your_resource_group_name" > main.json
-bicep decompile main.json
-```
-
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Export-AzResourceGroup -ResourceGroupName "your_resource_group_name" -Path ./main.json
-bicep decompile main.json
-```
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-[Wyeksportuj szablon](export-template-portal.md) przy użyciu portalu. Użyj `bicep decompile <filename>` pobranego pliku.
-
----
-
-## <a name="build-json-from-bicep"></a>Kompiluj kod JSON z Bicep
-
-Interfejs wiersza polecenia Bicep udostępnia również polecenie konwersji Bicep na format JSON. Aby skompilować plik JSON, użyj: `bicep build "path/to/file.json"`
-
-## <a name="side-by-side-view"></a>Widok obok siebie
-
-[Bicep plac zabaw](https://aka.ms/bicepdemo) umożliwia wyświetlanie odpowiedników plików JSON i Bicep obok siebie. Możesz wybrać przykładowy szablon, aby wyświetlić obie wersje. Można też wybrać opcję `Decompile` przekazania własnego szablonu JSON i wyświetlić odpowiedni plik Bicep.
-
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat Bicep, zobacz [samouczek Bicep](./bicep-tutorial-create-first-bicep.md).
+* Aby uzyskać informacje na temat Bicep, zobacz [samouczek Bicep](./bicep-tutorial-create-first-bicep.md).
+* Aby dowiedzieć się więcej o konwertowaniu szablonów między językami, zobacz [konwertowanie szablonów ARM między elementami JSON i Bicep](bicep-decompile.md).

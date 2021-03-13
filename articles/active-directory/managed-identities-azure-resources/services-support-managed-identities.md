@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7b9ae52a0d62da6a8637f63f15d8680b54aeefd1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688573"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418780"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -74,6 +74,18 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 Usługa Azure ARC z włączonym Kubernetes obecnie [obsługuje tożsamość przypisaną do systemu](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). Certyfikat tożsamości usługi zarządzanej jest używany przez wszystkich agentów Kubernetes z obsługą usługi Azure Arc na potrzeby komunikacji z platformą Azure.
+
+### <a name="azure-arc-enabled-servers"></a>Serwery z usługą Azure Arc
+
+| Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
+| Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
+
+Wszystkie serwery z obsługą usługi Azure Arc mają tożsamość przypisaną do systemu. Nie można wyłączyć ani zmienić przypisanej tożsamości systemu na serwerze z włączonym łukiem Azure. Zapoznaj się z poniższymi zasobami, aby dowiedzieć się więcej o korzystaniu z zarządzanych tożsamości na serwerach z obsługą usługi Azure ARC:
+
+- [Uwierzytelnianie względem zasobów platformy Azure przy użyciu serwerów z włączonym łukiem](../../azure-arc/servers/managed-identity-authentication.md)
+- [Korzystanie z tożsamości zarządzanej z serwerami z obsługą łuku](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 

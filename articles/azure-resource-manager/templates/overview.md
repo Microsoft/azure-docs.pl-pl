@@ -2,13 +2,13 @@
 title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager (szablony ARM) na potrzeby wdrażania zasobów.
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455739"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419987"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -19,6 +19,10 @@ Aby sprostać tym wyzwaniom, można zautomatyzować wdrożenia i korzystać z za
 Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (szablony ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
 
 Wprowadziliśmy nowy język na potrzeby opracowywania szablonów usługi ARM. Język ma nazwę Bicep i jest obecnie w wersji zapoznawczej. Szablony Bicep i JSON oferują te same możliwości. Szablon można skonwertować między tymi dwoma językami. Bicep zawiera składnię, która jest łatwiejsza do użycia podczas tworzenia szablonów. Aby uzyskać więcej informacji, zobacz [co to jest Bicep (wersja zapoznawcza)?](bicep-overview.md).
+
+Aby dowiedzieć się, jak zacząć korzystać z szablonów ARM, zobacz następujące wideo.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>Dlaczego warto wybrać Szablony ARM?
 

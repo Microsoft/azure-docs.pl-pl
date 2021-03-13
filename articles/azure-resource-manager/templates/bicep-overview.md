@@ -3,12 +3,12 @@ title: Język Bicep dla szablonów Azure Resource Manager
 description: Opisuje język Bicep na potrzeby wdrażania infrastruktury na platformie Azure za pomocą szablonów Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232974"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419834"
 ---
 # <a name="what-is-bicep-preview"></a>Co to jest Bicep (wersja zapoznawcza)?
 
@@ -24,7 +24,7 @@ Po zainstalowaniu narzędzi Wypróbuj [samouczek Bicep](./bicep-tutorial-create-
 
 Aby wyświetlić równoważne pliki JSON i Bicep obok siebie, zobacz [Bicep plac zabaw](https://aka.ms/bicepdemo).
 
-Jeśli masz istniejący szablon ARM do przekonwertowania na Bicep, zobacz [dekompilowanie kodu JSON do Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Jeśli masz istniejący szablon ARM do przekonwertowania na Bicep, zobacz [konwertowanie szablonów ARM między elementami JSON i Bicep](bicep-decompile.md).
 
 ## <a name="bicep-improvements"></a>Udoskonalenia Bicep
 
@@ -89,7 +89,7 @@ Bicep to DSL ukierunkowana na wdrażanie kompletnych rozwiązań na platformie A
 
 Nadal działają tak samo, jak zawsze. Nie musisz wprowadzać żadnych zmian. Będziemy nadal obsługiwać podstawowy język JSON szablonu ARM. Pliki Bicep kompilują do formatu JSON, a ten kod JSON jest wysyłany do platformy Azure w celu wdrożenia.
 
-Gdy wszystko będzie gotowe, można [przekonwertować pliki JSON na Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Gdy wszystko będzie gotowe, można [przekonwertować pliki JSON na Bicep](bicep-decompile.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

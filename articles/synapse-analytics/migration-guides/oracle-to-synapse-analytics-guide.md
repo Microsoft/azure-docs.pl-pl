@@ -2,19 +2,17 @@
 title: 'Oracle do usługi Azure Synapse Analytics: Przewodnik migracji'
 description: W poniższych sekcjach zawarto informacje na temat tego, czego dotyczy Migrowanie istniejącego rozwiązania bazy danych Oracle do usługi Azure Synapse Analytics.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 6b5412b24ce6da3476e0c80f31fb07e3647fe5a2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: bcabb11d67e621ebd2449f2148a0a86ba32d27d9
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225794"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419205"
 ---
 # <a name="migration-guide-migrate-oracle-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Przewodnik migracji: Migrowanie magazynu danych Oracle do dedykowanej puli SQL w usłudze Azure Synapse Analytics
 W poniższych sekcjach zawarto informacje na temat tego, czego dotyczy Migrowanie istniejącego rozwiązania magazynu danych firmy Oracle do usługi Azure Synapse Analytics.

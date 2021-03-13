@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 86e4bb52f2a97bf36dc4be86289bd513a9f05091
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: bb7769298940095900da25e61e13612b92bad00c
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538259"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419103"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Co to jest protokół IPv6 dla usługi Azure Virtual Network?
 
@@ -77,8 +77,7 @@ Bieżąca wersja protokołu IPv6 dla usługi Azure Virtual Network ma następuj�
 - Protokół IPv6 dla usługi Azure Virtual Network jest dostępny we wszystkich globalnych regionach dla instytucji rządowych platformy Azure i w Stanach Zjednoczonych przy użyciu wszystkich metod wdrażania.  
 - Bram ExpressRoute można używać tylko dla ruchu IPv4 w sieci wirtualnej z włączonym protokołem IPv6.  Obsługa ruchu IPv6 znajduje się w naszym przewodniku.   
 - Bram sieci VPN nie można używać w sieci wirtualnej z włączonym protokołem IPv6, bezpośrednio lub za pomocą komunikacji równorzędnej z "UseRemoteGateway".
-- Platforma Azure (AKS itp.) nie obsługuje komunikacji IPv6 dla kontenerów.  
-- Protokół IPv6 można równoważyć obciążenia tylko z podstawowym interfejsem sieciowym (NIC) na maszynach wirtualnych platformy Azure. Równoważenie obciążenia ruchu IPv6 do pomocniczych kart sieciowych nie jest obsługiwane.    
+- Platforma Azure (AKS itp.) nie obsługuje komunikacji IPv6 dla kontenerów. 
 - Tylko protokół IPv6 Virtual Machines lub zestawy skalowania Virtual Machines nie są obsługiwane, każda karta sieciowa musi zawierać co najmniej jedną konfigurację adresu IP IPv4. 
 - W przypadku dodawania protokołu IPv6 do istniejących wdrożeń IPv4 nie można dodać zakresów IPv6 do sieci wirtualnej z istniejącymi łączami nawigacji zasobów.  
 - Serwer DNS do przesyłania dalej jest obsługiwany przez usługę Azure Public DNS już dziś, ale odwrotny serwer DNS nie jest jeszcze obsługiwany.   

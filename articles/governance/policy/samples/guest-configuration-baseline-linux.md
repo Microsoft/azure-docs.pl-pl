@@ -1,19 +1,19 @@
 ---
 title: Odwołanie — Azure Policy linia bazowa konfiguracji gościa dla systemu Linux
 description: Szczegóły planu bazowego systemu Linux na platformie Azure zaimplementowane przez Azure Policy konfigurację gościa.
-ms.date: 02/26/2021
+ms.date: 03/12/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 20f589b02f2a43bb3feb954dc4eac2dd6a9c3925
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235031"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419868"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Azure Policy punkt odniesienia konfiguracji gościa dla systemu Linux
 
-W poniższym artykule szczegółowo opisano, jakie **\[ komputery z systemem Linux w wersji zapoznawczej muszą spełniać wymagania dotyczące inspekcji inicjatywy zasad konfiguracji gościa \] punktu odniesienia zabezpieczeń platformy Azure** . Aby uzyskać więcej informacji, zobacz [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) i [Omówienie programu Azure Security test (wersja 2)](../../../security/benchmarks/overview.md).
+W poniższym artykule szczegółowo opisano, jakie **\[ \] komputery z systemem Linux muszą spełniać wymagania dotyczące** inspekcji definicji zasad konfiguracji gościa punktu odniesienia zabezpieczeń platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) i [Omówienie programu Azure Security test (wersja 2)](../../../security/benchmarks/overview.md).
 
 ## <a name="general-security-controls"></a>Ogólne mechanizmy kontroli zabezpieczeń
 

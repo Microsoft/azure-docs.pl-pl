@@ -1,32 +1,34 @@
 ---
 title: Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 description: Możliwości usługi Azure Lighthouse umożliwiają uproszczenie zarządzania różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573022"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419358"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 
-Typowym scenariuszem dla [usługi Azure Lighthouse](../overview.md) jest dostawca usług zarządzający zasobami w dzierżawach Azure Active Directory (Azure AD) klientów. Jednak możliwości usługi Azure Lighthouse umożliwiają również uproszczenie zarządzania dzierżawcą w przedsiębiorstwie korzystającym z wielu dzierżawców usługi Azure AD.
+Typowym scenariuszem dla [usługi Azure Lighthouse](../overview.md) jest to, że dostawca usług zarządza zasobami w dzierżawach Azure Active Directory (Azure AD) należących do klientów. Możliwości usługi Azure Lighthouse umożliwiają również uproszczenie zarządzania różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Pojedyncza a wiele dzierżawców
 
-W przypadku większości organizacji zarządzanie jest łatwiejsze w przypadku pojedynczej dzierżawy usługi Azure AD. Posiadanie wszystkich zasobów w ramach jednej dzierżawy umożliwia scentralizowanie zadań zarządzania według wyznaczonych użytkowników, grup użytkowników lub jednostek usługi w ramach tej dzierżawy. Jeśli to możliwe, zalecamy używanie jednej dzierżawy dla organizacji. Jednak niektóre organizacje mogą mieć wiele dzierżawców usługi Azure AD. Czasami może to być sytuacja tymczasowa, tak jak w przypadku pozyskiwania i długoterminowa strategia konsolidacji dzierżawców nie została jeszcze zdefiniowana. Czasami organizacje mogą wymagać regularnego utrzymania wielu dzierżawców ze względu na całkowite niezależne jednostki zależne, wymagania geograficzne lub prawne lub inne zagadnienia.
+W przypadku większości organizacji zarządzanie jest łatwiejsze w przypadku pojedynczej dzierżawy usługi Azure AD. Posiadanie wszystkich zasobów w ramach jednej dzierżawy umożliwia scentralizowanie zadań zarządzania według wyznaczonych użytkowników, grup użytkowników lub jednostek usługi w ramach tej dzierżawy. Jeśli to możliwe, zalecamy używanie jednej dzierżawy dla organizacji.
+
+Niektóre organizacje mogą wymagać użycia wielu dzierżawców usługi Azure AD. Może to być sytuacja tymczasowa, tak jak w przypadku pozyskiwania i długoterminowa strategia konsolidacji dzierżawców nie została jeszcze zdefiniowana. Czasami organizacje mogą wymagać regularnego utrzymania wielu dzierżawców ze względu na całkowite niezależne jednostki zależne, wymagania geograficzne lub prawne lub inne zagadnienia.
 
 W przypadkach, gdy wymagana jest architektura wielodostępna, usługa Azure Lighthouse może pomóc w scentralizowaniu i usprawnianiu operacji zarządzania. Korzystając z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), użytkownicy w jednej dzierżawie zarządzającej mogą wykonywać [funkcje zarządzania między dzierżawcami](cross-tenant-management-experience.md) w scentralizowany i skalowalny sposób.
 
 ## <a name="tenant-management-architecture"></a>Architektura zarządzania dzierżawcą
 
-Aby korzystać z usługi Azure Lighthouse w przedsiębiorstwie, należy określić, która dzierżawa będzie obejmować użytkowników, którzy wykonują operacje zarządzania w innych dzierżawach. Innymi słowy, należy określić, który dzierżawca będzie dzierżawą zarządzającą dla innych dzierżawców.
+Aby korzystać z usługi Azure Lighthouse w przedsiębiorstwie, należy określić, która dzierżawa będzie obejmować użytkowników, którzy wykonują operacje zarządzania w innych dzierżawach. Innymi słowy, należy wyznaczyć jedną dzierżawę jako dzierżawę zarządzającą dla innych dzierżawców.
 
-Załóżmy na przykład, że organizacja ma jedną dzierżawę, która wywoła *dzierżawę a*. Organizacja uzyskuje dostęp do *dzierżawy B* i *dzierżawy C* i ma powody biznesowe, które wymagają utrzymania ich jako osobnych dzierżawców.
+Załóżmy na przykład, że organizacja ma jedną dzierżawę, która wywoła *dzierżawę a*. Organizacja uzyskuje dostęp do *dzierżawy B* i *dzierżawy C*, a ty masz przyczyny biznesowe, które wymagają utrzymania ich jako osobnych dzierżawców. Jednak użytkownik chce używać tych samych definicji zasad, metod tworzenia kopii zapasowych i procesów zabezpieczeń dla wszystkich z nich, z zadaniami zarządzania wykonywanymi przez ten sam zestaw użytkowników.
 
-Organizacja chce używać tych samych definicji zasad, metod tworzenia kopii zapasowych i procesów zabezpieczeń we wszystkich dzierżawach. Ponieważ dzierżawca zawiera już użytkowników odpowiedzialnych za te zadania, można dołączyć subskrypcje w ramach dzierżawy B i dzierżawy C, umożliwiając tym samym użytkownikom w dzierżawie A wykonywanie tych zadań.
+Ponieważ dzierżawca zawiera już użytkowników w organizacji, którzy wykonali te zadania dla dzierżawy A, możesz dołączyć subskrypcje w ramach dzierżawy B i dzierżawy C, co umożliwia tym samym użytkownikom w dzierżawie A wykonywanie tych zadań w ramach wszystkich dzierżawców.
 
 ![Diagram przedstawiający użytkowników w dzierżawie, którzy zarządzają zasobami w dzierżawie B i w dzierżawie C.](../media/enterprise-azure-lighthouse.jpg)
 
@@ -54,7 +56,7 @@ W przypadku zarządzania przez wiele dzierżawców w ramach przedsiębiorstwa od
 
 Na przykład w powyższym przykładzie dzierżawca A może być uważana za dzierżawę dostawcy usług (dzierżawa zarządzająca) oraz dzierżawę B i dzierżawca C mogą być uważane za dzierżawców klientów.
 
-W tym przykładzie Dzierżawca użytkownicy z odpowiednimi uprawnieniami mogą [wyświetlać delegowane zasoby i zarządzać nimi](../how-to/view-manage-customers.md) na stronie **moi klienci** w Azure Portal. Podobnie użytkownicy dzierżawy B i dzierżawy C z odpowiednimi uprawnieniami mogą [wyświetlać zasoby delegowane do dzierżawy i zarządzać nimi](../how-to/view-manage-service-providers.md) na stronie **dostawcy usług** w Azure Portal.
+Kontynuując ten przykład, Dzierżawca użytkownicy z odpowiednimi uprawnieniami mogą [wyświetlać delegowane zasoby i zarządzać nimi](../how-to/view-manage-customers.md) na stronie **moi klienci** w Azure Portal. Podobnie użytkownicy dzierżawy B i dzierżawy C z odpowiednimi uprawnieniami mogą [wyświetlać zasoby delegowane do dzierżawy i zarządzać nimi](../how-to/view-manage-service-providers.md) na stronie **dostawcy usług** w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 8e97fe287335837ad79e6446bb7abf196cda6f75
-  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+  ms.openlocfilehash: be3cbee5bee706bc10036349950c3b128d007a34
+  ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/03/2021
-  ms.locfileid: "99508120"
+  ms.lasthandoff: 03/13/2021
+  ms.locfileid: "103419630"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -44,7 +44,7 @@ conceptualContent:
       text: Wprowadzenie do zamiany mowy na tekst
       url: get-started-speech-to-text.md
     - itemType: overview
-      text: Informacje o usłudze Custom Speech
+      text: Zwiększanie dokładności za pomocą mowy niestandardowej
       url: custom-speech-overview.md
     footerLink:
       text: Więcej
@@ -60,6 +60,12 @@ conceptualContent:
     - itemType: how-to-guide
       text: Ulepszanie syntezy za pomocą języka SSML
       url: speech-synthesis-markup.md
+    - itemType: overview
+      text: Tworzenie niestandardowego głosu
+      url: custom-neural-voice.md
+    - itemType: how-to-guide
+      text: Naturalny dźwięk zamiany tekstu na mowę
+      url: how-to-audio-content-creation.md
     footerLink:
       text: Więcej
       url: index-text-to-speech.yml
@@ -74,20 +80,6 @@ conceptualContent:
     footerLink:
       text: Więcej
       url: index-speech-translation.yml
-  - title: Rozpoznawanie intencji
-    links:
-    - itemType: quickstart
-      text: Rozpoznawanie mowy, intencji i jednostek
-      url: quickstarts/intent-recognition.md
-    - itemType: how-to-guide
-      text: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i języka C#
-      url: how-to-recognize-intents-from-speech-csharp.md
-    - itemType: reference
-      text: Portal usługi Language Understanding (LUIS)
-      url: https://www.luis.ai
-    footerLink:
-      text: Więcej
-      url: index-intent-recognition.yml
   - title: Rozpoznawanie osoby mówiącej
     links:
     - itemType: overview
@@ -107,6 +99,20 @@ conceptualContent:
     - itemType: quickstart
       text: Wprowadzenie do Niestandardowego słowa kluczowego
       url: custom-keyword-basics.md
+  - title: Rozpoznawanie intencji
+    links:
+    - itemType: quickstart
+      text: Rozpoznawanie mowy, intencji i jednostek
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i języka C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: Portal usługi Language Understanding (LUIS)
+      url: https://www.luis.ai
+    footerLink:
+      text: Więcej
+      url: index-intent-recognition.yml
   - title: Szczegółowe omówienia scenariuszy
     links:
     - itemType: overview
