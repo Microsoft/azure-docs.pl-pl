@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 5b59b395084e3f2c4e7ccb7f1e6db0e46de256b1
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c4e21267c5eee9d86c05c51bc57bebfee699ef2c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763015"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200592"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Szybki Start: korzystanie z akcji GitHub do łączenia się z usługą Azure MySQL
 
@@ -93,8 +93,8 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
     ```yaml
     - uses: azure/login@v1
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
 1. Ponownie wybierz pozycję **Nowy wpis tajny** . 
@@ -126,19 +126,19 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
     name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
     jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
 1. Użyj akcji Wdróż aplikację Azure MySQL, aby nawiązać połączenie z wystąpieniem programu MySQL. Zamień `MYSQL_SERVER_NAME` na nazwę serwera. Plik danych MySQL powinien mieć nazwę `data.sql` na poziomie głównym repozytorium. 
@@ -154,34 +154,34 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 1. Ukończ przepływ pracy, dodając akcję wylogowania z platformy Azure. Oto ukończony przepływ pracy. Plik zostanie wyświetlony w `.github/workflows` folderze repozytorium.
 
     ```yaml
-   name: MySQL for GitHub Actions
+    name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+         push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
 
-    jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - uses: azure/mysql@v1
-      with:
-        server-name: MYSQL_SERVER_NAME
-        connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+            - uses: azure/mysql@v1
+                with:
+                    server-name: MYSQL_SERVER_NAME
+                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                    sql-file: './data.sql'
 
-        # Azure logout 
-    - name: logout
-      run: |
-         az logout
+            # Azure logout 
+            - name: logout
+                run: |
+                    az logout
     ```
 
 ## <a name="review-your-deployment"></a>Przejrzyj wdrożenie

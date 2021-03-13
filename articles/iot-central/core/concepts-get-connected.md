@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032640"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015459"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -178,7 +178,7 @@ Takie podejście jest przydatne w przypadku eksperymentowania z IoT Central lub 
 
 ## <a name="associate-a-device-with-a-device-template"></a>Kojarzenie urządzenia z szablonem urządzenia
 
-IoT Central automatycznie kojarzy urządzenie z szablonem urządzenia po nawiązaniu połączenia z urządzeniem. Urządzenie wysyła [Identyfikator modelu](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) podczas nawiązywania połączenia. IoT Central używa identyfikatora modelu do identyfikowania szablonu urządzenia dla tego konkretnego modelu urządzenia. Proces odnajdywania działa w następujący sposób:
+IoT Central automatycznie kojarzy urządzenie z szablonem urządzenia po nawiązaniu połączenia z urządzeniem. Urządzenie wysyła [Identyfikator modelu](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) podczas nawiązywania połączenia. IoT Central używa identyfikatora modelu do identyfikowania szablonu urządzenia dla tego konkretnego modelu urządzenia. Proces odnajdywania działa w następujący sposób:
 
 1. Jeśli szablon urządzenia został już opublikowany w aplikacji IoT Central, urządzenie zostanie skojarzone z szablonem urządzenia.
 1. Jeśli szablon urządzenia nie został jeszcze opublikowany w aplikacji IoT Central, IoT Central szuka modelu urządzenia w [repozytorium modelu publicznego](https://github.com/Azure/iot-plugandplay-models). Jeśli IoT Central odnajdzie model, używa go do wygenerowania podstawowego szablonu urządzenia.

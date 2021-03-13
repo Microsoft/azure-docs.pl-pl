@@ -9,14 +9,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048427"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200333"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Utwórz **IoT Edge Automatyczne wdrażanie** w Azure Portal, aby zarządzać trwającymi wdrożeniami dla wielu urządzeń jednocześnie. Automatyczne wdrożenia dla IoT Edge są częścią funkcji [automatycznej zarządzania urządzeniami](../iot-hub/iot-hub-automatic-device-management.md) w programie IoT Hub. Wdrożenia to procesy dynamiczne, które umożliwiają wdrożenie wielu modułów na wielu urządzeniach, śledzenie stanu i kondycji modułów oraz wprowadzanie zmian w razie potrzeby.
 
@@ -131,8 +133,8 @@ Jeśli wiele wdrożeń jest przeznaczonych dla tego samego urządzenia, stosowan
 
 Każde wdrożenie warstwowe ukierunkowane na urządzenie musi mieć wyższy priorytet niż wdrożenie podstawowe, aby można je było zastosować.
 
-1. Wprowadź dodatnią liczbę całkowitą dla **priorytetu**wdrożenia.
-1. Wprowadź **warunek docelowy** , aby określić, które urządzenia będą ukierunkowane na to wdrożenie.Warunek jest oparty na tagach bliźniaczych urządzeń lub w raportowanych właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład: `tags.environment='test'` lub `properties.reported.devicemodel='4000x'`.
+1. Wprowadź dodatnią liczbę całkowitą dla **priorytetu** wdrożenia.
+1. Wprowadź **warunek docelowy** , aby określić, które urządzenia będą ukierunkowane na to wdrożenie. Warunek jest oparty na tagach bliźniaczych urządzeń lub w raportowanych właściwościach urządzenia i powinien być zgodny z formatem wyrażenia. Na przykład: `tags.environment='test'` lub `properties.reported.devicemodel='4000x'`.
 
 Wybierz pozycję **Dalej: Przejrzyj i Utwórz** , aby przejść do ostatniego kroku.
 
@@ -182,7 +184,7 @@ Po usunięciu wdrożenia wszystkie wdrożone urządzenia przyjmą kolejne wdroż
 
 1. Użyj pola wyboru, aby wybrać wdrożenie, które chcesz usunąć.
 1. Wybierz pozycję **Usuń**.
-1. Zostanie wyświetlony monit z informacją o tym, że ta akcja spowoduje usunięcie tego wdrożenia i przywrócenie poprzedniego stanu dla wszystkich urządzeń.Zostanie zastosowane wdrożenie z niższym priorytetem.Jeśli żadne inne wdrożenie nie jest wskazywane, moduły nie zostaną usunięte. Jeśli chcesz usunąć wszystkie moduły z urządzenia, Utwórz wdrożenie z zerowymi modułami i wdróż je na tych samych urządzeniach.Wybierz przycisk **Tak**, aby kontynuować.
+1. Zostanie wyświetlony monit z informacją o tym, że ta akcja spowoduje usunięcie tego wdrożenia i przywrócenie poprzedniego stanu dla wszystkich urządzeń. Zostanie zastosowane wdrożenie z niższym priorytetem. Jeśli żadne inne wdrożenie nie jest wskazywane, moduły nie zostaną usunięte. Jeśli chcesz usunąć wszystkie moduły z urządzenia, Utwórz wdrożenie z zerowymi modułami i wdróż je na tych samych urządzeniach. Wybierz przycisk **Tak**, aby kontynuować.
 
 ## <a name="next-steps"></a>Następne kroki
 

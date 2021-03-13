@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 29127a9dff42c0f733e3721d1ea5fea7350e774e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547365"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149668"
 ---
 # <a name="troubleshooting-message-routing"></a>Rozwiązywanie problemów z routingiem komunikatów
 
@@ -37,11 +37,11 @@ Aby rozwiązać ten problem, Przeanalizuj poniższe elementy.
 
 #### <a name="the-routing-metrics-for-this-endpoint"></a>Metryki routingu dla tego punktu końcowego
 
-Wszystkie [metryki IoT Hub związane z routingiem](monitor-iot-hub-reference.md#routing-metrics) są poprzedzone *routingiem* . Możesz połączyć informacje z wielu metryk, aby zidentyfikować główną przyczynę problemów. Na przykład użyj **usługi dostarczania routingu** metryk, aby zidentyfikować liczbę komunikatów dostarczonych do punktu końcowego lub porzuconych, gdy nie są one zgodne z kwerendami na żadnej trasie, a trasa rezerwowa została wyłączona. Sprawdź metrykę **opóźnienia routingu** , aby sprawdzić, czy opóźnienie dostarczania komunikatów jest stałe lub zwiększa się. Rosnące opóźnienie może wskazywać na problem z określonym punktem końcowym, a firma Microsoft zaleca sprawdzanie [kondycji punktu końcowego](#the-health-of-the-endpoint). Te metryki routingu zawierają również [Wymiary](monitor-iot-hub-reference.md#metric-dimensions) , które zawierają szczegóły dotyczące metryki, takie jak typ punktu końcowego, nazwa określonego punktu końcowego i powód, dla którego wiadomość nie została dostarczona.
+Wszystkie [metryki IoT Hub związane z routingiem](monitor-iot-hub-reference.md#routing-metrics) są poprzedzone *routingiem*. Możesz połączyć informacje z wielu metryk, aby zidentyfikować główną przyczynę problemów. Na przykład użyj **usługi dostarczania routingu** metryk, aby zidentyfikować liczbę komunikatów dostarczonych do punktu końcowego lub porzuconych, gdy nie są one zgodne z kwerendami na żadnej trasie, a trasa rezerwowa została wyłączona. Sprawdź metrykę **opóźnienia routingu** , aby sprawdzić, czy opóźnienie dostarczania komunikatów jest stałe lub zwiększa się. Rosnące opóźnienie może wskazywać na problem z określonym punktem końcowym, a firma Microsoft zaleca sprawdzanie [kondycji punktu końcowego](#the-health-of-the-endpoint). Te metryki routingu zawierają również [Wymiary](monitor-iot-hub-reference.md#metric-dimensions) , które zawierają szczegóły dotyczące metryki, takie jak typ punktu końcowego, nazwa określonego punktu końcowego i powód, dla którego wiadomość nie została dostarczona.
 
 #### <a name="the-resource-logs-for-any-operational-issues"></a>Dzienniki zasobów dla dowolnego problemu operacyjnego
 
-Zapoznaj się z [dziennikami zasobów **trasy**](monitor-iot-hub-reference.md#routes) , aby uzyskać więcej informacji na temat [operacji](#operation-names) routingu i punktu końcowego albo zidentyfikować błędy i odpowiedni [Kod błędu](#common-error-codes) , aby dokładniej zrozumieć problem. Na przykład nazwa operacji **RouteEvaluationError** w dzienniku wskazuje, że nie można ocenić trasy z powodu problemu z formatem wiadomości. Aby wyeliminować problem, Skorzystaj z porad dostarczonych dla konkretnych [nazw operacji](#operation-names) . Gdy zdarzenie jest rejestrowane jako błąd, dziennik również zawiera więcej informacji na temat przyczyny niepowodzenia oceny. Na przykład jeśli nazwa operacji to **EndpointUnhealthy** , [Kod błędu](#common-error-codes) 403004 wskazuje, że punkt końcowy zakończył miejsce.
+Zapoznaj się z [dziennikami zasobów **trasy**](monitor-iot-hub-reference.md#routes) , aby uzyskać więcej informacji na temat [operacji](#operation-names) routingu i punktu końcowego albo zidentyfikować błędy i odpowiedni [Kod błędu](#common-error-codes) , aby dokładniej zrozumieć problem. Na przykład nazwa operacji **RouteEvaluationError** w dzienniku wskazuje, że nie można ocenić trasy z powodu problemu z formatem wiadomości. Aby wyeliminować problem, Skorzystaj z porad dostarczonych dla konkretnych [nazw operacji](#operation-names) . Gdy zdarzenie jest rejestrowane jako błąd, dziennik również zawiera więcej informacji na temat przyczyny niepowodzenia oceny. Na przykład jeśli nazwa operacji to **EndpointUnhealthy**, [Kod błędu](#common-error-codes) 403004 wskazuje, że punkt końcowy zakończył miejsce.
 
 #### <a name="the-health-of-the-endpoint"></a>Kondycja punktu końcowego
 
@@ -82,4 +82,4 @@ Poniżej przedstawiono nazwy operacji i kody błędów rejestrowane w [dziennika
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną** .
+Jeśli potrzebujesz więcej pomocy, możesz skontaktować się z ekspertami platformy Azure w witrynie [Microsoft Q&a i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

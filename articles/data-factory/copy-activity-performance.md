@@ -1,18 +1,23 @@
 ---
 title: Przewodnik dotyczący wydajności i skalowalności działania kopiowania
 description: Zapoznaj się z najważniejszymi czynnikami wpływającymi na wydajność przenoszenia danych w Azure Data Factory podczas korzystania z działania kopiowania.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387669"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616081"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Przewodnik dotyczący wydajności i skalowalności działania kopiowania
 
@@ -48,8 +53,8 @@ System ADF oferuje architekturę bezserwerową, która umożliwia równoległoś
 
 Ta architektura umożliwia tworzenie potoków, które maksymalizują przepływność przenoszenia danych w danym środowisku. Te potoki w pełni wykorzystują następujące zasoby:
 
-* Przepustowość sieci
-* Operacje we/wy magazynu na sekundę (IOPS) i przepustowość
+* Przepustowość sieci między źródłowym i docelowym magazynem danych
+* Źródłowa lub docelowa liczba operacji wejścia/wyjścia magazynu danych na sekundę (IOPS) i przepustowość
 
 W tym pełnym wykorzystaniu można oszacować ogólną przepływność, mierząc minimalną przepływność dostępną dla następujących zasobów:
 
@@ -57,7 +62,7 @@ W tym pełnym wykorzystaniu można oszacować ogólną przepływność, mierząc
 * Docelowy magazyn danych
 * Przepustowość sieci między źródłowym i docelowym magazynem danych
 
-Poniższa tabela oblicza czas trwania kopiowania. Ten czas jest określany na podstawie rozmiaru danych i limitu przepustowości dla danego środowiska.
+Poniższa tabela oblicza czas trwania kopiowania. Ten czas jest określany na podstawie rozmiaru danych i limitu przepustowości sieci/magazynu danych dla danego środowiska.
 
 &nbsp;
 

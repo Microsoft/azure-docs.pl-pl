@@ -1,7 +1,7 @@
 ---
 title: Publikowanie Azure Media Services zawartości przy użyciu platformy .NET | Microsoft Docs
 description: Dowiedz się, jak utworzyć lokalizator, który jest używany do tworzenia adresu URL przesyłania strumieniowego. Przykłady kodu są zapisywane w języku C# i używają zestawu Media Services SDK dla platformy .NET.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0343c607a342c3438d68627b97c71cdf05199b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1a06c9a5fdac1082a57bee71cccad271a6aae81
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267789"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015798"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publikowanie Media Services zawartości przy użyciu platformy .NET
 
@@ -178,7 +178,7 @@ Poniższy kod wywołuje metody rozszerzeń zestawu SDK platformy .NET, które tw
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

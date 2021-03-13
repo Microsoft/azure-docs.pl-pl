@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751941"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224342"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
@@ -66,6 +66,28 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
     > Jeśli masz kolumnę identyfikatora, która jest IDENTYFIKATORem każdego wiersza, lub kolumna tekstowa, która zawiera zbyt wiele unikatowych wartości, **model uczenia** może wystąpić błąd, na przykład "Liczba unikatowych wartości w kolumnie:" {column_name} "jest większa niż dozwolona.
     >
     > Wynika to z faktu, że kolumna osiągnęła próg unikatowych wartości i może spowodować brak pamięci. Możesz użyć opcji [Edytuj metadane](edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję czyszczenia** i nie będzie ona używana w szkoleniu ani nie [Wyodrębnij funkcji N-gramowych z modułu tekstowego](extract-n-gram-features-from-text.md) w celu wstępnego przetworzenia kolumny tekstu. Aby uzyskać szczegółowe informacje o błędzie, zobacz [Kod błędu projektanta](././designer-error-codes.md) .
+
+## <a name="model-interpretability"></a>Interpretacja modelu
+
+Możliwość interpretowania modeli umożliwia comprehend modelu ML i przedstawia podstawową podstawę podejmowania decyzji w sposób zrozumiały dla ludzi.
+
+Moduł aktualnie **pouczenie modelu** obsługuje [Używanie pakietu do interpretacji w celu wyjaśnienia modeli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Obsługiwane są następujące algorytmy wbudowane:
+
+- Regresja liniowa
+- Regresja sieci neuronowej
+- Dwuklasowa regresja logistyczna
+- Two-Class Support Vector Machine (Dwuklasowa maszyna wektorów nośnych)
+- Las decyzyjny wieloklasowej
+
+W celu wygenerowania wyjaśnień modelu można wybrać opcję **prawda** na liście rozwijanej **wyjaśnienie modelu** w module model uczenia. Domyślnie w module **uczenie modelu** jest ustawiona wartość false. Należy pamiętać, że generowanie wyjaśnienia wymaga dodatkowego kosztu obliczeniowego.
+
+![Zrzut ekranu przedstawiający pole wyboru informacji o modelu](./media/module/train-model-explanation-checkbox.png)
+
+Po zakończeniu przebiegu potoku można odwiedzić kartę **wyjaśnienia** w prawym okienku modułu **uczenie modelu** i zapoznać się z modelem wydajność, zestawem danych i znaczeniem funkcji.
+
+![Zrzut ekranu przedstawiający wykresy wyjaśniające model](./media/module/train-model-explanations-tab.gif)
+
+Aby dowiedzieć się więcej o używaniu wyjaśnień modelowania w Azure Machine Learning, zapoznaj się z artykułem z artykułu jak [interpretować modele ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Wyniki
 

@@ -3,18 +3,18 @@ title: Szybki start — eksplorowanie kosztów platformy Azure za pomocą analiz
 description: Ten przewodnik Szybki start ułatwia eksplorowanie i analizowanie kosztów organizacyjnych platformy Azure za pomocą funkcji analizy kosztów.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: 86f7bbbb52b1596e20fb1f3a67e42b2dd27c501a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882453"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012616"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -68,11 +68,9 @@ Początkowy widok analizy kosztów zawiera poniższe obszary.
 
 ### <a name="understand-forecast"></a>Informacje o prognozie
 
-Prognoza kosztów pokazuje szacowane koszty w wybranym okresie. Model jest oparty na modelu regresji szeregów czasowych. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
+W oparciu o ostatnie użycie, prognozy kosztów pokazują rzutowanie szacowanych kosztów w wybranym okresie. Jeśli budżet jest skonfigurowany w analizie kosztów, można zobaczyć, kiedy prognozowane wydatki mogą przekroczyć próg budżetu. Model prognozy może przewidywać przyszłe koszty przez maksymalnie rok. Wybierz pozycję Filtry, aby wyświetlić szczegółowy koszt prognozowany dla wybranego wymiaru.
 
-Model używa maksymalnie sześciu miesięcy danych treningowych w celu prognozowania kosztów na rok. Zmiana prognozy wymaga danych treningowych z co najmniej siedmiu dni. Prognoza jest oparta na znaczących zmianach, takich jak istotny wzrost lub spadek, we wzorcach kosztów i użycia. Prognoza nie generuje oddzielnych przewidywań dla każdego elementu we właściwościach **Grupuj według**. Zapewnia jedynie prognozę dla łącznych, skumulowanych kosztów. W przypadku korzystania z wielu walut model udostępnia prognozę kosztów tylko w USD.
-
-Ze względu na zależność modelu od danych wzrostowych i spadkowych, duże zakupy, takie jak wystąpienia zarezerwowane, spowodują sztuczne zawyżenie prognozy. Okres prognozy i wielkość zakupów wpływają na to, jak długo dane zmiany oddziałują na prognozę. Prognoza powraca do normy w momencie ustabilizowania wydatków.
+Model prognozy jest oparty na modelu regresji szeregów czasowych. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
 
 ## <a name="customize-cost-views"></a>Dostosowywanie widoków kosztów
 

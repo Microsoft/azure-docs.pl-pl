@@ -1,7 +1,7 @@
 ---
 title: Wielokrotna H264 Media Encoder Standard pojedynczej szybkości transmisji bitów Microsoft Docs
-description: Ten artykuł zawiera omówienie ustawienia Media Encoder Standard "wielokrotna H264 pojedynczej szybkości transmisji bitów".
-author: Juliako
+description: Ten artykuł zawiera omówienie Media Encoder Standard wielokrotna H264 pojedynczej szybkości transmisji bitów.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: ee6356981f6d7dace7869c99f69b0719677c5513
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 2f772d8d881f64e91c4cb047b7587bd1f83b9b23
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261567"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011752"
 ---
 # <a name="h264-single-bitrate-720p"></a>Pojedyncza szybkość transmisji bitów H264 720p
 

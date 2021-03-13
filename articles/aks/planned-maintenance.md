@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f5c85f371dbe0fe3488c1ca6ff806f114153d3a7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102639193"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201562"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Użyj planowanej konserwacji w celu zaplanowania okien obsługi dla klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -28,8 +28,8 @@ W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli p
 
 W przypadku korzystania z planowanej konserwacji obowiązują następujące ograniczenia:
 
-- AKS rezerwuje prawo do przerwania tych okien dla poprawek i poprawek, które są pilne lub krytyczne.
-- Wykonywanie operacji konserwacyjnych jest uznawane za *tylko optymalnie* i nie jest gwarantowane w określonym oknie.
+- AKS rezerwuje prawo, aby przerwać te okna dla nieplanowanych/reaktywnych operacji konserwacji, które są pilne lub krytyczne.
+- Obecnie wykonywanie operacji konserwacyjnych jest uznawane za *najlepsze* i nie jest gwarantowane w określonym oknie.
 - Aktualizacje nie mogą być blokowane przez więcej niż siedem dni.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview

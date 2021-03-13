@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 34a28768d57aac8cf18bef6bc031da66bb361936
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 6f13d789cd63bb568bb8940ce614ebdb2dbcdb83
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103007901"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199746"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -126,7 +126,7 @@ Te zadania są niezbędne w przypadku używania MSAL dla systemów iOS i macOS:
 W przypadku korzystania z platformy Xamarin. Android wykonaj następujące zadania:
 
 - [Upewnij się, że formant wraca do MSAL po zakończeniu interaktywnej części przepływu uwierzytelniania](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
-- [Aktualizowanie manifestu systemu Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Aktualizowanie manifestu systemu Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
 - [Użyj osadzonego widoku sieci Web (opcjonalnie)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Rozwiązywanie problemów w razie potrzeby](msal-net-xamarin-android-considerations.md#troubleshooting)
 

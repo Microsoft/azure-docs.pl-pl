@@ -3,7 +3,7 @@ title: Używanie Azure Media Services do dostarczania licencji DRM lub kluczy AE
 description: W tym artykule opisano, jak za pomocą usługi Azure Media Services dostarczać licencje PlayReady i/lub Widevine oraz klucze AES, ale nie tylko (kodowania, szyfrowania i przesyłania strumieniowego) przy użyciu serwerów lokalnych.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: f6d014ced6e25f4c27e1d8ae7225069863e154b3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693645"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015883"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Używanie Media Services do dostarczania licencji DRM lub kluczy AES
 
@@ -358,6 +358,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-playready-widevine.md)
 * [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md)

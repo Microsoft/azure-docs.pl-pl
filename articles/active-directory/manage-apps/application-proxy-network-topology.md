@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199672"
+ms.locfileid: "103232923"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Optymalizowanie przepływu ruchu za pomocą serwer proxy aplikacji usługi Azure Active Directory
 
@@ -41,6 +41,9 @@ Jeśli na przykład kraj lub region dzierżawy usługi Azure AD jest w Zjednoczo
 Jeśli łączniki są zainstalowane w regionach innych niż domyślny region, może być korzystne, aby zmienić region, dla którego Twoja grupa łączników została zoptymalizowana, aby zwiększyć wydajność dostępu do tych aplikacji. Po określeniu regionu dla grupy łączników zostanie on połączony z usługami w chmurze serwera proxy w wyznaczonym regionie.
 
 Aby zoptymalizować przepływ ruchu i zmniejszyć opóźnienie do grupy łączników, Przypisz grupę łączników do najbliższego regionu. Aby przypisać region:
+
+> [!IMPORTANT]
+> Aby można było korzystać z tej funkcji, łączniki muszą używać co najmniej wersji 1.5.1975.0.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator aplikacji w katalogu, w którym jest używany serwer proxy aplikacji. Na przykład jeśli domena dzierżawy to contoso.com, administratorem powinien być admin@contoso.com lub dowolny alias administratora w tej domenie.
 1. Wybierz swoją nazwę użytkownika w prawym górnym rogu. Upewnij się, że logujesz się do katalogu, który używa serwera proxy aplikacji. Jeśli musisz zmienić katalogi, wybierz pozycję **Przełącz katalog** i wybierz katalog, w którym jest używany serwer proxy aplikacji.

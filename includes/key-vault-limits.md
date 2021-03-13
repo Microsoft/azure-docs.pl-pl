@@ -1,17 +1,23 @@
 ---
-author: rothja
+author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 04/21/2020
-ms.author: jroth
-ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 03/09/2021
+ms.author: ambapat
+ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027640"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010964"
 ---
-### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Najważniejsze transakcje (maksymalna liczba transakcji dozwolonych w ciągu 10 sekund, na magazyn na region<sup>1</sup>):
+Usługa Azure Key Vault obsługuje dwa typy zasobów: magazyny i zarządzane sprzętowych modułów zabezpieczeń. W poniższych dwóch sekcjach opisano odpowiednio limity usługi dla każdego z nich.
+
+### <a name="resource-type-vault"></a>Typ zasobu: Magazyn
+
+W tej sekcji opisano limity usługi dla typu zasobu `vaults` .
+
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Najważniejsze transakcje (maksymalna liczba transakcji dozwolonych w ciągu 10 sekund, na magazyn na region<sup>1</sup>):
 
 |Typ klucza|Klucz HSM<br>Utwórz klucz|Klucz HSM<br>Wszystkie inne transakcje|Klucz oprogramowania<br>Utwórz klucz|Klucz oprogramowania<br>Wszystkie inne transakcje|
 |:---|---:|---:|---:|---:|
@@ -22,6 +28,7 @@ ms.locfileid: "96027640"
 |ECC P-384|5|1000|10|2000|
 |ECC P-521|5|1000|10|2000|
 |SECP256K1 ECC|5|1000|10|2000|
+||||||
 
 > [!NOTE]
 > W poprzedniej tabeli widzimy, że dla 2 000 kluczy oprogramowania RSA 2 048-bitowe są dozwolone opłaty za 10 sekund. W przypadku RSA 2 048-bitowe klucze HSM, 1 000 pobieranie transakcji na 10 sekund jest dozwolone.
@@ -34,7 +41,7 @@ ms.locfileid: "96027640"
 > - 125 RSA 4 096-bitowego modułu HSM — UZYSKIWANie transakcji klucza
 > - 124 RSA 4 096-bitowy moduł HSM-Key GET Transactions i 8 RSA 2 048-bitowego modułu HSM — transakcje pobierania kluczy
 
-### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Wpisy tajne, zarządzane klucze konta magazynu i transakcje magazynu:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Wpisy tajne, zarządzane klucze konta magazynu i transakcje magazynu:
 
 | Typ transakcji | Maksymalna dozwolona liczba transakcji w ciągu 10 sekund, na magazyn na region<sup>1</sup> |
 | --- | --- |
@@ -44,12 +51,93 @@ Aby uzyskać informacje na temat sposobu obsługi ograniczania w przypadku przek
 
 <sup>1</sup> limit całej subskrypcji dla wszystkich typów transakcji wynosi pięć razy na limit magazynu kluczy. Na przykład usługi HSM — inne transakcje na subskrypcję są ograniczone do 5 000 transakcji w ciągu 10 sekund na subskrypcję.
 
-### <a name="azure-private-link-integration"></a>Integracja z prywatnym łączem platformy Azure
+#### <a name="azure-private-link-integration"></a>Integracja z prywatnym łączem platformy Azure
 
 > [!NOTE]
 > Liczba magazynów kluczy z włączonymi prywatnymi punktami końcowymi na subskrypcję jest przystosowanym limitem. Limit przedstawiony poniżej jest domyślnym limitem. Jeśli chcesz poprosić o zwiększenie limitu dla usługi, Wyślij wiadomość e-mail na adres akv-privatelink@microsoft.com . Te żądania będą zatwierdzane w przypadku poszczególnych przypadków.
 
 | Zasób | Limit |
-| -------- | ----- |
+| -------- | -----:|
 | Prywatne punkty końcowe dla magazynu kluczy | 64 |
 | Magazyny kluczy z prywatnymi punktami końcowymi na subskrypcję | 400 |
+
+### <a name="resource-type-managed-hsm-preview"></a>Typ zasobu: zarządzany moduł HSM (wersja zapoznawcza)
+
+W tej sekcji opisano limity usługi dla typu zasobu `managed HSM` .
+
+#### <a name="object-limits"></a>Limity obiektów
+
+|Element|Limity|
+|----|------:|
+Liczba wystąpień modułu HSM na subskrypcję na region|1 (w trakcie okresu zapoznawczego)
+Liczba kluczy na pulę HSM|5000
+Liczba wersji na klucz|100
+Liczba niestandardowych definicji ról dla modułu HSM|50
+Liczba przypisań ról w zakresie HSM|50
+Liczba przypisań ról w każdym indywidualnym zakresie klucza|10
+|||
+
+#### <a name="transaction-limits-for-administrative-operations-number-of-operations-per-second-per-hsm-instance"></a>Limity transakcji dla operacji administracyjnych (liczba operacji na sekundę na wystąpienie modułu HSM)
+|Operacja |Liczba operacji na sekundę|
+|----|------:|
+Wszystkie operacje RBAC<br/>(obejmuje wszystkie operacje CRUD dla definicji ról i przypisań ról)|5
+Pełna kopia zapasowa/przywracanie modułu HSM<br/>(obsługiwana jest tylko jedna współbieżna operacja tworzenia kopii zapasowej lub przywracania na wystąpienie modułu HSM)|1
+
+#### <a name="transaction-limits-for-cryptographic-operations-number-of-operations-per-second-per-hsm-instance"></a>Limity transakcji dla operacji kryptograficznych (liczba operacji na sekundę na wystąpienie modułu HSM)
+
+- Każde zarządzane wystąpienie modułu HSM stanowi 3 partycje HSM o zrównoważonym obciążeniu. Limity przepływności to funkcja odpowiedniej pojemności sprzętowej przydzielonej dla każdej partycji. W poniższych tabelach przedstawiono maksymalną przepływność z użyciem co najmniej jednej partycji. Rzeczywista przepływność może być większa niż 3.
+- Zanotowane limity przepływności zakładają, że jeden pojedynczy klucz jest używany do osiągnięcia maksymalnej przepływności. Na przykład jeśli jest używany pojedynczy klucz RSA-2048, maksymalna przepływność będzie wynosić 1100 operacji podpisywania. Jeśli używasz 1100 różnych kluczy z 1 transakcję na sekundę, nie będą one w stanie osiągnąć tej samej przepływności.
+
+##### <a name="rsa-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operacje na klucz RSA (liczba operacji na sekundę na wystąpienie modułu HSM)
+
+|Operacja|2048 — bit|3072 — bit|4096 — bit|
+|--|--:|--:|--:|
+Utwórz klucz|1| 1| 1
+Usuń klucz (usuwanie nietrwałe)|10|10|10 
+Wyczyść klucz|10|10|10 
+Klucz kopii zapasowej|10|10|10 
+Przywróć klucz|10|10|10 
+Pobierz informacje o kluczu|1100|1100|1100
+Szyfrowanie|10 000|10 000|6000
+Odszyfrowywanie|1100|360|160
+Zawijanie|10 000|10 000|6000
+Unwrap|1100|360|160
+Znak|1100|360|160
+Weryfikacja|10 000|10 000|6000
+|||||
+
+##### <a name="ec-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operacje na kluczu EC (liczba operacji na sekundę na wystąpienie modułu HSM)
+
+W tej tabeli opisano liczbę operacji na sekundę dla każdego typu krzywej.
+
+|Operacja|P-256|P-256 K|P-384|P-521|
+|---|---:|---:|---:|---:|
+Utwórz klucz| 1| 1| 1| 1
+Usuń klucz (usuwanie nietrwałe)|10|10|10|10
+Wyczyść klucz|10|10|10|10
+Klucz kopii zapasowej|10|10|10|10
+Przywróć klucz|10|10|10|10
+Pobierz informacje o kluczu|1100|1100|1100|1100
+Znak|260|260|165|56
+Weryfikacja|130|130|82|28
+||||||
+
+
+##### <a name="aes-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operacje na klucz AES (liczba operacji na sekundę na wystąpienie modułu HSM)
+- Operacje szyfrowania i odszyfrowywania założono, że rozmiar pakietu 4 KB.
+- Limity przepływności szyfrowania/odszyfrowywania dotyczą algorytmów AES-CBC i AES-GCM.
+- Limity przepływności dla otoki/rozwinięcia stosują się do algorytmu AES-KW.
+
+|Operacja|128 — bit|192 — bit|256 — bit|
+|--|--:|--:|--:|
+Utwórz klucz|1| 1| 1
+Usuń klucz (usuwanie nietrwałe)|10|10|10
+Wyczyść klucz|10|10|10
+Klucz kopii zapasowej|10|10|10
+Przywróć klucz|10|10|10
+Pobierz informacje o kluczu|1100|1100|1100
+Szyfrowanie|8000|8000 |8000 
+Odszyfrowywanie|8000|8000|8000
+Zawijanie|9000|9000|9000
+Unwrap|9000|9000|9000
+

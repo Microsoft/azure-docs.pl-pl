@@ -2,16 +2,16 @@
 title: Samouczek — Dodawanie danych wyjściowych do pliku Azure Resource Manager Bicep
 description: Dodaj dane wyjściowe do pliku Bicep, aby uprościć składnię.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce2d1044fb0e45a72ce34b14bb654974d29051dc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748206"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636285"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Samouczek: Dodawanie danych wyjściowych do pliku Azure Resource Manager Bicep
 
@@ -37,7 +37,7 @@ Wdraża konto magazynu, ale nie zwraca żadnych informacji o koncie magazynu. Mo
 
 Możesz użyć danych wyjściowych, aby zwrócić wartości z wdrożenia. Może być na przykład przydatne, aby uzyskać punkty końcowe dla nowego konta magazynu.
 
-Poniższy przykład wyróżnia zmiany w pliku Bicep, aby dodać wartość wyjściową. Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
+Poniższy przykład pokazuje zmianę pliku Bicep, aby dodać wartość wyjściową. Skopiuj cały plik i Zastąp plik Bicep jego zawartością.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Istnieją pewne ważne elementy, na które należy pamiętać o dodanej wartośc
 
 Typ zwracanej wartości jest ustawiony na `object` , co oznacza, że zwraca obiekt szablonu.
 
-Aby uzyskać `primaryEndpoints` Właściwość z konta magazynu, należy użyć nazwy symbolicznej konta magazynu.
+Aby uzyskać `primaryEndpoints` Właściwość z konta magazynu, należy użyć nazwy symbolicznej konta magazynu. Funkcja Autouzupełnianie w Visual Studio Code przedstawia pełną listę właściwości:
+
+   ![Visual Studio Code właściwości obiektu symbolicznej nazwy Bicep](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Wdróż plik Bicep
 

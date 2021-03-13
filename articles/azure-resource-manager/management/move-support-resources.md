@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ae59bcc65f296a10c68b88f5f6a1ecbc923f8856
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072109"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232600"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -235,7 +235,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | anonymousapiusers | Nie | Nie |
 > | konfiguracja | Nie | Nie |
 > | dzienniki | Nie | Nie |
-> | reports | Nie | Nie |
+> | raporty | Nie | Nie |
 > | servicehealthmetrics | Nie | Nie |
 > | services | Nie | Nie |
 
@@ -714,7 +714,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | query | Nie | Nie |
 > | zarejestruj | Nie | Nie |
 > | reportconfigs | Nie | Nie |
-> | reports | Nie | Nie |
+> | raporty | Nie | Nie |
 > | ustawienia | Nie | Nie |
 > | showbackrules | Nie | Nie |
 > | widoki | Nie | Nie |
@@ -858,7 +858,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Tak | Tak |
+> | flexibleServers | Nie | Nie |
 > | servergroups | Nie | Nie |
 > | serwerem | Tak | Tak |
 > | serversv2 | Tak | Tak |

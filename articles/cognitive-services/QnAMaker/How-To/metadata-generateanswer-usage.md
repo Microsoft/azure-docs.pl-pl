@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7e8d1b13dfd802df820bea4015e411dbb85540ba
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011429"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232209"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Uzyskaj odpowiedź przy użyciu interfejsu API GenerateAnswer
 
@@ -174,9 +174,13 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 Poprzedni kod JSON zażądał tylko odpowiedzi o wartości co najmniej 30% lub wyższej.
 
-## <a name="return-precise-answers"></a>Zwracanie precyzyjnych odpowiedzi
+## <a name="get-precise-answers-with-generateanswer-api"></a>Uzyskaj precyzyjne odpowiedzi przy użyciu interfejsu API GenerateAnswer
 
-### <a name="generate-answer-api"></a>Generuj interfejs API odpowiedzi 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
+Oferujemy precyzyjną funkcję odpowiedzi tylko w przypadku wersji zarządzanej QnA Maker.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 Użytkownik może włączyć [precyzyjne odpowiedzi](../reference-precise-answering.md) podczas korzystania z zarządzanego zasobu QNA Maker. Parametr answerSpanRequest musi zostać zaktualizowany dla tego samego elementu.
 
@@ -211,6 +215,8 @@ Jeśli chcesz skonfigurować precyzyjne ustawienia odpowiedzi dla usługi bot, p
 |Precyzyjne odpowiedzi|true|true|
 |Tylko długie odpowiedzi|fałsz|fałsz|
 |Odpowiedzi na długie i precyzyjne|true|fałsz|
+
+---
 
 ## <a name="common-http-errors"></a>Typowe błędy HTTP
 

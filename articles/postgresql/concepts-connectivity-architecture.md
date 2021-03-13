@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720804"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200012"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -60,7 +60,9 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Francja Środkowa | 40.79.137.0, 40.79.129.1  | | |
 | Francja Południowa | 40.79.177.0     | | |
 | Niemcy Środkowe | 51.4.144.100     | | |
+| Niemcy Północne | 51.116.56.0 | |
 | Niemcy Północne wschód | 51.5.144.179  | | |
+| Niemcy Środkowo-Zachodnie | 51.116.152.0 | |
 | Indie Środkowe | 104.211.96.159     | | |
 | Indie Południowe | 104.211.224.146  | | |
 | Indie Zachodnie | 104.211.160.80    | | |
@@ -74,6 +76,8 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Zachodnia Republika Południowej Afryki | 102.133.24.0   | | |
 | South Central US |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Azja Południowo-Wschodnia | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| Szwajcaria Północna | 51.107.56.0 ||
+| Szwajcaria Zachodnia | 51.107.152.0| ||
 | Środkowy Zjednoczone Emiraty Arabskie | 20.37.72.64  | | |
 | Północne Zjednoczone Emiraty Arabskie | 65.52.248.0    | | |
 | Południowe Zjednoczone Królestwo | 51.140.184.11   | | |
@@ -83,6 +87,37 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Zachodnie stany USA |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | Zachodnie stany USA 2 | 13.66.226.202  | | |
 ||||
+
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>Co musisz wiedzieć o tej planowanej konserwacji?
+Jest to zmiana DNS, która sprawia, że jest ona niewidoczna dla klientów. Gdy adres IP dla nazwy FQDN zostanie zmieniony na serwerze DNS, lokalna pamięć podręczna DNS będzie odświeżana w ciągu 5 minut i jest wykonywana automatycznie przez systemy operacyjne. Po odświeżeniu lokalnego DNS wszystkie nowe połączenia będą łączyć się z nowym adresem IP. wszystkie istniejące połączenia pozostaną połączone ze starym adresem IP bez przerwy, dopóki stare adresy IP nie zostaną całkowicie zlikwidowane. Stary adres IP będzie trwać od trzech do czterech tygodni przed zlikwidowaniem; w związku z tym nie należy mieć wpływu na aplikacje klienckie.
+
+### <a name="what-are-we-decommissioning"></a>Co jest likwidowane?
+Tylko węzły bramy zostaną zlikwidowane. Gdy użytkownicy łączą się z serwerami, pierwsze zatrzymanie połączenia jest węzłem bramy, zanim połączenie zostanie przekazane do serwera. Likwidowanie starych bram bramy (nie pierścieni dzierżawców, w których serwer jest uruchomiony) zapoznaj się z [architekturą połączeń](#connectivity-architecture) , aby uzyskać więcej informacji.
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Jak można sprawdzić, czy Twoje połączenia przechodzą do starych węzłów bramy czy z nowych węzłów bramy?
+Wyślij polecenie ping do nazwy FQDN serwera, na przykład  ``ping xxx.postgres.database.azure.com`` . Jeśli zwrotny adres IP jest jednym z adresów IP wymienionych w obszarze Address Gateway (likwidowanie) w dokumencie powyżej, oznacza to, że połączenie przechodzi przez starą bramę. Contrarily, jeśli zwrotny adres IP jest jednym z adresów IP wymienionych w obszarze addressed Address Gateways, oznacza to, że połączenie przechodzi przez nową bramę.
+
+Możesz również testować przez [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) lub TCPPing serwera bazy danych z aplikacji klienckiej przy użyciu portu 3306 i upewnić się, że zwrotny adres IP nie jest jednym z likwidowanych adresów IP.
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Jak mogę wiedzieć, kiedy konserwacja jest w trybie failover i otrzymam kolejne powiadomienie, gdy stare adresy IP zostaną zlikwidowane?
+Otrzymasz wiadomość e-mail z informacją o tym, kiedy zaczniemy pracę z konserwacją. Konserwacja może trwać do miesiąca w zależności od liczby serwerów, które muszą zostać zmigrowane w regionach Al. Przygotuj klienta do nawiązania połączenia z serwerem bazy danych przy użyciu nazwy FQDN lub nowego adresu IP z powyższej tabeli. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>Co zrobić, jeśli moje aplikacje klienckie nadal nawiązują połączenie ze starym serwerem bramy?
+Oznacza to, że aplikacje nawiązują połączenie z serwerem przy użyciu statycznego adresu IP zamiast nazwy FQDN. Przejrzyj parametry połączenia i ustawienie puli połączeń, ustawienie AKS, a nawet w kodzie źródłowym.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>Czy istnieją jakieś skutki dla połączeń aplikacji?
+Ta konserwacja jest tylko zmianą systemu DNS, dlatego jest niewidoczna dla klienta. Po odświeżeniu pamięci podręcznej DNS na kliencie (automatycznie przez system operacyjny) wszystkie nowe połączenia będą łączyć się z nowym adresem IP, a wszystkie istniejące połączenia będą nadal działać do czasu całkowitego zlikwidowania starego adresu IP, co zwykle kilku tygodni później. Logika ponowień nie jest wymagana w tym przypadku, ale dobrze jest zobaczyć, że aplikacja ma skonfigurowaną logikę ponowień. Użyj nazwy FQDN, aby nawiązać połączenie z serwerem bazy danych, lub Włącz listę nowych "adresów IP bramy" w parametrach połączenia aplikacji.
+Ta operacja konserwacji nie spowoduje porzucenia istniejących połączeń. Powoduje to jedynie, że nowe żądania połączenia są kierowane do nowego pierścienia bramy.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>Czy mogę zażądać określonego przedziału czasu dla konserwacji? 
+Ponieważ migracja powinna być przejrzysta i nie ma wpływu na łączność klienta, oczekuje się, że nie będzie żadnego problemu dla większości użytkowników. Przejrzyj swoją aplikację, a następnie upewnij się, że do nawiązania połączenia z serwerem bazy danych jest używana nazwa FQDN, lub Włącz listę nowych "adresów IP bramy" w parametrach połączenia aplikacji.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>Korzystam z linku prywatnego, czy moje połączenia zostaną uwzględnione?
+Nie, to jest wycofanie sprzętu bramy i brak relacji do prywatnego linku lub prywatnych adresów IP, będzie miało wpływ tylko na publiczne adresy IP wymienione w ramach likwidowania adresów IP.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

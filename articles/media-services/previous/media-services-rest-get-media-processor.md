@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: e1ac2a2408e16c3f8057c49c69c354ebb1e377c7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 7eb4647ae5ba40688cbf39cbfe8449f59275e7e6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348495"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014319"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Jak uzyskać wystąpienie procesora multimediów
 
@@ -51,7 +51,7 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API us
 
 ## <a name="get-a-media-processor"></a>Pobierz procesor multimediów
 
-Następujące wywołanie REST pokazuje, jak uzyskać wystąpienie procesora multimediów według nazwy (w tym przypadku **Media Encoder Standard** ). 
+Następujące wywołanie REST pokazuje, jak uzyskać wystąpienie procesora multimediów według nazwy (w tym przypadku **Media Encoder Standard**). 
 
 Żądanie:
 
@@ -91,7 +91,7 @@ Odpowiedź:
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

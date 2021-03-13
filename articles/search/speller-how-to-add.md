@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694805"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232362"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Dodawanie sprawdzania pisowni do zapytań w Wyszukiwanie poznawcze
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Parametr queryLanguage wymagany dla narzędzia sprawdzania pisowni musi być zgodny z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. 
 
-+ queryLanguage określa, które leksykony są używane do sprawdzania pisowni i są również używane jako dane wejściowe [algorytmu klasyfikacji semantycznej](semantic-how-to-query-response.md) , jeśli używasz "querytype = semantyka".
++ queryLanguage określa, które leksykony są używane do sprawdzania pisowni i są również używane jako dane wejściowe [algorytmu klasyfikacji semantycznej](semantic-answers.md) , jeśli używasz "querytype = semantyka".
 
 + Analizatory języka są używane podczas indeksowania i wykonywania zapytań, aby znaleźć pasujące dokumenty w indeksie wyszukiwania. Przykładem definicji pola korzystającej z analizatora języka jest `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
 

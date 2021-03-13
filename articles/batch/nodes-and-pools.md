@@ -2,13 +2,13 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/11/2021
+ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183662"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200226"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -65,7 +65,7 @@ Podczas tworzenia puli usługi Batch należy określić konfigurację maszyny wi
 Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 
 > [!IMPORTANT]
-> Pule należy skonfigurować przy użyciu opcji "Konfiguracja maszyny wirtualnej", a nie "Cloud Services konfiguracji". Wszystkie funkcje zadań wsadowych są obsługiwane przez pule "Konfiguracja maszyn wirtualnych" i dodawane są nowe funkcje. Pule Cloud Services Configuration nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości.
+> Chociaż obecnie można tworzyć pule przy użyciu jednej z konfiguracji, nowe pule należy skonfigurować przy użyciu konfiguracji maszyny wirtualnej, a nie Cloud Services konfiguracji. Wszystkie bieżące i nowe funkcje wsadowe będą obsługiwane przez pule konfiguracji maszyny wirtualnej. Pule konfiguracji Cloud Services nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości. Nie będzie można tworzyć nowych pul "CloudServiceConfiguration" ani dodawać nowych węzłów do istniejących pul [po 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 ### <a name="virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej
 
@@ -76,13 +76,13 @@ Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 ### <a name="cloud-services-configuration"></a>Konfiguracja Cloud Services
 
 > [!WARNING]
-> Pule konfiguracji usługi w chmurze są przestarzałe. Zamiast tego użyj pul konfiguracji maszyny wirtualnej.
+> Pule konfiguracji Cloud Services są [przestarzałe](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Zamiast tego użyj pul konfiguracji maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Migrowanie konfiguracji puli partii z Cloud Services do maszyny wirtualnej](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 **Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia tylko węzły obliczeniowe systemu Windows.
 
 Dostępne systemy operacyjne dla pul konfiguracji Cloud Services są wymienione w [wersjach systemu operacyjnego gościa platformy Azure i macierzy zgodności zestawu SDK](../cloud-services/cloud-services-guestos-update-matrix.md), a dostępne rozmiary węzłów obliczeniowych są wymienione w obszarze [rozmiary dla Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Podczas tworzenia puli zawierającej węzły Cloud Services należy określić rozmiar węzła i jego *rodzinę systemów operacyjnych* (który określa, które wersje platformy .NET są instalowane z systemem operacyjnym). Cloud Services jest wdrażana na platformie Azure szybciej niż w przypadku maszyn wirtualnych z systemem Windows. Jeśli potrzebujesz pul systemu Windows, może się okazać, że usługi Cloud Services oferują korzystną wydajność związaną z czasem wdrażania.
 
-Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Cloud Services overview (Omówienie usług Cloud Services)](../cloud-services/cloud-services-choose-me.md)). Zalecamy określenie `Latest (*)` dla *wersji systemu operacyjnego* , aby węzły były automatycznie uaktualniane i nie jest konieczne wykonanie żadnych czynności w celu zapewnienia obsługi nowo wydanych wersji. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po sprawdzeniu poprawności można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego. Wszystkie uruchomione zadania będą przerywane i ponownie kolejkowane.
+Podobnie jak w przypadku ról procesów roboczych w ramach Cloud Services, można określić *wersję systemu operacyjnego*. Zalecamy określenie `Latest (*)` dla *wersji systemu operacyjnego* , aby węzły były automatycznie uaktualniane i nie jest konieczne wykonanie żadnych czynności w celu zapewnienia obsługi nowo wydanych wersji. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po sprawdzeniu poprawności można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego. Wszystkie uruchomione zadania będą przerywane i ponownie kolejkowane.
 
 ### <a name="node-agent-skus"></a>Jednostki SKU agenta węzła
 

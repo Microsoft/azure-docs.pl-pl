@@ -5,22 +5,22 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c7b265118e395dde2b4b5f3959ba397d75ddac5
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703409"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232192"
 ---
 # <a name="precise-answering"></a>Precyzyjne odpowiedzi
 
 Precyzyjna funkcja odpowiedzi wprowadzona w QnA Maker Managed (wersja zapoznawcza) umożliwia precyzyjne uzyskanie dokładnej krótkiej odpowiedzi z najlepszej sugestii odpowiedzi na odpowiedź w bazie wiedzy dla dowolnej kwerendy użytkownika. Ta funkcja używa modelu uczenia głębokiego, który znajduje się w środowisku uruchomieniowym, które rozumie zamierzenie zapytania użytkownika i wykrywa precyzyjne krótkie odpowiedzi z odniesień odpowiedzi, jeśli w odpowiedzi na odpowiedź występuje krótka odpowiedź. 
 
-Ta funkcja jest domyślnie włączona w okienku test, dzięki czemu można testować funkcje specyficzne dla danego scenariusza. Ta funkcja jest niezwykle korzystna dla deweloperów zawartości oraz użytkowników końcowych. Teraz deweloperzy zawartości nie muszą ręcznie nadzorować określonych par QnA dla każdego faktu obecnego w bazie wiedzy, a użytkownik końcowy nie musi wyszukać całego wyniku odpowiedzi zwróconego przez usługę, aby znaleźć faktyczny fakt, który odpowiada na zapytanie użytkownika. 
+Ta funkcja jest domyślnie włączona w okienku test, dzięki czemu można testować funkcje specyficzne dla danego scenariusza. Ta funkcja jest niezwykle korzystna dla deweloperów zawartości oraz użytkowników końcowych. Teraz deweloperzy zawartości nie muszą ręcznie nadzorować określonych par QnA dla każdego faktu obecnego w bazie wiedzy, a użytkownik końcowy nie musi wyszukać całego wyniku odpowiedzi zwróconego przez usługę, aby znaleźć faktyczny fakt, który odpowiada na zapytanie użytkownika. [Precyzyjne odpowiedzi można pobrać za pośrednictwem interfejsu API generowania odpowiedzi](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## <a name="precise-answering-on-qna-maker-portal"></a>Precyzyjne odpowiadanie w portalu QnA Maker
 
-W portalu QnA Maker po otwarciu okienka testowego zobaczysz opcję **wyświetlania krótkiej odpowiedzi** na górze. Ta opcja zostanie wybrana domyślnie. Po wprowadzeniu zapytania w okienku testu zostanie wyświetlona krótka odpowiedź wraz z odciskiem odpowiedzi, jeśli w pojściu odpowiedzi występuje krótka odpowiedź. 
+W portalu QnA Maker po otwarciu okienka testowego zobaczysz opcję **wyświetlania krótkiej odpowiedzi** na górze. Ta opcja zostanie wybrana domyślnie. Po wprowadzeniu zapytania w okienku testu zostanie wyświetlona krótka odpowiedź wraz z odciskiem odpowiedzi, jeśli w pojściu odpowiedzi występuje krótka odpowiedź.
  
 ![Okienko testów z włączonym zarządzaniem](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 
