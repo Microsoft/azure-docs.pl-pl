@@ -3,7 +3,7 @@ title: Używanie Axinom do dostarczania licencji Widevine do Azure Media Service
 description: W tym artykule opisano, jak można użyć Azure Media Services (AMS) do dostarczania strumienia, który jest dynamicznie szyfrowany za pomocą usługi PlayReady i Widevine protokołów DRM. Licencja PlayReady pochodzi z Media Services serwera licencji PlayReady i licencji Widevine jest dostarczana przez serwer licencji Axinom.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f486bfe7cb96e81cef2da64552be5ddfd87990b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532e982b02bb35074370db45fec8cc42a898c83e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264695"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015526"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services
 
@@ -214,7 +214,7 @@ W przypadku korzystania z serwera licencji Axinom Widevine wymagane są następu
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Podziękowania

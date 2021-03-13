@@ -4,21 +4,16 @@ description: Dowiedz się więcej na temat zasad buforowania dostępnych do uży
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688046"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233470"
 ---
 # <a name="api-management-caching-policies"></a>Zasady buforowania usługi API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -29,8 +24,8 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Zasady buforowania
 
 - Zasady buforowania odpowiedzi
-    - [Pobierz z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) — wykonaj wyszukiwanie w pamięci podręcznej i zwróć poprawne buforowane odpowiedzi, jeśli są dostępne.
-    - [Przechowywanie w pamięci](api-management-caching-policies.md#StoreToCache) podręcznej w pamięci podręcznej odpowiedzi zgodnie z określoną konfiguracją kontroli pamięci podręcznej.
+    - [Pobierz z pamięci podręcznej](#GetFromCache) — wykonaj wyszukiwanie w pamięci podręcznej i zwróć poprawne buforowane odpowiedzi, jeśli są dostępne.
+    - [Przechowywanie w pamięci](#StoreToCache) podręcznej w pamięci podręcznej odpowiedzi zgodnie z określoną konfiguracją kontroli pamięci podręcznej.
 - Zasady buforowania wartości
     - [Pobierz wartość z pamięci podręcznej](#GetFromCacheByKey) — Pobierz zbuforowany element według klucza.
     - [Wartość magazynu w pamięci podręcznej](#StoreToCacheByKey) — przechowywanie elementu w pamięci podręcznej według klucza.
@@ -40,7 +35,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 Użyj `cache-lookup` zasad w celu przeprowadzenia wyszukiwania w pamięci podręcznej i zwrócenia prawidłowej pamięci podręcznej, jeśli jest dostępna. Te zasady mogą być stosowane w przypadkach, w których zawartość odpowiedzi pozostaje statyczna w danym okresie czasu. Buforowanie odpowiedzi zmniejsza wymagania dotyczące przepustowości i przetwarzania narzucone na serwerze sieci Web zaplecza i obniża opóźnienia postrzegane przez klientów interfejsu API.
 
 > [!NOTE]
-> Te zasady muszą mieć odpowiedni [Magazyn do zasad pamięci podręcznej](api-management-caching-policies.md#StoreToCache) .
+> Te zasady muszą mieć odpowiedni [Magazyn do zasad pamięci podręcznej](#StoreToCache) .
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -135,7 +130,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 ### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### <a name="examples"></a>Przykłady
@@ -190,7 +185,8 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 | Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
+| czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).     | Tak      | Nie dotyczy               |
+| pamięć podręczna-odpowiedź         | Ustaw wartość true, aby buforować bieżącą odpowiedź HTTP. Jeśli atrybut jest pominięty lub ma wartość false, tylko odpowiedzi HTTP z kodem stanu `200 OK` są buforowane.                           | Nie      | fałsz               |
 
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.

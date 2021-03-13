@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: c8a37b08db5cdb35bc9328cbc29caa04a5cdf412
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: def9b55a1d873cccda5d1c48921e3f098beeced1
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010834"
+ms.locfileid: "103149719"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Eksportowanie aplikacji z wygaśniemi wpisami tajnymi i certyfikatami
 
@@ -31,6 +31,8 @@ Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/
 [!code-azurepowershell[main](~/powershell_scripts/application-management/export-apps-with-expiring-secrets.ps1 "Exports all apps with expiring secrets and certificates for the specified apps in your directory.")]
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
+
+Skryptu można używać bezpośrednio bez żadnych modyfikacji. Administrator zostanie poproszony o datę wygaśnięcia i informacje o tym, czy chcesz zobaczyć już wygasłe wpisy tajne lub certyfikaty.
 
 Polecenie "Add-member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
 Polecenie "New-Object" tworzy obiekt, który będzie używany dla kolumn w pliku CSV.

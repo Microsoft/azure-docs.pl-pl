@@ -9,14 +9,16 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732993"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200620"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Jak skonfigurować opcje tworzenia kontenerów dla modułów IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Parametr **isoptions** w manifeście wdrożenia umożliwia skonfigurowanie kontenerów modułów w czasie wykonywania. Ten parametr rozszerza kontrolę nad modułami i umożliwia wykonywanie zadań, takich jak umożliwienie lub ograniczanie dostępu modułu do zasobów urządzenia hosta lub Konfigurowanie sieci.
 

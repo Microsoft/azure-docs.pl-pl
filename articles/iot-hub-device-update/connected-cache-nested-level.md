@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664764"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615384"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Przykład scenariusza wdrożenia w podglądzie połączonej pamięci podręcznej firmy Microsoft: dwupoziom zagnieżdżony Azure IoT Edge
 
@@ -70,7 +70,7 @@ Na poniższym diagramie przedstawiono scenariusz, w którym jedna brama Azure Io
 ## <a name="child-gateway-configuration"></a>Konfiguracja bramy podrzędnej
 
 >[!Note]
->Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zobacz [samouczek — Tworzenie hierarchii IoT Edge urządzeń — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) , aby uzyskać więcej szczegółów.
+>Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zobacz [samouczek — Tworzenie hierarchii IoT Edge urządzeń — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) , aby uzyskać więcej szczegółów.
 
 1. Zmodyfikuj ścieżkę obrazu dla agenta usługi Edge, jak pokazano w poniższym przykładzie:
 

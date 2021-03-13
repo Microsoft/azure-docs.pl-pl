@@ -9,16 +9,16 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f1d254eecc41ebef690b4fc9f8294bee5a368ae4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570028"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200759"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
 
-Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
+Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku. Oznacza to, że większość żądań spowoduje powstanie rekordu dziennika, ale kompletności i terminowość dzienników analityka magazynu nie są gwarantowane. 
 
 > [!NOTE]
 > Zalecamy używanie dzienników usługi Azure Storage w Azure Monitor zamiast dzienników analityka magazynu. Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Aby dowiedzieć się więcej, zobacz dowolny z następujących artykułów:

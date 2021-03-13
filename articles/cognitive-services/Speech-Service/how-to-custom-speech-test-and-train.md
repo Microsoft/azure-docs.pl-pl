@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424499"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232498"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -39,6 +39,8 @@ Model przeszkolony na podzbiorze scenariuszy może działać tylko w tych scenar
 > Zacznij od małych zestawów przykładowych danych, które są zgodne z językiem i dźwiękiem, który zostanie napotkany przez model.
 > Na przykład Zanotuj mały, ale reprezentatywny przykład audio na tym samym sprzęcie i w tym samym środowisku akustycznym, w którym model znajdzie się w scenariuszach produkcyjnych.
 > Małe zbiory danych reprezentatywne dane mogą uwidaczniać problemy, zanim zainwestowano w gromadzenie znacznie większych zestawów danych do szkoleń.
+>
+> Aby szybko rozpocząć pracę, rozważ użycie przykładowych danych. Zapoznaj się z tym repozytorium GitHub, aby uzyskać <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">przykładowe dane Custom Speech </a>
 
 ## <a name="data-types"></a>Typy danych
 
@@ -50,17 +52,14 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1-20 godz. audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
-Podczas uczenia nowego modelu Zacznij od [pokrewnego tekstu](#related-text-data-for-training). Te dane będą już ulepszać rozpoznawanie specjalnych terminów i fraz. Szkolenia z tekstem są znacznie szybsze niż szkolenia z użyciem dźwięku (minuty a dni).
-
 Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jako plik. zip. Każdy zestaw danych może zawierać tylko jeden typ danych.
 
 > [!TIP]
-> Aby szybko rozpocząć pracę, rozważ użycie przykładowych danych. Zapoznaj się z tym repozytorium GitHub, aby uzyskać <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">przykładowe dane Custom Speech </a>
+> Podczas uczenia nowego modelu Zacznij od [pokrewnego tekstu](#related-text-data-for-training). Te dane będą już ulepszać rozpoznawanie specjalnych terminów i fraz. Szkolenia z tekstem są znacznie szybsze niż szkolenia z użyciem dźwięku (minuty a dni).
 
 > [!NOTE]
 > Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio. Nawet jeśli model podstawowy obsługuje szkolenia z danymi audio, usługa może korzystać tylko z części audio. Nadal będzie używać wszystkich transkrypcji.
-
-> [!NOTE]
+>
 > W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 >
 > Jeśli problem opisany w powyższym akapicie, możesz szybko skrócić czas uczenia, zmniejszając ilość dźwięku w zestawie danych lub usuwając ją całkowicie i pozostawiając tylko tekst. Ta ostatnia opcja jest zdecydowanie zalecana, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.

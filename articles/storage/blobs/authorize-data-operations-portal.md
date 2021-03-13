@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391545"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613254"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych obiektów BLOB w Azure Portal
 
@@ -66,9 +66,9 @@ Role niestandardowe mogą obsługiwać różne kombinacje tych samych uprawnień
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Przejdź do obiektów BLOB w Azure Portal
 
-Aby wyświetlić dane obiektów BLOB w portalu, przejdź do **omówienia** konta magazynu i kliknij linki dla **obiektów BLOB**. Alternatywnie możesz przejść do sekcji **BLOB Service** w menu.
+Aby wyświetlić dane obiektów BLOB w portalu, przejdź do **omówienia** konta magazynu i kliknij linki dla **obiektów BLOB**. Alternatywnie możesz przejść do sekcji **kontenery** w menu.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych obiektów BLOB w Azure Portal":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych obiektów BLOB w Azure Portal":::
 
 ## <a name="determine-the-current-authentication-method"></a>Ustal bieżącą metodę uwierzytelniania
 

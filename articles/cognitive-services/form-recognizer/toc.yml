@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze AI Builder
       href: tutorial-ai-builder.md
+    - name: Używanie aparatu rozpoznawania formularzy z Azure Functions
+      href: tutorial-azure-function.md
     - name: Zbiorcze wyodrębnianie danych z formularzy
       href: tutorial-bulk-processing.md
 - name: Pojęcia

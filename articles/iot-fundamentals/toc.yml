@@ -10,6 +10,8 @@
       href: iot-services-and-technologies.md
     - name: Opcje wsparcia technicznego i pomocy
       href: iot-support-help.md
+    - name: Słownik IoT
+      href: iot-glossary.md
 - name: Zabezpieczenia
   items:
     - name: Zalecenia

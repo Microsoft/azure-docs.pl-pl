@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590562"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558002"
 ---
 # <a name="security-alerts-schemas"></a>Schematy alertów zabezpieczeń
 
@@ -173,7 +173,7 @@ Zdarzenia alertów zabezpieczeń można wyświetlić w dzienniku aktywności prz
 
 Microsoft Graph to brama do danych i analizy w Microsoft 365. Zapewnia jednolity model programowania, którego można użyć w celu uzyskania dostępu do ogromnej ilości danych w Microsoft 365, Windows 10 i Enterprise Mobility + Security. Skorzystaj z bogactwa danych w Microsoft Graph, aby tworzyć aplikacje dla organizacji i klientów, którzy współpracują z milionami użytkowników.
 
-Schemat i reprezentację JSON alertów zabezpieczeń wysyłanych do programu MS Graph są dostępne w [dokumentacji Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
+Schemat i reprezentację JSON alertów zabezpieczeń wysyłanych do programu MS Graph są dostępne w [dokumentacji Microsoft Graph](/graph/api/resources/alert).
 
 ---
 

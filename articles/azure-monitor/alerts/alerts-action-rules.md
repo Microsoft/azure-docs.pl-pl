@@ -3,12 +3,12 @@ title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045619"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016002"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -61,19 +61,25 @@ Najpierw wybierz zakres (subskrypcję platformy Azure, grupę zasobów lub zasó
 
 ### <a name="filter-criteria"></a>Kryteria filtrowania
 
-Można dodatkowo zdefiniować filtry, aby zawęzić je do określonego podzestawu alertów.
+Opcjonalnie można zdefiniować filtry, aby reguła była stosowana do określonego podzestawu alertów lub do określonych zdarzeń dla każdego alertu (na przykład tylko "uruchomił" lub "tylko rozwiązany").
 
 Dostępne są następujące filtry:
 
-* **Ważność**: opcja wyboru jednej lub więcej serwerów alertów. **Ważność = Sev1** oznacza, że reguła akcji ma zastosowanie do wszystkich alertów ustawionych na Sev1.
-* **Monitorowanie usługi**: filtr oparty na źródłowej usłudze monitorowania. Ten filtr jest również wielokrotnego wyboru. Na przykład **monitorowanie Service = "Application Insights"** oznacza, że reguła akcji ma zastosowanie do wszystkich alertów opartych na Application Insights.
-* **Typ zasobu**: filtr oparty na określonym typie zasobu. Ten filtr jest również wielokrotnego wyboru. Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła akcji ma zastosowanie do wszystkich maszyn wirtualnych.
-* **Identyfikator reguły alertu**: opcja filtrowania określonych reguł alertów przy użyciu identyfikatora Menedżer zasobów reguły alertu.
-* **Warunek monitorowania**: filtr wystąpień alertów, które zostały **wyzwolone** lub **rozpoznane** jako warunek monitora.
-* **Opis**: wyrażenie regularne (wyrażenie regularne), które definiuje dopasowanie ciągu do opisu, zdefiniowane jako część reguły alertu. Na przykład **Opis zawiera "prod"** będzie pasować do wszystkich alertów zawierających ciąg "prod" w ich opisach.
-* **Kontekst alertu (ładunek)**: dopasowanie wyrażenia regularnego definiujące dopasowanie ciągu do pól kontekstu alertu w ładunku alertu. Na przykład **kontekst alertu (ładunek) zawiera "Computer-01"** będzie pasować do wszystkich alertów, których ładunki zawierają ciąg "Computer-01".
+* **Ważność**: Ta reguła będzie stosowana tylko do alertów z wybranymi serwerami.  
+Na przykład **ważność = Sev1** oznacza, że reguła będzie stosowana tylko do alertów o ważności Sev1.
+* **Monitorowanie usługi**: Ta reguła będzie stosowana tylko do alertów pochodzących z wybranych usług monitorowania.  
+Na przykład **monitorowanie Service = "Azure Backup"** oznacza, że reguła będzie stosowana tylko do alertów kopii zapasowych (pochodzących z Azure Backup).
+* **Typ zasobu**: Ta reguła będzie stosowana tylko do alertów dotyczących wybranych typów zasobów.  
+Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła będzie stosowana tylko do alertów na maszynach wirtualnych.
+* **Identyfikator reguły alertu**: Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
+Na przykład reguła **alertu ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/MyAPI-highLatency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "MyAPI-highLatency".
+* **Warunek monitora**: Ta reguła będzie stosowana tylko do zdarzeń alertów z określonym warunkiem monitora — jest **uruchamiany** lub **rozwiązany**.
+* **Opis**: Ta reguła będzie stosowana tylko do alertów, które zawierają określony ciąg w polu Opis alertu. To pole zawiera opis reguły alertu.  
+Na przykład **Opis zawiera "prod"** oznacza, że reguła będzie pasować tylko do alertów, które zawierają ciąg "prod" w opisie.
+* **Kontekst alertu**: Ta reguła będzie stosowana tylko do alertów, które zawierają jedną lub więcej konkretnych wartości w polach kontekstu alertu.  
+Na przykład **kontekst alertu (ładunek) zawiera "Computer-01"** oznacza, że reguła będzie stosowana tylko do alertów, których ładunek zawiera ciąg "Computer-01".
 
-Te filtry są stosowane razem ze sobą. Na przykład, jeśli ustawisz **Typ zasobu "= Virtual Machines** i **ważność" = Sev0**, wszystkie alerty **Sev0** są filtrowane tylko na maszynach wirtualnych.
+W przypadku ustawienia wielu filtrów w regule zostaną zastosowane wszystkie z nich. Na przykład jeśli ustawisz **Typ zasobu "= Virtual Machines** i **ważność" = Sev0**, reguła zostanie zastosowana tylko w przypadku alertów Sev0 na maszynach wirtualnych.
 
 ![Filtry reguł akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

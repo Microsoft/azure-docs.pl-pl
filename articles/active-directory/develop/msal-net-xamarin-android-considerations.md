@@ -13,12 +13,12 @@ ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 34f2b146dda6e739f977c4894b5ec333c79d74d4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 11642480ac817b50d102e396b8ab5e200948a615
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063437"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199566"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Wymagania dotyczące konfiguracji i wskazówki dotyczące rozwiązywania problemów z platformą Xamarin Android z MSAL.NET
 
@@ -74,26 +74,26 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## <a name="update-the-android-manifest"></a>Aktualizowanie manifestu systemu Android
+## <a name="update-the-android-manifest-for-system-webview-support"></a>Aktualizowanie manifestu systemu Android dla obsługi systemu WebView 
 
-Plik *AndroidManifest.xml* powinien zawierać następujące wartości:
+Aby można było obsługiwać System WebView, plik *AndroidManifest.xml* powinien zawierać następujące wartości:
 
-```XML
-  <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
-  <activity
-        android:name="microsoft.identity.client.BrowserTabActivity">
-     <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="msauth"
-                android:host="Enter_the_Package_Name"
-                android:path="/Enter_the_Signature_Hash" />
-     </intent-filter>
-  </activity>
+```xml
+<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+  <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="msal{Client Id}" android:host="auth" />
+  </intent-filter>
+</activity>
 ```
 
-Zastąp nazwę pakietu zarejestrowanego w Azure Portal `android:host=` wartości. Zastąp skrót klucza, który został zarejestrowany w Azure Portal dla tej `android:path=` wartości. Wartość skrótu podpisu *nie* powinna być zakodowana w adresie URL. Upewnij się, że `/` na początku skrótu podpisu zostanie wyświetlony wiodący ukośnik ().
+`android:scheme`Wartość jest tworzona na podstawie identyfikatora URI przekierowania skonfigurowanego w portalu aplikacji. Na przykład jeśli identyfikator URI przekierowania to `msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth` , `android:scheme` wpis w manifeście będzie wyglądać podobnie do tego przykładu:
+
+```xml
+<data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
+```
 
 Alternatywnie możesz [utworzyć działanie w kodzie](/xamarin/android/platform/android-manifest#the-basics) zamiast ręcznie edytować *AndroidManifest.xml*. Aby utworzyć działanie w kodzie, najpierw Utwórz klasę, która zawiera `Activity` atrybut i `IntentFilter` atrybut.
 
@@ -110,9 +110,107 @@ Oto przykład klasy, która reprezentuje wartości pliku XML:
   }
 ```
 
+### <a name="use-system-webview-in-brokered-authentication"></a>Używanie systemu WebView w uwierzytelnianiu obsługiwanym przez brokera
+
+Aby użyć systemu WebView jako rezerwowego do uwierzytelniania interaktywnego po skonfigurowaniu aplikacji do korzystania z uwierzytelniania obsługiwanego przez brokera, a na urządzeniu nie jest zainstalowany żaden Broker, Włącz MSAL do przechwytywania odpowiedzi uwierzytelniania przy użyciu identyfikatora URI przekierowania brokera. Program MSAL podejmie próbę uwierzytelnienia przy użyciu domyślnego programu System WebView na urządzeniu, gdy wykryje, że Broker jest niedostępny. Korzystanie z tego ustawienia domyślnego nie powiedzie się, ponieważ identyfikator URI przekierowania jest skonfigurowany do korzystania z brokera, a System WebView nie wie, jak używać go do powrotu do MSAL. Aby rozwiązać ten problem, Utwórz _filtr konwersji_ przy użyciu identyfikatora URI przekierowania brokera, który został wcześniej skonfigurowany. Dodaj filtr zamierzeń, modyfikując manifest aplikacji podobny do tego przykładu:
+
+```xml
+<!--Intent filter to capture System WebView or Authenticator calling back to our app after sign-in-->
+<activity
+      android:name="microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="msauth"
+              android:host="Enter_the_Package_Name"
+              android:path="/Enter_the_Signature_Hash" />
+    </intent-filter>
+</activity>
+```
+
+Zastąp nazwę pakietu zarejestrowanego w Azure Portal `android:host=` wartości. Zastąp skrót klucza, który został zarejestrowany w Azure Portal dla tej `android:path=` wartości. Wartość skrótu podpisu *nie* powinna być zakodowana w adresie URL. Upewnij się, że `/` na początku skrótu podpisu zostanie wyświetlony wiodący ukośnik ().
+
 ### <a name="xamarinforms-43x-manifest"></a>Manifest platformy Xamarin. Forms 4.3. x
 
 Xamarin. Forms 4.3. x generuje kod, który ustawia `package` atrybut na `com.companyname.{appName}` w *AndroidManifest.xml*. Jeśli używasz `DataScheme` jako `msal{client_id}` , możesz chcieć zmienić wartość tak, aby odpowiadała wartości `MainActivity.cs` przestrzeni nazw.
+
+## <a name="android-11-support"></a>Obsługa systemu Android 11
+
+Aby użyć przeglądarki systemowej i uwierzytelniania obsługiwanego przez brokera w systemie Android 11, należy najpierw zadeklarować te pakiety, aby były widoczne dla aplikacji. Aplikacje przeznaczone dla systemu Android 10 (interfejs API 29) i starsze mogą wysyłać zapytania do systemu operacyjnego, aby uzyskać listę pakietów, które są dostępne na urządzeniu w danym momencie. W celu zapewnienia prywatności i bezpieczeństwa system Android 11 zmniejsza widoczność pakietu do domyślnej listy pakietów systemu operacyjnego i pakietów, które są określone w pliku *AndroidManifest.xml* aplikacji. 
+
+Aby włączyć uwierzytelnianie aplikacji przy użyciu przeglądarki systemu i brokera, Dodaj następującą sekcję do *AndroidManifest.xml*:
+
+```xml
+<!-- Required for API Level 30 to make sure the app can detect browsers and other apps where communication is needed.-->
+<!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
+<queries>
+  <package android:name="com.azure.authenticator" />
+  <package android:name="{Package Name}" />
+  <package android:name="com.microsoft.windowsintune.companyportal" />
+  <!-- Required for API Level 30 to make sure the app detect browsers
+      (that don't support custom tabs) -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="https" />
+  </intent>
+  <!-- Required for API Level 30 to make sure the app can detect browsers that support custom tabs -->
+  <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+  <intent>
+    <action android:name="android.support.customtabs.action.CustomTabsService" />
+  </intent>
+</queries>
+``` 
+
+Zamień `{Package Name}` na nazwę pakietu aplikacji. 
+
+Zaktualizowany manifest, który obejmuje obsługę przeglądarki systemowej i uwierzytelniania obsługiwanego przez brokera, powinien wyglądać podobnie do tego przykładu:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.XamarinDev">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msauth" android:host="com.companyname.XamarinDev" android:path="/Fc4l/5I4mMvLnF+l+XopDuQ2gEM=" />
+            </intent-filter>
+        </activity>
+    </application>
+    <!-- Required for API Level 30 to make sure we can detect browsers and other apps we want to
+     be able to talk to.-->
+    <!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
+    <queries>
+        <package android:name="com.azure.authenticator" />
+        <package android:name="com.companyname.xamarindev" />
+        <package android:name="com.microsoft.windowsintune.companyportal" />
+        <!-- Required for API Level 30 to make sure we can detect browsers
+        (that don't support custom tabs) -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <!-- Required for API Level 30 to make sure we can detect browsers that support custom tabs -->
+        <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+</manifest>
+```
 
 ## <a name="use-the-embedded-web-view-optional"></a>Użyj osadzonego widoku sieci Web (opcjonalnie)
 

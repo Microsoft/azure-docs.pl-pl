@@ -3,7 +3,7 @@ title: Używanie castLabs do dostarczania licencji Widevine do Azure Media Servi
 description: W tym artykule opisano, jak można użyć Azure Media Services (AMS) do dostarczania strumienia, który jest dynamicznie szyfrowany za pomocą usługi PlayReady i Widevine protokołów DRM.
 services: media-services
 documentationcenter: ''
-author: Mingfeiy
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: Juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: willzhan
-ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 576ac636f166e2daebbb9919d6666fea913a17be
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264491"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017056"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services
 
@@ -40,7 +40,7 @@ Aby odtworzyć zawartość strumieniową chronioną przez CENC (PlayReady i/lub 
 
 Na poniższym diagramie przedstawiono architekturę integracji na poziomie Azure Media Services i castLabs.
 
-![Integration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![integration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ## <a name="typical-system-set-up"></a>Typowa konfiguracja systemu
 
@@ -125,6 +125,6 @@ Aby odtworzyć wideo szyfrowane za pomocą typowego szyfrowania (PlayReady i/lub
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 07fbc7b1137d7eaf8a73a806c6a3714fab274df0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/12/2021
+ms.openlocfilehash: 2f716fd7723f35fb5e7071afb15cfa8dab4ce5d2
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393109"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225289"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.locfileid: "100393109"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do Azure SQL Database oraz do przekształcania danych w Azure SQL Database. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik Azure SQL Database jest obsługiwany dla następujących działań:
 
@@ -772,7 +772,7 @@ Więcej szczegółów:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Aby użyć **Data Factory uwierzytelniania tożsamości zarządzanej**: 
+    - W przypadku uruchamiania samoobsługowego Integration Runtime na maszynie wirtualnej platformy Azure można użyć **uwierzytelniania tożsamości zarządzanej** z TOŻSAMOŚCIĄ maszyny wirtualnej platformy Azure:
 
         1. Wykonaj te same [wymagania wstępne](#managed-identity) , aby utworzyć użytkownika bazy danych dla zarządzanej tożsamości i udzielić odpowiedniej roli w bazie danych.
         2. W polu połączona usługa Określ parametry połączenia ODBC poniżej, a następnie wybierz opcję uwierzytelnianie **anonimowe** jako parametry połączenia `Authentication=ActiveDirectoryMsi` .

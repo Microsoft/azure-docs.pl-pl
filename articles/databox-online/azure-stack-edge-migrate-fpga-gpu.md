@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5b68ab545e87035d138558ba1911294ef805af6d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382824"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630745"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrowanie obciążeń z Azure Stack Edge FPGA z krawędzią Pro do Azure Stack
 
@@ -157,10 +157,10 @@ Teraz dane z urządzenia źródłowego zostaną skopiowane do udziałów w chmur
 
 Wykonaj następujące kroki, aby zsynchronizować dane na temat udziałów w chmurze Edge na urządzeniu docelowym:
 
-1. [Dodaj udziały](azure-stack-edge-j-series-manage-shares.md#add-a-share) odpowiadające nazwom udziałów utworzonym na urządzeniu źródłowym. Upewnij się, że podczas tworzenia udziałów **Wybierz pozycję kontener obiektów BLOB** , aby **użyć istniejącej** opcji, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
-1. [Dodaj użytkowników](azure-stack-edge-j-series-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
-1. [Odśwież dane udziału](azure-stack-edge-j-series-manage-shares.md#refresh-shares) z platformy Azure. Spowoduje to pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
-1. Utwórz ponownie harmonogramy przepustowości, które mają być skojarzone z udziałami. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie harmonogramu przepustowości](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) .
+1. [Dodaj udziały](azure-stack-edge-gpu-manage-shares.md#add-a-share) odpowiadające nazwom udziałów utworzonym na urządzeniu źródłowym. Upewnij się, że podczas tworzenia udziałów **Wybierz pozycję kontener obiektów BLOB** , aby **użyć istniejącej** opcji, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
+1. [Dodaj użytkowników](azure-stack-edge-gpu-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
+1. [Odśwież dane udziału](azure-stack-edge-gpu-manage-shares.md#refresh-shares) z platformy Azure. Spowoduje to pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
+1. Utwórz ponownie harmonogramy przepustowości, które mają być skojarzone z udziałami. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie harmonogramu przepustowości](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) .
 
 
 ### <a name="2-from-edge-local-shares"></a>2. z udziałów lokalnych Edge
@@ -172,7 +172,7 @@ Po całkowitym skonfigurowaniu urządzenia zastępczego włącz je na potrzeby l
 Wykonaj następujące kroki, aby odzyskać dane z udziałów lokalnych:
 
 1. [Skonfiguruj obliczenia na urządzeniu](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Dodaj wszystkie udziały lokalne na urządzeniu docelowym. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie udziału lokalnego](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Dodaj wszystkie udziały lokalne na urządzeniu docelowym. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie udziału lokalnego](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. Uzyskanie dostępu do udziałów SMB na urządzeniu źródłowym spowoduje użycie adresów IP na urządzeniu docelowym. Zobacz [nawiązywanie połączenia z udziałem SMB na Azure Stack Edge GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Aby nawiązać połączenie z udziałami NFS na urządzeniu docelowym, należy użyć nowych adresów IP skojarzonych z urządzeniem. Zobacz [nawiązywanie połączenia z udziałem NFS w witrynie Azure Stack Edge — procesor GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     Jeśli skopiowano dane udziału na serwer pośredni za pośrednictwem protokołu SMB/NFS, można skopiować te dane do udziałów na urządzeniu docelowym. Możesz również skopiować dane bezpośrednio z urządzenia źródłowego, jeśli urządzenie źródłowe i docelowe są w *trybie online*.

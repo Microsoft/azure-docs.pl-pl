@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e477e4bb3b31477f9407e981d4c8da2340411f55
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309541"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615741"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Przenoszenie danych z bazy danych SQL Server do SQL Database za pomocą Azure Data Factory
 
@@ -87,7 +87,7 @@ Procedury krok po kroku dotyczące tworzenia połączonych usług są dostępne 
 Utwórz tabele określające strukturę, lokalizację i dostępność zestawów danych za pomocą poniższych procedur opartych na skryptach. Pliki JSON są używane do definiowania tabel. Aby uzyskać więcej informacji na temat struktury tych plików, zobacz [zestawy danych](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Przed uruchomieniem polecenia `Add-AzureAccount` cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) należy wykonać polecenie cmdlet, aby upewnić się, że dla wykonania polecenia wybrano odpowiednią subskrypcję platformy Azure. Aby uzyskać dokumentację tego polecenia cmdlet, zobacz [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> Przed uruchomieniem polecenia `Add-AzureAccount` cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) należy wykonać polecenie cmdlet, aby upewnić się, że dla wykonania polecenia wybrano odpowiednią subskrypcję platformy Azure. Aby uzyskać dokumentację tego polecenia cmdlet, zobacz [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount).
 >
 >
 
@@ -138,7 +138,7 @@ Definicja tabeli dla SQL Server jest określona w następującym pliku JSON:
 
 Nazwy kolumn nie zostały uwzględnione w tym miejscu. W tym miejscu możesz wybrać nazwy kolumn, dołączając je tutaj (Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [Dokumentacja usługi ADF](../../data-factory/copy-activity-overview.md) .
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *onpremtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\onpremtabledef.jsna* ). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *onpremtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\onpremtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
@@ -173,7 +173,7 @@ Definicja tabeli dla wyjściowej lokalizacji obiektu BLOB znajduje się w nastę
 }
 ```
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *bloboutputtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\bloboutputtabledef.jsna* ). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *bloboutputtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\bloboutputtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
@@ -207,7 +207,7 @@ Definicja tabeli dla danych wyjściowych usługi SQL Azure jest następująca (t
 }
 ```
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *AzureSqlTable.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\AzureSqlTable.jsna* ). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *AzureSqlTable.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\AzureSqlTable.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
@@ -294,7 +294,7 @@ Korzystając z podanych wcześniej definicji tabeli, definicja potoku dla ADF je
 }
 ```
 
-Skopiuj tę definicję JSON potoku do pliku o nazwie *pipelinedef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\pipelinedef.jsna* ). Utwórz potok w podajniku APD przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj tę definicję JSON potoku do pliku o nazwie *pipelinedef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\pipelinedef.jsna*). Utwórz potok w podajniku APD przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json

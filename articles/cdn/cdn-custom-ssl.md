@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367507"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616404"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN
 
@@ -356,6 +356,11 @@ W poniższej tabeli przedstawiono postęp operacji w przypadku wyłączenia prot
 7. *Jak działają odnowienia certyfikatów przy użyciu pakietu do przenoszenia własnego certyfikatu?*
 
     Aby zapewnić, że nowszy certyfikat jest wdrażany w infrastrukturze PoP, Przekaż nowy certyfikat do magazynu kluczy platformy Azure. W ustawieniach protokołu TLS na Azure CDN wybierz najnowszą wersję certyfikatu i wybierz pozycję Zapisz. Azure CDN następnie będzie propagowany nowy zaktualizowany certyfikat. 
+
+8. *Czy muszę ponownie włączyć protokół HTTPS po ponownym uruchomieniu punktu końcowego?*
+
+    Tak. Jeśli używasz **Azure CDN z Akamai**, jeśli punkt końcowy zostanie zatrzymany i ponownie uruchomiony, należy ponownie włączyć ustawienie protokołu HTTPS, jeśli ustawienie było aktywne przed.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 5d64ec925e1d88f8143a85393ceb18ae37c2b917
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 3bb7311a16b71b9bb76f14b4ba7a29dd2dae4a96
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202284"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010001"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
@@ -35,7 +35,7 @@ Dowiedz się, co nowego w QnA Maker.
   
 ### <a name="july-2020"></a>Lipiec 2020 r.
 
-* [Metadane: `OR` koniunkcja logiczna wielu par metadanych](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
+* [Metadane: `OR` koniunkcja logiczna wielu par metadanych](how-to/query-knowledge-base-with-metadata.md#logical-or-using-strictfilterscompoundoperationtype-property)
 * [Kroki](how-to/network-isolation.md) konfigurowania wyszukiwanie poznawczeych punktów końcowych jako prywatnych, ale nadal dostępne dla QNA Maker.
 * Bezpłatny Wyszukiwanie poznawcze zasoby zostaną usunięte po [90 dniach braku aktywności](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 

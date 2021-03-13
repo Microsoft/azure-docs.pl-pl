@@ -3,7 +3,7 @@ title: Utwórz zadanie kodowania Azure Media Services, które generuje fragmenty
 description: W tym temacie pokazano, jak utworzyć zadanie kodowania, które generuje fragmenty fMP4. Gdy to zadanie jest używane z koderem Media Encoder Standard lub Media Encoder Premium Workflow, wyjściowy element zawartości będzie zawierał fragmenty fMP4 zamiast plików MP4 ISO.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a247ef24104d9ecb9c827896d2bbfda8c50b9958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6311aa6d0bfca133925f27b5ea4849769d9e0ec4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269407"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013367"
 ---
 # <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Utwórz zadanie kodowania generujące fragmenty fMP4
 
@@ -176,7 +176,7 @@ namespace AdaptiveStreaming
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

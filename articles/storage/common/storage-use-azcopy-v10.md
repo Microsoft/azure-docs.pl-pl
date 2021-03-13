@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944142"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201588"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -100,6 +100,9 @@ Aby dowiedzieć się więcej o tokenach SAS i sposobach ich uzyskania, zobacz [U
 ## <a name="transfer-data"></a>Transfer danych
 
 Po autoryzowaniu tożsamości lub uzyskaniu tokenu SAS można rozpocząć transfer danych.
+
+> [!NOTE]
+> Ustawienie [wymagane przez bezpieczny transfer](storage-require-secure-transfer.md) dla konta magazynu określa, czy połączenie z kontem magazynu jest zabezpieczone za pomocą usługi Transport Layer Security (TLS). To ustawienie jest domyślnie włączone.   
 
 Aby znaleźć przykładowe polecenia, zapoznaj się z dowolnym z tych artykułów.
 

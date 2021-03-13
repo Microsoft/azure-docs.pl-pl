@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548645"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632037"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Bezpieczeństwo i ochrona danych dla Azure Stack EDGE Pro R i Azure Stack Edge mini R
 
@@ -133,7 +133,7 @@ Gdy urządzenie przejdzie do twardej resetowania, na urządzeniu jest wykonywane
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Regularnie Obróć i [Synchronizuj klucze konta magazynu](azure-stack-edge-j-series-manage-storage-accounts.md) , aby chronić konto magazynu przed nieautoryzowanymi użytkownikami.
+- Regularnie Obróć i [Synchronizuj klucze konta magazynu](azure-stack-edge-gpu-manage-storage-accounts.md) , aby chronić konto magazynu przed nieautoryzowanymi użytkownikami.
 
 ## <a name="manage-personal-information"></a>Zarządzanie informacjami osobistymi
 
@@ -141,7 +141,7 @@ Usługa Azure Stack Edge zbiera dane osobowe w następujących scenariuszach:
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Aby wyświetlić listę użytkowników, którzy mogą uzyskać dostęp do udziału lub go usunąć, wykonaj kroki opisane w sekcji [Zarządzanie udziałami na Azure Stack Edge](azure-stack-edge-j-series-manage-shares.md).
+Aby wyświetlić listę użytkowników, którzy mogą uzyskać dostęp do udziału lub go usunąć, wykonaj kroki opisane w sekcji [Zarządzanie udziałami na Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
 Aby uzyskać więcej informacji, zapoznaj się z zasadami ochrony prywatności firmy Microsoft w [Centrum zaufania](https://www.microsoft.com/trustcenter).
 

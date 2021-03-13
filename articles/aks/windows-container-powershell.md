@@ -3,14 +3,14 @@ title: Tworzenie kontenera systemu Windows Server w klastrze AKS przy użyciu pr
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację w kontenerze systemu Windows Server w usłudze Azure Kubernetes Service (AKS) przy użyciu programu PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625118"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233518"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu programu PowerShell
 
@@ -83,8 +83,9 @@ Aby uruchomić klaster AKS, który obsługuje pule węzłów dla kontenerów sys
 > Aby zapewnić niezawodne działanie klastra, należy uruchomić co najmniej 2 (dwa) węzły w domyślnej puli węzłów.
 
 ```azurepowershell-interactive
-$Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+$Username = Read-Host -Prompt 'Please create a username for the administrator credentials on your Windows Server containers: '
+$Password = Read-Host -Prompt 'Please create a password for the administrator credentials on your Windows Server containers: ' -AsSecureString
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $Username -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -97,7 +98,7 @@ Po kilku minutach polecenie zostanie zakończone i zwróci informacje o klastrze
 Domyślnie klaster AKS jest tworzony przy użyciu puli węzłów, która może uruchamiać kontenery systemu Linux. Użyj `New-AzAksNodePool` polecenia cmdlet, aby dodać pulę węzłów, która może uruchamiać kontenery systemu Windows Server wraz z pulą węzłów Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
 ```
 
 Powyższe polecenie tworzy nową pulę węzłów o nazwie **npwin** i dodaje ją do **myAKSCluster**. Podczas tworzenia puli węzłów do uruchamiania kontenerów systemu Windows Server, wartość domyślna dla **VmSize** jest **Standard_D2s_v3**. Jeśli wybierzesz opcję ustawienia parametru **VmSize** , sprawdź listę [rozmiarów maszyn wirtualnych z ograniczeniami][restricted-vm-sizes]. Minimalny zalecany rozmiar to **Standard_D2s_v3**. Poprzednie polecenie używa również domyślnej podsieci w domyślnej sieci wirtualnej utworzonej podczas uruchamiania `New-AzAks` .
