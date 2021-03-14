@@ -13,8 +13,12 @@
   items:
     - name: Kodowanie aplikacji klienckiej
       href: tutorial-code.md
-    - name: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej
-      href: tutorial-command-line-app.md
+    - name: Tworzenie grafu
+      items:
+        - name: Korzystanie z przykładowej aplikacji klienckiej
+          href: tutorial-command-line-app.md
+        - name: Korzystanie z poleceń interfejsu wiersza polecenia platformy Azure
+          href: tutorial-command-line-cli.md
     - name: Łączenie kompleksowego rozwiązania
       href: tutorial-end-to-end.md
 - name: Pojęcia

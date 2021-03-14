@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433220"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462681"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -36,8 +36,10 @@ Pobieranie bliźniaczych reprezentacji cyfrowych według **Właściwości** (ł�
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> Identyfikator cyfrowej reprezentacji bliźniaczej otrzymuje zapytanie przy użyciu pola metadanych `$dtId`.
+Jak pokazano w powyższym zapytaniu, identyfikator dwucyfrowego przędzy jest wysyłany przy użyciu pola metadanych `$dtId` .
+
+>[!TIP]
+> Jeśli używasz Cloud Shell do uruchamiania zapytania z polami metadanych, które zaczynają się od `$` , należy wypróbować, `$` aby umożliwić Cloud Shell wiedzieć, że nie jest to zmienna i powinna być używana jako literał w tekście zapytania.
 
 Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
 

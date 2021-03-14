@@ -12,16 +12,18 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: cbe4942b63389faab00861438a0149b68c0e89c0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f24f38db7704557894d866b789890763f9e1316
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177304"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463259"
 ---
-# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
+# <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Samouczek: opracowywanie modułu IoT Edge Java przy użyciu kontenerów systemu Linux
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Będziesz używać symulowanego urządzenia IoT Edge utworzonego w ramach wdrażania Azure IoT Edge na symulowanym urządzeniu w systemie [Linux](quickstart-linux.md) — Szybki Start. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyj symulowanego urządzenia IoT Edge utworzonego w obszarze Wdróż Azure IoT Edge na symulowanym urządzeniu w artykułach szybkiego startu. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -36,7 +38,7 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w **języku Java** przy użyciu **Visual Studio Code** i sposobu wdrażania go na **urządzeniu z systemem Linux**. IoT Edge nie obsługuje modułów języka Java dla urządzeń z systemem Windows.
+W tym samouczku przedstawiono sposób tworzenia modułu w **języku Java** przy użyciu **Visual Studio Code** i sposobu wdrażania go na urządzeniu IoT Edge. IoT Edge nie obsługuje modułów języka Java wbudowanych jako kontenery systemu Windows.
 
 Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów Java:
 
@@ -48,12 +50,12 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując jeden z tych samouczków, należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* [Urządzenie z systemem Linux Azure IoT Edge](quickstart-linux.md)
+* Urządzenie, na którym działa Azure IoT Edge. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.
 
-Aby utworzyć moduł IoT Edge w języku Java, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim: 
+Aby utworzyć moduł IoT Edge w języku Java, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim:
 
 * [Pakiet rozszerzenia języka Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) dla programu Visual Studio Code.
 * [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support)i [Ustaw `JAVA_HOME` zmienną środowiskową tak](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) , aby wskazywała instalację JDK.

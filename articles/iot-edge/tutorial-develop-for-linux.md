@@ -9,22 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b352bd92ecc69ca68a6870d3a59ef5e0cdd1daba
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920855"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461423"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Linux
+# <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Samouczek: Programowanie modułów IoT Edge przy użyciu kontenerów systemu Linux
 
-Użyj Visual Studio Code, aby opracowywać i wdrażać kod na urządzeniach z systemem Linux, na których działa IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-W tym przewodniku szybki start utworzono urządzenie IoT Edge przy użyciu maszyny wirtualnej z systemem Linux i wdrożono moduł z poziomu portalu Azure Marketplace. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania własnego kodu na urządzeniu IoT Edge. Ten artykuł jest przydatnym warunkiem wstępnym dla innych samouczków, które bardziej szczegółowo opisują określone Języki programowania lub usługi platformy Azure.
+Użyj Visual Studio Code, aby opracowywać i wdrażać kod na urządzeniach z IoT Edge.
+
+W ramach przewodnika Szybki Start utworzono urządzenie IoT Edge i wdrożono moduł z poziomu portalu Azure Marketplace. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania własnego kodu na urządzeniu IoT Edge. Ten artykuł jest przydatnym warunkiem wstępnym dla innych samouczków, które bardziej szczegółowo opisują określone Języki programowania lub usługi platformy Azure.
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Linux**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz dla deweloperów rozwiązań IoT Edge. Nawet jeśli planujesz użycie innego języka lub wdrożenie usługi platformy Azure, ten samouczek jest nadal przydatny do poznania się z narzędziami i pojęciami programistycznymi. Wypełnij to wprowadzenie do procesu tworzenia, a następnie wybierz preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -44,7 +46,7 @@ Komputer deweloperski:
 * [Rozszerzenie C# for Visual Studio Code (obsługiwane przez technologię OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Zestaw .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
-Urządzenie Azure IoT Edge w systemie Linux:
+Urządzenie usługi Azure IoT Edge:
 
 * Zalecamy, aby nie uruchamiać IoT Edge na komputerze deweloperskim, ale zamiast tego użyć oddzielnego urządzenia. Takie rozróżnienie między maszynami deweloperskimi i urządzeniami IoT Edge bardziej precyzyjnie odzwierciedla scenariusz rzeczywistego wdrożenia i pomaga zachować różne koncepcje w prosty sposób.
 * Jeśli nie masz dostępnego drugiego urządzenia, Skorzystaj z artykułu Szybki Start, aby utworzyć urządzenie IoT Edge na platformie Azure z [maszyną wirtualną z systemem Linux](quickstart-linux.md).
@@ -61,7 +63,10 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia modułu IoT Edge. *Moduł
 
 Podczas opracowywania modułów IoT Edge należy zrozumieć różnicę między maszyną deweloperskią a docelowym urządzeniem IoT Edge, w którym moduł zostanie ostatecznie wdrożony. Kontener, który zostanie skompilowany do przechowywania kodu modułu, musi być zgodny z systemem operacyjnym (OS) *urządzenia docelowego*. Na przykład najbardziej typowym scenariuszem jest tworzenie modułu na komputerze z systemem Windows, który ma kierować do urządzenia z systemem Linux z IoT Edge. W takim przypadku system operacyjny kontenera to Linux. Korzystając z tego samouczka, należy pamiętać o różnicy między *systemem operacyjnym maszyny deweloperskiej* i *systemem operacyjnym kontenera*.
 
-Ten samouczek dotyczy urządzeń z systemem Linux, na których działa IoT Edge. Możesz użyć preferowanego systemu operacyjnego, o ile na komputerze deweloperskim są uruchamiane kontenery systemu Linux. Zalecamy używanie Visual Studio Code do tworzenia aplikacji dla urządzeń z systemem Linux, co jest potrzebne w tym samouczku. Możesz również użyć programu Visual Studio, chociaż istnieją różnice w obsłudze między tymi dwoma narzędziami.
+>[!TIP]
+>Jeśli używasz [IoT Edge dla systemu Linux w systemie Windows](iot-edge-for-linux-on-windows.md), *urządzenie docelowe* w Twoim scenariuszu jest maszyną wirtualną z systemem Linux, a nie hostem systemu Windows.
+
+Ten samouczek dotyczy urządzeń z systemem IoT Edge z kontenerami systemu Linux. Możesz użyć preferowanego systemu operacyjnego, o ile na komputerze deweloperskim są uruchamiane kontenery systemu Linux. Zalecamy używanie Visual Studio Code do programowania przy użyciu kontenerów systemu Linux, co oznacza, że ten samouczek będzie używany. Możesz również użyć programu Visual Studio, chociaż istnieją różnice w obsłudze między tymi dwoma narzędziami.
 
 W poniższej tabeli przedstawiono obsługiwane scenariusze programowania dla **kontenerów systemu Linux** w Visual Studio Code i Visual Studio.
 

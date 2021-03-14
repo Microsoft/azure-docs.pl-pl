@@ -4,12 +4,12 @@ description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowa
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703866"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462460"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -35,7 +35,7 @@ Po wdrożeniu rozwiązania VMware dla platformy Azure utworzysz pole skoku sieci
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Aby utworzyć maszynę wirtualną w sieci wirtualnej, która została [zidentyfikowana lub utworzona w ramach procesu wdrażania](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), wykonaj następujące instrukcje: 
+Aby utworzyć maszynę wirtualną w sieci wirtualnej, która została [zidentyfikowana lub utworzona w ramach procesu wdrażania](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), wykonaj następujące instrukcje: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -52,7 +52,7 @@ Jeśli nie zdefiniowano sieci wirtualnej w kroku wdrożenia, a zamierzasz połą
 
 Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware nawiązuje połączenie za pomocą obwodu usługi ExpressRoute.  Na platformie Azure przejdź do interfejsu sieciowego pola skoku i [Sprawdź obowiązujące trasy](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) podczas [tworzenia chmury prywatnej](#create-an-azure-vmware-solution-private-cloud).  
+Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) podczas [tworzenia chmury prywatnej](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Sprawdź trasy sieciowe anonsowane z rozwiązania Azure VMware do platformy Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

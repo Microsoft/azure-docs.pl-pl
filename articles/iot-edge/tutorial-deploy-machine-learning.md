@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292c82624103fc2eae46d8aecb5e85b2181e7938
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271281"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463055"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Samouczek: wdrażanie usługi Azure Machine Learning jako modułu usługi IoT Edge (wersja zapoznawcza)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Użyj Azure Notebooks do opracowania modułu uczenia maszynowego i wdrożenia go na urządzeniu z systemem Linux z Azure IoT Edge.
 Moduły usługi IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. Ten samouczek zawiera opis sposobu wdrażania modułu usługi Azure Machine Learning, który przewiduje awarię urządzenia na podstawie symulowanych danych dotyczących temperatury maszyny. Aby uzyskać więcej informacji na temat Azure Machine Learning na IoT Edge, zobacz [dokumentację Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -26,7 +28,7 @@ Moduły usługi IoT Edge umożliwiają wdrożenie kodu implementującego logikę
 
 Moduł usługi Azure Machine Learning tworzony w tym samouczku odczytuje dane środowiska wygenerowane przez urządzenie i oznacza, czy komunikaty wskazują wystąpienie anomalii, czy nie.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -41,7 +43,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Urządzenie usługi Azure IoT Edge:
 
-* Możesz użyć maszyny wirtualnej platformy Azure jako urządzenia IoT Edge, wykonując czynności opisane w przewodniku szybki start dla systemu [Linux](quickstart-linux.md).
+* Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Moduł Azure Machine Learning nie obsługuje kontenerów systemu Windows.
 * Moduł Azure Machine Learning nie obsługuje procesorów ARM.
 
@@ -94,13 +96,13 @@ Sprawdź, czy obraz kontenera został pomyślnie utworzony i zapisany w rejestrz
 
 2. Sekcja **Przegląd** zawiera szczegóły obszaru roboczego, a także powiązane z nim zasoby. Wybierz wartość **rejestru** , która powinna być nazwą obszaru roboczego, a następnie liczbami losowymi.
 
-3. W rejestrze kontenerów w obszarze **usługi**wybierz pozycję **repozytoria**. Powinno zostać wyświetlone repozytorium o nazwie **tempanomalydetection** , które zostało utworzone przez Notes uruchomiony w poprzedniej sekcji.
+3. W rejestrze kontenerów w obszarze **usługi** wybierz pozycję **repozytoria**. Powinno zostać wyświetlone repozytorium o nazwie **tempanomalydetection** , które zostało utworzone przez Notes uruchomiony w poprzedniej sekcji.
 
 4. Wybierz pozycję **tempanomalydetection**. Powinno być widoczne, że repozytorium ma jeden tag: **1**.
 
-   Teraz, gdy znasz nazwę rejestru, nazwę repozytorium i tag, znasz pełną ścieżkę obrazu do kontenera. Ścieżki obrazów wyglądają jak ** \<registry_name\> . azurecr.IO/tempanomalydetection:1**. Możesz użyć ścieżki obrazu do wdrożenia tego kontenera na urządzeniach usługi IoT Edge.
+   Teraz, gdy znasz nazwę rejestru, nazwę repozytorium i tag, znasz pełną ścieżkę obrazu do kontenera. Ścieżki obrazów wyglądają jak **\<registry_name\> . azurecr.IO/tempanomalydetection:1**. Możesz użyć ścieżki obrazu do wdrożenia tego kontenera na urządzeniach usługi IoT Edge.
 
-5. W rejestrze kontenerów w obszarze **Ustawienia**wybierz pozycję **klucze dostępu**. Powinna zostać wyświetlona liczba poświadczeń dostępu, w tym **serwer logowania** i **Nazwa użytkownika**oraz **hasło** administratora.
+5. W rejestrze kontenerów w obszarze **Ustawienia** wybierz pozycję **klucze dostępu**. Powinna zostać wyświetlona liczba poświadczeń dostępu, w tym **serwer logowania** i **Nazwa użytkownika** oraz **hasło** administratora.
 
    Te poświadczenia można dołączyć do manifestu wdrożenia, aby umożliwić urządzeniu usługi IoT Edge dostęp do ściągania obrazów kontenera z rejestru.
 

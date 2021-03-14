@@ -2,19 +2,19 @@
 title: Samouczek — Dodawanie segmentu sieci NSX-T w rozwiązaniu Azure VMware
 description: Dowiedz się, jak utworzyć segment sieci NSX-T do użycia dla maszyn wirtualnych w programie vCenter.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 8ecb37a42e2986bd1c6261b8fe6c23382323b31d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 03/13/2021
+ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335052"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462131"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Samouczek: Dodawanie segmentu sieci w rozwiązaniu VMware platformy Azure 
 
 Maszyny wirtualne utworzone w programie vCenter są umieszczane na segmentach sieci utworzonych w NSX-T i są widoczne w programie vCenter.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Nawigowanie w Menedżerze NSX-T w celu dodania segmentów sieci
@@ -33,7 +33,7 @@ Chmurę prywatną rozwiązania VMware platformy Azure z dostępem do interfejsó
 
 W tym samouczku utworzysz segment sieci NSX-T do użycia dla maszyn wirtualnych w programie vCenter. 
 
-Teraz możesz: 
+Teraz wiesz, jak wykonywać następujące czynności: 
 
 - [Tworzenie i zarządzanie serwerem DHCP dla rozwiązań VMware platformy Azure](manage-dhcp.md)
 - [Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure](deploy-vm-content-library.md) 

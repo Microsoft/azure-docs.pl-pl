@@ -2,13 +2,13 @@
 title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
-ms.date: 02/23/2021
-ms.openlocfilehash: 8871e678ba43aa69eb49c02e386bfb47c6871de7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: 0fc934cfec17d8d3bb69c21d324f06bee3f9515c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044985"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462364"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 
@@ -94,7 +94,7 @@ Aby zalogować się do programu vCenter i NSX Manager, musisz mieć adresy URL d
 
 Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze **Zarządzanie** wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
 
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Zrzut ekranu przedstawiający poświadczenia programu vCenter i NSX-T oraz adresy URL klienta sieci Web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+:::image type="content" source="./media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Zrzut ekranu przedstawiający poświadczenia programu vCenter i NSX-T oraz adresy URL klienta sieci Web." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

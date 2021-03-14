@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 67a2799a93141ad84f458642d8499a58784cc19c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036179"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463910"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurowanie przykładowego projektu
 
@@ -38,3 +38,4 @@ Następnie skonfiguruj *appsettings.jsw* pliku, który ma zostać skopiowany do 
 
 Kontynuuj otwieranie projektu _**AdtE2ESample**_ w programie Visual Studio, aby nadal korzystać z niego w samouczku.
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

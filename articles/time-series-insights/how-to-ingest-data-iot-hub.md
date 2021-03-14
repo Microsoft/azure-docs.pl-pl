@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 85773ec66dbe567afcfd1afca1d14aa0119fb8f6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695564"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464024"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Dodawanie źródła zdarzeń centrum IoT Hub do środowiska usługi Azure Time Series Insights
 
@@ -27,7 +27,7 @@ W tym artykule opisano, jak za pomocą Azure Portal dodać Źródło zdarzenia, 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Utwórz [środowisko Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+* Utwórz [środowisko Azure Time Series Insights](./tutorial-set-up-environment.md).
 * Utwórz [Centrum IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 * Usługa IoT Hub musi mieć aktywne zdarzenia komunikatów wysyłane w usłudze.
 * Utwórz dedykowaną grupę odbiorców w centrum IoT Hub, aby można było używać środowiska usługi Azure Time Series Insights. Każde źródło zdarzeń usługi Azure Time Series Insights musi mieć własną dedykowaną grupę odbiorców, która nie jest współużytkowana z żadnym innym klientem. Jeśli wielu czytników zużywa zdarzenia z tej samej grupy odbiorców, wszystkie czytelnicy mogą wykazywać błędy. Aby uzyskać szczegółowe informacje, Przeczytaj [Przewodnik dla deweloperów platformy Azure IoT Hub](../iot-hub/iot-hub-devguide.md).

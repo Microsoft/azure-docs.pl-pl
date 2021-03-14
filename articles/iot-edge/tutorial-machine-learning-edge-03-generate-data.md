@@ -8,14 +8,16 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d5fdd762834d351119116c5e4854dd4233671c29
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932408"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463133"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Samouczek: generowanie danych symulowanego urządzenia
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 W tym artykule wykorzystamy dane szkoleniowe dotyczące uczenia maszynowego w celu symulowania przesyłania danych telemetrycznych urządzenia do usługi Azure IoT Hub. Jak zostało to opisane we wprowadzeniu, ten samouczek używa [zestawu danych symulacji degradacji aparatu TurboFan](https://c3.nasa.gov/dashlink/resources/139/) w celu symulowania danych z zestawu aparatów samolotowych na potrzeby szkolenia i testowania.
 
@@ -92,7 +94,7 @@ Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machin
 
 Teraz, gdy mamy już kompilację projektu, Połącz się z Centrum IoT Hub, aby uzyskać dostęp do parametrów połączenia i monitorować postęp generowania danych.
 
-### <a name="sign-in-to-azure-in-visual-studio-code"></a>Zaloguj się do platformy Azure w Visual Studio Code
+### <a name="sign-in-to-azure-in-visual-studio-code"></a>Logowanie do platformy Azure w programie Visual Studio Code
 
 1. Zaloguj się do subskrypcji platformy Azure w Visual Studio Code, otwierając paletę poleceń `Ctrl + Shift + P` lub **wyświetlając**  >  **paletę poleceń**.
 

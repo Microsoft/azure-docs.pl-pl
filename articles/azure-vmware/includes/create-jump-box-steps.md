@@ -2,13 +2,13 @@
 title: Utwórz pole skoku rozwiązania Azure VMware
 description: Procedura tworzenia pola skoku rozwiązania Azure VMware.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 5d5a5d82cf6e70e7ad55bcfa10c7f85372131c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/13/2021
+ms.openlocfilehash: f746e11763e1df1686f3134960dea167bf1c9908
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578425"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462263"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
 
@@ -31,11 +31,10 @@ ms.locfileid: "91578425"
    | **Rozmiar** | Pozostaw wartość domyślną rozmiar. |
    | **Authentication type** (Typ uwierzytelniania)  | Wybierz pozycję **hasło**. |
    | **Nazwa użytkownika** | Wprowadź nazwę użytkownika, aby zalogować się do maszyny wirtualnej. |
-   | **Hasło** | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. |
+   | **Password** (Hasło) | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. |
    | **Potwierdź hasło** | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. |
-   | **Publiczne porty ruchu przychodzącego** | Wybierz pozycję **Brak**. W przypadku wybrania opcji Brak można użyć [dostępu JIT](../../security-center/security-center-just-in-time.md#jit-configure) , aby kontrolować dostęp do maszyny wirtualnej tylko wtedy, gdy chcesz uzyskać do niej dostęp.  |
+   | **Publiczne porty ruchu przychodzącego** | Wybierz pozycję **Brak**. W przypadku wybrania opcji Brak można użyć [dostępu JIT](../../security-center/security-center-just-in-time.md#jit-configure) , aby kontrolować dostęp do maszyny wirtualnej tylko wtedy, gdy chcesz uzyskać do niej dostęp. Alternatywnie możesz użyć [usługi Azure bastionu](../../bastion/tutorial-create-host-portal.md) , jeśli chcesz bezpiecznie uzyskać dostęp do serwera z wykorzystaniem pola szybkiego z Internetu bez uwidaczniania żadnego portu sieciowego.  |
 
 
 1. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia maszyny wirtualnej.
 
-   :::image type="content" source="../media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Dodaj nową maszynę wirtualną z systemem Windows 10 dla pola skoku." border="true":::

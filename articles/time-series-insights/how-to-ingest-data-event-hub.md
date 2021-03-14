@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696333"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461138"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Dodawanie źródła zdarzeń centrum zdarzeń do środowiska Azure Time Series Insights
 
@@ -27,7 +27,7 @@ W tym artykule opisano, jak za pomocą Azure Portal dodać Źródło zdarzenia, 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Utwórz środowisko Azure Time Series Insights zgodnie z opisem w artykule [Tworzenie środowiska Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+- Utwórz środowisko Azure Time Series Insights zgodnie z opisem w artykule [Tworzenie środowiska Azure Time Series Insights](./tutorial-set-up-environment.md).
 - Utwórz centrum zdarzeń. Przeczytaj temat [Tworzenie przestrzeni nazw Event Hubs i centrum zdarzeń przy użyciu Azure Portal](../event-hubs/event-hubs-create.md).
 - Centrum zdarzeń musi mieć wysłane aktywne zdarzenia komunikatów. Dowiedz się [, jak wysyłać zdarzenia do usługi Azure Event Hubs przy użyciu .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Utwórz dedykowaną grupę odbiorców w centrum zdarzeń, z której może korzystać środowisko Azure Time Series Insights. Każde źródło zdarzeń Azure Time Series Insights musi mieć własną dedykowaną grupę odbiorców, która nie jest współużytkowana z żadnym innym klientem. Jeśli wielu czytników zużywa zdarzenia z tej samej grupy odbiorców, wszystkie czytelnicy mogą wykazywać błędy. Istnieje limit 20 grup odbiorców dla centrum zdarzeń. Aby uzyskać szczegółowe informacje, Przeczytaj [Przewodnik programowania w Event Hubs](../event-hubs/event-hubs-programming-guide.md).

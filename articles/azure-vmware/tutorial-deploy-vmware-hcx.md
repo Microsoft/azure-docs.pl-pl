@@ -2,13 +2,13 @@
 title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488309"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462327"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -183,7 +183,7 @@ Za pomocą łącznika VMware HCX w centrum danych można nawiązać połączenie
 
 1. W obszarze **infrastruktura** wybierz pozycję **parowanie lokacji**, a następnie wybierz opcję **Połącz z lokacją zdalną** (w środku ekranu). 
 
-1. Wprowadź zanotowany wcześniej adres URL lub adres IP rozwiązania Azure VMware HCX, `https://x.x.x.9` nazwę użytkownika rozwiązania VMware platformy Azure cloudadmin@vsphere.local oraz hasło. Następnie wybierz pozycję **Połącz**.
+1. Wprowadź zanotowany wcześniej adres URL lub adres IP rozwiązania Azure VMware HCX `https://x.x.x.9` , a także nazwę \@ i hasło. Następnie wybierz pozycję **Połącz**.
 
    > [!NOTE]
    > Aby pomyślnie ustanowić parę lokacji:

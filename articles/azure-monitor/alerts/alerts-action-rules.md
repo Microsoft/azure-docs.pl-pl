@@ -3,12 +3,12 @@ title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016002"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463072"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -65,18 +65,25 @@ Opcjonalnie można zdefiniować filtry, aby reguła była stosowana do określon
 
 Dostępne są następujące filtry:
 
-* **Ważność**: Ta reguła będzie stosowana tylko do alertów z wybranymi serwerami.  
+* **Ważność**  
+Ta reguła będzie stosowana tylko do alertów z wybranymi serwerami.  
 Na przykład **ważność = Sev1** oznacza, że reguła będzie stosowana tylko do alertów o ważności Sev1.
-* **Monitorowanie usługi**: Ta reguła będzie stosowana tylko do alertów pochodzących z wybranych usług monitorowania.  
+* **Monitorowanie usługi**  
+Ta reguła będzie stosowana tylko do alertów pochodzących z wybranych usług monitorowania.  
 Na przykład **monitorowanie Service = "Azure Backup"** oznacza, że reguła będzie stosowana tylko do alertów kopii zapasowych (pochodzących z Azure Backup).
-* **Typ zasobu**: Ta reguła będzie stosowana tylko do alertów dotyczących wybranych typów zasobów.  
+* **Typ zasobu**  
+Ta reguła zostanie zastosowana tylko do alertów dotyczących wybranych typów zasobów.  
 Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła będzie stosowana tylko do alertów na maszynach wirtualnych.
-* **Identyfikator reguły alertu**: Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
-Na przykład reguła **alertu ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/MyAPI-highLatency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "MyAPI-highLatency".
-* **Warunek monitora**: Ta reguła będzie stosowana tylko do zdarzeń alertów z określonym warunkiem monitora — jest **uruchamiany** lub **rozwiązany**.
-* **Opis**: Ta reguła będzie stosowana tylko do alertów, które zawierają określony ciąg w polu Opis alertu. To pole zawiera opis reguły alertu.  
+* **Identyfikator reguły alertu**  
+Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
+Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".
+* **Warunek monitorowania**  
+Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — są one **wywoływane** lub **rozwiązane**.
+* **Opis**  
+Ta reguła zostanie zastosowana tylko do alertów, które zawierają określony ciąg w polu Opis alertu. To pole zawiera opis reguły alertu.  
 Na przykład **Opis zawiera "prod"** oznacza, że reguła będzie pasować tylko do alertów, które zawierają ciąg "prod" w opisie.
-* **Kontekst alertu**: Ta reguła będzie stosowana tylko do alertów, które zawierają jedną lub więcej konkretnych wartości w polach kontekstu alertu.  
+* **Kontekst alertu (ładunek)**  
+Ta reguła zostanie zastosowana tylko do alertów, które zawierają jedną lub więcej konkretnych wartości w polach kontekstu alertu.  
 Na przykład **kontekst alertu (ładunek) zawiera "Computer-01"** oznacza, że reguła będzie stosowana tylko do alertów, których ładunek zawiera ciąg "Computer-01".
 
 W przypadku ustawienia wielu filtrów w regule zostaną zastosowane wszystkie z nich. Na przykład jeśli ustawisz **Typ zasobu "= Virtual Machines** i **ważność" = Sev0**, reguła zostanie zastosowana tylko w przypadku alertów Sev0 na maszynach wirtualnych.

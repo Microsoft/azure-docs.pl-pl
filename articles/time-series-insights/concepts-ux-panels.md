@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736856"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464092"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Eksplorator usługi Azure Time Series Insights
 
@@ -25,7 +25,7 @@ W tym artykule opisano różne funkcje i opcje dostępne w [środowisku demonstr
 
 Aby rozpocząć pracę z Eksploratorem Azure Time Series Insights, musisz:
 
-* Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md) .
 * [Zapewnianie dostępu do danych](./concepts-access-policies.md) do środowiska Azure Time Series Insights Gen2 utworzonego dla konta. Możesz zapewnić dostęp do innych osób, jak również do siebie.
 * Dodaj źródło zdarzenia do Azure Time Series Insights środowiska Gen2, aby wypchnąć dane do środowiska:
   * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./how-to-ingest-data-event-hub.md)
@@ -92,7 +92,7 @@ Dobrze wyświetla pola wystąpień i inne metadane skojarzone z wybranymi wystą
 
 Można usunąć konkretne elementy danych z bieżących danych, zaznaczając formant Red **delete** (kosza) po lewej stronie elementu. Ponadto pozwala kontrolować sposób wyświetlania poszczególnych elementów na wykresie. Można wybrać opcję dodawania minimalnych i maksymalnych cieni, punktów danych, przesunąć element w czasie i wizualizować wystąpienie w sposób.
 
-Ponadto kontrolka eksploracji pozwala łatwo tworzyć zmiany czasu i wykresy punktowe.  
+Ponadto kontrolka eksploracji pozwala łatwo tworzyć zmiany czasu i wykresy punktowe.
 
   [![Opcje układu dobrze](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673512"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461712"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Poświadczenia uwierzytelniania źródłowego w usłudze Azure kontrolą
 
@@ -41,7 +41,7 @@ Jeśli używasz tożsamości zarządzanej kontrolą do konfigurowania skanów, n
 
 Aby można było utworzyć poświadczenia, najpierw skojarz co najmniej jedno istniejące wystąpienie Azure Key Vault z kontem usługi Azure kontrolą.
 
-1. W [Azure Portal](https://portal.azure.com)wybierz swoje konto usługi Azure kontrolą. Przejdź do **centrum zarządzania** , a następnie przejdź do okna **poświadczenia**.
+1. W [Azure Portal](https://portal.azure.com)wybierz swoje konto usługi Azure kontrolą i Otwórz usługę Azure kontrolą Studio. Przejdź do **centrum zarządzania** w usłudze Azure kontrolą Studio, a następnie przejdź do **poświadczeń**.
 
 2. Na stronie **poświadczenia** wybierz pozycję **zarządzaj połączeniami Key Vault**.
 

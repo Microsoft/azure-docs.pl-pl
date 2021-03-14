@@ -9,18 +9,20 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964375"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461746"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Linux
+# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Samouczek: opracowywanie modułu IoT Edge C# przy użyciu kontenerów systemu Linux
 
-Użyj Visual Studio Code, aby opracować kod C# i wdrożyć go na urządzeniu z systemem Linux z Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyjesz symulowanego urządzenia usługi IoT Edge utworzonego podczas pracy z przewodnikami Szybki start dotyczącymi wdrażania usługi Azure IoT Edge na urządzeniu symulowanym w systemie [Windows](quickstart.md) lub [Linux](quickstart-linux.md). Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Użyj Visual Studio Code, aby opracować kod C# i wdrożyć go na urządzeniu z systemem Azure IoT Edge.
+
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyjesz symulowanego urządzenia usługi IoT Edge utworzonego w ramach przewodnika Szybki start. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -35,9 +37,9 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w **języku C#** przy użyciu **Visual Studio Code** i wdrażania go na **urządzeniu z systemem Linux**. Jeśli tworzysz moduły dla urządzeń z systemem Windows, przejdź do narzędzia do [tworzenia modułu IoT Edge w języku C# dla urządzeń z systemem Windows](tutorial-csharp-module-windows.md) .
+W tym samouczku przedstawiono sposób tworzenia modułu w **języku C#** przy użyciu **Visual Studio Code** i wdrażania go na urządzeniu IoT Edge. Jeśli tworzysz moduły przy użyciu kontenerów systemu Windows, przejdź do [opracowania modułu IoT Edge C# przy użyciu kontenerów systemu Windows](tutorial-csharp-module-windows.md) .
 
-Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów C# w systemie Linux:
+Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów języka C# przy użyciu kontenerów systemu Linux:
 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
@@ -47,10 +49,10 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 >[!NOTE]
 >Obsługa urządzeń z systemem Linux ARM64 jest dostępna w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska programistycznego, [opracowywania modułu IoT Edge dla urządzenia z systemem Linux](tutorial-develop-for-linux.md). Po ukończeniu tego samouczka należy spełnić następujące wymagania wstępne:
+Przed rozpoczęciem pracy z tym samouczkiem należy skorzystać z poprzedniego samouczka, aby skonfigurować środowisko programistyczne, [opracować moduł IoT Edge przy użyciu kontenerów systemu Linux](tutorial-develop-for-linux.md). Po ukończeniu tego samouczka należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* [Urządzenie z systemem Linux Azure IoT Edge](quickstart-linux.md).
+* Urządzenie, na którym działa Azure IoT Edge. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.

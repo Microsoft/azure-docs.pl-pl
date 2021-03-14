@@ -1,27 +1,26 @@
 ---
-title: Pomoc techniczna i opcje pomocy dla deweloperów aplikacji usługi Azure AD
-description: Dowiedz się, jak uzyskać pomoc i pomoc techniczną dotyczącą pytań i problemów związanych z programowaniem podczas tworzenia aplikacji, która integruje się z tożsamościami firmy Microsoft (Azure Active Directory i konto Microsoft)
+title: Pomoc techniczna i opcje pomocy dla deweloperów platformy tożsamości firmy Microsoft | Azure
+description: Dowiedz się, gdzie uzyskać pomoc i Znajdź odpowiedzi na pytania podczas tworzenia rozwiązań do zarządzania tożsamościami i dostępem (IAM), które integrują się z usługą Azure Active Directory (Azure AD) i innymi składnikami platformy tożsamości firmy Microsoft.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517949"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462766"
 ---
 # <a name="support-and-help-options-for-developers"></a>Pomoc techniczna i opcje pomocy dla deweloperów
 
-Jeśli dopiero zaczynasz integrację z usługą Azure Active Directory (Azure AD), tożsamościami firmy Microsoft lub interfejsem API Microsoft Graph lub po wdrożeniu nowej funkcji w aplikacji, istnieją sytuacje, w których trzeba uzyskać pomoc od społeczności lub poznać opcje pomocy technicznej dostępne dla deweloperów. Poniżej znajdują się sugestie dotyczące lokalizacji, w których można uzyskać pomoc podczas opracowywania rozwiązań platformy tożsamości firmy Microsoft.
+Jeśli potrzebujesz odpowiedzi na pytanie lub pomoc w rozwiązywaniu problemu, który nie został uwzględniony w naszej dokumentacji, może się zdarzyć, że skontaktuje się z ekspertami w celu uzyskania pomocy. Poniżej przedstawiono kilka sugestii dotyczących uzyskiwania odpowiedzi na pytania podczas opracowywania aplikacji, które integrują się z platformą tożsamości firmy Microsoft.
 
 ## <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
 
@@ -33,9 +32,10 @@ Poznaj zakres [opcji pomocy technicznej platformy Azure i wybierz plan](https://
 
 - Jeśli masz już plan pomocy technicznej platformy Azure, [Otwórz żądanie pomocy technicznej tutaj](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- Jeśli nie jesteś klientem platformy Azure, możesz również otworzyć żądanie pomocy technicznej w firmie Microsoft za pośrednictwem [pomocy technicznej komercyjnej](https://support.serviceshub.microsoft.com/supportforbusiness).
+- Jeśli nie jesteś klientem platformy Azure, możesz otworzyć żądanie pomocy technicznej za pomocą [Pomoc techniczna firmy Microsoft dla firm](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Opublikuj pytanie w firmie Microsoft Q&A
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             

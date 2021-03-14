@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215157"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463038"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -87,7 +87,7 @@ Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego. Ta funkcja aktualnie działa dla wszystkich obsługiwanych jednostek SKU sieci wirtualnej, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieci wirtualne są dostępne tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego. Ta funkcja jest obecnie dostępna dla wszystkich obsługiwanych jednostek SKU sieci wirtualnej systemu Windows, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieci wirtualne są dostępne tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
 
 1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
 1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.

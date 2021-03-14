@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Dat
 description: Użyj różnych metod rozwiązywania problemów z wyzwalaczem potoku w Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 12/15/2020
+ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705997"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462001"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
@@ -28,17 +28,27 @@ Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do para
  
 Masz Data Factory i aplikację funkcji platformy Azure uruchomioną w prywatnym punkcie końcowym. Próbujesz uruchomić potok, który współdziała z aplikacją funkcji. Wypróbowano trzy różne metody, ale jeden zwraca błąd "złe żądanie", a pozostałe dwie metody zwracają "103 błąd zabroniony".
 
-**Przyczyna**: obecnie Data Factory nie obsługuje prywatnego łącznika punktu końcowego dla aplikacji funkcji. Azure Functions odrzuca wywołania, ponieważ jest ono skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
+**Przyczyna**
 
-**Rozwiązanie**: Tworzenie punktu końcowego **PrivateLinkService** i udostępnianie systemu DNS aplikacji funkcji.
+Data Factory obecnie nie obsługuje łącznika prywatnego punktu końcowego dla aplikacji funkcji. Azure Functions odrzuca wywołania, ponieważ jest ono skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
+
+**Rozwiązanie**
+
+Utwórz punkt końcowy **PrivateLinkService** i podaj system DNS swojej aplikacji funkcji.
 
 ### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>Uruchomienie potoku zostało anulowane, ale monitor nadal pokazuje stan postępu
 
+**Przyczyna**
+
 Po anulowaniu uruchomienia potoku monitorowanie potoku często nadal pokazuje stan postępu. Dzieje się tak z powodu problemu z pamięcią podręczną przeglądarki. Mogą również nie mieć prawidłowych filtrów monitorowania.
 
-**Rozwiązanie**: Odśwież przeglądarkę i Zastosuj poprawne filtry monitorowania.
+**Rozwiązanie**
+
+Odśwież przeglądarkę i Zastosuj poprawne filtry monitorowania.
  
 ### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Podczas kopiowania potoku pojawia się błąd "DelimitedTextMoreColumnsThanDefined"
+ 
+ **Przyczyna**
  
 Jeśli kopiowany folder zawiera pliki z różnymi schematami, takimi jak zmienna liczba kolumn, różne ograniczniki, Ustawienia znaków cudzysłowu lub niektóre problemy z danymi, potok Data Factory może zgłosić ten błąd:
 
@@ -50,9 +60,13 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-**Rozwiązanie**: wybierz opcję **kopiowania binarnego** podczas tworzenia działania kopiowania. W ten sposób, w przypadku kopiowania zbiorczego lub migrowania danych z jednej usługi Data Lake do innej, Data Factory nie będzie można otworzyć plików, aby odczytać schemat. Zamiast tego Data Factory będzie traktować każdy plik jako binarny i skopiować go do innej lokalizacji.
+**Rozwiązanie**
 
-### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>Uruchomienie potoku kończy się niepowodzeniem po osiągnięciu limitu pojemności środowiska Integration Runtime
+Wybierz opcję **kopiowania binarnego** podczas tworzenia działania kopiowania. W ten sposób, w przypadku kopiowania zbiorczego lub migrowania danych z jednej usługi Data Lake do innej, Data Factory nie będzie można otworzyć plików, aby odczytać schemat. Zamiast tego Data Factory będzie traktować każdy plik jako binarny i skopiować go do innej lokalizacji.
+
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime-for-data-flow"></a>Uruchomienie potoku kończy się niepowodzeniem po osiągnięciu limitu pojemności środowiska Integration Runtime dla przepływu danych
+
+**Wykonaj**
 
 Komunikat o błędzie:
 
@@ -60,14 +74,18 @@ Komunikat o błędzie:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Przyczyna**: osiągnięto limit pojemności środowiska Integration Runtime. Może być uruchomiona duża ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie. Aby uzyskać szczegółowe informacje [, zobacz limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) .
+**Przyczyna**
 
-**Rozwiązanie**:
+Osiągnięto limit pojemności środowiska Integration Runtime. Może być uruchomiona duża ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie. Aby uzyskać szczegółowe informacje [, zobacz limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) .
+
+**Rozwiązanie**
  
 - Uruchamianie potoków o różnych porach wyzwalacza.
 - Utwórz nowe środowisko Integration Runtime i Podziel potoki na wiele środowisk Integration Runtime.
 
-### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Występują błędy i błędy na poziomie aktywności w potokach
+### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Jak wykonać błędy na poziomie działania i błędy w potokach
+
+**Przyczyna**
 
 Azure Data Factory aranżacji umożliwia logikę warunkową i umożliwia użytkownikom korzystanie z różnych ścieżek na podstawie wyniku poprzedniej aktywności. Umożliwia ona cztery ścieżki warunkowe: **po powodzeniu** (domyślny przebieg), **po awarii**, **po zakończeniu** i **po pominięciu**. 
 
@@ -75,16 +93,19 @@ Azure Data Factory oblicza wynik wszystkich działań na poziomie liścia. Wynik
 
 **Rozwiązanie**
 
-1. Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory).
+* Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+* Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory).
+* [Wizualnie Monitoruj potok](https://docs.microsoft.com/azure/data-factory/monitor-visually)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Jak monitorować błędy potoków w regularnych odstępach czasu
 
+**Przyczyna**
+
 Może być konieczne monitorowanie niezakończonych potoków Data Factory w interwałach, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
 
-**Rozwiązanie** Można skonfigurować aplikację logiki platformy Azure, która będzie wysyłać zapytania do wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz raportować zdarzenia do systemu biletów.
-
-Aby uzyskać więcej informacji, przejdź do [strony wysyłanie powiadomień z Data Factory, część 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+**Rozwiązanie**
+* Można skonfigurować aplikację logiki platformy Azure, która będzie wysyłać zapytania do wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz raportować zdarzenia do systemu biletów.
+* [Wizualnie Monitoruj potok](https://docs.microsoft.com/azure/data-factory/monitor-visually)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Stopień wzrostu równoległości nie powoduje większej przepływności
 
@@ -104,6 +125,52 @@ Znane fakty dotyczące instrukcji *foreach*
 
  * Nie należy używać działania *setvariable* wewnątrz *dla każdego* uruchomionego równolegle.
  * Biorąc pod uwagę sposób konstruowania kolejek, klient może poprawić wydajność foreach przez ustawienie wielu instrukcji *foreach* , w których każda instrukcja foreach będzie miała elementy o podobnym czasie przetwarzania. Zapewni to, że długie uruchomienia są przetwarzane równolegle, a nie sekwencyjnie.
+
+ ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>Stan potoku jest umieszczany w kolejce lub zablokowany przez długi czas
+ 
+ **Przyczyna**
+ 
+ Może się to zdarzyć z różnych powodów, takich jak naciśnięcie ograniczeń współbieżności, przestoje usług, awarie sieci i tak dalej.
+ 
+ **Rozwiązanie**
+ 
+* Limit współbieżności: Jeśli potok ma zasady współbieżności, sprawdź, czy nie ma żadnych starych uruchomień potoków w toku. Maksymalna wartość współbieżności potoku w Azure Data Factory wynosi 10 potoków. 
+* Limity monitorowania: Przejdź do kanwy tworzenia ADF, wybierz potok i ustal, czy ma do niej przypisaną Właściwość współbieżności. Jeśli tak, przejdź do widoku monitorowanie i upewnij się, że nie ma żadnych danych w ciągu ostatnich 45 dni, które są w toku. Jeśli coś jest w toku, można je anulować i rozpocząć nowe uruchomienie potoku.
+* Problemy przejściowe: możliwe, że w danym przebiegu wystąpił przejściowy problem z siecią, niepowodzenia poświadczeń, przestoje usług itp.  W takim przypadku Azure Data Factory ma wewnętrzny proces odzyskiwania, który monitoruje wszystkie uruchomienia i uruchamia je po zauważeniu błędu. Ten proces odbywa się co godzinę, więc jeśli przebieg jest zablokowany przez więcej niż godzinę, utwórz przypadek pomocy technicznej.
+ 
+### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Dłuższe czasy uruchamiania działań w ramach kopiowania i przepływu danych usługi ADF
+
+**Przyczyna**
+
+Taka sytuacja może wystąpić, jeśli nie zaimplementowano funkcji Time to Live na potrzeby przepływu danych lub zoptymalizowanej SHIR.
+
+**Rozwiązanie**
+
+* Jeśli uruchomienie każdego działania kopiowania trwa do 2 minut, a problem występuje głównie w sprzężeniu sieci wirtualnej (w porównaniu do środowiska Azure IR), może to być problem z wydajnością kopiowania. Aby zapoznać się z krokami rozwiązywania problemów, przejdź do pozycji [Kopiowanie ulepszeń wydajności.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
+* Aby zmniejszyć czas uruchamiania klastra dla działań przepływu danych, można użyć funkcji Time to Live. Przejrzyj [Integration Runtime przepływu danych.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+
+ ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Problemy z wydajnością w SHIR (samodzielnie hostowane Integration Runtime)
+ 
+ **Przyczyna**
+ 
+Taka sytuacja może wystąpić, jeśli nie przeprowadzono skalowania SHIR w dół zgodnie z obciążeniem.
+
+**Rozwiązanie**
+
+* Jeśli wystąpi problem z pojemnością SHIR, Uaktualnij maszynę wirtualną, aby zwiększyć jej obciążenie. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący ogólnego błędu lub nieznanego błędu środowiska IR, samodzielnego uaktualnienia IR lub samodzielnego połączenia IR, które może wygenerować długą kolejkę, przejdź do obszaru [Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+
+### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Komunikaty o błędach ze względu na długie kolejki kopiowania i przepływu danych usługi ADF
+
+**Przyczyna**
+
+Komunikaty o błędach związanych z kolejką Long mogą się pojawiać z różnych powodów. 
+
+**Rozwiązanie**
+* Jeśli zostanie wyświetlony komunikat o błędzie z dowolnego źródła lub miejsca docelowego za pośrednictwem łączników, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów łącznika.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący mapowania przepływu danych, który może generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z przepływami danych.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący innych działań, takich jak datakostki, działania niestandardowe lub HDI, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów dotyczących działań.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący uruchamiania pakietów usług SSIS, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z wykonywaniem pakietu Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) i [Przewodnik rozwiązywania problemów dotyczących zarządzania Integration Runtime.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

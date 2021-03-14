@@ -9,16 +9,18 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 470f82026cc27431555336570ef6f41063442c1e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: acedf0c5437ce0b4f1106cac4d1878c7a49e8a36
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964545"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463327"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge C dla urządzeń z systemem Linux
+# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Samouczek: opracowywanie modułu języka C IoT Edge przy użyciu kontenerów systemu Linux
 
-Użyj Visual Studio Code, aby opracować kod C i wdrożyć go na urządzeniu z systemem Linux z Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Użyj Visual Studio Code, aby opracować kod C i wdrożyć go na urządzeniu z systemem Azure IoT Edge.
 
 Moduły usługi IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -35,19 +37,19 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w języku **C** przy użyciu **Visual Studio Code** i sposobu wdrażania go na **urządzeniu z systemem Linux**. Jeśli tworzysz moduły dla urządzeń z systemem Windows, przejdź do [opracowania modułu C IoT Edge dla urządzeń z systemem Windows](tutorial-c-module-windows.md) .
+W tym samouczku przedstawiono sposób tworzenia modułu w języku **C** przy użyciu **Visual Studio Code** i sposobu wdrażania go na urządzeniu IoT Edge. Jeśli tworzysz moduły przy użyciu kontenerów systemu Windows, przejdź do [opracowania modułu C IoT Edge przy użyciu kontenerów systemu Windows](tutorial-c-module-windows.md) .
 
-Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów C w systemie Linux:
+Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów C przy użyciu kontenerów systemu Linux:
 
 | C | Visual Studio Code | Visual Studio |
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Używanie VS Code dla modułów C w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Korzystanie z modułów VS for C w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Używanie VS Code dla modułów C w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Korzystanie z modułów VS for C w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
-Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując ten samouczek, należy spełnić następujące wymagania wstępne:
+Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [opracowywanie modułów IoT Edge przy użyciu kontenerów systemu Linux](tutorial-develop-for-linux.md). Wykonując ten samouczek, należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* [Urządzenie z systemem Linux Azure IoT Edge](quickstart-linux.md)
+* Urządzenie, na którym działa Azure IoT Edge. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.
@@ -108,7 +110,7 @@ Kod modułu domyślnego odbiera komunikaty w kolejce wejściowej i przekazuje je
 
    1. Pobierz [repozytorium GitHub Parson](https://github.com/kgabis/parson). Skopiuj pliki **parson.c** i **parson.h** do folderu **CModule**.
 
-   2. Otwórz **modules**  >  **CModule** modułów  >  **CMakeLists.txt**. Na początku zaimportuj pliki biblioteki Parson jako bibliotekę o nazwie **my_parson**.
+   2. Otwórz   >  **CModule** modułów  >  **CMakeLists.txt**. Na początku zaimportuj pliki biblioteki Parson jako bibliotekę o nazwie **my_parson**.
 
       ```txt
       add_library(my_parson

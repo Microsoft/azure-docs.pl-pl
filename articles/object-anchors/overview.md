@@ -7,18 +7,18 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: cbe52004dddbe74aa02347c026028a8ffd4cf8d7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b4284411fbe09a0d0ce8412e6e5a5df464f35564
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034209"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462868"
 ---
 # <a name="azure-object-anchors-overview"></a>Zakotwiczenia obiektów platformy Azure — omówienie
 
-Kotwice obiektów platformy Azure umożliwiają aplikacji wykrywanie obiektu w świecie fizycznym przy użyciu modelu 3D i oszacowanie jego ułożenia 6DoF. Ułożenie 6DoF (6 stopni swobody) jest zdefiniowane jako rotacja i translacja między modelem 3D a jego fizycznym odpowiednikiem. 
+Kotwice obiektów platformy Azure umożliwiają aplikacji wykrywanie obiektu w świecie fizycznym przy użyciu modelu 3D i oszacowanie jego ułożenia 6DoF. Ułożenie 6DoF (6 stopni swobody) jest zdefiniowane jako rotacja i translacja między modelem 3D a jego fizycznym odpowiednikiem.
 
-Kotwice obiektów platformy Azure składa się z zarządzanej usługi na potrzeby konwersji modeli oraz zestawu SDK klienta środowiska uruchomieniowego dla urządzeń HoloLens. Usługa akceptuje model obiektów 3D i wyprowadza model kotwic obiektów platformy Azure. Model kotwic obiektów platformy Azure jest używany wraz z zestawem SDK środowiska uruchomieniowego w celu umożliwienia aplikacji HoloLens załadowania modelu obiektów, wykrywania i śledzenia wystąpień tego modelu w świecie fizycznym.
+Kotwice obiektów platformy Azure składają się z usługi do konwersji modelu i zestawu SDK klienta środowiska uruchomieniowego dla urządzeń HoloLens. Usługa akceptuje model obiektów 3D i wyprowadza model kotwic obiektów platformy Azure. Model kotwic obiektów platformy Azure jest używany wraz z zestawem SDK środowiska uruchomieniowego w celu umożliwienia aplikacji HoloLens załadowania modelu obiektów, wykrywania i śledzenia wystąpień tego modelu w świecie fizycznym.
 
 :::image type="content" source="./media/aoa-overview.jpg" alt-text="Kotwice obiektu platformy Azure w działaniu":::
 
@@ -26,11 +26,11 @@ Kotwice obiektów platformy Azure składa się z zarządzanej usługi na potrzeb
 
 Przykładowe przypadki użycia włączone przez kotwice obiektów platformy Azure obejmują:
 
-- **Trenowanie**. Twórz środowiska szkoleniowe o rzeczywistości mieszanej dla pracowników, bez konieczności umieszczania znaczników lub Poświęcaj czas na ręczne Dostosowywanie wyrównania hologramu. Jeśli chcesz rozszerzyć środowisko szkoleniowe o rzeczywistości mieszanej z automatycznym wykrywaniem i śledzeniem, Pozyskaj swój model do usługi kotwic obiektów i będziesz mieć jeden krok bliżej środowiska bez znacznika.
+- **Trenowanie**. Twórz środowiska szkoleniowe o rzeczywistości mieszanej dla pracowników, bez konieczności umieszczania znaczników lub Poświęcaj czas na ręczne Dostosowywanie wyrównania hologramu. Jeśli chcesz rozszerzyć środowisko szkoleniowe o rzeczywistości mieszanej z automatycznym wykrywaniem i śledzeniem, Pozyskaj swój model do usługi kotwic obiektów platformy Azure i będziesz mieć jeszcze jeden krok bliżej środowiska bez znacznika.
 
-- **Wskazówki dotyczące zadań**. Przechodzenie między pracownikami za pośrednictwem zestawu zadań może być bardzo uproszczone w przypadku korzystania z rzeczywistości mieszanej. Nałóż instrukcje cyfrowe i najlepsze rozwiązania na podstawie obiektu fizycznego — są one maszyną w fabryce fabryki lub w ramach kuchni w zespole — mogą znacznie zmniejszyć liczbę problemów z ukończeniem zestawu zadań. Wyzwolenie tych środowisk zwykle wymaga jakiejś postaci znacznika lub ręcznego wyrównania, ale z kotwicą obiektów można utworzyć środowisko, które automatycznie wykrywa obiekt związany z zadaniem. Następnie bezproblemowo przepływaj przez wskazówki dotyczące rzeczywistości mieszanej bez znaczników ani ręcznego wyrównania.
+- **Wskazówki dotyczące zadań**. Przechodzenie między pracownikami za pośrednictwem zestawu zadań może być bardzo uproszczone w przypadku korzystania z rzeczywistości mieszanej. Nałóż instrukcje cyfrowe i najlepsze rozwiązania na podstawie obiektu fizycznego — są one maszyną w fabryce fabryki lub w ramach kuchni w zespole — mogą znacznie zmniejszyć liczbę problemów z ukończeniem zestawu zadań. Wyzwolenie tych środowisk zwykle wymaga jakiejś postaci znacznika lub ręcznego wyrównania, ale z kotwicą obiektu platformy Azure można utworzyć środowisko, które automatycznie wykrywa obiekt związany z zadaniem. Następnie bezproblemowo przepływaj przez wskazówki dotyczące rzeczywistości mieszanej bez znaczników ani ręcznego wyrównania.
 
-- **Znajdowanie zasobów**. Jeśli masz już model 3W niektórych obiektów w obszarze fizycznym, kotwice obiektów mogą umożliwić lokalizowanie i śledzenie wystąpień tego obiektu w środowisku fizycznym.
+- **Znajdowanie zasobów**. Jeśli masz już model 3W niektórych obiektów w obszarze fizycznym, kotwice obiektów platformy Azure mogą umożliwiać lokalizowanie i śledzenie wystąpień tego obiektu w środowisku fizycznym.
 
 ## <a name="next-steps"></a>Następne kroki
 

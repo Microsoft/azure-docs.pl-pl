@@ -7,14 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048376"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462052"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Samouczek: wdrażanie Azure Stream Analytics jako modułu IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Wiele rozwiązań IoT korzysta z usług analitycznych w celu uzyskania wglądu w informacje o danych, które docierają do chmury z urządzeń IoT. Dzięki usłudze Azure IoT Edge możesz zastosować logikę usługi [Azure Stream Analytics](../stream-analytics/index.yml), wdrażając ją bezpośrednio na urządzeniu. Dzięki przetwarzaniu potoków danych telemetrycznych na urządzeniu brzegowym możesz zmniejszyć ilość przekazywanych danych i skrócić czas reakcji na szczegółowe informacje umożliwiające podejmowanie działań.
 
@@ -60,7 +62,7 @@ W tej sekcji utworzysz zadanie Azure Stream Analytics, które wykona następują
 
 W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na urządzeniu usługi IoT Edge musi być ono przechowywane w sposób umożliwiający wywoływanie go z urządzenia. Możesz użyć istniejącego konta usługi Azure Storage lub utworzyć nowe konto.
 
-1. W Azure Portal przejdź do pozycji **Tworzenie zasobu magazynu zasobów**  >  **Storage**  >  **Storage account**.
+1. W Azure Portal przejdź do pozycji **Tworzenie zasobu magazynu zasobów**  >    >  .
 
 1. Podaj następujące wartości, aby utworzyć konto magazynu:
 
@@ -89,7 +91,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Lokalizacja | Wybierz bliską lokalizację. |
    | Środowisko hostingu | Wybierz pozycję **Edge**. |
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-job"></a>Konfigurowanie zadania
 
@@ -119,7 +121,7 @@ Przy użyciu trzech elementów — danych wejściowych, danych wyjściowych i za
 
 1. Pozostaw wartości domyślne dla pozostałych pól, a następnie wybierz pozycję **Zapisz**.
 
-1. W obszarze **topologia zadania**wybierz pozycję **zapytanie**.
+1. W obszarze **topologia zadania** wybierz pozycję **zapytanie**.
 
 1. Zastąp tekst domyślny poniższym zapytaniem. Kod SQL wysyła polecenie reset do danych wyjściowych alertu, jeśli średnia temperatura maszyny w 30-sekundowym przedziale czasu osiągnie 70 stopni. Polecenie reset zostało wstępnie zaprogramowane w czujniku jako akcja, która może zostać wykonana.
 
@@ -140,7 +142,7 @@ Przy użyciu trzech elementów — danych wejściowych, danych wyjściowych i za
 
 Aby przygotować zadanie sługi Stream Analytics do wdrożenia na urządzeniu usługi IoT Edge, musisz skojarzyć zadanie z kontenerem na koncie magazynu. Po przejściu do wdrażania zadania definicja zadania zostanie wyeksportowana do kontenera magazynu.
 
-1. W obszarze **Konfiguracja**wybierz pozycję **Ustawienia konta magazynu** , a następnie wybierz pozycję **Dodaj konto magazynu**.
+1. W obszarze **Konfiguracja** wybierz pozycję **Ustawienia konta magazynu** , a następnie wybierz pozycję **Dodaj konto magazynu**.
 
    ![Azure Stream Analytics — Dodaj konto magazynu](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 

@@ -8,16 +8,21 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932187"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463242"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Samouczek: kompleksowe rozwiązanie przy użyciu Azure Machine Learning i IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Często aplikacje IoT chcą korzystać z inteligentnej chmury i inteligentnej krawędzi. W tym samouczku przeprowadzimy Cię przez szkolenie modelu uczenia maszynowego za pomocą danych zebranych z urządzeń IoT w chmurze, wdrożenie tego modelu do IoT Edge i okresowe utrzymywanie i rafinacja modelu.
+
+>[!NOTE]
+>Koncepcje tego zestawu samouczków mają zastosowanie do wszystkich wersji IoT Edge, ale przykładowe urządzenie utworzone w celu wypróbowania scenariusza zostanie uruchomione IoT Edge wersji 1,1.
 
 Głównym celem tego samouczka jest wprowadzenie przetwarzania danych IoT za pomocą uczenia maszynowego, w zależności od krawędzi. W przypadku wielu aspektów ogólnego przepływu pracy uczenia maszynowego ten samouczek nie jest przeznaczony do dokładnego wprowadzenia do uczenia maszynowego. W tym przypadku nie próbujemy utworzyć wysoce zoptymalizowanego modelu dla przypadku użycia — wystarczy, aby zilustrować proces tworzenia i używania modelu zdolnego do przetwarzania danych IoT.
 
@@ -69,9 +74,9 @@ Dane używane w tym samouczku są pobierane z [zestawu danych symulacji degradac
 
 Z pliku Readme:
 
-***Scenariusz eksperymentalny** _
+***Scenariusz eksperymentalny***
 
-Zestawy _Data składają się z wielu wieloczynnikowa szeregów czasowych. Każdy zestaw danych jest dalej podzielony na podzbiory szkoleniowe i testowe. Każda seria czasowa jest z innego silnika — to znaczy, że dane mogą być uważane za pochodzące z floty silników tego samego typu. Każdy silnik rozpoczyna się od różnych stopni początkowych zużycia i produkcji, które są nieznane dla użytkownika. Takie zużycie i zróżnicowanie jest uznawane za normalne, tj. nie jest traktowane jako warunek błędu. Istnieją trzy ustawienia operacyjne, które mają znaczny wpływ na wydajność aparatu. Te ustawienia są również zawarte w danych. Dane są zanieczyszczone hałasem czujnika. *
+*Zestawy danych składają się z wielu wieloczynnikowa szeregów czasowych. Każdy zestaw danych jest dalej podzielony na podzbiory szkoleniowe i testowe. Każda seria czasowa jest z innego silnika — to znaczy, że dane mogą być uważane za pochodzące z floty silników tego samego typu. Każdy silnik rozpoczyna się od różnych stopni początkowych zużycia i produkcji, które są nieznane dla użytkownika. Takie zużycie i zróżnicowanie jest uznawane za normalne, tj. nie jest traktowane jako warunek błędu. Istnieją trzy ustawienia operacyjne, które mają znaczny wpływ na wydajność aparatu. Te ustawienia są również zawarte w danych. Dane są zanieczyszczone hałasem czujnika.*
 
 *Aparat działa normalnie na początku każdej szeregu czasowego i opracowuje błąd w pewnym momencie podczas serii. W zestawie szkoleniowym rozmiar błędu wzrasta do momentu awarii systemu. W zestawie testów cykl czasowy kończą się trochę czasu przed awarią systemu. Celem konkursu jest przewidywanie liczby pozostałych cykli operacyjnych przed awarią w zestawie testów, tj. liczbą cykli operacyjnych po ostatnim cyklu, że aparat będzie kontynuował działanie. Zapewniono również wektor wartości pozostałych okresów istnienia (pozostałego czasu eksploatacji) dla danych testowych.*
 

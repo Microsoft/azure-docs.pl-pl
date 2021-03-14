@@ -9,7 +9,7 @@
       href: select-right-deployment-type.md
     - name: Obsługiwane wersje
       href: concepts-supported-versions.md
-    - name: Zasady wersji
+    - name: Zasady obsługi wersji
       href: concepts-version-policy.md
       displayName: version policy
 - name: Pojedynczy serwer

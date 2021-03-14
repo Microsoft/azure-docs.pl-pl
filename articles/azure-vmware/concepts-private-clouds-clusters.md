@@ -2,13 +2,13 @@
 title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/13/2021
+ms.openlocfilehash: d1837ae7cf01fcb9642e0cafe4e0430e403b9899
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391392"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462523"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 
@@ -20,8 +20,6 @@ W tym artykule opisano wszystkie te pojęcia.
 
 ![Obraz dwóch chmur prywatnych w ramach subskrypcji klienta](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->Ze względu na mniejsze potencjalne potrzeby środowiska programistycznego należy używać mniejszych klastrów z hostami o niższych pojemnościach. 
 
 ## <a name="private-clouds"></a>Chmury prywatne
 
@@ -30,7 +28,7 @@ Chmury prywatne zawierają klastry sieci vSAN zbudowane z dedykowanymi hostami s
 Podobnie jak w przypadku innych zasobów, chmury prywatne są instalowane i zarządzane w ramach subskrypcji platformy Azure. Liczba chmur prywatnych w ramach subskrypcji jest skalowalna. Początkowo istnieje ograniczenie jednej chmury prywatnej na subskrypcję.
 
 ## <a name="clusters"></a>Klastry
-Dla każdej utworzonej chmury prywatnej jest domyślnie jeden klaster sieci vSAN. Możesz dodawać, usuwać i skalować klastry za pomocą Azure Portal lub za pośrednictwem interfejsu API.  Wszystkie klastry mają domyślny rozmiar trzech hostów i można skalować do 16 hostów.  Hosty używane w klastrze muszą być tego samego typu hosta.
+Dla każdej utworzonej chmury prywatnej jest domyślnie jeden klaster sieci vSAN. Możesz dodawać, usuwać i skalować klastry za pomocą Azure Portal lub za pośrednictwem interfejsu API.  Wszystkie klastry mają domyślny rozmiar trzech hostów i można skalować do 16 hostów. Na chmurę prywatną mogą znajdować się maksymalnie cztery klastry.
 
 Klastry próbne są dostępne do oceny i są ograniczone do trzech hostów. Istnieje pojedynczy klaster próbny na chmurę prywatną. W trakcie okresu próbnego można skalować klaster w wersji próbnej za pomocą jednego hosta.
 
@@ -38,11 +36,11 @@ Menedżer vSphere i NSX-T służy do zarządzania większością aspektów konfi
 
 ## <a name="hosts"></a>Hosts
 
-Klastry chmur prywatnych rozwiązania VMware platformy Azure korzystają z hostów infrastruktury bez systemu operacyjnego. W poniższej tabeli przedstawiono pojemności pamięci RAM, procesora CPU i dysku hosta. 
+Klastry rozwiązań VMware platformy Azure są oparte na infrastrukturze z technologią Hyper-i bez systemu operacyjnego. W poniższej tabeli przedstawiono pojemności pamięci RAM, procesora CPU i dysku hosta.
 
 | Typ hosta              |             Procesor CPU             |   Pamięć RAM (GB)   |  Warstwa pamięci podręcznej interfejsu NVMe sieci vSAN (TB, RAW)  |  warstwa pojemności sieci vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-End ()          |  Dwurdzeniowy procesor Intel 18 2,3 GHz  |     576      |                3.2               |                15,20               |
+| AVS36          |  Dwurdzeniowy procesor Intel 18 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Hosty używane do kompilowania lub skalowania klastrów pochodzą z izolowanej puli hostów. Te hosty przekazały testy sprzętu i wszystkie dane zostały bezpiecznie usunięte. 
 
@@ -55,10 +53,7 @@ Hosty używane do kompilowania lub skalowania klastrów pochodzą z izolowanej p
 
 Zarządzanie konserwacją i cyklem życia hosta nie ma wpływu na pojemność lub wydajność klastrów w chmurze prywatnej.  Przykłady automatycznej konserwacji hosta obejmują uaktualnienia oprogramowania układowego i naprawy sprzętu lub wymiany.
 
-Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Są one również odpowiedzialne za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu North-South. Użytkownik jest odpowiedzialny za NSX-T SDN Configuration. Na przykład segmenty sieci, rozproszone reguły zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
-
-> [!IMPORTANT]
-> Nie należy modyfikować konfiguracji NSX-T ani bramy warstwy 0, ponieważ może to spowodować utratę usługi.
+Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu North-Southowego. Użytkownik jest odpowiedzialny za NSX-T SDN Configuration. Na przykład segmenty sieci, rozproszone reguły zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
 
 ## <a name="backup-and-restoration"></a>Tworzenie kopii zapasowej i przywracanie
 

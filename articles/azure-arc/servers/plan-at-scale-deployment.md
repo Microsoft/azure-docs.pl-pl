@@ -1,16 +1,16 @@
 ---
 title: Planowanie wdrożenia serwerów z obsługą usługi Azure Arc na skalę
 description: Dowiedz się, jak włączyć wiele maszyn na serwerach z obsługą usługi Azure ARC, aby uprościć konfigurację najważniejszych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
-ms.date: 02/23/2021
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032232"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461304"
 ---
-# <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planowanie wdrożenia serwerów z obsługą usługi Azure Arc na skalę
+# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planowanie i wdrażanie serwerów z obsługą łuku na dużą skalę
 
 Wdrożenie usługi infrastruktury IT lub aplikacji biznesowej jest wyzwaniem dla każdej firmy. Aby zapewnić jego zgodność i uniknąć wszelkich niezwiązanych z nią niedowolnych powitań i nieplanowanych kosztów, należy dokładnie zaplanować, aby upewnić się, że wszystko jest gotowe do użycia. Aby zaplanować wdrożenie serwerów z obsługą usługi Azure Arc na skalę, należy uwzględnić kryteria projektowania i wdrażania, które muszą zostać spełnione, aby pomyślnie wykonać zadania w celu zapewnienia obsługi wdrożenia w skali.
 
@@ -67,7 +67,7 @@ W tej fazie inżynierowie systemów lub Administratorzy włączają podstawowe f
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>Faza 2. wdrażanie serwerów z włączonym łukiem
 
-Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie wdrożenia i przeprowadzenie instalacji agenta.
+Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie do i wdrożenie agenta połączonego z serwerem z włączonym łukiem.
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
@@ -77,7 +77,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie wdrożenia
 
 ## <a name="phase-3-manage-and-operate"></a>Faza 3: zarządzanie i obsługa
 
-Faza 3 widzi administratorów lub inżynierów systemów, którzy umożliwiają automatyzację ręcznych zadań do zarządzania i obsługiwania połączonego agenta maszyny oraz komputera w trakcie ich cyklu życia.
+Faza 3 widzi administratorów lub inżynierów systemów, które umożliwiają automatyzację zadań ręcznych w celu zarządzania i obsługiwania agenta połączonej maszyny oraz komputera w ich cyklu życia.
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|

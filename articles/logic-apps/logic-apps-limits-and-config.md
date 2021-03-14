@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/03/2021
-ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034289"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462920"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -50,7 +50,7 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
 | Czas trwania przebiegu | 90 dni | 366 dni | Czas wykonywania jest obliczany przy użyciu czasu rozpoczęcia przebiegu i limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii w dniach**](#change-duration) o tej godzinie. <p><p>Aby zmienić domyślny limit, zobacz temat [Zmienianie czasu trwania i przechowywanie historii w magazynie](#change-duration). |
-| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Bez względu na to, czy uruchomienie przebiegu lub przekroczenie limitu czasu, przechowywanie historii przebiegów jest zawsze obliczane przy użyciu czasu rozpoczęcia i bieżącego limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii przebiega w dniach**](#change-retention). Niezależnie od poprzedniego limitu bieżący limit jest zawsze używany do obliczania przechowywania. <p><p>Aby zmienić domyślny limit i uzyskać więcej informacji, zobacz temat [zmiana czasu trwania i uruchamianie historii przechowywania w magazynie](#change-retention). Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań. |
+| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Bez względu na to, czy uruchomienie przebiegu lub przekroczenie limitu czasu, przechowywanie historii przebiegów jest zawsze obliczane przy użyciu czasu rozpoczęcia i bieżącego limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii przebiega w dniach**](#change-retention). Niezależnie od poprzedniego limitu bieżący limit jest zawsze używany do obliczania przechowywania. <p><p>Aby zmienić domyślny limit i uzyskać więcej informacji, zobacz temat [zmiana czasu trwania i uruchamianie historii przechowywania w magazynie](#change-retention). Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappspm@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań. |
 | Minimalny interwał cyklu | 1 sekunda | 1 sekunda ||
 | Maksymalny interwał cyklu | 500 dni | 500 dni ||
 |||||
@@ -203,8 +203,8 @@ Aby uzyskać więcej informacji na temat definicji zasobu aplikacji logiki, zoba
 
   | Nazwa | Limit | Uwagi |
   |------|-------|-------|
-  | Limit wykonywania jednostki podstawowej | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Zapewnia 4 000 wykonania akcji na minutę, czyli ~ 160 000 000 wykonań akcji miesięcznie | |
-  | Limit wykonywania jednostek skalowania | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Każda jednostka skalowania może dostarczyć ~ 2 000 dodatkowych wykonań akcji na minutę, czyli ~ 80 000 000 więcej wykonań akcji miesięcznie | |
+  | Limit wykonywania jednostki podstawowej | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Zapewnia 4 000 wykonania akcji na minutę, czyli ~ 160 000 000 wykonań akcji miesięcznie |
+  | Limit wykonywania jednostek skalowania | Ograniczanie systemu w przypadku, gdy pojemność infrastruktury osiągnie 80% | Każda jednostka skalowania może dostarczyć ~ 2 000 dodatkowych wykonań akcji na minutę, czyli ~ 80 000 000 więcej wykonań akcji miesięcznie |
   | Maksymalna liczba jednostek skalowania, które można dodać | 10 | |
   ||||
 
@@ -244,11 +244,11 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 
 #### <a name="character-limits"></a>Limity znaków
 
-| Nazwa | Uwagi |
-|------|-------|
+| Nazwa | Limit | Uwagi |
+|------|-------|-------|
 | Limit oceniania wyrażeń | 131 072 znaki | `@concat()`Wyrażenia, `@base64()` , `@string()` nie mogą być dłuższe niż ten limit. |
-| Limit znaków w adresie URL żądania | 16 384 znaków |
-|||
+| Limit znaków w adresie URL żądania | 16 384 znaków | |
+||||
 
 <a name="retry-policy-limits"></a>
 

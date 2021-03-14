@@ -5,18 +5,22 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 5a1baf9631f2d30dd14ff16d2d34beda04605c6c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 56cda6158b7eeabaf0ce9e71decd0a9aa9f0419c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660525"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463911"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+Aby wykonać kroki opisane w tym samouczku, należy najpierw wykonać poniższe wymagania wstępne. 
+
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem **Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** .
 
-Przed rozpoczęciem Zainstaluj program **[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), wersję 16,5 lub nowszą** na komputerze deweloperskim. Jeśli masz już zainstalowaną starszą wersję, możesz otworzyć aplikację *Instalator programu Visual Studio* na maszynie i postępować zgodnie z monitami, aby zaktualizować instalację.
+### <a name="get-required-resources"></a>Pobierz wymagane zasoby
+
+Aby ukończyć ten samouczek, **Zainstaluj [program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), wersję 16,5 lub nowszą** na komputerze deweloperskim. Jeśli masz już zainstalowaną starszą wersję, możesz otworzyć aplikację *Instalator programu Visual Studio* na maszynie i postępować zgodnie z monitami, aby zaktualizować instalację.
 
 Samouczek jest oparty na przykładowym projekcie pisanym w języku C#. Przykład znajduje się w tym miejscu: [przykłady kompleksowej usługi Azure Digital bliźniaczych reprezentacji](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Pobierz przykładowy projekt** na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Przeglądaj kod* pod tytułem. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
 
@@ -27,5 +31,3 @@ Spowoduje to pobranie *. Folder ZIP* na maszynę jako **digital-twins-samples-ma
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Przygotowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
 [!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
-
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

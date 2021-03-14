@@ -9,18 +9,23 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: edbe2b8370b943aa93a1cef425c64e9f11feb735
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705595"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464069"
 ---
-# <a name="tutorial-develop-c-iot-edge-modules-for-windows-devices"></a>Samouczek: opracowywanie modułów IoT Edge C# dla urządzeń z systemem Windows
+# <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Samouczek: opracowywanie modułów IoT Edge C# przy użyciu kontenerów systemu Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 W tym artykule pokazano, jak za pomocą programu Visual Studio opracowywać kod C# i wdrażać go na urządzeniu z systemem Windows, na którym działa Azure IoT Edge.
 
-Za pomocą modułów Azure IoT Edge można wdrażać kod, który implementuje logikę biznesową bezpośrednio na urządzeniach IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. 
+>[!NOTE]
+>IoT Edge 1,1 LTS to ostatni kanał wydania, który będzie obsługiwał kontenery systemu Windows. Począwszy od wersji 1,2, kontenery systemu Windows nie są obsługiwane. Rozważ użycie lub przechodzenie do [IoT Edge dla systemu Linux w systemie Windows](iot-edge-for-linux-on-windows.md) w celu uruchomienia IoT Edge na urządzeniach z systemem Windows.
+
+Za pomocą modułów Azure IoT Edge można wdrażać kod, który implementuje logikę biznesową bezpośrednio na urządzeniach IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -37,19 +42,19 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w języku C# za pomocą programu Visual Studio 2019, a następnie wdrażania go na urządzeniu z systemem Windows. Jeśli tworzysz moduły dla urządzeń z systemem Linux, przejdź do pozycji [opracowywanie modułów IoT Edge C# dla urządzeń z systemem Linux](tutorial-csharp-module.md) .
+W tym samouczku przedstawiono sposób tworzenia modułu w języku C# za pomocą programu Visual Studio 2019, a następnie wdrażania go na urządzeniu z systemem Windows. Jeśli tworzysz moduły przy użyciu kontenerów systemu Linux, przejdź do pozycji [opracowywanie modułów w języku C# IoT Edge przy użyciu kontenerów systemu Linux](tutorial-csharp-module.md) .
 
-Aby poznać opcje tworzenia i wdrażania modułów języka C# na urządzeniach z systemem Windows, zapoznaj się z poniższą tabelą:
+Aby poznać opcje tworzenia i wdrażania modułów języka C# przy użyciu kontenerów systemu Windows, zapoznaj się z poniższą tabelą:
 
 | C# | Visual &nbsp; Studio &nbsp; Code | Visual Studio 2017 &nbsp; i &nbsp; 2019 |
 | -- | :------------------: | :------------------: |
 | Windows AMD64 — programowanie | ![Opracowywanie modułów języka C# dla WinAMD64 w Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Opracowywanie modułów języka C# dla WinAMD64 w programie Visual Studio](./media/tutorial-c-module/green-check.png) |
 | Windows AMD64 Debug |   | ![Debugowanie modułów języka C# dla programu WinAMD64 w programie Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-Przed rozpoczęciem pracy z tym samouczkiem Skonfiguruj środowisko programistyczne, postępując zgodnie z instrukcjami podanymi w samouczku [programowanie IoT Edge modułów dla urządzeń z systemem Windows](tutorial-develop-for-windows.md) . Po jego zakończeniu środowisko będzie zawierać następujące wymagania wstępne:
+Przed rozpoczęciem pracy z tym samouczkiem Skonfiguruj środowisko programistyczne, postępując zgodnie z instrukcjami zawartymi w samouczku [tworzenie IoT Edge modułów przy użyciu kontenerów systemu Windows](tutorial-develop-for-windows.md) . Po jego zakończeniu środowisko będzie zawierać następujące wymagania wstępne:
 
 * Bezpłatna lub Standardowa usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
-* [Urządzenie z systemem Windows, na którym działa Azure IoT Edge](quickstart.md).
+* [Urządzenie z systemem Windows, na którym działa Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Program Visual Studio 2019](/visualstudio/install/install-visual-studio)został skonfigurowany przy użyciu rozszerzenia [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
 * Program [Docker Desktop](https://docs.docker.com/docker-for-windows/install/)skonfigurowany do uruchamiania kontenerów systemu Windows.
@@ -71,7 +76,7 @@ Narzędzia Azure IoT Edge zawierają szablony projektów dla wszystkich obsługi
 
    ![Zrzut ekranu przedstawiający okienko IoT Edge "Utwórz nowy projekt".](./media/tutorial-csharp-module-windows/new-project.png)
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
     Zostanie otwarte okienko **Konfiguruj nowy projekt** .
 

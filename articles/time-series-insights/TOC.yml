@@ -14,7 +14,7 @@
 - name: Samouczki
   items:
     - name: Konfigurowanie środowiska usługi Time Series Insights Gen2
-      href: tutorials-set-up-tsi-environment.md
+      href: tutorial-set-up-environment.md
     - name: Synchronizacja modeli między usługą Azure Digital Twins i Time Series Insights Gen2
       href: tutorials-model-sync.md
 - name: Pojęcia
@@ -95,9 +95,13 @@
           items:
             - name: Planowanie środowiska
               href: how-to-plan-your-environment.md
-        - name: Zarządzanie środowiskiem
+        - name: Zarządzanie
           items:
-            - name: Jak aprowizować i zarządzać
+            - name: Jak utworzyć środowisko przy użyciu interfejsu wiersza polecenia platformy Azure
+              href: how-to-create-environment-using-cli.md
+            - name: Jak utworzyć środowisko przy użyciu Azure Portal
+              href: how-to-create-environment-using-portal.md
+            - name: Jak zarządzać środowiskiem
               href: how-to-provision-manage.md
             - name: Jak wybrać identyfikator TSID
               href: how-to-select-tsid.md

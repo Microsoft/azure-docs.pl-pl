@@ -2,13 +2,13 @@
 title: Samouczek — Lista kontrolna planowania sieci
 description: Dowiedz się więcej o wymaganiach sieci dotyczących łączności sieciowej i portów sieciowych w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918589"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462069"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista kontrolna planowania sieci dla rozwiązań VMware platformy Azure 
 
@@ -89,13 +89,12 @@ Aplikacje i obciążenia działające w środowisku chmury prywatnej wymagają r
 
 Użyj wbudowanej usługi DHCP do NSX lub Użyj lokalnego serwera DHCP w chmurze prywatnej zamiast routingu ruch DHCP z powrotem w sieci WAN do lokalnego.
 
+Aby uzyskać więcej informacji, zobacz artykuł [dostarczanie usług DHCP do NSX-T Network segment](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) .
+
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono zagadnienia i wymagania dotyczące wdrażania chmury prywatnej rozwiązania Azure VMware. 
-
-
-Po umieszczeniu odpowiedniej sieci na miejscu przejdź do następnego samouczka, aby utworzyć chmurę prywatną rozwiązania Azure VMware.
+W tym samouczku przedstawiono zagadnienia i wymagania dotyczące wdrażania chmury prywatnej rozwiązania Azure VMware. Po umieszczeniu odpowiedniej sieci na miejscu przejdź do następnego samouczka, aby utworzyć chmurę prywatną rozwiązania Azure VMware.
 
 > [!div class="nextstepaction"]
 > [Utwórz chmurę prywatną rozwiązania Azure VMware](tutorial-create-private-cloud.md)

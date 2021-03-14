@@ -1,18 +1,18 @@
 ---
-title: Samouczek — Tworzenie i wdrażanie chmury prywatnej rozwiązania Azure VMware
+title: Samouczek — Wdrażanie chmury prywatnej rozwiązania Azure VMware
 description: Dowiedz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725428"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462171"
 ---
-# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Samouczek: Tworzenie chmury prywatnej rozwiązania Azure VMware
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Samouczek: Wdrażanie chmury prywatnej rozwiązania Azure VMware
 
-W tym samouczku dowiesz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware. Minimalne początkowe wdrożenie hostów to trzy. Dodatkowe hosty mogą być dodawane pojedynczo do maksymalnie 16 hostów na klaster. 
+Rozwiązanie Azure VMware umożliwia wdrażanie klastra vSphere na platformie Azure. Minimalne początkowe wdrożenie to trzy hosty. Dodatkowe hosty mogą być dodawane pojedynczo do maksymalnie 16 hostów na klaster.
 
 Ponieważ rozwiązanie Azure VMware nie pozwala na zarządzanie chmurą prywatną przy użyciu lokalnego programu vCenter podczas uruchamiania, wymagana jest dodatkowa konfiguracja. Te procedury i powiązane z nim wymagania wstępne zostały omówione w tym samouczku.
 
@@ -48,7 +48,7 @@ Wybierz opcję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell możn
 
 #### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia `[az group create](/cli/azure/group)`. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Utwórz grupę zasobów za pomocą polecenia ["AZ Group Create"](/cli/azure/group) . Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 
