@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: b5dd06c148c53517214b47b39f083c99d0f37e0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712202"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465501"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
@@ -75,24 +75,24 @@ Dowiedz się więcej o [serwerach z obsługą usługi Azure Arc](../azure-arc/se
 
     W tym miejscu wybierz odpowiednią procedurę poniżej w zależności od typu maszyn, które są dołączane:
 
-    - [Dołączanie maszyn wirtualnych Azure Stack](#onboard-your-azure-stack-vms)
+    - [Dołączanie maszyn wirtualnych centrów Azure Stack](#onboard-your-azure-stack-hub-vms)
     - [Dołączanie maszyn z systemem Linux](#onboard-your-linux-machines)
     - [Dołączanie maszyn z systemem Windows](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>Dołączanie maszyn wirtualnych Azure Stack
+### <a name="onboard-your-azure-stack-hub-vms"></a>Dołączanie maszyn wirtualnych centrów Azure Stack
 
-Aby dodać maszyny wirtualne Azure Stack, należy uzyskać informacje na stronie **Zarządzanie agentami** oraz skonfigurować rozszerzenie maszyny wirtualnej do **zarządzania Azure monitor, aktualizacji i konfiguracji** na maszynach wirtualnych uruchomionych w Azure Stack.
+Aby dodać maszyny wirtualne Azure Stack Hub, należy uzyskać informacje na stronie **Zarządzanie agentami** oraz skonfigurować rozszerzenie maszyny wirtualnej do **zarządzania Azure monitor, aktualizacji i konfiguracji** na maszynach wirtualnych działających w wystąpieniu centrum Azure Stack.
 
 1. Na stronie **Zarządzanie agentami** Skopiuj **Identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
-1. Zaloguj się do portalu **Azure Stack** i Otwórz stronę **maszyny wirtualne** .
+1. Zaloguj się do portalu **Azure Stack Hub** i Otwórz stronę **maszyny wirtualne** .
 1. Wybierz maszynę wirtualną, która ma być chroniona za pomocą Security Center.
     >[!TIP]
-    > Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej na Azure Stack, zobacz [ten przewodnik Szybki Start dla maszyn wirtualnych z systemem Windows](/azure-stack/user/azure-stack-quick-windows-portal) lub [w tym przewodniku szybki start dla maszyn wirtualnych systemu Linux](/azure-stack/user/azure-stack-quick-linux-portal).
+    > Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej w centrum Azure Stack, zobacz [ten przewodnik Szybki Start dla maszyn wirtualnych z systemem Windows](/azure-stack/user/azure-stack-quick-windows-portal) lub [tego przewodnika Szybki Start dla maszyn wirtualnych](/azure-stack/user/azure-stack-quick-linux-portal)z systemem Linux.
 1. Wybierz pozycję **Rozszerzenia**. Zostanie wyświetlona lista rozszerzeń maszyn wirtualnych zainstalowanych na tej maszynie wirtualnej.
 1. Wybierz kartę **Dodaj** . W menu **nowy zasób** zostanie wyświetlona lista dostępnych rozszerzeń maszyn wirtualnych.
 1. Wybierz rozszerzenie **Azure monitor, aktualizacji i zarządzania konfiguracją,** a następnie wybierz pozycję **Utwórz**. Zostanie otwarta strona Konfiguracja **rozszerzenia instalacji** .
     >[!NOTE]
-    > Jeśli nie widzisz rozszerzenia **Azure monitor, aktualizacji i zarządzania konfiguracją** na liście w portalu Marketplace, skontaktuj się z operatorem Azure Stack, aby go udostępnić.
+    > Jeśli nie widzisz rozszerzenia **Azure monitor, aktualizacji i zarządzania konfiguracją** w portalu Marketplace, skontaktuj się z operatorem Azure Stack Hub, aby go udostępnić.
 1. Na stronie Konfiguracja **rozszerzenia instalacji** wklej **Identyfikator obszaru roboczego** i **klucz obszaru roboczego (klucz podstawowy)** skopiowane do Notatnika w poprzednim kroku.
 1. Po zakończeniu konfiguracji wybierz **przycisk OK**. Stan rozszerzenia zostanie wyświetlony po **pomyślnym zainicjowaniu obsługi administracyjnej**. Aby maszyna wirtualna była wyświetlana w Security Center, może upłynąć do godziny.
 

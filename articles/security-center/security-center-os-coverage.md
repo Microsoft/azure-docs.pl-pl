@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438288"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465450"
 ---
 # <a name="supported-platforms"></a>Obsługiwane platformy 
 
@@ -51,7 +51,7 @@ Maszyny wirtualne są również tworzone w ramach subskrypcji klienta jako czę�
 
 Obsługiwane są również maszyny wirtualne działające w usłudze w chmurze. Monitorowane są tylko role sieć Web i proces roboczy usług Cloud Services, które działają w gniazdach produkcyjnych. Aby dowiedzieć się więcej o usługach w chmurze, zobacz [Omówienie usługi Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-Obsługiwana jest również ochrona maszyn wirtualnych znajdujących się w Azure Stack. Aby uzyskać więcej informacji na temat integracji Security Center z Azure Stack, zobacz Dołączanie [Azure Stack maszyn wirtualnych do Security Center](quickstart-onboard-machines.md). 
+Obsługiwana jest również ochrona maszyn wirtualnych znajdujących się w centrum Azure Stack. Aby uzyskać więcej informacji na temat integracji Security Center z centrum Azure Stack, zobacz Dołączanie [maszyn wirtualnych z centrum Azure Stack do Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## <a name="next-steps"></a>Następne kroki
 
