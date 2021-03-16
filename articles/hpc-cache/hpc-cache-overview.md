@@ -4,15 +4,15 @@ description: Opisuje pamięć podręczną platformy Azure HPC, rozwiązanie dost
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bbb0ca345dc76f566dd55956911703e2c9bf0183
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519340"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471817"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Co to jest usługa Azure HPC Cache?
 
@@ -55,15 +55,6 @@ Wdrożenie pamięci podręcznej platformy Azure HPC może ułatwić przyspieszen
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
 Odwiedź stronę [globalne infrastruktury platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) , aby dowiedzieć się, gdzie dostępna jest pamięć podręczna Azure HPC.
-
-[Funkcja kluczy zarządzanych przez klienta](customer-keys.md) jest obsługiwana tylko w tych regionach świadczenia usługi Azure:
-
-* East US
-* South Central US
-* Zachodnie stany USA 2
-* Europa Zachodnia
-* US Gov Arizona
-* US Gov Wirginia
 
 Pamięć podręczna Azure HPC znajduje się w jednym regionie. Może uzyskać dostęp do danych przechowywanych w innych regionach w przypadku połączenia ich z kontenerami obiektów BLOB znajdującymi się w tym miejscu. Pamięć podręczna nie przechowuje na stałe danych klientów.
 

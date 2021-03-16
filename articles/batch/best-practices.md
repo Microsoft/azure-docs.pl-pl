@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496290"
+ms.locfileid: "103561842"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -238,6 +238,6 @@ Automatyczne czyszczenie katalogu roboczego zostanie zablokowane, jeśli uruchom
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz konto Azure Batch przy użyciu Azure Portal](batch-account-create-portal.md).
 - Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 - Dowiedz się więcej o [domyślnych przydziałach, limitach i ograniczeniach Azure Batch oraz o sposobie zwiększania limitu przydziału](batch-quota-limit.md).
+- Dowiedz się [, jak wykrywać i unikać błędów w operacjach w puli i węzłach w tle ](batch-pool-node-error-checking.md).

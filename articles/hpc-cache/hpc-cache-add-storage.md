@@ -4,14 +4,14 @@ description: Jak zdefiniować cele magazynu, aby pamięć podręczna platformy A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471945"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563258"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -194,15 +194,17 @@ Aby uzyskać szczegółowe informacje na temat innych opcji, Przeczytaj [Opis mo
 
 Ta tabela zawiera podsumowanie różnic między wszystkimi modelami użycia:
 
-| Model użycia | Tryb buforowania | Weryfikacja zaplecza | Maksymalne opóźnienie zapisu |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
 |--|--|--|--|
-| Czytaj duże, rzadko występujące zapisy | Odczyt | Nigdy | Brak |
-| Ponad 15% zapisów | Odczyt/zapis | 8 godzin | 20 minut |
-| Klienci pomijają pamięć podręczną | Odczyt | 30 sekund | Brak |
-| Więcej niż 15% zapisów, częste sprawdzanie zaplecza (30 sekund) | Odczyt/zapis | 30 sekund | 20 minut |
-| Więcej niż 15% zapisów, częste sprawdzanie zaplecza (60 sekund) | Odczyt/zapis | 60 sekund | 20 minut |
-| Większe niż 15% zapisów, częste zapisywanie | Odczyt/zapis | 30 sekund | 30 sekund |
-| Czytaj duże i sprawdzaj serwer zapasowy co 3 godziny | Odczyt | 3 godziny | Brak |
+| Read heavy, infrequent writes | Read | Never | None |
+| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
+| Clients bypass the cache | Read | 30 seconds | None |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > Wartość **weryfikacyjna zaplecza** jest wyświetlana, gdy pamięć podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. Można jednak wyzwolić porównanie, wysyłając żądanie klienta zawierające operację READDIRPLUS w systemie magazynu zaplecza. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.

@@ -7,13 +7,13 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
-  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-  ms.translationtype: HT
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 7b7727d1fdf550b3ab3341bd0dc852f343b00791
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749015"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563916"
 landingContent:
 - title: Informacje o witrynie Azure Portal
   linkLists:
@@ -21,18 +21,44 @@ landingContent:
     links:
     - text: Co to jest Azure Portal?
       url: azure-portal-overview.md
+    - text: Rozpoczynanie pracy przy użyciu Centrum Szybki start platformy Azure
+      url: azure-portal-quickstart-center.md
     - text: Obsługiwane przeglądarki i urządzenia
       url: azure-portal-supported-browsers-devices.md
-- title: Dostosowywanie witryny Azure Portal
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie maszyny wirtualnej w portalu
+      url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - text: Tworzenie pulpitu nawigacyjnego — interfejs wiersza polecenia platformy Azure
+      url: quickstart-portal-dashboard-azure-cli.md
+    - text: Tworzenie pulpitu nawigacyjnego — Azure PowerShell
+      url: quickstart-portal-dashboard-powershell.md
+    - text: Tworzenie pulpitu nawigacyjnego — szablon usługi ARM
+      url: quick-create-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Seria instruktażowych wideo dla witryny Azure Portal
+      url: azure-portal-video-series.md
+- title: Tworzenie wniosków o pomoc techniczną i zarządzanie nimi
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Ustawianie preferencji portalu
-      url: set-preferences.md
-    - text: Tworzenie i udostępnianie niestandardowych pulpitów nawigacyjnych
-      url: azure-portal-dashboards.md
-    - text: Zarządzanie elementami ulubionymi
-      url: azure-portal-add-remove-sort-favorites.md
+    - text: Tworzenie wniosku o pomoc techniczną platformy Azure
+      url: supportability/how-to-create-azure-support-request.md
+    - text: Zarządzanie wnioskiem o pomoc techniczną platformy Azure
+      url: supportability/how-to-manage-azure-support-request.md
+- title: Korzystanie z opcji ułatwień dostępu
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Skróty klawiaturowe
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Włączanie wysokiego kontrastu
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Zarządzanie dostępem do witryny Azure Portal
   linkLists:
   - linkListType: reference
@@ -45,39 +71,17 @@ landingContent:
     links:
     - text: Zarządzanie zasobami na platformie Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Ochrona zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach platformy Azure
-      url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Wprowadzenie
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Rozpoczynanie pracy przy użyciu Centrum Szybki start platformy Azure
-      url: azure-portal-quickstart-center.md
-  - linkListType: how-to-guide
-    links:
-    - text: Seria instruktażowych wideo dla witryny Azure Portal
-      url: azure-portal-video-series.md
-  - linkListType: learn
-    links:
-    - text: Podstawy platformy Azure
-      url: /learn/paths/azure-fundamentals/
-    - text: Pojęcia dotyczące chmury — podstawy przetwarzania w chmurze
-      url: /learn/modules/principles-cloud-computing/
-- title: Korzystanie z opcji ułatwień dostępu
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Skróty klawiaturowe
-      url: azure-portal-keyboard-shortcuts.md
-  - linkListType: how-to-guide
-    links:
-    - text: Włączanie wysokiego kontrastu
-      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-- title: Tworzenie wniosków o pomoc techniczną i zarządzanie nimi
+    - text: Zabezpieczanie zasobów za pomocą kontroli dostępu opartej na rolach (Azure RBAC)
+      url: /learn/modules/secure-azure-resources-with-rbac
+- title: Dostosowywanie witryny Azure Portal
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Tworzenie wniosku o pomoc techniczną platformy Azure
-      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-    - text: Rozwiązywanie problemów z subskrypcją dotyczących regionu lub jednostki SKU
-      url: ../azure-portal/supportability/sku-series-unavailable.md
+    - text: Zarządzanie ustawieniami i preferencjami witryny Azure Portal
+      url: set-preferences.md
+    - text: Wyświetlanie i filtrowanie informacji o zasobach
+      url: manage-filter-resource-views.md
+    - text: Tworzenie pulpitu nawigacyjnego Azure Portal interfejsu użytkownika
+      url: azure-portal-dashboards.md
+    - text: Dodawanie, usuwanie i sortowanie ulubionych
+      url: azure-portal-add-remove-sort-favorites.md

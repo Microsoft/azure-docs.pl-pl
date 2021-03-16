@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624764"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561961"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -125,6 +125,140 @@ Użyj rozszerzenia [wdrożenia obszaru roboczego Synapse](https://marketplace.vi
 Po zapisaniu wszystkich zmian możesz wybrać pozycję **Utwórz wydanie** , aby ręcznie utworzyć wydanie. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers)
 
    ![Wybierz pozycję Utwórz wydanie](media/release-creation-manually.png)
+
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Używanie parametrów niestandardowych szablonu obszaru roboczego 
+
+Używasz zautomatyzowanej ciągłej integracji/ciągłego dostarczania i chcesz zmienić niektóre właściwości podczas wdrażania, ale właściwości domyślnie nie są sparametryzowane. W takim przypadku można zastąpić domyślny szablon parametru.
+
+Aby zastąpić domyślny szablon parametru, należy utworzyć niestandardowy szablon parametru, plik o nazwie **template-parameters-definition.js** w folderze głównym gałęzi współpracy usługi git. Należy użyć tej dokładnej nazwy pliku. Podczas publikowania z gałęzi współpracy obszar roboczy Synapse odczyta ten plik i użyje jego konfiguracji do wygenerowania parametrów. Jeśli plik nie zostanie znaleziony, zostanie użyty domyślny szablon parametru.
+
+### <a name="custom-parameter-syntax"></a>Składnia parametru niestandardowego
+
+Poniżej przedstawiono kilka wytycznych dotyczących tworzenia pliku parametrów niestandardowych:
+
+* Wprowadź ścieżkę właściwości pod odpowiednim typem jednostki.
+* Ustawienie nazwy właściwości na `*` wskazuje, że chcesz Sparametryzuj wszystkie jej właściwości (tylko do pierwszego poziomu, a nie cyklicznie). Możesz również podać wyjątki dla tej konfiguracji.
+* Ustawienie wartości właściwości jako ciągu wskazuje, że chcesz Sparametryzuj właściwość. Użyj formatu `<action>:<name>:<stype>`.
+   *  `<action>` może to być jeden z następujących znaków:
+      * `=` oznacza, że bieżąca wartość jest zachowywana jako wartość domyślna parametru.
+      * `-` oznacza nie zachowywanie wartości domyślnej dla parametru.
+      * `|` jest specjalnym przypadkiem dla wpisów tajnych z Azure Key Vault dla parametrów połączenia lub kluczy.
+   * `<name>` jest nazwą parametru. Jeśli jest pusta, przyjmuje nazwę właściwości. Jeśli wartość zaczyna się od `-` znaku, nazwa zostanie skrócona. Na przykład `AzureStorage1_properties_typeProperties_connectionString` zostałby skrócony do `AzureStorage1_connectionString` .
+   * `<stype>` jest typem parametru. Jeśli `<stype>` pole jest puste, domyślnym typem jest `string` . Obsługiwane wartości: `string` , `securestring` ,,, `int` `bool` `object` `secureobject` i `array` .
+* Określenie tablicy w pliku wskazuje, że zgodna właściwość w szablonie jest tablicą. Synapse wykonuje iterację wszystkich obiektów w tablicy przy użyciu określonej definicji. Drugi obiekt, ciąg, będzie nazwą właściwości, która jest używana jako nazwa parametru dla każdej iteracji.
+* Definicja nie może być określona dla wystąpienia zasobu. Każda definicja ma zastosowanie do wszystkich zasobów tego typu.
+* Domyślnie wszystkie bezpieczne ciągi, takie jak Key Vault Secret, i bezpieczne ciągi, takie jak ciągi połączeń, klucze i tokeny, są sparametryzowane.
+
+### <a name="parameter-template-definition-samples"></a>Przykłady definicji szablonu parametrów 
+
+Oto przykład, jak wygląda definicja szablonu parametrów:
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+     "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+    },
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
+
+#### <a name="notebooks"></a>Notebooks 
+
+* Wszystkie właściwości w ścieżce `properties/bigDataPool/referenceName` są sparametryzowane przy użyciu wartości domyślnej. Dla każdego pliku notesu można Sparametryzuj dołączoną pulę platformy Spark. 
+
+#### <a name="sql-scripts"></a>Skrypty SQL 
+
+* Właściwości (PoolName i databaseName) w ścieżce `properties/content/currentConnection` są sparametryzowane jako ciągi bez wartości domyślnych w szablonie. 
+
+#### <a name="pipelines"></a>Pipelines
+
+* Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
+* Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) jest sparametryzowana przy użyciu typu `object` (Object). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Wszystkie właściwości pod ścieżką `typeProperties` są sparametryzowane z odpowiednimi wartościami domyślnymi. Na przykład w `IntegrationRuntimes` właściwościach typu istnieją dwie właściwości: `computeProperties` i `ssisProperties` . Oba typy właściwości są tworzone z odpowiednimi wartościami domyślnymi i typami (Object).
+
+#### <a name="triggers"></a>Wyzwalacze
+
+* W obszarze `typeProperties` , dwie właściwości są sparametryzowane. Pierwszy z nich to `maxConcurrency` , który jest określony jako ma wartość domyślną i jest typu `string` . Ma nazwę domyślnego parametru `<entityName>_properties_typeProperties_maxConcurrency` .
+* `recurrence`Właściwość jest również sparametryzowana. W obszarze IT wszystkie właściwości na tym poziomie są określane jako ciągi, z wartościami domyślnymi i nazwami parametrów. Wyjątek jest `interval` właściwością, która jest sparametryzowane jako typ `int` . Nazwa parametru jest sufiksem `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Podobnie `freq` Właściwość jest ciągiem i jest określana jako ciąg. Jednak `freq` Właściwość jest sparametryzowane bez wartości domyślnej. Nazwa jest skracana i ma sufiks. Na przykład `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* Połączone usługi są unikatowe. Ponieważ połączone usługi i zestawy danych mają szeroką gamę typów, można zapewnić dostosowanie specyficzne dla określonego typu. W tym przykładzie dla wszystkich połączonych usług typu `AzureDataLakeStore` , zostanie zastosowany określony szablon. Dla wszystkich innych (za pośrednictwem `*` ) zostanie zastosowany inny szablon.
+* `connectionString`Właściwość zostanie sparametryzowana jako `securestring` wartość. Nie będzie ona mieć wartości domyślnej. Nazwa parametru zostanie skrócona z sufiksem `connectionString` .
+* Właściwość `secretAccessKey` ma być `AzureKeyVaultSecret` (na przykład w połączonej usłudze Amazon S3). Jest on automatycznie sparametryzowany jako wpis tajny Azure Key Vault i pobierany ze skonfigurowanego magazynu kluczy. Możesz również Sparametryzuj sam magazyn kluczy.
+
+#### <a name="datasets"></a>Zestawy danych
+
+* Chociaż dostosowanie specyficzne dla typu jest dostępne dla zestawów danych, można zapewnić konfigurację bez jawnego \* konfigurowania. W poprzednim przykładzie wszystkie właściwości zestawu danych w obszarze `typeProperties` są sparametryzowane.
+
 
 ## <a name="best-practices-for-cicd"></a>Najlepsze rozwiązania dotyczące ciągłej integracji/ciągłego wdrażania
 

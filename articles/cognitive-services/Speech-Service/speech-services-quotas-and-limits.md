@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/15/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449853"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564426"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -27,6 +27,7 @@ Przechodzenie do [przydziałów i ograniczeń zamiany tekstu na mowę](#text-to-
 W tabelach poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywany do wszystkich warstw cenowych.
 
 #### <a name="online-transcription"></a>Transkrypcja online
+Użycie [zestawu Speech SDK](speech-sdk.md) i/lub [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
 |--|--|--|
@@ -74,7 +75,7 @@ W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywa
 | **Przydziały określone dla protokołu WebSocket** |  |  |
 |Maksymalna długość audio wyprodukowanych na drodze | 10 min | 10 min |
 |Maksymalny rozmiar komunikatu SSML na przekształcenie |64 KB |64 KB |
-| **Limit interfejsu API REST** | 20 żądań na minutę | 25 żądań na 5 sekund |
+| **Limit interfejsu API REST** | 20 żądań na minutę | 300 żądań na minutę |
 
 
 <sup>3</sup> dla warstwy cenowej **bezpłatna (F0)** Zobacz również miesięczne diety na [stronie cennika](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 526d8bfa0124fba75eb33518acd83169ff020698
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555433"
+ms.locfileid: "103561519"
 ---
 # <a name="embedded-sign-in-experience"></a>Wbudowane środowisko logowania
 
@@ -31,7 +31,7 @@ Element ramki wbudowanej `<iframe>` służy do osadzania dokumentu na stronie si
 W przypadku używania elementu IFRAME należy wziąć pod uwagę następujące kwestie:
 
 - Osadzona Rejestracja jest obsługiwana tylko na kontach lokalnych. Większość dostawców tożsamości społecznościowych (np. Google i Facebook) uniemożliwia renderowanie stron logowania w ramkach wbudowanych.
-- Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Na przykład aplikacja hostowana w programie https://app.contoso.com ma takie samo źródło jak Azure AD B2C uruchomionym w systemie https://login.contoso.com .
+- Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Aby użyć tego samego źródła, [Włącz domeny niestandardowe](custom-domain.md) dla Azure AD B2C dzierżawy, a następnie skonfiguruj aplikację sieci Web przy użyciu tego samego źródła. Na przykład aplikacja hostowana w programie https://app.contoso.com ma takie samo źródło jak Azure AD B2C uruchomionym w systemie https://login.contoso.com .
  
 ## <a name="configure-your-policy"></a>Konfigurowanie zasad
 

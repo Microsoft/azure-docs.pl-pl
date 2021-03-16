@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 1319f806dd2f32233dcfe7383f5283b67827f16f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102517575"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562165"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem wieloprocesorowym Pro Azure Stack Edge za pośrednictwem programu Windows PowerShell
 
@@ -161,6 +161,7 @@ W poniższej tabeli znajduje się krótki opis poleceń dostępnych dla `iotedge
 |`logs`     | Pobieranie dzienników modułu        |
 |`restart`     | Zatrzymywanie i ponowne uruchamianie modułu         |
 
+#### <a name="list-all-iot-edge-modules"></a>Wyświetl wszystkie moduły IoT Edge
 
 Aby wyświetlić listę wszystkich modułów uruchomionych na urządzeniu, użyj `iotedge list` polecenia.
 
@@ -180,7 +181,64 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 [10.100.10.10]: PS>
 ```
+#### <a name="restart-modules"></a>Uruchom ponownie moduły
 
+Możesz użyć polecenia, `list` Aby wyświetlić listę wszystkich modułów uruchomionych na urządzeniu. Następnie zidentyfikuj nazwę modułu, który ma zostać ponownie uruchomiony, i użyj go przy użyciu `restart` polecenia.
+
+Oto przykładowe dane wyjściowe dotyczące sposobu ponownego uruchomienia modułu. Na podstawie opisu czasu działania modułu programu można zobaczyć, że `cuda-sample1` został on ponownie uruchomiony.
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  ----------- ------                                          ----------- -------
+edgehub      Running Up 5 days   mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:308
+                                                                                             81/TCP,8883:31753/TCP
+iotedged     Running Up 7 days   azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days   nvidia/samples:nbody
+edgeagent    Running Up 7 days   azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 1 days   nvidia/samples:nbody
+
+[10.100.10.10]: PS>iotedge restart cuda-sample1
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION  CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  -----------  ------                                          ----------- -------
+edgehub      Running Up 5 days    mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:30
+                                                                                              881/TCP,8883:31753/TC
+                                                                                              P
+iotedged     Running Up 7 days    azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days    nvidia/samples:nbody
+edgeagent    Running Up 7 days    azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
+
+[10.100.10.10]: PS>
+
+```
+
+#### <a name="get-module-logs"></a>Pobierz dzienniki modułu
+
+Użyj `logs` polecenia, aby uzyskać dzienniki dla dowolnego modułu IoT Edge uruchomionego na urządzeniu. 
+
+Jeśli wystąpił błąd podczas tworzenia obrazu kontenera lub podczas ściągania obrazu, uruchom polecenie `logs edgeagent` . `edgeagent` jest kontenerem środowiska uruchomieniowego IoT Edge, który jest odpowiedzialny za obsługę innych kontenerów. Ponieważ powoduje `logs edgeagent` zrzut wszystkich dzienników, dobrym sposobem na wyświetlenie ostatnich błędów jest użycie opcji `--tail ` 0 ". 
+
+Oto przykładowe dane wyjściowe.
+
+```powershell
+[10.100.10.10]: PS>iotedge logs cuda-sample2 --tail 10
+[10.100.10.10]: PS>iotedge logs edgeagent --tail 10
+<6> 2021-02-25 00:52:54.828 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:52:54.829 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Plan execution ended for deployment 11
+[10.100.10.10]: PS>
+```
 
 ### <a name="use-kubectl-commands"></a>Użyj poleceń polecenia kubectl
 

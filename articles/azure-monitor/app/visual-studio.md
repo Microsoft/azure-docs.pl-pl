@@ -4,12 +4,12 @@ description: Analiza wydajności i diagnostyka aplikacji internetowej podczas de
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532906"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563542"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debuguj aplikacje za pomocą usługi Azure Application Insights w programie Visual Studio
 W programie Visual Studio (w wersji 2015 i nowszych) można analizować wydajność i diagnozować problemy w aplikacji internetowej platformy ASP.NET zarówno podczas debugowania, jak i w środowisku produkcyjnym, przy użyciu telemetrii z usługi [Azure Application Insights](./app-insights-overview.md).
@@ -65,17 +65,6 @@ W wierszu soczewki kodu powyżej każdej metody obsługi zostanie wyświetlona l
 >
 
 [Więcej informacji o usłudze Application Insights w wierszach Code Lens](./visual-studio-codelens.md)
-
-## <a name="trends"></a>Trends
-Trends to narzędzie do wizualizacji zachowania aplikacji wraz z upływem czasu. 
-
-Na przycisku paska narzędzi Application Insights lub w oknie Application Insights Search wybierz pozycję **Eksploruj trendy telemetryczne**. Wybierz jedno z pięciu typowych zapytań, aby rozpocząć. W zależności od typów telemetrii, zakresów czasu i innych właściwości możesz analizować różne zestawy danych . 
-
-Aby znaleźć anomalie w danych, wybierz jedną z opcji anomalii w menu rozwijanym „Typ widoku”. Opcje filtrowania u dołu okna ułatwiają sprecyzowanie konkretnych podzestawów w telemetrii.
-
-![Trends](./media/visual-studio/51.png)
-
-[Więcej informacji na temat narzędzia Trends](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitorowanie lokalne
 (Z programu Visual Studio 2015 Update 2) Jeśli zestaw SDK nie został skonfigurowany do wysyłania telemetrii do portalu Application Insights (tak, że w ApplicationInsights.config nie ma klucza Instrumentacji), w oknie Diagnostyka zostanie wyświetlona wartość telemetrii z najnowszej sesji debugowania. 

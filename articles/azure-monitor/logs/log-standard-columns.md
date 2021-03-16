@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030770"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562250"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standardowe kolumny w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](../logs/data-platform-logs.md), z których każdy ma określony typ danych, który ma unikatowy zestaw kolumn. Wiele typów danych będzie zawierać standardowe kolumny, które są wspólne dla wielu typów. W tym artykule opisano te kolumny i przedstawiono przykłady korzystania z nich w zapytaniach.
@@ -132,7 +132,7 @@ Te `union withsource = tt *` zapytania są oszczędnie zależą od tego, jak ska
 
 Użycie kolumny identyfikatora subskrypcji jest zawsze wydajniejsze \_ niż wyodrębnianie jej przez analizowanie \_ kolumny ResourceID.
 
-## <a name="_substriptionid"></a>\_SubstriptionId
+## <a name="_subscriptionid"></a>\_Identyfikator
 Kolumna **\_ subskrypcji** zawiera identyfikator subskrypcji zasobu, z którym jest skojarzony rekord. Zapewnia to standardową kolumnę, która ma być używana do określania zakresu zapytania tylko do rekordów z określonej subskrypcji lub do porównywania różnych subskrypcji.
 
 W przypadku zasobów platformy Azure wartość **__SubscriptionId** jest częścią subskrypcji [adresu URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Kolumna jest ograniczona do zasobów platformy Azure, w tym zasobów [usługi Azure Arc](../../azure-arc/overview.md) , lub do dzienników niestandardowych, które wskazywały identyfikator zasobu podczas pozyskiwania.

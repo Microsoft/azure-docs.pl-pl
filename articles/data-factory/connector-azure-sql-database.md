@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 2f716fd7723f35fb5e7071afb15cfa8dab4ce5d2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/15/2021
+ms.openlocfilehash: d64b1413267a62daa46a112e706a4381189baf77
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225289"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564352"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -643,7 +643,12 @@ Ustawienia specyficzne dla Azure SQL Database są dostępne na karcie **Opcje ź
 
 **Zapytanie**: w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania.
 
+**Procedura składowana**: Wybierz tę opcję, jeśli chcesz wygenerować dane projekcji i źródła z procedury składowanej, która jest wykonywana ze źródłowej bazy danych. Możesz wpisać w schemacie, nazwę procedury i parametry, lub kliknąć przycisk Odśwież, aby zażądać ADF w celu odnalezienia schematów i nazw procedur. Następnie możesz kliknąć przycisk Importuj, aby zaimportować wszystkie parametry procedury przy użyciu formularza ``@paraName`` .
+
+![Procedura składowana](media/data-flow/stored-procedure-2.png "Procedura składowana")
+
 - Przykład SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Przykład sparametryzowanej bazy danych SQL: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Rozmiar wsadu**: wprowadź rozmiar partii, aby podzielić duże ilości danych na odczyt.
 

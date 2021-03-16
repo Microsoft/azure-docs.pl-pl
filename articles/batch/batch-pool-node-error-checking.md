@@ -3,14 +3,14 @@ title: Sprawdź, czy występują błędy puli i węzłów
 description: W tym artykule opisano operacje w tle, które mogą wystąpić, a także błędy do sprawdzenia i sposoby ich unikania podczas tworzenia pul i węzłów.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576316"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564409"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
 
@@ -62,6 +62,13 @@ Po usunięciu puli zawierającej węzły, pierwsza partia danych Usuwa węzły. 
 
 Wsadowe ustawia [stan puli](/rest/api/batchservice/pool/get#poolstate) do **usunięcia** podczas procesu usuwania. Aplikacja wywołująca może wykryć, czy usunięcie puli trwa zbyt długo przy użyciu właściwości **State** i **stateTransitionTime** .
 
+Jeśli pula trwa dłużej niż oczekiwano, przetwarzanie wsadowe będzie ponawiać próbę w celu pomyślnego usunięcia puli. W niektórych przypadkach opóźnienie jest spowodowane awarią usługi platformy Azure lub innymi tymczasowymi problemami. Inne czynniki, które mogą uniemożliwiać pomyślne usunięcie puli, mogą wymagać podjęcia działań w celu rozwiązania problemu. Są to następujące czynniki:
+
+- Blokady zasobów zostały umieszczone w zasobach utworzonych wsadowo lub w zasobach sieciowych używanych przez program Batch.
+- Utworzone zasoby są zależne od zasobu utworzonego wsadowo. Jeśli na przykład [utworzysz pulę w sieci wirtualnej](batch-virtual-network.md), usługa Batch tworzy sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), publiczny adres IP i moduł równoważenia obciążenia. W przypadku używania tych zasobów poza pulą nie można usunąć puli, dopóki ta zależność nie zostanie usunięta.
+- Dostawca zasobów Microsoft.Batch został wyrejestrowany z subskrypcji zawierającej daną pulę.
+- "Microsoft Azure Batch" nie ma już [roli współautor ani właściciela](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) do subskrypcji zawierającej pulę (dla kont usługi Batch w trybie subskrypcji użytkownika).
+
 ## <a name="node-errors"></a>Błędy węzła
 
 Nawet w przypadku pomyślnego przydzielenia węzłów w puli różne problemy mogą spowodować, że niektóre węzły są w złej kondycji i nie mogą uruchamiać zadań. W tych węzłach nadal są naliczane opłaty, dlatego ważne jest, aby wykrywać problemy, aby uniknąć płacenia za węzły, które nie mogą być używane. Oprócz typowych błędów węzłów, wiedząc, że bieżący [stan zadania](/rest/api/batchservice/job/get#jobstate) jest przydatny do rozwiązywania problemów.
@@ -105,15 +112,10 @@ Jeśli partia może ustalić przyczynę, właściwość [Błędy](/rest/api/batc
 Dodatkowe przykłady przyczyn **nieużytecznych** węzłów obejmują:
 
 - Niestandardowy obraz maszyny wirtualnej jest nieprawidłowy. Na przykład obraz, który nie jest prawidłowo przygotowany.
-
 - Maszyna wirtualna została przeniesiona z powodu awarii infrastruktury lub uaktualnienia niskiego poziomu. Partia odzyskuje węzeł.
-
 - Obraz maszyny wirtualnej został wdrożony na sprzęcie, który go nie obsługuje. Na przykład próba uruchomienia obrazu CentOS HPC na maszynie wirtualnej [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) .
-
 - Maszyny wirtualne znajdują się w [sieci wirtualnej platformy Azure](batch-virtual-network.md), a ruch został zablokowany do kluczowych portów.
-
 - Maszyny wirtualne znajdują się w sieci wirtualnej, ale ruch wychodzący do usługi Azure Storage jest blokowany.
-
 - Maszyny wirtualne znajdują się w sieci wirtualnej z konfiguracją DNS klienta, a serwer DNS nie może rozpoznać usługi Azure Storage.
 
 ### <a name="node-agent-log-files"></a>Pliki dziennika agenta węzła

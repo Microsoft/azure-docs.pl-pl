@@ -1,6 +1,6 @@
 ---
 title: 'DB2 do SQL Database: Przewodnik migracji'
-description: Postępuj zgodnie z tym przewodnikiem, aby migrować bazy danych DB2 do Azure SQL Database.
+description: W tym przewodniku nauczysz się migrować bazy danych DB2 do Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dla programu DB2 (ASYSTENCIE migracji for DB2).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356348"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563950"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Przewodnik migracji: DB2 do SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -102,7 +102,7 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . 
 
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności następnym krokiem jest wykonanie procesu migracji.
 
@@ -142,9 +142,6 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
 1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
 1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
-
-   > [!NOTE]
-   > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
 
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 

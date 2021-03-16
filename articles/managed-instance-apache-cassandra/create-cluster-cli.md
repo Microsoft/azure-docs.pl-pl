@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 6de2e0f1744b333a830fbe500e2df51e7eaca62d
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/15/2021
+ms.openlocfilehash: 3890b06b2d085cea57b59cfe34d8b961918471c5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419086"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562403"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Szybki Start: Tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń interfejsu wier
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Jeśli używasz Azure Cloud Shell, Najnowsza wersja jest już zainstalowana.
+> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.17.1 lub nowszej. Jeśli używasz Azure Cloud Shell, Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Tworzenie klastra wystąpienia zarządzanego
 
@@ -58,7 +58,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń interfejsu wier
    > [!NOTE]
    > `assignee`Wartości i `role` w poprzednim poleceniu są stałymi wartościami, wprowadź te wartości dokładnie tak, jak wspomniano w poleceniu. Wykonanie tej czynności spowoduje błędy podczas tworzenia klastra. Jeśli wystąpią błędy podczas wykonywania tego polecenia, możesz nie mieć uprawnień do jego uruchamiania, skontaktuj się z administratorem w celu uzyskania uprawnień.
 
-1. Następnie utwórz klaster na nowo utworzonym Virtual Network. Uruchom następujące polecenie i upewnij się, że `Resource ID` w poprzednim poleceniu użyto wartości pobranej jako wartość `delegatedManagementSubnetId` zmiennej:
+1. Następnie utwórz klaster na nowo utworzonym Virtual Network za pomocą polecenia [AZ Managed-Cassandra Cluster Create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) . Uruchom następujące polecenie i upewnij się, że `Resource ID` w poprzednim poleceniu użyto wartości pobranej jako wartość `delegatedManagementSubnetId` zmiennej:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -76,7 +76,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń interfejsu wier
       --debug
    ```
 
-1. Na koniec Utwórz centrum danych dla klastra z trzema węzłami:
+1. Na koniec Utwórz centrum danych dla klastra z trzema węzłami przy użyciu polecenia [AZ Managed-Cassandra Datacenter Create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) :
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -92,7 +92,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń interfejsu wier
       --node-count 3 
    ```
 
-1. Po utworzeniu centrum danych, jeśli chcesz skalować w górę lub skalować węzły w centrum danych, uruchom następujące polecenie. Zmień wartość `node-count` parametru na pożądaną wartość:
+1. Po utworzeniu centrum danych, jeśli chcesz skalować w górę lub skalować węzły w centrum danych, uruchom polecenie [AZ Managed-Cassandra Datacenter Update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) . Zmień wartość `node-count` parametru na pożądaną wartość:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

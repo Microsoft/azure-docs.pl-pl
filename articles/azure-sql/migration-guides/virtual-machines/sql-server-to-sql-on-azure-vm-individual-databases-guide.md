@@ -1,6 +1,6 @@
 ---
-title: SQL Server SQL Server na maszynach wirtualnych platformy Azure (Przewodnik migracji)
-description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację pojedynczych baz danych SQL Server do SQL Server na platformie Azure Virtual Machines.
+title: 'SQL Server SQL Server na maszynach wirtualnych platformy Azure: Przewodnik migracji'
+description: W tym przewodniku przedstawiono sposób migrowania poszczególnych baz danych SQL Server do SQL Server na maszynach wirtualnych platformy Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
-ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/19/2021
+ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488261"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563219"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Przewodnik migracji: SQL Server SQL Server na maszynach wirtualnych platformy Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -195,7 +195,7 @@ Podejście testowe do migracji bazy danych obejmuje wykonywanie następujących 
 
 > [!TIP]
 > Użyj [Asystent eksperymentowania z bazą danych (DEA)](/sql/dea/database-experimentation-assistant-overview) , aby pomóc w ocenie docelowej SQL Server wydajności.
->
+
 
 ### <a name="optimize"></a>Optymalizacja
 

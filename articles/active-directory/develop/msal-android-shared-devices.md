@@ -13,17 +13,14 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038581"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491558"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem Android
-
->[!IMPORTANT]
-> Ta funkcja [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Procesy robocze Firstline, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do pracy. Sprawia to problemy po rozpoczęciu udostępniania haseł lub numerów PIN w celu uzyskania dostępu do danych klienta i firmowych na udostępnionym urządzeniu.
 

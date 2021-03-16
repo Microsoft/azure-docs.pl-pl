@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server do wystąpienia zarządzanego SQL: Przewodnik migracji'
-description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację baz danych SQL Server do wystąpienia zarządzanego Azure SQL.
+description: W tym przewodniku nauczysz się migrować bazy danych SQL Server do wystąpienia zarządzanego Azure SQL.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488957"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564494"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -197,10 +197,6 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
 1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
 1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
-
-   > [!NOTE]
-   > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
-
 
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 

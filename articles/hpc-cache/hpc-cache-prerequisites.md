@@ -4,14 +4,14 @@ description: Wymagania wstępne dotyczące korzystania z pamięci podręcznej pl
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471798"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562562"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -61,7 +61,7 @@ Pamięć podręczna potrzebuje systemu DNS, aby uzyskać dostęp do zasobów poz
 * Aby uzyskać dostęp do punktów końcowych usługi Azure Blob Storage i innych zasobów wewnętrznych, wymagany jest serwer DNS oparty na platformie Azure.
 * Aby uzyskać dostęp do magazynu lokalnego, należy skonfigurować niestandardowy serwer DNS, który może rozpoznawać nazwy hostów magazynu. Należy to zrobić **przed** utworzeniem pamięci podręcznej.
 
-Jeśli potrzebujesz dostępu do usługi BLOB Storage, możesz użyć domyślnego serwera DNS z systemem Azure dla pamięci podręcznej. Jeśli jednak potrzebujesz dostępu do innych zasobów, należy utworzyć niestandardowy serwer DNS i skonfigurować go tak, aby przesyłał do serwera Azure DNS wszystkie żądania rozpoznawania specyficzne dla platformy Azure.
+Jeśli używasz tylko magazynu obiektów blob, możesz użyć domyślnego serwera DNS z systemem Azure dla pamięci podręcznej. Jeśli jednak potrzebujesz dostępu do magazynu lub innych zasobów poza platformą Azure, należy utworzyć niestandardowy serwer DNS i skonfigurować go do przekazywania wszelkich żądań rozpoznania określonych przez platformę Azure do serwera Azure DNS.
 
 Aby użyć niestandardowego serwera DNS, należy wykonać następujące czynności konfiguracyjne przed utworzeniem pamięci podręcznej:
 
@@ -185,13 +185,13 @@ Pamięć podręczna Azure HPC może również używać kontenera obiektów BLOB 
 
 Wymagania dotyczące konta magazynu różnią się w przypadku miejsca docelowego magazynu obiektów BLOB ADLS-NFS oraz dla standardowego celu magazynu obiektów BLOB. Postępuj zgodnie z instrukcjami w temacie [Instalowanie usługi BLOB Storage, używając dokładnie protokołu sieciowego systemu plików (NFS) 3,0](../storage/blobs/network-file-system-protocol-support-how-to.md) , aby utworzyć i skonfigurować konto magazynu z obsługą systemu plików NFS.
 
-Jest to ogólny przegląd kroków:
+Jest to ogólny przegląd kroków. Te kroki mogą ulec zmianie, więc zawsze zapoznaj się z [instrukcjami ADLS-NFS](../storage/blobs/network-file-system-protocol-support-how-to.md) dotyczącymi bieżących szczegółów.
 
 1. Upewnij się, że funkcje, których potrzebujesz, są dostępne w regionach, w których planujesz prace.
 
 1. Włącz funkcję protokołu NFS dla subskrypcji. Zrób to *przed* utworzeniem konta magazynu.
 
-1. Utwórz bezpieczną sieć wirtualną (VNet) dla konta magazynu. Należy używać tej samej sieci wirtualnej dla konta magazynu obsługującego system plików NFS i dla pamięci podręcznej platformy Azure HPC.
+1. Utwórz bezpieczną sieć wirtualną (VNet) dla konta magazynu. Należy używać tej samej sieci wirtualnej dla konta magazynu obsługującego system plików NFS i dla pamięci podręcznej platformy Azure HPC. (Nie należy używać tej samej podsieci co pamięć podręczna).
 
 1. Utwórz konto magazynu.
 

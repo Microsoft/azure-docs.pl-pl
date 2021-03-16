@@ -2,14 +2,14 @@
 title: Azure Portal — omówienie
 description: Azure Portal jest graficznym interfejsem użytkownika, który służy do zarządzania usługami platformy Azure. Dowiedz się, jak nawigować w Azure Portal i znajdować zasoby.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745931"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563998"
 ---
 # <a name="azure-portal-overview"></a>Azure Portal — omówienie
 
@@ -75,7 +75,7 @@ Na rysunku poniżej przedstawiono podstawowe elementy Azure Portal, z których k
 
 ## <a name="get-started-with-services"></a>Wprowadzenie do usług
 
-Jeśli jesteś nowym subskrybentem, musisz utworzyć zasób, aby móc zarządzać nimi. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić usługi dostępne w portalu Azure Marketplace. W tym miejscu znajdziesz aplikacje i usługi z setek dostawców, a wszystkie certyfikowane do uruchamiania na platformie Azure.
+Jeśli jesteś nowym subskrybentem, musisz utworzyć zasób, aby móc zarządzać nimi. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić usługi dostępne w portalu Azure Marketplace. W tym miejscu znajdziesz setki aplikacji i usług od wielu dostawców, a wszystkie certyfikowane do uruchamiania na platformie Azure.
 
 Twoje ulubione na pasku bocznym są wstępnie wypełnione za pomocą linków do często używanych usług.  Aby wyświetlić wszystkie dostępne usługi, wybierz pozycję **wszystkie usługi** na pasku bocznym.
 

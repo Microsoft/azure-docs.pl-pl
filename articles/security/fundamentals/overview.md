@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: a62326d99eee8407b65c0c640b4db8a6f051c758
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101192"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564515"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 
@@ -160,7 +160,7 @@ W przypadku wielu organizacji szyfrowanie danych w spoczynku stanowi obowiązkow
 
 Usługi Azure Storage obsługują teraz mechanizm CORS, dzięki czemu po ustawieniu reguł CORS dla usługi jest oceniane prawidłowo uwierzytelnione żądanie dotyczące usługi z innej domeny, aby określić, czy jest dozwolone zgodnie z określonymi regułami.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń sieci platformy Azure oraz informacje podsumowujące dotyczące tych możliwości.
 
@@ -201,6 +201,14 @@ Sieć platformy Azure obsługuje różne scenariusze bezpiecznego dostępu zdaln
 - [Łączenie sieci lokalnej z usługą Azure Virtual Network przy użyciu dedykowanego linku sieci WAN](../../expressroute/expressroute-introduction.md)
 
 - [Łączenie sieci wirtualnych platformy Azure ze sobą](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+
+### <a name="azure-private-link"></a>Link prywatny platformy Azure
+
+[Link prywatny platformy Azure](https://azure.microsoft.com/services/private-link/) umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerskich i firmowych platformy Azure w sieci wirtualnej za pośrednictwem [prywatnego punktu końcowego](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów. Ruch z sieci wirtualnej do usługi platformy Azure zawsze pozostaje w sieci szkieletowej Microsoft Azure.
+
+[Prywatne punkty końcowe](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) umożliwiają zabezpieczenie najważniejszych zasobów usługi platformy Azure tylko do sieci wirtualnych. Prywatny punkt końcowy platformy Azure używa prywatnego adresu IP z sieci wirtualnej, aby połączyć się prywatnie i bezpiecznie do usługi obsługiwanej przez link prywatny platformy Azure, efektywnie udostępniając usługę w sieci wirtualnej. Udostępnienie sieci wirtualnej do publicznego Internetu nie jest już konieczne do korzystania z usług na platformie Azure. 
+
+Możesz również utworzyć własną prywatną usługę linku w sieci wirtualnej. [Usługa link prywatny platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-service-overview) to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która działa za usługa Load Balancer w warstwie Standardowa platformy Azure, może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskiwać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz sieci wirtualnej i zmapować ją na tę usługę. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne do renderowania usług na platformie Azure. 
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -284,7 +292,7 @@ Następujące kategorie dzienników diagnostycznych można włączyć dla siecio
 
 [Azure Security Center](../../security-center/security-center-introduction.md) stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/security-center-recommendations.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji w tym obszarze oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="antimalware--antivirus"></a>Złośliwe oprogramowanie & antywirusowe

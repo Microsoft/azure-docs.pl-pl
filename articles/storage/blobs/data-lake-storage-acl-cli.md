@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654241"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563168"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Używanie interfejsu wiersza polecenia platformy Azure do zarządzania listami ACL w Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Dziedziczenie listy ACL jest już dostępne dla nowych elementów podrzędnych, 
 
 - Konto magazynu, dla którego włączono hierarchiczną przestrzeń nazw. Postępuj zgodnie z [tymi](create-data-lake-storage-account.md) instrukcjami, aby je utworzyć.
 
-- Interfejs wiersza polecenia platformy Azure w wersji `2.6.0` lub nowszej.
+- Interfejs wiersza polecenia platformy Azure w wersji `2.14.0` lub nowszej.
 
 - Jedno z następujących uprawnień zabezpieczeń:
 
@@ -137,6 +137,9 @@ Ten przykład ustawia listę ACL dla pliku dla użytkownika będącego właścic
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> Aby ustawić listę kontroli dostępu dla określonej grupy lub użytkownika, należy użyć odpowiednich identyfikatorów obiektów. Na przykład: `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` lub `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 Na poniższej ilustracji przedstawiono dane wyjściowe po ustawieniu listy ACL pliku.
 
 ![Pobierz dane wyjściowe listy ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -184,6 +187,9 @@ Ten przykład aktualizuje listę ACL **pliku**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> Aby zaktualizować listę kontroli dostępu dla określonej grupy lub użytkownika, należy użyć odpowiednich identyfikatorów obiektów. Na przykład: `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` lub `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Możesz również zaktualizować użytkownika i grupę będącą właścicielem katalogu lub pliku, ustawiając `--owner` `group` parametry lub dla identyfikatora jednostki lub głównej nazwy użytkownika (UPN) użytkownika.
 

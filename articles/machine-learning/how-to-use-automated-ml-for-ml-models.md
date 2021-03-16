@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520641"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562726"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 
@@ -37,7 +37,7 @@ W przypadku środowiska języka Python można [skonfigurować automatyczne ekspe
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-1. Zaloguj się do Azure Machine Learning pod adresem https://ml.azure.com . 
+1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Wybierz swoją subskrypcję i obszar roboczy. 
 
@@ -198,6 +198,11 @@ Aby uzyskać wyjaśnienia dotyczące konkretnego modelu,
 ## <a name="deploy-your-model"></a>Wdrażanie modelu
 
 Po uzyskaniu najlepszego modelu można wdrożyć go w postaci usługi internetowej w celu tworzenia przewidywań na podstawie nowych danych.
+
+>[!TIP]
+> Jeśli zamierzasz wdrożyć model wygenerowany za pośrednictwem `automl` pakietu przy użyciu zestawu SDK języka Python, musisz [zarejestrować model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) w obszarze roboczym. 
+>
+> Po zarejestrowaniu modelu Znajdź go w Studio, wybierając pozycję **modele** w okienku po lewej stronie. Po otwarciu modelu możesz wybrać przycisk **Wdróż** znajdujący się u góry ekranu, a następnie postępować zgodnie z instrukcjami opisanymi w **kroku 2** w sekcji **Wdrażanie modelu** .
 
 Zautomatyzowane uczenie maszynowe ułatwia wdrażanie modelu bez pisania kodu:
 

@@ -245,6 +245,8 @@
           href: api-management-transformation-policies.md
         - name: Zasady integracji środowiska Dapr (Distributed Application Runtime)
           href: api-management-dapr-policies.md
+        - name: Zasady walidacji
+          href: validation-policies.md
     - name: Zarządzanie w produkcji
       items:
         - name: Eksportowanie interfejsów API na platformę Power Platform

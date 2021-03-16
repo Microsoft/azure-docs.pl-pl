@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232532"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472308"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Wymagania wstępne dotyczące wdrażania usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -78,6 +78,11 @@ Usuń stare ustawienia pulpitu zdalnego z pliku konfiguracji usługi (. cscfg).
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Usuń stare ustawienia diagnostyki dla każdej roli w pliku konfiguracji usługi (. cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Wymagane aktualizacje pliku definicji usługi (. csdef)
 
@@ -116,6 +121,11 @@ Wdrożenia korzystające ze starych wtyczek pulpitu zdalnego muszą mieć usuni�
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+Wdrożenia, które używały starych wtyczek diagnostyki, wymagają ustawień usuniętych dla każdej roli z pliku definicji usługi (. csdef)
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## <a name="key-vault-creation"></a>Tworzenie Key Vault 

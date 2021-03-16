@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786643"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563593"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Co to jest Azure Data Box Gateway?
 
@@ -72,7 +72,7 @@ Urządzenie wirtualne Data Box Gateway ma następujące parametry:
 | Dyski|Dysk systemu operacyjnego: 250 GB <br> Dysk danych: minimum 2 TB, alokowany elastycznie, wymagane dyski SSD|
 | Interfejsy sieciowe |Co najmniej 1 wirtualny interfejs sieciowy|
 | Natywne protokoły udostępniania plików|Protokoły SMB i NFS  |
-| Zabezpieczenia|Odblokowanie dostępu do urządzenia i danych wymaga uwierzytelnienia <br> Transmitowane dane są szyfrowane przy użyciu 256-bitowego algorytmu AES|
+| Bezpieczeństwo|Odblokowanie dostępu do urządzenia i danych wymaga uwierzytelnienia <br> Transmitowane dane są szyfrowane przy użyciu 256-bitowego algorytmu AES|
 | Zarządzanie|Lokalny internetowy interfejs użytkownika — konfiguracja początkowa, diagnostyka, zarządzanie zasilaniem urządzenia <br> Portal Azure — bieżące zarządzanie urządzeniami Data Box Gateway       |
 
 ## <a name="components"></a>Składniki
@@ -87,7 +87,7 @@ Rozwiązanie Data Box Gateway składa się z zasobu rozwiązania Data Box Gatewa
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Data Box Gateway urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego dane są transferowane, nie muszą znajdować się w tym samym regionie.
+Urządzenie Data Box Gateway, zasób platformy Azure i docelowe konto magazynu, do którego są przesyłane dane, nie muszą znajdować się w tym samym regionie.
 
 - **Dostępność zasobów** — Aby uzyskać listę wszystkich regionów, w których dostępny jest zasób Azure Data Box Gateway, przejdź do pozycji [dostępne produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](../azure-government/documentation-government-welcome.md).
 

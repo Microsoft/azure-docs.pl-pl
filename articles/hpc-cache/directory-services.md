@@ -4,14 +4,14 @@ description: Jak skonfigurować usługi katalogowe na potrzeby dostępu klienta 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472073"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563382"
 ---
 # <a name="configure-directory-services"></a>Konfigurowanie usług katalogowych
 
@@ -81,7 +81,7 @@ W sekcji **bezpieczny dostęp** można włączyć szyfrowanie i sprawdzanie popr
 
 * **Pobierz certyfikat** ponownie — wybierz pozycję **tak** , jeśli chcesz próbować pobrać certyfikat zaraz po przesłaniu tych ustawień.
 
-Wypełnij sekcję **poświadczenia** , jeśli chcesz używać poświadczeń statycznych na potrzeby zabezpieczeń LDAP.
+Wypełnij sekcję **poświadczenia** , jeśli chcesz używać poświadczeń statycznych na potrzeby zabezpieczeń LDAP. Te informacje są szyfrowane, gdy są przechowywane, i nie można ich zbadać.
 
 * **Powiązywanie** nazwy wyróżniającej — wprowadź nazwę wyróżniającą powiązania, która ma być używana do uwierzytelniania na serwerze LDAP. (Użyj formatu nazwy domeny).
 * **Powiązywanie hasła** — Podaj hasło dla nazwy wyróżniającej powiązania.

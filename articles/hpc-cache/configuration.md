@@ -1,30 +1,33 @@
 ---
 title: Konfigurowanie ustawień pamięci podręcznej platformy Azure HPC
-description: Wyjaśnia sposób konfigurowania dodatkowych ustawień pamięci podręcznej, takich jak MTU i No-root-squash, oraz sposobu uzyskiwania dostępu do migawek ekspresowych z obiektów docelowych usługi Azure Blob Storage.
+description: Zawiera opis konfigurowania dodatkowych ustawień pamięci podręcznej, takich jak MTU, Custom NTP i Konfiguracja DNS oraz sposób uzyskiwania dostępu do migawek ekspresowych z obiektów docelowych magazynu obiektów blob platformy Azure.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760507"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563385"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
-Na stronie **Konfiguracja** w Azure Portal są dostępne opcje dostosowywania kilku ustawień. Większość użytkowników nie musi zmieniać tych ustawień przy użyciu wartości domyślnych.
+Na stronie **Sieć** w Azure Portal są dostępne opcje dostosowywania kilku ustawień. Większość użytkowników nie musi zmieniać tych ustawień przy użyciu wartości domyślnych.
 
 W tym artykule opisano również sposób korzystania z funkcji migawek dla obiektów docelowych usługi Azure Blob Storage. Funkcja Snapshot nie ma konfigurowalnych ustawień.
 
-Aby wyświetlić ustawienia, Otwórz stronę **konfiguracji** pamięci podręcznej w Azure Portal.
+Aby wyświetlić ustawienia, Otwórz stronę **sieci** pamięci podręcznej w Azure Portal.
 
-![zrzut ekranu przedstawiający stronę konfiguracji w Azure Portal](media/configuration.png)
+![zrzut ekranu strony sieci w Azure Portal](media/networking-page.png)
 
-> [!TIP]
-> W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) wyświetlana jest strona Konfiguracja i jej ustawienia.
+> [!NOTE]
+> Poprzednia wersja tej strony zawiera ustawienie squash głównego poziomu pamięci podręcznej, ale to ustawienie zostało przeniesione do [zasad dostępu klienta](access-policies.md).
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## <a name="adjust-mtu-value"></a>Dostosuj wartość MTU
 <!-- linked from troubleshoot-nas article -->
@@ -42,21 +45,39 @@ Jeśli nie chcesz zmieniać ustawień jednostki MTU dla innych składników syst
 
 Dowiedz się więcej o ustawieniach jednostki MTU w sieciach wirtualnych platformy Azure, odczytując [dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-## <a name="configure-root-squash"></a>Konfigurowanie katalogu głównego squash
-<!-- linked from troubleshoot and from access policies -->
+## <a name="customize-ntp"></a>Dostosowywanie NTP
 
-Ustawienie **Włącz root squash** steruje sposobem, w jaki usługa Azure HPC cache traktuje żądania od użytkownika głównego na komputerach klienckich.
+Pamięć podręczna domyślnie korzysta z time.microsoft.com serwera czasu opartego na platformie Azure. Jeśli chcesz, aby pamięć podręczna korzystała z innego serwera NTP, określ go w sekcji **Konfiguracja NTP** . Użyj w pełni kwalifikowanej nazwy domeny lub adresu IP.
 
-Po włączeniu elementu głównego squash użytkownicy root z klienta są automatycznie mapowana na użytkownika "nikt", gdy wysyłają żądania za pośrednictwem pamięci podręcznej platformy Azure HPC. Uniemożliwia ona również żądanie klienta z używania protokołu dostępu set-UID.
+## <a name="set-a-custom-dns-configuration"></a>Ustawianie niestandardowej konfiguracji DNS
 
-Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego klienta (UID 0) jest przenoszona do systemu magazynu w pamięci podręcznej systemu plików NFS jako element główny. Ta konfiguracja może umożliwić niewłaściwy dostęp do pliku.
+> [!CAUTION]
+> Nie należy zmieniać konfiguracji DNS pamięci podręcznej, jeśli nie jest to konieczne. Błędy konfiguracji mogą mieć konsekwencje fatalne. Jeśli konfiguracja nie może rozpoznać nazw usług platformy Azure, wystąpienie pamięci podręcznej HPC stanie się trwale niedostępne.
 
-Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
+Pamięć podręczna Azure HPC jest automatycznie konfigurowana do korzystania z bezpiecznego i wygodnego systemu Azure DNS. Jednak niektóre nietypowe konfiguracje wymagają, aby pamięć podręczna korzystała z oddzielnego lokalnego systemu DNS zamiast systemu Azure. Sekcja **konfiguracji DNS** strony **Sieć** służy do określenia tego rodzaju systemu.
 
-Ustawieniem domyślnym jest **tak**. (Pamięć podręczna utworzona przed 2020 kwietnia może mieć ustawienie domyślne **nie**.)
+Skontaktuj się z przedstawicielami platformy Azure lub skontaktuj się z działem pomocy technicznej firmy Microsoft, aby określić, czy chcesz użyć niestandardowej konfiguracji DNS pamięci podręcznej.
 
-> [!TIP]
-> Można również ustawić squash głównych dla określonych eksportów magazynu, dostosowując [zasady dostępu klientów](access-policies.md#root-squash).
+W przypadku skonfigurowania lokalnego systemu DNS do korzystania z pamięci podręcznej platformy Azure HPC należy upewnić się, że konfiguracja może rozpoznać nazwy punktów końcowych platformy Azure dla usług platformy Azure. W razie potrzeby należy skonfigurować niestandardowe środowisko DNS do przesyłania dalej określonych żądań rozpoznawania nazw do Azure DNS lub do innego serwera.
+
+Sprawdź, czy konfiguracja DNS może pomyślnie rozwiązać te elementy przed użyciem jej w przypadku pamięci podręcznej platformy Azure HPC:
+
+* ``*.core.windows.net``
+* Pobieranie listy odwołania certyfikatów (CRL) i usługi weryfikacji protokołu stanu certyfikatów online (OCSP). Częściowa lista znajduje się w [elemencie reguły zapory](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) na końcu tego [artykułu protokołu TLS platformy Azure](../security/fundamentals/tls-certificate-changes.md), ale należy skontaktować się z przedstawicielem technicznym firmy Microsoft, aby poznać wszystkie wymagania.
+* W pełni kwalifikowana nazwa domeny serwera NTP (time.microsoft.com lub niestandardowy serwer)
+
+Jeśli musisz ustawić niestandardowy serwer DNS dla pamięci podręcznej, użyj podanych pól:
+
+* **Domena wyszukiwania DNS** (opcjonalnie) — wprowadź domenę wyszukiwania, na przykład ``contoso.com`` . Dozwolona jest pojedyncza wartość lub można pozostawić ją pustą.
+* Serwery **DNS** — wprowadź do trzech serwerów DNS. Określ je według adresu IP.
+
+<!-- 
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds. -->
+
+### <a name="refresh-storage-target-dns"></a>Odśwież docelowy serwer DNS magazynu
+
+Jeśli serwer DNS aktualizuje adresy IP, skojarzone elementy docelowe magazynu NFS staną się tymczasowo niedostępne. Zapoznaj się z artykułem jak zaktualizować niestandardowe adresy IP systemu DNS w obszarze [Edytuj cele magazynu](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Wyświetlanie migawek dla obiektów docelowych magazynu obiektów BLOB
 
@@ -75,8 +96,8 @@ Migawki są wykonywane co osiem godzin, przy UTC 0:00, 08:00 i 16:00.
 
 W pamięci podręcznej Azure HPC są przechowywane codziennie, cotygodniowe i comiesięczne migawki, dopóki nie zostaną one zastąpione nowymi. Limity są następujące:
 
-* do 20 codziennych migawek
-* do 8 cotygodniowych migawek
-* do 3 comiesięcznych migawek
+* Do 20 codziennych migawek
+* Do 8 cotygodniowych migawek
+* Do 3 comiesięcznych migawek
 
 Uzyskaj dostęp do migawek z `.snapshot` katalogu w przestrzeni nazw docelowego magazynu obiektów BLOB.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498867"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563491"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -396,9 +396,29 @@ Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane
 > Algorytmy zautomatyzowanej sieci mają nieodłączną losowość, która może spowodować nieznaczne wahania w końcowym wyniku metryk, na przykład dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
 
 ## <a name="register-and-deploy-models"></a>Rejestrowanie i wdrażanie modeli
+Możesz zarejestrować model, aby można było wrócić do niego do późniejszego użycia. 
 
-Aby uzyskać szczegółowe informacje na temat pobierania lub rejestrowania modelu wdrożenia w usłudze sieci Web, zobacz [jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
+Aby zarejestrować model na podstawie zautomatyzowanego przebiegu ML, użyj [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metody. 
 
+```Python
+
+best_run, fitted_model = run.get_output()
+print(fitted_model.steps)
+
+model_name = best_run.properties['model_name']
+description = 'AutoML forecast example'
+tags = None
+
+model = remote_run.register_model(model_name = model_name, 
+                                  description = description, 
+                                  tags = tags)
+```
+
+
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia konfiguracji wdrożenia i wdrażania zarejestrowanego modelu w usłudze sieci Web, zobacz [jak i gdzie wdrożyć model](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+
+> [!TIP]
+> W przypadku zarejestrowanych modeli wdrożenie jednym kliknięciem jest dostępne za pośrednictwem [Azure Machine Learning Studio](https://ml.azure.com). Zobacz [jak wdrożyć zarejestrowane modele z programu Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>Możliwość interpretowania modelu

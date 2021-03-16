@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 03/15/2021
+ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222953"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561689"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -181,7 +181,7 @@ Jeśli używasz tego samego przepływu danych na zestawie plików, zalecamy odcz
 
 Jeśli to możliwe, Unikaj używania działania For-Each do uruchamiania przepływów danych przez zestaw plików. Spowoduje to, że każda iteracja dla — każdego będzie uruchamiać własny klaster Spark, który często nie jest konieczny i może być kosztowny. 
 
-## <a name="optimizing-sinks"></a>Optymalizowanie ujścia
+## <a name="optimizing-sinks"></a>Optymalizowanie ujść
 
 Gdy dane są zapisywane w ujściach, wszelkie niestandardowe partycjonowanie będą wykonywane bezpośrednio przed zapisem. Podobnie jak w przypadku źródła, zaleca się, aby w większości przypadków zachować **bieżące partycjonowanie** jako opcję wybranej partycji. Partycjonowane dane będą zapisywane znacznie szybciej niż dane niepartycjonowane, nawet jeśli miejsce docelowe nie zostanie podzielone na partycje. Poniżej przedstawiono poszczególne zagadnienia dotyczące różnych typów ujścia. 
 
@@ -250,7 +250,7 @@ Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas
 
 **Budżet przepływności zapisu:** Użyj wartości, która jest mniejsza niż łączna liczba jednostek ru na minutę. Jeśli istnieje przepływ danych o dużej liczbie partycji platformy Spark, ustawienie przepływności budżetu pozwoli na zwiększenie równowagi między tymi partycjami.
 
-## <a name="optimizing-transformations"></a>Optymalizowanie transformacji
+## <a name="optimizing-transformations"></a>Optymalizowanie przekształceń
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Optymalizowanie sprzężeń, EXISTS i Lookups
 
@@ -259,6 +259,8 @@ Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas
 W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
 
 Jeśli rozmiar emitowanych danych jest zbyt duży dla węzła Spark, może wystąpić błąd braku pamięci. Aby uniknąć błędów w pamięci, użyj klastrów **zoptymalizowanych pod kątem pamięci** . Jeśli podczas wykonywania przepływu danych wystąpią limity czasu emisji, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych.
+
+Podczas pracy ze źródłami danych, które mogą trwać dłużej niż zapytania, na przykład w przypadku kwerend z dużą bazą danych, zaleca się wyłączenie emisji dla sprzężeń. Źródło o długim czasie wykonywania zapytań może spowodować przekroczenie limitu czasu platformy Spark, gdy klaster próbuje wykonać emisję do węzłów obliczeniowych. Innym dobrym wyborem w przypadku wyłączania emisji jest, gdy masz strumień w przepływie danych, który jest agregowanie wartości do użycia w transformacji wyszukiwania później. Ten wzorzec może mylić Optymalizator Spark i powodować przekroczenie limitów czasu.
 
 ![Optymalizacja transformacji sprzężeń](media/data-flow/joinoptimize.png "Optymalizacja dołączania")
 

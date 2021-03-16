@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199955"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561825"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Przewodnik dotyczący uruchamiania funkcji na platformie .NET 5,0 na platformie Azure
 
@@ -122,7 +122,7 @@ Platforma .NET izolowana przekazuje `FunctionContext` obiekt do metod funkcji. T
 
 Powiązania są definiowane przy użyciu atrybutów metod, parametrów i zwracanych typów. Metoda funkcji to metoda z `Function` atrybutem wyzwalacza zastosowana do parametru wejściowego, jak pokazano w następującym przykładzie:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 Atrybut wyzwalacza określa typ wyzwalacza i wiąże dane wejściowe z parametrem metody. Poprzednia Przykładowa funkcja jest wyzwalana przez komunikat w kolejce, a komunikat kolejki jest przesyłany do metody w `myQueueItem` parametrze.
 
@@ -140,7 +140,7 @@ Funkcja może mieć zero lub więcej powiązań wejściowych, które mogą przek
 
 Aby zapisać do powiązania danych wyjściowych, należy zastosować atrybut powiązania danych wyjściowych do metody funkcji, która definiuje sposób zapisu w powiązanej usłudze. Wartość zwracana przez metodę jest zapisywana w powiązaniu danych wyjściowych. Na przykład poniższy przykład zapisuje wartość ciągu do kolejki komunikatów o nazwie przy `functiontesting2` użyciu powiązania danych wyjściowych:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Wiele powiązań wyjściowych
 
@@ -156,7 +156,7 @@ Podobnie funkcja zwraca `HttpReponseData` obiekt, który dostarcza dane używane
 
 Następujący kod jest wyzwalaczem HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Rejestrowanie
 
@@ -164,7 +164,7 @@ W środowisku .NET izolowanym można zapisywać w dziennikach przy użyciu [`ILo
 
 Poniższy przykład pokazuje, jak uzyskać `ILogger` i napisać dzienniki w funkcji:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Użyj różnych metod, `ILogger` Aby napisać różne poziomy dziennika, takie jak `LogWarning` lub `LogError` . Aby dowiedzieć się więcej na temat poziomów dziennika, zobacz artykuł dotyczący [monitorowania](functions-monitoring.md#log-levels-and-categories).
 

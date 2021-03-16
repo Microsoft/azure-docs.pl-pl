@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922274"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562063"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -101,6 +101,9 @@ Nowa funkcja link prywatny (wersja zapoznawcza) umożliwia wybranie prywatnego p
 - [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [Używanie programu PowerShell do synchronizacji między bazą danych w Azure SQL Database i bazami danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
+### <a name="set-up-data-sync-with-rest-api"></a>Konfigurowanie synchronizacji danych za pomocą interfejsu API REST
+- [Używanie interfejsu API REST do synchronizowania wielu baz danych w Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
+
 ### <a name="review-the-best-practices-for-data-sync"></a>Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi synchronizacji danych
 
 - [Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync)](sql-data-sync-best-practices.md)
@@ -165,7 +168,7 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Ograniczenia dotyczące wymiarów usługi i bazy danych
 
-| **Wymiary**                                                  | **Limit**              | **Obejście**              |
+| **Wymiary**                                                  | **Granice**              | **Obejście**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maksymalna liczba grup synchronizacji, do których może należeć baza danych.       | 5                      |                             |
 | Maksymalna liczba punktów końcowych w pojedynczej grupie synchronizacji              | 30                     |                             |

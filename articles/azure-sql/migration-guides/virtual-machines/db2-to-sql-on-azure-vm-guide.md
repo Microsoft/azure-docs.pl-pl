@@ -1,6 +1,6 @@
 ---
-title: Bazy danych DB2 do SQL Server na maszynach wirtualnych platformy Azure (Przewodnik migracji)
-description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację serwera DB2 do SQL Server na maszynach wirtualnych platformy Azure.
+title: 'Bazy danych DB2 do SQL Server na maszynach wirtualnych platformy Azure: Przewodnik migracji'
+description: W tym przewodniku przedstawiono, jak przeprowadzić migrację bazy danych DB2 do SQL Server na maszynach wirtualnych platformy Azure przy użyciu Asystent migracji do programu SQL Server dla programu DB2.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: aadfd2d96e2ed610ee1e3eaaec9276212e912b0d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797474"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562233"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Przewodnik migracji: DB2 do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -144,8 +144,6 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
 1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
 
-   > [!NOTE]
-   > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
 
 ## <a name="migration-assets"></a>Zasoby migracji 
 
@@ -169,5 +167,4 @@ W przypadku macierzy usług i narzędzi firmy Microsoft i innych firm, które s�
 W przypadku innych przewodników migracji zapoznaj się z tematem [migracja bazy danych](https://datamigration.microsoft.com/). 
 
 Aby uzyskać zawartość wideo, zobacz:
-- [Jak korzystać z przewodnika po migracji bazy danych](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
 - [Przegląd podróży migracji](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

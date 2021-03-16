@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: fa68db4bd166ebe1acd1ae85fca2d7e51236a4c4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522057"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561944"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Wdrażanie modeli uczenia maszynowego na platformie Azure
 
@@ -145,6 +145,7 @@ Aby uzyskać więcej informacji na temat `az ml model register` , zapoznaj się 
 
     Aby uzyskać więcej informacji, zobacz dokumentację [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) .
 
+    W celu wdrożenia zarejestrowanego modelu z programu `AutoMLRun` zalecamy użycie [przycisku Wdróż po jednym kliknięciu w usłudze Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 ### <a name="register-a-model-from-a-local-file"></a>Rejestrowanie modelu z pliku lokalnego
 
 Model można zarejestrować, podając ścieżkę lokalną modelu. Można podać ścieżkę do folderu lub pojedynczego pliku. Za pomocą tej metody można rejestrować modele przeszkolone przy użyciu Azure Machine Learning, a następnie pobrać. Tej metody można również użyć do rejestrowania modeli przeszkolonych poza Azure Machine Learning.
@@ -368,6 +369,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą usługi [WebSe
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
 * [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
+* [Wdrożenie jednego kliknięcia dla zautomatyzowanych przebiegów ML w Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)

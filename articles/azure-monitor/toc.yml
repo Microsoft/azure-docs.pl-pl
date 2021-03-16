@@ -966,8 +966,6 @@
           items:
             - name: Informacje na temat technologii F5
               href: app/visual-studio.md
-            - name: Trends
-              href: app/visual-studio-trends.md
             - name: CodeLens
               href: app/visual-studio-codelens.md
         - name: Inne platformy
@@ -1038,6 +1036,8 @@
           href: vm/vminsights-workbooks.md
         - name: Wyłączanie monitorowania
           href: vm/vminsights-optout.md
+        - name: Rozwiązywanie problemów
+          href: vm/vminsights-troubleshoot.md
     - name: Szczegółowe informacje o kontenerze
       items:
         - name: Omówienie

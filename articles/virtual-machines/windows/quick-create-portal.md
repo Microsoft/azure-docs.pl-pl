@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e52fab081a94ad58e91c629f4092ae889d38e7a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0ba28d003f359af12de6242c6d2444fb8adab0d7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102560926"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562759"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal
 
@@ -30,12 +30,12 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 1. Wpisz **maszyny wirtualne** w wyszukiwaniu.
 1. W obszarze **usługi** wybierz pozycję **maszyny wirtualne**.
-1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**. 
+1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj** **maszynę wirtualną**. 
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę *myResourceGroup*. 
 
     ![Zrzut ekranu przedstawiający sekcję Szczegóły projektu, w której można wybrać subskrypcję platformy Azure i grupę zasobów dla maszyny wirtualnej](./media/quick-create-portal/project-details.png)
 
-1. W obszarze **szczegóły wystąpienia** wpisz *myVM* dla **nazwy maszyny wirtualnej** i wybierz pozycję *Wschodnie stany USA* dla **regionu**, a następnie wybierz pozycję *Windows Server 2019 Datacenter* dla tego **obrazu**. Inne wartości pozostaw domyślne.
+1. W obszarze **Szczegóły wystąpienia** wpisz *myVM* w polu **Nazwa maszyny wirtualnej** i wybierz *Wschodnie stany USA* w polu **Region**. Wybierz pozycję *Windows Server 2019 Datacenter* dla **obrazu** i *Standard_DS1_v2* **rozmiar**. Inne wartości pozostaw domyślne.
 
     ![Zrzut ekranu przedstawiający sekcję Szczegóły wystąpienia, w której podano nazwę maszyny wirtualnej i wybierz jej region, obraz i rozmiar](./media/quick-create-portal/instance-details.png)
 
@@ -51,16 +51,21 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
     ![Zrzut ekranu przedstawiający przycisk przegląd i Utwórz w dolnej części strony](./media/quick-create-portal/review-create.png)
 
+1. Po uruchomieniu walidacji wybierz przycisk **Utwórz** u dołu strony.
+
+1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
+
+    ![Zrzut ekranu przedstawiający następny krok przechodzenia do zasobu](./media/quick-create-portal/next-steps.png)
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
 Utwórz połączenie pulpitu zdalnego z maszyną wirtualną. Te kroki pozwolą Ci połączyć się z maszyną wirtualną z komputera z systemem Windows. Na komputerze Mac należy skorzystać z klienta RDP, takiego jak ten [klient pulpitu zdalnego](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) ze sklepu Mac App Store.
 
-1. Wybierz przycisk **Połącz** na stronie Przegląd dla swojej maszyny wirtualnej. 
+1. Na stronie Przegląd dla swojej maszyny wirtualnej wybierz przycisk **Połącz** , a następnie wybierz pozycję **RDP**. 
 
     ![Zrzut ekranu przedstawiający stronę przegląd maszyny wirtualnej z informacją o lokalizacji przycisku Połącz](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Na stronie **Połącz z maszyną wirtualną** zachowaj domyślne opcje łączenia przy użyciu adresu IP i portu 3389, a następnie kliknij pozycję **Pobierz plik RDP**.
+2. Na stronie **Połącz z** protokołem RDP zachowaj domyślne opcje łączenia przy użyciu adresu IP i portu 3389, a następnie kliknij pozycję **Pobierz plik RDP**.
 
 2. Otwórz pobrany plik RDP i kliknij **Połącz**, gdy wyświetli się odpowiedni monit. 
 
@@ -81,7 +86,7 @@ Po zakończeniu zamknij połączenie RDP z maszyną wirtualną.
 
 ## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
 
-W portalu wybierz maszynę wirtualną, a następnie w obszarze przegląd maszyny wirtualnej Użyj przycisku **kliknij, aby skopiować** na prawo od adresu IP, aby skopiować go i wkleić do karty przeglądarki. Zostanie otwarta domyślna strona powitalna usług IIS, która powinna wyglądać następująco:
+W portalu wybierz maszynę wirtualną, a następnie w obszarze przegląd maszyny wirtualnej Umieść wskaźnik myszy na adresie IP, aby wyświetlić **kopię do schowka**. Skopiuj adres IP i wklej go na karcie przeglądarki. Zostanie otwarta domyślna strona powitalna usług IIS, która powinna wyglądać następująco:
 
 ![Zrzut ekranu witryny domyślnej usług IIS w przeglądarce](./media/quick-create-powershell/default-iis-website.png)
 
@@ -89,11 +94,11 @@ W portalu wybierz maszynę wirtualną, a następnie w obszarze przegląd maszyny
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. 
 
-Wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Potwierdź nazwę grupy zasobów, aby zakończyć usuwanie zasobów.
+Przejdź do grupy zasobów maszyny wirtualnej, a następnie wybierz pozycję **Usuń grupę zasobów**. Potwierdź nazwę grupy zasobów, aby zakończyć usuwanie zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start zawarto informacje na temat wdrażania maszyny wirtualnej, otwierania portu sieciowego na ruch internetowy oraz instalowania podstawowego serwera sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Windows.
+W tym przewodniku szybki start wdrożono prostą maszynę wirtualną, otwarto port sieciowy dla ruchu w sieci Web i zainstalowano podstawowy serwer sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Windows.
 
 > [!div class="nextstepaction"]
 > [Samouczki dla maszyny wirtualnej platformy Azure z systemem Windows](./tutorial-manage-vm.md)
