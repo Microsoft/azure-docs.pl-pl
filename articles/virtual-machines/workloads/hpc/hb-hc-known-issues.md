@@ -5,23 +5,27 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 83f9778da91cebb651d98e2e85748cda7435230a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a0eaa18f5b120fcc9cbf0e4da470ee46772c925
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674683"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470408"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii H i N
 
 W tym artykule przedstawiono najczęstsze [problemy i rozwiązania](../../sizes-gpu.md) dotyczące korzystania z [serii H](../../sizes-hpc.md) i maszyn wirtualnych procesora GPU.
 
+## <a name="known-issues-on-hbv3"></a>Znane problemy dotyczące HBv3
+- InfiniBand jest obecnie obsługiwany tylko na maszynie wirtualnej 120-Core (Standard_HB120rs_v3). Obsługa innych rozmiarów maszyn wirtualnych zostanie włączona wkrótce.
+- Przyspieszona sieć platformy Azure nie jest obsługiwana w przypadku serii HBv3 we wszystkich regionach. Ta funkcja zostanie włączona wkrótce.
+
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Przyspieszona sieć w przypadku HB, HC, HBv2 i NDv2
 
-[Przyspieszona sieć platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) jest teraz dostępna w przypadku maszyn wirtualnych z obsługą funkcji RDMA i InfiniBand oraz rozmiary maszyny wirtualnej z interfejsem SR-IOV, które są [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) i [NDv2](../../ndv2-series.md). Ta funkcja umożliwia teraz rozszerzone (do 30 GB/s) i opóźnień w sieci Ethernet platformy Azure. Chociaż jest to niezależne od funkcji RDMA w sieci InfiniBand, niektóre zmiany platformy dla tej możliwości mogą mieć wpływ na zachowanie niektórych implementacji MPI podczas rozpoczęciem zadań za pośrednictwem InfiniBand. W szczególności interfejs InfiniBand na niektórych maszynach wirtualnych może mieć nieco inną nazwę (mlx5_1, a nie wcześniejszy mlx5_0) i może wymagać dostosowywania wierszy poleceń MPI, zwłaszcza w przypadku używania interfejsu UCX (zazwyczaj z OpenMPI i HPC-X).
+[Przyspieszona sieć platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) jest teraz dostępna w przypadku maszyn wirtualnych z obsługą funkcji RDMA i InfiniBand oraz rozmiary maszyny wirtualnej z interfejsem SR-IOV, które są [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)i [NDv2](../../ndv2-series.md). Ta funkcja umożliwia teraz rozszerzone (do 30 GB/s) i opóźnień w sieci Ethernet platformy Azure. Chociaż jest to niezależne od funkcji RDMA w sieci InfiniBand, niektóre zmiany platformy dla tej możliwości mogą mieć wpływ na zachowanie niektórych implementacji MPI podczas wykonywania zadań przez InfiniBand. W szczególności interfejs InfiniBand na niektórych maszynach wirtualnych może mieć nieco inną nazwę (mlx5_1, a nie wcześniejszy mlx5_0) i może wymagać dostosowywania wierszy poleceń MPI, zwłaszcza w przypadku używania interfejsu UCX (zazwyczaj z OpenMPI i HPC-X).
 Więcej szczegółowych informacji na ten temat znajduje się w tym [artykule w blogu](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) z instrukcjami dotyczącymi sposobu rozwiązywania wszelkich obserwowanych problemów.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalacja sterownika InfiniBand na maszynach wirtualnych z serii N
@@ -54,11 +58,7 @@ Jest to znany problem z tym "zduplikowanym komputerem MAC z chmurą Ubuntu". Obe
 
 ## <a name="dram-on-hb-series"></a>Pamięci DRAM w serii HB
 
-Maszyny wirtualne z serii HB mogą teraz uwidocznić 228 GB pamięci RAM na maszynach wirtualnych gościa. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, aby zapobiec przypisaniu stron do lokalnej pamięci DRAM w systemie AMD CCX (domeny NUMA) zarezerwowanych dla maszyny wirtualnej gościa.
-
-## <a name="accelerated-networking"></a>Accelerated Networking
-
-W tej chwili nie włączono usługi Azure przyspieszonej sieci na platformie HPC z włączonymi PROCESORAmi i maszynami wirtualnymi. Klienci będą powiadamiani o tym, gdy ta funkcja jest obsługiwana.
+Maszyny wirtualne z serii HB mogą teraz uwidocznić 228 GB pamięci RAM na maszynach wirtualnych gościa. Podobnie 458 GB w HBv2 i 448 GB na maszynach wirtualnych HBv3. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, aby zapobiec przypisaniu stron do lokalnej pamięci DRAM w systemie AMD CCX (domeny NUMA) zarezerwowanych dla maszyny wirtualnej gościa.
 
 ## <a name="qp0-access-restriction"></a>qp0 ograniczenia dostępu
 
@@ -114,5 +114,5 @@ Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux można zigno
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
-- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z ogólnym widokiem architektury uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

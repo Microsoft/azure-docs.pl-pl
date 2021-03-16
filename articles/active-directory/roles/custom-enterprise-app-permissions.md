@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741659"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466797"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Uprawnienia aplikacji przedsiębiorstwa dla ról niestandardowych w Azure Active Directory
 
@@ -169,4 +169,4 @@ Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszyst
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie ról niestandardowych przy użyciu Azure Portal, programu Azure AD PowerShell i interfejs API programu Graph](custom-create.md)
-- [Wyświetlanie przypisań roli niestandardowej](custom-view-assignments.md)
+- [Lista przypisań ról](view-assignments.md)

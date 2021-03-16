@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806642"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467633"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -65,6 +65,13 @@ Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego prz
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Jaka jest różnica między magazynem geograficznie nadmiarowym (GRS) i bez włączonej funkcji przywracania między regionami (CRR)?
 
 W przypadku magazynu [GRS](azure-backup-glossary.md#grs) bez włączonej możliwości [CRR](azure-backup-glossary.md#cross-region-restore-crr) nie można uzyskać dostępu do danych w regionie pomocniczym, dopóki platforma Azure nie zadeklaruje awarii w regionie podstawowym. W takim scenariuszu przywracanie odbywa się z regionu pomocniczego. Gdy CRR jest włączona, nawet jeśli region podstawowy jest uruchomiony, można wyzwolić przywracanie w regionie pomocniczym.
+
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>Czy mogę przenieść subskrypcję zawierającą magazyn do innego Azure Active Directory?
+
+Tak. Aby przenieść subskrypcję (zawierającą magazyn) do innej Azure Active Directory (AD), zobacz [transfer subskrypcji do innego katalogu](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Po przeniesieniu subskrypcji upewnij się, że wykonano następujące czynności:<ul><li>Uprawnienia kontroli dostępu opartej na rolach i role niestandardowe nie są przełożone. Musisz ponownie utworzyć uprawnienia i role w nowej usłudze Azure AD.</li><li>Musisz ponownie utworzyć zarządzaną tożsamość (MI) magazynu, wyłączając ją i włączając ją. Ponadto należy oszacować i ponownie utworzyć uprawnienia MI.</li><li>Jeśli magazyn korzysta z funkcji, które wykorzystują MI, takie jak [prywatne punkty końcowe](private-endpoints.md#before-you-start) i [klucze zarządzane przez klienta](encryption-at-rest-with-cmk.md#before-you-start), należy ponownie skonfigurować funkcje.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

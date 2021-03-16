@@ -4,14 +4,14 @@ description: Jak zarządzać i aktualizować pamięć podręczną Azure HPC przy
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590784"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471880"
 ---
 # <a name="manage-your-cache"></a>Zarządzanie pamięcią podręczną
 
@@ -254,6 +254,20 @@ Na stronie Przegląd przedstawiono wykresy dla niektórych podstawowych statysty
 ![zrzut ekranu przedstawiający trzy wykresy liniowe pokazujący wymienione powyżej dane statystyczne dla przykładowej pamięci podręcznej](media/hpc-cache-overview-stats.png)
 
 Te wykresy są częścią wbudowanych narzędzi do monitorowania i analizowania danych platformy Azure. Dodatkowe narzędzia i alerty są dostępne na stronach pod nagłówkiem **monitorowanie** na pasku bocznym portalu. Więcej informacji znajduje się w sekcji Portal dokumentacji dotyczącej [monitorowania platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Wyświetl ostrzeżenia
+
+Jeśli pamięć podręczna przejdzie w stan złej kondycji, sprawdź stronę **ostrzeżenia** . Na tej stronie są wyświetlane powiadomienia dotyczące oprogramowania pamięci podręcznej, które mogą pomóc w zrozumieniu jego stanu.
+
+Te powiadomienia nie są wyświetlane w dzienniku aktywności, ponieważ nie są kontrolowane przez Azure Portal. Są one często skojarzone z ustawieniami niestandardowymi, które mogły zostać wykonane.
+
+Rodzaje ostrzeżeń, które mogą zostać wyświetlone w tym miejscu, to m.in.:
+
+* Pamięć podręczna nie może nawiązać połączenia z serwerem NTP
+* Nie powiodło się pobranie przez pamięć podręczną informacji o nazwie użytkownika
+* Niestandardowe ustawienia DNS zostały zmienione w miejscu docelowym magazynu
+
+![zrzut ekranu przedstawiający stronę ostrzeżenia > monitorowania z komunikatem, że nie można pobrać nazw użytkowników rozszerzonej grupy](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

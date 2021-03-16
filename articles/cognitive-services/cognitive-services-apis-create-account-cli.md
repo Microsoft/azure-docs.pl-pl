@@ -10,12 +10,12 @@ keywords: usługi poznawcze, analiza poznawcze, rozwiązania poznawcze, usługi 
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050073"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472113"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu Azure Command-Line Interface (CLI)
 
@@ -98,16 +98,6 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 | Rozpoznawanie twarzy                       | `Face`                    |
 | Rozpoznawanie formularzy            | `FormRecognizer`          |
 | Rozpoznawanie pisma odręcznego             | `InkRecognizer`           |
-
-### <a name="search"></a>Wyszukaj
-
-| Usługa            | Rodzaj                  |
-|--------------------|-----------------------|
-| Automatyczne sugerowanie Bing   | `Bing.Autosuggest.v7` |
-| Wyszukiwanie niestandardowe Bing | `Bing.CustomSearch`   |
-| Wyszukiwanie jednostek Bing | `Bing.EntitySearch`   |
-| Wyszukiwanie Bing        | `Bing.Search.v7`      |
-| Sprawdzanie pisowni Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Mowa
 

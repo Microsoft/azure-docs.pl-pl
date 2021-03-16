@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082770"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471716"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i miejscem docelowym magazynu NFS
 
@@ -64,7 +64,7 @@ Różne systemy magazynu używają różnych metod do włączenia tego dostępu:
 W przypadku używania reguł eksportu należy pamiętać, że pamięć podręczna może używać wielu różnych adresów IP z podsieci pamięci podręcznej. Zezwalaj na dostęp z pełnego zakresu możliwych adresów IP podsieci.
 
 > [!NOTE]
-> Domyślnie dostęp do pamięci podręcznej usługi Azure HPC squashes. Aby uzyskać szczegółowe informacje, przeczytaj temat [Konfigurowanie dodatkowych ustawień pamięci podręcznej](configuration.md#configure-root-squash) .
+> Mimo że pamięć podręczna wymaga dostępu głównego do systemu magazynu zaplecza, można ograniczyć dostęp dla klientów łączących się za pomocą pamięci podręcznej. Aby uzyskać szczegółowe informacje, zobacz [Kontrola dostępu klienta](access-policies.md#root-squash) .
 
 Skontaktuj się z dostawcą magazynu NAS, aby włączyć odpowiedni poziom dostępu do pamięci podręcznej.
 
@@ -112,7 +112,7 @@ Nie istnieje prosty sposób, aby stwierdzić, czy system ma ten problem, chyba �
 * Korzystając ze detektorów pakietów po obu stronach sieci VPN, można wykryć, które pakiety zostały pomyślnie przeniesione.
 * Jeśli sieć VPN zezwala na polecenia ping, można testować wysyłanie pakietu o pełnym rozmiarze.
 
-  Uruchom polecenie ping za pośrednictwem sieci VPN do serwera NAS, korzystając z tych opcji. (Użyj adresu IP systemu magazynu zamiast * storage_IP<wartość>* ).
+  Uruchom polecenie ping za pośrednictwem sieci VPN do serwera NAS, korzystając z tych opcji. (Użyj adresu IP systemu magazynu zamiast *storage_IP<wartość>* ).
 
    ```bash
    ping -M do -s 1472 -c 1 <storage_IP>

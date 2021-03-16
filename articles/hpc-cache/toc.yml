@@ -8,6 +8,8 @@
   items:
     - name: Planowanie zagregowanej przestrzeni nazw
       href: hpc-cache-namespace.md
+    - name: Omówienie modeli użycia pamięci podręcznej
+      href: cache-usage-models.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1af2c1b912afbcf44cefbfb021c592836dbde5b8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740197"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466290"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Uprawnienia rejestracji aplikacji dla ról niestandardowych w Azure Active Directory
 
@@ -170,4 +170,4 @@ Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Permissi
 ## <a name="next-steps"></a>Następne kroki
 
 - Tworzenie ról niestandardowych przy użyciu [Azure Portal, programu Azure AD PowerShell i interfejs API programu Graph](custom-create.md)
-- [Wyświetlanie przypisań roli niestandardowej](custom-view-assignments.md)
+- [Lista przypisań ról](view-assignments.md)

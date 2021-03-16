@@ -3,12 +3,12 @@ title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466732"
+ms.locfileid: "103471679"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -76,8 +76,8 @@ Ta reguła zostanie zastosowana tylko do alertów dotyczących wybranych typów 
 Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła będzie stosowana tylko do alertów na maszynach wirtualnych.
 * **Identyfikator reguły alertu**  
 Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
-Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".
-Aby uzyskać odpowiedni identyfikator reguły alertu, należy wyświetlić listę reguł alertów z interfejsu wiersza polecenia lub otworzyć określoną regułę alertu w portalu, kliknąć pozycję "właściwości" i skopiować wartość "Identyfikator zasobu".
+Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".  
+_Uwaga — Możesz uzyskać odpowiedni identyfikator reguły alertu, wyświetlając listę reguł alertów z interfejsu wiersza polecenia lub otwierając konkretną regułę alertu w portalu, klikając pozycję "właściwości" i kopiując wartość "Identyfikator zasobu"._
 * **Warunek monitorowania**  
 Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — są one **wywoływane** lub **rozwiązane**.
 * **Opis**  

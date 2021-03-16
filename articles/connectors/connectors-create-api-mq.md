@@ -7,26 +7,26 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/14/2020
+ms.date: 03/10/2021
 tags: connectors
-ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07eb6e592c68794f0e4038a7cf9a42bd396b47a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609507"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495236"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Nawiązywanie połączenia z serwerem IBM MQ z poziomu usługi Azure Logic Apps
 
-Łącznik IBM MQ wysyła i pobiera komunikaty przechowywane na serwerze IBM MQ lokalnie lub na platformie Azure. Ten łącznik zawiera klienta Microsoft MQ, który komunikuje się ze zdalnym serwerem IBM MQ w sieci TCP/IP. Ten artykuł zawiera Przewodnik początkowy dotyczący używania łącznika MQ. Możesz rozpocząć od przejrzenia pojedynczej wiadomości w kolejce, a następnie wypróbowania innych akcji.
+Łącznik MQ wysyła i pobiera komunikaty przechowywane na serwerze MQ lokalnie lub na platformie Azure. Ten łącznik zawiera klienta Microsoft MQ, który komunikuje się ze zdalnym serwerem IBM MQ w sieci TCP/IP. Ten artykuł zawiera Przewodnik początkowy dotyczący używania łącznika MQ. Możesz rozpocząć od przejrzenia pojedynczej wiadomości w kolejce, a następnie wypróbowania innych akcji.
 
-Łącznik IBM MQ zawiera te akcje, ale nie zapewnia żadnych wyzwalaczy:
+Łącznik MQ zawiera te akcje, ale nie zapewnia żadnych wyzwalaczy:
 
-- Przeglądaj pojedynczy komunikat bez usuwania komunikatu z serwera IBM MQ.
-- Przeglądaj partię komunikatów bez usuwania komunikatów z serwera IBM MQ.
-- Odbierz pojedynczy komunikat i Usuń komunikat z serwera IBM MQ.
-- Odbieraj partię komunikatów i usuwaj komunikaty z serwera IBM MQ.
-- Wyślij pojedynczy komunikat do serwera IBM MQ.
+- Przeglądaj pojedynczy komunikat bez usuwania komunikatu z serwera MQ.
+- Przeglądaj partię komunikatów bez usuwania komunikatów z serwera MQ.
+- Odbierz pojedynczy komunikat i Usuń komunikat z serwera MQ.
+- Odbieraj partię komunikatów i usuwaj komunikaty z serwera MQ.
+- Wyślij pojedynczy komunikat do serwera MQ.
 
 Poniżej przedstawiono oficjalnie obsługiwane wersje oprogramowania IBM WebSphere MQ:
 
@@ -37,15 +37,20 @@ Poniżej przedstawiono oficjalnie obsługiwane wersje oprogramowania IBM WebSphe
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Jeśli używasz lokalnego serwera MQ, [Zainstaluj lokalną bramę danych](../logic-apps/logic-apps-gateway-install.md) na serwerze w sieci. Na serwerze, na którym jest zainstalowana lokalna Brama danych, musi być także zainstalowana .NET Framework 4,6 dla łącznika MQ.
+* W przypadku korzystania z serwera lokalnego MQ należy [zainstalować lokalną bramę danych](../logic-apps/logic-apps-gateway-install.md) na serwerze w sieci.
 
-  Po zakończeniu instalowania bramy należy również utworzyć zasób na platformie Azure dla lokalnej bramy danych. Aby uzyskać więcej informacji, zobacz [Konfigurowanie połączenia z bramą danych](../logic-apps/logic-apps-gateway-connection.md).
+  > [!NOTE]
+  > Jeśli serwer MQ jest publicznie dostępny lub dostępny na platformie Azure, nie musisz korzystać z bramy Data Gateway.
 
-  Jeśli serwer MQ jest publicznie dostępny lub dostępny na platformie Azure, nie musisz korzystać z bramy Data Gateway.
+  * Aby łącznik MQ działał, na serwerze, na którym zainstalowano lokalną bramę danych, należy również zainstalować .NET Framework 4,6.
+  
+  * Po zainstalowaniu lokalnej bramy danych należy również [utworzyć zasób bramy platformy Azure dla lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md) używanej przez łącznik MQ do uzyskiwania dostępu do lokalnego serwera MQ.
 
-* Aplikacja logiki, do której ma zostać dodana akcja MQ. Ta aplikacja logiki musi używać tej samej lokalizacji co lokalne połączenie bramy danych i musi już mieć wyzwalacz, który uruchamia przepływ pracy.
+* Aplikacja logiki, w której ma być używany łącznik MQ. Łącznik MQ nie ma żadnych wyzwalaczy, więc musisz najpierw dodać wyzwalacz do aplikacji logiki. Można na przykład użyć [wyzwalacza cykl](../connectors/connectors-native-recurrence.md). Jeśli dopiero zaczynasz tworzyć aplikacje logiki, Wypróbuj ten [Przewodnik Szybki Start, aby utworzyć swoją pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-  Łącznik MQ nie ma żadnych wyzwalaczy, więc musisz najpierw dodać wyzwalacz do aplikacji logiki. Można na przykład użyć wyzwalacza cykl. Jeśli dopiero zaczynasz tworzyć aplikacje logiki, Wypróbuj ten [Przewodnik Szybki Start, aby utworzyć swoją pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="limitations"></a>Ograniczenia
+
+Łącznik MQ nie obsługuje ani nie używa pola **Format** komunikatu i nie wykonuje konwersji zestawu znaków. Łącznik umieszcza w komunikacie JSON tylko dane wyświetlane w polu komunikat, a następnie wysyła komunikat.
 
 <a name="create-connection"></a>
 
@@ -59,9 +64,9 @@ Jeśli nie masz jeszcze połączenia MQ po dodaniu akcji MQ, zostanie wyświetlo
 
 1. Podaj informacje o połączeniu dla serwera MQ.
 
-   * W przypadku **serwera**wpisz nazwę serwera MQ lub wprowadź adres IP, po którym następuje dwukropek i numer portu.
+   * W przypadku **serwera** wpisz nazwę serwera MQ lub wprowadź adres IP, po którym następuje dwukropek i numer portu.
 
-   * Aby użyć SSL (SSL), wybierz pozycję **Włącz protokół SSL?**.
+   * Aby użyć Transport Layer Security (TLS) lub Secure Sockets Layer (SSL), wybierz pozycję **Włącz protokół SSL?**.
 
      Łącznik MQ obecnie obsługuje tylko uwierzytelnianie serwera, a nie uwierzytelnianie klienta. Aby uzyskać więcej informacji, zobacz [problemy z połączeniem i uwierzytelnianiem](#connection-problems).
 
@@ -92,7 +97,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
   1. Po otwarciu narzędzia Menedżer certyfikacji systemu Windows przejdź do folderu **Certyfikaty —**  >   **Zaufane główne** urzędy certyfikacji komputera lokalnego i Zainstaluj certyfikat.
 
      > [!IMPORTANT]
-     > Upewnij się, że certyfikat jest instalowany w **Certificates - Local Computer**  >  magazynie**zaufanych głównych** urzędów certyfikacji komputera lokalnego.
+     > Upewnij się, że certyfikat jest instalowany w   >  magazynie **zaufanych głównych** urzędów certyfikacji komputera lokalnego.
 
 * Serwer MQ wymaga zdefiniowania specyfikacji szyfrowania, która ma być używana dla połączeń TLS/SSL. Jednak SslStream w programie .NET nie pozwala na określenie kolejności szyfrowania. Aby obejść to ograniczenie, można zmienić konfigurację serwera MQ w taki sposób, aby była zgodna z pierwszą specyfikacją szyfrowania w zestawie, który wysyła łącznik w negocjacji TLS/SSL.
 
@@ -113,7 +118,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
    | Właściwość | Opis |
    |----------|-------------|
    | **Kolejka** | Jeśli różni się od kolejki określonej w połączeniu, określ tę kolejkę. |
-   | Właściwość **MessageID**, **Identyfikator korelacji**, **GroupID**i inne właściwości | Przeglądaj w poszukiwaniu komunikatów opartych na różnych właściwościach komunikatu MQ |
+   | Właściwość **MessageID**, **Identyfikator korelacji**, **GroupID** i inne właściwości | Przeglądaj w poszukiwaniu komunikatów opartych na różnych właściwościach komunikatu MQ |
    | **IncludeInfo** | Aby uwzględnić dodatkowe informacje o komunikatach w danych wyjściowych, wybierz pozycję **prawda**. Aby pominąć dodatkowe informacje o komunikatach w danych wyjściowych, wybierz **wartość FAŁSZ**. |
    | **Limit czasu** | Wprowadź wartość, aby określić czas oczekiwania na nadejście komunikatu w pustej kolejce. Jeśli nic nie zostanie wprowadzone, zostanie pobrany pierwszy komunikat w kolejce i nie ma czasu oczekiwania na wyświetlenie komunikatu. |
    |||
@@ -160,7 +165,7 @@ Akcja **Odbierz wiadomość** zawiera te same dane wejściowe i wyjściowe co Ak
 
 ## <a name="receive-multiple-messages"></a>Odbieranie wielu komunikatów
 
-Akcja **Odbierz komunikaty** ma te same dane wejściowe i wyjściowe co Akcja **Przeglądaj wiadomości** . W przypadku korzystania z **komunikatów Receive**komunikaty są usuwane z kolejki.
+Akcja **Odbierz komunikaty** ma te same dane wejściowe i wyjściowe co Akcja **Przeglądaj wiadomości** . W przypadku korzystania z **komunikatów Receive** komunikaty są usuwane z kolejki.
 
 > [!NOTE]
 > Podczas uruchamiania akcji Przeglądaj lub Odbierz w kolejce, która nie ma żadnych komunikatów, akcja kończy się niepowodzeniem w wyniku:
@@ -173,7 +178,7 @@ Akcja **Odbierz komunikaty** ma te same dane wejściowe i wyjściowe co Akcja **
 
 1. Jeśli połączenie MQ nie zostało jeszcze utworzone, zostanie wyświetlony monit o [utworzenie tego połączenia](#create-connection). W przeciwnym razie używane jest domyślnie pierwsze skonfigurowane połączenie. Aby utworzyć nowe połączenie, wybierz pozycję **Zmień połączenie**. Lub wybierz inne połączenie.
 
-1. Podaj informacje dla akcji. W przypadku **MessageType**wybierz prawidłowy typ komunikatu: **datagram**, **odpowiedź**lub **żądanie**
+1. Podaj informacje dla akcji. W przypadku **MessageType** wybierz prawidłowy typ komunikatu: **datagram**, **odpowiedź** lub **żądanie**
 
    ![Właściwości akcji "Wyślij wiadomość"](media/connectors-create-api-mq/send-message-properties.png)
 
@@ -185,7 +190,7 @@ Akcja **Odbierz komunikaty** ma te same dane wejściowe i wyjściowe co Akcja **
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne o akcjach i limitach, które są opisane w opisie struktury Swagger łącznika, przejrzyj [stronę odwołania](/connectors/mq/)łącznika.
+Aby uzyskać szczegółowe informacje techniczne, takie jak akcje i limity, które są opisane w pliku Swagger łącznika, przejrzyj [stronę odwołania łącznika](/connectors/mq/).
 
 ## <a name="next-steps"></a>Następne kroki
 

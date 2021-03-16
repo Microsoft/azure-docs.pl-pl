@@ -4,14 +4,14 @@ description: Wymagania wstępne dotyczące korzystania z pamięci podręcznej pl
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412514"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471798"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -91,14 +91,18 @@ Przed rozpoczęciem tworzenia pamięci podręcznej Sprawdź te wymagania wstępn
   Postępuj zgodnie z instrukcjami w temacie [Dodawanie elementów docelowych magazynu](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) , aby dodać role.
 
 ## <a name="storage-infrastructure"></a>Infrastruktura magazynu
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-Pamięć podręczna obsługuje kontenery obiektów blob platformy Azure lub eksporty magazynu sprzętowego systemu plików NFS. Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej.
+Pamięć podręczna obsługuje kontenery obiektów blob platformy Azure, eksporty magazynu sprzętowego systemu plików NFS i kontenery obiektów BLOB ADLS (obecnie dostępne w wersji zapoznawczej). Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej.
 
 Każdy typ magazynu ma określone wymagania wstępne.
 
 ### <a name="blob-storage-requirements"></a>Wymagania dotyczące magazynu obiektów BLOB
 
 Jeśli chcesz używać usługi Azure Blob Storage z pamięcią podręczną, potrzebujesz zgodnego konta magazynu i pustego kontenera obiektów blob lub kontenera, który jest wypełniony danymi z pamięci podręcznej platformy Azure HPC, zgodnie z opisem w sekcji [przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Różne wymagania dotyczą magazynu obiektów BLOB zainstalowanych w systemie plików NFS. Aby uzyskać szczegółowe informacje, Przeczytaj [wymagania dotyczące magazynu ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) .
 
 Utwórz konto przed podjęciem próby dodania miejsca docelowego magazynu. Nowy kontener można utworzyć po dodaniu obiektu docelowego.
 
@@ -169,6 +173,37 @@ Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfigur
   * Jeśli magazyn zawiera jakiekolwiek eksporty, które są podkatalogami innego eksportu, upewnij się, że pamięć podręczna ma dostęp do najniższego segmentu ścieżki. Aby uzyskać szczegółowe informacje, Przeczytaj [temat dostęp do katalogu głównego w ścieżkach katalogów](troubleshoot-nas.md#allow-root-access-on-directory-paths) w artykule dotyczącym rozwiązywania problemów dotyczących magazynu NFS.
 
 * Magazyn zaplecza systemu plików NFS musi być zgodnym sprzętem/platformą oprogramowania. Aby uzyskać szczegółowe informacje, skontaktuj się z zespołem usługi Azure HPC cache.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Wymagania dotyczące magazynu obiektów BLOB (ADLS-NFS) zainstalowanych w systemie plików NFS (wersja zapoznawcza)
+
+Pamięć podręczna Azure HPC może również używać kontenera obiektów BLOB zainstalowanego z protokołem systemu plików NFS jako miejsca docelowego magazynu.
+
+> [!NOTE]
+> Obsługa protokołu NFS 3,0 dla usługi Azure Blob Storage jest w publicznej wersji zapoznawczej. Dostępność jest ograniczona, a funkcje mogą ulec zmianie między teraz i gdy funkcja będzie ogólnie dostępna. Nie używaj technologii wersji zapoznawczej w systemach produkcyjnych.
+>
+> Przeczytaj więcej na temat tej funkcji w wersji zapoznawczej w temacie [Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage](../storage/blobs/network-file-system-protocol-support.md).
+
+Wymagania dotyczące konta magazynu różnią się w przypadku miejsca docelowego magazynu obiektów BLOB ADLS-NFS oraz dla standardowego celu magazynu obiektów BLOB. Postępuj zgodnie z instrukcjami w temacie [Instalowanie usługi BLOB Storage, używając dokładnie protokołu sieciowego systemu plików (NFS) 3,0](../storage/blobs/network-file-system-protocol-support-how-to.md) , aby utworzyć i skonfigurować konto magazynu z obsługą systemu plików NFS.
+
+Jest to ogólny przegląd kroków:
+
+1. Upewnij się, że funkcje, których potrzebujesz, są dostępne w regionach, w których planujesz prace.
+
+1. Włącz funkcję protokołu NFS dla subskrypcji. Zrób to *przed* utworzeniem konta magazynu.
+
+1. Utwórz bezpieczną sieć wirtualną (VNet) dla konta magazynu. Należy używać tej samej sieci wirtualnej dla konta magazynu obsługującego system plików NFS i dla pamięci podręcznej platformy Azure HPC.
+
+1. Utwórz konto magazynu.
+
+   * Zamiast korzystać z ustawień konta magazynu dla standardowego konta usługi BLOB Storage, postępuj zgodnie z instrukcjami w [dokumencie How-to](../storage/blobs/network-file-system-protocol-support-how-to.md). Typ obsługiwanego konta magazynu może różnić się w zależności od regionu platformy Azure.
+
+   * W sekcji **Sieć** wybierz prywatny punkt końcowy w utworzonej (zalecanej) bezpiecznej sieci wirtualnej lub wybierz publiczny punkt końcowy z ograniczonym dostępem z poziomu bezpiecznej komunikacji wirtualnej.
+
+   * Nie zapomnij ukończyć sekcji **Zaawansowane** , w której włączono dostęp do systemu plików NFS.
+
+   * Nadaj aplikacji pamięci podręcznej dostęp do konta usługi Azure [Storage, jak](#permissions)wspomniano powyżej. Można to zrobić przy pierwszym utworzeniu miejsca docelowego magazynu. Postępuj zgodnie z procedurą w temacie [Dodawanie miejsc docelowych](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) w celu nadania pamięci podręcznej wymaganych ról dostępu.
+
+     Jeśli nie jesteś właścicielem konta magazynu, jego właścicielem jest ten krok.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Konfigurowanie dostępu do interfejsu wiersza polecenia platformy Azure (opcjonalnie)
 

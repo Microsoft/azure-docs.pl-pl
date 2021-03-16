@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ram
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4f75bec533181b29625fb0a10cc26d03f2875036
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325778"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466375"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -23,7 +23,7 @@ Obsługiwane są wszystkie regiony publiczne i suwerenne regiony, z wyjątkiem F
 
 - Podczas przenoszenia magazynu między grupami zasobów zarówno źródłowa, jak i docelowa Grupa zasobów są blokowane, co uniemożliwia wykonywanie operacji zapisu i usuwania. Więcej informacji znajduje się w tym [artykule](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Tylko subskrypcja administratora ma uprawnienia do przenoszenia magazynu.
-- W przypadku przeniesienia magazynów między subskrypcjami subskrypcja docelowa musi znajdować się w tej samej dzierżawie co subskrypcja źródłowa, a jej stan powinien być włączony.
+- W przypadku przeniesienia magazynów między subskrypcjami subskrypcja docelowa musi znajdować się w tej samej dzierżawie co subskrypcja źródłowa, a jej stan musi być włączony. Aby przenieść magazyn do innego katalogu usługi Azure AD, zobacz [transfer subskrypcji do innego katalogu](../role-based-access-control/transfer-subscription.md) i [Magazyn usługi odzyskiwania — często zadawane pytania](backup-azure-backup-faq.md#recovery-services-vault).
 - Musisz mieć uprawnienia do wykonywania operacji zapisu w docelowej grupie zasobów.
 - Przeniesienie magazynu powoduje jedynie zmianę grupy zasobów. Magazyn Recovery Services będzie znajdował się w tej samej lokalizacji i nie można go zmienić.
 - W danym momencie można przenieść tylko jeden magazyn Recovery Services na region.
@@ -34,7 +34,7 @@ Obsługiwane są wszystkie regiony publiczne i suwerenne regiony, z wyjątkiem F
 - Opcje przeniesienia zasobów wdrożonych za pomocą modelu klasycznego różnią się w zależności od tego, czy przenosisz zasoby w ramach subskrypcji, czy na nową subskrypcję. Więcej informacji znajduje się w tym [artykule](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Zasady tworzenia kopii zapasowych zdefiniowane dla magazynu są zachowywane po przejściu magazynu między subskrypcjami lub nową grupą zasobów.
 - Można przenieść tylko magazyn zawierający dowolne z następujących typów elementów kopii zapasowej. Wszelkie elementy kopii zapasowej typów, które nie są wymienione poniżej, muszą zostać zatrzymane, a dane zostaną trwale usunięte przed przeniesieniem magazynu.
-  - Maszyny wirtualne platformy Azure
+  - Azure Virtual Machines
   - Agent Microsoft Azure Recovery Services (MARS)
   - Serwer Microsoft Azure Backup (serwera usługi MAB)
   - Program Data Protection Manager (DPM)

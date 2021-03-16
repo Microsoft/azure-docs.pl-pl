@@ -43,6 +43,8 @@
           href: tutorial-private-endpoint-sql-cli.md
 - name: Pojęcia
   items:
+    - name: Dostępność
+      href: availability.md
     - name: Prywatny punkt końcowy
       href: private-endpoint-overview.md
     - name: Usługa łącza prywatnego

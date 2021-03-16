@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ac21e1f00dc2a5580b90a1a5eb43da05288e800a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179225"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489427"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -250,7 +250,11 @@ Treść żądania JSON:
 ```
 
 ### <a name="resource-manager-template"></a>Szablon usługi Resource Manager
+
 Postępuj zgodnie z tym [szablonem Menedżer zasobów szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) , aby wdrożyć moduł równoważenia obciążenia i maszyny wirtualne oraz dodać maszyny wirtualne do puli zaplecza za pośrednictwem interfejsu sieciowego.
+
+Postępuj zgodnie z tym [szablonem Menedżer zasobów szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) , aby wdrożyć moduł równoważenia obciążenia i maszyny wirtualne oraz dodać maszyny wirtualne do puli zaplecza za pomocą adresu IP.
+
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurowanie puli zaplecza według adresu IP i sieci wirtualnej
 W scenariuszach z wstępnie wypełnionymi pulami zaplecza Użyj protokołu IP i sieci wirtualnej.

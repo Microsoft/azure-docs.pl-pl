@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 09/29/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5da59e1a9a5f8cfeb26de46f3ece199c76590030
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 12e371dd24203625ab8987018bb223b532938e16
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636100"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495729"
 ---
 # <a name="reference-documentation-overview"></a>Przegląd dokumentacji referencyjnej
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453278"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491303"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -113,7 +113,7 @@ Ten błąd występuje, jeśli udział plików platformy Azure jest już używany
 Jeśli zobaczysz ten komunikat i udział plików platformy Azure aktualnie nie jest używany przez punkt końcowy w chmurze, wykonaj następujące kroki, aby wyczyścić Azure File Sync metadane w udziale plików platformy Azure:
 
 > [!Warning]  
-> Usuwanie metadanych w udziale plików platformy Azure, który jest obecnie używany przez punkt końcowy w chmurze, powoduje niepowodzenie operacji Azure File Sync. 
+> Usuwanie metadanych w udziale plików platformy Azure, który jest obecnie używany przez punkt końcowy w chmurze, powoduje niepowodzenie operacji Azure File Sync. Jeśli następnie użyjesz tego udziału plików do synchronizacji w innej grupie synchronizacji, utrata danych dla plików w starej grupie synchronizacji jest niemal nieokreślona.
 
 1. W Azure Portal przejdź do udziału plików platformy Azure.  
 2. Kliknij prawym przyciskiem myszy udział plików platformy Azure, a następnie wybierz polecenie **Edytuj metadane**.

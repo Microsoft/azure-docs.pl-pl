@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742050"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466766"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Omówienie kontroli dostępu opartej na rolach w Azure Active Directory
 
@@ -60,7 +60,7 @@ Przypisanie roli to zasób usługi Azure AD, który dołącza *definicję roli* 
 - Definicja roli
 - Zakres zasobu
 
-[Przypisania ról można tworzyć](custom-create.md) przy użyciu Azure Portal, programu Azure AD PowerShell lub interfejs API programu Graph. Możesz również [wyświetlić przypisania dla roli niestandardowej](custom-view-assignments.md#view-the-assignments-of-a-role).
+[Przypisania ról można tworzyć](custom-create.md) przy użyciu Azure Portal, programu Azure AD PowerShell lub interfejs API programu Graph. Można również [wyświetlić listę przypisań ról](view-assignments.md).
 
 Na poniższym diagramie przedstawiono przykład przypisania roli. W tym przykładzie Krzysztof zielony ma przypisaną rolę niestandardową administratora rejestracji aplikacji w zakresie rejestracji aplikacji konstruktora widgetu contoso. Przypisanie przyznaje Krzysztofowi uprawnienia roli administratora rejestracji aplikacji tylko dla tej rejestracji konkretnej aplikacji.
 
@@ -89,4 +89,4 @@ Korzystanie z wbudowanych ról w usłudze Azure AD jest bezpłatne, natomiast ro
 
 - [Omówienie ról usługi Azure AD](concept-understand-roles.md)
 - Tworzenie niestandardowych przypisań ról przy użyciu [Azure Portal, programu Azure AD PowerShell i interfejs API programu Graph](custom-create.md)
-- [Wyświetlanie przypisań roli niestandardowej](custom-view-assignments.md)
+- [Lista przypisań ról](view-assignments.md)

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803769"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472073"
 ---
 # <a name="configure-directory-services"></a>Konfigurowanie usług katalogowych
 
@@ -75,7 +75,7 @@ Serwer i podstawowa nazwa wyróżniająca są jedynymi wymaganymi ustawieniami d
 
 W sekcji **bezpieczny dostęp** można włączyć szyfrowanie i sprawdzanie poprawności certyfikatu dla połączenia LDAP. Po kliknięciu przycisku **tak** , aby włączyć szyfrowanie, dostępne są następujące opcje:
 
-* **Wymagaj ważnego certyfikatu** — po ustawieniu tego ustawienia certyfikat serwera LDAP zostanie zweryfikowany względem urzędu certyfikacji w polu Identyfikator URI poniżej.
+* **Weryfikuj certyfikat** — po ustawieniu tego ustawienia certyfikat serwera LDAP zostanie zweryfikowany względem urzędu certyfikacji w polu Identyfikator URI poniżej.
 
 * **Identyfikator URI certyfikatu urzędu certyfikacji** — określ ścieżkę do certyfikatu autorytatywnego. Może to być link do certyfikatu zweryfikowanego przez urząd certyfikacji lub certyfikatu z podpisem własnym. To pole jest wymagane do użycia ustawienia certyfikaty zweryfikowane zewnętrznie.
 

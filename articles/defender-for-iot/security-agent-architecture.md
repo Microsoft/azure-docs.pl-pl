@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: de8c52372b2ef92dcf2abe357a40ef8947439a8a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449241"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493970"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Szybki Start: architektura referencyjna agenta zabezpieczeń
 
@@ -57,7 +57,7 @@ Usługa Defender for IoT oferuje różnych agentów Instalatora dla 32 bitowych 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule poznasz ogólne omówienie architektury usługi Defender dla usługi IoT Security i dostępnych instalatorów.
+W tym artykule opisano ogólne omówienie architektury Defender for IoT Defender-IoT-Micro-Agent i dostępnych instalatorów.
 
 Aby kontynuować wprowadzenie do usługi Defender for IoT, użyj następujących artykułów:
 

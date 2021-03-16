@@ -2,13 +2,13 @@
 title: Używanie funkcji na platformie Azure jako programu obsługi zdarzeń dla zdarzeń Azure Event Grid
 description: Opisuje, w jaki sposób można używać funkcji utworzonych w programach i hostowanych przez Azure Functions jako programy obsługi zdarzeń dla zdarzeń Event Grid.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632516"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496545"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Używanie funkcji jako programu obsługi zdarzeń dla zdarzeń Event Grid
 
@@ -79,6 +79,9 @@ Aby skonfigurować ustawienia związane z usługą Batch przy użyciu następuj�
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Za pomocą polecenia cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) lub [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) można skonfigurować ustawienia związane z usługą Batch, korzystając z następujących parametrów: `-MaxEventsPerBatch` lub `-PreferredBatchSizeInKiloBytes` .
+
+> [!NOTE]
+> W przypadku korzystania z wyzwalacza Event Grid usługa Event Grid Pobiera klucz tajny klienta dla docelowej funkcji platformy Azure i używa jej do dostarczania zdarzeń do funkcji platformy Azure. W przypadku ochrony funkcji platformy Azure za pomocą aplikacji Azure Active Directory należy zastosować podejście ogólnego elementu Hook sieci Web i użyć wyzwalacza HTTP.
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) .

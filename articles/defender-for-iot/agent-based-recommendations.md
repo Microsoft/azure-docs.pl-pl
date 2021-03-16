@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: shhazam
-ms.openlocfilehash: c7407db1460c2d0a83f2262a3348c81b4de300a7
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642535"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491269"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Zalecenia dotyczące zabezpieczeń urządzeń IoT
 
@@ -34,11 +34,11 @@ Zalecenia dotyczące urządzeń zapewniają szczegółowe informacje i sugestie 
 
 | Ważność | Nazwa | Źródło danych | Opis |
 |--|--|--|--|
-| Śred. | Otwórz porty na urządzeniu | Klasyczny moduł zabezpieczeń | Znaleziono punkt końcowy nasłuchiwania na urządzeniu. |
-| Śred. | Odnoszące się do zasad zapory znajdują się w jednym z łańcuchów. | Klasyczny moduł zabezpieczeń | Znaleziono dozwolone zasady zapory (dane wejściowe/wyjściowe). Zasady zapory powinny domyślnie blokować cały ruch i definiować reguły zezwalające na niezbędną komunikację z urządzeniem lub z niego. |
-| Śred. | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Klasyczny moduł zabezpieczeń | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów. |
-| Śred. | Znaleziono ograniczającą regułę zapory w łańcuchu wyjściowym | Klasyczny moduł zabezpieczeń | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów. |
-| Śred. | Weryfikacja linii bazowej systemu operacyjnego nie powiodła się | Klasyczny moduł zabezpieczeń | Urządzenie nie jest zgodne z wynikami [testów CIS systemu Linux](https://www.cisecurity.org/cis-benchmarks/). |
+| Śred. | Otwórz porty na urządzeniu | Klasyczna usługa Defender-IoT-Micro-Agent| Znaleziono punkt końcowy nasłuchiwania na urządzeniu. |
+| Śred. | Odnoszące się do zasad zapory znajdują się w jednym z łańcuchów. | Klasyczna usługa Defender-IoT-Micro-Agent| Znaleziono dozwolone zasady zapory (dane wejściowe/wyjściowe). Zasady zapory powinny domyślnie blokować cały ruch i definiować reguły zezwalające na niezbędną komunikację z urządzeniem lub z niego. |
+| Śred. | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Klasyczna usługa Defender-IoT-Micro-Agent| Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów. |
+| Śred. | Znaleziono ograniczającą regułę zapory w łańcuchu wyjściowym | Klasyczna usługa Defender-IoT-Micro-Agent| Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów. |
+| Śred. | Weryfikacja linii bazowej systemu operacyjnego nie powiodła się | Klasyczna usługa Defender-IoT-Micro-Agent| Urządzenie nie jest zgodne z wynikami [testów CIS systemu Linux](https://www.cisecurity.org/cis-benchmarks/). |
 
 ### <a name="agent-based-operational-recommendations"></a>Zalecenia dotyczące działania oparte na agencie
 
@@ -46,9 +46,9 @@ Zalecenia dotyczące działania zapewniają szczegółowe informacje i sugestie 
 
 | Ważność | Nazwa | Źródło danych | Opis |
 |--|--|--|--|
-| Niski | Agent wysyła niewykorzystywane wiadomości | Klasyczny moduł zabezpieczeń | 10% lub więcej komunikatów o zabezpieczeniach było mniejsze niż 4 KB w ciągu ostatnich 24 godzin. |
-| Niski | Konfiguracja przędzy zabezpieczającej nie jest optymalna | Klasyczny moduł zabezpieczeń | Konfiguracja przędzy zabezpieczeń nie jest optymalna. |
-| Niski | Konflikt konfiguracji przędzy zabezpieczającej | Klasyczny moduł zabezpieczeń | Zidentyfikowano konflikty w konfiguracji dwuosiowych zabezpieczeń. |  |
+| Niski | Agent wysyła niewykorzystywane wiadomości | Klasyczna usługa Defender-IoT-Micro-Agent| 10% lub więcej komunikatów o zabezpieczeniach było mniejsze niż 4 KB w ciągu ostatnich 24 godzin. |
+| Niski | Konfiguracja przędzy zabezpieczającej nie jest optymalna | Klasyczna usługa Defender-IoT-Micro-Agent| Konfiguracja przędzy zabezpieczeń nie jest optymalna. |
+| Niski | Konflikt konfiguracji przędzy zabezpieczającej | Klasyczna usługa Defender-IoT-Micro-Agent| Zidentyfikowano konflikty w konfiguracji dwuosiowych zabezpieczeń. |  |
 
 ## <a name="next-steps"></a>Następne kroki
 

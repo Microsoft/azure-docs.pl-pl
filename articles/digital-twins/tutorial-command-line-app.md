@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 54f3004c190c104f2f869b2878b50f5b6c88856b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463946"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493712"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Samouczek: Tworzenie wykresu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji klienckiej
 
@@ -37,18 +37,17 @@ W tym samouczku będziesz...
 
 Po skonfigurowaniu aplikacji i uwierzytelniania Uruchom projekt za pomocą tego przycisku na pasku narzędzi:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Przycisk Start programu Visual Studio (projekt SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Zrzut ekranu przycisku Start programu Visual Studio (projekt SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 Otworzy się okno konsoli, przeprowadzisz uwierzytelnianie i poczekasz na polecenie. 
 * Uwierzytelnianie jest obsługiwane w przeglądarce: domyślna przeglądarka sieci Web zostanie otwarta z monitem o uwierzytelnienie. Użyj tego monitu, aby zalogować się przy użyciu poświadczeń platformy Azure. Następnie można zamknąć kartę lub okno przeglądarki.
 
 Poniżej znajduje się zrzut ekranu przedstawiający wygląd konsoli projektu:
 
-:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Komunikat powitalny z aplikacji wiersza polecenia":::
+:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Zrzut ekranu przedstawiający Komunikat powitalny z aplikacji wiersza polecenia." lightbox="media/tutorial-command-line/app/command-line-app.png":::
 
 > [!TIP]
 > Aby uzyskać listę wszystkich możliwych poleceń, których można użyć z tym projektem, wprowadź `help` w konsoli projektu i naciśnij przycisk Return.
-> :::image type="content" source="media/tutorial-command-line/app/command-line-app-help.png" alt-text="Dane wyjściowe polecenia pomocy":::
 
 Pozostaw uruchomioną konsolę projektu dla pozostałej części kroków tego samouczka.
 
@@ -83,7 +82,7 @@ Po zaprojektowaniu modeli należy przekazać je do wystąpienia usługi Azure Di
 
 1. Sprawdź, czy modele zostały utworzone przez uruchomienie polecenia `GetModels true` . Spowoduje to wysłanie zapytania do wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla wszystkich przekazanych modeli i wydrukowanie ich pełnych informacji. Poszukaj edytowanego modelu *pokoju* w wynikach:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Wyniki GetModels, pokazując zaktualizowany model pokoju":::
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Zrzut ekranu przedstawiający wynik z elementu GetModels, który pokazuje zaktualizowany model pokoju." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
 ### <a name="errors"></a>błędy
 
@@ -128,7 +127,7 @@ Aby utworzyć dwuosiową cyfrę, użyj `CreateDigitalTwin` polecenia. Należy od
 
     Dane wyjściowe tych poleceń powinny wskazywać, że bliźniaczych reprezentacji zostały utworzone pomyślnie. 
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Fragment z wyników poleceń CreateDigitalTwin, pokazujący floor0, floor1, room0 i room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Zrzut ekranu przedstawiający fragment wyniku poleceń CreateDigitalTwin, w tym floor0, floor1, room0 i room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. Można sprawdzić, czy bliźniaczych reprezentacji zostały utworzone przez uruchomienie `Query` polecenia. To polecenie powoduje wysłanie zapytania do wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla wszystkich bliźniaczych reprezentacji, które zawiera. W wynikach Szukaj *room0*, *room1*, *floor0* i *floor1* bliźniaczych reprezentacji.
 
@@ -180,7 +179,7 @@ Aby dodać relację, użyj `CreateRelationship` polecenia. Określ dwuosiową, z
     
     Dane wyjściowe tych poleceń potwierdzają, że relacje zostały utworzone pomyślnie:
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Fragment z wyników poleceń elementu webrelationship, pokazujących relationship0 i relationship1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Zrzut ekranu przedstawiający fragment z wyniku poleceń tworzenia relacji, w tym relationship0 i relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
 1. Można sprawdzić relacje z dowolnym z poniższych poleceń, które wykonują zapytania dotyczące relacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
     * Aby wyświetlić wszystkie relacje wychodzące z każdego piętra (wyświetlanie relacji z jednej strony):
@@ -201,7 +200,7 @@ Aby dodać relację, użyj `CreateRelationship` polecenia. Określ dwuosiową, z
 
 Bliźniaczych reprezentacji i relacje, które zostały skonfigurowane w tym samouczku, tworzą następujący wykres koncepcyjny:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Wykres przedstawiający floor0 połączony za pośrednictwem relationship0 do room0 oraz floor1 podłączony przez relationship1 do room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Diagram przedstawiający wykres koncepcyjny. floor0 jest połączony za pośrednictwem relationship0 do room0, a floor1 jest połączony za pośrednictwem relationship1 do room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Zbadaj Graf bliźniaczy, aby odpowiedzieć na pytania dotyczące środowiska
 
@@ -217,7 +216,7 @@ Uruchom następujące polecenia w uruchomionej konsoli programu Project, aby odp
 
     Pozwala to na błyskawiczne przejęcie zasobów w środowisku i upewnienie się, że wszystko jest reprezentowane, tak jak w przypadku usługi Azure Digital bliźniaczych reprezentacji. Wynikiem tego jest dane wyjściowe zawierające każdą z nich. Oto fragment:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Częściowe wyniki zapytania bliźniaczyego, pokazujące room0 i floor1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Zrzut ekranu przedstawiający częściowe wyniki zapytania bliźniaczyego, w tym room0 i floor1.":::
 
     >[!NOTE]
     >W przykładowym projekcie polecenie `Query` bez żadnych dodatkowych argumentów jest równoważne `Query SELECT * FROM DIGITALTWINS` . Aby wykonać zapytanie dotyczące wszystkich bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](/rest/api/digital-twins/dataplane/query) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md), użyj dłuższego (kompletnego) zapytania.
@@ -230,7 +229,7 @@ Uruchom następujące polecenia w uruchomionej konsoli programu Project, aby odp
 
     Możesz ograniczyć zapytanie do bliźniaczych reprezentacji pewnego typu, aby uzyskać bardziej szczegółowe informacje na temat tego, co zostało reprezentowane. W wyniku tego są wyświetlane *room0* i *room1*, **ale nie są** wyświetlane *floor0* ani *floor1* (ponieważ są to piętra, a nie pokoje).
     
-    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Wyniki zapytania modelu, zawierające tylko room0 i room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Zrzut ekranu przedstawiający wynik zapytania dotyczącego modelu, który zawiera tylko room0 i room1.":::
 
 1. **Jakie są wszystkie pokoje w witrynie *floor0*?** (zapytanie według relacji)
 
@@ -240,7 +239,7 @@ Uruchom następujące polecenia w uruchomionej konsoli programu Project, aby odp
 
     Możesz wykonywać zapytania na podstawie relacji w grafie, aby uzyskać informacje na temat sposobu połączenia bliźniaczych reprezentacji lub ograniczenia zapytania do określonego obszaru. Tylko *room0* jest na *floor0*, więc jest to jedyne miejsce w wyniku.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Wyniki zapytania relacji, pokazujące room0":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Zrzut ekranu przedstawiający wynik zapytania relacji, który zawiera room0.":::
 
 1. **Co to jest wszystkie bliźniaczych reprezentacji w moim środowisku z temperaturą powyżej 75?** (zapytanie według właściwości)
 
@@ -250,7 +249,7 @@ Uruchom następujące polecenia w uruchomionej konsoli programu Project, aby odp
 
     Możesz wysyłać zapytania do grafu na podstawie właściwości, aby odpowiedzieć na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi. Obsługiwane są również inne operatory porównania ( *<* , *>* ,, *=* lub *! =*). w tym miejscu *room1* pojawia się w wynikach, ponieważ ma temperaturę 80.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Wyniki zapytania właściwości, zawierające tylko room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Zrzut ekranu przedstawiający wynik z kwerendy właściwości, który zawiera tylko room1.":::
 
 1. **Jakie są wszystkie pokoje *floor0* z temperaturą powyżej 75?** (zapytanie złożone)
 
@@ -260,7 +259,7 @@ Uruchom następujące polecenia w uruchomionej konsoli programu Project, aby odp
 
     Możesz również połączyć wcześniejsze zapytania, takie jak w przypadku języka SQL, przy użyciu operatorów kombinacji takich jak `AND` , `OR` , `NOT` . To zapytanie używa `AND` do powyższej kwerendy dotyczącej pozostałej liczby pozostałych temperatur. Teraz wynik obejmuje tylko pokoje z temperaturą powyżej 75, które znajdują się w *floor0*— w tym przypadku nie ma żadnego z nich. Zestaw wyników jest pusty.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Zrzut ekranu wyniku zapytania złożonego, w którym nie są wyświetlane żadne wyniki." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

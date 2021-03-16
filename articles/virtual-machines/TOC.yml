@@ -241,6 +241,8 @@
               href: hb-series.md
             - name: Seria HBv2
               href: hbv2-series.md
+            - name: Seria HBv3
+              href: hbv3-series.md
             - name: Seria HC
               href: hc-series.md
         - name: Limity przydziału procesorów wirtualnych

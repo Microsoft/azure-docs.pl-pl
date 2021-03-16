@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449700"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489900"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Szybki Start: Tworzenie sznurka modułu azureiotsecurity
 
@@ -39,9 +39,9 @@ Aby dowiedzieć się więcej na temat ogólnej koncepcji modułu bliźniaczych r
 
 Usługa Defender for IoT korzysta z mechanizmu wieloosiowego modułu i utrzymuje dwuosiowy moduł zabezpieczeń o nazwie _azureiotsecurity_ dla każdego urządzenia.
 
-Sznury modułowe zabezpieczeń zawiera wszystkie informacje dotyczące zabezpieczeń urządzeń dla każdego z urządzeń.
+Sznurek usługi Defender-IoT-Micro-Agent zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego z urządzeń.
 
-Aby w pełni korzystać z funkcji Defender for IoT, należy utworzyć, skonfigurować i używać tego modułu zabezpieczeń bliźniaczych reprezentacji dla każdego urządzenia w usłudze.
+Aby w pełni korzystać z funkcji Defender for IoT, należy utworzyć, skonfigurować i używać tej usługi Defender-IoT-Micro-Agent bliźniaczych reprezentacji dla każdego urządzenia w usłudze.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Tworzenie sznurka modułu azureiotsecurity
 

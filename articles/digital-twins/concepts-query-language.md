@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034680"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490980"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -85,7 +85,7 @@ W tej sekcji opisano ograniczenia języka zapytań.
 * W instrukcji nie są obsługiwane żadne podzapytania `FROM` .
 * `OUTER JOIN` Semantyka nie jest obsługiwana, znaczenie, jeśli relacja ma rangę zero, cały "wiersz" jest eliminowany z wyjściowego zestawu wyników.
 * Głębokość przechodzenia wykresu jest ograniczona do pięciu `JOIN` poziomów na zapytanie.
-* Źródło `JOIN` operacji jest ograniczone: zapytanie musi deklarować bliźniaczych reprezentacji, w którym rozpoczyna się zapytanie.
+* Nie można odpytać relacji w usłudze Azure Digital bliźniaczych reprezentacji jako jednostek niezależnych; należy również podać informacje o źródle źródła, z którego pochodzi relacja. Oznacza to, że istnieją pewne ograniczenia dotyczące `JOIN` operacji, która jest używana do wykonywania zapytań o relacje, aby upewnić się, że zapytanie deklaruje sznurki, w których rozpoczyna się zapytanie. Aby zapoznać się z przykładami, zobacz [*zapytanie według relacji*](how-to-query-graph.md#query-by-relationship) w artykule wykonywanie *zapytania dotyczącego grafu* .
 
 ## <a name="next-steps"></a>Następne kroki
 

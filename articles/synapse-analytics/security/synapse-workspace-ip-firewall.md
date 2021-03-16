@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 787e600df4185346b250d9a96bdb89927e134075
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226509"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472017"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Reguły zapory adresów IP usługi Azure Synapse Analytics
 
@@ -42,10 +42,6 @@ Możesz nawiązać połączenie z obszarem roboczym usługi Synapse za pomocą p
 Upewnij się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na portach TCP 80, 443 i 1443 dla Synapse Studio.
 
 Ponadto należy zezwolić na komunikację wychodzącą na porcie UDP 53 dla Synapse Studio. Aby nawiązać połączenie przy użyciu narzędzi, takich jak program SSMS i Power BI, musisz zezwolić na komunikację wychodzącą na porcie TCP 1433.
-
-Zasady połączenia SQL są ustawiane *Domyślnie* dla obszaru roboczego. Możesz dowiedzieć się więcej o adresach IP i portach [, które klienci](../../azure-sql/database/connectivity-architecture.md#connection-policy)powinni zezwalać na komunikację wychodzącą.
-
-
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 03/02/2021
 ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 89da9ed378118875f0c09d3c23799349a4d093b0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247469"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467701"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Usługa Azure Defender dla IoT — często zadawane pytania
 
@@ -57,23 +57,17 @@ Na przykład:
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>Jak usługa Defender for IoT jest porównywana z konkursem?
 
-Inne rozwiązania zapewniają zestaw funkcji, które umożliwiają klientom tworzenie własnych rozwiązań, usługa Defender for IoT zapewnia unikatowe kompleksowe rozwiązanie do obsługi zabezpieczeń IoT, które zapewnia szeroki wgląd w zabezpieczenia wszystkich powiązanych zasobów platformy Azure. System Azure umożliwia szybkie wdrażanie i pełną integrację z usługą IoT Hub module bliźniaczych reprezentacji w celu zapewnienia łatwej integracji z istniejącymi narzędziami do zarządzania urządzeniami.
+Usługa Azure Defender for IoT oferuje kompleksowe zabezpieczenia na wszystkich urządzeniach IoT/rzeczy. W przypadku **organizacji z użytkownikami końcowymi** usługa Azure Defender for IoT oferuje niezależny od agentów zabezpieczenia warstwy sieciowej, które są szybko wdrażane, współpracuje z różnymi własnościowymi urządzeniami i starszymi systemami systemu Windows oraz współpracuje z platformą Azure — wskaźnikiem i innymi narzędziami SOC. Można je wdrożyć lokalnie lub w środowiskach połączonych z platformą Azure. W przypadku **konstruktorów urządzeń IoT** usługa Azure Defender for IoT oferuje lekkim agentom możliwość osadzania zabezpieczeń warstwy urządzenia w nowych inicjatywach IoT/rzeczy.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>Czy muszę być klientem platformy Azure?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Czy muszę być klientem usługi Azure IoT?
+Nie musisz być klientem platformy Azure, aby uzyskać dostęp do bezpłatnej wersji agenta usługi Azure Defender for IoT. Jeśli jednak chcesz wysyłać alerty do kontrolki wskaźnikowej platformy Azure, Udostępnianie czujników sieci i monitorowanie ich kondycji w chmurze; Korzystając z automatycznych aktualizacji oprogramowania i analizy zagrożeń, należy połączyć czujnik z platformą Azure za pośrednictwem usługi Azure IoT Hub.
 
-Tak. W przypadku wdrożeń związanych z chmurą usługa Azure Defender dla IoT korzysta z łączności i infrastruktury Azure IoT.
+W przypadku wersji usługi Azure Defender dla programu IoT opartej na agentach musisz być klientem platformy Azure.
+
 ## <a name="can-i-create-my-own-alerts"></a>Czy mogę tworzyć własne alerty?
 
-Tak. Możesz ustawić dostosowany alert dla wstępnie ustalonego zestawu zachowań, takich jak adres IP i otwarte porty. Zobacz [Tworzenie niestandardowych alertów](quickstart-create-custom-alerts.md) , aby dowiedzieć się więcej o alertach niestandardowych i sposobach ich tworzenia.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Gdzie mogę zobaczyć dzienniki? Czy mogę dostosować dzienniki?
-
-- Wyświetlanie alertów i zaleceń przy użyciu połączonego obszaru roboczego Log Analytics. Skonfiguruj rozmiar i czas trwania magazynu w obszarze roboczym.
-
-- Dane pierwotne z agenta zabezpieczeń mogą być również przechowywane na koncie Log Analytics. Przed zmianą konfiguracji tej opcji należy wziąć pod uwagę rozmiar, czas trwania, wymagania dotyczące magazynu i powiązane koszty.
-
-
+Tak. możesz tworzyć niestandardowe alerty na podstawie wielu parametrów, w tym adresów IP/MAC, typu protokołu, klasy, usługi, funkcji, polecenia itp., a także wartości tagów niestandardowych zawartych w ładunku.  Zobacz [Tworzenie niestandardowych alertów](quickstart-create-custom-alerts.md) , aby dowiedzieć się więcej o alertach niestandardowych i sposobach ich tworzenia.
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>Co się stanie, gdy połączenie internetowe przestanie działać?
 

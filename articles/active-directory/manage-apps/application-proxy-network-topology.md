@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 2873bd9668bfba887ad9add061e68f36a747d5b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232923"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492323"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Optymalizowanie przepływu ruchu za pomocą serwer proxy aplikacji usługi Azure Active Directory
 
@@ -38,7 +38,7 @@ Gdy zarejestrujesz się w celu uzyskania dzierżawy usługi Azure AD, region dzi
 
 Jeśli na przykład kraj lub region dzierżawy usługi Azure AD jest w Zjednoczonym Królestwie, wszystkie łączniki serwera proxy aplikacji **Domyślnie** zostaną przypisane do korzystania z wystąpień usługi w europejskich centrach danych. Gdy użytkownicy uzyskują dostęp do opublikowanych aplikacji, ruch przechodzi przez wystąpienia usługi serwera proxy aplikacji w tej lokalizacji.
 
-Jeśli łączniki są zainstalowane w regionach innych niż domyślny region, może być korzystne, aby zmienić region, dla którego Twoja grupa łączników została zoptymalizowana, aby zwiększyć wydajność dostępu do tych aplikacji. Po określeniu regionu dla grupy łączników zostanie on połączony z usługami w chmurze serwera proxy w wyznaczonym regionie.
+Jeśli łączniki są zainstalowane w regionach innych niż domyślny region, może być korzystne, aby zmienić region, dla którego Twoja grupa łączników została zoptymalizowana, aby zwiększyć wydajność dostępu do tych aplikacji. Po określeniu regionu dla grupy łączników nastąpi połączenie z usługami serwera proxy aplikacji w wyznaczonym regionie.
 
 Aby zoptymalizować przepływ ruchu i zmniejszyć opóźnienie do grupy łączników, Przypisz grupę łączników do najbliższego regionu. Aby przypisać region:
 
@@ -181,7 +181,7 @@ Umieść łącznik w centrum danych platformy Azure, który jest połączony z s
 
 **Scenariusz:** Aplikacja znajduje się w sieci organizacji w Europie, domyślnym regionem dzierżawy jest US, z większością użytkowników w Europie.
 
-**Zalecenie:** Umieść łącznik blisko aplikacji. Zaktualizuj grupę łączników, aby była zoptymalizowana pod kątem korzystania z wystąpień usługi serwera proxy aplikacji Europy. Aby uzyskać instrukcje, zobacz [Optymalizacja grup łączników do używania najbliższej usługi proxy aplikacji w chmurze](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
+**Zalecenie:** Umieść łącznik blisko aplikacji. Zaktualizuj grupę łączników, aby była zoptymalizowana pod kątem korzystania z wystąpień usługi serwera proxy aplikacji Europy. Aby uzyskać instrukcje, zobacz [Optymalizacja grup łączników do używania najbliższej usługi proxy aplikacji w chmurze](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
 
 Ponieważ użytkownicy Europy uzyskują dostęp do wystąpienia serwera proxy aplikacji, który ma miejsce w tym samym regionie, przeskok 1 nie jest kosztowny. Przeskok 3 jest zoptymalizowany. Rozważ użycie ExpressRoute do optymalizacji skoku 2.
 
@@ -189,7 +189,7 @@ Ponieważ użytkownicy Europy uzyskują dostęp do wystąpienia serwera proxy ap
 
 **Scenariusz:** Aplikacja znajduje się w sieci organizacji w Europie, domyślnym regionem dzierżawy jest US, z większością użytkowników w Stanach Zjednoczonych.
 
-**Zalecenie:** Umieść łącznik blisko aplikacji. Zaktualizuj grupę łączników, aby była zoptymalizowana pod kątem korzystania z wystąpień usługi serwera proxy aplikacji Europy. Aby uzyskać instrukcje, zobacz [Optymalizacja grup łączników do używania najbliższej usługi proxy aplikacji w chmurze](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service). Skok 1 może być droższy, ponieważ wszyscy użytkownicy w Stanach Zjednoczonych muszą uzyskać dostęp do wystąpienia serwera proxy aplikacji w Europie.
+**Zalecenie:** Umieść łącznik blisko aplikacji. Zaktualizuj grupę łączników, aby była zoptymalizowana pod kątem korzystania z wystąpień usługi serwera proxy aplikacji Europy. Aby uzyskać instrukcje, zobacz [Optymalizacja grup łączników do używania najbliższej usługi proxy aplikacji w chmurze](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). Skok 1 może być droższy, ponieważ wszyscy użytkownicy w Stanach Zjednoczonych muszą uzyskać dostęp do wystąpienia serwera proxy aplikacji w Europie.
 
 W tej sytuacji można również rozważyć użycie jednego innego wariantu. Jeśli większość użytkowników w organizacji znajduje się w Stanach Zjednoczonych, prawdopodobnie jest to, że Twoja sieć również zostanie rozszerzona do Stanów Zjednoczonych. Umieść łącznik w Stanach Zjednoczonych, Kontynuuj, aby użyć domyślnego regionu US dla grup łączników, a następnie użyj dedykowanej wewnętrznej linii firmowej sieci do aplikacji w Europie. W ten sposób są optymalizowane przeskoki 2 i 3.
 

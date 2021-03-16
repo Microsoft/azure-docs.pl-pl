@@ -3,14 +3,14 @@ title: Możliwości renderowania
 description: Standardowe możliwości Azure Batch są używane do uruchamiania renderowania obciążeń i aplikacji. Partia zadań zawiera określone funkcje do obsługi obciążeń renderowania.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429806"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496341"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Możliwości renderowania Azure Batch
 
@@ -27,6 +27,9 @@ Ciągi wiersza polecenia zadania muszą odwoływać się do aplikacji i ścieże
 Większość aplikacji renderowania będzie wymagać licencji uzyskanych z serwera licencji. W przypadku istniejącego lokalnego serwera licencji, zarówno puli, jak i serwera licencji, muszą znajdować się w tej samej [sieci wirtualnej](../virtual-network/virtual-networks-overview.md). Istnieje również możliwość uruchomienia serwera licencji na maszynie wirtualnej platformy Azure z pulą usługi Batch i MASZYNą wirtualną serwera licencji znajdującą się w tej samej sieci wirtualnej.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Pule usługi Batch używające renderowania obrazów maszyn wirtualnych
+
+> [!IMPORTANT]
+> Renderowanie obrazów maszyn wirtualnych i Licencjonowanie za użycie jest [przestarzałe i zostanie wycofane z 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Aby użyć usługi Batch do renderowania, [należy użyć niestandardowego obrazu maszyny wirtualnej i standardowej licencji aplikacji.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Renderowanie instalacji aplikacji
 

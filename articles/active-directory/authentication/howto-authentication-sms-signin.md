@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd2a38e3d59af18477a1e5bb11e8b58dbbe81e0b
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471668"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491621"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Konfigurowanie i umożliwienie użytkownikom uwierzytelniania opartego na programie SMS przy użyciu Azure Active Directory 
 
@@ -36,6 +36,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wiadomości tekstowych musi być licencjonowany, nawet jeśli nie używa tego programu. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD, usług EMS i Microsoft 365:
     * [Microsoft 365 (M365) F1 lub F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 lub E5][ems-licensing] lub [Microsoft 365 (M365) E3 lub E5][m365-licensing]
+    * [Pakiet Office 365 F3][o365-f3]
 
 ## <a name="limitations"></a>Ograniczenia
 

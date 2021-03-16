@@ -14,39 +14,24 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032249"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467684"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
-Za pomocą Azure Active Directory (Azure AD) można wyznaczyć ograniczonych administratorów do zarządzania zadaniami tożsamości w rolach z niższymi uprawnieniami. Administratorzy mogą być przypisani do takich celów, jak dodawanie lub zmiana użytkowników, przypisywanie ról administracyjnych, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników i zarządzanie nazwami domen. [Domyślne uprawnienia użytkownika](../fundamentals/users-default-permissions.md) można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
+W Azure Active Directory (Azure AD), jeśli innym administratorem lub innym niż administrator musi zarządzać zasobami usługi Azure AD, należy przypisać im rolę usługi Azure AD, która udostępnia wymagane uprawnienia. Można na przykład przypisać role umożliwiające dodawanie lub zmienianie użytkowników, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników lub zarządzanie nazwami domen.
+
+W tym artykule wymieniono wbudowane role usługi Azure AD, które można przypisać, aby umożliwić zarządzanie zasobami usługi Azure AD. Aby uzyskać informacje o sposobach przypisywania ról, zobacz [Przypisywanie ról usługi Azure AD do użytkowników](manage-roles-portal.md).
 
 ## <a name="limit-use-of-global-administrator"></a>Ograniczanie użycia administratora globalnego
 
 Użytkownicy przypisani do roli administratora globalnego mogą odczytywać i modyfikować każde ustawienie administracyjne w organizacji usługi Azure AD. Domyślnie, gdy użytkownik loguje się do usługi w chmurze firmy Microsoft, zostaje utworzona dzierżawa usługi Azure AD, a użytkownik jest członkiem roli Administratorzy globalni. Po dodaniu subskrypcji do istniejącej dzierżawy nie jest ona przypisana do roli administratora globalnego. Tylko Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą delegować role administratorów. Aby zmniejszyć ryzyko dla Twojej firmy, zalecamy przypisanie tej roli do najmniejszej możliwej liczby osób w organizacji.
 
 Najlepszym rozwiązaniem jest przypisanie tej roli do mniej niż pięciu osób w organizacji. Jeśli masz więcej niż pięć administratorów przypisanych do roli administratora globalnego w organizacji, Oto kilka sposobów na zmniejszenie jej użycia.
-
-### <a name="find-the-role-you-need"></a>Znajdź potrzebną rolę
-
-Jeśli frustrujące się, aby znaleźć rolę, której potrzebujesz, z listy wielu ról, usługa Azure AD może wyświetlać podzbiory ról na podstawie kategorii ról. Zapoznaj się z naszym nowym filtrem **typu** dla [ról i administratorów usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) , aby wyświetlić tylko role w wybranym typie.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Rola istnieje teraz, która nie istnieje po przypisaniu roli administratora globalnego
-
-Istnieje możliwość, że rola lub role zostały dodane do usługi Azure AD, która zapewnia bardziej szczegółowe uprawnienia, które nie były opcją w przypadku podniesienia poziomu niektórych użytkowników do administratora globalnego. W miarę upływu czasu wprowadzamy dodatkowe role wykonujące zadania, które mogą wykonać tylko rola administratora globalnego. Te elementy są widoczne w następujących [rolach](#all-roles).
-
-## <a name="assign-or-remove-administrator-roles"></a>Przypisywanie lub usuwanie ról administratorów
-
-Aby dowiedzieć się, jak przypisać role administracyjne do użytkownika w Azure Active Directory, zobacz [Wyświetlanie i przypisywanie ról administratorów w Azure Active Directory](manage-roles-portal.md).
-
-> [!Note]
-> Jeśli masz licencję usługi Azure AD Premium P2 i jesteś już użytkownikiem Privileged Identity Management (PIM), wszystkie zadania związane z zarządzaniem rolami są wykonywane w ramach uprawnień do zarządzania tożsamościami, a nie w usłudze Azure AD.
->
-> ![Role usługi Azure AD zarządzane w usłudze PIM dla użytkowników korzystających już z usług PIM i z licencją premium P2](./media/permissions-reference/pim-manages-roles-for-p2.png)
 
 ## <a name="all-roles"></a>Wszystkie role
 
@@ -1879,6 +1864,6 @@ Czytnik raportów podsumowujących użycia | &nbsp; | :heavy_check_mark: | :heav
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o sposobie przypisywania użytkownika jako administratora subskrypcji platformy Azure, zobacz [Przypisywanie użytkownika jako administratora subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
-* Aby dowiedzieć się więcej o sposobach kontroli dostępu do zasobów w Microsoft Azure, zobacz [Omówienie różnych ról](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD lub instrukcje dotyczące kojarzenia lub dodawania subskrypcji, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy usługi Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Przypisywanie ról usługi Azure AD do grup](groups-assign-role.md)
+- [Omówienie różnych ról](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Przypisywanie użytkownika jako administratora subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

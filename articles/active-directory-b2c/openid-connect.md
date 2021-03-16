@@ -7,20 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5095e077ad1f2259c227c37f789dbcaf1f6d1cd7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 608017c15d039be940d1d67b8f9e1bf7618134b7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611865"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491510"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C
 
 OpenID Connect Connect to protokół uwierzytelniania oparty na protokole OAuth 2,0, który może służyć do bezpiecznego podpisywania użytkowników w aplikacjach sieci Web. Korzystając z implementacji Azure Active Directory B2C (Azure AD B2C) OpenID Connect Connect, możesz w swoich aplikacjach sieci Web utworzyć konto, zalogować się i inne funkcje zarządzania tożsamościami, aby Azure Active Directory (Azure AD). W tym przewodniku pokazano, jak to zrobić w sposób niezależny od języka. Opisano w nim, jak wysyłać i odbierać komunikaty HTTP bez używania bibliotek typu open-source.
+
+> [!NOTE]
+> Większość bibliotek uwierzytelniania typu "open source" uzyskuje i sprawdza poprawność tokenów JWT dla aplikacji. Zalecamy Eksplorowanie tych opcji zamiast implementowania własnego kodu. Aby uzyskać więcej informacji, zobacz [Omówienie biblioteki Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)i [Microsoft Identity Web Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
 
 [OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2,0 do użycia jako protokół *uwierzytelniania* . Ten protokół uwierzytelniania umożliwia logowanie jednokrotne. Wprowadza koncepcję *tokenu identyfikatora*, dzięki czemu klient może weryfikować tożsamość użytkownika i uzyskać podstawowe informacje o profilu użytkownika.
 
@@ -97,7 +100,10 @@ error=access_denied
 
 ## <a name="validate-the-id-token"></a>Weryfikowanie tokenu identyfikatora
 
-Tylko otrzymanie tokenu identyfikatora jest za mało do uwierzytelnienia użytkownika. Sprawdź poprawność podpisu tokenu identyfikatora i sprawdź oświadczenia w tokenie zgodnie z wymaganiami aplikacji. Azure AD B2C używa [tokenów sieci Web JSON (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdzania, czy są one prawidłowe. Istnieje wiele bibliotek typu "open source", które są dostępne do sprawdzania poprawności JWTs, w zależności od języka preferencji. Zalecamy Eksplorowanie tych opcji zamiast implementowania własnej logiki walidacji.
+Tylko otrzymanie tokenu identyfikatora jest za mało do uwierzytelnienia użytkownika. Sprawdź poprawność podpisu tokenu identyfikatora i sprawdź oświadczenia w tokenie zgodnie z wymaganiami aplikacji. Azure AD B2C używa [tokenów sieci Web JSON (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdzania, czy są one prawidłowe. 
+
+> [!NOTE]
+> Większość bibliotek uwierzytelniania typu open source sprawdza poprawność tokenów JWT dla aplikacji. Zalecamy Eksplorowanie tych opcji zamiast implementowania własnej logiki walidacji. Aby uzyskać więcej informacji, zobacz [Omówienie biblioteki Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)i [Microsoft Identity Web Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
 
 Azure AD B2C ma punkt końcowy metadanych połączenia OpenID Connect, który umożliwia aplikacji pobieranie informacji o Azure AD B2C w czasie wykonywania. Te informacje obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Istnieje dokument metadanych JSON dla każdego przepływu użytkowników w dzierżawie usługi B2C. Na przykład dokument metadanych dla `b2c_1_sign_in` przepływu użytkownika w programie znajduje `fabrikamb2c.onmicrosoft.com` się w lokalizacji:
 

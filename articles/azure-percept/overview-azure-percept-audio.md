@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426352"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490198"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Wprowadzenie do usługi Azure Percept audio
 
 Usługa Azure Percept audio to urządzenie do akcesoriów, które dodaje możliwości mowy do usługi Azure Percept DK. Zawiera wstępnie skonfigurowany procesor audio i tablicę liniową z czterema mikrofonami, dzięki czemu można zastosować polecenia głosowe, wykrywania trendów słów kluczowych i odmowę oddzielania pól do lokalnych urządzeń nasłuchujących przy użyciu usługi Azure Cognitive Services. Usługa Azure Percept audio umożliwia producentom urządzeń rozszerzenie platformy Azure Percept DK poza funkcję Vision na nowe, inteligentne urządzenia aktywowane z dźwiękiem. Jest ona zintegrowana z platformą Azure Percept DK, Azure Percept Studio i innymi usługami Azure Edge Management. Jest ona dostępna do zakupu w [Sklepie Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+
+> [!div class="nextstepaction"]
+> [Kup teraz](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Urządzenie audio usługi Azure Percept.":::
 
@@ -67,4 +70,5 @@ Twórz [rozwiązanie do obsługi mowy bez kodu](./tutorial-no-code-speech.md) w 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zamów urządzenie audio usługi Azure Percept w [Sklepie Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Kupowanie urządzenia audio usługi Azure Percept w Sklepie Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

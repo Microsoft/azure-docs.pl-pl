@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 13bf0f2430e0d58dd9ef28061aad897acf94ac3f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716571"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493054"
 ---
 # <a name="what-is-custom-speech"></a>Czym jest usługa Custom Speech?
 
@@ -79,43 +79,9 @@ Aby utworzyć swój pierwszy projekt, wybierz opcję **Zamiana mowy na tekst/nie
 > [!IMPORTANT]
 > Ostatnio Zaktualizowano [mowę programu Speech Studio](https://aka.ms/custom-speech) "Custom Speech Portal". Jeśli utworzono poprzednie dane, modele, testy i opublikowane punkty końcowe w portalu CRIS.ai lub za pomocą interfejsów API, należy utworzyć nowy projekt w nowym portalu, aby połączyć się ze starymi jednostkami.
 
-## <a name="model-lifecycle"></a>Cykl życia modelu
+## <a name="model-and-endpoint-lifecycle"></a>Cykl życia modelu i punktu końcowego
 
-Custom Speech używa zarówno *modeli podstawowych* , jak i *modeli niestandardowych*. Każdy język ma jeden lub więcej modeli podstawowych. Ogólnie rzecz biorąc, gdy nowy model mowy jest publikowany do zwykłej usługi mowy, jest również importowany do usługi Custom Speech jako nowy model podstawowy. Są one aktualizowane co 3 – 6 miesięcy. Starsze modele zazwyczaj stają się mniej przydatne w miarę upływu czasu, ponieważ najnowszy model ma zwykle wyższą dokładność.
-
-Z kolei modele niestandardowe są tworzone przez dostosowanie wybranego modelu podstawowego do określonego scenariusza klienta. Można nadal używać określonego modelu niestandardowego przez dłuższy czas, gdy będzie on spełniał Twoje potrzeby. Ale zalecamy, aby okresowo aktualizować do najnowszego modelu podstawowego i przeszkolić go w czasie z dodatkowymi danymi. 
-
-Inne kluczowe terminy związane z cyklem życia modelu obejmują:
-
-* **Adaptacja**: Tworzenie modelu podstawowego i dostosowywanie go do domeny/scenariusza przy użyciu danych tekstowych i/lub danych audio.
-* **Dekodowanie**: korzystanie z modelu i wykonywanie rozpoznawania mowy (dekodowanie dźwięku na tekst).
-* **Punkt końcowy**: specyficzne dla użytkownika wdrożenie modelu podstawowego lub modelu niestandardowego, który jest dostępny *tylko* dla danego użytkownika.
-
-### <a name="expiration-timeline"></a>Oś czasu wygaśnięcia
-
-W miarę jak nowe modele i nowe funkcje stają się dostępne i starsze, mniej dokładne modele są wycofywane, zobacz następujące osie czasu dla elementu model i wygaśnięcie punktu końcowego:
-
-**Modele podstawowe** 
-
-* Adaptacja: dostępne przez jeden rok. Po zaimportowaniu modelu jest on dostępny przez jeden rok do tworzenia modeli niestandardowych. Po jednym roku nowe modele niestandardowe muszą zostać utworzone przy użyciu nowszej wersji modelu bazowego.  
-* Dekodowanie: dostępne przez dwa lata po zaimportowaniu. Można więc utworzyć punkt końcowy i użyć transkrypcji partii przez dwa lata z tym modelem. 
-* Punkty końcowe: dostępne na tej samej osi czasu co dekodowanie.
-
-**Modele niestandardowe**
-
-* Dekodowanie: dostępne przez dwa lata po utworzeniu modelu. W związku z tym możesz użyć niestandardowego modelu przez dwa lata (Batch/czas rzeczywisty/test) po jego utworzeniu. Po upływie dwóch lat należy ponownie przeprowadzić *uczenie modelu* , ponieważ model podstawowy zazwyczaj jest przestarzały do adaptacji.  
-* Punkty końcowe: dostępne na tej samej osi czasu co dekodowanie.
-
-Gdy model podstawowy lub model niestandardowy wygaśnie, zawsze będzie powracać do *najnowszej wersji podstawowego modelu*. W związku z tym Twoja implementacja nigdy nie zostanie przerwana, ale może stać się mniej dokładne dla *konkretnych danych* , jeśli modele niestandardowe osiągnęły ważność. Możesz zobaczyć wygaśnięcie dla modelu w następujących miejscach w Custom Speechm obszarze programu Speech Studio:
-
-* Podsumowanie szkolenia modelu
-* Szczegóły szkolenia modelu
-* Podsumowanie wdrożenia
-* Szczegóły wdrożenia
-
-Możesz również sprawdzić daty wygaśnięcia za pośrednictwem [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) i [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) niestandardowych interfejsów API mowy we `deprecationDates` właściwości w odpowiedzi JSON.
-
-Należy pamiętać, że można uaktualnić model do niestandardowego punktu końcowego mowy bez przestoju, zmieniając model używany przez punkt końcowy w sekcji Wdrażanie w programie Speech Studio lub za pośrednictwem interfejsu API Custom Speech.
+Starsze modele zazwyczaj stają się mniej przydatne w miarę upływu czasu, ponieważ najnowszy model ma zwykle wyższą dokładność. W związku z tym modele podstawowe oraz modele niestandardowe i punkty końcowe utworzone za pomocą portalu podlegają wygaśnięciu po 1 roku na dostosowanie i 2 lata do dekodowania. Szczegółowy opis znajduje się w artykule [dotyczącym cyklu życia modelu i punktu końcowego](./how-to-custom-speech-model-and-endpoint-lifecycle.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,7 +8,7 @@
     - name: Co nowego
       href: whats-new.md
 - name: Wprowadzenie do usługi Rozpoznawanie formularzy
-  expaned: true
+  expanded: true
   items:
     - name: Korzystanie z biblioteki klienta lub interfejsu API REST
       href: quickstarts/client-library.md
@@ -26,18 +26,27 @@
       href: tutorial-bulk-processing.md
 - name: Pojęcia
   items:
-    - name: Wyodrębnianie układu
-      href: concept-layout.md
+    - name: Interfejs API układu
+      expanded: true
+      items:
+        - name: Wyodrębnij dane formularza
+          href: concept-layout.md
+    - name: Modele niestandardowe
+      href: concept-custom.md
     - name: Rachunki
       href: concept-receipts.md
     - name: Wizytówki
       href: concept-business-cards.md
     - name: Faktury
       href: concept-invoices.md
+    - name: Karty identyfikacyjne
+      href: concept-identification-cards.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie zestawu danych szkoleniowych
       href: build-training-data-set.md
+    - name: Używanie tagów tabeli do uczenia modelu niestandardowego
+      href: supervised-table-tags.md
     - name: Wdrażanie przykładowego narzędzia do oznaczania etykietami
       href: deploy-label-tool.md
     - name: Korzystanie z kontenerów
@@ -57,8 +66,8 @@
       href: disaster-recovery.md
 - name: Dokumentacja
   items:
-    - name: Interfejs API Rozpoznawanie formularzy w wersji 2.1 (wersja zapoznawcza)
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
+    - name: Interfejs API aparatu rozpoznawania formularzy v 2.1 (wersja zapoznawcza). 3
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'
     - name: Interfejs API rozpoznawania formularzy w wersji 2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: Zestawy SDK

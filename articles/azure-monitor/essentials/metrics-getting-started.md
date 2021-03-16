@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037238"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490305"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -63,6 +63,20 @@ Domyślnie wykres pokazuje ostatnie 24 godziny danych metryk. Aby zmienić zakre
 - **Podział** kontroluje, czy wykres wyświetla osobne wiersze dla każdej wartości wymiaru, czy agreguje wartości w jednym wierszu. Na przykład można zobaczyć jeden wiersz dla średniego czasu odpowiedzi dla wszystkich wystąpień serwera lub zobaczyć oddzielne wiersze dla każdego serwera. Należy zastosować podział w wymiarze *wystąpienia serwera* , aby zobaczyć oddzielne wiersze.
 
 Zobacz [przykłady wykresów](../essentials/metric-chart-samples.md) z zastosowanym filtrowaniem i podziałem. W tym artykule przedstawiono kroki, które zostały użyte do skonfigurowania wykresów.
+
+## <a name="share-your-metric-chart"></a>Udostępnianie wykresu metryki
+Istnieją obecnie dwa sposoby udostępniania wykresu metryki. Poniżej znajdują się instrukcje dotyczące sposobu udostępniania informacji z wykresów metryk za pośrednictwem programu Excel i łącza.
+ 
+### <a name="download-to-excel"></a>Pobierz do programu Excel
+Kliknij pozycję "Udostępnij" i wybierz pozycję "Pobierz do programu Excel". Pobieranie powinno zacząć się od razu.
+
+![zrzut ekranu przedstawiający sposób udostępniania wykresu metryki za pośrednictwem programu Excel](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>Udostępnianie linku
+Kliknij pozycję "Udostępnij" i wybierz pozycję "Kopiuj link". Należy otrzymać powiadomienie, że łącze zostało pomyślnie skopiowane.
+
+![zrzut ekranu przedstawiający sposób udostępniania wykresu metryki za pośrednictwem linku](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>Zaawansowane ustawienia wykresu
 

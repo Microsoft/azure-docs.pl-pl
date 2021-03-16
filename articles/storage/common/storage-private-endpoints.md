@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613565"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493802"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 
@@ -146,6 +146,12 @@ To ograniczenie jest wynikiem zmian wprowadzonych w systemie DNS, gdy konto a2 t
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reguły sieciowej grupy zabezpieczeń dla podsieci z prywatnymi punktami końcowymi
 
 Obecnie nie można skonfigurować zasad [sieciowych grup zabezpieczeń](../../virtual-network/network-security-groups-overview.md) (sieciowej grupy zabezpieczeń) i tras zdefiniowanych przez użytkownika dla prywatnych punktów końcowych. Reguły sieciowej grupy zabezpieczeń zastosowane do podsieci obsługującej prywatny punkt końcowy nie są stosowane do prywatnego punktu końcowego. Są one stosowane tylko do innych punktów końcowych (na przykład: Kontrolery interfejsu sieciowego). Ograniczone obejście tego problemu polega na implementacji reguł dostępu dla prywatnych punktów końcowych w podsieciach źródłowych, chociaż takie podejście może wymagać wyższego obciążenia zarządzania.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Kopiowanie obiektów BLOB między kontami magazynu
+
+Obiekty blob można kopiować między kontami magazynu za pomocą prywatnych punktów końcowych tylko w przypadku korzystania z interfejsu API REST platformy Azure lub narzędzi korzystających z interfejsu API REST. Do tych narzędzi należą AzCopy, Eksplorator usługi Storage, Azure PowerShell, interfejs wiersza polecenia platformy Azure i zestawy SDK Blob Storage platformy Azure. 
+
+Obsługiwane są tylko prywatne punkty końcowe, które są przeznaczone dla zasobu magazynu obiektów BLOB. Prywatne punkty końcowe, które są przeznaczone dla Data Lake Storage Gen2 lub zasób pliku nie są jeszcze obsługiwane. Kopiowanie między kontami magazynu za pomocą protokołu NFS (Network File System) nie jest jeszcze obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

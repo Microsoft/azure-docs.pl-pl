@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373372"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491116"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
@@ -61,7 +61,7 @@ W tabeli **szkoleń** zostanie wyświetlony nowy wpis odpowiadający nowemu mode
 Zobacz, [jak](how-to-custom-speech-evaluate-data.md) oceniać i usprawnić Custom Speech dokładność modelu. Jeśli zdecydujesz się na przetestowanie dokładności, ważne jest, aby wybrać akustyczny zestaw danych, który jest inny niż ten, który był używany z modelem, aby uzyskać realistyczny sens wydajności modelu.
 
 > [!NOTE]
-> Modele podstawowe i modele niestandardowe mogą być używane tylko do określonej daty (zobacz [cykl życia modelu](custom-speech-overview.md#model-lifecycle)). Program Speech Studio Wyświetla tę datę w kolumnie **wygaśnięcia** dla każdego modelu i punktu końcowego. Po upływie tego żądania do punktu końcowego lub transkrypcji wsadowej może się nie powieść lub powróci do modelu podstawowego.
+> Modele podstawowe i modele niestandardowe mogą być używane tylko do określonej daty (zobacz [cykl życia modelu i punktu końcowego](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Program Speech Studio Wyświetla tę datę w kolumnie **wygaśnięcia** dla każdego modelu i punktu końcowego. Po upływie tego żądania do punktu końcowego lub transkrypcji wsadowej może się nie powieść lub powróci do modelu podstawowego.
 >
 > Ponownie nauczenie modelu przy użyciu najnowszego modelu podstawowego, aby skorzystać z ulepszeń dokładności i uniknąć tego, że Twój model wygaśnie.
 

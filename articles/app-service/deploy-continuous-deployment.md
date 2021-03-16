@@ -3,15 +3,15 @@ title: Konfigurowanie ciągłego wdrażania
 description: Dowiedz się, jak włączyć CI/CD do Azure App Service z usługi GitHub, BitBucket, Azure Repos lub innych repozytoriów. Wybierz potok kompilacji, który odpowiada Twoim potrzebom.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564967"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470272"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Ciągłe wdrażanie do usługi Azure App Service
 
@@ -116,6 +116,8 @@ Dostawcę kompilacji akcji usługi GitHub można dostosować w następujący spo
 - Zamiast profilu publikowania należy wdrożyć przy użyciu [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) w Azure Active Directory.
 
 #### <a name="authenticate-with-a-service-principal"></a>Uwierzytelnianie za pomocą nazwy głównej usługi
+
+Ta opcjonalna konfiguracja zastępuje domyślne uwierzytelnianie z profilami publikowania w wygenerowanym pliku przepływu pracy.
 
 1. Wygeneruj jednostkę usługi za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) w [interfejsie CLI platformy Azure](/cli/azure/). W poniższym przykładzie Zastąp *\<subscription-id>* wartości, *\<group-name>* i *\<app-name>* własnymi wartościami:
 

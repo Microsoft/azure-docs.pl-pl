@@ -35,7 +35,7 @@
         - name: Tworzenie usługi Defender for IoT Micro Agent na podstawie kodu źródłowego (wersja zapoznawcza)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
-        - name: Konfigurowanie modułu zabezpieczeń dla usługi Azure RTO
+        - name: Konfigurowanie usługi Defender-IoT-Micro-Agent for Azure RTO
           href: quickstart-azure-rtos-security-module.md
         - name: Dodawanie zasobów platformy Azure do rozwiązania IoT
           displayName: 'resources, monitored, resource'
@@ -79,10 +79,10 @@
           href: concept-recommendations.md
         - name: Klasyczny
           items:
-            - name: Moduł zabezpieczeń
-              displayName: 'device twins, security module twin'
+            - name: Defender-IoT-Micro-Agent
+              displayName: 'device twins, Defender-IoT-micro-agent twin'
               href: concept-security-module.md
-            - name: Moduł zabezpieczeń usługi Edge
+            - name: Edge Defender-IoT-Micro Agent
               href: security-edge-architecture.md
             - name: Agenci zabezpieczeń
               href: overview-security-agents.md
@@ -95,7 +95,7 @@
             - name: Podstawa zabezpieczeń platformy Azure dla usługi Azure Defender dla IoT
               displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
               href: security-baseline.md
-            - name: Klasyczny agregacja zdarzeń modułu zabezpieczeń
+            - name: Agregacja zdarzeń klasycznych Defender-IoT-Micro Agent
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
             - name: Alerty zabezpieczeń oparte na agentach
@@ -253,14 +253,14 @@
         - name: 'Create custom alerts (Szybki start: tworzenie alertów niestandardowych)'
           displayName: security group
           href: quickstart-create-custom-alerts.md
-        - name: Moduł zabezpieczeń dla usługi Azure RTOS
+        - name: Defender-IoT-Micro-Agent for Azure RTO
           href: iot-security-azure-rtos.md
           items:
-            - name: Praca z modułem zabezpieczeń dla usługi Azure RTOS
+            - name: Współpraca z usługą Defender-IoT-Micro-Agent for Azure RTO
               href: how-to-azure-rtos-security-module.md
-            - name: Omówienie modułu zabezpieczeń dla usługi Azure RTOS
+            - name: Informacje o usłudze Defender-IoT-Micro-Agent dla usługi Azure RTO
               href: concept-rtos-security-module.md
-            - name: Alerty i rekomendacje dotyczące modułu zabezpieczeń dla usługi Azure RTOS
+            - name: Defender-IoT-Micro-Agent dla alertów i zaleceń usługi Azure RTO
               href: concept-rtos-security-alerts-recommendations.md
         - name: Klasyczny
           items:
@@ -282,7 +282,7 @@
                   href: azure-iot-security-local-configuration-c.md
                 - name: Konfiguracja lokalna — C#
                   href: azure-iot-security-local-configuration-csharp.md
-            - name: Wdrażanie modułu zabezpieczeń usługi Edge
+            - name: Wdrażanie narzędzia Edge Defender-IoT-Micro Agent
               href: how-to-deploy-edge.md
             - name: Konfigurowanie alertów zabezpieczeń
               displayName: property
@@ -319,7 +319,7 @@
           href: resources-frequently-asked-questions.md
     - name: Rozwiązanie oparte na agencie dla konstruktorów urządzeń
       items:
-        - name: Interfejs API modułu zabezpieczeń dla usługi Azure RTOS
+        - name: Defender-IoT-Micro-Agent dla interfejsu API RTO platformy Azure
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Często zadawane pytania — agent
@@ -344,7 +344,7 @@
           href: ../security-center/
         - name: Dokumentacja zabezpieczeń platformy Azure
           href: ../security/index.yml
-        - name: Moduł zabezpieczeń usługi Azure RTOS w witrynie Stack Overflow
+        - name: Azure RTO Defender-IoT-Micro-Agent na Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
         - name: 'Blog dotyczący zabezpieczeń IoT, ochrony prywatności i zgodności na platformie Azure'
           href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'

@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu CAF Foundation
 description: Wdróż kroki dla przykładu strategii CAF Foundation, w tym szczegóły parametru artefaktu strategii.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a2d3090e5e9fe265683c077d7056ebf2b108352d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82871642"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470153"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Wdróż platformę wdrażania Microsoft Cloud dla przykładowego planu usługi Azure Foundation
 
@@ -33,7 +33,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładowej strategii CAF Foundation.
+   - **Nazwa** planu: Podaj nazwę kopii przykładowej strategii CAF Foundation.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -52,7 +52,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -69,7 +69,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość.
      - Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii.
        Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 
@@ -103,7 +103,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
 |Dozwolone jednostki SKU konta magazynu|Przypisanie zasad|Policy_Allowed-StorageAccount-SKU|Jednostka SKU używana na kontach magazynu dzienników diagnostycznych|
-|Dozwolone jednostki SKU maszyn wirtualnych|Przypisanie zasad|Policy_Allowed-VM-SKU|Dozwolone jednostki SKU maszyn wirtualnych|
+|Dozwolone jednostki SKU maszyny wirtualnej|Przypisanie zasad|Policy_Allowed-VM-SKU|Dozwolone jednostki SKU maszyny wirtualnej|
 |Dołącz TAG CostCenter do grup zasobów|Przypisanie zasad|Policy_CostCenter_Tag|Dołącz TAG CostCenter i jego wartość z grupy zasobów|
 |Typy zasobów, których nie chcesz zezwalać w danym środowisku|Przypisanie zasad|_Allowed zasad-typy zasobów|Które zasoby platformy Azure, które mają być dozwolone w danym środowisku|
 |Wdrażanie magazynu kluczy|Szablon usługi Resource Manager|KV-AccessPolicy|**Zablokowany** — Grupa lub użytkownik usługi Azure AD, <Object ID> Aby przyznać uprawnienia do usługi w Key Vault|

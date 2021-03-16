@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb97ed6e43f70db4cce6a6f8013c8669a6a62a78
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 272abef5adfbcceebe82ab703152e2a8fde86d9b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448085"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488564"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Aby włączyć Logowanie użytkowników przy użyciu konta usługi Weibo w Azure
 1. Wybierz pozycję **保存以上信息** (Zapisz).
 1. Wybierz pozycję **高级信息** (informacje zaawansowane).
 1. Wybierz pozycję **编辑** (Edytuj) obok pola dla protokołu OAuth 2.0 **授权设置** (adres URL przekierowania).
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w przypadku protokołu OAuth 2.0 **授权设置** (adres URL przekierowania). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
+1. W przypadku protokołu OAuth 2.0 **授权设置** (adres URL przekierowania) wprowadź wartość `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień na `your-tenant-name` nazwę dzierżawy i `your-domain-name` domenę niestandardową.
 1. Wybierz pozycję **提交** (Prześlij).
 
 ::: zone pivot="b2c-user-flow"

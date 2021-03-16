@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201588"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494499"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -110,7 +110,8 @@ Aby znaleźć przykładowe polecenia, zapoznaj się z dowolnym z tych artykułó
 |--------|-----------|
 |Azure Blob Storage |[Przekazywanie plików do usługi Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Pobieranie obiektów blob z usługi Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Kopiowanie obiektów BLOB między kontami usługi Azure Storage](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronizuj z usługą Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)|
-|Amazon S3|[Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)|
+|Amazon S3|[Kopiowanie danych z usług Amazon S3 do usługi Azure Storage](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Kopiowanie danych z magazynu Google Cloud Storage do usługi Azure Storage (wersja zapoznawcza)](storage-use-azcopy-google-cloud.md)|
 |Magazyn Azure Stack|[Transferowanie danych za pomocą AzCopy i magazynu Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>Używanie w skrypcie

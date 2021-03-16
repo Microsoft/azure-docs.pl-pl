@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198476"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470781"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opcje rejestrowania aplikacji SAML w Azure AD B2C
 
@@ -278,6 +278,19 @@ Przykład:
 ## <a name="session-management"></a>Zarządzanie sesjami
 
 Sesją programu można zarządzać między Azure AD B2C a aplikacją jednostki uzależnionej SAML przy użyciu `UseTechnicalProfileForSessionManagement` elementu i [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
+
+## <a name="force-users-to-re-authenticate"></a>Wymuś ponowną próbę uwierzytelnienia użytkowników 
+
+Aby wymusić ponowne uwierzytelnienie użytkowników, aplikacja może uwzględnić `ForceAuthn` atrybut w żądaniu uwierzytelniania SAML. Ten `ForceAuthn` atrybut jest wartością logiczną. Po ustawieniu na wartość true sesja użytkowników zostanie unieważniona w Azure AD B2C i zostanie wymuszone ponowne uwierzytelnienie użytkownika. Poniższe żądanie uwierzytelniania SAML pokazuje, jak ustawić `ForceAuthn` atrybut na true. 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
 
 ## <a name="debug-the-saml-protocol"></a>Debugowanie protokołu SAML
 

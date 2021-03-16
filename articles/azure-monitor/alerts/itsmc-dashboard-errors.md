@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036456"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471524"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Błędy stanu łącznika na pulpicie nawigacyjnym ITSMC
 
@@ -88,3 +88,11 @@ W poniższych sekcjach opisano typowe błędy, które pojawiają się w sekcji s
 
 * Po utworzeniu nowego wystąpienia ITSMC rozpocznie się synchronizowanie informacji z systemu narzędzia ITSM, takich jak szablony elementów roboczych i elementy robocze. [ITSMC synchronizacji w celu wygenerowania nowego tokenu odświeżania](./itsmc-resync-servicenow.md).
 * [Przejrzyj szczegóły połączenia w ITSMC](./itsmc-connections-servicenow.md#create-a-connection) i sprawdź, czy ITSMC można pomyślnie [synchronizować](./itsmc-resync-servicenow.md).
+
+
+## <a name="ip-restrictions"></a>Ograniczenia adresów IP
+**Błąd**: "nie można dodać połączenia narzędzia ITSM o nazwie" XXX "z powodu nieprawidłowego żądania. Błąd: Nieprawidłowe żądanie. Podano nieprawidłowe parametry połączenia. Wyjątek http: Niedozwolony kod stanu. "
+
+**Przyczyna**: adres IP aplikacji narzędzia ITSM nie zezwala na połączenia narzędzia ITSM z partnerów narzędzia ITSM Tools.
+
+**Rozwiązanie**: Aby wyświetlić listę narzędzia ITSM adresów IP w celu zezwolenia na połączenia narzędzia ITSM z partnerów narzędzia ITSM, zalecamy wyświetlenie listy cały publiczny zakres adresów IP w regionie świadczenia usługi Azure, w którym należy do obszaru roboczego LogAnalytics. [Szczegóły tutaj](https://www.microsoft.com/download/details.aspx?id=56519) W przypadku regionów EUS/UZE/EUS2/WUS2/Południowo-środkowe stany USA klient może wyświetlić listę tylko tag sieci z akcją.

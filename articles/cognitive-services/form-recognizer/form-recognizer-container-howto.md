@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584791"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467480"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wycofywanie)
 
@@ -264,7 +264,7 @@ formrecognizer_config =
 
 ### <a name="form-recognizer"></a>Rozpoznawanie formularzy
 
-Kontener zawiera interfejsy API punktu końcowego REST, które można znaleźć na stronie [interfejsu API rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel) .
+Kontener zawiera interfejsy API punktu końcowego REST, które można znaleźć na stronie odniesienia [interfejsu API rozpoznawania formularzy] https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) .
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
