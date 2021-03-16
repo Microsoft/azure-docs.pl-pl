@@ -132,6 +132,8 @@
       href: concepts/known-issues.md
 - name: Samples
   items:
+    - name: Omówienie
+      href: samples/overview.md
     - name: Połączenia grupowe — przykład dużego obrazu
       href: samples/calling-hero-sample.md
     - name: Czat grupowy — przykład dużego obrazu

@@ -209,6 +209,9 @@
           href: customize-ui-with-html.md
         - name: Układy stron i kod JavaScript
           href: javascript-and-page-layout.md
+        - name: Wbudowane logowanie za pomocą elementu IFRAME
+          displayName: iframe
+          href: embedded-login.md
         - name: Dostosowywanie języka
           href: language-customization.md
           displayName: localization
@@ -420,14 +423,16 @@
           href: partner-whoiam.md
         - name: Zscaler
           href: partner-zscaler.md
-    - name: Korzystanie z usługi b2clogin.com
+    - name: Nazwa domeny
       items:
         - name: Omówienie usługi b2clogin.com
           href: b2clogin.md
-        - name: Migrowanie internetowego interfejsu API do usługi b2clogin.com
+        - name: Konfigurowanie domeny niestandardowej
+          href: custom-domain.md
+        - name: Konfigurowanie domen interfejsu API sieci Web
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
-    - name: Automatyzacja
+    - name: Automation
       items:
         - name: Microsoft Graph API
           href: microsoft-graph-operations.md

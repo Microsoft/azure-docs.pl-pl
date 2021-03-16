@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200232"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490997"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Dowiedz się, jak Azure IoT Edge używa certyfikatów
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge certyfikaty są używane przez moduły i podrzędne urządzenia IoT do weryfikacji tożsamości i poprawności modułu [IoT Edge centrum](iot-edge-runtime.md#iot-edge-hub) środowiska uruchomieniowego. Te weryfikacje umożliwiają bezpieczne połączenie TLS (Transport Layer Security) między środowiskiem uruchomieniowym, modułami i urządzeniami IoT. Podobnie jak IoT Hub, IoT Edge wymaga bezpiecznego i szyfrowanego połączenia z urządzeń podrzędnych (lub liściowych IoT) i modułów IoT Edge. Aby nawiązać bezpieczne połączenie TLS, moduł IoT Edge Hub przedstawia łańcuch certyfikatów serwera do łączenia klientów, aby zweryfikować swoją tożsamość.
 

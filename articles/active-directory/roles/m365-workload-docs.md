@@ -14,16 +14,16 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310dd82f9a5f7f98fbca720b48212b7963e25a63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f56f8ac42f0db3d2cd27453cd023a2e869b0cde0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551508"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466086"
 ---
 # <a name="roles-for-microsoft-365-services-in-azure-active-directory"></a>Role usług Microsoft 365 Services w programie Azure Active Directory
 
-Wszystkie produkty w Microsoft 365 mogą być zarządzane przy użyciu ról administracyjnych w usłudze Azure Active Directory (Azure AD). Niektóre produkty udostępniają także dodatkowe role, które są specyficzne dla danego produktu. Informacje o rolach obsługiwanych przez poszczególne produkty znajdują się w poniższej tabeli. Ogólne dyskusje dotyczące problemów z delegowaniem można znaleźć w temacie [Planowanie delegowania ról w Azure Active Directory](concept-delegation.md).
+Wszystkie produkty w Microsoft 365 mogą być zarządzane przy użyciu ról administracyjnych w usłudze Azure Active Directory (Azure AD). Niektóre produkty udostępniają także dodatkowe role, które są specyficzne dla danego produktu. Informacje o rolach obsługiwanych przez poszczególne produkty znajdują się w poniższej tabeli. Aby uzyskać wskazówki dotyczące planowania zabezpieczeń ról, zobacz [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](security-planning.md).
 
 ## <a name="where-to-find-content"></a>Gdzie można znaleźć zawartość
 

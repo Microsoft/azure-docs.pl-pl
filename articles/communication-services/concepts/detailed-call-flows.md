@@ -5,15 +5,15 @@ description: Dowiedz się więcej na temat topologii przepływu wywołań w usł
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 12/11/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 526e3a1e4eeb6ef6a31a33498241d9a7443cca35
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174295"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490640"
 ---
 # <a name="call-flow-topologies"></a>Topologie przepływu wywołań
 W tym artykule opisano topologie przepływu wywołań usług Azure Communication Services. To świetny artykuł, który można sprawdzić, jeśli jesteś klientem korporacyjnym integrującym usługi komunikacyjne w sieci, którą zarządzasz. Aby uzyskać wprowadzenie do przepływów wywołań usług komunikacyjnych, odwiedź [dokumentację koncepcyjną przepływów wywołań](./call-flows.md).

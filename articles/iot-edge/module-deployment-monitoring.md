@@ -8,31 +8,33 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85194794"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489986"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informacje na temat IoT Edge wdrożeń automatycznych dla pojedynczych urządzeń lub na dużą skalę
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Wdrożenia automatyczne i wdrożenie warstwowe ułatwiają zarządzanie i Konfigurowanie modułów na dużej liczbie IoT Edge urządzeń.
 
 Azure IoT Edge oferuje dwa sposoby konfigurowania modułów do uruchamiania na urządzeniach IoT Edge. Pierwsza metoda polega na wdrożeniu modułów na poszczególnych urządzeniach. Należy utworzyć manifest wdrożenia, a następnie zastosować go do określonego urządzenia według nazwy. Druga metoda polega na automatycznym wdrożeniu modułów na dowolnym zarejestrowanym urządzeniu, które spełnia określone warunki. Należy utworzyć manifest wdrożenia, a następnie określić, które urządzenia odnoszą się do nich w oparciu o [Tagi](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) w bliźniaczych urządzeniach.
 
-Ten artykuł koncentruje się na konfigurowaniu i monitorowaniu flot urządzeń, zbiorczo nazywanymi *IoT Edge wdrożeniami automatycznymi*.Podstawowe kroki wdrażania są następujące:
+Ten artykuł koncentruje się na konfigurowaniu i monitorowaniu flot urządzeń, zbiorczo nazywanymi *IoT Edge wdrożeniami automatycznymi*. Podstawowe kroki wdrażania są następujące:
 
-1. Operator definiuje wdrożenie opisujące zestaw modułów i urządzeń docelowych.Każde wdrożenie zawiera manifest wdrożenia, który odzwierciedla te informacje.
+1. Operator definiuje wdrożenie opisujące zestaw modułów i urządzeń docelowych. Każde wdrożenie zawiera manifest wdrożenia, który odzwierciedla te informacje.
 2. Usługa IoT Hub komunikuje się ze wszystkimi urządzeniami przeznaczonymi do konfigurowania za pomocą zadeklarowanych modułów.
-3. Usługa IoT Hub Pobiera stan z urządzeń IoT Edge i udostępnia je operatorowi.Na przykład operator może zobaczyć, kiedy urządzenie brzegowe nie zostało prawidłowo skonfigurowane lub jeśli wystąpi błąd modułu w czasie wykonywania.
+3. Usługa IoT Hub Pobiera stan z urządzeń IoT Edge i udostępnia je operatorowi.  Na przykład operator może zobaczyć, kiedy urządzenie brzegowe nie zostało prawidłowo skonfigurowane lub jeśli wystąpi błąd modułu w czasie wykonywania.
 4. W każdej chwili do wdrożenia są konfigurowane nowe IoT Edge urządzenia spełniające warunki określania wartości docelowej.
 
 W tym artykule opisano każdy składnik związany z konfigurowaniem i monitorowaniem wdrożenia. Aby zapoznać się z przewodnikiem dotyczącym tworzenia i aktualizowania wdrożenia, zobacz [wdrażanie i monitorowanie modułów IoT Edge w odpowiedniej skali](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Wdrożenie
 
-IoT Edge wdrożenie automatyczne przypisuje IoT Edge obrazy modułów do uruchamiania jako wystąpienia w określonym zestawie IoT Edge urządzeń. Działa przez skonfigurowanie manifestu wdrażania IoT Edge w celu uwzględnienia listy modułów z odpowiednimi parametrami inicjalizacji.Wdrożenie może być przypisane do jednego urządzenia (w oparciu o identyfikator urządzenia) lub do grupy urządzeń (w oparciu o Tagi).Gdy urządzenie IoT Edge odbiera manifest wdrożenia, pobiera i instaluje obrazy kontenerów z odpowiednich repozytoriów kontenerów i odpowiednio konfiguruje je.Po utworzeniu wdrożenia operator może monitorować stan wdrożenia, aby sprawdzić, czy urządzenia są poprawnie skonfigurowane.
+IoT Edge wdrożenie automatyczne przypisuje IoT Edge obrazy modułów do uruchamiania jako wystąpienia w określonym zestawie IoT Edge urządzeń. Działa przez skonfigurowanie manifestu wdrażania IoT Edge w celu uwzględnienia listy modułów z odpowiednimi parametrami inicjalizacji. Wdrożenie może być przypisane do jednego urządzenia (w oparciu o identyfikator urządzenia) lub do grupy urządzeń (w oparciu o Tagi). Gdy urządzenie IoT Edge odbiera manifest wdrożenia, pobiera i instaluje obrazy kontenerów z odpowiednich repozytoriów kontenerów i odpowiednio konfiguruje je. Po utworzeniu wdrożenia operator może monitorować stan wdrożenia, aby sprawdzić, czy urządzenia są poprawnie skonfigurowane.
 
 Tylko urządzenia IoT Edge można skonfigurować przy użyciu wdrożenia. Poniższe wymagania wstępne muszą znajdować się na urządzeniu, aby można było odebrać wdrożenie:
 
@@ -42,7 +44,7 @@ Tylko urządzenia IoT Edge można skonfigurować przy użyciu wdrożenia. Poniż
 
 ### <a name="deployment-manifest"></a>Manifest wdrożenia
 
-Manifest wdrożenia jest dokumentem JSON opisującym moduły, które mają być skonfigurowane na urządzeniach IoT Edge. Zawiera metadane konfiguracji dla wszystkich modułów, w tym wymagane moduły systemowe (w szczególności Agent IoT Edge i centrum IoT Edge).  
+Manifest wdrożenia jest dokumentem JSON opisującym moduły, które mają być skonfigurowane na urządzeniach IoT Edge. Zawiera metadane konfiguracji dla wszystkich modułów, w tym wymagane moduły systemowe (w szczególności Agent IoT Edge i centrum IoT Edge).  
 
 Metadane konfiguracji dla każdego modułu obejmują:
 
@@ -81,11 +83,11 @@ Te ograniczenia należy wziąć pod uwagę podczas konstruowania warunku docelow
 
 ### <a name="priority"></a>Priorytet
 
-Priorytet definiuje, czy wdrożenie ma być stosowane do urządzenia przeznaczonego względem innych wdrożeń. Priorytet wdrożenia jest dodatnią liczbą całkowitą o większej liczbie oznaczającej wyższy priorytet. Jeśli urządzenie IoT Edge jest objęte więcej niż jednym wdrożeniem, obowiązuje wdrożenie z najwyższym priorytetem.Wdrożenia z niższymi priorytetami nie są stosowane ani nie są scalane.Jeśli urządzenie jest przeznaczone dla co najmniej dwóch wdrożeń o równym priorytecie, stosuje się ostatnio utworzone wdrożenie (określone przez sygnaturę czasową tworzenia).
+Priorytet definiuje, czy wdrożenie ma być stosowane do urządzenia przeznaczonego względem innych wdrożeń. Priorytet wdrożenia jest dodatnią liczbą całkowitą o większej liczbie oznaczającej wyższy priorytet. Jeśli urządzenie IoT Edge jest objęte więcej niż jednym wdrożeniem, obowiązuje wdrożenie z najwyższym priorytetem.  Wdrożenia z niższymi priorytetami nie są stosowane ani nie są scalane.  Jeśli urządzenie jest przeznaczone dla co najmniej dwóch wdrożeń o równym priorytecie, stosuje się ostatnio utworzone wdrożenie (określone przez sygnaturę czasową tworzenia).
 
 ### <a name="labels"></a>Etykiety
 
-Etykiety to pary klucz/wartość, których można użyć do filtrowania i grupowania wdrożeń.Wdrożenie może mieć wiele etykiet. Etykiety są opcjonalne i nie mają wpływu na rzeczywistą konfigurację IoT Edge urządzeń.
+Etykiety to pary klucz/wartość, których można użyć do filtrowania i grupowania wdrożeń. Wdrożenie może mieć wiele etykiet. Etykiety są opcjonalne i nie mają wpływu na rzeczywistą konfigurację IoT Edge urządzeń.
 
 ### <a name="metrics"></a>Metryki
 
@@ -174,16 +176,16 @@ Etapowe wdrażanie to ogólny proces, w którym operator wdraża zmiany w rozsze
 
 Etapowe wdrażanie jest wykonywane w następujących fazach i krokach:
 
-1. Ustanów środowisko testowe IoT Edge urządzeń, udostępniając je i ustawiając tag sznurka urządzenia, taki jak `tag.environment='test'` .Środowisko testowe powinno dublować środowisko produkcyjne, w którym wdrożenie będzie ostatecznie docelowe.
+1. Ustanów środowisko testowe IoT Edge urządzeń, udostępniając je i ustawiając tag sznurka urządzenia, taki jak `tag.environment='test'` . Środowisko testowe powinno dublować środowisko produkcyjne, w którym wdrożenie będzie ostatecznie docelowe.
 2. Utwórz wdrożenie, w tym wymagane moduły i konfiguracje. Warunek określania wartości docelowej powinien dotyczyć środowiska testowego IoT Edge urządzenia.
 3. Sprawdź poprawność konfiguracji nowego modułu w środowisku testowym.
 4. Zaktualizuj wdrożenie, aby uwzględnić podzestaw IoT Edge produkcyjnych urządzeń przez dodanie nowego tagu do warunku określania wartości docelowej. Upewnij się również, że priorytet wdrożenia jest wyższy niż inne wdrożenia, które są obecnie przeznaczone dla tych urządzeń.
 5. Sprawdź, czy wdrożenie zakończyło się pomyślnie na kierowanych urządzeniach IoT, wyświetlając stan wdrożenia.
 6. Zaktualizuj wdrożenie na wszystkie pozostałe urządzenia IoT Edge produkcyjnego.
 
-## <a name="rollback"></a>Wycofywania
+## <a name="rollback"></a>Wycofywanie
 
-Wdrożenia mogą być wycofywane w przypadku otrzymania błędów lub błędnej konfiguracji.Ze względu na to, że wdrożenie definiuje bezwzględną konfigurację modułu dla urządzenia IoT Edge, dodatkowe wdrożenie musi być również celem tego samego urządzenia o niższym priorytecie, nawet jeśli celem jest usunięcie wszystkich modułów.  
+Wdrożenia mogą być wycofywane w przypadku otrzymania błędów lub błędnej konfiguracji. Ze względu na to, że wdrożenie definiuje bezwzględną konfigurację modułu dla urządzenia IoT Edge, dodatkowe wdrożenie musi być również celem tego samego urządzenia o niższym priorytecie, nawet jeśli celem jest usunięcie wszystkich modułów.  
 
 Usunięcie wdrożenia nie powoduje usunięcia modułów z urządzeń kierowanych. Musi istnieć inne wdrożenie, które definiuje nową konfigurację dla urządzeń, nawet jeśli jest to puste wdrożenie.
 

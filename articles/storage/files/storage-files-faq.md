@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202641"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470897"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -308,6 +308,18 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/list ACL systemu Windows?**
 
     Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+**Jak usunąć buforowane poświadczenia z kluczem konta magazynu i usunąć istniejące połączenia SMB przed zainicjowaniem nowego połączenia z usługą Azure AD lub poświadczeniami usługi AD?**
+
+    Aby usunąć zapisane poświadczenia skojarzone z kluczem konta magazynu i usunąć połączenie SMB, można wykonać poniższe dwa czynności: 
+    1. Uruchom poniższe polecenie cmdlet w systemie Windows Cmd.exe, aby usunąć poświadczenie. Jeśli nie możesz znaleźć takiego poświadczenia, oznacza to, że nie zostało utrwalone poświadczenie i może pominąć ten krok.
+    
+       cmdkey/delete: domena: Target = Storage-account-name.file.core.windows.net
+    
+    2. Usuń istniejące połączenie z udziałem plików. Ścieżkę instalacji można określić jako literę dysku zainstalowanego lub ścieżkę storage-account-name.file.core.windows.net.
+    
+       net use <dysk-litera/udział-ścieżka>/Delete
 
 ## <a name="network-file-system"></a>Sieciowy system plików
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706286"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472048"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Obsługa języka naturalnego na platformie Azure Cognitive Services
 
@@ -48,16 +48,6 @@ Te Cognitive Services są w języku niezależny od i nie mają ograniczeń opart
 * [Usługa mowy: zamiana mowy na tekst](./speech-service/language-support.md#speech-to-text)
 * [Usługa mowy: zamiana tekstu na mowę](./speech-service/language-support.md#text-to-speech)
 * [Usługa mowy: Tłumaczenie mowy](./speech-service/language-support.md#speech-translation)
-
-## <a name="search"></a>Wyszukaj
-
-* [Wyszukiwanie niestandardowe Bing](./bing-custom-search/language-support.md)
-* [Wyszukiwanie obrazów w usłudze Bing](./bing-image-search/language-support.md)
-* [Wyszukiwanie wiadomości (Bing)](./bing-news-search/language-support.md)
-* [Automatyczne sugerowanie Bing](./bing-autosuggest/language-support.md)
-* [Sprawdzanie pisowni Bing](./bing-spell-check/language-support.md)
-* [Wyszukiwanie wizualne Bing](./bing-visual-search/language-support.md)
-* [Wyszukiwanie w Internecie Bing](./bing-web-search/language-support.md)
 
 ## <a name="decision"></a>Decyzja
 

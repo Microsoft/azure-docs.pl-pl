@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d983369db3fbd03c41c248439a5c1aabec14ea55
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: f26cea9442aa3fbbe7f475cc5d16bea792b83fb3
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535369"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493989"
 ---
 # <a name="defender-for-iot-glossary"></a>Słownik usługi Defender for IoT
 
@@ -61,7 +61,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 | **Spis urządzeń — czujnik** | Spis urządzeń zawiera szeroką gamę atrybutów urządzeń wykrywanych przez usługę Defender for IoT. Dostępne są następujące opcje:<br /><br />-Filtruj wyświetlane informacje.<br /><br />— Wyeksportuj te informacje do pliku CSV.<br /><br />-Zaimportuj szczegóły rejestru systemu Windows. | **[Group (Grupa)](#g)** <br /><br />**[Spis urządzeń — lokalna Konsola zarządzania](#d)** |
 | **Spis urządzeń — lokalna Konsola zarządzania** | Informacje o urządzeniu z połączonych czujników można wyświetlić w lokalnej konsoli zarządzania w spisie urządzeń. Zapewnia to użytkownikom lokalnej konsoli zarządzania Kompleksowy wgląd w wszystkie informacje o sieci. | **[Spis urządzeń — czujnik](#d) <br /> <br /> [Spis urządzeń — Integrator danych](#d)** |
 | **Spis urządzeń — Integrator danych** | Możliwości integracji danych w lokalnej konsoli zarządzania pozwalają ulepszyć dane w spisie urządzeń przy użyciu informacji z innych zasobów przedsiębiorstwa. Przykładowymi zasobami są CMDB, DNS, zapory i interfejsy API sieci Web. | **[Spis urządzeń — lokalna Konsola zarządzania](#d)** |
-| **Bliźniaczych reprezentacji urządzenia**`(DB)` | Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. | [Sznurki modułu](#m) <br /> <br />[Dwuosiowy moduł zabezpieczeń](#s) |
+| **Bliźniaczych reprezentacji urządzenia**`(DB)` | Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. | [Sznurki modułu](#m) <br /> <br />[Defender-IoT-Micro-Agent](#s) |
 
 ## <a name="e"></a>E
 
@@ -112,7 +112,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 | Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Micro Agent**`(DB)` | Oferuje szczegółowe funkcje zabezpieczeń urządzeń IoT, w tym stan zabezpieczeń i wykrywanie zagrożeń. | |
-| **Sznurki modułu**`(DB)` | Bliźniacze reprezentacje modułu to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. | [Bliźniak urządzenia](#d) <br /> <br />[Dwuosiowy moduł zabezpieczeń](#s) |
+| **Sznurki modułu**`(DB)` | Bliźniacze reprezentacje modułu to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. | [Bliźniak urządzenia](#d) <br /> <br />[Defender-IoT-Micro-Agent](#s) |
 | **Wycisz zdarzenie alertu** | Nakazuje usłudze Defender for IoT ciągłe ignorowanie aktywności z identycznymi urządzeniami i porównywalnym ruchem. | **[](#glossary-a) <br /> Alert <br /> [](#e) <br /> Reguła <br /> wykluczania [Potwierdzenie zdarzenia](#glossary-a) <br /> <br /> alertu [Informacje o zdarzeniu alertu](#l)** |
 
 ## <a name="n"></a>N
@@ -148,7 +148,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 | Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Alert zabezpieczeń** | Alerty, które dotyczą problemów z zabezpieczeniami, takich jak nadmierne próby logowania przy użyciu protokołu SMB lub wykrywanie złośliwego oprogramowania. | **[](#glossary-a) <br /> Alert <br /> [Alert operacyjny](#o)** |
-| **Dwuosiowy moduł zabezpieczeń**`(DB)` | Sznury modułu zabezpieczeń zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego konkretnego urządzenia w rozwiązaniu. | [Bliźniak urządzenia](#d) <br /> <br />[Sznurki modułu](#m)  |
+| **Defender-IoT-Micro-Agent**`(DB)` | Sznurek usługi Defender-IoT-Micro-Agent zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego konkretnego urządzenia w rozwiązaniu. | [Bliźniak urządzenia](#d) <br /> <br />[Sznurki modułu](#m)  |
 | **Sondowanie selektywne** | Usługa Defender dla usługi IoT pasywnie przeprowadza inspekcję i ruch wychodzący i wykrywa odpowiednie informacje na temat urządzeń, ich atrybutów, zachowań i nie tylko. W niektórych przypadkach niektóre informacje mogą nie być widoczne w przypadku pasywnych analiz sieci.<br /><br />W takim przypadku można użyć bezpiecznych, szczegółowych narzędzi do sondowania w usłudze Defender for IoT, aby poznać ważne informacje dotyczące wcześniej nieosiągalnych urządzeń. | - |
 | **Czujnik** | Maszyna fizyczna lub wirtualna, na której zainstalowano platformę Defender for IoT. | **[Lokalna Konsola zarządzania](#o)** |
 | **Witryna** | Lokalizacja fabryki lub innej jednostki. Lokacja powinna zawierać strefę lub kilka stref, w których jest zainstalowany czujnik. | **[Strefa](#z)** |

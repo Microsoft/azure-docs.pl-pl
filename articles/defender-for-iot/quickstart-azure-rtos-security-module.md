@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Konfigurowanie i włączanie modułu zabezpieczeń dla usługi Azure RTO'
-description: W tym przewodniku szybki start dowiesz się, jak dołączyć i włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub platformie Azure.
+title: 'Szybki Start: Konfigurowanie i Włączanie usługi Defender-IoT-Micro-Agent dla platformy Azure RTO'
+description: Dowiedz się, jak dołączyć i włączyć usługę Defender-IoT-Micro-Agent for Azure RTO na platformie IoT Hub Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c1af1128b99cbd3263ddffc834eb27ab9dec564
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447303"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489849"
 ---
-# <a name="quickstart-security-module-for-azure-rtos"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO 
+# <a name="quickstart-defender-iot-micro-agent-for-azure-rtos-preview"></a>Szybki Start: Defender-IoT-Micro-Agent for Azure RTO (wersja zapoznawcza)
 
-Ten artykuł zawiera opis wymagań wstępnych przed rozpoczęciem pracy i wyjaśnia, jak włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
+Ten artykuł zawiera informacje o wymaganiach wstępnych przed rozpoczęciem i wyjaśniono, jak włączyć usługę Defender-IoT-Micro-Agent for Azure RTO na IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -32,7 +32,7 @@ Ten artykuł zawiera opis wymagań wstępnych przed rozpoczęciem pracy i wyjaś
 - NXP i.MX RT1060 EVK
 - Mikroukład SAM E54 Xplained Pro EVK
 
-Pobieraj, Kompiluj i uruchamiaj jeden z plików. zip dla konkretnej tablicy i narzędzia (IAR, IDE lub PC) wybranego z [modułu zabezpieczeń dla zasobu usługi Azure RTO](https://github.com/azure-rtos/azure-iot-preview/releases)w serwisie GitHub.
+Pobieraj, Kompiluj i uruchamiaj jeden z plików ZIP dla określonej tablicy i narzędzia (IAR, IDE lub PC) wybranego z usługi [Defender-IoT-Micro-Agent for Azure RTO GitHub](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Zasoby platformy Azure
 
@@ -52,11 +52,11 @@ Aby rozpocząć, musisz mieć połączenie IoT Hub.
 
 Poświadczenia połączeń są pobierane z konfiguracji aplikacji użytkownika **HOST_NAME**, **DEVICE_ID** i **DEVICE_SYMMETRIC_KEY**.
 
-Moduł zabezpieczeń usługi Azure RTO korzysta z połączeń usługi Azure IoT pośredniczącego na podstawie protokołu **MQTT** .
+Usługa Defender-IoT-Micro-Agent for Azure RTO korzysta z połączeń usługi Azure IoT pośredniczącego na podstawie protokołu **MQTT** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 Przejdź do następnego artykułu, aby zakończyć konfigurowanie i dostosowywanie rozwiązania.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie modułu zabezpieczeń dla usługi Azure RTOS](how-to-azure-rtos-security-module.md)
+> [Konfigurowanie i dostosowywanie usługi Defender-IoT-Micro-Agent for Azure RTO (wersja zapoznawcza)](how-to-azure-rtos-security-module.md)

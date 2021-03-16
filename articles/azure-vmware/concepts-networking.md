@@ -3,12 +3,12 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: cd62949c13b1f12e635d8d7bf07518a94c4e8d4b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 4c964151c49e2fea56031dd24bacf4655753a18d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462591"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491813"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
@@ -16,9 +16,9 @@ ms.locfileid: "103462591"
 
 Istnieją dwa sposoby łączenia się z chmurą prywatną rozwiązania Azure VMware:
 
-1. [**Podstawowa platforma Azure — tylko łączność międzyfirmowa**](#azure-virtual-network-interconnectivity) umożliwia zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Ta implementacja najlepiej nadaje się w przypadku ocen lub implementacji rozwiązań VMware platformy Azure, które nie wymagają dostępu ze środowisk lokalnych.
+- [**Podstawowa platforma Azure — tylko łączność międzyfirmowa**](#azure-virtual-network-interconnectivity) umożliwia zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Ta implementacja najlepiej nadaje się w przypadku ocen lub implementacji rozwiązań VMware platformy Azure, które nie wymagają dostępu ze środowisk lokalnych.
 
-1. Funkcja międzyusługowa [**w chmurze z chmurą prywatną pozwala**](#on-premises-interconnectivity) rozszerzyć podstawową implementację wyłącznie platformy Azure w celu uwzględnienia wzajemnej łączności między chmurami prywatnymi i rozwiązaniami VMware platformy Azure.
+- Funkcja międzyusługowa [**w chmurze z chmurą prywatną pozwala**](#on-premises-interconnectivity) rozszerzyć podstawową implementację wyłącznie platformy Azure w celu uwzględnienia wzajemnej łączności między chmurami prywatnymi i rozwiązaniami VMware platformy Azure.
  
 W tym artykule omówiono kluczowe koncepcje, które nawiązywać połączenia sieciowe i międzysieciowe, w tym wymagania i ograniczenia. Ten artykuł zawiera informacje, które należy znać, aby skonfigurować sieć do pracy z rozwiązaniem VMware platformy Azure.
 

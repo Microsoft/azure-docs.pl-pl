@@ -11,33 +11,39 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 03/14/2021
 ms.author: shhazam
-ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820674"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493964"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Co nowego w usłudze Azure Defender for IoT?
 
 W tym artykule wymieniono nowe funkcje i ulepszenia funkcji usługi Defender for IoT.
 
 Notowane funkcje są w wersji zapoznawczej. [Postanowienia uzupełniające dotyczące platformy Azure w wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zawierają dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze udostępnione.
-## <a name="february-2021"></a>Luty 2021 r.
+## <a name="march-2021"></a>Marzec 2021
 
-### <a name="sensor---enhanced-custom-alert-rules"></a>Niestandardowe reguły alertów z rozszerzonym czujnikiem
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Ulepszone niestandardowe reguły alertów z czujnikiem (publiczna wersja zapoznawcza)
 
 Teraz można tworzyć niestandardowe reguły alertów w oparciu o dzień, grupę dni i aktywność sieciową okresu.  Praca z warunkami reguł daty i godziny jest przydatna, na przykład w przypadkach, w których ważność alertu jest określana przez czas trwania zdarzenia alertu. Na przykład utwórz regułę niestandardową, która wyzwala alert o wysokiej ważności w przypadku wykrycia aktywności sieciowej w weekendie lub wieczorie.
 
-Ta funkcja jest dostępna na czujniku w wersji 10,1.
+Ta funkcja jest dostępna na czujniku w wersji 10,2.
 
-### <a name="on-premises-management-console---export-alerts"></a>Lokalna Konsola zarządzania — eksportowanie alertów
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Lokalna Konsola zarządzania — eksportowanie alertów (publiczna wersja zapoznawcza)
 
 Informacje o alertach można teraz wyeksportować do pliku CSV z lokalnej konsoli zarządzania. Możesz wyeksportować informacje o wszystkich alertach wykrytych lub wyeksportować informacje na podstawie filtrowanego widoku.
 
-Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10,1.
+Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10,2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Dodaj drugi interfejs sieciowy do lokalnej konsoli zarządzania (publiczna wersja zapoznawcza)
+
+Teraz można zwiększyć bezpieczeństwo wdrożenia przez dodanie drugiego interfejsu sieciowego do lokalnej konsoli zarządzania. Ta funkcja umożliwia zarządzanie lokalne w celu połączenia czujników w jednej zabezpieczonej sieci, dzięki czemu użytkownicy mogą uzyskać dostęp do lokalnej konsoli zarządzania za pomocą drugiego oddzielnego interfejsu sieciowego.
+
+Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10,2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Konstruktor urządzeń — nowy Micro Agent (publiczna wersja zapoznawcza)
 
 Dostępny jest nowy moduł konstruktora urządzeń. Moduł, zwany jako mikroagentem, umożliwia:
@@ -48,7 +54,7 @@ Dostępny jest nowy moduł konstruktora urządzeń. Moduł, zwany jako mikroagen
 - **Security stan Management** — proaktywne monitorowanie stan zabezpieczeń urządzeń IoT.
 - **Ciągły, wykrycie IoT/spoza w czasie rzeczywistym** — wykrywanie zagrożeń, takich jak botnetami, próby odłożenia, wyszukiwarek używa tego kryptograficzne i podejrzana aktywność sieci
 
-Przestarzała dokumentacja modułu zabezpieczeń zostanie przeniesiona do *rozwiązania opartego na agencie dla konstruktorów urządzeń>folderze klasycznym* .
+Przestarzała Dokumentacja usługi Defender-IoT-Micro-Agent zostanie przeniesiona do *rozwiązania opartego na agencie dla konstruktorów urządzeń>folderze klasycznym* .
 
 Ten zestaw funkcji jest dostępny w bieżącej publicznej wersji zapoznawczej w chmurze.
 

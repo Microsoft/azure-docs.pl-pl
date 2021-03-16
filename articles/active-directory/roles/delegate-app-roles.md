@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051195"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466715"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory
 
@@ -30,7 +30,7 @@ W tym artykule opisano, jak używać uprawnień udzielonych przez role niestanda
 - [Przypisanie wbudowanej roli administracyjnej](#assign-built-in-application-admin-roles) , która przyznaje dostęp do zarządzania konfiguracją w usłudze Azure AD dla wszystkich aplikacji. Jest to zalecany sposób udzielania ekspertom IT dostępu do zarządzania szerokimi uprawnieniami konfiguracji aplikacji bez udzielania dostępu do zarządzania innymi częściami usługi Azure AD niezwiązanych z konfiguracją aplikacji.
 - [Tworzenie roli niestandardowej](#create-and-assign-a-custom-role-preview) Definiowanie bardzo konkretnych uprawnień i przypisywanie jej do zakresu jednej aplikacji jako ograniczonej właściciela lub zakresu katalogu (wszystkie aplikacje) jako ograniczonego administratora.
 
-Ważne jest, aby rozważyć udzielenie dostępu przy użyciu jednej z powyższych metod z dwóch przyczyn. Po pierwsze Delegowanie możliwości wykonywania zadań administracyjnych zmniejsza obciążenie administratora globalnego. Po drugie użycie ograniczonych uprawnień usprawnia stan zabezpieczeń i zmniejsza możliwości nieautoryzowanego dostępu. Zagadnienia dotyczące delegowania i ogólne wytyczne zostały omówione w temacie [delegowanie administracji w Azure Active Directory](concept-delegation.md).
+Ważne jest, aby rozważyć udzielenie dostępu przy użyciu jednej z powyższych metod z dwóch przyczyn. Po pierwsze Delegowanie możliwości wykonywania zadań administracyjnych zmniejsza obciążenie administratora globalnego. Po drugie użycie ograniczonych uprawnień usprawnia stan zabezpieczeń i zmniejsza możliwości nieautoryzowanego dostępu. Aby uzyskać wskazówki dotyczące planowania zabezpieczeń ról, zobacz [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](security-planning.md).
 
 ## <a name="restrict-who-can-create-applications"></a>Ogranicz, kto może tworzyć aplikacje
 

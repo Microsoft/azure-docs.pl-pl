@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 16425c1f15b78e2d0aaa7a8a1f55ff47a44d56dd
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464788"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496613"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Samouczek: Tworzenie wykresu Digital bliźniaczych reprezentacji na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -64,7 +64,7 @@ Obie te wartości dla wystąpienia można uzyskać w danych wyjściowych następ
 az dt show -n <ADT_instance_name>
 ```
 
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Cloud Shell okno pokazujące dane wyjściowe polecenia AZ DT show. Pole nazwy hosta i Identyfikator subskrypcji (część pola identyfikatora) są wyróżnione.":::
+:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Zrzut ekranu przedstawiający okno przeglądarki Cloud Shell z danymi wyjściowymi polecenia AZ DT show. Pole nazwy hosta i Identyfikator subskrypcji (część pola identyfikatora) są wyróżnione.":::
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>Modelowanie środowiska fizycznego za pomocą DTDL
 
@@ -87,7 +87,7 @@ Po zaprojektowaniu modeli należy przekazać je do wystąpienia usługi Azure Di
 
 1. Aby dodać modele przy użyciu Cloud Shell, musisz przekazać pliki modelu do magazynu Cloud Shell, aby pliki były dostępne po uruchomieniu polecenia Cloud Shell, które z nich korzysta. W tym celu wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór ikony przekazywania":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Zrzut ekranu przedstawiający okno przeglądarki Cloud Shell, w którym jest wyświetlana ikona przekazywania.":::
     
     Przejdź do *Room.js* pliku na komputerze i wybierz pozycję "Otwórz". Następnie powtórz ten krok dla *Floor.js*.
 
@@ -111,7 +111,7 @@ Po zaprojektowaniu modeli należy przekazać je do wystąpienia usługi Azure Di
     
     Poszukaj edytowanego modelu *pokoju* w wynikach:
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Wyniki polecenia listy modeli, pokazujące zaktualizowany model pokoju" lightbox="media/tutorial-command-line/cli/output-get-models.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący wynik polecenia listy modeli, który obejmuje zaktualizowany model pokoju." lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
 ### <a name="errors"></a>błędy
 
@@ -159,7 +159,7 @@ Aby utworzyć dwuosiową cyfrę, użyj polecenia [**AZ DT bliźniaczy Create**](
     
     W wynikach Szukaj *room0*, *room1*, *floor0* i *floor1* bliźniaczych reprezentacji. Poniżej znajduje się fragment pokazujący część wyniku tego zapytania.
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Częściowe wyniki zapytania bliźniaczyego, pokazujące room0 i room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący częściowe wyniki zapytania bliźniaczyego, w tym room0 i room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
 ### <a name="modify-a-digital-twin"></a>Modyfikowanie cyfrowej sieci dwuosiowej
 
@@ -181,7 +181,7 @@ Możesz również zmodyfikować właściwości utworzonego przez siebie przędz�
     
     Dane wyjściowe tego polecenia będą przedstawiać bieżące informacje o przędze i powinna zostać wyświetlona nowa wartość `RoomName` w wyniku.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Wyniki polecenia Update, pokazujące PresidentialSuite pokoju" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell wyświetlenia wyniku polecenia Update, który zawiera wartość Roomname z PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
 1. Aby sprawdzić, czy aktualizacja zakończyła się powodzeniem, możesz uruchomić polecenie [**AZ DT bliźniaczy show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) , aby zobaczyć informacje o *room0*:
 
@@ -236,7 +236,7 @@ Aby dodać relację, użyj polecenia [**AZ DT bliźniaczy Relationship Create**]
 
 Bliźniaczych reprezentacji i relacje, które zostały skonfigurowane w tym samouczku, tworzą następujący wykres koncepcyjny:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Wykres przedstawiający floor0 połączony za pośrednictwem relationship0 do room0 oraz floor1 podłączony przez relationship1 do room1" border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Diagram przedstawiający wykres koncepcyjny. floor0 jest połączony za pośrednictwem relationship0 do room0, a floor1 jest połączony za pośrednictwem relationship1 do room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Zbadaj Graf bliźniaczy, aby odpowiedzieć na pytania dotyczące środowiska
 
@@ -252,7 +252,7 @@ Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań
 
     Pozwala to na błyskawiczne przejęcie zasobów w środowisku i upewnienie się, że wszystko jest reprezentowane, tak jak w przypadku usługi Azure Digital bliźniaczych reprezentacji. Wynikiem tego jest dane wyjściowe zawierające każdą z nich. Oto fragment:
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Częściowe wyniki zapytania bliźniaczyego, pokazujące room0 i room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący częściowe wyniki zapytania bliźniaczyego, w tym room0 i room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
     >[!TIP]
     >Można sprawdzić, czy jest to to samo polecenie, które zostało użyte wcześniej w sekcji [*Create Digital bliźniaczych reprezentacji*](#create-digital-twins) , aby znaleźć wszystkie usługi Azure Digital bliźniaczych reprezentacji w wystąpieniu.
@@ -265,7 +265,7 @@ Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań
 
     Możesz ograniczyć zapytanie do bliźniaczych reprezentacji pewnego typu, aby uzyskać bardziej szczegółowe informacje na temat tego, co zostało reprezentowane. W wyniku tego są wyświetlane *room0* i *room1*, **ale nie są** wyświetlane *floor0* ani *floor1* (ponieważ są to piętra, a nie pokoje).
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Wyniki zapytania modelu, zawierające tylko room0 i room1" lightbox="media/tutorial-command-line/cli/output-query-model.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący wynik zapytania modelu, który obejmuje tylko room0 i room1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
 1. **Jakie są wszystkie pokoje w witrynie *floor0*?** (zapytanie według relacji)
 
@@ -275,7 +275,7 @@ Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań
 
     Możesz wykonywać zapytania na podstawie relacji w grafie, aby uzyskać informacje na temat sposobu połączenia bliźniaczych reprezentacji lub ograniczenia zapytania do określonego obszaru. Tylko *room0* jest na *floor0*, więc jest to jedyne miejsce w wyniku.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Wyniki zapytania relacji, pokazujące room0" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell wyświetlenia wyniku zapytania relacji, który obejmuje room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
     > Zwróć uwagę, że w polu metadanych zostanie wyszukiwany identyfikator przędzy (na przykład *floor0* w powyższym zapytaniu) `$dtId` . 
@@ -290,7 +290,7 @@ Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań
 
     Możesz wysyłać zapytania do grafu na podstawie właściwości, aby odpowiedzieć na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi. Obsługiwane są również inne operatory porównania ( *<* , *>* ,, *=* lub *! =*). w tym miejscu *room1* pojawia się w wynikach, ponieważ ma temperaturę 80.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Wyniki zapytania właściwości, zawierające tylko room1" lightbox="media/tutorial-command-line/cli/output-query-property.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący wynik zapytania właściwości, który zawiera tylko room1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **Jakie są wszystkie pokoje *floor0* z temperaturą powyżej 75?** (zapytanie złożone)
 
@@ -300,7 +300,7 @@ Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań
 
     Możesz również połączyć wcześniejsze zapytania, takie jak w przypadku języka SQL, przy użyciu operatorów kombinacji takich jak `AND` , `OR` , `NOT` . To zapytanie używa `AND` do powyższej kwerendy dotyczącej pozostałej liczby pozostałych temperatur. Teraz wynik obejmuje tylko pokoje z temperaturą powyżej 75, które znajdują się w *floor0*— w tym przypadku nie ma żadnego z nich. Zestaw wyników jest pusty.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki" lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell pokazujący wynik zapytania złożonego, które nie zawiera żadnych elementów." lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

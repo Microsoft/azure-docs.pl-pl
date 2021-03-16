@@ -17,12 +17,12 @@ ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0771687aa7ccf9b749c107a6b1c507cb3ba08d
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1f7466931537745fb188a3bdb05646bff19912e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881943"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466256"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 
@@ -44,7 +44,7 @@ Oprócz tych trzech kont używanych do uruchamiania Azure AD Connect należy ró
 
 - **AD DS konto administratora przedsiębiorstwa**: Opcjonalnie można utworzyć "konto łącznika AD DS" powyżej.
 
-- **Konto administratora globalnego usługi Azure AD**: służy do tworzenia konta łącznika usługi Azure AD i konfigurowania usługi Azure AD.  Konta administratora globalnego można wyświetlić w witrynie Azure Portal.  Zobacz [Wyświetlanie ról](../../active-directory/roles/manage-roles-portal.md#view-all-roles).
+- **Konto administratora globalnego usługi Azure AD**: służy do tworzenia konta łącznika usługi Azure AD i konfigurowania usługi Azure AD.  Konta administratora globalnego można wyświetlić w Azure Portal.  Zobacz [Lista przypisań ról usługi Azure AD](../../active-directory/roles/view-assignments.md).
 
 - **Konto SQL SA (opcjonalnie)**: służy do tworzenia bazy danych ADSync w przypadku korzystania z pełnej wersji SQL Server.  Ta SQL Server może być lokalna lub zdalna dla Azure AD Connect instalacji.  To konto może być tym samym kontem co administrator przedsiębiorstwa.  Inicjowanie obsługi bazy danych może być teraz wykonywane poza pasmem przez administratora SQL, a następnie instalowane przez administratora Azure AD Connect z prawami właściciela bazy danych.  Aby uzyskać więcej informacji na ten temat, zobacz [instalowanie Azure AD Connect przy użyciu uprawnień administratora delegowanego SQL](how-to-connect-install-sql-delegation.md)
 
@@ -141,7 +141,7 @@ Musi także mieć przyznane wymagane uprawnienia. Kreator instalacji nie weryfik
 
 Wymagane uprawnienia są zależne od funkcji opcjonalnych, które można włączyć. Jeśli masz wiele domen, uprawnienia muszą zostać przyznane dla wszystkich domen w lesie. Jeśli nie włączysz żadnej z tych funkcji, uprawnienia **użytkownika domeny** domyślnej są wystarczające.
 
-| Cechy | Uprawnienia |
+| Cecha | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do zapisu w atrybucie MS-DS-ConsistencyGuid udokumentowanym w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |

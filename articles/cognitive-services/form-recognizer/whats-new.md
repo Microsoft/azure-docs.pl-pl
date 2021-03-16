@@ -2,23 +2,52 @@
 title: Co nowego w usłudze Rozpoznawanie formularzy?
 titleSuffix: Azure Cognitive Services
 description: Zapoznaj się z najnowszymi zmianami w interfejsie API aparatu rozpoznawania formularzy.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: pafarley
-ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.author: lajanuar
+ms.openlocfilehash: 6760194fea71cd97b4d206ccd2ccc281e18ea279
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703392"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467053"
 ---
+<!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
 Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzystaj z tego artykułu, aby uzyskać aktualne informacje dotyczące ulepszeń, poprawek i aktualizacji dokumentacji.
+
+## <a name="march-2021"></a>Marzec 2021
+
+**Jest już dostępny aparat rozpoznawania w wersji zapoznawczej.** Wersja 2.1 — wersja zapoznawcza. 3 została wydana, łącznie z następującymi funkcjami:
+
+- **Nowy model prekompilowanego identyfikatora** Nowy model prekompilowanego identyfikatora umożliwia klientom korzystanie z identyfikatorów i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania. Łączy nasze zaawansowane funkcje rozpoznawania znaków optycznych (OCR) z modelami opisującymi modele, aby wyodrębnić informacje o kluczu z paszportów i amerykańskich licencji sterowników, takie jak nazwa, Data urodzenia, Data wydania, Data wygaśnięcia i inne.
+
+  [Dowiedz się więcej na temat prekompilowanego modelu identyfikatorów](concept-identification-cards.md)
+
+   :::image type="content" source="./media/id-canada-passport-example.png" alt-text="przykład paszportu" lightbox="./media/id-canada-passport-example.png":::
+
+- **Wyodrębnianie elementu wiersza dla prekompilowanego modelu faktury** — model prekompilowanej faktury obsługuje teraz funkcję wyodrębniania elementów wiersza. teraz wyodrębnia pełne elementy i ich części — Opis, kwotę, ilość, identyfikator produktu, datę i więcej. Przy użyciu prostego wywołania interfejsu API/zestawu SDK można wyodrębnić przydatne dane z faktur — tekstu, par klucz-wartość i elementów wiersza.
+
+   [Dowiedz się więcej na temat prekompilowanego modelu faktury](concept-invoices.md)
+
+- **Kontrolki nadzorowanej tabeli i uczenie się, znakowanie pustej wartości** — oprócz tego, że aparat rozpoznawania w formie [głębokiej automatycznej uczenia tabel](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)jest teraz umożliwia klientom etykietowanie i uczenie się w tabelach. Ta nowa wersja obejmuje możliwość etykietowania i uczenia się elementów wierszy/tabel (dynamicznych i stałych) oraz uczenie modelu niestandardowego w celu wyodrębnienia par klucz-wartość i elementów wiersza. Gdy model jest przeszkolony, model będzie wyodrębniał elementy linii w ramach danych wyjściowych JSON w sekcji documentResults.
+
+    :::image type="content" source="./media/table-labeling.png" alt-text="Etykietowanie tabeli" lightbox="./media/table-labeling.png":::
+
+    Oprócz etykietowania tabel i teraz etykiety puste wartości i regiony; Jeśli niektóre dokumenty w zestawie szkoleniowym nie mają wartości dla niektórych pól, można użyć tej opcji, aby model wiedział, że wartości są prawidłowo wyodrębniane z przeanalizowanych dokumentów.
+
+- **Obsługa 66 nowych języków** — interfejs API układu aparatu rozpoznawania formularzy i modele niestandardowe obsługują teraz 73 języków.
+
+  [Dowiedz się więcej o obsłudze języka aparatu rozpoznawania formularzy](language-support.md)
+
+- **Naturalna kolejność odczytywania, klasyfikacja pisma odręcznego i wybór strony** — w przypadku tej aktualizacji możesz wybrać opcję pobrania danych wyjściowych z wiersza tekstu w naturalnej kolejności odczytu zamiast domyślnego porządku od lewej do prawej i do dołu. Użyj nowego parametru zapytania readingOrder i ustaw dla niego wartość "naturalna", aby uzyskać bardziej przyjazny dla człowieka wynik porządku czytania. Ponadto w przypadku języków łacińskich, aparat rozpoznawania formularzy klasyfikuje wiersze tekstu jako styl pisma odręcznego, a także wystawia wynik zaufania.
+
+- **Ulepszenia jakości prebudowanego modelu paragonu** Ta aktualizacja obejmuje wiele udoskonaleń dotyczących jakości prekompilowanego modelu paragonów, szczególnie wokół wyodrębniania elementów wiersza.
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -68,36 +97,33 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 - **[Nowe ustawienia regionalne dla wstępnie utworzonych przyjęć](concept-receipts.md)** oprócz en-us, pomoc techniczna jest teraz dostępna dla en-AU, en-CA, en-GB, EN-in
 - **Udoskonalenia jakości** `Layout` , `Train Custom Model`  -  _uczenie bez etykiet_ i _uczenie się z etykietami_.
 
-
 **wersja 2.0** obejmuje następujące aktualizacje:
 
 - [Biblioteki klienckie](quickstarts/client-library.md) dla języków NET, Python, Java i JavaScript zostały ogólnie dostępne. 
 
-
 **Nowe przykłady** są dostępne w serwisie GitHub. 
+
 - [Przepisy dotyczące ekstrakcji merytorycznej — formularze element PlayBook](https://github.com/microsoft/knowledge-extraction-recipes-forms) zbierają najlepsze rozwiązania z zakresu rzeczywistego zaangażowania użytkowników aparatu rozpoznawania i udostępniają przykłady kodu, listy kontrolne i potoki przykładowe używane podczas tworzenia projektów. 
 - [Narzędzie przykładowe etykietowanie](https://github.com/microsoft/OCR-Form-Tools) zostało zaktualizowane w celu obsługi nowych funkcji w wersji 2.1. Ten [Przewodnik Szybki Start](quickstarts/label-tool.md) zawiera wprowadzenie do narzędzia. 
 - Przykładowy aparat rozpoznawania w postaci [inteligentnego kiosku](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) pokazuje, jak zintegrować `Analyze Receipt` i `Train Custom Model`  -  _uczenie bez etykiet_.
 
-
-
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
-
+<!-- markdownlint-disable MD004 -->
 * **wersja 2.0 dostępna** — informacje o [interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowanych zestawach SDK dla [platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)i [JavaScript](/javascript/api/overview/azure/).
 * Udoskonalenia **tabel i ulepszenia wyodrębniania** — w tym ulepszenia dokładności i wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w _niestandardowym pouczeniu bez etykiet_. 
 
 * **Obsługa waluty** — wykrywanie i wyodrębnianie symboli walut globalnych.
 * **Usługa Azure gov** — aparat rozpoznawania formularzy jest teraz również dostępny na platformie Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
-   * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./encrypt-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
-   * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](../../private-link/private-link-overview.md)
-
+  * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+  * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](../../private-link/private-link-overview.md)
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
+
 * **Interfejs API CopyModel został dodany do zestawów SDK klienta** — teraz można używać zestawów SDK klienta do kopiowania modeli z jednej subskrypcji do innej. Zobacz [Tworzenie kopii zapasowych i odzyskiwanie modeli,](./disaster-recovery.md) Aby uzyskać ogólne informacje dotyczące tej funkcji.
 * **Integracja Azure Active Directory** — teraz można używać poświadczeń usługi Azure AD do uwierzytelniania obiektów klienta aparatu rozpoznawania formularzy w zestawach SDK.
 * **Zmiany specyficzne dla zestawu SDK** — dotyczy to zarówno dodatkowych, jak i drobnych zmian funkcji. Aby uzyskać więcej informacji, zobacz dziennik zmian zestawu SDK.
@@ -109,24 +135,26 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
+
 * **Obsługa zestawu SDK dla interfejsu API w wersji 1.0 2.0 — publiczna wersja zapoznawcza** — w tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK wersji zapoznawczej dla aparatu rozpoznawania wersji 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
-   * [Zestaw SDK platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme)
-   * [Zestaw SDK Java](/java/api/overview/azure/ai-formrecognizer-readme)
-   * [Zestaw SDK dla języka Python](/python/api/overview/azure/ai-formrecognizer-readme)
-   * [Zestaw SDK dla języka JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme)
+  * [Zestaw SDK platformy .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+  * [Zestaw SDK Java](/java/api/overview/azure/ai-formrecognizer-readme)
+  * [Zestaw SDK dla języka Python](/python/api/overview/azure/ai-formrecognizer-readme)
+  * [Zestaw SDK dla języka JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
- 
+
 * **Kopiuj model niestandardowy** Teraz można kopiować modele między regionami i subskrypcjami przy użyciu nowej funkcji kopiowania modelu niestandardowego. Przed wywołaniem interfejsu API kopiowania niestandardowych modeli należy najpierw uzyskać autoryzację do skopiowania do zasobu docelowego, wywołując operację kopiowania autoryzacji do docelowego punktu końcowego zasobu.
-   * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
-   * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) INTERFEJS API REST 
+
+  * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
+  * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) INTERFEJS API REST 
 
 ### <a name="security-improvements"></a>Ulepszenia zabezpieczeń
 
 * Klucze Customer-Managed są teraz dostępne dla FormRecognizer. Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w usłudze REST dla aparatu rozpoznawania formularzy](./encrypt-data-at-rest.md).
 * Korzystaj z tożsamości zarządzanych, aby uzyskiwać dostęp do zasobów platformy Azure za pomocą Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do zarządzanych tożsamości](../authentication.md#authorize-access-to-managed-identities).
 
-## <a name="march-2020"></a>Marzec 2020 r. 
+## <a name="march-2020"></a>Marzec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
 

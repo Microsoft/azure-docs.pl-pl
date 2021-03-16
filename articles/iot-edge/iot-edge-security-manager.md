@@ -9,14 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043004"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492561"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge Security Manager
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Azure IoT Edge Security Manager to dobrze ograniczone podstawowe zabezpieczenia na potrzeby ochrony urządzeń IoT Edge i wszystkich jej składników przez abstrakcję bezpiecznego sprzętu krzemowego. Menedżer zabezpieczeń jest punktem ogniskowym zabezpieczeń i zapewnia integrację technologii z producentem oryginalnego sprzętu (OEM).
 
@@ -113,11 +115,11 @@ Moduł HSM PAL dzieli cały rdzeń sprzętu zaufania, aby odizolować dewelopera
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Bezpieczny katalog główny krzemu sprzętu zaufania
 
-W celu zakotwiczenia zaufania wewnątrz sprzętowego urządzenia IoT Edge należy zabezpieczyć krzem.  Zabezpieczanie krzemu polega na uwzględnieniu moduł TPM (TPM), osadzonego bezpiecznego elementu (eSE), ARM TrustZone, Intel SGX i niestandardowych technologii krzemu.  Korzystanie z bezpiecznego modelu krzemu zaufania na urządzeniach jest zalecane z uwzględnieniem zagrożeń związanych z fizycznym dostępnością urządzeń IoT.
+W celu zakotwiczenia zaufania wewnątrz sprzętowego urządzenia IoT Edge należy zabezpieczyć krzem.  Zabezpieczanie krzemu polega na uwzględnieniu Trusted Platform Module (TPM), osadzonego bezpiecznego elementu (eSE), ARM TrustZone, Intel SGX i niestandardowych technologii krzemu.  Korzystanie z bezpiecznego modelu krzemu zaufania na urządzeniach jest zalecane z uwzględnieniem zagrożeń związanych z fizycznym dostępnością urządzeń IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge integracja i Konserwacja programu Security Manager
 
-IoT Edge Security Manager chce identyfikować i izolować składniki, które chronią zabezpieczenia i integralność platformy Azure IoT Edge w celu zapewnienia niestandardowej funkcjonalności. Osoby trzecie, takie jak twórcy urządzeń, powinny korzystać z niestandardowych funkcji zabezpieczeń dostępnych na urządzeniach.  Zobacz sekcję następne kroki, aby poznać linki, które pokazują, jak zabezpieczyć usługę Azure IoT Security Manager za pomocą moduł TPM (TPM) na platformach Linux i Windows. Te przykłady używają oprogramowania lub wirtualnej moduły TPM, ale bezpośrednio mają zastosowanie do korzystania z dyskretnych urządzeń TPM.  
+IoT Edge Security Manager chce identyfikować i izolować składniki, które chronią zabezpieczenia i integralność platformy Azure IoT Edge w celu zapewnienia niestandardowej funkcjonalności. Osoby trzecie, takie jak twórcy urządzeń, powinny korzystać z niestandardowych funkcji zabezpieczeń dostępnych na urządzeniach.  Zobacz sekcję następne kroki, aby poznać linki, które pokazują, jak zabezpieczyć usługę Azure IoT Security Manager za pomocą Trusted Platform Module (TPM) na platformach Linux i Windows. Te przykłady używają oprogramowania lub wirtualnej moduły TPM, ale bezpośrednio mają zastosowanie do korzystania z dyskretnych urządzeń TPM.  
 
 ## <a name="next-steps"></a>Następne kroki
 

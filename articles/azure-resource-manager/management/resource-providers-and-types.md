@@ -2,14 +2,14 @@
 title: Dostawcy zasobów i typy zasobów
 description: Opisuje dostawców zasobów, którzy obsługują Azure Resource Manager. Opisano w nim schematy, dostępne wersje interfejsu API i regiony, które mogą hostować zasoby.
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745120"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493139"
 ---
 # <a name="azure-resource-providers-and-types"></a>Dostawcy i typy zasobów platformy Azure
 
@@ -32,7 +32,9 @@ Aby uzyskać listę, która mapuje dostawców zasobów na usługi platformy Azur
 
 ## <a name="register-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Przed użyciem dostawcy zasobów należy zarejestrować subskrypcję platformy Azure dla dostawcy zasobów. Rejestracja konfiguruje subskrypcję do pracy z dostawcą zasobów. Niektórzy dostawcy zasobów są domyślnie rejestrowani. Inni dostawcy zasobów są zarejestrowani automatycznie podczas wykonywania określonych działań. Na przykład podczas tworzenia zasobu za pomocą portalu dostawca zasobów jest zwykle zarejestrowany dla Ciebie. W przypadku innych scenariuszy może być konieczne ręczne zarejestrowanie dostawcy zasobów. Aby uzyskać listę dostawców zasobów zarejestrowanych domyślnie, zobacz [dostawcy zasobów dla usług platformy Azure](azure-services-resource-providers.md).
+Przed użyciem dostawcy zasobów należy zarejestrować subskrypcję platformy Azure dla dostawcy zasobów. Rejestracja konfiguruje subskrypcję do pracy z dostawcą zasobów. Niektórzy dostawcy zasobów są domyślnie rejestrowani. Aby uzyskać listę dostawców zasobów zarejestrowanych domyślnie, zobacz [dostawcy zasobów dla usług platformy Azure](azure-services-resource-providers.md).
+
+Inni dostawcy zasobów są zarejestrowani automatycznie podczas wykonywania określonych działań. Podczas wdrażania szablonu Azure Resource Manager wszystkie wymagane dostawcy zasobów są automatycznie rejestrowane. Po utworzeniu zasobu za pomocą portalu dostawca zasobów jest zwykle zarejestrowany dla Ciebie. W przypadku innych scenariuszy może być konieczne ręczne zarejestrowanie dostawcy zasobów. 
 
 W tym artykule pokazano, jak sprawdzić stan rejestracji dostawcy zasobów i zarejestrować go w razie potrzeby. Musisz mieć uprawnienia do wykonania `/register/action` operacji dla dostawcy zasobów. Uprawnienie jest zawarte w rolach współautor i właściciela.
 

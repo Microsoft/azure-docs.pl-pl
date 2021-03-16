@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: dd87b58c604b0bb2141c29d3b2227e9a81668a75
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448272"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488826"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Acti
 1. Wprowadź **nazwę aplikacji**, **stronę serwisu LinkedIn**, **adres URL zasad ochrony prywatności** i **logo aplikacji**.
 1. Zaakceptuj **warunki użytkowania interfejsu API** usługi LinkedIn i kliknij pozycję **Utwórz aplikację**.
 1. Wybierz kartę **uwierzytelnianie** . W obszarze **klucze uwierzytelniania** Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Musisz mieć oba te elementy, aby skonfigurować konto LinkedIn jako dostawcę tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
-1. Wybierz pozycję Edytuj ołówek obok pozycji **autoryzowane adresy URL przekierowań dla aplikacji**, a następnie wybierz pozycję **Dodaj adres URL przekierowania**. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` wartość, zastępując `your-tenant-name` ją nazwą dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C. Wybierz pozycję **Aktualizuj**.
-2. Domyślnie aplikacja LinkedIn nie jest zatwierdzona dla zakresów związanych z logowaniem. Aby zażądać przeglądu, wybierz kartę **produkty** , a następnie wybierz pozycję **Zaloguj się przy użyciu konta LinkedIn**. Po zakończeniu przeglądu wymagane zakresy zostaną dodane do aplikacji.
+1. Wybierz pozycję Edytuj ołówek obok pozycji **autoryzowane adresy URL przekierowań dla aplikacji**, a następnie wybierz pozycję **Dodaj adres URL przekierowania**. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień na `your-tenant-name` nazwę dzierżawy i `your-domain-name` domenę niestandardową. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C. Wybierz pozycję **Aktualizuj**.
+1. Domyślnie aplikacja LinkedIn nie jest zatwierdzona dla zakresów związanych z logowaniem. Aby zażądać przeglądu, wybierz kartę **produkty** , a następnie wybierz pozycję **Zaloguj się przy użyciu konta LinkedIn**. Po zakończeniu przeglądu wymagane zakresy zostaną dodane do aplikacji.
    > [!NOTE]
    > Zakresy, które są obecnie dozwolone dla aplikacji, można wyświetlić na karcie **uwierzytelnianie** w sekcji **zakresy OAuth 2,0** .
 

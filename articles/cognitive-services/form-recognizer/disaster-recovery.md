@@ -2,19 +2,19 @@
 title: Wskazówki dotyczące odzyskiwania po awarii dla aparatu rozpoznawania formularzy platformy Azure
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak za pomocą interfejsu API kopiowania modelu utworzyć kopię zapasową zasobów aparatu rozpoznawania formularzy.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427168"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466919"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -39,9 +39,6 @@ Proces kopiowania modelu niestandardowego składa się z następujących kroków
 1. Najpierw należy wydać żądanie autoryzacji kopiowania do zasobu docelowego &mdash; , który jest zasobem, który otrzyma skopiowany model. Powracasz do adresu URL nowo utworzonego modelu docelowego, który otrzyma skopiowane dane.
 1. Następnie Wyślij żądanie Copy do zasobu źródłowego zasobu zawierającego model, który &mdash; ma zostać skopiowany. Otrzymasz zwrotny adres URL, który można wysłać do zapytania, aby śledzić postęp operacji.
 1. Będziesz używać poświadczeń zasobów źródłowych do wysyłania zapytań do adresu URL postępu do momentu sukcesu operacji. Możesz również wysłać zapytanie do nowego identyfikatora modelu w zasobie docelowym, aby uzyskać stan nowego modelu.
-
-> [!CAUTION]
-> Interfejs API kopiowania aktualnie nie obsługuje identyfikatorów modelu dla [złożonych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Redagowanie modelu jest funkcją w wersji zapoznawczej w wersji 2.1 — Preview. 2 wersja zapoznawcza. 
 
 ## <a name="generate-copy-authorization-request"></a>Generuj żądanie autoryzacji kopiowania
 
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku pokazano, jak za pomocą interfejsu API kopiowania utworzyć kopię zapasową własnych modeli w ramach pomocniczego zasobu aparatu rozpoznawania. Następnie zapoznaj się z dokumentacją interfejsu API, aby zobaczyć, co jeszcze można zrobić z aparatem rozpoznawania formularzy.
-* [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [Dokumentacja interfejsu API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

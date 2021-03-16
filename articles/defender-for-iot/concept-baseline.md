@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: bced45474a3a851bc5785f662c0b2e50ae3a380c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102244"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491082"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Usługa Azure Defender dla linii bazowej i czeków niestandardowych
 
@@ -42,7 +42,7 @@ Niestandardowe kontrole linii bazowej określają niestandardową listę kontrol
 
 1. Przekaż **niestandardowy plik kontroli linii bazowej** na urządzenie.
 
-1. Dodaj właściwości linii bazowej do modułu zabezpieczeń, a następnie kliknij przycisk **Zapisz**.
+1. Dodaj właściwości linii bazowej do programu Defender-IoT-Micro-Agent, a następnie kliknij przycisk **Zapisz**.
 
 ### <a name="baseline-custom-check-file-example"></a>Przykład podstawowego pliku sprawdzania niestandardowego
 

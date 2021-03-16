@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360823"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472214"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
 
@@ -86,8 +86,6 @@ Jeśli znasz już program `Pandas`| `Modin` lub `Dask` ramka danych
 Jeśli wolisz `Spark` | `PySpark`
 Dla danych mniejszych niż 1 GB | `Pandas` lokalne **lub** zdalne wystąpienie obliczeniowe Azure Machine Learning
 Dla danych większych niż 10 GB| Przejdź do klastra przy użyciu `Ray` , `Dask` lub `Spark`
-
-Możesz tworzyć `Dask` klastry w klastrze obliczeniowym Azure ml przy użyciu pakietu [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) . Lub można uruchomić `Dask` lokalnie w wystąpieniu obliczeniowym.
 
 ## <a name="next-steps"></a>Następne kroki
 

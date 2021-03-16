@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014250"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466426"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Użyj usługi Azure DevOps, aby utworzyć potok ciągłej integracji/ciągłego wdrażania dla zadania Stream Analytics
 
@@ -56,6 +56,22 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Wprowadź konfiguracje dla zadania npm":::
 
+Jeśli musisz użyć agenta hostowanego z systemem Linux, wykonaj następujące czynności:
+1.  Wybierz **specyfikację agenta**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Zrzut ekranu przedstawiający Wybieranie specyfikacji agenta.":::
+
+2.  Na stronie **zadania** wybierz znak plus obok pozycji **zadanie agenta 1**. Wprowadź *wiersz polecenia* w polu Wyszukiwanie zadania i wybierz pozycję **wiersz polecenia**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Zrzut ekranu przedstawiający zadanie wiersza polecenia wyszukiwania. ":::
+
+3.  Nadaj zadanie **nazwę wyświetlaną**. Wprowadź następujące polecenie w **skrypcie**. Pozostaw pozostałe domyślne opcje.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Zrzut ekranu przedstawiający wprowadzanie skryptu dla zadania cmd.":::
+
 ## <a name="add-a-build-task"></a>Dodawanie zadania kompilacji
 
 1. Na stronie **zmienne** wybierz pozycję **+ Dodaj** w polu **zmienne potoku**. Dodaj następujące zmienne. Ustaw następujące wartości zgodnie z preferencjami:
@@ -64,7 +80,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
    |-|-|
    |projectRootPath|[YourProjectName]|
    |outputPath|Dane wyjściowe|
-   |deployPath|Wdrażanie|
+   |deployPath|Wdróż|
 
 2. Na stronie **zadania** wybierz znak plus obok pozycji **zadanie agenta 1**. Wyszukaj **wiersz polecenia**.
 
@@ -84,7 +100,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
    |Nazwa zmiennej|Wartość|
    |-|-|
-   |testPath|Test|
+   |testPath|Testowanie|
 
    :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Dodaj zmienne potoku":::
 

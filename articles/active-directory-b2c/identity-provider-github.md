@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e2c82858b9f4b9846ff5371da347be942eed0a4f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448374"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488860"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu konta usługi GitHub za pomocą Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Aby włączyć logowanie się przy użyciu konta usługi GitHub w Azure Active D
 1. Zaloguj się do [deweloperów serwisu GitHub](https://github.com/settings/developers) przy użyciu swoich poświadczeń usługi GitHub.
 1. Wybierz pozycję **aplikacje OAuth** , a następnie wybierz pozycję **Nowa aplikacja OAuth**.
 1. Wprowadź **nazwę aplikacji** i **adres URL strony głównej**.
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **adres URL wywołania zwrotnego autoryzacji**. Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
+1. W polu **adres URL wywołania zwrotnego autoryzacji** wprowadź wartość `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-domain-name` na domenę niestandardową i `your-tenant-name` nazwę dzierżawy. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
 1. Kliknij pozycję **zarejestruj aplikację**.
 1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Musisz dodać dostawcę tożsamości do dzierżawy.
 

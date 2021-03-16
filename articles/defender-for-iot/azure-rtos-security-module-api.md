@@ -1,6 +1,6 @@
 ---
-title: Interfejs API modułu zabezpieczeń dla usługi Azure RTOS
-description: Dokumentacja interfejsu API dla modułu zabezpieczeń dla usługi Azure RTO.
+title: Defender-IoT-Micro-Agent dla interfejsu API RTO platformy Azure
+description: Reference API dla usługi Defender-IoT-Micro-Agent dla platformy Azure RTO.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cec28f9290808836ec2dfd334b23fe8c76df03fc
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9a285636ba10f7ca0668f597d0e9016cff73494a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120066"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494295"
 ---
-# <a name="security-module-for-azure-rtos-api"></a>Interfejs API modułu zabezpieczeń dla usługi Azure RTOS 
+# <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Defender-IoT-Micro-Agent dla interfejsu API usługi Azure RTO (wersja zapoznawcza)
 
-Ten interfejs API jest przeznaczony do użytku z modułem zabezpieczeń tylko dla usługi Azure RTO. Aby uzyskać dodatkowe zasoby, zobacz [moduł zabezpieczeń dla zasobu Azure RTO GitHub](https://github.com/azure-rtos/azure-iot-preview/releases). 
+Ten interfejs API jest przeznaczony do użytku z usługą Defender-IoT-Micro-Agent tylko dla usługi Azure RTO. Aby uzyskać dodatkowe zasoby, zobacz temat [Defender-IoT-Micro-Agent for Azure RTO GitHub](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
-## <a name="enable-security-module-for-azure-rtos"></a>Włączanie modułu zabezpieczeń dla usługi Azure RTO
+## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Włączanie usługi Defender-IoT-Micro-Agent for Azure RTO
 
 **nx_azure_iot_security_module_enable**
 
@@ -36,7 +36,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Opis
 
-Ta procedura włącza podsystem modułu zabezpieczeń Azure IoT. Wewnętrzny komputer stanu zarządza zbieraniem zdarzeń zabezpieczeń i wysyła je do usługi Azure IoT Hub. Tylko jedno wystąpienie NX_AZURE_IOT_SECURITY_MODULE jest wymagane i jest niezbędne do zarządzania zbieraniem danych.
+Ta procedura włącza podsystem Azure IoT Defender-IoT-Micro-Agent. Wewnętrzny komputer stanu zarządza zbieraniem zdarzeń zabezpieczeń i wysyła je do usługi Azure IoT Hub. Tylko jedno wystąpienie NX_AZURE_IOT_SECURITY_MODULE jest wymagane i jest niezbędne do zarządzania zbieraniem danych.
 
 ### <a name="parameters"></a>Parametry
 
@@ -56,7 +56,7 @@ Ta procedura włącza podsystem modułu zabezpieczeń Azure IoT. Wewnętrzny kom
 
 Wątki
 
-## <a name="disable-azure-iot-security-module"></a>Wyłącz moduł zabezpieczeń usługi Azure IoT
+## <a name="disable-azure-iot-defender-iot-micro-agent"></a>Wyłączanie usługi Azure IoT Defender-IoT-Micro-Agent
 
 **nx_azure_iot_security_module_disable**
 
@@ -69,7 +69,7 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Opis
 
-Ta procedura powoduje wyłączenie podsystemu modułu zabezpieczeń usługi Azure IoT.
+Ta procedura powoduje wyłączenie podsystemu usługi Azure IoT Defender-IoT-Micro-Agent.
 
 ### <a name="parameters"></a>Parametry
 
@@ -92,6 +92,6 @@ Wątki
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat rozpoczynania pracy z modułem zabezpieczeń Azure RTO, zobacz następujące artykuły:
+Aby dowiedzieć się więcej na temat rozpoczynania pracy z usługą Azure RTO Defender-IoT-Micro-Agent, zobacz następujące artykuły:
 
-- Zapoznaj się z [omówieniem](iot-security-azure-rtos.md)modułu zabezpieczeń usługi Defender for IoT RTO.
+- Zapoznaj się z [omówieniem](iot-security-azure-rtos.md)usługi Defender for IoT RTO Defender-IoT-Micro-Agent.

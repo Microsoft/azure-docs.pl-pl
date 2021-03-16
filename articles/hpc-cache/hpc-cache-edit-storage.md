@@ -4,14 +4,14 @@ description: Jak edytować cele magazynu pamięci podręcznej platformy Azure HP
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204035"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471868"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
@@ -19,13 +19,16 @@ Możesz usunąć lub zmodyfikować cele magazynu za pomocą Azure Portal lub prz
 
 W zależności od typu magazynu można modyfikować te wartości docelowe magazynu:
 
-* W przypadku obiektów docelowych usługi BLOB Storage można zmienić ścieżkę przestrzeni nazw.
+* W przypadku obiektów docelowych usługi BLOB Storage można zmienić ścieżkę przestrzeni nazw i zasady dostępu.
 
 * W przypadku docelowych magazynów NFS można zmienić następujące wartości:
 
   * Ścieżki przestrzeni nazw
+  * Zasady dostępu
   * Podkatalog eksportu lub eksportu magazynu skojarzony ze ścieżką przestrzeni nazw
   * Model użycia
+
+* Dla obiektów docelowych magazynu ADLS-NFS można zmienić ścieżkę przestrzeni nazw, zasady dostępu i model użycia.
 
 Nie można edytować nazwy, typu lub systemu magazynu zaplecza magazynu (kontenera obiektów blob lub nazwy hosta lub adresu IP systemu plików NFS). Aby zmienić te właściwości, należy usunąć miejsce docelowe magazynu i utworzyć zamiennik z nową wartością.
 
@@ -94,10 +97,13 @@ Aby zmienić przestrzeń nazw obiektu docelowego magazynu obiektów BLOB za pomo
 
 W przypadku obiektów docelowych magazynu NFS można zmienić lub dodać ścieżki wirtualnego obszaru nazw, zmienić wartości eksportowania lub podkatalogów systemu plików NFS, na które wskazuje ścieżka przestrzeni nazw, i zmienić model użycia.
 
+Elementy docelowe magazynu w pamięciach podręcznych z niektórymi typami niestandardowych ustawień DNS mają również kontrolę odświeżania adresów IP. (Ten rodzaj konfiguracji jest rzadki).
+
 Poniżej znajdują się szczegóły:
 
-* [Zmień zagregowane wartości przestrzeni nazw](#change-aggregated-namespace-values) (ścieżka wirtualnej przestrzeni nazw, eksport i katalog podkatalogu eksportu)
+* [Zmień wartości zagregowanych przestrzeni nazw](#change-aggregated-namespace-values) (ścieżki przestrzeni nazw wirtualnych, zasad dostępu, eksportu i eksportu)
 * [Zmień model użycia](#change-the-usage-model)
+* [Odśwież system DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Zmień wartości zagregowanych przestrzeni nazw
 
@@ -112,7 +118,7 @@ Użyj strony **przestrzeni nazw** dla pamięci podręcznej platformy Azure HPC, 
 ![zrzut ekranu strony przestrzeni nazw portalu z otwartą stroną aktualizacji NFS z prawej strony](media/update-namespace-nfs.png)
 
 1. Kliknij nazwę ścieżki, którą chcesz zmienić.
-1. Użyj okna Edycja, aby wpisać nową ścieżkę wirtualną, eksport lub wartości podkatalogów.
+1. Za pomocą okna Edycja wpisz nową ścieżkę wirtualną, eksport lub wartość podkatalogu albo wybierz inne zasady dostępu.
 1. Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować obiekt docelowy magazynu, lub przycisk **Anuluj** , aby odrzucić zmiany.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -174,6 +180,37 @@ Jeśli chcesz sprawdzić nazwy modeli użycia, użyj polecenia [AZ HPC-cache-mod
 Jeśli pamięć podręczna jest zatrzymana lub nie jest w dobrej kondycji, aktualizacja zostanie zastosowana, gdy pamięć podręczna będzie w dobrej kondycji.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Zaktualizuj adres IP (tylko niestandardowe konfiguracje DNS)
+
+Jeśli pamięć podręczna używa niedomyślnej konfiguracji systemu DNS, można zmienić adres IP miejsca docelowego magazynu NFS ze względu na zmiany w systemie DNS zaplecza. Jeśli serwer DNS zmieni adres IP systemu magazynu zaplecza, pamięć podręczna platformy Azure HPC może utracić dostęp do systemu magazynu.
+
+W idealnym przypadku należy skontaktować się z menedżerem niestandardowego systemu DNS pamięci podręcznej w celu zaplanowania aktualizacji, ponieważ te zmiany sprawiają, że magazyn jest niedostępny.
+
+Jeśli musisz zaktualizować adres IP podany w systemie DNS dla magazynu, na liście cel magazynu znajduje się przycisk. Kliknij przycisk **Odśwież DNS** , aby wysłać zapytanie do NIESTANDARDOWEGO serwera DNS o nowy adres IP.
+
+![Zrzut ekranu przedstawiający listę elementów docelowych magazynu. Dla jednego miejsca docelowego magazynu "..." menu w prawej kolumnie jest otwarte i są wyświetlane dwie opcje: Usuń i Odśwież system DNS.](media/refresh-dns.png)
+
+Jeśli to się powiedzie, aktualizacja powinna trwać krócej niż dwie minuty. Można odświeżyć tylko jeden cel magazynu jednocześnie. Poczekaj na zakończenie poprzedniej operacji przed podjęciem próby innej.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>Aktualizowanie docelowego magazynu ADLS-NFS (wersja zapoznawcza)
+
+Podobnie jak w przypadku obiektów docelowych NFS, można zmienić ścieżkę przestrzeni nazw oraz model użycia dla obiektów docelowych magazynu ADLS-NFS.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>Zmiana ścieżki przestrzeni nazw ADLS-NFS
+
+Użyj strony **przestrzeni nazw** dla pamięci podręcznej platformy Azure HPC, aby zaktualizować wartości przestrzeni nazw. Ta strona została szczegółowo opisana w artykule [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md).
+
+![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z otwartą stroną "AD-NFS Update" po prawej stronie](media/update-namespace-adls.png)
+
+1. Kliknij nazwę ścieżki, którą chcesz zmienić.
+1. Użyj okna Edycja, aby wpisać nową ścieżkę wirtualną, lub zaktualizuj zasady dostępu.
+1. Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować obiekt docelowy magazynu, lub przycisk **Anuluj** , aby odrzucić zmiany.
+
+### <a name="change-adls-nfs-usage-models"></a>Zmienianie modeli użycia ADLS-NFS
+
+Konfiguracja modeli użycia ADLS-NFS jest taka sama jak w przypadku wybranego modelu użycia systemu plików NFS. Zapoznaj się z instrukcjami w portalu w sekcji [Zmiana modelu użycia](#change-the-usage-model) w systemie plików NFS powyżej. Dodatkowe narzędzia do aktualizacji obiektów docelowych magazynu ADLS-NFS są opracowywane.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

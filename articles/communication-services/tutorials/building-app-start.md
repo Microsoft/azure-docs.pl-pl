@@ -5,15 +5,15 @@ description: Dowiedz się, jak utworzyć podstawową aplikację sieci Web, któr
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 01/03/2012
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: adb9ddee3d1caaac4c7530755b5e49ac50ab3181
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 7cfc8fc24aea938b997fead4ca762ce7178e3386
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488872"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490623"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Samouczek: przygotowywanie aplikacji sieci Web dla usług Azure Communications Services (Node.js)
 
@@ -25,7 +25,7 @@ Po zakończeniu tego samouczka będziesz mieć podstawową aplikację sieci Web,
 
 Możesz odwiedzić [stronę usługi Azure Communication Services w serwisie GitHub](https://github.com/Azure/communication) , aby przekazać opinię.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj środowisko programistyczne.
 > * Skonfiguruj lokalny serwer sieci Web.

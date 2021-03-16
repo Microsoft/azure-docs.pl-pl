@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675342"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496205"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure
 
@@ -147,10 +147,14 @@ Aby można było użyć udziału plików skalowalnego w poziomie, system musi sp
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Skonfiguruj wystąpienia SAP ASCS/SCS i udział plików skalowalny w poziomie w dwóch klastrach
 
-Wystąpienia SAP ASCS/SCS można wdrożyć w jednym klastrze z własną \<SID\> rolą klastra SAP. W takim przypadku należy skonfigurować udział plików skalowalny w poziomie w innym klastrze przy użyciu innej roli klastra.
+Wystąpienia SAP ASCS/SCS należy wdrożyć w osobnym klastrze z własną \<SID\> rolą klastra SAP. W takim przypadku należy skonfigurować udział plików skalowalny w poziomie w innym klastrze przy użyciu innej roli klastra.
+
 
 > [!IMPORTANT]
->W tym scenariuszu wystąpienie SAP ASCS/SCS jest skonfigurowane do uzyskiwania dostępu do hosta globalnego SAP przy użyciu ścieżki UNC \\ \\ &lt; hosta globalnego SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS\.
+> Instalator musi spełniać następujące wymagania: wystąpienia SAP ASCS/SCS i udział SOFS muszą zostać wdrożone w oddzielnych klastrach.    
+>
+> [!IMPORTANT] 
+> W tym scenariuszu wystąpienie SAP ASCS/SCS jest skonfigurowane do uzyskiwania dostępu do hosta globalnego SAP przy użyciu ścieżki UNC \\ \\ &lt; hosta globalnego SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS\.
 >
 
 ![Rysunek 5: wystąpienie SAP ASCS/SCS oraz udział plików skalowalny w poziomie wdrożony w dwóch klastrach][sap-ha-guide-figure-8007]

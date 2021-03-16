@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738195"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491252"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -57,7 +57,7 @@ Inne wyniki są prawdopodobnie gorsze i mogą nie mieć pełnej wielkości liter
 
 **P: Dlaczego istnieją różne modele podstawowe?**
 
-Odp **.: możesz** wybrać spośród więcej niż jednego modelu podstawowego w usłudze Speech. Każda nazwa modelu zawiera datę dodania. Po rozpoczęciu uczenia modelu niestandardowego Użyj najnowszego modelu, aby uzyskać najlepszą dokładność. Starsze modele podstawowe są nadal dostępne przez pewien czas po udostępnieniu nowego modelu. Możesz nadal korzystać z modelu, do którego pracujesz, dopóki nie zostanie wycofany (zobacz [cykl życia modelu](custom-speech-overview.md#model-lifecycle)). Nadal zaleca się przełączenie do najnowszego modelu podstawowego w celu uzyskania lepszej dokładności.
+Odp **.: możesz** wybrać spośród więcej niż jednego modelu podstawowego w usłudze Speech. Każda nazwa modelu zawiera datę dodania. Po rozpoczęciu uczenia modelu niestandardowego Użyj najnowszego modelu, aby uzyskać najlepszą dokładność. Starsze modele podstawowe są nadal dostępne przez pewien czas po udostępnieniu nowego modelu. Możesz nadal korzystać z modelu, do którego pracujesz, dopóki nie zostanie wycofany (zobacz [model i cykl życia punktu końcowego](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Nadal zaleca się przełączenie do najnowszego modelu podstawowego w celu uzyskania lepszej dokładności.
 
 **P: Czy mogę zaktualizować istniejący model (stos modelu)?**
 
@@ -71,7 +71,7 @@ Odp **.: wdrożenia** nie będą automatycznie aktualizowane.
 
 Jeśli dostosowano i wdrożono model, wdrożenie pozostanie bez zmian. Wdrożony model można zlikwidować, ponownie dostosować przy użyciu nowszej wersji modelu podstawowego i wdrożyć go w celu uzyskania lepszej dokładności.
 
-Modele podstawowe i modele niestandardowe zostaną wycofane po pewnym czasie (zobacz [cykl życia modelu](custom-speech-overview.md#model-lifecycle)).
+Zarówno modele podstawowe, jak i modele niestandardowe zostaną wycofane po pewnym czasie (zobacz [model i cykl życia punktu końcowego](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
 
 **P: Czy można pobrać model i uruchomić go lokalnie?**
 

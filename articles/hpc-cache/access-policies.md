@@ -4,16 +4,16 @@ description: Tworzenie i stosowanie niestandardowych zasad dostępu w celu ogran
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802420"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471783"
 ---
-# <a name="use-client-access-policies"></a>Korzystanie z zasad dostępu klienta
+# <a name="control-client-access"></a>Kontrola dostępu klienta
 
 W tym artykule wyjaśniono, jak utworzyć i zastosować niestandardowe zasady dostępu klienta dla obiektów docelowych magazynu.
 
@@ -23,7 +23,7 @@ Zasady dostępu są stosowane do ścieżki przestrzeni nazw, co oznacza, że mo�
 
 Ta funkcja jest przeznaczona dla przepływów pracy, w których należy kontrolować, w jaki sposób różne grupy klientów uzyskują dostęp do obiektów docelowych magazynu.
 
-Jeśli nie potrzebujesz dokładnej kontroli nad dostępem do miejsca docelowego magazynu, możesz użyć domyślnych zasad lub dostosować zasady domyślne przy użyciu dodatkowych reguł.
+Jeśli nie potrzebujesz dokładnej kontroli nad dostępem do miejsca docelowego magazynu, możesz użyć domyślnych zasad lub dostosować zasady domyślne przy użyciu dodatkowych reguł. Na przykład, jeśli chcesz włączyć squash root dla wszystkich klientów łączących się za pomocą pamięci podręcznej, możesz edytować zasady o nazwie **default** w celu dodania ustawienia głównego squash.
 
 ## <a name="create-a-client-access-policy"></a>Tworzenie zasad dostępu klienta
 
@@ -81,15 +81,21 @@ Zaznacz to pole wyboru, aby umożliwić określonym klientom bezpośrednie Insta
 
 Zdecyduj, czy ustawić squash głównych dla klientów zgodnych z tą regułą.
 
-Ta wartość umożliwia squash katalogu głównego na poziomie eksportu magazynu. Można również [ustawić squash root na poziomie pamięci podręcznej](configuration.md#configure-root-squash).
+To ustawienie określa, w jaki sposób usługa Azure HPC cache traktuje żądania od użytkownika głównego na komputerach klienckich. Po włączeniu elementu głównego squash użytkownicy root z klienta są automatycznie mapowana na użytkownika bez uprawnień, gdy wysyłają żądania za pośrednictwem pamięci podręcznej platformy Azure HPC. Uniemożliwia ona również żądanie klienta z używania protokołu dostępu set-UID.
 
-W przypadku włączenia squash głównego należy również ustawić jedną z następujących opcji dla identyfikatora anonimowego użytkownika:
+Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego klienta (UID 0) jest przenoszona do systemu magazynu w pamięci podręcznej systemu plików NFS jako element główny. Ta konfiguracja może umożliwić niewłaściwy dostęp do pliku.
 
-* **-2** (nikt)
-* **65534** (nikt)
-* **-1** (brak dostępu)
-* **65535** (brak dostępu)
+Ustawienie squash głównego dla żądań klientów może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
+
+W przypadku włączenia squash głównego należy również ustawić wartość użytkownika identyfikator anonimowy. Portal akceptuje wartości całkowite z zakresu od 0 do 4294967295. (Stare wartości-2 i-1 są obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami, ale nie są zalecane w przypadku nowych konfiguracji).
+
+Te wartości są mapowane na określone wartości użytkownika:
+
+* **-2** lub **65534** (nikt)
+* **-1** lub **65535** (brak dostępu)
 * **0** (nieuprzywilejowany katalog główny)
+
+System magazynu może mieć inne wartości ze specjalnymi znaczeniem.
 
 ## <a name="update-access-policies"></a>Aktualizowanie zasad dostępu
 

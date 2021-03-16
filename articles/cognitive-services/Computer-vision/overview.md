@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 804dacc4351da9e04ac75b2484b4330901a69271
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575944"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488486"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -29,6 +29,12 @@ ms.locfileid: "99575944"
 Usługa przetwarzanie obrazów platformy Azure zapewnia dostęp do zaawansowanych algorytmów, które przetwarzają obrazy i zwracają informacje na podstawie interesujących Cię funkcji wizualizacji. Na przykład przetwarzanie obrazów może określić, czy obraz zawiera zawartość dla dorosłych, znaleźć określone marki lub obiekty, czy też znaleźć ludzkie twarze.
 
 Możesz tworzyć przetwarzanie obrazów aplikacje za pomocą [zestawu SDK biblioteki klienta](./quickstarts-sdk/client-library.md) lub bezpośrednio wywołując [interfejs API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) . Na tej stronie ogólnie omówiono, co można zrobić za pomocą przetwarzania obrazów.
+
+Ta dokumentacja zawiera następujące typy artykułów:
+* [Przewodniki Szybki Start](./quickstarts-sdk/client-library.md) to instrukcje krok po kroku, które umożliwiają wykonywanie wywołań do usługi i uzyskiwanie wyników w krótkim czasie. 
+* [Przewodniki z](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) instrukcjami zawiera instrukcje dotyczące korzystania z usługi w bardziej specyficzny lub dostosowany sposób.
+* [Artykuły koncepcyjne](concept-recognizing-text.md) zawierają szczegółowe omówienie funkcji i funkcji usługi.
+* [Samouczki](./tutorials/storage-lab-tutorial.md) są więcej przewodnikami, które pokazują, jak używać tej usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.
 
 ## <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 

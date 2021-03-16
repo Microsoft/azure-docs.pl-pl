@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: 7518f5e2984029c087eec1e6697f3237410bda4b
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 2a34cfee57ecc1870c420c4c0f3c9261aa02f192
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020424"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490929"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Jak przekonwertować dane na FHIR (wersja zapoznawcza)
 
@@ -125,6 +125,12 @@ Udziel roli AcrPull do interfejsu API platformy Azure dla wystąpienia usługi F
 
 ### <a name="register-the-acr-servers-in-azure-api-for-fhir"></a>Rejestrowanie serwerów ACR w interfejsie API platformy Azure dla FHIR
 
+Serwer ACR można zarejestrować przy użyciu Azure Portal lub interfejsu wiersza polecenia.
+
+#### <a name="registering-the-acr-server-using-azure-portal"></a>Rejestrowanie serwera ACR przy użyciu Azure Portal
+Przejdź do bloku _artefakty_ w obszarze _Przekształcanie danych_ w wystąpieniu usługi Azure API for FHIR. Zostanie wyświetlona lista aktualnie zarejestrowanych serwerów ACR. Kliknij pozycję _Dodaj_ i wybierz serwer rejestru z listy rozwijanej. Aby ta rejestracja zaczęła obowiązywać, należy kliknąć przycisk _Zapisz_ . Zastosowanie zmiany i ponowne uruchomienie wystąpienia może potrwać kilka minut.
+
+#### <a name="registering-the-acr-server-using-cli"></a>Rejestrowanie serwera ACR przy użyciu interfejsu wiersza polecenia
 Możesz zarejestrować do dwudziestu serwerów ACR w interfejsie API platformy Azure dla FHIR.
 
 Zainstaluj interfejs wiersza polecenia healthcareapis z Azure PowerShell w razie konieczności:
@@ -135,13 +141,13 @@ az extension add -n healthcareapis
 
 Zarejestruj serwery ACR w interfejsie API platformy Azure dla FHIR, postępując zgodnie z poniższymi przykładami:
 
-#### <a name="register-a-single-acr-server"></a>Rejestrowanie pojedynczego serwera ACR
+##### <a name="register-a-single-acr-server"></a>Rejestrowanie pojedynczego serwera ACR
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
-#### <a name="register-multiple-acr-servers"></a>Rejestrowanie wielu serwerów ACR
+##### <a name="register-multiple-acr-servers"></a>Rejestrowanie wielu serwerów ACR
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
@@ -152,8 +158,3 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 Nawiązać połączenie z interfejsem API danych $convert, określając odwołanie do szablonu w parametrze templateCollectionReference.
 
 `<RegistryServer>/<imageName>@<imageDigest>`
-
-## <a name="known-issues-and-workarounds"></a>Znane problemy i rozwiązania
-
-- Niektóre pliki szablonów domyślnych zawierają BOM w formacie UTF-8. W związku z tym wygenerowana wartość identyfikatora będzie zawierać znak BOM. Może to spowodować problem z serwerem FHIR. Obejście polega na ściąganiu szablonów firmy Microsoft przy użyciu rozszerzenia VS Code i wypchnięciu ich do własnych ACR po usunięciu znaków BOM z _ID/_procedur. Liquid_, _id/_udowodniono. Liquid_ i _id/_immunization. Liquid_.
-

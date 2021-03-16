@@ -1,14 +1,14 @@
 ---
-title: Omówienie agenta połączonej maszyny z systemem Windows
+title: Przegląd agenta połączonej maszyny
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651097"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470493"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -90,9 +90,11 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
-* Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
+* Aby dołączać maszyny, musisz być członkiem roli współpracowników lub [współpracownika](../../role-based-access-control/built-in-roles.md#contributor) **połączonej platformy Azure** w grupie zasobów.
 
-* Aby odczytywać, modyfikować i usuwać maszyny, musisz być członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** . 
+* Aby odczytywać, modyfikować i usuwać maszyny, musisz być członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** w grupie zasobów.
+
+* Aby wybrać grupę zasobów z listy rozwijanej w przypadku korzystania z metody **generowania skryptu** , co najmniej użytkownik jest członkiem roli [czytelnik](../../role-based-access-control/built-in-roles.md#reader) dla tej grupy zasobów.
 
 ### <a name="azure-subscription-and-service-limits"></a>Limity subskrypcji i usług platformy Azure
 
