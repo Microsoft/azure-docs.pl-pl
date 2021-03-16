@@ -1,5 +1,5 @@
 ---
-title: Uprawnienia roli niestandardowej do przypisań dostępu do aplikacji dla przedsiębiorstw — Azure Active Directory | Microsoft Docs
+title: Tworzenie ról niestandardowych w celu zarządzania aplikacjami dla przedsiębiorstw w programie Azure Active Directory
 description: Utwórz i przypisz niestandardowe role usługi Azure AD na potrzeby dostępu do aplikacji dla przedsiębiorstw w Azure Active Directory
 services: active-directory
 author: rolyon
@@ -13,14 +13,14 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb04616fb442f4a6c000e11919638231e3ddf64c
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 1a76e2d37e9dcdd285a8608fdbfd715bfb834eb8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012177"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467752"
 ---
-# <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Przypisywanie ról niestandardowych w celu zarządzania aplikacjami dla przedsiębiorstw w programie Azure Active Directory
+# <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Tworzenie ról niestandardowych w celu zarządzania aplikacjami dla przedsiębiorstw w programie Azure Active Directory
 
 W tym artykule wyjaśniono, jak utworzyć rolę niestandardową z uprawnieniami do zarządzania przypisaniami aplikacji dla przedsiębiorstw dla użytkowników i grup w Azure Active Directory (Azure AD). W przypadku elementów przypisania ról i znaczenia warunków, takich jak podtyp, uprawnienie i zestaw właściwości, zobacz [Omówienie ról niestandardowych](custom-overview.md).
 

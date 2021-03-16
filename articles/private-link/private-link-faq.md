@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709413"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496477"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link — często zadawane pytania
 
@@ -54,6 +54,11 @@ Tak. Prywatne punkty końcowe mogą łączyć się z zasobami usługi Azure PaaS
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Czy mogę zmodyfikować prywatny interfejs sieciowy punktu końcowego (NIC)?
 Po utworzeniu prywatnego punktu końcowego jest przypisana karta sieciowa tylko do odczytu. Nie można jej modyfikować i pozostanie w cyklu życia prywatnego punktu końcowego.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Jak mogę zapewnić dostępność podczas korzystania z prywatnych punktów końcowych w przypadku awarii regionalnych?
+
+Prywatne punkty końcowe to zasoby o wysokiej dostępności z umową SLA 99,99% [[SLA dla prywatnego linku platformy Azure]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Jednak ponieważ są to zasoby regionalne, dowolna awaria regionu platformy Azure może mieć wpływ na dostępność. Aby zapewnić dostępność w przypadku awarii regionalnych, można wdrożyć wiele elementów PEs podłączonych do tego samego zasobu docelowego w różnych regionach. W ten sposób, jeśli jeden region ulegnie awarii, można nadal kierować ruchem do scenariuszy odzyskiwania za pomocą środowiska PE w innym regionie, aby uzyskać dostęp do zasobu docelowego. Aby uzyskać informacje na temat sposobu obsługi błędów regionalnych na stronie usługi docelowej, zapoznaj się z dokumentacją usługi dotyczącą trybu failover i odzyskiwania. Ruch związany z linkiem prywatnym jest zgodny z Azure DNS rozpoznawanie docelowego punktu końcowego. 
+
 
 ## <a name="private-link-service"></a>Usługa łącza prywatnego
  

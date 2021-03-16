@@ -1,5 +1,5 @@
 ---
-title: Tworzenie sznurka modułu programu Defender IoT Micro Agent
+title: Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Dowiedz się, jak utworzyć poszczególne DefenderIotMicroAgent modułów bliźniaczych reprezentacji dla nowych urządzeń.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123007"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489883"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Tworzenie sznurka modułu programu Defender IoT Micro Agent 
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
 
 Można utworzyć pojedynczy moduł **DefenderIotMicroAgent** bliźniaczych reprezentacji dla nowych urządzeń. Można również tworzyć wsadowe bliźniaczych reprezentacji modułów dla wszystkich urządzeń w IoT Hub. 
 
@@ -27,9 +27,9 @@ Usługa Defender for IoT umożliwia w pełni integrację z istniejącą platform
 
 Dowiedz się więcej o koncepcji [bliźniaczych reprezentacji urządzeń](../iot-hub/iot-hub-devguide-device-twins.md)   na platformie Azure IoT Hub. 
 
-## <a name="security-module-twins"></a>Bliźniaczych reprezentacji modułu zabezpieczeń 
+## <a name="defender-iot-micro-agent-twins"></a>Defender-IoT-Micro-Agent bliźniaczych reprezentacji 
 
-Usługa Defender for IoT używa sznurka modułu zabezpieczeń dla każdego urządzenia. Sznury modułu zabezpieczeń zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego konkretnego urządzenia w rozwiązaniu. Właściwości zabezpieczeń urządzeń są konfigurowane za pomocą dedykowanych sznurów modułu zabezpieczeń w celu zapewnienia bezpieczniejszej komunikacji, do włączania aktualizacji i konserwacji, które wymagają mniejszej ilości zasobów. 
+Usługa Defender for IoT używa sznurów Defender-IoT-Micro-Agent dla każdego urządzenia. Sznurek usługi Defender-IoT-Micro-Agent zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego konkretnego urządzenia w rozwiązaniu. Właściwości zabezpieczeń urządzeń są konfigurowane za pomocą dedykowanych sznurów Defender-IoT-Micro-Agent do bezpieczniejszej komunikacji, do włączania aktualizacji i konserwacji, które wymagają mniejszej ilości zasobów. 
 
 ## <a name="understanding-defenderiotmicroagent-module-twins"></a>Zrozumienie modułu DefenderIotMicroAgent bliźniaczych reprezentacji 
 
@@ -39,9 +39,9 @@ Usługa Defender for IoT oferuje pełną integrację istniejącej platformy zarz
 
 Aby dowiedzieć się więcej na temat ogólnej koncepcji modułu bliźniaczych reprezentacji w usłudze Azure IoT Hub, zobacz [IoT Hub module bliźniaczych reprezentacji](../iot-hub/iot-hub-devguide-module-twins.md).
 
-Usługa Defender for IoT używa mechanizmu sieci dwuosiowej i utrzymuje jednoosiowy moduł zabezpieczeń o nazwie `DefenderIotMicroAgent` dla każdego z urządzeń. 
+Usługa Defender for IoT używa mechanizmu sieci dwuosiowej i utrzymuje sznurek usługi Defender-IoT-Micro-Agent o nazwie `DefenderIotMicroAgent` dla każdego urządzenia. 
 
-Aby w pełni korzystać ze wszystkich funkcji usługi Defender for IoT, należy utworzyć, skonfigurować i używać modułu zabezpieczeń bliźniaczych reprezentacji dla każdego urządzenia w usłudze. 
+Aby w pełni korzystać ze wszystkich funkcji usługi Defender for IoT, należy utworzyć, skonfigurować i użyć usługi Defender-IoT-Micro-Agent bliźniaczych reprezentacji dla każdego urządzenia w usłudze. 
 
 ## <a name="create-defenderiotmicroagent-module-twin"></a>Tworzenie sznurka modułu DefenderIotMicroAgent 
 
@@ -49,7 +49,7 @@ Aby w pełni korzystać ze wszystkich funkcji usługi Defender for IoT, należy 
 
 Aby ręcznie utworzyć nową sznurek modułu **DefenderIotMicroAgent** dla urządzenia: 
 
-1. W IoT Hub Znajdź i wybierz urządzenie, na którym chcesz utworzyć dwuosiowy moduł zabezpieczeń. 
+1. W IoT Hub Znajdź i wybierz urządzenie, na którym chcesz utworzyć sznurek Defender-IoT-Micro-Agent. 
 
 1. Wybierz pozycję **Dodaj tożsamość modułu**. 
 
@@ -59,7 +59,7 @@ Aby ręcznie utworzyć nową sznurek modułu **DefenderIotMicroAgent** dla urz
 
 ## <a name="verify-the-creation-of-a-module-twin"></a>Weryfikowanie tworzenia sznurka modułu 
 
-Aby sprawdzić, czy dla określonego urządzenia istnieje sznurek modułu zabezpieczeń: 
+Aby sprawdzić, czy dla określonego urządzenia istnieje niezależna usługa Defender-IoT-Micro-Agent: 
 
 1. W IoT Hub platformy Azure wybierz pozycję **urządzenia IoT**   z menu **eksplorators**   . 
 

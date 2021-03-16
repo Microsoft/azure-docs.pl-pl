@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 816c9ae25034382763e18ea61055a2a18ccc03d6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/16/2021
+ms.openlocfilehash: c18a48f8e72c28fd39f839566b18528806e7245d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388842"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561587"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -20,7 +20,7 @@ ms.locfileid: "100388842"
 
 W tym artykule opisano sposób korzystania z działania kopiowania w Azure Data Factory do kopiowania danych z i do płaty śnieg oraz do przekształcania danych w płatki śniegu. Aby uzyskać więcej informacji na temat Data Factory, zobacz [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik płatnego śniegu jest obsługiwany dla następujących działań:
 
@@ -57,11 +57,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

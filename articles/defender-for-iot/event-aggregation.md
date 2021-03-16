@@ -1,5 +1,5 @@
 ---
-title: Klasyczny agregacja zdarzeń modułu zabezpieczeń
+title: Agregacja zdarzeń klasycznych Defender-IoT-Micro Agent
 description: Dowiedz się więcej o agregacji zdarzeń usługi Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809222"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493081"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Klasyczny agregacja zdarzeń modułu zabezpieczeń
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregacja zdarzeń klasycznych Defender-IoT-Micro Agent
 
 Usługa Defender Security Agents zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła je do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
 

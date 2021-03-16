@@ -5,15 +5,15 @@ description: Dowiedz się, jak podpisać i wysyłać żądania usługi ACS za po
 author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0d98ae1ef537b06858b8c03df65bbcdd27984c4f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103022324"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492612"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Samouczek: Podpisz i Wysyłaj żądania przy użyciu programu Poster
 W tym samouczku skonfigurujemy i korzystamy z programu Poster w celu zgłoszenia żądania do usług Azure Communications Services (ACS) przy użyciu protokołu HTTP. Po zakończeniu tego samouczka pomyślnie wyślesz wiadomość SMS przy użyciu usług ACS i Poster i będzie można użyć programu do eksplorowania innych interfejsów API w usłudze ACS.

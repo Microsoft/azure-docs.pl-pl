@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107593"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562352"
 ---
 # <a name="api-management-policies"></a>API Management policies
 Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](api-management-howto-policies.md).
@@ -81,6 +81,12 @@ Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Ab
     - [Wyślij żądanie do usługi](api-management-dapr-policies.md#invoke) — program używa środowiska uruchomieniowego Dapr do lokalizowania i niezawodnego komunikowania się z mikrousługą Dapr.
     -  [Wyślij wiadomość do publikowania/podtematu](api-management-dapr-policies.md#pubsub) — używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie.
     -  [Wyzwalanie powiązania danych wyjściowych](api-management-dapr-policies.md#bind) — używa środowiska uruchomieniowego Dapr do wywoływania systemu zewnętrznego za pośrednictwem powiązania danych wyjściowych.
+- [Zasady walidacji](validation-policies.md)
+    - [Sprawdzanie poprawności zawartości](validation-policies.md#validate-content) — weryfikuje rozmiar lub schemat JSON żądania lub treści odpowiedzi względem schematu interfejsu API.
+. 
+    - [Sprawdzanie poprawności parametrów](validation-policies.md#validate-parameters) — sprawdza poprawność nagłówka żądania, zapytania lub parametrów ścieżki względem schematu interfejsu API.
+    - [Walidacja nagłówków](validation-policies.md#validate-headers) — sprawdza poprawność nagłówków odpowiedzi względem schematu interfejsu API.
+    - [Walidacja kodu stanu](validation-policies.md#validate-status-code) — sprawdza poprawność kodów stanu HTTP w odpowiedziach względem schematu interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
