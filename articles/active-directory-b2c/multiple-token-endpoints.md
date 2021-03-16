@@ -1,5 +1,5 @@
 ---
-title: Migrowanie interfejsów API sieci Web opartych na OWIN do b2clogin.com
+title: Migrowanie interfejsów API sieci Web opartych na OWIN do b2clogin.com lub domeny niestandardowej
 titleSuffix: Azure AD B2C
 description: Dowiedz się, jak włączyć interfejs API sieci Web platformy .NET, aby obsługiwał tokeny wystawione przez wielu wystawców tokenów podczas migrowania aplikacji do usługi b2clogin.com.
 services: active-directory-b2c
@@ -8,26 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/31/2019
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953937"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491573"
 ---
-# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrowanie internetowego interfejsu API opartego na OWIN do usługi b2clogin.com
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrowanie internetowego interfejsu API opartego na OWIN do b2clogin.com lub domeny niestandardowej
 
-W tym artykule opisano technikę włączania obsługi wielu wystawców tokenów w interfejsach API sieci Web implementujących [otwarty interfejs sieci Web dla platformy .NET (Owin)](http://owin.org/). Obsługa wielu punktów końcowych tokenów jest przydatna w przypadku migrowania Azure Active Directory B2C (Azure AD B2C) interfejsów API i ich aplikacji z *login.microsoftonline.com* do *b2clogin.com*.
+W tym artykule opisano technikę włączania obsługi wielu wystawców tokenów w interfejsach API sieci Web implementujących [otwarty interfejs sieci Web dla platformy .NET (Owin)](http://owin.org/). Obsługa wielu punktów końcowych tokenów jest przydatna w przypadku migrowania Azure Active Directory B2C (Azure AD B2C) interfejsów API i ich aplikacji z jednej domeny do drugiej. Na przykład z *login.microsoftonline.com* do *b2clogin.com* lub do [domeny niestandardowej](custom-domain.md).
 
-Dzięki dodaniu obsługi w interfejsie API do akceptowania tokenów wystawionych przez zarówno b2clogin.com, jak i login.microsoftonline.com, można migrować aplikacje sieci Web w sposób przygotowany przed usunięciem obsługi tokenów wystawionych przez login.microsoftonline.com z interfejsu API.
+Dodając obsługę w interfejsie API do akceptowania tokenów wystawionych przez b2clogin.com, login.microsoftonline.com lub niestandardową domenę, możesz migrować aplikacje sieci Web w sposób przygotowany przed usunięciem obsługi tokenów wystawionych przez login.microsoftonline.com z interfejsu API.
 
 Poniższe sekcje przedstawiają przykład sposobu włączania wielu wystawców w interfejsie API sieci Web, który używa składników oprogramowania pośredniczącego [Microsoft Owin][katana] (Katana). Chociaż przykłady kodu są specyficzne dla oprogramowania pośredniczącego Microsoft OWIN, ogólna technika powinna być stosowana do innych bibliotek OWIN.
-
-> [!NOTE]
-> Ten artykuł jest przeznaczony dla klientów Azure AD B2C z aktualnie wdrożonymi interfejsami API i aplikacjami, które odwołują się `login.microsoftonline.com` do programu i które chcą migrować do zalecanego `b2clogin.com` punktu końcowego. Jeśli konfigurujesz nową aplikację, użyj [b2clogin.com](b2clogin.md) jako kierowany.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -88,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 W tej sekcji należy zaktualizować kod, aby określić, że oba punkty końcowe wystawcy tokenu są prawidłowe.
 
 1. Otwórz rozwiązanie **B2C-WebAPI-dotnet. sln** w programie Visual Studio
-1. W projekcie **TaskService** Otwórz plik * TaskService \\ App_Start \\ **Startup.auth.cs** _ w edytorze
+1. W projekcie **TaskService** Otwórz plik *TaskService \\ App_Start \\ * * Startup.auth.cs** * w edytorze
 1. Dodaj następującą `using` dyrektywę na początku pliku:
 
     `using System.Collections.Generic;`
@@ -102,12 +99,13 @@ W tej sekcji należy zaktualizować kod, aby określić, że oba punkty końcowe
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"//,
+            //"https://your-custom-domain/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
 
-`TokenValidationParameters` jest dostarczany przez MSAL.NET i jest zużywany przez oprogramowanie pośredniczące OWIN w następnej sekcji kodu w _Startup. auth. cs *. W przypadku wybrania wielu prawidłowych wystawców potok aplikacji OWIN ma świadomość, że oba punkty końcowe tokenu są prawidłowymi wystawcami.
+`TokenValidationParameters` jest dostarczany przez MSAL.NET i jest zużywany przez oprogramowanie pośredniczące OWIN w następnej sekcji kodu w *Startup.auth.cs*. W przypadku wybrania wielu prawidłowych wystawców potok aplikacji OWIN ma świadomość, że oba punkty końcowe tokenu są prawidłowymi wystawcami.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -142,6 +140,13 @@ Po (Zamień na `{your-b2c-tenant}` nazwę dzierżawy B2C):
 ```
 
 W przypadku konstruowania ciągów punktów końcowych podczas wykonywania aplikacji sieci Web, b2clogin.com punkty końcowe są używane, gdy żąda tokenów.
+
+W przypadku korzystania z domeny niestandardowej:
+
+```xml
+<!-- Custom domain -->
+<add key="ida:AadInstance" value="https://custom-domain/{0}/{1}" />
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

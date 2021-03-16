@@ -2,13 +2,13 @@
 title: Co nowego w agencie serwerów z włączonym usługą Azure Arc
 description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dalszych szczegółów.
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.date: 03/15/2021
+ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722525"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470510"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Co nowego w agencie serwerów z włączonym usługą Azure Arc
 
@@ -18,13 +18,27 @@ Agent połączonej maszyny z włączonym usługą Azure Arc odbiera usprawnienia
 - Znane problemy
 - Poprawki błędów
 
+## <a name="march-2021"></a>Marzec 2021
+
+Wersja 1,4
+
+## <a name="new-feature"></a>Nowa funkcja
+
+- Dodano obsługę prywatnych punktów końcowych.
+- Rozwinięta lista kodów zakończenia dla azcmagent.
+- Parametry konfiguracji agenta można teraz odczytać z pliku z parametrem--config.
+
+## <a name="fixed"></a>Stałe
+
+Testy punktów końcowych sieci są teraz szybsze.
+
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
 Wersja: 1,3
 
 ### <a name="new-feature"></a>Nowa funkcja
 
-Dodano obsługę systemu Windows Server 2008 R2
+Dodano obsługę systemu Windows Server 2008 R2.
 
 ### <a name="fixed"></a>Stałe
 
@@ -47,7 +61,7 @@ Version: 1.1
 - Stały skrypt serwera proxy obsługujący alternatywną lokalizację pliku jednostki demona GC.
 - Zmiany niezawodności agenta GuestConfig.
 - Obsługa agenta GuestConfig dla regionu US Gov Wirginia.
-- Komunikaty o rozszerzeniu agenta GuestConfig w celu uzyskania bardziej szczegółowych informacji w przypadku awarii.
+- Komunikaty o rozszerzeniu agenta GuestConfig są bardziej szczegółowe w przypadku wystąpienia błędu.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 

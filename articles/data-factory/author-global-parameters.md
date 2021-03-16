@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 03/04/2021
-ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/15/2021
+ms.openlocfilehash: 3110ce8cb97379fd4690903ec769cc1dfc7f1326
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197871"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492766"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametry globalne w Azure Data Factory
 
@@ -49,7 +49,10 @@ Istnieją dwa sposoby integrowania parametrów globalnych w rozwiązaniu ciągł
 W przypadku większości przypadków użycia zaleca się uwzględnienie parametrów globalnych w szablonie ARM. Ta integracja zostanie zintegrowana z rozwiązaniem przedstawionym w [dokumencie Ci/CD](continuous-integration-deployment.md). Parametry globalne zostaną dodane jako parametr szablonu ARM domyślnie, ponieważ często zmieniają się ze środowiska na środowisko. Dołączanie parametrów globalnych do szablonu ARM można włączyć z centrum **zarządzania** .
 
 > [!NOTE]
-> Konfiguracja **dołączania do szablonu usługi ARM** jest dostępna tylko w trybie git. Obecnie jest ona wyłączona w trybie "tryb na żywo" lub "Data Factory".
+> Konfiguracja **dołączania do szablonu usługi ARM** jest dostępna tylko w trybie git. Obecnie jest ona wyłączona w trybie "tryb na żywo" lub "Data Factory". 
+
+> [!WARNING]
+>Nie można użyć "-" w nazwie parametru. Zostanie wyświetlony kod błędu "{" Code ":" nieprawidłowego żądania "," Message ":" ErrorCode = InvalidTemplate, ErrorMessage = wyrażenie > "potok (). globalParameters. sqlparam-dbtest-URL" jest nieprawidłowy:....} ". Ale można użyć znak "_" w nazwie parametru.
 
 ![Uwzględnij w szablonie ARM](media/author-global-parameters/include-arm-template.png)
 

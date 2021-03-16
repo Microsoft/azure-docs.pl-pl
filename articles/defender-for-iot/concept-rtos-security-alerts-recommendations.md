@@ -1,6 +1,6 @@
 ---
-title: Moduł zabezpieczeń dla usługi Azure RTO wbudowane & dostosowywalne alerty i zalecenia
-description: Dowiedz się więcej o alertach zabezpieczeń i zalecanych korygowaniu przy użyciu modułu Azure IoT Security module — RTO.
+title: Usługa Defender-IoT-Micro-Agent for Azure RTO — & wbudowana, dostosowywalne alerty i zalecenia
+description: Dowiedz się więcej o alertach zabezpieczeń i zalecanych korygowaniu za pomocą usługi Azure IoT Defender-IoT-Micro-RTO.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cf4924f8a9b97487e64e12ab80df92f2b2a81de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6dfeb01e174d71c926e9fcf7f5f1ee078524cf9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939516"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494278"
 ---
-# <a name="security-module-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Moduł zabezpieczeń dla alertów zabezpieczeń i zaleceń usługi Azure RTO (wersja zapoznawcza)
+# <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Usługa Defender-IoT-Micro-Agent na potrzeby alertów zabezpieczeń i zaleceń usługi Azure RTO (wersja zapoznawcza)
 
-Moduł zabezpieczeń dla usługi Azure RTO stale analizuje Twoje rozwiązanie IoT przy użyciu zaawansowanych analiz i analizy zagrożeń, aby ostrzec o potencjalnie złośliwych działaniach i podejrzanych modyfikacjach systemu. Możesz również tworzyć niestandardowe alerty na podstawie wiedzy o oczekiwanym zachowaniu i rozdziałach urządzeń.
+Usługa Defender-IoT-Micro-Agent for Azure RTO stale analizuje Twoje rozwiązanie IoT przy użyciu zaawansowanych analiz i analizy zagrożeń, aby ostrzec o potencjalnie złośliwych działaniach i podejrzanych modyfikacjach systemu. Możesz również tworzyć niestandardowe alerty na podstawie wiedzy o oczekiwanym zachowaniu i rozdziałach urządzeń.
 
-Moduł zabezpieczeń dla alertu usługi Azure RTO działa jako wskaźnik potencjalnego naruszenia i należy go zbadać i skorygować. Zalecenie modułu zabezpieczeń dla platformy Azure RTO identyfikuje słabe stan zabezpieczeń, które mają zostać skorygowane i zaktualizowane. 
+Alert usługi Defender-IoT-Micro-Agent for Azure RTO działa jako wskaźnik potencjalnego naruszenia i należy go zbadać i skorygować. Zalecenie Defender-IoT-Micro-Agent for Azure RTO identyfikuje słabe zabezpieczenia stan do skorygowania i zaktualizowania. 
 
 W tym artykule znajdziesz listę wbudowanych alertów i zaleceń, które są wyzwalane w oparciu o zakresy domyślne i można je dostosowywać do własnych wartości na podstawie oczekiwanych lub podstawowych zachowań. 
 
-Aby uzyskać więcej informacji na temat sposobu działania dostosowywania alertów w usłudze Defender for IoT, zobacz [dostosowywalne alerty](concept-customizable-security-alerts.md). Określone alerty i zalecenia dostępne do dostosowania podczas korzystania z modułu zabezpieczeń usługi Azure RTO są szczegółowo opisane w poniższych tabelach. 
+Aby uzyskać więcej informacji na temat sposobu działania dostosowywania alertów w usłudze Defender for IoT, zobacz [dostosowywalne alerty](concept-customizable-security-alerts.md). W poniższych tabelach opisano szczegółowe alerty i zalecenia dostępne do dostosowania podczas korzystania z usługi Defender-IoT-Micro-Agent for Azure RTO. 
 
-## <a name="security-module-for-azure-rtos-supported-security-alerts"></a>Moduł zabezpieczeń dla usługi Azure RTO — obsługiwane alerty zabezpieczeń
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-security-alerts"></a>Defender-IoT-Micro-Agent for Azure RTO — obsługiwane alerty zabezpieczeń
 
 ### <a name="device-related-security-alerts"></a>Alerty zabezpieczeń dotyczące urządzeń
 
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji na temat sposobu działania dostosowywania alert
 |Usunięto certyfikat    | Wykryto usunięcie certyfikatu z IoT Hub        |
 |Nowy certyfikat     |  Wykryto dodanie nowego certyfikatu do IoT Hub       |
 
-## <a name="security-module-for-azure-rtos-supported-customizable-alerts"></a>Moduł zabezpieczeń dla usługi Azure RTO obsługuje dostosowywalne alerty
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-customizable-alerts"></a>Defender-IoT-Micro-Agent for Azure RTO — obsługiwane dostosowywalne alerty
 
 ### <a name="device-related-customizable-alerts"></a>Dostosowywalne alerty powiązane z urządzeniem
 
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji na temat sposobu działania dostosowywania alert
 |Aktualizacje modułów bliźniaczych     |  Liczba aktualizacji modułów bliźniaczych poza dozwolonym zakresem       |
 |Nieautoryzowane operacje    |  Liczba nieautoryzowanych operacji poza dozwolonym zakresem       |
 
-## <a name="security-module-for-azure-rtos-supported-recommendations"></a>Moduł zabezpieczeń dla usługi Azure RTO — zalecenia obsługiwane
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-recommendations"></a>Defender-IoT-Micro-Agent for Azure RTO — obsługiwane rekomendacje
 
 ### <a name="device-related-recommendations"></a>Zalecenia dotyczące urządzenia
 
@@ -97,6 +97,6 @@ Aby uzyskać pełną listę wszystkich alertów i zaleceń związanych z usług�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki Start: moduł zabezpieczeń dla usługi Azure RTO](quickstart-azure-rtos-security-module.md)
-- [Konfigurowanie i dostosowywanie modułu zabezpieczeń dla usługi Azure RTO](how-to-azure-rtos-security-module.md)
-- Zapoznaj się z [modułem zabezpieczeń dla interfejsu API usługi Azure RTO](azure-rtos-security-module-api.md)
+- [Szybki Start: Defender-IoT-Micro-Agent for Azure RTO](quickstart-azure-rtos-security-module.md)
+- [Konfigurowanie i dostosowywanie usługi Defender-IoT-Micro-Agent for Azure RTO](how-to-azure-rtos-security-module.md)
+- Zapoznaj się z [interfejsem API usługi Defender-IoT-Micro-Agent for Azure RTO](azure-rtos-security-module-api.md)

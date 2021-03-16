@@ -8,14 +8,16 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff154eee6c6174a8f1a3aa7bea37ef62273bb1a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76760117"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489506"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Standardy zabezpieczeń Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge odnosi się do ryzyka, które są związane podczas przesuwania danych i analiz do inteligentnej krawędzi. IoT Edge standardy zabezpieczeń zapewniają elastyczność dla różnych scenariuszy wdrażania z ochroną oczekiwaną przez wszystkie usługi platformy Azure.
 
@@ -70,7 +72,7 @@ Wszystkie systemy w dobrej kondycji, w tym inteligentne systemy brzegowe, wymaga
 
 ## <a name="hardware-root-of-trust"></a>Katalog główny sprzętu zaufania
 
-W przypadku wielu inteligentnych urządzeń brzegowych, szczególnie urządzeń, które mogą być fizycznie dostępne przez potencjalną złośliwe podmioty, zabezpieczenia sprzętowe są ostatnią obroną ochrony. Sprzęt odporny na manipulacje jest decydujący dla takich wdrożeń. Azure IoT Edge zachęca dostawców sprzętu krzemowego do oferowania różnych rodzajów sprzętu głównego zaufania w celu uwzględnienia różnych profilów ryzyka i scenariuszy wdrażania. Zaufanie sprzętowe może pochodzić ze wspólnych standardów protokołu zabezpieczeń, takich jak moduł TPM (ISO/IEC 11889) i Trusted Computing Group aparat kompozycji identyfikatora urządzenia (kość). Bezpieczne technologie enklawy, takie jak TrustZones i rozszerzenia funkcji Software Guard (SGX), zapewniają również zaufanie sprzętowe.
+W przypadku wielu inteligentnych urządzeń brzegowych, szczególnie urządzeń, które mogą być fizycznie dostępne przez potencjalną złośliwe podmioty, zabezpieczenia sprzętowe są ostatnią obroną ochrony. Sprzęt odporny na manipulacje jest decydujący dla takich wdrożeń. Azure IoT Edge zachęca dostawców sprzętu krzemowego do oferowania różnych rodzajów sprzętu głównego zaufania w celu uwzględnienia różnych profilów ryzyka i scenariuszy wdrażania. Zaufanie sprzętowe może pochodzić ze wspólnych standardów protokołu zabezpieczeń, takich jak Trusted Platform Module (ISO/IEC 11889) i Trusted Computing Group aparat kompozycji identyfikatora urządzenia (kość). Bezpieczne technologie enklawy, takie jak TrustZones i rozszerzenia funkcji Software Guard (SGX), zapewniają również zaufanie sprzętowe.
 
 ## <a name="certification"></a>Certyfikacja
 

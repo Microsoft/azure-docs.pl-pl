@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 65710047d5d5d1cc6b835144f7778392fb20b797
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042270"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489759"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Gdy wszystko jest gotowe do przygotowania rozwiązania IoT Edge od projektowania do produkcji, należy upewnić się, że jest ono skonfigurowane pod kątem ciągłej wydajności.
 
@@ -199,7 +201,7 @@ Następnie należy zaktualizować odwołania do obrazu w deployment.template.jsp
 
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 * **Pomaga**
   * Przejrzyj konfigurację wychodzącą/przychodzącą

@@ -4,15 +4,15 @@ description: Twórz i Zarządzaj użytkownikami czujników oraz lokalną konsol�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522346"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466273"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informacje o usłudze Defender dla użytkowników konsoli IoT
 
@@ -162,7 +162,7 @@ Obsługiwane są dwa typy uwierzytelniania opartego na protokole LDAP:
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Uprawnienia Active Directory i Defender dla usługi IoT
 
-Można kojarzyć grupy Active Directory zdefiniowane w tym miejscu z określonymi poziomami uprawnień. Na przykład skonfiguruj konkretną grupę Active Directory i przypisz uprawnienia typu RO do wszystkich użytkowników w grupie. Aby uzyskać szczegółowe informacje, zobacz temat [Tworzenie użytkowników i zarządzanie nimi](how-to-create-and-manage-users.md) .
+Można kojarzyć grupy Active Directory zdefiniowane w tym miejscu z określonymi poziomami uprawnień. Na przykład skonfiguruj konkretną grupę Active Directory i przypisz uprawnienia tylko do odczytu dla wszystkich użytkowników w grupie.
 
 Aby skonfigurować Active Directory:
 
@@ -170,11 +170,11 @@ Aby skonfigurować Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Wyświetl ustawienia systemu Active Directory.":::
 
-1. W okienku **Ustawienia systemu** wybierz pozycję **Active Directory**.
+2. W okienku **Ustawienia systemu** wybierz pozycję **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edytuj konfiguracje Active Directory.":::
 
-1. W oknie dialogowym **Edytowanie konfiguracji Active Directory** wybierz pozycję **Active Directory Integracja włączona**  >  **Zapisz**. Zostanie rozwinięte okno dialogowe **Edytowanie konfiguracji Active Directory** i można teraz wprowadzić parametry w celu skonfigurowania Active Directory.
+3. W oknie dialogowym **Edytowanie konfiguracji Active Directory** wybierz pozycję **Active Directory Integracja włączona**  >  **Zapisz**. Zostanie rozwinięte okno dialogowe **Edytowanie konfiguracji Active Directory** i można teraz wprowadzić parametry w celu skonfigurowania Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Wprowadź parametry, aby skonfigurować Active Directory.":::
 
@@ -183,7 +183,7 @@ Aby skonfigurować Active Directory:
     > - Dla wszystkich parametrów Active Directory użyj tylko małych liter. Używaj małych liter, nawet jeśli konfiguracje w Active Directory używają wielkich liter.
     > - Nie można skonfigurować zarówno protokołu LDAP, jak i LDAPs dla tej samej domeny. Można jednak używać obu jednocześnie dla różnych domen.
 
-1. Ustaw parametry serwera Active Directory w następujący sposób:
+4. Ustaw parametry serwera Active Directory w następujący sposób:
 
    | Parametr serwera | Opis |
    |--|--|
@@ -193,11 +193,15 @@ Aby skonfigurować Active Directory:
    | Grupy Active Directory | Wprowadź nazwy grup, które są zdefiniowane w konfiguracji Active Directory na serwerze LDAP. |
    | Domeny zaufane | Aby dodać domenę zaufaną, należy dodać nazwę domeny i typ połączenia zaufanej domeny. <br />Domeny zaufane można skonfigurować tylko dla użytkowników, którzy zostali zdefiniowani w obszarze Użytkownicy. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Grupy ActiveDirectory dla lokalnej konsoli zarządzania
+
+W przypadku tworzenia grup Active Directory dla użytkowników lokalnej konsoli zarządzania należy utworzyć regułę grupy dostępu dla każdej grupy Active Directory. Lokalna Konsola zarządzania Active Directory poświadczenia nie będą działały, jeśli dla grupy użytkowników Active Directory nie istnieje reguła grupy dostępu. Zobacz [Definiowanie globalnej kontroli dostępu](how-to-define-global-user-access-control.md).
+
 1. Wybierz pozycję **Zapisz**.
 
-1. Aby dodać zaufany serwer, wybierz pozycję **Dodaj serwer** i skonfiguruj inny serwer.
+2. Aby dodać zaufany serwer, wybierz pozycję **Dodaj serwer** i skonfiguruj inny serwer.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Resetowanie hasła użytkownika dla czujnika lub lokalnej konsoli zarządzania
+## <a name="resetting-passwords"></a>Resetowanie haseł
 
 ### <a name="cyberx-or-support-user"></a>Użytkownik CyberX lub pomoc techniczna
 
@@ -265,7 +269,7 @@ Aby zresetować hasło użytkownika w lokalnej konsoli zarządzania:
 
 1. Wybierz pozycję **Aktualizuj**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Aktywowanie i Konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md) 
  [Aktywuj i skonfiguruj lokalną konsolę zarządzania](how-to-activate-and-set-up-your-on-premises-management-console.md) 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do w
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732199"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492136"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -42,13 +42,11 @@ Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
 1. W menu po lewej stronie okna **funkcje** wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu. 
  
-1. W oknie **Nowa funkcja** wybierz pozycję **wyzwalacz http**.
+1. W oknie **Dodawanie funkcji** wybierz szablon **wyzwalacza http** .
 
     ![Wybierz funkcję wyzwalacza HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji** lub wprowadź nową nazwę. 
-
-1. Z listy rozwijanej **poziom autoryzacji** wybierz pozycję **anonimowe** , a następnie wybierz pozycję **Utwórz funkcję**.
+1. W obszarze **szczegóły szablonu** Użyj `HttpExample` **nowej funkcji**, wybierz pozycję **anonimowe** na liście rozwijanej **[poziom autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys)** , a następnie wybierz pozycję **Dodaj**.
 
     Platforma Azure tworzy funkcję wyzwalacza HTTP. Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
 

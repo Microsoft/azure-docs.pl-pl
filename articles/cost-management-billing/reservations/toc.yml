@@ -124,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Rozwiązywanie problemów
       items:
+        - name: Znajdź zakup rezerwacji z dzienników platformy Azure
+          href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Rozwiązywanie problemów z przesyłaniem między dzierżawcami
           href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Brak kwalifikujących się subskrypcji

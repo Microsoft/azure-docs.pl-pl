@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497966"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472002"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Użyj Resource Health do rozwiązywania problemów z łącznością dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Możesz uzyskać dostęp do 14 dni historii kondycji w sekcji Historia kondycji 
 
 ### <a name="downtime-reasons"></a>Przyczyny przestoju
 
-Gdy baza danych ulegnie awarii, analiza jest przeprowadzana w celu ustalenia przyczyny. W razie potrzeby przyczyny przestoju są raportowane w sekcji Historia kondycji Resource Health. Przyczyny przestojów są zazwyczaj publikowane w ciągu 30 minut po wystąpieniu zdarzenia.
+Gdy baza danych ulegnie awarii, analiza jest przeprowadzana w celu ustalenia przyczyny. W razie potrzeby przyczyny przestoju są raportowane w sekcji Historia kondycji Resource Health. Przyczyny przestoju są zwykle publikowane w ciągu 45 minut od zdarzenia.
 
 #### <a name="planned-maintenance"></a>Planowana konserwacja
 

@@ -1,17 +1,17 @@
 ---
 title: Dostęp do dzienników wolnych zapytań — Azure Portal-Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do powolnych dzienników w Azure Database for MySQL z Azure Portal.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/13/2020
-ms.openlocfilehash: 5ad4ffa99a7af592e3e93e53673d254956807c40
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 3/15/2021
+ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541627"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496222"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Skonfiguruj i uzyskaj dostęp do dzienników wolnych zapytań z Azure Portal
 
@@ -32,13 +32,15 @@ Skonfiguruj dostęp do dziennika wolnych zapytań programu MySQL.
 
 4. Aby wyświetlić parametry serwera, wybierz **pozycję kliknij tutaj, aby włączyć dzienniki i skonfigurować parametry dziennika**.
 
-5. Włącz **slow_query_log** opcję slow_query_log **.**
+5. Włącz  opcję slow_query_log **.**
 
-6. Wybierz lokalizację, do której mają być wyprowadzane dzienniki, przy użyciu **log_output**. Aby wysłać dzienniki do magazynu lokalnego i Azure Monitor dzienników diagnostycznych, wybierz pozycję **plik**. 
+6. Wybierz lokalizację, do której mają być wyprowadzane dzienniki, przy użyciu **log_output**. Aby wysłać dzienniki do magazynu lokalnego i Azure Monitor dzienników diagnostycznych, wybierz pozycję **plik**.
 
-7. Zmień inne potrzebne parametry. 
+7. Rozważ ustawienie "long_query_time", który reprezentuje próg czasu zapytania dla zapytań, które będą zbierane w wolnym pliku dziennika zapytania, minimalna i domyślna wartość long_query_time są odpowiednio 0 i 10.
 
-8. Wybierz pozycję **Zapisz**. 
+8. Dostosuj inne parametry, takie jak log_slow_admin_statements, aby rejestrować instrukcje administracyjne. Domyślnie instrukcje administracyjne nie są rejestrowane ani nie są zapytania, które nie używają indeksów do wyszukiwania. 
+
+9. Wybierz pozycję **Zapisz**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Zrzut ekranu przedstawiający parametry dziennika wolnych zapytań i Zapisz.":::
 
@@ -70,17 +72,17 @@ Po rozpoczęciu rejestrowania można wyświetlić listę dostępnych wolnych dzi
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje ustawień diagnostycznych":::
 
-1. Podaj nazwę ustawienia diagnostycznego.
+2. Podaj nazwę ustawienia diagnostycznego.
 
-1. Określ, które ujścia danych mają wysyłać dzienniki wolnych zapytań (konto magazynu, centrum zdarzeń lub Log Analytics obszar roboczy).
+3. Określ, które ujścia danych mają wysyłać dzienniki wolnych zapytań (konto magazynu, centrum zdarzeń lub Log Analytics obszar roboczy).
 
-1. W polu Typ dziennika wybierz pozycję **MySqlSlowLogs** .
+4. W polu Typ dziennika wybierz pozycję **MySqlSlowLogs** .
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje konfiguracji ustawień diagnostycznych":::
 
-1. Po skonfigurowaniu ujścia danych w celu pomyślnego przetworzenia połączeń dzienników wolnych zapytań wybierz pozycję **Zapisz**.
+5. Po skonfigurowaniu ujścia danych w celu pomyślnego przetworzenia połączeń dzienników wolnych zapytań wybierz pozycję **Zapisz**.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Zrzut ekranu opcji konfiguracji ustawień diagnostycznych z wyróżnioną pozycją Zapisz":::
 
-1. Uzyskaj dostęp do dzienników wolnych zapytań, badając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
+6. Uzyskaj dostęp do dzienników wolnych zapytań, badając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [dostęp do dzienników wolnych zapytań w interfejsie wiersza polecenia](howto-configure-server-logs-in-cli.md) , aby dowiedzieć się, jak programowo pobrać dzienniki wolnych zapytań.

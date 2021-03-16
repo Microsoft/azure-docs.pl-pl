@@ -2,18 +2,18 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fce7ba090d5aa86c85452ca41ce606d2fa52a6ee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c142f6a00275b4b21b6bbc64e51a5c4d7d957258
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645447"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103468009"
 ---
-- Dostęp do kont magazynu z konfiguracją zapory i sieci wirtualnej należy ograniczyć
-- Zmienne konta usługi Automation powinny być szyfrowane
+- Dostęp do kont magazynu z konfiguracją zapory i sieci wirtualnej powinny być ograniczone konta magazynu powinny ograniczać dostęp do sieci
+- Zmienne konta usługi Automation powinny być zaszyfrowanymi zmiennymi konta usługi Automation.
 - Pamięć podręczna platformy Azure dla Redis powinna znajdować się w sieci wirtualnej
 - Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
 - Obszary robocze Azure Machine Learning powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)
@@ -31,21 +31,21 @@ ms.locfileid: "100645447"
 - W magazynach kluczy powinna być włączona ochrona przed czyszczeniem
 - Magazyny kluczy powinny mieć włączone usuwanie nietrwałe
 - W przypadku kontenerów powinny być wymuszane najmniej uprzywilejowane funkcje systemu Linux.
-- Należy włączyć tylko bezpieczne połączenia z Redis Cache
+- Tylko bezpieczne połączenia z Redis Cache powinny mieć włączone tylko bezpieczne połączenia z pamięcią podręczną platformy Azure dla Redis powinny być włączone
 - Zastępowanie lub wyłączanie profilowania AppArmor profil powinien być ograniczony
 - Należy unikać używania kontenerów uprzywilejowanych
 - Należy unikać uruchamiania kontenerów jako użytkownik główny
-- Należy włączyć bezpieczny transfer na konta magazynu
-- W klastrach Service Fabric Właściwość ClusterProtectionLevel ma ustawioną wartość EncryptAndSign
-- W klastrach Service Fabric należy używać tylko Azure Active Directory do uwierzytelniania klientów
+- Bezpieczny transfer do kont magazynu należy włączyć bezpieczny transfer do kont magazynu.
+- Service Fabric klastrów powinna mieć ustawioną właściwość ClusterProtectionLevel na EncryptAndSign klastrów Service Fabric powinna mieć Właściwość ClusterProtectionLevel ustawioną na EncryptAndSign
+- W klastrach Service Fabric należy używać tylko Azure Active Directory do uwierzytelniania klienta Service Fabric klastry powinny używać tylko Azure Active Directory do uwierzytelniania klienta
 - Usługi powinny nasłuchiwać tylko na dozwolonych portach
 - Publiczny dostęp do konta magazynu powinien być niedozwolony
-- Konta magazynu należy migrować do nowych zasobów Azure Resource Manager
+- Konta magazynu należy migrować do nowych zasobów Azure Resource Manager kont magazynu należy migrować do nowych zasobów Azure Resource Manager
 - Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej
 - Użycie sieci i portów hosta powinno być ograniczone
 - Użycie instalacji woluminów HostPath na początku musi być ograniczone do znanej listy, aby ograniczyć dostęp do węzła ze złamanych kontenerów
 - Okres ważności certyfikatów przechowywanych w Azure Key Vault nie powinien przekraczać 12 miesięcy
-- Maszyny wirtualne należy migrować do nowych zasobów Azure Resource Manager
+- Maszyny wirtualne powinny być migrowane do nowych zasobów Azure Resource Manager maszyny wirtualne powinny zostać zmigrowane do nowych zasobów Azure Resource Manager
 - Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway
 - Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure front-drzwi
 

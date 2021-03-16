@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725513"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493530"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -60,18 +60,18 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 ## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Krok 2. upewnienie się, że komputer spełnia wymagania przed wykonaniem skryptu
 
-Po pomyślnym pobraniu skryptu upewnij się, że masz odpowiednią maszynę do wykonania tego skryptu. Maszyna wirtualna, na której planujesz wykonać skrypt, nie powinna mieć żadnej z następujących nieobsługiwanych konfiguracji. Jeśli tak, wybierz komputer alternatywny najlepiej z tego samego regionu, który spełnia wymagania.  
+Po pomyślnym pobraniu skryptu upewnij się, że masz odpowiednią maszynę do wykonania tego skryptu. Maszyna wirtualna, na której planujesz wykonać skrypt, nie powinna mieć żadnej z następujących nieobsługiwanych konfiguracji. **Jeśli tak, wybierz komputer alternatywny najlepiej z tego samego regionu, który spełnia wymagania**.  
 
 ### <a name="dynamic-disks"></a>Dyski dynamiczne
 
-Nie można uruchomić skryptu wykonywalnego na maszynie wirtualnej przy użyciu żadnej z następujących cech:
+Nie można uruchomić skryptu wykonywalnego na maszynie wirtualnej przy użyciu żadnej z następujących cech: Wybierz maszynę alternatywną
 
 - Woluminy obejmujące wiele dysków (woluminy łączone i rozłożone).
 - Woluminy odporne na uszkodzenia (woluminy dublowane i RAID-5) na dyskach dynamicznych.
 
 ### <a name="windows-storage-spaces"></a>Miejsca do magazynowania w systemie Windows
 
-Nie można uruchomić pobranego pliku wykonywalnego na maszynie wirtualnej skonfigurowanej dla funkcji miejsca do magazynowania systemu Windows.
+Nie można uruchomić pobranego pliku wykonywalnego na tej samej kopii zapasowej maszyny wirtualnej, jeśli kopia zapasowa maszyny wirtualnej zawiera funkcję miejsca do magazynowania systemu Windows. Wybierz komputer alternatywny.
 
 ### <a name="virtual-machine-backups-having-large-disks"></a>Kopie zapasowe maszyn wirtualnych z dużymi dyskami
 

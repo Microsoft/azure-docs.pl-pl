@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d2d501206dcb1fc6b9bb545f9dcf4d5c61af994e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 216410d423a70037588a6fb596771a702a13c003
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777881"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472242"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Ładowanie danych z pliku CSV do wystąpienia zarządzanego Azure SQL Database lub SQL (pliki proste)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Można użyć narzędzia wiersza polecenia bcp do zaimportowania danych z pliku CSV do Azure SQL Database lub wystąpienia zarządzanego Azure SQL.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są:
 * Zainstalowane narzędzie wiersza polecenia bcp
 * Zainstalowane narzędzie wiersza polecenia sqlcmd
 
-Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][Microsoft Download Center].
+Narzędzia bcp i sqlcmd można pobrać z [dokumentacji Microsoft sqlcmd] [ https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15 ].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dane w formacie ASCII lub UTF-16
 

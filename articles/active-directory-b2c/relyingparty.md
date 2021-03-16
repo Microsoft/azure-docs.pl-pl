@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198442"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492017"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Element **RelyingParty** określa podróż użytkownika, aby wymusić bieżące żądanie do Azure Active Directory B2C (Azure AD B2C). Określa także listę oświadczeń, które są wymagane przez aplikację jednostki uzależnionej (RP) jako część wystawionego tokenu. Aplikacja RP, taka jak aplikacja sieci Web, aplikacji mobilnej lub klasycznej, wywołuje plik zasad RP. Plik zasad RP wykonuje określone zadanie, takie jak logowanie, Resetowanie hasła lub edytowanie profilu. Wiele aplikacji może korzystać z tych samych zasad RP, a pojedyncza aplikacja może korzystać z wielu zasad. Wszystkie aplikacje RP otrzymują ten sam token z oświadczeniami, a użytkownik przechodzi przez tę samą podróż użytkownika.
+Element **RelyingParty** określa podróż użytkownika w celu wymuszenia bieżącego żądania do usługi Azure Active Directory B2C (Azure AD B2C). Określa także listę oświadczeń, które są wymagane przez aplikację jednostki zależnej (RP) jako część wystawionego tokenu. Aplikacja RP, taka jak aplikacja sieci Web, aplikacji mobilnej lub klasycznej, wywołuje plik zasad RP. Plik zasad RP wykonuje określone zadanie, takie jak logowanie, Resetowanie hasła lub edytowanie profilu. Wiele aplikacji może korzystać z tych samych zasad RP, a pojedyncza aplikacja może korzystać z wielu zasad. Wszystkie aplikacje RP otrzymują ten sam token z oświadczeniami, a użytkownik przechodzi przez tę samą podróż użytkownika.
 
 Poniższy przykład przedstawia element **RelyingParty** w pliku zasad *B2C_1A_signup_signin* :
 
@@ -145,10 +145,11 @@ Element **UserJourneyBehaviors** zawiera następujące elementy:
 | JourneyInsights | 0:1 | Klucz Instrumentacji usługi Azure Application Insights, który ma być używany. |
 | ContentDefinitionParameters | 0:1 | Lista par wartości klucza do dołączenia do identyfikatora URI ładowania definicji zawartości. |
 |ScriptExecution| 0:1| Obsługiwane tryby wykonywania [języka JavaScript](javascript-and-page-layout.md) . Możliwe wartości: `Allow` lub `Disallow` (wartość domyślna).
+| JourneyFraming | 0:1| Zezwala na ładowanie interfejsu użytkownika tych zasad w elemencie iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-Element **SingleSignon** zawiera następujący atrybut:
+Element **SingleSignon** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
@@ -165,7 +166,7 @@ Element **JourneyInsights** zawiera następujące atrybuty:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Tak | Wartość musi być `ApplicationInsights` . |
 | InstrumentationKey | Tak | Ciąg, który zawiera klucz Instrumentacji dla elementu Application Insights. |
-| Deweloper | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` Application Insights przyspiesza dane telemetryczne za pomocą potoku przetwarzania. To ustawienie jest przydatne w przypadku programowania, ale jest ograniczone do dużych woluminów. Szczegółowe dzienniki działań są przeznaczone tylko do ułatwienia tworzenia zasad niestandardowych. Nie używaj trybu deweloperskiego w środowisku produkcyjnym. Dzienniki zbierają wszystkie oświadczenia wysyłane do i od dostawców tożsamości podczas opracowywania. Jeśli jest używany w środowisku produkcyjnym, programista przyjmuje odpowiedzialność za dane OSOBowe (informacje z możliwością zidentyfikowaną prywatnie) zebrane w dzienniku usługi App Insights. Te szczegółowe dzienniki są zbierane tylko wtedy, gdy ta wartość jest ustawiona na `true` .|
+| Deweloper | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` Application Insights przyspiesza dane telemetryczne za pomocą potoku przetwarzania. To ustawienie jest przydatne w przypadku programowania, ale jest ograniczone do dużych woluminów. Szczegółowe dzienniki działań są przeznaczone tylko do ułatwienia tworzenia zasad niestandardowych. Nie używaj trybu deweloperskiego w środowisku produkcyjnym. Dzienniki zbierają wszystkie oświadczenia wysyłane do i od dostawców tożsamości podczas opracowywania. Jeśli jest używany w środowisku produkcyjnym, programista przyjmuje odpowiedzialność za dane osobowe zbierane w dzienniku usługi App Insights. Te szczegółowe dzienniki są zbierane tylko wtedy, gdy ta wartość jest ustawiona na `true` .|
 | ClientEnabled | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` program wysyła skrypt po stronie klienta Application Insights na potrzeby śledzenia widoku strony i błędów po stronie klienta. |
 | ServerEnabled | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` , program wysyła istniejący kod JSON UserJourneyRecorder jako zdarzenie niestandardowe do Application Insights. |
 | TelemetryVersion | Tak | Wartość musi być `1.0.0` . |
@@ -193,6 +194,15 @@ Element **ContentDefinitionParameter** zawiera następujący atrybut:
 | Nazwa | Tak | Nazwa pary klucz wartość. |
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu użytkownika z zawartością dynamiczną przy użyciu zasad niestandardowych](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
+
+### <a name="journeyframing"></a>JourneyFraming
+
+Element **JourneyFraming** zawiera następujące atrybuty:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| Enabled (Włączony) | Tak | Umożliwia załadowanie tych zasad w elemencie iframe. Możliwe wartości: `false` (ustawienie domyślne) lub `true` . |
+| Źródła | Tak | Zawiera domeny, które będą ładowały element IFRAME. Aby uzyskać więcej informacji, zobacz [ładowanie usługi Azure B2C w elemencie iframe](embedded-login.md). |
 
 ## <a name="technicalprofile"></a>Profilu technicznym
 

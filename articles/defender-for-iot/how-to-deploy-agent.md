@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447269"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496528"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Wybieranie i wdrażanie agenta zabezpieczeń na urządzeniu IoT
 
@@ -51,7 +51,7 @@ Agent zabezpieczeń oparty na języku C ma mniejszą ilość pamięci i jest ide
 | **[Uwierzytelnianie](concept-security-agent-authentication-methods.md) do IoT Hub** | Tak | Tak |
 | **[Zbieranie](how-to-agent-configuration.md#supported-security-events) danych zabezpieczeń** | Tak | Tak |
 | **Agregacja zdarzeń** | Tak | Tak |
-| **Konfiguracja zdalna za poorednictwem [sznurka modułu zabezpieczeń](concept-security-module.md)** | Tak | Tak |
+| **Konfiguracja zdalna za poorednictwem usług [Defender-IoT-Micro-Agent](concept-security-module.md)** | Tak | Tak |
 
 ## <a name="security-agent-installation-guidelines"></a>Wskazówki dotyczące instalacji agenta zabezpieczeń
 

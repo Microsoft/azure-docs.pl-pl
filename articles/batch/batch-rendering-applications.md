@@ -1,22 +1,25 @@
 ---
 title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635340"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496647"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania wsadowego obrazów maszyn wirtualnych
 
 Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 
-W razie potrzeby Licencjonowanie za korzystanie z opcji płatność za użycie jest dostępne dla wstępnie zainstalowanych aplikacji do renderowania. Po utworzeniu puli usługi Batch można określić wymagane aplikacje, a koszt maszyny wirtualnej i aplikacji będzie naliczany na minutę. Ceny aplikacji są wymienione na [stronie cennika Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+W razie potrzeby Licencjonowanie za użycie jest dostępne dla wstępnie zainstalowanych aplikacji do renderowania. Po utworzeniu puli usługi Batch można określić wymagane aplikacje, a koszt maszyny wirtualnej i aplikacji będzie naliczany na minutę. Ceny aplikacji są wymienione na [stronie cennika Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Niektóre aplikacje obsługują tylko system Windows, ale większość z nich jest obsługiwana zarówno w systemie Windows, jak i Linux.
+
+> [!IMPORTANT]
+> Renderowanie obrazów maszyn wirtualnych i Licencjonowanie za użycie jest [przestarzałe i zostanie wycofane z 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Aby użyć usługi Batch do renderowania, [należy użyć niestandardowego obrazu maszyny wirtualnej i standardowej licencji aplikacji.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplikacje na najnowszym obrazie renderowania CentOS 7
 

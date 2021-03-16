@@ -4,14 +4,14 @@ description: Jak utworzyć ścieżki związane z klientem dla magazynu zaplecza 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760544"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470470"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurowanie zagregowanej przestrzeni nazw
 
@@ -132,6 +132,30 @@ Aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego lub dodać dod
 Opcje używane dla polecenia Update są podobne do polecenia "Create", z tą różnicą, że nie są przekazywane informacje o systemie magazynu (adres IP lub nazwa hosta), a model użycia jest opcjonalny. Aby uzyskać więcej informacji na temat składni opcji, przeczytaj artykuł [Dodawanie nowego miejsca docelowego magazynu NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) ``--junction`` .
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>Ścieżki przestrzeni nazw ADLS-NFS (wersja zapoznawcza)
+
+Podobnie jak w przypadku zwykłego miejsca docelowego magazynu obiektów blob, magazyn ADLS systemu plików NFS ma tylko jeden eksport, więc może mieć tylko jedną ścieżkę przestrzeni nazw.
+
+Postępuj zgodnie z poniższymi instrukcjami, aby ustawić lub zmienić ścieżkę Azure Portal.
+
+Załaduj stronę ustawienia **przestrzeni nazw** .
+
+* **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** znajdujący się u góry i Wypełnij informacje w panelu Edycja.
+
+  ![Zrzut ekranu przedstawiający pola edycji Dodawanie przestrzeni nazw z wybranym miejscem docelowym magazynu ADLS-NFS. Ścieżki eksportu i podkatalogu są ustawione na/i nie można ich edytować.](media/namespace-add-adls.png)
+
+  * Wprowadź ścieżkę, która będzie używana przez klientów w celu uzyskania dostępu do tego miejsca docelowego magazynu.
+
+  * Wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+
+  * Wybierz miejsce docelowe magazynu z listy rozwijanej. Jeśli miejsce docelowe magazynu ADLS-NFS ma już ścieżkę przestrzeni nazw, nie można go wybrać.
+
+  * Dla obiektu docelowego magazynu ADLS-NFS ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` .
+
+* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić innego miejsca docelowego magazynu.
+
+* **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki, a następnie kliknij przycisk **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

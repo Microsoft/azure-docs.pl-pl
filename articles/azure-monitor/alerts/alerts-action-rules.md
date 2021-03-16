@@ -2,13 +2,13 @@
 title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/15/2021
+ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463072"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466732"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -76,7 +76,8 @@ Ta reguła zostanie zastosowana tylko do alertów dotyczących wybranych typów 
 Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła będzie stosowana tylko do alertów na maszynach wirtualnych.
 * **Identyfikator reguły alertu**  
 Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
-Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".
+Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".
+Aby uzyskać odpowiedni identyfikator reguły alertu, należy wyświetlić listę reguł alertów z interfejsu wiersza polecenia lub otworzyć określoną regułę alertu w portalu, kliknąć pozycję "właściwości" i skopiować wartość "Identyfikator zasobu".
 * **Warunek monitorowania**  
 Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — są one **wywoływane** lub **rozwiązane**.
 * **Opis**  

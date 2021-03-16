@@ -2,19 +2,19 @@
 title: 'Samouczek: masowe wyodrębnianie danych formularza przy użyciu Azure Data Factory'
 titleSuffix: Azure Cognitive Services
 description: Skonfiguruj działania Azure Data Factory, aby wyzwolić szkolenia i uruchamiać modele aparatów rozpoznawania formularzy, oraz cyfrowe, Duże zaległości dokumentów.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.author: lajanuar
+ms.openlocfilehash: 0c009a87a5834997cdc489efc75ebb16f9459754
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423900"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467106"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Samouczek: masowe wyodrębnianie danych formularza przy użyciu Azure Data Factory
 
@@ -30,7 +30,7 @@ Przez wyodrębnienie danych z formularzy i połączenie ich z istniejącymi syst
 
 Aparat rozpoznawania formularzy platformy Azure ułatwia organizacjom korzystanie z danych, automatyzowanie procesów (płatności faktury, przetwarzanie podatków itd.), oszczędność pieniędzy i czasu oraz lepszą dokładność danych.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj Azure Data Lake do przechowywania formularzy.
@@ -511,4 +511,4 @@ W przypadku dodania nowych formularzy nowego typu należy również przekazać z
 
 W tym samouczku pokazano, jak skonfigurować potoki Azure Data Factory, aby wyzwolić szkolenia i uruchamiać modele aparatów rozpoznawania formularzy oraz cyfrowych fragmentów plików. Następnie zapoznaj się z interfejsem API aparatu rozpoznawania formularzy, aby zobaczyć, co jeszcze można zrobić z nim.
 
-* [Interfejs API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Interfejs API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

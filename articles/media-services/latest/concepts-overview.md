@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2a1c0c0685ab5a908a89f4a43073f9f773cd58c3
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 2d388cf6c776e6d30a487ce9e14ba1601dce1d23
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632003"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491609"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services Terminologia i koncepcje
 
@@ -47,7 +47,7 @@ Podstawowe koncepcje opisane w tych tematach należy przejrzeć przed rozpoczęc
 |Ochrona zawartości|Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub/i jednego z trzech głównych systemów DRM: Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. <br/><br/>W przypadku określania opcji szyfrowania w strumieniu Utwórz **zasady dotyczące kluczy zawartości** i skojarz je z **lokalizatorem przesyłania strumieniowego**. **Zasady klucza zawartości** umożliwiają skonfigurowanie sposobu dostarczania klucza zawartości do klientów końcowych.<br/><br/> Spróbuj ponownie użyć zasad, gdy są potrzebne te same opcje.| [Zasady kluczy zawartości](content-key-policy-concept.md)<br/><br/>[Ochrona zawartości](content-protection-overview.md)|
 |Transmisja strumieniowa na żywo|Media Services pozwala na dostarczanie na żywo wydarzeń klientom w chmurze platformy Azure. **Wydarzenia na żywo** odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Podczas tworzenia zdarzenia na **żywo** jest tworzony wejściowy punkt końcowy, za pomocą którego można wysyłać sygnały na żywo ze zdalnego kodera. Gdy strumień przepływa do **zdarzenia na żywo**, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element **zawartości**, **dane wyjściowe** i **lokalizator przesyłania strumieniowego**. Na **żywo dane wyjściowe** będą archiwizowane w **strumieniu i udostępniane** użytkownikom za pomocą **punktu końcowego przesyłania strumieniowego**. Wydarzenie na żywo można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). |[Omówienie przesyłania strumieniowego na żywo](live-streaming-overview.md)<br/><br/>[Wydarzenia i dane wyjściowe na żywo](live-events-outputs-concept.md)|
 |Monitorowanie za pomocą Event Grid|Aby wyświetlić postęp zadania, użyj **Event Grid**. Media Services również emituje typy zdarzeń na żywo. Dzięki usłudze Event Grid Twoje aplikacje mogą nasłuchiwać zdarzeń pochodzących z praktycznie wszystkich usług platformy Azure i ze źródeł niestandardowych oraz reagować na nie. |[Obsługa zdarzeń usługi Event Grid](reacting-to-media-services-events.md)<br/><br/>[Schematy](media-services-event-schemas.md)|
-|Monitorowanie za pomocą Azure Monitor|Monitoruj metryki i dzienniki diagnostyczne, które pomagają zrozumieć, jak aplikacje działają w Azure Monitor.|[Metryki i dzienniki diagnostyczne](media-services-metrics-diagnostic-logs.md)<br/><br/>[Schematy dzienników diagnostycznych](media-services-diagnostic-logs-schema.md)|
+|Monitorowanie za pomocą Azure Monitor|Monitoruj metryki i dzienniki diagnostyczne, które pomagają zrozumieć, jak aplikacje działają w Azure Monitor.|[Metryki i dzienniki diagnostyczne](monitoring/monitor-media-services-data-reference.md)<br/><br/>[Schematy dzienników diagnostycznych](monitoring/monitor-media-services-data-reference.md)|
 |Odtwarzacze klienckie|Azure Media Player umożliwia odtwarzanie zawartości multimedialnej przesyłanej przez Media Services na wielu różnych przeglądarkach i urządzeniach. Azure Media Player używa standardów branżowych, takich jak HTML5, rozszerzenia źródła nośników (MSE) i rozszerzeń zaszyfrowanej multimediów (EME), aby zapewnić wzbogacone, adaptacyjne środowisko przesyłania strumieniowego. |[Omówienie usługi Azure Media Player](use-azure-media-player.md)|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje

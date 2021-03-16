@@ -4,20 +4,20 @@ description: Jak zdefiniować cele magazynu, aby pamięć podręczna platformy A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054369"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471945"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
 *Cele magazynu* są magazynem zaplecza dla plików, do których dostęp odbywa się za pomocą pamięci podręcznej platformy Azure HPC. Można dodać magazyn systemu plików NFS (taki jak lokalny system sprzętowy) lub zapisać dane w usłudze Azure Blob.
 
-Można zdefiniować do dziesięciu różnych miejsc docelowych magazynu dla jednej pamięci podręcznej. Pamięć podręczna przedstawia wszystkie cele magazynu w jednej zagregowanej przestrzeni nazw.
+Można zdefiniować maksymalnie 20 różnych miejsc docelowych magazynu dla jednej pamięci podręcznej. Pamięć podręczna przedstawia wszystkie cele magazynu w jednej zagregowanej przestrzeni nazw.
 
 Ścieżki przestrzeni nazw są konfigurowane oddzielnie po dodaniu miejsc docelowych magazynu. Ogólnie rzecz biorąc, miejsce docelowe magazynu NFS może mieć do dziesięciu ścieżek przestrzeni nazw lub wiele wielu dużych konfiguracji. Aby uzyskać szczegółowe informacje, Przeczytaj [ścieżki przestrzeni nazw systemu plików NFS](add-namespace-paths.md#nfs-namespace-paths) .
 
@@ -29,7 +29,7 @@ Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej. Wykonaj nas
 1. Zdefiniuj miejsce docelowe magazynu (informacje w tym artykule)
 1. [Tworzenie ścieżek związanych z klientem](add-namespace-paths.md) (dla [zagregowanej przestrzeni nazw](hpc-cache-namespace.md))
 
-Procedura dodawania miejsca docelowego magazynu jest nieco inna w zależności od tego, czy dodawana jest usługa Azure Blob Storage czy eksportowanie plików NFS. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich.
+Procedura dodawania miejsca docelowego magazynu jest nieco inna w zależności od używanego typu magazynu. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich.
 
 Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) przedstawiający tworzenie pamięci podręcznej i Dodawanie miejsca docelowego magazynu z Azure Portal.
 
@@ -40,6 +40,9 @@ Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/
 Nowy obiekt docelowy magazynu obiektów BLOB wymaga pustego kontenera obiektów blob lub kontenera, który został wypełniony danymi w formacie systemu plików w chmurze usługi Azure HPC. Przeczytaj więcej na temat wstępnego ładowania kontenera obiektów BLOB w temacie [przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md).
 
 Strona Azure Portal **dodawania miejsca docelowego magazynu** zawiera opcję utworzenia nowego kontenera obiektów BLOB przed dodaniem go.
+
+> [!NOTE]
+> W przypadku magazynu obiektów BLOB zainstalowanego w systemie plików NFS należy użyć typu [docelowego magazynu ADLS-NFS](#) .
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -161,38 +164,48 @@ Obiekt docelowy magazynu NFS ma inne ustawienia niż obiekt docelowy magazynu ob
 > Przed utworzeniem miejsca docelowego magazynu NFS upewnij się, że system magazynu jest dostępny z pamięci podręcznej platformy Azure HPC i spełnia wymagania dotyczące uprawnień. Tworzenie docelowego magazynu zakończy się niepowodzeniem, jeśli pamięć podręczna nie będzie mogła uzyskać dostępu do systemu magazynu. Aby uzyskać szczegółowe informacje, zapoznaj się z [wymaganiami dotyczącymi magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) i [Rozwiązywanie problemów z usługą konfiguracja serwera nas i docelowymi](troubleshoot-nas.md)
 
 ### <a name="choose-a-usage-model"></a>Wybierz model użycia
-<!-- referenced from GUI - update aka.ms link if you change this heading -->
+<!-- referenced from GUI - update aka.ms link to point at new article when published -->
 
-Podczas tworzenia miejsca docelowego magazynu, które wskazuje system magazynu NFS, należy wybrać model użycia dla tego celu. Ten model określa, w jaki sposób dane są buforowane.
+Podczas tworzenia miejsca docelowego magazynu korzystającego z systemu plików NFS w celu uzyskania połączenia z systemem magazynu należy wybrać model użycia dla tego celu. Ten model określa, w jaki sposób dane są buforowane.
 
-Wbudowane modele użycia umożliwiają wybranie sposobu zrównoważenia szybkiego reagowania na ryzyko związane z uzyskaniem starych danych. Jeśli chcesz zoptymalizować szybkość odczytu plików, możesz nie zadbać o to, czy pliki w pamięci podręcznej są sprawdzane względem plików zaplecza. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne z magazynem zdalnym, wybierz model, który sprawdza się często.
+Więcej informacji o tych ustawieniach można znaleźć w [opisie modeli użycia](cache-usage-models.md) .
 
-Dostępne są trzy opcje:
+Wbudowane modele użycia umożliwiają wybranie sposobu zrównoważenia szybkiego reagowania na ryzyko związane z uzyskaniem starych danych. Jeśli chcesz zoptymalizować szybkość odczytywania plików, możesz nie zadbać o to, czy pliki w pamięci podręcznej są sprawdzane względem plików zaplecza. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne z magazynem zdalnym, wybierz model, który sprawdza się często.
 
-* **Czytaj duże, rzadko** występujące zapisy — Użyj tej opcji, jeśli chcesz przyspieszyć dostęp do odczytu do plików, które są statyczne lub rzadko zmieniane.
+Te trzy opcje obejmują większość sytuacji:
 
-  Ta opcja powoduje buforowanie plików, które są odczytywane przez klientów, ale natychmiast przekazuje do magazynu zaplecza. Pliki przechowywane w pamięci podręcznej nie są automatycznie porównywane z plikami znajdującymi się na woluminie magazynu NFS. (Przeczytaj uwagę poniżej dotyczącej weryfikacji zaplecza, aby dowiedzieć się więcej).
+* **Czytaj duże, rzadko** występujące zapisy — przyspiesza dostęp do odczytu do plików, które są statyczne lub rzadko zmieniane.
+
+  Ta opcja powoduje buforowanie plików z odczytów klienta, ale natychmiast przekazuje dane z klienta do magazynu zaplecza. Pliki przechowywane w pamięci podręcznej nie są automatycznie porównywane z plikami znajdującymi się na woluminie magazynu NFS.
 
   Nie należy używać tej opcji, jeśli istnieje ryzyko, że plik może być modyfikowany bezpośrednio w systemie magazynu bez wcześniejszego zapisania go w pamięci podręcznej. W takim przypadku buforowana wersja pliku nie jest zsynchronizowana z plikiem zaplecza.
 
-* **Więcej niż 15% zapisów** — ta opcja przyspiesza zarówno wydajność odczytu, jak i zapisu. W przypadku korzystania z tej opcji Wszyscy klienci muszą uzyskać dostęp do plików za pośrednictwem pamięci podręcznej platformy Azure HPC zamiast bezpośrednio zainstalować magazyn zaplecza. Pliki w pamięci podręcznej będą miały ostatnio wprowadzone zmiany, które nie są przechowywane w zapleczu.
+* **Więcej niż 15% zapisów** — ta opcja przyspiesza zarówno wydajność odczytu, jak i zapisu.
 
-  W tym modelu użycia pliki w pamięci podręcznej są sprawdzane tylko względem plików w magazynie zaplecza co osiem godzin. Założono, że w pamięci podręcznej znajduje się nowsza wersja pliku. Zmodyfikowany plik w pamięci podręcznej jest zapisywana w systemie magazynu zaplecza, po którym znajduje się w pamięci podręcznej przez godzinę bez dodatkowych zmian.
+  Operacje odczytu i zapisu klienta są buforowane. Pliki w pamięci podręcznej są zakładane jako nowsze niż pliki w systemie magazynu zaplecza. Buforowane pliki są automatycznie sprawdzane względem plików w magazynie zaplecza co osiem godzin. Zmodyfikowane pliki w pamięci podręcznej są zapisywane w systemie magazynu zaplecza, gdy znajdowały się w pamięci podręcznej przez 20 minut bez dodatkowych zmian.
 
-* **Klienci zapisują w miejscu DOCELOWYM NFS, pomijając pamięć podręczną** — wybierz tę opcję, jeśli dowolni klienci w przepływie pracy zapisują dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej lub jeśli chcesz zoptymalizować spójność danych. Pliki, które są przechowywane w pamięci podręcznej żądań klientów, ale wszelkie zmiany tych plików z klienta są natychmiast przesyłane z powrotem do systemu magazynu zaplecza.
+  Nie należy używać tej opcji, jeśli jakikolwiek klient zainstaluje wolumin magazynu zaplecza bezpośrednio, ponieważ istnieje ryzyko związane z nieaktualnymi plikami.
 
-  W tym modelu użycia pliki w pamięci podręcznej są często sprawdzane względem wersji zaplecza dla aktualizacji. Ta weryfikacja pozwala na zmianę plików poza pamięcią podręczną przy zachowaniu spójności danych.
+* **Klienci zapisują w miejscu DOCELOWYM NFS, pomijając pamięć podręczną** — wybierz tę opcję, jeśli dowolni klienci w przepływie pracy zapisują dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej lub jeśli chcesz zoptymalizować spójność danych.
 
-Ta tabela zawiera podsumowanie różnic między modelami użycia:
+  Pliki, które są przechowywane w pamięci podręcznej żądań klientów, ale wszelkie zmiany tych plików z klienta są natychmiast przesyłane do systemu magazynu zaplecza. Pliki w pamięci podręcznej są często sprawdzane względem wersji zaplecza dla aktualizacji. Ta weryfikacja zachowuje spójność danych, gdy pliki są zmieniane bezpośrednio w systemie magazynu, a nie za pomocą pamięci podręcznej.
 
-| Model użycia                   | Tryb buforowania | Weryfikacja zaplecza | Maksymalne opóźnienie zapisu |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Czytaj duże, rzadko występujące zapisy | Odczyt         | Nigdy                 | Brak                     |
-| Ponad 15% zapisów       | Odczyt/zapis   | 8 godzin               | 1 godzina                   |
-| Klienci pomijają pamięć podręczną      | Odczyt         | 30 sekund            | Brak                     |
+Aby uzyskać szczegółowe informacje na temat innych opcji, Przeczytaj [Opis modeli użycia](cache-usage-models.md).
+
+Ta tabela zawiera podsumowanie różnic między wszystkimi modelami użycia:
+
+| Model użycia | Tryb buforowania | Weryfikacja zaplecza | Maksymalne opóźnienie zapisu |
+|--|--|--|--|
+| Czytaj duże, rzadko występujące zapisy | Odczyt | Nigdy | Brak |
+| Ponad 15% zapisów | Odczyt/zapis | 8 godzin | 20 minut |
+| Klienci pomijają pamięć podręczną | Odczyt | 30 sekund | Brak |
+| Więcej niż 15% zapisów, częste sprawdzanie zaplecza (30 sekund) | Odczyt/zapis | 30 sekund | 20 minut |
+| Więcej niż 15% zapisów, częste sprawdzanie zaplecza (60 sekund) | Odczyt/zapis | 60 sekund | 20 minut |
+| Większe niż 15% zapisów, częste zapisywanie | Odczyt/zapis | 30 sekund | 30 sekund |
+| Czytaj duże i sprawdzaj serwer zapasowy co 3 godziny | Odczyt | 3 godziny | Brak |
 
 > [!NOTE]
-> Wartość **weryfikacyjna zaplecza** jest wyświetlana, gdy pamięć podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. W pamięci podręcznej platformy Azure HPC można jednak wymusić Porównanie plików przez wykonanie operacji katalogu zawierającej żądanie READDIRPLUS. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.
+> Wartość **weryfikacyjna zaplecza** jest wyświetlana, gdy pamięć podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. Można jednak wyzwolić porównanie, wysyłając żądanie klienta zawierające operację READDIRPLUS w systemie magazynu zaplecza. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.
 
 ### <a name="create-an-nfs-storage-target"></a>Tworzenie miejsca docelowego magazynu NFS
 
@@ -291,6 +304,43 @@ Dane wyjściowe:
 ```
 
 ---
+
+## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Dodawanie nowego miejsca docelowego magazynu ADLS-NFS (wersja zapoznawcza)
+
+Cele magazynu ADLS-NFS używają kontenerów obiektów blob platformy Azure, które obsługują protokół Network File System (NFS) 3,0.
+
+> [!NOTE]
+> Obsługa protokołu NFS 3,0 dla usługi Azure Blob Storage jest w publicznej wersji zapoznawczej. Dostępność jest ograniczona, a funkcje mogą ulec zmianie między teraz i gdy funkcja będzie ogólnie dostępna. Nie używaj technologii wersji zapoznawczej w systemach produkcyjnych.
+>
+> Zapoznaj się z [obsługą protokołu NFS 3,0](../storage/blobs/network-file-system-protocol-support.md) , aby uzyskać najnowsze informacje.
+
+Cele magazynu ADLS-NFS mają różne podobieństwa z obiektami docelowymi magazynu obiektów blob, a niektóre z nich są obiektami docelowymi magazynu NFS. Na przykład:
+
+* Podobnie jak w przypadku celu usługi BLOB Storage, należy nadać uprawnienia pamięci podręcznej platformy Azure HPC do [uzyskiwania dostępu do konta magazynu](#add-the-access-control-roles-to-your-account).
+* Podobnie jak w przypadku miejsca docelowego magazynu NFS, należy ustawić [model użycia](#choose-a-usage-model)pamięci podręcznej.
+* Ponieważ kontenery obiektów BLOB obsługujące system plików NFS mają strukturę hierarchiczną zgodną z systemem plików NFS, nie trzeba używać pamięci podręcznej do pozyskiwania danych, a kontenery są odczytywane przez inne systemy plików NFS. Można wstępnie załadować dane w kontenerze ADLS-NFS, a następnie dodać je do pamięci podręcznej HPC jako miejsce docelowe magazynu, a następnie uzyskać dostęp do danych później spoza pamięci podręcznej HPC. W przypadku używania standardowego kontenera obiektów BLOB jako miejsca docelowego magazynu pamięci podręcznej HPC dane są zapisywane w formacie zastrzeżonym i dostępne są tylko z innych produktów zgodnych z pamięcią podręczną platformy Azure HPC.
+
+Aby można było utworzyć obiekt docelowy magazynu ADLS-NFS, należy utworzyć konto magazynu z obsługą systemu plików NFS. Postępuj zgodnie ze wskazówkami w sekcji [wymagania wstępne dotyczące usługi Azure HPC cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) i instrukcje w temacie [Instalowanie magazynu obiektów BLOB przy użyciu systemu plików NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Po skonfigurowaniu konta magazynu można utworzyć nowy kontener podczas tworzenia miejsca docelowego magazynu.
+
+Aby utworzyć obiekt docelowy magazynu ADLS-NFS, Otwórz stronę **Dodawanie miejsca docelowego magazynu** w Azure Portal. (Dodatkowe metody są w trakcie tworzenia).
+
+![Zrzut ekranu przedstawiający stronę Dodawanie miejsca docelowego magazynu z zdefiniowanym elementem docelowym ADLS-NFS](media/add-adls-target.png)
+
+Wprowadź te informacje.
+
+* **Nazwa docelowego magazynu** — Ustaw nazwę identyfikującą ten element docelowy magazynu w pamięci podręcznej platformy Azure HPC.
+* **Typ docelowy** — wybierz pozycję **ADLS-NFS**.
+* **Konto magazynu** — wybierz konto, którego chcesz użyć. Jeśli na liście nie ma konta magazynu obsługującego system plików NFS, sprawdź, czy jest ono zgodne z wymaganiami wstępnymi i czy pamięć podręczna ma do niej dostęp.
+
+  Musisz autoryzować wystąpienie pamięci podręcznej, aby uzyskać dostęp do konta magazynu, zgodnie z opisem w temacie [Dodawanie ról dostępu](#add-the-access-control-roles-to-your-account).
+
+* **Kontener magazynu** — wybierz kontener obiektów blob z obsługą systemu plików NFS dla tego obiektu docelowego lub kliknij pozycję **Utwórz nowy**.
+
+* **Model użycia** — wybierz jeden z profili buforowania danych opartych na przepływie pracy, zgodnie z opisem w temacie [Wybierz model użycia](#choose-a-usage-model) powyżej.
+
+Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
+
+<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Wyświetl cele magazynu
 

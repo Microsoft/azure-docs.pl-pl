@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629176"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470767"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
@@ -93,19 +93,6 @@ Po zainstalowaniu udziału plików z kluczem konta magazynu należy skonfigurowa
 
 Jeśli masz katalogi lub pliki na lokalnych serwerach plików z listami DACL systemu Windows skonfigurowanymi pod kątem tożsamości AD DS, możesz skopiować ją do poziomu Azure Files utrwalania list ACL przy użyciu tradycyjnych narzędzi do kopiowania plików, takich jak Robocopy lub [Azure AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases). Jeśli katalogi i pliki są warstwami do Azure Files za pośrednictwem Azure File Sync, listy ACL są przenoszone i utrwalane w formacie natywnym.
 
-### <a name="configure-windows-acls-with-windows-file-explorer"></a>Konfigurowanie list ACL systemu Windows za pomocą Eksploratora plików systemu Windows
-
-Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do wszystkich katalogów i plików w udziale plików, w tym katalogu głównego.
-
-1. Otwórz Eksploratora plików systemu Windows i kliknij prawym przyciskiem myszy plik/katalog i wybierz polecenie **Właściwości**.
-1. Wybierz kartę **zabezpieczenia** .
-1. Wybierz pozycję **Edytuj.** Aby zmienić uprawnienia.
-1. Możesz zmienić uprawnienia istniejących użytkowników lub wybrać przycisk **Dodaj...** , aby przyznać uprawnienia nowym użytkownikom.
-1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
-1.    Kliknij przycisk **OK**.
-1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz pozycję **Zastosuj**.
-
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 
 Użyj następującego polecenia systemu Windows, aby przyznać pełne uprawnienia do wszystkich katalogów i plików w udziale plików, w tym katalogu głównego. Pamiętaj, aby zastąpić wartości symboli zastępczych w przykładzie własnymi wartościami.
@@ -115,6 +102,20 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
 Aby uzyskać więcej informacji na temat używania icacls do ustawiania list ACL systemu Windows i różnych typów obsługiwanych uprawnień, zobacz [informacje dotyczące wiersza polecenia dla icacls](/windows-server/administration/windows-commands/icacls).
+
+### <a name="configure-windows-acls-with-windows-file-explorer"></a>Konfigurowanie list ACL systemu Windows za pomocą Eksploratora plików systemu Windows
+
+Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do wszystkich katalogów i plików w udziale plików, w tym katalogu głównego. Jeśli nie można prawidłowo załadować informacji o domenie usługi AD w Eksploratorze plików systemu Windows, jest to prawdopodobnie spowodowane konfiguracją zaufania w środowisku usługi AD Premium. Komputer kliencki nie mógł nawiązać połączenia z kontrolerem domeny usługi AD zarejestrowanym do Azure Files uwierzytelniania. W takim przypadku należy użyć icacls do configurating list ACL systemu Windows.
+
+1. Otwórz Eksploratora plików systemu Windows i kliknij prawym przyciskiem myszy plik/katalog i wybierz polecenie **Właściwości**.
+1. Wybierz kartę **zabezpieczenia** .
+1. Wybierz pozycję **Edytuj.** Aby zmienić uprawnienia.
+1. Możesz zmienić uprawnienia istniejących użytkowników lub wybrać przycisk **Dodaj...** , aby przyznać uprawnienia nowym użytkownikom.
+1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
+1.    Wybierz przycisk **OK**.
+1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
+1.    Wybierz przycisk **Zastosuj**.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
