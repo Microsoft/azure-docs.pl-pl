@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Wprowadzenie do umowy klienta firmy Microsoft
+summary: Rozpocznij pracę z zarządzaniem rozliczeniami i subskrypcjami w ramach umowy klienta firmy Microsoft. Dowiedz się, jak zrozumieć i zoptymalizować koszty, zapewniając bezpieczny dostęp do środowiska rozliczeniowego.
+metadata:
+  title: Wprowadzenie do umowy klienta firmy Microsoft
+  description: Dowiedz się, jak rozpocząć pracę z umową klienta firmy Microsoft.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 03/01/2021
+  ms.openlocfilehash: f2dcb2687a5a765e674a3dce7ac9016e58056b81
+  ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103574712"
+landingContent:
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest umowa klienta firmy Microsoft?
+      url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Przenieś z karty kredytowej na fakturę
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Dostęp do subskrypcji z IDENTYFIKATORem domeny
+      url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Konfigurowanie administratora do zarządzania użytkownikami subskrypcji
+      url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Tworzenie nowych subskrypcji
+      url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- title: Zarządzanie rozliczeniami
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Zrozumienie mojego cyklu rozliczeniowego
+      url: ../understand/mca-understand-your-invoice.md#billing-period
+  - linkListType: tutorial
+    links:
+    - text: Otrzymywanie rachunku w ramach mojej umowy
+      url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Co to jest profil rozliczeń i jak zarządzać nim?
+      url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Płatność za rachunek według faktury
+      url: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Płatność za rachunek za pomocą karty kredytowej lub debetowej albo za pomocą czeku lub przelewu
+      url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Skonfiguruj administratora, aby zarządzać rozliczeniami
+      url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Zacznij rozliczać za moją umowę
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Znajdź właściciela subskrypcji
+      url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
+  - linkListType: video
+    links:
+    - text: Organizuj koszty
+      url: https://www.youtube.com/watch?v=7RxTfShGHwU
+    - text: Zarządzanie dostępem do konta rozliczeniowego
+      url: https://www.youtube.com/watch?v=9sqglBlKkho
+    - text: Opis zawartości faktury
+      url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+- title: Zarządzanie subskrypcjami
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Co to jest Active Directory?
+      url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
