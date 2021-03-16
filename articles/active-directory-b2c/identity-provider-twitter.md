@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8cb31f57e5403e99e2ef9bfcc5d1042e33516d1d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448153"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488520"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Twitter i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
@@ -45,8 +45,12 @@ Aby włączyć Logowanie użytkowników przy użyciu konta usługi Twitter w Azu
 1. W obszarze **Ustawienia uwierzytelniania** wybierz pozycję **Edytuj** .
     1. Zaznacz pole wyboru **Włącz 3-bokami OAuth** .
     1. Zaznacz pole wyboru **Żądaj adresu e-mail z użytkownikami** .
-    1. W polu **adresy URL wywołania zwrotnego** wprowadź wartość `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Zastąp `your-tenant` wartość nazwą swojej dzierżawy i `your-user-flow-Id` identyfikatorem przepływu użytkownika. Na przykład `b2c_1a_signup_signin_twitter`. Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy i identyfikator przepływu użytkownika, nawet jeśli są one zdefiniowane przy użyciu wielkich liter w Azure AD B2C.
-    1. W polu **adres URL witryny sieci Web** wprowadź `https://your-tenant.b2clogin.com` . Zamień `your-tenant` na nazwę dzierżawy. Na przykład `https://contosob2c.b2clogin.com`.
+    1. W polu **adresy URL wywołania zwrotnego** wprowadź wartość `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` .  Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Użyj wszystkich małych liter, wprowadzając nazwę dzierżawy i identyfikator przepływu użytkownika, nawet jeśli są one zdefiniowane przy użyciu wielkich liter w Azure AD B2C. Zastąp:
+        - `your-tenant-name` Nazwa dzierżawy.
+        - `your-domain-name` z domeną niestandardową.
+        - `your-user-flow-Id` z identyfikatorem przepływu użytkownika. Na przykład `b2c_1a_signup_signin_twitter`. 
+    
+    1. W polu **adres URL witryny sieci Web** wprowadź `https://your-tenant.b2clogin.com` . Zamień `your-tenant` na nazwę dzierżawy. Na przykład `https://contosob2c.b2clogin.com`. Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name` .
     1. Wprowadź adres URL dla **warunków użytkowania usługi**, na przykład `http://www.contoso.com/tos` . Adres URL zasad to strona, która jest utrzymywana w celu zapewnienia warunków i postanowień aplikacji.
     1. Wprowadź na przykład adres URL **zasad ochrony prywatności** `http://www.contoso.com/privacy` . Adres URL zasad to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.
     1. Wybierz pozycję **Zapisz**.

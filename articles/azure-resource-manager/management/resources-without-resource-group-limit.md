@@ -3,12 +3,12 @@ title: Zasoby bez limitu liczby 800
 description: Wyświetla listę typów zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów.
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034938"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563117"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Zasoby nieograniczone do 800 wystąpień na grupę zasobów
 
@@ -80,7 +80,6 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
 
-* laboratoria/virtualMachines — domyślnie ograniczone do 800 wystąpień. 
 * Uruchamianie
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph

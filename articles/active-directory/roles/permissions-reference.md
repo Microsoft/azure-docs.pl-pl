@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 02/17/2021
+ms.date: 03/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467684"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490878"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
@@ -76,6 +76,7 @@ Najlepszym rozwiązaniem jest przypisanie tej roli do mniej niż pięciu osób w
 > | [Lider biznesowy usługi Insights](#insights-business-leader) | Umożliwia wyświetlanie i udostępnianie pulpitów nawigacyjnych i szczegółowych informacji za pośrednictwem aplikacji M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrator usługi Intune](#intune-administrator) | Może zarządzać wszystkimi aspektami produktu usługi Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Usługi kaizala administrator](#kaizala-administrator) | Może zarządzać ustawieniami programu Microsoft usługi kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
+> | [Administrator wiedzy](#knowledge-administrator) | Może skonfigurować wiedzę, uczenie i inne funkcje inteligentne. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
 > | [Administrator licencji](#license-administrator) | Może zarządzać licencjami produktów dla użytkowników i grup. | 4d6ac14f-3453-41d0-bef9-a3e0c569773a |
 > | [Czytnik prywatności centrum wiadomości](#message-center-privacy-reader) | Może odczytywać komunikaty i aktualizacje zabezpieczeń tylko w centrum wiadomości pakietu Office 365. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Czytelnik centrum wiadomości](#message-center-reader) | Może odczytywać wiadomości i aktualizacje dla swojej organizacji tylko w centrum wiadomości pakietu Office 365. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
@@ -401,7 +402,7 @@ Ta rola zapewnia również możliwość wyrażania zgody na delegowane uprawnien
 > | Microsoft. Directory/serviceprincipals/synchronizationJobs/Manage | Uruchamianie, ponowne uruchamianie i wstrzymywanie zadań aprowizacji aplikacji Synchronizacja |
 > | Microsoft. Directory/serviceprincipals/synchronizationSchema/Manage | Twórz i Zarządzaj zadaniami synchronizacja i schematem aprowizacji aplikacji |
 > | Microsoft. Directory/serviceprincipals/managePasswordSingleSignOnCredentials | Odczytywanie poświadczeń logowania jednokrotnego dla nazw podmiotów usługi |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForAll. Microsoft-Application-admin | Przyznaj zgodę na uprawnienia aplikacji i delegowane uprawnienia w imieniu dowolnego użytkownika lub wszystkich użytkowników, z wyjątkiem uprawnień aplikacji do Microsoft Graph i Azure AD Graph  |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForAll. Microsoft-Application-admin | Przyznaj zgodę na uprawnienia aplikacji i delegowane uprawnienia w imieniu dowolnego użytkownika lub wszystkich użytkowników, z wyjątkiem uprawnień aplikacji do Microsoft Graph i Azure AD Graph |
 > | Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Update | Aktualizowanie przypisań ról głównych usługi |
 > | Microsoft. Directory/serviceprincipals/odbiorcy/aktualizacja | Aktualizowanie właściwości odbiorców w jednostkach usługi |
 > | Microsoft. Directory/serviceprincipals/Authentication/Update | Aktualizowanie właściwości uwierzytelniania w jednostkach usługi |
@@ -730,7 +731,7 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 > | Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie właścicieli grup Microsoft 365 z wykluczeniem grup do przypisania ról |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
-> | Microsoft. Office 365. Exchange/allEntities/allTasks | Zarządzanie wszystkimi aspektami usługi Exchange Online |
+> | Microsoft. Office 365. Exchange/allEntities/Basic/allTasks | Zarządzanie wszystkimi aspektami usługi Exchange Online |
 > | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
@@ -774,6 +775,7 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
 > | --- | --- |
+> | Microsoft. Directory/accessReviews/allProperties/allTasks | Tworzenie i usuwanie przeglądów dostępu oraz odczytywanie i aktualizowanie wszystkich właściwości przeglądów dostępu w usłudze Azure AD |
 > | Microsoft. Directory/administrativeUnits/allProperties/allTasks | Tworzenie jednostek administracyjnych (w tym członków) i zarządzanie nimi |
 > | Microsoft. Directory/Applications/allProperties/allTasks | Tworzenie i usuwanie aplikacji oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/Applications/Synchronization/Standard/Read | Odczytaj ustawienia aprowizacji skojarzone z obiektem aplikacji |
@@ -801,9 +803,10 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > | Microsoft. Directory/domen/allProperties/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/entitlementManagement/allProperties/allTasks | Tworzenie i usuwanie zasobów oraz odczytywanie i aktualizowanie wszystkich właściwości w usłudze Azure AD uprawnienia zarządzania |
 > | Microsoft. Directory/Groups/allProperties/allTasks | Tworzenie i usuwanie grup oraz odczytywanie i aktualizowanie wszystkich właściwości |
-> | Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup z właściwością isAssignableToRole ustawioną na wartość true |
-> | Microsoft. Directory/groupsAssignableToRoles/Create | Utwórz grupy z właściwością isAssignableToRole ustawioną na wartość true |
-> | Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy z właściwością isAssignableToRole ustawioną na wartość true |
+> | Microsoft. Directory/groupsAssignableToRoles/Create | Tworzenie grup z możliwością przypisania do roli |
+> | Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy, do których można przypisać role |
+> | Microsoft. Directory/groupsAssignableToRoles/Restore | Przywróć grupy przypisane do roli |
+> | Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup przypisanych do roli |
 > | Microsoft. Directory/groupSettings/allProperties/allTasks | Tworzenie i usuwanie ustawień grupy oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/groupSettingTemplates/allProperties/allTasks | Tworzenie i usuwanie szablonów ustawień grup oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/identityProtection/allProperties/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Azure AD Identity Protection |
@@ -823,7 +826,7 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > | Microsoft. Directory/ServiceAction/getAvailableExtentionProperties | Może wykonać akcję usługi Getavailableextentionproperties |
 > | Microsoft. Directory/serviceprincipals/allProperties/allTasks | Tworzenie i usuwanie jednostek usługi oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/serviceprincipals/managePermissionGrantsForAll. Microsoft-Company-Admin | Przyznaj zgodę na wszelkie uprawnienia do dowolnej aplikacji |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy  |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
 > | Microsoft. Directory/serviceprincipals/Synchronization/Standard/Read | Odczytaj ustawienia aprowizacji skojarzone z jednostką usługi |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Directory/subscribedSkus/allProperties/allTasks | Kupowanie i zarządzanie subskrypcjami oraz usuwanie subskrypcji |
@@ -832,6 +835,10 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > | Microsoft. Directory/permissionGrantPolicies/Delete | Usuń zasady przyznawania uprawnień |
 > | Microsoft. Directory/permissionGrantPolicies/Standard/Read | Odczytywanie standardowych właściwości zasad przyznawania uprawnień |
 > | Microsoft. Directory/permissionGrantPolicies/Basic/Update | Aktualizuj podstawowe właściwości zasad przyznawania uprawnień |
+> | Microsoft. Directory/servicePrincipalCreationPolicies/Create | Tworzenie zasad tworzenia nazwy głównej usługi |
+> | Microsoft. Directory/servicePrincipalCreationPolicies/Delete | Usuwanie zasad tworzenia nazwy głównej usługi |
+> | Microsoft. Directory/servicePrincipalCreationPolicies/Standard/Read | Odczytywanie standardowych właściwości zasad tworzenia jednostki usługi |
+> | Microsoft. Directory/servicePrincipalCreationPolicies/Basic/Update | Aktualizowanie podstawowych właściwości zasad tworzenia jednostki usługi |
 > | Microsoft. Azure. advancedThreatProtection/allEntities/allTasks | Zarządzanie wszystkimi aspektami zaawansowanej ochrony przed zagrożeniami na platformie Azure |
 > | Microsoft. Azure. informationProtection/allEntities/allTasks | Zarządzaj wszystkimi aspektami Azure Information Protection |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
@@ -842,11 +849,12 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > | Microsoft. Intune/allEntities/allTasks | Zarządzaj wszystkimi aspektami Microsoft Intune |
 > | Microsoft. Office 365. zgodnośćmanager/allEntities/allTasks | Zarządzanie wszystkimi aspektami programu Office 365 — Menedżer zgodności |
 > | Microsoft. Office 365. desktopAnalytics/allEntities/allTasks | Zarządzanie wszystkimi aspektami analizy pulpitu |
-> | Microsoft. Office 365. Exchange/allEntities/allTasks | Zarządzanie wszystkimi aspektami usługi Exchange Online |
+> | Microsoft. Office 365. Exchange/allEntities/Basic/allTasks | Zarządzanie wszystkimi aspektami usługi Exchange Online |
 > | Microsoft. 365. skrytka/allEntities/allTasks | Zarządzaj wszystkimi aspektami Skrytka klienta |
 > | Microsoft. Office 365. messageCenter/messages/Read | Odczytywanie wiadomości w centrum wiadomości w centrum administracyjnym Microsoft 365, z wyłączeniem komunikatów zabezpieczeń |
 > | Microsoft. Office 365. messageCenter/securityMessages/odczyt | Odczytywanie komunikatów zabezpieczeń w centrum wiadomości w centrum administracyjnym Microsoft 365 |
-> | Microsoft. Office 365. protectionCenter/allEntities/allProperties/allTasks | Zarządzaj wszystkimi aspektami pakietu Office 365 Protection Center |
+> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
+> | Microsoft. Office 365. protectionCenter/allEntities/allProperties/allTasks | Zarządzanie wszystkimi aspektami centrów zabezpieczeń i zgodności |
 > | Microsoft. 365. Search/Content/Manage | Tworzenie i usuwanie zawartości oraz odczytywanie i aktualizowanie wszystkich właściwości w usłudze Microsoft Search |
 > | Microsoft. Office 365. securityComplianceCenter/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie właściwości standardowych w centrum zabezpieczeń i zgodności Microsoft 365 |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
@@ -902,11 +910,11 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Directory/Users/strongAuthentication/Read | Przeczytaj Właściwość silnego uwierzytelniania dla użytkowników |
 > | Microsoft. Commerce. rozliczenia/allEntities/odczyt | Przeczytaj wszystkie zasoby dotyczące rozliczeń pakietu Office 365 |
-> | Microsoft. Office 365. Exchange/allEntities/Read | Odczytywanie wszystkich zasobów usługi Exchange Online |
+> | Microsoft. Office 365. Exchange/allEntities/Standard/Read | Odczytywanie wszystkich zasobów usługi Exchange Online |
 > | Microsoft. Office 365. messageCenter/messages/Read | Odczytywanie wiadomości w centrum wiadomości w centrum administracyjnym Microsoft 365, z wyłączeniem komunikatów zabezpieczeń |
 > | Microsoft. Office 365. messageCenter/securityMessages/odczyt | Odczytywanie komunikatów zabezpieczeń w centrum wiadomości w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
-> | Microsoft. Office 365. protectionCenter/allEntities/allProperties/Read | Przeczytaj wszystkie aspekty Centrum ochrony pakietu Office 365 |
+> | Microsoft. Office 365. protectionCenter/allEntities/allProperties/Read | Odczytywanie wszystkich właściwości w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. securityComplianceCenter/allEntities/odczyt | Odczytywanie właściwości standardowych w Microsoft 365 Centrum zabezpieczeń i zgodności |
 > | Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365 |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
@@ -933,7 +941,7 @@ Użytkownicy w tej roli mogą tworzyć grupy i ich ustawienia, takie jak zasady 
 > | Microsoft. Directory/Groups/Owners/Update | Aktualizowanie właścicieli grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/Settings/Update | Aktualizowanie ustawień grup |
 > | Microsoft. Directory/Groups/Visibility/Update | Aktualizowanie właściwości widoczności grup |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy  |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
@@ -1092,7 +1100,6 @@ Ta rola może tworzyć wszystkie grupy zabezpieczeń i zarządzać nimi. Jednak 
 > | Microsoft. Directory/groups. Security/Basic/Update | Aktualizowanie podstawowych właściwości w grupach zabezpieczeń z wykluczeniem grup z możliwością przypisywania ról |
 > | Microsoft. Directory/groups. Security/klasyfikacyjn/Update | Zaktualizuj Właściwość klasyfikacji grup zabezpieczeń z wykluczeniem grup do przypisania ról |
 > | Microsoft. Directory/groups. Security/dynamicMembershipRule/Update | Zaktualizuj Właściwość dynamicMembershipRule grup zabezpieczeń z wykluczeniem grup do przypisania ról |
-> | Microsoft. Directory/groups. Security/GroupType/Update | Aktualizowanie właściwości typu grupy grup zabezpieczeń z wykluczeniem grup z możliwością przypisywania ról |
 > | Microsoft. Directory/groups. Security/Members/Update | Aktualizowanie członków grup zabezpieczeń z wykluczeniem grup do przypisania ról |
 > | Microsoft. Directory/groups. Security/Owners/Update | Aktualizowanie właścicieli grup zabezpieczeń z wykluczeniem grup do przypisania ról |
 > | Microsoft. Directory/groups. Security/Visibility/Update | Aktualizacja właściwości widoczności grup zabezpieczeń z wykluczeniem grup z możliwością przypisania |
@@ -1111,6 +1118,26 @@ Użytkownicy z tą rolą mają uprawnienia globalne do zarządzania ustawieniami
 > | Akcje | Opis |
 > | --- | --- |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
+> | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
+> | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
+
+## <a name="knowledge-administrator"></a>Administrator wiedzy
+
+Użytkownicy w tej roli mają pełny dostęp do wszystkich ustawień wiedzy, uczenia i inteligentnych funkcji w centrum administracyjnym Microsoft 365. Są one ogólne zrozumienie pakietu produktów, szczegóły dotyczące licencjonowania i odpowiadają za kontrolę dostępu. Administrator wiedzy może tworzyć zawartość, jak tematy, akronimy i zasoby szkoleniowe oraz zarządzać nimi. Ponadto Ci użytkownicy mogą tworzyć centra zawartości, monitorować kondycję usługi i tworzyć żądania obsługi.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | Microsoft. Directory/groups. Security/Create | Tworzenie grup zabezpieczeń z wykluczeniem grup do przypisania ról |
+> | Microsoft. Directory/groups. Security/createAsOwner | Utwórz grupy zabezpieczeń z wykluczeniem grup, które można przypisać do ról i twórca jest dodawany jako pierwszy właściciel |
+> | Microsoft. Directory/groups. Security/Delete | Usuń grupy zabezpieczeń z wykluczeniem grup do przypisania ról |
+> | Microsoft. Directory/groups. Security/Basic/Update | Aktualizowanie podstawowych właściwości w grupach zabezpieczeń z wykluczeniem grup z możliwością przypisywania ról |
+> | Microsoft. Directory/groups. Security/Members/Update | Aktualizowanie członków grup zabezpieczeń z wykluczeniem grup do przypisania ról |
+> | Microsoft. Directory/groups. Security/Owners/Update | Aktualizowanie właścicieli grup zabezpieczeń z wykluczeniem grup do przypisania ról |
+> | Microsoft. Office 365. Knowledge/contentUnderstanding/allProperties/allTasks | Odczytywanie i aktualizowanie wszystkich właściwości interpretacji zawartości w centrum administracyjnym Microsoft 365 |
+> | Microsoft. Office 365. Knowledge/knowledgeNetwork/allProperties/allTasks | Odczytywanie i aktualizowanie wszystkich właściwości sieci wiedzy w centrum administracyjnym Microsoft 365 |
+> | Microsoft. Office 365. protectionCenter/sensitivityLabels/allProperties/Read | Odczytywanie etykiet czułości w centrach zabezpieczeń i zgodności |
+> | Microsoft. Office. sharePoint/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie właściwości standardowych w programie SharePoint |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
 
@@ -1415,9 +1442,10 @@ Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w Azure Active Dir
 > | Microsoft. Directory/appRoleAssignments/allProperties/allTasks | Tworzenie i usuwanie appRoleAssignments oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/authorizationPolicy/allProperties/allTasks | Zarządzanie wszystkimi aspektami zasad autoryzacji |
 > | Microsoft. Directory/directoryRoles/allProperties/allTasks | Tworzenie i usuwanie ról katalogu oraz odczytywanie i aktualizowanie wszystkich właściwości |
-> | Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup z właściwością isAssignableToRole ustawioną na wartość true |
-> | Microsoft. Directory/groupsAssignableToRoles/Create | Utwórz grupy z właściwością isAssignableToRole ustawioną na wartość true |
-> | Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy z właściwością isAssignableToRole ustawioną na wartość true |
+> | Microsoft. Directory/groupsAssignableToRoles/Create | Tworzenie grup z możliwością przypisania do roli |
+> | Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy, do których można przypisać role |
+> | Microsoft. Directory/groupsAssignableToRoles/Restore | Przywróć grupy przypisane do roli |
+> | Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup przypisanych do roli |
 > | Microsoft. Directory/elementu oauth2permissiongrants/allProperties/allTasks | Tworzenie i usuwanie dotacji do uwierzytelniania OAuth 2,0 oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/privilegedIdentityManagement/allProperties/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Privileged Identity Management |
 > | Microsoft. Directory/roleAssignments/allProperties/allTasks | Tworzenie i usuwanie przypisań ról oraz odczytywanie i aktualizowanie wszystkich właściwości przypisywania ról |
@@ -1439,6 +1467,7 @@ Użytkownicy z tą rolą mogą wyświetlać dane raportowania użycia i pulpit n
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
+> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365 |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
@@ -1514,8 +1543,8 @@ Windows Defender ATP i EDR | Przypisywanie ról<br>Zarządzanie grupami maszyn<b
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
-> | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrum ochrony pakietu Office 365 |
-> | Microsoft. Office 365. protectionCenter/allEntities/Basic/Update | Aktualizuj podstawowe właściwości wszystkich zasobów w centrum ochrony pakietu Office 365 |
+> | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
+> | Microsoft. Office 365. protectionCenter/allEntities/Basic/Update | Aktualizuj podstawowe właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Tworzenie i zarządzanie ładunkiem ataków w symulatorze ataków |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/allTasks | Tworzenie i zarządzanie szablonami symulacji ataków w symulatorze ataków |
@@ -1545,6 +1574,7 @@ Windows Defender ATP i EDR | Wszystkie uprawnienia roli czytelnik zabezpieczeń<
 > | Microsoft. Directory/cloudAppSecurity/allProperties/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Microsoft Cloud App Security |
 > | Microsoft. Directory/identityProtection/allProperties/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Azure AD Identity Protection |
 > | Microsoft. Directory/privilegedIdentityManagement/allProperties/odczyt | Odczytuj wszystkie zasoby w Privileged Identity Management |
+> | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Azure. advancedThreatProtection/allEntities/allTasks | Zarządzanie wszystkimi aspektami zaawansowanej ochrony przed zagrożeniami na platformie Azure |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
@@ -1586,7 +1616,7 @@ Windows Defender ATP i EDR | Wyświetlanie i badanie alertów. Po włączeniu ko
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
-> | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrum ochrony pakietu Office 365 |
+> | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/odczyt | Odczytywanie wszystkich właściwości ładunków ataków w symulatorze ataków |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/odczyt | Odczytywanie wszystkich właściwości szablonów symulacji ataków w symulatorze ataków |
@@ -1605,6 +1635,7 @@ Użytkownicy z tą rolą mogą otwierać żądania pomocy technicznej z firmą M
 > | --- | --- |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
+> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
@@ -1669,7 +1700,7 @@ Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń progr
 > | Microsoft. Directory/groups. Unified/Basic/Update | Aktualizowanie podstawowych właściwości w grupach Microsoft 365 z wykluczeniem grup z możliwością przypisywania ról |
 > | Microsoft. Directory/groups. Unified/Members/Update | Aktualizowanie członków grup Microsoft 365 z wykluczeniem grup do przypisania ról |
 > | Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie właścicieli grup Microsoft 365 z wykluczeniem grup do przypisania ról |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy  |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
 > | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
@@ -1741,6 +1772,7 @@ Użytkownicy z tą rolą mogą uzyskać dostęp do zagregowanych danych na pozio
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
 > | --- | --- |
+> | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. usageReports/allEntities/Standard/Read | Odczytaj zagregowane raporty użycia pakietu Office 365 na poziomie dzierżawy |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
 

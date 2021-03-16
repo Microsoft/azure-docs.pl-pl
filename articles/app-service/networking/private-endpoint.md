@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763026"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563615"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
 
@@ -121,6 +121,8 @@ Możesz połączyć maksymalnie 100 prywatnych punktów końcowych z określoną
 Gniazda nie mogą korzystać z prywatnego punktu końcowego.
 
 Funkcja debugowania zdalnego jest niedostępna, gdy dla aplikacji sieci Web jest włączony prywatny punkt końcowy. Zalecenie polega na wdrożeniu kodu w miejscu i zdalnym debugowaniu.
+
+Dostęp do usługi FTP odbywa się za pomocą publicznego adresu IP. Prywatny punkt końcowy nie obsługuje dostępu do usługi FTP do aplikacji sieci Web.
 
 Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego. Zapoznaj się z [tym artykułem][pllimitations] , aby uzyskać aktualne informacje o ograniczeniach.
 

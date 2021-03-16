@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225612"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467548"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
@@ -22,8 +22,7 @@ Możesz dodać adresy IP do listy dozwolonych w usłudze App Service, aby ograni
 
 #### <a name="add-ips-to-app-service-allow-list"></a>Dodaj adresy IP do listy dozwolonych App Service
 
-1. 
-ruch tylko z Cognitive Services adresów IP. Są one już zawarte w tagu usługi `CognitiveServicesManagement` . Jest to wymagane do tworzenia interfejsów API (Utwórz/zaktualizuj KB), aby odpowiednio wywoływać usługę App Service i zaktualizować usługę Azure Search. Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](../../../virtual-network/service-tags-overview.md)
+1. Zezwalaj na ruch tylko z Cognitive Services adresów IP. Są one już zawarte w tagu usługi `CognitiveServicesManagement` . Jest to wymagane do tworzenia interfejsów API (Utwórz/zaktualizuj KB), aby odpowiednio wywoływać usługę App Service i zaktualizować usługę Azure Search. Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](../../../virtual-network/service-tags-overview.md)
 2. Upewnij się, że można również zezwolić na inne punkty wejścia, takie jak Azure Bot Service, QnA Maker Portal itd., aby uzyskać dostęp do interfejsu API przewidywania "GenerateAnswer".
 3. Wykonaj następujące kroki, aby dodać zakresy adresów IP do listy dozwolonych:
 

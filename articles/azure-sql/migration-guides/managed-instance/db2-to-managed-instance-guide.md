@@ -1,6 +1,6 @@
 ---
 title: 'Wystąpienie zarządzane bazy danych DB2 z usługą SQL: Przewodnik migracji'
-description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację baz danych programu DB2 do wystąpienia zarządzanego Azure SQL.
+description: Ten przewodnik zawiera wskazówki dotyczące migrowania baz danych programu DB2 do wystąpienia zarządzanego usługi Azure SQL przy użyciu Asystent migracji do programu SQL Server dla programu DB2.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9ad838b8c5f54d3ecdd5c8ce56b197cdb6cec1ba
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359187"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563865"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Przewodnik migracji: wystąpienie zarządzane z programu DB2 do bazy danych SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . 
 
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności następnym krokiem jest wykonanie procesu migracji.
 
@@ -142,9 +142,6 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
 1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
 1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
-
-   > [!NOTE]
-   > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
 
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 

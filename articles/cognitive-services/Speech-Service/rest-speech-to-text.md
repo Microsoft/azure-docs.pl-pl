@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032827"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564392"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -28,7 +28,7 @@ Interfejsy API REST zamiany mowy na tekst są następujące:
 
 ## <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
 
-Funkcja zamiany mowy na tekst "API REST v 3.0" jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. Jeśli musisz komunikować się z transkrypcją OnLine za pośrednictwem usługi REST, użyj [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](#speech-to-text-rest-api-for-short-audio).
+Funkcja zamiany mowy na tekst "API REST v 3.0" jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. Jeśli musisz komunikować się z transkrypcją online za pośrednictwem usługi REST, użyj [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](#speech-to-text-rest-api-for-short-audio).
 
 Użyj interfejsu API REST w wersji 3.0 do:
 - Kopiuj modele do innych subskrypcji, jeśli chcesz, aby współpracownicy mieli dostęp do modelu skompilowanego lub w przypadkach, w których chcesz wdrożyć model w więcej niż jednym regionie

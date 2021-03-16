@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750015"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561932"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
 
@@ -42,10 +42,10 @@ Dodatkowe wymagania dotyczące sieci wirtualnej różnią się w zależności od
 
 **Uprawnienia** — sprawdź, czy zasady zabezpieczeń lub blokady dla subskrypcji lub grupy zasobów sieci wirtualnej ograniczają uprawnienia użytkownika do zarządzania siecią wirtualną.
 
-**Dodatkowe zasoby sieciowe** — usługa Batch automatycznie przydziela dodatkowe zasoby sieciowe w grupie zasobów zawierającej sieć wirtualną.
+**Dodatkowe zasoby sieciowe** — Partia zadań automatycznie tworzy dodatkowe zasoby sieciowe w grupie zasobów zawierającej sieć wirtualną.
 
 > [!IMPORTANT]
-> W przypadku 100 każdego węzła dedykowanego lub o niskim priorytecie usługa Batch przydziela: jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), jeden publiczny adres IP i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne zażądanie zwiększenia limitu przydziału dla co najmniej jednego z tych zasobów.
+> W przypadku 100 każdego węzła dedykowanego lub o niskim priorytecie usługa Batch tworzy: jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), jeden publiczny adres IP i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne zażądanie zwiększenia limitu przydziału dla co najmniej jednego z tych zasobów.
 
 #### <a name="network-security-groups-batch-default"></a>Sieciowe grupy zabezpieczeń: domyślna Sekwencja wsadowa
 

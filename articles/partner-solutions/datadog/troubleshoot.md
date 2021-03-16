@@ -6,16 +6,26 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: a8bb28892fe42215876b5cc8771ae73c7d2aab7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e3c82f711de4cd9710c9aafe798a986e3403ed4
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747117"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563712"
 ---
-# <a name="troubleshooting-datadog-on-azure"></a>Rozwiązywanie problemów z usługi Datadog na platformie Azure
+# <a name="troubleshooting-datadog-on-azure"></a>Rozwiązywanie problemów z usługą Datadog na platformie Azure
 
 Ten dokument zawiera informacje dotyczące rozwiązywania problemów z rozwiązaniami korzystającymi z usługi Datadog.
+
+## <a name="purchase-errors"></a>Błędy zakupów
+
+* Zakup nie powiódł się, ponieważ ważna karta kredytowa nie jest połączona z subskrypcją platformy Azure lub nie jest skojarzona z subskrypcją.
+
+  Użyj innej subskrypcji platformy Azure. Można też dodać lub zaktualizować kartę kredytową lub formę płatności dla subskrypcji. Aby uzyskać więcej informacji, zobacz [Aktualizowanie kredytu i formy płatności](../../cost-management-billing/manage/change-credit-card.md).
+
+* Subskrypcja EA nie zezwala na zakupy w portalu Marketplace.
+
+  Użyj innej subskrypcji. Lub sprawdź, czy subskrypcja EA jest włączona dla zakupu w witrynie Marketplace. Aby uzyskać więcej informacji, zobacz [Włączanie zakupów w portalu Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Jeśli te opcje nie rozwiązują problemu, skontaktuj się z [pomocą techniczną usługi Datadog](https://www.datadoghq.com/support).
 
 ## <a name="unable-to-create-datadog-resource"></a>Nie można utworzyć zasobu usługi Datadog
 

@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021851"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562335"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Informacje o wersji: zestaw SDK urządzeń mowy
 
 W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
+
+## <a name="speech-devices-sdk-1150"></a>1.15.0 zestawu SDK urządzeń mowy:
+
+- Uaktualniono do nowego stosu audio firmy Microsoft (MAS) z ulepszoną Beamforming i redukcją szumów.
+- Zmniejszono rozmiar binarny do 70% w zależności od celu.
+- Obsługa [usługi Azure Percept audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) przy użyciu [wersji binarnej](https://aka.ms/sdsdk-download-APAudio).
+- Zaktualizowano składnik [zestawu Speech SDK](./speech-sdk.md) do wersji 1.15.0. Aby uzyskać więcej informacji, zobacz informacje o [wersji](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>1.11.0 zestawu SDK urządzeń mowy:
 
@@ -63,7 +70,7 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Nowa technologia słowa kluczowego zapewnia znaczące ulepszenia jakości, zobacz artykuł wprowadzenie zmian.
 - Nowy potok przetwarzania audio dla ulepszonego rozpoznawania pól.
 
-**Zmiany powodujące niezgodność**
+**Fundamentalne zmiany**
 
 - Ze względu na nową technologię słów kluczowych wszystkie słowa kluczowe muszą zostać utworzone w naszym ulepszonym portalu słów kluczowych. Aby w pełni usunąć stare słowa kluczowe z urządzenia, Odinstaluj starą aplikację.
   - ADB Odinstaluj com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -78,7 +85,7 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Obsługa zaktualizowanych słów kluczowych, zobacz istotne zmiany.
 - Przykładowa aplikacja dodaje wybór języka dla rozpoznawania mowy i tłumaczenia.
 
-**Zmiany powodujące niezgodność**
+**Fundamentalne zmiany**
 
 - [Instalacja słowa kluczowego](./custom-keyword-basics.md) została uproszczona, jest teraz częścią aplikacji i nie wymaga osobnej instalacji na urządzeniu.
 - Rozpoznawanie słów kluczowych zostało zmienione i obsługiwane są dwa zdarzenia.
@@ -97,7 +104,7 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Dokładność rozpoznawania mowy zostanie ulepszona dzięki ulepszonemu algorytmowi przetwarzania dźwięku
 - Została naprawiona jedna usterka sesji audio ciągłego rozpoznawania.
 
-**Zmiany powodujące niezgodność**
+**Fundamentalne zmiany**
 
 - W tej wersji wprowadzono kilka istotnych zmian. Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje dotyczące interfejsów API.
 - Pliki modelu KWS są niezgodne z zestawem SDK urządzeń Speech 1.0.1. Istniejące pliki słów kluczowych zostaną usunięte po zapisaniu nowych plików słów kluczowych na urządzeniu.

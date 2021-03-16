@@ -3,22 +3,22 @@ title: 'Szybki Start: Biblioteka klienta aparatu rozpoznawania formularzy lub in
 titleSuffix: Azure Cognitive Services
 description: Za pomocą biblioteki klienta aparatu rozpoznawania formularzy lub interfejsu API REST można utworzyć aplikację przetwarzającej formularze, która wyodrębnia pary klucz/wartość i dane tabeli z dokumentów niestandardowych.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: przetwarzanie formularzy, automatyczne przetwarzanie danych
-ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 43182892aa80f6226ffb5177d0be2e24d15ead5c
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584612"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467230"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Szybki Start: korzystanie z biblioteki klienckiej aparatu rozpoznawania formularzy lub interfejsu API REST
 

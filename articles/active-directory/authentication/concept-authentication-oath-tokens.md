@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2270ff360c7bb923555c9b4ffb0c35ccd4382d0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647493"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471609"
 ---
-# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w tokenach OATH Azure Active Directory
+# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w tokenach OATH Azure Active Directory 
 
 TOTP OATH (oparte na czasie, hasło jednorazowe) to otwarty standard, który określa sposób generowania kodów haseł jednorazowych (OTP). TOTP OATH można zaimplementować przy użyciu oprogramowania lub sprzętu w celu wygenerowania kodów. Usługa Azure AD nie obsługuje HOTP OATH, innego standardu generowania kodu.
 
@@ -29,13 +29,15 @@ Aplikacja Authenticator automatycznie generuje kody po skonfigurowaniu do wykony
 
 Niektóre tokeny sprzętowe TOTP OATH są programowalne, co oznacza, że nie są one dostarczane z kluczem tajnym lub wstępnie zaprogramowanym inicjatorem. Te programowalne tokeny sprzętowe można skonfigurować przy użyciu klucza tajnego lub inicjatora uzyskanego w ramach przepływu instalacji tokenu oprogramowania. Klienci mogą zakupić te tokeny od wybranego dostawcy i używać klucza tajnego lub inicjatora w procesie instalacji dostawcy.
 
-## <a name="oath-hardware-tokens"></a>Tokeny sprzętowe OATH
+## <a name="oath-hardware-tokens-preview"></a>Tokeny sprzętowe OATH (wersja zapoznawcza)
 
 Usługa Azure AD obsługuje użycie tokenów TOTP SHA-1, które odświeżają kody co 30 lub 60 sekund. Klienci mogą zakupić te tokeny od wybranego przez siebie dostawcy.
 
 Tokeny sprzętowe TOTP OATH zazwyczaj pochodzą z kluczem tajnym lub inicjatorem, który jest wstępnie zaprogramowany w tokenie. Te klucze muszą być danymi wejściowymi do usługi Azure AD, zgodnie z opisem w poniższych krokach. Klucze tajne są ograniczone do 128 znaków, które mogą nie być zgodne ze wszystkimi tokenami. Klucz tajny może zawierać tylko znaki *a-z* lub *a-z* i cyfry *2-7*, a także musi być zakodowany w *Base32*.
 
 Programowalne tokeny sprzętowe TOTP OATH można również skonfigurować za pomocą usługi Azure AD w przepływie instalacji tokenu oprogramowania.
+
+Tokeny sprzętowe OATH są obsługiwane w ramach publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ![Przekazywanie tokenów OATH do bloku tokenów OATH usługi MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

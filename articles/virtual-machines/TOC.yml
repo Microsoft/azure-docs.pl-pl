@@ -49,6 +49,8 @@
           href: ./linux/tutorial-load-balancer.md
         - name: 8 — Zarządzanie siecią
           href: ./linux/tutorial-virtual-network.md
+        - name: 9 — zarządzanie zasobami
+          href: ./linux/tutorial-govern-resources.md
     - name: Windows
       items:
         - name: 1 — Tworzenie maszyny wirtualnej/zarządzanie nią
@@ -67,6 +69,8 @@
           href: ./windows/tutorial-load-balancer.md
         - name: 8 — Zarządzanie siecią
           href: ./windows/tutorial-virtual-network.md
+        - name: 9 — zarządzanie zasobami
+          href: ./windows/tutorial-govern-resources.md
 - name: Obciążenia
   items:
     - name: Red Hat
@@ -313,99 +317,100 @@
           displayName: 'Azure Hybrid Benefit, Linux, AHB'
           href: ./linux/azure-hybrid-benefit-linux.md
         - name: Windows
-          items:
-            - name: Używanie licencji korzyści użycia hybrydowego platformy Azure
-              displayName: 'Azure Hybrid Benefit, AHB'
-              href: ./windows/hybrid-use-benefit-licensing.md
-            - name: Korzystanie z praw hostingu wielodostępnego dla systemu Windows 10
-              displayName: 'MTHR, multi-tenant, multitenant, hosting, rights'
-              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+          displayName: 'Azure Hybrid Benefit, AHB'
+          href: ./windows/hybrid-use-benefit-licensing.md
     - name: Wystąpienia zarezerwowane
       items:
+        - name: Co to są rezerwacje platformy Azure?
+          displayName: 'Reserved Instances, RI, prepay, flexibility'
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
         - name: Opłacanie maszyn wirtualnych z góry
           displayName: 'Reserved Instances, RI, prepay, flexibility'
           href: ./prepay-reserved-vm-instances.md
         - name: Opłacanie dedykowanych hostów z góry
           displayName: 'Reserved Instances, RI, prepay, flexibility'
           href: prepay-dedicated-hosts-reserved-instances.md
-        - name: Co to są rezerwacje platformy Azure?
-          displayName: 'Reserved Instances, RI, prepay, flexibility'
-          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
         - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
           displayName: 'Reserved Instances, RI, prepay'
           href: reserved-vm-instance-size-flexibility.md
-    - name: Tworzenie maszyn wirtualnych z systemem Linux
+    - name: Tworzenie maszyn wirtualnych
       items:
-        - name: Dystrybucje zatwierdzone
-          href: ./linux/endorsed-distros.md
-        - name: Korzystanie z interfejsu wiersza polecenia
-          href: ./linux/create-cli-complete.md
-        - name: Korzystanie z szablonu usługi Resource Manager
-          displayName: Azure Resource Manager
-          href: ./linux/create-ssh-secured-vm-from-template.md
-        - name: Korzystanie z interfejsu API REST
-          href: ./linux/create-vm-rest-api.md
-        - name: Kopiowanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
-          href: ./linux/copy-vm.md
-        - name: Kompiluj z Jenkins
-          href: /azure/developer/jenkins/pipeline-with-github-and-docker
-        - name: Integrowanie Jenkins z usługą Azure DevOps
-          href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-        - name: Konfiguruj strategię wdrażania stopniowego
-          href: ./linux/tutorial-devops-azure-pipelines-classic.md
-        - name: Konfiguruj strategię wdrażania w programie Kanaryjskie
-          href: ./linux/tutorial-azure-devops-canary-strategy.md
-        - name: Konfigurowanie strategii wdrażania Blue-Green
-          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-        - name: Ciągłej integracji/ciągłego wdrażania za pomocą Azure Pipelines (YAML)
-          href: ./linux/tutorial-build-deploy-azure-pipelines.md
-        - name: Utwórz stos lampy
-          href: ./linux/tutorial-lamp-stack.md
-        - name: Zabezpieczanie serwera sieci Web za pomocą TLS\SSL
+        - name: Linux
           items:
-            - name: Linux
+            - name: Rozpowszechniane dystrybucje
+              href: ./linux/endorsed-distros.md
+            - name: Interfejs wiersza polecenia
+              displayName: 'Create VM, Create'
+              href: ./linux/create-cli-complete.md
+            - name: Szablon ARM
+              displayName: 'Create VM, Create, ARM'
+              href: ./linux/create-ssh-secured-vm-from-template.md
+            - name: REST
+              displayName: 'Create VM, Create, REST'
+              href: ./linux/create-vm-rest-api.md
+            - name: Stos LAMP
+              href: ./linux/tutorial-lamp-stack.md
+            - name: Ciągłe dostarczanie
+              items:
+                - name: Konfiguruj strategię wdrażania stopniowego
+                  href: ./linux/tutorial-devops-azure-pipelines-classic.md
+                - name: Konfiguruj strategię wdrażania w programie Kanaryjskie
+                  href: ./linux/tutorial-azure-devops-canary-strategy.md
+                - name: Konfigurowanie strategii wdrażania Blue-Green
+                  href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+                - name: Ciągłej integracji/ciągłego wdrażania za pomocą Azure Pipelines (YAML)
+                  href: ./linux/tutorial-build-deploy-azure-pipelines.md
+            - name: Zabezpieczanie serwera sieci Web za pomocą TLS\SSL
               href: ./linux/tutorial-secure-web-server.md
-            - name: Windows
-              href: ./windows/tutorial-secure-web-server.md
-          displayname: SSL TLS
-    - name: Nawiązywanie połączenia z maszynami wirtualnymi z systemem Linux
-      items:
-        - name: Maszyny wirtualne SSH dla systemu Linux
+        - name: Windows
           items:
-            - name: W systemie Linux lub macOS
-              href: ./linux/mac-create-ssh-keys.md
-            - name: W systemie Windows
-              href: ./linux/ssh-from-windows.md
-            - name: W portalu
-              href: ssh-keys-portal.md
-            - name: Szczegółowe procedury
-              href: ./linux/create-ssh-keys-detailed.md
-        - name: Pulpit zdalny dla systemu Linux
-          href: ./linux/use-remote-desktop.md
-    - name: Tworzenie maszyn wirtualnych z systemem Windows
-      items:
-        - name: Korzystanie z języka C#
-          href: ../azure-resource-manager/templates/deploy-rest.md?context=/azure/virtual-machines/context/context
-        - name: Korzystanie z wyspecjalizowanego dysku
-          items:
-            - name: Portal
+            - name: Wyspecjalizowany dysk — Portal
+              displayName: 'Create VM, Create'
               href: ./windows/create-vm-specialized-portal.md
-            - name: PowerShell
+            - name: Wyspecjalizowany dysk — PowerShell
+              displayName: 'Create VM, Create'
               href: ./windows/create-vm-specialized.md
-        - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
-          href: /azure/developer/chef/windows-vm-configure
-        - name: Korzystanie z języka Java
-          href: ./windows/java.md
-        - name: Python
-          href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-        - name: Korzystanie z szablonu usługi Resource Manager
-          displayName: Azure Resource Manager template
-          href: ./windows/ps-template.md
-    - name: Łączenie z maszynami wirtualnymi z systemem Windows
-      href: ./windows/connect-logon.md
+            - name: Szablon ARM
+              displayName: 'Create VM, Create, ARM'
+              href: ./windows/ps-template.md
+            - name: Zabezpieczanie serwera sieci Web za pomocą TLS\SSL
+              href: ./windows/tutorial-secure-web-server.md
+    - name: Połącz z Virtual Machines
       items:
-        - name: WinRM
-          href: ./windows/winrm.md
+        - name: Linux
+          items:
+            - name: Utwórz lokalnie klucze SSH i zarządzaj nimi
+              href: ./linux/create-ssh-keys-detailed.md
+            - name: Tworzenie kluczy SSH i zarządzanie nimi w portalu
+              href: ssh-keys-portal.md
+            - name: SSH w systemie Linux lub macOS
+              href: ./linux/mac-create-ssh-keys.md
+            - name: Protokół SSH w systemie Windows
+              href: ./linux/ssh-from-windows.md
+            - name: Pulpit zdalny dla systemu Linux
+              href: ./linux/use-remote-desktop.md
+        - name: Windows
+          items:
+            - name: Pulpit zdalny dla systemu Windows
+              href: ./windows/connect-logon.md
+            - name: WinRM
+              href: ./windows/winrm.md
+    - name: Synchronizowanie czasu
+      items:
+        - name: Linux
+          displayName: Time sync
+          href: ./linux/time-sync.md
+        - name: Windows
+          displayName: Time sync
+          href: ./windows/time-sync.md
+    - name: Uruchamianie polecenia
+      items:
+        - name: Linux
+          displayName: Run command
+          href: ./linux/run-command.md
+        - name: Windows
+          displayName: Run command
+          href: ./windows/run-command.md
     - name: Rozszerzenia
       items:
         - name: Omówienie
@@ -554,6 +559,8 @@
           href: ./extensions/troubleshoot.md
         - name: Problemy z systemami Linux obsługującymi język Python 3
           href: ./extensions/issues-using-vm-extensions-python-3.md
+    - name: Zagnieżdżone wirtualizacji
+      href: ./windows/nested-virtualization.md
     - name: Migruj do Azure Resource Manager
       items:
         - name: "Wycofywanie rozpocznie się 1 marca 2023\_r."
@@ -583,54 +590,6 @@
         - name: Często zadawane pytania
           displayName: 'classic, migration, classic to ARM, CSES, Cloud Services'
           href: migration-classic-resource-manager-faq.md
-    - name: Podstawowe informacje dotyczące zarządzania
-      items:
-        - name: Zarządzanie zasobami
-          items:
-            - name: Linux
-              href: ./linux/tutorial-govern-resources.md
-            - name: Windows
-              href: ./windows/tutorial-govern-resources.md
-        - name: Synchronizowanie czasu
-          items:
-            - name: Linux
-              href: ./linux/time-sync.md
-            - name: Windows
-              href: ./windows/time-sync.md
-        - name: Uruchamianie skryptów na maszynie wirtualnej
-          items:
-            - name: Rozszerzenie niestandardowego skryptu
-              items:
-                - name: Linux
-                  href: ./extensions/custom-script-linux.md
-                - name: Windows
-                  href: ./extensions/custom-script-windows.md
-            - name: Uruchamianie polecenia
-              items:
-                - name: Linux
-                  href: ./linux/run-command.md
-                - name: Windows
-                  href: ./windows/run-command.md
-            - name: Hybrydowy proces roboczy elementu Runbook
-              href: ../automation/automation-hybrid-runbook-worker.md
-            - name: Konsola szeregowa
-              items:
-                - name: Linux
-                  href: ./troubleshooting/serial-console-linux.md
-                - name: Windows
-                  href: ./troubleshooting/serial-console-windows.md
-        - name: Włączanie wirtualizacji zagnieżdżonej
-          href: ./windows/nested-virtualization.md
-        - name: File Storage
-          items:
-            - name: Instalacja systemu Linux przy użyciu protokołu SMB
-              href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
-            - name: Kopiowanie plików do maszyny wirtualnej z systemem Linux
-              href: ./linux/copy-files-to-linux-vm-using-scp.md
-        - name: Aktualizacje i poprawki
-          items:
-            - name: Infrastruktura aktualizacji systemu Red Hat
-              href: ./workloads/redhat/redhat-rhui.md
 - name: Obrazy
   items:
     - name: Znajdź obrazy w portalu Azure Marketplace
@@ -644,6 +603,9 @@
         - name: Obrazy klienta systemu Windows
           displayName: 'Images, imaging, marketplace, Windows, Client'
           href: ./windows/client-images.md
+        - name: Wielodostępne prawa hostingu dla systemu Windows 10
+          displayName: 'MTHR, multi-tenant, multitenant, hosting, rights'
+          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Niestandardowe obrazy systemu Linux
       items:
         - name: Omówienie
@@ -1205,6 +1167,8 @@
             - name: PowerShell
               displayName: Unmanaged VM to Managed Disks
               href: ./windows/convert-unmanaged-to-managed-disks.md
+        - name: Kopiowanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
+          href: ./linux/copy-vm.md
     - name: Dodawanie dysku z danymi
       items:
         - name: Linux
@@ -1274,6 +1238,12 @@
           href: ./linux/azure-to-guest-disk-mapping.md
         - name: Mapowanie dysku zarządzanego na dysk gościa — Windows
           href: ./windows/azure-to-guest-disk-mapping.md
+        - name: File Storage
+          items:
+            - name: Instalacja systemu Linux przy użyciu protokołu SMB
+              href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
+            - name: Kopiowanie plików do maszyny wirtualnej z systemem Linux
+              href: ./linux/copy-files-to-linux-vm-using-scp.md
         - name: Znajdowanie niedołączonych dysków
           items:
             - name: Interfejs wiersza polecenia

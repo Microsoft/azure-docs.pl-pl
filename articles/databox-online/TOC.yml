@@ -162,6 +162,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Obciążenia platformy Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: Co to jest udostępnianie GPU?
+          href: azure-stack-edge-gpu-sharing.md
         - name: Wyświetlanie integracji usługi Key Vault
           href: azure-stack-edge-gpu-activation-key-vault.md
         - name: Włączanie aktywnego rejestrowania
@@ -194,10 +196,14 @@
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: Dynamicznie aprowizowana aplikacja stanowa
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
+                - name: Współużytkowane obciążenie procesora GPU
+                  href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md
             - name: Za pomocą usługi IoT Edge
               items:
                 - name: Aplikacja bezstanowa
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Współużytkowane obciążenie procesora GPU
+                  href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md
                 - name: Tworzenie modułu języka C#
                   href: azure-stack-edge-gpu-create-iot-edge-module.md
             - name: Za pośrednictwem usługi Azure Arc (wersja zapoznawcza)

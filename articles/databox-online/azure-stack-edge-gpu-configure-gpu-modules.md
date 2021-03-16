@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8be0a444dca4cae9b8f7a1e7c04be8a3046e56be
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 348ddff56ed61cd608d6b9f28417e7cd4c4e6b13
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102638568"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563967"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack na urządzeniu brzegowym Pro
 
@@ -50,7 +50,7 @@ Aby skonfigurować moduł do korzystania z procesora GPU na urządzeniu Azure St
    |--------|---------|
    |Subskrypcja      | Subskrypcja używana przez zasób Azure Stack Edge. |
    |Grupa zasobów    | Grupa zasobów używana przez zasób Azure Stack Edge. |
-   |Usługa IoT Hub           | Wybierz opcję **Utwórz nową** lub **Użyj istniejącej**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+   |Usługa IoT Hub           | Wybierz opcję **Utwórz nową** lub **Użyj istniejącej**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób usługi IoT Hub używa tej samej subskrypcji i grupy zasobów, które są używane przez zasób usługi Azure Stack Edge.     |
    |Nazwa              | Jeśli nie chcesz używać domyślnej nazwy podanej dla nowego zasobu IoT Hub, wprowadź inną nazwę. |
 
    Po zakończeniu ustawień wybierz pozycję **Przegląd + Utwórz**. Sprawdź ustawienia zasobu IoT Hub i wybierz pozycję **Utwórz**.
@@ -104,7 +104,7 @@ Aby skonfigurować moduł do korzystania z procesora GPU na urządzeniu Azure St
        Aby uzyskać więcej informacji na temat zmiennych środowiskowych, których można użyć z procesorem GPU NVIDIA, przejdź do [środowiska uruchomieniowego kontenera NVIDIA](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > Procesor GPU można zamapować tylko na jeden moduł. Moduł może jednak używać jednego lub bez procesorów GPU.
+    > Moduł może korzystać z jednego lub bez procesorów GPU.
 
 12. Wprowadź nazwę modułu. W tym momencie możesz wybrać opcję tworzenia kontenera i zmodyfikować ustawienia sznurka modułu lub jeśli to zrobisz, wybierz pozycję **Dodaj**. 
 

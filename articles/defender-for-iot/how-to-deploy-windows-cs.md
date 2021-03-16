@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e7c7fdd5874dbde5ca304309d0840724cb3872df
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448068"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494533"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Wdrażanie agenta zabezpieczeń opartego na programie Defender for IoT C# dla systemu Windows
 
@@ -38,7 +38,7 @@ W przypadku innych platform i rodzajów agentów zobacz [Wybieranie odpowiednieg
 
 1. Prawa administratora lokalnego na komputerze, na którym chcesz się zainstalować.
 
-1. [Utwórz moduł zabezpieczeń](quickstart-create-security-twin.md) dla urządzenia.
+1. [Utwórz usługę Defender-IoT-Micro-Agent](quickstart-create-security-twin.md) dla urządzenia.
 
 ## <a name="installation"></a>Instalacja
 

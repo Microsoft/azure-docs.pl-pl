@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666968"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470738"
 ---
 # <a name="scaling-hpc-applications"></a>Skalowanie aplikacji HPC
 
 Optymalna wydajność skalowania i skalowalności aplikacji HPC na platformie Azure wymaga dostrajania wydajności i optymalizacji dla określonego obciążenia. Ta sekcja i strony specyficzne dla serii maszyn wirtualnych oferują ogólne wskazówki dotyczące skalowania aplikacji.
+
+## <a name="optimally-scaling-mpi"></a>Optymalne skalowanie MPI 
+
+Poniższe sugestie dotyczą optymalnej wydajności, wydajności i spójności skalowania aplikacji:
+
+- W przypadku zadań o mniejszych skalach (tj. < połączeń 256 K) Użyj opcji:
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- W przypadku większych zadań skalowania (tj. > połączeń 256 K) Użyj opcji:
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- W powyższej części, aby obliczyć liczbę połączeń dla zadania MPI, użyj:
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>Przypinanie procesów
+
+- Przypnij procesy do rdzeni przy użyciu podejścia sekwencyjnego (w przeciwieństwie do podejścia autorównowaga). 
+- Powiązanie według architektury NUMA/Core/HwThread jest lepsze niż domyślne powiązanie.
+- W przypadku hybrydowych aplikacji równoległych (OpenMP + MPI) Użyj 4 wątków i 1 MPI rangi na CCX przy HB i HBv2 rozmiarach maszyn wirtualnych.
+- W przypadku czystych aplikacji MPI eksperyment z rangą 1-4 MPI na CCX w celu uzyskania optymalnej wydajności w przypadku HB i HBv2 rozmiarów maszyn wirtualnych.
+- Niektóre aplikacje o najwyższej czułości przepustowości pamięci mogą korzystać z mniejszej liczby rdzeni na CCX. W przypadku tych aplikacji użycie rdzeni 3 lub 2 na CCX może zmniejszyć rywalizację o przepustowość pamięci i zapewnić wyższą wydajność rzeczywistą lub większą spójność. W szczególności MPI Allreduce może korzystać z tego podejścia.
+- W przypadku znacznie większych przebiegów skalowania zaleca się użycie UD lub transportów hybrydowych RC + UD. Wiele bibliotek MPI/bibliotek środowiska uruchomieniowego to wewnętrznie (na przykład UCX lub MVAPICH2). Sprawdź konfiguracje transportu w przypadku uruchamiania na dużą skalę.
 
 ## <a name="compiling-applications"></a>Kompilowanie aplikacji
 
@@ -25,7 +53,7 @@ Chociaż nie jest to konieczne, Kompilowanie aplikacji z odpowiednimi flagami op
 
 ### <a name="amd-optimizing-cc-compiler"></a>Kompilator AMD optymalizujący język C/C++
 
-Kompilator AMD optymalizujący kompilator C/C++ (AOCC) oferuje wysoki poziom zaawansowanych optymalizacji, wielowątkowości i obsługi procesora, które obejmują optymalizację globalną, wektoryzacji, analizy międzyprocesowe, przekształcenia pętli i generowanie kodu. Pliki binarne kompilatora AOCC są odpowiednie dla systemów Linux z biblioteką GNU C library (glibc) w wersji 2,17 lub nowszej. Pakiet kompilatora składa się z kompilatora C/C++ (Clang), kompilatora Pascal (FLANG) i Pascal frontonu do Clang (sceny Dragon jaja).
+Kompilator AMD optymalizujący kompilator C/C++ (AOCC) oferuje wysoki poziom zaawansowanych optymalizacji, wielowątkowości i obsługi procesora, które obejmują optymalizację globalną, wektoryzacji, analizy międzyprocesowe, przekształcenia pętli i generowanie kodu. Pliki binarne kompilatora AOCC są odpowiednie dla systemów Linux z biblioteką GNU C library (glibc) w wersji 2,17 lub nowszej. Pakiet kompilatora składa się z kompilatora C/C++ (Clang), kompilatora Pascal (FLANG) oraz Pascal frontonu do Clang (sceny Dragon jaja).
 
 ### <a name="clang"></a>Clang
 
@@ -68,17 +96,6 @@ W przypadku platformy HPC procesor AMD zaleca kompilatory w wersji 7,3 lub nowsz
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Skalowanie aplikacji 
-
-Poniższe sugestie dotyczą optymalnej wydajności, wydajności i spójności skalowania aplikacji:
-
-* Przypnij procesy do rdzeni 0-59 przy użyciu metody przypinania sekwencyjnego (w przeciwieństwie do podejścia autorównowaga). 
-* Powiązanie według architektury NUMA/Core/HwThread jest lepsze niż domyślne powiązanie.
-* W przypadku hybrydowych aplikacji równoległych (OpenMP + MPI) Użyj 4 wątków i 1 rangi MPI na CCX.
-* W przypadku czystych aplikacji MPI eksperyment z rangą 1-4 MPI na CCX w celu uzyskania optymalnej wydajności.
-* Niektóre aplikacje o najwyższej czułości przepustowości pamięci mogą korzystać z mniejszej liczby rdzeni na CCX. W przypadku tych aplikacji użycie rdzeni 3 lub 2 na CCX może zmniejszyć rywalizację o przepustowość pamięci i zapewnić wyższą wydajność rzeczywistą lub większą spójność. W szczególności MPI Allreduce mogą korzystać z tej usługi.
-* W przypadku znacznie większych przebiegów skalowania zaleca się użycie UD lub transportów hybrydowych RC + UD. Wiele bibliotek MPI/bibliotek środowiska uruchomieniowego to wewnętrznie (na przykład UCX lub MVAPICH2). Sprawdź konfiguracje transportu w przypadku uruchamiania na dużą skalę.
 
 ## <a name="next-steps"></a>Następne kroki
 

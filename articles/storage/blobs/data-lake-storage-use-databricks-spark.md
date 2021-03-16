@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 232e28d3cc8b0bc7427dd035d51743f623e54259
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912522"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564307"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Samouczek: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -54,7 +54,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 W tym samouczku w celu zademonstrowania sposobu wykonywania operacji ETL są używane dane dotyczące lotów opracowane przez agencję Bureau of Transportation Statistics. Aby ukończyć samouczek, musisz pobrać te dane.
 
-1. Przejdź do strony [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Przejdź do strony [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. Zaznacz pole wyboru **Prezipped file** (Wstępnie spakowany plik), aby zaznaczyć wszystkie pola danych.
 
@@ -66,7 +66,7 @@ W tym samouczku w celu zademonstrowania sposobu wykonywania operacji ETL są uż
 
 W tej sekcji utworzysz usługę Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks** analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >    >  **Azure Databricks** analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -144,7 +144,7 @@ W tej sekcji utworzysz kontener i folder na koncie magazynu.
 
 3. W oknie dialogowym **Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Python**, a następnie wybierz utworzony wcześniej klaster Spark.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Skopiuj i wklej następujący blok kodu do pierwszej komórki, ale jeszcze nie uruchamiaj kodu.
 

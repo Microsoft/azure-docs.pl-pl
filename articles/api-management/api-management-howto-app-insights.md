@@ -3,22 +3,18 @@ title: Integracja usługi Azure API Management z usługą Azure Application Insi
 titleSuffix: Azure API Management
 description: Dowiedz się, jak rejestrować i wyświetlać zdarzenia z usługi Azure API Management w usłudze Azure Application Insights.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/25/2021
 ms.author: apimpm
-ms.openlocfilehash: adb221c12af436135b1e740fdef7c5c0a0a7f0cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 97f4eb34b88b3454d65b65d236833e1256c98671
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096040"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564266"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Jak zintegrować usługę Azure API Management z usługą Azure Application Insights
 
@@ -28,46 +24,38 @@ Usługa Azure API Management pozwala na łatwą integrację z usługą Azure App
 
 Aby skorzystać z tego przewodnika, musisz mieć wystąpienie usługi Azure API Management. Jeśli go nie masz, najpierw Wypełnij [samouczek](get-started-create-service-instance.md) .
 
-## <a name="create-an-azure-application-insights-instance"></a>Tworzenie wystąpienia usługi Azure Application Insights
+## <a name="create-an-application-insights-instance"></a>Tworzenie wystąpienia Application Insights
 
-Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworzyć wystąpienie usługi.
+Przed rozpoczęciem korzystania z Application Insights należy najpierw utworzyć wystąpienie usługi. Aby uzyskać instrukcje dotyczące tworzenia wystąpienia przy użyciu Azure Portal, zobacz [zasoby Application Insights oparte na obszarze roboczym](../azure-monitor/app/create-workspace-resource.md).
+## <a name="create-a-connection-between-application-insights-and-api-management"></a>Utwórz połączenie między Application Insights i API Management
 
-1. Otwórz **Azure Portal** i przejdź do **Application Insights** .  
-    ![Zrzut ekranu pokazujący sposób nawigowania do Application Insights.](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
-2. Kliknij pozycję **+ Dodaj** .  
-    ![Tworzenie usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. Wypełnij formularz. Wybierz pozycję **Ogólne** jako **Typ aplikacji** .
-4. Kliknij pozycję **Utwórz** .
-
-## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Utwórz połączenie między usługą Azure Application Insights i wystąpieniem usługi Azure API Management
-
-1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal** .
-2. Wybierz pozycję **Application Insights** z menu po lewej stronie.
-3. Kliknij pozycję **+ Dodaj** .  
-    ![Zrzut ekranu pokazujący, gdzie dodać nowe połączenie.](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
-4. Wybierz wcześniej utworzone wystąpienie **Application Insights** i podaj Krótki opis.
-5. Kliknij pozycję **Utwórz** .
-6. Właśnie utworzono Rejestrator Application Insights platformy Azure z kluczem Instrumentacji. Powinien teraz pojawić się na liście.  
-    ![Zrzut ekranu pokazujący lokalizację, w której ma zostać wyświetlony nowo utworzony Rejestrator Application Insights platformy Azure z kluczem Instrumentacji.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal**.
+1. Wybierz pozycję **Application Insights** z menu po lewej stronie.
+1. Kliknij pozycję **+ Dodaj**.  
+    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Zrzut ekranu pokazujący, gdzie dodać nowe połączenie":::
+1. Wybierz wcześniej utworzone wystąpienie **Application Insights** i podaj Krótki opis.
+1. Kliknij pozycję **Utwórz**.
+1. Właśnie utworzono Rejestrator Application Insights z kluczem Instrumentacji. Powinien teraz pojawić się na liście.  
+    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Zrzut ekranu przedstawiający miejsce wyświetlania nowo utworzonego rejestratora Application Insights z kluczem Instrumentacji":::
 
 > [!NOTE]
 > Za sceną jest tworzona jednostka [rejestratora](/rest/api/apimanagement/2019-12-01/logger/createorupdate) w wystąpieniu API Management, zawierająca klucz Instrumentacji wystąpienia Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Włączanie rejestrowania Application Insights dla interfejsu API
 
-1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal** .
-2. Wybierz pozycję **Interfejsy API** z menu po lewej stronie.
-3. Kliknij swój interfejs API, w tym przypadku **interfejsu API konferencji demonstracyjnej** .
-4. Przejdź do karty **Ustawienia** na górnym pasku.
-5. Przewiń w dół do sekcji **dzienniki diagnostyczne** .  
-    ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
-6. Zaznacz pole **Włącz** .
-7. Wybierz dołączony rejestrator w polu rozwijanym **miejsce docelowe** .
-8. Wprowadź **100** jako **próbkowanie (%)** i zaznacz pole wyboru **zawsze Rejestruj błędy** .
-9. Kliknij pozycję **Zapisz** .
+1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal**.
+1. Wybierz pozycję **Interfejsy API** z menu po lewej stronie.
+1. Kliknij swój interfejs API, w tym przypadku **interfejsu API konferencji demonstracyjnej**. W przypadku skonfigurowania wybierz wersję.
+1. Przejdź do karty **Ustawienia** na górnym pasku.
+1. Przewiń w dół do sekcji **dzienniki diagnostyczne** .  
+    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-api-1.png" alt-text="Rejestrator usługi App Insights":::
+1. Zaznacz pole **Włącz** .
+1. Wybierz dołączony rejestrator w polu rozwijanym **miejsce docelowe** .
+1. Wprowadź **100** jako **próbkowanie (%)** i zaznacz pole wyboru **zawsze Rejestruj błędy** .
+1. Wybierz pozycję **Zapisz**.
 
 > [!WARNING]
-> Zastąpienie wartości domyślnej **0** w **pierwszych bajtach pola Body** może znacząco zmniejszyć wydajność interfejsów API.
+> Zastąpienie wartości domyślnej **0** w polu **liczba bajtów ładunku do zarejestrowania** może znacząco obniżyć wydajność interfejsów API.
 
 > [!NOTE]
 > Za sceną jest tworzona jednostka [diagnostyczna](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) o nazwie "ApplicationInsights" na poziomie interfejsu API.
@@ -76,15 +64,17 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Włącz                              | boolean                           | Określa, czy jest włączone rejestrowanie tego interfejsu API.                                                                                                                                                                                                                                                                                                |
 | Element docelowy                         | Rejestrator Application Insights platformy Azure | Określa Rejestrator Application Insights platformy Azure do użycia                                                                                                                                                                                                                                                                                           |
-| Próbkowanie (%)                        | decimal                           | Wartości od 0 do 100 (procent). <br/> Określa procent żądań, które będą rejestrowane w usłudze Azure Application Insights. 0% próbkowanie oznacza, że zarejestrowano zero żądań, a próbkowanie 100% oznacza, że wszystkie żądania zostały zarejestrowane. <br/> To ustawienie służy do zmniejszania skutków wydajności żądań rejestrowania do usługi Azure Application Insights (zobacz sekcję poniżej). |
-| Zawsze Rejestruj błędy                   | boolean                           | W przypadku wybrania tego ustawienia wszystkie błędy zostaną zarejestrowane w usłudze Azure Application Insights niezależnie od ustawienia **próbkowania** .                                                                                                                                                                                                                  |
-| Opcje podstawowe: nagłówki              | list                              | Określa nagłówki, które będą rejestrowane w usłudze Azure Application Insights na potrzeby żądań i odpowiedzi.  Wartość domyślna: żadne nagłówki nie są rejestrowane.                                                                                                                                                                                                             |
-| Opcje podstawowe: pierwsze bajty treści  | liczba całkowita                           | Określa, ile pierwszych bajtów treści jest rejestrowanych na platformie Azure Application Insights w przypadku żądań i odpowiedzi.  Wartość domyślna: treść nie jest zarejestrowana.                                                                                                                                                                                                    |
-| Opcje zaawansowane: poziom szczegółowości         |                                   | Określa poziom szczegółowości. Rejestrowane będą tylko niestandardowe dane śledzenia o wyższym poziomie ważności. Wartość domyślna: informacje.                                                                                                                                                                                                                               |
-| Opcje zaawansowane: żądanie frontonu  |                                   | Określa, czy i w jaki sposób *żądania frontonu* będą rejestrowane w usłudze Azure Application Insights. *Żądanie frontonu* to żądanie przychodzące do usługi Azure API Management.                                                                                                                                                                        |
-| Opcje zaawansowane: odpowiedź frontonu |                                   | Określa, czy i w jaki sposób *odpowiedzi frontonu* będą rejestrowane w usłudze Azure Application Insights. *Odpowiedź frontonu* to odpowiedź wychodząca z usługi Azure API Management.                                                                                                                                                                   |
-| Opcje zaawansowane: żądanie wewnętrznej bazy danych   |                                   | Określa, czy w usłudze Azure Application Insights mają być rejestrowane *żądania zaplecza* . *Żądanie zaplecza* to żądanie wychodzące z usługi Azure API Management.                                                                                                                                                                        |
-| Opcje zaawansowane: odpowiedź zaplecza  |                                   | Określa, czy i w jaki sposób *odpowiedzi zaplecza* będą rejestrowane w usłudze Azure Application Insights. *Odpowiedź zaplecza* to odpowiedź przychodząca do usługi Azure API Management.                                                                                                                                                                       |
+| Próbkowanie (%)                        | decimal                           | Wartości od 0 do 100 (procent). <br/> Określa procent żądań, które będą rejestrowane w Application Insights. 0% próbkowanie oznacza, że zarejestrowano zero żądań, a próbkowanie 100% oznacza, że wszystkie żądania zostały zarejestrowane. <br/> Użyj tego ustawienia, aby zmniejszyć wpływ na wydajność podczas rejestrowania żądań do Application Insights. Zobacz [implikacje wydajności i próbkowanie dzienników](#performance-implications-and-log-sampling). |
+| Zawsze Rejestruj błędy                   | boolean                           | W przypadku wybrania tego ustawienia wszystkie błędy będą rejestrowane w Application Insights, niezależnie od ustawienia **próbkowania** .   
+| Adres IP klienta dziennika | |  W przypadku wybrania tego ustawienia adres IP klienta dla żądań interfejsu API zostanie zarejestrowany w Application Insights.                                         |
+| Szczegółowość         |                                   | Określa poziom szczegółowości. Rejestrowane będą tylko niestandardowe dane śledzenia o wyższym poziomie ważności. Wartość domyślna: informacje.      | 
+| Protokół korelacji |  |  Wybierz protokół używany do skorelowania telemetrii wysyłanej przez wiele składników. Domyślne: Starsza wersja <br/>Aby uzyskać więcej informacji, zobacz [korelacja telemetrii w Application Insights](../azure-monitor/app/correlation.md).  |
+| Opcje podstawowe: nagłówki do rejestrowania              | list                              | Określa nagłówki, które będą rejestrowane w Application Insights na potrzeby żądań i odpowiedzi.  Wartość domyślna: żadne nagłówki nie są rejestrowane.                                                                                                                                                                                                             |
+| Opcje podstawowe: liczba bajtów ładunku do zarejestrowania | liczba całkowita                           | Określa, ile pierwszych bajtów treści jest rejestrowanych do Application Insights na potrzeby żądań i odpowiedzi.  Wartość domyślna: 0.                                                                                                                                                                                                    |
+| Opcje zaawansowane: żądanie frontonu  |                                   | Określa, czy i w jaki sposób *żądania frontonu* będą rejestrowane w Application Insights. *Żądanie frontonu* to żądanie przychodzące do usługi Azure API Management.                                                                                                                                                                        |
+| Opcje zaawansowane: odpowiedź frontonu |                                   | Określa, czy i w jaki sposób *odpowiedzi frontonu* będą rejestrowane w Application Insights. *Odpowiedź frontonu* to odpowiedź wychodząca z usługi Azure API Management.                                                                                                                                                                   |
+| Opcje zaawansowane: żądanie wewnętrznej bazy danych   |                                   | Określa, czy i w jaki sposób mają być rejestrowane *żądania zaplecza* Application Insights. *Żądanie zaplecza* to żądanie wychodzące z usługi Azure API Management.                                                                                                                                                                        |
+| Opcje zaawansowane: odpowiedź zaplecza  |                                   | Określa, czy i w jaki sposób *odpowiedzi zaplecza* będą rejestrowane w Application Insights. *Odpowiedź zaplecza* to odpowiedź przychodząca do usługi Azure API Management.                                                                                                                                                                       |
 
 > [!NOTE]
 > Można określić rejestratory na różnych poziomach — pojedynczy Rejestrator interfejsu API lub Rejestrator dla wszystkich interfejsów API.
@@ -93,28 +83,29 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 > + Jeśli są to różne rejestratory, zostaną użyte oba typy (dzienniki multipleksowania),
 > + Jeśli są to te same rejestratory, ale mają różne ustawienia, to jeden dla jednego interfejsu API (bardziej szczegółowy) przesłoni jeden dla wszystkich interfejsów API.
 
-## <a name="what-data-is-added-to-azure-application-insights"></a>Jakie dane są dodawane do usługi Azure Application Insights
+## <a name="what-data-is-added-to-application-insights"></a>Jakie dane są dodawane do Application Insights
 
-Usługa Azure Application Insights otrzymuje następujące:
+Application Insights odbiera:
 
-+ *Żądaj* elementu telemetrii dla każdego żądania przychodzącego ( *żądanie frontonu* , *odpowiedź frontonu* ),
-+ Element telemetrii *zależności* dla każdego żądania przekazanego do usługi zaplecza ( *żądanie wewnętrznej bazy* danych, *odpowiedź zaplecza* ),
-+ Element telemetrii *wyjątku* dla każdego żądania zakończonego niepowodzeniem.
++ *Żądaj* elementu telemetrii dla każdego żądania przychodzącego (*żądanie frontonu*, *odpowiedź frontonu*),
++ Element telemetrii *zależności* dla każdego żądania przekazanego do usługi zaplecza (*żądanie wewnętrznej bazy* danych, *odpowiedź zaplecza*),
++ Element telemetrii *wyjątku* dla każdego żądania zakończonego niepowodzeniem:
+    + Niepowodzenie z powodu zamkniętego połączenia z klientem
+    + wyzwolono sekcję *on-Error* zasad interfejsu API
+    + ma odpowiedź zgodną z kodem stanu HTTP 4xx lub 5xx.
++ *Śledzenie* elementu telemetrii, jeśli skonfigurowano zasady [śledzenia](api-management-advanced-policies.md#Trace) . `severity`Ustawienie w `trace` zasadach musi mieć wartość równą lub większą od `verbosity` ustawienia w dzienniku Application Insights.
 
-Żądanie zakończone niepowodzeniem to żądanie, które:
-
-+ Niepowodzenie z powodu zamkniętego połączenia z klientem lub
-+ wyzwolono sekcję *on-Error* zasad interfejsu API lub
-+ ma odpowiedź zgodną z kodem stanu HTTP 4xx lub 5xx.
+> [!NOTE]
+> Aby uzyskać informacje o maksymalnym rozmiarze i liczbie metryk i zdarzeń na wystąpienie Application Insights, zobacz [limity Application Insights](../azure-monitor/service-limits.md#application-insights) .
 
 ## <a name="performance-implications-and-log-sampling"></a>Wpływ na wydajność i próbkowanie dzienników
 
 > [!WARNING]
 > Rejestrowanie wszystkich zdarzeń może mieć poważne konsekwencje dla wydajności, w zależności od szybkości żądań przychodzących.
 
-Na podstawie wewnętrznych testów obciążenia włączenie tej funkcji spowodowało spadek przepływności o 40% – 50%, gdy liczba żądań przekroczyła 1 000 żądań na sekundę. Usługa Azure Application Insights została zaprojektowana tak, aby używać analizy statystycznej do oceny wydajności aplikacji. Nie jest to system audytu i nie jest przystosowany do rejestrowania każdego pojedynczego żądania dla interfejsów API.
+Na podstawie wewnętrznych testów obciążenia włączenie tej funkcji spowodowało spadek przepływności o 40% – 50%, gdy liczba żądań przekroczyła 1 000 żądań na sekundę. Application Insights jest przeznaczony do oceny wydajności aplikacji przy użyciu analizy statystycznej. Nie jest to system audytu i nie jest przystosowany do rejestrowania każdego pojedynczego żądania dla interfejsów API.
 
-Liczbę rejestrowanych żądań można manipulować przez dostosowanie ustawienia **próbkowania** (patrz powyższe kroki). Wartość 100% oznacza, że wszystkie żądania są rejestrowane, natomiast 0% nie uwzględnia żadnego rejestrowania. **Próbkowanie** pomaga zmniejszyć ilość danych telemetrycznych, co skutecznie uniemożliwia obniżenie wydajności, zachowując jednocześnie zalety rejestrowania.
+Liczbę rejestrowanych żądań można manipulować przez dostosowanie ustawienia **próbkowania** (patrz poprzednie kroki). Wartość 100% oznacza, że wszystkie żądania są rejestrowane, natomiast 0% nie odzwierciedla rejestrowania. **Próbkowanie** pomaga zmniejszyć ilość danych telemetrycznych, co skutecznie uniemożliwia znaczne obniżenie wydajności, zachowując jednocześnie zalety rejestrowania.
 
 Pomijanie rejestrowania nagłówków i treści żądań i odpowiedzi spowoduje również pozytywny wpływ na rozwiązywanie problemów z wydajnością.
 

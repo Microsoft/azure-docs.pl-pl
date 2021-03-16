@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448578"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489155"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Amazon i zaloguj się na nim przy użyciu Azure Active Directory B2C
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448578"
 
 Aby włączyć Logowanie użytkowników przy użyciu konta Amazon w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [usłudze Amazon Developer Services i technologiach](https://developer.amazon.com). Aby uzyskać więcej informacji, zobacz [Rejestrowanie na potrzeby logowania za pomocą usługi Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Jeśli nie masz jeszcze konta usługi Amazon, możesz zarejestrować się w usłudze [https://www.amazon.com/](https://www.amazon.com/) .
 
-> [!NOTE]  
-> Użyj następujących adresów URL w **kroku 8** poniżej, zastępując `your-tenant-name` je nazwą dzierżawy. Wprowadzając nazwę dzierżawy, użyj wszystkich małych liter, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
-> - Dla **dozwolonych źródeł** wpisz `https://your-tenant-name.b2clogin.com` 
-> - Dla **dozwolonych zwrotnych adresów URL** wpisz `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Zaloguj się do [konsoli dewelopera usługi Amazon](https://developer.amazon.com/dashboard) przy użyciu poświadczeń konta Amazon.
+1. Jeśli jeszcze tego nie zrobiono, wybierz pozycję **zarejestruj się**, postępuj zgodnie z procedurami rejestracji dla deweloperów, a następnie zaakceptuj zasady.
+1. Z poziomu pulpitu nawigacyjnego wybierz pozycję **Zaloguj się za pomocą usługi Amazon**.
+1. Wybierz pozycję **Utwórz nowy profil zabezpieczeń**.
+1. Wprowadź wartość w polu **Nazwa profilu zabezpieczeń**, **opis profilu zabezpieczeń** i **adres URL powiadomienia o ochronie prywatności**, na przykład `https://www.contoso.com/privacy` adres URL informacji o prywatności to strona, którą zarządzasz dla użytkowników. Następnie kliknij przycisk **Zapisz**.
+1. W sekcji **Logowanie za pomocą usługi Amazon konfiguracje** Wybierz utworzoną **nazwę profilu zabezpieczeń** , wybierz ikonę **Zarządzaj** , a następnie wybierz pozycję **Ustawienia sieci Web**.
+1. W sekcji **Ustawienia sieci Web** Skopiuj wartości **Identyfikator klienta**. Wybierz pozycję **Pokaż klucz tajny** , aby uzyskać klucz tajny klienta, a następnie skopiuj go. Wymagane są obie wartości, aby skonfigurować konto Amazon jako dostawcę tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
+1. W sekcji **Ustawienia sieci Web** wybierz pozycję **Edytuj**. 
+    1. W obszarze **dozwolone źródła** wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy. Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name` .
+    1.  **Dozwolone zwrotne adresy URL** , wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Zamień na `your-tenant-name` nazwę dzierżawy i `your-domain-name` domenę niestandardową.
+1. Wybierz pozycję **Zapisz**.
 
 ::: zone pivot="b2c-user-flow"
 

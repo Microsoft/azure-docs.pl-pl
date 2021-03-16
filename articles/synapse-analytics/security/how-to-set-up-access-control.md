@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369003"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472263"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Jak skonfigurować kontrolę dostępu dla obszaru roboczego Synapse 
 
@@ -124,7 +124,7 @@ Aby uruchamiać potoki i wykonywać zadania systemowe, Synapse wymaga, aby usłu
 
 ## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>Krok 5. przyznanie administratorom Synapse roli współautor platformy Azure w obszarze roboczym 
 
-Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, użytkownicy muszą mieć co najmniej dostęp współautora platformy Azure do obszaru roboczego. Rola współautor umożliwia również tym użytkownikom zarządzanie zasobami, w tym Wstrzymywanie i skalowanie.
+Aby utworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, użytkownicy muszą mieć co najmniej rolę współautor platformy Azure w obszarze roboczym. Rola współautor umożliwia również tym użytkownikom zarządzanie zasobami, w tym Wstrzymywanie i skalowanie. Jeśli używasz Azure Portal lub Synapse Studio do tworzenia pul SQL, pul Apache Spark i środowiska Integration Runtime, będziesz potrzebować roli współautor platformy Azure na poziomie grupy zasobów. 
 
 - Otwórz witrynę Azure Portal
 - Zlokalizuj obszar roboczy, `workspace1`

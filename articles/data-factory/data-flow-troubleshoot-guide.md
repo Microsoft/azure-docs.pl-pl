@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/11/2020
-ms.openlocfilehash: f8a852a8c4197169061a9c7633f4f363ad057337
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/15/2021
+ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505804"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467735"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
@@ -165,36 +165,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Przyczyna**: nieokreślony.
 - **Zalecenie**: Sprawdź przypisanie wartości parametrów w potoku. Wyrażenie parametru może zawierać nieprawidłowe znaki.
 
-### <a name="error-code-df-excel-invalidconfiguration"></a>Kod błędu: DF-Excel-InvalidConfiguration
-- **Komunikat**: Nazwa arkusza programu Excel lub indeks są wymagane.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Sprawdź wartość parametru. Określ nazwę lub indeks arkusza na potrzeby odczytywania danych programu Excel.
-
-- **Komunikat**: Nazwa i indeks arkusza programu Excel nie mogą istnieć jednocześnie.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Sprawdź wartość parametru. Określ nazwę lub indeks arkusza na potrzeby odczytywania danych programu Excel.
-
-- **Komunikat**: podano nieprawidłowy zakres.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Sprawdź wartość parametru. Określ prawidłowy zakres przez odwołanie. Aby uzyskać więcej informacji, zobacz [Właściwości programu Excel](./format-excel.md#dataset-properties).
-
-- **Komunikat**: plik programu Excel jest nieprawidłowy, ale obsługiwane są tylko pliki xlsx i xls
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Upewnij się, że rozszerzenie pliku programu Excel to xlsx lub xls.
-
-
- ### <a name="error-code-df-excel-invaliddata"></a>Kod błędu: DF-Excel-InvalidData
-- **Komunikat**: arkusz programu Excel nie istnieje.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Sprawdź wartość parametru. Określ prawidłową nazwę lub indeks arkusza na potrzeby odczytywania danych programu Excel.
-
-- **Komunikat**: odczytywanie plików programu Excel z innym schematem nie jest obecnie obsługiwane.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Użyj obsługiwanego pliku programu Excel.
-
-- **Komunikat**: typ danych nie jest obsługiwany.
-- **Przyczyna**: nieokreślony.
-- **Zalecenie**: Użyj obsługiwanych typów danych plików programu Excel.
 
 ### <a name="error-code-4502"></a>Kod błędu: 4502
 - **Komunikat**: istnieją znaczne współbieżne wykonania MappingDataflow, które powodują błędy spowodowane ograniczeniami w obszarze Integration Runtime.
@@ -211,6 +181,206 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Komunikat**: działanie zostało uruchomione na Azure Integration Runtime i nie powiodło się odszyfrowanie poświadczeń magazynu danych lub obliczeń połączonych za pośrednictwem samoobsługowego Integration Runtime. Sprawdź konfigurację połączonych usług skojarzonych z tym działaniem i upewnij się, że używasz odpowiedniego typu środowiska Integration Runtime.
 - **Przyczyna**: przepływ danych nie obsługuje połączonych usług w ramach własnych środowisk Integration Runtime.
 - **Zalecenie**: Konfigurowanie przepływu danych do uruchamiania w zarządzanym środowisku integration Runtime Virtual Network.
+
+### <a name="error-code-df-xml-invalidvalidationmode"></a>Kod błędu: DF-XML-InvalidValidationMode
+- **Komunikat**: podano nieprawidłowy tryb walidacji kodu XML.
+- **Zalecenie**: Sprawdź wartość parametru i określ właściwy tryb walidacji.
+
+### <a name="error-code-df-xml-invaliddatafield"></a>Kod błędu: DF-XML-InvalidDataField
+- **Komunikat**: pole dla uszkodzonych rekordów musi być typu String i dopuszczać wartość null.
+- **Zalecenie**: Upewnij się, że kolumna `\"_corrupt_record\"` w projekcie źródłowym ma typ danych String.
+
+### <a name="error-code-df-xml-malformedfile"></a>Kod błędu: DF-XML-MalformedFile
+- **Komunikat**: źle sformułowany kod XML w elemencie "FailFastMode".
+- **Zalecenie**: zaktualizuj zawartość pliku XML w odpowiednim formacie.
+
+### <a name="error-code-df-xml-invaliddatatype"></a>Kod błędu: DF-XML-InvalidDataType
+- **Komunikat**: element XML ma elementy Sub lub Attributes i nie można go przekonwertować.
+
+### <a name="error-code-df-xml-invalidreferenceresource"></a>Kod błędu: DF-XML-InvalidReferenceResource
+- **Komunikat**: nie można rozpoznać zasobu referencyjnego w pliku danych XML.
+- **Zalecenie**: należy sprawdzić zasób referencyjny w pliku danych XML.
+
+### <a name="error-code-df-xml-invalidschema"></a>Kod błędu: DF-XML-InvalidSchema
+- **Komunikat**: Walidacja schematu nie powiodła się.
+
+### <a name="error-code-df-xml-unsupportedexternalreferenceresource"></a>Kod błędu: DF-XML-UnsupportedExternalReferenceResource
+- **Komunikat**: zewnętrzny zasób odwołania w pliku danych XML nie jest obsługiwany.
+- **Zalecenie**: zaktualizuj zawartość pliku XML, gdy zewnętrzny zasób referencyjny nie jest obecnie obsługiwany.
+
+### <a name="error-code-df-gen2-invalidaccountconfiguration"></a>Kod błędu: DF-GEN2-InvalidAccountConfiguration
+- **Komunikat**: należy określić jeden z kluczy konta lub dzierżawy/SpnId/SpnCredential/SpnCredentialType lub MiServiceUri/miServiceToken.
+- **Zalecenie**: Skonfiguruj odpowiednie konto w powiązanej usłudze GEN2 połączonej.
+
+### <a name="error-code-df-gen2-invalidauthconfiguration"></a>Kod błędu: DF-GEN2-InvalidAuthConfiguration
+- **Komunikat**: można określić tylko jedną z trzech metod uwierzytelniania (Key, serviceprincipal i mi). 
+- **Zalecenie**: wybierz odpowiedni typ uwierzytelniania w powiązanej usłudze GEN2 połączonej.
+
+### <a name="error-code-df-gen2-invalidserviceprincipalcredentialtype"></a>Kod błędu: DF-GEN2-InvalidServicePrincipalCredentialType
+- **Komunikat**: ServicePrincipalCredentialType jest nieprawidłowy.
+
+### <a name="error-code-df-gen2-invaliddatatype"></a>Kod błędu: DF-GEN2-InvalidDataType
+- **Komunikat**: typ chmury jest nieprawidłowy.
+
+### <a name="error-code-df-blob-invalidaccountconfiguration"></a>Kod błędu: DF-BLOB-InvalidAccountConfiguration
+- **Komunikat**: należy określić jeden z kluczy konta lub sas_token.
+
+### <a name="error-code-df-blob-invalidauthconfiguration"></a>Kod błędu: DF-BLOB-InvalidAuthConfiguration
+- **Komunikat**: można określić tylko jedną z dwóch metod uwierzytelniania (Key, SAS).
+
+### <a name="error-code-df-blob-invaliddatatype"></a>Kod błędu: DF-BLOB-InvalidDataType
+- **Komunikat**: typ chmury jest nieprawidłowy.
+
+### <a name="error-code-df-cosmos-partitionkeymissed"></a>Kod błędu: DF-Cosmos-PartitionKeyMissed
+- **Komunikat**: Ścieżka klucza partycji powinna być określona dla operacji Update i DELETE.
+- **Zalecenie**: Użyj klucza podawania partycji w ustawieniach ujścia Cosmos.
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Kod błędu: DF-Cosmos-InvalidPartitionKey
+- **Komunikat**: Ścieżka klucza partycji nie może być pusta w przypadku operacji Update i DELETE.
+- **Zalecenie**: Użyj klucza podawania partycji w ustawieniach ujścia Cosmos.
+
+### <a name="error-code-df-cosmos-idpropertymissed"></a>Kod błędu: DF-Cosmos-IdPropertyMissed
+- **Komunikat**: Właściwość "ID" powinna być mapowana na potrzeby operacji usuwania i aktualizowania.
+- **Zalecenie**: Upewnij się, że dane wejściowe mają `id` kolumnę w ustawieniach ujścia Cosmos. Jeśli nie, użyj **opcji wybierz lub Utwórz transformację** do wygenerowania tej kolumny przed ujściam.
+
+### <a name="error-code-df-cosmos-invalidpartitionkeycontent"></a>Kod błędu: DF-Cosmos-InvalidPartitionKeyContent
+- **Komunikat**: klucz partycji powinien rozpoczynać się od/.
+- **Zalecenie**: Ustaw klucz partycji `/` na wartość w ustawieniach ujścia Cosmos, na przykład: `/movieId` .
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Kod błędu: DF-Cosmos-InvalidPartitionKey
+- **Komunikat**: partitionKey nie został zamapowany w ujścia dla operacji usuwania i aktualizowania.
+- **Zalecenie**: w ustawieniach ujścia Cosmos Użyj klucza partycji, który jest taki sam jak klucz partycji kontenera.
+
+### <a name="error-code-df-cosmos-invalidconnectionmode"></a>Kod błędu: DF-Cosmos-InvalidConnectionMode
+- **Komunikat**: nieprawidłowy element connectionmode.
+- **Zalecenie**: Upewnij się, że obsługiwany tryb to **brama** i **DirectHttps** w ustawieniach Cosmos.
+
+### <a name="error-code-df-cosmos-invalidaccountconfiguration"></a>Kod błędu: DF-Cosmos-InvalidAccountConfiguration
+- **Komunikat**: należy określić wartość AccountName lub accountEndpoint.
+
+### <a name="error-code-df-github-writenotsupported"></a>Kod błędu: DF-GitHub-WriteNotSupported
+- **Komunikat**: Sklep GitHub nie zezwala na zapisywanie.
+
+### <a name="error-code-df-pgsql-invalidcredential"></a>Kod błędu: DF-PGSQL-InvalidCredential
+- **Komunikat**: należy określić użytkownika/hasło.
+- **Zalecenie**: Upewnij się, że masz odpowiednie ustawienia poświadczeń w powiązanej usłudze PostgreSQL połączonej.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Kod błędu: DF-płata InvalidStageConfiguration
+- **Komunikat**: tylko typ magazynu obiektów BLOB może być używany jako etap operacji odczytu/zapisu płatnych śniegów.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Kod błędu: DF-płata InvalidStageConfiguration
+- **Komunikat**: należy określić właściwości etapu nadpłaty za pomocą usługi Azure Blob + uwierzytelnianie SAS.
+
+### <a name="error-code-df-snowflake-invaliddatatype"></a>Kod błędu: DF-płata InvalidDataType
+- **Komunikat**: typ Spark nie jest obsługiwany w płatnej śniegu.
+- **Zalecenie**: Użyj **przekształcenia pochodnego** , aby zmienić powiązaną kolumnę danych wejściowych na typ ciągu przed ujściam śniegu. 
+
+### <a name="error-code-df-hive-invalidblobstagingconfiguration"></a>Kod błędu: DF-Hive-InvalidBlobStagingConfiguration
+- **Komunikat**: należy określić właściwości przejściowe magazynu obiektów BLOB.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Kod błędu: DF-Hive-InvalidGen2StagingConfiguration
+- **Komunikat**: ADLS Gen2 przemieszczania magazynu obsługuje tylko poświadczenia klucza jednostki usługi.
+- **Zalecenie**: Upewnij się, że zastosowano poświadczenie klucza jednostki usługi w połączonej usłudze ADLS Gen2, która jest używana jako przemieszczanie.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Kod błędu: DF-Hive-InvalidGen2StagingConfiguration
+- **Komunikat**: należy określić właściwości przygotowywania magazynu ADLS Gen2. Wymagany jest jeden z kluczy lub dzierżawców/spnId/spnKey lub miServiceUri/miServiceToken.
+- **Zalecenie**: Zastosuj odpowiednie poświadczenie, które jest używane jako przejściowe w gałęzi programu Hive w powiązanej ADLS Gen2 połączonej usłudze. 
+
+### <a name="error-code-df-hive-invaliddatatype"></a>Kod błędu: DF-Hive-InvalidDataType
+- **Komunikat**: nieobsługiwane kolumny.
+- **Zalecenie**: zaktualizuj kolumnę danych wejściowych, aby dopasować ją do typu danych obsługiwanego przez tę gałąź.
+
+### <a name="error-code-df-hive-invalidstoragetype"></a>Kod błędu: DF-Hive-InvalidStorageType
+- **Komunikat**: typ magazynu może być obiektem BLOB lub Gen2.
+
+### <a name="error-code-df-delimited-invalidconfiguration"></a>Kod błędu: DF-rozdzielany-InvalidConfiguration
+- **Komunikat**: należy określić jeden z pustych wierszy lub nagłówków niestandardowych.
+- **Zalecenie**: Określ puste wiersze lub nagłówki niestandardowe w ustawieniach woluminu CSV.
+
+### <a name="error-code-df-delimited-columndelimitermissed"></a>Kod błędu: DF-rozdzielany-ColumnDelimiterMissed
+- **Komunikat**: ogranicznik kolumny jest wymagany do przeanalizowania.
+- **Zalecenie**: Upewnij się, że masz ogranicznik kolumny w ustawieniach woluminu CSV.
+
+### <a name="error-code-df-mssql-invalidcredential"></a>Kod błędu: DF-MSSQL-InvalidCredential
+- **Komunikat**: należy określić jeden z elementów User/PWD lub dzierżawców/SpnId/SpnKey lub MiServiceUri/miServiceToken.
+- **Zalecenie**: Zastosuj odpowiednie poświadczenia w powiązanej usłudze MSSQL.
+
+### <a name="error-code-df-mssql-invaliddatatype"></a>Kod błędu: DF-MSSQL-InvalidDataType
+- **Komunikat**: nieobsługiwane pola.
+- **Zalecenie**: Zmodyfikuj kolumnę dane wejściowe, aby dopasować ją do typu danych obsługiwanego przez MSSQL.
+
+### <a name="error-code-df-mssql-invalidauthconfiguration"></a>Kod błędu: DF-MSSQL-InvalidAuthConfiguration
+- **Komunikat**: można określić tylko jedną z trzech metod uwierzytelniania (Key, serviceprincipal i mi).
+- **Zalecenie**: można określić tylko jedną z trzech metod uwierzytelniania (Key, serviceprincipal i mi) w powiązanej powiązanej usłudze MSSQL.
+
+### <a name="error-code-df-mssql-invalidcloudtype"></a>Kod błędu: DF-MSSQL-InvalidCloudType
+- **Komunikat**: typ chmury jest nieprawidłowy.
+- **Zalecenie**: Sprawdź typ chmury w powiązanej połączonej usłudze MSSQL.
+
+### <a name="error-code-df-sqldw-invalidblobstagingconfiguration"></a>Kod błędu: DF-SQLDW-InvalidBlobStagingConfiguration
+- **Komunikat**: należy określić właściwości przejściowe magazynu obiektów BLOB.
+
+### <a name="error-code-df-sqldw-invalidstoragetype"></a>Kod błędu: DF-SQLDW-InvalidStorageType
+- **Komunikat**: typ magazynu może być obiektem BLOB lub Gen2.
+
+### <a name="error-code-df-sqldw-invalidgen2stagingconfiguration"></a>Kod błędu: DF-SQLDW-InvalidGen2StagingConfiguration
+- **Komunikat**: ADLS Gen2 przemieszczania magazynu obsługuje tylko poświadczenia klucza jednostki usługi.
+
+### <a name="error-code-df-sqldw-invalidconfiguration"></a>Kod błędu: DF-SQLDW-InvalidConfiguration
+- **Komunikat**: należy określić właściwości przygotowywania magazynu ADLS Gen2. Wymagany jest jeden z kluczy lub dzierżawców/spnId/spnCredential/spnCredentialType lub miServiceUri/miServiceToken.
+
+### <a name="error-code-df-delta-invalidconfiguration"></a>Kod błędu: DF-DELTA-InvalidConfiguration
+- **Komunikat**: nie można jednocześnie ustawić sygnatury czasowej i wersji.
+
+### <a name="error-code-df-delta-keycolumnmissed"></a>Kod błędu: DF-DELTA-KeyColumnMissed
+- **Komunikat**: dla operacji nienależących do wstawienia należy określić kolumny kluczy.
+
+### <a name="error-code-df-delta-invalidtableoperationsettings"></a>Kod błędu: DF-DELTA-InvalidTableOperationSettings
+- **Komunikat**: nie można jednocześnie określić opcji ponownego tworzenia i obcinania.
+
+### <a name="error-code-df-excel-worksheetconfigmissed"></a>Kod błędu: DF-Excel-WorksheetConfigMissed
+- **Komunikat**: Nazwa arkusza programu Excel lub indeks są wymagane.
+- **Zalecenie**: Sprawdź wartość parametru i określ nazwę arkusza lub indeks, aby odczytać dane programu Excel.
+
+### <a name="error-code-df-excel-invalidworksheetconfiguration"></a>Kod błędu: DF-Excel-InvalidWorksheetConfiguration
+- **Komunikat**: Nazwa i indeks arkusza programu Excel nie mogą istnieć jednocześnie.
+- **Zalecenie**: Sprawdź wartość parametru i określ nazwę arkusza lub indeks, aby odczytać dane programu Excel.
+
+### <a name="error-code-df-excel-invalidrange"></a>Kod błędu: DF-Excel-InvalidRange
+- **Komunikat**: podano nieprawidłowy zakres.
+- **Zalecenie**: Sprawdź wartość parametru i określ prawidłowy zakres przez następujące odwołanie: [format programu Excel we właściwościach Factory-Dataset danych platformy Azure](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+
+### <a name="error-code-df-excel-worksheetnotexist"></a>Kod błędu: DF-Excel-WorksheetNotExist
+- **Komunikat**: arkusz programu Excel nie istnieje.
+- **Zalecenie**: Sprawdź wartość parametru i określ prawidłową nazwę arkusza lub indeks, aby odczytać dane programu Excel.
+
+### <a name="error-code-df-excel-differentschemanotsupport"></a>Kod błędu: DF-Excel-DifferentSchemaNotSupport
+- **Komunikat**: odczyt plików programu Excel z innym schematem nie jest obecnie obsługiwany.
+
+### <a name="error-code-df-excel-invaliddatatype"></a>Kod błędu: DF-Excel-InvalidDataType
+- **Komunikat**: typ danych nie jest obsługiwany.
+
+### <a name="error-code-df-excel-invalidfile"></a>Kod błędu: DF-Excel-InvalidFile
+- **Komunikat**: plik programu Excel jest nieprawidłowy, ale obsługiwane są tylko pliki xlsx i xls.
+
+### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Kod błędu: DF-AdobeIntegration-InvalidMapToFilter
+- **Komunikat**: zasób niestandardowy może mieć tylko jeden klucz/identyfikator mapowany do filtrowania.
+
+### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Kod błędu: DF-AdobeIntegration-InvalidPartitionConfiguration
+- **Komunikat**: obsługiwana jest tylko jedna partycja. Schemat partycji może być RoundRobin lub skrótem.
+- **Zalecenie**: w ustawieniach AdobeIntegration upewnij się, że masz tylko jedną partycję. Schemat partycji może być RoundRobin lub skrótem.
+
+### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Kod błędu: DF-AdobeIntegration-KeyColumnMissed
+- **Komunikat**: należy określić klucz dla operacji nienależących do wstawienia.
+- **Zalecenie**: Określ kolumny klucza w ustawieniach AdobeIntegration dla operacji nienależących do wstawienia.
+
+### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Kod błędu: DF-AdobeIntegration-InvalidPartitionType
+- **Komunikat**: typ partycji musi być roundRobin.
+- **Zalecenie**: Upewnij się, że typ partycji to roundRobin w ustawieniach AdobeIntegration.
+
+### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Kod błędu: DF-AdobeIntegration-InvalidPrivacyRegulation
+- **Komunikat**: obecnie jest Rodo tylko Regulamin ochrony prywatności.
+- **Zalecenie**: potwierdzenie zasad ochrony prywatności w ustawieniach AdobeIntegration jest **"Rodo"**.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Różne porady dotyczące rozwiązywania problemów
 - **Problem**: Wystąpił nieoczekiwany wyjątek i wykonywanie nie powiodło się.

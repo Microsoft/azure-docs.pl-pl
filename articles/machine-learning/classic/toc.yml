@@ -140,6 +140,20 @@
         - name: Dane galerii
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+    - name: Migrowanie do usługi Azure Machine Learning
+      items:
+        - name: Omówienie migracji
+          href: migrate-overview.md
+        - name: Migrowanie zestawów danych
+          href: migrate-register-dataset.md
+        - name: Ponowne kompilowanie eksperymentów
+          href: migrate-rebuild-experiment.md
+        - name: Ponowne kompilowanie usług sieci Web
+          href: migrate-rebuild-web-service.md
+        - name: Migrowanie aplikacji klienckich
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: Wykonaj ponownie kompilację modułów skryptu języka R
+          href: migrate-execute-r-script.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja algorytmów i modułów

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680607"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563780"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Wdróż klaster Service Fabric platformy Azure z typami węzłów tylko bezstanowych (wersja zapoznawcza)
 Service Fabric typy węzłów są związane z założeniem, że w pewnym momencie usługi stanowe mogą być umieszczane w węzłach. Bezstanowe typy węzłów obniżają to założenie dla typu węzła, w związku z tym w taki sposób, aby typ węzła korzystał z innych funkcji, takich jak szybsze operacje skalowania w poziomie, obsługa automatycznych uaktualnień systemu operacyjnego w przypadku trwałości i skalowanie do ponad 100 węzłów w jednym zestawie skalowania maszyn wirtualnych.
@@ -72,9 +72,13 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
 Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zasób zestawu skalowania maszyn wirtualnych w następujący sposób:
 
 * Wartość właściwości  **singlePlacementGroup** , która powinna być ustawiona na **false** , jeśli wymagane jest skalowanie do ponad 100 maszyn wirtualnych.
-* **UpgradePolicy** zestawu skalowania **powinien być** ustawiony na wartość " **roll**".
+* **Tryb** **upgradePolicy** zestawu skalowania powinien być ustawiony na wartość " **roll**".
 * Tryb uaktualniania stopniowego wymaga skonfigurowanych rozszerzeń kondycji aplikacji lub sond kondycji. Skonfiguruj sondę kondycji z domyślną konfiguracją dla typów węzłów bezstanowych zgodnie z sugerowaną poniżej. Po wdrożeniu aplikacji na typ węzła można zmienić porty sondy kondycji/rozszerzenia kondycji, aby monitorować kondycję aplikacji.
 
+>[!NOTE]
+> Jest wymagane, aby liczba domen błędów platformy była aktualizowana do 5, gdy typ węzła bezstanowego jest obsługiwany przez zestaw skalowania maszyn wirtualnych, który jest oparty na wielu strefach. Aby uzyskać szczegółowe informacje, zobacz ten [szablon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) .
+> 
+> **platformFaultDomainCount: 5**
 ```json
 {
     "apiVersion": "2018-10-01",

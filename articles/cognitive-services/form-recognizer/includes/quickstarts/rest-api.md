@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 12/15/2020
+ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2cff960e2dfe6a85b7e16395a167b77f66690c56
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cd785af1bbe374bd1d1c0c353a4162b61e47d870
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511079"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467219"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -53,7 +53,7 @@ curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyze
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
-curl -v -i POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 ---
@@ -61,12 +61,12 @@ curl -v -i POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze" -H "Cont
 Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie ciąg po `analyzeResults/` to identyfikator operacji.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### <a name="get-layout-results"></a>Pobierz wyniki układu
 
-Po wywołaniu interfejsu API **[Analizowanie układu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)** należy wywołać interfejs API **[wyników Get Analizuj](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult)** w celu uzyskania stanu operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Po wywołaniu interfejsu API **[Analizowanie układu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeLayoutAsync)** należy wywołać interfejs API **[wyników Get Analizuj](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeLayoutResult)** w celu uzyskania stanu operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
@@ -82,7 +82,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeR
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ---
@@ -339,25 +339,25 @@ Aby rozpocząć analizowanie faktury, użyj poniższego polecenia. Aby uzyskać 
 1. Zastąp element `{subscription key}` kluczem subskrypcji.
 
 ```bash
-curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{'source': '{your invoice URL}'}"
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{'source': '{your invoice URL}'}"
 ```
 
 Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### <a name="get-invoice-results"></a>Pobierz wyniki faktury
 
-Po wywołaniu interfejsu API **[Analizowanie faktury](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** można wywołać interfejs API **[wyników uzyskiwania analizy faktury](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Po wywołaniu interfejsu API **[Analizowanie faktury](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** można wywołać interfejs API **[wyników uzyskiwania analizy faktury](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9acb78c40a2533aee83)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
 1. Zamień na `{resultId}` Identyfikator operacji z poprzedniego kroku.
 1. Zastąp element `{subscription key}` kluczem subskrypcji.
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
@@ -546,7 +546,7 @@ Szkolenie bez etykiet danych jest operacją domyślną i jest prostsze. Alternat
 
 ### <a name="train-a-model-without-labels"></a>Uczenie modelu bez etykiet
 
-Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu dokumentów w kontenerze obiektów blob platformy Azure, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** , uruchamiając następujące polecenie. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu dokumentów w kontenerze obiektów blob platformy Azure, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync)** , uruchamiając następujące polecenie. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
@@ -563,7 +563,7 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models"
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
 ```
 
 ---
@@ -572,7 +572,7 @@ Otrzymasz `201 (Success)` odpowiedź z nagłówkiem **lokalizacji** . Wartość 
 
 ### <a name="train-a-model-with-labels"></a>Uczenie modelu z etykietami
 
-Aby szkolić z etykietami, musisz mieć specjalne pliki informacji o etykietach ( `\<filename\>.pdf.labels.json` ) w kontenerze magazynu obiektów BLOB obok dokumentów szkoleniowych. [Narzędzie do etykietowania próbek aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający Tworzenie tych plików etykiet. Po ich utworzeniu można wywołać interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** z `"useLabelFile"` parametrem ustawionym na wartość `true` w treści JSON.
+Aby szkolić z etykietami, musisz mieć specjalne pliki informacji o etykietach ( `\<filename\>.pdf.labels.json` ) w kontenerze magazynu obiektów BLOB obok dokumentów szkoleniowych. [Narzędzie do etykietowania próbek aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający Tworzenie tych plików etykiet. Po ich utworzeniu można wywołać interfejs API **[niestandardowego modelu uczenia](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync)** z `"useLabelFile"` parametrem ustawionym na wartość `true` w treści JSON.
 
 Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
@@ -591,7 +591,11 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models"
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
+=======
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true }"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -600,7 +604,7 @@ Otrzymasz `201 (Success)` odpowiedź z nagłówkiem **lokalizacji** . Wartość 
 
 ### <a name="get-training-results"></a>Pobierz wyniki szkoleń
 
-Po rozpoczęciu operacji pouczenia należy użyć nowej operacji, **[pobrać model niestandardowy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetCustomModel)** w celu sprawdzenia stanu szkolenia. Przekaż Identyfikator modelu do tego wywołania interfejsu API, aby sprawdzić stan szkolenia:
+Po rozpoczęciu operacji pouczenia należy użyć nowej operacji, **[pobrać model niestandardowy](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetCustomModel)** w celu sprawdzenia stanu szkolenia. Przekaż Identyfikator modelu do tego wywołania interfejsu API, aby sprawdzić stan szkolenia:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji
@@ -615,7 +619,11 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{mod
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+=======
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -692,7 +700,7 @@ Otrzymasz `200 (Success)` odpowiedź z treścią JSON w następującym formacie.
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analizowanie formularzy przy użyciu modelu niestandardowego
 
-Następnie będziesz używać nowo przeszkolonego modelu do analizowania dokumentu i wyodrębniania par klucz-wartość i tabel z tej usługi. Wywołaj interfejs API **[analizowania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** , uruchamiając następujące polecenie. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Następnie będziesz używać nowo przeszkolonego modelu do analizowania dokumentu i wyodrębniania par klucz-wartość i tabel z tej usługi. Wywołaj interfejs API **[analizowania formularzy](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)** , uruchamiając następujące polecenie. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany z klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
 1. Zamień na `{model ID}` Identyfikator modelu otrzymany w poprzedniej sekcji.
@@ -708,7 +716,11 @@ curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model I
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
+=======
 curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
+>>>>>>> upstream/master
 ```
 
 ---
@@ -717,7 +729,7 @@ Otrzymasz `202 (Success)` odpowiedź z nagłówkiem **lokalizacji operacji** . W
 
 ### <a name="get-the-analyze-results"></a>Pobierz wyniki analizy
 
-Wywołaj interfejs API uzyskiwania **[wyników formularza analizy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeFormResult)** , aby zbadać wyniki operacji analizy.
+Wywołaj interfejs API uzyskiwania **[wyników formularza analizy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult)** , aby zbadać wyniki operacji analizy.
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany z klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
 1. Zamień na `{result ID}` Identyfikator otrzymany w poprzedniej sekcji.
@@ -1025,7 +1037,7 @@ Te przykładowe dane wyjściowe JSON zostały skrócone dla uproszczenia. Zobacz
 
 ## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz [Przewodnik po pojęciach dotyczących przyjęć](../../concept-receipts.md). Aby rozpocząć analizowanie potwierdzenia, Wywołaj interfejs API **[analizy paragonów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz [Przewodnik po pojęciach dotyczących przyjęć](../../concept-receipts.md). Aby rozpocząć analizowanie potwierdzenia, Wywołaj interfejs API **[analizy paragonów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{your receipt URL}` na adres URL obrazu paragonu.
@@ -1040,7 +1052,11 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/recei
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+=======
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -1048,12 +1064,12 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze
 Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie ciąg po `operations/` to identyfikator operacji.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### <a name="get-the-receipt-results"></a>Pobierz wyniki odbioru
 
-Po wywołaniu interfejsu API **Analizowanie paragonów** należy wywołać interfejs API **[wyników uzyskiwania analizy przychodu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Po wywołaniu interfejsu API **Analizowanie paragonów** należy wywołać interfejs API **[wyników uzyskiwania analizy przychodu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
 1. Zamień na `{operationId}` Identyfikator operacji z poprzedniego kroku.
@@ -1068,7 +1084,11 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/a
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+=======
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -1414,32 +1434,36 @@ Ten wynik został skrócony do czytelności. Zobacz [pełne przykładowe dane wy
 
 ### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)  
 
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskiej karty biznesowej przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy karty biznesowej, zobacz [Przewodnik po pojęciach dotyczących wizytówek](../../concept-business-cards.md). Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API **[analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskiej karty biznesowej przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy karty biznesowej, zobacz [Przewodnik po pojęciach dotyczących wizytówek](../../concept-business-cards.md). Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API **[analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{your business card URL}` na adres URL obrazu paragonu.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
 ```bash
+<<<<<<< HEAD
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+=======
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your business card URL}'}"
+>>>>>>> upstream/master
 ```
 
 Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### <a name="get-business-card-results"></a>Pobierz wyniki karty biznesowej
 
-Po wywołaniu interfejsu API **analizy biznesowej** należy wywołać interfejs API **[wyników uzyskiwania analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
+Po wywołaniu interfejsu API **analizy biznesowej** należy wywołać interfejs API **[wyników uzyskiwania analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
 1. Zamień na `{resultId}` Identyfikator operacji z poprzedniego kroku.
 1. Zastąp element `{subscription key}` kluczem subskrypcji.
 
 ```bash
-curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/{resultId}"
+curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/{resultId}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
@@ -1578,7 +1602,7 @@ Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji 
 
 ### <a name="get-a-list-of-custom-models"></a>Pobieranie listy modeli niestandardowych
 
-Użyj interfejsu API **[niestandardowych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetCustomModels)** w poniższym poleceniu, aby zwrócić listę wszystkich niestandardowych modeli należących do subskrypcji.
+Użyj interfejsu API **[niestandardowych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetCustomModels)** w poniższym poleceniu, aby zwrócić listę wszystkich niestandardowych modeli należących do subskrypcji.
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
@@ -1593,7 +1617,11 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models?o
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models?op=full"
+=======
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models?op=full"
+>>>>>>> upstream/master
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
@@ -1622,7 +1650,7 @@ Otrzymasz `200` odpowiedź sukcesów z danymi JSON, takimi jak poniższe. `"mode
 
 ### <a name="get-a-specific-model"></a>Uzyskiwanie określonego modelu
 
-Aby pobrać szczegółowe informacje o określonym modelu niestandardowym, należy użyć interfejsu API **[pobierania niestandardowego modelu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetCustomModel)** w poniższym poleceniu.
+Aby pobrać szczegółowe informacje o określonym modelu niestandardowym, należy użyć interfejsu API **[pobierania niestandardowego modelu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetCustomModel)** w poniższym poleceniu.
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
@@ -1637,7 +1665,11 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+=======
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -1684,7 +1716,7 @@ Otrzymasz `200` odpowiedź sukcesów z danymi JSON, takimi jak poniższe.
 
 ### <a name="delete-a-model-from-the-resource-account"></a>Usuwanie modelu z konta zasobu
 
-Możesz również usunąć model z konta, odwołując się do jego identyfikatora. To polecenie wywołuje interfejs API **[usuwania niestandardowych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/DeleteCustomModel)** , aby usunąć model używany w poprzedniej sekcji.
+Możesz również usunąć model z konta, odwołując się do jego identyfikatora. To polecenie wywołuje interfejs API **[usuwania niestandardowych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/DeleteCustomModel)** , aby usunąć model używany w poprzedniej sekcji.
 
 1. Zamień na `{Endpoint}` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `{subscription key}` na klucz subskrypcji skopiowany z poprzedniego kroku.
@@ -1699,7 +1731,11 @@ curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/model
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 ```bash
+<<<<<<< HEAD
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+=======
 curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+>>>>>>> upstream/master
 ```
 
 ---
@@ -1711,6 +1747,6 @@ Otrzymasz odpowiedź o `204` powodzeniu, wskazując, że model jest oznaczony do
 W tym przewodniku szybki start użyto interfejsu API REST aparatu rozpoznawania formularzy do uczenia modeli i analizowania formularzy na różne sposoby. Następnie zapoznaj się z dokumentacją referencyjną w celu eksplorowania interfejsu API rozpoznawania formularzy.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+> [Dokumentacja interfejsu API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)

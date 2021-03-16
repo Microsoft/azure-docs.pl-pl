@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688913"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561655"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -169,6 +169,10 @@ Do wyświetlania ustawień urządzenia i zarządzania nimi w Azure Portal należ
 
 > [!NOTE]
 > **Urządzenia, które mają być przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD ustawienie wymagaj Multi-Factor Authentication** ma zastosowanie do urządzeń, które są dołączone do usługi Azure AD (z pewnymi wyjątkami) lub zarejestrowane w usłudze Azure AD To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD, [przyłączonych do usługi Azure AD maszyn wirtualnych na platformie Azure i w](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) usłudze Azure AD przyłączonych w trybie samoobsługowego [wdrażania systemu Windows](/mem/autopilot/self-deploying).
+
+> [!IMPORTANT]
+> - Zalecamy użycie [akcji użytkownika "Zarejestruj lub Dołącz urządzenia"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) w dostęp warunkowy w celu wymuszenia uwierzytelniania wieloskładnikowego w celu dołączenia lub zarejestrowania urządzenia. 
+> - Należy ustawić wartość **nie** , jeśli używasz zasad dostępu warunkowego, aby wymagać authencation wieloskładnikowego. 
 
 - **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **50**.
 
