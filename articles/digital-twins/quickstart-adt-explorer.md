@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232425"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574581"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji przy użyciu programu Azure Digital bliźniaczych reprezentacji Explorer
 
@@ -95,9 +95,8 @@ Otwórz okno konsoli w lokalizacji folderu **Azure_Digital_Twins__ADT__explorer/
 
 > [!TIP]
 > Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia pojawi się komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://*.
-
-> [!TIP]
-> Jeśli zostanie wyświetlony błąd uwierzytelniania, możesz chcieć sprawdzić zmienne środowiskowe, aby upewnić się, że wszystkie podane poświadczenia są prawidłowe dla usługi Azure Digital bliźniaczych reprezentacji. DefaultAzureCredential próbuje uwierzytelnić [typy poświadczeń](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) w określonej kolejności, a zmienne środowiskowe są oceniane jako pierwsze.
+>
+> Jeśli zostanie wyświetlony błąd uwierzytelniania, możesz chcieć sprawdzić **zmienne środowiskowe** , aby upewnić się, że wszystkie podane poświadczenia są prawidłowe dla usługi Azure Digital bliźniaczych reprezentacji. `DefaultAzureCredential`Próby uwierzytelnienia w przypadku typów poświadczeń w [określonej kolejności](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), a zmienne środowiskowe są oceniane jako pierwsze.
 
 Jeśli zobaczysz **wymagane uprawnienia** do okna podręcznego od firmy Microsoft, przyznaj zgodę na tę aplikację i zaakceptuj ją, aby kontynuować.
 

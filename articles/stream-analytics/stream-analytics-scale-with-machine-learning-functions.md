@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013944"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574258"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -24,7 +24,7 @@ W tym artykule omówiono sposób efektywnego skalowania Azure Stream Analytics z
 
 Funkcja Machine Learning Studio (klasyczna) w Stream Analytics może być używana jak zwykłe wywołanie funkcji w języku zapytań Stream Analytics. W tle te wywołania funkcji to w rzeczywistości żądania usługi sieci Web programu Studio (klasyczne).
 
-Można zwiększyć przepływność żądań usługi sieci Web programu Studio (klasycznych) przez "przetwarzanie wsadowe" wielu wierszy razem w tym samym wywołaniu interfejsu API usługi sieci Web. Ta grupa jest nazywana mini-Batch. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Studio (klasyczne) usługi sieci Web](../machine-learning/classic/consume-web-services.md). Obsługa programu Studio (klasyczna) w Stream Analytics jest w wersji zapoznawczej.
+Można zwiększyć przepływność żądań usługi sieci Web programu Studio (klasycznych) przez "przetwarzanie wsadowe" wielu wierszy razem w tym samym wywołaniu interfejsu API usługi sieci Web. Ta grupa jest nazywana mini-Batch. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Studio (klasyczne) usługi sieci Web](../machine-learning/classic/consume-web-services.md). Obsługa programu Studio (klasyczna) w Stream Analytics.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Konfigurowanie zadania Stream Analytics za pomocą funkcji programu Studio (klasycznych)
 
@@ -51,7 +51,7 @@ Aby przetworzyć 200 000 zdarzeń na sekundę, zadanie Stream Analytics potrzebu
 
 ![Skalowanie Stream Analytics przy użyciu funkcji programu Studio (klasycznej) dwa przykładowe zadania](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Skalowanie Stream Analytics przy użyciu funkcji programu Studio (klasycznej) dwa przykładowe zadania")
 
-Ogólnie rzecz biorąc, **_B_* _ dla rozmiaru partii, _*_L_*_ w przypadku opóźnienia usługi sieci Web w partii o rozmiarze B w milisekundach, przepływność zadania Stream Analytics _*_przy użyciu usługi_*_ SUs to:
+Ogólnie rzecz biorąc, ***B** _ dla rozmiaru partii, _*_L_*_ w przypadku opóźnienia usługi sieci Web w partii o rozmiarze B w milisekundach, przepływność zadania Stream Analyticsowego z _ *_N_** SUs to:
 
 ![Stream Analytics skalowania przy użyciu formuły funkcji w programie Studio (klasycznej)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Stream Analytics skalowania przy użyciu formuły funkcji w programie Studio (klasycznej)")
 
@@ -62,7 +62,7 @@ Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artyk
 ## <a name="example--sentiment-analysis"></a>Przykład — analiza tonacji
 Poniższy przykład obejmuje zadanie Stream Analytics przy użyciu funkcji tonacji Analysis Studio (klasycznej), zgodnie z opisem w [samouczku integracji Stream Analytics Machine Learning Studio (klasyczne)](stream-analytics-machine-learning-integration-tutorial.md).
 
-Zapytanie jest prostym w pełni partycjonowanym zapytaniem, a następnie funkcją _ *tonacji**, jak pokazano w następującym przykładzie:
+Zapytanie jest prostym w pełni partycjonowanym zapytaniem, a następnie funkcją **tonacji** , jak pokazano w następującym przykładzie:
 
 ```SQL
     WITH subquery AS (

@@ -4,14 +4,14 @@ description: Dowiedz się, jakie porty i adresy są wymagane do sterowania ruche
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505062"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573833"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -214,6 +214,24 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Ten adres jest używany do poprawnego działania Azure Policy.  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Ten adres służy do ściągania wbudowanych zasad z usługi GitHub w celu zapewnienia prawidłowego działania Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy dodatek, który wysyła dane telemetryczne do punktu końcowego usługi Application Insights. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure Chiny — wymagana nazwa FQDN/reguły aplikacji 
+
+Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS z włączonym Azure Policy.
+
+| Nazwa FQDN                                          | Port      | Zastosowanie      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | Ten adres służy do ściągania zasad Kubernetes i zgłaszania stanu zgodności klastra do usługi zasad. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | Ten adres służy do ściągania artefaktów wbudowanych zasad. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Wymagana nazwa FQDN/reguły aplikacji dla instytucji rządowych USA platformy Azure
+
+Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS z włączonym Azure Policy.
+
+| Nazwa FQDN                                          | Port      | Zastosowanie      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | Ten adres służy do ściągania zasad Kubernetes i zgłaszania stanu zgodności klastra do usługi zasad. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | Ten adres służy do ściągania artefaktów wbudowanych zasad. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Ogranicz ruch wychodzący przy użyciu zapory platformy Azure
 

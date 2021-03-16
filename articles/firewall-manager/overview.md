@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132447"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573459"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -88,7 +88,6 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Dodanie zbiorczego adresu IP nie powiodło się|W przypadku dodawania wielu publicznych adresów IP Zapora bezpiecznego centrum przechodzi w stan niepowodzenia.|Dodaj mniejsze wartości zwiększające publiczny adres IP. Na przykład Dodaj 10 naraz.|
 |Standard DDoS Protection nie jest obsługiwany z bezpiecznymi centrami wirtualnymi|Standard DDoS Protection nie jest zintegrowany z vWANs.|Badanie|
 |Dzienniki aktywności nie są w pełni obsługiwane|Zasady zapory nie obsługują obecnie dzienników aktywności.|Badanie|
-|Konfigurowanie zakresów prywatnych adresów IP współdziałania|[Ustawienia prywatnych zakresów adresów IP](../firewall/snat-private-range.md) są ignorowane, jeśli skonfigurowano zasady zapory platformy Azure. Używane jest domyślne zachowanie zapory platformy Azure, w którym nie są stosowane reguły sieciowe dotyczące protokołu IPSec, gdy docelowy adres IP należy do prywatnego zakresu adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Badanie|
 |Niektóre ustawienia zapory nie są migrowane w przypadku migrowania zapory w celu używania zasad zapory|Adresy prywatne Strefy dostępności i nie są migrowane podczas migracji do zasad zapory platformy Azure.|Badanie| 
 
 ## <a name="next-steps"></a>Następne kroki

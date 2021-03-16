@@ -4,12 +4,12 @@ description: Usługa Azure Container Instances to najszybszy i najprostszy spos�
 ms.topic: overview
 ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88121667"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573017"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
 
@@ -21,10 +21,7 @@ Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scen
 
 Kontenery oferują znaczące korzyści związane z uruchamianiem w porównaniu do maszyn wirtualnych. Usługa Azure Container Instances umożliwia uruchamianie kontenera na platformie Azure w ciągu kilku sekund bez konieczności aprowizowania maszyn wirtualnych i zarządzania nimi.
 
-Przenoszenie obrazów kontenera systemu Linux lub Windows z usługi Docker Hub, prywatnego [rejestru kontenera platformy Azure](../container-registry/index.yml)lub innego rejestru platformy Docker opartego na chmurze. Azure Container Instances buforuje kilka typowych obrazów podstawowych systemów operacyjnych, pomagając przyspieszyć wdrażanie niestandardowych obrazów aplikacji.
-
-> [!NOTE]
-> Obecnie nie można wdrożyć obrazu z rejestru lokalnego do Azure Container Instances.
+Przenoszenie obrazów kontenera systemu Linux lub Windows z usługi Docker Hub, prywatnego [rejestru kontenera platformy Azure](../container-registry/index.yml)lub innego rejestru platformy Docker opartego na chmurze. Odwiedź stronę [często zadawanych pytań](container-instances-faq.md) , aby dowiedzieć się, które rejestry są obsługiwane przez ACI. Azure Container Instances buforuje kilka typowych obrazów podstawowych systemów operacyjnych, pomagając przyspieszyć wdrażanie niestandardowych obrazów aplikacji.
 
 ## <a name="container-access"></a>Dostęp do kontenera
 
@@ -43,7 +40,7 @@ W przeszłości kontenery oferowały zarządzanie zasobami i izolację zależno�
 
 ### <a name="customer-data"></a>Dane klienta
 
-Usługa ACI przechowuje minimalne dane klienta wymagane do upewnienia się, że grupy kontenerów działają zgodnie z oczekiwaniami. Przechowywanie danych klienta w jednym regionie jest obecnie dostępne tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w [lokalizacji geograficznej](https://azure.microsoft.com/global-infrastructure/geographies/). Skontaktuj się z pomocą techniczną platformy Azure, aby dowiedzieć się więcej.
+Usługa ACI przechowuje minimalne dane klienta wymagane do upewnienia się, że grupy kontenerów działają zgodnie z oczekiwaniami. Przechowywanie danych klienta w pojedynczym regionie jest obecnie dostępne tylko w regionie Azja Południowo-Wschodnia (Singapur Azja i Pacyfik) regionu geograficznego i Brazylia Południowa (stan Świętego Paulo). W przypadku wszystkich innych regionów dane klienta są przechowywane w [lokalizacji geograficznej](https://azure.microsoft.com/global-infrastructure/geographies/). Skontaktuj się z pomocą techniczną platformy Azure, aby dowiedzieć się więcej.
 
 ## <a name="custom-sizes"></a>Rozmiary niestandardowe
 
@@ -68,9 +65,6 @@ Niektóre funkcje są obecnie ograniczone do kontenerów systemu Linux:
 * [Zasoby procesora GPU](container-instances-gpu.md) (wersja zapoznawcza)
 
 W przypadku wdrożeń kontenerów systemu Windows należy używać obrazów opartych na typowych [obrazach podstawowych systemu Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
-
-> [!NOTE]
-> Korzystanie z obrazów opartych na systemie Windows Server 2019 w Azure Container Instances jest w wersji zapoznawczej.
 
 ## <a name="co-scheduled-groups"></a>Grupy planowane wspólnie
 

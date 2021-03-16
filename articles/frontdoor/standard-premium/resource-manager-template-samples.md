@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/05/2021
-ms.openlocfilehash: 393c15761c16dbf04d2af48fe13c0bc41b2e15b1
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/16/2021
+ms.openlocfilehash: 241c4c713890af0db8fce74b0817b5bdcf9a1403
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509571"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573799"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Szablony Azure Resource Manager dla drzwi platformy Azure
 
@@ -34,4 +34,8 @@ Poniższa tabela zawiera linki do szablonów Azure Resource Manager dla drzwi pl
 |**Storage**| **Opis** |
 | [Statyczna witryna sieci Web magazynu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Tworzy konto usługi Azure Storage i statyczną witrynę sieci Web z publicznym punktem końcowym oraz profilem drzwi.  |
 | [Obiekty blob magazynu z linkiem prywatnym](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Tworzy konto usługi Azure Storage i kontener obiektów blob z prywatnym punktem końcowym oraz profilem drzwi przednich.  |
+|**Application Gateway**| **Opis** |
+| [Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Tworzy Application Gateway i profil przedni drzwi. |
+|**Maszyna wirtualna**| **Opis** |
+| [Maszyna wirtualna z usługą linku prywatnego](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Tworzy maszynę wirtualną i usługę łącza prywatnego oraz profil dla drzwi. |
 | | |

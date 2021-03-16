@@ -6,36 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b68ab545e87035d138558ba1911294ef805af6d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630745"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573284"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrowanie obciążeń z Azure Stack Edge FPGA z krawędzią Pro do Azure Stack
 
-W tym artykule opisano sposób migrowania obciążeń i danych z Azure Stack urządzenia z Azure Stack Edge FPGA Procedura migracji obejmuje Omówienie migracji, w tym porównanie między dwoma urządzeniami, zagadnieniami dotyczącymi migracji, szczegółowymi krokami i weryfikacją, a następnie oczyszczanie.
+W tym artykule opisano sposób migrowania obciążeń i danych z Azure Stack urządzenia z Azure Stack Edge FPGA Proces migracji rozpoczyna się od porównania dwóch urządzeń, planu migracji i przeglądu zagadnień związanych z migracją. Procedura migracji zawiera szczegółowe kroki kończące się weryfikacją i oczyszczaniem urządzenia.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>Informacje o migracji
 
 Migracja to proces przenoszenia obciążeń i danych aplikacji z jednej lokalizacji magazynu do innej. Oznacza to, że dokładną kopię bieżących danych organizacji z jednego urządzenia magazynującego do innego urządzenia magazynującego, najlepiej bez zakłócania ani wyłączania aktywnych aplikacji, a następnie przekierowania wszystkich działań wejścia/wyjścia (we/wy) do nowego urządzenia. 
 
-Ten przewodnik migracji zawiera przewodnik krok po kroku dotyczący kroków wymaganych do migracji danych z urządzenia z systemem Azure Stack EDGE Pro FPGA do urządzenia z systemem Azure Stack Edge. Ten dokument jest przeznaczony dla specjalistów IT i pracowników merytorycznych odpowiedzialnych za obsługę i wdrażanie Azure Stack urządzeń brzegowych w centrum danych oraz zarządzanie nimi. 
+Ten przewodnik migracji zawiera przewodnik krok po kroku dotyczący kroków wymaganych do migracji danych z urządzenia z systemem Azure Stack EDGE Pro FPGA do urządzenia z systemem Azure Stack Edge. Ten dokument jest przeznaczony dla specjalistów IT i pracowników merytorycznych odpowiedzialnych za obsługę i wdrażanie Azure Stack urządzeń brzegowych w centrum danych oraz zarządzanie nimi.
 
 W tym artykule Azure Stack FPGA EDGE Pro jest określana jako urządzenie *źródłowe* , a Azure Stack urządzenia GPU z krawędzią Pro to urządzenie *docelowe* . 
 
 ## <a name="comparison-summary"></a>Podsumowanie porównania
 
-Ta sekcja zawiera porównawcze podsumowanie możliwości między urządzeniami z systemem Azure Stack Edge z procesorem GPU a pakietem Azure Stack EDGE Pro FPGA. Sprzęt zarówno na urządzeniu źródłowym, jak i docelowym jest w dużym stopniu identyczny i różni się tylko w odniesieniu do karty przyspieszania sprzętowego i pojemności magazynu. 
+Ta sekcja zawiera porównawcze podsumowanie możliwości między urządzeniami z systemem Azure Stack Edge z procesorem GPU a pakietem Azure Stack EDGE Pro FPGA. Sprzęt w urządzeniu źródłowym i docelowym jest w dużym stopniu identyczny; tylko karta akceleracja sprzętowa i pojemność magazynu mogą się różnić.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Możliwość  | Azure Stack krawędź procesora GPU Pro (urządzenie docelowe)  | Azure Stack EDGE Pro FPGA (urządzenie źródłowe)|
 |----------------|-----------------------|------------------------|
-| Sprzęt       | Przyspieszenie sprzętowe: 1 lub 2 procesory GPU T4 <br> Obliczenia, pamięć, interfejs sieciowy, jednostka zasilacza, specyfikacje przewodu napięcia są identyczne z urządzeniem z FPGA.  | Przyspieszenie sprzętowe: Intel Arria 10 FPGA <br> Obliczenia, pamięć, interfejs sieciowy, jednostka zasilacza, specyfikacje przewodu napięcia są identyczne z urządzeniem procesora GPU.          |
+| Sprzęt       | Przyspieszenie sprzętowe: 1 lub 2 procesory GPU T4 <br> Specyfikacje obliczeniowe, pamięć, interfejs sieciowy, jednostka zasilacza i przewód zasilający są takie same jak w przypadku urządzenia z FPGA.  | Przyspieszenie sprzętowe: Intel Arria 10 FPGA <br> Specyfikacje obliczeniowe, pamięć, interfejs sieciowy, jednostka zasilacza i przewód zasilający są takie same jak w przypadku urządzenia z procesorem GPU.          |
 | Przydatny magazyn | 4,19 TB <br> Po zapewnieniu odporności na parzystość i użycia wewnętrznego | 12,5 TB <br> Po zarezerwowania miejsca do użytku wewnętrznego |
 | Zabezpieczenia       | Certyfikaty |                                                     |
 | Obciążenia      | IoT Edge obciążeń <br> Obciążenia maszyn wirtualnych <br> Obciążenia platformy Kubernetes| IoT Edge obciążeń |
@@ -55,9 +55,9 @@ Aby utworzyć plan migracji, należy wziąć pod uwagę następujące informacje
 
 Przed przejściem do migracji należy wziąć pod uwagę następujące informacje: 
 
-- Nie można uaktywnić urządzenia GPU z Azure Stack Edge przy użyciu zasobu Azure Stack EDGE Pro FPGA. Należy utworzyć nowy zasób dla urządzenia z systemem Azure Stack Edge w wersji brzegowej Pro, zgodnie z opisem w [porządku procesora GPU tworzenia Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- Nie można uaktywnić urządzenia GPU z Azure Stack Edge przy użyciu zasobu Azure Stack EDGE Pro FPGA. Należy utworzyć nowy zasób dla urządzenia GPU z systemem Azure Stack Edge, zgodnie z opisem w temacie [Tworzenie kolejności procesora GPU w programie Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - Modele Machine Learning wdrożone na urządzeniu źródłowym, które używały FPGA należy zmienić dla urządzenia docelowego z procesorem GPU. Aby uzyskać pomoc dotyczącą modeli, możesz skontaktować się z pomoc techniczna firmy Microsoft. Modele niestandardowe wdrożone na urządzeniu źródłowym, które nie korzystały z FPGA (używany tylko procesor CPU), powinny być wykonywane na urządzeniu docelowym (przy użyciu procesora CPU).
-- Moduły IoT Edge wdrożone na urządzeniu źródłowym mogą wymagać zmian przed ich pomyślnym wdrożeniem na urządzeniu docelowym. 
+- Moduły IoT Edge wdrożone na urządzeniu źródłowym mogą wymagać zmian, aby można było pomyślnie wdrożyć moduły na urządzeniu docelowym. 
 - Urządzenie źródłowe obsługuje protokoły NFS 3,0 i 4,1. Urządzenie docelowe obsługuje tylko protokół NFS 3,0.
 - Urządzenie źródłowe obsługuje protokoły SMB i NFS. Urządzenie docelowe obsługuje magazyn za pośrednictwem protokołu REST przy użyciu kont magazynu oprócz protokołów SMB i NFS dla udziałów.
 - Dostęp do udziału na urządzeniu źródłowym jest za pośrednictwem adresu IP, podczas gdy dostęp do udziału na urządzeniu docelowym odbywa się za pośrednictwem nazwy urządzenia.
@@ -99,15 +99,15 @@ W chmurze są udostępniane dane warstwy z urządzenia do platformy Azure. Wykon
 
 - Utwórz listę wszystkich udziałów w chmurze i użytkowników, którzy znajdują się na urządzeniu źródłowym.
 - Utwórz listę wszystkich harmonogramów przepustowości, których dysponujesz. Te harmonogramy przepustowości zostaną ponownie utworzone na urządzeniu docelowym.
-- W zależności od dostępnej przepustowości sieci Skonfiguruj harmonogramy przepustowości na urządzeniu, aby zmaksymalizować dane warstwowo do chmury. Spowoduje to zminimalizowanie danych lokalnych na urządzeniu.
-- Upewnij się, że udziały są w pełni warstwową chmurą. Można to potwierdzić, sprawdzając stan udziału w Azure Portal.  
+- W zależności od dostępnej przepustowości sieci Skonfiguruj harmonogramy przepustowości na urządzeniu, aby zmaksymalizować dane warstwowo do chmury. Pozwala to zminimalizować dane lokalne na urządzeniu.
+- Upewnij się, że udziały są w pełni warstwową chmurą. Obsługę warstw można potwierdzić, sprawdzając stan udziału w Azure Portal.  
 
 #### <a name="data-in-edge-local-shares"></a>Dane w udziałach lokalnych Edge
 
 Dane w udziałach lokalnych programu Edge pozostają na urządzeniu. Wykonaj te kroki na urządzeniu *źródłowym* za pośrednictwem Azure Portal. 
 
-- Utwórz listę udziałów lokalnych z krawędzią na urządzeniu.
-- Z tego względu jest przeprowadzana jednorazowa migracja danych, należy utworzyć kopię danych udziału lokalnego na innym serwerze lokalnym. Aby skopiować dane, można użyć narzędzi do kopiowania, takich jak `robocopy` (SMB) lub `rsync` (NFS). Opcjonalnie można już wdrożyć rozwiązanie do ochrony danych innej firmy, aby utworzyć kopię zapasową danych w udziałach lokalnych. Następujące rozwiązania innych firm są obsługiwane w przypadku urządzeń z systemem Azure Stack Edge FPGA
+- Utwórz listę udziałów lokalnych Edge na urządzeniu.
+- Ponieważ przejdziesz do jednorazowej migracji danych, Utwórz kopię danych udziału lokalnego na innym serwerze lokalnym. Aby skopiować dane, można użyć narzędzi do kopiowania, takich jak `robocopy` (SMB) lub `rsync` (NFS). Opcjonalnie można już wdrożyć rozwiązanie do ochrony danych innej firmy, aby utworzyć kopię zapasową danych w udziałach lokalnych. Następujące rozwiązania innych firm są obsługiwane w przypadku urządzeń z systemem Azure Stack Edge FPGA
 
     | Oprogramowanie innych producentów           | Odwołanie do rozwiązania                               |
     |--------------------------------|---------------------------------------------------------|
@@ -157,10 +157,10 @@ Teraz dane z urządzenia źródłowego zostaną skopiowane do udziałów w chmur
 
 Wykonaj następujące kroki, aby zsynchronizować dane na temat udziałów w chmurze Edge na urządzeniu docelowym:
 
-1. [Dodaj udziały](azure-stack-edge-gpu-manage-shares.md#add-a-share) odpowiadające nazwom udziałów utworzonym na urządzeniu źródłowym. Upewnij się, że podczas tworzenia udziałów **Wybierz pozycję kontener obiektów BLOB** , aby **użyć istniejącej** opcji, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
-1. [Dodaj użytkowników](azure-stack-edge-gpu-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
-1. [Odśwież dane udziału](azure-stack-edge-gpu-manage-shares.md#refresh-shares) z platformy Azure. Spowoduje to pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
-1. Utwórz ponownie harmonogramy przepustowości, które mają być skojarzone z udziałami. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie harmonogramu przepustowości](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) .
+1. [Dodaj udziały](azure-stack-edge-j-series-manage-shares.md#add-a-share) odpowiadające nazwom udziałów utworzonym na urządzeniu źródłowym. Podczas tworzenia udziałów upewnij się, że **Opcja Wybierz kontener obiektów BLOB** jest ustawiona na **Użyj istniejącej**, a następnie wybierz kontener, który był używany z poprzednim urządzeniem.
+1. [Dodaj użytkowników](azure-stack-edge-j-series-manage-users.md#add-a-user) , którzy mieli dostęp do poprzedniego urządzenia.
+1. [Odśwież dane udziału](azure-stack-edge-j-series-manage-shares.md#refresh-shares) z platformy Azure. Odświeżenie udziału spowoduje pobranie wszystkich danych w chmurze z istniejącego kontenera do udziałów.
+1. Utwórz ponownie harmonogramy przepustowości, które mają być skojarzone z udziałami. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie harmonogramu przepustowości](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) .
 
 
 ### <a name="2-from-edge-local-shares"></a>2. z udziałów lokalnych Edge
@@ -175,9 +175,9 @@ Wykonaj następujące kroki, aby odzyskać dane z udziałów lokalnych:
 1. Dodaj wszystkie udziały lokalne na urządzeniu docelowym. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie udziału lokalnego](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. Uzyskanie dostępu do udziałów SMB na urządzeniu źródłowym spowoduje użycie adresów IP na urządzeniu docelowym. Zobacz [nawiązywanie połączenia z udziałem SMB na Azure Stack Edge GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Aby nawiązać połączenie z udziałami NFS na urządzeniu docelowym, należy użyć nowych adresów IP skojarzonych z urządzeniem. Zobacz [nawiązywanie połączenia z udziałem NFS w witrynie Azure Stack Edge — procesor GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
-    Jeśli skopiowano dane udziału na serwer pośredni za pośrednictwem protokołu SMB/NFS, można skopiować te dane do udziałów na urządzeniu docelowym. Możesz również skopiować dane bezpośrednio z urządzenia źródłowego, jeśli urządzenie źródłowe i docelowe są w *trybie online*.
+    Jeśli dane udziału zostały skopiowane na serwer pośredni za pośrednictwem protokołu SMB lub NFS, można skopiować dane z serwera pośredniego do udziałów na urządzeniu docelowym. Jeśli urządzenie źródłowe i docelowe są w *trybie online*, można także skopiować dane bezpośrednio z urządzenia źródłowego.
 
-    Jeśli do tworzenia kopii zapasowych danych w udziałach lokalnych użyto oprogramowania innej firmy, należy uruchomić procedurę odzyskiwania udostępnioną przez wybór rozwiązania do ochrony danych. Zobacz odwołania w poniższej tabeli.
+    Jeśli używasz oprogramowania innych firm do tworzenia kopii zapasowych danych w udziałach lokalnych, musisz uruchomić procedurę odzyskiwania, która jest dostępna w ramach wybranego rozwiązania do ochrony danych. Zobacz odwołania w poniższej tabeli.
 
     | Oprogramowanie innych producentów           | Odwołanie do rozwiązania                               |
     |--------------------------------|---------------------------------------------------------|

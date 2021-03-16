@@ -1,15 +1,15 @@
 ---
 title: Omówienie usługi Azure łańcucha bloków
 description: Omówienie usługi Azure łańcucha bloków Service
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963882"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573629"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Co to jest usługa Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ Usługa Azure łańcucha bloków to w pełni zarządzana usługa księgi, która
 * Wbudowane zarządzanie konsorcjum
 * Opracowywanie inteligentnych kontraktów przy użyciu znanych narzędzi programistycznych
 
-Usługa Azure łańcucha bloków Service została zaprojektowana do obsługi wielu protokołów finansowych. Obecnie zapewnia ona obsługę Ethereumego dla księgi [kworum](https://www.goquorum.com/) przy użyciu mechanizmu consensusu [Byzantine Fault tolerancja (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) o konsensusie.
+Usługa Azure łańcucha bloków Service została zaprojektowana do obsługi wielu protokołów finansowych. Obecnie zapewnia ona obsługę Ethereumego dla księgi [kworum](https://www.goquorum.com/) przy użyciu mechanizmu consensusu [Byzantine Fault tolerancja (IBFT)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/) o konsensusie.
 
 Powyższe możliwości prawie w ogóle nie wymagają administracji i są udostępniane bez żadnych dodatkowych kosztów. Możesz skupić się na tworzeniu aplikacji i logice biznesowej zamiast przydzielać czas i zasoby do zarządzania maszynami wirtualnymi i infrastrukturą. Ponadto możesz kontynuować tworzenie aplikacji przy użyciu narzędzi typu "open source" i wybranej platformy do dostarczania rozwiązań bez konieczności uczenia się nowych umiejętności.
 

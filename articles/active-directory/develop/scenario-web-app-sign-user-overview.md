@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 960c00f516aac0c804718e439ae3ed9691759329
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010681"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573051"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenariusz: aplikacja sieci Web, która loguje użytkowników
 
@@ -55,7 +55,7 @@ Jeśli tworzysz przy użyciu języka Python, wypróbuj następujący Przewodnik 
 
 Należy dodać uwierzytelnianie do aplikacji sieci Web, aby umożliwić użytkownikom logowanie się. Dodanie uwierzytelniania umożliwia aplikacji sieci Web dostęp do ograniczonych informacji o profilach w celu dostosowania środowiska dla użytkowników.
 
-Aplikacje sieci Web uwierzytelniają użytkownika w przeglądarce internetowej. W tym scenariuszu aplikacja sieci Web kieruje przeglądarkę użytkownika do podpisania ich w usłudze Azure Active Directory (Azure AD). Usługa Azure AD zwraca odpowiedź logowania za pomocą przeglądarki użytkownika, która zawiera oświadczenia dotyczące użytkownika w tokenie zabezpieczającym. Podpisywanie użytkowników korzysta z protokołu [Open ID Connect](./v2-protocols-oidc.md) Standard, uproszczonego przy użyciu [bibliotek](scenario-web-app-sign-user-app-configuration.md#microsoft libraries supporting web apps)pośredniczących.
+Aplikacje sieci Web uwierzytelniają użytkownika w przeglądarce internetowej. W tym scenariuszu aplikacja sieci Web kieruje przeglądarkę użytkownika do podpisania ich w usłudze Azure Active Directory (Azure AD). Usługa Azure AD zwraca odpowiedź logowania za pomocą przeglądarki użytkownika, która zawiera oświadczenia dotyczące użytkownika w tokenie zabezpieczającym. Podpisywanie użytkowników korzysta z protokołu [Open ID Connect](./v2-protocols-oidc.md) Standard, uproszczonego przy użyciu [bibliotek](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps)pośredniczących.
 
 ![Znaki aplikacji sieci Web w użytkownikach](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831284"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573612"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -48,6 +48,7 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 | South Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
+| Szwajcaria Północna | 3 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Północne Zjednoczone Emiraty Arabskie | 3 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | Nie dotyczy |

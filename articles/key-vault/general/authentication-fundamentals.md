@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535199"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103572812"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
 Azure Key Vault pozwala bezpiecznie przechowywać poświadczenia aplikacji, takie jak wpisy tajne, klucze i certyfikaty w centralnym i bezpiecznym repozytorium chmury i zarządzać nimi. Key Vault eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje mogą uwierzytelniać się w celu Key Vault w czasie wykonywania w celu pobrania poświadczeń.
 
-Jako administrator możesz ściśle kontrolować, którzy użytkownicy i aplikacje mogą uzyskiwać dostęp do magazynu kluczy, a także ograniczać i przeprowadzać inspekcję wykonywanych przez nie operacji. W tym dokumencie opisano podstawowe koncepcje modelu dostępu magazynu kluczy. Zostanie ona przekazana i zostanie zaprezentowana wstępny poziom wiedzy i pokazano, jak można uwierzytelnić użytkownika lub aplikację w magazynie kluczy od początku do końca.
+Jako administrator możesz ściśle kontrolować, którzy użytkownicy i aplikacje mogą uzyskiwać dostęp do magazynu kluczy, a także ograniczać i przeprowadzać inspekcję wykonywanych przez nie operacji. W tym dokumencie opisano podstawowe koncepcje modelu dostępu magazynu kluczy. Zapewni to wstępny poziom wiedzy i pokazuje, jak można uwierzytelnić użytkownika lub aplikację w magazynie kluczy od początku do końca.
 
 ## <a name="required-knowledge"></a>Wymagana wiedza
 

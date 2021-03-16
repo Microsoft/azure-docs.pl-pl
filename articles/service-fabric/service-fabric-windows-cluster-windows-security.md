@@ -3,12 +3,12 @@ title: Zabezpieczanie klastra działającego w systemie Windows przy użyciu zab
 description: Dowiedz się, jak skonfigurować zabezpieczenia typu węzeł-węzeł i klient-węzeł w klastrze autonomicznym z systemem Windows przy użyciu zabezpieczeń systemu Windows.
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a34c7084a9faaf0d676d4f6c68da53b2bc84f01b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839485"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574615"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows
 Aby zapobiec nieautoryzowanemu dostępowi do klastra Service Fabric, należy zabezpieczyć klaster. Zabezpieczenia są szczególnie ważne w przypadku uruchamiania przez klaster obciążeń produkcyjnych. W tym artykule opisano sposób konfigurowania zabezpieczeń między węzłami i klientem-do-węzła przy użyciu zabezpieczeń systemu Windows w *ClusterConfig.JS* pliku.  Proces ten odnosi się do kroku Konfigurowanie zabezpieczeń [tworzenia klastra autonomicznego działającego w systemie Windows](service-fabric-cluster-creation-for-windows-server.md). Aby uzyskać więcej informacji o tym, jak Service Fabric korzysta z zabezpieczeń systemu Windows, zobacz [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md).
@@ -19,13 +19,13 @@ Aby zapobiec nieautoryzowanemu dostępowi do klastra Service Fabric, należy zab
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurowanie zabezpieczeń systemu Windows przy użyciu gMSA  
-Przykład *ClusterConfig.gMSA.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> .. ](https://go.microsoft.com/fwlink/?LinkId=730690) pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows przy użyciu [konta usługi zarządzanego przez grupę (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
+gMSA jest preferowanym modelem zabezpieczeń. Przykład *ClusterConfig.gMSA.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> ..](https://go.microsoft.com/fwlink/?LinkId=730690) pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows przy użyciu [konta usługi zarządzanego przez grupę (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
+    "WindowsIdentities": {  
         "ClustergMSAIdentity": "[gMSA Identity]",
         "ClusterSPN": "[Registered SPN for the gMSA account]",
         "ClientIdentities": [
@@ -40,7 +40,7 @@ Przykład *ClusterConfig.gMSA.Windows.MultiMachine.JSw* pliku konfiguracyjnym po
 
 | **Ustawienie konfiguracji** | **Opis** |
 | --- | --- |
-| ClusterCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłem węzła.  | 
+| ClusterCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłem węzła.  | 
 | ServerCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłami klienta. |
 | WindowsIdentities |Zawiera tożsamość klastra i klienta. |
 | ClustergMSAIdentity |Konfiguruje zabezpieczenia między węzłami. Konto usługi zarządzane przez grupę. |
@@ -75,7 +75,7 @@ W poniższym przykładzie sekcja **zabezpieczeń** konfiguruje zabezpieczenia sy
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurowanie zabezpieczeń systemu Windows przy użyciu grupy maszyn  
-Ten model jest przestarzały. Zaleca się użycie gMSA zgodnie z powyższym opisem. Przykład *ClusterConfig.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> .. ](https://go.microsoft.com/fwlink/?LinkId=730690) pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows.  Zabezpieczenia systemu Windows są konfigurowane w sekcji **Właściwości** : 
+Zgodnie z opisem powyżej gMSA jest preferowany, ale jest również obsługiwany do korzystania z tego modelu zabezpieczeń. Przykład *ClusterConfig.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> ..](https://go.microsoft.com/fwlink/?LinkId=730690) pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows.  Zabezpieczenia systemu Windows są konfigurowane w sekcji **Właściwości** : 
 
 ```
 "security": {
@@ -93,7 +93,7 @@ Ten model jest przestarzały. Zaleca się użycie gMSA zgodnie z powyższym opis
 
 | **Ustawienie konfiguracji** | **Opis** |
 | --- | --- |
-| ClusterCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłem węzła.  |
+| ClusterCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłem węzła.  |
 | ServerCredentialType |Ustaw *system Windows* , aby włączyć zabezpieczenia systemu Windows na potrzeby komunikacji z węzłami klienta. |
 | WindowsIdentities |Zawiera tożsamość klastra i klienta. |
 | ClusterIdentity |Aby skonfigurować zabezpieczenia między węzłami, należy użyć nazwy grupy maszyn domain\machinegroup. |

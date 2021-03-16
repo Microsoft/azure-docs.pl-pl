@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e248c10c15ba0318c6b23fcbf88be04dd9896a2
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561519"
+ms.locfileid: "103573068"
 ---
 # <a name="embedded-sign-in-experience"></a>Wbudowane środowisko logowania
 
 Aby uprościć logowanie, można uniknąć przekierowywania użytkowników do osobnej strony logowania lub wyłączania okna podręcznego. Przy użyciu wbudowanego elementu ramki `<iframe>` można osadzić interfejs użytkownika logowania Azure AD B2C bezpośrednio w aplikacji sieci Web.
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="web-application-embedded-sign-in"></a>Osadzona Rejestracja aplikacji sieci Web
 
@@ -32,7 +34,12 @@ W przypadku używania elementu IFRAME należy wziąć pod uwagę następujące k
 
 - Osadzona Rejestracja jest obsługiwana tylko na kontach lokalnych. Większość dostawców tożsamości społecznościowych (np. Google i Facebook) uniemożliwia renderowanie stron logowania w ramkach wbudowanych.
 - Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Aby użyć tego samego źródła, [Włącz domeny niestandardowe](custom-domain.md) dla Azure AD B2C dzierżawy, a następnie skonfiguruj aplikację sieci Web przy użyciu tego samego źródła. Na przykład aplikacja hostowana w programie https://app.contoso.com ma takie samo źródło jak Azure AD B2C uruchomionym w systemie https://login.contoso.com .
- 
+
+## <a name="perquisites"></a>Perquisites
+
+* Wykonaj kroki opisane w temacie [wprowadzenie do zasad niestandardowych w Active Directory B2C](custom-policy-get-started.md).
+* [Włącz domeny niestandardowe](custom-domain.md) dla zasad.
+
 ## <a name="configure-your-policy"></a>Konfigurowanie zasad
 
 Aby umożliwić osadzenie Azure AD B2C interfejsu użytkownika w elemencie iframe, `Content-Security-Policy` `X-Frame-Options` należy uwzględnić w Azure AD B2C nagłówki odpowiedzi HTTP zasady zabezpieczeń zawartości i ramki. Te nagłówki umożliwiają uruchamianie Azure AD B2C interfejsu użytkownika w ramach nazwy domeny aplikacji.

@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: caf9cbb0ca017ee00c5061d94e0d37703194943d
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493279"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573380"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrowanie danych z Cassandra do konta interfejs API Cassandra Azure Cosmos DB przy użyciu Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,20 +42,18 @@ Istnieją różne sposoby migrowania obciążeń bazy danych z jednej platformy 
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Inicjowanie obsługi klastra Azure Databricks
 
-Można postępować zgodnie z instrukcjami, aby [zainicjować obsługę klastra Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Należy jednak pamiętać, że Apache Spark 3. x nie jest obecnie obsługiwane w przypadku łącznika Apache Cassandra. Konieczne będzie udostępnienie środowiska uruchomieniowego datakostkom z obsługiwaną wersją systemu v2. x Apache Spark. Zalecamy wybranie wersji środowiska uruchomieniowego dataframeworks, która obsługuje najnowszą wersję platformy Spark 2. x, a nie nowszą niż Scala w wersji 2,11:
+Można postępować zgodnie z instrukcjami, aby [zainicjować obsługę klastra Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Zalecamy wybranie środowiska uruchomieniowego datacegłs w wersji 7,5, które obsługuje platformę Spark 3,0:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Środowisko uruchomieniowe datakosteks":::
 
 
 ## <a name="add-dependencies"></a>Dodaj zależności
 
-Aby można było Cosmos DB połączyć się z punktami końcowymi Cassandra, należy Apache Spark dodać do klastra bibliotekę łączników Cassandra. W klastrze wybierz biblioteki — > zainstalować nowe > Maven-> wyszukiwania:
+Aby można było Cosmos DB połączyć się z punktami końcowymi Cassandra, należy Apache Spark dodać do klastra bibliotekę łączników Cassandra. W klastrze wybierz pozycję biblioteki — > Zainstaluj polecenie New-> Maven. Dodaj `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` we współrzędnych Maven:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Pakiety wyszukiwania datakostek":::
 
-Wpisz `Cassandra` w polu wyszukiwania i wybierz najnowsze `spark-cassandra-connector` dostępne repozytorium Maven, a następnie wybierz pozycję Zainstaluj:
-
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages-2.png" alt-text="Wybrane pakiety datakostki":::
+Wybierz pozycję Zainstaluj, a następnie uruchom ponownie klaster po zakończeniu instalacji. 
 
 > [!NOTE]
 > Przed zainstalowaniem biblioteki łącznika Cassandra upewnij się, że klaster datakostki zostanie uruchomiony ponownie.
@@ -91,7 +89,6 @@ val cosmosCassandra = Map(
     "table" -> "<TABLE>",
     //throughput related settings below - tweak these depending on data volumes. 
     "spark.cassandra.output.batch.size.rows"-> "1",
-    "spark.cassandra.connection.connections_per_executor_max" -> "10",
     "spark.cassandra.output.concurrent.writes" -> "1000",
     "spark.cassandra.concurrent.reads" -> "512",
     "spark.cassandra.output.batch.grouping.buffer.size" -> "1000",
@@ -110,11 +107,12 @@ DFfromNativeCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
   .options(cosmosCassandra)
+  .mode(SaveMode.Append)
   .save
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` I `connections_per_executor_max` konfiguracje mają na celu uniknięcie [ograniczenia szybkości](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Azure Cosmos DB przekraczają zainicjowaną przepływność/([jednostki żądania](./request-units.md)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
+> Wartości dla `spark.cassandra.output.batch.size.rows` i `spark.cassandra.output.concurrent.writes` , jak również liczba procesów roboczych w klastrze Spark, są ważnymi konfiguracjami do dopasowania, aby uniknąć [ograniczania szybkości](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Azure Cosmos DB przekraczają zainicjowaną przepływność/([jednostki żądania](./request-units.md)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -123,19 +121,8 @@ Może zostać wyświetlony kod błędu 429 lub `request rate is large` tekst bł
 
 - **Przepływność przypisana do tabeli jest mniejsza niż 6000 [jednostek żądań](./request-units.md)**. Nawet przy minimalnych ustawieniach platforma Spark będzie mogła wykonywać zapisy z częstotliwością około 6000 jednostek żądań lub dłużej. Jeśli zainicjowano udostępnianie tabeli w przestrzeni kluczy z zainicjowaną funkcją udostępnionej przepustowości, istnieje możliwość, że ta tabela ma mniej niż 6000 jednostek ru dostępne w czasie wykonywania. Upewnij się, że w tabeli, do której przeprowadzasz migrację, znajduje się co najmniej 6000 jednostek ru, podczas uruchamiania migracji, i w razie potrzeby Przydziel dedykowane jednostki żądań do tej tabeli. 
 - **Nadmierne pochylenie danych z dużą ilością danych**. Jeśli masz dużą ilość danych (czyli wierszy tabeli) do migracji do danej tabeli, ale mają znaczące pochylenie w danych (tj. duża liczba rekordów dla tej samej wartości klucza partycji), możesz nadal korzystać z ograniczenia szybkości nawet wtedy, gdy w tabeli została zainicjowana duża ilość [jednostek żądań](./request-units.md) . Wynika to z faktu, że jednostki żądań są podzielone równomiernie między partycjami fizycznymi, a duże pochylenie danych może spowodować wąskie gardło żądań do pojedynczej partycji, co powoduje ograniczenie szybkości. W tym scenariuszu zaleca się ograniczenie do minimalnych ustawień przepływności w platformie Spark, aby uniknąć ograniczenia szybkości i wymusić spowolnienie działania migracji. Ten scenariusz może być bardziej typowy podczas migrowania tabel referencyjnych lub formantów, gdzie dostęp jest krótszy, ale skośność może być wysoka. Jednak jeśli w dowolnym innym typie tabeli występuje istotna pochylenie, warto również sprawdzić model danych, aby uniknąć problemów z partycją gorącą dla obciążenia podczas operacji w stanie stabilnym. 
-- **Nie można pobrać liczby dla dużej tabeli**. Uruchamianie `select count(*) from table` nie jest obecnie obsługiwane w przypadku dużych tabel. Możesz uzyskać licznik z metryk w Azure Portal (Zobacz artykuł dotyczący [rozwiązywania problemów](cassandra-troubleshoot.md)), ale jeśli chcesz określić liczbę dużych tabel z kontekstu zadania platformy Spark, możesz skopiować dane do tabeli tymczasowej, a następnie użyć platformy Spark SQL w celu uzyskania liczby, np. poniżej (Zamień `<primary key>` na niektóre pola z wynikowej tabeli tymczasowej).
 
-  ```scala
-  val ReadFromCosmosCassandra = sqlContext
-    .read
-    .format("org.apache.spark.sql.cassandra")
-    .options(cosmosCassandra)
-    .load
 
-  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
-  %sql
-  select count(<primary key>) from CosmosCassandraResult
-  ```
 
 ## <a name="next-steps"></a>Następne kroki
 

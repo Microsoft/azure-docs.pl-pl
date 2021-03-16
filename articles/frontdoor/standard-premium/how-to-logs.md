@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 6a1cf3112cd936ec842c755eb90b2c7b094aa781
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099412"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573901"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Rejestrowanie w warstwie Standardowa/Premium platformy Azure (wersja zapoznawcza)
 

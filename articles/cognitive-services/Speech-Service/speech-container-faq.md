@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86c8943531171094600bc7d93b8694bdd1c6e051
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225803"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573748"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
 
@@ -344,20 +344,6 @@ Po prostu Wyjaśnij, jak interaktywny, Konwersacja i dyktowanie; jest to zaawans
 - W przypadku mikrofonu będzie on w czasie rzeczywistym. Ogólne użycie powinno mieć co najwyżej 1 rdzeń do jednego rozpoznawania.
 
 Wszystkie te możliwości można zweryfikować z dzienników platformy Docker. Faktycznie zrzucamy wiersz za pomocą statystyk sesji i fraz/wypowiedź, które zawierają numery RTF.
-
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Czy wspólne dzielenie plików audio na Chucks w celu użycia kontenerów mowy?</b>
-</summary>
-
-My bieżącym planem jest wykonanie istniejącego pliku dźwiękowego i podzielenie go na 10 drugi fragmenty i wysłanie ich za pomocą kontenera. Czy jest to akceptowalny scenariusz?  Czy istnieje lepszy sposób przetwarzania większych plików audio przy użyciu kontenera?
-
-**Odpowiedź:** Wystarczy użyć zestawu Speech SDK i nadać mu plik, a następnie wykonać odpowiednie czynności. Dlaczego należy rozfragmentować plik?
-
 
 <br>
 </details>

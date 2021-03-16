@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319775"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574564"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Raporty dotyczące działań związanych z logowaniem Azure Active Directory — wersja zapoznawcza
 
@@ -31,7 +31,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
 - **Działanie** 
     - **Logowania** — informacje o tym, kiedy użytkownicy, aplikacje i zarządzane zasoby logują się do usługi Azure AD w celu uzyskania dostępu do zasobów.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
-- **Zabezpieczenia** 
+- **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -125,7 +125,12 @@ Każda karta w bloku logowania pokazuje domyślne kolumny poniżej. Niektóre ka
 
 Logowania użytkowników interakcyjnych to logowania, w przypadku których użytkownik udostępnia rolę uwierzytelniania do usługi Azure AD lub współdziała bezpośrednio z usługą Azure AD lub aplikacją pomocnika, taką jak aplikacja Microsoft Authenticator. Czynniki, które użytkownicy zapewniają, obejmują hasła, odpowiedzi na wyzwania usługi MFA, czynniki biometryczne lub kody QR, które użytkownik udostępni w usłudze Azure AD lub do aplikacji pomocnika.
 
-Ten raport zawiera również federacyjne logowania z dostawców tożsamości federacyjnych do usługi Azure AD.  
+> [!NOTE]
+> Ten raport zawiera również federacyjne logowania z dostawców tożsamości federacyjnych do usługi Azure AD.  
+
+
+
+Uwaga: Raport logowania użytkowników interaktywnych używany do przechowywania niektórych nieinteraktywnych logowania z klientów programu Microsoft Exchange. Mimo że te logowania nie były interaktywne, zostały uwzględnione w raporcie logowania użytkowników interakcyjnych w celu zapewnienia dodatkowej widoczności. Gdy raport logowania użytkowników nieinteraktywnych wprowadzi publiczną wersję zapoznawczą w listopadzie 2020, te dzienniki zdarzeń nieinterakcyjnego logowania zostały przeniesione do raportu nieinterakcyjnego logowania użytkownika w celu zwiększenia dokładności. 
 
 
 **Rozmiar raportu:** mały <br> 
@@ -214,7 +219,7 @@ W celu ułatwienia tworzenia podsumowania danych są grupowane zdarzenia nieinte
 - Identyfikator zasobu
 
 
-Można:
+Oto co możesz zrobić:
 
 - Rozwiń węzeł, aby wyświetlić poszczególne elementy grupy.  
 
@@ -271,7 +276,7 @@ W celu ułatwienia tworzenia podsumowania danych w dziennikach logowania nazwy g
 
 - Nazwa lub identyfikator zasobu
 
-Można:
+Oto co możesz zrobić:
 
 - Rozwiń węzeł, aby wyświetlić poszczególne elementy grupy.  
 
@@ -395,7 +400,7 @@ Po pobraniu raportu działania związanego z logowaniem spełnione są następuj
 - Liczba rekordów, które można pobrać, jest ograniczona przez [zasady przechowywania raportów Azure Active Directory](reference-reports-data-retention.md). 
 
 
-![Pobierz raporty](./media/concept-all-sign-ins/download-reports.png "Pobierz raporty")
+![Pobieraj raporty](./media/concept-all-sign-ins/download-reports.png "Pobieraj raporty")
 
 
 Każdy pobrany plik CSV składa się z sześciu różnych plików:

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518685"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573476"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -36,7 +36,6 @@ W tym artykule przyjęto założenie, że masz wiedzę o następujących tematac
 + [Link prywatny platformy Azure](how-to-configure-private-link.md)
 + [Sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/network-security-groups-overview.md)
 + [Zapory sieciowe](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Przykładowy scenariusz
 
 W tej sekcji dowiesz się, w jaki sposób typowy scenariusz sieci jest skonfigurowany do zabezpieczenia Azure Machine Learning komunikacji z prywatnymi adresami IP.
@@ -62,8 +61,8 @@ W następnych pięciu sekcjach pokazano, jak zabezpieczyć scenariusz sieci opis
 1. Zabezpiecz [**środowisko szkoleniowe**](#secure-the-training-environment).
 1. Zabezpiecz [**środowisko inferencing**](#secure-the-inferencing-environment).
 1. Opcjonalnie: [**Włącz funkcje programu Studio**](#optional-enable-studio-functionality).
-1. Konfigurowanie [ **ustawień zapory**](#configure-firewall-settings)
-
+1. Skonfiguruj [**Ustawienia zapory**](#configure-firewall-settings).
+1. Skonfiguruj [rozpoznawanie nazw DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Zabezpieczanie obszaru roboczego i skojarzonych zasobów
 
 Wykonaj następujące kroki, aby zabezpieczyć obszar roboczy i skojarzone zasoby. Te kroki umożliwiają komunikację usług w sieci wirtualnej.
@@ -186,3 +185,5 @@ Ten artykuł jest częścią jednej z pięciu serii sieci wirtualnych. Zapoznaj 
 * [Część 3: Zabezpieczanie środowiska szkoleniowego](how-to-secure-training-vnet.md)
 * [Część 4: Zabezpieczanie środowiska inferencing](how-to-secure-inferencing-vnet.md)
 * [Część 5. Włączanie funkcji programu Studio](how-to-enable-studio-virtual-network.md)
+
+Zobacz również artykuł dotyczący używania [niestandardowego systemu DNS](how-to-custom-dns.md) do rozpoznawania nazw.

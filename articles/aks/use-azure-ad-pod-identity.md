@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi AAD zarządzane tożsamości z
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: f3d0db5b085fcdb9a24310cb2fe310d390b1790a
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233500"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574377"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -53,13 +53,16 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>Tworzenie klastra AKS z tożsamościami zarządzanymi
+## <a name="create-an-aks-cluster-with-azure-cni"></a>Tworzenie klastra AKS za pomocą usługi Azure CNI
 
-Utwórz klaster AKS z zarządzaną tożsamością i tożsamością zarządzaną pod. W poniższych poleceniach użyto polecenia [AZ Group Create][az-group-create] , aby utworzyć grupę zasobów o nazwie Moja *zasobów* i polecenie [AZ AKS Create][az-aks-create] , aby utworzyć klaster AKS o nazwie *myAKSCluster* w *grupie zasobów* .
+> [!NOTE]
+> Jest to domyślna konfiguracja zalecana
+
+Tworzenie klastra AKS przy użyciu usługi Azure CNI i tożsamości zarządzanej pod kątem zarządzania. W poniższych poleceniach użyto polecenia [AZ Group Create][az-group-create] , aby utworzyć grupę zasobów o nazwie Moja *zasobów* i polecenie [AZ AKS Create][az-aks-create] , aby utworzyć klaster AKS o nazwie *myAKSCluster* w *grupie zasobów* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
+az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 Użyj [AZ AKS Get-Credentials][az-aks-get-credentials] , aby zalogować się do klastra AKS. To polecenie umożliwia również pobranie i skonfigurowanie `kubectl` certyfikatu klienta na komputerze deweloperskim.
@@ -67,6 +70,44 @@ Użyj [AZ AKS Get-Credentials][az-aks-get-credentials] , aby zalogować się do 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Aktualizowanie istniejącego klastra AKS za pomocą usługi Azure CNI
+
+Zaktualizuj istniejący klaster AKS za pomocą usługi Azure CNI, aby uwzględnić tożsamość zarządzaną pod względem tożsamości.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+```
+## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Korzystanie z wtyczki sieciowej korzystającą wtyczki kubenet z tożsamościami zarządzanymi Azure Active Directory pod 
+
+> [!IMPORTANT]
+> Uruchamianie usługi AAD-pod-Identity w klastrze z korzystającą wtyczki kubenet nie jest zalecaną konfiguracją z powodu implikacji zabezpieczeń. Wykonaj czynności zaradcze i skonfiguruj zasady przed włączeniem usługi AAD-pod-Identity w klastrze z korzystającą wtyczki kubenet.
+
+## <a name="mitigation"></a>Ograniczanie ryzyka
+
+Aby wyeliminować lukę w zabezpieczeniach na poziomie klastra, można użyć kontrolera OpenPolicyAgent Admission Control wraz z walidacją elementu webhook. Pod warunkiem, że masz strażnika już zainstalowany w klastrze, Dodaj ConstraintTemplate typu K8sPSPCapabilities:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/capabilities/template.yaml
+```
+Dodaj szablon, aby ograniczyć jego duplikowanie z możliwością NET_RAW:
+
+```
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPCapabilities
+metadata:
+  name: prevent-net-raw
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - "kube-system"
+  parameters:
+    requiredDropCapabilities: ["NET_RAW"]
+```
+
 ## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Tworzenie klastra AKS za pomocą wtyczki sieciowej korzystającą wtyczki kubenet
 
 Utwórz klaster AKS z wtyczką sieci korzystającą wtyczki kubenet i włączoną tożsamością zarządzaną pod.

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 93f7b8f83d7b864a76eb9f31024ed55a7a1639e9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: a606956483ddb7c7f3a4f3cef8728ade508ab461
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472296"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574275"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -45,7 +45,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
 ## <a name="deploy-a-cloud-service-extended-support"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona)
 
 > [!NOTE]
- Alternatywny sposób wdrożenia usługi w chmurze (obsługa rozszerzona) odbywa się za pośrednictwem [Azure Portal](https://portal.azure.com). Możesz pobrać wygenerowany szablon ARM za pośrednictwem portalu dla przyszłych wdrożeń
+> Alternatywny sposób wdrożenia usługi w chmurze (obsługa rozszerzona) odbywa się za pośrednictwem [Azure Portal](https://portal.azure.com). Możesz pobrać wygenerowany szablon ARM za pośrednictwem portalu dla przyszłych wdrożeń
  
 1. Utwórz sieć wirtualną. Nazwa sieci wirtualnej musi być zgodna z odwołaniami w pliku konfiguracji usługi (. cscfg). Jeśli używasz istniejącej sieci wirtualnej, Pomiń tę sekcję z szablonu ARM.
 

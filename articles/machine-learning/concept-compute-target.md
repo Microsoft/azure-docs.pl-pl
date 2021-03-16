@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503621"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574649"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są docelowe obiekty obliczeniowe w usłudze Azure Machine Learning?
 
@@ -98,30 +98,30 @@ Istnieje kilka wyjątków i ograniczeń umożliwiających wybranie rozmiaru masz
 
 Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej na temat obsługiwanych serii i ograniczeń.
 
-| **Obsługiwana seria maszyn wirtualnych**  | **Ograniczenia** |
-|------------|------------|
-| D | Brak. |
-| DDSv4 | Brak. |
-| Dv2 | Brak. |  
-| Dv3 | Brak.|
-| DSv2 | Brak. | 
-| DSv3 | Brak.|
-| EAv4 | Brak. |
-| EV3 | Brak. |
-| FSv2 | Brak. | 
-| H | Brak. |
-| HB | Wymaga zatwierdzenia. |
-| HBv2 | Wymaga zatwierdzenia. |  
-| MAGAZYNU HCS | Wymaga zatwierdzenia. |  
-| M | Wymaga zatwierdzenia. |
-| NC | Brak. |  
-| Promocja kontrolera sieci | Brak. |
-| NCsv2 | Wymaga zatwierdzenia. |
-| NCsv3 | Wymaga zatwierdzenia. |  
-| NDs | Wymaga zatwierdzenia. |
-| NDv2 | Wymaga zatwierdzenia. |
-| NV | Brak. |
-| NVv3 | Wymaga zatwierdzenia. | 
+| **Obsługiwana seria maszyn wirtualnych**  | **Ograniczenia** | **Kategoria** | **Obsługiwane przez** |
+|------------|------------|------------|------------|
+| D | Brak. | Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| DDSv4 | Brak. | Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| Dv2 | Brak. | Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| Dv3 | Brak.| Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| DSv2 | Brak. | Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| DSv3 | Brak.| Ogólnego przeznaczenia | Klastry i wystąpienia obliczeniowe |
+| EAv4 | Brak. | Optymalizacja pod kątem pamięci | Klastry i wystąpienia obliczeniowe |
+| EV3 | Brak. | Optymalizacja pod kątem pamięci | Klastry i wystąpienia obliczeniowe |
+| FSv2 | Brak. | Optymalizacja pod kątem obliczeń | Klastry i wystąpienia obliczeniowe |
+| H | Brak. | Obliczenia o wysokiej wydajności | Klastry i wystąpienia obliczeniowe |
+| HB | Wymaga zatwierdzenia. | Obliczenia o wysokiej wydajności | Klastry i wystąpienia obliczeniowe |
+| HBv2 | Wymaga zatwierdzenia. |  Obliczenia o wysokiej wydajności | Klastry i wystąpienia obliczeniowe |
+| MAGAZYNU HCS | Wymaga zatwierdzenia. |  Obliczenia o wysokiej wydajności | Klastry i wystąpienia obliczeniowe |
+| M | Wymaga zatwierdzenia. | Optymalizacja pod kątem pamięci | Klastry i wystąpienia obliczeniowe |
+| NC | Brak. |  Procesory GPU | Klastry i wystąpienia obliczeniowe |
+| Promocja kontrolera sieci | Brak. | Procesory GPU | Klastry i wystąpienia obliczeniowe |
+| NCsv2 | Wymaga zatwierdzenia. | Procesory GPU | Klastry i wystąpienia obliczeniowe |
+| NCsv3 | Wymaga zatwierdzenia. | Procesory GPU | Klastry i wystąpienia obliczeniowe |  
+| NDs | Wymaga zatwierdzenia. | Procesory GPU | Klastry i wystąpienia obliczeniowe | 
+| NDv2 | Wymaga zatwierdzenia. | Procesory GPU | Klastry i wystąpienia obliczeniowe | 
+| NV | Brak. | Procesory GPU | Klastry i wystąpienia obliczeniowe | 
+| NVv3 | Wymaga zatwierdzenia. | Procesory GPU | Klastry i wystąpienia obliczeniowe | 
 
 
 Mimo że Azure Machine Learning obsługuje te serie maszyn wirtualnych, mogą one nie być dostępne we wszystkich regionach świadczenia usługi Azure. Aby sprawdzić, czy dostępne są serie maszyn wirtualnych, zobacz temat [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

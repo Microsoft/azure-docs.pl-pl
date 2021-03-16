@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1e361ad14f79ea32d83e8cff9dd9bb8607b7c766
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470689"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574666"
 ---
 # <a name="defender-for-iot-installation"></a>Instalacja usługi Defender for IoT
 
@@ -697,9 +697,9 @@ Aby zainstalować program:
 
 1. Poświadczenia logowania są generowane automatycznie i wyświetlane. Skopiuj nazwę użytkownika i hasło w bezpiecznym miejscu, ponieważ są one wymagane do logowania i administrowania.
 
-    - **Pomoc techniczna**: użytkownik administracyjny do zarządzania użytkownikami.
+      - **Pomoc techniczna**: użytkownik administracyjny do zarządzania użytkownikami.
 
-    - **CyberX**: odpowiednik elementu głównego na potrzeby uzyskiwania dostępu do urządzenia.
+      - **CyberX**: odpowiednik elementu głównego na potrzeby uzyskiwania dostępu do urządzenia.
 
 1. Urządzenie zostanie ponownie uruchomione.
 
@@ -851,9 +851,10 @@ Aby zainstalować oprogramowanie:
 
 1. Poświadczenia logowania są generowane automatycznie i wyświetlane. Przechowuj te poświadczenia w bezpiecznym miejscu, ponieważ są one wymagane do logowania i administrowania.
 
-  - **Pomoc techniczna**: użytkownik administracyjny do zarządzania użytkownikami.
-
-  - **CyberX**: odpowiednik elementu głównego na potrzeby uzyskiwania dostępu do urządzenia.
+    | Nazwa użytkownika | Opis |
+    |--|--|
+    | Pomoc techniczna | Użytkownik administracyjny do zarządzania użytkownikami. |
+    | CyberX | Odpowiednik elementu głównego na potrzeby uzyskiwania dostępu do urządzenia. |
 
 1. Urządzenie zostanie ponownie uruchomione.
 

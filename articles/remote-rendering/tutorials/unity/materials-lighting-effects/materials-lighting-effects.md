@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eb73fcfde7e294896a12289486ff71794a00ae6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 400f5de5326ce7700b627999ade312484055a4e7
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591722"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574445"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Samouczek: poprawianie materiałów, oświetlenia i efektów
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -262,7 +262,7 @@ Utworzymy skrypt, który automatycznie tworzy jednostkę zdalną, dodaje składn
     {
         public Color SliceColor = new Color(0.5f, 0f, 0f, .5f);
         public float FadeLength = 0.01f;
-        public Axis SliceNormal = Axis.Y_Neg;
+        public Axis SliceNormal = Axis.NegativeY;
 
         public bool AutomaticallyCreate = true;
 

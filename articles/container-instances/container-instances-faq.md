@@ -5,18 +5,18 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2645c3f183e2217dff28a96c9c0d376eb82a6476
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186196"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573136"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
 W tym artykule opisano często zadawane pytania dotyczące Azure Container Instances.
 
-## <a name="deployment"></a>Wdrażanie
+## <a name="deployment"></a>Wdrożenie
 
 ### <a name="how-large-can-my-container-image-be"></a>Jak duży może być mój obraz kontenera?
 
@@ -45,7 +45,7 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 > [!NOTE]
 > Obrazy systemu Windows oparte na Semi-Annual kanale 1709 lub 1803 nie są obsługiwane.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 i obrazy podstawowe klienta (wersja zapoznawcza)
+#### <a name="windows-server-2019-and-client-base-images"></a>Windows Server 2019 i obrazy podstawowe klienta
 
 * [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` lub nowszy
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` lub nowszy
@@ -55,9 +55,12 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 
 Użyj najmniejszego obrazu, który spełnia Twoje wymagania. W przypadku systemu Linux można użyć obrazu .NET Core *środowiska uruchomieniowego* , który jest obsługiwany od wersji programu .net Core 2,1. W przypadku systemu Windows, jeśli używasz pełnego .NET Framework, musisz użyć obrazu systemu Windows Server Core (obrazu tylko do środowiska uruchomieniowego, takiego jak  *4.7.2-windowsservercore-ltsc2016*). Obrazy tylko w środowisku uruchomieniowym są mniejsze, ale nie obsługują obciążeń, które wymagają zestawu .NET SDK.
 
+> [!NOTE]
+> ACI nie może ściągać obrazów z rejestrów niezgodnych ze STEROWNIKIem.
+
 ### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Jakie typy rejestrów kontenerów są zgodne z ACI?
 
-ACI obsługuje ściągania obrazów z ACR i innych rejestrów kontenerów innych firm, takich jak DockerHub. ACI obsługuje również ściągania obrazów z lokalnych rejestrów, pod warunkiem, że są one zgodne ze standardem OCR i mają punkt końcowy, który jest publicznie uwidoczniony w Internecie.
+ACI obsługuje ściągania obrazów z ACR i innych rejestrów kontenerów innych firm, takich jak DockerHub. ACI obsługuje ściągania obrazów z ACR i innych firmowych rejestrów kontenerów zgodnych ze standardem OCI, takich jak DockerHub z punktem końcowym, który jest publicznie narażony na Internet.
 
 ## <a name="availability-and-quotas"></a>Dostępność i limity przydziału
 
