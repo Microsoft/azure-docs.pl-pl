@@ -2,21 +2,21 @@
 title: Co to jest rozpoznawanie formularzy?
 titleSuffix: Azure Cognitive Services
 description: Usługa aparat rozpoznawania formularzy platformy Azure pozwala identyfikować i wyodrębniać pary klucz/wartość oraz dane tabeli z dokumentów formularzy, a także wyodrębniać główne informacje z przyjęć sprzedaży i kart firmowych.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/23/2020
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: fdd482a6b0d6ca53d99cd17076ccd9a3545f7879
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094381"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467336"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -24,27 +24,32 @@ ms.locfileid: "101094381"
 
 Aparat rozpoznawania formularzy platformy Azure to usługa poznawcze, która umożliwia tworzenie automatycznego oprogramowania do przetwarzania danych przy użyciu technologii uczenia maszynowego. Zidentyfikuj i Wyodrębnij tekst, pary klucz/wartość, znaczniki wyboru, tabele i struktury z dokumentów &mdash; , usługa zwraca dane strukturalne, które obejmują relacje w oryginalnym pliku, pola związane z ograniczeniami, pewność i inne. Szybko uzyskuj dokładne wyniki, które są dostosowane do konkretnej zawartości, bez znacznej interwencji ręcznej lub szczegółowej wiedzy o nauce danych. Używaj aparatu rozpoznawania formularzy do automatyzowania wprowadzania danych w aplikacjach i wzbogacania możliwości wyszukiwania dokumentów.
 
-Aparat rozpoznawania formularzy składa się z modeli przetwarzania dokumentów niestandardowych, wstępnie utworzonych modeli dla faktur, przyjęć i kart służbowych oraz modelu układu. Można wywołać modele aparatu rozpoznawania formularzy przy użyciu interfejsu API REST lub zestawów SDK biblioteki klienta, aby zmniejszyć złożoność i zintegrować ją z przepływem pracy lub aplikacją.
+Aparat rozpoznawania formularzy składa się z niestandardowych modeli przetwarzania dokumentów, wstępnie utworzonych modeli dla faktur, przyjęć, identyfikatorów i kart służbowych oraz modelu układu. Można wywołać modele aparatu rozpoznawania formularzy przy użyciu interfejsu API REST lub zestawów SDK biblioteki klienta, aby zmniejszyć złożoność i zintegrować ją z przepływem pracy lub aplikacją.
 
 Aparat rozpoznawania formularzy składa się z następujących usług:
 
 * **[Interfejs API układu](#layout-api)** — Wyodrębnianie tekstu, znaczników wyboru i struktur tabel wraz ze współrzędnymi pola ograniczenia, z dokumentów.
 * **[Modele niestandardowe](#custom-models)** — Wyodrębnij pary tekstu, par klucz/wartość, znaczniki wyboru i dane tabeli z formularzy. Te modele są przeszkolone przy użyciu własnych danych, dzięki czemu są dostosowane do Twoich formularzy.
-* Wstępnie **[utworzone modele](#prebuilt-models)** — Wyodrębnij dane z unikatowych typów formularzy przy użyciu wbudowanych modeli. Obecnie dostępne są następujące modele wbudowane
+
+* Wstępnie **[utworzone modele](#prebuilt-models)** — Wyodrębnij dane z unikatowych typów dokumentów przy użyciu wbudowanych modeli. Obecnie dostępne są następujące modele wbudowane
+
   * [Faktury](./concept-invoices.md)
   * [Przyjęcia sprzedaży](./concept-receipts.md)
   * [Wizytówki](./concept-business-cards.md)
+  * [Karty identyfikacyjne (ID)](./concept-identification-cards.md)
 
 ## <a name="try-it-out"></a>Czas to wypróbować
 
 Aby wypróbować usługę aparat rozpoznawania formularzy, przejdź do narzędzia przykładowego interfejsu użytkownika w trybie online:
 <!-- markdownlint-disable MD025 -->
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+<!-- markdownlint-disable MD024 -->
+
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
 > [!div class="nextstepaction"]
 > [Wypróbuj aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 > [!div class="nextstepaction"]
 > [Wypróbuj aparat rozpoznawania formularzy](https://fott.azurewebsites.net/)
@@ -67,28 +72,27 @@ Podczas uczenia modeli niestandardowych można korzystać z następujących opcj
 
 ### <a name="train-without-labels"></a>Uczenie bez etykiet
 
-Domyślnie aparat rozpoznawania formularzy używa nienadzorowanej uczenia, aby zrozumieć układ i relacje między polami i pozycjami w formularzach. Po przesłaniu formularzy wejściowych algorytm tworzy klastry według typu, odnajduje, jakie klucze i tabele są obecne, i kojarzy wartości z kluczami i wpisami w tabelach. Nie wymaga to ręcznej etykietowania danych ani intensywnego kodowania i konserwacji, dlatego zalecamy wypróbowanie tej metody w pierwszej kolejności.
+Aparat rozpoznawania formularzy używa nienadzorowanej uczenia, aby zrozumieć układ i relacje między polami i pozycjami w formularzach. Po przesłaniu formularzy wejściowych algorytm tworzy klastry według typu, odnajduje, jakie klucze i tabele są obecne, i kojarzy wartości z kluczami i wpisami w tabelach. Szkolenia bez etykiet nie wymagają ręcznego etykietowania danych ani intensywnego kodowania i konserwacji, a zalecamy wypróbowanie tej metody w pierwszej kolejności.
 
 Zobacz [Tworzenie zestawu danych szkoleniowych,](./build-training-data-set.md) Aby uzyskać porady dotyczące sposobu zbierania dokumentów szkoleniowych.
 
 ### <a name="train-with-labels"></a>Uczenie z etykietami
 
-W przypadku uczenia się z danymi z etykietami model przeprowadza nadzorowane uczenie w celu wyodrębnienia interesujących wartości przy użyciu podanych formularzy z etykietami. Prowadzi to do lepszego wykonywania modeli i może generować modele, które współpracują z złożonymi formularzami lub formularzami zawierającymi wartości bez kluczy.
+W przypadku uczenia się z danymi z etykietami model używa nadzorowanej uczenia do wyodrębnienia wartości zainteresowania przy użyciu podanego formularza z etykietami. Dane z etykietami są wynikiem lepszych modeli i mogą generować modele, które współpracują z złożonymi formularzami lub formularzami zawierającymi wartości bez kluczy.
 
-Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , aby poznać oczekiwane rozmiary i położenia elementów tekstu wydrukowanych i odręcznych. Następnie używa etykiet określonych przez użytkownika, aby poznać skojarzenia klucz/wartość w dokumentach. Zalecamy używanie pięciu ręcznie oznaczonych etykiet tego samego typu (tej samej struktury), aby rozpocząć pracę w przypadku uczenia nowego modelu i dodania do niego większej ilości danych, aby poprawić dokładność modelu.
+Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , aby poznać oczekiwane rozmiary i położenia elementów tekstu wydrukowanych i odręcznych oraz wyodrębniania tabel. Następnie używa etykiet określonych przez użytkownika, aby poznać skojarzenia klucz/wartość i tabele w dokumentach. Zalecamy używanie pięciu ręcznie oznaczonych etykiet tego samego typu (tej samej struktury), aby rozpocząć pracę w przypadku uczenia nowego modelu i dodania do niego większej ilości danych, aby poprawić dokładność modelu. Aparat rozpoznawania formularzy umożliwia uczenie modelu w celu wyodrębnienia par wartości klucza i tabel przy użyciu nadzorowanych możliwości uczenia. 
 
 [Wprowadzenie do uczenia się z etykietami](./quickstarts/label-tool.md)
 
-
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
-
 
 ## <a name="prebuilt-models"></a>Wstępnie utworzone modele
 
 Aparat rozpoznawania formularzy zawiera również wstępnie zbudowane modele do automatycznego przetwarzania danych unikatowych typów.
 
 ### <a name="prebuilt-invoice-model"></a>Wstępnie zbudowany model faktury
-Wstępnie skompilowany model faktury wyodrębnia dane z faktur w różnych formatach i zwraca dane strukturalne. Ten model wyodrębnia kluczowe informacje, takie jak identyfikator faktury, szczegóły klienta, szczegóły dostawcy, dostawa do, rachunek do, suma, podatek, suma częściowa i inne. Ponadto prekompilowany model faktur jest szkolony, aby analizować i zwracać cały tekst i tabele na fakturze. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [faktur](./concept-invoices.md) .
+
+Wstępnie skompilowany model faktury wyodrębnia dane z faktur w różnych formatach i zwraca dane strukturalne. Ten model wyodrębnia kluczowe informacje, takie jak identyfikator faktury, szczegóły klienta, szczegóły dostawcy, dostawa do, rachunek do, suma, podatek, suma częściowa, elementy wiersza itd. Ponadto prekompilowany model faktur jest szkolony, aby analizować i zwracać cały tekst i tabele na fakturze. Więcej informacji można znaleźć w przewodniku koncepcyjnym dotyczącym [faktur](./concept-invoices.md) .
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="Przykładowa faktura" lightbox="./media/overview-invoices.jpg":::
 
@@ -98,32 +102,48 @@ Wstępnie utworzony model przyjęcia jest używany do odczytywania z angielskieg
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="Przykładowe potwierdzenie" lightbox="./media/overview-receipt.jpg":::
 
+### <a name="prebuilt-identification-id-cards-model"></a>Model wbudowanych kart identyfikacyjnych (ID)
+
+Model kart identyfikacyjnych (ID) umożliwia wyodrębnienie najważniejszych informacji z paszportów opartych na całym świecie i licencji sterowników w Stanach Zjednoczonych. Dane takie są wyodrębniane, takie jak identyfikator dokumentu, Data wygaśnięcia urodzenia, Data wygaśnięcia, nazwa, kraj, region, strefa do odczytu maszynowego i wiele innych. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [kart identyfikacyjnych (ID)](./concept-identification-cards.md) .
+
+:::image type="content" source="./media/overview-id.jpg" alt-text="Przykładowa karta identyfikacyjna" lightbox="./media/overview-id.jpg":::
+
 ### <a name="prebuilt-business-cards-model"></a>Model prebudowanych kart roboczych
 
 Model wizytówek umożliwia wyodrębnienie informacji, takich jak imię i nazwisko osoby, stanowiska, adres e-mail, firma i numery telefonów z kart służbowych w języku angielskim. Więcej informacji można znaleźć w przewodniku po pojęciach dotyczących [kart służbowych](./concept-business-cards.md) .
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="Przykładowa karta biznesowa" lightbox="./media/overview-business-card.jpg":::
 
-
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Skorzystaj z [przykładowego narzędzia rozpoznawania formularzy](https://fott.azurewebsites.net/) lub Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
+Skorzystaj z przykładowego narzędzia rozpoznawania formularzy do wypróbowania układu, wstępnie skompilowanych modeli i uczenia modelu niestandardowego dla dokumentów:  
 
-* [Biblioteka klienta/interfejs API REST — szybki start](./quickstarts/client-library.md) (wszystkie języki, wiele scenariuszy)
-* Przewodnik Szybki Start dotyczący interfejsu użytkownika sieci Web
-  * [Szkolenie z etykietami — przykładowe narzędzie do etykietowania](quickstarts/label-tool.md)
-* Przykłady REST (GitHub)
- * Wyodrębnij tekst, znaczniki wyboru i strukturę tabeli z dokumentów
-    * [Wyodrębnij dane układu — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-  * Uczenie modeli niestandardowych i wyodrębnianie danych formularza
-    * [Uczenie bez etykiet — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-    * [Uczenie z etykietami — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-  * Wyodrębnij dane z faktur
-    * [Wyodrębnij dane faktury — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-  * Wyodrębnij dane z przyjęć sprzedaży
-    * [Wyodrębnij dane przyjęcia — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-  * Wyodrębnianie danych z wizytówek
-    * [Wyodrębnianie danych z kart służbowych — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+
+> [!div class="nextstepaction"]
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
+
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott.azurewebsites.net/)
+
+---
+Postępuj zgodnie z [biblioteką klienta/przewodnikiem Szybki start interfejsu API REST](./quickstarts/client-library.md) , aby rozpocząć wyodrębnianie danych z dokumentów. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
+
+Aby rozpocząć, możesz również użyć przykładów REST (GitHub). 
+
+* Wyodrębnij tekst, znaczniki wyboru i strukturę tabeli z dokumentów
+  * [Wyodrębnij dane układu — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Uczenie modeli niestandardowych i wyodrębnianie danych formularza
+  * [Uczenie bez etykiet — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Uczenie z etykietami — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Wyodrębnij dane z faktur
+  * [Wyodrębnij dane faktury — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Wyodrębnij dane z przyjęć sprzedaży
+  * [Wyodrębnij dane przyjęcia — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Wyodrębnianie danych z wizytówek
+  * [Wyodrębnianie danych z kart służbowych — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Przeglądanie interfejsów API REST
 
@@ -136,13 +156,16 @@ Poniższe interfejsy API służą do uczenia modeli i wyodrębnienia danych stru
 | **Analiza formularza** |Analizuj formularz przekazaną jako strumień, aby wyodrębnić pary tekstu, klucza/wartości i tabele z formularza z modelem niestandardowym.  |
 | **Analizowanie faktury** | Analizuj fakturę, aby wyodrębnić informacje o kluczu, tabelach i innych tekstach faktury.|
 | **Analizuj potwierdzenie** | Analizuj dokument paragonu w celu wyodrębnienia informacji o kluczu i innego tekstu paragonu.|
+| **Identyfikator analizy** | Analizuj dokument identyfikatora karty, aby wyodrębnić informacje o kluczu i inny tekst karty identyfikacyjnej.|
 | **Analizuj wizytówkę** | Analizuj kartę biznesową, aby wyodrębnić informacje o kluczu i tekst.|
 
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
-Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
-Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
+Zapoznaj się z [dokumentacją interfejsu API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
+
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+Zapoznaj się z [dokumentacją interfejsu API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
 
 ---
 
@@ -152,7 +175,7 @@ Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitiv
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-[Używanie kontenerów aparatu rozpoznawania formularzy (wersja zapoznawcza)](form-recognizer-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych. 
+[Używanie kontenerów aparatu rozpoznawania formularzy (wersja zapoznawcza)](form-recognizer-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych.
 
 ## <a name="service-availability-and-redundancy"></a>Dostępność i nadmiarowość usługi
 
@@ -164,11 +187,13 @@ Tak. Usługa aparat rozpoznawania formularzy domyślnie jest odporna na strefy.
 
 W celu włączenia odporności stref nie trzeba wykonywać żadnych czynności konfiguracyjnych. Odporność stref na zasoby dla aparatu rozpoznawania formularzy jest domyślnie dostępna i zarządzana przez samą usługę.
 
-
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 
 Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usługi rozpoznawania formularzy powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Zobacz [stronę usług Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) w Centrum zaufania firmy Microsoft, aby dowiedzieć się więcej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzającej formularze przy użyciu aparatu rozpoznawania formularzy w wybranym języku programistycznym.
+Skorzystaj z naszego narzędzia online i przewodnika Szybki Start, aby dowiedzieć się więcej na temat usługi aparat rozpoznawania formularzy.
+
+* [**Narzędzie do rozpoznawania formularzy**](https://fott-preview.microsoft.com/)
+* [**Biblioteka klienta i interfejs API REST — Szybki Start**](quickstarts/client-library.md)

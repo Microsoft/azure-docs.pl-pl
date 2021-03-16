@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b59d9079b6d0fe0ab3fe61eacf43f3a99eb46686
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090849"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495780"
 ---
 # <a name="tutorial-configure-security-agents"></a>Samouczek: Konfigurowanie agentów zabezpieczeń
 
@@ -88,7 +88,7 @@ Aby użyć domyślnej wartości właściwości, Usuń właściwość z obiektu k
 
 1. Kliknij pozycję **identyfikator modułu — sznurek**.
 
-1. Edytuj właściwości, które chcesz zmienić w module zabezpieczeń.
+1. Edytuj właściwości, które chcesz zmienić w usłudze Defender-IoT-Micro-Agent.
 
    Na przykład, aby skonfigurować zdarzenia połączeń jako wysoki priorytet i zbierać zdarzenia o wysokim priorytecie co 7 minut, użyj poniższej konfiguracji.
 
@@ -134,12 +134,12 @@ Wartości domyślne są dostępne w odpowiednim schemacie w serwisie [GitHub](ht
 |Błąd konfiguracji |eventPriorityConfigurationError |Niski |Fałsz |Agent nie może przeanalizować konfiguracji. Sprawdź konfigurację względem schematu.|
 |Dane statystyczne dotyczące porzuconego zdarzenia |eventPriorityDroppedEventsStatistics |Niski |Prawda|Statystyki zdarzeń związanych z agentem. |
 |Podłączony sprzęt|eventPriorityConnectedHardware |Niski |Prawda |Migawka wszystkich urządzeń podłączonych do urządzenia.|
-|Nasłuchiwanie portów|eventPriorityListeningPorts |Wysoki |Prawda |Migawka wszystkich otwartych portów nasłuchiwania na urządzeniu.|
+|Nasłuchiwanie portów|eventPriorityListeningPorts |Wys. |Prawda |Migawka wszystkich otwartych portów nasłuchiwania na urządzeniu.|
 |Tworzenie procesu |eventPriorityProcessCreate |Niski |Fałsz |Przeprowadza inspekcję tworzenia procesu na urządzeniu.|
 |Zakończenie procesu|eventPriorityProcessTerminate |Niski |Fałsz |Przeprowadza inspekcję zakończenia procesu na urządzeniu.|
 |Informacje o systemie |eventPrioritySystemInformation |Niski |Prawda |Migawka informacji o systemie (na przykład: system operacyjny lub procesor CPU).|
-|Użytkownicy lokalni| eventPriorityLocalUsers |Wysoki |Prawda|Migawka zarejestrowanych użytkowników lokalnych w systemie. |
-|Zaloguj się|  eventPriorityLogin |Wysoki|Fałsz|Przeprowadź inspekcję zdarzeń logowania na urządzeniu (logowanie lokalne i zdalne).|
+|Użytkownicy lokalni| eventPriorityLocalUsers |Wys. |Prawda|Migawka zarejestrowanych użytkowników lokalnych w systemie. |
+|Zaloguj się|  eventPriorityLogin |Wys.|Fałsz|Przeprowadź inspekcję zdarzeń logowania na urządzeniu (logowanie lokalne i zdalne).|
 |Tworzenie połączenia |eventPriorityConnectionCreate|Niski|Fałsz|Przeprowadza inspekcję połączeń TCP utworzonych do i z urządzenia. |
 |Konfiguracja zapory| eventPriorityFirewallConfiguration|Niski|Prawda|Migawka konfiguracji zapory urządzenia (reguły zapory). |
 |Linia bazowa systemu operacyjnego| eventPriorityOSBaseline| Niski|Prawda|Migawka kontroli linii bazowej systemu operacyjnego urządzenia.|

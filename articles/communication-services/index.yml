@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Usługi Azure Communication Services
-summary: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji. Pamiętaj, że usługi Azure Communication Services są obecnie dostępne w publicznej wersji zapoznawczej.
+summary: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji.
 metadata:
   title: Usługi Azure Communication Services
-  description: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji. Pamiętaj, że usługi Azure Communication Services są obecnie dostępne w publicznej wersji zapoznawczej.
+  description: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji.
   ms.service: azure-communication-services
   ms.topic: landing-page
   author: mikben
   ms.author: mikben
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 4727e7ca3e0831483811c77be34e69f794cfb576
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/10/2021
+  ms.openlocfilehash: 12648dcf8712973149e8e2c1664f82caf0446e78
+  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101690519"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103495253"
 landingContent:
 - title: Informacje o usługach Azure Communication Services
   linkLists:

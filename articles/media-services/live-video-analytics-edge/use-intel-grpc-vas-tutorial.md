@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124418"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465763"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Samouczek: analizowanie wideo na żywo przy użyciu rozwiązania Intel OpenVINO™ DL — rozszerzenie AI 
 
@@ -128,7 +128,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
     *deployment.openvino.grpc.cpu.amd64.jsw* pliku manifestu jest tworzony w folderze *src/Edge/config* .
 
 > [!NOTE]
-Dodaliśmy również *deployment.openvino.grpc.gpu.template.js* szablonu, który umożliwia obsługę procesora GPU dla nieOpenVINOego rozszerzenia DL systemu Intel. Te szablony wskazują obraz centrum platformy Docker firmy Intel.
+> Dodaliśmy również *deployment.openvino.grpc.gpu.template.js* szablonu, który umożliwia obsługę procesora GPU dla nieOpenVINOego rozszerzenia DL systemu Intel. Te szablony wskazują obraz centrum platformy Docker firmy Intel.
 
 Powyższe szablony wskazują na obraz centrum platformy Docker firmy Intel. Jeśli nie chcesz hostować kopii na swoim Azure Container Registry, możesz wykonać krok 1 i 2 poniżej:
 1. Użyj protokołu SSH do urządzenia z zainstalowanymi narzędziami interfejsu wiersza polecenia platformy Docker (tj. urządzeniem brzegowym) i ściągaj/Oznacz/wypchnij kontener z następującymi krokami:

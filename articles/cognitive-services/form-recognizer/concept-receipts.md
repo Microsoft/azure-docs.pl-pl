@@ -3,31 +3,29 @@ title: Potwierdzenia — aparat rozpoznawania formularzy
 titleSuffix: Azure Cognitive Services
 description: Poznaj koncepcje związane z analizą odbioru przy użyciu interfejsu API rozpoznawania i limitów.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546010"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467361"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z opcją odbioru, która umożliwia zrozumienie modeli uczenia głębokiego w celu wyodrębnienia najważniejszych informacji z przyjęć w języku angielskim. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z modelami uczenia głębokiego, aby wyodrębnić najważniejsze informacje z przyjęć pisanych w języku angielskim.
 
-## <a name="understanding-receipts"></a>Informacje o potwierdzeniach 
+## <a name="understanding-receipts"></a>Informacje o potwierdzeniach
 
-Wiele firm i osób nadal polegają na ręcznym wyodrębnieniu danych z ich przyjęć sprzedaży, niezależnie od tego, czy są to raporty z wydatków biznesowych, zwrotne, inspekcje, cele podatkowe, budżetowanie, marketing lub inne cele. Często w tych scenariuszach obrazy fizycznego paragonu są wymagane do celów weryfikacji.  
+Wiele firm i użytkowników nadal polega na ręcznym wyodrębnieniu danych z przyjęć sprzedaży. Automatyczne wyodrębnianie danych z tych przyjęć może być skomplikowane. Paragony mogą być Crumpled, trudne do odczytania, mieć elementy napisane ręcznie i zawierać obrazy smartphone o niskiej jakości. Ponadto szablony i pola paragonów mogą się różnić w zależności od rynku, regionu i handlowca. Te wyzwania związane z wyodrębnianiem i wykrywaniem pól sprawiają, że przetwarzanie potwierdzenia jest unikatowy.  
 
-Automatyczne wyodrębnianie danych z tych przyjęć może być skomplikowane. Paragony mogą być crumplede i trudne do odczytania, wydrukowanych lub odręcznych, a obrazy smartphone mogą mieć niską jakość. Ponadto szablony i pola paragonów mogą się różnić w zależności od rynku, regionu i handlowca. Te wyzwania w przypadku wyodrębniania danych i wykrywania pól sprawiają, że podczas przetwarzania przez funkcję odbioru występuje unikatowy problem.  
-
-Korzystając z funkcji optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu paragonów, interfejs API paragonów włącza te scenariusze przetwarzania paragonów i wyodrębnia dane z przyjęć, takich jak nazwa handlowa, Porada, suma, elementy wiersza itd. Za pomocą tego interfejsu API nie ma potrzeby uczenia modelu, wystarczy wysłać obraz paragonu do interfejsu API przesyłania i dane są wyodrębniane.
+Interfejs API paragonów używa optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu w celu włączenia dużych scenariuszy przetwarzania paragonów. W przypadku interfejsu API odbierania nie ma potrzeby uczenia modelu. Wyślij obraz paragonu do interfejsu API usługi Analiza przychodów, a dane są wyodrębniane.
 
 ![Przykładowe potwierdzenie](./media/receipts-example.jpg)
 
@@ -73,12 +71,12 @@ Aby wypróbować usługę potwierdzenia rozpoznawania formularzy, przejdź do na
 
 ## <a name="input-requirements"></a>Wymagania wejściowe
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>Obsługiwane ustawienia regionalne 
 
 * **Wstępnie skompilowane przyjęcie w wersji 2.0** (ga) obsługuje przyjęcia sprzedaży w ustawieniach regionalnych en-us
-* **Wstępnie utworzone przyjęcie — wersja zapoznawcza. 2** (publiczna wersja zapoznawcza) dodaje dodatkową pomoc techniczną dla następujących ustawień regionalnych usługi: 
+* **Wstępnie utworzone przyjęcie — wersja zapoznawcza. 3** (publiczna wersja zapoznawcza) dodaje dodatkową pomoc techniczną dla następujących ustawień regionalnych usługi: 
   * EN-AU 
   * EN-CA 
   * PL GB 
@@ -87,12 +85,12 @@ Aby wypróbować usługę potwierdzenia rozpoznawania formularzy, przejdź do na
   > [!NOTE]
   > Dane wejściowe języka 
   >
-  > Wstępnie utworzone przyjęcie v 2.1 — wersja zapoznawcza. 2 ma opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 2, model będzie domyślnie modelem EN-US.
+  > Wstępnie utworzone przyjęcie v 2.1 — wersja zapoznawcza. 3 zawiera opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 3, model będzie domyślnie modelem EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Operacja analizy przychodu
 
-[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
@@ -100,16 +98,16 @@ Aby wypróbować usługę potwierdzenia rozpoznawania formularzy, przejdź do na
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Operacja pobrania wyniku analizy przychodu
 
-Drugim krokiem jest wywołanie operacji [Get Analizuj wynik przyjęcia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj potwierdzenie. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
+Drugim krokiem jest wywołanie operacji [Get Analizuj wynik przyjęcia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj potwierdzenie. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|
-|status | ciąg | notStarted: operacja analizy nie została rozpoczęta. |
+|status | ciąg | notStarted: operacja nie została rozpoczęta. |
 | |  | Uruchamianie: operacja analizy jest w toku. |
 | |  | Niepowodzenie: operacja analizy zakończyła się niepowodzeniem. |
 | |  | powodzenie: operacja analizy zakończyła się pomyślnie. |
 
-Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać opis potwierdzenia i wyniki rozpoznawania tekstu. Wynik interpretacji paragonu jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiednie elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
+Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać opis potwierdzenia i wyniki rozpoznawania tekstu. Wynik interpretacji paragonu jest zorganizowany jako słownik nazwanych wartości pól. Każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
 
 ![Przykładowe wyniki odbioru](./media/contoso-receipt-2-information.png)
 
@@ -447,18 +445,17 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 }
 ```
 
-
 ## <a name="customer-scenarios"></a>Scenariusze klientów  
 
-Dane wyodrębnione za pomocą interfejsu API paragonów mogą służyć do wykonywania różnych zadań. Poniżej przedstawiono kilka przykładów naszych klientów korzystających z interfejsu API odbierania. 
+Dane wyodrębnione za pomocą interfejsu API paragonów mogą służyć do wykonywania różnych zadań. Poniżej przedstawiono kilka przykładów klientów, którzy korzystali z interfejsu API odbierania.
 
 ### <a name="business-expense-reporting"></a>Raportowanie wydatków w firmie  
 
 Często wydatki biznesowe obejmują czas poświęcany na ręczne wprowadzanie danych z obrazów przyjęć. Korzystając z interfejsu API paragonów, można użyć wyodrębnionych pól, aby częściowo zautomatyzować ten proces i szybko analizować swoje wpłaty.  
 
-Ponieważ interfejs API paragonów zawiera proste dane wyjściowe JSON, można użyć wyodrębnionych wartości pól na wiele sposobów. Integruj z wewnętrznymi aplikacjami do wydatków, aby wstępnie wypełnić raporty dotyczące wydatków. Aby uzyskać więcej informacji na ten temat, Przeczytaj o tym, jak Acumatica korzysta z interfejsu API odbioru w celu [raportowania wydatków na mniej bolesnym proces](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
+Interfejs API paragonów jest prostym wyjściem JSON umożliwiającym używanie wyodrębnionych wartości pól na wiele sposobów. Integruj z wewnętrznymi aplikacjami do wydatków, aby wstępnie wypełnić raporty dotyczące wydatków. Aby uzyskać więcej informacji na ten temat, Przeczytaj o tym, jak Acumatica korzysta z interfejsu API odbioru w celu [raportowania wydatków na mniej bolesnym proces](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
-### <a name="auditing-and-accounting"></a>Inspekcja i ewidencjonowanie aktywności 
+### <a name="auditing-and-accounting"></a>Inspekcja i ewidencjonowanie aktywności
 
 Dane wyjściowe interfejsu API paragonów mogą być również używane do analizowania dużej liczby wydatków w różnych punktach w ramach raportowania wydatków i procesu zwrotnego. Możesz przetwarzać potwierdzenia, aby klasyfikacja je do ręcznego przeprowadzania inspekcji lub szybkich zatwierdzeń.  
 
@@ -472,9 +469,13 @@ Interfejs API paragonu zapewnia również [funkcję przetwarzania paragonów pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania paragonów za pomocą aparatu rozpoznawania formularzy w wybranym języku programistycznym.
+ . Zacznij pisać aplikację przetwarzania paragonów z aparatem rozpoznawania formularzy w wybranym języku programistycznym.
+
+> [!div class="nextstepaction"]
+> [Kończenie pracy z aparatem szybkiego startu formularza](quickstarts/client-library.md)
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Co to jest rozpoznawanie formularzy?](./overview.md)
-* [Dokumentacja interfejsu API REST](./index.yml)
+* [Co to jest rozpoznawanie formularzy?](overview.md)
+* [Dokumentacja interfejsu API rozpoznawania formularzy](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+>

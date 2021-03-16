@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: f07e3b6142ad99ba3b9e64e4733109a7e5ae04f9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425752"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467297"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -33,7 +33,7 @@ W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawani
 Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
   * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
   * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 * Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip*) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
@@ -124,7 +124,7 @@ Najpierw upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Konfigurowanie udostępniania zasobów między domenami (CORS)
 
-Włącz funkcję CORS na koncie magazynu. Wybierz konto magazynu w Azure Portal a następnie kliknij kartę **CORS** w okienku po lewej stronie. W dolnej linii Wypełnij poniższe wartości. Następnie kliknij przycisk **Zapisz** u góry.
+Włącz funkcję CORS na koncie magazynu. Wybierz konto magazynu w Azure Portal a następnie wybierz kartę **CORS** w okienku po lewej stronie. W dolnej linii Wypełnij poniższe wartości. Wybierz pozycję **Zapisz** u góry.
 
 * Dozwolone źródła = *
 * Dozwolone metody = \[ Zaznacz wszystko\]
@@ -137,11 +137,11 @@ Włącz funkcję CORS na koncie magazynu. Wybierz konto magazynu w Azure Portal 
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Połącz z przykładowym narzędziem do etykietowania
 
-Przykładowe narzędzie do etykietowania łączy się ze źródłem (gdzie oryginalne formularze są) i obiektem docelowym (gdzie eksportuje utworzone etykiety i dane wyjściowe).
+ Przykładowe narzędzie do etykietowania łączy się ze źródłem (oryginalnie przekazanymi formularzami) i obiektem docelowym (utworzonymi etykietami i danymi wyjściowymi).
 
 Połączenia można skonfigurować i udostępnić między projektami. Korzystają one z rozszerzalnego modelu dostawcy, dzięki czemu można łatwo dodawać nowych dostawców źródła/obiektu docelowego.
 
-Aby utworzyć nowe połączenie, kliknij ikonę **nowe połączenia** (plug) na pasku nawigacyjnym po lewej stronie.
+Aby utworzyć nowe połączenie, wybierz ikonę **nowe połączenia** (plug) na pasku nawigacyjnym po lewej stronie.
 
 Wypełnij pola następującymi wartościami:
 
@@ -153,13 +153,12 @@ Wypełnij pola następującymi wartościami:
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
-
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
 W przykładowym narzędziu do etykietowania projekty przechowują konfiguracje i ustawienia. Utwórz nowy projekt i wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana projektu
-* **Token zabezpieczający** — niektóre ustawienia projektu mogą zawierać wartości poufne, takie jak klucze interfejsu API lub inne wspólne klucze tajne. Każdy projekt generuje token zabezpieczający, który może służyć do szyfrowania/odszyfrowywania poufnych ustawień projektu. Tokeny zabezpieczające w ustawieniach aplikacji można znaleźć, klikając ikonę koła zębatego u dołu lewego paska nawigacyjnego.
+* **Token zabezpieczający** — niektóre ustawienia projektu mogą zawierać wartości poufne, takie jak klucze interfejsu API lub inne wspólne klucze tajne. Każdy projekt generuje token zabezpieczający, który może służyć do szyfrowania/odszyfrowywania poufnych ustawień projektu. Tokeny zabezpieczające można znaleźć w ustawieniach aplikacji, wybierając ikonę koła zębatego u dołu lewego paska nawigacyjnego.
 * **Połączenie źródłowe** — połączenie z usługą Azure Blob Storage utworzone w poprzednim kroku, którego chcesz użyć dla tego projektu.
 * **Ścieżka folderu** — opcjonalne — Jeśli Twoje formularze źródłowe znajdują się w folderze kontenera obiektów blob, określ tutaj nazwę folderu
 * **Identyfikator URI usługi rozpoznawania formularza** — adres URL punktu końcowego aparatu rozpoznawania formularza.
@@ -176,26 +175,28 @@ Po utworzeniu lub otwarciu projektu zostanie otwarte okno edytora tagów główn
 * Główne okienko edytora, które pozwala na stosowanie tagów.
 * Okienko edytora tagów, które pozwala użytkownikom modyfikować, blokować, zmieniać kolejność i usuwać Tagi.
 
-### <a name="identify-text-elements"></a>Zidentyfikuj elementy tekstowe
+### <a name="identify-text-and-tables"></a>Identyfikowanie tekstu i tabel 
 
-Kliknij przycisk **Uruchom OCR dla wszystkich plików** w okienku po lewej stronie, aby uzyskać informacje o układzie tekstu dla każdego dokumentu. Narzędzie do etykietowania rysuje ramki ograniczenia wokół każdego elementu tekstowego.
+Wybierz opcję **Uruchom OCR dla wszystkich plików** w okienku po lewej stronie, aby uzyskać informacje o układzie tekstu i tabeli dla każdego dokumentu. Narzędzie do etykietowania rysuje ramki ograniczenia wokół każdego elementu tekstowego.
 
-Zostaną również wyświetlone tabele, które zostały wyodrębnione automatycznie. Kliknij ikonę tabela/siatka po lewej stronie dokumentu, aby wyświetlić wyodrębnioną tabelę. W tym przewodniku Szybki Start, ponieważ zawartość tabeli jest wyodrębniana automatycznie, nie będziemy etykietować zawartości tabeli, ale raczej polegają na zautomatyzowanej ekstrakcji.
+Narzędzie do etykietowania również pokazuje, które tabele zostały wyodrębnione automatycznie. Wybierz ikonę tabela/siatka z lewej strony dokumentu, aby wyświetlić wyodrębnioną tabelę. W tym przewodniku Szybki Start, ponieważ zawartość tabeli jest wyodrębniana automatycznie, nie będziemy etykietować zawartości tabeli, ale raczej polegają na zautomatyzowanej ekstrakcji.
 
 :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Wizualizacja tabeli w przykładowym narzędziu do etykietowania.":::
+
+W wersji 2.1, jeśli dokument szkoleniowy nie ma wypełnionej wartości, możesz narysować pole, w którym wartość powinna być. Użyj **rysowania regionu** w lewym górnym rogu okna, aby uczynić region taggable.
 
 ### <a name="apply-labels-to-text"></a>Zastosuj etykiety do tekstu
 
 Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, które mają być analizowane przez model.
 
-### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-1)  
 
-1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować:
-   * Kliknij **+** , aby utworzyć nowy tag.
-   * Wprowadź nazwę tagu.
-   * Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W interfejsie API programu _v 2.1 Preview. 2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
-1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
+1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
+   1. Wybierz **+** , aby utworzyć nowy tag.
+   1. Wprowadź nazwę tagu.
+   1. Naciśnij klawisz ENTER, aby zapisać tag.
+1. W edytorze głównym wybierz słowa z wyróżnionych elementów tekstowych lub regionu, w którym nastąpiło narysowane.
+1. Wybierz tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
     > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach:
     >
@@ -212,11 +213,11 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
 ### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
 1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
-   1. Kliknij **+** , aby utworzyć nowy tag.
+   1. Wybierz **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
    1. Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych.
-1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
+1. W edytorze głównym wybierz pozycję słowa z wyróżnionych elementów tekstowych.
+1. Wybierz tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
     > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach:
     >
@@ -231,6 +232,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
 >
 
 ---
+---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Główne okno edytora przykładowego narzędzia do etykietowania.":::
 
@@ -238,7 +240,7 @@ Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formul
 
 ### <a name="specify-tag-value-types"></a>Określanie typów wartości tagów
 
-Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz menu kontekstowe z prawej strony znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania wykonywanie pewnych założeń, które spowodują poprawienie dokładności wykrywania tekstu. Zapewnia również, że wykryte wartości będą zwracane w formacie standardowym w końcowym danych wyjściowych JSON. Informacje o typie wartości są zapisywane w *fields.js* w pliku w tej samej ścieżce co pliki etykiet.
+Można ustawić oczekiwany typ danych dla każdego tagu. Otwórz menu kontekstowe z prawej strony znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania wykonywanie założeń, które spowodują poprawienie dokładności wykrywania tekstu. Zapewnia również, że wykryte wartości będą zwracane w formacie standardowym w końcowym danych wyjściowych JSON. Informacje o typie wartości są zapisywane w **fields.js** w pliku w tej samej ścieżce co pliki etykiet.
 
 > [!div class="mx-imgBorder"]
 > ![Wybór typu wartości z przykładowym narzędziem do etykietowania](../media/whats-new/value-type.png)
@@ -285,12 +287,22 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 > * 01Jan2020
 > * 01 stycznia 2020
 
+### <a name="label-tables-v21-only"></a>Tabele etykiet (tylko wersja 2.1)
+
+Czasami dane mogą okazać się lepszym rozwiązaniem do etykietowania jako tabela, a nie par klucz-wartość. W takim przypadku można utworzyć tag tabeli, klikając pozycję "Dodaj nowy znacznik tabeli", określ, czy tabela będzie miała stałą liczbę wierszy lub zmienną liczbę wierszy w zależności od dokumentu, i zdefiniuj schemat.
+
+:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Konfigurowanie tagu tabeli.":::
+
+Po zdefiniowaniu znacznika tabeli Oznacz wartości komórek.
+
+:::image type="content" source="../media/table-labeling.png" alt-text="Etykietowanie tabeli.":::
+
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 
-Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkolenia. Następnie kliknij przycisk **uczenie** , aby rozpocząć uczenie modelu. Po zakończeniu procesu szkolenia zostaną wyświetlone następujące informacje:
+Wybierz ikonę pouczenia w okienku po lewej stronie, aby otworzyć stronę szkolenia. Następnie wybierz przycisk **uczenie** , aby rozpocząć uczenie modelu. Po zakończeniu procesu szkolenia zostaną wyświetlone następujące informacje:
 
 * **Identyfikator modelu** — Identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkoleniowe tworzy nowy model z własnym IDENTYFIKATORem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będzie ona potrzebna, jeśli chcesz wykonywać wywołania prognoz za pomocą [interfejsu API REST](./client-library.md?pivots=programming-language-rest-api) lub [biblioteki klienckiej](./client-library.md).
-* **Średnia dokładność** — średnia dokładność modelu. Możesz poprawić dokładność modelu przez etykietowanie dodatkowych formularzy i szkoleń, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy zgodnie z wymaganiami.
+* **Średnia dokładność** — średnia dokładność modelu. Możesz poprawić dokładność modelu, dodając etykiety do dodatkowych formularzy i przeszkolenia, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy zgodnie z wymaganiami.
 * Lista tagów i Szacowana dokładność na tag.
 
 
@@ -305,10 +317,10 @@ Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśl
 
 ### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
-Funkcja Redagowanie modelu umożliwia utworzenie nawet 100 modeli w ramach jednego identyfikatora modelu. Po wywołaniu funkcji analizy z tym utworzonym identyfikatorem modelu usługa Rozpoznawanie formularzy najpierw sklasyfikuje przesłany formularz, dopasowując go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
+Funkcja Redagowanie modelu umożliwia utworzenie nawet 100 modeli w ramach jednego identyfikatora modelu. Po wywołaniu metody Analizuj przy użyciu programu `modelID` , aparat rozpoznawania formularza najpierw klasyfikuje przesłany formularz, wybierze najlepiej pasujący model, a następnie zwraca wyniki dla tego modelu. Ta operacja jest przydatna, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
 
-Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele.
-Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście.
+Aby zredagować modele w narzędziu przykładowego etykietowania, wybierz ikonę redagowanie modelu (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele.
+Wybierz **przycisk Utwórz**. W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i wybierz pozycję **Utwórz**. Po zakończeniu operacji, nowo utworzony model powinien pojawić się na liście.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
 
@@ -320,16 +332,16 @@ Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania.
 
 ## <a name="analyze-a-form"></a>Analizowanie formularza
 
-Kliknij ikonę przewidywania (żarówki) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkoleniowym. Następnie kliknij przycisk **predykcyjny** po prawej stronie, aby uzyskać prognozy klucza/wartości dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
+Wybierz ikonę Predykcyjności (żarówki) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkoleniowym. Następnie wybierz przycisk **predykcyjny** po prawej stronie, aby uzyskać prognozy klucza/wartości dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
 
 > [!TIP]
 > Można również uruchomić analizowanie interfejsu API z wywołaniem REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Popraw wyniki
 
-W zależności od raportowanej dokładności możesz chcieć przeprowadzić dalsze szkolenia, aby usprawnić model. Po zakończeniu przewidywania przejrzyj wartości zaufania dla każdego z zastosowanych tagów. Jeśli średnia wartość szkoleniowa jest wysoka, ale wyniki pewności są niskie (lub wyniki są niedokładne), należy dodać plik używany do przewidywania do zestawu szkoleniowego, oznaczyć go etykietą i ponownie przeprowadzić uczenie.
+W zależności od raportowanej dokładności możesz chcieć przeprowadzić dalsze szkolenia, aby usprawnić model. Po zakończeniu przewidywania przejrzyj wartości zaufania dla każdego z zastosowanych tagów. Jeśli średnia wartość szkoleniowa jest wysoka, ale wyniki pewności są niskie (lub wyniki są niedokładne), należy dodać plik przewidywania do zestawu szkoleniowego, oznaczyć go etykietą i ponownie przeprowadzić uczenie.
 
-Raportowane średnia dokładność, wyniki pewności i rzeczywista dokładność mogą być niespójne, gdy analizowane dokumenty różnią się od tych używanych w szkoleniu. Należy pamiętać, że niektóre dokumenty wyglądają podobnie, gdy są wyświetlane przez osoby, ale mogą odróżnić się od modelu AI. Na przykład można pouczenie się typu formularza, który ma dwie odmiany, gdzie zestaw szkoleniowy składa się z 20% zmian A i 80% wariacji B. W czasie przewidywania Wyniki pewności dotyczące dokumentów odmiany A mogą być niższe.
+Raportowane średnia dokładność, wyniki pewności i rzeczywista dokładność mogą być niespójne, gdy analizowane dokumenty różnią się od dokumentów używanych w szkoleniu. Należy pamiętać, że niektóre dokumenty wyglądają podobnie, gdy są wyświetlane przez osoby, ale mogą odróżnić się od modelu AI. Na przykład można pouczenie się typu formularza, który ma dwie odmiany, gdzie zestaw szkoleniowy składa się z 20% zmian A i 80% wariacji B. W czasie przewidywania Wyniki pewności dotyczące dokumentów odmiany A mogą być niższe.
 
 ## <a name="save-a-project-and-resume-later"></a>Zapisz projekt i Wznów później
 
@@ -341,11 +353,11 @@ Przejdź do strony ustawień projektu (ikona suwaka) i zanotuj nazwę tokenu zab
 
 ### <a name="restore-project-credentials"></a>Przywróć poświadczenia projektu
 
-Gdy chcesz wznowić projekt, musisz najpierw utworzyć połączenie z tym samym kontenerem usługi BLOB Storage. Powtórz powyższe kroki, aby to zrobić. Następnie przejdź do strony ustawień aplikacji (ikony koła zębatego) i sprawdź, czy jest tam używany token zabezpieczający projektu. Jeśli tak nie jest, Dodaj nowy token zabezpieczający i skopiuj go przy użyciu nazwy i klucza tokenu z poprzedniego kroku. Następnie kliknij przycisk Zapisz ustawienia.
+Gdy chcesz wznowić projekt, musisz najpierw utworzyć połączenie z tym samym kontenerem usługi BLOB Storage. Aby to zrobić, powtórz powyższe kroki. Następnie przejdź do strony ustawień aplikacji (ikony koła zębatego) i sprawdź, czy jest tam używany token zabezpieczający projektu. Jeśli tak nie jest, Dodaj nowy token zabezpieczający i skopiuj go przy użyciu nazwy i klucza tokenu z poprzedniego kroku. Wybierz pozycję **Zapisz** , aby zachować ustawienia..
 
 ### <a name="resume-a-project"></a>Wznów projekt
 
-Na koniec przejdź do strony głównej (ikona domu), a następnie kliknij pozycję Otwórz projekt w chmurze. Następnie wybierz połączenie usługi BLOB Storage i wybierz plik *. fott* projektu. Aplikacja będzie ładować wszystkie ustawienia projektu, ponieważ ma token zabezpieczający.
+Na koniec przejdź do strony głównej (ikona domu) i wybierz pozycję **Otwórz projekt w chmurze**. Następnie wybierz połączenie usługi BLOB Storage i wybierz plik **. fott** projektu. Aplikacja będzie ładować wszystkie ustawienia projektu, ponieważ ma token zabezpieczający.
 
 ## <a name="next-steps"></a>Następne kroki
 

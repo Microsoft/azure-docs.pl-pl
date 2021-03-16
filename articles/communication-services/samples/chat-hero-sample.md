@@ -6,15 +6,15 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15c697902681ece210895dfd4608547c59bbcad0
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489569"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487835"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -116,7 +116,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) — Znajdź więcej przykładów i informacji na oficjalnej stronie GitHub
+- [Przykłady](./overview.md) — więcej przykładów i przykładów znajdziesz na naszej stronie Przegląd przykładów.
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
 - [FluentUI](https://aka.ms/fluent-ui) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika

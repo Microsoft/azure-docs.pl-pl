@@ -8,14 +8,16 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 517bcdab375db819b0942306df82e7285b9473b1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041376"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487704"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Przygotuj środowisko deweloperskie i testowe dla IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge przenosi istniejącą logikę biznesową na urządzenia działające na brzegu. Aby przygotować aplikacje i obciążenia do uruchamiania jako [moduły IoT Edge](iot-edge-modules.md), należy je skompilować jako kontenery. Ten artykuł zawiera wskazówki dotyczące konfigurowania środowiska programistycznego, aby można było pomyślnie utworzyć rozwiązanie IoT Edge. Po skonfigurowaniu środowiska programistycznego można dowiedzieć się, jak [opracowywać własne moduły IoT Edge](module-development.md).
 
@@ -56,11 +58,11 @@ Szablony modułów dla niektórych języków i usług mają wymagania wstępne, 
 | Szablon modułu | Wymaganie wstępne |
 | --------------- | ------------ |
 | Azure Functions | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
-| C | [Git](https://git-scm.com/) |
+| C | [Usługa Git](https://git-scm.com/) |
 | C# | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Ustaw zmienną środowiskową JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Generator modułów Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Język Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Usługa Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Rozszerzenie programu Visual Studio 2017/2019
 

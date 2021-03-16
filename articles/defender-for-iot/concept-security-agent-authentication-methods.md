@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449173"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494125"
 ---
 # <a name="security-agent-authentication-methods"></a>Metody uwierzytelniania agenta zabezpieczeń
 
 W tym artykule opisano różne metody uwierzytelniania, których można użyć z agentem AzureIoTSecurity do uwierzytelniania za pomocą IoT Hub.
 
-Dla każdego urządzenia dołączonego do usługi Defender for IoT w IoT Hub wymagany jest moduł zabezpieczeń. Aby można było uwierzytelnić urządzenie, usługa Defender for IoT może korzystać z jednej z dwóch metod. Wybierz metodę, która najlepiej sprawdza się w przypadku istniejącego rozwiązania IoT.
+Dla każdego urządzenia dołączonego do usługi Defender for IoT w IoT Hub wymagana jest usługa Defender-IoT-Micro-Agent. Aby można było uwierzytelnić urządzenie, usługa Defender for IoT może korzystać z jednej z dwóch metod. Wybierz metodę, która najlepiej sprawdza się w przypadku istniejącego rozwiązania IoT.
 
 - SecurityModule — opcja
 - Opcja urządzenia
@@ -33,12 +33,12 @@ Dla każdego urządzenia dołączonego do usługi Defender for IoT w IoT Hub wym
 
 Dwie metody dla agenta AzureIoTSecurity usługi Defender for IoT służące do przeprowadzania uwierzytelniania:
 
-- Tryb uwierzytelniania **SecurityModule**<br>
-Agent jest uwierzytelniany przy użyciu tożsamości modułu zabezpieczeń niezależnie od tożsamości urządzenia.
-Tego typu uwierzytelniania należy użyć, jeśli chcesz, aby Agent zabezpieczeń używał dedykowanej metody uwierzytelniania za pomocą modułu zabezpieczeń (tylko klucz symetryczny).
+- Usługa **Defender-IoT-Micro-Agent** Authentication Mode<br>
+Agent jest uwierzytelniany przy użyciu tożsamości usługi Defender-IoT-Micro-Agent niezależnie od tożsamości urządzenia.
+Tego typu uwierzytelniania należy użyć, jeśli chcesz, aby Agent zabezpieczeń używał dedykowanej metody uwierzytelniania za pomocą protokołu Defender-IoT-Micro-Agent (tylko klucz symetryczny).
 
 - Tryb uwierzytelniania **urządzenia**<br>
-W tej metodzie Agent zabezpieczeń najpierw uwierzytelnia się przy użyciu tożsamości urządzenia. Po początkowym uwierzytelnianiu Agent usługi Defender for IoT wykonuje wywołanie **rest** do IoT Hub przy użyciu interfejsu API REST z danymi uwierzytelniania urządzenia. Agent Defender for IoT następnie żąda metody uwierzytelniania modułu zabezpieczeń i danych z IoT Hub. W ostatnim kroku Agent usługi Defender for IoT wykonuje uwierzytelnianie względem modułu Defender for IoT.
+W tej metodzie Agent zabezpieczeń najpierw uwierzytelnia się przy użyciu tożsamości urządzenia. Po początkowym uwierzytelnianiu Agent usługi Defender for IoT wykonuje wywołanie **rest** do IoT Hub przy użyciu interfejsu API REST z danymi uwierzytelniania urządzenia. Agent Defender for IoT następnie żąda metody uwierzytelniania Defender-IoT-Micro-Agent i danych z IoT Hub. W ostatnim kroku Agent usługi Defender for IoT wykonuje uwierzytelnianie względem modułu Defender for IoT.
 
 Użyj tego typu uwierzytelniania, jeśli chcesz, aby Agent zabezpieczeń ponownie używał istniejącej metody uwierzytelniania urządzenia (certyfikat z podpisem własnym lub klucz symetryczny).
 

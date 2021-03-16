@@ -3,19 +3,19 @@ title: Karty biznesowe — aparat rozpoznawania formularzy
 titleSuffix: Azure Cognitive Services
 description: Poznaj koncepcje związane z analizą kart służbowych za pomocą interfejsu API rozpoznawania i limitów czasu.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546027"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467005"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Model wbudowanych kart roboczych aparatu rozpoznawania formularzy 
 
@@ -52,25 +52,25 @@ Interfejs API wizytówek może również zwrócić cały rozpoznany tekst z kart
 
 ### <a name="input-requirements"></a>Wymagania wejściowe 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-business-card-operation"></a>Operacja analizowania karty biznesowej
 
-[Karta analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) pobiera obraz lub plik PDF karty biznesowej jako dane wejściowe i wyodrębnia interesujące wartości. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+[Karta analizy biznesowej](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) pobiera obraz lub plik PDF karty biznesowej jako dane wejściowe i wyodrębnia interesujące wartości. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>Operacja uzyskiwania wyniku analizy karty biznesowej
 
-Drugim krokiem jest wywołanie operacji [Pobierz wyniki analizy karty biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj kartę biznesową. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
+Drugim krokiem jest wywołanie operacji [Pobierz wyniki analizy karty biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj kartę biznesową. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|
 |status | ciąg | notStarted: operacja analizy nie została rozpoczęta.<br /><br />Uruchamianie: operacja analizy jest w toku.<br /><br />Niepowodzenie: operacja analizy zakończyła się niepowodzeniem.<br /><br />powodzenie: operacja analizy zakończyła się pomyślnie.|
 
-W przypadku wartości pola **stan** **zakończyła się pomyślnie** , odpowiedź JSON będzie zawierać informacje o zrozumieniu karty biznesowej i opcjonalnych wynikach rozpoznawania tekstu, jeśli jest to wymagane. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
+W przypadku wartości pola **stan** **zakończyła się pomyślnie** , odpowiedź JSON będzie zawierać informacje o zrozumieniu karty biznesowej i opcjonalnych wynikach rozpoznawania tekstu, jeśli jest to wymagane. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiednie elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
 
 ![Przykładowe dane wyjściowe karty biznesowej](./media/business-card-results.png)
 
@@ -386,7 +386,7 @@ Postępuj zgodnie z przewodnikiem [Szybki Start, aby](./QuickStarts/client-libra
 
 ## <a name="customer-scenarios"></a>Scenariusze klientów  
 
-Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą służyć do wykonywania różnych zadań. Wyodrębnienie tych informacji kontaktowych powoduje automatyczne zaoszczędzenie czasu dla tych w rolach związanych z klientem. Poniżej przedstawiono kilka przykładów naszych klientów korzystających z interfejsu API wizytówek:
+Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą być używane do wykonywania różnych zadań. Wyodrębnienie tych informacji kontaktowych powoduje automatyczne zaoszczędzenie czasu użytkownikom w rolach związanych z klientem. Poniżej przedstawiono kilka przykładów naszych klientów korzystających z interfejsu API wizytówek:
 
 * Wyodrębnij informacje kontaktowe z kart służbowych i szybko Twórz kontakty telefoniczne. 
 * Integruj z programem CRM, aby automatycznie tworzyć kontakty przy użyciu obrazów kart służbowych. 
@@ -402,4 +402,4 @@ Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty
 ## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
-* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

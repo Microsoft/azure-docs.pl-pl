@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427738"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466415"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -22,11 +22,11 @@ Azure Backup kopii zapasowych danych, stanu komputera i obciążeń uruchomionyc
 
 Można utworzyć kopię zapasową maszyn i danych przy użyciu szeregu metod:
 
-- **Tworzenie kopii zapasowych maszyn lokalnych** :
+- **Tworzenie kopii zapasowych maszyn lokalnych**:
   - Można utworzyć kopię zapasową lokalnych maszyn z systemem Windows bezpośrednio na platformie Azure przy użyciu agenta Azure Backup Microsoft Azure Recovery Services (MARS). Maszyny z systemem Linux nie są obsługiwane.
   - Można tworzyć kopie zapasowe maszyn lokalnych na serwerze kopii zapasowych — w programie System Center Data Protection Manager (DPM) lub Microsoft Azure Backup Server (serwera usługi MAB). Następnie można wykonać kopię zapasową serwera kopii zapasowej w magazynie Recovery Services na platformie Azure.
 
-- **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure** :
+- **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure**:
   - Możesz bezpośrednio tworzyć kopie zapasowe maszyn wirtualnych platformy Azure. Azure Backup instaluje rozszerzenie kopii zapasowej dla agenta maszyny wirtualnej platformy Azure uruchomionego na maszynie wirtualnej. To rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej.
   - Można utworzyć kopię zapasową określonych plików i folderów na maszynie wirtualnej platformy Azure, uruchamiając agenta MARS.
   - Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure w serwera usługi MAB, który działa na platformie Azure, a następnie utworzyć kopię zapasową serwera usługi MAB do magazynu Recovery Services.
@@ -43,9 +43,9 @@ Magazyny mają następujące funkcje:
 - Możesz monitorować elementy kopii zapasowej w magazynie, w tym maszyn wirtualnych platformy Azure i maszynach lokalnych.
 - Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Określ sposób replikowania danych w magazynie w celu zapewnienia nadmiarowości:
-  - **Magazyn lokalnie nadmiarowy (LRS)** : aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Magazyn Geograficznie nadmiarowy (GRS)** : aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Magazyn strefowo nadmiarowy (ZRS)** : replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. [Dowiedz się więcej](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Magazyn strefowo nadmiarowy (ZRS)**: replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. [Dowiedz się więcej](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Domyślnie magazyny Recovery Services używają GRS.
 
 Recovery Services magazyny mają następujące dodatkowe funkcje:
@@ -56,7 +56,7 @@ Recovery Services magazyny mają następujące dodatkowe funkcje:
 
 Azure Backup udostępnia różnych agentów kopii zapasowych, w zależności od tego, jakiego typu maszyny jest tworzona kopia zapasowa:
 
-**Agent** | **Szczegóły**
+**Odczynnik** | **Szczegóły**
 --- | ---
 **Agent MARS** | <ul><li>Działa na pojedynczych lokalnych maszynach z systemem Windows Server, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na maszynach wirtualnych platformy Azure, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na serwerach DPM/serwera usługi MAB, aby utworzyć kopię zapasową lokalnego dysku magazynu programu DPM/serwera usługi MAB na platformie Azure.</li></ul>
 **Rozszerzenie maszyny wirtualnej platformy Azure** | Działa na maszynach wirtualnych platformy Azure w celu tworzenia kopii zapasowych w magazynie.
@@ -167,7 +167,7 @@ Nie musisz jawnie zezwalać na połączenia z Internetem, aby utworzyć kopię z
 1. Agent MARS korzysta z usługi VSS, aby wykonać migawkę woluminów wybranych do utworzenia kopii zapasowej w danym momencie.
     - Agent MARS używa tylko operacji zapisu systemu Windows, aby przechwycić migawkę.
     - Ponieważ Agent nie używa żadnych składników zapisywania usługi VSS dla aplikacji, nie przechwytuje migawek spójnych na poziomie aplikacji.
-1. Po przeprowadzeniu migawki przy użyciu usługi VSS Agent MARS tworzy wirtualny dysk twardy (VHD) w folderze pamięci podręcznej określonym podczas konfigurowania kopii zapasowej. Agent przechowuje również sumy kontrolne dla każdego bloku danych.
+1. Po przeprowadzeniu migawki przy użyciu usługi VSS Agent MARS tworzy wirtualny dysk twardy (VHD) w folderze pamięci podręcznej określonym podczas konfigurowania kopii zapasowej. Agent przechowuje również sumy kontrolne dla każdego bloku danych. Są one później używane do wykrywania zmienionych bloków dla kolejnych przyrostowych kopii zapasowych.
 1. Przyrostowe kopie zapasowe są uruchamiane zgodnie z określonym harmonogramem, chyba że zostanie uruchomiona kopia zapasowa na żądanie.
 1. W przyrostowych kopiach zapasowych zostały zidentyfikowane zmienione pliki i zostanie utworzony nowy wirtualny dysk twardy. Wirtualny dysk twardy jest kompresowany i szyfrowany, a następnie wysyłany do magazynu.
 1. Po zakończeniu przyrostowej kopii zapasowej nowy wirtualny dysk twardy zostanie scalony z dyskiem VHD utworzonym po replikacji początkowej. Ten scalony wirtualny dysk twardy zawiera najnowszy stan, który będzie używany do porównywania ciągłej kopii zapasowej.
@@ -210,7 +210,7 @@ Aby uzyskać więcej informacji o magazynie dyskowym i dostępnych typach dyskó
 
 Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure przy użyciu usługi Premium Storage z Azure Backup:
 
-- Podczas tworzenia kopii zapasowych maszyn wirtualnych w usłudze Premium Storage usługa Backup tworzy tymczasową lokalizację przejściową o nazwie *AzureBackup-* , na koncie magazynu. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania.
+- Podczas tworzenia kopii zapasowych maszyn wirtualnych w usłudze Premium Storage usługa Backup tworzy tymczasową lokalizację przejściową o nazwie *AzureBackup-*, na koncie magazynu. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania.
 - Upewnij się, że na koncie magazynu w warstwie Premium jest wystarczająca ilość wolnego miejsca, aby pomieścić tymczasową lokalizację przemieszczania. Aby uzyskać więcej informacji, zobacz [elementy docelowe skalowalności dla kont usługi BLOB Storage na stronie Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Nie należy modyfikować lokalizacji tymczasowej.
 - Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta.
 - Cena magazynu używana w lokalizacji tymczasowej jest spójna z [cenami usługi Premium Storage](../virtual-machines/disks-types.md#billing).

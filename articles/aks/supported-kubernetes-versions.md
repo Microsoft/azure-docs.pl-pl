@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c7d06172abd696e386337e563fa29fdbd2d3cdae
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427689"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493666"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -151,7 +151,7 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [Kubernetes](https://en.wi
 
 **Jak często należy oczekiwać, aby uaktualnienie wersji Kubernetes było pozostawać w pomocy technicznej?**
 
-W przypadku Kubernetes 1,19 [Pomoc techniczna typu "open source" została rozszerzona o 1 rok](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS zatwierdza, aby włączyć poprawki i obsłużyć zgodność z zobowiązaniami nadrzędnymi. Oznacza to, że począwszy od AKS klastrów na 1,19, będzie można przeprowadzić uaktualnienie co najmniej raz na rok, aby zachować dostęp do obsługiwanej wersji. W przypadku wersji 1,18 lub niższych okno pomocy technicznej pozostaje w ciągu 9 miesięcy, co wymaga uaktualnienia co 9 miesięcy, aby zachować dostęp do obsługiwanej wersji. Zdecydowanie zaleca się regularne testowanie nowych wersji i przygotowanie się do uaktualnienia do nowszych wersji w celu przechwycenia najnowszych stabilnych ulepszeń w programie Kubernetes.
+Począwszy od Kubernetes 1,19, [społeczność "open source" ma rozszerzoną obsługę na 1 rok](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS zatwierdza, aby włączyć poprawki i obsłużyć zgodność z zobowiązaniami nadrzędnymi. Oznacza to, że począwszy od AKS klastrów na 1,19, będzie można przeprowadzić uaktualnienie co najmniej raz na rok, aby zachować dostęp do obsługiwanej wersji. W przypadku wersji 1,18 lub niższych okno pomocy technicznej pozostaje w ciągu 9 miesięcy, co wymaga uaktualnienia co 9 miesięcy, aby zachować dostęp do obsługiwanej wersji. Zdecydowanie zaleca się regularne testowanie nowych wersji i przygotowanie się do uaktualnienia do nowszych wersji w celu przechwycenia najnowszych stabilnych ulepszeń w programie Kubernetes.
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 

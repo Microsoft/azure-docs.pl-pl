@@ -2,19 +2,19 @@
 title: 'Samouczek: Tworzenie aplikacji przetwarzania formularzy przy użyciu konstruktora AI — aparat rozpoznawania formularzy'
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku użyjesz programu AI Builder do tworzenia i uczenia aplikacji do przetwarzania formularzy.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.author: pafarley
-ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.author: lajanuar
+ms.openlocfilehash: 30c44ac60783132344cc018135d2c248f91f46bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95757424"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467123"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Samouczek: Tworzenie aplikacji do przetwarzania formularzy przy użyciu programu AI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "95757424"
 > [!NOTE]
 > Ten projekt jest również dostępny jako [moduł Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz model AI przetwarzający formularz
@@ -40,10 +40,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="create-a-form-processing-project"></a>Tworzenie projektu przetwarzania formularza
 
 1. Przejdź do pozycji [aplikacje zaawansowane](https://make.powerapps.com/) lub [Automatyzacja](https://flow.microsoft.com/signin)i zaloguj się przy użyciu konta organizacji.
-1. W okienku po lewej stronie wybierz pozycję kompilacja programu **AI Builder**  >  **Build**.
+1. W okienku po lewej stronie wybierz pozycję kompilacja programu **AI Builder**  >  .
 1. Wybierz kartę **Przetwarzanie formularza** .
 1. Wpisz nazwę modelu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="upload-and-analyze-documents"></a>Przekazywanie i analizowanie dokumentów
 

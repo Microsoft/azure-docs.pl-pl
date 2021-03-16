@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171436"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465678"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Saviynt z Azure Active Directory B2C
 
@@ -69,7 +69,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 1. Aby utworzyć konto Saviynt, skontaktuj się z [Saviynt](https://saviynt.com/contact-us/)
 
-2. Utwórz zasady administracji delegowanej i Przypisz użytkowników jako [administratorów delegowanych](../active-directory/roles/concept-delegation.md) z różnymi rolami.
+2. Utwórz zasady administracji delegowanej i Przypisz użytkowników jako administratorów delegowanych z różnymi rolami.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Konfigurowanie Azure AD B2C przy użyciu Saviynt
 
@@ -95,7 +95,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 10. Wybierz pozycję **Dodaj uprawnienia**. Przejrzyj dodane uprawnienia.
 
-11. Wybierz pozycję **Udziel zgody administratora na zapisywanie domyślnego katalogu**  >  **Save**.
+11. Wybierz pozycję **Udziel zgody administratora na zapisywanie domyślnego katalogu**  >  .
 
 12. Przejdź do pozycji **Certyfikaty i wpisy tajne** i wybierz pozycję **+ Dodaj klucz tajny klienta**. Wprowadź opis wpisu tajnego klienta, wybierz opcję wygaśnięcia i wybierz pozycję **Dodaj**.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 39896d88aeab4c592c74ded2d6edddfb46d2d203
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c5df0c4112f07a465d38e789b1401132ed25931
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448289"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488809"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi ID.me za pomocą Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Aby włączyć logowanie dla użytkowników przy użyciu konta usługi ID.me w A
 1. Wybierz pozycję **Wyświetl moje aplikacje**, a następnie wybierz pozycję **Kontynuuj**.
 1. Wybierz pozycję **Utwórz nowy**
     1. Wprowadź **nazwę** i **nazwę wyświetlaną**.
-    1. W **identyfikatorze URI przekierowania** wprowadź wartość `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-tenant-name` na nazwę dzierżawy. 
+    1. W **identyfikatorze URI przekierowania** wprowadź wartość `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień na `your-tenant-name` nazwę dzierżawy i `your-domain-name` domenę niestandardową. 
 1. Kliknij przycisk **Kontynuuj**.
 1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Musisz dodać dostawcę tożsamości do dzierżawy.
 

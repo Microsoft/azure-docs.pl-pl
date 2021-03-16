@@ -4,15 +4,15 @@ description: Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządz
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523723"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465780"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania
 
@@ -54,7 +54,7 @@ Aby odzyskać hasło:
 1. Po wybraniu opcji **dalej** zostanie wyświetlone hasło użytkownika i wygenerowanego przez system hasła do konsoli zarządzania.
 
     > [!NOTE]
-    > Gdy logujesz się do czujnika lub lokalnej konsoli zarządzania po raz pierwszy, zostanie ona połączona z subskrypcją, z którą nawiązano połączenie. Jeśli musisz zresetować hasło dla użytkownika CyberX lub pomocy technicznej, musisz wybrać tę subskrypcję. Aby uzyskać więcej informacji o odzyskiwaniu hasła użytkownika CyberX lub pomocy technicznej, zobacz [Resetowanie hasła użytkownika dla czujnika lub lokalnej konsoli zarządzania](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
+    > Gdy logujesz się do czujnika lub lokalnej konsoli zarządzania po raz pierwszy, zostanie ona połączona z subskrypcją, z którą nawiązano połączenie. Jeśli musisz zresetować hasło dla użytkownika CyberX lub pomocy technicznej, musisz wybrać tę subskrypcję. Aby uzyskać więcej informacji na temat odzyskiwania CyberX lub obsługi hasła użytkownika, zobacz [resetowanie haseł](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Badanie braku ruchu
 
@@ -283,7 +283,7 @@ Wyeksportowane dzienniki zostaną dodane do listy **zarchiwizowane dzienniki** .
 
 Lista zarchiwizowanych dzienników może zawierać maksymalnie pięć elementów. Jeśli liczba elementów na liście wykracza poza tę liczbę, najwcześniejszy element zostanie usunięty.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 - [Wyświetlanie alertów](how-to-view-alerts.md)
 

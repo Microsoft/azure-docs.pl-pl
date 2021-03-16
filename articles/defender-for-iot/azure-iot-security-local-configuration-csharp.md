@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851237"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493224"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Omówienie lokalnego pliku konfiguracji (Agent C#)
 
@@ -37,7 +37,7 @@ Pliki konfiguracji zawierają konfigurację domyślną. Konfiguracja uwierzyteln
 
 ## <a name="configuration-file-location"></a>Lokalizacja pliku konfiguracji
 
-Dla systemu Linux:
+W przypadku systemu Linux:
 
 - Pliki konfiguracji systemu operacyjnego znajdują się w temacie `/var/ASCIoTAgent` .
 
@@ -84,7 +84,7 @@ W przypadku systemu Windows:
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
-| moduleName | ciąg | Nazwa tożsamości modułu zabezpieczeń. Ta nazwa musi odpowiadać nazwie tożsamości modułu w urządzeniu. |
+| moduleName | ciąg | Nazwa tożsamości Defender-IoT-Micro-Agent. Ta nazwa musi odpowiadać nazwie tożsamości modułu w urządzeniu. |
 | deviceId | ciąg | Identyfikator urządzenia (zgodnie z zarejestrowaniem w usłudze Azure IoT Hub). |
 | schedulerInterval | Ciąg TimeSpan | Wewnętrzny interwał harmonogramu. |
 | gatewayHostname | ciąg | Nazwa hosta usługi Azure IoT Hub. Zwykle <my-Hub>. azure-devices.net |

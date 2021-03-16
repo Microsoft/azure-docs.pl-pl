@@ -3,15 +3,15 @@ title: Szybki Start — Dołącz do spotkania zespołów z poziomu aplikacji sys
 description: W tym samouczku dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu biblioteki klienta wywołującego usługi Azure Communications Services dla systemu iOS
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f23ceacb33b2f9a8e94ea0d75b61e7a040cac461
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660102"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488009"
 ---
 W tym przewodniku szybki start dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu biblioteki klienta wywołującego usługi Azure Communications Services dla systemu iOS.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d2e2680f1d679a4bd1e967e32a409b59ad992c01
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448102"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488567"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi WeChat za pomocą Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Aby włączyć Logowanie użytkowników przy użyciu konta usługi WeChat w Azur
 1. Zaloguj się [https://open.weixin.qq.com/](https://open.weixin.qq.com/) przy użyciu swoich poświadczeń WeChat.
 1. Wybierz pozycję **管理中心** (centrum zarządzania).
 1. Postępuj zgodnie z instrukcjami, aby zarejestrować nową aplikację.
-1. Wprowadź `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w **授权回调域** (adres URL wywołania zwrotnego). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
+1. W polu **授权回调域** (adres URL wywołania zwrotnego) wprowadź wartość `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Jeśli używasz [domeny niestandardowej](custom-domain.md), wprowadź `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień na `your-tenant-name` nazwę dzierżawy i `your-domain-name` domenę niestandardową.
 1. Skopiuj **Identyfikator aplikacji** i **klucz aplikacji**. Musisz mieć oba te elementy, aby skonfigurować dostawcę tożsamości dla dzierżawy.
 
 ::: zone pivot="b2c-user-flow"

@@ -31,15 +31,6 @@
     - name: Równoległe przetwarzanie plików — Python
       displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
-    - name: Renderowanie scen za pomocą aplikacji Arnold
-      displayName: tutorial
-      href: tutorial-rendering-cli.md
-    - name: Renderowanie przy użyciu programu Batch Explorer
-      displayName: tutorial
-      href: tutorial-rendering-batchexplorer-blender.md
-    - name: Równoległa symulacja w środowisku R
-      displayName: 'tutorial, doAzureParallel, rstudio'
-      href: tutorial-r-doazureparallel.md
     - name: Funkcja OCR w usługach Batch i Functions
       displayName: 'trigger, optical'
       href: tutorial-batch-functions.md

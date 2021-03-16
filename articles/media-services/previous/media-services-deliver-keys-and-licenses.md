@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6d014ced6e25f4c27e1d8ae7225069863e154b3
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103015883"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465712"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Używanie Media Services do dostarczania licencji DRM lub kluczy AES
 
@@ -41,9 +41,6 @@ Media Services obsługuje wiele sposobów autoryzowania użytkowników, którzy 
 Na poniższym diagramie przedstawiono główne kroki, które należy wykonać, aby korzystać z Media Services w celu dostarczenia licencji PlayReady i/lub Widevine, ale pozostały w przypadku serwerów lokalnych:
 
 ![Ochrona za pomocą PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
-
-## <a name="download-sample"></a>Pobieranie przykładu
-Aby pobrać przykład opisany w tym artykule, zobacz [używanie Azure Media Services do dostarczania licencji PlayReady i/lub Widevine za pomocą platformy .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 

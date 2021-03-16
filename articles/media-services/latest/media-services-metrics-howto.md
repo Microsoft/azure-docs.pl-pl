@@ -14,25 +14,25 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab5871749630b047f6498a2439f77693a999c798
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590752"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493938"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji i zrozumieć, dlaczego należy używać Azure Media Services metryk i dzienników diagnostycznych, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
+[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji i zrozumieć, dlaczego należy używać Azure Media Services metryk i dzienników diagnostycznych, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](monitoring/monitor-media-services-data-reference.md).
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu wiersza polecenia platformy Azure. W tym artykule przedstawiono sposób monitorowania metryk przy użyciu wykresów Azure Portal i interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Tworzenie konta usługi Media Services](./create-account-howto.md)
-- Przegląd  [metryk Media Services monitora i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md)
+- Przegląd  [metryk Media Services monitora i dzienników diagnostycznych](monitoring/monitor-media-services-data-reference.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Wyświetlanie metryk w Azure Portal
 
@@ -46,7 +46,7 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
     * &lt;Nazwa konta programu Media Services nazwa &gt; / &lt; punktu końcowego przesyłania strumieniowego&gt;
     * &lt;Nazwa konta magazynu&gt;
 
-    Odfiltruj, a następnie wybierz zasób i naciśnij przycisk **Zastosuj**. Aby uzyskać szczegółowe informacje o obsługiwanych zasobach i metrykach, zobacz [monitorowanie Media Services metryki](media-services-metrics-diagnostic-logs.md).
+    Odfiltruj, a następnie wybierz zasób i naciśnij przycisk **Zastosuj**. Aby uzyskać szczegółowe informacje o obsługiwanych zasobach i metrykach, zobacz [monitorowanie Media Services metryki](monitoring/monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > Aby przełączać się między zasobami, które chcesz monitorować, kliknij ponownie pole **źródłowe** i powtórz ten krok.

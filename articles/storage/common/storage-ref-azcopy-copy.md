@@ -4,16 +4,16 @@ description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia c
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879160"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493768"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ Kopiuje dane źródłowe do lokalizacji docelowej. Obsługiwane są następując
   - Azure Files (SAS) — > Azure Files (SAS)
   - Azure Files (SAS) — > obiekt blob platformy Azure (uwierzytelnianie SAS lub OAuth)
   - Amazon Web Services (AWS) S3 (klucz dostępu) — > blokowe obiekty blob platformy Azure (uwierzytelnianie SAS lub OAuth)
+  - Google Cloud Storage (klucz konta usługi) — > Azure Block BLOB (uwierzytelnianie SAS lub OAuth) [wersja zapoznawcza]
 
 Aby uzyskać więcej informacji, zobacz sekcję przykłady w tym artykule.
 
@@ -230,6 +231,36 @@ Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie T
     
 - Podczas ustawiania tagów w obiektach Blob istnieją dodatkowe uprawnienia ("dla tagów") w sygnaturze dostępu współdzielonego, bez którego usługa udzieli błędu autoryzacji.
 
+Skopiuj pojedynczy obiekt do Blob Storage z magazynu Google Cloud Storage przy użyciu klucza konta usługi i tokenu sygnatury dostępu współdzielonego. Najpierw Ustaw zmienną środowiskową GOOGLE_APPLICATION_CREDENTIALS dla źródła magazynu Google Cloud.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Skopiuj cały katalog do Blob Storage z magazynu Google Cloud Storage przy użyciu klucza konta usługi i tokenu sygnatury dostępu współdzielonego. Najpierw Ustaw zmienną środowiskową GOOGLE_APPLICATION_CREDENTIALS dla źródła magazynu Google Cloud.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Skopiuj cały zasobnik do Blob Storage z magazynu Google Cloud Storage przy użyciu klucza konta usługi i tokenu sygnatury dostępu współdzielonego. Najpierw Ustaw zmienną środowiskową GOOGLE_APPLICATION_CREDENTIALS dla źródła magazynu Google Cloud.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Skopiuj wszystkie przedziały do Blob Storage z magazynu Google Cloud Storage przy użyciu klucza konta usługi i tokenu sygnatury dostępu współdzielonego. Najpierw Ustaw zmienne środowiskowe GOOGLE_APPLICATION_CREDENTIALS i GOOGLE_CLOUD_PROJECT =<Project-ID> dla źródła operacje odzyskiwania pamięci
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Skopiuj podzestaw przedziałów za pomocą symbolu wieloznacznego (*) w nazwie zasobnika z magazynu Google Cloud Storage przy użyciu klucza konta usługi i tokenu sygnatury dostępu współdzielonego dla miejsca docelowego. Najpierw Ustaw zmienne środowiskowe GOOGLE_APPLICATION_CREDENTIALS i GOOGLE_CLOUD_PROJECT =<Project-ID> dla źródła magazynu Google Cloud.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
 ## <a name="options"></a>Opcje
 
 **--kopia zapasowa** Aktywuje SeBackupPrivilege systemu Windows pod kątem przekazywania lub SeRestorePrivilege do pobrania, aby umożliwić AzCopy wyświetlanie i odczytywanie wszystkich plików, niezależnie od ich uprawnień systemu plików oraz przywracania wszystkich uprawnień. Wymaga, aby konto z systemem AzCopy już miało te uprawnienia (na przykład ma prawa administratora lub jest członkiem `Backup Operators` grupy). Ta flaga aktywuje uprawnienia, które już istnieją dla konta.
@@ -324,6 +355,6 @@ Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie T
 
 **--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [AzCopy](storage-ref-azcopy.md)

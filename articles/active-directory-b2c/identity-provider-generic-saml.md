@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448408"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488928"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą dostawcy tożsamości SAML przy użyciu Azure Active Directory B2C
 
@@ -205,9 +205,16 @@ Poniższy przykład pokazuje adres URL metadanych SAML dla Azure AD B2C profilu 
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+W przypadku korzystania z [domeny niestandardowej](custom-domain.md)Użyj następującego formatu:
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Zastąp następujące wartości:
 
-- **dzierżawy** z nazwą dzierżawy, taką jak Your-tenant.onmicrosoft.com.
+- **Nazwa** dzierżawy użytkownika, na przykład Your-tenant.onmicrosoft.com.
+- **Nazwa** domeny niestandardowej, na przykład Login.contoso.com.
 - **Twoje zasady** z nazwą zasad. Na przykład B2C_1A_signup_signin_adfs.
 - **Twój profil techniczny** o nazwie profilu technicznego dostawcy tożsamości SAML. Na przykład contoso-SAML2.
 

@@ -3,12 +3,12 @@ title: Połącz ExpressRoute z bramą sieci wirtualnej
 description: Procedura łączenia ExpressRoute z bramą sieci wirtualnej.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: cea07f9a75e91b2b8ff444c9dda4a59d421ca37c
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462363"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494368"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "103462363"
 
 1. Skopiuj klucz autoryzacji. Jeśli nie ma klucza autoryzacji, należy go utworzyć, a następnie wybrać pozycję **+ zażądać klucza autoryzacji**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Skopiuj klucz autoryzacji. Jeśli nie ma klucza autoryzacji, należy go utworzyć, a następnie wybrać pozycję + zażądać klucza autoryzacji." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Skopiuj klucz autoryzacji. Jeśli nie ma klucza autoryzacji, należy go utworzyć, a następnie wybrać pozycję + zażądać klucza autoryzacji." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
 1. Przejdź do bramy Virtual Network utworzonej w poprzednim kroku, a następnie w obszarze **Ustawienia** wybierz pozycję **połączenia**. Na stronie **połączenia** wybierz pozycję **+ Dodaj**.
 

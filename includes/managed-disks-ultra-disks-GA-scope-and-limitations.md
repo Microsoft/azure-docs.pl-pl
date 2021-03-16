@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603310"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103555863"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -65,11 +65,11 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie przy użyciu Ultra Disks.
 - Są dostępne tylko jako dyski danych. 
-- Domyślnie Obsługuj rozmiar sektora fizycznego 4 KB. rozmiar sektora 512E jest dostępny jako oferta ogólnie dostępna (bez konieczności rejestrowania), ale jest obecnie dostępna tylko przy użyciu interfejsu wiersza polecenia lub programu PowerShell. Większość aplikacji jest zgodna z rozmiarami sektorów 4K, ale niektóre wymagają 512 bajtów sektorów. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej w celu obsługi dysków natywnych 4K. W przypadku starszych wersji Oracle DB wymagany jest rozmiar sektora bajtów 512.
+- Domyślnie Obsługuj rozmiar sektora fizycznego 4 KB. rozmiar sektora 512E jest dostępny jako oferta ogólnie dostępna (bez konieczności rejestrowania). Większość aplikacji jest zgodna z rozmiarami sektorów 4K, ale niektóre wymagają 512 bajtów sektorów. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej w celu obsługi dysków natywnych 4K. W przypadku starszych wersji Oracle DB wymagany jest rozmiar sektora bajtów 512.
 - Można utworzyć tylko jako puste dyski.
 - Obecnie nie obsługuje migawek dysków, obrazów maszyn wirtualnych, zestawów dostępności, dedykowanych hostów platformy Azure ani usługi Azure Disk Encryption.
 - Program nie obsługuje obecnie integracji z Azure Backup ani Azure Site Recovery.
 - Obsługuje tylko odczyty z pamięci podręcznej i zapisywanie w pamięci podręcznej.
 - Bieżący maksymalny limit liczby operacji we/wy na maszynach wirtualnych "GA" to 80 000.
 
-Usługa Azure Ultra disks domyślnie oferuje do 16 TiB na region dla każdej subskrypcji, ale niezwykle wysokie pojemności są obsługiwane przez żądanie. Aby zażądać zwiększenia wydajności, skontaktuj się z pomocą techniczną platformy Azure.
+Usługa Azure Ultra disks oferuje domyślnie do 32 TiB na region dla każdej subskrypcji, ale niezwykle dyski obsługują wyższą pojemność przez żądanie. Aby zażądać zwiększenia pojemności, poproś o zwiększenie limitu przydziału lub skontaktuj się z pomocą techniczną platformy Azure.

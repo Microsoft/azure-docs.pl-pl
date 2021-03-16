@@ -1,5 +1,5 @@
 ---
-title: Wdróż moduł zabezpieczeń IoT Edge
+title: Wdrażanie IoT Edge Defender-IoT-Micro-Agent
 description: Dowiedz się więcej o sposobie wdrażania agenta zabezpieczeń usługi Defender for IoT na IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705776"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495117"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
+# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Wdrażanie programu Defender-IoT-Micro-Agent na urządzeniu IoT Edge
 
 Moduł **Defender for IoT** oferuje kompleksowe rozwiązanie zabezpieczeń dla urządzeń IoT Edge.
-Moduł zabezpieczeń zbiera, agreguje i analizuje pierwotne dane zabezpieczeń z systemu operacyjnego i systemu kontenerów w celu podejmowania działań i alertów dotyczących zabezpieczeń.
-Aby dowiedzieć się więcej, zobacz [moduł zabezpieczeń dla IoT Edge](security-edge-architecture.md).
+Usługa Defender-IoT-Micro-Agent gromadzi, agreguje i analizuje surowe dane zabezpieczeń z systemu operacyjnego i systemu kontenerów w celu podejmowania działań i alertów dotyczących zabezpieczeń.
+Aby dowiedzieć się więcej, zobacz [Defender-IoT-Micro-Agent dla IoT Edge](security-edge-architecture.md).
 
-W tym artykule dowiesz się, jak wdrożyć moduł zabezpieczeń na urządzeniu IoT Edge.
+W tym artykule dowiesz się, jak wdrożyć usługę Defender-IoT-Micro-Agent na urządzeniu IoT Edge.
 
-## <a name="deploy-security-module"></a>Wdróż moduł zabezpieczeń
+## <a name="deploy-defender-iot-micro-agent"></a>Wdrażanie Defender-IoT-Micro-Agent
 
-Wykonaj następujące kroki, aby wdrożyć moduł Defender Security for IoT dla IoT Edge.
+Wykonaj następujące kroki, aby wdrożyć usługę Defender for IoT Defender-IoT-Micro-Agent dla IoT Edge.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -169,7 +169,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 
 ## <a name="diagnostic-steps"></a>Kroki diagnostyczne
 
-Jeśli wystąpi problem, dzienniki kontenerów są najlepszym sposobem poznania stanu urządzenia modułu zabezpieczeń IoT Edge. Użyj poleceń i narzędzi w tej sekcji, aby zebrać informacje.
+Jeśli wystąpi problem, dzienniki kontenerów są najlepszym sposobem poznania stanu urządzenia IoT Edge Defender-IoT-Micro-Agent. Użyj poleceń i narzędzi w tej sekcji, aby zebrać informacje.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Sprawdź, czy wymagane kontenery są zainstalowane i działają zgodnie z oczekiwaniami
 
