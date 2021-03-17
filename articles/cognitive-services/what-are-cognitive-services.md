@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 85bcdb319431f1079cdbc8b94f0313f1dd6b67d6
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736641"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602005"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
@@ -43,7 +43,6 @@ Poniższe sekcje tego artykułu zawierają listę usług, które są częścią 
 |[Custom Vision Service](./custom-vision-service/overview.md "Custom Vision Service")|Custom Vision Service umożliwia tworzenie klasyfikatorów niestandardowych.|
 |[Rozpoznawanie twarzy](./face/index.yml "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów.|
 |[Rozpoznawanie formularzy](./form-recognizer/index.yml "Rozpoznawanie formularzy")|Aparat rozpoznawania formularzy identyfikuje i wyodrębnia pary klucz-wartość oraz dane tabeli z dokumentów formularzy; następnie dane są wyprowadzane z uwzględnieniem relacji w oryginalnym pliku.|
-|[Aparat rozpoznawania atramentu](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
 
 ## <a name="speech-apis"></a>Interfejsy API mowy

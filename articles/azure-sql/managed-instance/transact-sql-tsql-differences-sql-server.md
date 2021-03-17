@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212726"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601376"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 - [UTWÓRZ INSPEKCJĘ SERWERA](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Kontroli](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [Inspekcja](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certyfikaty
 
@@ -466,11 +466,13 @@ Aby uzyskać informacje na temat przywracania instrukcji, zobacz [przywracanie i
 
 ### <a name="service-broker"></a>Broker usług
 
-Broker usług dla wielu wystąpień nie jest obsługiwany:
+Wymiana komunikatów programu Service Broker dla wielu wystąpień jest obsługiwana tylko między wystąpieniami zarządzanymi usługi Azure SQL:
 
-- `sys.routes`: Jako wymaganie wstępne należy wybrać adres z wykazu sys. routes. Adres musi być lokalny dla każdej trasy. Zobacz sekcję [sys. routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Nie można używać `CREATE ROUTE` z `ADDRESS` innymi niż `LOCAL` . Zobacz [Tworzenie trasy](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Nie można używać `ALTER ROUTE` z `ADDRESS` innymi niż `LOCAL` . Zobacz [ALTER Route](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Nie można używać `CREATE ROUTE` z `ADDRESS` innymi `LOCAL` nazwami nazw DNS innego wystąpienia zarządzanego SQL.
+- `ALTER ROUTE`: Nie można używać `ALTER ROUTE` z `ADDRESS` innymi `LOCAL` nazwami nazw DNS innego wystąpienia zarządzanego SQL.
+
+Zabezpieczenia transportu są obsługiwane, zabezpieczenia okna dialogowego nie są następujące:
+- `CREATE REMOTE SERVICE BINDING`nie są obsługiwane.
 
 Broker usług jest domyślnie włączony i nie można go wyłączyć. Następujące opcje ALTER bazy danych nie są obsługiwane:
 - `ENABLE_BROKER`
