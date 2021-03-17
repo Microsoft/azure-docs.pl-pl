@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentacja rozwiązań Azure SQL
-summary: 'Znajdź dokumentację dotyczącą rodziny produktów Azure SQL z aparatem bazy danych SQL Server w chmurze: Azure SQL Database, wystąpienie zarządzane Azure SQL i SQL Server na maszynie wirtualnej na platformie Azure. '
+summary: 'Znajdź dokumentację dotyczącą rodziny produktów Azure SQL z aparatem bazy danych SQL Server w chmurze: Azure SQL Database, wystąpienie zarządzane Azure SQL i SQL Server na maszynie wirtualnej na platformie Azure.'
 metadata:
   title: Dokumentacja rozwiązań Azure SQL
   description: Azure SQL jest rodziną produktów z aparatem bazy danych SQL Server w chmurze, od w pełni zarządzanej bazy danych w usłudze Azure SQL Database, poprzez w pełni zarządzane wystąpienie, czyli usługę Azure SQL Managed Instance, aż po program SQL Server zainstalowany na maszynie wirtualnej na platformie Azure.
@@ -14,19 +14,23 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-  ms.translationtype: HT
+  ms.openlocfilehash: 13fcc3b41777a6b198ad9a8b12d93877adae75ca
+  ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593896"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103601427"
 landingContent:
 - title: Azure SQL Database
   linkLists:
-  - linkListType: overview
+  - linkListType: whats-new
     links:
     - text: Co nowego?
       url: database/doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Chcesz przesłać opinię? Wypełnij ankietę.
+      url: https://aka.ms/AzureSQLSurvey
+  - linkListType: overview
+    links:
     - text: Co to jest SQL Database?
       url: database/sql-database-paas-overview.md
     - text: Co to są elastyczne pule?
@@ -55,6 +59,12 @@ landingContent:
       url: database/transact-sql-tsql-differences-sql-server.md
 - title: Wystąpienie zarządzane Azure SQL
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Co nowego?
+      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Chcesz przesłać opinię? Wypełnij ankietę.
+      url: https://aka.ms/AzureSQLSurvey
   - linkListType: overview
     links:
     - text: Co nowego?

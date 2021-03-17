@@ -258,8 +258,6 @@
               href: application-sign-in-problem-application-error.md
             - name: Problem podczas logowania się do aplikacji firmy Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problem z logowaniem jednokrotnym
-              href: application-sign-in-problem-federated-sso-gallery.md
         - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji

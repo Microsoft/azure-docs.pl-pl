@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Wstrzymywanie i wznawianie obliczeń w puli Synapse SQL z Azure PowerShell'
-description: Za pomocą Azure PowerShell można wstrzymywać i wznawiać pulę SQL Synapse (magazyn danych). zasoby obliczeniowe.
+title: 'Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell'
+description: Za pomocą Azure PowerShell można wstrzymywać i wznawiać dedykowaną pulę SQL (dawniej SQL DW). zasoby obliczeniowe.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0851bbf990e78e32a1b4330719ad82bd6a7d3703
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121043"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600920"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w puli Synapse SQL z Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell
 
-Za pomocą Azure PowerShell można wstrzymywać i wznawiać zasoby obliczeniowe puli SQL (Data Warehouse) Synapse.
+Za pomocą Azure PowerShell można wstrzymywać i wznawiać dedykowane pule SQL (dawniej SQL DW).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym przewodniku szybki start założono, że masz już pulę SQL, którą można wstrzymywać i wznawiać. Jeśli trzeba ją utworzyć, możesz użyć [Utwórz i Połącz Portal](create-data-warehouse-portal.md) , aby utworzyć pulę SQL o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już dedykowaną pulę SQL (dawniej SQL DW), którą można wstrzymywać i wznawiać. Jeśli trzeba ją utworzyć, możesz użyć [Utwórz i Połącz Portal](create-data-warehouse-portal.md) , aby utworzyć dedykowaną pulę SQL (wcześniej SQL DW) o nazwie **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -49,11 +49,11 @@ Jeśli musisz użyć innej subskrypcji niż domyślna, uruchom polecenie [Set-Az
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-sql-pool-information"></a>Wyszukiwanie informacji o puli SQL
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Wyszukiwanie dedykowanej puli SQL (dawniej SQL DW)
 
-Znajdź nazwę bazy danych, nazwę serwera i grupę zasobów dla puli SQL, którą planujesz wstrzymać i wznowić.
+Znajdź nazwę bazy danych, nazwę serwera i grupę zasobów dla dedykowanej puli SQL (dawniej SQL DW), którą planujesz wstrzymać i wznowić.
 
-Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla puli SQL:
+Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dedykowanej puli SQL (dawniej SQL DW):
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Kliknij pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na lewej stronie Azure Portal.
@@ -61,7 +61,7 @@ Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla puli SQL
 
     ![Nazwa serwera i grupa zasobów](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. Zapisz nazwę puli SQL, która jest nazwą bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów.
+1. Zanotuj dedykowaną pulę SQL (dawniej SQL DW), która jest nazwą bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów.
 1. Użyj tylko pierwszej części nazwy serwera w poleceniach cmdlet programu PowerShell. Na powyższym obrazie pełna nazwa serwera to sqlpoolservername.database.windows.net. Używamy **sqlpoolservername** jako nazwy serwera w poleceniu cmdlet programu PowerShell.
 
 ## <a name="pause-compute"></a>Wstrzymywanie obliczeń
@@ -75,7 +75,7 @@ Aby wstrzymać bazę danych, należy użyć polecenia cmdlet [Suspend-AzSqlDatab
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
-–ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
+–ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 Poniższy przykład pobiera bazę danych do obiektu $database. Następnie przekazuje obiekt do [zawieszenia-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Wyniki są przechowywane w obiekcie resultDatabase. Końcowe polecenie wyświetla wyniki.
@@ -107,7 +107,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>Sprawdź stan operacji puli SQL
 
-Aby sprawdzić stan puli SQL, użyj polecenia cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+Aby sprawdzić stan dedykowanej puli SQL (dawniej SQL DW), użyj polecenia cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -115,7 +115,7 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
+Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w dedykowanej puli SQL (dawniej SQL DW). Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
 - Jeśli chcesz zachować dane w magazynie, Wstrzymaj obliczenia.
 - Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć pulę SQL.
@@ -136,4 +136,4 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o puli SQL, przejdź do artykułu [ładowanie danych do puli SQL](./load-data-from-azure-blob-storage-using-copy.md) . Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz artykuł [Zarządzanie obliczeniami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md) .
+Aby dowiedzieć się więcej o puli SQL, przejdź do artykułu [ładowanie danych do dedykowanej puli SQL (dawniej SQL DW)](./load-data-from-azure-blob-storage-using-copy.md) . Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz artykuł [Zarządzanie obliczeniami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md) .
