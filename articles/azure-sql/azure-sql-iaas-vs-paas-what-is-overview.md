@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6961c0ffc0d5b9c6559d20b00bfb5510f7247adb
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550882"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600985"
 ---
 # <a name="what-is-azure-sql"></a>Co to jest usługa Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,11 +32,11 @@ Usługa Azure SQL jest oparta na znanym aparacie SQL Server, dzięki czemu możn
 
 Dowiedz się, w jaki sposób każdy produkt mieści się w usłudze Azure SQL Data Platform firmy Microsoft w celu dopasowania do odpowiedniej opcji wymagań firmy. Bez względu na to, czy priorytetem jest oszczędność kosztów, czy minimalne administrowanie, ten artykuł może pomóc w ustaleniu, które podejście spełnia wymagania biznesowe.
 
-
 Jeśli dopiero zaczynasz skorzystać z usługi Azure SQL, zapoznaj się z informacjami o tym, *co to jest usługa Azure SQL* Video, z naszej szczegółowej [serii wideo Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-
+> [!TIP]
+> Jak możemy ulepszyć usługę Azure SQL? [Wypełnij ankietę](https://aka.ms/AzureSQLSurvey).
 
 ## <a name="overview"></a>Omówienie
 

@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741120"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600866"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Rozwiązywanie problemów z samoobsługowym resetowaniem haseł w Azure Active Directory
 
 Usługa Azure Active Directory (Azure AD) Samoobsługowe resetowanie haseł (SSPR) umożliwia użytkownikom Resetowanie swoich haseł w chmurze.
 
-Jeśli masz problemy z usługą SSPR, następujące kroki rozwiązywania problemów i typowe błędy mogą pomóc. Jeśli nie możesz znaleźć odpowiedzi na Twój problem, [nasze zespoły pomocy technicznej są zawsze dostępne](#contact-microsoft-support) , aby pomóc Ci w dalszej próbie.
+Jeśli masz problemy z usługą SSPR, następujące kroki rozwiązywania problemów i typowe błędy mogą pomóc. Możesz również obejrzeć ten krótki film wideo dotyczący [sposobu, w jaki należy rozwiązać sześć najczęstszych komunikatów o błędach SSPR użytkownika końcowego](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Jeśli nie możesz znaleźć odpowiedzi na Twój problem, [nasze zespoły pomocy technicznej są zawsze dostępne](#contact-microsoft-support) , aby pomóc Ci w dalszej próbie.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Konfiguracja SSPR w Azure Portal
 

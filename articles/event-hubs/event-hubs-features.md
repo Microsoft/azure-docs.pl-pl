@@ -2,13 +2,13 @@
 title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739079"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601308"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -53,6 +53,13 @@ Opublikowane zdarzenia są usuwane z centrum zdarzeń na podstawie konfigurowaln
 - W przypadku Event Hubs **Standard** maksymalny okres przechowywania wynosi **7 dni**. 
 - W przypadku Event Hubs **dedykowany** maksymalny okres przechowywania to **90 dni**.
 - Jeśli zmienisz okres przechowywania, dotyczy to wszystkich komunikatów, w tym komunikatów, które znajdują się już w centrum zdarzeń. 
+
+Event Hubs zachowuje zdarzenia dla skonfigurowanego czasu przechowywania stosowanego dla wszystkich partycji. Zdarzenia są usuwane automatycznie po osiągnięciu okresu przechowywania. Jeśli określisz okres przechowywania o jeden dzień, zdarzenie stanie się niedostępne dokładnie przez 24 godziny od momentu jego zaakceptowania. Nie można jawnie usunąć zdarzeń. 
+
+Jeśli musisz zarchiwizować zdarzenia poza dozwolonym okresem przechowywania, możesz je [automatycznie przechowywać w usłudze Azure Storage lub Azure Data Lake, włączając funkcję przechwytywania Event Hubs](event-hubs-capture-overview.md), a jeśli chcesz przeszukiwać lub analizować takie głębokie archiwa, możesz je [łatwo zaimportować do usługi Azure Synapse](store-captured-data-data-warehouse.md) lub innych podobnych magazynów i platform analitycznych. 
+
+Powód ograniczenia Event Hubs "przechowywania danych na podstawie czasu polega na tym, że duże ilości danych historycznych klientów są zalewkowane w głębokiej sklepie, która jest indeksowana tylko przez sygnaturę czasową i zezwala na dostęp sekwencyjny. W tym miejscu jest to, że historyczne dane wymagają bardziej zaawansowanego indeksowania i więcej bezpośredniego dostępu niż interfejs obsługi zdarzeń w czasie rzeczywistym, który Event Hubs lub Kafka. Aparaty strumienia zdarzeń nie są dobrze dopasowane do odtwarzania roli jezior danych lub archiwów długoterminowych na potrzeby określania źródła zdarzeń. 
+ 
 
 > [!NOTE]
 > Event Hubs to aparat strumienia zdarzeń w czasie rzeczywistym i nie jest przeznaczony do użycia zamiast bazy danych i/lub jako trwały magazyn dla nieskończonie przechowywanych strumieni zdarzeń. 

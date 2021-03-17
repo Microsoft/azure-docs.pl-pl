@@ -1,30 +1,30 @@
 - name: Sprawdzone rozwiązania partnerskie usługi Azure Storage
   href: /azure/storage/solution-integration
-- name: Azure Storage Analytics i partnerzy danych Big Data
+- name: Analiza i partnerzy danych Big Data
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\analytics\partner-overview.md
   expanded: false
-- name: 'Usługa Azure Storage w archiwum, kopia zapasowa i partnerzy BCDR'
+- name: 'Partnerzy archiwizowania, tworzenia kopii zapasowych i BCDR'
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-    - name: Przewodnik Szybki Start dla firmy CommVault
+    - name: Przewodnik wprowadzenie do firmy CommVault
       href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
-    - name: Przewodnik szybkiego startu Veeam
+    - name: Przewodnik wprowadzający Veeam
       href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
   expanded: false
-- name: Partnerzy rozwiązań kontenera usługi Azure Storage
+- name: Partnerzy rozwiązań kontenera
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\container-solutions\partner-overview.md
   expanded: false
-- name: Partnerzy zarządzania danymi usługi Azure Storage i migracji
+- name: Partnerzy zarządzania danymi i migracji
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\data-management\partner-overview.md
   expanded: false
-- name: Partnerzy magazynu podstawowego i dodatkowego usługi Azure Storage
+- name: Partnerzy magazynu podstawowego i dodatkowego
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\primary-secondary-storage\partner-overview.md

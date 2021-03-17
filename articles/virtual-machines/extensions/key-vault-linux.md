@@ -10,25 +10,27 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102557067"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601053"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
-Rozszerzenie maszyny wirtualnej Key Vault umożliwia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. Rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy.  Po wykryciu zmiany rozszerzenie pobiera i instaluje odpowiednie certyfikaty. Rozszerzenie maszyny wirtualnej Key Vault jest publikowane i obsługiwane przez firmę Microsoft, obecnie na maszynach wirtualnych z systemem Linux. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej Key Vault dla systemu Linux. 
+Rozszerzenie maszyny wirtualnej Key Vault umożliwia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. Rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy.  Po wykryciu zmiany rozszerzenie pobiera i instaluje odpowiednie certyfikaty. Rozszerzenie zainstaluje pełny łańcuch certyfikatów na maszynie wirtualnej. Rozszerzenie maszyny wirtualnej Key Vault jest publikowane i obsługiwane przez firmę Microsoft, obecnie na maszynach wirtualnych z systemem Linux. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej Key Vault dla systemu Linux. 
 
 ### <a name="operating-system"></a>System operacyjny
 
 Rozszerzenie maszyny wirtualnej Key Vault obsługuje te dystrybucje systemu Linux:
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - SUSE-15 
+
+> [!NOTE]
+> Aby uzyskać rozszerzone funkcje zabezpieczeń, przygotuj się do uaktualnienia systemów Ubuntu-1604 i Debian-9, ponieważ te wersje zbliżają się do końca wydłużonego okresu wsparcia.
+> 
 
 ### <a name="supported-certificate-content-types"></a>Obsługiwane typy zawartości certyfikatów
 

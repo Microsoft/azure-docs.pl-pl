@@ -148,6 +148,8 @@
               href: manage/understand-mca-roles.md
             - name: Identyfikator partnera linku
               href: manage/link-partner-id.md
+            - name: Łączenie identyfikatora partnera z kontami aplikacji zaawansowanych
+              href: manage/link-partner-id-power-apps-accounts.md
         - name: Administrowanie subskrypcjami
           items:
             - name: Przypisywanie dostępu do danych rozwiązania Cost Management

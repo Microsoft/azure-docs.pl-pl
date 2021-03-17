@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/16/2021
 ms.author: banders
-ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035997"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601954"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
@@ -105,6 +105,7 @@ Platforma Azure ma następujące zasady dotyczące anulowania, wymiany i zwrotó
 - Obecnie nie naliczamy opłaty za wcześniejsze zakończenie, ale w przyszłości w przypadku anulowania może być naliczana opłata za wcześniejsze zakończenie w wysokości 12%.
 - Łączne anulowane zobowiązanie nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu dla profilu rozliczeniowego lub jednej rejestracji. Na przykład w przypadku 3-letniej rezerwacji ze zobowiązaniem 100 USD miesięcznie zwróconej w 18 miesiącu anulowane zobowiązanie to 1800 USD. Po zwrocie nowy dostępny limit zwrotu będzie wynosił 48 200 USD. Po 365 dniach od tego zwrotu limit 48 200 USD zostanie zwiększony o 1800 USD i nowa pula będzie równa 50 000 USD. Każde inne anulowanie rezerwacji dla profilu rozliczeniowego lub rejestracji w ramach umowy EA spowoduje uszczuplenie tej samej puli i stosowana będzie ta sama logika uzupełniania.
 - Platforma Azure nie przetworzy żadnych zwrotów przekraczających limit 50 000 USD w okresie 12 miesięcy dla profilu rozliczeniowego lub rejestracji w ramach umowy EA.
+    - Zwroty wynikające z wymiany nie są wliczane do limitu refundacji.
 - Zwroty są obliczane na podstawie najniższej z dwóch kwoty: ceny zakupu i bieżącej ceny rezerwacji.
 - Tylko właściciele zamówienia rezerwacji mogą przetwarzać zwrot. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
