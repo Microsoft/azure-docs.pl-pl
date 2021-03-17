@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/11/2021
+ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98147447"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622282"
 ---
 | Zasób | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -34,6 +34,8 @@ ms.locfileid: "98147447"
 | Maksymalny rozmiar zbuforowanego ładunku<sup>8</sup> | 2 MiB |
 | Maksymalny rozmiar adresu URL żądania<sup>9</sup> | 4096 bajtów |
 | Maksymalna długość segmentu ścieżki adresu URL<sup>10</sup> | 260 znaków |
+| Maksymalny rozmiar schematu interfejsu API używany przez [zasady sprawdzania poprawności](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
+| Maksymalny rozmiar żądania lub treści odpowiedzi w ramach [walidacji — zasady zawartości](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
 | Maksymalna liczba bram hostowanych przez siebie<sup>11</sup> | 25 |
 
 <sup>1</sup> Limity skalowania zależą od warstwy cenowej. Aby uzyskać szczegółowe informacje dotyczące warstw cenowych i ich limitów skalowania, zobacz [Cennik usługi API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
@@ -45,5 +47,5 @@ ms.locfileid: "98147447"
 <sup>7</sup> Certyfikaty urzędu certyfikacji nie są obsługiwane w warstwie zużycia.<br/>
 <sup>8</sup> Ten limit dotyczy tylko warstwy zużycia. W tych kategoriach nie ma ograniczeń dotyczących innych warstw.<br/>
 <sup>9</sup> Dotyczy tylko warstwy zużycia. Zawiera ciąg zapytania o długości do 2048 bajtów.<br/>
-<sup>10</sup> aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/).<br/>
+<sup>10</sup> aby zwiększyć ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/).<br/>
 <sup>11</sup> Bramy samoobsługowe są obsługiwane tylko w warstwach deweloper i Premium. Limit ma zastosowanie do liczby [zasobów bramy samoobsługowej](/rest/api/apimanagement/2019-12-01/gateway). Aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/). Należy zauważyć, że liczba węzłów (lub replik) skojarzonych z nieobsługiwanym zasobem bramy jest nieograniczona w warstwie Premium i ograniczona do jednego węzła w warstwie dewelopera.

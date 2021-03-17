@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452054"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601767"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
@@ -33,7 +33,6 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 - [Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
@@ -84,7 +83,6 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 - [Azure Active Directory Zarządzanie aplikacjami: co nowego](whats-new-docs.md)
-- [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Październik 2020 r.
@@ -99,7 +97,6 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problem z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md)
 - [Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)

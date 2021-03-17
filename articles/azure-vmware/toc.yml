@@ -78,6 +78,8 @@
       href: create-ipsec-tunnel.md
     - name: Klaster trybu failover systemu Windows Server
       href: windows-server-failover-cluster.md
+    - name: Zresetuj poświadczenia vSphere
+      href: reset-vsphere-credentials.md
     - name: Integracja z funkcjami macierzystymi platformy Azure
       items:
         - name: API Management

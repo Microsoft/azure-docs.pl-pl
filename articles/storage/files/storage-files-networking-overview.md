@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90563339"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601937"
 ---
 # <a name="azure-files-networking-considerations"></a>Zagadnienia dotyczące sieci Azure Files 
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
@@ -25,6 +25,15 @@ W tym artykule opisano sposób konfigurowania sieci w przypadku, gdy przypadek u
 Konfiguracja sieci dla udziałów plików platformy Azure odbywa się na koncie usługi Azure Storage. Konto magazynu to konstrukcja zarządzania, która reprezentuje udostępnioną pulę magazynu, w którym można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki. Konta magazynu uwidaczniają wiele ustawień, które ułatwiają Zabezpieczanie dostępu sieciowego do udziałów plików: punktów końcowych sieci, ustawień zapory konta magazynu i szyfrowania podczas przesyłania. 
 
 Zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](storage-files-planning.md) przed przeczytaniem tego przewodnika koncepcyjnego.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Ten film wideo to przewodnik i demonstracja, jak bezpiecznie ujawniać udziały plików platformy Azure bezpośrednio pracownikom przetwarzającym informacje i aplikacje w pięciu prostych krokach. Poniższe sekcje zawierają linki i dodatkowy kontekst do dokumentacji, do której odwołuje się film wideo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Uzyskiwanie dostępu do udziałów plików platformy Azure
 Gdy wdrażasz udział plików platformy Azure w ramach konta magazynu, udział plików jest natychmiast dostępny za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. 

@@ -3,12 +3,12 @@ title: Korzystanie z usługi Azure Application Gateway do ochrony aplikacji siec
 description: Skonfiguruj Application Gateway platformy Azure, aby bezpiecznie uwidaczniać aplikacje sieci Web działające w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f92027ee46fdaae275939acaea10e144b6bde101
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733588"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601920"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 
@@ -193,4 +193,4 @@ Teraz, gdy korzystasz z usługi Application Gateway do ochrony aplikacji sieci W
 - [Konfigurowanie Application Gateway platformy Azure dla różnych scenariuszy](../application-gateway/configuration-overview.md).
 - [Wdrażanie Traffic Manager w celu zrównoważenia obciążeń rozwiązań VMware platformy Azure](deploy-traffic-manager-balance-workloads.md).
 - [Integracja Azure NetApp Files z obciążeniami opartymi na rozwiązaniach VMware platformy Azure](netapp-files-with-azure-vmware-solution.md).
-- [Ochrona zasobów platformy Azure w sieciach wirtualnych](../ddos-protection/ddos-protection-overview.md)
+- [Ochrona zasobów platformy Azure w sieciach wirtualnych](../ddos-protection/ddos-protection-overview.md).

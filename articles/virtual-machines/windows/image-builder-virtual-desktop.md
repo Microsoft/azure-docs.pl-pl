@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: a2c4e3c1079d488b9255fb1b9660ff5c4b0aad8f
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103422200"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602022"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Tworzenie obrazu pulpitu wirtualnego systemu Windows przy użyciu narzędzia Azure VM Image Builder i programu PowerShell
 
@@ -39,7 +39,7 @@ Ten artykuł jest przeznaczony do wykonania kopiowania i wklejania.
 ## <a name="tips-for-building-windows-images"></a>Porady dotyczące tworzenia obrazów systemu Windows 
 
 - Rozmiar maszyny wirtualnej — domyślny rozmiar maszyny wirtualnej to `Standard_D1_v2` , która nie jest odpowiednia dla systemu Windows. Użyj `Standard_D2_v2` lub nowszej.
-- W tym przykładzie są wykorzystywane [skrypty dostosowywania programu PowerShell](../linux/image-builder-json.md). Musisz użyć tych ustawień lub kompilacja zostanie zawieszona.
+- W tym przykładzie są wykorzystywane [skrypty dostosowywania programu PowerShell](../linux/image-builder-json.md). Musisz użyć tych ustawień lub kompilacja przestanie odpowiadać.
 
     ```json
       "runElevated": true,

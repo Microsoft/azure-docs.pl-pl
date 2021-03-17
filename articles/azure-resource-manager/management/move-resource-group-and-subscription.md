@@ -4,12 +4,12 @@ description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1218df618f7f5fa0787505cb4fcee67dd264ea76
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093623"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601393"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -34,6 +34,7 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki 
    * [Wskazówki dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md)
    * [Recovery Services wskazówki dotyczące przenoszenia](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines wskazówki dotyczące przenoszenia](./move-limitations/virtual-machines-move-limitations.md)
+   * Aby przenieść subskrypcję platformy Azure do nowej grupy zarządzania, zobacz [przenoszenie subskrypcji](../../governance/management-groups/manage.md#move-subscriptions).
 
 1. W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
 

@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102703"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600953"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -71,7 +71,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 |------|-------------|
 | E-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
-| onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
+| nazwy pospolitej onpremisessamaccountname | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |
 | employeeid | IDENTYFIKATOR pracownika użytkownika |
 | Rozszerzenia katalogów | Rozszerzenia katalogu [zsynchronizowane z Active Directory lokalnego przy użyciu synchronizacji Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
