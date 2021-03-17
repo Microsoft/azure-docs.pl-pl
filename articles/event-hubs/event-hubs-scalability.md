@@ -2,13 +2,13 @@
 title: Skalowalność — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje na temat skalowania Event Hubs platformy Azure przy użyciu partycji i jednostek przepływności.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/16/2021
+ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521959"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601296"
 ---
 # <a name="scaling-with-event-hubs"></a>Skalowanie za pomocą Event Hubs
 
@@ -39,11 +39,7 @@ Aby uzyskać więcej informacji na temat funkcji automatycznego rozszerzania, zo
 ## <a name="partitions"></a>Partycje
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### <a name="partition-key"></a>Klucz partycji
 
-[Klucza partycji](event-hubs-programming-guide.md#partition-key) można użyć do mapowania danych zdarzeń przychodzących na określone partycje na potrzeby organizacji danych. Klucz partycji to wartość podawana przez nadawcę przekazywana do centrum zdarzeń. Jest on przetwarzany przez statyczną funkcję tworzenia skrótu, za pomocą której tworzone jest przypisanie partycji. Jeśli nie określisz klucza partycji podczas publikowania zdarzenia, używane jest przypisanie działania okrężnego.
-
-Wydawca zdarzeń ma informacje tylko o kluczu partycji, a nie partycji, na której publikowane są zdarzenia. To oddzielenie klucza od partycji powoduje, że nadawca nie musi wiedzieć zbyt dużo o przetwarzaniu podrzędnym. Unikatowa tożsamość urządzenia lub użytkownika stanowi dobry klucz partycji, ale inne atrybuty, takie jak lokalizacja geograficzna, mogą również zostać użyte do grupowania powiązanych zdarzeń w jedną partycję.
 
 
 ## <a name="next-steps"></a>Następne kroki

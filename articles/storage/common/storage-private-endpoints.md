@@ -3,19 +3,19 @@ title: Używanie prywatnych punktów końcowych
 titleSuffix: Azure Storage
 description: Przegląd prywatnych punktów końcowych w celu bezpiecznego dostępu do kont magazynu z sieci wirtualnych.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: santoshc
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493802"
+ms.locfileid: "103601478"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 

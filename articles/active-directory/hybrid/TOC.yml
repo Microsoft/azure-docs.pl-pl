@@ -40,6 +40,8 @@
           href: whatis-phs.md
         - name: Jak działa synchronizacja skrótów haseł
           href: how-to-connect-password-hash-synchronization.md
+        - name: Selektywna synchronizacja skrótów haseł
+          href: how-to-connect-selective-password-hash-synchronization.md
     - name: Uwierzytelnianie przekazywane
       items:
         - name: Co to jest uwierzytelnianie przekazywane?
