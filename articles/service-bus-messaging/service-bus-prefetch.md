@@ -4,10 +4,10 @@ description: Zwiększ wydajność przez pobranie Azure Service Bus komunikatów.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341060"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Pobieranie z wyprzedzeniem Azure Service Bus komunikatów
@@ -18,11 +18,11 @@ Pojedyncze początkowe wywołanie metody [Receive](/dotnet/api/microsoft.service
 
 ## <a name="enable-prefetch"></a>Włącz pobieranie z wyprzedzeniem
 
-W przypadku platformy .NET można włączyć funkcję pobierania z wyprzedzeniem, ustawiając właściwość [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) elementu **MessageReceiver**, **QueueClient**lub **SubscriptionClient** na liczbę większą od zera. Ustawienie wartości zero powoduje wyłączenie pobierania z wyprzedzeniem.
+W przypadku platformy .NET można włączyć funkcję pobierania z wyprzedzeniem, ustawiając właściwość [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) elementu **MessageReceiver**, **QueueClient** lub **SubscriptionClient** na liczbę większą od zera. Ustawienie wartości zero powoduje wyłączenie pobierania z wyprzedzeniem.
 
 To ustawienie można łatwo dodać do strony odbiorczej ustawień "Przykłady [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) lub [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) ", aby zobaczyć efekt w tych kontekstach.
 
-Gdy komunikaty są dostępne w buforze pobierania z wyprzedzeniem, **wszystkie kolejne** / wywołania**ReceiveAsync** są natychmiast spełnione od buforu, a bufor jest uzupełniany w tle w miarę dostępności miejsca. Jeśli nie ma żadnych komunikatów do dostarczenia, operacja Receive opróżnia bufor, a następnie czeka lub blokuje, zgodnie z oczekiwaniami.
+Gdy komunikaty są dostępne w buforze pobierania z wyprzedzeniem, **wszystkie kolejne** / wywołania **ReceiveAsync** są natychmiast spełnione od buforu, a bufor jest uzupełniany w tle w miarę dostępności miejsca. Jeśli nie ma żadnych komunikatów do dostarczenia, operacja Receive opróżnia bufor, a następnie czeka lub blokuje, zgodnie z oczekiwaniami.
 
 Pobieranie z wyprzedzeniem działa również w taki sam sposób, jak interfejsy API [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) i [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) .
 

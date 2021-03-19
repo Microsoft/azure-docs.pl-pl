@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75614353"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Tworzenie i publikowanie .Net Core aplikacji przeznaczonych dla zdalnego klastra Service Fabric systemu Linux przy użyciu programu Visual Studio
@@ -54,7 +54,7 @@ Za pomocą narzędzi Visual Studio można tworzyć i publikować Service Fabric 
     </EntryPoint>
 ```
 6. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy aplikację i wybierz polecenie **Publikuj**. Zostanie wyświetlone okno dialogowe **Publikowanie**.
-7. W obszarze **punkt końcowy połączenia**wybierz punkt końcowy klastra zdalnego Service Fabric Linux, który ma być celem.
+7. W obszarze **punkt końcowy połączenia** wybierz punkt końcowy klastra zdalnego Service Fabric Linux, który ma być celem.
 ![publikowanie aplikacji]
 
 <!--Image references-->

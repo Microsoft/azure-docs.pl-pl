@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84689991"
 ---
 # <a name="azure-api-management-template-resources"></a>Zasoby szablonów API Management platformy Azure
@@ -135,7 +135,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |WebDevelopersAppNotSubmitted|Nieprzesłane|  
 |WebDevelopersAppTableCategoryHeader|Kategoria|  
 |WebDevelopersAppTableNameHeader|Nazwa|  
-|WebDevelopersAppTableStateHeader|State|  
+|WebDevelopersAppTableStateHeader|Stan|  
 |WebDevelopersEditLink|Edytuj|  
 |WebDevelopersRegisterAppLink|Rejestrowanie aplikacji|  
 |WebDevelopersRemoveLink|Usuń|  
@@ -156,7 +156,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |GeneralExceptionMessage|Coś nie jest prawidłowe. Może to być błąd tymczasowy lub usterka. Spróbuj ponownie.|  
 |GeneralJsonExceptionMessage|Coś nie jest prawidłowe. Może to być błąd tymczasowy lub usterka. Załaduj ponownie stronę i spróbuj ponownie.|  
 |ConfirmationMessageUnsavedChanges|Istnieją niezapisane zmiany. Czy na pewno chcesz anulować i odrzucić zmiany?|  
-|Usługi azureactivedirectory|Usługa Azure Active Directory|  
+|Usługi azureactivedirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Treść żądania HTTP jest za duża.|  
   
 ###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
@@ -381,7 +381,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |----------|----------|  
 |WebProductsAgreement|Subskrybując {0} produkt, zgadzam się na `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>` .|  
 |WebProductsLegalTermsLink|Warunki użytkowania|  
-|WebProductsSubscribeButton|Zasubskrybowanie|  
+|WebProductsSubscribeButton|Subskrybuj|  
 |WebProductsUsageLimitsHeader|Limity użycia|  
 |WebProductsYouAreNotSubscribed|Subskrybujesz ten produkt.|  
 |WebProductsYouRequestedSubscription|Zażądano subskrypcji tego produktu.|  
@@ -432,7 +432,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |WebAuthenticationEmailHasBeenRevertedNotice|Adres e-mail już istnieje. Żądanie zostało cofnięte|  
 |ValidationErrorEmailAlreadyExists|Adres e-mail już istnieje|  
 |ValidationErrorEmailInvalid|Nieprawidłowy adres e-mail|  
-|TextboxLabelEmail|Poczta e-mail|  
+|TextboxLabelEmail|E-mail|  
 |ValidationErrorEmailRequired|Adres e-mail jest wymagany.|  
 |WebAuthenticationErrorNoticeHeader|Błąd|  
 |WebAuthenticationFieldLengthErrorMessage|{0} musi mieć maksymalną długość równą {1}|  
@@ -488,7 +488,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |WebAuthenticationGooglePlusNotEnabled|Uwierzytelnianie nie powiodło się. Jeśli aplikacja została autoryzowana, skontaktuj się z administratorem, aby upewnić się, że uwierzytelnianie Google zostało prawidłowo skonfigurowane.|  
 |ValidationErrorAllowedTenantIsRequired|Dozwolona dzierżawa jest wymagana|  
 |ValidationErrorTenantIsNotValid|Dzierżawca Azure Active Directory " {0} " jest nieprawidłowy.|  
-|WebAuthenticationActiveDirectoryTitle|Usługa Azure Active Directory|  
+|WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
 |WebAuthenticationLoginUsingYourProvider|Zaloguj się przy użyciu swojego {0} konta|  
 |WebAuthenticationUserLimitNotice|Ta usługa osiągnęła maksymalną liczbę dozwolonych użytkowników. Wykonaj `<a href="mailto:{0}"\>contact the administrator</a\>` uaktualnienie swojej usługi i ponownie Włącz rejestrację użytkownika.|  
 |WebAuthenticationUserLimitNoticeHeader|Rejestracja użytkownika została wyłączona|  
@@ -544,7 +544,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |WebDevelopersSubscriptionRequested|Zażądano {0}|  
 |WebDevelopersSubscriptionRequestedState|Zażądano|  
 |WebDevelopersSubscriptionTableNameHeader|Nazwa|  
-|WebDevelopersSubscriptionTableStateHeader|State|  
+|WebDevelopersSubscriptionTableStateHeader|Stan|  
 |WebDevelopersUsageStatisticsLink|Raporty analityczne|  
 |WebDevelopersYourSubscriptions|Twoje subskrypcje|  
 |SubscriptionPropertyLabelRequestedDate|Zażądano|  
@@ -577,12 +577,12 @@ Obsługiwane są następujące opcje lokalizacji:
 |ButtonLabelChangeAccountInfo|Zmień informacje o koncie|  
 |ButtonLabelChangePassword|Zmień hasło|  
 |ButtonLabelCloseAccount|Zamknij konto|  
-|TextboxLabelEmail|Poczta e-mail|  
+|TextboxLabelEmail|E-mail|  
 |TextboxLabelEmailFirstName|Imię|  
 |TextboxLabelEmailLastName|Nazwisko|  
 |TextboxLabelNotificationsSenderEmail|Adres e-mail nadawcy powiadomień|  
 |TextboxLabelOrganizationName|Nazwa organizacji|  
-|SubscriptionStateActive|Aktywny|  
+|SubscriptionStateActive|Aktywna|  
 |SubscriptionStateCancelled|Anulowano|  
 |SubscriptionStateExpired|Wygasłe|  
 |SubscriptionStateRejected|Odrzucone|  

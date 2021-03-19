@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 3f3287dd67f89f678a9875ddce93e2d0d26b2209
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89077628"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Tworzenie Service Bus przestrzeni nazw z tematem, subskrypcją i regułą przy użyciu szablonu Azure Resource Manager
@@ -109,7 +109,7 @@ Wersja szablonu interfejsu API Service Bus.
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 
-Tworzy standardową przestrzeń nazw Service Bus typu **Messaging**z tematem i subskrypcją i regułami.
+Tworzy standardową przestrzeń nazw Service Bus typu **Messaging** z tematem i subskrypcją i regułami.
 
 ```json
  "resources": [{

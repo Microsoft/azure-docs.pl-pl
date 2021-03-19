@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271845"
 ---
 # <a name="retrieve-a-specific-offer"></a>Pobierz konkretną ofertę
@@ -43,10 +43,10 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 | offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | Ciąg        |
 | Wersja     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Liczba całkowita       |
 | slotId      | Gniazdo, z którego ma zostać pobrana oferta, może być jedną z:      <br/>  - `Draft` (domyślnie) Pobiera wersję oferty aktualnie w wersji roboczej.  <br/>  -  `Preview` Pobiera wersję oferty aktualnie w wersji zapoznawczej.     <br/>  -  `Production` Pobiera wersję oferty aktualnie w środowisku produkcyjnym.          |      enum |
-| api-version | Najnowsza wersja interfejsu API                                                                    | Date          |
+| api-version | Najnowsza wersja interfejsu API                                                                    | Date (Data)          |
 |  |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**          |   **Wartość**            |
 |  ---------------   |  --------------        |
@@ -200,7 +200,7 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  NotStarted                 | Oferta jest nowa, ale nie została uruchomiona.              |
 |  WaitingForPublisherReview  | Oferta oczekuje na zatwierdzenie przez wydawcę.      |
 |  Uruchomienie                    | Przesyłanie oferty jest przetwarzane.          |
-|  Sukces                  | Przesyłanie oferty zostało zakończone.    |
+|  Powodzenie                  | Przesyłanie oferty zostało zakończone.    |
 |  Anulowane                   | Przesyłanie oferty zostało anulowane.                |
 |  Niepowodzenie                     | Nie można przesłać oferty.                      |
 |  |  |

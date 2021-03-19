@@ -3,12 +3,12 @@ title: Użyj Azure Batchj biblioteki klienta dla Node.js
 description: Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a2d86582c94804a20a3a9e952bc64d60414e25a5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656026"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -32,9 +32,9 @@ Poniższy diagram przedstawia, w jaki sposób można skalować skrypt języka Py
 
 Klient Node.js wdraża zadanie wsadowe wraz z zadaniem podrzędnym przygotowania (szczegółowo omówionym w dalszej części artykułu) i zestawem zadań podrzędnych w zależności od liczby kontenerów na koncie magazynu. Skrypty można pobrać z repozytorium GitHub.
 
-- [Klient Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [Przygotowanie skryptów powłoki zadań](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [Konwerter plików csv języka Python na format JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Klient Node.js](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Przygotowanie skryptów powłoki zadań](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Konwerter plików csv języka Python na format JSON](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > Klient Node.js w podanym linku nie zawiera konkretnego kodu, który można wdrożyć jako aplikację funkcji platformy Azure. Użyj następujących linków, aby zapoznać się z instrukcjami tworzenia kodu.

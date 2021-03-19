@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak monitorować magazyny Recovery Ser
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002134"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi
@@ -160,7 +160,7 @@ Domyślnie powiadomienia E-mail są **włączone**. Wybierz pozycję **wyłączo
 
 W obszarze kontrola **powiadamiania** wybierz opcję **na alert** , jeśli nie chcesz grupować lub nie masz wielu elementów, które mogą generować alerty. Każdy alert powoduje jedno powiadomienie (ustawienie domyślne), a wiadomość e-mail dotycząca rozwiązania jest wysyłana natychmiast.
 
-W przypadku wybrania opcji **Podsumowanie godzinowe**zostanie wysłana wiadomość e-mail z informacją o nierozwiązanych alertach wygenerowanych w ciągu ostatniej godziny. Wiadomość e-mail dotycząca rozwiązania jest wysyłana po upływie godziny.
+W przypadku wybrania opcji **Podsumowanie godzinowe** zostanie wysłana wiadomość e-mail z informacją o nierozwiązanych alertach wygenerowanych w ciągu ostatniej godziny. Wiadomość e-mail dotycząca rozwiązania jest wysyłana po upływie godziny.
 
 Wybierz ważność alertu (krytyczne lub ostrzeżenie) służącą do generowania poczty e-mail. Obecnie nie ma żadnych alertów dotyczących informacji.
 
@@ -174,7 +174,7 @@ Zostanie wyświetlona lista elementów kopii zapasowej uporządkowanych według 
 
 ![Lista elementów kopii zapasowej](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-Aby poznać określony typ chronionego wystąpienia, wybierz element w kolumnie Typ zarządzania kopiami zapasowymi. Na przykład na powyższym obrazie istnieją dwie maszyny wirtualne platformy Azure chronione w tym magazynie. W przypadku wybrania **maszyny wirtualnej platformy Azure**program otwiera listę chronionych maszyn wirtualnych w tym magazynie.
+Aby poznać określony typ chronionego wystąpienia, wybierz element w kolumnie Typ zarządzania kopiami zapasowymi. Na przykład na powyższym obrazie istnieją dwie maszyny wirtualne platformy Azure chronione w tym magazynie. W przypadku wybrania **maszyny wirtualnej platformy Azure** program otwiera listę chronionych maszyn wirtualnych w tym magazynie.
 
 ![Lista chronionych maszyn wirtualnych](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
@@ -235,7 +235,7 @@ Można wyświetlić jedną operację lub wszystkie operacje. Nie można wybrać 
 * Konfigurowanie kopii zapasowych
 * Backup
 * Przywracanie
-* Wyłącz kopię zapasową
+* Wyłączanie kopii zapasowej
 * Usuwanie danych kopii zapasowej
 
 #### <a name="status"></a>Stan
@@ -243,7 +243,7 @@ Można wyświetlić jedną operację lub wszystkie operacje. Nie można wybrać 
 Możesz wyświetlić wszystkie stany lub jeden z nich. Nie można wybrać dwóch lub trzech stanów. Dostępne są następujące stany:
 
 * Wszystkie Stany
-* Zakończone
+* Ukończone
 * W toku
 * Niepowodzenie
 * Anulowane
@@ -276,9 +276,9 @@ Kafelek magazyn kopii zapasowych na pulpicie nawigacyjnym pokazuje Magazyn używ
 
 **Kroki rozwiązywania problemów:** Proces, ```OBRecoveryServicesManagementAgent``` , wysyła dane zadania i alertu do usługi Azure Backup. Czasami ten proces może zostać zablokowany lub zamknięty.
 
-1. Aby sprawdzić, czy proces nie działa, Otwórz **Menedżera zadań**i sprawdź, czy ```OBRecoveryServicesManagementAgent``` jest uruchomiony.
+1. Aby sprawdzić, czy proces nie działa, Otwórz **Menedżera zadań** i sprawdź, czy ```OBRecoveryServicesManagementAgent``` jest uruchomiony.
 
-2. Jeśli proces nie jest uruchomiony, Otwórz **Panel sterowania**i Przeglądaj listę usług. Uruchom lub Uruchom ponownie **Microsoft Azure Recovery Services agenta zarządzania**.
+2. Jeśli proces nie jest uruchomiony, Otwórz **Panel sterowania** i Przeglądaj listę usług. Uruchom lub Uruchom ponownie **Microsoft Azure Recovery Services agenta zarządzania**.
 
     Aby uzyskać więcej informacji, Przejrzyj dzienniki pod adresem:<br/>
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Na przykład:<br/>

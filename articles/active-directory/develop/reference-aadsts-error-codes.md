@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 606704621a4904dd0fb7b6f55e753dbe77e39cb5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601019"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578502"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -269,6 +269,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS90094 | AdminConsentRequired — wymagana jest zgoda administratora. |
 | AADSTS900382 | Klient poufny nie jest obsługiwany w żądaniu między chmurą. |
 | AADSTS90099 | Aplikacja "{appId}" ({nazwa_aplikacji}) nie została autoryzowana w dzierżawie "{dzierżawca}". Aplikacje muszą mieć autoryzację, aby uzyskać dostęp do dzierżawy klienta, zanim będzie można z nich korzystać Administratorzy delegowany przez partnerów. Zapewnij wstępną zgodę lub wykonaj odpowiednie interfejsy API Centrum partnerskiego, aby autoryzować aplikację. |
+| AADSTS900971| Nie podano adresu odpowiedzi.|
 | AADSTS90100 | InvalidRequestParameter — parametr jest pusty lub nieprawidłowy. |
 | AADSTS901002 | AADSTS901002: parametr żądania "Resource" nie jest obsługiwany. |
 | AADSTS90101 | InvalidEmailAddress — podane dane nie są prawidłowym adresem e-mail. Adres e-mail musi mieć format `someone@example.com` . |

@@ -1,6 +1,6 @@
 ---
-title: Administracja usługą StorSimple Menedżer urządzeń | Microsoft Docs
-description: Dowiedz się, jak zarządzać urządzeniem StorSimple za pomocą usługi StorSimple Menedżer urządzeń w Azure Portal.
+title: Administracja usługą StorSimple Device Manager | Microsoft Docs
+description: Dowiedz się, jak zarządzać urządzeniem StorSimple za pomocą usługi StorSimple Device Manager w Azure Portal.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,49 +12,51 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967979"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656825"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Korzystanie z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule opisano interfejs usługi StorSimple Menedżer urządzeń, w tym sposób nawiązywania z nim połączenia, różne dostępne opcje i linki do określonych przepływów pracy, które można wykonać za pomocą tego interfejsu użytkownika. Te wskazówki dotyczą obu tych programów; urządzenie fizyczne StorSimple i urządzenie w chmurze.
+W tym artykule opisano interfejs usługi StorSimple Device Manager, w tym sposób nawiązywania z nim połączenia, różne dostępne opcje i linki do określonych przepływów pracy, które można wykonać za pomocą tego interfejsu użytkownika. Te wskazówki dotyczą obu tych programów; urządzenie fizyczne StorSimple i urządzenie w chmurze.
 
 Po przeczytaniu tego artykułu dowiesz się, jak:
 
-* Nawiązywanie połączenia z usługą StorSimple Menedżer urządzeń
-* Administruj urządzeniem StorSimple za pośrednictwem usługi StorSimple Menedżer urządzeń
+* Nawiązywanie połączenia z usługą StorSimple Device Manager
+* Administruj urządzeniem StorSimple za pośrednictwem usługi StorSimple Device Manager
 
-## <a name="connect-to-storsimple-device-manager-service"></a>Nawiązywanie połączenia z usługą StorSimple Menedżer urządzeń
+## <a name="connect-to-storsimple-device-manager-service"></a>Nawiązywanie połączenia z usługą StorSimple Device Manager
 
-Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Aby zarządzać tymi urządzeniami, należy użyć centralnej Microsoft Azure Portal działającej w przeglądarce. Aby nawiązać połączenie z usługą StorSimple Menedżer urządzeń, wykonaj następujące czynności.
+Usługa StorSimple Device Manager działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Aby zarządzać tymi urządzeniami, należy użyć centralnej Microsoft Azure Portal działającej w przeglądarce. Aby nawiązać połączenie z usługą StorSimple Device Manager, wykonaj następujące czynności.
 
 #### <a name="to-connect-to-the-service"></a>Aby nawiązać połączenie z usługą
 1. Przejdź do [https://portal.azure.com/](https://portal.azure.com/) .
 2. Korzystając z poświadczeń konto Microsoft, zaloguj się do Microsoft Azure Portal (znajdującego się w prawym górnym rogu okienka).
-3. Przewiń w dół do lewego okienka nawigacji, aby uzyskać dostęp do usługi StorSimple Menedżer urządzeń.
+3. Przewiń w dół do lewego okienka nawigacji, aby uzyskać dostęp do usługi StorSimple Device Manager.
 
 
-## <a name="administer-storsimple-device-using-storsimple-device-manager-service"></a>Administrowanie urządzeniem StorSimple za pomocą usługi StorSimple Menedżer urządzeń
+## <a name="administer-storsimple-device-using-storsimple-device-manager-service"></a>Administrowanie urządzeniem StorSimple za pomocą usługi StorSimple Device Manager
 
-W poniższej tabeli przedstawiono podsumowanie wszystkich typowych zadań zarządzania i złożonych przepływów pracy, które można wykonać w interfejsie użytkownika usługi StorSimple Menedżer urządzeń. Te zadania są zorganizowane na podstawie bloków interfejsu użytkownika, na których są inicjowane.
+W poniższej tabeli przedstawiono podsumowanie wszystkich typowych zadań zarządzania i złożonych przepływów pracy, które można wykonać w interfejsie użytkownika usługi StorSimple Device Manager. Te zadania są zorganizowane na podstawie bloków interfejsu użytkownika, na których są inicjowane.
 
 Aby uzyskać więcej informacji na temat każdego przepływu pracy, kliknij odpowiednią procedurę w tabeli.
 
-#### <a name="storsimple-device-manager-workflows"></a>StorSimple przepływy pracy Menedżer urządzeń
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
+
+#### <a name="storsimple-device-manager-workflows"></a>StorSimple przepływy pracy Device Manager
 
 | Jeśli chcesz to zrobić... | Użyj tej procedury. |
 | --- | --- |
-| Tworzenie usługi</br>Usuwanie usługi</br>Pobierz klucz rejestracji usługi</br>Wygeneruj ponownie klucz rejestracji usługi |[Wdrażanie usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-service.md) |
-| Wyświetlanie dzienników aktywności |[Użyj podsumowania usługi StorSimple Menedżer urządzeń](storsimple-8000-service-dashboard.md) |
-| Zmień klucz szyfrowania danych usługi</br>Wyświetlanie dzienników operacji |[Korzystanie z pulpitu nawigacyjnego usługi StorSimple Menedżer urządzeń](storsimple-8000-service-dashboard.md) |
+| Tworzenie usługi</br>Usuwanie usługi</br>Pobierz klucz rejestracji usługi</br>Wygeneruj ponownie klucz rejestracji usługi |[Wdrażanie usługi StorSimple Device Manager](storsimple-8000-manage-service.md) |
+| Wyświetlanie dzienników aktywności |[Użyj podsumowania usługi StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
+| Zmień klucz szyfrowania danych usługi</br>Wyświetlanie dzienników operacji |[Korzystanie z pulpitu nawigacyjnego usługi StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
 | Dezaktywowanie urządzenia</br>Usuwanie urządzenia |[Dezaktywowanie lub usuwanie urządzenia](storsimple-8000-deactivate-and-delete-device.md) |
 | Informacje o odzyskiwaniu po awarii i przejściu do trybu failover</br>Przełączanie do trybu failover na urządzeniu fizycznym</br>Przełączenie w tryb failover do urządzenia wirtualnego</br>Ciągłość działania — odzyskiwanie po awarii (BCDR) |[Tryb failover i odzyskiwanie po awarii dla urządzenia StorSimple](storsimple-8000-device-failover-disaster-recovery.md) |
 | Utwórz listę kopii zapasowych dla woluminu</br>Wybierz zestaw kopii zapasowych</br>Usuwanie zestawu kopii zapasowych |[Zarządzanie kopiami zapasowymi](storsimple-8000-manage-backup-catalog.md) |

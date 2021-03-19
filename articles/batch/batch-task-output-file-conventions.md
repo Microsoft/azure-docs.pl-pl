@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 1a45eed421dd8d734fcef0dd452df1d4a65fd053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936966"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Utrwalanie danych zadań i zadań w usłudze Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET
@@ -47,7 +47,7 @@ Jeśli tworzysz program przy użyciu języka innego niż .NET, możesz wdrożyć
 Aby zachować dane wyjściowe do usługi Azure Storage przy użyciu biblioteki Konwencji plików, musisz najpierw połączyć konto usługi Azure Storage z kontem w usłudze Batch. Jeśli jeszcze tego nie zrobiono, Połącz konto magazynu z kontem usługi Batch przy użyciu [Azure Portal](https://portal.azure.com):
 
 1. W witrynie Azure Portal przejdź do swojego konta usługi Batch.
-1. W obszarze **Ustawienia**wybierz pozycję **konto magazynu**.
+1. W obszarze **Ustawienia** wybierz pozycję **konto magazynu**.
 1. Jeśli nie masz jeszcze konta magazynu skojarzonego z kontem w usłudze Batch, kliknij pozycję **konto magazynu (brak)**.
 1. Wybierz konto magazynu z listy dla subskrypcji. Aby uzyskać najlepszą wydajność, użyj konta usługi Azure Storage, które znajduje się w tym samym regionie, w którym są uruchomione zadania wsadowe.
 
@@ -104,7 +104,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 Te typy wyjściowe umożliwiają określenie typu danych wyjściowych do wyświetlenia podczas późniejszej kwerendy partii dla utrwalonych danych wyjściowych danego zadania. Innymi słowy, gdy wyświetlasz listę danych wyjściowych dla zadania, możesz filtrować listę na jednym z typów wyjściowych. Na przykład "Nadaj mi *Podgląd* danych wyjściowych dla zadania *109*". Więcej informacji na temat wyświetlania i pobierania danych wyjściowych znajduje się w dalszej części artykułu.
 
 > [!TIP]
-> Typ wyjściowy określa również, gdzie w Azure Portal pojawia się określony plik: pliki z kategoryzacją *TaskOutput*są wyświetlane w obszarze **pliki wyjściowe zadania**, a pliki *TaskLog* są wyświetlane w obszarze **dzienniki zadań**.
+> Typ wyjściowy określa również, gdzie w Azure Portal pojawia się określony plik: pliki z kategoryzacją *TaskOutput* są wyświetlane w obszarze **pliki wyjściowe zadania**, a pliki *TaskLog* są wyświetlane w obszarze **dzienniki zadań**.
 
 ### <a name="store-job-outputs"></a>Przechowuj dane wyjściowe zadania
 
@@ -156,7 +156,7 @@ Sekcja z komentarzem `Code to process data and produce output file(s)` jest symb
 Agent węzła jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. `Task.Delay`Wywołanie jest wymagane na końcu tego `using` bloku, aby upewnić się, że Agent węzła ma czas, aby opróżnić zawartość Standard do pliku stdout.txt w węźle. Bez tego opóźnienia można pominąć ostatnie kilka sekund danych wyjściowych. To opóźnienie może nie być wymagane dla wszystkich plików.
 
 > [!NOTE]
-> Po włączeniu śledzenia plików przy użyciu usługi **SaveTrackedAsync**tylko *dołączanie* do śledzonego pliku są utrwalane w usłudze Azure Storage. Tej metody należy używać tylko do śledzenia plików dziennika nieobracania lub innych plików, które są zapisywane przy użyciu operacji dołączania na końcu pliku.
+> Po włączeniu śledzenia plików przy użyciu usługi **SaveTrackedAsync** tylko *dołączanie* do śledzonego pliku są utrwalane w usłudze Azure Storage. Tej metody należy używać tylko do śledzenia plików dziennika nieobracania lub innych plików, które są zapisywane przy użyciu operacji dołączania na końcu pliku.
 
 ## <a name="retrieve-output-data"></a>Pobieranie danych wyjściowych
 

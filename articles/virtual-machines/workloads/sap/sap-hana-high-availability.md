@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 03/16/2021
 ms.author: radeltch
-ms.openlocfilehash: 817a17de240ee10966a6cd20d758def7c2ab9c87
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669674"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576405"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 
@@ -592,6 +592,115 @@ Upewnij się, że klaster ma stan OK i że wszystkie zasoby są uruchomione. Nie
 #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
+
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Konfiguruj replikację systemu z włączoną funkcją Active/odczyt w klastrze Pacemaker
+
+Począwszy od SAP HANA 2,0 SPS 01 SAP zezwala na konfigurację typu Active/z obsługą odczytu dla replikacji systemu SAP HANA, w przypadku których systemy pomocnicze replikacji systemu SAP HANA mogą być używane aktywnie w przypadku obciążeń odczytu intensywnie. Aby zapewnić obsługę takich ustawień w klastrze, wymagany jest drugi wirtualny adres IP, który umożliwia klientom dostęp do pomocniczej bazy danych SAP HANA z włączoną obsługą odczytu. Aby upewnić się, że lokacja replikacji pomocniczej nadal będzie dostępna po przejęciu przejęcia, klaster musi przenieść wirtualny adres IP wokół pomocniczego zasobu SAPHana.
+
+W tej sekcji opisano dodatkowe kroki, które są wymagane do zarządzania replikacją systemu w ramach usługi HANA Active/Read, w klastrze o wysokiej dostępności z drugim wirtualnym adresem IP.    
+Przed kontynuowaniem upewnij się, że masz w pełni skonfigurowany klaster o wysokiej dostępności SUSE zarządzania SAP HANA bazą danych, zgodnie z opisem w powyższych segmentach dokumentacji.  
+
+![SAP HANA wysoka dostępność z użyciem dodatkowej z możliwością odczytu](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Dodatkowa konfiguracja modułu równoważenia obciążenia platformy Azure na potrzeby instalacji Active/z obsługą odczytu
+
+Aby kontynuować dodatkowe kroki dotyczące aprowizacji drugiego wirtualnego adresu IP, upewnij się, że skonfigurowano Azure Load Balancer zgodnie z opisem w sekcji [wdrażanie ręczne](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) .
+
+1. W przypadku usługi równoważenia obciążenia w **warstwie Standardowa** wykonaj dodatkowe czynności opisane poniżej w tym samym module równoważenia obciążenia, który został utworzony we wcześniejszej sekcji.
+
+   a. Utwórz drugą pulę adresów IP frontonu: 
+
+   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
+   - Wprowadź nazwę drugiej puli adresów IP frontonu (na przykład **Hana-secondaryIP**).
+   - Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.0.0.14**).
+   - Wybierz przycisk **OK**.
+   - Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP frontonu.
+
+   b. Następnie utwórz sondę kondycji:
+
+   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
+   - Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-secondaryhp**).
+   - Wybierz pozycję **TCP** jako protokół i port **62603**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+   - Wybierz przycisk **OK**.
+
+   c. Następnie utwórz reguły równoważenia obciążenia:
+
+   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
+   - Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-secondarylb**).
+   - Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-secondaryIP**, **Hana — zaplecze** i **Hana-secondaryhp**).
+   - Wybierz pozycję **porty ha**.
+   - Zwiększ **limit czasu bezczynności** do 30 minut.
+   - Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+   - Wybierz przycisk **OK**.
+
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Konfiguruj replikację systemu w ramach usługi HANA Active/Read Enabled
+
+Procedurę konfigurowania replikacji systemu HANA opisano w sekcji [konfigurowanie SAP HANA 2,0 replikacji systemowej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) . Jeśli wdrażasz scenariusz pomocniczy z włączoną obsługą odczytu, podczas konfigurowania replikacji systemu w drugim węźle wykonaj następujące polecenie jako **hanasid** adm:
+
+```
+sapcontrol -nr 03 -function StopWait 600 10 
+
+hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
+```
+
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Dodawanie zasobu dodatkowego wirtualnego adresu IP dla instalacji z obsługą aktywnego/z możliwością odczytu
+
+Drugi wirtualny adres IP i odpowiednie ograniczenie między lokalizacjami można skonfigurować przy użyciu następujących poleceń:
+
+```
+crm configure property maintenance-mode=true
+
+crm configure primitive rsc_secip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
+ meta target-role="Started" \
+ operations \$id="rsc_secip_HN1_HDB03-operations" \
+ op monitor interval="10s" timeout="20s" \
+ params ip="10.0.0.14"
+
+crm configure primitive rsc_secnc_HN1_HDB03 azure-lb port=62603 \
+ meta resource-stickiness=0
+
+crm configure group g_secip_HN1_HDB03 rsc_secip_HN1_HDB03 rsc_secnc_HN1_HDB03
+
+crm configure colocation col_saphana_secip_HN1_HDB03 4000: g_secip_HN1_HDB03:Started \
+ msl_SAPHana_HN1_HDB03:Slave 
+
+crm configure property maintenance-mode=false
+```
+Upewnij się, że klaster ma stan OK i że wszystkie zasoby są uruchomione. Drugi wirtualny adres IP zostanie uruchomiony w lokacji dodatkowej wraz z zasobem pomocniczym SAPHana.
+
+```
+sudo crm_mon -r
+
+# Online: [ hn1-db-0 hn1-db-1 ]
+#
+# Full list of resources:
+#
+# stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+# Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+#     Started: [ hn1-db-0 hn1-db-1 ]
+# Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+#     Masters: [ hn1-db-0 ]
+#     Slaves: [ hn1-db-1 ]
+# Resource Group: g_ip_HN1_HDB03
+#     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+#     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+# Resource Group: g_secip_HN1_HDB03:
+#     rsc_secip_HN1_HDB03       (ocf::heartbeat:IPaddr2):        Started hn1-db-1
+#     rsc_secnc_HN1_HDB03       (ocf::heartbeat:azure-lb):       Started hn1-db-1
+
+```
+
+W następnej sekcji można znaleźć typowy zestaw testów trybu failover do wykonania.
+
+Zapoznaj się z drugim zachowaniem wirtualnego adresu IP, podczas testowania klastra HANA skonfigurowanego przy użyciu dodatkowej z włączoną funkcją odczytu:
+
+1. Podczas migracji **SAPHana_HN1_HDB03** zasobu klastra do **HN1-dB-1** drugi wirtualny adres IP zostanie przeniesiony na inny serwer **HN1-DB-0**. Jeśli skonfigurowano AUTOMATED_REGISTER = "false" i replikacja systemu HANA nie jest automatycznie zarejestrowana, drugi wirtualny adres IP zostanie uruchomiony w **hn1-DB-0,** ponieważ serwer jest dostępny i usługi klastra są w trybie online.  
+
+2. Podczas testowania awarii serwera, drugie wirtualne zasoby IP (**rsc_secip_HN1_HDB03**) i zasób portu usługi równoważenia obciążenia platformy Azure (**rsc_secnc_HN1_HDB03**) będą uruchamiane na serwerze podstawowym wraz z głównymi zasobami wirtualnego adresu IP. Gdy serwer pomocniczy nie działa, aplikacje połączone z bazą danych HANA z obsługą odczytu będą łączyć się z podstawową bazą danych platformy HANA. Zachowanie jest oczekiwane, ponieważ nie ma potrzeby, aby aplikacje połączone z bazą danych HANA z włączoną funkcją odczytu były niedostępne, gdy serwer pomocniczy jest niedostępny.
+  
+3. Gdy serwer pomocniczy jest dostępny i usługi klastra są w trybie online, drugi wirtualny adres IP i zasoby portów zostaną automatycznie przeniesione na serwer pomocniczy, nawet jeśli replikacja systemu HANA nie zostanie zarejestrowana jako dodatkowa. Przed uruchomieniem usług klastrowania na tym serwerze należy się upewnić, że baza danych dodatkowej platformy HANA została zarejestrowana jako przeczytana. Zasób klastra wystąpienia HANA można skonfigurować tak, aby automatycznie rejestrował pomocniczy przez ustawienie parametru AUTOMATED_REGISTER = true.       
+
+4. Podczas przełączania do trybu failover i powrotu istniejące połączenia dla aplikacji przy użyciu drugiego wirtualnego adresu IP do łączenia się z bazą danych HANA mogą zostać przerwane.  
 
 ## <a name="test-the-cluster-setup"></a>Testowanie konfiguracji klastra
 

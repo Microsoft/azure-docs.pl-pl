@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792471"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Zarządzanie metadanymi artefaktów na kontach integracji za pomocą usługi Azure Logic Apps i Pakietu integracyjnego dla przedsiębiorstw
@@ -63,7 +63,7 @@ Możesz zdefiniować niestandardowe metadane dla artefaktów na kontach integrac
 
    | Właściwość | Wymagany | Wartość | Opis | 
    |----------|---------|-------|-------------| 
-   | **Typ artefaktu** | Tak | **Schemat**, **Mapa**, **partner**, **Umowa**lub typ niestandardowy | Typ żądanego artefaktu | 
+   | **Typ artefaktu** | Tak | **Schemat**, **Mapa**, **partner**, **Umowa** lub typ niestandardowy | Typ żądanego artefaktu | 
    | **Nazwa artefaktu** | Tak | <*Nazwa artefaktu*> | Nazwa żądanego artefaktu | 
    ||| 
 
@@ -75,7 +75,7 @@ Możesz zdefiniować niestandardowe metadane dla artefaktów na kontach integrac
 
    1. W obszarze Akcja **odnośnika artefaktu konta integracji** wybierz pozycję **Następny krok**, a następnie wybierz pozycję **Dodaj akcję**. 
 
-   1. W polu wyszukiwania wprowadź ciąg "http". W polu wyszukiwania wybierz pozycję **wbudowane**i wybierz tę akcję: **http-http**
+   1. W polu wyszukiwania wprowadź ciąg "http". W polu wyszukiwania wybierz pozycję **wbudowane** i wybierz tę akcję: **http-http**
 
       ![Dodaj akcję HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
 
@@ -87,8 +87,8 @@ Możesz zdefiniować niestandardowe metadane dla artefaktów na kontach integrac
       |----------|----------|-------|-------------| 
       | **Metoda** | Tak | <*Operacja do uruchomienia*> | Operacja HTTP do uruchomienia na artefaktie. Na przykład ta akcja HTTP używa metody **Get** . | 
       | **URI** | Tak | <*metadane — lokalizacja*> | Aby uzyskać dostęp do `routingUrl` wartości metadanych z pobranego artefaktu, można użyć wyrażenia, na przykład: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Nagłówka** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość właściwości wyzwalacza `headers` : można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
-      | **Treść** | Nie | <*treść — zawartość*> | Każda inna zawartość, która ma zostać przekazana przez właściwość akcji HTTP `body` . Ten przykład przekazuje wartości artefaktu `properties` do akcji http: <p>1. kliknij wewnątrz właściwości **Body** , aby wyświetlić listę zawartości dynamicznej. Jeśli nie zostaną wyświetlone żadne właściwości, wybierz pozycję **Zobacz więcej**. <br>2. z listy zawartości dynamicznej w obszarze **Wyszukiwanie artefaktów konta integracji**wybierz pozycję **Właściwości**. | 
+      | **Nagłówki** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość właściwości wyzwalacza `headers` : można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
+      | **Treść** | Nie | <*treść — zawartość*> | Każda inna zawartość, która ma zostać przekazana przez właściwość akcji HTTP `body` . Ten przykład przekazuje wartości artefaktu `properties` do akcji http: <p>1. kliknij wewnątrz właściwości **Body** , aby wyświetlić listę zawartości dynamicznej. Jeśli nie zostaną wyświetlone żadne właściwości, wybierz pozycję **Zobacz więcej**. <br>2. z listy zawartości dynamicznej w obszarze **Wyszukiwanie artefaktów konta integracji** wybierz pozycję **Właściwości**. | 
       |||| 
 
       Na przykład:

@@ -9,10 +9,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075260"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów Service Bus przy użyciu szablonów Azure Resource Manager
@@ -46,7 +46,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
 4. Utwórz nową grupę zasobów, jeśli taka nie istnieje.
 5. Przetestuj wdrożenie.
 6. W razie potrzeby ustaw tryb wdrożenia.
-7. Wdróż szablon.
+7. Wdrażanie szablonu.
 
 Aby uzyskać pełne informacje na temat wdrażania szablonów Azure Resource Manager, zobacz [wdrażanie zasobów za pomocą szablonów Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
 
@@ -221,7 +221,7 @@ Można również użyć parametrów wbudowanych podczas uruchamiania polecenia c
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Aby uruchomić [kompletne](../azure-resource-manager/templates/deployment-modes.md) wdrożenie **, należy ustawić**parametr **mode** na:
+Aby uruchomić [kompletne](../azure-resource-manager/templates/deployment-modes.md) wdrożenie **, należy ustawić** parametr **mode** na:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

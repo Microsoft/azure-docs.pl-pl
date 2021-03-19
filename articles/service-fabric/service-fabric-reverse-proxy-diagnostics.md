@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645467"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorowanie i diagnozowanie przetwarzania żądań na odwrotnym serwerze proxy
@@ -77,7 +77,7 @@ Poniżej przedstawiono kilka przykładów interpretacji typowych dzienników bł
     
     Oto przykładowe zdarzenie, w przypadku którego zwrotny serwer proxy zwraca 404, ponieważ nie może znaleźć pasującego punktu końcowego usługi.
     Poniżej znajdują się poniższe wpisy ładunku:
-   * **processRequestPhase**: wskazuje fazę podczas przetwarzania żądania, gdy wystąpił błąd, ***TryGetEndpoint*** tj. podczas próby pobrania punktu końcowego usługi do usługi. 
+   * **processRequestPhase**: wskazuje fazę podczas przetwarzania żądania, gdy wystąpił błąd, **_TryGetEndpoint_** tj. podczas próby pobrania punktu końcowego usługi do usługi. 
    * **errorDetails**: Wyświetla listę kryteriów wyszukiwania punktów końcowych. W tym miejscu można zobaczyć, że określony odbiornik to **FrontEndListener** , a lista punktów końcowych repliki zawiera odbiornik o nazwie **OldListener**.
     
      ```

@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694992"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596420"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Virtual Machines platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -46,7 +46,7 @@ Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-detai
 -   Enterprise Agreement
 -   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
 -   Sponsorowan
-- W przypadku dostawcy usług w chmurze (CSP) zobacz [Centrum partnerskie](https://docs.microsoft.com/partner-center/azure-plan-get-started) lub bezpośrednio skontaktuj się z partnerem.
+- W przypadku dostawcy usług w chmurze (CSP) zobacz [Centrum partnerskie](/partner-center/azure-plan-get-started) lub bezpośrednio skontaktuj się z partnerem.
 
 ## <a name="eviction-policy"></a>Zasady eksmisji
 
@@ -202,7 +202,7 @@ Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy`
 
 ## <a name="simulate-an-eviction"></a>Symulowanie wykluczenia
 
-Można [symulować wykluczenie](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej platformy Azure w celu przetestowania, w jaki sposób aplikacja reaguje na nagłe wykluczenie. 
+Można [symulować wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej platformy Azure w celu przetestowania, w jaki sposób aplikacja reaguje na nagłe wykluczenie. 
 
 Zastąp następujące informacje następującymi informacjami: 
 

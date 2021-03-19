@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87283949"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Wyślij wiadomość e-mail z konta SMTP przy użyciu Azure Logic Apps
@@ -54,7 +54,7 @@ Za pomocą Azure Logic Apps i łącznika Simple Mail Transfer Protocol (SMTP) mo
    | **Nazwa połączenia** | Tak | Nazwa połączenia z serwerem SMTP | 
    | **Adres serwera SMTP** | Tak | Adres serwera SMTP | 
    | **Nazwa użytkownika** | Tak | Twoja nazwa użytkownika dla konta SMTP | 
-   | **Hasło** | Tak | Hasło do konta SMTP | 
+   | **Password** (Hasło) | Tak | Hasło do konta SMTP | 
    | **Port serwera SMTP** | Nie | Określony port na serwerze SMTP, który ma być używany | 
    | **Włączyć protokół SSL?** | Nie | Włącz lub wyłącz szyfrowanie TLS/SSL. | 
    |||| 

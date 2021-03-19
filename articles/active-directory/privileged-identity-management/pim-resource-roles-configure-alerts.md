@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743766"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról zasobów platformy Azure w Privileged Identity Management
@@ -38,9 +38,9 @@ Wybierz Alert, aby wyświetlić raport zawierający listę użytkowników lub r�
 
 | Alerty | Ważność | Wyzwalacz | Zalecenie |
 | --- | --- | --- | --- |
-| **Zbyt wielu właścicieli przypisanych do zasobu** |Średniaa |Zbyt wielu użytkowników ma rolę właściciela. |Zapoznaj się z użytkownikami na liście i przypisz je do mniej uprzywilejowanych ról. |
-| **Zbyt wiele stałych właścicieli przypisanych do zasobu** |Średniaa |Zbyt wielu użytkowników jest trwale przypisanych do roli. |Przejrzyj użytkowników na liście i przypisz go ponownie, aby wymagać aktywacji do użycia przez rolę. |
-| **Utworzono zduplikowaną rolę** |Średniaa |Wiele ról ma takie same kryteria. |Użyj tylko jednej z tych ról. |
+| **Zbyt wielu właścicieli przypisanych do zasobu** |Śred. |Zbyt wielu użytkowników ma rolę właściciela. |Zapoznaj się z użytkownikami na liście i przypisz je do mniej uprzywilejowanych ról. |
+| **Zbyt wiele stałych właścicieli przypisanych do zasobu** |Śred. |Zbyt wielu użytkowników jest trwale przypisanych do roli. |Przejrzyj użytkowników na liście i przypisz go ponownie, aby wymagać aktywacji do użycia przez rolę. |
+| **Utworzono zduplikowaną rolę** |Śred. |Wiele ról ma takie same kryteria. |Użyj tylko jednej z tych ról. |
 
 ### <a name="severity"></a>Ważność
 

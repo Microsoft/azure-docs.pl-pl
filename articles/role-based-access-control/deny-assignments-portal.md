@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84790250"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure Portal
@@ -38,11 +38,11 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
 Wykonaj następujące kroki, aby wyświetlić listę odrzuconych przypisań w zakresie subskrypcji lub grupy zarządzania.
 
-1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie **grupy** lub **subskrypcje**zarządzania.
+1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie **grupy** lub **subskrypcje** zarządzania.
 
 1. Kliknij grupę zarządzania lub subskrypcję, którą chcesz wyświetlić.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **Odmów przypisań** (lub kliknij przycisk **Wyświetl** na kafelku widok Odmów przypisań).
 

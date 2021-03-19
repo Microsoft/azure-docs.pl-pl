@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f9b6dea216e05bb645daf5fdd041cec692821af8
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 1767f1f990326e513393b8ce47e1ed8485f73849
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565030"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656480"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>Przewodnik migracji: baza danych Oracle do SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -47,15 +47,48 @@ Aby użyć narzędzia MAP Toolkit do przeprowadzenia skanowania spisu, wykonaj n
 
 1. Otwórz [zestaw narzędzi mapy](https://go.microsoft.com/fwlink/?LinkID=316883).
 1. Wybierz pozycję **Utwórz/wybierz bazę danych**.
+
+   ![Wybieranie bazy danych](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
+
 1. Wybierz pozycję **Utwórz bazę danych spisu**, wprowadź nazwę tworzonej nowej bazy danych spisu, podaj Krótki opis, a następnie wybierz przycisk **OK**. 
+
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Tworzenie bazy danych spisu":::
+
 1. Wybierz pozycję **Zbierz dane spisu** , aby otworzyć **Kreatora spisu i oceny**. 
+
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Zbieranie danych spisu":::
+
 1. W **Kreatorze spisu i oceny** wybierz pozycję **Oracle** , a następnie wybierz pozycję **dalej**. 
+
+   ![Wybierz Oracle](./media/oracle-to-sql-on-azure-vm-guide/choose-oracle.png)
+
 1. Wybierz opcję wyszukiwania komputera, która najlepiej odpowiada wymaganiom biznesowym i środowisku, a następnie wybierz pozycję **dalej**: 
+
+   ![Wybierz opcję wyszukiwania komputera, która najlepiej odpowiada potrzebom biznesowym](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
+
 1. Wprowadź poświadczenia lub Utwórz nowe poświadczenia dla systemów, które chcesz eksplorować, a następnie wybierz przycisk **dalej**.
+
+    ![Wprowadź poświadczenia](./media/oracle-to-sql-on-azure-vm-guide/choose-credentials.png)
+
 1. Ustaw kolejność poświadczeń, a następnie wybierz przycisk **dalej**. 
+
+   ![Ustaw kolejność poświadczeń](./media/oracle-to-sql-on-azure-vm-guide/set-credential-order.png)  
+
 1. Określ poświadczenia dla każdego komputera, który ma zostać odnajdywany. Dla każdego komputera/maszyny można użyć unikatowych poświadczeń lub można użyć listy **poświadczeń wszystkich komputerów** .  
+
+
+   ![Określ poświadczenia dla każdego komputera, który ma zostać odnajdowany](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
+
+
 1. Sprawdź podsumowanie wyboru, a następnie wybierz pozycję **Zakończ**.
-1. Po zakończeniu skanowania Wyświetl raport podsumowanie **zbierania danych** . Skanowanie potrwa kilka minut i zależy od liczby baz danych. Po zakończeniu wybierz pozycję **Zamknij** . 
+
+   ![Podsumowanie przeglądu](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
+
+1. Po zakończeniu skanowania Wyświetl raport podsumowanie **zbierania danych** . Skanowanie może potrwać kilka minut i zależy od liczby baz danych. Po zakończeniu wybierz pozycję **Zamknij** . 
+
+   ![Raport z podsumowaniem kolekcji](./media/oracle-to-sql-on-azure-vm-guide/collection-summary-report.png)
+
+
 1. Wybierz **Opcje** , aby wygenerować raport dotyczący oceny i szczegółów bazy danych Oracle. Wybierz obie opcje (jeden według jednego), aby wygenerować raport.
 
 
@@ -68,8 +101,20 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 1. Otwórz  [Asystent migracji do programu SQL Server (Asystencie migracji) dla programu Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Wybierz pozycję **plik** , a następnie wybierz pozycję **Nowy projekt**. 
 1. Podaj nazwę projektu, lokalizację do zapisania projektu, a następnie wybierz SQL Server cel migracji z listy rozwijanej. Wybierz przycisk **OK**. 
-1. Wprowadź wartości w polach szczegóły połączenia Oracle w oknie dialogowym **łączenie z bazą danych Oracle** .
+
+   ![Nowy projekt](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
+
+1. Wybierz pozycję **Połącz z bazą danych Oracle**. Wprowadź wartości w polach szczegóły połączenia Oracle w oknie dialogowym **łączenie z bazą danych Oracle** .
+
+   ![Łączenie z bazą danych Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
+
+   Wybierz schematy programu Oracle, które chcesz zmigrować: 
+
+   ![Wybierz schemat Oracle](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
+
 1. Kliknij prawym przyciskiem myszy schemat Oracle, który chcesz zmigrować, w **Eksploratorze metadanych Oracle**, a następnie wybierz polecenie **Utwórz raport**. Spowoduje to wygenerowanie raportu HTML. Alternatywnie możesz wybrać opcję **Utwórz raport** na pasku nawigacyjnym po wybraniu bazy danych.
+
+   ![Utwórz raport](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
 1. W **Eksploratorze metadanych Oracle** wybierz schemat Oracle, a następnie wybierz pozycję **Utwórz raport** , aby wygenerować raport HTML z statystykami konwersji i błędami/ostrzeżeniami (jeśli istnieją).
 1. Przejrzyj raport HTML dotyczący statystyk konwersji, a także błędy i ostrzeżenia. Analizuj go, aby zrozumieć problemy z konwersją i rozwiązania.
@@ -80,6 +125,9 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
     następnie otwórz go w programie Excel, aby uzyskać spis obiektów Oracle i nakład pracy wymagany do przeprowadzenia konwersji schematu.
 
+   ![Raport konwersji](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
+
+
 
 ### <a name="validate-data-types"></a>Sprawdzanie poprawności typów danych
 
@@ -88,6 +136,9 @@ Sprawdź poprawność domyślnych mapowań typu danych i zmień je w zależnośc
 1. Wybierz pozycję **Narzędzia** z menu. 
 1. Wybierz pozycję **Ustawienia projektu**. 
 1. Wybierz kartę **mapowania typu** . 
+
+   ![Mapowania typów](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
+
 1. Można zmienić mapowanie typu dla każdej tabeli, wybierając tabelę w **Eksploratorze metadanych Oracle**. 
 
 
@@ -98,8 +149,20 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 
 1. Obowiązkowe Aby skonwertować kwerendy dynamiczne lub ad hoc, kliknij prawym przyciskiem myszy węzeł i wybierz polecenie **Dodaj instrukcję**.
 1. Wybierz pozycję **Połącz z SQL Server** z paska nawigacyjnego górnego wiersza i podaj szczegóły połączenia dla SQL Server na maszynie wirtualnej platformy Azure. Można nawiązać połączenie z istniejącą bazą danych lub podać nową nazwę, w takim przypadku na serwerze docelowym zostanie utworzona baza danych.
-1. Kliknij prawym przyciskiem myszy schemat i wybierz polecenie **Konwertuj schemat**.
+
+   ![Nawiązywanie połączenia z serwerem SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
+
+1. Kliknij prawym przyciskiem myszy schemat Oracle w **Eksploratorze metadanych Oracle** i wybierz polecenie **Konwertuj schemat**.
+
+   ![Konwertuj schemat](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
+
 1. Po zakończeniu konwertowania schematu Porównaj i przejrzyj strukturę schematu, aby zidentyfikować potencjalne problemy.
+
+   ![Zapoznaj się z zaleceniami](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
+
+   Porównaj przekonwertowany tekst języka Transact-SQL z oryginalnymi procedurami składowanymi i zapoznaj się z zaleceniami: 
+
+   ![Przejrzyj kod rekomendacji](./media/oracle-to-sql-on-azure-vm-guide/procedure-comparison.png)
 
    Projekt można zapisać lokalnie dla ćwiczenia korygowania schematu w trybie offline. Możesz to zrobić, wybierając pozycję **Zapisz projekt** z menu **plik** . Dzięki temu można oszacować schematy źródłowe i docelowe w trybie offline i przeprowadzić korygowanie, zanim będzie można opublikować schemat w SQL Server.
 
@@ -112,10 +175,28 @@ Po spełnieniu wymaganych wymagań wstępnych i ukończeniu zadań skojarzonych 
 Aby opublikować schemat i przeprowadzić migrację danych, wykonaj następujące kroki: 
 
 1. Kliknij prawym przyciskiem myszy bazę danych w **Eksploratorze metadanych SQL Server**  i wybierz polecenie **Synchronizuj z bazą danych**. Ta akcja publikuje schemat Oracle do SQL Server na maszynie wirtualnej platformy Azure. 
+
+   ![Synchronizuj z bazą danych](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
+
+   Sprawdź stan synchronizacji: 
+
+   ![Przegląd stanu synchronizacji](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
+
+
 1. Kliknij prawym przyciskiem myszy schemat Oracle w **Eksploratorze metadanych Oracle** i wybierz polecenie **Migruj dane**. Alternatywnie możesz wybrać opcję Migruj dane z nawigacji górnej linii.
+
+   ![Migrowanie danych](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
+
 1. Podaj szczegóły połączenia dla programu Oracle i SQL Server na maszynie wirtualnej platformy Azure w oknie dialogowym.
 1. Po zakończeniu migracji Wyświetl raport dotyczący migracji danych:
+
+    ![Raport dotyczący migracji danych](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
+
 1. Połącz się z SQL Server na maszynie wirtualnej platformy Azure przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) , aby przejrzeć dane i schemat w wystąpieniu SQL Server. 
+
+   ![Weryfikuj w ASYSTENCIE migracji](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
+
+
 
 
 Oprócz korzystania z usługi ASYSTENCIE migracji można również migrować dane przy użyciu SQL Server Integration Services (SSIS). Aby dowiedzieć się więcej, zobacz: 
@@ -164,7 +245,7 @@ Aby uzyskać dodatkową pomoc dotyczącą wykonywania tego scenariusza migracji,
 | [Artefakty skryptu spisu firmy Oracle](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | Ten element zawartości zawiera zapytanie PL/SQL, które trafi w tabele systemowe Oracle i udostępnia liczbę obiektów według typu schematu, typu obiektu i stanu. Zapewnia także przybliżone oszacowanie "nieprzetworzonych danych" w każdym schemacie oraz zmianę rozmiarów tabel w każdym schemacie, z wynikami przechowywanymi w formacie CSV.                                                                                                               |
 | [Automatyzowanie & konsolidowania danych oceny rozwiązań firmy Oracle ASYSTENCIE migracji](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Ten zestaw zasobów używa pliku CSV jako wpisu (sources.csv w folderach projektu) do tworzenia plików XML, które są konieczne do uruchamiania oceny ASYSTENCIE migracji w trybie konsoli. source.csv jest udostępniana przez klienta w oparciu o spis istniejących wystąpień programu Oracle. Pliki wyjściowe to AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml i VariableValueFile.xml.|
 | [ASYSTENCIE migracji dla typowych błędów Oracle i sposoby ich naprawiania](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Za pomocą programu Oracle można przypisać warunek nieskalarny w klauzuli WHERE. Jednak SQL Server nie obsługuje tego typu warunku. W związku z tym Asystent migracji do programu SQL Server (ASYSTENCIE migracji) dla programu Oracle nie konwertuje zapytań z warunkiem nieskalarnym w klauzuli WHERE zamiast generowania błędu O2SS0001. Ten oficjalny dokument zawiera więcej informacji o problemie i sposobach jego rozwiązania.          |
-| [Podręcznik migracji firmy Oracle do SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Ten dokument koncentruje się na zadaniach skojarzonych z migrowaniem schematu programu Oracle do najnowszej wersji programu SQL serverbase. Jeśli migracja wymaga zmiany funkcji/funkcjonalności, można uważnie rozważyć ewentualne konsekwencje każdej zmiany w aplikacjach korzystających z bazy danych.                                                     |
+| [Podręcznik migracji firmy Oracle do SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Ten dokument koncentruje się na zadaniach skojarzonych z migrowaniem schematu programu Oracle do najnowszej wersji SQL Server. Jeśli migracja wymaga zmiany funkcji/funkcjonalności, można uważnie rozważyć ewentualne konsekwencje każdej zmiany w aplikacjach korzystających z bazy danych.                                                     |
 
 Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
 

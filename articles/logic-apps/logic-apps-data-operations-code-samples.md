@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84712449"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Przykłady kodu operacji danych dla usługi Azure Logic Apps
@@ -23,7 +23,7 @@ W oparciu o standardy JavaScript Object Notation (JSON) te definicje akcji są w
 
 ## <a name="compose"></a>Redagowanie
 
-Aby wypróbować przykład tworzenia akcji, poniżej przedstawiono definicje akcji, których można użyć: [ **Compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action)
+Aby wypróbować przykład tworzenia akcji, poniżej przedstawiono definicje akcji, których można użyć: [  ](../logic-apps/logic-apps-perform-data-operations.md#compose-action)
 
 ```json
 "actions": {
@@ -93,7 +93,7 @@ Aby wypróbować przykład tworzenia akcji, poniżej przedstawiono definicje akc
 
 ## <a name="create-csv-table"></a>Utwórz tabelę CSV
 
-Aby wypróbować [przykład akcji **Utwórz tabelę CSV** ](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykład akcji **Utwórz tabelę CSV**](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {
@@ -138,7 +138,7 @@ Aby wypróbować [przykład akcji **Utwórz tabelę CSV** ](../logic-apps/logic-
 
 ## <a name="create-html-table"></a>Utwórz tabelę HTML
 
-Aby wypróbować [przykład akcji **Utwórz tabelę HTML** ](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykład akcji **Utwórz tabelę HTML**](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {
@@ -183,7 +183,7 @@ Aby wypróbować [przykład akcji **Utwórz tabelę HTML** ](../logic-apps/logic
 
 ## <a name="filter-array"></a>Filtruj tablicę
 
-Aby wypróbować [przykład operacji **filtrowania tablicy** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykład operacji **filtrowania tablicy**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {
@@ -224,7 +224,7 @@ Aby wypróbować [przykład operacji **filtrowania tablicy** ](../logic-apps/log
 
 ## <a name="join"></a>Join
 
-Aby wypróbować [przykład operacji **Join** ](../logic-apps/logic-apps-perform-data-operations.md#join-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykład operacji **Join**](../logic-apps/logic-apps-perform-data-operations.md#join-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {
@@ -265,7 +265,7 @@ Aby wypróbować [przykład operacji **Join** ](../logic-apps/logic-apps-perform
 
 ## <a name="parse-json"></a>Przeanalizuj dane JSON
 
-Aby wypróbować [przykładową akcję **Przeanalizuj dane JSON** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykładową akcję **Przeanalizuj dane JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {
@@ -322,9 +322,9 @@ Aby wypróbować [przykładową akcję **Przeanalizuj dane JSON** ](../logic-app
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Wybierz
+## <a name="select"></a>Wybierz pozycję
 
-Aby wypróbować [przykład działania **SELECT** ](../logic-apps/logic-apps-perform-data-operations.md#select-action), poniżej przedstawiono definicje akcji, których można użyć:
+Aby wypróbować [przykład działania **SELECT**](../logic-apps/logic-apps-perform-data-operations.md#select-action), poniżej przedstawiono definicje akcji, których można użyć:
 
 ```json
 "actions": {

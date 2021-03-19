@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630864"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596726"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Śledzenie sygnałów dźwiękowych
 
@@ -80,7 +80,7 @@ Ukończenie zadania zajmuje trochę czasu, a Ty chcesz otrzymać powiadomienie o
 
 Zadanie zazwyczaj przechodzi przez następujące stany: **zaplanowane**, **kolejkowane**, **przetwarzane**, **zakończone** (stan końcowy). Jeśli zadanie napotka błąd, może być w stanie **Error (Błąd)**. Jeśli zadanie jest w trakcie anulowania, może być w stanie **Canceling (Anulowanie)**, a po zakończeniu tej operacji w stanie **Canceled (Anulowane)**.
 
-Aby uzyskać więcej informacji, zobacz [Obsługa zdarzeń Event Grid](reacting-to-media-services-events.md).
+Aby uzyskać więcej informacji, zobacz [Obsługa zdarzeń Event Grid](monitoring/reacting-to-media-services-events.md).
 
 ## <a name="upload-the-audio-only-mp4-file"></a>Przekaż plik MP4 tylko do nagrania dźwiękowego
 

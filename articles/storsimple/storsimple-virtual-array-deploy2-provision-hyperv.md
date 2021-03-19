@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87070589"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w funkcji Hyper-V
@@ -43,7 +43,7 @@ Przed rozpoczęciem upewnij się, że:
 * Pobrano obraz macierzy wirtualnej dla funkcji Hyper-V z Azure Portal. Aby uzyskać więcej informacji, zobacz **krok 3. Pobieranie obrazu macierzy wirtualnej** [przygotowanie portalu do StorSimple Virtual Array Guide](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
-  > Oprogramowanie uruchomione w macierzy wirtualnej StorSimple może być używane tylko z usługą StorSimple Menedżer urządzeń.
+  > Oprogramowanie uruchomione w macierzy wirtualnej StorSimple może być używane tylko z usługą StorSimple Device Manager.
   >
   >
 

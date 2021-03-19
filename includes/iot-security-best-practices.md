@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72793127"
 ---
 Zabezpieczanie infrastruktury Internet rzeczy (IoT) wymaga rygorystycznej strategii dotyczącej zabezpieczeń. Ta strategia wymaga zabezpieczania danych w chmurze, ochrony integralności danych podczas przesyłania przez publiczny Internet oraz bezpiecznego udostępniania urządzeń. Każda warstwa kompiluje większą gwarancję bezpieczeństwa w ogólnej infrastrukturze.
@@ -37,9 +37,9 @@ Poniżej przedstawiono najlepsze rozwiązania dla producentów sprzętu IoT i in
 
 * **Zakres sprzętu do minimalnych wymagań**: projekt sprzętu powinien zawierać minimalne funkcje wymagane do działania sprzętu i nic więcej. Przykładem jest dołączenie portów USB tylko w razie potrzeby do działania urządzenia. Te dodatkowe funkcje otwierają urządzenie w poszukiwaniu niepożądanych wektorów ataków, które powinny być nieuniknione.
 
-* **Sprawdź**poprawność sprzętu: Kompiluj w mechanizmy wykrywające fizyczne manipulowanie, takie jak otwieranie urządzenia lub usuwanie części urządzenia. Te sygnały naruszenia mogą być częścią strumienia danych przekazanego do chmury, co może spowodować wygenerowanie alertów dla tych zdarzeń.
+* **Sprawdź** poprawność sprzętu: Kompiluj w mechanizmy wykrywające fizyczne manipulowanie, takie jak otwieranie urządzenia lub usuwanie części urządzenia. Te sygnały naruszenia mogą być częścią strumienia danych przekazanego do chmury, co może spowodować wygenerowanie alertów dla tych zdarzeń.
 
-* **Kompiluj na bezpiecznym sprzęcie**: Jeśli KWS zezwala, funkcje zabezpieczeń, takie jak bezpieczny i zaszyfrowany magazyn, lub funkcje rozruchu oparte na moduł TPM (TPM). Te funkcje zwiększają bezpieczeństwo urządzeń i zapewniają ochronę ogólnej infrastruktury IoT.
+* **Kompiluj na bezpiecznym sprzęcie**: Jeśli KWS zezwala, funkcje zabezpieczeń, takie jak bezpieczny i zaszyfrowany magazyn, lub funkcje rozruchu oparte na Trusted Platform Module (TPM). Te funkcje zwiększają bezpieczeństwo urządzeń i zapewniają ochronę ogólnej infrastruktury IoT.
 
 * **Zabezpieczanie uaktualnień**: aktualizacje oprogramowania układowego w trakcie okresu istnienia urządzenia są nieuniknione. Tworzenie urządzeń z bezpiecznymi ścieżkami dla uaktualnień i gwarancja kryptograficzna wersji oprogramowania układowego umożliwi zabezpieczenie urządzenia podczas uaktualnień i po ich zakończeniu.
 
@@ -65,7 +65,7 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące wdrażania rozwiązań 
 
 Poniżej przedstawiono najlepsze rozwiązania dotyczące operatorów rozwiązań IoT:
 
-* **Dbaj**o aktualność systemu: Upewnij się, że systemy operacyjne urządzeń i wszystkie sterowniki urządzeń są uaktualnione do najnowszych wersji. Jeśli włączysz aktualizacje automatyczne w systemie Windows 10 (IoT lub innych jednostkach SKU), firma Microsoft zachowuje aktualność, zapewniając bezpieczny system operacyjny dla urządzeń IoT. Utrzymywanie Aktualności innych systemów operacyjnych (takich jak Linux) zapewnia również ochronę przed złośliwymi atakami.
+* **Dbaj** o aktualność systemu: Upewnij się, że systemy operacyjne urządzeń i wszystkie sterowniki urządzeń są uaktualnione do najnowszych wersji. Jeśli włączysz aktualizacje automatyczne w systemie Windows 10 (IoT lub innych jednostkach SKU), firma Microsoft zachowuje aktualność, zapewniając bezpieczny system operacyjny dla urządzeń IoT. Utrzymywanie Aktualności innych systemów operacyjnych (takich jak Linux) zapewnia również ochronę przed złośliwymi atakami.
 
 * **Ochrona przed złośliwymi działaniami**: w przypadku zezwolenia na system operacyjny Zainstaluj najnowsze funkcje oprogramowania antywirusowego i chroniącego przed złośliwym kodem w poszczególnych systemach operacyjnych urządzeń. To rozwiązanie może pomóc w ograniczeniu ryzyka związanego z większością zewnętrznych zagrożeń. Większość nowoczesnych systemów operacyjnych można chronić przed zagrożeniami, wykonując odpowiednie kroki.
 

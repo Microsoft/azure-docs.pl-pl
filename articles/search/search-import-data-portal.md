@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935215"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Kreator importu danych dla platformy Azure Wyszukiwanie poznawcze
@@ -109,7 +109,7 @@ Kreator generuje niekompletny indeks, który zostanie wypełniony dokumentami uz
 
 1. Ustaw atrybuty, aby określić, jak to pole jest używane w indeksie. 
 
-   Wykonaj ten krok, ponieważ atrybuty określają fizyczne wyrażenie pól w indeksie. Aby później zmienić atrybuty, należy nawet programowo porzucić i ponownie skompilować indeks. Podstawowe atrybuty, **Searchable** takie jak wyszukiwanie **i pobieranie** , mają [niewielki wpływ na magazyn](search-what-is-an-index.md#index-size). Włączenie filtrów i użycie sugestii zwiększa wymagania dotyczące magazynu. 
+   Wykonaj ten krok, ponieważ atrybuty określają fizyczne wyrażenie pól w indeksie. Aby później zmienić atrybuty, należy nawet programowo porzucić i ponownie skompilować indeks. Podstawowe atrybuty,  takie jak wyszukiwanie **i pobieranie** , mają [niewielki wpływ na magazyn](search-what-is-an-index.md#index-size). Włączenie filtrów i użycie sugestii zwiększa wymagania dotyczące magazynu. 
    
    + **Wyszukiwanie** umożliwia wyszukiwanie pełnotekstowe. Każde pole używane w kwerendach w dowolnej postaci lub w wyrażeniach zapytań musi mieć ten atrybut. Odwrócone indeksy są tworzone dla każdego pola, które jest oznaczone jako możliwe do **przeszukania**.
 

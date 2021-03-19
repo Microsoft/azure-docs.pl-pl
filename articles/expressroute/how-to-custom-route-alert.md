@@ -1,28 +1,28 @@
 ---
 title: 'ExpressRoute: Konfigurowanie alertów niestandardowych dla anonsowanych tras'
-description: W tym artykule pokazano, jak używać Azure Automation i Logic Apps do monitorowania liczby tras anonsowanych z bramy ExpressRoute do sieci lokalnych w celu uniknięcia osiągnięcia limitu 200 tras.
+description: W tym artykule pokazano, jak używać Azure Automation i Logic Apps do monitorowania liczby tras anonsowanych z bramy ExpressRoute do sieci lokalnych w celu uniknięcia osiągnięcia limitu 1000 tras.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504405"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654394"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
-Ten artykuł ułatwia używanie Azure Automation i Logic Apps do ciągłego monitorowania liczby tras anonsowanych z bramy ExpressRoute do sieci lokalnych. Monitorowanie może pomóc zapobiec osiągnięciu [limitu 200 tras](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+Ten artykuł ułatwia używanie Azure Automation i Logic Apps do ciągłego monitorowania liczby tras anonsowanych z bramy ExpressRoute do sieci lokalnych. Monitorowanie może pomóc zapobiec osiągnięciu limitu 1000 tras] (ExpressRoute-często zadawanych pytań. MD # jak wiele prefiksów — może być anonsowane-z-a-VNET-on-on-on-on-on-on-ExpressRoute-Private-peer-Komunikacja równorzędna).
 
 **Azure Automation** umożliwia Automatyzowanie wykonywania niestandardowego skryptu programu PowerShell przechowywanego w *elemencie Runbook*. W przypadku korzystania z konfiguracji w tym artykule element Runbook zawiera skrypt programu PowerShell, który wysyła zapytanie do co najmniej jednej bramy ExpressRoute. Zbiera zestaw danych zawierający grupę zasobów, nazwę bramy ExpressRoute oraz liczbę prefiksów sieci anonsowanych lokalnie.
 
 **Azure Logic Apps** planuje niestandardowy przepływ pracy, który wywoła Azure Automation element Runbook. Wykonywanie elementu Runbook jest wykonywane przy użyciu zadania. Po uruchomieniu zbierania danych przepływ pracy Azure Logic Apps klasyfikuje dane i, na podstawie kryteriów dopasowania dla liczby prefiksów sieci powyżej lub poniżej wstępnie zdefiniowanego progu, wysyła informacje na docelowy adres e-mail.
 
-### <a name="workflow"></a><a name="workflow"></a>Utworzonego
+### <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Konfigurowanie alertu niestandardowego odbywa się na podstawie trzech głównych kroków:
 
@@ -48,7 +48,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 * Alert niestandardowy omówiony w tym artykule jest dodatkiem w celu osiągnięcia lepszej operacji i kontroli. Nie zastępuje alertów natywnych w ExpressRoute.
 * Zbieranie danych dla bram ExpressRoute jest uruchamiane w tle. Środowisko uruchomieniowe może być dłuższe niż oczekiwano. Aby uniknąć kolejkowania zadań, cykl przepływu pracy musi być poprawnie skonfigurowany.
-* Wdrożenia według skryptów lub szablonów ARM mogą być szybsze od niestandardowego wyzwalacza alarmu. Może to spowodować zwiększenie liczby prefiksów sieci w bramie ExpressRoute powyżej limitu 200 tras.
+* Wdrożenia według skryptów lub szablonów ARM mogą być szybsze od niestandardowego wyzwalacza alarmu. Może to spowodować zwiększenie liczby prefiksów sieci w bramie ExpressRoute powyżej limitu 1000 tras.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Tworzenie i Konfigurowanie kont
 
@@ -409,7 +409,7 @@ Po przeanalizowaniu kodu JSON Akcja **operacji analizy danych JSON** przechowuje
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. Warunek logiki ma wartość true, jeśli jedna z dwóch zmiennych dynamicznych, numRoute1 lub numRoute2, jest większa niż wartość progowa. W tym przykładzie próg jest ustalony na 160 (80% maksymalnej wartości 200 tras). Wartość progu można zmienić zgodnie z wymaganiami. W celu zapewnienia spójności wartość powinna być taka sama jak wartość używana w skrypcie programu PowerShell elementu Runbook.
+9. Warunek logiki ma wartość true, jeśli jedna z dwóch zmiennych dynamicznych, numRoute1 lub numRoute2, jest większa niż wartość progowa. W tym przykładzie próg jest ustalony na 800 (80% maksymalnej wartości 1000 tras). Wartość progu można zmienić zgodnie z wymaganiami. W celu zapewnienia spójności wartość powinna być taka sama jak wartość używana w skrypcie programu PowerShell elementu Runbook.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Warunek logiki":::
 

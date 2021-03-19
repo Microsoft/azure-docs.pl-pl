@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073220"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Tworzenie niestandardowych interfejsów API, które można wywołać z Azure Logic Apps
@@ -136,7 +136,7 @@ Dla tego wzorca Skonfiguruj dwa punkty końcowe na kontrolerze: `subscribe` i `u
 
 ![Wzorzec akcji elementu webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [akcję **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz także [Akcje przepływu pracy i wyzwalacze](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [akcję **elementu webhook**](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz także [Akcje przepływu pracy i wyzwalacze](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 Oto kilka innych porad i uwag:
 
@@ -200,7 +200,7 @@ Wyzwalacze elementu webhook działają podobnie jak [Akcje elementu webhook](#we
 
 ![Wzorzec wyzwalacza elementu webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [wyzwalacz **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz również [wyzwalacz HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [kontrolera wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [wyzwalacz **elementu webhook**](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz również [wyzwalacz HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [kontrolera wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 Oto kilka innych porad i uwag:
 

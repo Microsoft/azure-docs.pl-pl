@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690306"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>How to configure notifications and email templates in Azure API Management
@@ -88,7 +88,7 @@ Lista **parametrów** zawiera listę parametrów, które po wstawieniu do tematu
 > [!NOTE]
 > Parametry nie są zamieniane na wartości rzeczywiste podczas wyświetlania lub wysyłania testu.
 
-Aby zapisać zmiany w szablonie wiadomości e-mail, kliknij przycisk **Zapisz**lub aby anulować zmiany, kliknij przycisk **Odrzuć**.
+Aby zapisać zmiany w szablonie wiadomości e-mail, kliknij przycisk **Zapisz** lub aby anulować zmiany, kliknij przycisk **Odrzuć**.
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png

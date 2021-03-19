@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84711905"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurowanie odzyskiwania po awarii lokalnych maszyn wirtualnych programu VMware lub serwerów fizycznych do lokacji dodatkowej
@@ -236,7 +236,7 @@ Scout Update 5 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z aktual
 > [!NOTE]
 > * Poprawki klastra P2V mają zastosowanie tylko do fizycznych klastrów MSCS, które są nowo chronione za pomocą programu Site Recovery Scout Update 5. Aby zainstalować poprawki klastra dla chronionych klastrów P2V systemu MSCS ze starszymi aktualizacjami, wykonaj kroki uaktualniania wymienione w sekcji 12 [informacji o wersji Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
 > * w przypadku ponownej ochrony ten sam zestaw dysków jest aktywny na każdym z węzłów klastra, gdy były początkowo chronione, a następnie ponownej ochrony klastra usługi MSCS można używać tylko na istniejących dyskach docelowych. Jeśli tak nie jest, wykonaj czynności ręczne w sekcji 12 programu [Site Recovery Scout informacje o wersji](https://aka.ms/asr-scout-release-notes), aby przenieść dyski po stronie docelowej do odpowiedniej ścieżki magazynu danych do ponownego użycia podczas ponownej ochrony. W przypadku ponownego włączenia ochrony klastra MSCS w trybie P2V bez wykonania kroków uaktualniania program tworzy nowy dysk na docelowym serwerze ESXi. Należy ręcznie usunąć stare dyski z magazynu danych.
-> * Gdy serwer źródłowy SLES11 lub SLES11 (z dowolnymi dodatkami Service Pack) jest bezpiecznie uruchamiany ponownie, należy ręcznie oznaczyć pary replikacji dysków **głównych** do ponownej synchronizacji. W interfejsie CX nie ma powiadomienia.Jeśli nie oznaczesz dysku głównego do ponownej synchronizacji, możesz zauważyć problemy z integralnością danych.
+> * Gdy serwer źródłowy SLES11 lub SLES11 (z dowolnymi dodatkami Service Pack) jest bezpiecznie uruchamiany ponownie, należy ręcznie oznaczyć pary replikacji dysków **głównych** do ponownej synchronizacji. W interfejsie CX nie ma powiadomienia. Jeśli nie oznaczesz dysku głównego do ponownej synchronizacji, możesz zauważyć problemy z integralnością danych.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
