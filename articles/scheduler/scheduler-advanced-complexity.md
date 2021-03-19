@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368183"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Tworzenie zaawansowanych harmonogramów i cyklów dla zadań w usłudze Azure Scheduler
@@ -67,11 +67,11 @@ Ta tabela zawiera ogólne omówienie głównych elementów JSON, których można
 | Element | Wymagane | Opis | 
 |---------|----------|-------------|
 | **Rozpoczęcia** | Nie | Wartość ciągu DateTime w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) , która określa, kiedy zadanie zaczyna się najpierw w harmonogramie podstawowym. <p>W przypadku złożonych harmonogramów zadanie nie jest uruchamiane wcześniej niż **godzina rozpoczęcia**. | 
-| **wystąpieniu** | Nie | Reguły cyklu dla momentu uruchomienia zadania. Obiekt **cykl** obsługuje te elementy: **częstotliwość**, **Interwał**, **harmonogram**, **Liczba**i **Endtime**. <p>W przypadku użycia elementu **cykl** należy również użyć elementu **częstotliwość** , podczas gdy inne elementy **cyklu** są opcjonalne. |
-| **frequency** | Tak, w przypadku użycia **cyklu** | Jednostka czasu między wystąpieniami i obsługuje te wartości: "minuta", "godzina", "dzień", "tydzień", "miesiąc" i "Year" | 
-| **interval** | Nie | Dodatnia liczba całkowita, która określa liczbę jednostek czasu między wystąpieniami na podstawie **częstotliwości**. <p>Jeśli na przykład **Interwał** wynosi 10, a **częstotliwość** to "tydzień", zadanie powtarza się co 10 tygodni. <p>Poniżej przedstawiono największą liczbę interwałów dla każdej częstotliwości: <p>– 18 miesięcy <br>– 78 tyg. <br>– 548 dni <br>— W godzinach i minutach zakres wynosi 1 <= <*interwał*> <= 1000. | 
+| **wystąpieniu** | Nie | Reguły cyklu dla momentu uruchomienia zadania. Obiekt **cykl** obsługuje te elementy: **częstotliwość**, **Interwał**, **harmonogram**, **Liczba** i **Endtime**. <p>W przypadku użycia elementu **cykl** należy również użyć elementu **częstotliwość** , podczas gdy inne elementy **cyklu** są opcjonalne. |
+| **jaką** | Tak, w przypadku użycia **cyklu** | Jednostka czasu między wystąpieniami i obsługuje te wartości: "minuta", "godzina", "dzień", "tydzień", "miesiąc" i "Year" | 
+| **dat** | Nie | Dodatnia liczba całkowita, która określa liczbę jednostek czasu między wystąpieniami na podstawie **częstotliwości**. <p>Jeśli na przykład **Interwał** wynosi 10, a **częstotliwość** to "tydzień", zadanie powtarza się co 10 tygodni. <p>Poniżej przedstawiono największą liczbę interwałów dla każdej częstotliwości: <p>– 18 miesięcy <br>– 78 tyg. <br>– 548 dni <br>— W godzinach i minutach zakres wynosi 1 <= <*interwał*> <= 1000. | 
 | **rozkład** | Nie | Definiuje zmiany w cyklu na podstawie określonych minut, znaków godzin, dni tygodnia i dni miesiąca. | 
-| **liczbą** | Nie | Dodatnia liczba całkowita, która określa, ile razy zadanie zostanie uruchomione przed zakończeniem. <p>Na przykład, gdy dzienne zadanie ma **ustawioną** wartość 7, a Data rozpoczęcia to poniedziałek, zadanie zakończy się w niedzielę. Jeśli data rozpoczęcia została już przeniesiona, pierwsze uruchomienie jest obliczane na podstawie czasu utworzenia. <p>Bez **Endtime** lub **Count**, zadanie działa nieskończonie. Nie można użyć jednocześnie **Count** i **Endtime** w tym samym zadaniu, ale zasada, która kończy się pierwszym jest Honora. | 
+| **count** | Nie | Dodatnia liczba całkowita, która określa, ile razy zadanie zostanie uruchomione przed zakończeniem. <p>Na przykład, gdy dzienne zadanie ma **ustawioną** wartość 7, a Data rozpoczęcia to poniedziałek, zadanie zakończy się w niedzielę. Jeśli data rozpoczęcia została już przeniesiona, pierwsze uruchomienie jest obliczane na podstawie czasu utworzenia. <p>Bez **Endtime** lub **Count**, zadanie działa nieskończonie. Nie można użyć jednocześnie **Count** i **Endtime** w tym samym zadaniu, ale zasada, która kończy się pierwszym jest Honora. | 
 | **endTime** | Nie | Wartość ciągu daty lub godziny w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) , która określa, kiedy zadanie przestaje działać. Można ustawić wartość **Endtime** , która znajduje się w przeszłości. <p>Bez **Endtime** lub **Count**, zadanie działa nieskończonie. Nie można użyć jednocześnie **Count** i **Endtime** w tym samym zadaniu, ale zasada, która kończy się pierwszym jest Honora. |
 |||| 
 

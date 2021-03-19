@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88654382"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrowanie ExpressRoute z odzyskiwaniem po awarii dla maszyn wirtualnych platformy Azure
@@ -89,8 +89,8 @@ Zazwyczaj wdrożenia korporacyjne mają podział obciążeń na wiele sieci wirt
 - **Sieci wirtualnych szprych**. Aplikacje są wdrażane w dwóch szprychach sieci wirtualnych:
     - **VNet1 źródłowa**: 10.1.0.0/24.
     - **VNet2 źródłowa**: 10.2.0.0/24.
-    - Każda sieć wirtualna szprych jest połączona z **koncentratorem**sieci wirtualnej.
-- **Sieć wirtualna centrum**. Istnieje **Sieć**wirtualna koncentratora sieci wirtualnej z koncentratorem: 10.10.10.0/24.
+    - Każda sieć wirtualna szprych jest połączona z **koncentratorem** sieci wirtualnej.
+- **Sieć wirtualna centrum**. Istnieje **Sieć** wirtualna koncentratora sieci wirtualnej z koncentratorem: 10.10.10.0/24.
   - Ta sieć wirtualna centrum działa jako strażnik.
   - Cała komunikacja między podsieciami odbywa się za pośrednictwem tego centrum.
     - **Podsieci sieci wirtualnej centrum**. Sieć wirtualna centrum ma dwie podsieci:
@@ -104,7 +104,7 @@ Zazwyczaj wdrożenia korporacyjne mają podział obciążeń na wiele sieci wirt
 
 #### <a name="spoke-to-hub"></a>Szprycha do piasty
 
-**Kierunek** | **Ustawienie** | **State**
+**Kierunek** | **Ustawienie** | **Stan**
 --- | --- | ---
 Szprycha do piasty | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Szprycha do piasty | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)
@@ -115,7 +115,7 @@ Szprycha do piasty | Użyj usuwania bram | Enabled (Włączony)
 
 #### <a name="hub-to-spoke"></a>Piasta do szprychy
 
-**Kierunek** | **Ustawienie** | **State**
+**Kierunek** | **Ustawienie** | **Stan**
 --- | --- | ---
 Piasta do szprychy | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Piasta do szprychy | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)

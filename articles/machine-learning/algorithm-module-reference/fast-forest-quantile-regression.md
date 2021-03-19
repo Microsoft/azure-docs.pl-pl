@@ -1,6 +1,6 @@
 ---
 title: 'Szybkie regresja quantile lasów: odwołanie do modułu'
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak utworzyć model regresji, który może przewidywać wartości dla określonej liczby quantiles przy użyciu modułu regresji quantile w szybkim lesie.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907959"
 ---
 # <a name="fast-forest-quantile-regression"></a>Szybka regresja kwantylowa lasu decyzyjnego
@@ -43,7 +43,7 @@ Regresja quantile ułatwia zrozumienie rozkładu przewidywanej wartości. Oparte
   
 ## <a name="how-to-configure-fast-forest-quantile-regression"></a>Jak skonfigurować regresję szybkiego Quantilenia lasów
 
-1. Dodaj moduł **regresja quantile w lesie** do potoku w projektancie. Ten moduł można znaleźć w obszarze **algorytmy Machine Learning**w kategorii **regresja** .
+1. Dodaj moduł **regresja quantile w lesie** do potoku w projektancie. Ten moduł można znaleźć w obszarze **algorytmy Machine Learning** w kategorii **regresja** .
 
 2. W okienku po prawej stronie modułu **regresja Quantilea w szybkim lesie** Określ, w jaki sposób ma być szkolony model, ustawiając opcję **Utwórz Trainer tryb** .  
   
@@ -73,9 +73,9 @@ Regresja quantile ułatwia zrozumienie rozkładu przewidywanej wartości. Oparte
 
 10. Połącz zestaw danych szkoleniowych i nieszkolony model z jednym z modułów szkoleniowych: 
 
-    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **pojedynczy parametr**Użyj modułu [uczenie modelu](train-model.md) .
+    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **pojedynczy parametr** Użyj modułu [uczenie modelu](train-model.md) .
 
-    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **zakres parametrów**należy użyć modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) .
+    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **zakres parametrów** należy użyć modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 

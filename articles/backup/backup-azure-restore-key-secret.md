@@ -4,10 +4,10 @@ description: Dowiedz się, jak przywrócić klucz Key Vault i wpis tajny w Azure
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 456ce18f253ffa02cd6b13826a7839f18beecba7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88827090"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup
@@ -60,7 +60,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>Przywróć klucz tajny
 
-Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK**.
+Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy. Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK**.
 
 **Użyj tych poleceń cmdlet, jeśli maszyna wirtualna z systemem Windows jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK.**
 
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana tylko przy użyciu klucz szyfrowania bloków** .
+Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy. Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana tylko przy użyciu klucz szyfrowania bloków** .
 
 ```powershell
 $secretDestination = 'C:\secret.blob'

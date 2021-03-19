@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87041000"
 ---
 # <a name="createuidefinition-functions"></a>Funkcje CreateUiDefinition
@@ -49,7 +49,7 @@ Te funkcje mogą być używane z kolekcjami, takimi jak ciągi JSON, tablice i o
 * [zmapować](create-ui-definition-collection-functions.md#map)
 * [Skocz](create-ui-definition-collection-functions.md#skip)
 * [podziału](create-ui-definition-collection-functions.md#split)
-* [take (pobierz)](create-ui-definition-collection-functions.md#take)
+* [czasochłonn](create-ui-definition-collection-functions.md#take)
 
 ## <a name="conversion-functions"></a>Funkcje konwersji
 
@@ -63,7 +63,7 @@ Te funkcje mogą służyć do konwertowania wartości między typami danych JSON
 * [liczba zmiennoprzecinkowa](create-ui-definition-conversion-functions.md#float)
 * [int](create-ui-definition-conversion-functions.md#int)
 * [przetwarzania](create-ui-definition-conversion-functions.md#parse)
-* [parametry](create-ui-definition-conversion-functions.md#string)
+* [ciąg](create-ui-definition-conversion-functions.md#string)
 
 ## <a name="date-functions"></a>Funkcje daty
 
@@ -78,14 +78,14 @@ Te funkcje mogą być używane w warunkach. Niektóre funkcje mogą nie obsługi
 
 * [and](create-ui-definition-logical-functions.md#and)
 * [łączonych](create-ui-definition-logical-functions.md#coalesce)
-* [equals](create-ui-definition-logical-functions.md#equals)
+* [ubiegł](create-ui-definition-logical-functions.md#equals)
 * [greater](create-ui-definition-logical-functions.md#greater)
 * [greaterOrEquals](create-ui-definition-logical-functions.md#greaterorequals)
 * [if](create-ui-definition-logical-functions.md#if)
 * [wcześniejsz](create-ui-definition-logical-functions.md#less)
 * [lessOrEquals](create-ui-definition-logical-functions.md#lessorequals)
 * [niemożliwe](create-ui-definition-logical-functions.md#not)
-* [oraz](create-ui-definition-logical-functions.md#or)
+* [lub](create-ui-definition-logical-functions.md#or)
 
 ## <a name="math-functions"></a>Funkcje matematyczne
 
@@ -94,7 +94,7 @@ Te funkcje mogą być używane w warunkach. Niektóre funkcje mogą nie obsługi
 * [div](create-ui-definition-math-functions.md#div)
 * [wykładzin](create-ui-definition-math-functions.md#floor)
 * [Maksymalny](create-ui-definition-math-functions.md#max)
-* [długości](create-ui-definition-math-functions.md#min)
+* [min](create-ui-definition-math-functions.md#min)
 * [Funkcja](create-ui-definition-math-functions.md#mod)
 * [mul](create-ui-definition-math-functions.md#mul)
 * [Rand](create-ui-definition-math-functions.md#rand)

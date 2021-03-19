@@ -3,12 +3,12 @@ title: Tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć klaster usługi Azure Event Hubs przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ff4ee1f098407ba8b3cd2727410bdfc842db89a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 596b07210d35f648af78e45b7472c620a4361e8a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601027"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Szybki Start: tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal 
 Klastry Event Hubs oferują wdrożenia z jedną dzierżawą dla klientów z najbardziej wymaganymi potrzebami przesyłania strumieniowego. Ta oferta ma gwarantowaną umowę SLA na 99,99% i jest dostępna tylko w naszej dedykowanej warstwie cenowej. [Klaster Event Hubs](event-hubs-dedicated-overview.md) może odbierać miliony zdarzeń na sekundę z gwarantowaną pojemnością i drugim opóźnieniem. Przestrzenie nazw i centra zdarzeń utworzone w ramach klastra obejmują wszystkie funkcje standardowej oferty i wiele innych, ale bez ograniczeń związanych z transferem danych przychodzących. Oferta dedykowana obejmuje również popularne funkcje [przechwytywania Event Hubs](event-hubs-capture-overview.md) bez dodatkowych kosztów, co pozwala na automatyczne tworzenie partii i rejestrowanie strumieni danych na [platformie Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) lub [Azure Data Lake Storage generacji 1](../data-lake-store/data-lake-store-overview.md).
@@ -109,6 +109,6 @@ W tym artykule opisano tworzenie klastra Event Hubs. Aby uzyskać instrukcje kro
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 - [Włączanie przechwytywania Event Hubs przy użyciu Azure Portal](event-hubs-capture-enable-through-portal.md)
 - [Użyj usługi Azure Event Hubs dla Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

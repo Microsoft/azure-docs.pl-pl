@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91716041"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Część druga: przypisywanie uprawnień na poziomie udziału do tożsamości
@@ -50,7 +50,7 @@ Aby przypisać rolę platformy Azure do tożsamości usługi Azure AD przy użyc
 1. W bloku **Dodaj przypisanie roli** wybierz odpowiednią rolę wbudowaną (plik magazynu: czytnik udziałów SMB, współautor udziału danych plików magazynu) z listy **rola** . Pozostaw ustawienie domyślne do **przypisywania** : **użytkownik, Grupa lub nazwa główna usługi Azure AD**. Wybierz docelową tożsamość usługi Azure AD według nazwy lub adresu e-mail. **Wybrana tożsamość usługi Azure AD musi być tożsamością hybrydową i nie może być tożsamością tylko do chmury.** Oznacza to, że ta sama tożsamość jest również reprezentowana w AD DS.
 1. Wybierz pozycję **Zapisz** , aby ukończyć operację przypisywania roli.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Poniższy przykład programu PowerShell pokazuje, jak przypisać rolę platformy Azure do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure za pomocą programu PowerShell, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu modułu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Samouczek: integracja Azure Active Directory z menedżerem certyfikatów Sectigo
@@ -38,7 +38,7 @@ Aby skonfigurować integrację usługi Azure AD z menedżerem certyfikatów Sect
 * Sectigo konto menedżera certyfikatów.
 
 > [!NOTE]
-> Sectigo uruchamia wiele wystąpień Menedżera certyfikatów Sectigo. Głównym wystąpieniem Menedżera certyfikatów Sectigo jest  **https: \/ /CERT-Manager.com** , a ten adres URL jest używany w tym samouczku.  Jeśli Twoje konto jest w innym wystąpieniu, należy odpowiednio dostosować adresy URL.
+> Sectigo uruchamia wiele wystąpień Menedżera certyfikatów Sectigo. Głównym wystąpieniem Menedżera certyfikatów Sectigo jest  **https: \/ /CERT-Manager.com**, a ten adres URL jest używany w tym samouczku.  Jeśli Twoje konto jest w innym wystąpieniu, należy odpowiednio dostosować adresy URL.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -53,27 +53,27 @@ Menedżer certyfikatów Sectigo obsługuje następujące funkcje:
 
 Aby zintegrować Menedżera certyfikatów Sectigo z usługą Azure AD, musisz dodać Menedżera certyfikatów Sectigo do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W menu po lewej stronie wybierz pozycję **Azure Active Directory** .
+1. W menu po lewej stronie wybierz pozycję **Azure Active Directory**.
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
 
-1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** .
+1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-1. Aby dodać aplikację, wybierz pozycję **Nowa aplikacja** .
+1. Aby dodać aplikację, wybierz pozycję **Nowa aplikacja**.
 
     ![Opcja nowej aplikacji](common/add-new-app.png)
 
-1. W polu wyszukiwania wprowadź **Sectigo Certificate Manager** . W wynikach wyszukiwania wybierz pozycję **Sectigo Certificate Manager** , a następnie wybierz pozycję **Dodaj** .
+1. W polu wyszukiwania wprowadź **Sectigo Certificate Manager**. W wynikach wyszukiwania wybierz pozycję **Sectigo Certificate Manager**, a następnie wybierz pozycję **Dodaj**.
 
     ![Sectigo Menedżera certyfikatów na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Menedżera certyfikatów Sectigo w oparciu o użytkownika testowego o nazwie **Britta Simon** . Aby logowanie jednokrotne działało, należy ustanowić połączoną relację między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Menedżerze certyfikatów Sectigo.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Menedżera certyfikatów Sectigo w oparciu o użytkownika testowego o nazwie **Britta Simon**. Aby logowanie jednokrotne działało, należy ustanowić połączoną relację między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Menedżerze certyfikatów Sectigo.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą Menedżera certyfikatów Sectigo, należy wykonać następujące bloki konstrukcyjne:
 
@@ -90,7 +90,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za 
 
 W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą Menedżera certyfikatów Sectigo w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)w okienku integracja aplikacji **Menedżera certyfikatów Sectigo** wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)w okienku integracja aplikacji **Menedżera certyfikatów Sectigo** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Konfigurowanie opcji logowania jednokrotnego](common/select-sso.png)
 
@@ -104,28 +104,28 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    1. W polu **Identyfikator (identyfikator jednostki)** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth** .
+    1. W polu **Identyfikator (identyfikator jednostki)** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth**.
 
-    1. W polu **adres URL odpowiedzi** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth.SSO/SAML2/post** .
+    1. W polu **adres URL odpowiedzi** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth.SSO/SAML2/post**.
         
     > [!NOTE]
     > Chociaż ogólnie rzecz biorąc, **adres URL logowania** jest obowiązkowy w *trybie zainicjowanym* przez program SP, nie jest on konieczny do logowania się z Menedżera certyfikatów Sectigo.        
 
 1. Opcjonalnie w sekcji **Podstawowa konfiguracja protokołu SAML** , aby skonfigurować *tryb zainicjowany przez dostawcy tożsamości* i zezwolić na działanie **testu** , wykonaj następujące czynności:
 
-    1. Wybierz pozycję **Ustaw dodatkowe adresy URL** .
+    1. Wybierz pozycję **Ustaw dodatkowe adresy URL**.
 
-    1. W polu **Stan przekazywania** wprowadź adres URL specyficzny dla klienta Sectigo Certificate Manager. W przypadku głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Customer/ \<customerURI\> /IDP** .
+    1. W polu **Stan przekazywania** wprowadź adres URL specyficzny dla klienta Sectigo Certificate Manager. W przypadku głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Customer/ \<customerURI\> /IDP**.
 
     ![Sectigo domeny Menedżera certyfikatów i adresów URL Logowanie jednokrotne](common/idp-relay.png)
 
 1. W sekcji **atrybuty użytkownika & oświadczenia** wykonaj następujące czynności:
 
-    1. Usuń wszystkie **dodatkowe oświadczenia** .
+    1. Usuń wszystkie **dodatkowe oświadczenia**.
     
     1. Wybierz pozycję **Dodaj nowe oświadczenie** i Dodaj następujące cztery oświadczenia:
     
-        | Nazwa | Przestrzeń nazw | Źródło | Atrybut źródłowy | Opis |
+        | Nazwa | Przestrzeń nazw | Element źródłowy | Atrybut źródłowy | Opis |
         | --- | --- | --- | --- | --- |
         | eduPersonPrincipalName | puste | Atrybut | user.userprincipalname | Musi pasować do pola **Identyfikator osoby dostawcy tożsamości** w Menedżerze certyfikatów Sectigo dla administratorów. |
         | mail (poczta) | puste | Atrybut | user.mail | Wymagane |
@@ -134,7 +134,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
        ![Menedżer certyfikatów Sectigo — Dodaj cztery nowe oświadczenia](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. W sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **XML metadanych Federacji** . Zapisz plik XML na komputerze.
+1. W sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **XML metadanych Federacji**. Zapisz plik XML na komputerze.
 
     ![Opcja pobierania XML metadanych Federacji](common/metadataxml.png)
 
@@ -146,23 +146,23 @@ Aby skonfigurować Logowanie jednokrotne na stronie Menedżera certyfikatów Sec
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy** .
+1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i wszyscy użytkownicy](common/users.png)
 
-1. Wybierz przycisk **Nowy użytkownik** .
+1. Wybierz przycisk **Nowy użytkownik**.
 
     ![Opcja nowy użytkownik](common/new-user.png)
 
 1. W okienku **Użytkownik** wykonaj następujące czynności:
 
-    1. W polu **Nazwa** wpisz **BrittaSimon** .
+    1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension\>** . Na przykład **brittasimon \@ contoso.com** .
+    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension\>**. Na przykład **brittasimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz** .
+    1. Wybierz przycisk **Utwórz**.
 
     ![Okienko użytkownika](common/user-properties.png)
 
@@ -170,27 +170,27 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
 W tej sekcji przyznano Britta Simon dostęp do Menedżera certyfikatów Sectigo, dzięki czemu użytkownik może korzystać z logowania jednokrotnego na platformie Azure.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **Sectigo Menedżera certyfikatów** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **Sectigo Menedżera certyfikatów**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-1. Na liście Aplikacje wybierz pozycję **Menedżer certyfikatów Sectigo** .
+1. Na liście Aplikacje wybierz pozycję **Menedżer certyfikatów Sectigo**.
 
     ![Sectigo Menedżera certyfikatów na liście aplikacji](common/all-applications.png)
 
-1. W menu wybierz pozycję **Użytkownicy i grupy** .
+1. W menu wybierz pozycję **Użytkownicy i grupy**.
 
     ![Opcja Użytkownicy i grupy](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika** . Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika**. Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-1. W okienku **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście użytkowników. Wybierz pozycję **Wybierz** .
+1. W okienku **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście użytkowników. Wybierz pozycję **Wybierz**.
 
-1. Jeśli oczekujesz wartości roli w potwierdzeniu SAML, w okienku **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. Wybierz pozycję **Wybierz** .
+1. Jeśli oczekujesz wartości roli w potwierdzeniu SAML, w okienku **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. Wybierz pozycję **Wybierz**.
 
-1. W okienku **Dodaj przypisanie** wybierz pozycję **Przypisz** .
+1. W okienku **Dodaj przypisanie** wybierz pozycję **Przypisz**.
 
 ### <a name="create-a-sectigo-certificate-manager-test-user"></a>Tworzenie użytkownika testowego Menedżera certyfikatów Sectigo
 

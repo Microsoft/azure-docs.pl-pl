@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898284"
 ---
 # <a name="smote"></a>SMOTE
 
 W tym artykule opisano, jak używać modułu SMOTE w programie Azure Machine Learning Designer do zwiększania liczby poddanych wystawianych przypadków w elemencie DataSet używanym do uczenia maszynowego. SMOTE to lepszy sposób zwiększenia liczby rzadkich przypadków niż zwykłe duplikowanie istniejących przypadków.  
 
-Moduł SMOTE można połączyć z *niezrównoważonym*zestawem danych. Istnieje wiele powodów, dla których może być niezrównoważony zestaw danych. Na przykład kategoria, która ma być używana, może być rzadki w populacji lub dane mogą być trudne do zebrania. Zazwyczaj należy używać SMOTE, gdy *Klasa* , która ma zostać poddana analizie, jest niereprezentowana. 
+Moduł SMOTE można połączyć z *niezrównoważonym* zestawem danych. Istnieje wiele powodów, dla których może być niezrównoważony zestaw danych. Na przykład kategoria, która ma być używana, może być rzadki w populacji lub dane mogą być trudne do zebrania. Zazwyczaj należy używać SMOTE, gdy *Klasa* , która ma zostać poddana analizie, jest niereprezentowana. 
   
 Moduł zwraca zestaw danych, który zawiera pierwotne próbki. Zwraca również liczbę syntetycznych próbek mniejszości, w zależności od określonej wartości procentowej.  
   
@@ -38,7 +38,7 @@ Zalecamy użycie SMOTE z małym zestawem danych, aby zobaczyć, jak to działa. 
   
 Jeśli dodasz zestaw danych do potoku i wybierzesz opcję **Wizualizuj** w danych wyjściowych zestawu danych, zobaczysz, że w zestawie danych znajdują się wiersze lub przypadki 748, 570 przypadki (76 procent) są klasy 0, a dla przypadków 178 (24 procent) są klasy 1. Chociaż ten wynik nie jest poważny, Klasa 1 reprezentuje osoby, które oddają krew, więc te wiersze zawierają *przestrzeń funkcji* , którą chcesz modelować.
  
-Aby zwiększyć liczbę przypadków, można ustawić wartość **procentu SMOTE**przy użyciu wielokrotności 100 w następujący sposób:
+Aby zwiększyć liczbę przypadków, można ustawić wartość **procentu SMOTE** przy użyciu wielokrotności 100 w następujący sposób:
 
 ||Klasa 0|Klasa 1|suma|  
 |-|-------------|-------------|-----------|  
@@ -52,7 +52,7 @@ Aby zwiększyć liczbę przypadków, można ustawić wartość **procentu SMOTE*
   
 ## <a name="how-to-configure-smote"></a>Jak skonfigurować SMOTE
   
-1.  Dodaj moduł SMOTE do potoku. Moduł można znaleźć w obszarze **moduły przekształcania danych**w kategorii **manipulowanie** .
+1.  Dodaj moduł SMOTE do potoku. Moduł można znaleźć w obszarze **moduły przekształcania danych** w kategorii **manipulowanie** .
 
 2. Połącz zestaw danych, który chcesz zwiększyć. Jeśli chcesz określić miejsce na potrzeby tworzenia nowych przypadków, używając tylko określonych kolumn lub wyłączając niektóre, użyj modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych](select-columns-in-dataset.md) ). Następnie można wyizolować kolumny, których chcesz użyć przed użyciem SMOTE.
   

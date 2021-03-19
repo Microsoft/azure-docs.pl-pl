@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91762476"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Wywoływanie aplikacji logiki z usług Power Automate i Power Apps
@@ -42,7 +42,7 @@ Aby można było wywołać aplikację logiki z poziomu automatyzacji lub aplikac
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W polu wyszukiwania Azure Portal wprowadź wartość `Logic Apps` . W wynikach w obszarze **usługi**wybierz pozycję **Logic Apps**.
+1. W polu wyszukiwania Azure Portal wprowadź wartość `Logic Apps` . W wynikach w obszarze **usługi** wybierz pozycję **Logic Apps**.
 
 1. Wybierz aplikację logiki, która ma zostać wyeksportowana.
 
@@ -50,9 +50,9 @@ Aby można było wywołać aplikację logiki z poziomu automatyzacji lub aplikac
 
     :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
 
-1. W okienku **Eksportuj** w polu **Nazwa**wprowadź nazwę łącznika niestandardowego w aplikacji logiki. Z listy **środowisko** Wybierz środowisko automatyzacji lub aplikacji zaawansowanych, z którego chcesz wywołać aplikację logiki. Gdy skończysz, wybierz opcję **OK**.
+1. W okienku **Eksportuj** w polu **Nazwa** wprowadź nazwę łącznika niestandardowego w aplikacji logiki. Z listy **środowisko** Wybierz środowisko automatyzacji lub aplikacji zaawansowanych, z którego chcesz wywołać aplikację logiki. Gdy skończysz, wybierz opcję **OK**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Zrzut ekranu przedstawiający okienko eksportowania dla aplikacji logiki, w której wyświetlane są wymagane pola dla nazwy i środowiska łącznika niestandardowego.":::
 
 1. Aby upewnić się, że aplikacja logiki została pomyślnie wyeksportowana, Sprawdź okienko powiadomienia.
 
@@ -78,9 +78,9 @@ Aby nawiązać połączenie z aplikacją logiki, która została wyeksportowana 
 
 1. W edytorze przepływu wybierz pozycję **&#43; nowy krok**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź nazwę łącznika aplikacji logiki. Opcjonalnie, aby wyświetlić tylko łączniki niestandardowe w danym środowisku, przefiltrować wyniki, wybierając kartę **niestandardową** .
+1. W obszarze **Wybierz akcję** w polu wyszukiwania wprowadź nazwę łącznika aplikacji logiki. Opcjonalnie, aby wyświetlić tylko łączniki niestandardowe w danym środowisku, przefiltrować wyniki, wybierając kartę **niestandardową** .
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Zrzut ekranu przedstawiający Edytor przepływu automatyzacji, pokazujący nowy krok dodawany do łącznika niestandardowego i dostępne akcje.":::
 
 1. Wybierz akcję, którą chcesz wykonać przy użyciu łącznika aplikacji logiki. 
 
@@ -100,9 +100,9 @@ Aby nawiązać połączenie z aplikacją logiki, która została wyeksportowana 
 
 1. Na stronie głównej narzędzia do **automatyzowania** wybierz pozycję **dane** &gt; **Niestandardowe Łączniki** w menu.
 
-1. Znajdź łącznik niestandardowy na liście, a następnie wybierz przycisk wielokropka (**...**) &gt; **Delete**.
+1. Znajdź łącznik niestandardowy na liście, a następnie wybierz przycisk wielokropka (**...**) &gt; .
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;łączniki niestandardowe&quot; z niestandardowymi przyciskami zarządzania łącznikami aplikacji logiki.":::
 
 1. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
 
@@ -122,7 +122,7 @@ Aby nawiązać połączenie z aplikacją logiki wyeksportowaną za pomocą przep
 
 1. W obszarze **Wybierz akcję** w nowym kroku w polu wyszukiwania wprowadź nazwę łącznika aplikacji logiki. Opcjonalnie można filtrować wyniki według karty **niestandardowej** , aby wyświetlić tylko łączniki niestandardowe w danym środowisku.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Zrzut ekranu edytora przepływu aplikacji zaawansowanych, pokazujący nowy krok dodawany do łącznika niestandardowego i dostępne akcje.":::
 
 1. Wybierz akcję, którą chcesz wykonać przy użyciu łącznika. 
 
@@ -142,9 +142,9 @@ Aby nawiązać połączenie z aplikacją logiki wyeksportowaną za pomocą przep
 
 1. Na stronie głównej **aplikacje zaawansowane** wybierz pozycję **dane** &gt; **Niestandardowe Łączniki** w menu.
 
-1. Znajdź łącznik niestandardowy na liście, a następnie wybierz przycisk wielokropka (**...**) &gt; **Delete**.
+1. Znajdź łącznik niestandardowy na liście, a następnie wybierz przycisk wielokropka (**...**) &gt; .
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Zrzut ekranu strony aplikacji logiki w Azure Portal, wyświetlanie menu z wybranym przyciskiem &quot;Eksportuj&quot;.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Zrzut ekranu przedstawiający stronę łączniki niestandardowe aplikacji zaawansowanych — przyciski zarządzania łącznikami niestandardowymi aplikacji logiki.":::
 
 1. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
 

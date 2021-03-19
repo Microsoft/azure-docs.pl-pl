@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441559"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i Azure Active Directory współpracy B2B
@@ -30,9 +30,9 @@ Można utworzyć grupę zawierającą wszystkich użytkowników w dzierżawie pr
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, któremu przypisano rolę Administrator globalny lub administrator użytkowników w dzierżawie.
 1. Wybierz pozycję **Azure Active Directory**.
-2. W obszarze **Zarządzaj**wybierz pozycję **grupy**, a następnie wybierz pozycję **Nowa grupa**.
-1. Na stronie **Nowa grupa** w obszarze **Typ grupy**wybierz pozycję **zabezpieczenia**. Wypełnij pola **Nazwa grupy** i **Opis grupy** dotyczące nowej grupy. 
-2. W obszarze **Typ członkostwa**wybierz pozycję **użytkownik dynamiczny**, a następnie wybierz pozycję **Dodaj zapytanie dynamiczne**. 
+2. W obszarze **Zarządzaj** wybierz pozycję **grupy**, a następnie wybierz pozycję **Nowa grupa**.
+1. Na stronie **Nowa grupa** w obszarze **Typ grupy** wybierz pozycję **zabezpieczenia**. Wypełnij pola **Nazwa grupy** i **Opis grupy** dotyczące nowej grupy. 
+2. W obszarze **Typ członkostwa** wybierz pozycję **użytkownik dynamiczny**, a następnie wybierz pozycję **Dodaj zapytanie dynamiczne**. 
 4. W polu tekstowym **składnia reguły** wybierz pozycję **Edytuj**. Na stronie **Edytuj składnię reguły** wpisz następujące wyrażenie w polu tekstowym:
 
    ```

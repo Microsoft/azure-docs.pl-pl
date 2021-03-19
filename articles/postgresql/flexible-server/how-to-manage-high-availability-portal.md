@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90937005"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Zarządzanie strefowo nadmiarową wysoką dostępnością na serwerze elastycznym
@@ -30,45 +30,45 @@ Strefa nadmiarowa wysokiej dostępności jest dostępna tylko w regionach, w kt�
 
 Ta sekcja zawiera szczegółowe informacje dotyczące pól związanych z HA. Poniższe kroki umożliwiają wdrożenie wysokiej dostępności podczas tworzenia elastycznego serwera.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz opcję elastyczny serwer i kliknij pozycję Utwórz.  Aby uzyskać szczegółowe informacje na temat wypełniania szczegółów, takich jak **subskrypcja**, **Grupa zasobów**, **Nazwa serwera**, **region**i inne pola, zobacz dokumentację dotyczącą tworzenia serwera.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz opcję elastyczny serwer i kliknij pozycję Utwórz.  Aby uzyskać szczegółowe informacje na temat wypełniania szczegółów, takich jak **subskrypcja**, **Grupa zasobów**, **Nazwa serwera**, **region** i inne pola, zobacz dokumentację dotyczącą tworzenia serwera.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Wyświetl subskrypcję i region":::
 
 2.  Wybierz **strefę dostępności**. Jest to przydatne, jeśli chcesz rozstawić swoją aplikację w tej samej strefie dostępności co baza danych w celu zmniejszenia opóźnień. Wybierz opcję **Brak preferencji** , jeśli chcesz, aby serwer elastyczny został wdrożony w dowolnej strefie dostępności.
-    ![Opcja AZ zaznacz ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Wyświetl subskrypcję i region":::  
+    ![Opcja AZ zaznacz ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="strefę dostępności":::  
 
 3.  Kliknij pole wyboru dla **strefy nadmiarowa wysoka dostępność** w opcji dostępność.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Wyświetl subskrypcję i region":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Pole wyboru wysokiej dostępności":::
 
 4.  Jeśli chcesz zmienić domyślne obliczenia i magazyn, kliknij pozycję  **Konfiguruj serwer**.
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Wyświetl subskrypcję i region":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Konfigurowanie serwera — obliczenia i magazyn":::  
 
 5.  Jeśli opcja wysoka dostępność jest zaznaczona, warstwa do przetworzenia nie będzie dostępna do wybrania. Można wybrać warstwy obliczeń **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci** . Następnie możesz wybrać wybrany przez siebie **rozmiar** z listy rozwijanej.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Wyświetl subskrypcję i region":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Wybór warstwy obliczeniowej":::  
 
 
 6.  Wybierz pozycję **Rozmiar magazynu** w GIB przy użyciu paska przesuwania i wybierz **okres przechowywania kopii zapasowych** w ciągu 7 dni i 35 dni.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Wyświetl subskrypcję i region"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Kopia zapasowa magazynu"::: 
 
-7. Kliknij przycisk **Zapisz**. 
+7. Kliknij pozycję **Zapisz**. 
 
 ## <a name="enable-high-availability-post-server-creation"></a>Włącz tworzenie serwera po wysokiej dostępności
 
 Wykonaj następujące kroki, aby włączyć wysoką dostępność dla istniejącego serwera elastycznego.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer elastyczny PostgreSQL.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer elastyczny PostgreSQL.
 
-2.  Na stronie serwer elastyczny kliknij pozycję **wysoka dostępność** w panelu po lewej stronie, aby otworzyć stronę o wysokiej dostępności.
+2.  Na stronie serwer elastyczny kliknij pozycję **wysoka dostępność** w panelu po lewej stronie, aby otworzyć stronę o wysokiej dostępności.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Wyświetl subskrypcję i region"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Lewy panel wyboru"::: 
 
-3.  Kliknij pole wyboru **strefa nadmiarowa wysoka dostępność** , aby **włączyć** tę opcję, a następnie kliknij przycisk **Zapisz**,   Aby zapisać zmiany.
+3.  Kliknij pole wyboru **strefa nadmiarowa wysoka dostępność** , aby **włączyć** tę opcję, a następnie kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Wyświetl subskrypcję i region"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Włącz wysoką dostępność"::: 
 
 4.  W oknie dialogowym potwierdzenia zostanie wyświetlona informacja, że dzięki włączeniu wysokiej dostępności koszt zostanie zwiększony ze względu na dodatkowe wdrożenie serwera i magazynu.
 
@@ -80,15 +80,15 @@ Wykonaj następujące kroki, aby włączyć wysoką dostępność dla istniejąc
 
 Wykonaj następujące kroki, aby wyłączyć wysoką dostępność dla elastycznego serwera, który jest już skonfigurowany za pomocą nadmiarowości strefy.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer Azure Database for PostgreSQL-elastyczny.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer Azure Database for PostgreSQL-elastyczny.
 
-2.  Na stronie serwer elastyczny kliknij pozycję **wysoka dostępność** na panelu przednim, aby otworzyć stronę o wysokiej dostępności.
+2.  Na stronie serwer elastyczny kliknij pozycję **wysoka dostępność** na panelu przednim, aby otworzyć stronę o wysokiej dostępności.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Wyświetl subskrypcję i region"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Lewy panel wyboru"::: 
 
-3.  Kliknij pole wyboru **strefa nadmiarowa wysoka dostępność** , aby **wyłączyć** opcję. Następnie kliknij przycisk **Zapisz**,   Aby zapisać zmiany.
+3.  Kliknij pole wyboru **strefa nadmiarowa wysoka dostępność** , aby **wyłączyć** opcję. Następnie kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Wyświetl subskrypcję i region"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Wyłącz wysoką dostępność"::: 
 
 4.  Zostanie wyświetlone okno dialogowe potwierdzenia, w którym można potwierdzić wyłączenie wysokiej dostępności.
 
@@ -99,4 +99,4 @@ Wykonaj następujące kroki, aby wyłączyć wysoką dostępność dla elastyczn
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)

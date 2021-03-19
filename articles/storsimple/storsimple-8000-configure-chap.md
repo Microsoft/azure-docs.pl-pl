@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91766500"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurowanie protokołu CHAP dla urządzenia StorSimple
@@ -45,7 +45,7 @@ W przypadku uwierzytelniania jednokierunkowego element docelowy uwierzytelnia in
 
 #### <a name="to-configure-your-device-for-one-way-authentication"></a>Aby skonfigurować urządzenie na potrzeby uwierzytelniania jednokierunkowego
 
-1. W Azure Portal przejdź do usługi StorSimple Menedżer urządzeń. Kliknij pozycję **urządzenia** i wybierz i kliknij urządzenie, dla którego chcesz skonfigurować protokół CHAP. Przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **CHAP**.
+1. W Azure Portal przejdź do usługi StorSimple Device Manager. Kliknij pozycję **urządzenia** i wybierz i kliknij urządzenie, dla którego chcesz skonfigurować protokół CHAP. Przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **CHAP**.
    
     ![Inicjator protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. W bloku **protokołu CHAP** i w sekcji **inicjatora protokołu CHAP** :
@@ -59,7 +59,7 @@ W przypadku uwierzytelniania jednokierunkowego element docelowy uwierzytelnia in
    3. Potwierdź hasło.
 
        ![Inicjator protokołu CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
+3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Aby skonfigurować jednokierunkowe uwierzytelnianie na serwerze hosta z systemem Windows
 1. Na serwerze hosta systemu Windows uruchom inicjatora iSCSI.
@@ -98,7 +98,7 @@ W przypadku uwierzytelniania dwukierunkowego obiekt docelowy uwierzytelnia inicj
 
 #### <a name="to-configure-your-device-for-mutual-authentication"></a>Aby skonfigurować urządzenie do uwierzytelniania wzajemnego
 
-1. W Azure Portal przejdź do usługi StorSimple Menedżer urządzeń. Kliknij pozycję **urządzenia** i wybierz i kliknij urządzenie, dla którego chcesz skonfigurować protokół CHAP. Przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **CHAP**.
+1. W Azure Portal przejdź do usługi StorSimple Device Manager. Kliknij pozycję **urządzenia** i wybierz i kliknij urządzenie, dla którego chcesz skonfigurować protokół CHAP. Przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **CHAP**.
    
     ![Obiekt docelowy protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. Przewiń w dół na tej stronie i w sekcji **cel protokołu CHAP** :
@@ -113,7 +113,7 @@ W przypadku uwierzytelniania dwukierunkowego obiekt docelowy uwierzytelnia inicj
    3. Potwierdź hasło.
 
        ![Inicjator protokołu CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
+4. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Aby skonfigurować uwierzytelnianie dwukierunkowe na serwerze hosta z systemem Windows
 
@@ -170,5 +170,5 @@ Możesz sprawdzić, czy protokół CHAP jest używany, wykonując następujące 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [zabezpieczeniach StorSimple](storsimple-8000-security.md).
-* Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

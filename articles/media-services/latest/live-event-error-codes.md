@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 02/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: b3be465c488bdd3c5dbd62f757733939d1bee393
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393517"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581086"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
 
@@ -28,7 +28,7 @@ W poniższej tabeli wymieniono kody błędów [zdarzeń na żywo](live-events-ou
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Po zasubskrybowaniu zdarzeń [Event Grid](../../event-grid/index.yml) dla zdarzenia na żywo może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected) .
+Po zasubskrybowaniu zdarzeń [Event Grid](../../event-grid/index.yml) dla zdarzenia na żywo może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) .
 > [!div class="mx-tdCol2BreakAll"]
 >| Błąd | Informacje |
 >|--|--|
@@ -68,7 +68,7 @@ Po zasubskrybowaniu zdarzeń [Event Grid](../../event-grid/index.yml) dla zdarze
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
-Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected) .
+Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) .
 
 > [!div class="mx-tdCol2BreakAll"]
 >| Błąd | Informacje |

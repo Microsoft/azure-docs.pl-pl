@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92425777"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Dokumentacja interfejsu API portalu Cloud Partner
@@ -33,7 +33,7 @@ Przed użyciem interfejsów API należy zapoznać się z tematem:
 
 ## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Zmiany w interfejsach API programu CPP po migracji do Centrum partnerskiego
 
-| **INTERFEJS API** | **Zmień opis** | **Wpływ** |
+| **Interfejs API** | **Zmień opis** | **Wpływ** |
 | ------- | ---------------------- | ---------- |
 | Publikuj publikowanie, GoLive, Anuluj | W przypadku zmigrowanych ofert nagłówek odpowiedzi będzie miał inny format, ale będzie nadal działał w taki sam sposób, co oznacza ścieżkę względną do pobrania stanu operacji. | Podczas wysyłania dowolnego z odpowiednich żądań POST dla oferty nagłówek lokalizacji będzie miał jeden z dwóch formatów w zależności od stanu migracji oferty:<ul><li>Oferty niemigrowane<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Zmigrowane oferty<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
 | Pobierz operację | W przypadku typów ofert, które wcześniej obsługiwały pole "notification-email" w odpowiedzi, to pole będzie przestarzałe i nie będzie już zwracane dla zmigrowanych ofert. | W przypadku zmigrowanych ofert nie będą już wysyłane powiadomienia do listy wiadomości e-mail określonych w żądaniach. Zamiast tego usługa API zostanie wyrównuje z procesem powiadomień e-mail w centrum partnerskim w celu wysyłania wiadomości e-mail. W każdym przypadku powiadomienia będą wysyłane na adres e-mail ustawiony w sekcji informacje kontaktowe sprzedawcy ustawień konta w centrum partnerskim w celu powiadomienia o postępie operacji.<br><br>Zapoznaj się z informacjami o adresie e-mail w sekcji informacje kontaktowe sprzedawcy [ustawień konta](https://partner.microsoft.com/dashboard/account/management) w centrum partnerskim, aby upewnić się, że dla powiadomień została podana poprawna wiadomość e-mail.  |

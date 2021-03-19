@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać interfejsu API REST do zarządzania udzi
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88892851"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Zarządzanie kopią zapasową udziału plików platformy Azure za pomocą interfejsu API REST

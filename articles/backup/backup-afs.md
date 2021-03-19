@@ -4,17 +4,17 @@ description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowy
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88890352"
 ---
 # <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure
 
 W tym artykule wyjaśniono, jak utworzyć kopię zapasową [udziałów plików platformy Azure](../storage/files/storage-files-introduction.md) z Azure Portal.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 * Utwórz magazyn usługi Recovery Services.
 * Konfigurowanie kopii zapasowej z magazynu Recovery Services
@@ -51,7 +51,7 @@ Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowy
 
           ![Wybierz pozycję Kopia zapasowa, aby skojarzyć udział plików platformy Azure z magazynem](./media/backup-afs/register-extension.png)
 
-1. Po wybraniu opcji **kopia zapasowa**zostanie otwarte okienko **kopia zapasowa** . Aby wybrać konto magazynu obsługujące udział plików, który ma być chroniony, zaznacz pole **wyboru wybierz** tekst linku poniżej pola tekstowego **konto magazynu** .
+1. Po wybraniu opcji **kopia zapasowa** zostanie otwarte okienko **kopia zapasowa** . Aby wybrać konto magazynu obsługujące udział plików, który ma być chroniony, zaznacz pole **wyboru wybierz** tekst linku poniżej pola tekstowego **konto magazynu** .
 
    ![Wybieranie linku wybierz](./media/backup-afs/choose-select-link.png)
 
@@ -67,7 +67,7 @@ Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowy
 
 1. Po prawej stronie zostanie otwarte okienko kontekstowe **udziały plików** . Platforma Azure przeszukuje konto magazynu pod kątem udziałów plików, których kopię zapasową można utworzyć. Jeśli niedawno dodano udziały plików i nie są one widoczne na liście, poczekaj chwilę na wyświetlenie udziałów plików.
 
-1. Z listy **Wybierz udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Kliknij przycisk **OK**.
+1. Z listy **Wybierz udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Wybierz przycisk **OK**.
 
    ![Wybierz udziały plików](./media/backup-afs/select-file-shares.png)
 
@@ -174,7 +174,7 @@ Czasami może być konieczne wygenerowanie migawki kopii zapasowej lub punktu od
 
    ![Wybierz elementy kopii zapasowej](./media/backup-afs/backup-items.png)
 
-1. Po wybraniu **pozycji elementy kopii zapasowej**w okienku **Przegląd** pojawia się nowe okienko zawierające listę wszystkich **typów zarządzania kopiami zapasowymi** .
+1. Po wybraniu **pozycji elementy kopii zapasowej** w okienku **Przegląd** pojawia się nowe okienko zawierające listę wszystkich **typów zarządzania kopiami zapasowymi** .
 
    ![Lista typów zarządzania kopiami zapasowymi](./media/backup-afs/backup-management-types.png)
 

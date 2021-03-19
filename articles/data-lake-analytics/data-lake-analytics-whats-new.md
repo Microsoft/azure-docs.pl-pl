@@ -7,10 +7,10 @@ ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
 ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263184"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Co nowego w usłudze Data Lake Analytics?
@@ -58,5 +58,5 @@ Aby uzyskać informacje o najnowszych aktualizacjach, zapoznaj się z informacja
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wprowadzenie do Data Lake Analytics przy użyciu [Azure portal](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [interfejsu wiersza polecenia](data-lake-analytics-get-started-cli.md) Azure Portal Azure PowerShell
+* Wprowadzenie do Data Lake Analytics przy użyciu [](data-lake-analytics-get-started-portal.md)  |  [](data-lake-analytics-get-started-powershell.md)  |  [interfejsu wiersza polecenia](data-lake-analytics-get-started-cli.md) Azure Portal Azure PowerShell
 

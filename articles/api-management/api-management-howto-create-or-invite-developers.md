@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88566135"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Zarządzanie kontami użytkowników w usłudze Azure API Management
@@ -42,7 +42,7 @@ Aby dodać nowego użytkownika, wykonaj kroki opisane w tej sekcji:
 
     ![Dodawanie nowego użytkownika](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Nowo utworzone konta dewelopera są domyślnie **aktywne**i skojarzone z grupą **deweloperzy** . Konta deweloperów, które znajdują się w stanie **aktywnym** , mogą być używane do uzyskiwania dostępu do wszystkich interfejsów API, dla których mają subskrypcje. Aby skojarzyć nowo utworzonego dewelopera z dodatkowymi grupami, zobacz [Jak skojarzyć grupy z deweloperami][How to associate groups with developers].
+Nowo utworzone konta dewelopera są domyślnie **aktywne** i skojarzone z grupą **deweloperzy** . Konta deweloperów, które znajdują się w stanie **aktywnym** , mogą być używane do uzyskiwania dostępu do wszystkich interfejsów API, dla których mają subskrypcje. Aby skojarzyć nowo utworzonego dewelopera z dodatkowymi grupami, zobacz [Jak skojarzyć grupy z deweloperami][How to associate groups with developers].
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Zaproś dewelopera
 Aby zaprosić dewelopera, wykonaj kroki opisane w tej sekcji:
@@ -56,7 +56,7 @@ Po zaproszeniu dewelopera do dewelopera jest wysyłana wiadomość e-mail. Ta wi
 
 Po zaakceptowaniu zaproszenia konto zostanie uaktywnione.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Dezaktywowanie lub ponowne uaktywnianie konta dewelopera
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> Dezaktywowanie lub ponowne uaktywnianie konta dewelopera
 
 Domyślnie nowo utworzone lub zaproszone konta dewelopera są **aktywne**. Aby dezaktywować konto dewelopera, kliknij przycisk **Blokuj**. Aby ponownie uaktywnić zablokowane konto dewelopera, kliknij przycisk **Aktywuj**. Zablokowane konto dewelopera nie może uzyskać dostępu do portalu dla deweloperów lub wywołać żadnych interfejsów API. Aby usunąć konto użytkownika, kliknij przycisk **Usuń**.
 

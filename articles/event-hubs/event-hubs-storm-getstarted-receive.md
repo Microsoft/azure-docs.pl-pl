@@ -4,10 +4,10 @@ description: 'Szybki Start: Ten artykuł zawiera informacje na temat odbierania 
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087581"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Szybki Start: otrzymywanie zdarzeń z Event Hubs przy użyciu Apache Storm
@@ -36,7 +36,7 @@ Ten samouczek używa instalacji [burzy usługi HDInsight][HDInsight Storm] , kt�
 5. Wybierz opcję **Użyj domyślnej lokalizacji obszaru roboczego**, a następnie kliknij przycisk **dalej** .
 6. Wybierz pozycję **Maven-Archetype-Start** Archetype, a następnie kliknij przycisk **dalej** .
 7. Wstaw identyfikator **GroupID** i **ArtifactId**, a następnie kliknij przycisk **Zakończ** .
-8. W **pom.xml**Dodaj następujące zależności w `<dependency>` węźle.
+8. W **pom.xml** Dodaj następujące zależności w `<dependency>` węźle.
 
     ```xml  
     <dependency>

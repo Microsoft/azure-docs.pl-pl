@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710570"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Zalecenia dotyczące wydajności w Azure Database for PostgreSQL-pojedynczym serwerze
@@ -33,7 +33,7 @@ Wybierz pozycję **Analizuj** i wybierz bazę danych, która rozpocznie analizę
 
 W oknie **rekomendacje** zostanie wyświetlona lista zaleceń, jeśli zostały znalezione.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Zalecenia dotyczące wydajności, strona docelowa":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Zaleceń dotyczących wydajności — Nowa strona":::
 
 Zalecenia nie są automatycznie stosowane. Aby zastosować zalecenie, skopiuj tekst zapytania i uruchom go z wybranego klienta. Należy pamiętać o przetestowaniu i monitorowaniu w celu ocenienia zalecenia. 
 

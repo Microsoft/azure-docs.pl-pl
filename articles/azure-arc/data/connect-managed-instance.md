@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372365"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Połącz z wystąpieniem zarządzanym SQL z włączonym usługą Azure Arc
@@ -43,7 +43,7 @@ Jeśli używasz AKS lub kubeadm lub OpenShift itp., możesz skopiować zewnętrz
 > [!NOTE]
 > Zasady firmowe mogą blokować dostęp do adresu IP i portu, zwłaszcza jeśli zostanie on utworzony w chmurze publicznej.
 
-## <a name="connect"></a>Connect 
+## <a name="connect"></a>Nawiązywanie połączenia 
 
 Nawiązywanie połączenia z Azure Data Studio, SQL Server Management Studio lub SQLCMD
 

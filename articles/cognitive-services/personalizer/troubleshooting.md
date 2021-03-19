@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777279"
 ---
 # <a name="personalizer-troubleshooting"></a>Rozwiązywanie problemów z narzędziem Personalizacja
@@ -66,7 +66,7 @@ Po rozpoczęciu nowego okresu aktualizacji zostanie użyty zaktualizowany model 
 
 ### <a name="how-do-i-know-that-the-learning-loop-is-getting-updated-regularly-and-is-used-to-score-my-data"></a>Jak mogę wiesz, że pętla szkoleniowa jest regularnie aktualizowana i jest używana do oceny moich danych?
 
-Czas ostatniej aktualizacji modelu można znaleźć na stronie **Ustawienia modelu i uczenia** Azure Portal. Jeśli zobaczysz starą sygnaturę czasową, prawdopodobnie nie są wysyłane żadne wywołania rangi i nagrody. Jeśli usługa nie ma danych przychodzących, nie aktualizuje uczenia. Jeśli zobaczysz, że pętla uczenia nie jest często aktualizowana, możesz zmienić **częstotliwość aktualizacji modelu**pętli.
+Czas ostatniej aktualizacji modelu można znaleźć na stronie **Ustawienia modelu i uczenia** Azure Portal. Jeśli zobaczysz starą sygnaturę czasową, prawdopodobnie nie są wysyłane żadne wywołania rangi i nagrody. Jeśli usługa nie ma danych przychodzących, nie aktualizuje uczenia. Jeśli zobaczysz, że pętla uczenia nie jest często aktualizowana, możesz zmienić **częstotliwość aktualizacji modelu** pętli.
 
 ## <a name="offline-evaluations"></a>Oceny w trybie offline
 

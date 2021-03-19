@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898821"
 ---
 # <a name="clean-missing-data-module"></a>Wyczyść nieobecny moduł danych
@@ -58,7 +58,7 @@ Za każdym razem, gdy moduł  [czystych danych](./clean-missing-data.md) nie zos
 
     1. Wybierz **czysty moduł danych** , a następnie kliknij pozycję **Edytuj kolumnę** w prawym panelu modułu.
 
-    3. W polu **Uwzględnij**wybierz opcję **typy kolumn** z listy rozwijanej, a następnie wybierz wartość **numeryczną**. 
+    3. W polu **Uwzględnij** wybierz opcję **typy kolumn** z listy rozwijanej, a następnie wybierz wartość **numeryczną**. 
   
     Wszystkie wybrane metody czyszczenia lub zamiany muszą być stosowane do **wszystkich** kolumn w zaznaczeniu. Jeśli dane w dowolnej kolumnie są niezgodne z określoną operacją, moduł zwróci błąd i zatrzyma potok.
   
@@ -73,7 +73,7 @@ Za każdym razem, gdy moduł  [czystych danych](./clean-missing-data.md) nie zos
     > 
     > Jeśli masz jakiekolwiek wątpliwości dotyczące tego, czy brakujące wartości zostały zmienione, zaznacz opcję, **Generuj kolumnę wskaźnik braku wartości**. Kolumna jest dołączana do zestawu danych, aby wskazać, czy każda kolumna spełnia określone kryteria dla minimalnych i maksymalnych zakresów.  
   
-4. W przypadku **maksymalnego współczynnika braku wartości**Określ maksymalną liczbę brakujących wartości, które mogą być obecne dla operacji do wykonania.   
+4. W przypadku **maksymalnego współczynnika braku wartości** Określ maksymalną liczbę brakujących wartości, które mogą być obecne dla operacji do wykonania.   
   
     Na przykład może być konieczne wykonanie podstawienia braku wartości tylko wtedy, gdy 30% lub mniej wierszy zawiera brakujące wartości, ale pozostaw wartości jako-is, jeśli w więcej niż 30% wierszy brakuje wartości.  
   
@@ -81,7 +81,7 @@ Za każdym razem, gdy moduł  [czystych danych](./clean-missing-data.md) nie zos
   
    
   
-5. W obszarze **Tryb czyszczenia**wybierz jedną z następujących opcji zastępowania lub usuwania brakujących wartości:  
+5. W obszarze **Tryb czyszczenia** wybierz jedną z następujących opcji zastępowania lub usuwania brakujących wartości:  
   
   
     + **Niestandardowa wartość podstawienia**: Użyj tej opcji, aby określić wartość symbolu zastępczego (na przykład 0 lub na), która ma zastosowanie do wszystkich brakujących wartości. Wartość określona jako zamiennik musi być zgodna z typem danych kolumny.

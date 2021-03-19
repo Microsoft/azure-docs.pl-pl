@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563866"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja Azure AD Connect: zrozumienie architektury
@@ -145,7 +145,7 @@ Obiekt importu jest tworzony jako odłączony obiekt. Obiekt eksportu musi być 
 ## <a name="sync-engine-identity-management-process"></a>Proces zarządzania tożsamościami aparatu synchronizacji
 Proces zarządzania tożsamościami kontroluje sposób aktualizowania informacji o tożsamości między różnymi połączonymi źródłami danych. Zarządzanie tożsamościami odbywa się w trzech procesach:
 
-* Import
+* Importuj
 * Synchronizacja
 * Eksportowanie
 
@@ -182,7 +182,7 @@ Obiekty przejściowe ze zaktualizowanymi danymi są oznaczane jako oczekujące n
 * **Brak**. Nie są dostępne żadne zmiany w żadnym z atrybutów obiektu przemieszczania. Aparat synchronizacji nie Oflaguj tego typu jako oczekującego importu.
 * **Dodaj**. Obiekt przemieszczania jest nowym obiektem importu w przestrzeni łącznika. Aparat synchronizacji flaguje ten typ jako oczekujący na dodatkowe przetwarzanie w magazynie Metaverse.
 * **Aktualizacja**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w obszarze łącznika i flaguje ten typ jako oczekujące na import, aby aktualizacje atrybutów mogły być przetwarzane w magazynie Metaverse. Aktualizacje obejmują zmianę nazwy obiektu.
-* **Usuń**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w obszarze łącznika i flaguje ten typ jako oczekujące na import, aby można było usunąć przyłączony obiekt.
+* **Delete**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w obszarze łącznika i flaguje ten typ jako oczekujące na import, aby można było usunąć przyłączony obiekt.
 * **Usuń/Dodaj**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w przestrzeni łącznika, ale typy obiektów nie są zgodne. W takim przypadku przygotowana jest modyfikacja usuwania dodawania. Modyfikacja usuwania dodawania wskazuje aparatowi synchronizacji, że musi wystąpić pełna ponowna synchronizacja tego obiektu, ponieważ różne zestawy reguł stosują się do tego obiektu, gdy zmieniany jest typ obiektu.
 
 Ustawiając stan oczekującego importu obiektu przemieszczania, można zmniejszyć znacznie ilość danych przetworzonych podczas synchronizacji, ponieważ dzięki temu system może przetwarzać tylko te obiekty, które mają zaktualizowane dane.

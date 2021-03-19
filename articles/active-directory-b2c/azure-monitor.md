@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572999"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580185"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -46,7 +46,7 @@ Na poniższym diagramie przedstawiono składniki, które można skonfigurować w
 
 ![Projekcja grupy zasobów](./media/azure-monitor/resource-group-projection.png)
 
-Podczas tego wdrożenia skonfigurujesz dzierżawę Azure AD B2C i dzierżawę usługi Azure AD, w której będzie hostowana Log Analytics obszar roboczy. Konto używane do uruchamiania wdrożenia musi mieć przypisaną rolę [administratora globalnego](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) w obu tych dzierżawcach. Ważne jest również, aby upewnić się, że użytkownik jest zalogowany do poprawnego katalogu, jak opisano w sekcji.
+Podczas tego wdrożenia skonfigurujesz dzierżawę Azure AD B2C i dzierżawę usługi Azure AD, w której będzie hostowana Log Analytics obszar roboczy. Konto Azure AD B2C powinno mieć przypisaną rolę [administratora globalnego](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) w dzierżawie Azure AD B2C. Konto usługi Azure AD używane do uruchamiania wdrożenia musi mieć przypisaną rolę [właściciela](../role-based-access-control/built-in-roles.md#owner) w ramach subskrypcji usługi Azure AD. Ważne jest również, aby upewnić się, że użytkownik jest zalogowany do poprawnego katalogu, jak opisano w sekcji.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. Utwórz lub wybierz grupę zasobów
 
@@ -97,7 +97,7 @@ Następnie utworzysz szablon Azure Resource Manager, który przydaje Azure AD B2
 2. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający dzierżawę usługi **Azure AD** .
 3. Użyj przycisku **Wdróż na platformie Azure** , aby otworzyć Azure Portal i wdrożyć szablon bezpośrednio w portalu. Aby uzyskać więcej informacji, zobacz [Tworzenie szablonu Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
-   [![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
+   [![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](   https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 5. Na stronie **wdrożenie niestandardowe** wprowadź następujące informacje:
 

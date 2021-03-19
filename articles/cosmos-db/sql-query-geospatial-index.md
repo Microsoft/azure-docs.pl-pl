@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
 ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336218"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
@@ -19,7 +19,7 @@ ms.locfileid: "93336218"
 
 Zaprojektowano aparat bazy danych Azure Cosmos DB, aby niezależny od schemat i zapewnić obsługę pierwszej klasy w formacie JSON. Aparat zoptymalizowanej bazy danych z możliwością zapisu Azure Cosmos DB natywnie rozumie dane przestrzenne reprezentowane w standardzie GEOJSON.
 
-W Nutshell geometria jest rzutowana od współrzędnych Geodetic do płaszczyzny 2D, a następnie przedzielona stopniowo na komórki przy użyciu **QuadTree**. Te komórki są mapowane na 1D w oparciu o lokalizację komórki w **Hilbertej krzywej wypełniania** , która zachowuje miejscowość punktów. Ponadto, gdy dane lokalizacji są indeksowane, przechodzi przez proces znany jako **mozaikowania** , czyli wszystkie komórki, które przecinają lokalizację, są identyfikowane i przechowywane jako klucze w indeksie Azure Cosmos DB. W czasie zapytania, argumenty, takie jak punkty i wielokąty, są również tessellated do wyodrębnienia odpowiednich zakresów identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
+W Nutshell geometria jest rzutowana od współrzędnych Geodetic do płaszczyzny 2D, a następnie przedzielona stopniowo na komórki przy użyciu **QuadTree**. Te komórki są mapowane na 1D w oparciu o lokalizację komórki w **Hilbertej krzywej wypełniania**, która zachowuje miejscowość punktów. Ponadto, gdy dane lokalizacji są indeksowane, przechodzi przez proces znany jako **mozaikowania**, czyli wszystkie komórki, które przecinają lokalizację, są identyfikowane i przechowywane jako klucze w indeksie Azure Cosmos DB. W czasie zapytania, argumenty, takie jak punkty i wielokąty, są również tessellated do wyodrębnienia odpowiednich zakresów identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
 
 W przypadku określenia zasad indeksowania obejmujących indeks przestrzenny dla `/*` (wszystkie ścieżki), wszystkie dane znajdujące się w kontenerze są indeksowane pod kątem wydajnych zapytań przestrzennych.
 
@@ -36,11 +36,11 @@ Poniżej przedstawiono sposób ustawiania **konfiguracji geoprzestrzennej** w **
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Ustawianie konfiguracji geoprzestrzennej":::
 
-Możesz również zmodyfikować `geospatialConfig` w zestawie SDK platformy .NET, aby dostosować **konfigurację geoprzestrzenną** :
+Możesz również zmodyfikować `geospatialConfig` w zestawie SDK platformy .NET, aby dostosować **konfigurację geoprzestrzenną**:
 
 Jeśli nie zostanie określony, `geospatialConfig` domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig` wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
 
-Oto przykład modyfikacji typu danych geoprzestrzennych do `geometry` przez ustawienie `geospatialConfig` właściwości i dodanie elementu **boundingBox** :
+Oto przykład modyfikacji typu danych geoprzestrzennych do `geometry` przez ustawienie `geospatialConfig` właściwości i dodanie elementu **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -111,10 +111,10 @@ W przypadku typu danych **geometria** , podobnego do typu danych Geografia, nale
 
 Pole ograniczenia składa się z następujących właściwości:
 
-- **xmin** : minimalna indeksowana Współrzędna x
-- **ymin** : minimalna indeksowana Współrzędna y
-- **XMAX** : Maksymalna indeksowana Współrzędna x
-- **ymax** : Maksymalna indeksowana Współrzędna y
+- **xmin**: minimalna indeksowana Współrzędna x
+- **ymin**: minimalna indeksowana Współrzędna y
+- **XMAX**: Maksymalna indeksowana Współrzędna x
+- **ymax**: Maksymalna indeksowana Współrzędna y
 
 Pole ograniczenia jest wymagane, ponieważ dane geometryczne zajmuje płaszczyznę, która może być nieskończona. Indeksy przestrzenne, jednak wymagają skończonego miejsca. Dla typu danych **Geografia** Ziemia jest granicą i nie trzeba ustawiać pola ograniczenia.
 
@@ -159,7 +159,7 @@ Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **ge
 Powyższe zasady indeksowania mają **boundingBox** (-10, 10) dla współrzędnych x i (-20, 20) dla współrzędnych y. Kontener z powyższymi zasadami indeksowania będzie indeksować wszystkie punkty, wielokąty, wielowielokątne i LineStrings, które znajdują się w całości w tym regionie.
 
 > [!NOTE]
-> Próba dodania zasad indeksowania z **boundingBox** do kontenera z `geography` typem danych zakończy się niepowodzeniem. **geospatialConfig** `geometry` Przed dodaniem **boundingBox** należy zmodyfikować geospatialConfig kontenera. Można dodać dane i zmodyfikować pozostałe zasady indeksowania (takie jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
+> Próba dodania zasad indeksowania z **boundingBox** do kontenera z `geography` typem danych zakończy się niepowodzeniem.  `geometry` Przed dodaniem **boundingBox** należy zmodyfikować geospatialConfig kontenera. Można dodać dane i zmodyfikować pozostałe zasady indeksowania (takie jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
 
 ## <a name="next-steps"></a>Następne kroki
 

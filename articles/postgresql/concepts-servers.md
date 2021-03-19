@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710468"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL — pojedynczy serwer
@@ -41,7 +41,7 @@ Następujące elementy pomagają zapewnić bezpieczny dostęp do bazy danych:
 | **Uwierzytelnianie i autoryzacja** | Serwer usługi Azure Database for PostgreSQL obsługuje natywne uwierzytelnianie bazy danych PostgreSQL. Aby nawiązać połączenie z serwerem i przeprowadzić uwierzytelnianie na serwerze, można użyć identyfikatora logowania administratora serwera. |
 | **Protokół** | Usługa obsługuje protokół oparty na komunikatach używany przez PostgreSQL. |
 | **TCP/IP** | Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i gniazd domen systemu UNIX. |
-| **Zapora** | Aby zapewnić ochronę danych, reguła zapory zapobiega wszystkim dostępowi do serwera i jego baz danych do momentu określenia komputerów, które mają uprawnienia. Zobacz [reguły zapory serwera Azure Database for PostgreSQL](concepts-firewall-rules.md). |
+| **Zapora** | Aby zapewnić ochronę danych, reguła zapory zapobiega wszystkim dostępowi do serwera i jego baz danych do momentu określenia komputerów, które mają uprawnienia. Zobacz [reguły zapory serwera Azure Database for PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Zarządzanie serwerem
 Serwerami Azure Database for PostgreSQL można zarządzać przy użyciu [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/postgres).
@@ -63,7 +63,7 @@ Jako usługa zarządzana dla Postgres, konfigurowalne parametry w Azure Database
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for PostgreSQL Omówienie](overview.md).
-- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](concepts-pricing-tiers.md).
-- Aby uzyskać informacje na temat nawiązywania połączenia z usługą, zobacz [biblioteki połączeń dla Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for PostgreSQL Omówienie](overview.md).
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](concepts-pricing-tiers.md).
+- Aby uzyskać informacje na temat nawiązywania połączenia z usługą, zobacz [biblioteki połączeń dla Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - Wyświetlanie i edytowanie parametrów serwera za pomocą [Azure Portal](howto-configure-server-parameters-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md).

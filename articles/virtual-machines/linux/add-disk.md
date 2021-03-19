@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556812"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580389"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Dodawanie dysku do maszyny wirtualnej z systemem Linux
 
@@ -148,7 +148,7 @@ W tym przykładzie używamy edytora nano, więc po zakończeniu edytowania pliku
 >
 > Opcja *nofail* gwarantuje, że maszyna wirtualna jest uruchamiana, nawet jeśli system plików jest uszkodzony lub dysk nie istnieje w czasie rozruchu. Bez tej opcji może wystąpić sytuacja, zgodnie z opisem w artykule [nie można przeprowadzić protokołu SSH do maszyny wirtualnej z systemem Linux z powodu błędów fstab](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 >
-> Za pomocą konsoli szeregowej maszyny wirtualnej platformy Azure można uzyskać dostęp do maszyny wirtualnej, jeśli modyfikacja fstab spowodowała awarię rozruchu. Więcej szczegółów można znaleźć w [dokumentacji konsoli szeregowej](../troubleshooting/serial-console-linux.md).
+> Za pomocą konsoli szeregowej maszyny wirtualnej platformy Azure można uzyskać dostęp do maszyny wirtualnej, jeśli modyfikacja fstab spowodowała awarię rozruchu. Więcej szczegółów można znaleźć w [dokumentacji konsoli szeregowej](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Obsługa przycinania/mapowania dla systemu Linux na platformie Azure
 Niektóre jądra systemu Linux obsługują operacje przycinania/mapowania do odrzucania nieużywanych bloków na dysku. Ta funkcja jest szczególnie przydatna w przypadku magazynu w warstwie Standardowa, aby poinformować platformę Azure, że usunięte strony nie są już prawidłowe i mogą być odrzucone i mogą zaoszczędzić pieniądze w przypadku tworzenia dużych plików, a następnie ich usuwania.

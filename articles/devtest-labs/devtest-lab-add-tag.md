@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć niestandardowe znaczniki w Azure DevTest
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270737"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Dodawanie tagów do laboratorium w Azure DevTest Labs
@@ -36,7 +36,7 @@ Każdy tag składa się z pary **Nazwa** / **wartość** . Na przykład można u
 
     ![Przycisk konfiguracji i zasad](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. Po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **Tagi**.
+1. Po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **Tagi**.
 1. Aby utworzyć nowy tag dla tego laboratorium, wprowadź pary **Nazwa** / **wartości** i wybierz pozycję **Zapisz**. Możesz również wybrać istniejący tag z listy, aby wyświetlić i zarządzać zasobami skojarzonymi z tym tagiem.
 
     ![Zarządzaj tagami](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)

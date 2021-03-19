@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581647"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Skalowanie pamięci podręcznej platformy Azure dla wystąpienia Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. W przypadku pamięci podręcznej podstawowa, standardowa lub Premium można zmienić jej rozmiar i warstwę po jej utworzeniu, aby zachować zapotrzebowanie na aplikacje. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
@@ -45,7 +45,7 @@ Możesz skalować do innej warstwy cenowej z następującymi ograniczeniami:
   * Nie można skalować z poziomu **standardowej** pamięci podręcznej do **podstawowej** pamięci podręcznej.
 * Możesz skalować od **podstawowej** pamięci podręcznej do **standardowej** pamięci podręcznej, ale nie możesz zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
 * Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium** . Najpierw Skaluj od warstwy **podstawowa** do **standardowa** w ramach jednej operacji skalowania, a następnie z warstwy **standardowa** do **Premium** w kolejnej operacji skalowania.
-* Nie można skalować od większego rozmiaru w dół do rozmiaru **C0 (250 MB)** .
+* Nie można skalować od większego rozmiaru w dół do rozmiaru **C0 (250 MB)** . Można jednak skalować w dół do dowolnego innego rozmiaru w ramach tej samej warstwy cenowej. Na przykład można skalować w dół od standardu C5 do C1 Standard.
  
 Podczas skalowania pamięci podręcznej do nowej warstwy cenowej w bloku **usługi Azure cache for Redis** jest wyświetlany stan **skalowania** .
 

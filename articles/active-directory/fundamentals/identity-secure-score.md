@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705490"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Co to jest wskaźnik bezpieczeństwa tożsamości w usłudze Azure Active Directory?
@@ -48,7 +48,7 @@ Poprzez wykonanie akcji wprowadzania ulepszeń możliwe jest:
 
 ## <a name="how-do-i-get-my-secure-score"></a>Jak mogę uzyskać swój wskaźnik bezpieczeństwa?
 
-Wynik bezpiecznego tożsamości jest dostępny we wszystkich wersjach usługi Azure AD. Organizacje mogą uzyskać dostęp do swoich tożsamości, które pochodzą z **Azure Portal**  >  **Azure Active Directory**  >  **bezpieczeństwa**  >  **Identity Secure Score**.
+Wynik bezpiecznego tożsamości jest dostępny we wszystkich wersjach usługi Azure AD. Organizacje mogą uzyskać dostęp do swoich tożsamości, które pochodzą z **Azure Portal**  >  **Azure Active Directory**  >  **bezpieczeństwa**  >  .
 
 ## <a name="how-does-it-work"></a>Jak to działa?
 
@@ -108,9 +108,9 @@ Aby wyświetlić historię oceny, przejdź do [Centrum zabezpieczeń Microsoft 3
 
 - Tożsamość
 - Dane
-- Devices
+- Urządzenia
 - Infrastruktura
-- Aplikacje
+- Apps
 
 Wskaźnik zabezpieczeń tożsamości reprezentuje część tożsamości zabezpieczeń firmy Microsoft. Taka nakładanie się oznacza, że Twoje zalecenia dotyczące oceny tożsamości i oceny tożsamości w firmie Microsoft są takie same.
 

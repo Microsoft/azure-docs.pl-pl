@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597678"
+ms.locfileid: "104654853"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -41,7 +41,7 @@ Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany t
 
 * Dopasowywanie stylów mówiących za pomocą SSML-Speech SSMLing Language languageing jest językiem znaczników opartym na języku XML używanym do dostosowywania danych wyjściowych zamiany mowy na tekst. Za pomocą SSML można dostosować gęstość, dodać pauzy, poprawić wymowę, przyspieszyć lub spowalniać liczbę mówienia, zwiększyć lub zmniejszyć ilość, a także dodać wiele głosów do jednego dokumentu. Zapoznaj się z [tematem jak to zrobić](speech-synthesis-markup.md) , aby dopasować style odmowy.
 
-* Visemes- [visemes](how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych elementów w zaobserwowanej mowę (tj. pozycji pakietów lip, szczęki i języka podczas tworzenia określonego fonem). Ma silną korelację z głosymi i fonemów. Za pomocą viseme w zestawie mowy SDK można generować dane animacji twarzy, które są zwykle używane w przypadku animowanej komunikacji z obsługą programu lip, edukacji, rozrywki i obsługi klienta. 
+* Visemes- [visemes](how-to-speech-synthesis-viseme.md) to klucz dotyczący zaobserwowanej mowy, w tym pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem. Visemes mają silną korelację z głosymi i fonemów. Przy użyciu zdarzeń viseme w zestawie mowy SDK można generować dane animacji twarzy, które mogą służyć do animowania twarze na potrzeby komunikacji, edukacji, rozrywki i obsługi klienta w programie lip. 
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

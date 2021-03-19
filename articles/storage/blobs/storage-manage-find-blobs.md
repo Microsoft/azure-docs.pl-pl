@@ -3,18 +3,18 @@ title: Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy
 description: Dowiedz się, jak używać tagów indeksu obiektów BLOB do kategoryzowania i wykonywania zapytań dotyczących obiektów blob oraz zarządzania nimi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593224"
+ms.locfileid: "104656043"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu tagów indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Tagi indeksu obiektów BLOB pozwalają:
 Rozważmy scenariusz, w którym masz miliony obiektów BLOB na koncie magazynu, do których uzyskuje się dostęp w wielu różnych aplikacjach. Chcesz znaleźć wszystkie powiązane dane z pojedynczego projektu. Nie wiesz, co znajduje się w zakresie, ponieważ dane mogą być rozłożone między wiele kontenerów z różnymi konwencjami nazewnictwa. Jednak aplikacje przekazują wszystkie dane ze znacznikami opartymi na ich projekcie. Zamiast wyszukiwania przez miliony obiektów blob i porównywania nazw i właściwości można użyć `Project = Contoso` jako kryterium odnajdywania. Indeks obiektów BLOB będzie filtrować wszystkie kontenery na całym koncie magazynu, aby szybko znajdować i zwracać tylko zestaw 50 obiektów blob z `Project = Contoso` .
 
 > [!IMPORTANT]
-> Tagi indeksów obiektów BLOB są obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+> Tagi indeksów obiektów BLOB są obecnie w **wersji zapoznawczej** i są dostępne we wszystkich regionach publicznych. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
 
 Aby rozpocząć pracę z przykładami dotyczącymi używania indeksu obiektów blob, zobacz [Używanie tagów indeksu obiektów BLOB do zarządzania danymi i ich znajdowania](storage-blob-index-how-to.md).
 

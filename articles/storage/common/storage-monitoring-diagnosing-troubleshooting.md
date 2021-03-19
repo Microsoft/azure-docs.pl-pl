@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724255"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600721"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ Aby zarządzać takimi aplikacjami, należy monitorować je aktywnie i zrozumie�
   * [Problem wynika z używania emulatora magazynu na potrzeby tworzenia i testowania]
   * [Występują problemy z instalacją zestawu Azure SDK dla platformy .NET]
   * [Istnieje inny problem dotyczący usługi magazynu]
-  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Windows](../../virtual-machines/troubleshooting/index.yml)   
-  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Linux](../../virtual-machines/troubleshooting/index.yml)
+  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Windows](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Linux](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Rozwiązywanie problemów z Azure Filesmi w systemie Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Rozwiązywanie problemów z Azure Filesymi przy użyciu systemu Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Dodatki]

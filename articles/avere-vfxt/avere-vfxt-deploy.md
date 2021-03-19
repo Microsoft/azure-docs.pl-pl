@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342420"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Wdrażanie klastra vFXT
 
-Ta procedura przeprowadzi Cię przez użytkownika za pomocą Kreatora wdrażania dostępnego w portalu Azure Marketplace. Kreator automatycznie wdraża klaster przy użyciu szablonu Azure Resource Manager. Po wprowadzeniu parametrów w formularzu i kliknięciu przycisku **Utwórz**platforma Azure automatycznie uzupełnia następujące zadania:
+Ta procedura przeprowadzi Cię przez użytkownika za pomocą Kreatora wdrażania dostępnego w portalu Azure Marketplace. Kreator automatycznie wdraża klaster przy użyciu szablonu Azure Resource Manager. Po wprowadzeniu parametrów w formularzu i kliknięciu przycisku **Utwórz** platforma Azure automatycznie uzupełnia następujące zadania:
 
 * Tworzy kontroler klastra, który jest podstawową maszyną wirtualną, która zawiera oprogramowanie wymagające wdrożenia klastra i zarządzania nim.
 * Konfiguruje grupę zasobów i infrastrukturę sieci wirtualnej, w tym tworzenie nowych elementów.

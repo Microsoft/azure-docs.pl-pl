@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 448998328ff15b74b0aa0b17e2435a7ff55c54a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83124187"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Pracuj ze zdarzeniami w wielu obszarach roboczych naraz 
@@ -40,11 +40,11 @@ Należy pamiętać, że na liście obszarów roboczych można zobaczyć katalog,
 
 ## <a name="working-with-incidents"></a>Praca ze zdarzeniami
 
-W **widoku wielu obszarów roboczych**jest dostępny tylko ekran **zdarzenia** . Wygląda i działa w większości sposobów, np. na ekranie zwykłe **zdarzenia** . Istnieje kilka istotnych różnic, chociaż:
+W **widoku wielu obszarów roboczych** jest dostępny tylko ekran **zdarzenia** . Wygląda i działa w większości sposobów, np. na ekranie zwykłe **zdarzenia** . Istnieje kilka istotnych różnic, chociaż:
 
    ![Wyświetlanie zdarzeń w wielu obszarach roboczych](./media/multiple-workspace-view/incidents.png)
 
-- Liczniki w górnej części *zdarzenia otwartej*strony, *nowe incydenty*, *w toku*itp. — pokazują numery dla wszystkich wybranych obszarów roboczych zbiorczo.
+- Liczniki w górnej części *zdarzenia otwartej* strony, *nowe incydenty*, *w toku* itp. — pokazują numery dla wszystkich wybranych obszarów roboczych zbiorczo.
 
 - Zobaczysz incydenty ze wszystkich wybranych obszarów roboczych i katalogów (dzierżawców) na pojedynczej ujednoliconej liście. Oprócz filtrów na ekranie zwykłe **zdarzenia** można filtrować listę według obszaru roboczego i katalogu.
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
 ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371362"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 Python
@@ -410,10 +410,10 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Przekazywanie pliku](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L54)
+      [Przekaż plik](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L54)
    :::column-end:::
    :::column span="":::
-      [Pobieranie pliku](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L60)
+      [Pobierz plik](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L60)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -502,7 +502,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Wiadomość
+### <a name="message"></a>Komunikat
 
 :::row:::
    :::column span="":::
@@ -517,7 +517,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
       [Wgląd do wiadomości](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L197)
    :::column-end:::
    :::column span="":::
-      [Komunikat aktualizacji](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L222)
+      [Aktualizuj komunikat](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L222)
    :::column-end:::
 :::row-end:::
 :::row:::
