@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95239554"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590929"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Rozwiązywanie problemów z replikacją między regionami
 
@@ -71,11 +71,18 @@ W tym artykule opisano komunikaty o błędach i rozwiązania, które mogą pomó
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Sprawdź, czy replikacja woluminu została przerwana, jeśli chcesz usunąć tę migawkę.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Usuwanie migawek linii bazowej replikacji jest niedozwolone.    |
 
+## <a name="errors-resizing-volumes"></a>Błędy zmiany rozmiarów woluminów
+
+|     Komunikat o błędzie    |     Rozwiązanie    |
+|-|-|
+|   Próba zmiany rozmiaru woluminu źródłowego kończy się niepowodzeniem z powodu błędu `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Upewnij się, że masz wystarczająco dużo miejsca w pulach pojemności dla woluminów źródłowych i docelowych replikacji między regionami. Zmiana rozmiaru woluminu źródłowego powoduje automatyczne zmianę rozmiaru woluminu docelowego. Ale jeśli Pula pojemności hostującym wolumin docelowy nie ma wystarczającej wysokości, zmienianie rozmiarów woluminów źródłowych i docelowych zakończy się niepowodzeniem. Aby uzyskać szczegółowe informacje [, zobacz Zmiana rozmiaru woluminu docelowego replikacji między regionami](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) .   |
+
 ## <a name="next-steps"></a>Następne kroki  
 
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
-* [Utwórz replikację woluminu](cross-region-replication-create-peering.md)
+* [Tworzenie replikacji woluminu](cross-region-replication-create-peering.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
+* [Zmiana rozmiaru woluminu docelowego replikacji między regionami](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)

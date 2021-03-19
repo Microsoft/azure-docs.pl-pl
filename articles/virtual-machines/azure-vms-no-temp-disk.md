@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582106"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Można przeprowadzić migrację, wykonując następujące czynności:
    > Postępuj zgodnie z zaleceniami w sekcji "tymczasowe przenoszenie pagefile.sys do dysku C" w temacie Używanie dysku D: jako dysku danych na maszynie wirtualnej z systemem Windows, aby przenieść plik stronicowania z lokalnego dysku tymczasowego (D: Drive) do dysku C: Disk. **Odróżnienie od pokreślonych kroków spowoduje wyświetlenie komunikatu o błędzie — "nie można zmienić rozmiaru maszyny wirtualnej, ponieważ zmiana z dysku zasobów na dysk nienależący do zasobów nie jest dozwolona, a na odwrót nie jest dozwolone.**
 
 3. Wykonaj migawkę maszyny wirtualnej, wykonując czynności opisane w temacie [Tworzenie migawki przy użyciu portalu lub interfejsu wiersza polecenia platformy Azure](./linux/snapshot-copy-managed-disk.md). 
-4. Użyj migawki, aby utworzyć nową maszynę wirtualną bezdyskową (na przykład Dv4, Dsv4, Ev4, Seria Esv4), wykonując kroki opisane w temacie [Tworzenie maszyny wirtualnej na podstawie migawki przy użyciu interfejsu wiersza polecenia](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
+4. Użyj migawki, aby utworzyć nową maszynę wirtualną bezdyskową (na przykład Dv4, Dsv4, Ev4, Seria Esv4), wykonując kroki opisane w temacie [Tworzenie maszyny wirtualnej na podstawie migawki przy użyciu interfejsu wiersza polecenia](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Czy te rozmiary maszyn wirtualnych obsługują systemy operacyjne Linux i Windows (OS)?
 Tak.

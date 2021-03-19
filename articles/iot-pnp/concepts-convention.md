@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582684"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
@@ -25,7 +25,7 @@ Opisz dane telemetryczne, właściwości i polecenia, które urządzenie Plug an
 - **Brak składnika** -modelu bez składników. Model deklaruje dane telemetryczne, właściwości i polecenia jako właściwości najwyższego poziomu w sekcji zawartość interfejsu głównego. W narzędziu Azure IoT Explorer ten model jest wyświetlany jako pojedynczy _składnik domyślny_.
 - **Wiele składników** — model składający się z co najmniej dwóch interfejsów. Główny interfejs, który jest wyświetlany jako _składnik domyślny_, przy użyciu telemetrii, właściwości i poleceń. Jeden lub więcej interfejsów zadeklarowanych jako składniki z dodatkową telemetrią, właściwościami i poleceniami.
 
-Aby uzyskać więcej informacji, zobacz [składniki Plug and Play IoT w modelach](concepts-components.md).
+Aby uzyskać więcej informacji, zobacz artykuł [IoT Plug and Play Modeling Guide](concepts-modeling-guide.md).
 
 ## <a name="identify-the-model"></a>Identyfikowanie modelu
 
@@ -136,7 +136,7 @@ Urządzenie lub moduł powinno potwierdzić, że otrzymał Właściwość przez 
 
 Po uruchomieniu urządzenia powinno ono zażądać sznurka urządzenia i sprawdzić, czy są możliwe do zapisu aktualizacje właściwości. Jeśli wersja właściwości zapisywalnej zwiększyła się, gdy urządzenie jest w trybie offline, urządzenie powinno wysłać zgłoszoną odpowiedź na właściwość w celu potwierdzenia, że została odebrana aktualizacja.
 
-Gdy urządzenie jest uruchamiane po raz pierwszy, może wysłać wartość początkową zgłoszonej właściwości, jeśli nie otrzyma początkowej żądanej właściwości z centrum. W takim przypadku urządzenie powinno ustawić `av` na `1` . Przykład:
+Gdy urządzenie jest uruchamiane po raz pierwszy, może wysłać wartość początkową zgłoszonej właściwości, jeśli nie otrzyma początkowej żądanej właściwości z centrum. W takim przypadku urządzenie powinno ustawić `av` na `1` . Na przykład:
 
 ```json
 "reported": {
@@ -350,7 +350,7 @@ W urządzeniu lub module wiele interfejsów składników używa nazw poleceń w 
 
 Teraz, gdy znasz już konwencje Plug and Play IoT, Oto kilka dodatkowych zasobów:
 
-- [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Język definicji cyfrowych reprezentacji bliźniaczych (DTLD, Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [C (zestaw SDK urządzenia)](/azure/iot-hub/iot-c-sdk-ref/)
 - [Interfejs API REST usługi IoT](/rest/api/iothub/device)
-- [Składniki modelu](./concepts-components.md)
+- [Przewodnik modelowania Plug and Play IoT](concepts-modeling-guide.md)

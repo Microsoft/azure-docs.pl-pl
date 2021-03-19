@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689321"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579165"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Wymagania wstępne dotyczące synchronizacji Azure AD Connect Cloud
 Ten artykuł zawiera wskazówki dotyczące wybierania i używania programu Azure Active Directory (Azure AD) Connect Cloud Sync jako rozwiązanie do tworzenia tożsamości.
@@ -33,10 +33,10 @@ Aby użyć Azure AD Connect synchronizacji w chmurze, potrzebne są następując
 Konto usługi zarządzane przez grupę to zarządzane konto domeny zapewniające automatyczne zarządzanie hasłami, uproszczone zarządzanie nazwami główna usługi (SPN), możliwość delegowania zarządzania do innych administratorów, a także rozszerza te funkcje na wiele serwerów.  Azure AD Connect Cloud Sync obsługuje i używa gMSA do uruchamiania agenta.  Podczas instalacji zostanie wyświetlony monit o podanie poświadczeń administracyjnych w celu utworzenia tego konta.  Konto będzie wyświetlane jako (domain\provAgentgMSA $).  Aby uzyskać więcej informacji na temat gMSA, zobacz [konta usług zarządzane przez grupę](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Wymagania wstępne dotyczące gMSA:
-1.  Schemat Active Directory w lesie domeny gMSA należy zaktualizować do systemu Windows Server 2012.
+1.  Schemat Active Directory w lesie domeny gMSA należy zaktualizować do systemu Windows Server 2016.
 2.  [Moduły RSAT programu PowerShell](/windows-server/remote/remote-server-administration-tools) na kontrolerze domeny
-3.  Co najmniej jeden kontroler domeny w domenie musi działać pod kontrolą systemu Windows Server 201.
-4.  Serwer przyłączony do domeny, na którym jest instalowany Agent, musi być w systemie Windows Server 2012 lub nowszym.
+3.  Co najmniej jeden kontroler domeny w domenie musi działać pod kontrolą systemu Windows Server 2016.
+4.  Serwer przyłączony do domeny, na którym jest instalowany Agent, musi być w systemie Windows Server 2016 lub nowszym.
 
 ### <a name="custom-gmsa-account"></a>Niestandardowe konto gMSA
 Jeśli tworzysz niestandardowe konto gMSA, musisz się upewnić, że konto ma następujące uprawnienia.

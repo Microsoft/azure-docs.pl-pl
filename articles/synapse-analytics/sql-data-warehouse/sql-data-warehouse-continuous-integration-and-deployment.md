@@ -2,27 +2,27 @@
 title: Ciągła integracja i wdrażanie dedykowanej puli SQL
 description: DevOps Database klasy korporacyjnej dla dedykowanej puli SQL w usłudze Azure Synapse Analytics dzięki wbudowanej obsłudze ciągłej integracji i wdrażania przy użyciu Azure Pipelines.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cb80f2d21246a75d41fc5753e72995d409d5c6b4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119190"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585642"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ciągła integracja i wdrażanie dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 W tym prostym samouczku przedstawiono sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z usługą Azure DevOps i korzystania z Azure Pipelines w celu skonfigurowania ciągłej integracji i wdrażania. Ten samouczek to drugi krok tworzenia potoku ciągłej integracji i wdrażania na potrzeby magazynowania danych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Zapoznaj się z [samouczkiem dotyczącym integracji kontroli źródła](sql-data-warehouse-source-control-integration.md)
 

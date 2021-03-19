@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362424"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579131"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -174,11 +174,11 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 
 ### <a name="exchange-activesync-clients"></a>Klienci programu Exchange ActiveSync
 
-- W przypadku przypisywania zasad do użytkowników lub grup organizacje mogą wybierać tylko klienci programu Exchange ActiveSync. Po wybraniu opcji **Wszyscy użytkownicy**, wszyscy użytkownicy z **użytkownikami zewnętrznymi** lub **rolami katalogu** spowodują, że wszyscy użytkownicy staną się Zablokowani.
+- W przypadku przypisywania zasad do użytkowników lub grup organizacje mogą wybierać tylko klienci programu Exchange ActiveSync. Po wybraniu opcji **Wszyscy użytkownicy**, wszyscy użytkownicy- **Goście i zewnętrzni** lub **role katalogu** spowodują, że wszyscy użytkownicy będą podlegać zasadom.
 - Podczas tworzenia zasad przypisanych do klientów programu Exchange ActiveSync usługa **Exchange Online** powinna być jedyną aplikacją w chmurze przypisaną do zasad. 
 - Organizacje mogą zawęzić zakres tych zasad do określonych platform przy użyciu warunku **platformy urządzeń** .
 
-Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe** , których użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje uwierzytelniania wieloskładnikowego.
+Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe**, **warunki użytkowania** lub **kontrolki niestandardowe** , Zablokowani użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje tych kontrolek.
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 

@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601971"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600483"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -244,24 +244,31 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Udzielanie dostępu z zakresu internetowych adresów IP
 
-Konta magazynu można skonfigurować tak, aby zezwalały na dostęp z określonych publicznych zakresów adresów IP. Ta konfiguracja zapewnia dostęp do określonych usług internetowych i sieci lokalnych oraz blokuje ogólny ruch internetowy.
+Reguł sieci IP można użyć, aby zezwolić na dostęp z określonych publicznych zakresów adresów IP przez tworzenie reguł sieci adresów IP. Każde konto magazynu obsługuje do 200 reguł. Te reguły zapewniają dostęp do określonych usług internetowych i sieci lokalnych i blokują ogólny ruch internetowy.
 
-Podaj dozwolone zakresy adresów internetowych przy użyciu [notacji CIDR](https://tools.ietf.org/html/rfc4632) w postaci *16.17.18.0/24* lub jako indywidualne adresy IP, takie jak *16.17.18.19*.
+Do zakresów adresów IP mają zastosowanie następujące ograniczenia.
 
-   > [!NOTE]
-   > Małe zakresy adresów przy użyciu prefiksów "/31" lub "/32" nie są obsługiwane. Te zakresy należy skonfigurować przy użyciu poszczególnych reguł adresów IP.
+- Reguły sieci IP są dozwolone tylko dla **publicznych** adresów IP. 
 
-Reguły sieci IP są dozwolone tylko dla **publicznych** adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od _10. *_, _172,16. *_  -  _172,31. *_ i _192,168. *_.
+  Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od _10. *_, _172,16. *_  -  _172,31. *_ i _192,168. *_.
 
-   > [!NOTE]
-   > Reguły sieci IP nie mają wpływu na żądania pochodzące z tego samego regionu świadczenia usługi Azure, w którym znajduje się konto magazynu. Użyj [reguł sieci wirtualnej](#grant-access-from-a-virtual-network) , aby zezwolić na żądania tego samego regionu.
+- Należy podać dozwolone zakresy adresów internetowych przy użyciu [notacji CIDR](https://tools.ietf.org/html/rfc4632) w formie *16.17.18.0/24* lub jako pojedyncze adresy IP, takie jak *16.17.18.19*. 
 
-  > [!NOTE]
-  > Usługi wdrożone w tym samym regionie co konto magazynu używają prywatnych adresów IP platformy Azure do komunikacji. W ten sposób nie można ograniczyć dostępu do określonych usług platformy Azure w oparciu o ich publiczny zakres adresów IP.
+- Małe zakresy adresów przy użyciu prefiksów "/31" lub "/32" nie są obsługiwane. Te zakresy należy skonfigurować przy użyciu poszczególnych reguł adresów IP. 
 
-Dla konfiguracji reguł zapory magazynu są obsługiwane tylko adresy IPV4.
+- Dla konfiguracji reguł zapory magazynu są obsługiwane tylko adresy IPV4.
 
-Każde konto magazynu obsługuje do 200 reguł sieci adresów IP.
+Reguły sieci IP nie mogą być używane w następujących przypadkach:
+
+- Aby ograniczyć dostęp do klientów w tym samym regionie świadczenia usługi Azure co konto magazynu.
+  
+  Reguły sieci IP nie mają wpływu na żądania pochodzące z tego samego regionu świadczenia usługi Azure, w którym znajduje się konto magazynu. Użyj [reguł sieci wirtualnej](#grant-access-from-a-virtual-network) , aby zezwolić na żądania tego samego regionu. 
+
+- Aby ograniczyć dostęp do klientów w [sparowanym regionie](../../best-practices-availability-paired-regions.md) , które znajdują się w sieci wirtualnej, która ma punkt końcowy usługi.
+
+- Aby ograniczyć dostęp do usług platformy Azure wdrożonych w tym samym regionie co konto magazynu.
+
+  Usługi wdrożone w tym samym regionie co konto magazynu używają prywatnych adresów IP platformy Azure do komunikacji. W tym celu nie można ograniczyć dostępu do określonych usług platformy Azure w oparciu o ich publiczny zakres adresów IP.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Konfigurowanie dostępu z sieci lokalnych
 

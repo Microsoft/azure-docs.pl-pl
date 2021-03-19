@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01c4d6475ec23b8a55d91e18f49cab27760aa907
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418848"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604291"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Klasyfikacja semantyczna na platformie Azure Wyszukiwanie poznawcze
 
@@ -28,25 +28,35 @@ Klasyfikacja semantyczna to zarówno zasób, jak i czasochłonne. W celu ukończ
 
 W przypadku klasyfikacji semantycznej model używa zarówno zrozumiałych do czytania, jak i przenoszenia uczenia, aby ponownie oceniać dokumenty w oparciu o to, jak dokładnie każdy z nich jest zgodny z intencją zapytania.
 
-1. Dla każdego dokumentu, ranga semantyczna ocenia pola w parametrze searchFields w kolejności, konsolidując zawartość w jeden duży ciąg.
+### <a name="preparation-passage-extraction-phase"></a>Faza przygotowania (wyodrębnianie fragmentów)
 
-1. Ciąg zostanie następnie przycięty, aby upewnić się, że ogólna długość nie przekracza 8 000 tokenów. Jeśli masz bardzo duże dokumenty, z polem zawartości lub merged_content polem zawierającym wiele stron zawartości, wszystkie elementy po limicie tokenów zostaną zignorowane.
+Dla każdego dokumentu w początkowych wynikach jest ćwiczenie wyodrębniania z fragmentów, które identyfikują kluczowe fragmenty. Jest to ćwiczenie downsizing, które zmniejsza zawartość do ilości, która może być przetwarzana szybko.
 
-1. Każdy z 50 dokumentów jest teraz reprezentowany przez pojedynczy długi ciąg. Ten ciąg jest wysyłany do modelu podsumowania. Model podsumowania zawiera podpisy (i odpowiedzi), dzięki czemu można zidentyfikować fragmenty, które pojawiają się w celu podsumowania zawartości lub udzielenia odpowiedzi na pytanie. Dane wyjściowe modelu podsumowania to dalej skrócony ciąg, który ma co najwyżej 128 tokenów.
+1. Dla każdego z 50 dokumentów wszystkie pola w parametrze searchFields są oceniane w kolejnej kolejności. Zawartość każdego pola jest konsolidowana w jeden długi ciąg. 
 
-1. Mniejszy ciąg zmieni się na podpis dokumentu i reprezentuje najbardziej odpowiednie fragmenty Znalezione w większym ciągu. Zestaw 50 (lub mniej) jest następnie klasyfikowany jako istotny w kolejności. 
+1. Długi ciąg jest następnie przycięty, aby upewnić się, że ogólna długość nie przekracza 8 000 tokenów. Z tego powodu zaleca się najpierw umieścić zwięzłe pola, aby zostały uwzględnione w ciągu. Jeśli masz bardzo duże dokumenty z polami tekstowymi, wszystkie elementy po ograniczeniu tokenu zostały zignorowane.
 
-Koncepcje dotyczące pojęć i semantyki są ustanawiane za poorednictwem reprezentacji wektorów i klastrów terminowych. Algorytm podobieństwa słów kluczowych może dawać wagę w dowolnym okresie zapytania, model semantyczny został przeszkolony do rozpoznawania współzależności i relacji między wyrazami, które w przeciwnym razie nie są związane z powierzchnią. W związku z tym, jeśli ciąg zapytania zawiera warunki z tego samego klastra, dokument zawierający obie te elementy będzie większy niż jeden, który nie jest.
+1. Każdy dokument jest teraz reprezentowany przez pojedynczy długi ciąg, który jest do 8 000 tokenów. Te ciągi są wysyłane do modelu podsumowania, co spowoduje dalsze skrócenie tego ciągu. Model podsumowania szacuje długi ciąg dla najważniejszych zdań lub fragmentów, które najlepiej podsumowują dokument lub odpowiedzą na pytanie.
 
-:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Reprezentacja wektorowa dla kontekstu" border="true":::
+1. Dane wyjściowe tej fazy są podpisem (i opcjonalnie, odpowiedzią). Podpis ma co najwyżej 128 tokenów na dokument i jest uznawany za najbardziej reprezentatywny dokument.
+
+### <a name="scoring-and-ranking-phases"></a>Etapy oceniania i oceniania
+
+W tej fazie wszystkie podpisy 50 są oceniane do oceny istotności.
+
+1. Ocenianie jest określane przez ocenę każdego podpisu pod kątem koncepcyjności i zgodności semantycznej względem podanego zapytania.
+
+   Na poniższym diagramie przedstawiono ilustracje, co oznacza "istotność semantyki". Należy wziąć pod uwagę termin "stolica", który może być używany w kontekście finansów, prawa, lokalizacji geograficznej lub gramatyki. Jeśli zapytanie zawiera warunki z tego samego obszaru wektora (na przykład "Wielka" i "inwestycja"), dokument zawierający także tokeny w tym samym klastrze będzie miał wyższy wynik niż ten, który nie jest.
+
+   :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Reprezentacja wektorowa dla kontekstu" border="true":::
+
+1. Dane wyjściowe tej fazy są @search.rerankerScore przypisane do każdego dokumentu. Gdy wszystkie dokumenty są oceniane, są wyświetlane w kolejności malejącej i uwzględniane w ładunku odpowiedzi na zapytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Klasyfikacja semantyczna jest oferowana w warstwach standardowych w określonych regionach. Aby uzyskać więcej informacji i zarejestrować się, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
-
-Nowy typ zapytania umożliwia tworzenie struktur klasyfikacji i odpowiedzi w przeszukiwaniu semantycznym. [Utwórz zapytanie semantyczne](semantic-how-to-query-request.md) , aby rozpocząć.
+Klasyfikacja semantyczna jest oferowana w warstwach standardowych w określonych regionach. Aby uzyskać więcej informacji i zarejestrować się, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing). Nowy typ zapytania umożliwia tworzenie struktur klasyfikacji i odpowiedzi w przeszukiwaniu semantycznym. Aby rozpocząć, [Utwórz zapytanie semantyczne](semantic-how-to-query-request.md).
 
 Zapoznaj się z dowolnym z poniższych artykułów, aby uzyskać informacje pokrewne.
 
-+ [Dodaj sprawdzanie pisowni do terminów zapytania](speller-how-to-add.md)
++ [Omówienie wyszukiwania semantycznego](semantic-search-overview.md)
 + [Zwróć odpowiedź semantyczną](semantic-answers.md)

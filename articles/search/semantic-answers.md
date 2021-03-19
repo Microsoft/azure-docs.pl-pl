@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418899"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604308"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Zwracanie semantyki odpowiedzi na platformie Azure Wyszukiwanie poznawcze
 
@@ -63,7 +63,7 @@ Parametr "searchFields" ma kluczowe znaczenie dla zwrócenia odpowiedzi o wysoki
 
 + Ciąg zapytania nie może mieć wartości null i powinien być sformułowany jako pytanie. W tej wersji zapoznawczej wartości "querytype" i "queryLanguage" muszą być ustawione dokładnie tak, jak pokazano w przykładzie.
 
-+ Parametr "searchFields" określa, które pola dostarczają tokeny do modelu wyodrębniania. Pamiętaj, aby ustawić ten parametr. Musisz mieć co najmniej jedno pole typu String, ale dołączyć dowolne pole ciągu, które uważasz, że jest to przydatne w przypadku udzielenia odpowiedzi. Do modelu są przesyłane tylko informacje o 8 000 tokenach na dokument. Uruchom listę pól ze zwięzłymi polami, a następnie postępuj według pól tekstu sformatowanego. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ Parametr "searchFields" określa, które pola dostarczają tokeny do modelu wyodrębniania. Pamiętaj, aby ustawić ten parametr. Musisz mieć co najmniej jedno pole typu String, ale dołączyć dowolne pole ciągu, które uważasz, że jest to przydatne w przypadku udzielenia odpowiedzi. Zbiorczo dla wszystkich pól w searchFields, tylko o 8 000 tokenów na dokument są przesyłane do modelu. Uruchom listę pól ze zwięzłymi polami, a następnie postępuj według pól tekstu sformatowanego. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + W przypadku "odpowiedzi", konstrukcja podstawowego parametru to `"answers": "extractive"` , gdzie zwracana jest domyślna liczba odpowiedzi. Można zwiększyć liczbę odpowiedzi, dodając liczbę, maksymalnie pięć.  Niezależnie od tego, czy potrzebujesz więcej niż jednej odpowiedzi, zależy od środowiska użytkownika aplikacji i sposobu renderowania wyników.
 
@@ -115,15 +115,15 @@ W odpowiedzi na zapytanie "jak w chmurach" jest zwracana następująca odpowied�
 
 Aby uzyskać najlepsze wyniki, zwróć odpowiedzi semantyczne w dokumencie korpus o następujących cechach:
 
-+ element "searchFields" powinien zawierać co najmniej jedno pole, w którym znajduje się wystarczający tekst, w którym może zostać znaleziona odpowiedź.
-
-+ Wyodrębnianie semantyczne i podsumowywanie ma ograniczone limity ilości zawartości, które można analizować w odpowiednim czasie. Zbiorowo są analizowane tylko pierwsze tokeny 20 000. Wszystkie elementy poza zakresem zostały zignorowane. W praktyce, jeśli masz duże dokumenty, które są uruchamiane na setkach stron, spróbuj najpierw podzielić zawartość na elementy z możliwością zarządzania.
++ element "searchFields" musi zawierać pola, które oferują wystarczającą ilość tekstu, w którym prawdopodobnie zostanie znaleziona odpowiedź. Tylko tekst Verbatim z dokumentu może być wyświetlany jako odpowiedź.
 
 + ciągi zapytania nie mogą mieć wartości null (Search = `*` ), a ciąg powinien mieć charakterystykę pytania, w przeciwieństwie do wyszukiwania słów kluczowych (sekwencyjna lista dowolnych terminów lub fraz). Jeśli ciąg zapytania nie wygląda na odpowiedź, przetwarzanie odpowiedzi jest pomijane, nawet jeśli żądanie określa "odpowiedzi" jako parametr zapytania.
+
++ Wyodrębnianie semantyczne i podsumowywanie ma limity dotyczące liczby tokenów na dokument w odpowiednim czasie. W praktyce, jeśli masz duże dokumenty, które są uruchamiane na setkach stron, należy najpierw spróbować podzielić zawartość na mniejsze dokumenty.
 
 ## <a name="next-steps"></a>Następne kroki
 
 + [Omówienie wyszukiwania semantycznego](semantic-search-overview.md)
 + [Algorytm klasyfikacji semantycznej](semantic-ranking.md)
-+ [Algorytm podobieństwa](index-ranking-similarity.md)
++ [Algorytm klasyfikacji podobieństwa](index-ranking-similarity.md)
 + [Tworzenie zapytania semantycznego](semantic-how-to-query-request.md)

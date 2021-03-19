@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/21/2020
+ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fb427de170764e5cd1fca57f9fb2d1410829e521
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589858"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Konfigurowanie preferencji routingu sieciowego dla usługi Azure Storage
 
@@ -27,40 +27,146 @@ Preferencja routingu sieciowego określa, w jaki sposób ruch sieciowy jest kier
 
 Domyślnie preferencja routingu dla publicznego punktu końcowego konta magazynu jest ustawiona na Microsoft Global Network. Jako domyślne preferencje routingu dla publicznego punktu końcowego konta magazynu można wybrać między siecią globalną i routingiem internetowym firmy Microsoft. Aby dowiedzieć się więcej o różnicach między tymi dwoma typami routingu, zobacz [preferencja routingu sieciowego dla usługi Azure Storage](network-routing-preference.md). 
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Aby zmienić preferencję routingu na Routing internetowy:
 
-1. Przejdź do swojego konta magazynu w portalu.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W obszarze **Ustawienia** wybierz pozycję **Sieć**.
+2. Przejdź do swojego konta magazynu w portalu.
+
+3. W obszarze **Ustawienia** wybierz pozycję **Sieć**.
 
     > [!div class="mx-imgBorder"]
     > ![Opcja menu Sieć](./media/configure-network-routing-preference/networking-option.png)
 
-3.  Na karcie **zapory i sieci wirtualne** w obszarze **Routing sieciowy** Zmień ustawienie **preferencji Routing** na **Routing internetowy**.
+4.  Na karcie **zapory i sieci wirtualne** w obszarze **Routing sieciowy** Zmień ustawienie **preferencji Routing** na **Routing internetowy**.
 
-4.  Kliknij pozycję **Zapisz**.
+5.  Kliknij pozycję **Zapisz**.
 
     > [!div class="mx-imgBorder"]
     > ![Opcja routingu internetowego](./media/configure-network-routing-preference/internet-routing-option.png)
+
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+1. Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+
+3. Aby zmienić preferencję routingu na Routing internetowy, użyj polecenia [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) i ustaw `--routing-choice` parametr na wartość `InternetRouting` .
+
+   ```powershell
+   Set-AzStorageAccount -ResourceGroupName <resource-group-name> `
+    -AccountName <storage-account-name> `
+    -RoutingChoice InternetRouting
+   ```
+
+   Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów zawierającej konto magazynu.
+
+   Zastąp `<storage-account-name>` wartość symbolu zastępczego nazwą konta magazynu.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Zaloguj się do subskrypcji platformy Azure.
+
+   - Aby uruchomić Azure Cloud Shell, zaloguj się do [Azure Portal](https://portal.azure.com).
+
+   - Aby zalogować się do lokalnej instalacji interfejsu wiersza polecenia, uruchom polecenie [AZ login](/cli/azure/reference-index#az-login) :
+
+     ```azurecli
+     az login
+     ```
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+
+3. Aby zmienić preferencję routingu na Routing internetowy, użyj polecenia [AZ Storage account Update](/cli/azure/storage/account#az_storage_account_update) i ustaw `--routing-choice` parametr na `InternetRouting` .
+
+   ```azurecli
+   az storage account update --name <storage-account-name> --routing-choice InternetRouting
+   ```
+
+   Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
+
+---
 
 ## <a name="configure-a-route-specific-endpoint"></a>Konfigurowanie punktu końcowego specyficznego dla trasy
 
 Można również skonfigurować punkt końcowy specyficzny dla trasy. Można na przykład ustawić preferencję routingu domyślnego punktu końcowego na *Routing internetowy*, a następnie opublikować punkt końcowy specyficzny dla trasy, który umożliwi ruch między klientami w Internecie a kontem magazynu, aby można było je kierować za pośrednictwem sieci globalnej firmy Microsoft.
 
+To preferencje ma wpływ tylko na punkt końcowy dotyczący trasy. Preferencja nie ma wpływu na domyślne preferencje routingu.  
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1.  Przejdź do swojego konta magazynu w portalu.
 
 2.  W obszarze **Ustawienia** wybierz pozycję **Sieć**.
 
-3.  Na karcie **zapory i sieci wirtualne** w obszarze **Publikowanie punktów końcowych właściwych dla trasy** wybierz preferencję routingu punktu końcowego określonego dla trasy, a następnie kliknij przycisk **Zapisz**. To preferencje ma wpływ tylko na punkt końcowy dotyczący trasy. Preferencja nie ma wpływu na domyślne preferencje routingu.  
+3.  Na karcie **zapory i sieci wirtualne** w obszarze **Publikowanie punktów końcowych właściwych dla trasy** wybierz preferencję routingu punktu końcowego określonego dla trasy, a następnie kliknij przycisk **Zapisz**.
 
     Na poniższej ilustracji przedstawiono wybraną opcję **routingu sieciowego firmy Microsoft** .
 
     > [!div class="mx-imgBorder"]
     > ![Opcja routingu sieci firmy Microsoft](./media/configure-network-routing-preference/microsoft-network-routing-option.png)
 
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+1. Aby skonfigurować punkt końcowy specyficzny dla trasy, użyj polecenia [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) . 
+
+   - Aby utworzyć punkt końcowy specyficzny dla trasy, który używa preferencji routingu sieci firmy Microsoft, ustaw `-PublishMicrosoftEndpoint` parametr na `true` . 
+
+   - Aby utworzyć punkt końcowy specyficzny dla trasy, który używa preferencji routingu internetowego, ustaw `-PublishInternetEndpointTo` parametr na `true` .  
+
+   Poniższy przykład tworzy punkt końcowy specyficzny dla trasy, który używa preferencji routingu sieciowego firmy Microsoft.
+
+   ```powershell
+   Set-AzStorageAccount -ResourceGroupName <resource-group-name> `
+    -AccountName <storage-account-name> `
+    -PublishMicrosoftEndpoint $true
+   ```
+
+   Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów zawierającej konto magazynu.
+
+   Zastąp `<storage-account-name>` wartość symbolu zastępczego nazwą konta magazynu.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Aby skonfigurować punkt końcowy specyficzny dla trasy, użyj polecenia [AZ Storage account Update](/azure/storage/account#az-storage-account-update) . 
+
+   - Aby utworzyć punkt końcowy specyficzny dla trasy, który używa preferencji routingu sieci firmy Microsoft, ustaw `--publish-microsoft-endpoints` parametr na `true` . 
+
+   - Aby utworzyć punkt końcowy specyficzny dla trasy, który używa preferencji routingu internetowego, ustaw `--publish-internet-endpoints` parametr na `true` .  
+
+   Poniższy przykład tworzy punkt końcowy specyficzny dla trasy, który używa preferencji routingu sieciowego firmy Microsoft.
+
+   ```azurecli
+   az storage account update --name <storage-account-name> --publish-microsoft-endpoints true
+   ```
+
+   Zastąp `<storage-account-name>` wartość symbolu zastępczego nazwą konta magazynu.
+
+---
+
 ## <a name="find-the-endpoint-name-for-a-route-specific-endpoint"></a>Znajdź nazwę punktu końcowego dla punktu końcowego określonego dla trasy
 
 W przypadku skonfigurowania punktu końcowego określonego dla trasy można znaleźć punkt końcowy we właściwościach konta magazynu.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1.  W obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 
@@ -72,6 +178,32 @@ W przypadku skonfigurowania punktu końcowego określonego dla trasy można znal
     > [!div class="mx-imgBorder"]
     > ![Opcja routingu sieci firmy Microsoft dla punktów końcowych specyficznych dla trasy](./media/configure-network-routing-preference/routing-url.png)
 
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+1. Aby wydrukować punkty końcowe do konsoli programu, użyj `PrimaryEndpoints` właściwości obiektu konto magazynu.
+
+   ```powershell
+   Get-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name>
+   write-Output $StorageAccount.PrimaryEndpoints
+   ```
+
+   Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów zawierającej konto magazynu.
+
+   Zastąp `<storage-account-name>` wartość symbolu zastępczego nazwą konta magazynu.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Aby wydrukować punkty końcowe do konsoli programu, użyj właściwości [AZ Storage account show](/cli/azure/storage/account#az_storage_account_show) dla obiektu konto magazynu.
+
+   ```azurecli
+   az storage account show -g <resource-group-name> -n <storage-account-name>
+   ```
+
+   Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów zawierającej konto magazynu.
+
+   Zastąp `<storage-account-name>` wartość symbolu zastępczego nazwą konta magazynu.
+
+---
 
 ## <a name="see-also"></a>Zobacz też
 

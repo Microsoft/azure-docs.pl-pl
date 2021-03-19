@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f3b770a5790d5e9554c7bf5d7d24f1eeccff7662
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582456"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu programu PowerShell
 
@@ -57,7 +57,7 @@ Najpierw przekonwertuj wartość **hVFkk965BuUv** na bezpieczny ciąg, wpisując
 $secretvalue = ConvertTo-SecureString "hVFkk965BuUv" -AsPlainText -Force
 ```
 
-Następnie wpisz poniższe polecenia programu PowerShell, aby utworzyć wpis tajny w usłudze Key Vault o nazwie **ExamplePassword** z wartością **hVFkk965BuUv**:
+Następnie użyj polecenia cmdlet Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) , aby utworzyć wpis tajny w Key Vault o nazwie **ExamplePassword** o wartości **hVFkk965BuUv** :
 
 
 ```azurepowershell-interactive
@@ -96,5 +96,6 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim wpis tajny. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
+- Dowiedz się, jak [przechowywać wpisy tajne wielowierszowe w Key Vault](multiline-secrets.md)
 - Zobacz informacje dotyczące [Azure PowerShell poleceń cmdlet Key Vault](/powershell/module/az.keyvault/#key_vault)
 - Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

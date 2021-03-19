@@ -35,8 +35,8 @@
       href: concepts-developer-guide-device.md
     - name: Przewodnik dla deweloperów usług
       href: concepts-developer-guide-service.md
-    - name: Składniki
-      href: concepts-components.md
+    - name: Przewodnik modelowania
+      href: concepts-modeling-guide.md
     - name: Konwencje technologii IoT Plug and Play
       href: concepts-convention.md
     - name: Mostek IoT Plug and Play

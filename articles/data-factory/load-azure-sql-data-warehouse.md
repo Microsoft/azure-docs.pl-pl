@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/29/2020
-ms.openlocfilehash: 94f5884cb9d1886a9e7aa6b09817b26bba6d47f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ebbbcd7430a86ee431f67f7b6174b45d60056e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370720"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593717"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -56,7 +56,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
-   ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Strona główna Azure Data Factory z kafelkiem &quot;autor & Monitor&quot;.":::
 
    Wybierz kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację Integracja danych.
 

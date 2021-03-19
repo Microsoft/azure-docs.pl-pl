@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c6f4e4851d406b14ed38665274401b96446ac6a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579080"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportowania dostępu warunkowego?
 
@@ -28,6 +28,8 @@ Tryb tylko do raportowania jest nowym stanem zasad dostępu warunkowego, który 
 - Zasady w trybie tylko do raportowania są oceniane, ale nie są wymuszane.
 - Wyniki są rejestrowane na kartach **dostęp warunkowy** i **tylko raporty** w obszarze Szczegóły dziennika logowania.
 - Klienci z subskrypcją Azure Monitor mogą monitorować wpływ ich zasad dostępu warunkowego za pomocą skoroszytu dostępu warunkowego usługi Insights.
+
+> [!VIDEO https://www.youtube.com/embed/NZbPYfhb5Kc]
 
 > [!WARNING]
 > Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń. Należy pamiętać, że tryb tylko do raportowania nie ma zastosowania do zasad dostępu warunkowego z zakresem "akcje użytkownika".

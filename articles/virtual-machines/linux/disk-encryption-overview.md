@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496460"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580355"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -108,7 +108,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 
 Azure Disk Encryption wymaga obecności modułów dm-crypt i vfat w systemie. Usunięcie lub wyłączenie vfat z obrazu domyślnego uniemożliwi systemowi odczytywanie woluminu klucza i Uzyskiwanie klucza wymaganego do odblokowania dysków podczas kolejnych ponownych uruchomień. Czynności związane z ograniczaniem systemu, które usuwają moduł vfat z systemu lub wymuszają Rozszerzanie systemu operacyjnego mountpoints/folderów na dyskach danych, nie są zgodne z Azure Disk Encryption. 
 
-Przed włączeniem szyfrowania, dyski danych, które mają być szyfrowane, muszą być poprawnie wymienione w katalogu/etc/fstab. Użyj opcji "nofail" podczas tworzenia wpisów i wybierz trwałej nazwy urządzenia blokowego (ponieważ nazwy urządzeń w formacie "/dev/sdX" mogą nie być skojarzone z tym samym dyskiem w przypadku ponownych uruchomień, szczególnie po szyfrowaniu. Aby uzyskać więcej szczegółów dotyczących tego zachowania, zobacz: [Rozwiązywanie problemów z zmianami nazw urządzeń maszyn wirtualnych systemu Linux](../troubleshooting/troubleshoot-device-names-problems.md)).
+Przed włączeniem szyfrowania, dyski danych, które mają być szyfrowane, muszą być poprawnie wymienione w katalogu/etc/fstab. Użyj opcji "nofail" podczas tworzenia wpisów i wybierz trwałej nazwy urządzenia blokowego (ponieważ nazwy urządzeń w formacie "/dev/sdX" mogą nie być skojarzone z tym samym dyskiem w przypadku ponownych uruchomień, szczególnie po szyfrowaniu. Aby uzyskać więcej szczegółów dotyczących tego zachowania, zobacz: [Rozwiązywanie problemów z zmianami nazw urządzeń maszyn wirtualnych systemu Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)).
 
 Upewnij się, że ustawienia/etc/fstab są prawidłowo skonfigurowane do zainstalowania. Aby skonfigurować te ustawienia, uruchom polecenie instalacji-a lub Uruchom ponownie maszynę wirtualną i Wyzwól w ten sposób ponowne zainstalowanie. Po zakończeniu Sprawdź dane wyjściowe polecenia lsblk, aby sprawdzić, czy dysk jest nadal zainstalowany. 
 

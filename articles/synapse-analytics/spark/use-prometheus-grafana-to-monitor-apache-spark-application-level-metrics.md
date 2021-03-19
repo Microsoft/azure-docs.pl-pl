@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 7a95b32449da6dead1c35241ff09af127e0fae43
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6a0b63dc7fda25e3911ae713a0bea7ae7a0969f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210188"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602302"
 ---
 # <a name="tutorial-monitor-apache-spark-application-level-metrics-with-prometheus-and-grafana"></a>Samouczek: monitorowanie metryk Apache Spark na poziomie aplikacji za pomocą Prometheus i Grafana
 
@@ -26,7 +26,7 @@ To rozwiązanie służy do zbierania i wykonywania zapytań dotyczących Apache 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1.  [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1.  [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 2.  [Helm Client 3.30 +](https://github.com/helm/helm/releases)
 3.  [polecenia kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 4.  [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/)

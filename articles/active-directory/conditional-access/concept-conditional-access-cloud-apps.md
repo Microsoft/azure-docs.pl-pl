@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2895588a5a82ec2b6c69d33ff6cea39bbe3a0372
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492000"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579148"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -131,7 +131,7 @@ Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. 
 
 - **Zarejestruj lub Dołącz urządzenia (wersja zapoznawcza)**: Ta akcja użytkownika umożliwia administratorom wymuszanie zasad dostępu warunkowego, gdy użytkownicy [rejestrują](../devices/concept-azure-ad-register.md) lub [dołączają](../devices/concept-azure-ad-join.md) urządzenia do usługi Azure AD. Istnieją dwa kluczowe zagadnienia związane z tą akcją użytkownika: 
    - `Require multi-factor authentication` jest jedyną kontrolą dostępu dostępną dla tej akcji użytkownika, a wszystkie inne są wyłączone. To ograniczenie zapobiega konfliktom z kontrolami dostępu, które są zależne od rejestracji urządzeń usługi Azure AD lub nie mają zastosowania do rejestracji urządzeń usługi Azure AD. 
-   - Jeśli zasady dostępu warunkowego są włączone z tą akcją użytkownika, należy ustawić   >    >  **Ustawienia urządzenia** Azure Active Directory urządzenia  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` na wartość **nie**. W przeciwnym razie zasady dostępu warunkowego z tą akcją użytkownika nie są prawidłowo wymuszane. Więcej informacji dotyczących tego ustawienia urządzenia można znaleźć w temacie [Konfigurowanie ustawień urządzenia](../device-management-azure-portal.md##configure-device-settings). Ta akcja użytkownika zapewnia elastyczność, aby wymagać uwierzytelniania wieloskładnikowego w celu zarejestrowania urządzeń lub dołączenia ich do określonych użytkowników i grup lub warunków, a nie w przypadku używania zasad dzierżawy w ustawieniach urządzenia. 
+   - Jeśli zasady dostępu warunkowego są włączone z tą akcją użytkownika, należy ustawić   >    >  **Ustawienia urządzenia** Azure Active Directory urządzenia  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` na wartość **nie**. W przeciwnym razie zasady dostępu warunkowego z tą akcją użytkownika nie są prawidłowo wymuszane. Więcej informacji dotyczących tego ustawienia urządzenia można znaleźć w temacie [Konfigurowanie ustawień urządzenia](../devices/device-management-azure-portal.md#configure-device-settings). Ta akcja użytkownika zapewnia elastyczność, aby wymagać uwierzytelniania wieloskładnikowego w celu zarejestrowania urządzeń lub dołączenia ich do określonych użytkowników i grup lub warunków, a nie w przypadku używania zasad dzierżawy w ustawieniach urządzenia. 
    
 ## <a name="next-steps"></a>Następne kroki
 

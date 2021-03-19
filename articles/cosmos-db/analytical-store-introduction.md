@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat Azure Cosmos DB transakcyjnych (opart
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452852"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577363"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Co to jest Azure Cosmos DB magazyn analityczny?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,60 @@ Automatyczna synchronizacja dotyczy w pełni zarządzanej funkcji Azure Cosmos D
 
 Funkcja autosynchronizacji wraz z magazynem analitycznym zapewnia następujące korzyści:
 
-#### <a name="scalability--elasticity"></a>Elastyczność & skalowalności
+### <a name="scalability--elasticity"></a>Elastyczność & skalowalności
 
 Korzystając z partycjonowania poziomego, Azure Cosmos DB magazyn transakcyjny może elastycznie skalować magazyn i przepływność bez przestojów. Partycjonowanie poziome w magazynie transakcyjnym zapewnia skalowalność & elastyczność w ramach autosynchronizacji, aby upewnić się, że dane są synchronizowane z magazynem analitycznym niemal w czasie rzeczywistym. Synchronizacja danych odbywa się niezależnie od transakcyjnej przepływności ruchu, niezależnie od tego, czy jest to 1000 operacji/s czy 1 000 000 operacji/s, i nie ma wpływu na przepływność administracyjną w magazynie transakcyjnym. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Automatycznie Obsługuj aktualizacje schematu
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Automatycznie Obsługuj aktualizacje schematu
 
 Magazyn transakcyjny Azure Cosmos DB to Schema-niezależny od i umożliwia iteracyjne wykonywanie iteracji w aplikacjach transakcyjnych bez konieczności rozwiązywania problemów ze schematem lub zarządzaniem indeksem. W przeciwieństwie do tego Azure Cosmos DB magazyn analityczny jest schematized do optymalizacji pod kątem wydajności zapytań analitycznych. Dzięki funkcji autosynchronizacji Program Azure Cosmos DB zarządza wnioskami o schemacie w porównaniu z najnowszymi aktualizacjami ze sklepu transakcyjnego.  Zarządza również reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych.
 
 Gdy schemat zostanie rozwijający się, a nowe właściwości są dodawane z upływem czasu, magazyn analityczny automatycznie przedstawia schemat składający się ze zbiorów we wszystkich schematach historycznych w magazynie transakcyjnym.
 
-##### <a name="schema-constraints"></a>Ograniczenia schematu
+#### <a name="schema-constraints"></a>Ograniczenia schematu
 
 Poniższe ograniczenia dotyczą danych operacyjnych w Azure Cosmos DB po włączeniu magazynu analitycznego w celu poprawnego automatycznego wywnioskowania i reprezentowania schematu:
 
-* W schemacie można mieć maksymalnie 200 właściwości na dowolnym poziomie zagnieżdżenia oraz maksymalną głębokość zagnieżdżenia wynoszącą 5.
+* Można mieć maksymalnie 1000 właściwości na dowolnym poziomie zagnieżdżenia schematu i maksymalnej głębokości zagnieżdżenia 127.
+  * Tylko pierwsze właściwości 1000 są reprezentowane w magazynie analitycznym.
+  * Tylko pierwsze 127 poziomów zagnieżdżonych są reprezentowane w magazynie analitycznym.
+
+* W czasie, gdy dokumenty JSON (i Cosmos DB kolekcje/kontenery) są rozróżniane wielkością liter, magazyn analityczny nie jest.
+
+  * **W tym samym dokumencie:** Nazwy właściwości na tym samym poziomie powinny być unikatowe w porównaniu z wielkością liter. Na przykład następujący dokument JSON ma "name" i "name" na tym samym poziomie. Chociaż jest to prawidłowy dokument JSON, nie spełnia on ograniczenia unikatowości, dlatego nie będzie w pełni reprezentowany w magazynie analitycznym. W tym przykładzie nazwy "name" i "name" są takie same w porównaniu z wielkością liter. `"Name": "fred"`Będzie reprezentowana tylko w magazynie analitycznym, ponieważ jest to pierwsze wystąpienie. I `"name": "john"` nie będą reprezentowane w ogóle.
   
-  * Element o właściwościach 201 na najwyższym poziomie nie spełnia tego ograniczenia i dlatego nie będzie reprezentowany w magazynie analitycznym.
-  * Element o więcej niż pięciu zagnieżdżonych poziomach w schemacie również nie spełnia tego ograniczenia, dlatego nie będzie reprezentowany w magazynie analitycznym. Na przykład następujący element nie spełnia wymagań:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **W różnych dokumentach:** Właściwości na tym samym poziomie i o tej samej nazwie, ale w różnych przypadkach, będą reprezentowane w tej samej kolumnie przy użyciu formatu nazwy pierwszego wystąpienia. Na przykład następujące dokumenty JSON mają `"Name"` i `"name"` na tym samym poziomie. Ponieważ pierwszy format dokumentu to `"Name"` , to oznacza, że będzie on używany do reprezentowania nazwy właściwości w magazynie analitycznym. Innymi słowy, nazwa kolumny w magazynie analitycznym będzie `"Name"` . Obie `"fred"` i `"john"` będą reprezentowane w `"Name"` kolumnie.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Nazwy właściwości powinny być unikatowe w porównaniu z wielkością liter. Na przykład następujące elementy nie spełniają tego ograniczenia, więc nie będą reprezentowane w magazynie analitycznym:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` — "Name" i "name" są takie same, w porównaniu z wielkością liter.
 
-##### <a name="schema-representation"></a>Reprezentacja schematu
+* Pierwszy dokument kolekcji definiuje początkowy schemat magazynu analitycznego.
+  * Właściwości na pierwszym poziomie dokumentu będą reprezentowane jako kolumny.
+  * Dokumenty o większej liczbie właściwości niż początkowy schemat spowodują wygenerowanie nowych kolumn w magazynie analitycznym.
+  * Nie można usunąć kolumn.
+  * Usunięcie wszystkich dokumentów w kolekcji nie powoduje zresetowania schematu magazynu analitycznego.
+  * Nie istnieje wersja schematu. Ostatnia wersja wywnioskowana z magazynu transakcyjnego jest wyświetlana w magazynie analitycznym.
+
+* Obecnie firma Microsoft nie obsługuje nazw kolumn odczytanych przez usługę Azure Synapse Spark, które zawierają wartości puste (białe znaki).
+
+* Oczekiwane jest inne zachowanie w odniesieniu do `NULL` wartości:
+  * Pule Spark w usłudze Azure Synapse będą odczytywać te wartości jako 0 (zero).
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości jako `NULL` .
+
+* Zaczekaj inne zachowanie w odniesieniu do brakujących kolumn:
+  * Pule platformy Spark w usłudze Azure Synapse będą przedstawiać te kolumny jako `undefined` .
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą przedstawiać te kolumny jako `NULL` .
+
+#### <a name="schema-representation"></a>Reprezentacja schematu
 
 W magazynie analitycznym można korzystać z dwóch trybów reprezentacji schematu. W tych trybach zastosowano kompromisy między prostotą reprezentacji kolumnowej, obsługą schematów polimorficznych i prostotą środowiska zapytań:
 
@@ -106,7 +134,7 @@ Dobrze zdefiniowana reprezentacja schematu tworzy prostą tabelaryczną reprezen
 
 * Właściwość zawsze ma ten sam typ w wielu elementach.
 
-  * Na przykład nie `{"a":123} {"a": "str"}` ma dobrze zdefiniowanego schematu, ponieważ `"a"` jest czasami ciągiem i czasami liczbą. W takim przypadku magazyn analityczny rejestruje typ danych `“a”` jako typ danych `“a”` w pierwszym elemencie w okresie istnienia kontenera. Elementy, w których typ danych `“a”` różni się nie zostaną uwzględnione w magazynie analitycznym.
+  * Na przykład nie `{"a":123} {"a": "str"}` ma dobrze zdefiniowanego schematu, ponieważ `"a"` jest czasami ciągiem i czasami liczbą. W takim przypadku magazyn analityczny rejestruje typ danych `"a"` jako typ danych `“a”` w pierwszym elemencie w okresie istnienia kontenera. Dokument będzie nadal znajdować się w magazynie analitycznym, ale elementy, w których typ danych `"a"` różni się od siebie.
   
     Ten warunek nie ma zastosowania do właściwości o wartości null. Na przykład, `{"a":123} {"a":null}` jest nadal zdefiniowane.
 
@@ -150,12 +178,12 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 | Double |  ". Float64" |    24,99|
 | Tablica | ". Array" |    ["a", "b"]|
 |Binarne | ". Binary" |0|
-|Boolean (wartość logiczna)    | ". bool"   |Prawda|
+|Wartość logiczna    | ". bool"   |Prawda|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
-|Zero   | ". null"   | wartość null|
+|Zero   | ". null"   | null|
 |Ciąg|    ". ciąg" | "ABC"|
-|Timestamp |    ". timestamp" |  Sygnatura czasowa (0, 0)|
+|Znacznik czasu |    ". timestamp" |  Sygnatura czasowa (0, 0)|
 |DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Dokument   |". Object" |    {"a": "a"}|
@@ -230,7 +258,7 @@ Aby dowiedzieć się więcej, zobacz [jak skonfigurować analityczny czas wygaś
 
 Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
-* [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md)
+* [Usługa Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link.md)
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
 

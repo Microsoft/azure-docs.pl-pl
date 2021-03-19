@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210710"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595995"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
@@ -365,6 +365,16 @@ Wyzwalacz czasomierza korzysta z blokady magazynu, aby upewnić się, że istnie
 ## <a name="retry-behavior"></a>Zachowanie przy ponowieniu próby
 
 W przeciwieństwie do wyzwalacza kolejki wyzwalacz czasomierza nie ponawia próby po awarii funkcji. Gdy funkcja nie powiedzie się, nie zostanie wywołana ponownie do następnego czasu zgodnie z harmonogramem.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Ręcznie Wywołaj wyzwalacz czasomierza
+
+Wyzwalacz Timer dla Azure Functions zawiera element webhook protokołu HTTP, który można wywołać, aby ręcznie wyzwolić funkcję. Może to być bardzo przydatne w następujących scenariuszach.
+
+* Testowanie integracji
+* Zamiany gniazd w ramach testu dymu lub działania rozgrzewania
+* Początkowe wdrożenie funkcji do natychmiastowego wypełnienia pamięci podręcznej lub tabeli odnośników w bazie danych
+
+Zapoznaj się z [ręcznym uruchamianiem funkcji niewyzwalanej przez protokół http](./functions-manually-run-non-http.md) , aby uzyskać szczegółowe informacje na temat ręcznego wywoływania funkcji wyzwalanej przez czasomierz.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

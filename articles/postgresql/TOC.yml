@@ -27,6 +27,8 @@
         - name: Migracja z minimalnym przestojem za pomocą usługi DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+        - name: Migrowanie z programu Oracle
+          href: howto-migrate-from-oracle.md
     - name: Zasady wersji
       href: concepts-version-policy.md
       displayName: 'version, postgresql'

@@ -2,32 +2,32 @@
 title: Koncepcje — vSphere kontroli dostępu opartej na rolach (vSphere RBAC)
 description: Poznaj kluczowe możliwości vSphere kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 1e49f219fba8317040bfa56f6576a7c1f5b1ae22
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.date: 03/18/2021
+ms.openlocfilehash: c2d27531f7a0acd36b4047e98aac994668f64a09
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573334"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586170"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere kontroli dostępu opartej na rolach (vSphere RBAC) dla rozwiązań VMware platformy Azure
 
 W rozwiązaniu VMware platformy Azure program vCenter ma wbudowanego użytkownika lokalnego o nazwie cloudadmin i przypisany do wbudowanej roli CloudAdmin. Lokalny użytkownik cloudadmin służy do konfigurowania użytkowników w usłudze AD. Ogólnie rzecz biorąc rola CloudAdmin tworzy obciążenia i zarządza nimi w chmurze prywatnej. W rozwiązaniu VMware platformy Azure rola CloudAdmin ma uprawnienia vCenter, które różnią się od innych rozwiązań w chmurze VMware.     
 
 > [!NOTE]
-> Rozwiązanie VMware platformy Azure oferuje niestandardowe role w programie vCenter, ale obecnie nie oferuje ich w portalu rozwiązań VMware platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie ról niestandardowych w programie vCenter](#create-custom-roles-on-vcenter) w dalszej części tego artykułu. 
+> Rozwiązanie VMware platformy Azure oferuje niestandardowe role w programie vCenter nie oferują ich w portalu rozwiązań VMware platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie ról niestandardowych w programie vCenter](#create-custom-roles-on-vcenter) w dalszej części tego artykułu. 
 
 W przypadku wdrożenia lokalnego programu vCenter i ESXi administrator ma dostęp do administrator@vsphere.local konta vCenter. Mogą także mieć więcej przypisanych użytkowników i grup Active Directory (AD). 
 
 W przypadku wdrożenia rozwiązania VMware na platformie Azure administrator nie ma dostępu do konta użytkownika administrator. Mogą jednak przypisywać użytkowników i grupy usługi AD do roli CloudAdmin w programie vCenter.  
 
-Użytkownik chmury prywatnej nie ma dostępu do usługi i nie może konfigurować określonych składników zarządzania obsługiwanych przez firmę Microsoft i zarządzanych przez nią. Na przykład klastry, hosty, magazyny danych i rozproszone przełączniki wirtualne.
+Użytkownik chmury prywatnej nie ma dostępu i nie może konfigurować określonych składników zarządzania obsługiwanych przez firmę Microsoft i zarządzanych przez nią. Na przykład klastry, hosty, magazyny danych i rozproszone przełączniki wirtualne.
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Rola CloudAdmin na platformie Azure VMware na serwerze vCenter
 
 Można wyświetlić uprawnienia przyznane do roli CloudAdmin rozwiązanie VMware platformy Azure na platformie Azure VMware Private Cloud.
 
-1. Zaloguj się do klienta SDDC vSphere i przejdź do **menu**  >  **Administracja**.
+1. Zaloguj się do programu vCenter i przejdź do **menu**  >  **Administracja**.
 1. W obszarze **Access Control** wybierz pozycję **role**.
 1. Z listy ról wybierz pozycję **CloudAdmin** , a następnie wybierz pozycję **uprawnienia**. 
 
@@ -62,7 +62,7 @@ Rozwiązanie VMware firmy Azure obsługuje używanie ról niestandardowych z ró
 
 Rola CloudAdmin może tworzyć, modyfikować i usuwać role niestandardowe, które mają uprawnienia mniejsze lub równe ich bieżącej roli. Można utworzyć role, które mają uprawnienia większe niż CloudAdmin, ale nie będzie można przypisać roli do żadnych użytkowników ani grup ani usunąć roli.
 
-Aby zapobiec tworzeniu ról, których nie można przypisać ani usunąć, rozwiązanie Azure VMware zaleca klonowanie roli CloudAdmin jako podstawy tworzenia nowych ról niestandardowych.
+Aby zapobiec tworzeniu ról, których nie można przypisać ani usunąć, zaleca się klonowanie roli CloudAdmin jako podstawy do tworzenia nowych ról niestandardowych.
 
 ### <a name="create-a-custom-role"></a>Tworzenie roli niestandardowej
 1. Zaloguj się do programu vCenter przy użyciu cloudadmin \@ vSphere. Local lub User z rolą cloudadmin.

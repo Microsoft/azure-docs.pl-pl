@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 3/16/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9fdc44681c8773d7b6f724174a74e76e57939e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369764"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592800"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Tworzenie przeglądu dostępu do ról usługi Azure AD w Privileged Identity Management
 
@@ -43,7 +43,75 @@ W tym artykule opisano sposób tworzenia co najmniej jednej oceny dostępu dla u
 
     ![Role usługi Azure AD — lista przeglądów dostępu przedstawiających stan wszystkich przeglądów](./media/pim-how-to-start-security-review/access-reviews.png)
 
-[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
+Kliknij pozycję **Nowy** , aby utworzyć nowy przegląd dostępu.
+
+1. Nadaj nazwę przeglądowi dostępu. Opcjonalnie nadaj przeglądowi opis. Nazwa i opis są widoczne dla recenzentów.
+
+    ![Tworzenie przeglądu dostępu — nazwa i opis przeglądu](./media/pim-how-to-start-security-review/name-description.png)
+
+1. Ustaw **datę początkową**. Domyślnie przegląd dostępu odbywa się raz, uruchamia się w tym samym czasie, który jest tworzony i upływa w ciągu miesiąca. Można zmienić datę początkową i końcową w taki sposób, aby przegląd dostępu został uruchomiony w przyszłości, a ostatni w ciągu kilku dni.
+
+    ![Data rozpoczęcia, częstotliwość, czas trwania, koniec, liczba godzin i Data zakończenia](./media/pim-how-to-start-security-review/start-end-dates.png)
+
+1. Aby umożliwić cykliczne przeglądy dostępu, Zmień **ustawienie częstotliwości** z **jednego czasu** na **co tydzień**, **co miesiąc**, co **kwartał**, co **rok, rocznie** lub **półroczj**. Za pomocą suwaka **czas trwania** lub pola tekstowego Zdefiniuj, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład maksymalny czas, który można ustawić dla comiesięcznego przeglądu wynosi 27 dni, aby uniknąć nakładających się przeglądów.
+
+1. Użyj ustawienia **End** , aby określić, jak zakończyć cykliczne serie przeglądu dostępu. Seria może kończyć się na trzy sposoby: działa stale, aby rozpocząć przeglądy w nieskończoność, aż do określonej daty lub po zakończeniu zdefiniowanej liczby wystąpień. Po utworzeniu seria może zostać zatrzymana przez innego administratora lub innego administratora globalnego, zmieniając datę w **ustawieniach**, aby zakończyć działanie.
+
+1. W sekcji **Użytkownicy** wybierz co najmniej jedną rolę, w której chcesz przejrzeć członkostwo.
+
+    ![Zakres użytkowników do przeglądania członkostwa w roli](./media/pim-how-to-start-security-review/users.png)
+
+    > [!NOTE]
+    > - Role wybrane w tym miejscu obejmują zarówno [role trwałe, jak i kwalifikujące się](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Wybranie więcej niż jednej roli spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu ról spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
+    > - W przypadku ról z przypisanymi do nich grupami dostęp do każdej grupy połączonej z rolą objętą przeglądem zostanie przejrzany jako część przeglądu dostępu.
+    Jeśli tworzysz przegląd dostępu **ról usługi Azure AD**, poniżej przedstawiono przykład listy członkostwo.
+
+    ![Przeglądanie okienka członkostwa lista ról usługi Azure AD, które można wybrać](./media/pim-how-to-start-security-review/review-membership.png)
+
+    Jeśli tworzysz przegląd dostępu do **ról zasobów platformy Azure**, na poniższej ilustracji przedstawiono przykład listy członkostwo na stronie Przegląd.
+
+    ![Przeglądanie okienka członkostwa — lista ról zasobów platformy Azure, które można wybrać](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
+
+1. W sekcji **recenzenci** wybierz co najmniej jedną osobę, aby przejrzeć wszystkich użytkowników. Możesz również wybrać, aby członkowie mogli przeglądać swój własny dostęp.
+
+    ![Lista recenzentów wybranych użytkowników lub członków (własnych)](./media/pim-how-to-start-security-review/reviewers.png)
+
+    - **Wybrani użytkownicy** — Użyj tej opcji, jeśli nie wiesz, kto potrzebuje dostępu. Po wybraniu tej opcji można przypisać przegląd do właściciela zasobu lub Menedżera grupy, aby zakończyć.
+    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. Grupy przypisane do roli nie będą częścią przeglądu, gdy ta opcja jest zaznaczona.
+    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. Grupy przypisane do roli będą przeglądane przez recenzenta powrotu, jeśli został wybrany. 
+
+### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
+
+1. Aby określić, co się stanie po zakończeniu przeglądu, rozwiń sekcję **po zakończeniu ustawień** .
+
+    ![Po zakończeniu ustawień do automatycznego zastosowania](./media/pim-how-to-start-security-review/upon-completion-settings.png)
+
+1. Jeśli chcesz automatycznie usunąć dostęp dla użytkowników, których odmówiono, ustaw opcję **automatycznie Zastosuj wyniki do zasobu** do **włączenia**. Jeśli chcesz ręcznie zastosować wyniki po zakończeniu przeglądu, ustaw przełącznik do **wyłączenia**.
+
+1. Użyj listy **powinien nie odpowiadać** , aby określić, co się dzieje w przypadku użytkowników, którzy nie są recenzowani przez recenzenta w okresie przeglądu. To ustawienie nie ma wpływu na użytkowników, którzy zostali ręcznie przejrzał przez recenzentów. Jeśli ostateczna decyzja recenzenta jest odmowa, dostęp użytkownika zostanie usunięty.
+
+    - **Bez zmian — nie** zmieniaj dostępu użytkownika
+    - **Usuwanie dostępu** — Usuwanie dostępu użytkownika
+    - **Zatwierdzanie dostępu** — zatwierdzanie dostępu użytkownika
+    - Zapoznaj się z **zaleceniami** — zapoznaj się z zaleceniami systemu dotyczącymi odmowy lub zatwierdzenia ciągłego dostępu użytkownika
+
+### <a name="advanced-settings"></a>Ustawienia zaawansowane
+
+1. Aby określić dodatkowe ustawienia, rozwiń sekcję **Ustawienia zaawansowane** .
+
+    ![Zaawansowane ustawienia dotyczące wyświetlania zaleceń, wymagania przyczyny dotyczącej zatwierdzenia, powiadomień pocztą i przypomnień](./media/pim-how-to-start-security-review/advanced-settings.png)
+
+1. Ustaw opcję **Pokaż zalecenia** do **włączenia** , aby wyświetlić recenzentów zalecenia systemowe na podstawie informacji o dostępie użytkownika.
+
+1. Ustaw **przyczynę Wymagaj przy zatwierdzeniu** , aby **umożliwić** recenzentowi podanie przyczyny zatwierdzenia.
+
+1. Ustaw **powiadomienia pocztą** , aby **umożliwić** usłudze Azure AD wysyłanie powiadomień e-mail do recenzentów po rozpoczęciu przeglądu dostępu oraz do administratorów po zakończeniu przeglądu.
+
+1. Ustaw **przypomnienia** , aby **umożliwić** usłudze Azure AD wysyłanie przypomnień o przeglądach dostępu w toku do recenzentów, którzy nie ukończyli swojego przeglądu.
+1. Zawartość wiadomości e-mail wysyłanej do recenzentów jest generowana automatycznie na podstawie szczegółów przeglądu, takich jak nazwa przeglądu, nazwa zasobu, Data ukończenia itd. Jeśli potrzebujesz sposobu na przekazanie dodatkowych informacji, takich jak dodatkowe instrukcje lub informacje kontaktowe, możesz określić te szczegóły w **dodatkowej zawartości dla wiadomości e-mail recenzenta** , która zostanie uwzględniona w wiadomości e-mail z zaproszeniem i przypomnieniem wysyłanym do przypisanych recenzentów. W wyróżnionej sekcji poniżej znajduje się informacja, gdzie te informacje będą wyświetlane.
+
+    ![Zawartość wiadomości e-mail wysyłanych do recenzentów z wyróżnionymi wyróżnieniami](./media/pim-how-to-start-security-review/email-info.png)
 
 ## <a name="start-the-access-review"></a>Rozpocznij przegląd dostępu
 
@@ -63,7 +131,7 @@ Jeśli jest to jednorazowe przegląd, po przekroczeniu okresu kontroli dostępu 
 
 Aby zarządzać serią przeglądów dostępu, przejdź do przeglądu dostępu i znajdziesz nadchodzące wystąpienia w zaplanowanych recenzjach, a następnie edytuj datę końcową lub Dodaj/Usuń recenzentów.
 
-Po dokonaniu wyboru w **ustawieniach ukończenia**funkcja automatycznego zastosowania zostanie wykonana po zakończeniu przeglądu lub po ręcznym zatrzymaniu przeglądu. Stan przeglądu zmieni się z **zakończone** przez Stany pośrednie, takie jak **stosowanie** i ostatecznie do stanu **zastosowania**. Należy się spodziewać, że w ciągu kilku minut będzie widocznych odrzuconych użytkowników (jeśli istnieją).
+Po dokonaniu wyboru w **ustawieniach ukończenia** funkcja automatycznego zastosowania zostanie wykonana po zakończeniu przeglądu lub po ręcznym zatrzymaniu przeglądu. Stan przeglądu zmieni się z **zakończone** przez Stany pośrednie, takie jak **stosowanie** i ostatecznie do stanu **zastosowania**. Należy się spodziewać, że w ciągu kilku minut będzie widocznych odrzuconych użytkowników (jeśli istnieją).
 
 ## <a name="next-steps"></a>Następne kroki
 

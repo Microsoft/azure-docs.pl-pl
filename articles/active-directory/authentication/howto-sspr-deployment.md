@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500516"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579199"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -322,7 +322,7 @@ Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne p
 
 ### <a name="authentication-methods--usage-and-insights"></a>Metody uwierzytelniania — użycie i szczegółowe informacje
 
-[Użycie i szczegółowe informacje](./howto-authentication-methods-usage-insights.md) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak usługa Azure AD MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
+[Użycie i szczegółowe informacje](./howto-authentication-methods-activity.md) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak usługa Azure AD MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 

@@ -4,13 +4,13 @@ description: Dowiedz się, jak utworzyć klaster, który dystrybuuje węzły w s
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
-ms.openlocfilehash: 3eec8a6c331227d9d6298c46b272a5784080d342
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180330"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583551"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -29,6 +29,7 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub no
 Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następujących regionach:
 
 * Australia Wschodnia
+* Brazylia Południowa
 * Kanada Środkowa
 * Central US
 * East US 
@@ -167,7 +168,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 Mamy teraz dwa dodatkowe węzły w strefach 1 i 2. Można wdrożyć aplikację składającą się z trzech replik. Będziemy używać NGINX jako przykładu:
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 

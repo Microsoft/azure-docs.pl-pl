@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558971"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582157"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Rozwiązywanie problemów z obsługą maszyny wirtualnej za pomocą funkcji Cloud-init
 
@@ -56,11 +56,11 @@ Gdy nie można zainicjować obsługi administracyjnej maszyny wirtualnej, platfo
 
 Gdy maszyna wirtualna jest uruchomiona, potrzebne będą dzienniki z maszyny wirtualnej, aby zrozumieć, dlaczego Inicjowanie obsługi nie powiodło się.  Aby zrozumieć, dlaczego Inicjowanie obsługi maszyny wirtualnej nie powiodło się, nie należy zatrzymać maszyny wirtualnej. Pozostaw uruchomioną maszynę wirtualną. W celu zbierania dzienników należy zachować niedziałającą maszynę wirtualną w stanie uruchomienia. Aby zebrać dzienniki, użyj jednej z następujących metod:
 
-- [Konsola szeregowa](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Konsola szeregowa](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Włącz diagnostykę rozruchu](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) je w trakcie rozruchu.
 
-- [Uruchom polecenie AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
+- [Uruchom polecenie AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Po znalezieniu błędu lub ostrzeżenia Odczytaj do tyłu w dzienniku Cloud-init
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Jeśli masz dostęp do [konsoli szeregowej](../troubleshooting/serial-console-grub-single-user-mode.md), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
+Jeśli masz dostęp do [konsoli szeregowej](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
 
 Rejestrowanie dla programu `/var/log/cloud-init.log` można także zmienić w programie/etc/cloud/cloud.cfg.d/05_logging. cfg. Więcej szczegółów dotyczących rejestrowania w usłudze Cloud-init można znaleźć w [dokumentacji usługi Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

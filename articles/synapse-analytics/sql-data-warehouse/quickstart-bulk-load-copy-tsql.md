@@ -2,21 +2,21 @@
 title: 'Szybki Start: ładowanie danych zbiorczo przy użyciu jednej instrukcji języka T-SQL'
 description: Ładowanie zbiorcze danych za pomocą instrukcji COPY
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2f97c630189a0f037f1231bb2386fcb7226a9350
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681340"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600041"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki Start: ładowanie danych przy użyciu instrukcji COPY
 

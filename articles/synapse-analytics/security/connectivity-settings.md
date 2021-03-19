@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 03/15/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ce1a4808833cbd897da17f9ad75af346538d23d1
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: e0d8a8e3320b49b6fbe3e8ab66c0b4569fac9afd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103473089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587937"
 ---
 # <a name="azure-synapse-analytics-connectivity-settings"></a>Ustawienia łączności usługi Azure Synapse Analytics
 
@@ -21,7 +21,7 @@ W tym artykule opisano ustawienia łączności w usłudze Azure Synapse Analytic
 
 
 ## <a name="connection-policy"></a>Zasady połączenia
-Zasady połączenia dla Synapse SQL w usłudze Azure Synapse Analytics są ustawione na *wartość default*. Nie można zmienić tej usługi na platformie Azure Synapse Analytics. Możesz dowiedzieć się więcej na temat tego, co ma wpływ na połączenia z usługą Synapse SQL w usłudze Azure [Synapse Analytics.](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) 
+Zasady połączenia dla Synapse SQL w usłudze Azure Synapse Analytics są ustawione na *wartość default*. Nie można zmienić tej usługi na platformie Azure Synapse Analytics. Możesz dowiedzieć się więcej na temat tego, co ma wpływ na połączenia z usługą Synapse SQL w usłudze Azure [Synapse Analytics.](../../azure-sql/database/connectivity-architecture.md#connection-policy) 
 
 ## <a name="minimal-tls-version"></a>Minimalna wersja protokołu TLS
 Synapse SQL w usłudze Azure Synapse Analytics umożliwia nawiązywanie połączeń przy użyciu wszystkich wersji protokołu TLS. Nie można ustawić minimalnej wersji protokołu TLS dla Synapse SQL w usłudze Azure Synapse Analytics.

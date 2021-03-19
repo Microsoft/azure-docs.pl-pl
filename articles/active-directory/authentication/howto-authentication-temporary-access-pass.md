@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101e3ee9279d3560c0b561f0ea7ea695387bee15
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096466"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579386"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Konfigurowanie przekazywania tymczasowego dostępu w usłudze Azure AD w celu rejestrowania metod uwierzytelniania bezhaseł (wersja zapoznawcza)
 
@@ -127,7 +127,7 @@ Należy pamiętać o następujących ograniczeniach:
 - Nie można użyć przekazywania tymczasowego dostępu z rozszerzeniem serwera zasad sieciowych (NPS) i karty Active Directory Federation Services (AD FS).
 - Gdy w dzierżawie włączono bezproblemowe logowanie jednokrotne, użytkownicy są monitowani o wprowadzenie hasła. **Zamiast tego użyj linku dostępu do danych tymczasowych** dla użytkownika w celu zalogowania się za pomocą tymczasowego dostępu.
 
-![Zrzut ekranu przedstawiający użycie tymczasowego dostępu](./media/how-to-authentication-temporary-access-pass/alternative.png)
+  ![Zrzut ekranu przedstawiający użycie tymczasowego dostępu](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów    
 

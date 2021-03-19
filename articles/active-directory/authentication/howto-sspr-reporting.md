@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741562"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579182"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
 
@@ -53,7 +53,7 @@ W Azure Portal środowisku ulepszono sposób wyświetlania operacji resetowania 
 
 ### <a name="combined-registration"></a>Rejestracja łączona
 
-Jeśli włączono [rejestrację łączną](./concept-registration-mfa-sspr-combined.md), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security** w obszarze  >  **metody uwierzytelniania** zabezpieczeń.
+Jeśli włączono [rejestrację łączną](./concept-registration-mfa-sspr-combined.md), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się w obszarze  >  **metody uwierzytelniania** zabezpieczeń.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Opis kolumn raportu w Azure Portal
 
@@ -171,7 +171,7 @@ Poniższa lista zawiera szczegółowy opis tego działania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [SSPR i raportowanie informacji dotyczących użycia i usługi MFA](howto-authentication-methods-usage-insights.md)
+* [SSPR i raportowanie informacji dotyczących użycia i usługi MFA](./howto-authentication-methods-activity.md)
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](howto-sspr-deployment.md)
 * [Resetowanie lub zmienianie hasła](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Zarejestruj się w celu samoobsługowego resetowania hasła](../user-help/active-directory-passwords-reset-register.md).

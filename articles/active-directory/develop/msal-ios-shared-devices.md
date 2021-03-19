@@ -1,7 +1,7 @@
 ---
 title: Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
 titleSuffix: Microsoft identity platform | Azure
-description: Dowiedz się, jak włączyć tryb udostępnionego urządzenia, aby umożliwić pracownikom Firstline współużytkowanie urządzenia z systemem iOS
+description: Dowiedz się, jak włączyć tryb udostępnionego urządzenia, aby umożliwić pracownikom teraźniejszości współużytkowanie urządzenia z systemem iOS
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561067"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578791"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
 
 >[!IMPORTANT]
 > Ta funkcja [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-Procesy robocze Firstline, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do wykonywania swoich zadań. Te współużytkowane urządzenia mogą stwarzać zagrożenie bezpieczeństwa, jeśli użytkownicy współużytkują swoje hasła lub numery PIN, celowo lub nie, aby uzyskać dostęp do danych klientów i firmowych na udostępnionym urządzeniu.
+Procesy robocze teraźniejszości, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do wykonywania swoich zadań. Te współużytkowane urządzenia mogą stwarzać zagrożenie bezpieczeństwa, jeśli użytkownicy współużytkują swoje hasła lub numery PIN, celowo lub nie, aby uzyskać dostęp do danych klientów i firmowych na udostępnionym urządzeniu.
 
 Tryb udostępnionego urządzenia pozwala na łatwiejsze i bezpieczne udostępnianie urządzeń z systemem iOS 13 lub nowszym. Pracownicy mogą szybko logować się i uzyskiwać dostęp do informacji o klientach. Po ich przeniesieniu lub zadaniu można wylogować się z urządzenia, aby było ono natychmiast gotowe do użycia przez kolejnego pracownika.
 
@@ -41,7 +41,7 @@ Aby utworzyć aplikację trybu udostępnionego urządzenia, deweloperzy i Admini
 
 1. **Administratorzy urządzeń** przygotują urządzenie do udostępnienia przy użyciu dostawcy zarządzania urządzeniami przenośnymi (MDM), takiego jak Microsoft Intune, aby zarządzać urządzeniami w swojej organizacji. MDM wysyła do urządzeń Microsoft Authenticator aplikację i włącza "tryb współużytkowany" dla każdego urządzenia za pomocą aktualizacji profilu na urządzeniu. To ustawienie trybu udostępnionego powoduje zmianę zachowania obsługiwanych aplikacji na urządzeniu. Ta konfiguracja od dostawcy MDM ustawia tryb udostępnionego urządzenia dla urządzenia i włącza [wtyczkę logowania JEDNOkrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple](apple-sso-plugin.md) , która jest wymagana do trybu udostępnionego urządzenia.
 
-1. [ **Wymagane w publicznej wersji zapoznawczej** ] Użytkownik z rolą [administratora urządzenia w chmurze](../roles/permissions-reference.md#cloud-device-administrator) musi uruchomić [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) i dołączyć swoje urządzenie do organizacji.
+1. [**Wymagane w publicznej wersji zapoznawczej**] Użytkownik z rolą [administratora urządzenia w chmurze](../roles/permissions-reference.md#cloud-device-administrator) musi uruchomić [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) i dołączyć swoje urządzenie do organizacji.
 
     Aby skonfigurować członkostwo ról organizacyjnych w Azure Portal: **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**
 
@@ -56,10 +56,10 @@ Urządzenie musi być skonfigurowane do obsługi trybu udostępnionego urządzen
 
 1. W portalu konfiguracji usługi Intune poinformuj urządzenie, aby włączyć [wtyczkę logowania JEDNOkrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple](apple-sso-plugin.md) z następującą konfiguracją:
 
-    - **Typ** : redirect
-    - **Identyfikator rozszerzenia** : com. Microsoft. azureauthenticator. ssoextension
-    - **Identyfikator zespołu** : (to pole nie jest wymagane w przypadku systemu iOS)
-    - **Adresy URL** :   
+    - **Typ**: redirect
+    - **Identyfikator rozszerzenia**: com. Microsoft. azureauthenticator. ssoextension
+    - **Identyfikator zespołu**: (to pole nie jest wymagane w przypadku systemu iOS)
+    - **Adresy URL**:   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -69,7 +69,7 @@ Urządzenie musi być skonfigurowane do obsługi trybu udostępnionego urządzen
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Dodatkowe dane do skonfigurowania** :
+    - **Dodatkowe dane do skonfigurowania**:
       - Klucz: sharedDeviceMode
       - Typ: wartość logiczna
       - Wartość: prawda
@@ -95,7 +95,7 @@ Po zmianie użytkownika należy upewnić się, że zarówno dane poprzedniego u�
 
 ### <a name="detect-shared-device-mode"></a>Wykrywanie trybu udostępnionego urządzenia
 
-Wykrywanie trybu udostępnionego urządzenia jest ważne dla aplikacji. W przypadku korzystania z aplikacji na udostępnionym urządzeniu wiele aplikacji będzie wymagało zmiany środowiska użytkownika. Na przykład aplikacja może mieć funkcję "Rejestracja", która nie jest odpowiednia dla procesu roboczego Firstline, ponieważ prawdopodobnie ma już konto. Możesz również chcieć dodać dodatkowe zabezpieczenia do obsługi danych aplikacji, jeśli jest ona w trybie udostępniania.
+Wykrywanie trybu udostępnionego urządzenia jest ważne dla aplikacji. W przypadku korzystania z aplikacji na udostępnionym urządzeniu wiele aplikacji będzie wymagało zmiany środowiska użytkownika. Na przykład aplikacja może mieć funkcję "Rejestracja", która nie jest odpowiednia dla procesu roboczego teraźniejszości, ponieważ prawdopodobnie ma już konto. Możesz również chcieć dodać dodatkowe zabezpieczenia do obsługi danych aplikacji, jeśli jest ona w trybie udostępniania.
 
 Użyj `getDeviceInformationWithParameters:completionBlock:` interfejsu API w programie, `MSALPublicClientApplication` Aby określić, czy aplikacja jest uruchomiona na urządzeniu w trybie udostępnionego urządzenia.
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zobaczyć, jak działa tryb udostępnionego urządzenia, Poniższy przykład kodu w usłudze GitHub zawiera przykład uruchamiania aplikacji Worker Firstline na urządzeniu z systemem iOS w trybie udostępnionego urządzenia:
+Aby zobaczyć, jak działa tryb udostępnionego urządzenia, Poniższy przykład kodu w usłudze GitHub zawiera przykład uruchamiania aplikacji Worker teraźniejszości na urządzeniu z systemem iOS w trybie udostępnionego urządzenia:
 
 [Przykład interfejsu API SWIFT Microsoft Graph MSAL systemu iOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

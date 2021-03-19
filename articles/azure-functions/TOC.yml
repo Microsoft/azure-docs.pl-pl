@@ -71,10 +71,15 @@
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: Definicja interfejsu OpenAPI dla bezserwerowych interfejsów API
       href: functions-openapi-definition.md
-    - name: Łączenie z siecią wirtualną
-      href: functions-create-vnet.md
-    - name: Ustanawianie dostępu do lokacji prywatnej
-      href: functions-create-private-site-access.md
+    - name: Sieć
+      items:
+        - name: Łączenie z siecią wirtualną
+          href: functions-create-vnet.md
+          displayName: vnet
+        - name: Ustanawianie dostępu do lokacji prywatnej
+          href: functions-create-private-site-access.md
+        - name: Korzystanie z wychodzącej bramy NAT
+          href: functions-how-to-use-nat-gateway.md
     - name: Zmienianie rozmiaru obrazu za pomocą usługi Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Tworzenie bezserwerowej aplikacji internetowej
@@ -365,6 +370,8 @@
           href: set-runtime-version.md
         - name: Wyłączanie funkcji
           href: disable-function.md
+        - name: Sieć
+          href: configure-networking-how-to.md
         - name: Geograficzne odzyskiwanie po awarii
           href: functions-geo-disaster-recovery.md
     - name: Monitorowanie

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600806"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -71,7 +71,7 @@ W Wyszukiwanie poznawcze wyszukiwanie pełnotekstowe jest kompilowane w aparacie
 
 Gdy zostaną znalezione pasujące terminy, aparat zapytań odtworzy dokument wyszukiwania zawierający dopasowanie przy użyciu klucza dokumentu lub identyfikatora do złożenia wartości pól, ustala rangę dokumentów w kolejności przydatności i zwraca górną 50 (domyślnie) w odpowiedzi lub inną liczbę, jeśli został określony **`top`** .
 
-Jeśli wdrażasz wyszukiwanie pełnotekstowe, zrozumienie, w jaki sposób dana zawartość jest tokenem, ułatwi debugowanie wszelkich anomalii zapytań. Zapytania dotyczące ciągów z wyrazami lub znaków specjalnych mogą wymagać użycia analizatora innego niż domyślne standardowe Lucene, aby upewnić się, że indeks zawiera właściwe tokeny. Wartość domyślną można zastąpić [analizatory języka](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowane analizatory](index-add-custom-analyzers.md#AnalyzerTable) modyfikujące analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie terminów i wzorce ze znakami specjalnymi](search-query-partial-matching.md).
+Jeśli wdrażasz wyszukiwanie pełnotekstowe, zrozumienie, w jaki sposób dana zawartość jest tokenem, ułatwi debugowanie wszelkich anomalii zapytań. Zapytania dotyczące ciągów z wyrazami lub znaków specjalnych mogą wymagać użycia analizatora innego niż domyślne standardowe Lucene, aby upewnić się, że indeks zawiera właściwe tokeny. Wartość domyślną można zastąpić [analizatory języka](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowane analizatory](index-add-custom-analyzers.md#built-in-analyzers) modyfikujące analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie terminów i wzorce ze znakami specjalnymi](search-query-partial-matching.md).
 
 Jeśli przewidujesz duże użycie operatorów logicznych, co jest bardziej podobne w przypadku indeksów zawierających duże bloki tekstu (pole zawartości lub długie opisy), pamiętaj, aby przetestować zapytania z **`searchMode=Any|All`** parametrem, aby oszacować wpływ tego ustawienia na wyszukiwanie wartości logicznych.
 

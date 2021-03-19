@@ -6,14 +6,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: b468df97f168562f4f5ce9e0e6d6e9a70835648b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589688"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Użyj tożsamości zarządzanej do uwierzytelniania zadania Azure Stream Analytics do Power BI (wersja zapoznawcza)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Za pomocą tożsamości zarządzanej można uwierzytelniać zadanie Azure Stream Analytics w Power BI
 
 [Uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla danych wyjściowych do Power BI daje Stream Analytics zadania bezpośredniego dostępu do obszaru roboczego w ramach konta Power BI. Ta funkcja umożliwia wdrażanie Stream Analytics zadań w pełni zautomatyzowanej, ponieważ nie jest już wymagane, aby użytkownik mógł interakcyjnie zalogować się do Power BI za pośrednictwem Azure Portal. Ponadto, długotrwałe zadania, które zapisują w Power BI są teraz lepiej obsługiwane, ponieważ nie trzeba okresowo ponownie autoryzować zadania.
 

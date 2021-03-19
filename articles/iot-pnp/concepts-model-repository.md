@@ -7,12 +7,12 @@ ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33ff96b4e51dbf80bfdb924bc37786a344cdfdc6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742147"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582650"
 ---
 # <a name="device-models-repository"></a>Repozytorium modeli urządzeń
 
@@ -47,38 +47,50 @@ Wszystkie interfejsy w `dtmi` folderach są również dostępne w publicznym pun
 
 ### <a name="resolve-models"></a>Rozpoznaj modele
 
-Aby programowo uzyskać dostęp do tych interfejsów, należy skonwertować DTMI na ścieżkę względną, której można użyć do wysyłania zapytań do publicznego punktu końcowego.
+Aby programowo uzyskać dostęp do tych interfejsów, możesz użyć `ModelsRepositoryClient` dostępnego w pakiecie NuGet [platformy Azure. IoT. ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository). Ten klient jest domyślnie skonfigurowany do wysyłania zapytań do publicznej DMR dostępnej w usłudze [DeviceModels.Azure.com](https://devicemodels.azure.com/) i można go skonfigurować w dowolnym repozytorium niestandardowym.
 
-Aby skonwertować DTMI na ścieżkę bezwzględną, użyj `DtmiToPath` funkcji z `IsValidDtmi` :
-
-```cs
-static string DtmiToPath(string dtmi)
-{
-    if (!IsValidDtmi(dtmi))
-    {
-        return null;
-    }
-    // dtmi:com:example:Thermostat;1 -> dtmi/com/example/thermostat-1.json
-    return $"/{dtmi.ToLowerInvariant().Replace(":", "/").Replace(";", "-")}.json";
-}
-
-static bool IsValidDtmi(string dtmi)
-{
-    // Regex defined at https://github.com/Azure/digital-twin-model-identifier#validation-regular-expressions
-    Regex rx = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$");
-    return rx.IsMatch(dtmi);
-}
-```
-
-Mając ścieżkę i podstawowy adres URL repozytorium, możemy uzyskać interfejs:
+Klient akceptuje `DTMI` jako dane wejściowe i zwraca słownik ze wszystkimi wymaganymi interfejsami:
 
 ```cs
-const string _repositoryEndpoint = "https://devicemodels.azure.com";
+using Azure.IoT.ModelsRepository;
 
-string dtmiPath = DtmiToPath(dtmi.ToString());
-string fullyQualifiedPath = $"{_repositoryEndpoint}{dtmiPath}";
-string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
+var client = new ModelsRepositoryClient();
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
+
+Oczekiwane dane wyjściowe powinny zawierać `DTMI` trzy interfejsy znajdujące się w łańcuchu zależności:
+
+```txt
+dtmi:com:example:TemperatureController;1
+dtmi:com:example:Thermostat;1
+dtmi:azure:DeviceManagement:DeviceInformation;1
+```
+
+Program `ModelsRepositoryClient` można skonfigurować tak, aby wysyłał zapytania do niestandardowego repozytorium modelu — dostępne za pośrednictwem protokołu HTTP (s) — i określić rozpoznawanie zależności przy użyciu dowolnego dostępnego elementu `ModelDependencyResolution` :
+
+- Wyłączona. Zwraca tylko określony interfejs bez żadnej zależności.
+- Włączona. Zwraca wszystkie interfejsy w łańcuchu zależności
+- TryFromExpanded. Użyj `.expanded.json` pliku, aby pobrać wstępnie obliczone zależności 
+
+> [!Tip] 
+> Niestandardowe repozytoria mogą nie ujawniać `.expanded.json` pliku, gdy nie jest dostępny, klient będzie przetwarzać każdą zależność lokalnie.
+
+Następny przykładowy kod pokazuje, jak zainicjować `ModelsRepositoryClient` za pomocą niestandardowego podstawowego adresu URL repozytorium, w tym przypadku przy użyciu `raw` adresów URL z interfejsu API usługi GitHub bez korzystania z `expanded` formularza — ponieważ nie jest on dostępny w `raw` punkcie końcowym. `AzureEventSourceListener`Jest inicjowane w celu zbadania żądania HTTP wykonywanego przez klienta:
+
+```cs
+using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+
+var client = new ModelsRepositoryClient(
+    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"),
+    new ModelsRepositoryClientOptions(dependencyResolution: ModelDependencyResolution.Enabled));
+
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+```
+
+W ramach kodu źródłowego w repozytorium GitHub zestawu Azure SDK są dostępne więcej przykładów: [Azure. IoT. ModelsRepository/Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples)
 
 ## <a name="publish-a-model"></a>Publikowanie modelu
 

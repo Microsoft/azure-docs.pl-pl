@@ -4,13 +4,13 @@ description: Opisuje sposób tworzenia reguły zbierania danych w celu zbierania
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723643"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586373"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 
@@ -68,6 +68,32 @@ Kliknij pozycję **Dodaj źródło danych** , a następnie **Przejrzyj i Utwórz
 > [!NOTE]
 > Po utworzeniu reguły zbierania danych i skojarzeniach dane będą wysyłane do miejsc docelowych, które mogą upłynąć do 5 minut.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Ograniczanie zbierania danych za pomocą niestandardowych zapytań XPath
+Ze względu na to, że opłaty są naliczone za dane zbierane w Log Analytics obszarze roboczym, należy zebrać tylko te dane, które są wymagane. Korzystając z konfiguracji podstawowej w Azure Portal, masz ograniczoną możliwość filtrowania zdarzeń do zebrania. W przypadku dzienników aplikacji i systemu jest to wszystkie dzienniki o określonej ważności. W przypadku dzienników zabezpieczeń jest to wszystkie pomyślne inspekcje lub wszystkie dzienniki błędów inspekcji.
+
+Aby określić dodatkowe filtry, należy użyć konfiguracji niestandardowej i określić wyrażenie XPath, które filtruje zdarzenia. Wpisy XPath są zapisywane w formularzu `LogName!XPathQuery` . Można na przykład zwrócić tylko zdarzenia z dziennika zdarzeń aplikacji z IDENTYFIKATORem zdarzenia 1035. XPathQuery dla tych zdarzeń `*[System[EventID=1035]]` . Ponieważ chcesz pobrać zdarzenia z dziennika zdarzeń aplikacji, wyrażenie XPath będzie `Application!*[System[EventID=1035]]`
+
+> [!TIP]
+> Użyj polecenia cmdlet programu PowerShell `Get-WinEvent` z `FilterXPath` parametrem, aby sprawdzić poprawność XPathQuery. Poniższy skrypt pokazuje przykład.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Jeśli są zwracane zdarzenia, zapytanie jest prawidłowe.
+> - Jeśli zostanie wyświetlony komunikat, *nie znaleziono zdarzeń pasujących do określonych kryteriów wyboru.* zapytanie może być prawidłowe, ale na komputerze lokalnym nie ma pasujących zdarzeń.
+> - Jeśli zostanie wyświetlony komunikat, *podane zapytanie jest nieprawidłowe* . Składnia zapytania jest nieprawidłowa. 
+
+W poniższej tabeli przedstawiono przykłady filtrowania zdarzeń przy użyciu niestandardowej XPath.
+
+| Opis |  XPath |
+|:---|:---|
+| Zbieraj tylko zdarzenia systemowe z IDENTYFIKATORem zdarzenia = 4648 |  `System!*[System[EventID=4648]]`
+| Zbieraj tylko zdarzenia systemowe z IDENTYFIKATORem zdarzenia = 4648 i nazwą procesu consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Zbierz wszystkie zdarzenia krytyczne, błędu, ostrzeżenia i informacji z dziennika zdarzeń systemu, z wyjątkiem zdarzenia o IDENTYFIKATORze 6 (załadowany sterownik) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Zbierz wszystkie zdarzenia związane z zabezpieczeniami zakończonymi sukcesem i niepowodzeniem z wyjątkiem zdarzenia o IDENTYFIKATORze 4624 (Pomyślne logowanie) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Tworzenie reguły i skojarzenia przy użyciu interfejsu API REST
 
@@ -83,6 +109,8 @@ Wykonaj poniższe kroki, aby utworzyć regułę zbierania danych i skojarzenia p
 ## <a name="create-association-using-resource-manager-template"></a>Utwórz skojarzenie przy użyciu szablonu Menedżer zasobów
 
 Nie można utworzyć reguły zbierania danych przy użyciu szablonu Menedżer zasobów, ale można utworzyć skojarzenie między maszyną wirtualną platformy Azure lub serwerem z obsługą usługi Azure ARC przy użyciu szablonu Menedżer zasobów. Zobacz [przykłady szablonów Menedżer zasobów dla reguł zbierania danych w Azure monitor](./resource-manager-data-collection-rules.md) dla przykładowych szablonów.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

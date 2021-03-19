@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175434"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578808"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -89,7 +89,7 @@ Aby skonfigurować ustawienia aplikacji na podstawie docelowej platformy lub urz
     | **Aplikacja jednostronicowa** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji. Ten identyfikator URI jest lokalizacją, w której platforma tożsamości firmy Microsoft przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę, jeśli tworzysz aplikację sieci Web po stronie klienta za pomocą języka JavaScript lub struktury, takiej jak kątowy, Vue.js, React.js lub Blazor webassembly. |
     | **iOS/macOS** | Wprowadź **Identyfikator pakietu** aplikacji. Znajdź je w **ustawieniach kompilacji** lub w Xcode w *info. plist*.<br/><br/>Podczas określania **identyfikatora pakietu** zostanie wygenerowany identyfikator URI przekierowania. |
     | **Android** | Wprowadź **nazwę pakietu** aplikacji. Znajdź ją w pliku *AndroidManifest.xml* . Wygeneruj również i wprowadź **skrót sygnatury**.<br/><br/>Po określeniu tych ustawień zostanie wygenerowany identyfikator URI przekierowania. |
-    | **Aplikacje mobilne i klasyczne** | Wybierz jeden z **sugerowanych identyfikatorów URI przekierowania**. Lub Określ **niestandardowy identyfikator URI przekierowania**.<br/><br/>W przypadku aplikacji klasycznych zalecamy<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Wybierz tę platformę dla aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystasz z brokera. Należy również wybrać tę platformę dla aplikacji klasycznych. |
+    | **Aplikacje mobilne i klasyczne** | Wybierz jeden z **sugerowanych identyfikatorów URI przekierowania**. Lub Określ **niestandardowy identyfikator URI przekierowania**.<br/><br/>W przypadku aplikacji klasycznych przy użyciu osadzonej przeglądarki zalecamy<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>W przypadku aplikacji klasycznych przy użyciu przeglądarki systemowej zalecamy<br/>`http://localhost`<br/><br/>Wybierz tę platformę dla aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystasz z brokera. Należy również wybrać tę platformę dla aplikacji klasycznych. |
 1. Wybierz pozycję **Konfiguruj** , aby zakończyć konfigurację platformy.
 
 ### <a name="redirect-uri-restrictions"></a>Ograniczenia identyfikatorów URI przekierowania

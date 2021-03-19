@@ -3,12 +3,12 @@ title: Azure Service Bus warstwach Premium i Standard
 description: W tym artykule opisano warstwy Standard i Premium Azure Service Bus. Porównuje te warstwy i zapewnia różnice techniczne.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636513"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607555"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
 
@@ -26,7 +26,7 @@ W poniższej tabeli wyróżniono pewne ogólne różnice.
 | Możliwość skalowania obciążenia |Nie dotyczy |
 | Rozmiar komunikatu do 1 MB. Ten limit może być zgłaszany w przyszłości. Najnowsze ważne aktualizacje usługi znajdują się w temacie [Obsługa komunikatów w blogu platformy Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Rozmiar komunikatu do 256 KB |
 
-**Warstwa Premium komunikatów usługi Service Bus** zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Dla każdej przestrzeni nazw Premium Service Bus można zakupić 1, 2, 4 lub 8 jednostek obsługi komunikatów. Pojedyncze obciążenie lub jednostka mogą obejmować wiele jednostek obsługi komunikatów, a liczba jednostek obsługi komunikatów w programie może zostać zmieniona. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
+**Warstwa Premium komunikatów usługi Service Bus** zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Dla każdej przestrzeni nazw Premium Service Bus można zakupić 1, 2, 4, 8 lub 16 jednostek obsługi komunikatów. Pojedyncze obciążenie lub jednostka mogą obejmować wiele jednostek obsługi komunikatów, a liczba jednostek obsługi komunikatów w programie może zostać zmieniona. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
 Poprawa dotyczy nie tylko przewidywalności i dostępności, ale również szybkości działania. Dzięki komunikatom w warstwie Premium maksymalna szybkość działania jest znacznie wyższa niż w przypadku warstwy Standardowa.
 

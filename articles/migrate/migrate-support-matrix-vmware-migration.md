@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614925"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576785"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi dla migracji oprogramowania VMware
 
@@ -27,14 +27,9 @@ Maszyny wirtualne programu VMware można migrować na kilka sposobów:
 
 Zapoznaj się z [tym artykułem](server-migrate-overview.md) , aby ustalić, która metoda ma być używana.
 
-## <a name="migration-limitations"></a>Ograniczenia migracji
-
-- Można wybrać maksymalnie 10 maszyn wirtualnych do replikacji za pośrednictwem Azure Portal. Jeśli chcesz migrować więcej maszyn, wykonaj replikację w grupach o wartości 10. Nie ma żadnego limitu liczby maszyn wirtualnych, które mogą być replikowane za pośrednictwem poleceń cmdlet programu PowerShell. Nasze zalecenie polega na replikacji nie więcej niż 500 maszyn wirtualnych jednocześnie z jednego programu vCenter za pośrednictwem programu PowerShell w celu zapewnienia optymalnej wydajności.
-- W przypadku migracji programu VMware bez agenta można uruchamiać maksymalnie 500 replikacje jednocześnie na podstawie poszczególnych vCenter Server.
-
 ## <a name="agentless-migration"></a>Migracja bez wykorzystania agentów 
 
-Ta sekcja podsumowuje wymagania dotyczące migracji bez wykorzystania agentów.
+Ta sekcja podsumowuje wymagania dotyczące migracji maszyn wirtualnych VMware bez agentów do platformy Azure.
 
 ### <a name="vmware-requirements-agentless"></a>Wymagania dotyczące oprogramowania VMware (bez wykorzystania agentów)
 
@@ -72,8 +67,11 @@ W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtua
 **Zespoły kart sieciowych** | Nieobsługiwane.
 **Protokół IPv6** | Nieobsługiwane.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
-**Równoczesna replikacja** | 500 maszyn wirtualnych na vCenter Server. Jeśli masz więcej, Migruj je w partiach 500.
+**Równoczesna replikacja** | Do 300 jednocześnie replikowanie maszyn wirtualnych na vCenter Server z 1 urządzeniem. Do 500 jednocześnie replikowanie maszyn wirtualnych na vCenter Server w przypadku wdrożenia dodatkowego [urządzenia skalowalnego](./how-to-scale-out-for-migration.md) w poziomie. 
 **Automatyczna instalacja agenta maszyny wirtualnej platformy Azure (Agent systemu Windows i Linux)** | Obsługiwane w przypadku systemu Windows Server 2008 R2 lub nowszego. <br/> Obsługiwane dla RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Zapoznaj się z listą [wymaganych pakietów](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)dla tych systemów operacyjnych Linux.
+
+> [!TIP]
+>  Korzystając z Azure Portal będzie można wybrać maksymalnie 10 maszyn wirtualnych, aby skonfigurować replikację. Aby replikować więcej maszyn wirtualnych, możesz użyć portalu i dodać maszyny wirtualne do replikacji w wielu partiach 10 maszyn wirtualnych lub użyć interfejsu Azure Migrate PowerShell, aby skonfigurować replikację. Upewnij się, że nie skonfigurowano równoczesnej replikacji na ponad maksymalną obsługiwaną liczbę maszyn wirtualnych na potrzeby jednoczesnych replikacji.
 
 ### <a name="appliance-requirements-agentless"></a>Wymagania dotyczące urządzenia (bez agentów)
 

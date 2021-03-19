@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425706"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595981"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -257,9 +257,17 @@ Używany tylko w przypadku wdrażania w planie Premium lub planu zużycia dział
 
 W przypadku korzystania z Azure Resource Manager do tworzenia aplikacji funkcji podczas wdrażania nie należy dołączać WEBSITE_CONTENTSHARE do szablonu. To ustawienie aplikacji jest generowane podczas wdrażania. Aby dowiedzieć się więcej, zobacz [Automatyzowanie wdrażania zasobów dla aplikacji funkcji](functions-infrastructure-as-code.md#windows).   
 
+## <a name="website_dns_server"></a>\_serwer DNS witryny sieci Web \_
+
+Ustawia serwer DNS używany przez aplikację podczas rozpoznawania adresów IP. To ustawienie jest często wymagane w przypadku korzystania z określonych funkcji sieciowych, takich jak [Azure DNS stref prywatnych](functions-networking-options.md#azure-dns-private-zones) i [prywatnych punktów końcowych](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Klucz|Wartość przykładowa|
+|---|------------|
+|\_serwer DNS witryny sieci Web \_|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>\_Maksymalna \_ \_ \_ SKALOWANIe aplikacji \_ sieci Web w poziomie
 
-Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w poziomie. Wartość domyślna nie jest ograniczona.
+Maksymalna liczba wystąpień, do których aplikacja może skalować w poziomie. Wartość domyślna nie jest ograniczona.
 
 > [!IMPORTANT]
 > To ustawienie jest w wersji zapoznawczej.  Dodano [Właściwość App dla funkcji maksymalnego skalowania w](./event-driven-scaling.md#limit-scale-out) poziomie i jest to zalecany sposób ograniczania skalowania w poziomie.
@@ -297,6 +305,14 @@ Umożliwia ustawienie strefy czasowej dla aplikacji funkcji.
 |\_strefa czasowa witryny sieci Web \_|Linux|Ameryka/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>Sieć wirtualna sieci Web — \_ \_ \_ wszystkie trasy
+
+Wskazuje, czy cały ruch wychodzący z aplikacji jest kierowany za pośrednictwem sieci wirtualnej. Wartość ustawienia `1` wskazuje, że cały ruch jest kierowany przez sieć wirtualną. Tego ustawienia należy użyć w przypadku korzystania z funkcji [integracji regionalnej sieci wirtualnej](functions-networking-options.md#regional-virtual-network-integration). Jest on również używany, gdy [brama NAT sieci wirtualnej jest używana do definiowania statycznego wychodzącego adresu IP](functions-how-to-use-nat-gateway.md). 
+
+|Klucz|Wartość przykładowa|
+|---|------------|
+|Sieć wirtualna sieci Web — \_ \_ \_ wszystkie trasy|1|
 
 ## <a name="next-steps"></a>Następne kroki
 

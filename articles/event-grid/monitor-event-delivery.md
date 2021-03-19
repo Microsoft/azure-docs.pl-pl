@@ -2,36 +2,19 @@
 title: Wyświetlanie metryk Azure Event Grid i Ustawianie alertów
 description: W tym artykule opisano, jak używać Azure Portal do wyświetlania metryk dotyczących Azure Event Grid tematów i subskrypcji, a następnie tworzyć na nich alerty.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f6c119c16452246ec6eeb57ab392b29608938a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577407"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598562"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorowanie dostarczania komunikatów Event Grid 
 W tym artykule opisano, jak używać portalu do wyświetlania metryk dotyczących tematów i subskrypcji Event Grid oraz tworzenia na nich alertów. 
 
-## <a name="metrics"></a>Metryki
-
-W portalu są wyświetlane metryki dotyczące stanu dostarczania komunikatów o zdarzeniach.
-
-W przypadku tematów poniżej przedstawiono niektóre z tych metryk:
-
-* **Publikowanie powiodło się**: zdarzenie zostało pomyślnie wysłane do tematu i przetworzone z odpowiedzią 2xx.
-* **Publikowanie nie powiodło** się: zdarzenie wysłane do tematu, ale odrzucone z kodem błędu.
-* **Niedopasowane**: zdarzenie zostało pomyślnie opublikowane w temacie, ale nie jest zgodne z subskrypcją zdarzeń. Zdarzenie zostało porzucone.
-
-Poniżej przedstawiono niektóre metryki dotyczące subskrypcji:
-
-* **Dostarczenie powiodło się**: zdarzenie zostało pomyślnie dostarczone do punktu końcowego subskrypcji i otrzymało odpowiedź 2xx.
-* **Dostarczenie nie powiodło się**: za każdym razem, gdy usługa próbuje dostarczyć, a procedura obsługi zdarzeń nie zwraca kodu 2xx sukcesu, licznik **niepowodzeń dostarczania** jest zwiększany. Jeśli próba dostarczenia tego samego zdarzenia zostanie przebiegać wielokrotnie i nie powiedzie się, licznik **błąd dostarczania nie** zostanie zwiększony dla każdego błędu.
-* **Wygasłe zdarzenia**: zdarzenie nie zostało dostarczone i wszystkie próby ponowienia zostały wysłane. Zdarzenie zostało porzucone.
-* **Dopasowane zdarzenia**: zdarzenie w temacie zostało dopasowane przez subskrypcję zdarzeń.
-
-    > [!NOTE]
-    > Aby uzyskać pełną listę metryk, zobacz [metryki obsługiwane przez Azure Event Grid](metrics.md).
+> [!IMPORTANT]
+> Listę obsługiwanych metryk Azure Event Grid można znaleźć w temacie [Metrics (metryki](metrics.md)).
 
 ## <a name="view-custom-topic-metrics"></a>Wyświetl metryki tematu niestandardowego
 
@@ -48,15 +31,13 @@ Po opublikowaniu tematu niestandardowego można wyświetlić metryki dla niego.
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Wyświetl metryki zdarzeń":::
 
-Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
+    Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temat — Strona metryk":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temat — Strona metryk":::
 
-Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md)
+    Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarzeń** .
 
-Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarzeń** .
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Metryka opublikowanych zdarzeń":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Metryka opublikowanych zdarzeń":::
 
 
 ## <a name="view-subscription-metrics"></a>Wyświetl metryki subskrypcji
@@ -70,7 +51,7 @@ Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarze
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Wybierz subskrypcję zdarzeń ze strony subskrypcji Event Grid":::        
 
     W przypadku tematów niestandardowych wybierz **Event Grid tematy** jako **Typ tematu**. W obszarze Tematy systemowe wybierz typ zasobu platformy Azure, na przykład **konta magazynu (BLOB, GPv2)**. 
-3. Zapoznaj się z metrykami subskrypcji na stronie głównej subskrypcji na wykresie. Metryki **Ogólne**, **Błędy**, **opóźnienia** i **utraconych liter** można zobaczyć w ciągu ostatnich 1 godziny, 6 godzin, 12 godzin, 1 dzień, 7 dni lub 30 dni. 
+3. Zapoznaj się z metrykami subskrypcji na stronie głównej subskrypcji na wykresie. Możesz wyświetlić metryki **Ogólne**, **Błędy** i **opóźnienia** dla ciągu ostatnich 1 godziny, 6 godzin, 12 godzin, 1 dzień, 7 dni lub 30 dni. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Metryki na stronie głównej subskrypcji":::    
 
@@ -87,12 +68,12 @@ Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarze
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Wyświetl metryki tematu systemu na stronie Przegląd":::
 
-Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
+    Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temat systemu-Strona metryki":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temat systemu-Strona metryki":::
 
-Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md)
-
+    > [!IMPORTANT]
+    > Listę obsługiwanych metryk Azure Event Grid można znaleźć w temacie [Metrics (metryki](metrics.md)).
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:

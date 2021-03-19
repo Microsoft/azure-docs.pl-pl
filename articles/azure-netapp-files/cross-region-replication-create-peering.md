@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249941"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591014"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Utwórz replikację woluminu dla Azure NetApp Files
 
@@ -67,7 +67,7 @@ Możesz również wybrać istniejące konto NetApp w innym regionie.
     * Pula pojemności
     * Przydział woluminu
         > [!NOTE] 
-        > Zaleca się, aby rozmiar woluminu w woluminie źródłowym był dublowany.
+        > Przydział woluminu (rozmiar) woluminu docelowego powinien dublować wolumin źródłowy. W przypadku określenia rozmiaru, który jest mniejszy niż wolumin źródłowy, rozmiar woluminu docelowego zostanie automatycznie zmieniony na rozmiar woluminu źródłowego. 
     * Sieć wirtualna 
     * Podsieć
 
@@ -80,7 +80,7 @@ W przypadku protokołu NFS upewnij się, że reguły eksportowania zasad spełni
 
 8. Na karcie **replikacja** wklej wartość w polu Identyfikator zasobu woluminu źródłowego uzyskany w polu [Znajdź identyfikator zasobu woluminu źródłowego](#locate-the-source-volume-resource-id), a następnie wybierz żądany harmonogram replikacji. Opcje harmonogramu replikacji obejmują: co 10 minut, co godzinę, codziennie, co tydzień i co miesiąc.  
 
-    ![Utwórz replikację woluminu](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
+    ![Tworzenie replikacji woluminu](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
 9. Kliknij przycisk **Przegląd + Utwórz**, a następnie kliknij przycisk **Utwórz** , aby utworzyć wolumin replikacji danych.   
 

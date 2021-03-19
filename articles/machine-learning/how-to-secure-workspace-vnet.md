@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 5031d097b5d1bdef45dd4b653ae7cef06f5daca0
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573663"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584354"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -56,16 +56,12 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 
 Aby uzyskać więcej informacji na temat konfigurowania prywatnego obszaru roboczego łącza, zobacz [jak skonfigurować link prywatny](how-to-configure-private-link.md).
 
+> [!Warning]
+> Zabezpieczanie obszaru roboczego za pomocą prywatnych punktów końcowych nie gwarantuje pełnego zabezpieczenia. Aby zabezpieczyć poszczególne składniki rozwiązania, należy wykonać kroki opisane w dalszej części tego artykułu oraz serię sieci wirtualnej.
+
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Zabezpieczanie kont magazynu platformy Azure za pomocą punktów końcowych usługi
 
 Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. W tej sekcji dowiesz się, jak zabezpieczyć konto usługi Azure Storage za pomocą punktów końcowych usług. W przypadku prywatnych punktów końcowych Zobacz następną sekcję.
-
-> [!IMPORTANT]
-> _Konto magazynu domyślnego_ można umieścić dla Azure Machine Learning lub _kont magazynu innych niż domyślne_ w sieci wirtualnej.
->
-> Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
->
-> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
 
 Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
 
@@ -73,18 +69,18 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
    [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__.
+1. Na stronie konto usługi magazynu wybierz pozycję __Sieć__.
 
-   ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![Obszar sieci na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
+1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
     1. Wybierz pozycję __Wybrane sieci__.
     1. W obszarze __sieci wirtualne__ wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
 
         > [!IMPORTANT]
         > Konto magazynu musi znajdować się w tej samej sieci wirtualnej i podsieci co wystąpienia obliczeniowe lub klastry używane do uczenia lub wnioskowania.
 
-    1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ . Nie spowoduje to przyznania dostępu do konta magazynu wszystkim usługom platformy Azure.
+    1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ . Ta zmiana nie zapewnia dostępu do konta magazynu wszystkim usługom platformy Azure.
     
         * Zasoby niektórych usług, **zarejestrowane w ramach subskrypcji**, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wyboru. Na przykład zapisywanie dzienników lub tworzenie kopii zapasowych.
         * Do zasobów niektórych usług można uzyskać jawny dostęp do konta magazynu, __przypisując rolę platformy Azure__ do zarządzanej tożsamości przypisanej do systemu.
@@ -101,12 +97,12 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Zabezpieczanie kont usługi Azure Storage za pomocą prywatnych punktów końcowych
 
 Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. Jeśli konto magazynu używa prywatnych punktów końcowych, należy skonfigurować dwa prywatne punkty końcowe dla domyślnego konta magazynu:
-1. Prywatny punkt końcowy z zasobem podrzędnym **obiektu BLOB** .
-1. Prywatny punkt końcowy z zasobem podrzędnym **pliku** (dataudziały).
+1. Prywatny punkt końcowy z podzasobem obiektu **BLOB** Target.
+1. Prywatny punkt końcowy z obiektem docelowym **pliku** (dataudziały).
 
 ![Zrzut ekranu przedstawiający stronę konfiguracji prywatnego punktu końcowego z użyciem obiektów blob i opcji plików](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
-Aby skonfigurować prywatny punkt końcowy dla konta magazynu, które **nie** jest domyślnym magazynem, wybierz **docelowy typ zasobu** , który odnosi się do konta magazynu, które chcesz dodać.
+Aby skonfigurować prywatny punkt końcowy dla konta magazynu, które **nie** jest domyślnym magazynem, wybierz **docelowy typ zasobu** , który odpowiada kontu magazynu, które chcesz dodać.
 
 Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md)
 
@@ -118,7 +114,7 @@ Aby uzyskać dostęp do danych przy użyciu zestawu SDK, należy użyć metody u
 
 ### <a name="disable-data-validation"></a>Wyłącz weryfikację danych
 
-Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie poświadczeń podczas próby dostępu do danych za pomocą zestawu SDK. Jeśli dane znajdują się za siecią wirtualną, Azure Machine Learning nie mogą zakończyć tych kontroli. Aby tego uniknąć, należy utworzyć magazyny danych i zestawy DataSet, które pomijają weryfikację.
+Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie poświadczeń podczas próby dostępu do danych za pomocą zestawu SDK. Jeśli dane znajdują się za siecią wirtualną, Azure Machine Learning nie mogą zakończyć tych kontroli. Aby obejść to sprawdzenie, należy utworzyć magazyny danych i zestawy DataSet, które pomijają weryfikację.
 
 ### <a name="use-datastores"></a>Korzystanie z magazynów danych
 
@@ -179,7 +175,7 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
     1. W obszarze __Zezwalaj na dostęp z__, wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
     1. W obszarze __sieci wirtualne__ wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
-    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__.
+    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory__ wybierz pozycję __tak__.
 
    [![Sekcja "zapory i sieci wirtualne" w okienku Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -195,7 +191,13 @@ Aby używać Azure Container Registry wewnątrz sieci wirtualnej, należy spełn
 
     Gdy ACR znajduje się za siecią wirtualną, Azure Machine Learning nie może użyć jej do bezpośredniego tworzenia obrazów platformy Docker. Zamiast tego klaster obliczeniowy jest używany do kompilowania obrazów.
 
+    > [!IMPORTANT]
+    > Klaster obliczeniowy służący do tworzenia obrazów platformy Docker musi mieć możliwość uzyskania dostępu do repozytoriów pakietów, które są używane do uczenia i wdrożenia modeli. Może być konieczne dodanie reguł zabezpieczeń sieci, które zezwalają na dostęp do repozytoriów publicznych, [Używanie prywatnych pakietów języka Python](how-to-use-private-python-packages.md)lub używanie [niestandardowych obrazów platformy Docker](how-to-train-with-custom-image.md) , które zawierają już pakiety.
+
 Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure Container Registry.
+
+> [!TIP]
+> Jeśli nie korzystasz z istniejącego Azure Container Registry podczas tworzenia obszaru roboczego, jeden z nich może nie istnieć. Domyślnie obszar roboczy nie utworzy wystąpienia ACR, dopóki nie będzie potrzebne. Aby wymusić utworzenie jednego z nich, nauczenie lub wdrożenie modelu przy użyciu obszaru roboczego przed wykonaniem kroków opisanych w tej sekcji.
 
 1. Znajdź nazwę Azure Container Registry w obszarze roboczym, korzystając z jednej z następujących metod:
 
@@ -217,6 +219,8 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
 
 1. Ogranicz dostęp do sieci wirtualnej, wykonując czynności opisane w sekcji [Konfigurowanie dostępu do sieci dla rejestru](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Podczas dodawania sieci wirtualnej wybierz sieć wirtualną i podsieć dla zasobów Azure Machine Learning.
 
+1. Skonfiguruj ACR dla obszaru roboczego, aby [zezwolić na dostęp za pomocą zaufanych usług](../container-registry/allow-access-trusted-services.md).
+
 1. Użyj Azure Machine Learning Python SDK, aby skonfigurować klaster obliczeniowy do tworzenia obrazów platformy Docker. Poniższy fragment kodu ilustruje, jak to zrobić:
 
     ```python
@@ -225,6 +229,8 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]

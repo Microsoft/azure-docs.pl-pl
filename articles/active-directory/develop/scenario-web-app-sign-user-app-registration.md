@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103196"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578281"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji
 
@@ -94,6 +94,21 @@ Domyślnie użycie przykładu:
    1. Wybierz czas trwania klucza **w 1 roku**.
    1. Wybierz pozycję **Dodaj**.
    1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją do nowszej wersji. Ta wartość nie będzie ponownie wyświetlana ani nie można jej pobrać w inny sposób.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
+   1. Wprowadź **nazwę** aplikacji, na przykład `node-webapp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+   1. Zmień **obsługiwane typy kont** na **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**.
+   1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: `http://localhost:3000/redirect` .
+   1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
+1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji dla tego projektu.
+1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
+1. W sekcji wpisy **tajne klienta** wybierz pozycję **nowy klucz tajny klienta**, a następnie:
+   1. Wprowadź opis klucza.
+   1. Wybierz kluczowy czas trwania wynoszący **1 rok**.
+   1. Wybierz pozycję **Dodaj**.
+   1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją. Będzie on potrzebny później.
 
 # <a name="python"></a>[Python](#tab/python)
 
