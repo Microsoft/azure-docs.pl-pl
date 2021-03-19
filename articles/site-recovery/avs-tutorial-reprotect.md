@@ -9,17 +9,17 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 80ff2f3f3d5fdcf61770889dcdaaf075941b90ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814593"
 ---
 # <a name="reprotect-from-azure-to-azure-vmware-solution-private-cloud"></a>Ponowne włączanie ochrony z platformy Azure do chmury prywatnej w rozwiązaniu VMware platformy Azure
 
 Po przejściu w [tryb failover](avs-tutorial-failover.md) maszyn wirtualnych rozwiązania Azure VMware do platformy Azure pierwszy krok w przypadku powrotu po awarii do chmury prywatnej rozwiązania Azure VMware to ponowne włączenie ochrony maszyn wirtualnych platformy Azure, które zostały utworzone podczas pracy w trybie failover. W tym artykule opisano, jak to zrobić. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 1. Wykonaj kroki opisane w [tym artykule](vmware-azure-prepare-failback.md) , aby przygotować się do ponownej ochrony i powrotu po awarii, w tym konfigurowania serwera przetwarzania na platformie Azure oraz głównego serwera docelowego chmury platformy Azure VMware oraz konfigurowania sieci VPN typu lokacja-lokacja lub ExpressRoute prywatnej komunikacji równorzędnej na potrzeby powrotu po awarii.
 2. Upewnij się, że serwer konfiguracji chmury prywatnej platformy Azure VMware jest uruchomiony i połączony z platformą Azure. Podczas powrotu po awarii maszyna wirtualna musi znajdować się w bazie danych serwera konfiguracji. W przeciwnym razie powrót po awarii nie powiedzie się.
@@ -59,10 +59,10 @@ Włącz replikację. Można ponownie włączyć ochronę określonych maszyn wir
 
 Włącz ponownie ochronę w następujący sposób:
 
-1. Wybierz **Vault**pozycję  >  **zreplikowane elementy**magazynu. Kliknij prawym przyciskiem myszy maszynę wirtualną, która przełączona w tryb failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Lub z przycisków poleceń wybierz maszynę, a następnie wybierz pozycję **Włącz ponownie ochronę**.
+1. Wybierz pozycję  >  **zreplikowane elementy** magazynu. Kliknij prawym przyciskiem myszy maszynę wirtualną, która przełączona w tryb failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Lub z przycisków poleceń wybierz maszynę, a następnie wybierz pozycję **Włącz ponownie ochronę**.
 2. Upewnij się, że wybrano kierunek ochrony na **platformie Azure do lokalnego** .
-3. Na **głównym serwerze docelowym** i **serwerze przetwarzania**wybierz lokalny główny serwer docelowy i serwer przetwarzania.  
-4. W obszarze **Magazyn**danych wybierz magazyn danych, do którego chcesz odzyskać dyski w rozwiązaniu VMware platformy Azure. Ta opcja jest używana, gdy maszyna wirtualna rozwiązania Azure VMware jest usuwana i konieczne jest utworzenie nowych dysków. Ta opcja jest ignorowana, jeśli dyski już istnieją. Nadal trzeba określić wartość.
+3. Na **głównym serwerze docelowym** i **serwerze przetwarzania** wybierz lokalny główny serwer docelowy i serwer przetwarzania.  
+4. W obszarze **Magazyn** danych wybierz magazyn danych, do którego chcesz odzyskać dyski w rozwiązaniu VMware platformy Azure. Ta opcja jest używana, gdy maszyna wirtualna rozwiązania Azure VMware jest usuwana i konieczne jest utworzenie nowych dysków. Ta opcja jest ignorowana, jeśli dyski już istnieją. Nadal trzeba określić wartość.
 5. Wybierz dysk przechowywania.
 6. Zasady powrotu po awarii są wybierane automatycznie.
 7. Wybierz **przycisk OK** , aby rozpocząć reochronę.

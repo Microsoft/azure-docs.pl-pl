@@ -4,10 +4,10 @@ description: Użyj Azure Backup Server (serwera usługi MAB), aby przywrócić m
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263524"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Przywróć maszyny wirtualne VMware
@@ -38,9 +38,9 @@ W tym artykule wyjaśniono, jak używać Microsoft Azure Backup Server (serwera 
 
 6. Aby włączyć ograniczanie przepustowości sieci, na ekranie **Określ opcje odzyskiwania** wybierz pozycję **Modyfikuj**. Aby wyłączyć funkcję ograniczania przepustowości sieci, wybierz pozycję **dalej**. Dla maszyn wirtualnych VMware nie są dostępne żadne inne opcje na tym ekranie kreatora. Jeśli zdecydujesz się zmodyfikować przepustowość sieci, w oknie dialogowym ograniczenia wybierz opcję **Włącz ograniczenie przepustowości sieci** , aby je włączyć. Po włączeniu Skonfiguruj **Ustawienia** i **harmonogram pracy**.
 
-7. Na ekranie **Wybieranie typu odzyskiwania** wybierz, czy chcesz odzyskać do oryginalnego wystąpienia, czy też do nowej lokalizacji. Następnie wybierz pozycję **Dalej**.
+7. Na ekranie **Wybieranie typu odzyskiwania** wybierz, czy chcesz odzyskać do oryginalnego wystąpienia, czy też do nowej lokalizacji. Następnie wybierz przycisk **Dalej**.
 
-     * W przypadku wybrania opcji **Odzyskaj do oryginalnego wystąpienia**nie trzeba wprowadzać więcej opcji w kreatorze. Dane dla oryginalnego wystąpienia są używane.
+     * W przypadku wybrania opcji **Odzyskaj do oryginalnego wystąpienia** nie trzeba wprowadzać więcej opcji w kreatorze. Dane dla oryginalnego wystąpienia są używane.
 
      * Jeśli wybierzesz opcję **Odzyskaj jako maszynę wirtualną na dowolnym hoście**, na ekranie **określ miejsce docelowe** podaj informacje dotyczące **hosta ESXi, puli zasobów, folderu** i **ścieżki**.
 

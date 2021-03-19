@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898456"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>PCA-Based moduł wykrywania anomalii
@@ -54,11 +54,11 @@ Aby uzyskać więcej informacji o działaniu UPW oraz o implementacji wykrywania
 
 4. Określ ilość przepróbkowania do wykonania podczas losowego szkolenia ASYSTENTa. W przypadku problemów z wykrywaniem anomalii niezrównoważone dane utrudniają stosowanie standardowych technik UPW. Określając pewną ilość przepróbkowania, można zwiększyć liczbę wystąpień docelowych.
 
-    W przypadku określenia **1**Przepróbkowanie jest wykonywane. W przypadku określenia wartości większej niż **1**dodatkowe przykłady są generowane do użycia podczas uczenia modelu.
+    W przypadku określenia **1** Przepróbkowanie jest wykonywane. W przypadku określenia wartości większej niż **1** dodatkowe przykłady są generowane do użycia podczas uczenia modelu.
 
     Dostępne są dwie opcje, w zależności od tego, czy używasz odchylenia parametrów, czy nie:
 
-    - **Parametr z próbką dla losowych asystentów**samodzielnych: Wpisz pojedynczą liczbę całkowitą, która reprezentuje stosunek przekroczenia próbkowania klasy mniejszości w normalnej klasie. (Ta opcja jest dostępna w przypadku korzystania z metody szkolenia **jednego parametru** ).
+    - **Parametr z próbką dla losowych asystentów** samodzielnych: Wpisz pojedynczą liczbę całkowitą, która reprezentuje stosunek przekroczenia próbkowania klasy mniejszości w normalnej klasie. (Ta opcja jest dostępna w przypadku korzystania z metody szkolenia **jednego parametru** ).
 
     > [!NOTE]
     > Nie można wyświetlić przepróbkowanego zestawu danych. Aby uzyskać więcej informacji na temat przewyższania próbkowania, zobacz [Uwagi techniczne](#technical-notes).

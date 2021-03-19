@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68883836"
 ---
 ## <a name="create-a-module-identity"></a>Tworzenie tożsamości modułu
@@ -23,7 +23,7 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
 
 1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt**.
 
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**.
 
 1. Wybierz pozycję **dalej** , aby otworzyć okno **Konfigurowanie nowego projektu**. Nadaj projektowi nazwę *CreateIdentities*, a rozwiązaniu *IoTHubGetStarted*. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
 
@@ -35,7 +35,7 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
 
     ![Zainstaluj bieżącą wersję zestawu SDK usługi .NET IoT Hub platformy Azure](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
    ```csharp
    using Microsoft.Azure.Devices;

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039618"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586339"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
@@ -81,6 +81,10 @@ Poniższa zasada zbierania danych przykładowych dotyczy maszyn wirtualnych z us
   - Zbiera zdarzenia alertu, krytyczne i awaryjne z funkcji dziennika systemowego.
 - Miejsca docelowe
   - Wysyła wszystkie dane do obszaru roboczego Log Analytics o nazwie centralWorkspace.
+
+> [!NOTE]
+> Aby uzyskać wyjaśnienie XPath, które są używane do określania kolekcji zdarzeń w regułach zbierania danych, zobacz [Ograniczanie zbierania danych za pomocą niestandardowych zapytań XPath](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
+
 
 ```json
 {

@@ -3,14 +3,14 @@ title: Tworzenie węzłów wirtualnych przy użyciu portalu w usłudze Azure Kub
 description: Dowiedz się, jak za pomocą Azure Portal utworzyć klaster usługi Azure Kubernetes Services (AKS), który używa węzłów wirtualnych do uruchamiania tego programu.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577833"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
 
@@ -54,15 +54,15 @@ W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób**  >  **Kube
 Na stronie **Podstawowe** skonfiguruj następujące opcje:
 
 - *SZCZEGÓŁY PROJEKTU*: wybierz subskrypcję platformy Azure, a następnie wybierz lub utwórz grupę zasobów platformy Azure, taką jak *myResourceGroup*. Wprowadź **nazwę klastra Kubernetes**, taką jak *myAKSCluster*.
-- *SZCZEGÓŁY KLASTRA*: wybierz region, wersję platformy Kubernetes i prefiks nazwy DNS dla klastra usługi AKS.
+- *Szczegóły klastra*: Wybierz region i wersję Kubernetes dla klastra AKS.
 - *Pula węzłów podstawowych*: Wybierz rozmiar maszyny wirtualnej dla węzłów AKS. Rozmiar maszyny wirtualnej **nie może** zostać zmieniony po wdrożeniu klastra AKS.
      - Wybierz liczbę węzłów do wdrożenia w klastrze. W tym artykule Ustaw **liczbę węzłów** na *1*. Liczbę węzłów **można** dostosować po wdrożeniu klastra.
 
-Kliknij przycisk **Dalej: Skaluj**.
+Kliknij przycisk **Dalej: pule węzłów**.
 
-Na stronie **Skala** wybierz pozycję *włączone* w obszarze **węzły wirtualne**.
+Na stronie **Pule węzłów** wybierz opcję *Włącz węzły wirtualne*.
 
-![Utwórz klaster AKS i Włącz węzły wirtualne](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="W przeglądarce programu przedstawiono tworzenie klastra z węzłami wirtualnymi włączonymi na Azure Portal. Opcja &quot;Włącz węzły wirtualne&quot; jest wyróżniona.":::
 
 Domyślnie tworzona jest tożsamość klastra. Ta tożsamość klastra służy do komunikacji klastra i integracji z innymi usługami platformy Azure. Domyślnie ta tożsamość klastra jest tożsamością zarządzaną. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md). Można również użyć nazwy głównej usługi jako tożsamości klastra.
 
@@ -158,7 +158,7 @@ Pod przypisywany jest wewnętrzny adres IP z podsieci sieci wirtualnej platformy
 Aby przetestować pod kątem działania w węźle wirtualnym, przejdź do aplikacji demonstracyjnej za pomocą klienta sieci Web. Jako że pod przypisywanym wewnętrznym adresem IP można szybko przetestować to połączenie z innego elementu pod względem klastra AKS. Utwórz test pod i Dołącz do niego sesję terminalu:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Zainstaluj `curl` w temacie using `apt-get` :

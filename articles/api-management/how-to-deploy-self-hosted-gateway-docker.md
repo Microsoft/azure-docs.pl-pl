@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82205094"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Wdrażanie bramy samohostowanej na platformie Azure API Management w usłudze Docker
@@ -39,7 +39,7 @@ W tym artykule przedstawiono kroki wdrażania samoobsługowego składnika bramy 
 2. Wybierz zasób bramy, który ma zostać wdrożony.
 3. Wybierz pozycję **wdrożenie**.
 4. Należy zauważyć, że token dostępu w polu tekstowym **token** został wygenerowany automatycznie przy użyciu domyślnych wartości kluczy **wygaśnięcia** i **tajnych** . W razie potrzeby wybierz odpowiednie wartości w jednej lub obu kontrolkach, aby wygenerować nowy token.
-4. Upewnij się, że w obszarze **Skrypty wdrażania**wybrano **platformę Docker** .
+4. Upewnij się, że w obszarze **Skrypty wdrażania** wybrano **platformę Docker** .
 5. Wybierz łącze plik **ENV. conf** obok **środowiska** , aby pobrać plik.
 6. Wybierz ikonę **Kopiuj** znajdującą się po prawej stronie pola tekstowego **Uruchom** , aby skopiować polecenie Docker do Schowka.
 7. Wklej polecenie do okna terminalu (lub polecenia). Dostosuj mapowania portów i nazwę kontenera odpowiednio do wymagań. Należy pamiętać, że polecenie założono, że pobrany plik środowiska znajduje się w bieżącym katalogu.

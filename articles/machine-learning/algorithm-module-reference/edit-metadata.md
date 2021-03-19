@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
 ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908048"
 ---
 # <a name="edit-metadata-module"></a>Edytuj moduł metadanych
@@ -46,7 +46,7 @@ Typowe zmiany metadanych mogą obejmować:
   
 1. Wybierz opcję **Typ danych** , jeśli musisz przypisać inny typ danych do wybranych kolumn. Może zajść potrzeba zmiany typu danych dla niektórych operacji. Na przykład, Jeśli źródłowy zestaw danych zawiera liczby obsługiwane jako tekst, należy zmienić je na typ danych liczbowych przed użyciem operacji matematycznych.
 
-    + Obsługiwane typy danych to **String**, **Integer**, **Double**, **Boolean**i **DateTime**.
+    + Obsługiwane typy danych to **String**, **Integer**, **Double**, **Boolean** i **DateTime**.
 
     + W przypadku wybrania wielu kolumn należy zastosować zmiany metadanych do *wszystkich* zaznaczonych kolumn. Załóżmy na przykład, że wybierasz dwie lub trzy kolumny liczbowe. Wszystkie te elementy można zmienić na dane typu String i zmienić ich nazwy w jednej operacji. Nie można jednak zmienić jednej kolumny na typ danych ciągu i innej kolumny z wartości zmiennoprzecinkowej na liczbę całkowitą.
   
@@ -87,7 +87,7 @@ Typowe zmiany metadanych mogą obejmować:
   
          Obecnie nie można jawnie oznaczyć kolumny jako wyniku w Azure Machine Learning. Jednak niektóre operacje powodują, że kolumna jest oflagowana jako wynik wewnętrznie. Ponadto niestandardowy moduł języka R może wyprowadzać wartości wyniku.
 
-1. Dla **nowych nazw kolumn**wprowadź nową nazwę zaznaczonej kolumny lub kolumny.  
+1. Dla **nowych nazw kolumn** wprowadź nową nazwę zaznaczonej kolumny lub kolumny.  
   
     + Nazwy kolumn mogą zawierać tylko znaki obsługiwane przez kodowanie UTF-8. Puste ciągi, wartości null lub nazwy składające się wyłącznie z spacji nie są dozwolone.  
   

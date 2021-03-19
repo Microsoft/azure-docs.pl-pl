@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.custom: include file
 ms.openlocfilehash: 3d5f07ee5262832097bf2b178f3be2fa79d5a5a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67183695"
 ---
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
+> * [Witryna Azure Portal](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure](../articles/data-lake-analytics/data-lake-analytics-manage-use-cli.md)
 > * [Program PowerShell](../articles/data-lake-analytics/data-lake-analytics-manage-use-powershell.md)
 > * [Java](../articles/data-lake-analytics/data-lake-analytics-manage-use-java-sdk.md)

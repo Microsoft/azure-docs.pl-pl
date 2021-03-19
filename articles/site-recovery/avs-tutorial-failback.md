@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: fb14e647d3444f2f0d0cb86901f93582a18848f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814587"
 ---
 # <a name="fail-back-vms-to-azure-vmware-solution-private-cloud"></a>Powrót po awarii maszyn wirtualnych do chmury prywatnej rozwiązania Azure VMware
@@ -33,12 +33,12 @@ W tym artykule opisano, jak przeprowadzić powrót po awarii maszyn wirtualnych 
 1. Upewnij się, że maszyny wirtualne platformy Azure są ponownie chronione i replikowane do chmury prywatnej rozwiązania Azure VMware.
     - Maszyna wirtualna musi mieć co najmniej jeden punkt odzyskiwania w celu powrotu po awarii.
     - W przypadku powrotu po awarii planu odzyskiwania wszystkie maszyny w planie powinny mieć co najmniej jeden punkt odzyskiwania.
-2. W magazynie > **zreplikowane elementy**wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **niezaplanowaną pracę w trybie failover**.
-3. W obszarze **Potwierdź tryb failover**sprawdź kierunek trybu failover (z platformy Azure).
+2. W magazynie > **zreplikowane elementy** wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **niezaplanowaną pracę w trybie failover**.
+3. W obszarze **Potwierdź tryb failover** sprawdź kierunek trybu failover (z platformy Azure).
 4. Wybierz punkt odzyskiwania, którego chcesz użyć podczas pracy w trybie failover.
     - Zalecamy korzystanie z **najnowszego** punktu odzyskiwania. Punkt spójności aplikacji jest za ostatnim punktem w czasie i powoduje utratę danych.
     - **Najnowsza** to punkt odzyskiwania spójny na poziomie awarii.
-    - W przypadku **najnowszej wersji**maszyny wirtualnej przechodzi w tryb failover do najnowszego dostępnego punktu w czasie. Jeśli istnieje grupa replikacji dla spójności wielodostępnej w ramach planu odzyskiwania, każda maszyna wirtualna w grupie przejdzie w tryb failover do jego niezależnego ostatniego punktu w czasie.
+    - W przypadku **najnowszej wersji** maszyny wirtualnej przechodzi w tryb failover do najnowszego dostępnego punktu w czasie. Jeśli istnieje grupa replikacji dla spójności wielodostępnej w ramach planu odzyskiwania, każda maszyna wirtualna w grupie przejdzie w tryb failover do jego niezależnego ostatniego punktu w czasie.
     - Jeśli używasz punktu odzyskiwania spójnego na poziomie aplikacji, każda maszyna wirtualna przechodzi do ostatniego dostępnego punktu. Jeśli plan odzyskiwania ma grupę replikacji, każda grupa odzyska do swojego wspólnego dostępnego punktu odzyskiwania.
 5. Rozpoczynanie pracy w trybie failover. Site Recovery wyłącza maszyny wirtualne platformy Azure.
 6. Po zakończeniu pracy w trybie failover Sprawdź, czy wszystko działa zgodnie z oczekiwaniami. Sprawdź, czy maszyny wirtualne platformy Azure są zamknięte. 
@@ -54,7 +54,7 @@ W tym artykule opisano, jak przeprowadzić powrót po awarii maszyn wirtualnych 
 
 Po potwierdzeniu powrotu po awarii maszyny wirtualne platformy Azure zostaną usunięte. Maszyna wirtualna jest ponownie w chmurze prywatnej rozwiązania Azure VMware, ale nie jest chroniona. Aby ponownie rozpocząć replikowanie maszyn wirtualnych do platformy Azure w następujący sposób:
 
-1. W magazynie > **zreplikowane elementy**wybierz pozycję zaplecze maszyny wirtualne, a następnie wybierz pozycję **Włącz ponownie ochronę**.
+1. W magazynie > **zreplikowane elementy** wybierz pozycję zaplecze maszyny wirtualne, a następnie wybierz pozycję **Włącz ponownie ochronę**.
 2. Określ serwer przetwarzania, który jest używany do wysyłania danych z powrotem do platformy Azure.
 3. Wybierz **przycisk OK** , aby rozpocząć zadanie ponownego włączania ochrony.
 

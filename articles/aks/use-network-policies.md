@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zabezpieczyć ruch przepływający do i z zasobników przy użyciu zasad sieciowych Kubernetes w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178902"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577856"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Zabezpieczanie ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -181,9 +181,13 @@ Zasady sieci Calico z węzłami systemu Windows są obecnie dostępne w wersji z
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Utwórz nazwę użytkownika do użycia jako poświadczenia administratora dla kontenerów systemu Windows Server w klastrze. Następujące polecenia monitują o podanie nazwy użytkownika i ustawienie jej WINDOWS_USERNAME do użycia w późniejszym poleceniu (należy pamiętać, że polecenia w tym artykule są wprowadzane do powłoki BASH).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,8 +199,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Odrzuć cały ruch przychodzący do pod
 
-Przed zdefiniowaniem reguł zezwalających na określony ruch sieciowy należy najpierw utworzyć zasady sieciowe, aby odmówić całego ruchu. Te zasady zapewniają punkt początkowy, od którego należy zacząć tworzyć listę dozwolonych tylko dla żądanego ruchu. Możesz również jasno zobaczyć, że ruch zostanie porzucony podczas stosowania zasad sieciowych.
+Przed zdefiniowaniem reguł zezwalających na określony ruch sieciowy należy najpierw utworzyć zasady sieciowe, aby odmówić całego ruchu. Ta zasada umożliwia rozpoczęcie tworzenia dozwolonych tylko dla żądanego ruchu sieciowego. Możesz również jasno zobaczyć, że ruch zostanie porzucony podczas stosowania zasad sieciowych.
 
 W przypadku przykładowych zasad dotyczących środowiska aplikacji i ruchu Utwórzmy najpierw przestrzeń nazw o nazwie *programowanie* , aby uruchomić przykładowe zasobniki:
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 Utwórz przykładowy przykład zaplecza z systemem NGINX. Tego zaplecza można użyć, aby symulować przykładową aplikację opartą na sieci Web zaplecza. Utwórz ten obszar w przestrzeni nazw *Development* i otwórz port *80* w celu obsługi ruchu w sieci Web. Oznacz element pod za pomocą *aplikacji App = webapp, role = zaplecza* , tak aby można było określić go przy użyciu zasad sieciowych w następnej sekcji:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Utwórz kolejną stronę pod i Dołącz sesję terminalową, aby sprawdzić, czy można pomyślnie uzyskać dostęp do domyślnej strony sieci Web NGINX:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby potwierdzić, że możesz uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 Sprawdźmy, czy można ponownie użyć strony sieci Web NGINX na zapleczu. Utwórz inny test pod i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx. Tym razem ustaw wartość limitu czasu na *2* sekundy. Zasady sieciowe blokują teraz cały ruch przychodzący, więc nie można załadować strony, jak pokazano w następującym przykładzie:
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 Zaplanuj pod nazwą *App = webapp, role = fronton* i Dołącz sesję terminalową:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -383,7 +386,7 @@ exit
 Zasady sieciowe zezwalają na ruch z aplikacji z nazwami oznaczonymi etykietą *App: webapp, role: fronton*, ale powinny odrzucać cały ruch. Przetestujmy, aby sprawdzić, czy inny pod bez etykiet nie może uzyskać dostępu do NGINX zaplecza pod. Utwórz inny test pod i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx. Zasady sieciowe blokują ruch przychodzący, więc nie można załadować strony, jak pokazano w następującym przykładzie:
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 Zaplanuj test pod w przestrzeni nazw *produkcyjny* , który jest oznaczony jako *App = webapp, role = fronton*. Dołącz sesję terminalową:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby potwierdzić, że możesz uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 Zaplanuj inny element pod w przestrzeni nazw *produkcyjnej* i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, że zasady sieciowe odrzucają teraz ruch:
@@ -502,7 +505,7 @@ exit
 Mając odmowę ruchu z przestrzeni nazw *produkcyjnej* , Zaplanuj test na odwrocie w przestrzeni nazw *deweloperskiej* i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, że zasady sieciowe zezwalają na ruch:

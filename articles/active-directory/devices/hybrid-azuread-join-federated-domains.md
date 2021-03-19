@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a455e1ee6f8f714cf50ebdf6a59dab568489ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 221b7bdbb8ab5d0121e9c8032be8f18d8ae60d1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646303"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578060"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen federacyjnych
 
@@ -85,6 +85,9 @@ Hybrydowe dołączenie usługi Azure AD wymaga, aby urządzenia miały dostęp d
 > Jeśli Twoja organizacja korzysta z serwerów proxy, które przechwytuje ruch SSL w scenariuszach takich jak ochrona przed utratą danych lub ograniczenia dzierżawy usługi Azure AD, upewnij się, że ruch do elementu " https://device.login.microsoftonline.com " jest wykluczony z funkcji Break-and-Inspekcja TLS. Niepowodzenie wykluczenia " https://device.login.microsoftonline.com " może spowodować zakłócenia przy użyciu uwierzytelniania certyfikatu klienta, powodując problemy dotyczące rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach.
 
 Począwszy od systemu Windows 10 1803, jeśli natychmiastowe dołączenie hybrydowej usługi Azure AD dla środowiska federacyjnego przy użyciu AD FS nie powiedzie się, korzystamy Azure AD Connect do synchronizowania obiektu komputera w usłudze Azure AD, który jest następnie używany do ukończenia rejestracji urządzenia dla hybrydowego sprzężenia usługi Azure AD. Sprawdź, czy Azure AD Connect synchronizuje obiekty komputerów urządzeń, które mają być przyłączone do usługi Azure AD jako hybrydowe. Jeśli obiekty komputera należą do określonych jednostek organizacyjnych (OU), należy również skonfigurować jednostki organizacyjne do synchronizacji w Azure AD Connect. Aby dowiedzieć się więcej o synchronizowaniu obiektów komputerów za pomocą Azure AD Connect, zobacz [Konfigurowanie filtrowania przy użyciu Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+
+> [!NOTE]
+> Aby uzyskać powodzenie przyłączenia synchronizacji rejestracji urządzeń w ramach konfiguracji rejestracji urządzenia, nie należy wykluczać domyślnych atrybutów urządzenia z konfiguracji synchronizacji Azure AD Connect. Aby dowiedzieć się więcej o domyślnych atrybutach urządzenia synchronizowanych do usługi AAD, zobacz [atrybuty synchronizowane przez Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem serwera proxy wychodzącego, firma Microsoft zaleca [zaimplementowanie funkcji autowykrywania serwera proxy sieci Web (WPAD)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) w celu umożliwienia komputerom z systemem Windows 10 rejestracji urządzeń w usłudze Azure AD. Jeśli wystąpią problemy podczas konfigurowania usługi WPAD i zarządzania nią, zobacz [Rozwiązywanie problemów z automatycznym wykryciem](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 

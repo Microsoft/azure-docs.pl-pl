@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
 ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90893704"
 ---
 # <a name="score-svd-recommender"></a>Wynik modułu poleceń SVD
@@ -45,7 +45,7 @@ Podczas przewidywania klasyfikacji model oblicza sposób, w jaki użytkownik rea
 
 1. Dodaj przeszkolony model rekomendacji do potoku, a następnie połącz go z **polecanym rozwiązaniem SVD**. Należy utworzyć model przy użyciu modułu [polecający SVD](train-SVD-recommender.md) .
 
-2. W przypadku **typu przewidywania polecania**wybierz pozycję **Prognoza klasyfikacji**. Nie są wymagane żadne inne parametry.
+2. W przypadku **typu przewidywania polecania** wybierz pozycję **Prognoza klasyfikacji**. Nie są wymagane żadne inne parametry.
 
 3. Dodaj dane, dla których chcesz dokonać prognoz, i połącz je z **zestawem danych w celu oceny**.
 
@@ -67,7 +67,7 @@ Aby zalecać elementy dla użytkowników, należy podać listę użytkowników i
 
 2. Aby zalecać elementy dla listy użytkowników, należy ustawić **rekomendację** **rodzajową polecania** dla elementu.
 
-3. W przypadku **zalecanego wyboru elementów**wskaż, czy używasz modułu oceniania w środowisku produkcyjnym, czy do oceny modelu. Wybierz jedną z następujących wartości:
+3. W przypadku **zalecanego wyboru elementów** wskaż, czy używasz modułu oceniania w środowisku produkcyjnym, czy do oceny modelu. Wybierz jedną z następujących wartości:
 
     - **Z wszystkich elementów**: Wybierz tę opcję, jeśli konfigurujesz potok do użycia w usłudze sieci Web lub w środowisku produkcyjnym.  Ta opcja włącza *tryb produkcyjny*. Moduł wykonuje zalecenia ze wszystkich elementów widzianych podczas szkolenia.
 
@@ -77,7 +77,7 @@ Aby zalecać elementy dla użytkowników, należy podać listę użytkowników i
 
 4. Dodaj zestaw danych, dla którego chcesz dokonać prognoz, a następnie połącz go z **zestawem danych w celu oceny**.
 
-    - Dla **wszystkich elementów**wejściowy zestaw danych powinien zawierać jedną kolumnę. Zawiera identyfikatory użytkowników, dla których należy wykonać zalecenia.
+    - Dla **wszystkich elementów** wejściowy zestaw danych powinien zawierać jedną kolumnę. Zawiera identyfikatory użytkowników, dla których należy wykonać zalecenia.
 
       Zestaw danych może zawierać dodatkowe dwie kolumny identyfikatorów i ocen elementów, ale te dwie kolumny są ignorowane. 
 

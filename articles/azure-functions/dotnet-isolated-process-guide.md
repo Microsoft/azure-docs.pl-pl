@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561825"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584707"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Przewodnik dotyczący uruchamiania funkcji na platformie .NET 5,0 na platformie Azure
 
@@ -47,7 +47,7 @@ Projekt funkcji izolowanej .NET jest zasadniczo projektem aplikacji konsolowej .
 + [host.js](functions-host-json.md) pliku.
 + [local.settings.js](functions-run-local.md#local-settings-file) pliku.
 + Plik projektu C# (. csproj), który definiuje projekt i zależności.
-+ Plik Program.cs, który jest punktem wejścia dla aplikacji.
++ Plik programu program. cs jest punktem wejścia dla aplikacji.
 
 ## <a name="package-references"></a>Odwołania do pakietu
 
@@ -68,7 +68,7 @@ Te pakiety rozszerzeń znajdują się w sekcji [Microsoft. Azure. Functions. Wor
 
 ## <a name="start-up-and-configuration"></a>Rozpoczęcie i konfiguracja 
 
-W przypadku korzystania z funkcji izolowanych przez platformę .NET masz dostęp do uruchamiania aplikacji funkcji, która zwykle znajduje się w Program.cs. Użytkownik jest odpowiedzialny za tworzenie i uruchamianie własnego wystąpienia hosta. W związku z tym masz również bezpośredni dostęp do potoku konfiguracji aplikacji. Można znacznie łatwiej wstrzyknąć zależności i uruchamiać oprogramowanie pośredniczące podczas uruchamiania poza procesem. 
+W przypadku korzystania z funkcji izolowanych przez platformę .NET masz dostęp do uruchamiania aplikacji funkcji, która zwykle znajduje się w programie. cs. Użytkownik jest odpowiedzialny za tworzenie i uruchamianie własnego wystąpienia hosta. W związku z tym masz również bezpośredni dostęp do potoku konfiguracji aplikacji. Można znacznie łatwiej wstrzyknąć zależności i uruchamiać oprogramowanie pośredniczące podczas uruchamiania poza procesem. 
 
 Poniższy kod przedstawia przykład `HostBuilder` potoku:
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842890"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Samouczek: czyszczenie klastra autonomicznego
@@ -52,11 +52,11 @@ W tym artykule przedstawiono następujące informacje:
 1. Zaloguj się do konta AWS.
 2. Przejdź do konsoli EC2.
 3. Wybierz trzy węzły utworzone w pierwszej części samouczka.
-4. Wybierz **Actions**  >  **stan wystąpienia**akcji  >  **Przerwij**.
+4. Wybierz   >  **stan wystąpienia** akcji  >  **Przerwij**.
 
 ## <a name="delete-azure-resources"></a>Usuwanie zasobów platformy Azure
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do sekcji **Virtual Machines** .
 3. Zaznacz pola wyboru dla trzech węzłów utworzonych w pierwszej części samouczka.
 4. Wybierz pozycję **Usuń**.

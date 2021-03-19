@@ -8,10 +8,10 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82838505"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Często zadawane pytania dotyczące łączności sieciowej usług Analysis Services
@@ -24,7 +24,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące łączeni
 **Odpowiedź** — Azure Analysis Services nie używa stałych adresów IP ani tagów usługi. Zakres adresów IP używanych przez serwery Analysis Services może należeć do zakresu adresów IP w *regionie świadczenia usługi Azure*. Ponieważ adresy IP serwerów są zmienne i mogą ulec zmianie w czasie, reguły zapory muszą zezwalać na cały zakres adresów IP regionów platformy Azure, w których znajduje się serwer.
 
 **Pytanie** — moje konto usługi Azure Storage znajduje się w innym regionie niż mój serwer Analysis Services. Jak mogę skonfigurować ustawienia zapory konta magazynu?   
-**Odpowiedź** — Jeśli konto magazynu znajduje się w innym regionie, skonfiguruj ustawienia zapory konta magazynu, aby zezwolić na dostęp z **wybranych sieci**. W obszarze **zakres adresów**zapory Określ zakres adresów IP dla regionu, w którym znajduje się serwer Analysis Services. Aby uzyskać zakresy adresów IP dla regionów świadczenia usługi Azure, zobacz [zakres adresów IP i Tagi usług platformy Azure — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Konfigurowanie ustawień zapory konta magazynu w celu zezwalania na dostęp ze wszystkich sieci jest obsługiwane, jednak wybranie opcji wybrane sieci i określenie zakresu adresów IP jest preferowane. 
+**Odpowiedź** — Jeśli konto magazynu znajduje się w innym regionie, skonfiguruj ustawienia zapory konta magazynu, aby zezwolić na dostęp z **wybranych sieci**. W obszarze **zakres adresów** zapory Określ zakres adresów IP dla regionu, w którym znajduje się serwer Analysis Services. Aby uzyskać zakresy adresów IP dla regionów świadczenia usługi Azure, zobacz [zakres adresów IP i Tagi usług platformy Azure — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Konfigurowanie ustawień zapory konta magazynu w celu zezwalania na dostęp ze wszystkich sieci jest obsługiwane, jednak wybranie opcji wybrane sieci i określenie zakresu adresów IP jest preferowane. 
 
 **Pytanie** — moje konto usługi Azure Storage znajduje się w tym samym regionie, w którym znajduje się serwer Analysis Services. Jak można skonfigurować ustawienia zapory konta magazynu?   
 **Odpowiedź** — ponieważ serwer Analysis Services i konto magazynu znajdują się w tym samym regionie, komunikacja między nimi odbywa się przy użyciu wewnętrznych zakresów adresów IP, dlatego Konfigurowanie zapory do używania wybranych sieci i określanie zakresu adresów IP nie jest obsługiwane. Jeśli zasady organizacji wymagają zapory, należy ją skonfigurować tak, aby zezwalała na dostęp ze wszystkich sieci.

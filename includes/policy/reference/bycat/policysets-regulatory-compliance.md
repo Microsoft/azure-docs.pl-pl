@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8291089d40ada02adfa011beedf18e90766d3a26
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 82cb3119330a9a392b5fa7410e90e891ab7e2100
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613835"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604961"
 ---
 |Nazwa |Opis |Zasady |Wersja |
 |---|---|---|---|
 |[\[Wersja zapoznawcza: instytucja \] australijska](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontroli w zakresie bezpieczeństwa informacji dla instytucji rządowych (ISM). Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint) . |61 |4.0.1 — wersja zapoznawcza |
-|[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń i maszyn wirtualnych, które dotyczą podzestawu federalnych kontrolek PBMM Kanady. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint) . |60 |4.0.1 |
+|[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń i maszyn wirtualnych, które dotyczą podzestawu federalnych kontrolek PBMM Kanady. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint) . |59 |5.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Ta inicjatywa obejmuje zasady związane z podzbiorem zaleceń dotyczących usługi CIS Microsoft Azure. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative) . |92 |9.0.0 |
 |[\[Wersja zapoznawcza \] : 1.3.0 testów usług CIS Microsoft Azure](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Ta inicjatywa obejmuje zasady związane z podzbiorem zaleceń dotyczących usługi CIS Microsoft Azure. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative) . |104 |1.0.0 — wersja zapoznawcza |
 |[\[Wersja zapoznawcza \] : poziom CMMC 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Ta inicjatywa obejmuje zasady związane z podzbiorem wymagań dotyczących poziomu 3 cyberbezpieczeństwa (CMMC). Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative) . |183 |3.0.0 — wersja zapoznawcza |
@@ -30,4 +30,4 @@ ms.locfileid: "102613835"
 |[NIST SP 800-53 R4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIST80053_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru formantów NIST SP 800-53 R4. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/nist80053-blueprint](https://aka.ms/nist80053-blueprint) . |790 |4.0.1 |
 |[PCI v 3.2.1:2018 r](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/PCIv3_2_1_2018_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru formantów PCI v 3.2.1:2018 r. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/pciv321-init](https://aka.ms/pciv321-init) . |39 |3.0.2 |
 |[\[Wersja zapoznawcza \] : Swift CSP-CSCF V2020](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFTv2020_audit.json) |Ta inicjatywa obejmuje zasady wdrażania dla usług Audit i Extension maszyny wirtualnej, które są związane z podzbiorem kontrolek SWIFT CSP-CSCF V2020. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/swift-blueprint](https://aka.ms/swift-blueprint) . |61 |3.0.1 — wersja zapoznawcza |
-|[UK OFFICIAL i UK NHS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontrolek NHS OFICJALNych i BRYTYJSKIch USA. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/ukofficial-blueprint](https://aka.ms/ukofficial-blueprint) i [https://aka.ms/uknhs-blueprint](https://aka.ms/uknhs-blueprint) . |59 |5.0.1 |
+|[UK OFFICIAL i UK NHS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontrolek NHS OFICJALNych i BRYTYJSKIch USA. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/ukofficial-blueprint](https://aka.ms/ukofficial-blueprint) i [https://aka.ms/uknhs-blueprint](https://aka.ms/uknhs-blueprint) . |59 |6.0.0 |

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91840646"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Samouczek: instalowanie i tworzenie klastra usługi Service Fabric
@@ -17,7 +17,7 @@ Klastry autonomiczne usługi Service Fabric umożliwiają wybór własnego środ
 
 Ten samouczek jest drugą częścią serii. W tym samouczku przedstawiono kroki tworzenia klastra autonomicznego usługi Service Fabric.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 > * Pobieranie i instalowanie pakietu autonomicznego usługi Service Fabric

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 722fe393ad7637be20360463a4c3b6234224a036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88653974"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS)
@@ -49,7 +49,7 @@ Zapoznaj się z wymaganiami dotyczącymi wydajności aplikacji i wzorcami dostę
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Tworzenie i używanie klas magazynu do definiowania potrzeb aplikacji
 
-Używany typ magazynu jest definiowany przy użyciu *klas magazynu*Kubernetes. Następnie Klasa magazynu jest przywoływana w specyfikacji pod lub wdrożenia. Te definicje współpracują ze sobą, aby utworzyć odpowiedni magazyn i połączyć go z zasobnikami. Aby uzyskać więcej informacji, zobacz [klasy magazynu w AKS][aks-concepts-storage-classes].
+Używany typ magazynu jest definiowany przy użyciu *klas magazynu* Kubernetes. Następnie Klasa magazynu jest przywoływana w specyfikacji pod lub wdrożenia. Te definicje współpracują ze sobą, aby utworzyć odpowiedni magazyn i połączyć go z zasobnikami. Aby uzyskać więcej informacji, zobacz [klasy magazynu w AKS][aks-concepts-storage-classes].
 
 ## <a name="size-the-nodes-for-storage-needs"></a>Rozmiar węzłów dla potrzeb magazynu
 

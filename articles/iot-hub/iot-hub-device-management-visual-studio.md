@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73953178"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Korzystanie z Eksploratora chmury dla programu Visual Studio dla usługi Azure IoT Hub zarządzanie urządzeniami
@@ -59,7 +59,7 @@ Składnik Cloud Explorer Instalator programu Visual Studio dla programu Visual S
 
 ## <a name="sign-in-to-access-your-hub"></a>Zaloguj się, aby uzyskać dostęp do centrum
 
-1. W programie Visual Studio wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby otworzyć Eksploratora chmury.
+1. W programie Visual Studio wybierz pozycję **Wyświetl** program  >  **Cloud Explorer** , aby otworzyć Eksploratora chmury.
 
 1. Wybierz ikonę Zarządzanie kontem, aby wyświetlić subskrypcje.
 

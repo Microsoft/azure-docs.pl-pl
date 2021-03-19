@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90895960"
 ---
 # <a name="determining-application-type"></a>Określanie typu aplikacji
@@ -22,12 +22,12 @@ Istnieją rozległie dwa rodzaje aplikacji, które działają dobrze na Citus. P
 
 ## <a name="at-a-glance"></a>Na pierwszy rzut oka
 
-| Aplikacje z wieloma dzierżawcami                                 | Real-Time aplikacji                                |
+| Aplikacje z wieloma dzierżawcami                                 | Aplikacje działające w czasie rzeczywistym                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
-| Czasami dziesiątki lub setki tabel w schemacie          | Niewielka liczba tabel                                |
-| Zapytania dotyczące jednej dzierżawy (firmy/magazynu) w danym momencie | Stosunkowo proste zapytania analizy z agregacjami |
-| Obciążenia OLTP obsługujące klientów sieci Web                    | Intensywna pozyskiwanie zbyt niemodyfikowalnych danych           |
-| Obciążenia OLAP obsługujące zapytania analityczne dla poszczególnych dzierżawców   | Często wyśrodkowanie dużej tabeli zdarzeń            |
+| Czasami dziesiątki lub setki tabel w schemacie          | Mała liczba tabel                                |
+| Zapytania dotyczące jednej dzierżawy (firmy/magazynu) w danym momencie | Stosunkowo proste zapytania analityczne z agregacjami |
+| Obciążenia OLTP obsługujące klientów internetowych                    | Duża ilość pozyskiwanych danych (zwykle niemodyfikowalnych)           |
+| Obciążenia OLAP obsługujące zapytania analityczne dla poszczególnych dzierżaw   | Często skoncentrowane na dużej tabeli zdarzeń            |
 
 ## <a name="examples-and-characteristics"></a>Przykłady i cechy
 

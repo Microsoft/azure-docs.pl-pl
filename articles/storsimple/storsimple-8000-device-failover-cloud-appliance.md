@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91774464"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Przechodzenie w tryb failover do urządzenia w chmurze StorSimple
@@ -41,7 +41,7 @@ Aby przełączyć urządzenie fizyczne StorSimple na inne urządzenie fizyczne, 
 
 Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządzenia w chmurze StorSimple.
 
-1.  Sprawdź, czy kontener woluminów do przełączenia w tryb failover ma skojarzone migawki w chmurze. Aby uzyskać więcej informacji, przejdź do obszaru [Tworzenie kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md).
+1.  Sprawdź, czy kontener woluminów do przełączenia w tryb failover ma skojarzone migawki w chmurze. Aby uzyskać więcej informacji, przejdź do obszaru [Tworzenie kopii zapasowych za pomocą usługi StorSimple Device Manager](storsimple-8000-manage-backup-policies-u2.md).
 2. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** przejdź do listy urządzeń połączonych z usługą.
     ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Wybierz i kliknij urządzenie źródłowe. Urządzenie źródłowe ma kontenery woluminów do przełączenia w tryb failover. Przejdź do pozycji **ustawienia > kontenery woluminów**.
@@ -94,5 +94,5 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
 
 * Po przejściu w tryb failover może być konieczne [Dezaktywowanie lub usunięcie urządzenia StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 
-* Aby uzyskać informacje o sposobach korzystania z usługi StorSimple Menedżer urządzeń, przejdź do pozycji [Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Aby uzyskać informacje o sposobach korzystania z usługi StorSimple Device Manager, przejdź do pozycji [Korzystanie z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

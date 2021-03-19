@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90885832"
 ---
-# <a name="remove-azure-sentinel-from-your-workspace"></a>Usuń wskaźnik platformy Azure z obszaru roboczego
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Usuwanie usługi Azure Sentinel z obszaru roboczego
 
 Jeśli nie chcesz już korzystać z platformy Azure, w tym artykule wyjaśniono, jak usunąć go z obszaru roboczego.
 
@@ -66,12 +66,12 @@ W ciągu pierwszych 48 godzin reguły danych i analityczne (w tym konfiguracja a
 
 -   Zakładki
 
-Elementy PlayBook, zapisane skoroszyty, zapisane zapytania dotyczące polowań i notesy nie są usuwane. **Niektóre mogą zostać przerwane ze względu na usunięte dane. Można je usunąć ręcznie.**
+Podręczniki, zapisane skoroszyty, zapisane zapytania wyszukiwania zagrożeń oraz notesy nie zostaną usunięte. **Niektóre mogą zostać przerwane ze względu na usunięte dane. Można je usunąć ręcznie.**
 
 Po usunięciu usługi istnieje 30-dniowy okres prolongaty, w którym można ponownie włączyć rozwiązanie, a Twoje dane i reguły analityczne zostaną przywrócone, ale skonfigurowane łączniki, które zostały odłączone, muszą być ponownie połączone.
 
 > [!NOTE]
-> Jeśli usuniesz rozwiązanie, subskrypcja będzie nadal rejestrowana w dostawcy zasobów platformy Azure. **Można je usunąć ręcznie.**
+> Jeśli usuniesz rozwiązanie, Twoja subskrypcja pozostanie zarejestrowana w ramach dostawcy zasobów usługi Azure Sentinel. **Można usunąć ją ręcznie.**
 
 
 

@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: ae59bcc65f296a10c68b88f5f6a1ecbc923f8856
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 3a15ddc62c19d74871de33003d46ec2fc5437f51
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584690"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -850,7 +850,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Tak | Tak |
+> | flexibleServers | Nie | Nie |
 > | serwerem | Tak | Tak |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL

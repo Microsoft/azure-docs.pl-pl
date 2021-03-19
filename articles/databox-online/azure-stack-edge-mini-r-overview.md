@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 7c28eb604de4f6e23f37b6ca2fcab3fdc976f237
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 14a425c3aca3a1c296b96855b2c920d558e89f9e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102125206"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585982"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Co to jest Azure Stack Edge — mini R?
 
@@ -79,6 +79,7 @@ Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto m
 
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure. Regiony, w których przechowywane są konta magazynu Azure Stack dane programu Edge mini R powinny znajdować się w pobliżu lokalizacji urządzenia w celu uzyskania optymalnej wydajności. Duża odległość konta magazynu od urządzenia powoduje długie opóźnienia i mniejszą wydajność.
 
+Usługa Edge Azure Stack jest usługą nieregionalną. Aby uzyskać więcej informacji, zobacz [regiony i strefy dostępności na platformie Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Usługa Edge Azure Stack nie jest zależna od określonego regionu platformy Azure, dzięki czemu można odporna na przerwy w działaniu strefy i w całym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

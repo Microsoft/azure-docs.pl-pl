@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91767569"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Klonowanie woluminu przy użyciu usługi Menedżer urządzeń StorSimple w witrynie Azure Portal
@@ -23,7 +23,7 @@ ms.locfileid: "91767569"
 
 W tym samouczku opisano, jak można użyć zestawu kopii zapasowych w celu sklonowania pojedynczego woluminu za pośrednictwem bloku **wykazu kopii zapasowych** . Wyjaśniono również różnicę między *przejściowymi* i *trwałymi* klonami. Wskazówki zawarte w tym samouczku dotyczą wszystkich urządzeń z serii StorSimple 8000 z aktualizacją Update 3 lub nowszą.
 
-Blok **wykazu kopii zapasowych** usługi StorSimple Menedżer urządzeń wyświetla wszystkie zestawy kopii zapasowych, które są tworzone podczas tworzenia ręcznych lub zautomatyzowanych kopii zapasowych. Następnie można wybrać wolumin w zestawie kopii zapasowych, który ma zostać sklonowany.
+Blok **wykazu kopii zapasowych** usługi StorSimple Device Manager wyświetla wszystkie zestawy kopii zapasowych, które są tworzone podczas tworzenia ręcznych lub zautomatyzowanych kopii zapasowych. Następnie można wybrać wolumin w zestawie kopii zapasowych, który ma zostać sklonowany.
 
  ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby utworzyć klon woluminu z wykazu kopii zapasowy
 
 #### <a name="to-clone-a-volume"></a>Aby sklonować wolumin
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie kliknij pozycję **wykaz kopii zapasowych**.
+1. Przejdź do usługi StorSimple Device Manager, a następnie kliknij pozycję **wykaz kopii zapasowych**.
 
 2. Wybierz zestaw kopii zapasowych w następujący sposób:
    
@@ -82,7 +82,7 @@ Wykonaj następujące kroki, aby utworzyć klon woluminu z wykazu kopii zapasowy
        > [!NOTE]
        > **Klonowanie woluminu jako** pola zostanie **warstwowe** nawet w przypadku klonowania woluminu przypiętego lokalnie. Nie można zmienić tego ustawienia. Jeśli jednak wolumin sklonowany ma być również przypięty lokalnie, można przekonwertować klon na wolumin przypięty lokalnie po pomyślnym utworzeniu klona. Aby uzyskać informacje o konwertowaniu woluminu warstwowego na wolumin przypięty lokalnie, przejdź do pozycji [Zmień typ woluminu](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-   3. W obszarze **połączone hosty**Określ rekord kontroli dostępu (ACR) dla klonu. Można dodać nowy ACR lub wybrać z istniejącej listy. ACR określi, które hosty mogą uzyskać dostęp do tego klona.
+   3. W obszarze **połączone hosty** Określ rekord kontroli dostępu (ACR) dla klonu. Można dodać nowy ACR lub wybrać z istniejącej listy. ACR określi, które hosty mogą uzyskać dostęp do tego klona.
       
        ![Lista zestawów kopii zapasowych 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
@@ -100,7 +100,7 @@ Klon tworzony w ten sposób jest przejściowym klonem. Aby uzyskać więcej info
 
 
 ## <a name="transient-vs-permanent-clones"></a>Przejściowe i trwałe klony
-Klony przejściowe są tworzone tylko w przypadku klonowania na innym urządzeniu. Można sklonować określony wolumin z zestawu kopii zapasowych na inne urządzenie zarządzane przez StorSimple Menedżer urządzeń. Przejściowy klon zawiera odwołania do danych w oryginalnym woluminie i używa tych danych do odczytu i zapisu lokalnego na urządzeniu docelowym.
+Klony przejściowe są tworzone tylko w przypadku klonowania na innym urządzeniu. Można sklonować określony wolumin z zestawu kopii zapasowych na inne urządzenie zarządzane przez StorSimple Device Manager. Przejściowy klon zawiera odwołania do danych w oryginalnym woluminie i używa tych danych do odczytu i zapisu lokalnego na urządzeniu docelowym.
 
 Po wykonaniu migawki przejściowej klonu w chmurze powstaje klonowanie *trwałe* . W trakcie tego procesu kopia danych jest tworzona w chmurze, a godzina kopiowania danych jest określana na podstawie rozmiaru danych i opóźnień na platformie Azure (jest to kopia platformy Azure na platformę Azure). Ten proces może potrwać kilka dni do tygodni. Przejściowe klonowanie stał się trwałym klonem i nie ma żadnych odwołań do pierwotnych danych woluminu, z których zostały sklonowane.
 
@@ -115,5 +115,5 @@ Należy sprawdzić usterkę testową w środowisku produkcyjnym. Można utworzy�
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [przywrócić wolumin StorSimple z zestawu kopii zapasowych](storsimple-8000-restore-from-backup-set-u2.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).
 

@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037850"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586322"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
@@ -21,7 +21,7 @@ Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowa
 Jeśli masz problem z uruchamianiem alertu lub nie jest on uruchamiany w oczekiwany sposób, zapoznaj się z artykułami poniżej. W Azure Portal można zobaczyć "uruchomienia" alertów.
 
 - [Rozwiązywanie problemów z alertami Azure Monitor w Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Rozwiązywanie problemów z alertami rejestrowania Azure Monitor w Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Rozwiązywanie problemów z alertami rejestrowania Azure Monitor w Microsoft Azure](alerts-troubleshoot-log.md)
 
 Jeśli alert jest uruchamiany zgodnie z Azure Portal, ale nie występują odpowiednie powiadomienia, Skorzystaj z informacji zawartych w dalszej części tego artykułu, aby rozwiązać ten problem.
 

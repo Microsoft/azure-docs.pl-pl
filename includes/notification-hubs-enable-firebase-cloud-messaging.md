@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ccb5e40738680181e7339b8652d029597c7d0bd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70935097"
 ---
 1. Zaloguj się do [konsoli Firebase](https://firebase.google.com/console/). Utwórz nowy projekt Firebase, jeśli jeszcze go nie masz.
@@ -20,7 +20,7 @@ ms.locfileid: "70935097"
 
     ![Dodawanie usługi Firebase do aplikacji systemu Android](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
 3. Na stronie **Dodawanie Firebase do aplikacji systemu Android** wykonaj następujące czynności: 
-    1. **W polu** **Nazwa pakietu systemu Android**skopiuj wartość Twojego elementu w pliku Build. Gradle aplikacji. W tym przykładzie jest to `com.fabrikam.fcmtutorial1app` . 
+    1. **W polu** **Nazwa pakietu systemu Android** skopiuj wartość Twojego elementu w pliku Build. Gradle aplikacji. W tym przykładzie jest to `com.fabrikam.fcmtutorial1app` . 
 
         ![Określ nazwę pakietu](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Wybierz pozycję **zarejestruj aplikację**. 

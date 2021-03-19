@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907856"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Ukryty moduł alokacji Dirichlet
@@ -30,7 +30,7 @@ Ten moduł pobiera kolumnę tekstu i generuje następujące dane wyjściowe:
 
 + Transformacja, którą można zapisać i ponownie zastosować do nowego tekstu używanego jako dane wejściowe
 
-Ten moduł używa biblioteki scikit. Aby uzyskać więcej informacji na temat scikit, zobacz [repozytorium GitHub](https://github.com/scikit-learn/scikit-learn), w tym samouczki i objaśnienie algorytmu.
+Ten moduł używa biblioteki scikit. Aby uzyskać więcej informacji na temat scikit, zobacz [repozytorium GitHub](https://github.com/scikit-learn/scikit-learn), w tym samouczki i objaśnienie algorytmu.
 
 ## <a name="more-about-latent-dirichlet-allocation"></a>Więcej informacji na temat ukrytego przydziału Dirichlet
 
@@ -52,7 +52,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
 
 2. Jako dane wejściowe dla modułu Podaj zestaw danych, który zawiera jedną lub więcej kolumn tekstowych.
 
-3. W przypadku **kolumn docelowych**wybierz co najmniej jedną kolumnę, która zawiera tekst do przeanalizowania.
+3. W przypadku **kolumn docelowych** wybierz co najmniej jedną kolumnę, która zawiera tekst do przeanalizowania.
 
     Można wybrać wiele kolumn, ale muszą one być typu **String** .
 
@@ -62,7 +62,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
 
     Domyślnie są tworzone 5 tematów.
 
-5. W przypadku **N-gramów**należy określić maksymalną długość N-gramów wygenerowaną podczas tworzenia skrótu.
+5. W przypadku **N-gramów** należy określić maksymalną długość N-gramów wygenerowaną podczas tworzenia skrótu.
 
     Wartość domyślna to 2, co oznacza, że generowane są obie gramy i unigrams.
 
@@ -99,7 +99,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
 
     Jeśli wcześniej utworzysz słownik początkowy, możesz użyć słownika podczas przeglądania modelu. Możliwość mapowania wyników do tekstu, a nie indeksów liczbowych, jest ogólnie łatwiejsza do interpretacji. Jednak zapisanie słownika zajmuje więcej czasu i będzie korzystać z dodatkowego magazynu.
 
-9. W polu **Maksymalny rozmiar słownika ngram**wprowadź łączną liczbę wierszy, które można utworzyć w słowniku n-gram.
+9. W polu **Maksymalny rozmiar słownika ngram** wprowadź łączną liczbę wierszy, które można utworzyć w słowniku n-gram.
 
     Ta opcja jest przydatna do kontrolowania rozmiaru słownika. Ale jeśli liczba ngrams w danych wejściowych przekracza ten rozmiar, mogą wystąpić kolizje.
 
@@ -186,19 +186,19 @@ Po przeprowadzeniu indeksowania indeksów, miara podobieństwa na odległość p
 |Kolumny docelowe|Wybór kolumny||Wymagane|StringFeature|Nazwa lub indeks kolumny docelowej.|  
 |Liczba tematów do modelowania|Liczba całkowita|[1; 1000]|Wymagane|5|Modelowanie dystrybucji dokumentu względem N tematów.|  
 |N-gramy|Liczba całkowita|[1; 10]|Wymagane|2|Kolejność N-gramów wygenerowana podczas tworzenia skrótów.|  
-|Normalizuj|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Wymagane|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat).|  
-|Pokaż wszystkie opcje|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Wymagane|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA.|  
-|Parametr Rho|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu.|  
-|Parametr alfa|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu w temacie.|  
+|Normalizuj|Wartość logiczna|Prawda lub FAŁSZ|Wymagane|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat).|  
+|Pokaż wszystkie opcje|Wartość logiczna|Prawda lub FAŁSZ|Wymagane|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA.|  
+|Parametr Rho|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu.|  
+|Parametr alfa|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu w temacie.|  
 |Szacowana Liczba dokumentów|Liczba całkowita|[1; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|1000|Szacowana Liczba dokumentów. Odnosi się do `total_samples` parametru.|  
 |Rozmiar partii|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|32|Rozmiar wsadu.|  
 |Początkowa wartość iteracji użyta w harmonogramie aktualizacji szybkości uczenia|Liczba całkowita|[0; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0|Wartość początkowa, która downweights szybkość uczenia dla wczesnych iteracji. Odnosi się do `learning_offset` parametru.|  
-|Moc zastosowana do iteracji podczas aktualizacji|Liczba zmiennoprzecinkowa|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odnosi się do `learning_decay` parametru. |  
+|Moc zastosowana do iteracji podczas aktualizacji|Float|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odnosi się do `learning_decay` parametru. |  
 |Liczba iteracji szkoleniowych|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|25|Liczba iteracji szkoleniowych.|  
-|Słownik kompilacji ngrams|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|Prawda|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
+|Słownik kompilacji ngrams|Wartość logiczna|Prawda lub FAŁSZ|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|Prawda|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
 |Maksymalny rozmiar słownika ngram|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy **słownik kompilacji opcji ngrams** ma **wartość true**|20000|Maksymalny rozmiar słownika ngrams. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
 |Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.|Liczba całkowita|[1; 31]|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone, a **słownik kompilacji ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.| 
-|Kompilowanie słownika ngrams przed LDA|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|Prawda|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
+|Kompilowanie słownika ngrams przed LDA|Wartość logiczna|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|Prawda|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
 |Maksymalna liczba ngrams w słowniku|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość true** .|20000|Maksymalny rozmiar słownika. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
 |Liczba bitów skrótu|Liczba całkowita|[1; 31]|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia podczas tworzenia skrótów funkcji.|   
 

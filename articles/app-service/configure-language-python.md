@@ -2,15 +2,15 @@
 title: Konfigurowanie aplikacji systemu Linux Python
 description: Informacje o konfigurowaniu kontenera języka Python, w którym są uruchamiane aplikacje sieci Web, przy użyciu zarówno Azure Portal, jak i interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577616"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -373,6 +373,7 @@ Poniższe sekcje zawierają dodatkowe wskazówki dotyczące konkretnych problem�
 - [Aplikacja nie jest wyświetlana — komunikat "Usługa niedostępna"](#service-unavailable)
 - [Nie można znaleźć setup.py lub requirements.txt](#could-not-find-setuppy-or-requirementstxt)
 - [ModuleNotFoundError przy uruchamianiu](#modulenotfounderror-when-app-starts)
+- [Baza danych jest zablokowana](#database-is-locked)
 - [Hasła nie są wyświetlane w sesji SSH po wpisaniu](#other-issues)
 - [Polecenia w sesji SSH prawdopodobnie są obcinane](#other-issues)
 - [Statyczne zasoby nie są wyświetlane w aplikacji Django](#other-issues)
@@ -409,6 +410,14 @@ Poniższe sekcje zawierają dodatkowe wskazówki dotyczące konkretnych problem�
 #### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError podczas uruchamiania aplikacji
 
 Jeśli zobaczysz błąd podobny do `ModuleNotFoundError: No module named 'example'` tego, oznacza to, że język Python nie mógł znaleźć co najmniej jednego modułu podczas uruchamiania aplikacji. Najczęściej zdarza się to w przypadku wdrożenia środowiska wirtualnego przy użyciu kodu. Środowiska wirtualne nie są przenośne, dlatego nie należy wdrażać środowiska wirtualnego przy użyciu kodu aplikacji. Zamiast tego pozwól Oryx na utworzenie środowiska wirtualnego i instalowanie pakietów w aplikacji sieci Web, tworząc ustawienie aplikacji `SCM_DO_BUILD_DURING_DEPLOYMENT` i ustawiając je na `1` . Spowoduje to wymuszenie instalacji pakietów przez Oryx przy każdym wdrożeniu programu do App Service. Aby uzyskać więcej informacji, zobacz [ten artykuł dotyczący przenośności środowiska wirtualnego](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### <a name="database-is-locked"></a>Baza danych jest zablokowana
+
+Podczas próby uruchomienia migracji bazy danych za pomocą aplikacji Django może być widoczna wartość "sqlite3. OperationalError: baza danych jest zablokowana. " Ten błąd oznacza, że aplikacja korzysta z bazy danych programu SQLite, dla której Django jest domyślnie konfigurowana, zamiast korzystać z bazy danych w chmurze, takiej jak PostgreSQL dla platformy Azure.
+
+Sprawdź `DATABASES` zmienną w pliku *Settings.py* aplikacji, aby upewnić się, że aplikacja korzysta z bazy danych w chmurze zamiast programu SQLite.
+
+Jeśli napotkasz ten błąd w [samouczku przykładowym: Wdróż aplikację sieci Web Django za pomocą PostgreSQL](tutorial-python-postgresql-app.md), sprawdź, czy zostały wykonane kroki opisane w temacie [Konfigurowanie zmiennych środowiskowych w celu połączenia bazy danych](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### <a name="other-issues"></a>Inne problemy
 
