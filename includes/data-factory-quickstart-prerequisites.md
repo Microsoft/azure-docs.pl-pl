@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013381"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612505"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do 
 
 Aby utworzyć zasoby podrzędne — w tym zestawy danych, połączone usługi, potoki, wyzwalacze i środowiska Integration Runtime — oraz nimi zarządzać w usłudze Data Factory, należy spełnić następujące wymagania:
 
-- Aby utworzyć zasoby podrzędne i nimi zarządzać, trzeba należeć do roli **Współautor w usłudze Data Factory** na poziomie grupy zasobów lub wyższej.
+- Aby utworzyć zasoby podrzędne i zarządzać nimi w Azure Portal, musisz należeć do roli **współautor Data Factory** na poziomie grupy zasobów lub nowszej.
 - W przypadku tworzenia zasobów podrzędnych i zarządzania nimi za pomocą programu PowerShell lub zestawu SDK rola **współautora** na poziomie grupy zasobów lub wyższej jest wystarczająca.
 
 Aby uzyskać przykładowe instrukcje dotyczące dodawania użytkownika do roli, zobacz artykuł [Add roles (Dodawanie ról)](../articles/cost-management-billing/manage/add-change-subscription-administrator.md).
@@ -46,7 +46,7 @@ W tym przewodniku szybki start używasz konta usługi Azure Storage ogólnego pr
 Do tego przewodnika Szybki Start potrzebna jest nazwa konta usługi Azure Storage. Poniższa procedura zawiera opis czynności w celu uzyskania nazwy konta magazynu: 
 
 1. W przeglądarce internetowej przejdź do [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
-2. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
+2. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję   >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
 3. Na stronie **konta magazynu** odfiltruj konto magazynu (w razie potrzeby), a następnie wybierz swoje konto magazynu. 
 
 Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
@@ -59,7 +59,8 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 2. Na *\<Account name>*  -  pasku narzędzi strony **kontenery** wybierz pozycję **kontener**.
 3. W oknie dialogowym **Nowy kontener** wprowadź jako nazwę **adftutorial**, a następnie wybierz przycisk **OK**. *\<Account name>*  -  Strona **kontenery** jest aktualizowana w celu uwzględnienia **adftutorial** na liście kontenerów.
 
-   ![Lista kontenerów](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="Lista kontenerów":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Dodaj folder wejściowy i plik dla kontenera obiektów BLOB
 
@@ -75,14 +76,15 @@ Zapisz plik w folderze **C:\ADFv2QuickStartPSH** . (Jeśli folder jeszcze nie is
 1. Na *\<Account name>*  -  stronie **kontenerów** , w której zostałeś pozostawiony, wybierz pozycję **adftutorial** z zaktualizowanej listy kontenerów.
 
    1. Jeśli zamknięto okno lub przeszedł do innej strony, zaloguj się ponownie do [Azure Portal](https://portal.azure.com) .
-   1. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
+   1. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję   >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
    1. Wybierz konto magazynu, a następnie wybierz pozycję **kontenery**  >  **adftutorial**.
 
 2. Na pasku narzędzi strony kontenera **adftutorial** wybierz pozycję **Przekaż**.
 3. Na stronie **przekazywanie obiektu BLOB** zaznacz pole **pliki** , a następnie wyszukaj i wybierz plik **emp.txt** .
 4. Rozwiń nagłówek **Zaawansowane** . Zostanie wyświetlona strona, jak pokazano:
 
-   ![Wybieranie linku Zaawansowane](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Wybieranie linku Zaawansowane":::
+
 5. W polu **Przekaż do folderu** wprowadź **dane wejściowe**.
 6. Wybierz przycisk **Przekaż**. Na liście powinien pojawić się plik **emp.txt** i stan przekazywania.
 7. Wybierz ikonę **Zamknij** ( **symbol X**), aby zamknąć stronę **przekazywanie obiektu BLOB** .

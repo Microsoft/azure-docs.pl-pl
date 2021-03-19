@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594567"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -51,14 +51,16 @@ Niektóre usługi Azure Monitor korzystają z globalnych punktów końcowych, co
 Po skonfigurowaniu połączenia z linkiem prywatnym usługa DNS jest aktualizowana w celu mapowania punktów końcowych Azure Monitor na prywatne adresy IP z zakresu adresów IP sieci wirtualnej. Ta zmiana zastępuje wszystkie poprzednie mapowania tych punktów końcowych, które mogą mieć zrozumiałe konsekwencje, poniżej. 
 
 ### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Azure Monitor link prywatny dotyczy wszystkich zasobów Azure Monitor — to wszystko lub nic
-Ponieważ niektóre Azure Monitor punkty końcowe są globalne, nie można utworzyć połączenia prywatnego dla określonego składnika lub obszaru roboczego. Zamiast tego po skonfigurowaniu prywatnego linku do jednego składnika Application Insights rekordy DNS są aktualizowane dla **wszystkich** składników Application Insights. Każda próba pozyskania lub wypróbowania składnika spowoduje przejście przez połączenie prywatne i prawdopodobnie nie powiedzie się. Podobnie skonfigurowanie prywatnego linku do jednego obszaru roboczego spowoduje, że wszystkie zapytania Log Analytics przechodzą przez punkt końcowy zapytania łącza prywatnego (ale nie żądania pozyskania, które mają punkty końcowe specyficzne dla obszaru roboczego).
+Ponieważ niektóre Azure Monitor punkty końcowe są globalne, nie można utworzyć połączenia prywatnego dla określonego składnika lub obszaru roboczego. Zamiast tego po skonfigurowaniu prywatnego linku do jednego składnika Application Insights lub Log Analytics obszaru roboczego rekordy DNS są aktualizowane dla **wszystkich** składników Application Insights. Każda próba pozyskania lub wypróbowania składnika spowoduje przejście przez połączenie prywatne i prawdopodobnie nie powiedzie się. W odniesieniu do Log Analytics punkty końcowe pozyskiwania i konfiguracji są specyficzne dla obszaru roboczego, co oznacza, że konfiguracja linku prywatnego będzie stosowana tylko do określonych obszarów roboczych. Pozyskiwanie i konfiguracja innych obszarów roboczych zostanie skierowane do domyślnych publicznych punktów końcowych Log Analytics.
 
 ![Diagram zastąpień DNS w pojedynczej sieci wirtualnej](./media/private-link-security/dns-overrides-single-vnet.png)
 
 To prawda nie tylko dla określonej sieci wirtualnej, ale dla wszystkich sieci wirtualnych, które współużytkują ten sam serwer DNS (zobacz [problem zastąpień DNS](#the-issue-of-dns-overrides)). Na przykład żądanie pozyskania dzienników do dowolnego składnika Application Insights będzie zawsze wysyłane za pomocą prywatnej trasy linków. Składniki, które nie są połączone z AMPLS, nie będą mogły przeprowadzić walidacji prywatnego linku i nie przechodzą przez nie.
 
 > [!NOTE]
-> Aby dokończyć: po skonfigurowaniu połączenia prywatnego z pojedynczym zasobem zostanie ono zastosowane do wszystkich zasobów Azure Monitor w sieci — to wszystko lub nic nie rób. Dzięki temu należy dodać wszystkie zasoby Azure Monitor w sieci do AMPLS lub żadnego z nich.
+> Aby dokończyć: po skonfigurowaniu połączenia prywatnego z pojedynczym zasobem zostanie ono zastosowane do Azure Monitor zasobów w sieci. W przypadku zasobów Application Insights, to "All" lub "Nothing". Dzięki temu należy dodać wszystkie zasoby Application Insights w sieci do AMPLS lub żadnego z nich.
+> 
+> Aby obsłużyć ryzyko eksfiltracjii danych, zalecamy dodanie wszystkich zasobów Application Insights i Log Analytics do AMPLS i zablokowanie ruchu wychodzącego w sieci.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor łącze prywatne ma zastosowanie do całej sieci
 Niektóre sieci składają się z wielu sieci wirtualnych. Jeśli sieci wirtualnych używają tego samego serwera DNS, zastąpią wszystkie inne mapowania DNS i możliwe będzie przerwanie komunikacji z Azure Monitor (zobacz [problem z zastąpień DNS](#the-issue-of-dns-overrides)). Ostatecznie tylko Ostatnia Sieć wirtualna będzie mogła komunikować się z Azure Monitor, ponieważ usługa DNS mapuje Azure Monitor punktów końcowych na prywatne adresy IP z tego zakresu sieci wirtualnych (które mogą nie być dostępne z innych sieci wirtualnych).

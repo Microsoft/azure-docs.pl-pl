@@ -358,6 +358,8 @@
           href: search-query-understand-collection-filters.md
         - name: Filtrowanie według języka
           href: search-filters-language.md
+        - name: Normalizowanie tekstu
+          href: search-normalizers.md
     - name: Trafność
       items:
         - name: Klasyfikacja podobieństwa

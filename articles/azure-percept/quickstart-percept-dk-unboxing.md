@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 40751401760d877fe3feab39f3fea1f2fbeee54b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665495"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608184"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Szybki Start: Unbox i złóż składniki usługi Azure Percept DK
 
@@ -32,7 +32,7 @@ Po otrzymaniu usługi Azure Percept DK odwołuje się do tego przewodnika, aby u
 1. Połącz składniki Devkit.
 
     > [!NOTE]
-    > Port karty sieciowej znajduje się po prawej stronie tablicy nośnej. Pozostałe porty (2x USB-A, 1x USB-C, 1x HDMI i 1x Ethernet) i przycisk Reset znajdują się po lewej stronie tablicy nośnej.
+    > Port karty sieciowej znajduje się po prawej stronie tablicy nośnej. Pozostałe porty (2x USB-A, 1x USB-C i 1x Ethernet) i przycisk energia znajdują się po lewej stronie tablicy nośnej.
 
     1. Dłoń umożliwia przechodzenie między Wi-Fi anten do tablicy nośnej.
 
@@ -44,11 +44,17 @@ Po otrzymaniu usługi Azure Percept DK odwołuje się do tego przewodnika, aby u
 
     1. Podłącz transformator zasilania/kabel do tablicy nośnej i punktu wylotu ściany. Aby w pełni zabezpieczyć łącznik kabla zasilającego do tablicy nośnej, użyj śrubokrętu P7 (niezawartego w Devkit) w celu zaostrzenia miejsc łączników.
 
-    1. Po podłączeniu kabla zasilania do gniazda ściennego urządzenie będzie automatycznie włączać. Przycisk Resetuj po lewej stronie tablicy nośnej zostanie wyróżniony. Poczekaj chwilę na uruchomienie urządzenia.
+    1. Po podłączeniu kabla zasilania do gniazda ściennego urządzenie będzie automatycznie włączać. Przycisk energia po lewej stronie tablicy nośnej zostanie wyróżniony. Poczekaj chwilę na uruchomienie urządzenia.
 
         > [!NOTE]
-        > Przycisk Reset służy do włączania zasilania lub resetowania urządzenia po nawiązaniu połączenia z gniazdem zasilania. W przypadku awarii zasilanej urządzenie zostanie automatycznie zresetowane i przywrócone.
+        > Przycisk zasilania służy do włączania zasilania lub ponownego uruchamiania urządzenia po nawiązaniu połączenia z gniazdem zasilania. W przypadku awarii zasilanej urządzenie zostanie automatycznie uruchomione ponownie.
+
+Dla wizualizacji zestawu Devkit należy zapoznać się z artykułem 0:00 do 0:50 następującego wideo:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy Devkit jest podłączony i włączony, zobacz Przewodnik po instalacji usługi Azure Percept DK, aby zakończyć konfigurację urządzenia. Środowisko instalacji umożliwia łączenie Devkit z siecią Wi-Fi, Konfigurowanie logowania za pomocą protokołu SSH, tworzenie IoT Hub i udostępnianie Devkit na koncie platformy Azure. Po zakończeniu konfigurowania urządzenia będzie można rozpocząć tworzenie prototypów.
+Teraz, gdy Devkit jest podłączony i włączony, zobacz [Przewodnik po instalacji usługi Azure PERCEPT DK](./quickstart-percept-dk-set-up.md) , aby zakończyć konfigurację urządzenia. Środowisko instalacji umożliwia łączenie Devkit z siecią Wi-Fi, Konfigurowanie logowania za pomocą protokołu SSH, tworzenie IoT Hub i udostępnianie Devkit na koncie platformy Azure. Po zakończeniu konfigurowania urządzenia będzie można rozpocząć tworzenie prototypów.

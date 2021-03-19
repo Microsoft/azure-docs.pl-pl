@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/18/2021
+ms.openlocfilehash: 79020e8e24cb43697a44ac9accd4e777bffe959e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601597"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594210"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Wdrożenia grup zarządzania przy użyciu szablonów ARM
 
@@ -219,6 +219,14 @@ W następnym przykładzie zostanie utworzona nowa grupa zarządzania w grupie za
     }
 }
 ```
+
+## <a name="subscriptions"></a>Subskrypcje
+
+Aby utworzyć nową subskrypcję platformy Azure w grupie zarządzania przy użyciu szablonu ARM, zobacz:
+
+* [Programowe tworzenie subskrypcji usługi Azure Enterprise Agreement](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Programowe tworzenie subskrypcji platformy Azure dla umowy klienta Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Programistyczne tworzenie subskrypcji platformy Azure na potrzeby umowy partnerskiej firmy Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
 Aby wdrożyć szablon, który przenosi istniejącą subskrypcję platformy Azure do nowej grupy zarządzania, zobacz [przenoszenie subskrypcji w ramach szablonu ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 

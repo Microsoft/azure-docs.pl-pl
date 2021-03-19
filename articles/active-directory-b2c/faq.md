@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d84c5fff41a7f00405c29ab4b4921ed2e28bdfde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517994"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580100"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -103,7 +103,7 @@ Nie, Azure AD Connect nie jest zaprojektowana do pracy z Azure AD B2C. Rozważ u
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Czy moja aplikacja może otworzyć Azure AD B2C strony w elemencie iFrame?
 
-Nie. ze względów bezpieczeństwa nie można otwierać stron Azure AD B2C w elemencie iFrame. Nasza usługa komunikuje się z przeglądarką w celu zabronienia elementów iFrame. Ogólnie rzecz biorąc, społeczność zabezpieczeń i Specyfikacja OAUTH2 zaleca się użycie elementów iFrame dla środowiska tożsamości ze względu na ryzyko związane z gniazdem kliknięcia.
+Ta funkcja jest dostępna w publicznej wersji zapoznawczej. Aby uzyskać szczegółowe informacje, zobacz [wbudowane środowisko logowania](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Czy Azure AD B2C współpracuje z systemami CRM, takimi jak Microsoft Dynamics?
 
@@ -131,7 +131,7 @@ Tak, zobacz [Dostosowywanie języka](language-customization.md). Udostępniamy t
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Czy mogę używać własnych adresów URL na stronach do rejestracji i logowania, które są obsługiwane przez Azure AD B2C? Czy na przykład mogę zmienić adres URL z contoso.b2clogin.com na login.contoso.com?
 
-Obecnie nie. Ta funkcja jest dostępna w naszym przewodniku. Weryfikowanie domeny na karcie **domeny** w Azure Portal nie ma tego celu. Jednak dzięki b2clogin.com Oferujemy [neutralną domenę najwyższego poziomu](b2clogin.md), a tym samym wygląd zewnętrzny można zaimplementować bez wzmianki firmy Microsoft.
+Ta funkcja jest dostępna w publicznej wersji zapoznawczej. Aby uzyskać szczegółowe informacje, zobacz [Azure AD B2C domen niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Jak mogę usunąć moją dzierżawę Azure AD B2C?
 

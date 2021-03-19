@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792504"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594261"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ W przypadku korzystania z grup automatycznych trybu failover z automatycznymi za
 - [Witryna Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Interfejs wiersza polecenia platformy Azure: Grupa trybu failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Grupa trybu failover](scripts/add-database-to-failover-group-powershell.md)
-- [Interfejs API REST: Grupa trybu failover](/rest/api/sql/failovergroups).
+- [Interfejs API REST: Grupa trybu failover](/rest/api/sql/failovergroups)
 
 Po przejściu w tryb failover upewnij się, że wymagania dotyczące uwierzytelniania dla bazy danych i serwera są skonfigurowane na nowym serwerze podstawowym. Aby uzyskać szczegółowe informacje, zobacz [SQL Database zabezpieczenia po odzyskiwaniu po awarii](active-geo-replication-security-configure.md).
 
@@ -115,7 +115,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
   - Przeprowadzaj ćwiczenia odzyskiwania po awarii (DR) w środowisku produkcyjnym, gdy utrata danych nie jest akceptowalna
   - Przeniesienie baz danych do innego regionu
-  - Zwróć bazy danych do regionu podstawowego po usunięciu awarii (powrót po awarii).
+  - Zwróć bazy danych do regionu podstawowego po usunięciu awarii (powrót po awarii)
 
 - **Nieplanowany tryb failover**
 
@@ -127,7 +127,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Okres prolongaty z utratą danych**
 
-  Ponieważ podstawowe i pomocnicze bazy danych są synchronizowane przy użyciu replikacji asynchronicznej, przełączenie w tryb failover może spowodować utratę danych. Można dostosować zasady automatycznego trybu failover w celu odzwierciedlenia tolerancji aplikacji do utraty danych. Konfigurując `GracePeriodWithDataLossHours` , można kontrolować czas oczekiwania systemu przed zainicjowaniem trybu failover, który prawdopodobnie spowoduje utratę danych.
+  Ponieważ podstawowe i pomocnicze bazy danych są synchronizowane przy użyciu replikacji asynchronicznej, przełączenie w tryb failover może spowodować utratę danych. Można dostosować zasady automatycznego trybu failover w celu odzwierciedlenia tolerancji aplikacji do utraty danych. Konfigurując `GracePeriodWithDataLossHours` , można kontrolować czas oczekiwania systemu przed zainicjowaniem trybu failover, co prawdopodobnie spowoduje utratę danych.
 
 - **Wiele grup trybu failover**
 
@@ -176,7 +176,7 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.database.windows.net` jako a
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Używanie odbiornika tylko do odczytu dla obciążenia przeznaczonego tylko do odczytu
 
-Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. W przypadku sesji tylko do odczytu Użyj `<fog-name>.secondary.database.windows.net` jako adresu URL serwera, a połączenie jest automatycznie przekierowywane do pomocniczego. Zaleca się również, aby wskazać w polu cel odczytu parametrów połączenia przy użyciu `ApplicationIntent=ReadOnly` .
+Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. W przypadku sesji tylko do odczytu Użyj `<fog-name>.secondary.database.windows.net` jako adresu URL serwera, a połączenie jest automatycznie przekierowywane do pomocniczego. Zalecane jest również, aby wskazać cel odczytu w parametrach połączenia przy użyciu `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Przygotowanie do obniżenia wydajności
 

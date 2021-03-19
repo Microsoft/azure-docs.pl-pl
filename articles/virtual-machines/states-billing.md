@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522454"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596301"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Stany i rozliczanie Virtual Machines platformy Azure
 
@@ -82,6 +82,6 @@ Stany aprowizacji systemu operacyjnego mają zastosowanie tylko do maszyn wirtua
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z [dokumentacją dotyczącą Azure Cost Management i rozliczeń](https://docs.microsoft.com/azure/cost-management-billing/)
+- Zapoznaj się z [dokumentacją dotyczącą Azure Cost Management i rozliczeń](../cost-management-billing/index.yml)
 - Zaplanuj wdrożenia za pomocą [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) .
-- Dowiedz się więcej na temat monitorowania maszyny wirtualnej, zobacz [monitorowanie maszyn wirtualnych na platformie Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Dowiedz się więcej na temat monitorowania maszyny wirtualnej, zobacz [monitorowanie maszyn wirtualnych na platformie Azure](../azure-monitor/vm/monitor-vm-azure.md).

@@ -9,20 +9,20 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruxu
 ms.author: ruxu
-ms.openlocfilehash: ad6f0d5ad55716e19e4e0c571056d18641e23d21
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: a3899b83133b3f951547fae0b11c044bfa85a5fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102620246"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589603"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Samouczek: kompilowanie aplikacji do uczenia maszynowego przy użyciu programu Microsoft Machine Learning dla Apache Spark (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak używać programu Microsoft Machine Learning for Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) do tworzenia aplikacji do uczenia maszynowego. MMLSpark rozszerza rozbudowane rozwiązanie uczenia maszynowego Apache Spark przez dodanie wielu narzędzi do uczenia i nauki o danych, takich jak [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) i innych.  MMLSpark umożliwia tworzenie zaawansowanych i wysoce skalowalnych modeli predykcyjnych i analitycznych z różnych źródeł danych platformy Spark.
+W tym artykule dowiesz się, jak używać programu Microsoft Machine Learning for Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) do tworzenia aplikacji do uczenia maszynowego. MMLSpark rozszerza rozbudowane rozwiązanie uczenia maszynowego Apache Spark przez dodanie wielu narzędzi do uczenia i nauki o danych, takich jak [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) i innych.  MMLSpark umożliwia tworzenie zaawansowanych i wysoce skalowalnych modeli predykcyjnych i analitycznych z różnych źródeł danych platformy Spark.
 Synapse Spark udostępnia wbudowane biblioteki MMLSpark, w tym:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) — usługi bibliotek do uczenia maszynowego, aby umożliwić analizę tekstu, taką jak tonacji Analysis w Tweetach.
-- [Cognitive Services na platformie Spark](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data) — aby połączyć funkcję usługi Azure Cognitive Services w potokach SparkML, aby utworzyć projekt rozwiązania dla usług modelowania danych poznawczych, takich jak wykrywanie anomalii.
+- [Cognitive Services na platformie Spark](../../cognitive-services/big-data/cognitive-services-for-big-data.md) — aby połączyć funkcję usługi Azure Cognitive Services w potokach SparkML, aby utworzyć projekt rozwiązania dla usług modelowania danych poznawczych, takich jak wykrywanie anomalii.
 - [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) — model uczenia maszynowego, aby umożliwić uczenie modelu na potrzeby analizy predykcyjnej, takiej jak wykrywanie identyfikatorów czołowych.
 - KNN warunkowo skalowalne modele KNN z kwerendami warunkowymi.
 - [Http na platformie Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) — umożliwia organizowanie dystrybucji mikrousług w ramach integracji opartych na protokole Spark i http.
@@ -38,9 +38,9 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- [Obszar roboczy usługi Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace) z kontem magazynu Azure Data Lake Storage Gen2 skonfigurowanym jako magazyn domyślny. Musisz być *współautorem danych obiektów blob magazynu* w systemie plików Data Lake Storage Gen2, z którym pracujesz.
-- Pula platformy Spark w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli platformy Spark w usłudze Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-sql-pool-studio).
-- Kroki przed rozpoczęciem konfiguracji opisane w samouczku [konfigurowanie Cognitive Services w usłudze Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse).
+- [Obszar roboczy usługi Azure Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu Azure Data Lake Storage Gen2 skonfigurowanym jako magazyn domyślny. Musisz być *współautorem danych obiektów blob magazynu* w systemie plików Data Lake Storage Gen2, z którym pracujesz.
+- Pula platformy Spark w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Kroki przed rozpoczęciem konfiguracji opisane w samouczku [konfigurowanie Cognitive Services w usłudze Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
@@ -69,7 +69,7 @@ anomalydetector_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", a
 
 ## <a name="text-analytics-sample"></a>Przykład analizy tekstu
 
-Usługa [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału od 0,0 do 1,0, gdzie niskie wyniki wskazują, że wartość ujemna tonacji i wysoka Ocena wskazuje pozytywną tonacji. Ten przykład używa trzech prostych zdań i zwraca tonacji dla każdego z nich.
+Usługa [Analiza tekstu](../../cognitive-services/text-analytics/index.yml) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału od 0,0 do 1,0, gdzie niskie wyniki wskazują, że wartość ujemna tonacji i wysoka Ocena wskazuje pozytywną tonacji. Ten przykład używa trzech prostych zdań i zwraca tonacji dla każdego z nich.
 
 ```python
 from pyspark.sql.functions import col
@@ -104,7 +104,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | Dziś mam szczęście, Sunny! | positive |
 
 ## <a name="computer-vision-sample"></a>Przykładowa obsługa komputera
-[Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego. W tym przykładzie Tagi obserwujemy. Tagi to jednowyrazowe opisy elementów na obrazie, takich jak rozpoznawalne obiekty, ludzie, scenerii i akcje.
+[Przetwarzanie obrazów](../../cognitive-services/computer-vision/index.yml) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego. W tym przykładzie Tagi obserwujemy. Tagi to jednowyrazowe opisy elementów na obrazie, takich jak rozpoznawalne obiekty, ludzie, scenerii i akcje.
 
 
 ![image (obraz)](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
@@ -134,7 +134,7 @@ display(analysis.transform(df_images).select("image", "analysis_results.descript
 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg` | [Napływanie, osoba, człowiek, na zewnątrz, Jazda, Sport, Skateboard, młode, płyty, Koszulka, powietrze, parkowanie, Boy, boczne, przechodzenie, rampa, lewę, jazda |
 
 ## <a name="bing-image-search-sample"></a>Przykład wyszukiwania obrazów Bing
-[Wyszukiwanie obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
+[Wyszukiwanie obrazów Bing](../../cognitive-services/bing-image-search/overview.md) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
 
 
 ```python
@@ -185,7 +185,7 @@ display(res_bingsearch.dropDuplicates())
 
 ## <a name="anomaly-detector-sample"></a>Przykład wykrywania anomalii
 
-[Detektor anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
+[Detektor anomalii](../../cognitive-services/anomaly-detector/index.yml) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
 
 ```python
 from pyspark.sql.functions import lit

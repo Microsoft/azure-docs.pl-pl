@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492017"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579760"
 ---
 # <a name="relyingparty"></a>RelyingParty
 

@@ -3,15 +3,15 @@ title: Sparametryzuj połączone usługi w Azure Data Factory
 description: Dowiedz się, jak Sparametryzuj połączone usługi w Azure Data Factory i przekazywać wartości dynamiczne w czasie wykonywania.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 03/18/2021
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: df26b77f37100ae41b26c013c57cccbfa0d7e205
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372930"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595587"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Sparametryzuj połączone usługi w Azure Data Factory
 
@@ -38,18 +38,21 @@ Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory u
 
 - Amazon Redshift
 - Amazon S3
+- Azure Blob Storage
 - Azure Cosmos DB (interfejs API SQL)
+- Usługa Azure Data Lake Storage 2. generacji
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Key Vault
 - Azure SQL Database
 - Wystąpienie zarządzane Azure SQL
 - Azure Synapse Analytics 
+- Azure Table Storage
+- Ogólne HTTP
+- Ogólne REST
 - MySQL
 - Oracle
 - SQL Server
-- Ogólne HTTP
-- Ogólne REST
 
 W przypadku innych typów połączonych usług, które nie znajdują się na liście, możesz Sparametryzuj połączoną usługę, edytując kod JSON w interfejsie użytkownika:
 

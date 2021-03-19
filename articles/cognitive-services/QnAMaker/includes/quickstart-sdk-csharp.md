@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla platformy .NET'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: d14c137150b802c734a0386536fbe32a6917cd92
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3b2bbf30fcd93bdd8e3d8bdefcbf863df30d9017
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731005"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583232"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -66,21 +66,9 @@ Użyj biblioteki klienta QnA Maker dla platformy .NET, aby:
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="visual-studio-ide"></a>Visual Studio IDE
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
-
-Za pomocą programu Visual Studio Utwórz aplikację .NET Core i zainstaluj bibliotekę kliencką, klikając rozwiązanie prawym przyciskiem myszy w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet**. W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj**, a następnie wyszukaj `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker` . Wybierz wersję `2.0.1` , a następnie **Zainstaluj**.
-
-# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/version-2)
-
-Za pomocą programu Visual Studio Utwórz aplikację .NET Core i zainstaluj bibliotekę kliencką, klikając rozwiązanie prawym przyciskiem myszy w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet**. W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj**, zaznacz pozycję **Uwzględnij wersję wstępną** i Wyszukaj `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker` . Wybierz wersję `3.0.0-preview.1` , a następnie **Zainstaluj**.
-
----
-
 ### <a name="cli"></a>Interfejs wiersza polecenia
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `qna-maker-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `qna-maker-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program. cs*.
 
 ```console
 dotnet new console -n qna-maker-quickstart
@@ -132,7 +120,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --versio
 
 ### <a name="using-directives"></a>Dyrektywy using
 
-W katalogu projektu Otwórz plik *program.cs* i Dodaj następujące `using` dyrektywy:
+W katalogu projektu Otwórz plik *program. cs* i Dodaj następujące `using` dyrektywy:
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -155,9 +143,11 @@ W `Main` metodzie aplikacji Dodaj zmienne i kod, które przedstawiono w poniższ
 
 Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Utwórz zmienne środowiskowe o nazwach QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT i QNA_MAKER_RUNTIME_ENDPOINT, aby zapisać te wartości.
 - Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
-- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` .
+- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` . Po opublikowaniu bazy wiedzy w portalu QnA Maker można znaleźć punkt końcowy środowiska uruchomieniowego, jak pokazano poniżej.
+  
+  ![Punkt końcowy QnA Maker środowiska uruchomieniowego](../media/endpoint.png)
+      
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
@@ -169,7 +159,6 @@ Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać 
 
 Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Utwórz zmienne środowiskowe o nazwie QNA_MAKER_SUBSCRIPTION_KEY i QNA_MAKER_ENDPOINT, aby zapisać te wartości.
 - Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 

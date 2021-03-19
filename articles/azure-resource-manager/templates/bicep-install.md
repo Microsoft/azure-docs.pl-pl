@@ -2,13 +2,13 @@
 title: Konfiguracja Bicep środowiska projektowania i wdrażania
 description: Jak skonfigurować Bicep środowiska projektowania i wdrażania
 ms.topic: conceptual
-ms.date: 03/09/2021
-ms.openlocfilehash: 0434c08a4427d2549a9adf4e4ab1e7e73a465ad8
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.date: 03/17/2021
+ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102620134"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594397"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Konfigurowanie środowiska deweloperskiego i wdrażania Bicep
 
@@ -18,7 +18,7 @@ Dowiedz się, jak skonfigurować Bicep środowiska deweloperskie i wdrożeniowe.
 
 Aby korzystać z najlepszego środowiska tworzenia Bicep, potrzebne są dwa składniki:
 
-- **Rozszerzenie Bicep dla Visual Studio Code**. Do tworzenia plików Bicep potrzebny jest dobry edytor Bicep. Zalecamy [Visual Studio Code](https://code.visualstudio.com/) z [rozszerzeniem Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Te narzędzia zapewniają obsługę języka i Autouzupełnianie zasobów. Ułatwiają one tworzenie i weryfikowanie plików Bicep. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie plików Bicep z Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- **Rozszerzenie Bicep dla Visual Studio Code**. Do tworzenia plików Bicep potrzebny jest dobry edytor Bicep. Zalecamy [Visual Studio Code](https://code.visualstudio.com/) z [rozszerzeniem Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Te narzędzia zapewniają obsługę języka i Autouzupełnianie zasobów. Ułatwiają one tworzenie i weryfikowanie plików Bicep. Aby uzyskać więcej informacji na temat używania Visual Studio Code i rozszerzenia Bicep, zobacz [Szybki Start: Tworzenie plików Bicep z Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - **Interfejs wiersza polecenia Bicep**. Użyj interfejsu wiersza polecenia Bicep, aby kompilować pliki Bicep do szablonów w usłudze ARM, i dekompilować szablony JSON programu ARM do plików Bicep. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia Bicep](#install-bicep-cli).
 
 ## <a name="deployment-environment"></a>Środowisko wdrażania

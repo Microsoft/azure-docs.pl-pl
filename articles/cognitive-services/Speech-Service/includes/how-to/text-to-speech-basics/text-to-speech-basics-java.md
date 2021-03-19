@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: bb2d9b04e6366b17cfb0ee4b8586359035be910d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 80384662789e9dad979566715672c15a8648ea9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428226"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612900"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -67,7 +67,7 @@ Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](/java/api/com.microso
 W tym przykładzie utworzysz [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) przy użyciu klucza subskrypcji i regionu. Pobierz te poświadczenia, wykonując czynności opisane w sekcji [Wypróbuj bezpłatnie usługę Speech](../../../overview.md#try-the-speech-service-for-free). Utworzysz również podstawowy kod standardowy do użycia w pozostałej części tego artykułu, który można modyfikować w celu dostosowania.
 
 ```java
-public class Program 
+public class Program
 {
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -124,7 +124,7 @@ W przypadku wielu scenariuszy tworzenia aplikacji mowy potrzebne są wyniki dany
 * Zintegruj wynik z innymi interfejsami API lub usługami.
 * Modyfikowanie danych audio, zapisywanie niestandardowych `.wav` nagłówków itp.
 
-Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `null` `AudioConfig` w `SpeechSynthesizer` konstruktorze. 
+Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `null` `AudioConfig` w `SpeechSynthesizer` konstruktorze.
 
 > [!NOTE]
 > W `null` przypadku `AudioConfig` , gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
@@ -135,7 +135,7 @@ Tym razem można zapisać wynik w [`SpeechSynthesisResult`](/java/api/com.micros
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    
+
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
@@ -254,3 +254,10 @@ Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji g�
   </voice>
 </speak>
 ```
+
+## <a name="visemes"></a>Visemes
+
+Funkcja mowy jest zwykle traktowana jako dobry sposób na przełożenie animacji wyrażeń twarzy.
+Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych pozycji w zaobserwowanej mowę (tj. pozycji pakietów lip, szczęki i języka podczas tworzenia określonego fonem).
+Możesz subskrybować zdarzenie viseme w zestawie mowy SDK, aby generować dane animacji twarzy. Następnie można zastosować takie dane do znaku w celu zapoznania się z animacją twarzy.
+Dowiedz się [, jak uzyskać dane wyjściowe viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).

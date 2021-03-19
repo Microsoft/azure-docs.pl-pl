@@ -6,17 +6,17 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 03/18/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410695"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595264"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -43,7 +43,7 @@ W poniższej tabeli przedstawiono wymuszone ograniczenia. Wartości odnoszą si�
 | Ograniczenie | Bezpłatna, B1 i S1 | B2 i S2 | B3 i S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operacje na rejestrze tożsamości](#identity-registry-operations-throttle) (tworzenie, pobieranie, wyświetlanie listy, aktualizowanie, usuwanie) | 1.67/sek/jednostkę (100/min/jednostka) | 1.67/sek/jednostkę (100/min/jednostka) | 83.33/sek/jednostkę (5000/min/jednostka) |
-| [Nowe połączenia urządzeń](#device-connections-throttle) (ten limit dotyczy stawki _nowych połączeń_ , a nie łącznej liczby połączeń) | Wyższa z 100/s lub 12/sek/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24 nowe połączenia/s, ale masz co najmniej 100 nowych połączeń/s w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 nowych połączeń/s (9 \* 12) w poszczególnych jednostkach. | 120 nowych połączeń/s/jednostka | 6 000 nowych połączeń/s/jednostka |
+| [Nowe połączenia urządzeń](#device-connections-throttle) (ten limit dotyczy stawki _nowych połączeń_, a nie łącznej liczby połączeń) | Wyższa z 100/s lub 12/sek/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24 nowe połączenia/s, ale masz co najmniej 100 nowych połączeń/s w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 nowych połączeń/s (9 \* 12) w poszczególnych jednostkach. | 120 nowych połączeń/s/jednostka | 6 000 nowych połączeń/s/jednostka |
 | Liczba elementów wysłanych z urządzenia do chmury | Ponad 100 operacji wysyłania/s lub 12 operacji wysyłania/s/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24/s, ale masz co najmniej 100 operacji wysyłania na sekundę w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 operacji wysyłania/s (9 \* 12) w poszczególnych jednostkach. | 120 operacji wysyłania/s/jednostkę | 6 000 operacji wysyłania/s/jednostkę |
 | Wysłane z chmury do urządzenia<sup>1</sup> | 1,67 operacji wysyłania/s/jednostkę (100 komunikatów/min/jednostka) | 1,67 operacji wysyłania/s/jednostkę (100 operacji wysyłania/min/jednostka) | 83,33 operacji wysyłania/s/jednostkę (5 000 operacji wysyłania/min/jednostka) |
 | Odebrane z chmury do urządzenia<sup>1</sup> <br/> (tylko w przypadku, gdy urządzenie używa protokołu HTTPS)| 16,67 operacji odbioru/s/jednostkę (1 000 operacji odbioru/min/jednostka) | 16,67 operacji odbioru/s/jednostkę (1 000 operacji odbioru/min/jednostka) | 833,33 operacji odbioru/s/jednostkę (50 000 operacji odbioru/min/jednostka) |
@@ -86,6 +86,8 @@ Na przykład można użyć symulowanego urządzenia do 200 wysyłania komunikat�
 ### <a name="identity-registry-operations-throttle"></a>Ograniczanie przepustowości operacji rejestru tożsamości
 
 Operacje rejestru tożsamości urządzeń są przeznaczone do użycia w czasie wykonywania w scenariuszach zarządzania urządzeniami i aprowizacji. Odczytywanie lub aktualizowanie dużej liczby tożsamości urządzeń jest obsługiwane za pomocą [zadań importu i eksportu](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+
+W przypadku inicjowania operacji tożsamości za pomocą [zbiorczych operacji na urządzeniach](iot-hub-bulk-identity-mgmt.md)należy zastosować te same limity ograniczania przepustowości. Na przykład jeśli chcesz przesłać operację zbiorczą do tworzenia 50 urządzeń i masz IoT Hub S1 z 1 jednostką, tylko dwa z tych żądań zbiorczych są akceptowane na minutę. Jest to spowodowane tym, że ograniczenie operacji tożsamości dla dla IoT Hub S1 z 1 jednostką wynosi 100/min/jednostkę. W takim przypadku trzecie żądanie (i więcej) w tej samej minucie zostałyby odrzucone, ponieważ limit został już osiągnięty. 
 
 ### <a name="device-connections-throttle"></a>Ograniczenie połączeń urządzeń
 

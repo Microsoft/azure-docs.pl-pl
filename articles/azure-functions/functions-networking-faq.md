@@ -4,12 +4,12 @@ description: Odpowiedzi na niektóre często zadawane pytania i scenariusze doty
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 24afeeee3207127bb9404156dc390433671dd5da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578233"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592306"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w Azure Functions
 
@@ -17,7 +17,9 @@ Ten artykuł zawiera listę często zadawanych pytań dotyczących sieci w Azure
 
 ## <a name="how-do-i-set-a-static-ip-in-functions"></a>Jak mogę ustawić statyczny adres IP w funkcjach?
 
-Wdrożenie funkcji w App Service Environment jest obecnie jedynym sposobem posiadania statycznego przychodzącego i wychodzącego adresu IP dla funkcji. Aby uzyskać szczegółowe informacje na temat używania App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
+Wdrożenie funkcji w App Service Environment jest podstawowym sposobem na statyczne przychodzące i wychodzące adresy IP dla funkcji. Aby uzyskać szczegółowe informacje na temat używania App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+Można również użyć bramy translatora adresów sieciowych sieci wirtualnej do kierowania ruchu wychodzącego za pomocą kontrolowanego publicznego adresu IP. Aby dowiedzieć się więcej, zobacz [Samouczek: kontrola Azure Functions wychodzący adres IP z bramą NAT sieci wirtualnej platformy Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Jak mogę ograniczyć dostęp do Internetu do funkcji My?
 
@@ -33,7 +35,7 @@ Należy pamiętać, że Edytor Azure Portal wymaga bezpośredniego dostępu do u
 
 Można ograniczyć ruch **przychodzący** dla aplikacji funkcji do sieci wirtualnej za pomocą [punktów końcowych usługi](./functions-networking-options.md#use-service-endpoints). Ta konfiguracja nadal umożliwia aplikacji funkcji wykonywanie wywołań wychodzących do Internetu.
 
-Aby całkowicie ograniczyć funkcję, która powoduje, że cały ruch przesyłany przez sieć wirtualną, można użyć [prywatnych punktów końcowych](./functions-networking-options.md#private-endpoint-connections) z integracją sieci wirtualnej lub App Service Environment.
+Aby całkowicie ograniczyć funkcję, która powoduje, że cały ruch przesyłany przez sieć wirtualną, można użyć [prywatnych punktów końcowych](./functions-networking-options.md#private-endpoint-connections) z integracją sieci wirtualnej lub App Service Environment. Aby dowiedzieć się więcej, zobacz [integrowanie Azure Functions z siecią wirtualną platformy Azure za pomocą prywatnych punktów końcowych](functions-create-vnet.md).
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Jak mogę uzyskać dostęp do zasobów w sieci wirtualnej z aplikacji funkcji?
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 539e420cb9085fad10ea3972ba0e9e5ffb9d0622
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: b225ad7e12a95b4dcbb8656f54f8a9e9562b2ee8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419766"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604699"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Zarządzanie dostępem do sieci publicznej dla Centrum IoT Hub
 
@@ -32,7 +32,7 @@ Aby włączyć dostęp do sieci publicznej, wybierz pozycję **wszystkie sieci**
 
 ## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Uzyskiwanie dostępu do IoT Hub po wyłączeniu dostępu do sieci publicznej
 
-Po wyłączeniu dostępu do sieci publicznej IoT Hub jest dostępny tylko za pośrednictwem [prywatnego punktu końcowego wirtualnej platformy Azure](virtual-network-support.md). To ograniczenie obejmuje dostęp za pośrednictwem Azure Portal, ponieważ wywołania interfejsu API do usługi IoT Hub są wykonywane bezpośrednio przy użyciu przeglądarki z poświadczeniami użytkownika. 
+Po wyłączeniu dostępu do sieci publicznej IoT Hub jest dostępny tylko za pośrednictwem [prywatnego punktu końcowego wirtualnej platformy Azure](virtual-network-support.md).
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>IoT Hub punktu końcowego, adresu IP i portów po wyłączeniu dostępu do sieci publicznej
 

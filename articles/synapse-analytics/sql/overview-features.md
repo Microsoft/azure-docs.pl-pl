@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671222"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584095"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funkcje języka Transact-SQL obsługiwane przez usługę Azure Synapse SQL
 
@@ -51,7 +51,7 @@ Języki zapytań używane w programie SQL Synapse mogą mieć różne obsługiwa
 
 |   | Dedykowane | Praca bezserwerowa |
 | --- | --- | --- |
-| **SELECT — instrukcja** | Tak. Klauzule zapytań języka Transact-SQL [dla języka XML/for JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)i [dopasowania](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) nie są obsługiwane. | Tak. Klauzule zapytań języka Transact-SQL [dotyczące wskazówek XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [dopasowywania](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [przewidywania](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)i zapytań nie są obsługiwane. |
+| **SELECT — instrukcja** | Tak. Klauzule zapytań języka Transact-SQL [dla XML/for JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [dopasowanie](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), przesunięcie/pobieranie nie są obsługiwane. | Tak. Klauzule zapytań języka Transact-SQL [dla języka XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [dopasowanie](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [przewidywania](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), zestawy GROUPNG i wskazówki zapytania nie są obsługiwane. |
 | **INSERT — instrukcja** | Tak | Nie |
 | **Instrukcja UPDATE** | Tak | Nie |
 | **DELETE — Instrukcja** | Tak | Nie |
@@ -100,7 +100,7 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 | **Odnajdywanie i klasyfikacja danych** | [Tak](../../azure-sql/database/data-discovery-and-classification-overview.md) | Nie |
 | **Ocena luk w zabezpieczeniach** | [Tak](../../azure-sql/database/sql-vulnerability-assessment.md) | Nie |
 | **Advanced Threat Protection** | [Tak](../../azure-sql/database/threat-detection-overview.md)
-| **Kontroli** | [Tak](../../azure-sql/database/auditing-overview.md) | Nie |
+| **Inspekcja** | [Tak](../../azure-sql/database/auditing-overview.md) | Nie |
 | **[Reguły zapory](../security/synapse-workspace-ip-firewall.md)**| Tak | Tak |
 | **[Prywatny punkt końcowy](../security/synapse-workspace-managed-private-endpoints.md)**| Tak | Tak |
 
@@ -158,5 +158,5 @@ Analizowane dane mogą być przechowywane w różnych formatach magazynu. W poni
 ## <a name="next-steps"></a>Następne kroki
 Dodatkowe informacje na temat najlepszych rozwiązań dotyczących dedykowanej puli SQL i bezserwerowej puli można znaleźć w następujących artykułach:
 
-- [Najlepsze rozwiązania dotyczące dedykowanej puli SQL](best-practices-sql-pool.md)
-- [Najlepsze rozwiązania dotyczące puli SQL bezserwerowej](best-practices-sql-on-demand.md)
+- [Najlepsze rozwiązania dotyczące dedykowanej puli SQL](best-practices-dedicated-sql-pool.md)
+- [Najlepsze rozwiązania dotyczące puli SQL bezserwerowej](best-practices-serverless-sql-pool.md)

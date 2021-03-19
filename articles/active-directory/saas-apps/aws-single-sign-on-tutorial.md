@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 906c7e00cba1e0feb85289e8f2a46e74924dc0c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e890ff1cb64961c7747b8865b68504ff0a266a3e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664752"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z logowaniem jednokrotnym w usłudze AWS
 
@@ -39,7 +39,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Logowanie jednokrotne w AWS obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 
-* Logowanie jednokrotne w usłudze AWS obsługuje [**Automatyczne Inicjowanie obsługi użytkowników**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* Logowanie jednokrotne w usłudze AWS obsługuje [**Automatyczne Inicjowanie obsługi użytkowników**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="adding-aws-single-sign-on-from-the-gallery"></a>Dodawanie logowania jednokrotnego AWS z galerii
 
@@ -196,7 +196,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 10. Wybierz pozycję **Zakończ**.
 
 > [!NOTE]
-> Logowanie jednokrotne w usłudze AWS obsługuje również automatyczne Inicjowanie obsługi użytkowników. więcej informacji można znaleźć w [tym miejscu](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) w artykule Jak skonfigurować automatyczne Inicjowanie obsługi użytkowników.
+> Logowanie jednokrotne w usłudze AWS obsługuje również automatyczne Inicjowanie obsługi użytkowników. więcej informacji można znaleźć w [tym miejscu](./aws-single-sign-on-provisioning-tutorial.md) w artykule Jak skonfigurować automatyczne Inicjowanie obsługi użytkowników.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -212,11 +212,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do logowania jednokrotnego AWS, dla którego skonfigurowano Logowanie jednokrotne 
 
-Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Logowanie jednokrotne w usłudze AWS w obszarze Moje aplikacje, jeśli zostało skonfigurowane w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do logowania jednokrotnego AWS, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Logowanie jednokrotne w usłudze AWS w obszarze Moje aplikacje, jeśli zostało skonfigurowane w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do logowania jednokrotnego AWS, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu logowania jednokrotnego AWS można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu logowania jednokrotnego AWS można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218166"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595927"
 ---
 # <a name="azure-percept-ai-models"></a>Modele AI usługi Azure Percept
 
@@ -40,6 +40,10 @@ Dostępne są również [rozwiązania do zliczania użytkowników](https://githu
 Za pomocą usługi Azure Percept Studio można opracowywać niestandardowe rozwiązania do [obsługi](./tutorial-nocode-vision.md) i mowy, bez konieczności kodowania.
 
 W przypadku rozwiązań niestandardowych można korzystać zarówno z wykrywania obiektów, jak i klasyfikacji modeli AI. Po prostu Przekaż i Oznacz obrazy szkoleniowe, które można wykonać bezpośrednio z modelem "Percept" platformy Azure, w razie potrzeby. W [Custom Vision](https://www.customvision.ai/), które są częścią [Cognitive Services platformy Azure](https://azure.microsoft.com/services/cognitive-services/#overview), można łatwo przeprowadzić szkolenie i ocenę modeli.
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
 
 W przypadku niestandardowych rozwiązań mowy szablony asystenta głosowego są obecnie dostępne dla następujących aplikacji:
 

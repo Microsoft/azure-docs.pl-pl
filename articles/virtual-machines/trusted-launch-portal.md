@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553752"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582072"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Wdróż maszynę wirtualną z włączonym zaufanym uruchamianiem (wersja zapoznawcza)
 
@@ -134,13 +134,13 @@ Wybierz przycisk poniżej, aby wdrożyć zasady dla subskrypcji:
 
 Szablon należy wdrożyć tylko raz na subskrypcję. Automatycznie instaluje `GuestAttestation` i `AzureSecurity` rozszerza wszystkie obsługiwane maszyny wirtualne. Jeśli pojawią się błędy, spróbuj ponownie wdrożyć szablon.
 
-Aby uzyskać zalecenia dotyczące vTPM i bezpiecznego rozruchu dla zaufanych maszyn wirtualnych uruchamiania, zobacz [Dodawanie niestandardowej inicjatywy do subskrypcji](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+Aby uzyskać zalecenia dotyczące vTPM i bezpiecznego rozruchu dla zaufanych maszyn wirtualnych uruchamiania, zobacz [Dodawanie niestandardowej inicjatywy do subskrypcji](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Podpisywanie w celu bezpiecznego rozruchu w systemie Linux
 
 W niektórych przypadkach może być konieczne zarejestrowanie się w celu bezpiecznego rozruchu UEFI.  Na przykład może być konieczne przechodzenie przez [sposób podpisywania elementów w celu bezpiecznego rozruchu](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) dla Ubuntu. W takich przypadkach należy wprowadzić klucze rejestracji narzędzi MOK dla maszyny wirtualnej. Aby to zrobić, należy użyć konsoli szeregowej platformy Azure w celu uzyskania dostępu do narzędzia MOK.
 
-1. Włącz usługę Azure serial Console dla systemu Linux. Aby uzyskać więcej informacji, zobacz [konsola szeregowa dla systemu Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Włącz usługę Azure serial Console dla systemu Linux. Aby uzyskać więcej informacji, zobacz [konsola szeregowa dla systemu Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 1. Wyszukaj **maszyny wirtualne** i wybierz maszynę wirtualną z listy.
 1. W menu po lewej stronie w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **konsola szeregowa**. Po prawej stronie zostanie otwarta strona z konsolą szeregową.

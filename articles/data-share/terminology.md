@@ -7,10 +7,10 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73468560"
 ---
 # <a name="azure-data-share-concepts"></a>Pojęcia dotyczące udziałów danych platformy Azure 
@@ -27,7 +27,7 @@ Odbiorca danych to organizacja, która otrzymuje dane od dostawcy danych. Odbior
 
 ## <a name="data-share"></a>Data Share
 
-Udział danych to grupa zestawów DataSet, które są współużytkowane jako pojedyncza jednostka. Zestawy danych mogą pochodzić z wielu źródeł danych platformy Azure, które są obsługiwane przez usługę Azure Data Share. Obecnie udział danych platformy Azure obsługuje platformę Azure Blob Storage i Azure Data Lake Store. 
+Udział danych to grupa zestawów danych, które są udostępniane jako pojedyncza jednostka. Zestawy danych mogą pochodzić z wielu źródeł danych platformy Azure, które są obsługiwane przez usługę Azure Data Share. Obecnie usługa Azure Data Share obsługuje usługi Azure Blob Storage i Azure Data Lake Store. 
 
 ## <a name="share-subscription"></a>Udostępnianie subskrypcji 
 

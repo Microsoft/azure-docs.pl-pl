@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: bbe28f4fda32ce7d55a437e4ac944dc206f436ee
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ecabfde624ba6d3393bbf6d5480b83dbb5303c5e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522363"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604563"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Samouczek: korzystanie z własnych danych (część 4 z 4)
 
@@ -39,7 +39,12 @@ W tym samouczku zostały wykonane następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zakończenie [części 3](tutorial-1st-experiment-sdk-train.md) serii.
+Będziesz potrzebować danych i zaktualizowanej wersji środowiska pytorch utworzonego w poprzednim samouczku.  Upewnij się, że wykonano następujące czynności:
+
+1. [Tworzenie skryptu szkolenia](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+1. [Utwórz nowe środowisko języka Python](tutorial-1st-experiment-sdk-train.md#environment)
+1. [Testuj lokalnie](tutorial-1st-experiment-sdk-train.md#test-local)
+1. [Aktualizowanie pliku środowiska Conda](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## <a name="adjust-the-training-script"></a>Dostosuj skrypt szkoleniowy
 
@@ -75,6 +80,7 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+
 > [!div class="nextstepaction"]
 > [Został dostosowany skrypt szkoleniowy, w którym](?success=adjust-training-script#test-locally) [Wystąpił problem](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
@@ -84,28 +90,27 @@ Skrypt teraz akceptuje _ścieżkę danych_ jako argument. Aby rozpocząć pracę
 
 :::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Struktura katalogów pokazuje katalogi podrzędne. Azure, Data i src":::
 
+1. Wyjdź z bieżącego środowiska.
 
-Jeśli nie uruchomiono `train.py` lokalnie w poprzednim samouczku, nie będziesz mieć `data/` katalogu. W takim przypadku należy uruchomić `torchvision.datasets.CIFAR10` metodę lokalnie `download=True` w `train.py` skrypcie.
+    ```bash
+    conda deactivate
 
-Ponadto, aby uruchomić program na komputerze lokalnym, upewnij się, że zamknięto środowisko samouczka i aktywuj nowe środowisko Conda:
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
-```bash
-conda deactivate                # If you are still using the tutorial environment, exit it
-```
 
-```bash
-conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-```
+    ```bash
+    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+    ```
 
-```bash
-conda activate pytorch-aml-env          # activate new conda environment
-```
+    ```bash
+    conda activate pytorch-aml-env          # activate new conda environment
+    ```
 
-Aby uruchomić zmodyfikowany skrypt szkoleniowy lokalnie, wywołaj:
+1. Na koniec Uruchom lokalnie zmodyfikowany skrypt szkoleniowy.
 
-```bash
-python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-```
+    ```bash
+    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+    ```
 
 Należy unikać pobierania zestawu danych CIFAR10, przekazując ścieżkę lokalną do danych. Możesz również eksperymentować z różnymi wartościami dla _współczynnika uczenia_ _i niedopełnienia, bez_ konieczności podawania kodu w skrypcie szkoleniowym.
 

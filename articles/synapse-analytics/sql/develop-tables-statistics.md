@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674097"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594788"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
@@ -90,9 +90,9 @@ Statystyki w kolumnie kraj lub region w tabeli klienta nigdy nie muszą zostać 
 
 Jeśli jednak magazyn danych zawiera tylko jeden kraj lub region i dane pochodzą z nowego kraju lub regionu, należy zaktualizować statystyki w kolumnie kraj lub region.
 
-Poniżej przedstawiono zalecenia dotyczące aktualizowania statystyk:
+Poniżej znajdują się zalecenia dotyczące aktualizowania statystyk:
 
-|||
+|Typ|Zalecenie|
 |-|-|
 | **Częstotliwość aktualizacji statystyk**  | Ostrożne: codziennie </br> Po załadowaniu lub przeprowadzeniu przekształcenia danych |
 | **Próbkowanie** |  Mniej niż 1 000 000 000 wierszy, Użyj domyślnego próbkowania (20 procent). </br> Mając więcej niż 1 000 000 000 wierszy, użyj próbkowania dwóch procent. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zwiększyć wydajność zapytań dla dedykowanej puli SQL, zobacz [monitorowanie obciążenia](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i [najlepszych rozwiązań dla dedykowanej puli SQL](best-practices-sql-pool.md#maintain-statistics).
+Aby zwiększyć wydajność zapytań dla dedykowanej puli SQL, zobacz [monitorowanie obciążenia](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i [najlepszych rozwiązań dla dedykowanej puli SQL](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-Aby zwiększyć wydajność zapytań dla puli SQL bezserwerowej, zobacz [najlepsze rozwiązania dla puli SQL bezserwerowej](best-practices-sql-on-demand.md)
+Aby zwiększyć wydajność zapytań dla puli SQL bezserwerowej, zobacz [najlepsze rozwiązania dla puli SQL bezserwerowej](best-practices-serverless-sql-pool.md)
