@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90564155"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Dostępne regiony dla StorSimple
@@ -25,29 +25,29 @@ Wybór regionu platformy Azure jest bardzo ważne, a wybór regionu ma wpływ na
 
 W przypadku rozwiązania StorSimple wybór regionu zależy od następujących czynników:
 
-- Regiony, w których jest dostępna usługa Menedżer urządzeń StorSimple.
+- Regiony, w których jest dostępna usługa Device Manager StorSimple.
 - Kraje/regiony, w których jest dostępna StorSimple fizyczna, Chmura lub urządzenie wirtualne.
 - Regiony, w których należy zlokalizować konta magazynu przechowujące dane StorSimple, aby uzyskać optymalną wydajność.
 
-W tym samouczku opisano dostępność regionu usługi StorSimple Menedżer urządzeń, lokalne i fizyczne urządzenia w chmurze. Informacje zawarte w tym artykule dotyczą urządzeń z serii StorSimple 8000 i 1200.
+W tym samouczku opisano dostępność regionu usługi StorSimple Device Manager, lokalne i fizyczne urządzenia w chmurze. Informacje zawarte w tym artykule dotyczą urządzeń z serii StorSimple 8000 i 1200.
 
-## <a name="region-availability-for-storsimple-device-manager-service"></a>Dostępność regionów dla usługi StorSimple Menedżer urządzeń
+## <a name="region-availability-for-storsimple-device-manager-service"></a>Dostępność regionów dla usługi StorSimple Device Manager
 
-Usługa StorSimple Menedżer urządzeń jest obecnie obsługiwana w 12 regionach publicznych i 2 Azure Government regionach.
+Usługa StorSimple Device Manager jest obecnie obsługiwana w 12 regionach publicznych i 2 Azure Government regionach.
 
-Zdefiniuj region lub lokalizację podczas pierwszego tworzenia usługi StorSimple Menedżer urządzeń. Ogólnie rzecz biorąc wybierz lokalizację znajdującą się najbliżej regionu geograficznego, w którym wdrożono urządzenie. Ale urządzenie i usługa można również wdrożyć w różnych lokalizacjach.
+Zdefiniuj region lub lokalizację podczas pierwszego tworzenia usługi StorSimple Device Manager. Ogólnie rzecz biorąc wybierz lokalizację znajdującą się najbliżej regionu geograficznego, w którym wdrożono urządzenie. Ale urządzenie i usługa można również wdrożyć w różnych lokalizacjach.
 
-Poniżej znajduje się lista regionów, w których Usługa StorSimple Menedżer urządzeń jest dostępna dla chmury publicznej platformy Azure i można ją wdrożyć.
+Poniżej znajduje się lista regionów, w których Usługa StorSimple Device Manager jest dostępna dla chmury publicznej platformy Azure i można ją wdrożyć.
 
-![Zrzut ekranu przedstawia StorSimple Menedżer urządzeń z wyróżnioną listą lokalizacji.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Zrzut ekranu przedstawia StorSimple Device Manager z wyróżnioną listą lokalizacji.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-W przypadku chmury Azure Government Usługa StorSimple Menedżer urządzeń jest dostępna w US Gov Iowa i US Gov Wirginia centrach danych.
+W przypadku chmury Azure Government Usługa StorSimple Device Manager jest dostępna w US Gov Iowa i US Gov Wirginia centrach danych.
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>Dostępność regionu dla danych przechowywanych w StorSimple
 
 Dane StorSimple są fizycznie przechowywane na kontach usługi Azure Storage, a te konta są dostępne we wszystkich regionach świadczenia usługi Azure. Podczas tworzenia konta usługi Azure Storage jest wybierana podstawowa lokalizacja konta magazynu, która określa region, w którym znajdują się dane.
 
-Podczas pierwszego tworzenia usługi StorSimple Menedżer urządzeń i kojarzenia z nią konta magazynu, Usługa StorSimple Menedżer urządzeń i Magazyn Azure mogą znajdować się w dwóch oddzielnych lokalizacjach. W takim przypadku należy utworzyć konta usługi Menedżer urządzeń StorSimple i usługi Azure Storage oddzielnie.
+Podczas pierwszego tworzenia usługi StorSimple Device Manager i kojarzenia z nią konta magazynu, Usługa StorSimple Device Manager i Magazyn Azure mogą znajdować się w dwóch oddzielnych lokalizacjach. W takim przypadku należy utworzyć konta usługi Menedżer urządzeń StorSimple i usługi Azure Storage oddzielnie.
 
 Ogólnie rzecz biorąc, wybierz najbliższy region usługi dla konta magazynu. Jednak najbliższy region Microsoft Azure może nie być regionem o najniższym opóźnieniu. Jest to opóźnienie, które wymusza wydajność usługi sieciowej i w związku z tym wydajność rozwiązania. W przypadku wybrania konta magazynu w innym regionie należy wiedzieć, jakie opóźnienia należy do usługi i regionu skojarzonego z kontem magazynu.
 
@@ -100,4 +100,4 @@ W przypadku używania macierzy wirtualnej StorSimple serii 1200, obraz dysku wir
 
 * Dowiedz się więcej o [cenach różnych modeli StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Dowiedz się więcej o [zarządzaniu kontem magazynu StorSimple](storsimple-8000-manage-storage-accounts.md).
-* Dowiedz się więcej na temat [używania usługi StorSimple Menedżer urządzeń do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej na temat [używania usługi StorSimple Device Manager do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

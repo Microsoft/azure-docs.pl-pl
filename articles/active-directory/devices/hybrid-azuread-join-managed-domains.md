@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4545e92767a427b8cd89af07ed4d06053685977a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644922"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578009"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen zarządzanych
 
@@ -34,7 +34,7 @@ Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność uży
 
 Środowisko zarządzane można wdrożyć przy użyciu funkcji [synchronizacji skrótów haseł (PHS)](../hybrid/whatis-phs.md) lub [uwierzytelniania przekazywanego (PTA)](../hybrid/how-to-connect-pta.md) z [bezproblemowym logowaniem jednokrotnym](../hybrid/how-to-connect-sso.md). Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uwierzytelniania.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie dołączenia hybrydowego do usługi Azure AD
@@ -58,6 +58,9 @@ Zapoznaj się z następującymi artykułami:
 > Usługa Azure AD nie obsługuje kart inteligentnych ani certyfikatów w domenach zarządzanych.
 
 Sprawdź, czy Azure AD Connect synchronizuje obiekty komputerów urządzeń, które mają być przyłączone do usługi Azure AD jako hybrydowe. Jeśli obiekty komputera należą do określonych jednostek organizacyjnych (OU), należy skonfigurować jednostki organizacyjne do synchronizacji w Azure AD Connect. Aby dowiedzieć się więcej o synchronizowaniu obiektów komputerów przy użyciu Azure AD Connect, zobacz [filtrowanie na podstawie jednostki organizacyjnej](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+
+> [!NOTE]
+> Aby uzyskać powodzenie przyłączenia synchronizacji rejestracji urządzeń w ramach konfiguracji rejestracji urządzenia, nie należy wykluczać domyślnych atrybutów urządzenia z konfiguracji synchronizacji Azure AD Connect. Aby dowiedzieć się więcej o domyślnych atrybutach urządzenia synchronizowanych do usługi AAD, zobacz [atrybuty synchronizowane przez Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Począwszy od wersji 1.1.819.0, Azure AD Connect zawiera Kreatora konfiguracji hybrydowego sprzężenia usługi Azure AD. Kreator znacznie upraszcza proces konfiguracji. Kreator konfiguruje punkty połączenia usługi (punktu SCP) na potrzeby rejestracji urządzeń.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87420417"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Wykonaj drążenie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
@@ -119,11 +119,11 @@ Przygotuj serwer DNS dla testowej pracy w trybie failover w następujący sposó
 
 W tej procedurze opisano, jak uruchomić test pracy w trybie failover dla planu odzyskiwania. Alternatywnie można uruchomić tryb failover dla pojedynczej maszyny wirtualnej na karcie **Virtual Machines** .
 
-1. Wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*. Kliknij **pozycję**test pracy w trybie failover  >  **Test Failover**.
+1. Wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*. Kliknij **pozycję** test pracy w trybie failover  >  .
 2. W bloku **Testowanie pracy w trybie failover** Określ, jak maszyny wirtualne repliki mają być połączone z sieciami po testowym przejściu w tryb failover.
 3. Śledź postęp pracy w trybie failover na karcie **zadania** .
 4. Po zakończeniu pracy w trybie failover Sprawdź, czy maszyny wirtualne zostały pomyślnie uruchomione.
-5. Gdy skończysz, kliknij pozycję **Oczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze **uwagi**Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Ten krok usuwa wszystkie maszyny wirtualne i sieci, które zostały utworzone przez Site Recovery podczas testu pracy w trybie failover. 
+5. Gdy skończysz, kliknij pozycję **Oczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze **uwagi** Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Ten krok usuwa wszystkie maszyny wirtualne i sieci, które zostały utworzone przez Site Recovery podczas testu pracy w trybie failover. 
 
 ![Testowanie pracy w trybie failover](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

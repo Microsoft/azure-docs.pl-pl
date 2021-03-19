@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: df9efef1000ab6a824c869e6684ab1424e8462f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708105"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654530"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej
 
@@ -54,7 +54,7 @@ Rozwiązanie uruchamia zbieranie danych bez konieczności dalszej konfiguracji. 
 
 ### <a name="configure-the-solution"></a>Skonfiguruj rozwiązanie
 
-Na pulpicie nawigacyjnym rozwiązania kliknij pozycję **Konfiguracja** , aby otworzyć stronę Konfiguracja DNS Analytics. Istnieją dwa typy zmian konfiguracji, które można wprowadzić:
+W obszarze roboczym Log Analytics w Azure Portal wybierz pozycję **Podsumowanie obszaru roboczego** , a następnie kliknij kafelek **DNS Analytics** . Na pulpicie nawigacyjnym rozwiązania kliknij pozycję **Konfiguracja** , aby otworzyć stronę Konfiguracja DNS Analytics. Istnieją dwa typy zmian konfiguracji, które można wprowadzić:
 
 - **Allowlisted nazwy domen**. Rozwiązanie nie przetwarza wszystkich zapytań wyszukiwania. Obsługuje ona dozwolonych sufiksów nazw domen. Zapytania wyszukiwania, które są rozpoznawane jako nazwy domen pasujące do sufiksów nazw domen w tym dozwolonych, nie są przetwarzane przez rozwiązanie. Nie przetwarzanie nazw domen allowlisted pomaga zoptymalizować dane wysyłane do Azure Monitor. Domyślne dozwolonych obejmują Popularne nazwy domen publicznych, takie jak www.google.com i www.facebook.com. Możesz wyświetlić kompletną listę domyślną, przewijając.
 

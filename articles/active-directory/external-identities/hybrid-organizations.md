@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909398"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Azure Active Directory współpracy B2B z organizacjami hybrydowymi
@@ -47,7 +47,7 @@ Aby uzyskać szczegółowe informacje na temat implementacji, zobacz [udzielanie
  
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD](hybrid-cloud-to-on-premises.md)
-- [Przyznaj lokalnym zarządzanym kontom partnerskim dostęp do zasobów w chmurze przy użyciu funkcji współpracy B2B usługi Azure AD](hybrid-on-premises-to-cloud.md)
+- [Przyznawanie użytkownikom B2B dostępu do aplikacji lokalnych w usłudze Azure AD](hybrid-cloud-to-on-premises.md)
+- [Przyznawanie lokalnie zarządzanym kontom partnerskim dostępu do zasobów w chmurze przy użyciu funkcji współpracy B2B w usłudze Azure AD](hybrid-on-premises-to-cloud.md)
 
 

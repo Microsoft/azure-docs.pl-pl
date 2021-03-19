@@ -1,6 +1,6 @@
 ---
 title: Administracja macierzy wirtualnej programu Microsoft Azure StorSimple Manager | Microsoft Docs
-description: Dowiedz się, jak zarządzać lokalną tablicą wirtualną StorSimple przy użyciu usługi StorSimple Menedżer urządzeń w Azure Portal.
+description: Dowiedz się, jak zarządzać lokalną tablicą wirtualną StorSimple przy użyciu usługi StorSimple Device Manager w Azure Portal.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,49 +12,49 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb5b6b1a2d890fe49d78da17d549c5676557b971
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654263"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania wirtualną macierzą StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Device Manager w celu administrowania wirtualną macierzą StorSimple
 ![przepływ procesu instalacji](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano interfejs usługi StorSimple Menedżer urządzeń, w tym sposób nawiązywania z nim połączenia i różne dostępne opcje oraz podano linki do określonych przepływów pracy, które można wykonać za pośrednictwem tego interfejsu użytkownika.
+W tym artykule opisano interfejs usługi StorSimple Device Manager, w tym sposób nawiązywania z nim połączenia i różne dostępne opcje oraz podano linki do określonych przepływów pracy, które można wykonać za pośrednictwem tego interfejsu użytkownika.
 
 Po przeczytaniu tego artykułu dowiesz się, jak:
 
-* Nawiązywanie połączenia z usługą StorSimple Menedżer urządzeń
-* Nawigowanie po INTERFEJSie StorSimple Menedżer urządzeń
-* Administruj wirtualną macierzą StorSimple za pośrednictwem usługi StorSimple Menedżer urządzeń
+* Nawiązywanie połączenia z usługą StorSimple Device Manager
+* Nawigowanie po INTERFEJSie StorSimple Device Manager
+* Administruj wirtualną macierzą StorSimple za pośrednictwem usługi StorSimple Device Manager
 
 > [!NOTE]
 > Aby wyświetlić opcje zarządzania dostępne dla urządzenia z serii StorSimple 8000, przejdź do [korzystania z usługi StorSimple Manager w celu administrowania urządzeniem StorSimple](./storsimple-8000-manager-service-administration.md).
-> 
-> 
 
-## <a name="connect-to-the-storsimple-device-manager-service"></a>Nawiązywanie połączenia z usługą StorSimple Menedżer urządzeń
-Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma wirtualnymi macierzami StorSimple. Aby zarządzać tymi urządzeniami, należy użyć centralnej Microsoft Azure Portal działającej w przeglądarce. Aby nawiązać połączenie z usługą StorSimple Menedżer urządzeń, wykonaj następujące czynności.
+## <a name="connect-to-the-storsimple-device-manager-service"></a>Nawiązywanie połączenia z usługą StorSimple Device Manager
+Usługa StorSimple Device Manager działa w Microsoft Azure i łączy się z wieloma wirtualnymi macierzami StorSimple. Aby zarządzać tymi urządzeniami, należy użyć centralnej Microsoft Azure Portal działającej w przeglądarce. Aby nawiązać połączenie z usługą StorSimple Device Manager, wykonaj następujące czynności.
 
 #### <a name="to-connect-to-the-service"></a>Aby nawiązać połączenie z usługą
-1. Przejdź do witryny [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Przejdź do witryny [https://portal.azure.com](https://portal.azure.com).
 2. Korzystając z poświadczeń konto Microsoft, zaloguj się do Microsoft Azure Portal (znajdującego się w prawym górnym rogu okienka).
 3. Przejdź do przycisku Przeglądaj--> "filter" w menedżerach urządzeń StorSimple, aby wyświetlić wszystkich menedżerów urządzeń w danej subskrypcji.
 
-## <a name="use-the-storsimple-device-manager-service-to-perform-management-tasks"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do wykonywania zadań zarządzania
-W poniższej tabeli przedstawiono podsumowanie wszystkich typowych zadań zarządzania i złożonych przepływów pracy, które można wykonać w bloku podsumowania usługi StorSimple Menedżer urządzeń. Te zadania są zorganizowane na podstawie bloków, na których są inicjowane.
+## <a name="use-the-storsimple-device-manager-service-to-perform-management-tasks"></a>Korzystanie z usługi StorSimple Device Manager do wykonywania zadań zarządzania
+W poniższej tabeli przedstawiono podsumowanie wszystkich typowych zadań zarządzania i złożonych przepływów pracy, które można wykonać w bloku podsumowania usługi StorSimple Device Manager. Te zadania są zorganizowane na podstawie bloków, na których są inicjowane.
 
 Aby uzyskać więcej informacji na temat każdego przepływu pracy, kliknij odpowiednią procedurę w tabeli.
 
-#### <a name="storsimple-device-manager-workflows"></a>StorSimple przepływy pracy Menedżer urządzeń
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
+
+#### <a name="storsimple-device-manager-workflows"></a>StorSimple przepływy pracy Device Manager
 | Jeśli chcesz to zrobić... | Użyj tej procedury |
 | --- | --- |
-| Tworzenie usługi</br>Usuwanie usługi</br>Pobieranie klucza rejestracji usługi</br>Wygeneruj ponownie klucz rejestracji usługi |[Wdrażanie usługi StorSimple Menedżer urządzeń](storsimple-virtual-array-manage-service.md) |
+| Tworzenie usługi</br>Usuwanie usługi</br>Pobieranie klucza rejestracji usługi</br>Wygeneruj ponownie klucz rejestracji usługi |[Wdrażanie usługi StorSimple Device Manager](storsimple-virtual-array-manage-service.md) |
 | Wyświetlanie dzienników aktywności |[Korzystanie z podsumowania usługi StorSimple](storsimple-virtual-array-service-summary.md) |
 | Dezaktywuj tablicę wirtualną</br>Usuwanie macierzy wirtualnej |[Dezaktywowanie lub usuwanie macierzy wirtualnej](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Odzyskiwanie po awarii i tryb failover urządzenia</br>Wymagania wstępne trybu failover</br>Ciągłość działania — odzyskiwanie po awarii (BCDR)</br>Błędy podczas odzyskiwania po awarii |[Odzyskiwanie po awarii i tryb failover urządzenia dla macierzy wirtualnej StorSimple](storsimple-virtual-array-failover-dr.md) |

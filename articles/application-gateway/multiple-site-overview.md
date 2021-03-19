@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87474329"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
@@ -35,7 +35,7 @@ Application Gateway umożliwia routing oparty na hoście przy użyciu odbiornika
 
 Używając symbolu wieloznacznego w nazwie hosta, można dopasować wiele nazw hostów w pojedynczym odbiorniku. Na przykład `*.contoso.com` może być zgodne z `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` i tak dalej. Korzystając z tablicy nazw hostów, można skonfigurować więcej niż jedną nazwę hosta dla odbiornika, aby kierować żądania do puli zaplecza. Może na przykład znajdować się odbiornik, `contoso.com, fabrikam.com` który akceptuje żądania dla nazwy hosta.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Application Gateway wiele lokacji":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Odbiornik symboli wieloznacznych":::
 
 >[!NOTE]
 > Ta funkcja jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 SKU Application Gateway. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

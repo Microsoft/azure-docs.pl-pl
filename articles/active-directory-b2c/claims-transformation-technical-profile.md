@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85201212"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny transformacji oświadczeń w zasadach niestandardowych Azure Active Directory B2C
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-Profil techniczny przekształcania oświadczeń umożliwia wykonywanie transformacji oświadczeń z dowolnego kroku aranżacji podróży użytkownika. W poniższym przykładzie krok aranżacji wywołuje jeden z niepołączonych profilów technicznych, takich jak **unlink-Facebook-OAuth**. Ten profil techniczny wywołuje **RemoveAlternativeSecurityIdByIdentityProvider**profil techniczny przekształcenia oświadczeń, który generuje nowe oświadczenie **AlternativeSecurityIds2** , które zawiera listę tożsamości społeczności użytkowników, podczas usuwania tożsamości w serwisie Facebook z kolekcji.
+Profil techniczny przekształcania oświadczeń umożliwia wykonywanie transformacji oświadczeń z dowolnego kroku aranżacji podróży użytkownika. W poniższym przykładzie krok aranżacji wywołuje jeden z niepołączonych profilów technicznych, takich jak **unlink-Facebook-OAuth**. Ten profil techniczny wywołuje **RemoveAlternativeSecurityIdByIdentityProvider** profil techniczny przekształcenia oświadczeń, który generuje nowe oświadczenie **AlternativeSecurityIds2** , które zawiera listę tożsamości społeczności użytkowników, podczas usuwania tożsamości w serwisie Facebook z kolekcji.
 
 ```xml
 <UserJourney Id="AccountUnLink">
@@ -104,7 +104,7 @@ Profil techniczny przekształcania oświadczeń umożliwia wykonywanie transform
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 
 ## <a name="use-a-validation-technical-profile"></a>Użyj profilu technicznego weryfikacji
 

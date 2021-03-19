@@ -9,18 +9,34 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/18/2020
+ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654632"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
-Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedykowanej puli SQL. W tym samouczku użyjemy danych z NYC taksówkami, aby poznać możliwości dedykowanej puli SQL.
+W tym samouczku użyjemy danych z NYC taksówkami, aby poznać możliwości dedykowanej puli SQL.
 
+## <a name="create-a-dedicated-sql-pool"></a>Tworzenie dedykowanej puli SQL
+
+1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami SQL**.
+1. Wybierz pozycję **Nowy**
+1. W obszarze **Nazwa puli SQL** wybierz pozycję **SQLPOOL1**
+1. Dla opcji **poziom wydajności** wybierz **DW100C**
+1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Dedykowana Pula SQL będzie gotowa w ciągu kilku minut. 
+
+Dedykowana Pula SQL jest skojarzona z bazą danych SQL, która jest również nazywana **SQLPOOL1**.
+1. Przejdź do   >  **obszaru roboczego** dane.
+1. Powinna zostać wyświetlona baza danych o nazwie **SQLPOOL1**. Jeśli nie widzisz go, kliknij przycisk **Odśwież**.
+
+Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wstrzymać później, aby zmniejszyć koszty.
+
+> [!NOTE] 
+> Podczas tworzenia nowej dedykowanej puli SQL (dawniej SQL DW) w obszarze roboczym zostanie otwarta strona dedykowana obsługa administracyjna puli SQL. Inicjowanie obsługi administracyjnej odbywa się na logicznym serwerze SQL Server.
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Załaduj dane z NYC taksówki do SQLPOOL1
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania** , kliknij **+** przycisk, aby dodać nowy zasób, a następnie utwórz nowy skrypt SQL.
@@ -77,7 +93,6 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Eksplorowanie danych z NYC taksówki w dedykowanej puli SQL
 
 1. W programie Synapse Studio przejdź do centrum **danych** .
-1. Powinna zostać wyświetlona baza danych o nazwie **SQLPOOL1**. Jeśli nie widzisz go, kliknij przycisk **Odśwież**.
 1. Przejdź do   >  **tabel** SQLPOOL1. 
 3. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabelę podróży** i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
 4. Poczekaj, aż zostanie utworzony i uruchomiony nowy skrypt SQL.
@@ -103,4 +118,4 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analizowanie przy użyciu platformy Spark](get-started-analyze-spark.md)
+> [Analizowanie danych na koncie usługi Azure Storage](get-started-analyze-storage.md)

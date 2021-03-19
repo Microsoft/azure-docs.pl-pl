@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89536386"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Zalecenia dotyczące zabezpieczeń obrazów portalu Azure Marketplace
@@ -39,8 +39,8 @@ Przed przesłaniem obrazu należy zawsze uruchomić Wykrywanie luk w zabezpiecze
 | Zabezpieczenia                                                     | Unikaj używania LVM.                                                                                                                                                                                                                                            |
 | Zabezpieczenia                                                     | Uwzględnij najnowsze wersje wymaganych bibliotek: </br> -OpenSSL v 1.0 lub nowszy </br> — Python 2,5 lub nowszy (zdecydowanie zalecane jest środowisko Python 2.6 +) </br> — Pakiet pyasn1 języka Python, jeśli nie został jeszcze zainstalowany </br> -d. OpenSSL v 1,0 lub nowszy                                                                |
 | Zabezpieczenia                                                     | Wyczyść wpisy historii bash/Shell.                                                                                                                                                                                                                                             |
-| Networking                                                   | Domyślnie Dołącz serwer SSH. Ustaw opcję utrzymywanie aktywności SSH na sshd konfiguracji z następującą opcją: ClientAliveInterval 180.                                                                                                                                                        |
-| Networking                                                   | Usuń niestandardową konfigurację sieci z obrazu. Usuń plik resolv. conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
+| Sieć                                                   | Domyślnie Dołącz serwer SSH. Ustaw opcję utrzymywanie aktywności SSH na sshd konfiguracji z następującą opcją: ClientAliveInterval 180.                                                                                                                                                        |
+| Sieć                                                   | Usuń niestandardową konfigurację sieci z obrazu. Usuń plik resolv. conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Wdrożenie                                                   | Zainstaluj najnowszego agenta systemu Azure Linux.</br> -Zainstaluj przy użyciu pakietu RPM lub deb.  </br> — Można również użyć procesu instalacji ręcznej, ale pakiety Instalatora są zalecane i preferowane. </br> — Jeśli ręcznie Zainstaluj agenta z repozytorium GitHub, najpierw skopiuj `waagent` plik do `/usr/sbin` i uruchom (jako główny): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Plik konfiguracji agenta jest umieszczony pod adresem `/etc/waagent.conf` . |
 | Wdrożenie                                                   | Upewnij się, że pomoc techniczna systemu Azure zapewnia naszym partnerom dane wyjściowe w konsoli szeregowej, jeśli jest to możliwe, i podaj odpowiedni limit czasu dla instalowania dysków systemu operacyjnego z magazynu Dodaj następujące parametry do wiersza rozruchu jądra obrazu: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Wdrożenie                                                   | Brak partycji wymiany na dysku systemu operacyjnego. Można zażądać wymiany na lokalnym dysku zasobu przez agenta systemu Linux.         |

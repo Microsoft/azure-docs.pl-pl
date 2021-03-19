@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/06/2020
+ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: 5243e9490c9de0d6df1520edb970da93fabef85a
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746124"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583755"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi G Suite do automatycznej aprowizacji użytkowników
 
@@ -273,6 +273,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 * 10/17/2020 — dodano obsługę dodatkowych atrybutów użytkowników i grup usługi G Suite.
 * 10/17/2020 — Zaktualizowano nazwy atrybutów docelowych G Suite, aby odpowiadały wartości zdefiniowanej w [tym miejscu](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 — Zaktualizowano domyślne mapowania atrybutów.
+* 03/18/2021 — wiadomość e-mail z menedżerem jest teraz synchronizowana zamiast identyfikatora dla wszystkich nowych użytkowników. W przypadku wszystkich istniejących użytkowników, którzy zostali zainicjowani przy użyciu Menedżera jako identyfikatora, można wykonać ponowne uruchomienie za pomocą [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) z zakresem "Full", aby upewnić się, że poczta e-mail została zainicjowana. Ta zmiana ma wpływ tylko na zadanie aprowizacji GSuite, a nie starsze zadanie probisioning, rozpoczynając od Goov2OutDelta. Pamiętaj, że wiadomość e-mail Menedżera jest inicjowana, gdy użytkownik jest najpierw tworzony lub gdy Menedżer zmieni się. Nie zainicjowano obsługi poczty e-mail menedżera, jeśli Menedżer zmieni swój adres e-mail. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

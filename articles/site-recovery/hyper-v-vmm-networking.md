@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87495947"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu nawiązania połączenia z dodatkową lokacją lokalną po przejściu do trybu failover
@@ -22,8 +22,8 @@ Po przełączeniu w tryb failover maszyn wirtualnych funkcji Hyper-V w chmurach 
 
 Po przejściu w tryb failover istnieje kilka sposobów obsługi adresowania IP dla maszyn wirtualnych repliki: 
 
-- **Zachowaj ten sam adres IP po**przejściu w tryb failover: w tym scenariuszu REPLIKOWANA maszyna wirtualna ma ten sam adres IP co podstawowa maszyna wirtualna. Upraszcza to problemy związane z siecią po przejściu w tryb failover, ale wymaga pewnego działania infrastruktury.
-- **Użyj innego adresu IP po**przejściu w tryb failover: w tym SCENARIUSZU maszyna wirtualna Pobiera nowy adres IP po przejściu do trybu failover. 
+- **Zachowaj ten sam adres IP po** przejściu w tryb failover: w tym scenariuszu REPLIKOWANA maszyna wirtualna ma ten sam adres IP co podstawowa maszyna wirtualna. Upraszcza to problemy związane z siecią po przejściu w tryb failover, ale wymaga pewnego działania infrastruktury.
+- **Użyj innego adresu IP po** przejściu w tryb failover: w tym SCENARIUSZU maszyna wirtualna Pobiera nowy adres IP po przejściu do trybu failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Zachowywanie adresu IP

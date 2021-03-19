@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431758"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593224"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu tagów indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -289,12 +289,7 @@ Tagi indeksu obiektów BLOB są dostępne tylko na kontach Ogólnego przeznaczen
 
 Tagi indeksu nie są obsługiwane na kontach magazynu w warstwie Premium. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
-W publicznej wersji zapoznawczej Tagi indeksów obiektów BLOB są dostępne tylko w następujących regionach:
-
-- Kanada Środkowa
-- Kanada Wschodnia
-- Francja Środkowa
-- Francja Południowa
+Tagi indeksów obiektów BLOB są obecnie dostępne we wszystkich regionach publicznych.
 
 Aby rozpocząć, zobacz [Używanie tagów indeksu obiektów BLOB do zarządzania danymi i ich znajdowania](storage-blob-index-how-to.md).
 

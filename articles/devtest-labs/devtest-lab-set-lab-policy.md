@@ -4,10 +4,10 @@ description: Dowiedz się, jak definiować zasady laboratorium, takie jak rozmia
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530356"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzaj wszystkimi zasadami dla laboratorium w Azure DevTest Labs
@@ -38,9 +38,9 @@ Zasady dla **maszyn wirtualnych na użytkownika** umożliwiają określenie licz
    
     ![Maszyny wirtualne na użytkownika](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Wybierz pozycję **tak** , aby ograniczyć liczbę maszyn wirtualnych na użytkownika. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych na użytkownika, wybierz pozycję **nie**. W przypadku wybrania opcji **tak**wprowadź wartość liczbową wskazującą liczbę maszyn wirtualnych, które mogą zostać utworzone lub przejęte przez użytkownika. 
+1. Wybierz pozycję **tak** , aby ograniczyć liczbę maszyn wirtualnych na użytkownika. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych na użytkownika, wybierz pozycję **nie**. W przypadku wybrania opcji **tak** wprowadź wartość liczbową wskazującą liczbę maszyn wirtualnych, które mogą zostać utworzone lub przejęte przez użytkownika. 
 
-1. Wybierz opcję **tak** , aby ograniczyć liczbę maszyn wirtualnych, które mogą korzystać z dysku SSD. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych, które mogą korzystać z dysków SSD, wybierz pozycję **nie**. W przypadku wybrania opcji **tak**wprowadź wartość wskazującą liczbę maszyn wirtualnych, które można utworzyć przy użyciu dysku SSD. 
+1. Wybierz opcję **tak** , aby ograniczyć liczbę maszyn wirtualnych, które mogą korzystać z dysku SSD. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych, które mogą korzystać z dysków SSD, wybierz pozycję **nie**. W przypadku wybrania opcji **tak** wprowadź wartość wskazującą liczbę maszyn wirtualnych, które można utworzyć przy użyciu dysku SSD. 
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -51,9 +51,9 @@ Zasady dla **maszyn wirtualnych na laboratorium** umożliwiają określenie licz
    
     ![Maszyny wirtualne na laboratorium](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Wybierz pozycję **tak** , aby ograniczyć liczbę maszyn wirtualnych na laboratorium. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych na laboratorium, wybierz pozycję **nie**. W przypadku wybrania opcji **tak**wprowadź wartość liczbową wskazującą liczbę maszyn wirtualnych, które mogą zostać utworzone lub przejęte przez użytkownika. 
+1. Wybierz pozycję **tak** , aby ograniczyć liczbę maszyn wirtualnych na laboratorium. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych na laboratorium, wybierz pozycję **nie**. W przypadku wybrania opcji **tak** wprowadź wartość liczbową wskazującą liczbę maszyn wirtualnych, które mogą zostać utworzone lub przejęte przez użytkownika. 
 
-1. Wybierz opcję **tak** , aby ograniczyć liczbę maszyn wirtualnych, które mogą korzystać z dysku SSD. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych, które mogą korzystać z dysków SSD, wybierz pozycję **nie**. W przypadku wybrania opcji **tak**wprowadź wartość wskazującą liczbę maszyn wirtualnych, które można utworzyć przy użyciu dysku SSD. 
+1. Wybierz opcję **tak** , aby ograniczyć liczbę maszyn wirtualnych, które mogą korzystać z dysku SSD. Jeśli nie chcesz ograniczyć liczby maszyn wirtualnych, które mogą korzystać z dysków SSD, wybierz pozycję **nie**. W przypadku wybrania opcji **tak** wprowadź wartość wskazującą liczbę maszyn wirtualnych, które można utworzyć przy użyciu dysku SSD. 
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -116,7 +116,7 @@ Zasady autostartu umożliwiają określenie czasu uruchamiania maszyn wirtualnyc
 Po włączeniu tych zasad nie są automatycznie stosowane do żadnych maszyn wirtualnych w bieżącym laboratorium. Aby zastosować to ustawienie do określonej maszyny wirtualnej, Otwórz okienko zarządzania maszyną wirtualną i zmień jego ustawienie **Autostart** .
 
 ## <a name="set-expiration-date"></a>Ustaw datę wygaśnięcia
-Podczas [tworzenia maszyny wirtualnej](devtest-lab-add-vm.md)można ustawić datę wygaśnięcia. W obszarze **Ustawienia zaawansowane**wybierz ikonę kalendarza, aby określić datę automatycznego usunięcia maszyny wirtualnej. Domyślnie maszyna wirtualna nigdy nie wygasa.
+Podczas [tworzenia maszyny wirtualnej](devtest-lab-add-vm.md)można ustawić datę wygaśnięcia. W obszarze **Ustawienia zaawansowane** wybierz ikonę kalendarza, aby określić datę automatycznego usunięcia maszyny wirtualnej. Domyślnie maszyna wirtualna nigdy nie wygasa.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

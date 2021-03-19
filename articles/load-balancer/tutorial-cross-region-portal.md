@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561402"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576921"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu Azure Portal
 
 Moduł równoważenia obciążenia między regionami gwarantuje, że usługa jest dostępna globalnie w wielu regionach świadczenia usługi Azure. Jeśli jeden region ulegnie awarii, ruch jest kierowany do następnego najbliższego w dobrej kondycji regionalnego modułu równoważenia obciążenia.  
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz międzyregionowy moduł równoważenia obciążenia.
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
 
-[Zaloguj](https://preview.portal.azure.com) się do portalu Azure w wersji zapoznawczej.
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-cross-region-load-balancer"></a>Tworzenie międzyregionowego modułu równoważenia obciążenia
 

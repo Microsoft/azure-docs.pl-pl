@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89651425"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu szablonu ARM
@@ -72,7 +72,7 @@ Dodatkowe zasoby:
 
 Wybierz pozycję **Zgodność** w lewej części strony. Znajdź utworzone przypisanie zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Przycisk umożliwiający wdrożenie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności na stronie zgodność zasad." border="false":::
 
 Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone w obszarze **Niezgodne zasoby**.
 
@@ -86,7 +86,7 @@ Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy _maszyny wirtualne inspekcji, które nie używają przypisania zasad dysków zarządzanych_ , i wybierz pozycję **Usuń przypisanie**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Przycisk umożliwiający wdrożenie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Zrzut ekranu przedstawiający korzystanie z menu kontekstowego, aby usunąć przypisanie ze strony zgodność." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

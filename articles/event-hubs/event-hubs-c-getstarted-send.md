@@ -4,10 +4,10 @@ description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85315661"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Szybki Start: wysyłanie zdarzeń do usługi Azure Event Hubs przy użyciu języka C
@@ -18,7 +18,7 @@ Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania dany
 W tym samouczku opisano sposób wysyłania zdarzeń do centrum zdarzeń przy użyciu aplikacji konsolowej w języku C. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 * Środowisko deweloperskie języka C. W tym samouczku przyjęto założenie, że stosy w witrynie Microsoft w zatoce na maszynie wirtualnej 14,04 z systemem Linux Azure
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
@@ -129,7 +129,7 @@ W tej sekcji pokazano, jak napisać aplikację C do wysyłania zdarzeń do centr
         return 0;
     }
     ```
-6. Skompiluj plik **, przy**założeniu, że:
+6. Skompiluj plik **, przy** założeniu, że:
    
     ```
     gcc sender.c -o sender -lqpid-proton

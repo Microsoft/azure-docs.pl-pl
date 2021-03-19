@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723779"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596012"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -82,7 +82,7 @@ Jeśli oferta usługi nie jest dostępna w określonym regionie, możesz podziel
 | Zalecane | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Sterowane popytem | :heavy_check_mark: | :heavy_check_mark: |
 | Formę | :heavy_check_mark: | :heavy_check_mark: | Sterowane popytem | Sterowane popytem | Nie dotyczy | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Usługi według kategorii z Strefy dostępności
+### <a name="services-by-category"></a>Usługi według kategorii
 
 Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie: podstawowe, podstawowe i wyspecjalizowane. Kategorie usług są przypisywane w ogólnej dostępności. Często usługi uruchamiają swój cykl życia jako wyspecjalizowaną usługę, a wzrost popytu i użycia może być podniesiony do podstawy lub do podstaw. W poniższej tabeli wymieniono kategorie usług jako podstawowe, podstawowe. Należy zwrócić uwagę na następujące kwestie dotyczące tabeli:
 
@@ -101,7 +101,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Publiczny adres IP platformy Azure                        | Azure Cache for Redis                             | 
 > | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Azure SQL: wystąpienie zarządzane           | Azure Cognitive Services                          | 
+> | Wystąpienie zarządzane Azure SQL             | Azure Cognitive Services                          | 
 > | Disk Storage                           | Azure Cognitive Services: przetwarzanie obrazów         | 
 > | Event Hubs                             | Cognitive Services platformy Azure: Content Moderator       | 
 > | Key Vault                              | Cognitive Services platformy Azure: powierzchnie                    | 
@@ -172,7 +172,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Azure Database Migration Service                     |
 > | Dedykowany moduł HSM platformy Azure                                  |
 > | Azure Digital Twins                                  |
-> | Bot kondycji platformy Azure                                     |
+> | Azure Health Bot                                     |
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |

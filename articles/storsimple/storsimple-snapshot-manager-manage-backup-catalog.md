@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054997"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Zarządzanie wykazem kopii zapasowych przy użyciu Snapshot Manager StorSimple
@@ -43,7 +43,7 @@ Wykaz kopii zapasowych można wyświetlić, rozwijając węzeł **wykaz kopii za
   * **Typ** — czy jest to migawka lokalna czy migawka w chmurze.
   * **Owner** — właściciel zawartości. 
   * **Dostępne** — czy migawka jest obecnie dostępna. **Wartość true** wskazuje, że migawka jest dostępna i można ją przywrócić; **Wartość false** wskazuje, że migawka nie jest już dostępna. 
-  * **Zaimportowano** — czy kopia zapasowa została zaimportowana. **Wartość true** wskazuje, że kopia zapasowa została zaimportowana z usługi StorSimple Menedżer urządzeń w chwili, gdy urządzenie zostało skonfigurowane w StorSimple Snapshot Manager; **Wartość false** wskazuje, że nie została zaimportowana, ale została utworzona przez StorSimple Snapshot Manager. (Można łatwo zidentyfikować zaimportowaną grupę woluminów, ponieważ dodawany jest sufiks identyfikujący urządzenie, z którego została zaimportowana Grupa woluminów).
+  * **Zaimportowano** — czy kopia zapasowa została zaimportowana. **Wartość true** wskazuje, że kopia zapasowa została zaimportowana z usługi StorSimple Device Manager w chwili, gdy urządzenie zostało skonfigurowane w StorSimple Snapshot Manager; **Wartość false** wskazuje, że nie została zaimportowana, ale została utworzona przez StorSimple Snapshot Manager. (Można łatwo zidentyfikować zaimportowaną grupę woluminów, ponieważ dodawany jest sufiks identyfikujący urządzenie, z którego została zaimportowana Grupa woluminów).
     
     ![Wykaz kopii zapasowych](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
 * W przypadku rozszerzenia **migawki lokalnej** lub **migawki w chmurze**, a następnie kliknięcia pojedynczej nazwy migawki w okienku **wyników** zostaną wyświetlone następujące informacje dotyczące wybranej migawki:
@@ -93,7 +93,7 @@ Poniższa procedura umożliwia utworzenie duplikatu (klonowania) woluminu lub gr
    1. W polu tekstowym **Nazwa** wpisz nazwę sklonowanego woluminu. Ta nazwa zostanie wyświetlona w węźle **woluminy** . 
    2. (Opcjonalnie) wybierz pozycję **dysk**, a następnie wybierz z listy rozwijanej literę dysku.
    3. (Opcjonalnie) wybierz pozycję **folder (NTFS)**, a następnie wpisz ścieżkę folderu lub kliknij przycisk Przeglądaj i wybierz lokalizację folderu. 
-   4. Kliknij przycisk **Utwórz**.
+   4. Kliknij pozycję **Utwórz**.
 5. Po zakończeniu procesu klonowania należy zainicjować sklonowany wolumin. Uruchom Menedżer serwera, a następnie uruchom Zarządzanie dyskami. Aby uzyskać szczegółowe instrukcje, zobacz [woluminy instalacji](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Po jego zainicjowaniu wolumin zostanie wyświetlony w węźle **woluminy** w okienku **zakres** . Jeśli nie widzisz na liście woluminów, Odśwież listę woluminów (kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie kliknij polecenie **Odśwież**).
 
 ## <a name="delete-a-backup"></a>Usuń kopię zapasową
@@ -126,7 +126,7 @@ Przed rozpoczęciem upewnij się, że masz bieżącą kopię zapasową grupy wol
    1. W polu tekstowym **Nazwa** wpisz nazwę sklonowanego woluminu. Ta nazwa zostanie wyświetlona w węźle **woluminy** . 
    2. Obowiązkowe Wybierz pozycję **dysk**, a następnie wybierz z listy rozwijanej literę dysku. 
    3. Obowiązkowe Wybierz pozycję **folder (NTFS)**, a następnie wpisz ścieżkę folderu lub kliknij przycisk **Przeglądaj** i wybierz lokalizację folderu. 
-   4. Kliknij przycisk **Utwórz**. 
+   4. Kliknij pozycję **Utwórz**. 
 5. Po zakończeniu procesu klonowania należy zainicjować sklonowany wolumin. Uruchom Menedżer serwera, a następnie uruchom Zarządzanie dyskami. Aby uzyskać szczegółowe instrukcje, zobacz [woluminy instalacji](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Po jego zainicjowaniu wolumin zostanie wyświetlony w węźle **woluminy** w okienku **zakres** . 
    
     Jeśli nie widzisz na liście woluminów, Odśwież listę woluminów (kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie kliknij polecenie **Odśwież**).
@@ -142,7 +142,7 @@ Należy regularnie tworzyć kopie zapasowe bazy danych StorSimple Snapshot Manag
    1. Uruchom Menedżera serwera.
    2. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    3. W oknie **usługi** wybierz **usługę Microsoft StorSimple Management**.
-   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Zatrzymaj usługę**.
+   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Zatrzymaj usługę**.
 2. Na komputerze-hoście przejdź do C:\ProgramData\Microsoft\StorSimple\BACatalog. 
    
    > [!NOTE]
@@ -156,7 +156,7 @@ Należy regularnie tworzyć kopie zapasowe bazy danych StorSimple Snapshot Manag
    
    1. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    2. W oknie **usługi** wybierz **usługę Microsoft StorSimple Management**.
-   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Uruchom ponownie usługę**.
+   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Uruchom ponownie usługę**.
 5. Na komputerze-hoście przejdź do C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 6. Usuń plik XML katalogu i zastąp go utworzoną wersją kopii zapasowej. 
 7. Kliknij ikonę StorSimple pulpitu Snapshot Manager, aby uruchomić StorSimple Snapshot Manager. 

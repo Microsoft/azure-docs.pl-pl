@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898176"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654734"
 ---
 # <a name="train-clustering-model"></a>Trenowanie modelu klastrowania
 
@@ -29,13 +29,13 @@ Moduł przyjmuje niepociąg Model klastrowania, który został już skonfigurowa
   
 ## <a name="how-to-use-train-clustering-model"></a>Jak używać modelu klastrów uczenia  
 
-1.  Dodaj moduł **uczenie modelu klastra** do potoku w projektancie. Moduł można znaleźć w obszarze **Machine Learning modułów**w kategorii **szkolenie** .  
+1.  Dodaj moduł **uczenie modelu klastra** do potoku w projektancie. Moduł można znaleźć w obszarze **Machine Learning modułów** w kategorii **szkolenie** .  
   
 2. Dodaj moduł [K-oznaczający klastrowanie](k-means-clustering.md) lub inny niestandardowy moduł, który tworzy zgodny Model klastrowania, i ustaw parametry modelu klastrowania.  
     
-3.  Dołączanie zestawu danych szkoleniowych do prawego wejścia **modelu klastra**szkoleń.
+3.  Dołączanie zestawu danych szkoleniowych do prawego wejścia **modelu klastra** szkoleń.
   
-5.  W obszarze **zestaw kolumn**wybierz kolumny z zestawu danych, które mają być używane podczas tworzenia klastrów. Pamiętaj, aby wybrać kolumny, które tworzą dobre funkcje: na przykład Unikaj używania identyfikatorów lub innych kolumn, które mają unikatowe wartości, lub kolumn, które mają wszystkie te same wartości.
+5.  W obszarze **zestaw kolumn** wybierz kolumny z zestawu danych, które mają być używane podczas tworzenia klastrów. Pamiętaj, aby wybrać kolumny, które tworzą dobre funkcje: na przykład Unikaj używania identyfikatorów lub innych kolumn, które mają unikatowe wartości, lub kolumn, które mają wszystkie te same wartości.
 
     Jeśli etykieta jest dostępna, możesz użyć jej jako funkcji lub pozostawić ją.  
   
@@ -52,6 +52,9 @@ Po zakończeniu szkolenia:
 + Aby zapisać migawkę przeszkolonego modelu, wybierz kartę dane **wyjściowe** w prawym panelu modułu **uczenie modelu** . Wybierz ikonę **zarejestruj zestaw danych** , aby zapisać model jako moduł wielokrotnego użytku.
 
 + Aby wygenerować wyniki z modelu, użyj [przypisywania danych do klastrów](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Jeśli konieczne jest wdrożenie przeszkolonego modelu w projektancie, należy się upewnić, że [przypisanie danych do klastrów](assign-data-to-clusters.md) zamiast **modelu oceny** jest połączone z danymi wejściowymi [modułu danych wyjściowych usługi sieci Web](web-service-input-output.md) w potoku wnioskowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

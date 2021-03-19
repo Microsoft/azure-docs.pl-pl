@@ -7,13 +7,13 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87846041"
 ---
-# <a name="troubleshoot-python-errors-in-azure-functions"></a>Rozwiązywanie problemów z błędami języka Python w Azure Functions
+# <a name="troubleshoot-python-errors-in-azure-functions"></a>Rozwiązywanie problemów z błędami języka Python w usłudze Azure Functions
 
 Poniżej znajduje się lista przewodników rozwiązywania problemów dotyczących typowych problemów w funkcjach języka Python:
 

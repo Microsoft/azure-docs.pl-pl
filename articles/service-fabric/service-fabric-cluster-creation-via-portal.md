@@ -4,16 +4,16 @@ description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric 
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563730"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra Service Fabric na platformie Azure przy użyciu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Witryna Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -110,7 +110,7 @@ Skonfiguruj węzły klastra. Typy węzłów definiują rozmiary maszyn wirtualny
 5. Wybierz **początkową pojemność zestawu skalowania maszyn wirtualnych** dla typu węzła. Możesz skalować w górę lub w dół liczbę maszyn wirtualnych w typie węzła w późniejszym czasie, ale na podstawowym typie węzła minimalnym jest pięć dla obciążeń produkcyjnych. Inne typy węzłów mogą mieć co najmniej jedną maszynę wirtualną. Minimalna **Liczba** maszyn wirtualnych dla typu węzła podstawowego jest **niezawodnością** klastra.  
 6. Skonfiguruj **niestandardowe punkty końcowe**. W tym polu można wprowadzić rozdzieloną przecinkami listę portów, które mają zostać ujawnione za pomocą Azure Load Balancer do publicznego Internetu dla aplikacji. Na przykład jeśli planujesz wdrożyć aplikację sieci Web w klastrze, wprowadź "80" tutaj, aby zezwolić na ruch na porcie 80 do klastra. Aby uzyskać więcej informacji na temat punktów końcowych, zobacz [komunikowanie się z aplikacjami][service-fabric-connect-and-communicate-with-services]
 7. **Włącz zwrotny serwer proxy**.  [Service Fabric odwrotny serwer proxy](service-fabric-reverseproxy.md) pomaga mikrousługi działające w klastrze Service Fabric odnajdywać i komunikować się z innymi usługami, które mają punkty końcowe http.
-8. Z powrotem w bloku **Konfiguracja klastra** w obszarze **+ Pokaż ustawienia opcjonalne**Skonfiguruj **diagnostykę**klastra. Domyślnie Diagnostyka jest włączona w klastrze, aby pomóc w rozwiązywaniu problemów. Jeśli chcesz wyłączyć diagnostykę, Zmień **stan** na **wyłączony**. Wyłączenie diagnostyki **nie** jest zalecane. Jeśli utworzono już projekt Application Insights, podaj jego klucz, aby ślady aplikacji były kierowane do niej.
+8. Z powrotem w bloku **Konfiguracja klastra** w obszarze **+ Pokaż ustawienia opcjonalne** Skonfiguruj **diagnostykę** klastra. Domyślnie Diagnostyka jest włączona w klastrze, aby pomóc w rozwiązywaniu problemów. Jeśli chcesz wyłączyć diagnostykę, Zmień **stan** na **wyłączony**. Wyłączenie diagnostyki **nie** jest zalecane. Jeśli utworzono już projekt Application Insights, podaj jego klucz, aby ślady aplikacji były kierowane do niej.
 9. **Uwzględnij usługę DNS**.  [Usługa DNS](service-fabric-dnsservice.md) to opcjonalna usługa, która umożliwia znalezienie innych usług przy użyciu protokołu DNS.
 10. Wybierz **tryb uaktualniania sieci szkieletowej** , na który ma zostać ustawiony klaster. Wybierz **opcję automatycznie,** Jeśli chcesz, aby system automatycznie pobierał najnowszą dostępną wersję, a następnie spróbuj uaktualnić do niej klaster. Jeśli chcesz wybrać obsługiwaną wersję, ustaw tryb na **ręczny**. Aby uzyskać więcej informacji na temat trybu uaktualniania sieci szkieletowej, zobacz [dokument Uaktualnij klaster Service Fabric.][service-fabric-cluster-upgrade]
 

@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84791915"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Wyświetlanie listy przypisań Odmów platformy Azure przy użyciu interfejsu API REST
@@ -46,7 +46,7 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę przypisań Odmów.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subskrypcja |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupa zasobów |
@@ -71,7 +71,7 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę przypisań Odmów.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subskrypcja |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupa zasobów |
@@ -80,7 +80,7 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 1. Zastąp wartość *{Filter}* warunkiem, którą chcesz zastosować, aby odfiltrować listę przypisań Odmów.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | (brak filtru) | Wyświetla wszystkie przydziały Odmów w, powyżej i poniżej określonego zakresu. |
     > | `$filter=atScope()` | Wyświetla listę odrzuconych przypisań tylko dla określonego zakresu i powyżej. Nie obejmuje przypisań Odmów w podzakresach. |
@@ -102,7 +102,7 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 1. Zastąp wartość *{Filter}* warunkiem, którą chcesz zastosować, aby odfiltrować listę przypisań Odmów. Wymagany jest filtr.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | `$filter=atScope()` | Wyświetl listę odrzuconych przypisań tylko dla zakresu głównego. Nie obejmuje przypisań Odmów w podzakresach. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Wyświetl listę odrzuconych przypisań o określonej nazwie. |

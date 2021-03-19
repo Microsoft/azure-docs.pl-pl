@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: zeyadr
 ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85211344"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Zarządzanie członkami konsorcjum w usłudze Azure łańcucha bloków Service przy użyciu programu PowerShell
@@ -26,7 +26,7 @@ Azure Cloud Shell to bezpłatna interaktywna powłoka, za pomocą której można
 
 Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do [Shell.Azure.com/PowerShell](https://shell.azure.com/powershell). Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wklej je do Cloud Shell i wybierz **klawisz ENTER** , aby go uruchomić.
 
-## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
+## <a name="install-the-powershell-module"></a>Zainstaluj moduł programu PowerShell
 
 Zainstaluj pakiet Microsoft.AzureBlockchainService.ConsortiumManagement.PS z Galeria programu PowerShell.
 

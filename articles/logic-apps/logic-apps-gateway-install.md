@@ -4,18 +4,18 @@ description: Aby można było uzyskać dostęp do danych lokalnych z Azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054775"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576802"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
-Przed [nawiązaniem połączenia z lokalnymi źródłami danych z Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md)Pobierz i zainstaluj lokalną [bramę danych](https://aka.ms/on-premises-data-gateway-installer) na komputerze lokalnym. Brama działa jako most, który zapewnia szybki transfer i szyfrowanie danych między źródłami danych w środowisku lokalnym i aplikacjami logiki. Możesz użyć tej samej instalacji bramy z innymi usługami w chmurze, takich jak Power BI, Automatyzacja, aplikacje i Azure Analysis Services. Aby uzyskać informacje o sposobach korzystania z bramy za pomocą tych usług, zobacz następujące artykuły:
+Przed [nawiązaniem połączenia z lokalnymi źródłami danych z Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md)Pobierz i zainstaluj lokalną [bramę danych](https://aka.ms/on-premises-data-gateway-installer) na komputerze lokalnym. Brama działa jako most, który zapewnia szybki transfer i szyfrowanie danych między źródłami danych w środowisku lokalnym i aplikacjami logiki. Możesz użyć tej samej instalacji bramy z innymi usługami w chmurze, takich jak Automatyzacja, Power BI, aplikacje zaawansowane i Azure Analysis Services. Aby uzyskać informacje o sposobach korzystania z bramy za pomocą tych usług, zobacz następujące artykuły:
 
 * [Microsoft energia — lokalna Brama danych](/power-automate/gateway-reference)
 * [Lokalna Brama danych Power BI firmy Microsoft](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
   * Jeśli planujesz używanie uwierzytelniania systemu Windows, upewnij się, że brama jest zainstalowana na komputerze, który jest członkiem tego samego środowiska Active Directory, co źródła danych.
 
-  * Region wybrany dla instalacji bramy jest tą samą lokalizacją, którą należy wybrać podczas późniejszego tworzenia zasobu bramy platformy Azure dla aplikacji logiki. Domyślnie ten region jest taka sama jak lokalizacja dzierżawy usługi Azure AD, która zarządza Twoim kontem platformy Azure. Można jednak zmienić lokalizację podczas instalacji bramy.
+  * Region wybrany dla instalacji bramy jest tą samą lokalizacją, którą należy wybrać podczas późniejszego tworzenia zasobu bramy platformy Azure dla aplikacji logiki. Domyślnie ten region jest taka sama jak lokalizacja dzierżawy usługi Azure AD, która zarządza kontem użytkownika platformy Azure. Można jednak zmienić lokalizację podczas instalacji bramy lub w późniejszym czasie.
+
+    > [!IMPORTANT]
+    > Podczas instalacji bramy polecenie **Zmień region** jest niedostępne, jeśli zalogowano się za pomocą konta usługi Azure Government, które jest skojarzone z dzierżawą Azure Active Directory (Azure AD) w [chmurze Azure Government](../azure-government/compare-azure-government-global-azure.md). Brama automatycznie używa tego samego regionu co dzierżawy usługi Azure AD konta użytkownika.
+    > 
+    > Aby nadal korzystać z konta Azure Government, ale Skonfiguruj bramę tak, aby działała w globalnej chmurze wielodostępnej platformy Azure, należy najpierw zalogować się podczas instalacji bramy przy użyciu `prod@microsoft.com` nazwy użytkownika. To rozwiązanie wymusza użycie przez bramę globalnej wielodostępnej chmury platformy Azure, ale nadal pozwala nadal korzystać z konta Azure Government.
 
   * Jeśli aktualizujesz instalację bramy, najpierw Odinstaluj bieżącą bramę w celu korzystania z funkcji czyszczenia.
 

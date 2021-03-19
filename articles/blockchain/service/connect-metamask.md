@@ -5,10 +5,10 @@ ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530441"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Szybki Start: używanie maskowania do łączenia i wdrażania kontraktu inteligentnego
@@ -45,7 +45,7 @@ Do nawiązania połączenia z siecią łańcucha bloków potrzebny jest adres pu
 
     ![Niestandardowe wywołanie RPC](./media/connect-metamask/custom-rpc.png)
 
-1. W obszarze **Nowa sieć > nowy adres URL usługi RPC**wklej skopiowany powyżej adres punktu końcowego.
+1. W obszarze **Nowa sieć > nowy adres URL usługi RPC** wklej skopiowany powyżej adres punktu końcowego.
 1. Wybierz pozycję **Zapisz**.
 
     W przypadku pomyślnego nawiązania połączenia sieć prywatna jest wyświetlana na liście rozwijanej sieć.
@@ -130,7 +130,7 @@ Okienko debugowanie Remix zawiera szczegółowe informacje o transakcjach w ła�
 
 ![Historia debugowania](./media/connect-metamask/debug.png)
 
-Możesz zobaczyć **proste** tworzenie kontraktu, transakcję dla **prostego. Dodaj**i Wywołaj metodę **Simple. Get**.
+Możesz zobaczyć **proste** tworzenie kontraktu, transakcję dla **prostego. Dodaj** i Wywołaj metodę **Simple. Get**.
 
 Aby wyświetlić historię transakcji w ramach klasy dbmasking, Otwórz rozszerzenie przeglądarki z maską i zapoznaj się z sekcją **historia** dziennika wdrożonego kontraktu i transakcji.
 

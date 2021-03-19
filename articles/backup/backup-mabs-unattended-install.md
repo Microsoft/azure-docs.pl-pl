@@ -4,10 +4,10 @@ description: Użyj skryptu programu PowerShell, aby zainstalować w trybie dyskr
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74172240"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Uruchom instalację nienadzorowaną Azure Backup Server
@@ -60,6 +60,6 @@ Możesz użyć tych flag do instalacji:</br>
 Po zainstalowaniu serwera kopii zapasowej należy dowiedzieć się, jak przygotować serwer lub rozpocząć ochronę obciążeń.
 
 - [Przygotowywanie obciążeń serwera kopii zapasowej](backup-azure-microsoft-azure-backup.md)
-- [Tworzenie kopii zapasowej serwera VMware przy użyciu serwera kopii zapasowej](backup-azure-backup-server-vmware.md)
-- [Użyj serwera kopii zapasowej, aby utworzyć kopię zapasową SQL Server](backup-azure-sql-mabs.md)
-- [Dodawanie Nowoczesny magazyn kopii zapasowych do serwera zapasowego](backup-mabs-add-storage.md)
+- [Wykonywanie kopii zapasowej serwera VMware przy użyciu usługi Backup Server](backup-azure-backup-server-vmware.md)
+- [Używanie usługi Backup Server do tworzenia kopii zapasowej programu SQL Server](backup-azure-sql-mabs.md)
+- [Dodawanie nowoczesnego magazynu kopii zapasowych do usługi Backup Server](backup-mabs-add-storage.md)

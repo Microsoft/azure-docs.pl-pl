@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707527"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595009"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limity w Azure Database for PostgreSQL-pojedynczym serwerze
 W poniższych sekcjach opisano pojemności i limity funkcjonalne usługi bazy danych. Jeśli chcesz dowiedzieć się więcej o warstwach zasobów (obliczeniowych, pamięci, magazynu), zobacz artykuł [warstwy cenowe](concepts-pricing-tiers.md) .
@@ -23,8 +23,8 @@ Poniżej przedstawiono maksymalną liczbę połączeń na warstwę cenową i rdz
 
 |**Warstwa cenowa**| **Rdzeń wirtualny**| **Maksymalna liczba połączeń** | **Maksymalna liczba połączeń użytkowników** |
 |---|---|---|---|
-|Podstawowy| 1| 55 | 50|
-|Podstawowy| 2| 105 | 100|
+|Podstawowa| 1| 55 | 50|
+|Podstawowa| 2| 105 | 100|
 |Ogólnego przeznaczenia| 2| 150| 145|
 |Ogólnego przeznaczenia| 4| 250| 245|
 |Ogólnego przeznaczenia| 8| 480| 475|
@@ -68,9 +68,12 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 - W niektórych scenariuszach znaki UTF-8 nie są w pełni obsługiwane w programie Open Source PostgreSQL w systemie Windows, co ma wpływ na Azure Database for PostgreSQL. Aby uzyskać więcej informacji, zobacz wątek w [#15476 błędów w archiwum PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) .
 
 ### <a name="gss-error"></a>Błąd GSS
-Jeśli zobaczysz błąd związany z jednostką **GSS**, możesz korzystać z nowszej wersji klienta/sterownika, która nie jest jeszcze w pełni obsługiwana przez usługę Azure Postgres na jednym serwerze. Ten błąd jest znany, aby mieć wpływ na [JDBC wersje sterowników 42.2.15 i 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
-   - Planuje ukończenie aktualizacji przed końcem listopada. Rozważ użycie w międzyczasie wersji sterownika działającego.
-   - Lub rozważ wyłączenie żądania GSS.  Użyj parametru połączenia, takiego jak `gssEncMode=disable` .
+Jeśli zostanie wyświetlony komunikat o błędzie związany z **GSS**, prawdopodobnie używasz nowszej wersji klienta/sterownika, która nie jest jeszcze w pełni obsługiwana przez pojedynczy serwer usługi Azure Postgres. Stwierdzono, że ten błąd dotyczy [wersji sterowników JDBC 42.2.15 i 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planujemy zakończyć aktualizację przed końcem listopada. W międzyczasie rozważ użycie działającej wersji sterownika.
+   - Lub rozważ wyłączenie żądania GSS.  Użyj parametru połączenia, takiego jak `gssEncMode=disable`.
+
+### <a name="storage-size-reduction"></a>Zmniejszenie rozmiaru magazynu
+Nie można zmniejszyć rozmiaru magazynu. Należy utworzyć nowy serwer o żądanym rozmiarze magazynu, przeprowadzić [zrzut ręczny i przywrócić](./howto-migrate-using-dump-and-restore.md) i przeprowadzić migrację baz danych do nowego serwera.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz [się, co jest dostępne w poszczególnych warstwach cenowych](concepts-pricing-tiers.md)

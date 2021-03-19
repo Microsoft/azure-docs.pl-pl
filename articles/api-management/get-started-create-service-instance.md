@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90708210"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu Azure Portal
@@ -32,20 +32,20 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. Możesz również wybrać pozycję **Utwórz zasób** na stronie **głównej** platformy Azure. 
    
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="Wybierz pozycję Utwórz zasób":::
 
    
 1. Na stronie **Nowy** wybierz pozycję **integracja**  >  **API Management**.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="Nowe wystąpienie usługi Azure API Management":::
    
 1. Na stronie **usługa API Management** wprowadź ustawienia.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nowe wystąpienie":::
    
    | Ustawienie                 | Opis   |                                                                     
    |-------------------------|-----------------------------------------------|
-   | **Nazwa**                | Unikatowa nazwa usługi API Management. Nazwy nie można później zmienić. Nazwa usługi odnosi się zarówno do usługi, jak i odpowiedniego zasobu platformy Azure. <br/> Nazwa usługi jest używana do generowania domyślnej nazwy domeny: * \<name\> . Azure-API.NET.* Jeśli chcesz użyć niestandardowej nazwy domeny, zobacz [Konfigurowanie domeny niestandardowej](configure-custom-domain.md). |
+   | **Nazwa**                | Unikatowa nazwa usługi API Management. Nazwy nie można później zmienić. Nazwa usługi odnosi się zarówno do usługi, jak i odpowiedniego zasobu platformy Azure. <br/> Nazwa usługi jest używana do generowania domyślnej nazwy domeny: *\<name\> . Azure-API.NET.* Jeśli chcesz użyć niestandardowej nazwy domeny, zobacz [Konfigurowanie domeny niestandardowej](configure-custom-domain.md). |
    | **Subskrypcja**          | Subskrypcja, w ramach której zostanie utworzone to nowe wystąpienie usługi.   |
    | **Grupa zasobów**      |  Wybierz nową lub istniejącą grupę zasobów. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. |
    | **Lokalizacja**          | Wybierz region geograficzny w sąsiedztwie od dostępnych lokalizacji usługi API Management. | 
@@ -72,17 +72,17 @@ Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **grupy zasobów**. Możesz również wybrać **grupy zasobów** na stronie **głównej** . 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Nawigacja grupy zasobów":::
 
 1. Na stronie **grupy zasobów** wybierz grupę zasobów.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Wybieranie grupy zasobów":::
 
 1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**. 
    
 1. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Wystąpienie API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Usuwanie grupy zasobów":::
 
 ## <a name="next-steps"></a>Następne kroki
 

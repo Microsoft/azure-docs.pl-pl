@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140874"
 ---
 # <a name="firewall-tables-overview"></a>Tabele zapory — Omówienie
@@ -55,10 +55,10 @@ W każdej tabeli zapory są tworzone następujące reguły domyślne.
 
 |Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protokół|Element źródłowy|Port źródłowy|Element docelowy|Port docelowy|Akcja|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Zezwalaj na wszystkie-internetowe|Stanowe|Outbound|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65001|Odmów — wszystko-z Internetu|Stanowe|Inbound|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
-|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Outbound|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Inbound|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65000|Zezwalaj na wszystkie-internetowe|Stanowe|Wychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65001|Odmów — wszystko-z Internetu|Stanowe|Przychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
+|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Wychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Przychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
 
 ## <a name="next-steps"></a>Następne kroki
 

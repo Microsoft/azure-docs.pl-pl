@@ -13,10 +13,10 @@ ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: 938315dac80ae51984851083753a9cb8f77662b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84737907"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Wyświetlanie względnego opóźnienia do regionów platformy Azure z określonych lokalizacji
@@ -134,7 +134,7 @@ Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher
 
 Dane są dostępne tylko dla krajów/regionów, stanów i miejscowości zwracanych przez poprzednie polecenie. Poprzednie polecenie wymaga określenia istniejącego obserwatora sieci. Przykład został określony dla obserwatora sieci *NetworkWatcher_eastus* w grupie zasobów o nazwie *NetworkWatcherRG*, ale można określić dowolny istniejący obserwator sieci. Jeśli nie masz istniejącego obserwatora sieciowego, utwórz go, wykonując zadania w obszarze [Tworzenie obserwatora sieciowego](#create-a-network-watcher). 
 
-Po uruchomieniu poprzedniego polecenia można filtrować dane wyjściowe zwracane przez określenie prawidłowych wartości dla **kraju**, **województwa**i **miasta**, w razie potrzeby.  Aby na przykład wyświetlić listę dostawców usług internetowych dostępnych w Seattle, Waszyngton, w Stany Zjednoczone wprowadź następujące polecenie:
+Po uruchomieniu poprzedniego polecenia można filtrować dane wyjściowe zwracane przez określenie prawidłowych wartości dla **kraju**, **województwa** i **miasta**, w razie potrzeby.  Aby na przykład wyświetlić listę dostawców usług internetowych dostępnych w Seattle, Waszyngton, w Stany Zjednoczone wprowadź następujące polecenie:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -146,4 +146,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> Wartość określona dla **kraju** musi być wielką i małą literą. Wartości podane dla **województwa** i **miasta** muszą być małymi literami. Wartości muszą być wymienione w danych wyjściowych zwracanych po uruchomieniu polecenia bez wartości dla **kraju**, **województwa**i **miasta**. Jeśli określisz nieprawidłową wielkość liter lub określisz wartość **kraju**, **województwa**lub **miasta** , która nie znajduje się w danych wyjściowych zwróconych po uruchomieniu polecenia bez wartości dla tych właściwości, zwracane dane wyjściowe są puste.
+> Wartość określona dla **kraju** musi być wielką i małą literą. Wartości podane dla **województwa** i **miasta** muszą być małymi literami. Wartości muszą być wymienione w danych wyjściowych zwracanych po uruchomieniu polecenia bez wartości dla **kraju**, **województwa** i **miasta**. Jeśli określisz nieprawidłową wielkość liter lub określisz wartość **kraju**, **województwa** lub **miasta** , która nie znajduje się w danych wyjściowych zwróconych po uruchomieniu polecenia bez wartości dla tych właściwości, zwracane dane wyjściowe są puste.

@@ -4,10 +4,10 @@ description: Opisuje sposób migrowania aplikacji Azure Relay z używania Azure 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87532870"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay — migracja z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego
@@ -30,7 +30,7 @@ Scenariusze migracji należą do trzech szerokich kategorii:
 
 1.  **Niezmienione wartości domyślne**. Niektórzy klienci używają obiektu [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) , przekazując automatycznie wygenerowaną tożsamość usługi **właściciela** i jej klucz tajny dla przestrzeni nazw ACS, sparowany z przestrzenią nazw przekaźnika i nie dodają nowych reguł.
 
-2.  **Niestandardowe tożsamości usług z prostymi regułami**. Niektórzy klienci dodają nowe tożsamości usługi i przydzielą każdemu nowemu identyfikatorowi uprawnienia **wysyłanie**, **nasłuchiwanie**i **Zarządzanie** dla jednej konkretnej jednostki.
+2.  **Niestandardowe tożsamości usług z prostymi regułami**. Niektórzy klienci dodają nowe tożsamości usługi i przydzielą każdemu nowemu identyfikatorowi uprawnienia **wysyłanie**, **nasłuchiwanie** i **Zarządzanie** dla jednej konkretnej jednostki.
 
 3.  **Niestandardowe tożsamości usługi ze złożonymi regułami**. Bardzo nieliczni klienci mają złożone zestawy reguł, w których zewnętrznie wystawione tokeny są mapowane na prawa w ramach przekaźnika lub w przypadku, gdy jedna tożsamość usługi ma przypisane zróżnicowane prawa do kilku ścieżek przestrzeni nazw za pomocą wielu reguł.
 

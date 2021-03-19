@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909314"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Opuszczanie organizacji jako użytkownik-gość
@@ -32,14 +32,14 @@ Aby opuścić organizację, wykonaj następujące kroki.
 1. Przejdź do strony profilu panelu dostępu, wykonując jedną z następujących czynności:
    
    - W [Azure Portal](https://portal.azure.com)kliknij swoją nazwę w prawym górnym rogu i wybierz pozycję **Wyświetl konto**.
-   - Otwórz [panel dostępu](https://myapps.microsoft.com), kliknij swoją nazwę w prawym górnym rogu, a obok pozycji **organizacje**wybierz ikonę ustawień (koła zębatego).
+   - Otwórz [panel dostępu](https://myapps.microsoft.com), kliknij swoją nazwę w prawym górnym rogu, a obok pozycji **organizacje** wybierz ikonę ustawień (koła zębatego).
  
    ![Zrzut ekranu przedstawiający ustawienia użytkownika w panelu dostępu](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > Jeśli jeszcze nie zalogowano się do organizacji, którą chcesz opuścić, w obszarze **organizacje**kliknij link Zaloguj się, **Aby opuścić organizację** obok nazwy organizacji. Po zalogowaniu kliknij swoją nazwę ponownie w prawym górnym rogu, a obok pozycji **organizacje**wybierz ikonę ustawień (koła zębatego).
+   > Jeśli jeszcze nie zalogowano się do organizacji, którą chcesz opuścić, w obszarze **organizacje** kliknij link Zaloguj się, **Aby opuścić organizację** obok nazwy organizacji. Po zalogowaniu kliknij swoją nazwę ponownie w prawym górnym rogu, a obok pozycji **organizacje** wybierz ikonę ustawień (koła zębatego).
 
-3. W obszarze **organizacje**Znajdź organizację, którą chcesz opuścić, a następnie wybierz pozycję **Opuść organizację**.
+3. W obszarze **organizacje** Znajdź organizację, którą chcesz opuścić, a następnie wybierz pozycję **Opuść organizację**.
 
    ![Zrzut ekranu przedstawiający opcję Opuść organizację w interfejsie użytkownika](media/leave-the-organization/LeaveOrg.png)
 

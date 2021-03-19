@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792161"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Weryfikacja kodu XML na potrzeby integracji przedsiębiorstw B2B w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
@@ -37,7 +37,7 @@ Często w scenariuszach B2B partnerzy handlowi w umowie muszą upewnić się, ż
 
    Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy nad strzałkę, która łączy te kroki, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `xml validation` jako filtr. Z listy Akcje wybierz pozycję **Walidacja kodu XML**.
+1. W obszarze **Wybierz akcję** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `xml validation` jako filtr. Z listy Akcje wybierz pozycję **Walidacja kodu XML**.
 
    ![Znajdź i wybierz akcję "Walidacja XML"](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710375"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Wykonywanie operacji na danych w Azure Logic Apps
@@ -34,8 +34,8 @@ Te akcje pomagają w pracy z danymi w tablicach.
 | [**Utwórz tabelę CSV**](#create-csv-table-action) | Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy. |
 | [**Utwórz tabelę HTML**](#create-html-table-action) | Utwórz tabelę HTML z tablicy. |
 | [**Filtruj tablicę**](#filter-array-action) | Utwórz podzestaw tablicy z tablicy na podstawie określonego filtru lub warunku. |
-| [**Join**](#join-action) | Utwórz ciąg ze wszystkich elementów w tablicy i oddziel każdy element z określonym znakiem. |
-| [**Wybierz**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
+| [**Złącza**](#join-action) | Utwórz ciąg ze wszystkich elementów w tablicy i oddziel każdy element z określonym znakiem. |
+| [**Wybierz pozycję**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
 ||| 
 
 **Akcje JSON**
@@ -44,7 +44,7 @@ Te akcje pomagają w pracy z danymi w formacie JavaScript Object Notation (JSON)
 
 | Akcja | Opis |
 |--------|-------------|
-| [**Redagowanie**](#compose-action) | Utwórz wiadomość lub ciąg z wielu wejść, które mogą mieć różne typy danych. Następnie można użyć tego ciągu jako pojedynczej wartości wejściowej, zamiast wielokrotnie wprowadzać te same dane wejściowe. Na przykład można utworzyć pojedynczy komunikat JSON z różnych danych wejściowych. |
+| [**Redaguj**](#compose-action) | Utwórz wiadomość lub ciąg z wielu wejść, które mogą mieć różne typy danych. Następnie można użyć tego ciągu jako pojedynczej wartości wejściowej, zamiast wielokrotnie wprowadzać te same dane wejściowe. Na przykład można utworzyć pojedynczy komunikat JSON z różnych danych wejściowych. |
 | [**Analiza JSON**](#parse-json-action) | Utwórz przyjazne dla użytkownika tokeny danych dla właściwości w zawartości JSON, aby łatwiej używać właściwości w aplikacjach logiki. |
 |||
 
@@ -192,7 +192,7 @@ Oranges,2
 
 W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie **Value** odwołuje się do każdej potrzebnej właściwości tablicy. Każdy wiersz w obszarze **wartość** zwraca wszystkie wartości dla określonej właściwości tablicy i zostaje kolumną w tabeli.
 
-1. W obszarze **wartość**w każdym wierszu, który chcesz, kliknij wewnątrz pola edycji, aby wyświetlić listę zawartości dynamicznej.
+1. W obszarze **wartość** w każdym wierszu, który chcesz, kliknij wewnątrz pola edycji, aby wyświetlić listę zawartości dynamicznej.
 
 1. Z listy zawartość dynamiczna wybierz pozycję **wyrażenie**.
 
@@ -343,7 +343,7 @@ Oranges,2
 
 W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie **Value** odwołuje się do każdej potrzebnej właściwości tablicy. Każdy wiersz w obszarze **wartość** zwraca wszystkie wartości dla określonej właściwości i zostaje kolumną w tabeli.
 
-1. W obszarze **wartość**w każdym wierszu, który chcesz, kliknij wewnątrz pola edycji, aby wyświetlić listę zawartości dynamicznej.
+1. W obszarze **wartość** w każdym wierszu, który chcesz, kliknij wewnątrz pola edycji, aby wyświetlić listę zawartości dynamicznej.
 
 1. Z listy zawartość dynamiczna wybierz pozycję **wyrażenie**.
 
@@ -604,11 +604,11 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładowe 
 
    ![Podaj schemat JSON dla obiektu JSON, który chcesz przeanalizować](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png)
 
-   Jeśli nie masz schematu, możesz wygenerować ten schemat z zawartości lub *ładunku*JSON. 
+   Jeśli nie masz schematu, możesz wygenerować ten schemat z zawartości lub *ładunku* JSON. 
    
    1. W akcji **Przeanalizuj dane JSON** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**Podaj zawartość w formacie JSON, a następnie wybierz pozycję **gotowe**.
+   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON** Podaj zawartość w formacie JSON, a następnie wybierz pozycję **gotowe**.
 
       ![Wprowadź zawartość JSON w celu wygenerowania schematu](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
@@ -624,7 +624,7 @@ Aby sprawdzić, czy Akcja **Przeanalizuj dane JSON** powoduje utworzenie oczekiw
 
 1. W tej akcji kliknij w dowolnym miejscu, w którym mają być wyświetlane wyniki. Po otwarciu listy zawartości dynamicznej w obszarze akcji **Przeanalizuj dane JSON** możesz teraz wybrać właściwości z przeanalizowanej zawartości w formacie JSON.
 
-   W tym przykładzie zostanie użyta akcja **Wyślij wiadomość e-mail w usłudze** Office 365 Outlook, która zawiera pola **FirstName**, **LastName**i **email** w treści wiadomości e-mail:
+   W tym przykładzie zostanie użyta akcja **Wyślij wiadomość e-mail w usłudze** Office 365 Outlook, która zawiera pola **FirstName**, **LastName** i **email** w treści wiadomości e-mail:
 
    ![Właściwości JSON w akcji "Wyślij wiadomość e-mail"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 
@@ -663,7 +663,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykład **w
 
    * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `select` jako filtr. Z listy Akcje wybierz akcję **Wybierz** .
+1. W obszarze **Wybierz akcję** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `select` jako filtr. Z listy Akcje wybierz akcję **Wybierz** .
 
    ![Wybierz akcję "Wybierz"](./media/logic-apps-perform-data-operations/select-select-action.png)
 

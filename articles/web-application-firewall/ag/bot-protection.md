@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 10/31/2019
 ms.author: victorh
 ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73516866"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Konfigurowanie ochrony przed botami dla zapory aplikacji internetowej w usłudze Azure Application Gateway (wersja zapoznawcza)
@@ -29,9 +29,9 @@ Utwórz podstawowe zasady WAF dla Application Gateway, postępując zgodnie z in
 
 ## <a name="enable-bot-protection-rule-set"></a>Włącz zestaw reguł ochrony bot
 
-1. Na stronie zasady **podstawowe** , która została wcześniej utworzona, w obszarze **Ustawienia**wybierz pozycję **reguły**.  
+1. Na stronie zasady **podstawowe** , która została wcześniej utworzona, w obszarze **Ustawienia** wybierz pozycję **reguły**.  
 
-2. Na stronie Szczegóły, w sekcji **Zarządzanie regułami**   , w menu rozwijanym zaznacz pole wyboru dla reguły ochrony bot, a następnie wybierz pozycję **Zapisz**.
+2. Na stronie Szczegóły, w sekcji  **Zarządzanie regułami**   , w menu rozwijanym zaznacz pole wyboru dla reguły ochrony bot, a następnie wybierz pozycję **Zapisz**.
 
 > [!div class="mx-imgBorder"]
 > ![Ochrona przed botami](../media/bot-protection/bot-protection.png)

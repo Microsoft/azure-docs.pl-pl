@@ -4,42 +4,55 @@ description: Podstawowa usługa Azure IoT Hub Security zawiera wskazówki i zaso
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a21e0ae235d5b5c514f3d82b76b4d17394035872
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576899"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Podstawa zabezpieczeń Azure dla usługi Azure IoT Hub
 
-Podstawowa baza danych zabezpieczeń Azure dla Microsoft Azure IoT Hub zawiera zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia. Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview.md), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami. Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](../security/benchmarks/security-baselines-overview.md).
+Ta linia bazowa zabezpieczeń stosuje wskazówki z [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview-v1.md) w celu Microsoft Azure IoT Hub. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure.
+Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące usługi Azure IoT Hub. Nie zostały wykluczone **kontrolki** , które mają zastosowanie do IoT Hub platformy Azure.
+
+ 
+Aby dowiedzieć się, jak platforma Azure IoT Hub całkowicie zamapowana na test porównawczy zabezpieczeń platformy Azure, zapoznaj się z [pełnym plikiem mapowania podstawy zabezpieczeń usługi azure IoT Hub](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
-**Wskazówki**: Domyślnie nazwy hostów IoT Hub są mapowane na publiczny punkt końcowy z publicznie rutowanym adresem IP przez Internet. Różni klienci korzystają z tego IoT Hub publicznego punktu końcowego, a urządzenia IoT w sieci rozległej i sieci lokalne mogą uzyskać do niego dostęp.
+**Wskazówki**: IoT Hub to wielodostępna platforma jako usługa (PaaS), różni klienci korzystają z tej samej puli zasobów obliczeniowych, sieciowych i magazynowych. Nazwy hostów IoT Hub są mapowane na publiczny punkt końcowy z publicznie rutowanym adresem IP przez Internet. Różni klienci korzystają z tego IoT Hub publicznego punktu końcowego, a urządzenia IoT w sieci rozległej i sieci lokalne mogą uzyskać do niego dostęp. Firma Microsoft zaprojektował usługę pod kątem pełnej izolacji między danymi poszczególnych dzierżawców i działa w sposób ciągły, aby zapewnić ten wynik.
 
 IoT Hub funkcje, w tym Routing komunikatów, przekazywanie plików i zbiorcze importowanie/eksportowanie urządzeń, wymagają także łączności od IoT Hub do zasobu platformy Azure należącego do klienta za pośrednictwem publicznego punktu końcowego. Te ścieżki łączności zbiorowo tworzą ruch wychodzący z IoT Hub do zasobów klientów.
 
-Zaleca się ograniczenie łączności z zasobami platformy Azure (w tym Azure IoT Hub) za pośrednictwem sieci wirtualnej, która jest posiadana, i działa w celu zmniejszenia narażenia na łączność w sieci izolowanej i bezpośredniego połączenia z siecią w sieci szkieletowej platformy Azure. Użyj prywatnego linku platformy Azure i prywatnego punktu końcowego platformy Azure, gdzie to możliwe, aby włączyć prywatny dostęp do usług z innych sieci wirtualnych.
+Zaleca się ograniczenie łączności z zasobami platformy Azure (w tym Azure IoT Hub) za pośrednictwem sieci wirtualnej, która jest posiadana, i działa w celu zmniejszenia narażenia na łączność w sieci izolowanej i bezpośredniego połączenia z siecią w sieci szkieletowej platformy Azure. Użyj prywatnego linku platformy Azure i prywatnego punktu końcowego platformy Azure, gdzie to możliwe, aby włączyć prywatny dostęp do usług z innych sieci wirtualnych. 
+
+Po ustanowieniu dostępu prywatnego należy wyłączyć dostęp do sieci publicznej dla IoT Hub, aby uzyskać dodatkowe zabezpieczenia. Ta kontrolka poziomu sieci jest wymuszana w określonym zasobie Centrum IoT, zapewniając izolację. Aby zachować aktywną usługę dla innych zasobów klienta przy użyciu ścieżki publicznej, jego publiczny punkt końcowy pozostaje rozpoznawalny, adresy IP są wykrywalne i porty pozostają otwarte. Nie jest to powód dla obaw, ponieważ firma Microsoft integruje wiele warstw zabezpieczeń w celu zapewnienia pełnej izolacji między dzierżawcami.
 
 Pozostaw otwarte porty sprzętowe na urządzeniach, aby uniknąć niepożądanego dostępu. Ponadto mechanizmy kompilacji, aby zapobiec lub wykryć fizyczne manipulowanie urządzeniem.
 
 - [Obsługa sieci wirtualnych IoT](virtual-network-support.md)
-- [najlepsze rozwiązanie w zakresie sieci](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
+
+- [Zarządzanie dostępem do sieci publicznej dla usługi IoT Hub](iot-hub-public-network-access.md)
+
+- [Izolacja dzierżawy na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices#tenant-level-isolation)
+
+- [najlepsze rozwiązanie w zakresie sieci](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations#networking)
+
 - [Omówienie linku prywatnego platformy Azure](../private-link/private-link-overview.md)
+
 - [Grupa zabezpieczeń sieci platformy Azure](../virtual-network/network-security-groups-overview.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
 
@@ -51,17 +64,17 @@ Pozostaw otwarte porty sprzętowe na urządzeniach, aby uniknąć niepożądaneg
  
 - [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
@@ -71,23 +84,23 @@ Azure DDoS Protection podstawowa jest już włączona i dostępna bez dodatkowyc
 
 - [IoT Hub filtr IP](iot-hub-ip-filtering.md)
 
-- [Azure Security Center do komunikacji z podejrzanym adresem IP IoT](../defender-for-iot/concept-security-alerts.md)
+- [Azure Security Center do komunikacji z podejrzanym adresem IP IoT](/azure/asc-for-iot/concept-security-alerts)
 
 - [Zarządzanie Azure DDoS Protection podstawowa](../ddos-protection/ddos-protection-overview.md)
 
 - [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/azure-defender.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="15-record-network-packets"></a>1,5: rejestrowanie pakietów sieciowych
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla ofert, które tworzą pakiety sieciowe, które mogą być rejestrowane i wyświetlane przez klientów. IoT Hub nie produkuje pakietów sieciowych, które są dostępne dla klientów i nie są przeznaczone do wdrażania bezpośrednio w sieciach wirtualnych platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: wdrażanie opartych na sieci systemów zapobiegania wykrywaniem i dostępem intruzów (identyfikatorów/adresów IP)
 
@@ -101,17 +114,17 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 - [Jak skonfigurować alerty za pomocą zapory platformy Azure](../firewall/threat-intel.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
 
@@ -120,9 +133,9 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 - [Jak używać tagów usługi dla usługi Azure IoT](iot-hub-understand-ip-address.md)
 - [Aby uzyskać więcej informacji na temat używania tagów usługi](../virtual-network/service-tags-overview.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
@@ -130,9 +143,9 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
 
@@ -140,76 +153,73 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z usługą Azure IoT Hub. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
 *Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
-### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
-
-**Wskazówki**: Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, takich jak Azure IoT Hub, dla sygnatur czasowych w dziennikach.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
 **Wskazówki**: pobieranie dzienników za pośrednictwem Azure monitor do agregowania danych zabezpieczeń wygenerowanych przez usługę Azure IoT Hub. W Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i przeprowadzania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub zdarzenia związane z zabezpieczeniami innych firm (SIEM).
 
-- [Konfigurowanie dzienników usługi Azure IoT](monitor-iot-hub-reference.md#resource-logs)
+- [Konfigurowanie dzienników usługi Azure IoT](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#resource-logs)
+
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
 **Wskazówki**: Włączanie ustawień diagnostycznych usługi Azure IoT w zasobach platformy Azure w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i zasobów. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
-- [Konfigurowanie dzienników usługi Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs)
+- [Konfigurowanie dzienników usługi Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#resource-logs)
 
 - [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+
+**Azure Policy wbudowane definicje — Microsoft. Devices**:
+
+[!INCLUDE [Resource Policy for Microsoft.Devices 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.devices-2-3.md)]
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z wystąpieniami IoT Hub platformy Azure zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Jak ustawić parametry przechowywania dziennika](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
@@ -218,144 +228,148 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innej firmy. 
 
 - [Monitorowanie kondycji usługi Azure IoT](monitor-iot-hub.md)
+
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
   
 - [Wprowadzenie do Log Analytics zapytań](../azure-monitor/logs/log-analytics-tutorial.md)
    
 - [ Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
 
 **Wskazówki**: Użyj Azure Security Center dla IoT z obszarem roboczym log Analytics do monitorowania i generowania alertów dotyczących nietypowego działania znalezionego w dziennikach i zdarzeniach zabezpieczeń. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej. Istnieje również możliwość zdefiniowania alertów operacyjnych z Azure Monitor, które mogą mieć wpływ na bezpieczeństwo, na przykład w przypadku nieoczekiwanego spadku ruchu.
 
 - [Monitorowanie kondycji usługi Azure IoT Hub](monitor-iot-hub.md)
+
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
-- [Azure Security Center alertów IoT](../defender-for-iot/concept-security-alerts.md)
+
+- [Azure Security Center alertów IoT](/azure/asc-for-iot/concept-security-alerts)
 
 - [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
 **Wskazówki**: nie dotyczy; Usługa Azure IoT Hub nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
 
 **Wskazówki**: nie dotyczy; Usługa Azure IoT Hub nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="210-enable-command-line-audit-logging"></a>2,10: Włączanie rejestrowania inspekcji w wierszu polecenia
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
+*Aby uzyskać więcej informacji, zobacz informacje o [teście zabezpieczeń Azure: Identity i Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do usługi Azure IoT Hub za pomocą przypisań ról. Te role można przypisać do użytkowników, grup jednostek usługi i tożsamości zarządzanych. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi takich jak interfejs wiersza polecenia platformy Azure lub Azure PowerShell lub Azure Portal. 
+**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do usługi Azure IoT Hub za pomocą przypisań ról. Te role można przypisać do użytkowników, grup jednostek usługi i tożsamości zarządzanych. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi takich jak interfejs wiersza polecenia platformy Azure lub Azure PowerShell lub Azure Portal.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure Active Directory (Azure AD) przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
 **Wskazówki**: zarządzanie dostępem do zasobów platformy Azure IoT Hub jest kontrolowane za pomocą Azure Active Directory (Azure AD). Usługa Azure AD nie ma koncepcji domyślnych haseł.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
 **Wskazówki**: Tworzenie standardowych procedur operacyjnych dotyczących korzystania z dedykowanych kont administracyjnych.
 
-Możesz również włączyć dostęp just in Time do kont administracyjnych przy użyciu Azure AD Privileged Identity Management i Azure Resource Manager.
+Możesz również włączyć dostęp just in Time do kont administracyjnych przy użyciu usługi Azure Active Directory (Azure AD) Privileged Identity Management i Azure Resource Manager.
 
-- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
-**Wskazówki**: dla użytkowników uzyskujących dostęp do IoT Hub Użyj Azure Active Directory logowania jednokrotnego. Użyj Azure Security Center zaleceń dotyczących tożsamości i dostępu. 
+**Wskazówki**: w przypadku użytkowników uzyskujących dostęp do IoT Hub Użyj usługi logowania jednokrotnego w usłudze Azure Active Directory (Azure AD). Użyj Azure Security Center zaleceń dotyczących tożsamości i dostępu.
 
 - [Opis logowania jednokrotnego w usłudze Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
-**Wskazówki**: Włącz usługę Azure AD MFA, aby chronić ogólną dzierżawę platformy Azure, korzystając z wszystkich usług. Usługa IoT Hub nie ma obsługi MFA.  
+**Wskazówki**: Włączanie uwierzytelniania wieloskładnikowego usługi Azure Active Directory (Azure AD) w celu ochrony całej dzierżawy platformy Azure, korzyści płynącej ze wszystkich usług. Usługa IoT Hub nie ma obsługi uwierzytelniania wieloskładnikowego.
 
-- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
+- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
 
-**Wskazówki**: Użyj bezpiecznej, zarządzanej przez platformę Azure stacji roboczej (znanej także jako stacja robocza dostępu uprzywilejowanego lub dostępem uprzywilejowanym) dla zadań administracyjnych, które wymagają podwyższonego poziomu uprawnień.
+**Wskazówki**: Użyj bezpiecznej stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) na potrzeby zadań administracyjnych wymagających podwyższonego poziomu uprawnień.
 
-- [Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Informacje o bezpiecznych, uprzywilejowanych stacjach roboczych dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Jak włączyć usługę Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Jak włączyć uwierzytelnianie wieloskładnikowe w usłudze Azure Active Directory (Azure AD)](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Rejestruj i Ostrzegaj o podejrzanych działaniach z kont administracyjnych
 
-**Wskazówki**: Użyj Azure Active Directory raportów i monitorowania zabezpieczeń, aby wykrywać, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
+**Wskazówki**: Użyj raportów i monitorowania zabezpieczeń Azure Active Directory (Azure AD), aby wykryć, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
 - [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](../active-directory/identity-protection/overview-identity-protection.md)
+
 - [Jak monitorować działania użytkowników związane z tożsamościami i dostępem w usłudze Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: Zarządzaj zasobami platformy Azure tylko z zatwierdzonych lokalizacji
 
-**Wskazówki**: dla użytkowników mających dostęp do IoT Hub, dostęp warunkowy nie jest obsługiwany. Aby rozwiązać ten problem, użyj nazw lokalizacji usługi Azure AD, aby zezwolić na dostęp tylko z określonych logicznych grup zakresów adresów IP lub krajów/regionów dla całej dzierżawy platformy Azure, korzystając wszystkie usługi, w tym IoT Hub. 
+**Wskazówki**: dla użytkowników mających dostęp do IoT Hub, dostęp warunkowy nie jest obsługiwany. Aby wyeliminować ten problem, należy użyć nazw lokalizacji Azure Active Directory (Azure AD), aby zezwolić na dostęp tylko z określonych logicznych grup zakresów adresów IP lub krajów/regionów dla całej dzierżawy platformy Azure, korzystając wszystkie usługi, w tym IoT Hub.
 
 - [Jak skonfigurować nazwane lokalizacje usługi Azure AD](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
@@ -364,67 +378,69 @@ Możesz również włączyć dostęp just in Time do kont administracyjnych przy
 W przypadku dostępu do urządzeń i usług IoT Hub używa tokenów zabezpieczających i tokenów sygnatury dostępu współdzielonego (SAS) do uwierzytelniania urządzeń i usług, aby uniknąć wysyłania kluczy w sieci. 
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-- [IoT Hub tokeny zabezpieczające](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [IoT Hub tokeny zabezpieczające](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: usługa Azure AD udostępnia dzienniki, które ułatwiają odnajdywanie starych kont. Ponadto za pomocą przeglądów tożsamości i dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. 
+**Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów tożsamości i dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
 Użyj Azure AD Privileged Identity Management (PIM) do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku.
 
-- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
-- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
-- [Wdróż Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
+- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
 
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
+
+- [Wdróż Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
 
-**Wskazówki**: masz dostęp do źródeł zdarzeń związanych z logowaniem do usługi Azure AD, inspekcją i ryzykiem związanym z dziennikami, które umożliwiają integrację z dowolnym narzędziem Siem/monitoring. 
+**Wskazówki**: masz dostęp do źródeł zdarzeń związanych z logowaniem w usłudze Azure Active Directory (Azure AD), inspekcją i ryzykiem związanym z dziennikami, które umożliwiają integrację z dowolnym narzędziem Siem/monitoring.
 
-Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics. 
+Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics.
 
 Użytkownik Azure Monitor dzienników zasobów do monitorowania nieautoryzowanych prób połączenia w kategorii połączenia.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [Konfigurowanie dzienników zasobów dla usługi IoT Hub](monitor-iot-hub.md#collection-and-routing)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Konfigurowanie dzienników zasobów dla usługi IoT Hub](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
-**Wskazówki**: użyj funkcji Azure AD Identity Protection, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
-  
+**Wskazówki**: Użyj funkcji ochrony tożsamości Azure Active Directory (Azure AD), aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
+
 - [ Jak wyświetlić ryzykowne logowania usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
-  
+
 - [ Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
-  
+
 - [ Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
 
-**Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft musi uzyskać dostęp do danych klientów, będzie ona żądała bezpośrednio od klienta. 
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft musi uzyskać dostęp do danych klientów, będzie ona żądała bezpośrednio od klienta.
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](../security/benchmarks/security-control-data-protection.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
@@ -432,21 +448,23 @@ Użytkownik Azure Monitor dzienników zasobów do monitorowania nieautoryzowanyc
  
 - [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
 **Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem usługi Azure RBAC.
   
 - [ Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
+
 - [ Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
+
 - [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
 
@@ -456,9 +474,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -467,11 +485,11 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w czasie spoczynku i szyfrowania podczas przesyłania, jeśli ma to zastosowanie.
 
 - [Obsługa protokołu TLS w IoT Hub](iot-hub-tls-support.md)
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
@@ -481,9 +499,9 @@ W przypadku podstawowej platformy Azure zarządzanej przez firmę Microsoft Firm
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
@@ -493,35 +511,9 @@ W przypadku podstawowej platformy Azure zarządzanej przez firmę Microsoft Firm
 
 - [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
-
-**Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
-
-Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure IoT Hub i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
-
-- [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
-### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
-
-**Wskazówki**: IoT Hub obsługuje szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta (CMK), znane także jako "Przenieś własny klucz" (BYOK).
-
-Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanych w czasie, ponieważ są one zapisywane w naszych centrach Domyślnie program IoT Hub szyfruje dane przy użyciu kluczy zarządzanych przez firmę Microsoft.
-
-- [Szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta dla IoT Hub](iot-hub-customer-managed-keys.md)
-
-- [Informacje o szyfrowaniu danych magazynowanych na platformie Azure](../security/fundamentals/encryption-atrest.md)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -529,53 +521,37 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 - [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
 *Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
-### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
-
-**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują usługę Azure IoT Hub.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Wdróż automatyczne rozwiązanie do zarządzania poprawkami systemu operacyjnego
-
-**Wskazówki**: nie dotyczy; Firma Microsoft wykonuje zarządzanie poprawkami w systemach bazowych, które obsługują usługę Azure IoT Hub. 
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Wdróż automatyczne rozwiązanie do zarządzania poprawkami dla tytułów oprogramowania innych firm
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: porównanie luk w zabezpieczeniach z tyłu do tyłu
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -585,9 +561,9 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="62-maintain-asset-metadata"></a>6,2: Konserwowanie metadanych zasobów
 
@@ -595,35 +571,35 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji w miarę potrzeb w celu organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
   
 - [ Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
-  
-- [ Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
-  
-- [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
+
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i obsługa spisu zatwierdzonych zasobów platformy Azure
 
 **Wskazówki**: Tworzenie spisu zatwierdzonych zasobów platformy Azure oraz zatwierdzonego oprogramowania do zasobów obliczeniowych zgodnie z potrzebami organizacji.
 
-Każdy IoT Hub zawiera rejestr tożsamości, którego można użyć do tworzenia zasobów dla urządzeń w usłudze. Osoby lub grupy tożsamości urządzeń można dodawać do listy dozwolonych lub zablokowanych, umożliwiając pełną kontrolę nad dostępem urządzeń.
+Każdy IoT Hub zawiera rejestr tożsamości, którego można użyć do tworzenia zasobów dla urządzeń w usłudze. Osoby lub grupy tożsamości urządzeń można dodawać do dozwolonych lub listy blokowania, umożliwiając pełną kontrolę nad dostępem urządzeń.
 
 - [Rejestr tożsamości IoT Hub](iot-hub-devguide-identity-registry.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
@@ -635,33 +611,33 @@ Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasob�
 
 - [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: Monitoruj niezatwierdzone aplikacje oprogramowania w ramach zasobów obliczeniowych
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: Usuń niezatwierdzone zasoby platformy Azure i aplikacje oprogramowania
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="68-use-only-approved-applications"></a>6,8: Używaj tylko zatwierdzonych aplikacji
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: Używaj tylko zatwierdzonych usług platformy Azure
 
@@ -675,43 +651,43 @@ Ponadto za pomocą grafu zasobów platformy Azure można wykonywać zapytania/od
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: przechowywanie spisu zatwierdzonych tytułów oprogramowania
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: Ogranicz możliwość korzystania przez użytkowników z Azure Resource Manager
 
-**Wskazówki**: korzystanie z dostępu warunkowego usługi Azure AD w celu ograniczenia możliwości współpracy użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
-  
+**Wskazówki**: korzystanie z dostępu warunkowego Azure Active Directory (Azure AD) w celu ograniczenia możliwości korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
+
 - [ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: Ogranicz możliwość wykonywania skryptów w zasobach obliczeniowych przez użytkowników
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
@@ -725,7 +701,7 @@ Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Objec
 
 Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla zasobów platformy Azure.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 
@@ -733,17 +709,17 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
 
 - [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
@@ -753,55 +729,56 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
 - [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../governance/policy/tutorials/create-and-manage.md)
 - [Przegląd szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy dla IoT Hub platformy Azure lub powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Dokumentacja Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Dokumentacja Azure Repos](/azure/devops/repos)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Devices", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
-- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
 
@@ -809,17 +786,17 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
  
 - [ Jak skorygować zalecenia w Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: nie dotyczy
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
@@ -827,28 +804,31 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
 
 Korzystaj z tożsamości zarządzanych w połączeniu z Azure Key Vault, aby uprościć zarządzanie tajnymi aplikacjami w chmurze.
 
-- [IoT Hub tokeny zabezpieczające](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
-- [Jak używać tożsamości zarządzanych do IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- [IoT Hub tokeny zabezpieczające](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
+
+- [Jak używać tożsamości zarządzanych do IoT Hub](https://docs.microsoft.com/azure/iot-hub/virtual-network-support#turn-on-managed-identity-for-iot-hub)
 
 - [Jak utworzyć magazyn kluczy](../key-vault/general/quick-create-portal.md)
+
 - [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: IoT Hub używa tokenów zabezpieczających i tokenów sygnatury dostępu współdzielonego (SAS) do uwierzytelniania urządzeń i usług, aby uniknąć wysyłania kluczy w sieci. 
+**Wskazówki**: IoT Hub używa tokenów zabezpieczających i tokenów sygnatury dostępu współdzielonego (SAS) do uwierzytelniania urządzeń i usług, aby uniknąć wysyłania kluczy w sieci.
 
-Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure AD. Zarządzane tożsamości umożliwiają uwierzytelnianie w dowolnej usłudze obsługującej uwierzytelnianie w usłudze Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
+Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (Azure AD). Zarządzane tożsamości umożliwiają uwierzytelnianie w dowolnej usłudze obsługującej uwierzytelnianie w usłudze Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
-- [IoT Hub tokeny zabezpieczające](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
-- [Jak skonfigurować tożsamości zarządzane dla IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- [IoT Hub tokeny zabezpieczające](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Jak skonfigurować tożsamości zarządzane dla IoT Hub](https://docs.microsoft.com/azure/iot-hub/virtual-network-support#turn-on-managed-identity-for-iot-hub)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
@@ -856,23 +836,13 @@ Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automat
  
 - [  Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
 *Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Obrona złośliwego oprogramowania](../security/benchmarks/security-control-malware-defense.md).*
-
-### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym kodem
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure App Service), ale nie jest uruchamiane w treści klienta.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
@@ -880,17 +850,9 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do zasobów platformy Azure, które nie są obliczeniowe. Firma Microsoft nie może uzyskać dostępu do danych klienta i w związku z tym nie może przeprowadzić skanowania zawartości klienta przez oprogramowanie chroniące przed złośliwym kodem.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
 
-### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: Upewnij się, że oprogramowanie chroniące przed złośliwym oprogramowaniem i podpisy zostały zaktualizowane
-
-**Wskazówki**: nie dotyczy; Ten test porównawczy jest przeznaczony dla zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście obsługującym usługi platformy Azure, ale nie jest uruchamiane w treści klienta.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
@@ -904,21 +866,21 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 - [Jak klonować IoT Hub](iot-hub-how-to-clone.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: wykonaj kompletne kopie zapasowe systemu i Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta
 
 **Wskazówki**: usługa Azure IoT Hub zaleca, aby pomocnicze Centrum IoT Hub zawierało wszystkie tożsamości urządzeń, które mogą łączyć się z rozwiązaniem. Rozwiązanie powinno zachować kopie zapasowe replikowanych tożsamości urządzeń i przekazać je do pomocniczego Centrum IoT przed przełączeniem aktywnego punktu końcowego dla urządzeń. Funkcja eksportowania tożsamości urządzeń IoT Hub jest przydatna w tym kontekście.
 
-- [Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub](iot-hub-ha-dr.md#achieve-cross-region-ha)
+- [Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha)
 
 - [Eksport tożsamości urządzenia IoT Hub](iot-hub-bulk-identity-mgmt.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
 
@@ -926,29 +888,30 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że można przywrócić kopie zapasowe kluczy zarządzanych przez klienta.
 
-- [Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub](iot-hub-ha-dr.md#achieve-cross-region-ha)
+- [Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha)
 
 - [Eksport tożsamości urządzenia IoT Hub](iot-hub-bulk-identity-mgmt.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
 **Wskazówki**: Włącz trwałe usuwanie i przeczyszczanie ochrony w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych, należy włączyć funkcję usuwania nietrwałego w celu zapisywania i odzyskiwania danych po usunięciu obiektów blob lub migawek obiektów BLOB.
- 
+
  
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
-- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](../storage/blobs/soft-delete-blob-overview.md)
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -960,9 +923,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
  
 - [  Skorzystaj z przewodnika obsługi zdarzeń zabezpieczeń komputera NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
@@ -975,9 +938,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
   
 - [ Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
@@ -985,9 +948,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
   
 - [ Publikacja NIST — Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
@@ -995,9 +958,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
   
 - [ Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
@@ -1007,9 +970,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
  
 - [ Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
@@ -1017,9 +980,9 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
   
 - [ Jak skonfigurować automatyzację przepływu pracy w Security Center](../security-center/workflow-automation.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
@@ -1033,11 +996,11 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
 
 - [Testy typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

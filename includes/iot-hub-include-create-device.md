@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70049023"
 ---
 <!-- put the ## header in the file that includes this file -->
@@ -23,7 +23,7 @@ W tej sekcji utworzysz tożsamość urządzenia w rejestrze tożsamości w centr
 
     ![Tworzenie tożsamości urządzenia w portalu](./media/iot-hub-include-create-device/create-identity-portal-vs2019.png)
 
-1. W obszarze **Tworzenie urządzenia**Podaj nazwę nowego urządzenia, na przykład **myDeviceId**, a następnie wybierz pozycję **Zapisz**. Ta akcja tworzy tożsamość urządzenia dla Centrum IoT Hub.
+1. W obszarze **Tworzenie urządzenia** Podaj nazwę nowego urządzenia, na przykład **myDeviceId**, a następnie wybierz pozycję **Zapisz**. Ta akcja tworzy tożsamość urządzenia dla Centrum IoT Hub.
 
    ![Dodaj nowe urządzenie](./media/iot-hub-include-create-device/create-a-device-vs2019.png)
 

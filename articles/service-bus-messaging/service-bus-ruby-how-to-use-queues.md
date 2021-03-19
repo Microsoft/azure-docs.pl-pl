@@ -6,10 +6,10 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 16dda6fc4637f052514a0e78a0804bf4702ed20b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85336644"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Szybki Start: jak używać kolejek Service Bus przy użyciu języka Ruby
@@ -21,8 +21,8 @@ W ramach tego samouczka nauczysz się tworzyć aplikacje Ruby do wysyłania komu
 ## <a name="prerequisites"></a>Wymagania wstępne
 1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Wykonaj czynności opisane w [Azure Portal Użyj, aby utworzyć artykuł kolejki Service Bus](service-bus-quickstart-portal.md) .
-    1. Zapoznaj się **overview** z krótkim omówieniem **kolejek**Service Bus. 
-    2. Utwórz **przestrzeń nazw**Service Bus. 
+    1. Zapoznaj się  z krótkim omówieniem **kolejek** Service Bus. 
+    2. Utwórz **przestrzeń nazw** Service Bus. 
     3. Pobierz **Parametry połączenia**. 
 
         > [!NOTE]

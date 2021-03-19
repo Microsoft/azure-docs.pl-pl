@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743817"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Dokończ przegląd dostępu ról zasobów platformy Azure w Privileged Identity Management
@@ -56,7 +56,7 @@ Możesz zresetować przegląd dostępu, aby usunąć wszystkie podejmowane decyz
 
 Po zakończeniu przeglądu dostępu wybierz pozycję **Zastosuj** , aby zaimplementować wynik przeglądu. W przypadku odmowy dostępu użytkownika do przeglądu ten krok spowoduje usunięcie przypisania roli.  
 
-### <a name="delete"></a>Usuwanie
+### <a name="delete"></a>Usuń
 
 Jeśli nie chcesz dowiedzieć się więcej, usuń je. Wybierz pozycję **Usuń** yo Usuń przegląd z usługi Privileged Identity Management.
 

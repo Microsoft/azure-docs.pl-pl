@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/18/2021
+ms.openlocfilehash: c33739124092a17acf0590f00b2f9c3c09bf894e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418882"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654666"
 ---
-# <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
+# <a name="create-a-query-for-semantic-captions-in-cognitive-search"></a>Utwórz zapytanie dla podpisów semantycznych w Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
-> Typ zapytania semantycznego jest w publicznej wersji zapoznawczej, dostępny za pomocą interfejsu API REST i Azure Portal. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
+> Wyszukiwanie semantyczne jest w publicznej wersji zapoznawczej, dostępne za pomocą interfejsu API REST i Azure Portal. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Te funkcje są rozliczane. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
-W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania, które używa klasyfikacji semantycznej. Żądanie zwróci podpisy semantyczne i opcjonalne [odpowiedzi semantyczne](semantic-answers.md), z wyróżnieniami na najbardziej odpowiednie terminy i frazy.
+W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania używające klasyfikacji semantycznej i zwracające napisy semantyczne (oraz opcjonalnie [odpowiedzi semantyczne](semantic-answers.md)), z wyróżnieniami na najbardziej odpowiednie terminy i frazy. Zarówno napisy, jak i odpowiedzi są zwracane w zapytaniach, które są tworzone przy użyciu typu zapytania "semantyka".
 
-Zarówno napisy, jak i odpowiedzi są wyodrębniane Verbatim z tekstu w dokumencie wyszukiwania. Podsystem semantyczny określa, jaka zawartość ma cechy podpisu lub odpowiedzi, ale nie tworzy nowych zdań ani fraz. Z tego powodu zawartość obejmująca wyjaśnienia lub definicje działają najlepiej w przypadku wyszukiwania semantycznego.
+Podpisy i odpowiedzi są wyodrębniane Verbatim z tekstu w dokumencie wyszukiwania. Podsystem semantyczny określa, jaka część zawartości ma cechy podpisu lub odpowiedzi, ale nie tworzy nowych zdań ani fraz. Z tego powodu zawartość obejmująca wyjaśnienia lub definicje działają najlepiej w przypadku wyszukiwania semantycznego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +34,7 @@ Zarówno napisy, jak i odpowiedzi są wyodrębniane Verbatim z tekstu w dokumenc
 
 + Klient wyszukiwania do wysyłania zapytań
 
-  Klient wyszukiwania musi obsługiwać interfejsy API REST w wersji zapoznawczej na żądanie zapytania. Możesz użyć programu [Poster](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)lub kodu, który został zmodyfikowany, aby zapewnić wywołania REST do interfejsów API w wersji zapoznawczej. Możesz również użyć [Eksploratora wyszukiwania](search-explorer.md) w Azure Portal, aby przesłać zapytanie semantyczne.
+  Klient wyszukiwania musi obsługiwać interfejsy API REST w wersji zapoznawczej na żądanie zapytania. Do interfejsów API w wersji zapoznawczej można użyć programu [Poster](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)lub kodu. Możesz również użyć [Eksploratora wyszukiwania](search-explorer.md) w Azure Portal, aby przesłać zapytanie semantyczne.
 
 + [Żądanie zapytania](/rest/api/searchservice/preview-api/search-documents) musi zawierać opcję semantyczną i inne parametry opisane w tym artykule.
 
@@ -62,9 +62,13 @@ Tylko górne dopasowania 50 z wyników początkowych mogą być semantycznie kla
 
 ## <a name="query-with-search-explorer"></a>Wykonywanie zapytań przy użyciu Eksploratora wyszukiwania
 
-[Eksplorator wyszukiwania](search-explorer.md) został zaktualizowany w celu uwzględnienia opcji zapytań semantycznych. Te opcje staną się widoczne w portalu po uzyskaniu dostępu do wersji zapoznawczej. Opcje zapytania umożliwiają włączenie zapytań semantycznych, searchFields i korekcji pisowni.
+[Eksplorator wyszukiwania](search-explorer.md) został zaktualizowany w celu uwzględnienia opcji zapytań semantycznych. Te opcje staną się widoczne w portalu po wykonaniu następujących kroków:
 
-Wymagane parametry zapytania można także wkleić do ciągu zapytania.
+1. [Utwórz konto](https://aka.ms/SemanticSearchPreviewSignup) i Admittance usługi wyszukiwania w programie w wersji zapoznawczej
+
+1. Otwórz Portal przy użyciu następującej składni: `https://portal.azure.com/?feature.semanticSearch=true`
+
+Opcje zapytania obejmują przełączniki umożliwiające włączenie zapytań semantycznych, searchFields i korekcji pisowni. Wymagane parametry zapytania można także wkleić do ciągu zapytania.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Opcje zapytania w Eksploratorze wyszukiwania" border="true":::
 
@@ -98,7 +102,7 @@ Poniższa tabela zawiera podsumowanie parametrów zapytania używanych w kwerend
 |-----------|-------|-------------|
 | Znak | Ciąg | Prawidłowe wartości to proste, pełne i semantyczne. Dla zapytań semantycznych jest wymagana wartość "semantyka". |
 | queryLanguage | Ciąg | Wymagane dla zapytań semantycznych. Obecnie jest zaimplementowana tylko wartość "en-us". |
-| searchFields | Ciąg | Rozdzielana przecinkami lista pól do przeszukiwania. Opcjonalne, ale zalecane. Określa pola, w których występuje Klasyfikacja semantyczna. </br></br>W przeciwieństwie do prostych i pełnych typów zapytań, kolejność, w której pola są wyświetlane, określa pierwszeństwo. Aby uzyskać więcej informacji na temat sposobu użycia, zobacz [krok 2: Set searchFields](#searchfields). |
+| searchFields | Ciąg | Rozdzielana przecinkami lista pól do przeszukiwania. Określa pola, w których występuje Klasyfikacja semantyczna, z której są wyodrębniane napisy i odpowiedzi. </br></br>W przeciwieństwie do prostych i pełnych typów zapytań, kolejność, w której pola są wyświetlane, określa pierwszeństwo. Aby uzyskać więcej informacji na temat sposobu użycia, zobacz [krok 2: Set searchFields](#searchfields). |
 | sprawdzania pisowni | Ciąg | Opcjonalny parametr, niecharakterystyczny dla zapytań semantycznych, który poprawia błędne pisownię warunków przed osiągnięciem przez nich aparatu wyszukiwania. Aby uzyskać więcej informacji, zobacz [Dodawanie poprawek pisowni do zapytań](speller-how-to-add.md). |
 | uzyskiwan |Ciąg | Parametry opcjonalne, które określają, czy odpowiedzi semantyczne są uwzględniane w wyniku. Obecnie tylko "Wyodrębnianie" jest implementowane. Odpowiedzi można skonfigurować tak, aby zwracały maksymalnie pięć. Wartość domyślna to 1. Ten przykład przedstawia liczbę trzech odpowiedzi: "Extract \| count3" ". Aby uzyskać więcej informacji, zobacz [Zwróć odpowiedzi semantyczne](semantic-answers.md).|
 
@@ -125,13 +129,11 @@ Gdy zawartość w indeksie wyszukiwania może być złożona w wielu językach, 
 
 #### <a name="step-2-set-searchfields"></a>Krok 2. Ustawianie searchFields
 
-Ten parametr jest opcjonalny, ponieważ nie ma żadnego błędu, jeśli go opuszczasz, ale dostarczenie uporządkowanej listy pól jest zdecydowanie zalecane dla obu napisów i odpowiedzi.
-
 Parametr searchFields służy do identyfikowania fragmentów, które mają zostać ocenione pod kątem "podobieństwa semantycznego" do zapytania. W przypadku wersji zapoznawczej nie zaleca się pozostawienia searchFields pustej, ponieważ model wymaga wskazówki co do tego, jakie pola są najważniejsze do przetworzenia.
 
-Kolejność searchFields jest krytyczna. Jeśli już korzystasz z usługi searchFields w istniejących prostych lub pełnych zapytaniach, upewnij się, że ten parametr jest ponownie sprawdzany w celu sprawdzenia kolejności pól podczas przełączania do typu zapytania semantycznego.
+Kolejność searchFields jest krytyczna. Jeśli używasz już searchFields w istniejącym kodzie dla prostych lub pełnych zapytań Lucene, ponownie odwiedź ten parametr, aby sprawdzić kolejność pól podczas przełączania do typu zapytania semantycznego.
 
-Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po określeniu co najmniej dwóch searchFields:
+Dla co najmniej dwóch searchFields:
 
 + Uwzględnij tylko pola ciągów i pola ciągów najwyższego poziomu w kolekcjach. Jeśli dołączysz pola niebędące ciągami lub pola niższego poziomu w kolekcji, nie ma błędów, ale te pola nie będą używane w klasyfikacji semantycznej.
 
@@ -141,7 +143,7 @@ Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po 
 
 + Obserwuj te pola według opisowych pól, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu.
 
-Jeśli określone jest tylko jedno pole, użyj pola opisowego, w którym można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość. Aby zapewnić czasowe przetwarzanie, tylko informacje o 8 000 tokenach zbiorczych zawartości searchFields przechodzą na ocenę semantyczną i klasyfikację.
+Jeśli określone jest tylko jedno pole, użyj pola opisowego, w którym można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. 
 
 #### <a name="step-3-remove-orderby-clauses"></a>Krok 3. Usuwanie klauzul orderBy
 
@@ -191,7 +193,7 @@ Odpowiedź na powyższe przykładowe zapytanie zwraca następujące dopasowanie 
 Odwołaj tę klasyfikację semantyczną i odpowiedzi są kompilowane nad początkowym zestawem wyników. Każda logika, która poprawia jakość początkowych wyników, będzie przekazywać do wyszukiwania semantycznego. W następnym kroku zapoznaj się z funkcjami, które przyczyniają się do wyników początkowych, w tym analizatorów, które wpływają na sposób tworzenia tokenów ciągów, profile oceniania, które mogą dostosowywać wyniki, oraz domyślny algorytm istotności.
 
 + [Analizatory do przetwarzania tekstu](search-analyzers.md)
-+ [Podobieństwo i ocenianie w Wyszukiwanie poznawcze](index-similarity-and-scoring.md)
-+ [Dodawanie profili oceniania](index-add-scoring-profiles.md)
++ [Algorytm klasyfikacji podobieństwa](index-similarity-and-scoring.md)
++ [Profile oceniania](index-add-scoring-profiles.md)
 + [Omówienie wyszukiwania semantycznego](semantic-search-overview.md)
-+ [Dodaj sprawdzanie pisowni do terminów zapytania](speller-how-to-add.md)
++ [Algorytm klasyfikacji semantycznej](semantic-ranking.md)

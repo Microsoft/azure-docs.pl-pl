@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90033051"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Rejestrowanie urządzenia osobistego w sieci organizacji
@@ -45,7 +45,7 @@ Wykonaj następujące kroki, aby zarejestrować swoje urządzenie osobiste w sie
 
     ![Konta na ekranie Ustawienia](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Wybierz pozycję **dostęp do**zasobów służbowych, a następnie wybierz pozycję **Połącz** z ekranu **dostęp do** zasobów służbowych.
+2. Wybierz pozycję **dostęp do** zasobów służbowych, a następnie wybierz pozycję **Połącz** z ekranu **dostęp do** zasobów służbowych.
 
     ![Ekran pracy lub szkoły z wyróżnioną opcją Połącz](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
@@ -62,7 +62,7 @@ Możesz sprawdzić, czy Twoje ustawienia zostały zarejestrowane.
 
     ![Konta na ekranie Ustawienia](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Wybierz pozycję **dostęp do**zasobów służbowych i upewnij się, że widzisz konto służbowe.
+2. Wybierz pozycję **dostęp do** zasobów służbowych i upewnij się, że widzisz konto służbowe.
 
     ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

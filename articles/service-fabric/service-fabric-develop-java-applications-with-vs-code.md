@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87327365"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Opracowywanie aplikacji Service Fabric Java za pomocą Visual Studio Code
@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Otwórz aplikację w VS Code
 
-Otwórz program VS Code.  Kliknij ikonę Eksploratora na **pasku działania** , a następnie kliknij pozycję **Otwórz folder**lub kliknij pozycję  **plik-> Otwórz folder**. Przejdź do katalogu *./Service-Fabric-Java-QuickStart/Voting* w folderze, do którego zostało Sklonowane repozytorium, a następnie kliknij przycisk **OK**. Obszar roboczy powinien zawierać te same pliki, jak pokazano na poniższym zrzucie ekranu.
+Otwórz program VS Code.  Kliknij ikonę Eksploratora na **pasku działania** , a następnie kliknij pozycję **Otwórz folder** lub kliknij pozycję  **plik-> Otwórz folder**. Przejdź do katalogu *./Service-Fabric-Java-QuickStart/Voting* w folderze, do którego zostało Sklonowane repozytorium, a następnie kliknij przycisk **OK**. Obszar roboczy powinien zawierać te same pliki, jak pokazano na poniższym zrzucie ekranu.
 
 ![Aplikacja do głosowania w języku Java w obszarze roboczym](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
@@ -54,7 +54,7 @@ Po skompilowaniu aplikacji można wdrożyć ją w klastrze lokalnym.
 > [!IMPORTANT]
 > Wdrażanie aplikacji Java w klastrze lokalnym nie jest obsługiwane na maszynach z systemem Windows.
 
-1. W **palecie poleceń**wybierz **polecenie Service Fabric: Deploy Application (localhost)**. Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
+1. W **palecie poleceń** wybierz **polecenie Service Fabric: Deploy Application (localhost)**. Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
 
    ![Polecenie wdrażania aplikacji w VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
