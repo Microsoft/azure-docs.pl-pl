@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 5ceaaa7ed9288299019f3e87d8c214e53013f5ec
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d241cb5d7ece260de42088eecfd669e5d3f40096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045755"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592289"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł zbierania danych w programie Azure Monitor
-Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](./log-analytics-agent.md) i [rozszerzenia diagnostycznego](./diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do utworzenia skojarzenia między [regułą zbierania danych](data-collection-rule-overview.md) a [agentem Azure monitor](./azure-monitor-agent-overview.md). Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

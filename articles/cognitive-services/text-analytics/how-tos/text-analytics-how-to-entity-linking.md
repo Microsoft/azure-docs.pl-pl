@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 3fd3695490331a1f599db71bf5cafb25e957bf08
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710349"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599004"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -35,7 +35,7 @@ Funkcja dane OSOBowe jest częścią NER i może identyfikować i wygrupować po
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Funkcje i wersje rozpoznawania jednostek nazwanych
 
-| Cecha                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 3 |
+| Cecha                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 4 |
 |-----------------------------------------------------------------|--------|----------|
 | Metody dla żądań pojedynczych i wsadowych                          | X      | X        |
 | Rozbudowane rozpoznawanie jednostek w kilku kategoriach           | X      | X        |
@@ -47,8 +47,8 @@ Aby uzyskać informacje, zobacz temat [Obsługa języków](../language-support.m
 
 Rozpoznawanie jednostek nazwanych v3 zapewnia rozszerzone wykrywanie w wielu typach. Obecnie NER v 3.0 może rozpoznawać jednostki w [kategorii jednostki ogólne](../named-entity-types.md).
 
-Nazwanego rozpoznawania jednostek v 3.1 — wersja zapoznawcza. 3 obejmuje możliwości wykrywania wersji 3.0 i: 
-* Możliwość wykrywania informacji osobistych ( `PII` ) przy użyciu `v3.1-preview.3/entities/recognition/pii` punktu końcowego. 
+Nazwanego rozpoznawania jednostek v 3.1 — wersja zapoznawcza. 4 obejmuje możliwości wykrywania wersji 3.0 i: 
+* Możliwość wykrywania informacji osobistych ( `PII` ) przy użyciu `v3.1-preview.4/entities/recognition/pii` punktu końcowego. 
 * Opcjonalny `domain=phi` parametr do wykrywania poufnych informacji o kondycji ( `PHI` ).
 * [Operacja asynchroniczna](text-analytics-how-to-call-api.md) przy użyciu `/analyze` punktu końcowego.
 
@@ -72,36 +72,40 @@ Utwórz żądanie POST. Można [użyć programu Poster](text-analytics-how-to-ca
 
 ### <a name="request-endpoints"></a>Punkty końcowe żądania
 
-#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-preview)
+#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-preview)
 
-Rozpoznawanie jednostek nazwanych `v3.1-preview.3` używa oddzielnych punktów końcowych dla żądań ner, dane osobowe i powiązania jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania.
+Rozpoznawanie jednostek nazwanych `v3.1-preview.4` używa oddzielnych punktów końcowych dla żądań ner, dane osobowe i powiązania jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania.
 
 **Łączenie jednostek**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
 
 **Rozpoznawanie jednostek nazwanych**
-* Jednostki ogólne — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* Jednostki ogólne — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
 
 **Identyfikowalne dane osobowe**
-* Personal ( `PII` ) — informacje — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* Personal ( `PII` ) — informacje — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
 
 Można również użyć opcjonalnego `domain=phi` parametru do wykrywania informacji o kondycji ( `PHI` ) w tekście. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
 
-W systemie `v3.1-preview.3` odpowiedź JSON zawiera `redactedText` Właściwość, która zawiera zmodyfikowany tekst wejściowy, w którym wykryte jednostki danych osobowych są zastępowane przez `*` dla każdego znaku w jednostkach.
+W systemie `v3.1-preview.4` odpowiedź JSON zawiera `redactedText` Właściwość, która zawiera zmodyfikowany tekst wejściowy, w którym wykryte jednostki danych osobowych są zastępowane przez `*` dla każdego znaku w jednostkach.
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+Interfejs API podejmie próbę wykrycia [kategorii jednostek na liście](../named-entity-types.md?tabs=personal) dla danego języka dokumentu. Jeśli chcesz określić, które jednostki będą wykrywane i zwracane, użyj opcjonalnego parametru "dane osobowe" z odpowiednimi kategoriami jednostek. Ten parametr umożliwia również wykrycie jednostek, które nie są domyślnie włączone dla języka dokumentu. Na przykład numer licencji sterownika francuskiego, który może wystąpić w tekocie w języku angielskim.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **Operacja asynchroniczna**
 
-Począwszy od programu `v3.1-preview.3` , żądania ner można wysyłać asynchronicznie przy użyciu `/analyze` punktu końcowego.
+Począwszy od programu `v3.1-preview.4` , można wysyłać żądania ner i powiązania jednostek asynchronicznie przy użyciu `/analyze` punktu końcowego.
 
-* Operacja asynchroniczna — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+* Operacja asynchroniczna — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
 
 Zobacz [, jak wywoływać interfejs API analizy tekstu,](text-analytics-how-to-call-api.md) Aby uzyskać informacje dotyczące wysyłania żądań asynchronicznych.
 

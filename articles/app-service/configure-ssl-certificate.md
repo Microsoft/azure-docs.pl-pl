@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d6f6db34239cf8c77b6e43d4426d889fa12c0690
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051348"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577788"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -331,7 +331,7 @@ Po ukończeniu operacji ponownego tworzenia kluczy kliknij pozycję **Synchroniz
 
 Aby włączyć automatyczne odnawianie certyfikatu w dowolnym momencie, wybierz certyfikat na stronie [App Service certyfikaty](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) , a następnie kliknij pozycję **Ustawienia automatycznego odnawiania** w lewym okienku nawigacji. Domyślnie certyfikaty App Service mają okres ważności jeden rok.
 
-Wybierz pozycję **włączone** , a następnie kliknij pozycję **Zapisz**. Certyfikaty mogą rozpoczynać automatyczne odnawianie 60 dni przed wygaśnięciem, jeśli włączono automatyczne odnawianie.
+Wybierz pozycję **włączone** , a następnie kliknij pozycję **Zapisz**. Certyfikaty mogą rozpoczynać automatyczne odnawianie 30 dni przed wygaśnięciem, jeśli włączono automatyczne odnawianie.
 
 ![Odnów certyfikat App Service automatycznie](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

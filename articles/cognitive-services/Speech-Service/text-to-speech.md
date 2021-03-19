@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599538"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597678"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -40,6 +40,8 @@ Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany t
 * Głosy neuronowych — głębokie sieci neuronowych są używane do pokonania granic tradycyjnej syntezy mowy, w odniesieniu do obciążenia i intonation w języku mówionym. Funkcja przewidywania Prosody i syntezy głosu są wykonywane jednocześnie, co daje w wyniku bardziej płynne i naturalne wyprowadzanie danych wyjściowych. Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotów i asystentów głosowych bardziej naturalnych i atrakcyjnych, konwertowanie cyfrowych tekstów, takich jak książki elektroniczne, na Audiobooks i ulepszanie systemów nawigacji między samochodami. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania podczas pracy z systemami AI. Aby uzyskać pełną listę głosów neuronowych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
 
 * Dopasowywanie stylów mówiących za pomocą SSML-Speech SSMLing Language languageing jest językiem znaczników opartym na języku XML używanym do dostosowywania danych wyjściowych zamiany mowy na tekst. Za pomocą SSML można dostosować gęstość, dodać pauzy, poprawić wymowę, przyspieszyć lub spowalniać liczbę mówienia, zwiększyć lub zmniejszyć ilość, a także dodać wiele głosów do jednego dokumentu. Zapoznaj się z [tematem jak to zrobić](speech-synthesis-markup.md) , aby dopasować style odmowy.
+
+* Visemes- [visemes](how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych elementów w zaobserwowanej mowę (tj. pozycji pakietów lip, szczęki i języka podczas tworzenia określonego fonem). Ma silną korelację z głosymi i fonemów. Za pomocą viseme w zestawie mowy SDK można generować dane animacji twarzy, które są zwykle używane w przypadku animowanej komunikacji z obsługą programu lip, edukacji, rozrywki i obsługi klienta. 
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

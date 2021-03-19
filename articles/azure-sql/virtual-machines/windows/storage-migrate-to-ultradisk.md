@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356756"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586305"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migruj dysk dziennika do programu Ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Aby włączyć zgodność, wykonaj następujące kroki:
 
 1. Wybierz opcję **tak** , aby **włączyć zgodność Ultra Disk**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Zrzut ekranu, na którym jest wyświetlana opcja tak.":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Zrzut ekranu, na którym jest wyświetlana opcja tak.":::
 
 1. Wybierz pozycję **Zapisz**. 
 

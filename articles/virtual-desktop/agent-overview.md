@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601243"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601894"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Wprowadzenie do agenta pulpitu wirtualnego systemu Windows
 
@@ -32,7 +32,10 @@ Agent pulpitu wirtualnego systemu Windows jest początkowo instalowany na jeden 
 
 ## <a name="agent-update-process"></a>Proces aktualizacji agenta
 
-Usługa pulpitu wirtualnego systemu Windows automatycznie aktualizuje agenta za każdym razem, gdy zostanie udostępniona aktualizacja. Aktualizacje agentów mogą zawierać nowe funkcje lub naprawić poprzednie problemy. Po zainstalowaniu początkowej wersji agenta pulpitu wirtualnego systemu Windows Agent regularnie wysyła zapytanie do usługi pulpitu wirtualnego systemu Windows w celu ustalenia, czy jest dostępna nowsza wersja agenta i jego składników. W przypadku nowej wersji program inicjujący agenta automatycznie pobiera najnowszą wersję agenta, stos równoległy i agenta monitorowania Genewa.
+Usługa pulpitu wirtualnego systemu Windows aktualizuje agenta za każdym razem, gdy zostanie udostępniona aktualizacja. Aktualizacje agentów mogą zawierać nowe funkcje lub poprawki dotyczące wcześniejszych problemów. Po zainstalowaniu początkowej wersji agenta pulpitu wirtualnego systemu Windows Agent regularnie wysyła zapytanie do usługi pulpitu wirtualnego systemu Windows w celu ustalenia, czy jest dostępna nowsza wersja agenta, stosu lub składnika monitorowania. Jeśli nowsza wersja któregokolwiek ze składników została już wdrożona, zaktualizowany składnik zostanie automatycznie zainstalowany.
+
+Nowe wersje agenta są wdrażane w regularnych odstępach czasu weeklong do wszystkich subskrypcji platformy Azure. Te okresy aktualizacji są nazywane "lotach". W przypadku gdy działa lot, maszyny wirtualne w puli hostów mogą otrzymywać aktualizacje agenta w różnym czasie. Wszystkie agenci maszyn wirtualnych we wszystkich subskrypcjach zostaną zaktualizowani do końca okresu wdrożenia. System obsługi lotu pulpitu wirtualnego systemu Windows zwiększa niezawodność usługi, zapewniając stabilność i jakość aktualizacji agenta.
+
 
 >[!NOTE]
 >- Gdy Agent monitorowania Genewa aktualizuje do najnowszej wersji, stare zadanie GenevaTask jest zlokalizowane i wyłączone przed utworzeniem nowego zadania dla nowego agenta monitorowania. Starsza wersja agenta monitorowania nie została usunięta w przypadku, gdy Najnowsza wersja agenta monitorowania ma problem wymagający przywrócenia wcześniejszej wersji, aby naprawić. Jeśli Najnowsza wersja ma problem, stary Agent monitorowania zostanie uaktywniony w celu kontynuowania dostarczania danych monitorowania. Wszystkie wersje monitora, które są starsze niż Ostatnia z nich została zainstalowana przed aktualizacją, zostaną usunięte z maszyny wirtualnej.

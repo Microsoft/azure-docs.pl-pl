@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6c6bbdefe666cf0dd2f1c96d783917e1874ae93d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430772"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588702"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Szybki Start: Konfigurowanie klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra (wersja zapoznawcza)
 
@@ -48,16 +48,17 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
    > [!NOTE]
    > `assignee`Wartości i `role` w poprzednim poleceniu są odpowiednio stałymi zasadami usługi i identyfikatorami ról.
 
-1. Następnie skonfigurujemy zasoby dla naszego klastra hybrydowego. Ponieważ masz już klaster, nazwa klastra będzie tylko zasobem logicznym, aby zidentyfikować nazwę istniejącego klastra. Upewnij się, że używasz nazwy istniejącego klastra podczas definiowania `clusterName` `clusterNameOverride` zmiennych i w poniższym skrypcie.
+1. Następnie skonfigurujemy zasoby dla naszego klastra hybrydowego. Ponieważ masz już klaster, nazwa klastra będzie tylko zasobem logicznym, aby zidentyfikować nazwę istniejącego klastra. Upewnij się, że używasz nazwy istniejącego klastra podczas definiowania `clusterName` `clusterNameOverride` zmiennych i w poniższym skrypcie. Potrzebne są również węzły inicjatora, publiczne certyfikaty klientów (Jeśli skonfigurowano klucz publiczny/prywatny w punkcie końcowym Cassandra) i Gossip certyfikaty istniejącego klastra.
 
-   Potrzebne są również węzły inicjatora, publiczne certyfikaty klientów (Jeśli skonfigurowano klucz publiczny/prywatny w punkcie końcowym Cassandra) i Gossip certyfikaty istniejącego klastra. Należy również użyć wcześniej skopiowanego identyfikatora zasobu w celu zdefiniowania `delegatedManagementSubnetId` zmiennej.
+   > [!NOTE]
+   > Wartość `delegatedManagementSubnetId` zmiennej, która zostanie podana poniżej, jest dokładnie taka sama jak wartość `--scope` podana w powyższym poleceniu:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster-legal-name'
    clusterNameOverride='cassandra-hybrid-cluster-illegal-name'
    location='eastus2'
-   delegatedManagementSubnetId='<Resource ID>'
+   delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
     
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
@@ -99,14 +100,13 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-   delegatedSubnetId= '<Resource ID>'
     
    az managed-cassandra datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName \
        --data-center-location $dataCenterLocation \
-       --delegated-subnet-id $delegatedSubnetId \
+       --delegated-subnet-id $delegatedManagementSubnetId \
        --node-count 9 
    ```
 
@@ -141,6 +141,15 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
    ```bash
     ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
    ```
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli wystąpi błąd podczas stosowania uprawnień do Virtual Network, takich jak *nie można znaleźć użytkownika lub nazwy głównej usługi w bazie danych grafu dla "e5007d2c-4b13-4a74-9b6a-605d99f03501"*, można ręcznie zastosować to samo uprawnienie z Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka **Kontrola dostępu (IAM)** istniejącej sieci wirtualnej i Dodaj przypisanie roli dla "Azure Cosmos DB" do roli "administrator sieci". Jeśli dwa wpisy są wyświetlane podczas wyszukiwania "Azure Cosmos DB", Dodaj zarówno wpisy, jak pokazano na poniższej ilustracji: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Zastosuj uprawnienia" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> Przypisanie roli Azure Cosmos DB jest używane tylko do celów wdrożeniowych. Usługa Azure Managed instanced dla platformy Apache Cassandra nie ma zależności zaplecza na Azure Cosmos DB.  
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -3,7 +3,7 @@
 title: transformacje i zadania w Media Services: Azure Media Services opis: informacje na temat tworzenia transformacji, aby opisać reguły przetwarzania filmów wideo w Azure Media Services.
 usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
 
-MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 08/19/2019 MS. Author: inhenkel
+MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 03/17/2021 MS. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
@@ -77,7 +77,7 @@ Użyj [elementu zawartości jako danych wejściowych zadania](job-input-from-loc
 
 ### <a name="checking-job-progress"></a>Sprawdzanie postępu zadania
 
-Postęp i stan zadań można uzyskać przez monitorowanie zdarzeń za pomocą Event Grid. Aby uzyskać więcej informacji, zobacz [monitorowanie zdarzeń przy użyciu EventGrid](job-state-events-cli-how-to.md).
+Postęp i stan zadań można uzyskać przez monitorowanie zdarzeń za pomocą Event Grid. Aby uzyskać więcej informacji, zobacz [monitorowanie zdarzeń przy użyciu EventGrid](monitoring/job-state-events-cli-how-to.md).
 
 ### <a name="updating-jobs"></a>Aktualizowanie zadań
 

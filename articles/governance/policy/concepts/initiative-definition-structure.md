@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji inicjatywy
 description: Opisuje, w jaki sposób definicje inicjatyw zasad są używane do definiowania zasad grupy w celu wdrożenia do zasobów platformy Azure w organizacji.
-ms.date: 10/07/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876179"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587223"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struktura definicji Azure Policy inicjatywy
 
@@ -17,7 +17,7 @@ Inicjatywy umożliwiają grupowanie kilku powiązanych definicji zasad w celu up
 Do utworzenia definicji inicjatywy zasad używany jest kod JSON. Definicja inicjatywy Policy zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - metadane
 - parameters
 - definicje zasad
@@ -134,7 +134,7 @@ Parametry działają w ten sam sposób podczas tworzenia inicjatyw zasad. Dołą
 Parametr ma następujące właściwości, które są używane w definicji inicjatywy zasad:
 
 - `name`: Nazwa parametru. Używane przez `parameters` funkcję wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#passing-a-parameter-value-to-a-policy-definition).
-- `type`: Określa, czy parametr jest **ciągiem**, **tablicą**, **obiektem**, **wartością logiczną**, **liczbą całkowitą**, **zmiennoprzecinkową**lub **DateTime**.
+- `type`: Określa, czy parametr jest **ciągiem**, **tablicą**, **obiektem**, **wartością logiczną**, **liczbą całkowitą**, **zmiennoprzecinkową** lub **DateTime**.
 - `metadata`: Definiuje podwłaściwości używane głównie przez Azure Portal do wyświetlania informacji przyjaznych dla użytkownika:
   - `description`: Wyjaśnienie, do czego służy parametr. Może służyć do podania przykładów akceptowalnych wartości.
   - `displayName`: Przyjazna nazwa wyświetlana w portalu dla parametru.
@@ -167,7 +167,7 @@ Można na przykład zdefiniować definicję inicjatywy zasad, aby ograniczyć lo
 
 Należy zadeklarować, które parametry inicjatywy są przekazywane, do których dołączono definicje zasad w tablicy [policyDefinitions](#policy-definitions) definicji inicjatywy. Nazwa parametru może być taka sama, przy użyciu różnych nazw w inicjatywach niż w definicjach zasad upraszcza czytelność kodu.
 
-Na przykład wcześniej zdefiniowany parametr inicjatywy **init_allowedLocations** może zostać przesłany do kilku uwzględnionych definicji zasad i ich parametrów, **sql_locations** i **vm_locations**w następujący sposób:
+Na przykład wcześniej zdefiniowany parametr inicjatywy **init_allowedLocations** może zostać przesłany do kilku uwzględnionych definicji zasad i ich parametrów, **sql_locations** i **vm_locations** w następujący sposób:
 
 ```json
 "policyDefinitions": [
@@ -196,7 +196,7 @@ Ten przykład odwołuje się do parametru **init_allowedLocations** , który zos
 
 ### <a name="strongtype"></a>strongtype
 
-We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego**elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego** elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
 Niektóre typy zasobów, które nie są zwracane przez **Get-AzResourceProvider** , są obsługiwane. Te typy zasobów to:
 
@@ -282,7 +282,7 @@ Utworzone przez firmę Microsoft wbudowane elementy zgodności mają dodatkowe i
 Te informacje są następujące:
 
 - Wyświetlane w Azure Portal na temat przeglądu **kontroli** zgodności z przepisami.
-- Dostępne za pośrednictwem interfejsu API REST. Zobacz `Microsoft.PolicyInsights` dostawcę zasobów i [grupę operacji policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
+- Dostępne za pośrednictwem interfejsu API REST. Zobacz `Microsoft.PolicyInsights` dostawcę zasobów i [grupę operacji policyMetadata](/rest/api/policy/policymetadata/getresource).
 - Dostępne za pośrednictwem interfejsu wiersza polecenia platformy Azure. Zobacz [AZ Policy Metadata](/cli/azure/policy/metadata) Command.
 
 > [!IMPORTANT]

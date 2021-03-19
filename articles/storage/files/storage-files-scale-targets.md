@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149464"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593156"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem protokołów protokołu SMB i systemu plików NFS. W tym artykule omówiono elementy docelowe skalowalności i wydajności dla Azure Files i Azure File Sync.
@@ -134,7 +134,7 @@ Szybkość wydajności to 20 obiektów na sekundę. Klienci mogą oszacować cza
 
 **Początkowa synchronizacja danych z systemu Windows Server do udziału plików platformy Azure**: wiele wdrożeń Azure File Sync rozpoczyna się od pustego udziału plików platformy Azure, ponieważ wszystkie dane są w systemie Windows Server. W takich przypadkach początkowe Wyliczenie zmian w chmurze jest szybkie i większość czasu będzie poświęcana na synchronizację zmian z systemu Windows Server w udziałach plików platformy Azure. 
 
-Podczas synchronizacji przekazuje dane do udziału plików platformy Azure, nie ma żadnego przestoju na lokalnym serwerze plików, a administratorzy mogą [skonfigurować limity sieciowe](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) w celu ograniczenia przepustowości używanej do przekazywania danych w tle.
+Podczas synchronizacji przekazuje dane do udziału plików platformy Azure, nie ma żadnego przestoju na lokalnym serwerze plików, a administratorzy mogą [skonfigurować limity sieciowe](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) w celu ograniczenia przepustowości używanej do przekazywania danych w tle.
 
 Synchronizacja początkowa jest zwykle ograniczona przez początkową szybkość przekazywania 20 plików na sekundę dla każdej grupy synchronizacji. Klienci mogą oszacować czas przekazywania wszystkich danych na platformę Azure, korzystając z następującej formuły, aby uzyskać czas w dniach:  
 

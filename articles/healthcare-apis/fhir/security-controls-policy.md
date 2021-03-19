@@ -1,19 +1,19 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla interfejsu API platformy Azure dla FHIR
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla interfejsu API platformy Azure dla FHIR. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 424a1639e49cc3b1f63b3001b6db35882f3a6227
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 7042457d8d18d55eda48cc0742d9f0cfaaa4f6ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020023"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597036"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>Azure Policy kontroli zgodności z przepisami dla interfejsu API platformy Azure dla FHIR
 

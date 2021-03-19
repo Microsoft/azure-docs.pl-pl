@@ -10,16 +10,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 9032bfca30ead56c91d7904e18b76753cf3b6dfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601053"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582174"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
-Rozszerzenie maszyny wirtualnej Key Vault umożliwia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. Rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy.  Po wykryciu zmiany rozszerzenie pobiera i instaluje odpowiednie certyfikaty. Rozszerzenie zainstaluje pełny łańcuch certyfikatów na maszynie wirtualnej. Rozszerzenie maszyny wirtualnej Key Vault jest publikowane i obsługiwane przez firmę Microsoft, obecnie na maszynach wirtualnych z systemem Linux. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej Key Vault dla systemu Linux. 
+Rozszerzenie maszyny wirtualnej Key Vault umożliwia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. Rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy.  Po wykryciu zmiany rozszerzenie pobiera i instaluje odpowiednie certyfikaty. Rozszerzenie maszyny wirtualnej Key Vault jest publikowane i obsługiwane przez firmę Microsoft, obecnie na maszynach wirtualnych z systemem Linux. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej Key Vault dla systemu Linux. 
 
 ### <a name="operating-system"></a>System operacyjny
 
@@ -36,6 +36,7 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje te dystrybucje systemu Linu
 
 - #12 PKCS
 - PEM
+
 
 ## <a name="prerequisities"></a>Wymagania wstępne
   - Key Vault wystąpienie z certyfikatem. Zobacz [tworzenie Key Vault](../../key-vault/general/quick-create-portal.md)
@@ -56,6 +57,20 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje te dystrybucje systemu Linu
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## <a name="key-vault-vm-extension-version"></a>Wersja rozszerzenia maszyny wirtualnej Key Vault
+* Ubuntu-18,04 i SUSE-15 użytkownicy mogą wybrać uaktualnienie wersji rozszerzenia maszyny wirtualnej magazynu kluczy, aby `V2.0` uzyskać pełną funkcję pobierania łańcucha certyfikatów. Certyfikaty wystawcy (pośrednie i główne) będą dołączane do certyfikatu liścia w pliku PEM.
+
+* Jeśli wolisz uaktualnić do programu `v2.0` , musisz `v1.0` najpierw usunąć program, a następnie zainstalować `v2.0` .
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  Flaga--w wersji 2,0 jest opcjonalna, ponieważ Najnowsza wersja zostanie zainstalowana domyślnie.   
+
+* Jeśli maszyna wirtualna ma certyfikaty pobrane przez program v 1.0, usunięcie rozszerzenia AKVVM v 1.0 nie spowoduje usunięcia pobranych certyfikatów.  Po zainstalowaniu programu v 2.0 istniejące certyfikaty nie zostaną zmodyfikowane.  Należy usunąć pliki certyfikatu lub przekroczyć certyfikat, aby pobrać plik PEM z pełnym łańcuchem na maszynie wirtualnej.
+
+
+
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
@@ -72,7 +87,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -109,7 +124,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 | apiVersion | 2019-07-01 | data |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForLinux | ciąg |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 2.0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | Jest on ignorowany w systemie Linux | ciąg |
 | linkOnRenewal | fałsz | boolean |
@@ -142,7 +157,7 @@ Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ram
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -189,7 +204,7 @@ Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -209,7 +224,7 @@ Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -228,6 +243,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -239,6 +255,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Należy pamiętać o następujących ograniczeniach/wymaganiach:

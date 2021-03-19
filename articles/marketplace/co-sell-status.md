@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
-ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 03/17/2021
+ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225017"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593360"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Sprawdź stan współsprzedaży dla komercyjnej oferty portalu Marketplace
 
@@ -33,7 +34,7 @@ W poniższej tabeli przedstawiono wszystkie możliwe stany współsprzedażu. Ab
 | Nie Współpracuj gotowy | Nie spełniono minimalnych [wymagań dotyczących stanu gotowości do współsprzedażu](co-sell-requirements.md#requirements-for-co-sell-ready-status) . |
 | Gotowe do rozłożenia | Wszystkie [wymagania dotyczące stanu gotowości do współsprzedażu](co-sell-requirements.md#requirements-for-co-sell-ready-status) zostały spełnione. |
 | Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
-| BIZ Apps ISV Connect Premium  | Ten stan ma zastosowanie do oferty Dynamics 365 i usługi dla aplikacji zaawansowanych i wskazuje, że spełniono wszystkie [wymagania dotyczące tego stanu](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
+| Business Applications współsprzedaż zachęcani | Ten stan dotyczy oferty Dynamics 365 i aplikacji zaawansowanych w [programie connecter](business-applications-isv-program.md) i wskazuje, że zostały spełnione wszystkie [wymagania dotyczące tego stanu](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status) . |
 |||
 
 ## <a name="next-steps"></a>Następne kroki

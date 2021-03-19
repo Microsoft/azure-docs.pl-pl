@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683167"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577448"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurowanie biblioteki OpenSSL dla systemu Linux
 
@@ -50,6 +51,97 @@ Ustaw zmienną środowiskową `SSL_CERT_FILE` na ten plik przed uruchomieniem pr
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+
+## <a name="certificate-revocation-checks"></a>Sprawdzanie odwołania certyfikatów
+W przypadku nawiązywania połączenia z usługą Speech SDK aparat rozpoznawania mowy sprawdzi, czy certyfikat TLS używany przez usługę mowy nie został odwołany. Aby przeprowadzić to sprawdzenie, zestaw mowy SDK będzie potrzebować dostępu do punktów dystrybucji listy CRL dla urzędów certyfikacji używanych przez platformę Azure. Listę możliwych lokalizacji pobierania listy CRL można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes). Jeśli certyfikat został odwołany lub lista CRL nie może zostać pobrana, zestaw Speech SDK przerywa połączenie i zgłosi zdarzenie anulowane.
+
+W przypadku, gdy sieć, w której jest używany zestaw Speech SDK, jest skonfigurowana w sposób, który nie zezwala na dostęp do lokalizacji pobierania listy CRL, sprawdzanie listy CRL można wyłączyć lub ustawić jako niepowodzenie, jeśli nie można pobrać listy CRL. Ta konfiguracja odbywa się za pomocą obiektu konfiguracji użytego do utworzenia obiektu aparatu rozpoznawania.
+
+Aby kontynuować połączenie, gdy nie można pobrać listy CRL, ustaw właściwość OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"];
+```
+
+::: zone-end
+Po ustawieniu na wartość "true" zostanie podjęta próba pobrania listy CRL, a jeśli pobieranie zakończyło się pomyślnie, certyfikat zostanie sprawdzony pod kątem odwołania, jeśli pobieranie nie powiedzie się, połączenie będzie mogło być kontynuowane.
+
+Aby całkowicie wyłączyć sprawdzanie odwołań certyfikatów, ustaw właściwość OPENSSL_DISABLE_CRL_CHECK na wartość "true".
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_DISABLE_CRL_CHECK"];
+```
+
+::: zone-end
+
+
 > [!NOTE]
 > Warto również zauważyć, że niektóre dystrybucje systemu Linux nie mają zdefiniowanej zmiennej środowiskowej TMP ani TMPDIR. Spowoduje to, że zestaw SDK usługi Speech pobiera listę odwołania certyfikatów (CRL) za każdym razem, zamiast buforowania listy CRL na dysk do ponownego użycia do momentu wygaśnięcia. Aby zwiększyć wydajność początkowego połączenia, można [utworzyć zmienną środowiskową o nazwie TMPDIR i ustawić ją na ścieżkę wybranego katalogu tymczasowego.](https://help.ubuntu.com/community/EnvironmentVariables)
 

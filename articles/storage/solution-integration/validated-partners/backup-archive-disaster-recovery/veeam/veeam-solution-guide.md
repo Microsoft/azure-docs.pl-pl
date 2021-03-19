@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15ab808bcb8521b0bd3a5ebd0f56bf336571d676
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 0b8bc0defd3314fcff691a049323201732644ff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562029"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589909"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Tworzenie kopii zapasowych na platformie Azure za pomocą usługi Veeam
 
@@ -47,7 +47,7 @@ Niewielki plan z góry pomoże Ci wykorzystać platformę Azure jako miejsce doc
 
 ### <a name="get-started-with-azure"></a>Pierwsze kroki z platformą Azure
 
-Firma Microsoft oferuje platformę do rozpoczęcia pracy z platformą Azure. [Struktura wdrażania w chmurze](https://docs.microsoft.com/azure/architecture/cloud-adoption/) (CAF) jest szczegółowym podejściem do transformacji cyfrowej przedsiębiorstwa oraz kompleksowego przewodnika po zaplanowaniu wdrożenia w chmurze klasy produkcyjnej. CAF zawiera [Przewodnik konfigurowania platformy Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) krok po kroku ułatwiający szybkie i bezpieczne rozpoczęcie pracy. Możesz znaleźć interaktywną wersję w [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). Znajdziesz przykładowe architektury, konkretne najlepsze rozwiązania dotyczące wdrażania aplikacji i bezpłatne zasoby szkoleniowe, aby uzyskać informacje na temat ścieżki do wiedzy na temat platformy Azure.
+Firma Microsoft oferuje platformę do rozpoczęcia pracy z platformą Azure. [Struktura wdrażania w chmurze](/azure/architecture/cloud-adoption/) (CAF) jest szczegółowym podejściem do transformacji cyfrowej przedsiębiorstwa oraz kompleksowego przewodnika po zaplanowaniu wdrożenia w chmurze klasy produkcyjnej. CAF zawiera [Przewodnik konfigurowania platformy Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/) krok po kroku ułatwiający szybkie i bezpieczne rozpoczęcie pracy. Możesz znaleźć interaktywną wersję w [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). Znajdziesz przykładowe architektury, konkretne najlepsze rozwiązania dotyczące wdrażania aplikacji i bezpłatne zasoby szkoleniowe, aby uzyskać informacje na temat ścieżki do wiedzy na temat platformy Azure.
 
 ### <a name="consider-the-network-between-your-location-and-azure"></a>Weź pod uwagę sieć między lokalizacją i platformą Azure
 
@@ -202,7 +202,7 @@ Zaleca się monitorowanie zasobów platformy Azure i Veeam z możliwością ich 
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Platforma Azure oferuje niezawodne rozwiązanie do monitorowania w postaci [Azure monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). Azure Monitor można [skonfigurować](../../../../common/monitor-storage.md) do śledzenia pojemności, transakcji, dostępności, uwierzytelniania i innych możliwości usługi Azure Storage. Pełne odwołanie do śledzonych metryk można znaleźć [tutaj](../../../../blobs/monitor-blob-storage-reference.md). Oto kilka przydatnych metryk do śledzenia BlobCapacity — aby upewnić się, że pozostanie poniżej maksymalnego [limitu pojemności konta magazynu](../../../../common/scalability-targets-standard-account.md), ruchu przychodzącego i wychodzącego — w celu śledzenia ilości danych, które są zapisywane i odczytywane z konta usługi Azure Storage, a SuccessE2ELatency — do śledzenia czasu, w którym wysyłane są żądania do i z usługi Azure Storage i MediaAgent.
+Platforma Azure oferuje niezawodne rozwiązanie do monitorowania w postaci [Azure monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). Azure Monitor można [skonfigurować](../../../../blobs/monitor-blob-storage.md) do śledzenia pojemności, transakcji, dostępności, uwierzytelniania i innych możliwości usługi Azure Storage. Pełne odwołanie do śledzonych metryk można znaleźć [tutaj](../../../../blobs/monitor-blob-storage-reference.md). Oto kilka przydatnych metryk do śledzenia BlobCapacity — aby upewnić się, że pozostanie poniżej maksymalnego [limitu pojemności konta magazynu](../../../../common/scalability-targets-standard-account.md), ruchu przychodzącego i wychodzącego — w celu śledzenia ilości danych, które są zapisywane i odczytywane z konta usługi Azure Storage, a SuccessE2ELatency — do śledzenia czasu, w którym wysyłane są żądania do i z usługi Azure Storage i MediaAgent.
 
 Możesz również [utworzyć alerty dzienników](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) , aby śledzić kondycję usługi Azure Storage i w dowolnym momencie wyświetlać [pulpit nawigacyjny stanu platformy Azure](https://status.azure.com/status) .
 

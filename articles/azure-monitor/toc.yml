@@ -718,12 +718,16 @@
                       href: app/java-in-process-agent.md
                     - name: Opcje konfiguracji
                       href: app/java-standalone-config.md
-                    - name: Procesory telemetrii
+                    - name: Konfiguracje zaawansowane
                       items:
-                        - name: Omówienie
-                          href: app/java-standalone-telemetry-processors.md
-                        - name: Przykłady
-                          href: app/java-standalone-telemetry-processors-examples.md
+                        - name: Metryki JMX
+                          href: app/java-jmx-metrics-configuration.md
+                        - name: Procesory telemetrii
+                          items:
+                            - name: Omówienie
+                              href: app/java-standalone-telemetry-processors.md
+                            - name: Przykłady
+                              href: app/java-standalone-telemetry-processors-examples.md
                     - name: Konfiguracja argumentów JVM
                       href: app/java-standalone-arguments.md
                     - name: Uaktualnianie z wersji 2.x zestawu SDK
@@ -1126,6 +1130,18 @@
           href: insights/network-insights-overview.md
         - name: Usługa Key Vault
           href: insights/key-vault-insights-overview.md
+        - name: SQL Insights (wersja zapoznawcza)
+          items:
+            - name: Omówienie
+              href: insights/sql-insights-overview.md
+            - name: Często zadawane pytania
+              href: faq.md#sql-insights-preview
+            - name: Włącz
+              href: insights/sql-insights-enable.md
+            - name: Alerty
+              href: insights/sql-insights-alerts.md
+            - name: Rozwiązywanie problemów
+              href: insights/sql-insights-troubleshoot.md
         - name: Magazyn
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md

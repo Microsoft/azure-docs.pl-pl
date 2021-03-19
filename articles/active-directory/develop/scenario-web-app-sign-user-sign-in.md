@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937843"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578247"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie
 
@@ -95,6 +95,16 @@ W naszym przewodniku szybki start dla języka Java przycisk logowania znajduje s
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+W Node.js przewodniku Szybki Start nie ma przycisku logowania. Kod zostanie wyświetlony automatycznie Monituj użytkownika o zalogowanie się, gdy dociera do katalogu głównego aplikacji sieci Web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 W przewodniku szybki start dla języka Python nie ma przycisku logowania. Kod zostanie wyświetlony automatycznie Monituj użytkownika o zalogowanie się, gdy dociera do katalogu głównego aplikacji sieci Web. Zobacz [App. PR # L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -113,7 +123,7 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-W ASP.NET Wybieranie przycisku **logowania** w aplikacji sieci Web wyzwala `SignIn` akcję na `AccountController` kontrolerze. W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadzony w aplikacji sieci Web. To nie jest już przypadek, ponieważ kontroler jest teraz częścią pakietu NuGet **Microsoft. Identity. Web. UI** . Aby uzyskać szczegółowe informacje, zobacz [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
+W ASP.NET Wybieranie przycisku **logowania** w aplikacji sieci Web wyzwala `SignIn` akcję na `AccountController` kontrolerze. W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadzony w aplikacji sieci Web. To nie jest już przypadek, ponieważ kontroler jest teraz częścią pakietu NuGet **Microsoft. Identity. Web. UI** . Aby uzyskać szczegółowe informacje, zobacz [elementu AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
 Ten kontroler obsługuje również aplikacje Azure AD B2C.
 
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+W przeciwieństwie do innych platform, w tym miejscu w węźle MSAL należy zadbać o to, aby użytkownik zalogować się na stronie logowania.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Podczas rejestracji aplikacji należy zarejestrować adres URL wylogowywania z f
 Podczas rejestracji aplikacji nie ma potrzeby rejestrowania dodatkowego adresu URL wylogowywania z kanału frontonu. Aplikacja zostanie wywołana z powrotem na swoim głównym adresie URL. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+W rejestracji aplikacji nie jest wymagany żaden adres URL wylogowywania z kanału.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 W rejestracji aplikacji nie jest wymagany żaden adres URL wylogowywania z kanału.
 
@@ -305,6 +356,10 @@ W naszym przewodniku szybki start dla języka Java przycisk Wyloguj znajduje si�
 ...
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ta przykładowa aplikacja nie implementuje wylogowania.
+
 # <a name="python"></a>[Python](#tab/python)
 
 W przewodniku szybki start w języku Python przycisk Wyloguj znajduje się w pliku [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
@@ -330,13 +385,13 @@ W przewodniku szybki start w języku Python przycisk Wyloguj znajduje się w pli
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadzony w aplikacji sieci Web. To nie jest już przypadek, ponieważ kontroler jest teraz częścią pakietu NuGet **Microsoft. Identity. Web. UI** . Aby uzyskać szczegółowe informacje, zobacz [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
+W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadzony w aplikacji sieci Web. To nie jest już przypadek, ponieważ kontroler jest teraz częścią pakietu NuGet **Microsoft. Identity. Web. UI** . Aby uzyskać szczegółowe informacje, zobacz [elementu AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
 - Ustawia identyfikator URI przekierowania OpenID Connect na `/Account/SignedOut` tak, aby kontroler został wywołany po zakończeniu wylogowywania w usłudze Azure AD.
 - Wywołania `Signout()` , dzięki którym program OpenID Connect nawiązuje połączenie z punktem końcowym platformy tożsamości firmy Microsoft `logout` . Następnie punkt końcowy:
 
   - Czyści plik cookie sesji z przeglądarki.
-  - Wywołuje identyfikator URI przekierowania po wylogowaniu. Domyślnie identyfikator URI przekierowania po wylogowaniu zawiera [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)stronę widoku. Ta strona jest również dostępna jako część elementu Microsoft. Identity. Web.
+  - Wywołuje identyfikator URI przekierowania po wylogowaniu. Domyślnie identyfikator URI przekierowania po wylogowaniu wyświetla stronę widoku wylogowanego [SignedOut. cshtml. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Ta strona jest również dostępna jako część elementu Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -376,6 +431,10 @@ W języku Java wylogowanie jest obsługiwane przez wywołanie punktu końcowego 
                 URLEncoder.encode(redirectUrl, "UTF-8"));
     }
 ```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ta przykładowa aplikacja nie implementuje wylogowania.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 W przewodniku szybki start w języku Java identyfikator URI przekierowania po wylogowaniu po prostu wyświetla stronę index.html.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ta przykładowa aplikacja nie implementuje wylogowania.
 
 # <a name="python"></a>[Python](#tab/python)
 

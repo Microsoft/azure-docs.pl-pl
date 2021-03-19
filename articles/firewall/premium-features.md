@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419953"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590453"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funkcje usługi Azure firewall Premium w wersji zapoznawczej
 
@@ -157,8 +157,7 @@ Niezaufane certyfikaty podpisane przez klienta|Certyfikaty podpisane przez klien
 |Propagacja certyfikatu|Po zastosowaniu certyfikatu urzędu certyfikacji w zaporze może upłynąć od 5-10 minut, zanim certyfikat zacznie obowiązywać.|Naprawa zaplanowana na GA.|
 |Obejście dostawców tożsamości|Obejście dostawców tożsamości nie działa w przypadku ruchu przerwanego protokołu TLS, a źródłowe adresy IP i źródłowe grupy adresów IP nie są obsługiwane.|Naprawa zaplanowana na GA.|
 |Obsługa protokołu TLS 1,3|Protokół TLS 1,3 jest częściowo obsługiwany. Tunel protokołu TLS od klienta do zapory jest oparty na protokole TLS 1,2, a Zapora na zewnętrzny serwer sieci Web jest oparta na protokole TLS 1,3.|Trwa badanie aktualizacji.|
-
-
+|Prywatny punkt końcowy magazynu kluczy|Magazyn kluczy obsługuje dostęp do prywatnego punktu końcowego w celu ograniczenia jego ekspozycji w sieci. Zaufane usługi platformy Azure mogą ominąć to ograniczenie, jeśli został skonfigurowany wyjątek opisany w [dokumentacji magazynu](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)kluczy. Zapora platformy Azure nie jest obecnie wymieniona jako usługa zaufana i nie może uzyskać dostępu do Key Vault.|Naprawa zaplanowana na GA.|
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f217a13ce68b42d3f9ee2dec4bfae47a0b64b0ca
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: e390eb62f64c9ec55605525828790f15633e5f14
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200033"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą AWS Single-Account Access
 
@@ -31,11 +31,11 @@ Skorzystaj z poniższych informacji, aby podjąć decyzję między korzystaniem 
 
 **AWS Logowanie jednokrotne**
 
-[AWS logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) jednokrotne zostało dodane do galerii aplikacji usługi Azure AD w lutym 2021. Ułatwia ona łatwe zarządzanie dostępem do wielu kont AWS i aplikacji AWS przy użyciu logowania za pomocą Microsoft Azure AD. Sfederować Microsoft Azure AD z AWS Logowanie jednokrotne i użyj AWS SSO do zarządzania uprawnieniami dla wszystkich kont AWS z jednego miejsca. AWS automatycznie inicjuje dostęp do uprawnień logowania jednokrotnego i zachowuje je podczas aktualizacji zasad i dostępu. Użytkownicy końcowi mogą uwierzytelniać się przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do konsoli AWS, interfejsu wiersza polecenia i aplikacji zintegrowanych z logowaniem jednokrotnym AWS.
+[AWS logowanie](./aws-single-sign-on-tutorial.md) jednokrotne zostało dodane do galerii aplikacji usługi Azure AD w lutym 2021. Ułatwia ona łatwe zarządzanie dostępem do wielu kont AWS i aplikacji AWS przy użyciu logowania za pomocą Microsoft Azure AD. Sfederować Microsoft Azure AD z AWS Logowanie jednokrotne i użyj AWS SSO do zarządzania uprawnieniami dla wszystkich kont AWS z jednego miejsca. AWS automatycznie inicjuje dostęp do uprawnień logowania jednokrotnego i zachowuje je podczas aktualizacji zasad i dostępu. Użytkownicy końcowi mogą uwierzytelniać się przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do konsoli AWS, interfejsu wiersza polecenia i aplikacji zintegrowanych z logowaniem jednokrotnym AWS.
 
 **AWS Single-Account dostępu**
 
-[AWS dostęp do Single-Account](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) używany przez klientów w ciągu ostatnich kilku lat i umożliwia Sfederować usługi Azure AD na jednym koncie AWS i używanie usługi Azure AD do zarządzania dostępem do ról AWS w usłudze IAM. Administratorzy IAM AWS definiują role i zasady w poszczególnych kontach AWS. Dla każdego konta AWS Administratorzy usługi Azure AD sfederować do AWS IAM, przypisywania użytkowników lub grup do konta i konfigurowania usługi Azure AD do wysyłania potwierdzenia, który autoryzują dostęp do roli.  
+[AWS dostęp do Single-Account]() używany przez klientów w ciągu ostatnich kilku lat i umożliwia Sfederować usługi Azure AD na jednym koncie AWS i używanie usługi Azure AD do zarządzania dostępem do ról AWS w usłudze IAM. Administratorzy IAM AWS definiują role i zasady w poszczególnych kontach AWS. Dla każdego konta AWS Administratorzy usługi Azure AD sfederować do AWS IAM, przypisywania użytkowników lub grup do konta i konfigurowania usługi Azure AD do wysyłania potwierdzenia, który autoryzują dostęp do roli.  
 
 | Cecha | AWS pojedyncze Sign-On | AWS Single-Account dostępu |
 |:--- |:---:|:---:|

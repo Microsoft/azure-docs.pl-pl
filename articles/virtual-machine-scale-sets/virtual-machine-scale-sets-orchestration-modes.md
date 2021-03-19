@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cc862759ce28c4d23dbc2197f63311e29ba82709
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225034"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607507"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -85,7 +85,7 @@ Użyj standardowych poleceń maszyn wirtualnych do uruchamiania, zatrzymywania, 
 Monitorowanie kondycji aplikacji umożliwia aplikacji udostępnianie platformy Azure za pomocą pulsu w celu ustalenia, czy aplikacja jest w dobrej kondycji. Platforma Azure może automatycznie zastępować wystąpienia maszyn wirtualnych o złej kondycji. W przypadku elastycznych wystąpień zestawu skalowania należy zainstalować i skonfigurować rozszerzenie kondycji aplikacji na maszynie wirtualnej. W przypadku wystąpień z jednolitym zestawem skalowania można użyć rozszerzenia kondycji aplikacji lub zmierzyć kondycję za pomocą Azure Load Balancer niestandardowej sondy kondycji. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Lista zestawów skalowania — zmiany interfejsu API maszyny wirtualnej 
-Virtual Machine Scale Sets umożliwia wyświetlenie listy wystąpień należących do zestawu skalowania. Dzięki elastycznej aranżacji lista Virtual Machine Scale Sets VM polecenie zawiera listę identyfikatorów maszyn wirtualnych zestawów skalowania. Następnie można wywołać polecenia GET Virtual Machine Scale Sets VM, aby uzyskać więcej szczegółowych informacji na temat sposobu pracy zestawu skalowania z wystąpieniem maszyny wirtualnej. Aby uzyskać szczegółowe informacje na temat maszyny wirtualnej, użyj standardowych poleceń pobierania maszyn wirtualnych lub [grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+Virtual Machine Scale Sets umożliwia wyświetlenie listy wystąpień należących do zestawu skalowania. Dzięki elastycznej aranżacji lista Virtual Machine Scale Sets VM polecenie zawiera listę identyfikatorów maszyn wirtualnych zestawów skalowania. Następnie można wywołać polecenia GET Virtual Machine Scale Sets VM, aby uzyskać więcej szczegółowych informacji na temat sposobu pracy zestawu skalowania z wystąpieniem maszyny wirtualnej. Aby uzyskać szczegółowe informacje na temat maszyny wirtualnej, użyj standardowych poleceń pobierania maszyn wirtualnych lub [grafu zasobów platformy Azure](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Pobieranie danych diagnostycznych rozruchu 
 Użyj standardowych interfejsów API i poleceń maszyn wirtualnych, aby pobrać dane diagnostyczne i zrzuty ekranu wystąpienia. Virtual Machine Scale Sets interfejsów API diagnostyki rozruchowych maszyn wirtualnych i poleceń nie są używane z elastycznymi wystąpieniami trybu aranżacji.
@@ -269,7 +269,7 @@ zones = ["1"]
 
 2. Dodaj maszyny wirtualne do zestawu skalowania.
     1. Przypisz `virtualMachineScaleSet` Właściwość do zestawu skalowania, który został wcześniej utworzony. Musisz określić `virtualMachineScaleSet` Właściwość podczas tworzenia maszyny wirtualnej. 
-    1. Za pomocą funkcji szablonu Azure Resource Manager **Kopiuj ()** można utworzyć wiele maszyn wirtualnych w tym samym czasie. Zobacz [iteracja zasobów](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) w szablonach Azure Resource Manager. 
+    1. Za pomocą funkcji szablonu Azure Resource Manager **Kopiuj ()** można utworzyć wiele maszyn wirtualnych w tym samym czasie. Zobacz [iteracja zasobów](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) w szablonach Azure Resource Manager. 
 
     ```json
     {

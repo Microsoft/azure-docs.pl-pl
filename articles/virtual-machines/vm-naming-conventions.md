@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2fa362a56eb1246381fcc944e82ea85d31ff3d39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551018"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599905"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Konwencje nazewnictwa maszyn wirtualnych platformy Azure
 
@@ -28,7 +28,7 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 | Family | Wskazuje serię rodzin maszyn wirtualnych| 
 | * Podrodzina | Używany tylko do celów specjalnych odróżniania maszyn wirtualnych|
 | Liczba procesorów wirtualnych vCPU| Wskazuje liczbę procesorów wirtualnych vCPU maszyny wirtualnej |
-| * Ograniczone procesorów wirtualnych vCPU| Używany tylko w przypadku niektórych rozmiarów maszyn wirtualnych. Wskazuje liczbę procesorów wirtualnych vCPU dla [ograniczonego rozmiaru vCPU](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
+| * Ograniczone procesorów wirtualnych vCPU| Używany tylko w przypadku niektórych rozmiarów maszyn wirtualnych. Wskazuje liczbę procesorów wirtualnych vCPU dla [ograniczonego rozmiaru vCPU](./constrained-vcpu.md) |
 | Funkcje dodatków | Co najmniej jedna małe litery oznacza funkcje dodatków, takie jak: <br> a = procesor oparty na procesorze AMD <br> d = dysk (lokalny dysk tymczasowy jest obecny); dotyczy to nowszych maszyn wirtualnych platformy Azure, zobacz [Ddv4 i Ddsv4 — seria](./ddv4-ddsv4-series.md) <br> h = możliwość hibernacji <br> i = rozmiar izolowany <br> l = mało pamięci; mniejsza ilość pamięci niż rozmiar intensywnie korzystający z pamięci <br> m = intensywna pamięć; Największa ilość pamięci w określonym rozmiarze <br> t = mała ilość pamięci; najmniejsza ilość pamięci w określonym rozmiarze <br> r = obsługa RDMA <br> s = Premium Storage możliwości, w tym możliwe użycie [SSD w warstwie Ultra](./disks-types.md#ultra-disk) (Uwaga: Niektóre nowsze rozmiary bez atrybutu s nadal mogą obsługiwać Premium Storage np. M128, M64 itd.)<br> |
 | * — Typ akceleratora | Wskazuje typ akceleratora sprzętowego w jednostkach JSZ wyspecjalizowanych/GPU. Tylko nowe jednostki SKU wyspecjalizowanych/GPU uruchomione z kwartału Q3 2020 będą miały akcelerator sprzętu w nazwie. |
 | Wersja | Oznacza wersję serii rodziny maszyn wirtualnych |
@@ -79,4 +79,4 @@ Ta strona zawiera opis konwencji nazewnictwa używanych dla maszyn wirtualnych p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat dostępnych [rozmiarów maszyn wirtualnych](./sizes.md) na platformie Azure. 
+Dowiedz się więcej na temat dostępnych [rozmiarów maszyn wirtualnych](./sizes.md) na platformie Azure.

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579369"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -96,7 +96,7 @@ W poniższej tabeli przedstawiono przypadki użycia do wdrożenia w ramach tego 
 | Obszar | Opis |
 | --- | --- |
 | **Dostęp** | Logowanie bez hasła jest dostępne z urządzenia firmowego lub osobistego w sieci firmowej lub poza nią. |
-| **Kontroli** | Dane użycia są dostępne dla administratorów w celu przeprowadzania inspekcji niemal w czasie rzeczywistym. <br> Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni lub używane jest narzędzie SIEM. |
+| **Inspekcja** | Dane użycia są dostępne dla administratorów w celu przeprowadzania inspekcji niemal w czasie rzeczywistym. <br> Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni lub używane jest narzędzie SIEM. |
 | **Nadzór** | Cykl życia przypisań użytkowników do odpowiedniej metody uwierzytelniania i skojarzonych grup jest zdefiniowany i monitorowany. |
 | **Bezpieczeństwo** | Dostęp do odpowiedniej metody uwierzytelniania jest kontrolowany za pośrednictwem przypisań użytkowników i grup. <br> Tylko autoryzowani użytkownicy mogą korzystać z logowania bezhasłem. |
 | **Wydajność** | Osie czasu propagacji przydziału dostępu są udokumentowane i monitorowane. <br> Czasy logowania są mierzone w celu ułatwienia użycia. |
@@ -330,4 +330,4 @@ Postępuj zgodnie z instrukcjami w artykule, [włączając klucz zabezpieczeń b
 
 - [Włącz klucze zabezpieczeń bezhasło do logowania się w usłudze Azure AD](howto-authentication-passwordless-security-key.md)
 - [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Dowiedz się więcej na temat metod uwierzytelniania użycie & szczegółowych informacji](howto-authentication-methods-usage-insights.md)
+- [Dowiedz się więcej na temat metod uwierzytelniania użycie & szczegółowych informacji](./howto-authentication-methods-activity.md)

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bfd0fe8cf1d26ccf96a8a27985e456b4e0e67c
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: e820194d36d2b80fcd28de7972dd5abe8a746345
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633482"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592953"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -926,7 +926,7 @@ Nowy [blok Szczegóły zasad](../conditional-access/troubleshoot-conditional-acc
 
 W kwietniu 2020 dodaliśmy te 31 nowych aplikacji z obsługą Federacji do galerii aplikacji: 
 
-[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT — pakiet zaopatrzenia](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft) [](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [pulpit nawigacyjny Meraki](../saas-apps/meraki-dashboard-tutorial.md), [](../saas-apps/fortes-change-cloud-tutorial.md) [](/azure/active-directory/saas-apps/trend-micro-tutorial) [Microsoft 365 przeprowadzki](https://app.mover.io/login), [współpracownik,](https://speakerengage.com/login.php) [uczciwie](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/) [, AlertMedia,](../saas-apps/alertmedia-tutorial.md) [gr8e](../saas-apps/gr8-people-tutorial.md) [](../saas-apps/nitro-productivity-suite-tutorial.md), [pendo,](../saas-apps/pendo-tutorial.md) [HighGround](../saas-apps/highground-tutorial.md), Timetabling, SynchroNet, Litmus, GroupTalk, Frontify, MongoDB, [](https://recorder.grouptalk.com/) [](../saas-apps/synchronet-click-tutorial.md)TickitLMS, Coco, [](../saas-apps/mongodb-cloud-tutorial.md) [](../saas-apps/harmony-tutorial.md) [](../saas-apps/timetabling-solutions-tutorial.md) [](https://www.made-in-office.com/en/) [](../saas-apps/litmus-tutorial.md) [](../saas-apps/frontify-tutorial.md) [](../saas-apps/tickitlms-learn-tutorial.md)
+[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT — pakiet zaopatrzenia](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft) [](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [pulpit nawigacyjny Meraki](../saas-apps/meraki-dashboard-tutorial.md), [](../saas-apps/fortes-change-cloud-tutorial.md) [](../saas-apps/trend-micro-tutorial.md) [Microsoft 365 przeprowadzki](https://app.mover.io/login), [współpracownik,](https://speakerengage.com/login.php) [uczciwie](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/) [, AlertMedia,](../saas-apps/alertmedia-tutorial.md) [gr8e](../saas-apps/gr8-people-tutorial.md) [](../saas-apps/nitro-productivity-suite-tutorial.md), [pendo,](../saas-apps/pendo-tutorial.md) [HighGround](../saas-apps/highground-tutorial.md), Timetabling, SynchroNet, Litmus, GroupTalk, Frontify, MongoDB, [](https://recorder.grouptalk.com/) [](../saas-apps/synchronet-click-tutorial.md)TickitLMS, Coco, [](../saas-apps/mongodb-cloud-tutorial.md) [](../saas-apps/harmony-tutorial.md) [](../saas-apps/timetabling-solutions-tutorial.md) [](https://www.made-in-office.com/en/) [](../saas-apps/litmus-tutorial.md) [](../saas-apps/frontify-tutorial.md) [](../saas-apps/tickitlms-learn-tutorial.md)
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -2372,7 +2372,7 @@ Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji zabezpieczeń dla
 
 Nowe metody uwierzytelniania użycie & raporty usługi Insights mogą pomóc zrozumieć, jak funkcje takie jak Azure AD Multi-Factor Authentication i Samoobsługowe resetowanie haseł są rejestrowane i używane w organizacji, w tym liczbę zarejestrowanych użytkowników dla każdej funkcji, jak często funkcja samoobsługowego resetowania hasła jest używana do resetowania haseł i metody resetowania.
 
-Aby uzyskać więcej informacji, zobacz [metody uwierzytelniania użycie & Insights (wersja zapoznawcza)](../authentication/howto-authentication-methods-usage-insights.md).
+Aby uzyskać więcej informacji, zobacz [metody uwierzytelniania użycie & Insights (wersja zapoznawcza)](../authentication/howto-authentication-methods-activity.md).
 
 ---
 

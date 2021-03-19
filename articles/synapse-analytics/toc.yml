@@ -20,14 +20,14 @@
     - name: 1. Tworzenie obszaru roboczego usługi Synapse
       href: get-started-create-workspace.md
       displayName: 'get, started'
-    - name: 2. Analizowanie przy użyciu dedykowanej puli SQL
-      href: get-started-analyze-sql-pool.md
+    - name: 2 analizowanie przy użyciu puli SQL bezserwerowej
+      href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
     - name: 3. Analizowanie przy użyciu platformy Spark
       href: get-started-analyze-spark.md
       displayName: 'get, started'
-    - name: 4. Analizowanie przy użyciu bezserwerowej puli SQL
-      href: get-started-analyze-sql-on-demand.md
+    - name: 4 analizowanie przy użyciu dedykowanej puli SQL
+      href: get-started-analyze-sql-pool.md
       displayName: 'get, started'
     - name: 5. Analizowanie danych na koncie magazynu
       href: get-started-analyze-storage.md
@@ -187,6 +187,10 @@
               href: troubleshoot/workspaces-created-by-sdk.md
             - name: Rozwiązywanie problemów z odczytem tekstu UTF-8
               href: troubleshoot/reading-utf8-text.md
+- name: Przewodniki po migracji
+  items:
+    - name: Migrowanie do dedykowanej puli SQL
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
     - name: Omówienie
@@ -211,9 +215,9 @@
         - name: Zarządzanie kosztami bezserwerowej puli SQL
           href: sql/data-processed.md
         - name: 'Najlepsze rozwiązania: bezserwerowa pula SQL'
-          href: sql/best-practices-sql-on-demand.md
+          href: sql/best-practices-serverless-sql-pool.md
         - name: 'Najlepsze rozwiązania: dedykowana pula SQL'
-          href: sql/best-practices-sql-pool.md
+          href: sql/best-practices-dedicated-sql-pool.md
     - name: Przewodniki Szybki start
       items:
         - name: Korzystanie z bezserwerowej puli SQL

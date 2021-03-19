@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: 1619622ad9594f252c3d4cf5551704c6a788f9f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579556"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -24,7 +24,7 @@ Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki
 
 W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS
@@ -152,7 +152,7 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
     Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *.* Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
 
-    W przypadku eksportowania za pomocą [polecenia cmdlet Export-Pfxcertificate programu PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)należy przekazać flagę *-CryptoAlgorithmOption* przy użyciu TripleDES_SHA1.
+    W przypadku eksportowania za pomocą [polecenia cmdlet Export-Pfxcertificate programu PowerShell](/powershell/module/pkiclient/export-pfxcertificate)należy przekazać flagę *-CryptoAlgorithmOption* przy użyciu TripleDES_SHA1.
 
     ![Zrzut ekranu przedstawiający sposób szyfrowania hasła](./media/tutorial-configure-ldaps/encrypt.png)
 

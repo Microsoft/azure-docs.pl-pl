@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/28/2020
-ms.openlocfilehash: d773556352a85c125e32d0ee56b4b6f4cf11da32
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 7a501a86f979bb508052c8957627ebfa7950fd63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364753"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597601"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Data Factory
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób używania działania kopiowania w usłudze Azure 
 >[!TIP]
 >Aby uzyskać informacje na temat scenariusza migracji usługi Data Lake lub magazynu danych, Dowiedz się więcej na temat [używania Azure Data Factory migracji danych z usług Data Lake lub hurtowni danych do platformy Azure](data-migration-guidance-overview.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik Azure Data Lake Storage Gen2 jest obsługiwany dla następujących działań:
 
@@ -304,7 +304,7 @@ Następujące właściwości są obsługiwane dla Data Lake Storage Gen2 w obsza
 | modifiedDatetimeEnd      | Jak wyżej.                                               | Nie                                            |
 | enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
-| maxConcurrentConnections | Liczba połączeń do współbieżnego połączenia z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie                                            |
 
 **Przykład:**
 
@@ -358,7 +358,7 @@ Następujące właściwości są obsługiwane dla Data Lake Storage Gen2 w obsza
 | typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobFSWriteSettings**. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | blockSizeInMB | Określ rozmiar bloku (w MB) służący do zapisywania danych w ADLS Gen2. Dowiedz się więcej na [temat blokowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Dozwolona wartość wynosi **od 4 MB do 100 MB**. <br/>Domyślnie ADF automatycznie określa rozmiar bloku na podstawie typu i danych magazynu źródłowego. W przypadku kopiowania niebinarnego do ADLS Gen2 domyślny rozmiar bloku to 100 MB, tak aby zmieścił się w maksymalnie 4,95 TB danych. Może to nie być optymalne, gdy dane nie są duże, szczególnie w przypadku korzystania z samodzielnej Integration Runtime z niską siecią, co spowodowało przekroczenie limitu czasu operacji lub problemów z wydajnością. Można jawnie określić rozmiar bloku, a przy zapewnieniu, że blockSizeInMB * 50000 jest wystarczająco duży do przechowywania danych, w przeciwnym razie uruchomienie działania kopiowania zakończy się niepowodzeniem. | Nie |
-| maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie       |
 
 **Przykład:**
 
@@ -598,7 +598,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureBlobFSSource**. |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
-| maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 
@@ -638,7 +638,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 |:--- |:--- |:--- |
 | typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **AzureBlobFSSink**. |Tak |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie |
-| maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551658"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577698"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Ponadto inspekcja:
 
 - Pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać problemy biznesowe lub podejrzane naruszenia zabezpieczeń.
 
-- Umożliwia i ułatwia przestrzeganie standardów zgodności, chociaż nie gwarantuje zgodności. Aby uzyskać więcej informacji na temat programów platformy Azure, które obsługują zgodność ze standardami, zobacz [Centrum zaufania Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , w którym można znaleźć najbardziej aktualną listę certyfikatów zgodności z usługą Azure SQL.
+- Umożliwia i ułatwia przestrzeganie standardów zgodności, chociaż nie gwarantuje zgodności. Aby uzyskać więcej informacji na temat programów platformy Azure, które obsługują standardy zgodności, zobacz witrynę [Centrum zaufania Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), w której można znaleźć aktualną listę certyfikatów zgodności usługi Azure SQL.
 
 > [!NOTE]
 > Aby uzyskać informacje na temat inspekcji wystąpienia zarządzanego usługi Azure SQL, zobacz następujący artykuł: [wprowadzenie do inspekcji wystąpienia zarządzanego SQL](../managed-instance/auditing-configure.md).
@@ -99,7 +99,7 @@ Azure SQL Database i usługa Azure Synapse Audit przechowuje 4000 znaków danych
 W poniższej sekcji opisano konfigurację inspekcji przy użyciu Azure Portal.
 
   > [!NOTE]
-  > - Włączanie inspekcji wstrzymanej dedykowanej puli SQL nie jest możliwe. Aby włączyć inspekcję, Cofnij wstrzymanie dedykowanej puli SQL. Dowiedz się więcej na temat [dedykowanej puli SQL](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Włączanie inspekcji wstrzymanej dedykowanej puli SQL nie jest możliwe. Aby włączyć inspekcję, Cofnij wstrzymanie dedykowanej puli SQL. Dowiedz się więcej na temat [dedykowanej puli SQL](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
   > - W przypadku skonfigurowania inspekcji do obszaru roboczego Log Analytics lub nawet docelowego centrum za pośrednictwem polecenia cmdlet Azure Portal lub PowerShell zostanie utworzone [ustawienie diagnostyczne](../../azure-monitor/essentials/diagnostic-settings.md) z włączoną kategorią "SQLSecurityAuditEvents".
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
@@ -134,16 +134,16 @@ AzureDiagnostics
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Inspekcja w miejscu docelowym magazynu
 
-Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz pozycję **Magazyn** i Otwórz **szczegóły magazynu**. Wybierz konto usługi Azure Storage, na którym będą zapisywane dzienniki, a następnie wybierz okres przechowywania. Następnie kliknij przycisk **OK**. Dzienniki starsze niż okres przechowywania są usuwane.
+Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz pozycję **Magazyn** po wyświetleniu sekcji **Inspekcja** . Wybierz konto usługi Azure Storage, na którym będą zapisywane dzienniki, a następnie wybierz okres przechowywania, otwierając **okno właściwości zaawansowane**. Następnie kliknij przycisk **Zapisz**. Dzienniki starsze niż okres przechowywania są usuwane.
 
-- Wartość domyślna okresu przechowywania to 0 (nieograniczony czas przechowywania). Tę wartość można zmienić, przesuwając suwak **przechowywanie (dni)** w **ustawieniach magazynu** podczas konfigurowania konta magazynu na potrzeby inspekcji.
+- Wartość domyślna okresu przechowywania to 0 (nieograniczony czas przechowywania). Możesz zmienić tę wartość, przesuwając suwak **przechowywanie (dni)** w oknie **Właściwości zaawansowane** podczas konfigurowania konta magazynu na potrzeby inspekcji.
   - Jeśli zmienisz okres przechowywania z 0 (nieograniczony czas przechowywania) na inną wartość, należy pamiętać, że przechowywanie będzie dotyczyło tylko dzienników utworzonych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy czas przechowywania był ustawiony na nieograniczony, nawet po włączeniu przechowywania).
 
   ![konto magazynu](./media/auditing-overview/auditing_select_storage.png)
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Inspekcja w celu Log Analytics lokalizacji docelowej
   
-Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log Analytics, wybierz pozycję **log Analytics** i otwórz **szczegóły log Analytics**. Wybierz lub Utwórz obszar roboczy Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**.
+Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log Analytics, wybierz pozycję **log Analytics** i otwórz **szczegóły log Analytics**. Wybierz obszar roboczy Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**. Jeśli nie utworzono obszaru roboczego Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -151,7 +151,7 @@ Aby uzyskać więcej informacji na temat Azure Monitor Log Analytics obszarze ro
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja w miejscu docelowym centrum zdarzeń
 
-Aby skonfigurować zapisywanie dzienników inspekcji do centrum zdarzeń, wybierz pozycję **centrum zdarzeń** i Otwórz **szczegóły centrum zdarzeń**. Wybierz centrum zdarzeń, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie, w którym znajduje się baza danych i serwer.
+Aby skonfigurować zapisywanie dzienników inspekcji do centrum zdarzeń, wybierz pozycję **centrum zdarzeń**. Wybierz centrum zdarzeń, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **Zapisz**. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie, w którym znajduje się baza danych i serwer.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -191,13 +191,12 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
 
 - Użyj witryny [Azure Portal](https://portal.azure.com).  Otwórz odpowiednią bazę danych. W górnej części strony **Inspekcja** bazy danych kliknij pozycję **Wyświetl dzienniki inspekcji**.
 
-    ![Zrzut ekranu pokazujący przycisk Wyświetl dzienniki inspekcji wyróżniony na stronie Inspekcja bazy danych.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Wyświetlanie dzienników inspekcji](./media/auditing-overview/auditing-view-audit-logs.png)
 
     **Rekordy inspekcji** są otwierane, z poziomu którego będziesz mieć możliwość wyświetlania dzienników.
 
   - Aby wyświetlić określone daty, kliknij pozycję **Filtruj** w górnej części strony **Rejestrowanie inspekcji** .
   - Można przełączać się między rekordami inspekcji, które zostały utworzone przez *zasady inspekcji serwera* i *zasad inspekcji bazy danych* przez przełączenie **źródła inspekcji**.
-  - Można wyświetlić tylko rekordy inspekcji powiązane z iniekcją SQL, zaznaczając pole wyboru  **Pokaż tylko rekordy inspekcji dla iniekcji kodu SQL** .
 
        ![Zrzut ekranu przedstawiający opcje wyświetlania rekordów inspekcji.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
@@ -242,7 +241,7 @@ Po włączeniu inspekcji podstawowej bazy danych przy użyciu baz danych z repli
 
 W środowisku produkcyjnym można okresowo odświeżać klucze magazynu. Podczas zapisywania dzienników inspekcji w usłudze Azure Storage należy ponownie zapisać zasady inspekcji podczas odświeżania kluczy. Przebieg procesu:
 
-1. Otwórz **szczegóły magazynu**. W polu **klucz dostępu do magazynu** wybierz pozycję **pomocniczy**, a następnie kliknij przycisk **OK**. Następnie kliknij pozycję **Zapisz** w górnej części strony Konfiguracja inspekcji.
+1. Otwórz **Właściwości zaawansowane** w obszarze **Magazyn**. W polu **klucz dostępu do magazynu** wybierz pozycję **pomocniczy**. Następnie kliknij pozycję **Zapisz** w górnej części strony Konfiguracja inspekcji.
 
     ![Zrzut ekranu pokazujący proces wybierania klucza dostępu do magazynu pomocniczego.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Przejdź do strony Konfiguracja magazynu i ponownie Wygeneruj podstawowy klucz dostępu.

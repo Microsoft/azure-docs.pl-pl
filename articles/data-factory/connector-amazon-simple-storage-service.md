@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/14/2021
-ms.openlocfilehash: 2680c930bfa8451eec7dd518d3c535e0d04046cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 03b0cd852f34e115cc5bbc60448e45fcbb680474
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601231"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Simple Storage Service przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -27,7 +27,7 @@ W tym artykule opisano sposób kopiowania danych z usługi Amazon Simple Storage
 >[!TIP]
 >Aby dowiedzieć się więcej na temat scenariusza migracji danych z usług Amazon S3 do usługi Azure Storage, zobacz temat [używanie Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik usługi Amazon S3 jest obsługiwany dla następujących działań:
 
@@ -191,7 +191,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Amazon S3 w ob
 | modifiedDatetimeEnd      | Jak wyżej.                                               | Nie                                                          |
 | enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/>— Jeśli używasz prefiksu, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed ostatnią "/". <br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
-| maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie                                                          |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie                                                          |
 
 **Przykład:**
 
@@ -362,7 +362,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **FileSystemSource**. |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie zostanie skopiowany ani utworzony w zlewie.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
-| maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

@@ -53,11 +53,11 @@
         - name: Wspólna sprzedaż z firmą Microsoft
           items:
             - name: Przegląd współpracujących
-              href: marketplace-co-sell.md
+              href: co-sell-overview.md
             - name: Wymagania dotyczące wspólnych transakcji
               href: co-sell-requirements.md
             - name: Konfiguruj wspólną sprzedaż
-              href: commercial-marketplace-co-sell.md
+              href: co-sell-configure.md
             - name: Sprawdź stan współsprzedawanej
               href: co-sell-status.md
             - name: Migrowanie rozwiązań do wspólnej sprzedaży z rozwiązania OCP GTM
