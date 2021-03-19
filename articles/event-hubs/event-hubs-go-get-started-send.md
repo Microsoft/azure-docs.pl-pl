@@ -4,10 +4,10 @@ description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87002458"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z Event Hubs przy użyciu języka go
@@ -209,7 +209,7 @@ if err != nil {
 
 ### <a name="create-a-check-pointer-and-a-leaser"></a>Tworzenie wskaźnika Check i dzierżawy 
 
-Utwórz **dzierżawę**, odpowiedzialną za dzierżawę określonej odbiorcy, a także **wskaźnik kontroli**odpowiedzialny za pisanie punktów kontrolnych strumienia wiadomości, dzięki czemu inni odbiorcy mogą zacząć odczytywanie od poprawnego przesunięcia.
+Utwórz **dzierżawę**, odpowiedzialną za dzierżawę określonej odbiorcy, a także **wskaźnik kontroli** odpowiedzialny za pisanie punktów kontrolnych strumienia wiadomości, dzięki czemu inni odbiorcy mogą zacząć odczytywanie od poprawnego przesunięcia.
 
 Obecnie dostępna jest jedna **StorageLeaserCheckpointer** , która używa tego samego kontenera magazynu do zarządzania dzierżawami i punktami kontrolnymi. Oprócz nazw kont magazynu i kontenerów **StorageLeaserCheckpointer** wymaga podania poświadczeń utworzonych w poprzednim kroku i struktury środowiska platformy Azure w celu prawidłowego dostępu do kontenera.
 

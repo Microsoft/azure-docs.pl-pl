@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074801"
 ---
 # <a name="overview-of-the-developer-portal"></a>Omówienie portalu dla deweloperów
@@ -62,7 +62,7 @@ Po pierwszym uruchomieniu wersji zapoznawczej portalu dla deweloperów udostępn
 
 Jeśli masz mocno dostosowany Portal w oparciu o wersję zapoznawczą zawartości, możesz nadal używać jej jako i ręcznie umieszczać nowe widżety na stronach portalu. W przeciwnym razie zalecamy zastąpienie zawartości portalu nową domyślną zawartością.
 
-Aby zresetować zawartość w portalu zarządzanym, wybierz pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Ta operacja spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Wszystkie dostosowania i zmiany w portalu deweloperów zostaną utracone. **Tej akcji nie można cofnąć** .
+Aby zresetować zawartość w portalu zarządzanym, wybierz pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Ta operacja spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Wszystkie dostosowania i zmiany w portalu deweloperów zostaną utracone. **Tej akcji nie można cofnąć**.
 
 ![Resetuj zawartość portalu](media/api-management-howto-developer-portal/reset-content.png)
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90971785"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Tworzenie szablonów usługi Azure Resource Manager w celu zautomatyzowania wdrożenia usługi Azure Logic Apps
@@ -34,7 +34,7 @@ Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zoba
 
 Aby Najprostszym sposobem utworzyć prawidłowe, sparametryzowane szablony aplikacji logiki, które są głównie gotowe do wdrożenia, użyj programu Visual Studio (wersja bezpłatna lub nowsza) oraz narzędzi Azure Logic Apps Tools for Visual Studio. Następnie możesz [utworzyć aplikację logiki w programie Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) lub [znaleźć i pobrać istniejącą aplikację logiki z Azure Portal do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-Pobierając aplikację logiki, uzyskasz szablon zawierający definicje aplikacji logiki oraz inne zasoby, takie jak połączenia. Szablon *parameterizes*również lub definiuje parametry dla, wartości używane do wdrażania aplikacji logiki i innych zasobów. Można podać wartości tych parametrów w osobnym pliku parametrów. Dzięki temu można łatwiej zmienić te wartości w zależności od potrzeb wdrożenia. Więcej informacji można znaleźć w następujących tematach:
+Pobierając aplikację logiki, uzyskasz szablon zawierający definicje aplikacji logiki oraz inne zasoby, takie jak połączenia. Szablon *parameterizes* również lub definiuje parametry dla, wartości używane do wdrażania aplikacji logiki i innych zasobów. Można podać wartości tych parametrów w osobnym pliku parametrów. Dzięki temu można łatwiej zmienić te wartości w zależności od potrzeb wdrożenia. Więcej informacji można znaleźć w następujących tematach:
 
 * [Tworzenie aplikacji logiki za pomocą programu Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Zarządzanie aplikacjami logiki w programie Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)

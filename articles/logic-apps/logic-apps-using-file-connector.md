@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91873238"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
@@ -76,8 +76,8 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
    | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa, która ma być używany dla połączenia |
    | **Folder główny** | Tak | <*Nazwa folderu głównego*> | Folder główny systemu plików, na przykład jeśli zainstalowano lokalną bramę danych, taką jak folder lokalny na komputerze, na którym jest zainstalowana lokalna Brama danych lub folder udziału sieciowego, do którego komputer ma dostęp. <p>Na przykład: `\\PublicShare\\DropboxFiles` <p>Folder główny jest głównym folderem nadrzędnym, który jest używany dla ścieżek względnych dla wszystkich akcji związanych z plikami. |
    | **Typ uwierzytelniania** | Nie | <*Typ uwierzytelniania*> | Typ uwierzytelniania używany przez system plików: **Windows** |
-   | **Nazwa użytkownika** | Tak | <*domain* > \\ domena < *Nazwa użytkownika*> <p>-lub- <p><*komputer* > \\ lokalny < *Nazwa użytkownika*> | Nazwa użytkownika komputera, na którym znajduje się folder systemu plików. <p>Jeśli folder systemu plików znajduje się na tym samym komputerze co lokalna Brama danych, można użyć <*local-computer* > \\ < *nazwy użytkownika* lokalnego komputera>. |
-   | **Hasło** | Tak | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
+   | **Nazwa użytkownika** | Tak | < > \\ domena < *Nazwa użytkownika*> <p>-lub- <p><*komputer* > \\ lokalny < *Nazwa użytkownika*> | Nazwa użytkownika komputera, na którym znajduje się folder systemu plików. <p>Jeśli folder systemu plików znajduje się na tym samym komputerze co lokalna Brama danych, można użyć < > \\ < *nazwy użytkownika* lokalnego komputera>. |
+   | **Password** (Hasło) | Tak | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
    | **punkt** | Tak | <*Instalacja bramy — nazwa*> | Nazwa zainstalowanej wcześniej bramy |
    |||||
 

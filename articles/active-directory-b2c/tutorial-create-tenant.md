@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518011"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579692"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: Tworzenie dzierżawy usługi Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Aby aplikacje mogły korzystać z Azure Active Directory B2C (Azure AD B2C), nal
 > [!NOTE]
 > Można utworzyć maksymalnie 20 dzierżawców na subskrypcję. Ten limit pomaga chronić przed zagrożeniami dla zasobów, takich jak ataki typu "odmowa usługi", i jest wymuszany zarówno w Azure Portal, jak i w podstawowym INTERFEJSie tworzenia dzierżawy. Jeśli musisz utworzyć więcej niż 20 dzierżawców, skontaktuj się z [Pomoc techniczna firmy Microsoft](support-options.md).
 > 
-> Jeśli chcesz ponownie użyć nazwy dzierżawy, która została wcześniej usunięta, ale po wprowadzeniu nazwy domeny zostanie wyświetlony komunikat o błędzie "jest już używany przez inny katalog", musisz [wykonać następujące kroki, aby najpierw usunąć dzierżawcę](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Wymagana jest rola co najmniej administratora subskrypcji. Po usunięciu dzierżawy może być również konieczne wylogowanie się i ponowne zalogowanie się, aby można było ponownie użyć nazwy domeny.
+> Jeśli chcesz ponownie użyć nazwy dzierżawy, która została wcześniej usunięta, ale po wprowadzeniu nazwy domeny zostanie wyświetlony komunikat o błędzie "jest już używany przez inny katalog", musisz [wykonać następujące kroki, aby najpierw usunąć dzierżawcę](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Wymagana jest rola co najmniej administratora subskrypcji. Po usunięciu dzierżawy może być również konieczne wylogowanie się i ponowne zalogowanie się, aby można było ponownie użyć nazwy domeny.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 

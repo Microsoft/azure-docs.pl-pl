@@ -8,17 +8,17 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 5a29fa8d60d3c581a502cded1a7e04026f768667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540699"
 ---
 # <a name="managing-your-academic-grant"></a>Zarządzanie udzieleniem akademickim
 
 Główną stroną docelową na platformie Azure Education Hub jest strona przegląd. Ta strona zawiera wszystkie istotne informacje dotyczące dotacji akademickiej, takie jak liczba ustalonych klas i łączna liczba środków, które są przydzielane i używane z tych klas. Są w nim także wyświetlane skróty do innych korzyści zapewnianych przez Education Hub: oprogramowanie, uczenie i Szablony szybkiego startu.
 
-## <a name="overview-page"></a>Strona przeglądu
+## <a name="overview-page"></a>Strona omówienia
 :::image type="content" source="media/hub-overview-page/overview.png" alt-text="Komunikat o błędzie logowania." border="false":::
 
 1. **Kursy** przedstawiają łączną liczbę aktywnych kursów na koncie instruktora.

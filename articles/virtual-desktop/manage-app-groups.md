@@ -7,10 +7,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ec26f021ffa581b0713973904c97349df83a08ef
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91930275"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
@@ -73,22 +73,22 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 
 12.  Aby dodać aplikację z menu Start:
 
-      - W obszarze **Źródło aplikacji**wybierz pozycję **menu Start** z menu rozwijanego. Następnie w obszarze **aplikacja**wybierz aplikację z menu rozwijanego.
+      - W obszarze **Źródło aplikacji** wybierz pozycję **menu Start** z menu rozwijanego. Następnie w obszarze **aplikacja** wybierz aplikację z menu rozwijanego.
 
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający ekran Dodawanie aplikacji z wybranym menu Start.](media/add-app-start.png)
 
-      - W polu **Nazwa wyświetlana**wprowadź nazwę aplikacji, która będzie wyświetlana użytkownikowi na swoim kliencie.
+      - W polu **Nazwa wyświetlana** wprowadź nazwę aplikacji, która będzie wyświetlana użytkownikowi na swoim kliencie.
 
       - Pozostaw inne opcje jako-is i wybierz pozycję **Zapisz**.
 
 13.  Aby dodać aplikację z określonej ścieżki pliku:
 
-      - W obszarze **Źródło aplikacji**wybierz pozycję **ścieżka pliku** z menu rozwijanego.
+      - W obszarze **Źródło aplikacji** wybierz pozycję **ścieżka pliku** z menu rozwijanego.
 
-      - W polu **ścieżka aplikacji**wprowadź ścieżkę do aplikacji na hoście sesji zarejestrowanym w skojarzonej puli hostów.
+      - W polu **ścieżka aplikacji** wprowadź ścieżkę do aplikacji na hoście sesji zarejestrowanym w skojarzonej puli hostów.
 
-      - Wprowadź szczegóły aplikacji w polach **Nazwa aplikacji**, **Nazwa wyświetlana**, **ścieżka ikony**i **indeks ikony** .
+      - Wprowadź szczegóły aplikacji w polach **Nazwa aplikacji**, **Nazwa wyświetlana**, **ścieżka ikony** i **indeks ikony** .
 
       - Wybierz pozycję **Zapisz**.
 

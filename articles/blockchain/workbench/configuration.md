@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073085"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Dokumentacja konfiguracji usługi Azure łańcucha bloków Workbench
@@ -39,11 +39,11 @@ Aplikacja łańcucha bloków zawiera metadane konfiguracji, przepływy pracy i r
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana aplikacji. | Tak |
 | Opis | Opis aplikacji. | Nie |
 | ApplicationRoles | Kolekcja [ApplicationRoles](#application-roles). Role użytkowników, którzy mogą działać lub uczestniczyć w aplikacji.  | Tak |
-| Przepływy | Kolekcja  [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
+| Przepływy pracy | Kolekcja  [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
 
 Aby zapoznać się z przykładem, zobacz [przykład pliku konfiguracji](#configuration-file-example).
 
-## <a name="workflows"></a>Przepływy
+## <a name="workflows"></a>Przepływy pracy
 
 Logika biznesowa aplikacji może być modelowana jako maszyna stanu, w której podejmowana jest akcja powodująca przechodzenie przepływu logiki biznesowej z jednego stanu do drugiego. Przepływ pracy to zbiór takich stanów i akcji. Każdy przepływ pracy składa się z co najmniej jednej inteligentnej umowy, która reprezentuje logikę biznesową w plikach kodu. Kontrakt wykonywalny jest wystąpieniem przepływu pracy.
 
@@ -61,11 +61,11 @@ Logika biznesowa aplikacji może być modelowana jako maszyna stanu, w której p
 
 Aby zapoznać się z przykładem, zobacz [przykład pliku konfiguracji](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Typ
 
 Obsługiwane typy danych.
 
-| Type | Opis |
+| Typ | Opis |
 |-------|-------------|
 | adres  | Typ adresu łańcucha bloków, taki jak *kontrakty* lub *Użytkownicy*. |
 | array    | Tablica jednopoziomowa typu Integer, bool, Money lub Time. Tablice mogą być statyczne lub dynamiczne. Użyj **elementu ElementType** , aby określić typ danych elementów w tablicy. Zobacz [Przykładowa konfiguracja](#example-configuration-of-type-array). |
@@ -391,7 +391,7 @@ Identyfikatory reprezentują kolekcję informacji używanych do opisywania wła�
 | Nazwa | Unikatowa nazwa właściwości lub parametru. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej właściwości lub parametru. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana właściwości lub parametru. | Tak | 255 |
 | Opis | Opis właściwości lub parametru. | Nie | 255 |
-| Type | [Typ danych](#type)właściwości. | Tak |
+| Typ | [Typ danych](#type)właściwości. | Tak |
 
 ### <a name="identifiers-example"></a>Przykład identyfikatorów
 
@@ -418,7 +418,7 @@ Identyfikatory reprezentują kolekcję informacji używanych do opisywania wła�
 
 ## <a name="configuration-file-example"></a>Przykład pliku konfiguracji
 
-Transfer zasobów to inteligentny scenariusz kontraktu służący do kupowania i sprzedawania zasobów o wysokiej wartości, które wymagają inspektora i rzeczoznawca. Sprzedawcy mogą wyświetlić listę swoich zasobów przez utworzenie wystąpienia kontraktu inteligentnego transferu zasobów. Kupujący mogą robić oferty przez podejmowanie działań w ramach kontraktu inteligentnego, a inne strony mogą podejmować działania w celu sprawdzenia lub oceny elementu zawartości. Gdy element zawartości zostanie oznaczony jako kontrolowany i wyciągnięty, kupujący i sprzedający potwierdzi sprzedaż ponownie, zanim kontrakt zostanie ustawiony jako zakończony. W każdym momencie procesu wszyscy uczestnicy mają wgląd w stan kontraktu w miarę jego aktualizowania. 
+Transfer zasobów to inteligentny scenariusz kontraktu służący do kupowania i sprzedawania zasobów o wysokiej wartości, które wymagają inspektora i rzeczoznawca. Sprzedawcy mogą wyświetlić listę swoich zasobów przez utworzenie wystąpienia kontraktu inteligentnego transferu zasobów. Kupujący mogą robić oferty przez podejmowanie działań w ramach kontraktu inteligentnego, a inne strony mogą podejmować działania w celu sprawdzenia lub oceny elementu zawartości. Gdy element zawartości zostanie oznaczony jako kontrolowany i wyciągnięty, kupujący i sprzedający potwierdzi sprzedaż ponownie, zanim kontrakt zostanie ustawiony jako zakończony. W każdym momencie procesu wszyscy uczestnicy mają wgląd w stan kontraktu w miarę jego aktualizowania. 
 
 Aby uzyskać więcej informacji, w tym pliki kodu, zobacz [przykład transferu zasobów dla usługi Azure łańcucha bloków Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

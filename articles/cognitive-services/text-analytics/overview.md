@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/09/2021
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722283"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598970"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -33,7 +33,7 @@ Korzystaj z [analizy tonacji](how-tos/text-analytics-how-to-sentiment-analysis.m
 
 Funkcja udostępnia etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") w oparciu o najwyższy wynik zaufania znaleziony przez usługę na poziomie zdania i dokumentu. Ta funkcja zwraca również wyniki zaufania z zakresu od 0 do 1 dla każdego dokumentu & w nim zdania dla pozytywnych, neutralnych i ujemnych tonacji. Usługę można również uruchomić lokalnie [przy użyciu kontenera](how-tos/text-analytics-how-to-install-containers.md).
 
-Począwszy od wersji zapoznawczej programu v 3.1, funkcja wyszukiwania jest funkcją analiza tonacji. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
+Począwszy od wersji zapoznawczej programu v 3.1, funkcja wyszukiwania jest funkcją analiza tonacji. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z wyrazami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 

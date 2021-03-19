@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001489"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Kodowanie i dekodowanie plików prostych w usłudze Azure Logic Apps za pomocą pakietu integracyjnego dla przedsiębiorstw
@@ -35,12 +35,12 @@ Przed wysłaniem zawartości XML do partnera biznesowego w scenariuszu biznesowy
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok**  >  **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP**i obsługuje żądania przychodzące spoza aplikacji logiki.
+1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok**  >  **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP** i obsługuje żądania przychodzące spoza aplikacji logiki.
 
    > [!TIP]
    > Udostępnianie schematu JSON jest opcjonalne. Jeśli masz przykładowy ładunek z żądania przychodzącego, wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**, wprowadź przykładowy ładunek i wybierz pozycję **gotowe**. Schemat pojawia się w polu **schemat JSON treści żądania** .
 
-1. W obszarze **Wybierz akcję**wprowadź `flat file` . Z listy Akcje wybierz pozycję Ta akcja: **kodowanie pliku prostego**
+1. W obszarze **Wybierz akcję** wprowadź `flat file` . Z listy Akcje wybierz pozycję Ta akcja: **kodowanie pliku prostego**
 
    ![Wybieranie akcji "Kodowanie plików prostych"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
@@ -67,12 +67,12 @@ Teraz wszystko jest gotowe do skonfigurowania akcji kodowania pliku prostego. W 
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok**  >  **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP**i obsługuje żądania przychodzące spoza aplikacji logiki.
+1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok**  >  **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP** i obsługuje żądania przychodzące spoza aplikacji logiki.
 
    > [!TIP]
    > Udostępnianie schematu JSON jest opcjonalne. Jeśli masz przykładowy ładunek z żądania przychodzącego, wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**, wprowadź przykładowy ładunek i wybierz pozycję **gotowe**. Schemat pojawia się w polu **schemat JSON treści żądania** .
 
-1. W obszarze **Wybierz akcję**wprowadź `flat file` . Z listy Akcje wybierz akcję: **dekodowanie pliku prostego**
+1. W obszarze **Wybierz akcję** wprowadź `flat file` . Z listy Akcje wybierz akcję: **dekodowanie pliku prostego**
 
    ![Wybierz akcję "rozkodowanie prostego pliku"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 

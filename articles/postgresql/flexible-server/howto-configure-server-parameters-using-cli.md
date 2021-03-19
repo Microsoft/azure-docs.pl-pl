@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940735"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Dostosowywanie parametrów serwera dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -61,7 +61,7 @@ Jeśli chcesz zresetować wartość parametru, po prostu wybierz opcję opuszcze
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-To polecenie resetuje parametr ** \_ min log \_ messages** do wartości domyślnej **Ostrzeżenie**. Aby uzyskać więcej informacji o parametrach serwera i dozwolonych wartościach, zobacz dokumentację PostgreSQL dotyczącą [ustawiania parametrów](https://www.postgresql.org/docs/12/config-setting.html).
+To polecenie resetuje parametr **\_ min log \_ messages** do wartości domyślnej **Ostrzeżenie**. Aby uzyskać więcej informacji o parametrach serwera i dozwolonych wartościach, zobacz dokumentację PostgreSQL dotyczącą [ustawiania parametrów](https://www.postgresql.org/docs/12/config-setting.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

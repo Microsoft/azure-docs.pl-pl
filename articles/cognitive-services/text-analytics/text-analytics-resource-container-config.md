@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83590558"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Konfigurowanie analiza tekstu kontenerów platformy Docker
@@ -43,7 +43,7 @@ To ustawienie można znaleźć w następujących miejscach:
 
 ## <a name="billing-configuration-setting"></a>Ustawienie konfiguracji rozliczeń
 
-`Billing`Ustawienie określa identyfikator URI punktu końcowego zasobu _Analiza tekstu_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu __Analiza tekstu_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
+`Billing`Ustawienie określa identyfikator URI punktu końcowego zasobu _Analiza tekstu_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _ _Analiza tekstu_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
 
 To ustawienie można znaleźć w następujących miejscach:
 

@@ -4,10 +4,10 @@ description: Opisuje, w jaki sposób można używać elementów webhook jako pro
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91875805"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhook, elementy Runbook usługi Automation, Logic Apps jako programy obsługi zdarzeń dla zdarzeń Azure Event Grid

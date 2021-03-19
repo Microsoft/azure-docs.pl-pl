@@ -4,10 +4,10 @@ description: Informacje o sposobie włączania zasad przechowywania w rejestrze 
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83683460"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Ustawianie zasad przechowywania dla nieoznakowanych manifestów
@@ -86,16 +86,16 @@ Można również ustawić zasady przechowywania rejestru w [Azure Portal](https:
 
 ### <a name="enable-a-retention-policy"></a>Włączanie zasad przechowywania
 
-1. Przejdź do usługi Azure Container Registry. W obszarze **zasady**wybierz pozycję **przechowywanie** (wersja zapoznawcza).
-1. W obszarze **stan**wybierz pozycję **włączone**.
+1. Przejdź do usługi Azure Container Registry. W obszarze **zasady** wybierz pozycję **przechowywanie** (wersja zapoznawcza).
+1. W obszarze **stan** wybierz pozycję **włączone**.
 1. Wybierz liczbę dni z przedziału od 0 do 365, aby zachować nieoznaczone manifesty. Wybierz pozycję **Zapisz**.
 
 ![Włączanie zasad przechowywania w Azure Portal](media/container-registry-retention-policy/container-registry-retention-policy01.png)
 
 ### <a name="disable-a-retention-policy"></a>Wyłącz zasady przechowywania
 
-1. Przejdź do usługi Azure Container Registry. W obszarze **zasady**wybierz pozycję **przechowywanie** (wersja zapoznawcza).
-1. W obszarze **stan**wybierz pozycję **wyłączone**. Wybierz pozycję **Zapisz**.
+1. Przejdź do usługi Azure Container Registry. W obszarze **zasady** wybierz pozycję **przechowywanie** (wersja zapoznawcza).
+1. W obszarze **stan** wybierz pozycję **wyłączone**. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

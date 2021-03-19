@@ -7,13 +7,13 @@ ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
 ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83122373"
 ---
-# <a name="azure-functions-diagnostics-overview"></a>Omówienie diagnostyki Azure Functions
+# <a name="azure-functions-diagnostics-overview"></a>Omówienie diagnostyki usługi Azure Functions
 
 Gdy uruchamiasz aplikację funkcji, chcesz przygotować się do wszelkich problemów, które mogą wystąpić, z 4xx błędów, aby wyzwolić błędy. Azure Functions Diagnostics to inteligentne i interaktywne środowisko ułatwiające rozwiązywanie problemów z aplikacją funkcji bez konieczności konfigurowania ani ponoszenia dodatkowych kosztów. Gdy uruchamiasz problemy z aplikacją funkcji, Azure Functions Diagnostics wskazuje, co jest nieprawidłowe. Przeprowadzimy Cię do właściwych informacji, aby łatwiej i szybko rozwiązywać problemy oraz rozwiązać problem. W tym artykule przedstawiono podstawowe informacje dotyczące korzystania z narzędzia Azure Functions Diagnostics do szybszego diagnozowania i rozwiązywania typowych problemów z aplikacjami funkcji.
 
@@ -31,11 +31,11 @@ Aby rozpocząć diagnostykę Azure Functions:
 
 Po wybraniu kategorii głównej najlepiej dopasowanej do problemu z aplikacją funkcji, Azure Functions interfejs interaktywny diagnostyki o nazwie Genie, może przeprowadzić Cię przez diagnozowanie i rozwiązywanie problemów z aplikacją. Aby wyświetlić pełny raport diagnostyczny dotyczącej interesującej kategorii problemu, możesz skorzystać z skrótów dostępnych w genie. Skróty kafelków zapewniają bezpośredni sposób uzyskiwania dostępu do metryk diagnostycznych.
 
-:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Wyszukaj Azure Functions diagnostykę." border="false":::
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie jest interfejsem diagnostycznym &quot;Azure Functions&quot;." border="false":::
 
 Po wybraniu kafelka zobaczysz listę tematów związanych z problemem opisanym w kafelku. Te tematy zawierają fragmenty istotnych informacji z pełnego raportu. Wybierz dowolny z tych tematów, aby dokładniej zbadać problemy. Ponadto możesz wybrać opcję **Wyświetl pełny raport** , aby poznać wszystkie tematy na jednej stronie.
 
-:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Wyszukaj Azure Functions diagnostykę." border="false":::
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Podgląd raportu diagnostycznego" border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Wyświetl raport diagnostyczny
 
@@ -45,9 +45,9 @@ Po wybraniu tematu można wyświetlić raport diagnostyczny specyficzny dla apli
 
 W przypadku funkcji opartych na skryptach można użyć **funkcji wykonywania i błędów** w obszarze **aplikacja funkcji lub raportowania błędów** , aby zawęzić wiersz kodu powodujący wyjątki lub błędy. Możesz użyć tego narzędzia do uzyskiwania dostępu do głównej przyczyny i rozwiązywania problemów z określonego wiersza kodu. Ta opcja jest niedostępna dla wstępnie skompilowanych funkcji języka C# i języka Java.
 
-:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Wyszukaj Azure Functions diagnostykę." border="false":::
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Raport diagnostyczny dotyczący błędów wykonania funkcji" border="false":::
 
-:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Wyszukaj Azure Functions diagnostykę." border="false":::
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Widok szczegółów wyjątku." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

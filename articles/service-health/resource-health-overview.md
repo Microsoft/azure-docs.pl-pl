@@ -4,10 +4,10 @@ description: Dowiedz się, jak Azure Resource Health pomaga zdiagnozować i uzys
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90967880"
 ---
 # <a name="resource-health-overview"></a>Przegląd Resource Health
@@ -84,7 +84,7 @@ Możesz uzyskać dostęp do 30-dniowej historii w sekcji **historia kondycji** R
 
 Aby otworzyć Resource Health dla jednego zasobu:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do zasobu.
 3. W menu zasób w okienku po lewej stronie wybierz pozycję **kondycja zasobu**.
 

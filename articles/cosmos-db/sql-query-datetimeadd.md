@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: dc81849a13fdaef748c5fd631ee66ea5e3eb67c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c04c63a5ec72f08807b1702f74db39e00662656f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335793"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597661"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,7 +33,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 | DateTimePart | skróty        |
 | ------------ | -------------------- |
-| Rok         | "Year", "RRRR", "YY" |
+| Year (Rok)         | "Year", "RRRR", "YY" |
 | Month (Miesiąc)        | "Month", "mm", "m"   |
 | Dzień          | "Day", "DD", "d"     |
 | Godzina         | "Hour", "HH"         |
@@ -49,17 +49,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *Data/godzina*  
    Data i godzina UTC ISO 8601 wartość ciągu w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |Format|Opis|
-  |-|-|
-  |YYYY|rok czterocyfrowy|
-  |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
-  |DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
-  |T|Oznaczanie na początku elementów czasu|
-  |hh|godzina dwucyfrowy (od 00 do 23)|
-  |mm|minuty dwucyfrowe (od 00 do 59)|
-  |ss|dwa cyfry sekund (od 00 do 59)|
-  |. fffffff|siedem cyfr sekund|
-  |Z|Oznaczenie UTC (skoordynowany czas uniwersalny)||
+|Format|Opis|
+|-|-|
+|YYYY|rok czterocyfrowy|
+|MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
+|DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
+|T|Oznaczanie na początku elementów czasu|
+|hh|godzina dwucyfrowy (od 00 do 23)|
+|mm|minuty dwucyfrowe (od 00 do 59)|
+|ss|dwa cyfry sekund (od 00 do 59)|
+|. fffffff|siedem cyfr sekund|
+|Z|Oznaczenie UTC (skoordynowany czas uniwersalny)|
   
   Aby uzyskać więcej informacji na temat formatu ISO 8601, zobacz [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -67,17 +67,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 Zwraca wartość ciągu ISO 8601 daty i czasu UTC w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |Format|Opis|
-  |-|-|
-  |YYYY|rok czterocyfrowy|
-  |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
-  |DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
-  |T|Oznaczanie na początku elementów czasu|
-  |hh|godzina dwucyfrowy (od 00 do 23)|
-  |mm|minuty dwucyfrowe (od 00 do 59)|
-  |ss|dwa cyfry sekund (od 00 do 59)|
-  |. fffffff|siedem cyfr sekund|
-  |Z|Oznaczenie UTC (skoordynowany czas uniwersalny)||
+|Format|Opis|
+|-|-|
+|YYYY|rok czterocyfrowy|
+|MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
+|DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
+|T|Oznaczanie na początku elementów czasu|
+|hh|godzina dwucyfrowy (od 00 do 23)|
+|mm|minuty dwucyfrowe (od 00 do 59)|
+|ss|dwa cyfry sekund (od 00 do 59)|
+|. fffffff|siedem cyfr sekund|
+|Z|Oznaczenie UTC (skoordynowany czas uniwersalny)|
 
 ## <a name="remarks"></a>Uwagi
 

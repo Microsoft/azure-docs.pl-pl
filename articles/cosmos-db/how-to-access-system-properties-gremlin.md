@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
 ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081845"
 ---
 # <a name="system-document-properties"></a>Właściwości dokumentu systemowego
@@ -35,7 +35,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 Jeśli dla kolekcji włączono opcję wygaśnięcia dokumentu, a dokumenty mają ```ttl``` dla nich ustawioną właściwość, ta właściwość będzie dostępna w przechodzeniu Gremlin jako zwykła Właściwość wierzchołka lub krawędzi. ```ProjectionStrategy``` nie jest konieczne, aby włączyć ekspozycję właściwości czasu wygaśnięcia.
 
-Wierzchołek utworzony za pomocą poniższej operacji przechodzenia zostanie automatycznie usunięty za **123 sekundy** .
+Wierzchołek utworzony za pomocą poniższej operacji przechodzenia zostanie automatycznie usunięty za **123 sekundy**.
 
 ```
 g.addV('vertex-one').property('ttl', 123)

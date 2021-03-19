@@ -8,19 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736645"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598902"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
+
+## <a name="march-2021"></a>Marzec 2021
+
+### <a name="general-api-updates"></a>Ogólne aktualizacje interfejsu API
+* Wydanie nowego interfejsu API v 3.1 — wersja zapoznawcza. 4, które obejmuje 
+   * Zmiany w treści odpowiedzi JSON wyszukiwania opinii: 
+      * `aspects` jest teraz `targets` i `opinions` teraz `assessments` . 
+   * Zmiany w treści odpowiedzi JSON hostowanego internetowego interfejsu API analiza tekstu dla kondycji: 
+      * `isNegated`Nazwa logiczna wykrytego obiektu jednostki dla negacji jest przestarzała i zastąpiona przez wykrywanie potwierdzenia.
+      * Nowa właściwość o nazwie `role` jest teraz częścią wyodrębnionej relacji między atrybutem i jednostką, a także relacją między jednostkami.  Spowoduje to dodanie specyficznych do wykrytych typów relacji.
+   * Łączenie jednostek jest teraz dostępne jako zadanie asynchroniczne w `/analyze` punkcie końcowym.
+   * Nowy `pii-categories` parametr jest teraz dostępny w `/pii` punkcie końcowym.
+      * Ten parametr umożliwia określenie wybranych jednostek danych osobowych, a także tych, które nie są obsługiwane domyślnie dla języka wejściowego.
+* Zaktualizowano biblioteki klienckie, które obejmują analizę asynchroniczną i analiza tekstu dla operacji związanych z kondycją. Przykłady można znaleźć w witrynie GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### <a name="text-analytics-for-health-updates"></a>analiza tekstu aktualizacji kondycji
+
+* Nowa wersja modelu `2021-03-01` dla `/health` punktu końcowego i kontenera lokalnego, który zapewnia
+    * Zmiana nazwy `Gene` typu jednostki na `GeneOrProtein` .
+    * Nowy `Date` Typ jednostki.
+    * Wykrywanie potwierdzenia, które zastępuje wykrywanie negacji (dostępne tylko w interfejsie API v 3.1 — wersja zapoznawcza. 4).
+    * Nowa preferowana `name` Właściwość dla połączonych jednostek, które są znormalizowane z różnych systemów ontologie i kodowania (dostępne tylko w interfejsie API v 3.1 — wersja zapoznawcza. 4). 
+* Nowy obraz kontenera z tagiem `3.0.015370001-onprem-amd64` i nową wersją modelu `2021-03-01` został opublikowany do repozytorium w wersji zapoznawczej kontenera. 
+* Analiza tekstu obrazu kontenera kondycji będzie przenoszony do nowego repozytorium w następnym miesiącu.  Obejrzyj wiadomość e-mail z informacją o lokalizacji nowej strony głównej.
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat analiza tekstu na potrzeby kondycji](how-tos/text-analytics-for-health.md)
+>
+
+### <a name="text-analytics-resource-portal-update"></a>Aktualizacja portalu zasobów analiza tekstu
+* **Przetworzone rekordy tekstu** są teraz dostępne jako Metryka w sekcji **monitorowanie** dla zasobu analiza tekstu w Azure Portal.  
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -46,7 +84,7 @@ Te wersje modeli są obecnie niedostępne w regionie Wschodnie stany USA.
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
-* [Zaktualizowano szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) interfejs API analizy tekstu
+* [Zaktualizowano szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) interfejs API analizy tekstu.
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -59,8 +97,7 @@ Te wersje modeli są obecnie niedostępne w regionie Wschodnie stany USA.
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej na temat interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 

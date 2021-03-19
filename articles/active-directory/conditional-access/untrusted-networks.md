@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077680"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Instrukcje: wymaganie uwierzytelniania MFA w celu uzyskania dostępu z niezaufanych sieci z dostępem warunkowym   
@@ -58,7 +58,7 @@ Zamiast próbować definiować, które lokalizacje nie są zaufane, możesz:
 
 - Wyklucz wszystkie Zaufane lokalizacje 
 
-   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Zrzut ekranu okienka lokalizacji platformy Azure A D z opcją Skonfiguruj ustawioną na tak, widoczną kartę Dołącz oraz wybraną i wyróżnioną opcją dowolna lokalizacja." border="false":::
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Zrzut ekranu okienka lokalizacji platformy Azure A D, z ustawieniem ustaw wartość tak, widoczną kartę wykluczanie i wybraną opcją wszystkie Zaufane lokalizacje." border="false":::
 
 ## <a name="policy-deployment"></a>Wdrażanie zasad
 

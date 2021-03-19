@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93088475"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Zrozumienie różnic między NoSQL i relacyjnymi bazami danych
@@ -40,7 +40,7 @@ Jednak obecnie popularność baz danych w stylu dokumentu znacznie się zwiększ
 
 Problem z modelem zorientowanym na obiekty oraz [niezgodność](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) z [założeniami](https://en.wikipedia.org/wiki/Object-oriented_design), które powstają podczas łączenia go z modeli relacyjnych, powoduje również wyróżnienie antywzorców w relacyjnych bazach danych dla niektórych przypadków użycia. Ukryte, ale często mające znaczący koszt konserwacji, mogą wynikać z tego powodu. Mimo że [podejścia ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) zostały rozwijające się częściowo w ten sposób, to zorientowane na dokumenty bazy danych są znacznie lepiej połączone z podejście zorientowane obiektowo. W tym podejściu deweloperzy nie są zmuszeni do zatwierdzania sterowników ORM ani Bespoke [aparatów bazy danych oo](https://en.wikipedia.org/wiki/Object_database). Jeśli dane zawierają wiele relacji nadrzędny-podrzędny i poziomów hierarchii, warto rozważyć użycie bazy danych dokumentów NoSQL, takiej jak [Azure Cosmos DB interfejsu API SQL](./introduction.md).
 
-:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Danych":::
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Złożone sieci i relacje
 
@@ -50,7 +50,7 @@ Różne formy baz danych "sieci" pojawiły się w czasie, gdy relacyjne bazy dan
 
 W przypadku zachowania złożonej sieci relacji w bazie danych warto rozważyć użycie bazy danych grafu, takiej jak [Azure Cosmos DB API Gremlin](./graph-introduction.md) do zarządzania tymi danymi.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Danych":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Diagram bazy danych przedstawia kilku pracowników i działów ze sobą połączone.":::
 
 Azure Cosmos DB to wielomodelowa usługa bazy danych, która oferuje projekcję interfejsu API dla wszystkich głównych typów modeli NoSQL; Rodzina kolumn, dokument, wykres i wartość klucza. Warstwy interfejsu API dokumentów [Gremlin (Graph)](./gremlin-support.md) i SQL (rdzeń) są w pełni obsługiwane. Ma to zalety przełączenia między różnymi modelami na poziomie programowania. W sklepach grafów można wykonywać zapytania dotyczące zarówno złożonych przechodzenia do sieci, jak i transakcji, które są modelowane jako rekordy dokumentów w tym samym magazynie.
 
@@ -77,7 +77,7 @@ Chociaż podczas implementowania baz danych NoSQL istnieją pewne jasne zalety, 
 
 Analizując pierwsze wyzwanie, reguła-kciuk w bazach danych NoSQL jest ogólnie nieznormalizowana, którą podano wcześniej, w systemie rozproszonym bardziej wydajne operacje odczytu. Istnieje jednak kilka wyzwań związanych z projektowaniem, które są dostępne w ramach tego podejścia. Przyjrzyjmy się przykładowi do produktu, który jest powiązany z jedną kategorią i wieloma tagami:
 
-:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Danych":::
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Sprzężenia":::
 
 Najlepszym rozwiązaniem w bazie danych dokumentów NoSQL jest denormalizacja nazwy kategorii i tagów bezpośrednio w "dokumencie produktu". Jednak w celu zachowania synchronizacji kategorii, tagów i produktów, opcje projektowania ułatwiające to dodanie złożoności konserwacji, ponieważ dane są duplikowane przez wiele rekordów w produkcie, a nie jako proste aktualizacje w relacji "jeden do wielu", a następnie przyłączanie do pobierania danych. 
 

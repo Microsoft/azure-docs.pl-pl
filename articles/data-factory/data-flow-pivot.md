@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
 ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87086663"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Przekształcenie tabeli przestawnej w mapowaniu przepływu danych
@@ -23,7 +23,7 @@ Użyj transformacji przestawnej, aby utworzyć wiele kolumn z unikatowych warto�
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Przekształcenie przestawne wymaga trzech różnych danych wejściowych: Grupuj według kolumn, klucz przestawny i sposób generowania kolumn przestawnych
 
@@ -41,7 +41,7 @@ Ta sekcja jest opcjonalna. Jeśli nie wybrano żadnej kolumny Grupuj według, ca
 
 Klucz przestawny to kolumna, której wartości wierszy są przestawiane na nowe kolumny. Domyślnie transformacja przestawna spowoduje utworzenie nowej kolumny dla każdej unikatowej wartości wiersza.
 
-W sekcji z etykietą **wartość**możesz wprowadzić określone wartości wierszy do przestawienia. Tylko wartości wierszy wprowadzonych w tej sekcji zostaną przestawiane. Włączenie **wartości null** spowoduje utworzenie kolumny przestawnej dla wartości null w kolumnie.
+W sekcji z etykietą **wartość** możesz wprowadzić określone wartości wierszy do przestawienia. Tylko wartości wierszy wprowadzonych w tej sekcji zostaną przestawiane. Włączenie **wartości null** spowoduje utworzenie kolumny przestawnej dla wartości null w kolumnie.
 
 ### <a name="pivoted-columns"></a>Kolumny przestawne
 

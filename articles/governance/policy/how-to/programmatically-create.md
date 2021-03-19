@@ -1,14 +1,14 @@
 ---
 title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033867"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598494"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -244,5 +244,5 @@ Zapoznaj się z następującymi artykułami, aby uzyskać więcej informacji na 
 - [Zasoby interfejsu API REST platformy Azure](/rest/api/resources/)
 - [Moduły Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Poleceń zasad interfejsu wiersza polecenia platformy Azure](/cli/azure/policy)
-- [Dokumentacja interfejsu API REST dostawcy zasobów usługi Azure Policy Insights](/rest/api/policy-insights)
+- [Dokumentacja interfejsu API REST dostawcy zasobów Azure Policy](/rest/api/policy)
 - [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../management-groups/overview.md).

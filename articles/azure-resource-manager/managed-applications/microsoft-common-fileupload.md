@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87004288"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft. Common. FileUpload — element interfejsu użytkownika
@@ -86,7 +86,7 @@ Podczas testowania CreateUiDefinition, niektóre przeglądarki (na przykład Goo
 - Przekazany plik jest chroniony. Wyjściowy adres URL zawiera [token SAS](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) służący do uzyskiwania dostępu do pliku podczas wdrażania.
 - Wartość `options.openMode` określa, jak odczytywany jest plik. Jeśli oczekujesz, że plik ma być zwykłym tekstem, określ **tekst**; w przeciwnym razie Określ dane **binarne**. Wartość domyślna to **Text**.
 - Jeśli `options.uploadMode` jest ustawiona na wartość **File** i `options.openMode` jest ustawiona na wartość **binarną**, dane wyjściowe są kodowane algorytmem Base64.
-- `options.encoding` Określa kodowanie, które ma być używane podczas odczytywania pliku. Wartość domyślna to **UTF-8**i jest używana tylko wtedy, gdy `options.openMode` jest ustawiona na **Text**.
+- `options.encoding` Określa kodowanie, które ma być używane podczas odczytywania pliku. Wartość domyślna to **UTF-8** i jest używana tylko wtedy, gdy `options.openMode` jest ustawiona na **Text**.
 
 ## <a name="next-steps"></a>Następne kroki
 

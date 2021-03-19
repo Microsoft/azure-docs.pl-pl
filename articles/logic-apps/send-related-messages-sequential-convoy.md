@@ -7,15 +7,15 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87048668"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Wysyłaj powiązane komunikaty w kolejności przy użyciu konwoju sekwencyjnego w Azure Logic Apps z Azure Service Bus
 
-Gdy zachodzi potrzeba wysyłania skorelowanych komunikatów w określonej kolejności, można użyć [wzorca *sekwencyjnej konwoju* ](/azure/architecture/patterns/sequential-convoy) podczas korzystania z [Azure Logic Apps](../logic-apps/logic-apps-overview.md) przy użyciu [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
+Gdy zachodzi potrzeba wysyłania skorelowanych komunikatów w określonej kolejności, można użyć [wzorca *sekwencyjnej konwoju*](/azure/architecture/patterns/sequential-convoy) podczas korzystania z [Azure Logic Apps](../logic-apps/logic-apps-overview.md) przy użyciu [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
 
 Załóżmy na przykład, że masz 10 komunikatów dla sesji o nazwie "Session 1" i masz 5 komunikatów dla sesji o nazwie "Session 2", które są wysyłane do tej samej [kolejki Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Można utworzyć aplikację logiki, która przetwarza komunikaty z kolejki, tak aby wszystkie komunikaty z "sesji 1" były obsługiwane przez pojedynczy przebieg wyzwalacza, a wszystkie komunikaty z "sesji 2" są obsługiwane przez następnego uruchomienia wyzwalacza.
 
@@ -47,28 +47,28 @@ Aby uzyskać więcej informacji, zobacz [wzorzec konwoju wzorca — wzorce proje
 
 Jeśli nie masz pewności, czy aplikacja logiki ma uprawnienia dostępu do obszaru nazw Service Bus, potwierdź te uprawnienia.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Znajdź i wybierz swoją *przestrzeń nazw*Service Bus.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Znajdź i wybierz swoją *przestrzeń nazw* Service Bus.
 
-1. W menu Przestrzeń nazw w obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia**Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
+1. W menu Przestrzeń nazw w obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia** Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
 
    ![Zarządzaj uprawnieniami dla Service Bus przestrzeni nazw](./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png)
 
 1. Teraz Pobierz parametry połączenia dla przestrzeni nazw Service Bus. Tego ciągu można użyć później podczas tworzenia połączenia z przestrzenią nazw z poziomu aplikacji logiki.
 
-   1. W okienku **zasady dostępu współdzielonego** w obszarze **zasady**wybierz pozycję **RootManageSharedAccessKey**.
+   1. W okienku **zasady dostępu współdzielonego** w obszarze **zasady** wybierz pozycję **RootManageSharedAccessKey**.
    
    1. Obok podstawowych parametrów połączenia wybierz przycisk Kopiuj. Zapisz parametry połączenia do późniejszego użycia.
 
       ![Kopiuj parametry połączenia Service Bus przestrzeni nazw](./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png)
 
    > [!TIP]
-   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry połączenia dla `EntityPath`   parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
+   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry połączenia dla `EntityPath` parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
 
 ## <a name="create-logic-app"></a>Tworzenie aplikacji logiki
 
 W tej sekcji utworzysz aplikację logiki przy użyciu **skorelowanego dostarczania w określonej kolejności przy użyciu szablonu sesji usługi Service Bus** , który obejmuje wyzwalacz i akcje wdrożenia tego wzorca przepływu pracy. Należy również utworzyć połączenie z przestrzenią nazw Service Bus i określić nazwę kolejki Service Bus, która ma być używana.
 
-1. W [Azure Portal](https://portal.azure.com)Utwórz pustą aplikację logiki. Na stronie głównej platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
+1. W [Azure Portal](https://portal.azure.com)Utwórz pustą aplikację logiki. Na stronie głównej platformy Azure wybierz pozycję **Utwórz zasób**  >    >  **aplikacja logiki**.
 
 1. Po wyświetleniu galerii szablonów przewiń w dół sekcje wideo i typowe wyzwalacze. W sekcji **Szablony** wybierz szablon, **skorelowane dostarczanie w kolejności przy użyciu sesji magistrali usług**.
 
@@ -86,7 +86,7 @@ W tej sekcji utworzysz aplikację logiki przy użyciu **skorelowanego dostarczan
 
      1. Wybierz pozycję **ręcznie wprowadź informacje o połączeniu**.
 
-     1. W obszarze **Nazwa połączenia**Podaj nazwę połączenia. W obszarze **Parametry połączenia**wklej parametry połączenia z przestrzenią nazw i wybierz pozycję **Utwórz**, na przykład:
+     1. W obszarze **Nazwa połączenia** Podaj nazwę połączenia. W obszarze **Parametry połączenia** wklej parametry połączenia z przestrzenią nazw i wybierz pozycję **Utwórz**, na przykład:
 
         ![Wprowadź nazwę połączenia i Service Bus parametry połączenia](./media/send-related-messages-sequential-convoy/provide-service-bus-connection-string.png)
 
@@ -95,7 +95,7 @@ W tej sekcji utworzysz aplikację logiki przy użyciu **skorelowanego dostarczan
 
    * Aby wybrać Service Bus przestrzeń nazw z bieżącej subskrypcji platformy Azure, wykonaj następujące kroki:
 
-     1. W obszarze **Nazwa połączenia**Podaj nazwę połączenia. W **obszarze Przestrzeń nazw Service Bus**wybierz Service Bus przestrzeń nazw, na przykład:
+     1. W obszarze **Nazwa połączenia** Podaj nazwę połączenia. W **obszarze Przestrzeń nazw Service Bus** wybierz Service Bus przestrzeń nazw, na przykład:
 
         ![Wprowadź nazwę połączenia i wybierz pozycję Service Bus przestrzeń nazw](./media/send-related-messages-sequential-convoy/create-service-bus-connection.png)
 
@@ -120,9 +120,9 @@ Poniżej znajduje się przepływ pracy najwyższego poziomu w ramach **skorelowa
 | Nazwa | Opis |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | W oparciu o określony cykl ten Service Bus wyzwalacza sprawdza określoną kolejkę Service Bus dla dowolnych komunikatów. Jeśli w kolejce istnieje komunikat, uruchamiany jest wyzwalacz, który tworzy i uruchamia wystąpienie przepływu pracy. <p><p>Okres *blokowania* oznacza, że wyzwalacz wysyła żądanie pobrania komunikatu z kolejki. Jeśli komunikat istnieje, wyzwalacz pobiera i blokuje komunikat, tak aby żadne inne przetwarzanie nie zachodził na ten komunikat do momentu wygaśnięcia okresu blokady. Aby uzyskać szczegółowe informacje, [zainicjuj sesję](#initialize-session). |
-| **`Init isDone`** | Ta [Akcja **inicjowania zmiennej** ](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) powoduje utworzenie zmiennej logicznej, która jest ustawiona na `false` i wskazuje, kiedy są spełnione następujące warunki: <p><p>-Więcej komunikatów w sesji nie można odczytać. <br>-Nie trzeba już odnowić blokady sesji, aby można było zakończyć bieżące wystąpienie przepływu pracy. <p><p>Aby uzyskać szczegółowe informacje, zobacz [Inicjowanie sesji](#initialize-session). |
-| **`Try`** | Ta [Akcja **zakresu** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) zawiera akcje, które są uruchamiane w celu przetworzenia komunikatu. Jeśli w zakresie wystąpi problem `Try` , kolejna `Catch` Akcja **zakresu** obsłuży ten problem. Aby uzyskać więcej informacji, zobacz [zakres "try"](#try-scope). |
-| **`Catch`**| Ta [Akcja **zakresu** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) zawiera akcje, które są uruchamiane w przypadku wystąpienia problemu w poprzednim `Try` zakresie. Aby uzyskać więcej informacji, zobacz [zakres "Catch"](#catch-scope). |
+| **`Init isDone`** | Ta [Akcja **inicjowania zmiennej**](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) powoduje utworzenie zmiennej logicznej, która jest ustawiona na `false` i wskazuje, kiedy są spełnione następujące warunki: <p><p>-Więcej komunikatów w sesji nie można odczytać. <br>-Nie trzeba już odnowić blokady sesji, aby można było zakończyć bieżące wystąpienie przepływu pracy. <p><p>Aby uzyskać szczegółowe informacje, zobacz [Inicjowanie sesji](#initialize-session). |
+| **`Try`** | Ta [Akcja **zakresu**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) zawiera akcje, które są uruchamiane w celu przetworzenia komunikatu. Jeśli w zakresie wystąpi problem `Try` , kolejna `Catch` Akcja **zakresu** obsłuży ten problem. Aby uzyskać więcej informacji, zobacz [zakres "try"](#try-scope). |
+| **`Catch`**| Ta [Akcja **zakresu**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) zawiera akcje, które są uruchamiane w przypadku wystąpienia problemu w poprzednim `Try` zakresie. Aby uzyskać więcej informacji, zobacz [zakres "Catch"](#catch-scope). |
 |||
 
 <a name="try-scope"></a>
@@ -148,7 +148,7 @@ Poniżej znajduje się przepływ najwyższego poziomu w `Try` [akcji zakresu](..
 |------|-------------|
 | `Complete initial message in queue` | Ta Service Bus akcja oznacza pomyślnie pobrany komunikat jako zakończony i usuwa komunikat z kolejki, aby zapobiec przeprzetwarzaniu. Aby uzyskać szczegółowe informacje, zobacz [Obsługa początkowego komunikatu](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | Dzieje się [ **tak, dopóki** pętla nie](../logic-apps/logic-apps-control-flow-loops.md#until-loop) będzie w stanie uzyskać komunikatów, gdy istnieją komunikaty lub do czasu przekroczenia jednej godziny. Aby uzyskać więcej informacji o akcjach w tej pętli, zobacz, [gdy w kolejce są więcej komunikatów](#while-more-messages-for-session). |
-| **`Set isDone = true`** | Gdy nie ma więcej komunikatów, ta [ **zmienna ustawia ustawioną wartość** ](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) `isDone` `true` . |
+| **`Set isDone = true`** | Gdy nie ma więcej komunikatów, ta [ **zmienna ustawia ustawioną wartość**](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) `isDone` `true` . |
 | **`Renew session lock until cancelled`** | Dzieje się [ **tak do momentu** , gdy pętla](../logic-apps/logic-apps-control-flow-loops.md#until-loop) jest zablokowana przez tę aplikację logiki, gdy istnieją komunikaty lub do czasu przekroczenia jednej godziny. Aby uzyskać więcej informacji o akcjach w tej pętli, zobacz [Odnów sesję blokady do czasu anulowania](#renew-session-while-messages-exist). |
 |||
 
@@ -171,9 +171,9 @@ Poniżej znajduje się przepływ najwyższego poziomu w `Catch` akcji zakresu, g
 | Nazwa | Opis |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Ta Service Bus akcja zamyka sesję w kolejce, aby blokada sesji nie pozostała otwarta. Aby uzyskać szczegółowe informacje, zobacz [zamykanie sesji w kolejce i niepowodzenie](#close-session-fail). |
-| **`Find failure msg from 'Try' block`** | Ta [Akcja **filtrowania tablicy** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) tworzy tablicę z danych wejściowych i wyjściowych ze wszystkich akcji wewnątrz `Try` zakresu na podstawie określonych kryteriów. W takim przypadku ta akcja zwraca dane wyjściowe z akcji, które spowodowały jego `Failed` stan. Aby uzyskać szczegółowe informacje, zobacz Znajdowanie komunikatu o [błędach z bloku "try"](#find-failure-message). |
-| **`Select error details`** | Ta [Akcja **wyboru** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) tworzy tablicę zawierającą obiekty JSON na podstawie określonych kryteriów. Te obiekty JSON są tworzone na podstawie wartości w tablicy utworzonej przez poprzednią akcję `Find failure msg from 'Try' block` . W takim przypadku ta akcja zwraca tablicę zawierającą obiekt JSON utworzony na podstawie szczegółów błędu zwróconych z poprzedniej akcji. Aby uzyskać szczegółowe informacje, zobacz [Wybieranie szczegółów błędu](#select-error-details). |
-| **`Terminate`** | Ta [Akcja **przerwania** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) zatrzymuje przebieg przepływu pracy, anuluje wszystkie akcje w toku, pomija wszystkie pozostałe akcje i zwraca określony stan, identyfikator sesji oraz wynik błędu z `Select error details` akcji. Aby uzyskać szczegółowe informacje, zobacz [Kończenie działania aplikacji logiki](#terminate-logic-app). |
+| **`Find failure msg from 'Try' block`** | Ta [Akcja **filtrowania tablicy**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) tworzy tablicę z danych wejściowych i wyjściowych ze wszystkich akcji wewnątrz `Try` zakresu na podstawie określonych kryteriów. W takim przypadku ta akcja zwraca dane wyjściowe z akcji, które spowodowały jego `Failed` stan. Aby uzyskać szczegółowe informacje, zobacz Znajdowanie komunikatu o [błędach z bloku "try"](#find-failure-message). |
+| **`Select error details`** | Ta [Akcja **wyboru**](../logic-apps/logic-apps-perform-data-operations.md#select-action) tworzy tablicę zawierającą obiekty JSON na podstawie określonych kryteriów. Te obiekty JSON są tworzone na podstawie wartości w tablicy utworzonej przez poprzednią akcję `Find failure msg from 'Try' block` . W takim przypadku ta akcja zwraca tablicę zawierającą obiekt JSON utworzony na podstawie szczegółów błędu zwróconych z poprzedniej akcji. Aby uzyskać szczegółowe informacje, zobacz [Wybieranie szczegółów błędu](#select-error-details). |
+| **`Terminate`** | Ta [Akcja **przerwania**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) zatrzymuje przebieg przepływu pracy, anuluje wszystkie akcje w toku, pomija wszystkie pozostałe akcje i zwraca określony stan, identyfikator sesji oraz wynik błędu z `Select error details` akcji. Aby uzyskać szczegółowe informacje, zobacz [Kończenie działania aplikacji logiki](#terminate-logic-app). |
 |||
 
 <a name="complete-template"></a>
@@ -199,7 +199,7 @@ Aby podać wartości dla wyzwalacza i akcji w **skorelowanej dostawie w kolejno�
   | **Typ kolejki** | Tak | **Główną** | Twoja Kolejka Service Bus główna |
   | **Identyfikator sesji** | Tak | **Następne dostępne** | Ta opcja pobiera sesję dla każdego uruchomienia wyzwalacza na podstawie identyfikatora sesji z komunikatu w kolejce Service Bus. Sesja jest również zablokowana, tak aby żadna inna aplikacja logiki lub inny klient nie przetwarza komunikatów powiązanych z tą sesją. Kolejne akcje przepływu pracy przetwarzają wszystkie komunikaty, które są skojarzone z tą sesją, zgodnie z opisem w dalszej części tego artykułu. <p><p>Poniżej znajduje się więcej informacji na temat innych opcji **identyfikatora sesji** : <p>- **Brak**: opcja domyślna, która powoduje brak sesji i nie może być używana do implementowania wzorca sekwencyjnego konwoju. <p>- **Wprowadź wartość niestandardową**: Użyj tej opcji, jeśli znasz identyfikator sesji, który ma być używany, i zawsze chcesz uruchomić wyzwalacz dla tego identyfikatora sesji. <p>**Uwaga**: Łącznik Service Bus może zapisywać ograniczoną liczbę unikatowych sesji w czasie od Azure Service Bus do pamięci podręcznej łączników. Jeśli liczba sesji przekracza ten limit, stare sesje są usuwane z pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [wiadomości programu Exchange w chmurze z Azure Logic Apps i Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
   | **Interwał** | Tak | <*Liczba interwałów*> | Liczba jednostek czasu między cyklami przed sprawdzeniem komunikatu. |
-  | **Częstotliwość** | Tak | **Sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** | Jednostka czasu, z której będzie korzystać cykl podczas sprawdzania komunikatu. <p>**Porada**: aby dodać **strefę czasową** lub **godzinę rozpoczęcia**, wybierz te właściwości z listy **Dodaj nowy parametr** . |
+  | **Częstotliwość** | Tak | **Sekunda**, **minuta**, **godzina**, **dzień**, **tydzień** lub **miesiąc** | Jednostka czasu, z której będzie korzystać cykl podczas sprawdzania komunikatu. <p>**Porada**: aby dodać **strefę czasową** lub **godzinę rozpoczęcia**, wybierz te właściwości z listy **Dodaj nowy parametr** . |
   |||||
 
   Aby uzyskać więcej informacji o wyzwalaczach, zobacz [Service Bus — gdy w kolejce jest odbierany komunikat (blokada blokady)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Wyzwalacz wyprowadza element [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
@@ -261,7 +261,7 @@ To [ **do momentu** uruchomienia przez pętlę](../logic-apps/logic-apps-control
 
    ![Warunek — Przetwarzaj komunikaty, jeśli istnieją](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
 
-   W sekcji **Jeśli false** , pętla **for each** przetwarza każdy komunikat w pierwszej kolejności (FIFO). W **ustawieniach**pętli ustawienie **kontroli współbieżności** jest ustawione na `1` , więc tylko jeden komunikat jest przetwarzany jednocześnie.
+   W sekcji **Jeśli false** , pętla **for each** przetwarza każdy komunikat w pierwszej kolejności (FIFO). W **ustawieniach** pętli ustawienie **kontroli współbieżności** jest ustawione na `1` , więc tylko jeden komunikat jest przetwarzany jednocześnie.
 
    ![Pętla "for each" — Przetwarzaj każdy komunikat pojedynczo](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
@@ -321,7 +321,7 @@ W poniższych sekcjach opisano akcje w `Catch` sekcji, które obsługują błęd
 
 Ta akcja Service Bus jest zawsze uruchamiana jako pierwsza akcja w `Catch` zakresie i zamyka sesję w kolejce.
 
-* W akcji Service Bus **Zamknij sesję w kolejce i niepowodzenie**Podaj nazwę kolejki Service Bus.
+* W akcji Service Bus **Zamknij sesję w kolejce i niepowodzenie** Podaj nazwę kolejki Service Bus.
 
   ![Akcja Service Bus — "zamykanie sesji w kolejce i niepowodzenie"](./media/send-related-messages-sequential-convoy/close-session-in-queue-fail.png)
 
@@ -331,7 +331,7 @@ Następnie przepływ pracy tworzy tablicę, która zawiera dane wejściowe i wyj
 
 ### <a name="find-failure-msg-from-try-block"></a>Znajdź komunikat o niepowodzeniu z bloku "try"
 
-Ta [Akcja **filtrowania tablicy** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) tworzy tablicę, która zawiera dane wejściowe i wyjściowe ze wszystkich akcji wewnątrz `Try` zakresu na podstawie określonych kryteriów przy użyciu [ `result()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#result). W takim przypadku ta akcja zwraca dane wyjściowe z akcji, które mają `Failed` stan przy użyciu [ `equals()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#equals) i [ `item()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#item).
+Ta [Akcja **filtrowania tablicy**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) tworzy tablicę, która zawiera dane wejściowe i wyjściowe ze wszystkich akcji wewnątrz `Try` zakresu na podstawie określonych kryteriów przy użyciu [ `result()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#result). W takim przypadku ta akcja zwraca dane wyjściowe z akcji, które mają `Failed` stan przy użyciu [ `equals()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#equals) i [ `item()` funkcji](../logic-apps/workflow-definition-language-functions-reference.md#item).
 
 ![Akcja filtrowania tablicy — "Znajdź komunikat o niepowodzeniu z bloku" try "](./media/send-related-messages-sequential-convoy/find-failure-message.png)
 
@@ -358,7 +358,7 @@ Następnie przepływ pracy tworzy tablicę z obiektem JSON, który zawiera infor
 
 ### <a name="select-error-details"></a>Wybierz szczegóły błędu
 
-Ta [Akcja **SELECT** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) tworzy tablicę zawierającą obiekty JSON na podstawie tablicy wejściowej, która jest wyprowadzana z poprzedniej akcji `Find failure msg from 'Try' block` . W tym celu ta akcja zwraca tablicę, która ma tylko określone właściwości dla każdego obiektu w tablicy. W tym przypadku tablica zawiera nazwę akcji i właściwości wyniku błędu.
+Ta [Akcja **SELECT**](../logic-apps/logic-apps-perform-data-operations.md#select-action) tworzy tablicę zawierającą obiekty JSON na podstawie tablicy wejściowej, która jest wyprowadzana z poprzedniej akcji `Find failure msg from 'Try' block` . W tym celu ta akcja zwraca tablicę, która ma tylko określone właściwości dla każdego obiektu w tablicy. W tym przypadku tablica zawiera nazwę akcji i właściwości wyniku błędu.
 
 ![Wybierz akcję — "Wybierz szczegóły błędu"](./media/send-related-messages-sequential-convoy/select-error-details.png)
 
@@ -388,7 +388,7 @@ Następnie przepływ pracy kończy działanie aplikacji logiki i zwraca stan uru
 
 ### <a name="terminate-logic-app-run"></a>Przerwij przebieg aplikacji logiki
 
-Ta [Akcja **zakończenia** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) powoduje zatrzymanie działania aplikacji logiki i zwrócenie jej `Failed` jako stanu dla uruchomienia aplikacji logiki wraz z identyfikatorem sesji oraz wynikiem błędu z `Select error details` akcji.
+Ta [Akcja **zakończenia**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) powoduje zatrzymanie działania aplikacji logiki i zwrócenie jej `Failed` jako stanu dla uruchomienia aplikacji logiki wraz z identyfikatorem sesji oraz wynikiem błędu z `Select error details` akcji.
 
 ![Przerwij akcję w celu zatrzymania uruchomienia aplikacji logiki](./media/send-related-messages-sequential-convoy/terminate-logic-app-run.png)
 

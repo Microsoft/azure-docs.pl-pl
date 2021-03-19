@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87053045"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Poprawka protokołu Smooth Streaming Protocol (MS-SSTR) dla HEVC 
@@ -66,10 +66,10 @@ Następujące terminy są specyficzne dla tego dokumentu:
 
 >  [MS-SSTR] *V20140502* protokołu Smooth Streaming [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
->   [ISO/IEC 14496-12] Międzynarodowa Organizacja Normalizacyjna "technologia informacyjna — kodowanie obiektów dźwięk-Visual — część 12: Format pliku multimediów ISO Base", ISO/IEC 14496-12:2014, wydanie 4 i sprostowanie 1, zmiany 1 & 2.
+>   [ISO/IEC 14496-12] Międzynarodowa Organizacja Normalizacyjna (ISO) "technologia informacyjna — kodowanie obiektów dźwięk-Visual — część 12: Format pliku multimediów ISO Base", ISO/IEC 14496-12:2014, wydanie 4 i sprostowanie 1, zmiany 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
 > 
->   [ISO/IEC 14496-15] Międzynarodowa Organizacja Normalizacyjna, "technologia informacyjna — kodowanie obiektów dźwięk-wizualizacji — część 15: przewóz wideo z strukturalną jednostką NAL w formacie pliku nośnika podstawowego ISO", ISO 14496-15:2015, wydanie 3.
+>   [ISO/IEC 14496-15] Międzynarodowa Organizacja Normalizacyjna (ISO), "technologia informacyjna — kodowanie obiektów dźwięk-wizualizacji — część 15: przewóz wideo z strukturalną jednostką NAL w formacie pliku nośnika podstawowego ISO", ISO 14496-15:2015, wydanie 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
 >   [ISO/IEC 23008-2] Technologia informacyjna — wysoka wydajność kodowania i dostarczania multimediów w środowiskach heterogenicznych — część 2: kodowanie wideo o wysokiej wydajności: 2013 lub Najnowsza wersja   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
@@ -391,7 +391,7 @@ Następujące pola mogą być obecne w odpowiedziach na fragmenty, gdy Common En
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

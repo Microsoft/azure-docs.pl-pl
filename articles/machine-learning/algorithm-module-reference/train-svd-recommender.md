@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890242"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654462"
 ---
 # <a name="train-svd-recommender"></a>Trenowanie modułu poleceń SVD
 
 W tym artykule opisano sposób korzystania z modułu polecania SVD w programie Azure Machine Learning Designer. Ten moduł służy do uczenia modelu rekomendacji na podstawie algorytmu pojedynczego rozkładu wartości (SVD).  
 
-Moduł polecający SVD pociąg odczytuje zestaw danych potrójnych ocen elementów użytkownika. Zwraca zalecany polecający SVD. Można następnie użyć przeszkolonego modelu do przewidywania klasyfikacji lub wygenerowania zaleceń przy użyciu modułu [zalecanego do oceny SVD](score-svd-recommender.md) .  
+Moduł polecający SVD pociąg odczytuje zestaw danych potrójnych ocen elementów użytkownika. Zwraca zalecany polecający SVD. Można następnie użyć przeszkolonego modelu do przewidywania klasyfikacji lub wygenerowania zaleceń, łącząc moduł [polecający "Ocena SVD](score-svd-recommender.md) ".  
 
 
   
@@ -58,18 +58,21 @@ Z tego przykładu można zobaczyć, że jeden użytkownik ma sklasyfikowane kilk
 
 1.  Dodaj moduł polecający SVD (szkolenie) do potoku w Projektancie i podłącz go do danych szkoleniowych.  
    
-2.  Dla **liczby czynników**Określ liczbę czynników, które mają być używane z zaleceniem.  
+2.  Dla **liczby czynników** Określ liczbę czynników, które mają być używane z zaleceniem.  
     
     Każdy czynnik mierzy, jak dużo użytkownik jest odnosił się do elementu. Liczba czynników jest również wymiarem obszaru ukryty obszar. Po zwiększeniu liczby użytkowników i elementów lepiej jest ustawić większą liczbę czynników. Ale jeśli liczba jest zbyt duża, może to spowodować spadek wydajności.
     
 3.  **Liczba iteracji algorytmu rekomendacji** wskazuje, ile razy algorytm powinien przetworzyć dane wejściowe. Im wyższy numer to, tym dokładniejsze są przewidywania. Jednak wyższa liczba oznacza wolniejsze szkolenie. Wartość domyślna to 30.
 
-4.  W polu **stawka szkoleniowa**wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje rozmiar kroku uczenia się.
+4.  W polu **stawka szkoleniowa** wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje rozmiar kroku uczenia się.
 
     Szybkość uczenia określa rozmiar kroku w każdej iteracji. Jeśli rozmiar tego kroku jest zbyt duży, można przekroczyć optymalne rozwiązanie. Jeśli rozmiar tego kroku jest zbyt mały, szkolenie zajmuje więcej czasu na znalezienie najlepszego rozwiązania. 
   
 5.  Prześlij potok.  
 
+## <a name="results"></a>Wyniki
+
+Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz się z [polecaną](train-svd-recommender.md) ANALIZą SVD, aby wypróbować [zalecaną ocenę](score-svd-recommender.md), aby przewidzieć wartości nowych przykładów wejściowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

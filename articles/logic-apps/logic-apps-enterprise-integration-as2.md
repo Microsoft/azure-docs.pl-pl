@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856674"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów AS2 w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą Pakietu integracyjnego dla przedsiębiorstw
@@ -29,7 +29,7 @@ Aby korzystać z komunikatów AS2 w Azure Logic Apps, można użyć łącznika A
   * Kompresuje komunikat.
   * Przesyła nazwę pliku w nagłówku MIME.
 
-* [ **AS2 akcja dekodowania** ](#decode) do zapewniania odszyfrowywania, podpisywania cyfrowego i potwierdzeń przy użyciu powiadomień o dyspozycjach komunikatów (powiadomienia MDN). Na przykład ta akcja wykonuje następujące zadania:
+* [ **AS2 akcja dekodowania**](#decode) do zapewniania odszyfrowywania, podpisywania cyfrowego i potwierdzeń przy użyciu powiadomień o dyspozycjach komunikatów (powiadomienia MDN). Na przykład ta akcja wykonuje następujące zadania:
 
   * Przetwarza nagłówki AS2/HTTP.
   * Uzgadnia odebrane MDNs z oryginalnymi komunikatami wychodzącymi.
@@ -63,7 +63,7 @@ W tym artykule pokazano, jak dodać akcje kodowania i dekodowania AS2 do istniej
 
 * Jeśli używasz [Azure Key Vault](../key-vault/general/overview.md) do zarządzania certyfikatami, sprawdź, czy klucze magazynu umożliwiają wykonywanie operacji **szyfrowania** i **odszyfrowywania** . W przeciwnym razie akcje kodowania i dekodowania kończą się niepowodzeniem.
 
-  W Azure Portal przejdź do klucza w magazynie kluczy, przejrzyj **dozwolone operacje**dotyczące klucza i upewnij się, że są wybrane operacje **szyfrowania** i **odszyfrowywania** , na przykład:
+  W Azure Portal przejdź do klucza w magazynie kluczy, przejrzyj **dozwolone operacje** dotyczące klucza i upewnij się, że są wybrane operacje **szyfrowania** i **odszyfrowywania** , na przykład:
 
   ![Sprawdzanie operacji klucza magazynu](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 

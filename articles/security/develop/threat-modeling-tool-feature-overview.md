@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980675"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji Threat Modeling Tool
@@ -120,7 +120,7 @@ Zatrzymaj wskaźnik myszy nad **otwartym modelem** , aby odsłonić dwie opcje: 
 
 ### <a name="feedback-suggestions-and-issues"></a>Opinie, sugestie i problemy
 
-Po wybraniu **opinii, sugestii i problemów**przejdź do forum MSDN dla narzędzi SDL. Możesz odczytywać inne osoby, które mówią o tym narzędziu, w tym o obejściach i nowych pomysłach.
+Po wybraniu **opinii, sugestii i problemów** przejdź do forum MSDN dla narzędzi SDL. Możesz odczytywać inne osoby, które mówią o tym narzędziu, w tym o obejściach i nowych pomysłach.
 
 ![Zrzut ekranu przedstawia przycisk z odpowiedzią na tekst, sugestiami i problemami.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
@@ -133,7 +133,7 @@ Po otwarciu lub utworzeniu nowego modelu zostanie otwarty widok **projekt** .
 Elementy w siatce można dodać na dwa sposoby:
 
 - **Przeciągnij i upuść**: Przeciągnij żądany element do siatki. Następnie użyj właściwości elementu, aby podać dodatkowe informacje.
-- **Kliknij prawym**przyciskiem myszy: kliknij prawym przyciskiem myszy w dowolnym miejscu siatki, a następnie wybierz pozycję elementy z menu rozwijanego. Na ekranie zostanie wyświetlona ogólna reprezentacja elementu, który został wybrany.
+- **Kliknij prawym** przyciskiem myszy: kliknij prawym przyciskiem myszy w dowolnym miejscu siatki, a następnie wybierz pozycję elementy z menu rozwijanego. Na ekranie zostanie wyświetlona ogólna reprezentacja elementu, który został wybrany.
 
 ### <a name="connect-elements"></a>Połącz elementy
 
@@ -150,9 +150,9 @@ Elementy można łączyć na dwa sposoby:
 
 ![Stary adres](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Nowy adres
+#### <a name="after"></a>Po
 
-![Nowy adres](./media/threat-modeling-tool-feature-overview/properties2.png)
+![Po](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Komunikaty
 

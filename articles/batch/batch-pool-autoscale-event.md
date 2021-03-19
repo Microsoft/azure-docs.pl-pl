@@ -4,10 +4,10 @@ description: Odwołanie do zdarzenia automatycznego skalowania puli usługi Batc
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: e548ed484e5f683a8f79434ce4095ac66900f01a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91852180"
 ---
 # <a name="pool-autoscale-event"></a>Zdarzenie automatycznego skalowania puli
@@ -34,7 +34,7 @@ ms.locfileid: "91852180"
 }
 ```
 
-|Element|Type|Uwagi|
+|Element|Typ|Uwagi|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator puli.|
 |`timestamp`|DateTime|Sygnatura czasowa, gdy jest wykonywane automatyczne skalowanie.|
@@ -44,7 +44,7 @@ ms.locfileid: "91852180"
 
 ###  <a name="error"></a><a name="error"></a> Porn
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`code`|Ciąg|Identyfikator błędu skalowania automatycznego. Kody są niezmienne i mają być używane programowo.|
 |`message`|Ciąg|Komunikat opisujący automatyczny błąd skalowania, przeznaczony do wyświetlania w interfejsie użytkownika.|

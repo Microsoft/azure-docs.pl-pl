@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654377"
 ---
 # <a name="about-expressroute-fastpath"></a>Informacje o usłudze ExpressRoute FastPath
 
@@ -42,7 +42,7 @@ Aby można było skonfigurować FastPath, Brama sieci wirtualnej musi być:
 
 Program FastPath obsługuje większość konfiguracji, ale nie obsługuje następujących funkcji:
 
-* UDR w podsieci bramy: w przypadku zastosowania UDR do podsieci bramy sieci wirtualnej ruch sieciowy z sieci lokalnej będzie nadal wysyłany do bramy sieci wirtualnej.
+* UDR w podsieci bramy: ten UDR nie ma wpływu na ruch sieciowy wysyłany przez FastPath bezpośrednio z sieci lokalnej do maszyn wirtualnych w usłudze Azure Virtual Network. 
 
 * Komunikacja równorzędna sieci wirtualnych: w przypadku komunikacji równorzędnej z usługą, która jest połączona z ExpressRoute, ruch sieciowy z sieci lokalnej do innych sieci wirtualnych (tj. "szprychy" sieci wirtualnych) będzie nadal wysyłany do bramy sieci wirtualnej. Obejście polega na połączeniu wszystkich sieci wirtualnych bezpośrednio do obwodu ExpressRoute.
 

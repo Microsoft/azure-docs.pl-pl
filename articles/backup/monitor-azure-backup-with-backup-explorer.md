@@ -5,10 +5,10 @@ ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824416"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorowanie kopii zapasowych za pomocą Eksploratora kopii zapasowych
@@ -19,7 +19,7 @@ Eksplorator kopii zapasowych jest wbudowanym Azure Monitor skoroszytem, który z
 
 * **Perspektywa w skali**: Uzyskaj Zagregowany widok elementów kopii zapasowych, zadań, alertów, zasad i zasobów, które nie zostały jeszcze skonfigurowane do tworzenia kopii zapasowych w całej nieruchomości.
 * **Analiza przechodzenia do szczegółów**: Wyświetla szczegółowe informacje o poszczególnych zadaniach, alertach, zasadach i elementach kopii zapasowych, a wszystko to w jednym miejscu.
-* **Interfejsy**z możliwością działania: po zidentyfikowaniu problemu można go rozwiązać, przechodząc do odpowiedniego elementu kopii zapasowej lub zasobu platformy Azure.
+* **Interfejsy** z możliwością działania: po zidentyfikowaniu problemu można go rozwiązać, przechodząc do odpowiedniego elementu kopii zapasowej lub zasobu platformy Azure.
 
 Te możliwości są udostępniane przez natywną integrację z usługą Azure Resource Graph i skoroszytami Azure Monitor.
 
@@ -60,13 +60,13 @@ Można filtrować i wyświetlać poszczególne elementy kopii zapasowej według 
 
 ### <a name="the-jobs-tab"></a>Karta zadania
 
-Wybierz kartę **zadania** , aby wyświetlić szczegóły wszystkich zadań wyzwalanych w ciągu ostatnich 7 dni. Tutaj można filtrować według *operacji zadania*, *stanu zadania*i *kodu błędu* (dla zadań zakończonych niepowodzeniem).
+Wybierz kartę **zadania** , aby wyświetlić szczegóły wszystkich zadań wyzwalanych w ciągu ostatnich 7 dni. Tutaj można filtrować według *operacji zadania*, *stanu zadania* i *kodu błędu* (dla zadań zakończonych niepowodzeniem).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### <a name="the-alerts-tab"></a>Karta alerty
 
-Wybierz kartę **alerty** , aby wyświetlić szczegóły wszystkich alertów, które zostały wygenerowane w Twoich magazynach w ciągu ostatnich 7 dni. Alerty można filtrować według typu (*Niepowodzenie kopii zapasowej* lub *Niepowodzenie przywracania*), bieżącego stanu (*aktywnego* lub *rozwiązanego*) i ważności (*krytyczne*, *Ostrzeżenie*lub *informacje*). Możesz również wybrać link, aby przejść do maszyny wirtualnej platformy Azure i podjąć wszelkie niezbędne działania.
+Wybierz kartę **alerty** , aby wyświetlić szczegóły wszystkich alertów, które zostały wygenerowane w Twoich magazynach w ciągu ostatnich 7 dni. Alerty można filtrować według typu (*Niepowodzenie kopii zapasowej* lub *Niepowodzenie przywracania*), bieżącego stanu (*aktywnego* lub *rozwiązanego*) i ważności (*krytyczne*, *Ostrzeżenie* lub *informacje*). Możesz również wybrać link, aby przejść do maszyny wirtualnej platformy Azure i podjąć wszelkie niezbędne działania.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 

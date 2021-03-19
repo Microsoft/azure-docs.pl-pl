@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540387"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Zainstaluj wersję zapoznawczą środowisko uruchomieniowe usługi Azure Functions 2
@@ -101,7 +101,7 @@ Aby utworzyć swoją pierwszą funkcję w wersji zapoznawczej środowisko urucho
 
 1. Przejdź do **portalu środowisko uruchomieniowe usługi Azure Functions** , jak `https://<machinename>.<domain>` na przykład `https://mycomputer.mydomain.com` .
 
-1. Zostanie wyświetlony monit o **zalogowanie**się, jeśli został wdrożony w domenie, użyj nazwy użytkownika i hasła konta domeny, w przeciwnym razie użyj nazwy użytkownika i hasła konta lokalnego, aby zalogować się do portalu.
+1. Zostanie wyświetlony monit o **zalogowanie** się, jeśli został wdrożony w domenie, użyj nazwy użytkownika i hasła konta domeny, w przeciwnym razie użyj nazwy użytkownika i hasła konta lokalnego, aby zalogować się do portalu.
 
     ![Logowanie do portalu środowisko uruchomieniowe usługi Azure Functions w wersji zapoznawczej][14]
 

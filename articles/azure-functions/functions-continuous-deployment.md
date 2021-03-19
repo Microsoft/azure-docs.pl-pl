@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83123689"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Ciągłe wdrażanie dla usługi Azure Functions
@@ -42,7 +42,7 @@ Aby skonfigurować ciągłe wdrażanie dla istniejącej aplikacji funkcji, wykon
 
 3. W witrynie GitHub wybierz pozycję **Autoryzuj AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Azure App Service centrum wdrażania":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autoryzuj Azure App Service":::
 
     Wprowadź hasło usługi GitHub, a następnie wybierz pozycję **Kontynuuj**.
 
@@ -51,11 +51,11 @@ Aby skonfigurować ciągłe wdrażanie dla istniejącej aplikacji funkcji, wykon
     * **App Service Build Service**: najlepiej, gdy nie potrzebujesz kompilacji lub jeśli potrzebujesz kompilacji ogólnej.
     * **Azure Pipelines (wersja zapoznawcza)**: Najlepsza, gdy potrzebna jest większa kontrola nad kompilacją. Ten dostawca jest obecnie w wersji zapoznawczej.
 
-    Wybierz pozycję **Continue** (Kontynuuj).
+    Wybierz opcję **Kontynuuj**.
 
-5. Skonfiguruj informacje specyficzne dla określonej opcji kontroli źródła. W przypadku usługi GitHub należy wprowadzić lub wybrać wartości dla **organizacji**, **repozytorium**i **gałęzi**. Wartości są zależne od lokalizacji kodu. Następnie wybierz pozycję **Kontynuuj**.
+5. Skonfiguruj informacje specyficzne dla określonej opcji kontroli źródła. W przypadku usługi GitHub należy wprowadzić lub wybrać wartości dla **organizacji**, **repozytorium** i **gałęzi**. Wartości są zależne od lokalizacji kodu. Następnie wybierz pozycję **Kontynuuj**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Azure App Service centrum wdrażania":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Konfigurowanie usługi GitHub":::
 
 6. Przejrzyj wszystkie szczegóły, a następnie wybierz pozycję **Zakończ** , aby ukończyć konfigurację wdrożenia.
 
