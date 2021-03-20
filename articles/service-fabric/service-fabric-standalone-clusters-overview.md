@@ -4,10 +4,10 @@ description: Klastry Service Fabric są uruchamiane w systemach Windows Server i
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94684002"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
@@ -54,7 +54,7 @@ Wymagania aplikacji zmieniają się w miarę upływu czasu. Może być konieczne
 
 Aby uzyskać więcej informacji, zobacz [skalowanie klastrów autonomicznych](service-fabric-cluster-scaling-standalone.md).
 
-## <a name="upgrading"></a>Unowocześnieni
+## <a name="upgrading"></a>Uaktualnianie
 
 Autonomiczny klaster jest zasobem, który jesteś całkowicie własnym. Użytkownik jest odpowiedzialny za stosowanie poprawek do podstawowego systemu operacyjnego i Inicjowanie uaktualnień sieci szkieletowej. Można ustawić, aby klaster otrzymywał aktualizacje automatycznego środowiska uruchomieniowego, gdy firma Microsoft wyprowadzi nową wersję, lub wybrać wybraną obsługiwaną wersję środowiska uruchomieniowego. Oprócz uaktualnień sieci szkieletowej można również zastosować poprawki do systemu operacyjnego i zaktualizować konfigurację klastra, na przykład certyfikaty lub porty aplikacji. 
 

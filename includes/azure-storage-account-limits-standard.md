@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96025469"
 ---
 W poniższej tabeli opisano domyślne limity dla kont usługi Azure ogólnego przeznaczenia w wersji 1, v2, BLOB Storage i blokowych obiektów BLOB Storage. Limit *ruchu* przychodzącego odnosi się do wszystkich danych wysyłanych do konta magazynu. Limit *ruchu* wychodzącego odnosi się do wszystkich danych odebranych z konta magazynu.

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545110"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Szybki Start: używanie języka PHP do nawiązywania połączeń i wykonywania zapytań dotyczących danych w Azure Database for MySQL-elastycznym serwerze
@@ -28,9 +28,9 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie Azure Database for MySQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure](./quickstart-create-server-cli.md)
 
 ## <a name="preparing-your-client-workstation"></a>Przygotowywanie stacji roboczej klienta
-1. Jeśli serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera. Zapoznaj się z tematem [Tworzenie i zarządzanie Azure Database for MySQL elastyczną siecią wirtualną serwera przy użyciu interfejsu wiersza polecenia platformy Azure](./how-to-manage-virtual-network-cli.md).
+1. Jeśli serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera. Zapoznaj się z tematem [Tworzenie i zarządzanie Azure Database for MySQL elastyczną siecią wirtualną serwera przy użyciu interfejsu wiersza polecenia platformy Azure](./how-to-manage-virtual-network-cli.md).
 
-2. Jeśli został utworzony serwer elastyczny z *dostępem publicznym (dozwolone adresy IP)* , możesz dodać lokalny adres IP do listy reguł zapory na serwerze. Zapoznaj się z tematem [Tworzenie i zarządzanie Azure Database for MySQL elastycznych reguł zapory serwera przy użyciu interfejsu wiersza polecenia platformy Azure](./how-to-manage-firewall-cli.md).
+2. Jeśli został utworzony serwer elastyczny z *dostępem publicznym (dozwolone adresy IP)*, możesz dodać lokalny adres IP do listy reguł zapory na serwerze. Zapoznaj się z tematem [Tworzenie i zarządzanie Azure Database for MySQL elastycznych reguł zapory serwera przy użyciu interfejsu wiersza polecenia platformy Azure](./how-to-manage-firewall-cli.md).
 
 ### <a name="install-php"></a>Instalowanie języka PHP
 
@@ -55,10 +55,10 @@ Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową]
 
 Pobierz informacje o połączeniu, które są konieczne do nawiązania połączenia z serwerem elastycznym Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wyszukaj utworzony serwer (na przykład **mydemoserver** ).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **mydemoserver**).
 3. Wybierz nazwę serwera.
-4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera** . Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
+4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## <a name="connecting-to-flexible-server-using-tlsssl-in-php"></a>Nawiązywanie połączenia z elastycznym serwerem przy użyciu protokołu TLS/SSL w języku PHP

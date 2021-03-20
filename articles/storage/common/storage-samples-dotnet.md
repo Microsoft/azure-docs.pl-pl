@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359785"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 .NET
@@ -254,7 +254,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Wiadomość
+### <a name="message"></a>Komunikat
 
 :::row:::
    :::column span="":::

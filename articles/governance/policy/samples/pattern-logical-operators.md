@@ -4,15 +4,15 @@ description: Ten Azure Policy wzorzec zawiera przykłady użycia operatorów log
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88545594"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Wzorzec Azure Policy: operatory logiczne
 
-Definicja zasad może zawierać kilka instrukcji warunkowych. Może być konieczne, aby każda instrukcja była prawdziwa lub tylko niektóre z nich były prawdziwe. Aby zapewnić obsługę tych wymagań, język ma [Operatory logiczne](../concepts/definition-structure.md#logical-operators) dla **not**, **allOf**i **anyOf**. Są one opcjonalne i mogą być zagnieżdżane w celu tworzenia złożonych scenariuszy.
+Definicja zasad może zawierać kilka instrukcji warunkowych. Może być konieczne, aby każda instrukcja była prawdziwa lub tylko niektóre z nich były prawdziwe. Aby zapewnić obsługę tych wymagań, język ma [Operatory logiczne](../concepts/definition-structure.md#logical-operators) dla **not**, **allOf** i **anyOf**. Są one opcjonalne i mogą być zagnieżdżane w celu tworzenia złożonych scenariuszy.
 
 ## <a name="sample-1-one-logical-operator"></a>Przykład 1: jeden operator logiczny
 

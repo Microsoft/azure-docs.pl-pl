@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć artefakty do użycia z Azure DevTest Lab
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270686"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
@@ -47,8 +47,8 @@ Poniższy przykład przedstawia sekcje, które składają się na podstawową st
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
 | $schema |Nie |Lokalizacja pliku schematu JSON. Plik schematu JSON może pomóc w przetestowaniu ważności pliku definicji. |
-| title |Tak |Nazwa artefaktu wyświetlanego w laboratorium. |
-| description |Tak |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
+| tytuł |Tak |Nazwa artefaktu wyświetlanego w laboratorium. |
+| description (opis) |Tak |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
 | iconUri |Nie |Identyfikator URI ikony wyświetlanej w laboratorium. |
 | targetOsType |Tak |System operacyjny maszyny wirtualnej, na której jest zainstalowany artefakt. Obsługiwane opcje to Windows i Linux. |
 | parameters |Nie |Wartości, które są dostarczane, gdy polecenie instalacji artefaktu jest uruchamiane na komputerze. Ułatwia to dostosowanie artefaktu. |
@@ -73,7 +73,7 @@ Aby zdefiniować parametry, należy użyć następującej struktury:
 | --- | --- | --- |
 | typ |Tak |Typ wartości parametru. Zapoznaj się z poniższą listą typów dozwolonych. |
 | displayName |Tak |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. |
-| description |Tak |Opis parametru, który jest wyświetlany w laboratorium. |
+| description (opis) |Tak |Opis parametru, który jest wyświetlany w laboratorium. |
 
 Dozwolone typy to:
 

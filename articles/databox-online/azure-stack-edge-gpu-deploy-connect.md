@@ -10,17 +10,17 @@ ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90900035"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Samouczek: Nawiązywanie połączenia z usługą Azure Stack EDGE Pro z procesorem GPU
 
 W tym samouczku opisano, jak nawiązać połączenie z urządzeniem z programem Azure Stack EDGE Pro przy użyciu interfejsu GPU w sieci lokalnej.
 
-Proces połączenia może potrwać około 5 minut.
+Proces nawiązywania połączenia może potrwać około 5 minut.
 
 Ten samouczek zawiera informacje dotyczące:
 
@@ -41,7 +41,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
 
 1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack EDGE Pro ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
 
-2. Podłącz komputer do portu 1 na urządzeniu. Jeśli komputer jest połączony bezpośrednio z urządzeniem (bez przełącznika), użyj kabla skrzyżowanego lub karty Ethernet USB. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
+2. Podłącz komputer do PORTU 1 na urządzeniu. W przypadku bezpośredniego podłączenia komputera do urządzenia (bez przełącznika) użyj kabla z przeplotem lub przejściówki USB Ethernet. Skorzystaj z poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
 
     ![Płyta montażowa okablowanego urządzenia](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
@@ -63,7 +63,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
     ![Strona logowania do urządzenia z systemem Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. W wierszu polecenia Zmień hasło administratora urządzenia.  
-    Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać trzy z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne.
+    Nowe hasło musi zawierać od 8 do 16 znaków. Hasło musi zawierać trzy z następujących rodzajów znaków: małe litery, wielkie litery, cyfry i znaki specjalne.
 
 Jesteś teraz na stronie **Przegląd** Twojego urządzenia. Następnym krokiem jest skonfigurowanie ustawień sieci dla urządzenia.
 

@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703685"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587648"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -167,6 +167,18 @@ W danych wyjściowych polecenia powinien być wyświetlany klucz {SID} {dbname},
 
 >[!NOTE]
 > Upewnij się, że masz unikatowy zestaw plików SSFS `/usr/sap/{SID}/home/.hdb/` . W tej ścieżce powinien znajdować się tylko jeden folder.
+
+Poniżej znajduje się Podsumowanie kroków wymaganych do ukończenia uruchomienia skryptu przed rejestracją.
+
+|Którzy  |Źródło  |Co do uruchomienia  |Komentarze  |
+|---------|---------|---------|---------|
+|```<sid>```adm (system operacyjny)     |  SYSTEM OPERACYJNY HANA       |   Zapoznaj się z samouczkiem i Pobierz skrypt przed rejestracją      |   Przeczytaj [powyższe wymagania wstępne](#prerequisites)    Pobierz skrypt poprzedzający rejestrację z tego [miejsca](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```adm (system operacyjny) i użytkownik systemu (HANA)    |      SYSTEM OPERACYJNY HANA   |   Uruchom polecenie Set hdbuserstore      |   np. hdbuserstore Set SYSTEM hostname>:3 ```<Instance#>``` 13 Uwaga systemowa: Upewnij się, ```<password>```  że używasz nazwy hosta zamiast adresu IP lub nazwy FQDN      |
+|```<sid>```adm (system operacyjny)    |   SYSTEM OPERACYJNY HANA      |  Uruchom listę hdbuserstore polecenia       |   Sprawdź, czy wynik zawiera domyślny magazyn podobny do następującego: ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Główny (system operacyjny)     |   SYSTEM OPERACYJNY HANA        |    Uruchamianie skryptu przed rejestracją Azure Backup HANA      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (system operacyjny)    |  SYSTEM OPERACYJNY HANA       |   Uruchom listę hdbuserstore polecenia      |    Sprawdź, czy wynik zawiera nowe wiersze w następujący sposób:  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+Po pomyślnym uruchomieniu skryptu przed rejestracją i sprawdzeniu można sprawdzić [wymagania dotyczące łączności](#set-up-network-connectivity) , a następnie [skonfigurować kopię zapasową](#discover-the-databases) z magazynu usługi Recovery Services.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 

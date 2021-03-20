@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92547711"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
@@ -62,7 +62,7 @@ Właściwości systemu pomagają identyfikować zawartość i źródło komunika
 | DT — schemat elementu | ciąg |  Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Aby wykonać zapytanie, użyj `$dt-dataschema` . |
 | DT — temat | ciąg | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Aby wykonać zapytanie, użyj `$dt-subject` . |
 
-Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId** , **connectionModuleId** .
+Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId**, **connectionModuleId**.
 
 ### <a name="application-properties"></a>Właściwości aplikacji
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice* przedstawia sposób kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części Program.cs ma także metodę odczytywania w jednym z zakodowanych plików, dekodowanie go i zapisanie go jako ASCII, aby można było go odczytać. 
+> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik programu Visual Studio Solution *SimulatedDevice*. cs zawiera informacje dotyczące kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części programu program. cs ma także metodę odczytu w jednym z zakodowanych plików, zdekodować ją i zapisać jako ASCII, aby można było ją odczytać. 
 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań

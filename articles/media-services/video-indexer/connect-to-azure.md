@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 35d01fd60d0549a528a45013add48bd203b86d6e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727264"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654683"
 ---
 # <a name="create-a-video-indexer-account"></a>Utwórz konto Video Indexer
 
@@ -203,7 +203,7 @@ Aby zautomatyzować tworzenie konta, należy wykonać dwa kroki:
 
 -   Subskrypcja platformy Azure w [Azure Government](../../azure-government/index.yml).
 - Konto usługi Azure AD w Azure Government.
-- Wszystkie wymagania wstępne dotyczące uprawnień i zasobów zgodnie z powyższym opisem w sekcji [wymagania wstępne dotyczące nawiązywania połączenia z platformą Azure](#prerequisites-for-connecting-to-azure).
+- Wszystkie wymagania wstępne dotyczące uprawnień i zasobów zgodnie z powyższym opisem w sekcji [wymagania wstępne dotyczące nawiązywania połączenia z platformą Azure](#prerequisites-for-connecting-to-azure). Upewnij się, że zawarto sprawdzanie [dodatkowych wymagań wstępnych dotyczących automatycznego przepływu](#additional-prerequisites-for-automatic-flow) i [dodatkowych wymagań wstępnych dotyczących przepływu ręcznego](#additional-prerequisites-for-manual-flow).
 
 ### <a name="create-new-account-via-the-azure-government-portal"></a>Utwórz nowe konto za pośrednictwem portalu Azure Government
 

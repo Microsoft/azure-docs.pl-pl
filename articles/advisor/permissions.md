@@ -4,10 +4,10 @@ description: Uprawnienia usługi Advisor oraz sposób, w jaki mogą blokować mo
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91712924"
 ---
 # <a name="permissions-in-azure-advisor"></a>Uprawnienia w Azure Advisor
@@ -18,7 +18,7 @@ Azure Advisor zapewnia zalecenia na podstawie użycia i konfiguracji zasobów i 
 
 W poniższej tabeli zdefiniowano role i dostęp do nich w usłudze Advisor:
 
-| **Role** | **Wyświetl rekomendacje** | **Edytuj reguły** | **Edytuj konfigurację subskrypcji** | **Edytuj konfigurację grupy zasobów**| **Odrzuć i odłóż zalecenia**|
+| **Role** | **Wyświetl rekomendacje** | **Edytowanie reguł** | **Edytuj konfigurację subskrypcji** | **Edytuj konfigurację grupy zasobów**| **Odrzuć i odłóż zalecenia**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Właściciel subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
 |Współautor subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
@@ -49,5 +49,5 @@ Jeśli wystąpi błąd podczas próby odroczenia lub odrzucenia zalecenia, może
 
 Ten artykuł zawiera omówienie sposobu korzystania z usługi Azure RBAC do kontrolowania uprawnień użytkowników i rozwiązywania typowych problemów. Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
 
-- [Co to jest usługa Azure Advisor?](./advisor-overview.md)
+- [Co to jest Azure Advisor?](./advisor-overview.md)
 - [Wprowadzenie do usługi Azure Advisor](./advisor-get-started.md)

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91756824"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Szybki Start: udostępnianie zarządzanego modułu HSM i aktywowanie go przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -63,7 +63,7 @@ Musisz podać następujące dane wejściowe, aby utworzyć zarządzany zasób mo
 - Lokalizacja platformy Azure.
 - Lista administratorów początkowych.
 
-Poniższy przykład tworzy moduł HSM o nazwie **ContosoMHSM**w grupie zasobów  **ContosoResourceGroup**, znajdujący się w lokalizacji **Wschodnie stany USA 2** , z **obecnie zalogowanym użytkownikiem** jako jedynego administratora.
+Poniższy przykład tworzy moduł HSM o nazwie **ContosoMHSM** w grupie zasobów  **ContosoResourceGroup**, znajdujący się w lokalizacji **Wschodnie stany USA 2** , z **obecnie zalogowanym użytkownikiem** jako jedynego administratora.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)

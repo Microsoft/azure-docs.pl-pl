@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19ead7fe063992e95588641f7fd739081cf54a2f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753865"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578417"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu
 
@@ -33,6 +33,20 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+```JavaScript
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+};
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 W MSAL Python plik konfiguracji wygląda podobnie do tego fragmentu kodu:
@@ -41,12 +55,6 @@ W MSAL Python plik konfiguracji wygląda podobnie do tego fragmentu kodu:
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -96,30 +104,6 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 
 W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken *XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
 
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-# The pattern to acquire a token looks like this.
-result = None
-
-# First, the code looks up a token from the cache.
-# Because we're looking for a token for the current app, not for a user,
-# use None for the account parameter.
-result = app.acquire_token_silent(config["scope"], account=None)
-
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
-
-if "access_token" in result:
-    # Call a protected API with the access token.
-    print(result["token_type"])
-else:
-    print(result.get("error"))
-    print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You might need this when reporting a bug.
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Ten kod jest wyodrębniany z [przykładów deweloperskich języka Java MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
@@ -167,6 +151,43 @@ private static IAuthenticationResult acquireToken() throws Exception {
      }
      return result;
  }
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Poniższy fragment kodu ilustruje pozyskiwanie tokenu w węźle MSAL poufne aplikacje klienckie:
+
+```JavaScript
+try {
+    const authResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+    console.log(authResponse.accessToken) // display access token
+} catch (error) {
+    console.log(error);
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+# The pattern to acquire a token looks like this.
+result = None
+
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
+result = app.acquire_token_silent(config["scope"], account=None)
+
+if not result:
+    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token.
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
 ---
@@ -241,12 +262,16 @@ Aby uzyskać szczegółowe informacje, zobacz [udostępnianie uprawnień aplikac
 
 Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=dotnet).
 
-# <a name="python"></a>[Python](#tab/python)
-
-Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=python).
-
 # <a name="java"></a>[Java](#tab/java)
 
 Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=nodejs).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=python).
 
 ---

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359836"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
@@ -37,7 +37,7 @@ Oto legenda obrazów w artykule:
 | Serwer synchronizacji Azure AD Connect "tryb przejściowy" |![Serwer synchronizacji Azure AD Connect "tryb przejściowy"](./media/plan-connect-topologies/legendsync2.png) |
 | GALSync z programem Forefront Identity Manager (FIM) 2010 lub Microsoft Identity Manager (MIM) 2016 |![GALSync z programem FIM 2010 lub MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
 | Serwer synchronizacji Azure AD Connect, szczegółowy |![Serwer synchronizacji Azure AD Connect, szczegółowy](./media/plan-connect-topologies/legendsync4.png) |
-| Azure AD |![Usługa Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
 | Nieobsługiwany scenariusz |![Nieobsługiwany scenariusz](./media/plan-connect-topologies/legendunsupported.png) |
 
 
@@ -168,7 +168,7 @@ Ta topologia ma następujące ograniczenia dotyczące scenariuszy obsługiwanych
 * Urządzenia z systemem Windows 10 mogą być skojarzone tylko z jedną dzierżawą usługi Azure AD.
 * Opcja logowania jednokrotnego (SSO) dla synchronizacji skrótów haseł i uwierzytelniania przekazywanego może być używana tylko z jedną dzierżawą usługi Azure AD.
 
-Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Do tych funkcji należą:
+Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Są one następujące:
 
 * Grupowanie zapisywania zwrotnego z domyślną konfiguracją.
 * Zapisywanie zwrotne urządzeń.

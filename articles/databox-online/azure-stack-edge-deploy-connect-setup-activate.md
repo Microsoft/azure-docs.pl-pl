@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91743339"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Samouczek: łączenie, Konfigurowanie i aktywowanie Azure Stack EDGE Pro 
@@ -40,7 +40,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro upewn
 
 1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack EDGE Pro ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
 
-2. Podłącz komputer do portu 1 na urządzeniu. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
+2. Podłącz komputer do PORTU 1 na urządzeniu. Skorzystaj z poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
 
     ![Płyta montażowa okablowanego urządzenia](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
@@ -59,13 +59,13 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro upewn
     ![Strona logowania do urządzenia z systemem Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. W wierszu polecenia Zmień hasło administratora urządzenia.  
-    Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać trzy z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne.
+    Nowe hasło musi zawierać od 8 do 16 znaków. Hasło musi zawierać trzy z następujących rodzajów znaków: małe litery, wielkie litery, cyfry i znaki specjalne.
 
 Jesteś teraz na pulpicie nawigacyjnym Twojego urządzenia.
 
 ## <a name="set-up-and-activate-the-physical-device"></a>Konfigurowanie i aktywowanie urządzenia fizycznego
  
-Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfigurowania i zarejestrowania urządzenia fizycznego za pomocą usługi Azure Stack Edge. **Nazwa urządzenia**, **Ustawienia sieci**, **Ustawienia serwera proxy sieci Web**i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia chmury**.
+Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfigurowania i zarejestrowania urządzenia fizycznego za pomocą usługi Azure Stack Edge. **Nazwa urządzenia**, **Ustawienia sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia chmury**.
    
 ![Strona "pulpit nawigacyjny" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
@@ -96,7 +96,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    
    a. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://host-IP address or FQDN:Port number` . Adresy URL HTTPS nie są obsługiwane.
 
-   b. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
+   b. W obszarze **Uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
 
    c. Jeśli używasz uwierzytelniania, wprowadź nazwę użytkownika i hasło.
 

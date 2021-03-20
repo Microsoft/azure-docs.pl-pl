@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698845"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598392"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Krok 1. zapoznanie się z zaletami migracji do Media Services API v3
 
@@ -58,8 +58,8 @@ Wprowadzono znaczne ulepszenia Media Services w wersji 3.
 |**Ochrona zawartości** ||
 | [Ochrona zawartości](content-key-policy-concept.md)   obsługuje funkcje wielokluczowe. | Klienci mogą teraz używać wielu kluczy szyfrowania zawartości w swoich lokalizatorach przesyłania strumieniowego. |
 | **Monitorowanie** | |
-| Obsługa powiadomień [usługi Azure EventGrid](reacting-to-media-services-events.md) | Powiadomienia EventGrid są rozbudowane. Istnieje więcej typów powiadomień, szerokiej obsługi zestawu SDK do otrzymywania powiadomień w aplikacji i innych istniejących usług platformy Azure, które mogą działać jako programy obsługi zdarzeń. |
-| [Azure Monitor pomoc techniczną i integrację w Azure Portal](monitor-events-portal-how-to.md) | Dzięki temu klienci mogą wizualizować Media Services użycia przydziału kont, statystyk w czasie rzeczywistym dla punktów końcowych przesyłania strumieniowego oraz pozyskiwanie i archiwizowanie statystyk dla wydarzeń na żywo. Klienci mogą teraz ustawiać alerty i wykonywać niezbędne działania na podstawie danych metryk w czasie rzeczywistym. |
+| Obsługa powiadomień [usługi Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Powiadomienia EventGrid są rozbudowane. Istnieje więcej typów powiadomień, szerokiej obsługi zestawu SDK do otrzymywania powiadomień w aplikacji i innych istniejących usług platformy Azure, które mogą działać jako programy obsługi zdarzeń. |
+| [Azure Monitor pomoc techniczną i integrację w Azure Portal](monitoring/monitor-events-portal-how-to.md) | Dzięki temu klienci mogą wizualizować Media Services użycia przydziału kont, statystyk w czasie rzeczywistym dla punktów końcowych przesyłania strumieniowego oraz pozyskiwanie i archiwizowanie statystyk dla wydarzeń na żywo. Klienci mogą teraz ustawiać alerty i wykonywać niezbędne działania na podstawie danych metryk w czasie rzeczywistym. |
 
 ## <a name="next-steps"></a>Następne kroki
 

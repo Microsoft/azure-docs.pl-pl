@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587852"
 ---
 # <a name="securing-service-principals"></a>Zabezpieczanie podmiotów usługi
 
-Nazwa [główna usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Azure Active Directory (Azure AD) to lokalna reprezentacja obiektu aplikacji w jednej dzierżawie lub katalogu.  Działa jako tożsamość wystąpienia aplikacji. Jednostki usługi definiują, kto może uzyskiwać dostęp do aplikacji i jakie zasoby mogą uzyskać dostęp do aplikacji. Jednostka usługi jest tworzona w każdej dzierżawie, w której jest używana aplikacja, i odwołuje się do globalnego obiektu aplikacji. Dzierżawca zabezpiecza logowanie jednostki usługi i dostęp do zasobów.  
+Nazwa [główna usługi](../develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) to lokalna reprezentacja obiektu aplikacji w jednej dzierżawie lub katalogu.  Działa jako tożsamość wystąpienia aplikacji. Jednostki usługi definiują, kto może uzyskiwać dostęp do aplikacji i jakie zasoby mogą uzyskać dostęp do aplikacji. Jednostka usługi jest tworzona w każdej dzierżawie, w której jest używana aplikacja, i odwołuje się do globalnego obiektu aplikacji. Dzierżawca zabezpiecza logowanie jednostki usługi i dostęp do zasobów.  
 
 ### <a name="tenant-service-principal-relationships"></a>Dzierżawy — relacje głównej usługi
 Aplikacja o pojedynczej dzierżawie ma tylko jedną jednostkę usługi w swojej dzierżawie głównej. Aplikacja sieci Web lub interfejs API z wieloma dzierżawcami wymaga nazwy głównej usługi w każdej dzierżawie. Jednostka usługi jest tworzona, gdy użytkownik z tej dzierżawy wyraził zgodę na użycie aplikacji lub interfejsu API. Ta zgoda tworzy relację "jeden do wielu" między aplikacją wielodostępną i skojarzoną z nią jednostkami usługi.
@@ -39,7 +39,7 @@ Dana instancja aplikacji ma dwie odrębne właściwości: Identyfikator aplikacj
 
 Identyfikator aplikacji reprezentuje aplikację globalną i jest taka sama dla wszystkich wystąpień aplikacji w dzierżawach. Identyfikator ObjectID jest unikatową wartością dla obiektu aplikacji i reprezentuje nazwę główną usługi. Podobnie jak w przypadku użytkowników, grup i innych zasobów, identyfikator ObjectID ułatwia unikatową identyfikację wystąpienia aplikacji w usłudze Azure AD.
 
-Aby uzyskać szczegółowe informacje na temat tego tematu, zobacz [relacja główna aplikacji i usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Aby uzyskać szczegółowe informacje na temat tego tematu, zobacz [relacja główna aplikacji i usługi](../develop/app-objects-and-service-principals.md).
 
 Możesz również utworzyć aplikację i jej obiekt główny usługi (ObjectID) w dzierżawie przy użyciu Azure PowerShell, interfejsu wiersza polecenia platformy Azure, Microsoft Graph, Azure Portal i innych narzędzi. 
 
@@ -63,7 +63,7 @@ Certyfikaty są bezpieczniejsze: Użyj certyfikatów klienta, jeśli jest to mo�
 
 * haśle 
 
-Aby uzyskać więcej informacji na temat Azure Key Vault i sposobu korzystania z niego na potrzeby zarządzania certyfikatami i kluczami tajnymi, zobacz [Informacje o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) i [przypisywaniu zasad dostępu Key Vault przy użyciu Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Aby uzyskać więcej informacji na temat Azure Key Vault i sposobu korzystania z niego na potrzeby zarządzania certyfikatami i kluczami tajnymi, zobacz [Informacje o Azure Key Vault](../../key-vault/general/overview.md) i [przypisywaniu zasad dostępu Key Vault przy użyciu Azure Portal](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Wyzwania i środki zaradcze
 W poniższej tabeli przedstawiono ograniczenia dotyczące problemów, które mogą wystąpić podczas korzystania z jednostek usługi.
@@ -89,7 +89,7 @@ Korzystanie z programu PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Aby uzyskać więcej informacji, zobacz [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
+Aby uzyskać więcej informacji, zobacz [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## <a name="assess-service-principal-security"></a>Oceń zabezpieczenia jednostki usługi
 
@@ -105,7 +105,7 @@ Nie można zarządzać logowaniem nazw głównych usługi przy użyciu dostępu 
 | Domyślna rola RBAC platformy Azure to współautor. |Oceń potrzeby i stosuj rolę z najniższymi możliwymi uprawnieniami, aby sprostać potrzebom.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Przenoszenie z konta użytkownika do jednostki usługi  
-Jeśli używasz konta użytkownika platformy Azure jako jednostki usługi, Oceń, czy możesz przejść do [tożsamości zarządzanej](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) lub nazwy głównej usługi. Jeśli nie możesz użyć tożsamości zarządzanej, Zainicjuj obsługę administracyjną jednostki usługi, która ma tylko wystarczające uprawnienia i zakres do uruchamiania wymaganych zadań. Można utworzyć jednostkę usługi przez [zarejestrowanie aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)lub przy użyciu [programu PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+Jeśli używasz konta użytkownika platformy Azure jako jednostki usługi, Oceń, czy możesz przejść do [tożsamości zarządzanej](../../app-service/overview-managed-identity.md?tabs=dotnet) lub nazwy głównej usługi. Jeśli nie możesz użyć tożsamości zarządzanej, Zainicjuj obsługę administracyjną jednostki usługi, która ma tylko wystarczające uprawnienia i zakres do uruchamiania wymaganych zadań. Można utworzyć jednostkę usługi przez [zarejestrowanie aplikacji](../develop/howto-create-service-principal-portal.md)lub przy użyciu [programu PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 Korzystając z Microsoft Graph, zapoznaj się z dokumentacją określonego interfejsu API, [jak w tym przykładzie](/powershell/azure/create-azure-service-principal-azureps), i upewnij się, że typ uprawnień aplikacji jest wyświetlany jako obsługiwany.
 
@@ -115,7 +115,7 @@ Korzystając z Microsoft Graph, zapoznaj się z dokumentacją określonego inter
 
 [Tworzenie nazwy głównej usługi](../develop/howto-create-service-principal-portal.md)
 
- [Monitoruj logowanie główne usługi](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Monitoruj logowanie główne usługi](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Aby dowiedzieć się więcej na temat zabezpieczania kont usługi:**
 

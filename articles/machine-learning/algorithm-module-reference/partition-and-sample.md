@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898485"
 ---
 # <a name="partition-and-sample-module"></a>Partycja i Przykładowa moduł
@@ -85,7 +85,7 @@ Ta opcja obsługuje proste Próbkowanie losowe lub losowe próbkowanie stratifie
 
 1. **Stratified podzielona na próbkowanie**: zaznacz tę opcję, jeśli ważne jest, aby wiersze w zestawie danych były dzielone równomiernie przez niektóre kolumny klucza przed próbkowanie.
 
-   Dla **kolumny klucza stratyfikacji do próbkowania**wybierz jedną *kolumnę* , która ma być używana podczas dzielenia zestawu danych. Wiersze w zestawie danych są następnie podzielone w następujący sposób:
+   Dla **kolumny klucza stratyfikacji do próbkowania** wybierz jedną *kolumnę* , która ma być używana podczas dzielenia zestawu danych. Wiersze w zestawie danych są następnie podzielone w następujący sposób:
 
    1. Wszystkie wiersze wejściowe są pogrupowane (stratified) przez wartości w określonej kolumnie.
 
@@ -104,7 +104,7 @@ Użyj tej opcji, jeśli chcesz podzielić zestaw danych na podzbiory danych. Ta 
 
 1. Dodawanie **partycji i przykładowego** modułu do potoku oraz łączenie zestawu danych.
 
-1. W obszarze **partycja lub przykład**wybierz pozycję **Przypisz do zgięcia**.
+1. W obszarze **partycja lub przykład** wybierz pozycję **Przypisz do zgięcia**.
 
 1. **Użyj zamiany na partycjonowanie**: zaznacz tę opcję, jeśli chcesz, aby wiersz próbkowany został umieszczony z powrotem w puli wierszy do ponownego użycia. W związku z tym ten sam wiersz może być przypisany do kilku zagięć.
 

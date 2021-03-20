@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykłady dodawania znaczników s
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 3016fc7889f68fd13e993c67ca645a4af055c651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88545560"
 ---
 # <a name="azure-policy-pattern-tags"></a>Wzorzec Azure Policy: Tagi
@@ -31,8 +31,8 @@ W tym przykładzie **tryb** jest ustawiony na _wszystko_ , ponieważ odwołuje s
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-1.json" range="26-36" highlight="7-8":::
 
-W tej części definicji zasad program `concat` łączy sparametryzowane parametry **TagName** i `tags['name']` format do informowania o tym **field** , aby ocenić ten tag dla parametru **tagValue**.
-Jako **notEquals** jest używany, jeśli **Tagi \[ TagName \] ** nie są równe **tagValue**, zostanie wyzwolony efekt **modyfikacji** .
+W tej części definicji zasad program `concat` łączy sparametryzowane parametry **TagName** i `tags['name']` format do informowania o tym  , aby ocenić ten tag dla parametru **tagValue**.
+Jako **notEquals** jest używany, jeśli **Tagi \[ TagName \]** nie są równe **tagValue**, zostanie wyzwolony efekt **modyfikacji** .
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-1.json" range="43-47" highlight="3-4":::
 

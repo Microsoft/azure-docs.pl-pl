@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898916"
 ---
 # <a name="apply-image-transformation"></a>Stosowanie transformacji obrazów 
@@ -34,11 +34,11 @@ Aby określić transformację, należy podłączyć moduł [przekształcenia obr
 
 3. Podłącz katalog obrazu, który chcesz przekształcić.
 
-4. W obszarze **tryb**Określ, w jaki sposób ma być używane Przekształcanie danych wejściowych: "dla szkolenia" lub "do wnioskowania". 
+4. W obszarze **tryb** Określ, w jaki sposób ma być używane Przekształcanie danych wejściowych: "dla szkolenia" lub "do wnioskowania". 
 
-   W przypadku wybrania opcji **szkolenia**zostanie zastosowana cała transformacja określona w transformacji obrazu init.
+   W przypadku wybrania opcji **szkolenia** zostanie zastosowana cała transformacja określona w transformacji obrazu init.
 
-   W przypadku wybrania **do wnioskowania**przekształcenia, takie jak tworzenie nowych próbek, zostaną wykluczone przed ich zastosowaniem. Wynika to z faktu, że operacje przekształcania w celu tworzenia nowych przykładów losowo takich jak "losowe Przerzucanie poziome" są używane do rozszerzania danych w szkole
+   W przypadku wybrania **do wnioskowania** przekształcenia, takie jak tworzenie nowych próbek, zostaną wykluczone przed ich zastosowaniem. Wynika to z faktu, że operacje przekształcania w celu tworzenia nowych przykładów losowo takich jak "losowe Przerzucanie poziome" są używane do rozszerzania danych w szkole
 
    > [!NOTE]
    > Przekształcenia, które zostaną wykluczone w trybie **do wnioskowania** , to: losowej uprawy o zmienionym rozmiarze, kadrowanie losowe, losowe Przerzucanie w poziomie, losowe Przerzucanie pionowe, rotacja Losowa, losowo afinicznyma, losowo przeskaling, losowo, losowe wymazywanie
@@ -47,7 +47,7 @@ Aby określić transformację, należy podłączyć moduł [przekształcenia obr
 
 ### <a name="module-parameters"></a>Parametry modułu
 
-| Nazwa | Zakres | Type | Domyślne                   | Opis                              |
+| Nazwa | Zakres | Typ | Domyślne                   | Opis                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Tryb | Dowolne   | Tryb | (Wymaganie użytkownika do określenia) | Do czego służy transformacja danych wejściowych. Należy wykluczyć operacje transformacji "Random" w wnioskach, ale zachować je w szkoleniu |
 

@@ -4,10 +4,10 @@ description: Powiadomienia o kondycji usługi umożliwiają wyświetlanie komuni
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86529016"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Użyj Azure Portal, aby wyświetlić powiadomienia dotyczące kondycji usługi
@@ -37,18 +37,18 @@ subStatus | Zazwyczaj kod stanu HTTP odpowiadającego wywołania REST, ale może
 eventTimestamp | Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu.
 submissionTimestamp | Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań.
 subscriptionId | Subskrypcja platformy Azure, w której zostało zarejestrowane to zdarzenie.
-status | Ciąg opisujący stan operacji. Niektóre typowe wartości to: **rozpoczęte**, **w toku**, **zakończone**powodzeniem, **zakończone niepowodzeniem**, **aktywne**i **rozwiązane**.
+status | Ciąg opisujący stan operacji. Niektóre typowe wartości to: **rozpoczęte**, **w toku**, **zakończone** powodzeniem, **zakończone niepowodzeniem**, **aktywne** i **rozwiązane**.
 operationName | Nazwa operacji.
 category | Ta właściwość jest zawsze **servicehealth**.
 resourceId | Identyfikator zasobu zasobu, którego dotyczy problem.
 Properties. title | Zlokalizowany tytuł tej komunikacji. Wartość domyślna to angielski.
 Właściwości. Komunikacja | Zlokalizowane szczegóły komunikacji z adiustacją HTML. Wartość domyślna to angielski.
-Właściwości. zdarzenietype | Jedną z następujących wartości: **wymagana akcja**, **informacyjny**, **zdarzenie**, **konserwacja**lub **zabezpieczenia**.
+Właściwości. zdarzenietype | Jedną z następujących wartości: **wymagana akcja**, **informacyjny**, **zdarzenie**, **konserwacja** lub **zabezpieczenia**.
 Właściwości. trackingId | Zdarzenie, z którym jest skojarzone to zdarzenie. Służy do skorelowania zdarzeń związanych ze zdarzeniem.
 Właściwości. impactedServices | Zmieniony obiekt BLOB JSON, który opisuje usługi i regiony, na które wpływa zdarzenie. Właściwość zawiera listę usług, z których każdy ma **nazwę ServiceName**, i listę regionów, których dotyczy problem, z których każdy ma **region regionu**.
 Właściwości. defaultLanguageTitle | Komunikacja w języku angielskim.
 Właściwości. defaultLanguageContent | Komunikacja w języku angielskim jako znacznik HTML lub zwykły tekst.
-Właściwości. etap | Możliwe wartości dla **zdarzenia**i **zabezpieczeń** są **aktywne,** **rozwiązane** lub według nazwy **głównej.** Dla **wymagana akcja** lub **informacyjnego** jedyną wartością jest **aktywny.** W przypadku **konserwacji** : **aktywne**, **zaplanowane**, w **toku**, **anulowane**, **ponownie zaplanowane**, **rozwiązane**lub **ukończone**.
+Właściwości. etap | Możliwe wartości dla **zdarzenia** i **zabezpieczeń** są **aktywne,** **rozwiązane** lub według nazwy **głównej.** Dla **wymagana akcja** lub **informacyjnego** jedyną wartością jest **aktywny.** W przypadku **konserwacji** : **aktywne**, **zaplanowane**, w **toku**, **anulowane**, **ponownie zaplanowane**, **rozwiązane** lub **ukończone**.
 Właściwości. communicationId | Komunikacja, z którą jest skojarzone to zdarzenie.
 
 ### <a name="details-on-service-health-level-information"></a>Szczegóły informacji o poziomie kondycji usługi

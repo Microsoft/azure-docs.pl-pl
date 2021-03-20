@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272732"
 ---
 # <a name="enable-support-uploads"></a>Włączanie przekazywania pomocy technicznej
@@ -29,7 +29,7 @@ Wykonaj następujące kroki w panelu sterowania avere, aby aktywować pomoc tech
 1. Na stronie Konfiguracja pomocy technicznej Otwórz sekcję **Informacje o kliencie** , klikając trójkąt po lewej stronie.
 1. Kliknij przycisk ponownie **Sprawdź poprawność przekazywania informacji** .
 1. Ustaw nazwę obsługi klastra w polu **unikatowa nazwa klastra**. Upewnij się, że ta nazwa jednoznacznie identyfikuje klaster, aby obsługiwał personel.
-1. Zaznacz pola wyboru dotyczące **monitorowania statystyk**, **przekazywania informacji ogólnych**i **przekazywania informacji o awarii**.
+1. Zaznacz pola wyboru dotyczące **monitorowania statystyk**, **przekazywania informacji ogólnych** i **przekazywania informacji o awarii**.
 1. Kliknij przycisk **Prześlij**.
 
    ![Zrzut ekranu przedstawiający sekcję ukończonych informacji o kliencie strony ustawień pomocy technicznej](media/avere-vfxt-support-info.png)

@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333481"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
@@ -44,7 +44,7 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Utwórz konto Cosmos z spójnością sesji, a następnie zaktualizuj domyślną spójność.
 
@@ -67,7 +67,7 @@ Klienci mogą zastąpić domyślny poziom spójności, który jest ustawiony prz
 > [!TIP]
 > Spójność **może być możliwa tylko na poziomie żądania** . Aby przejść ze słabszego do silniejszego spójności, zaktualizuj domyślną spójność dla konta Cosmos.
 
-### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>Zestaw SDK .NET
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -153,7 +153,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Zestaw SDK dla języka Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Zestaw SDK języka Python
 
 ```python
 # Override consistency at the client level
@@ -168,7 +168,7 @@ Jeden z poziomów spójności w Azure Cosmos DB jest spójność *sesji* . Jest 
 
 Aby ręcznie zarządzać tokenami sesji, pobieraj token sesji z odpowiedzi i ustawiaj go dla poszczególnych żądań. Jeśli nie chcesz ręcznie zarządzać tokenami sesji, nie musisz korzystać z tych przykładów. Zestaw SDK automatycznie śledzi tokeny sesji. Jeśli nie ustawisz tokenu sesji ręcznie, zestaw SDK domyślnie użyje najnowszego tokenu sesji.
 
-### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>Zestaw SDK .NET
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -265,7 +265,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Zestaw SDK dla języka Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Zestaw SDK języka Python
 
 ```python
 // Get the session token from the last response headers

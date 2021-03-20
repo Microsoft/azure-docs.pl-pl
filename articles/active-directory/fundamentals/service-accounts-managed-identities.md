@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032373"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587835"
 ---
 # <a name="securing-managed-identities"></a>Zabezpieczanie tożsamości zarządzanych
 
@@ -50,11 +50,11 @@ Platforma Azure ma płaszczyznę kontroli i płaszczyznę danych. Na płaszczyź
 
 Gdy system docelowy zaakceptuje token uwierzytelniania, może obsługiwać różne mechanizmy autoryzacji dla jego płaszczyzny kontroli i płaszczyzny danych.
 
-Wszystkie operacje płaszczyzny kontroli platformy Azure są zarządzane przez [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) i używają [Access Control opartych na rolach platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). W płaszczyźnie danych każdy system docelowy ma własny mechanizm autoryzacji. Usługa Azure Storage obsługuje funkcję RBAC na platformie Azure w ramach płaszczyzny danych. Na przykład aplikacje korzystające z usługi Azure App Services mogą odczytywać dane z usługi Azure Storage, a aplikacje korzystające z usługi Azure Kubernetes mogą odczytywać wpisy tajne przechowywane w Azure Key Vault.
+Wszystkie operacje płaszczyzny kontroli platformy Azure są zarządzane przez [Azure Resource Manager](../../azure-resource-manager/management/overview.md) i używają [Access Control opartych na rolach platformy Azure](../../role-based-access-control/overview.md). W płaszczyźnie danych każdy system docelowy ma własny mechanizm autoryzacji. Usługa Azure Storage obsługuje funkcję RBAC na platformie Azure w ramach płaszczyzny danych. Na przykład aplikacje korzystające z usługi Azure App Services mogą odczytywać dane z usługi Azure Storage, a aplikacje korzystające z usługi Azure Kubernetes mogą odczytywać wpisy tajne przechowywane w Azure Key Vault.
 
-Aby uzyskać więcej informacji na temat kontroli i płaszczyzny danych, zobacz [działania płaszczyzny kontroli i płaszczyzny danych — Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Aby uzyskać więcej informacji na temat kontroli i płaszczyzny danych, zobacz [działania płaszczyzny kontroli i płaszczyzny danych — Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-Wszystkie usługi platformy Azure będą ostatecznie obsługiwać zarządzane tożsamości. Aby uzyskać więcej informacji, zobacz [usługi obsługujące tożsamości zarządzane dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Wszystkie usługi platformy Azure będą ostatecznie obsługiwać zarządzane tożsamości. Aby uzyskać więcej informacji, zobacz [usługi obsługujące tożsamości zarządzane dla zasobów platformy Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -116,7 +116,7 @@ Można to zrobić przez Wyliczenie członków grup o wysokim poziomie uprawnień
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Upewnij się, że zasoby, do których uzyskuje dostęp tożsamość zarządzana](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Upewnij się, że zasoby, do których uzyskuje dostęp tożsamość zarządzana](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## <a name="move-to-managed-identities"></a>Przenieś do zarządzanych tożsamości
 
@@ -126,11 +126,11 @@ Jeśli używasz nazwy głównej usługi lub konta użytkownika usługi Azure AD,
 
 **Aby uzyskać informacje na temat tworzenia tożsamości zarządzanych, zobacz:** 
 
-[Utwórz tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[Utwórz tożsamość zarządzaną przypisaną przez użytkownika](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-[Włącz tożsamość zarządzaną przypisaną przez system podczas tworzenia zasobu](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Włącz tożsamość zarządzaną przypisaną przez system podczas tworzenia zasobu](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Włącz tożsamość zarządzaną przypisaną przez system w istniejącym zasobie](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Włącz tożsamość zarządzaną przypisaną przez system w istniejącym zasobie](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Aby uzyskać więcej informacji o kontach usług, zobacz:**
 
@@ -146,4 +146,3 @@ Jeśli używasz nazwy głównej usługi lub konta użytkownika usługi Azure AD,
 
  
 
- 

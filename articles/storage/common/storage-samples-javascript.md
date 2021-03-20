@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359751"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 JavaScript
@@ -324,7 +324,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Wiadomość
+### <a name="message"></a>Komunikat
 
 :::row:::
    :::column span="":::

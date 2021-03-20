@@ -2,18 +2,18 @@
 title: Szybki Start — zespoły międzyoperacyjności w usłudze Azure Communications Services
 titleSuffix: An Azure Communication Services quickstart
 description: W tym przewodniku szybki start dowiesz się, jak połączyć zespoły ze spotkaniem z zestawem SDK wywołań komunikacyjnych platformy Azure.
-author: matthewrobertson
+author: chpalm
 ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: c2cda93534a2010ced5c98f8e1a3563f8446ea84
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: a9ef74c04c1f709348ae1d6dd97558ee6bedccf3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488012"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654972"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Szybki Start: dołączanie aplikacji wywołującej do spotkania zespołów
 

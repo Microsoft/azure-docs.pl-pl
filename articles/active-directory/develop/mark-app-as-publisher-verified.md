@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92363457"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
@@ -66,7 +66,7 @@ Upewnij się, że spełniono [wymagania wstępne](publisher-verification-overvie
 
 1. Poczekaj na przetworzenie żądania, może to potrwać kilka minut. 
 
-1. Jeśli weryfikacja zakończyła się pomyślnie, okno weryfikacji wydawcy zostanie zamknięte, zwracając Cię do bloku znakowania. Obok zweryfikowanej **nazwy wyświetlanej wydawcy**zobaczysz niebieski wskaźnik zweryfikowany. 
+1. Jeśli weryfikacja zakończyła się pomyślnie, okno weryfikacji wydawcy zostanie zamknięte, zwracając Cię do bloku znakowania. Obok zweryfikowanej **nazwy wyświetlanej wydawcy** zobaczysz niebieski wskaźnik zweryfikowany. 
 
 1. Użytkownicy, którzy otrzymają monit o zgodę na Twoją aplikację, rozpoczną korzystanie z tego wskaźnika wkrótce po pomyślnym zakończeniu procesu, chociaż może to potrwać pewien czas na replikację w całym systemie. 
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92542968"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Przegląd ciągłości działania z serwerem elastycznym Azure Database for PostgreSQL
@@ -50,7 +50,7 @@ Poniżej przedstawiono niektóre zaplanowane scenariusze konserwacji. Te zdarzen
 | <b>Nowe wdrożenie oprogramowania (zainicjowane przez platformę Azure) | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi i można zaplanować, kiedy te działania mają być wykonywane. Aby uzyskać więcej informacji, sprawdź [Portal](https://aka.ms/servicehealthpm). | 
 | <b>Uaktualnienia wersji pomocniczej (zainicjowane przez platformę Azure) | Azure Database for PostgreSQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Serwer bazy danych jest automatycznie uruchamiany ponownie przy użyciu nowej wersji pomocniczej. Aby uzyskać więcej informacji, zobacz [dokumentację](../concepts-monitoring.md#planned-maintenance-notification). Możesz również sprawdzić [Portal](https://aka.ms/servicehealthpm).| 
 
- Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy** , elastyczny serwer przeprowadzi najpierw skalowanie i operacje konserwacji na serwerze rezerwy. Aby uzyskać więcej informacji, zobacz [pojęcia — wysoka dostępność](./concepts-high-availability.md).
+ Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy**, elastyczny serwer przeprowadzi najpierw skalowanie i operacje konserwacji na serwerze rezerwy. Aby uzyskać więcej informacji, zobacz [pojęcia — wysoka dostępność](./concepts-high-availability.md).
 
 ##  <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
 

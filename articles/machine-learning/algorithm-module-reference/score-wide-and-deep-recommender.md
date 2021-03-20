@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
 ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905164"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Wyniki modułu poleceń Wide and Deep
@@ -60,7 +60,7 @@ Podczas przewidywania klasyfikacji model oblicza, w jaki sposób dany użytkowni
 
     Zestaw danych funkcji użytkownika powinien zawierać identyfikator użytkownika w pierwszej kolumnie. Pozostałe kolumny powinny zawierać wartości, które opisują użytkowników, takie jak płeć, preferencje, lokalizacja itd.
   
-    Funkcje użytkowników, którzy mają sklasyfikowane elementy w zestawie danych szkoleniowych, są ignorowane przez **szerokie i głębokie zalecenie**, ponieważ zostały już uzyskane podczas szkolenia. W związku z tym filtrowanie zestawu danych z wyprzedzeniem w celu uwzględnienia tylko *użytkowników zimnego startu*lub użytkowników, którzy nie oceniły żadnych elementów.
+    Funkcje użytkowników, którzy mają sklasyfikowane elementy w zestawie danych szkoleniowych, są ignorowane przez **szerokie i głębokie zalecenie**, ponieważ zostały już uzyskane podczas szkolenia. W związku z tym filtrowanie zestawu danych z wyprzedzeniem w celu uwzględnienia tylko *użytkowników zimnego startu* lub użytkowników, którzy nie oceniły żadnych elementów.
 
     > [!WARNING]
     > Jeśli model został przeszkolony bez korzystania z funkcji użytkownika, nie można wprowadzać funkcji użytkownika podczas oceniania.
@@ -69,7 +69,7 @@ Podczas przewidywania klasyfikacji model oblicza, w jaki sposób dany użytkowni
 
     Zestaw danych funkcji elementu musi zawierać identyfikator elementu w pierwszej kolumnie. Pozostałe kolumny powinny zawierać wartości, które opisują elementy.
 
-    Funkcje ocenianych elementów w zestawie danych szkoleniowych są ignorowane przez **szerokie i szczegółowe zalecenia** , ponieważ zostały już uzyskane podczas szkolenia. W związku z tym Ogranicz zestaw danych oceniania do *elementów zimnego startu*lub elementy, które nie zostały ocenione przez żadnych użytkowników.
+    Funkcje ocenianych elementów w zestawie danych szkoleniowych są ignorowane przez **szerokie i szczegółowe zalecenia** , ponieważ zostały już uzyskane podczas szkolenia. W związku z tym Ogranicz zestaw danych oceniania do *elementów zimnego startu* lub elementy, które nie zostały ocenione przez żadnych użytkowników.
 
     > [!WARNING]
     > Jeśli model został przeszkolony bez używania funkcji elementów, nie można wprowadzać funkcji elementów podczas oceniania.
@@ -116,7 +116,7 @@ Aby zalecać elementy dla użytkowników, należy podać listę użytkowników i
 
     Pierwsza kolumna zestawu danych funkcji użytkownika powinna zawierać identyfikator użytkownika. Pozostałe kolumny powinny zawierać wartości charakteryzujące użytkownika, takie jak płeć, preferencje, lokalizacja itd.
 
-    Funkcje użytkowników, którzy mają sklasyfikowane elementy, są ignorowane przez **szerokie i szczegółowe zalecenia**, ponieważ te funkcje zostały już uzyskane podczas szkolenia. W związku z tym można filtrować zestaw danych z wyprzedzeniem w celu uwzględnienia tylko *użytkowników zimnego startu*lub użytkowników, którzy nie ocenili żadnych elementów.
+    Funkcje użytkowników, którzy mają sklasyfikowane elementy, są ignorowane przez **szerokie i szczegółowe zalecenia**, ponieważ te funkcje zostały już uzyskane podczas szkolenia. W związku z tym można filtrować zestaw danych z wyprzedzeniem w celu uwzględnienia tylko *użytkowników zimnego startu* lub użytkowników, którzy nie ocenili żadnych elementów.
 
     > [!WARNING]
     >  Jeśli model został przeszkolony bez używania funkcji użytkownika, nie można używać funkcji Apply podczas oceniania.
@@ -125,7 +125,7 @@ Aby zalecać elementy dla użytkowników, należy podać listę użytkowników i
 
     Pierwsza kolumna w zestawie danych funkcji elementu musi zawierać identyfikator elementu. Pozostałe kolumny powinny zawierać wartości, które opisują elementy.
 
-    Funkcje elementów ocenianych są ignorowane przez **szeroką i dogłębną zalecaną ocenę**, ponieważ te funkcje zostały już uzyskane podczas uczenia się. W związku z tym można ograniczyć zestaw danych oceniania do *elementów zimnego startu*lub elementów, które nie zostały ocenione przez żadną z użytkowników.
+    Funkcje elementów ocenianych są ignorowane przez **szeroką i dogłębną zalecaną ocenę**, ponieważ te funkcje zostały już uzyskane podczas uczenia się. W związku z tym można ograniczyć zestaw danych oceniania do *elementów zimnego startu* lub elementów, które nie zostały ocenione przez żadną z użytkowników.
 
     > [!WARNING]
     >  Jeśli model został przeszkolony bez używania funkcji elementów, nie należy używać funkcji elementów podczas oceniania.  

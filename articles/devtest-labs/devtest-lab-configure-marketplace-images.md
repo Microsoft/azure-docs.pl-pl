@@ -4,10 +4,10 @@ description: Skonfiguruj, które obrazy w portalu Azure Marketplace mogą być u
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86512439"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Konfigurowanie ustawień obrazu portalu Azure Marketplace w Azure DevTest Labs
@@ -20,7 +20,7 @@ Wykonaj następujące kroki, aby określić, które obrazy w portalu Azure Marke
 2. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
 3. Z listy laboratoriów wybierz laboratorium. 
 4. Na stronie głównej strony laboratorium wybierz pozycję **Konfiguracja i zasady**.
-5. Na stronie **Konfiguracja i zasady** laboratorium w obszarze **bazy maszyn wirtualnych**wybierz pozycję **obrazy z witryny Marketplace**.
+5. Na stronie **Konfiguracja i zasady** laboratorium w obszarze **bazy maszyn wirtualnych** wybierz pozycję **obrazy z witryny Marketplace**.
 6. Określ, czy chcesz, aby wszystkie kwalifikowane obrazy portalu Azure Marketplace były dostępne do użycia jako podstawa nowej maszyny wirtualnej. Jeśli wybierzesz opcję **tak**, wszystkie obrazy w portalu Azure Marketplace, które spełniają wszystkie następujące kryteria, są dozwolone w laboratorium:
    
    * Obraz tworzy pojedynczą maszynę wirtualną **i**

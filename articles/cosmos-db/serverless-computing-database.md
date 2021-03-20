@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334076"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Przetwarzanie baz danych bezserwerowe przy użyciu Azure Cosmos DB i Azure Functions
@@ -124,7 +124,7 @@ Azure Functions zapewnia możliwość tworzenia skalowalnych jednostek pracy lub
 
 Azure Cosmos DB jest zalecaną bazą danych dla architektury przetwarzania bezserwerowego z następujących powodów:
 
-* **Natychmiastowy dostęp do wszystkich danych** : masz szczegółowy dostęp do każdej przechowywanej wartości, ponieważ Azure Cosmos DB [automatycznie domyślnie indeksuje](index-policy.md) wszystkie dane i sprawia, że te indeksy są dostępne natychmiast. Oznacza to, że można stale wysyłać zapytania, aktualizować i dodawać nowe elementy do bazy danych oraz uzyskiwać natychmiastowy dostęp za pośrednictwem Azure Functions.
+* **Natychmiastowy dostęp do wszystkich danych**: masz szczegółowy dostęp do każdej przechowywanej wartości, ponieważ Azure Cosmos DB [automatycznie domyślnie indeksuje](index-policy.md) wszystkie dane i sprawia, że te indeksy są dostępne natychmiast. Oznacza to, że można stale wysyłać zapytania, aktualizować i dodawać nowe elementy do bazy danych oraz uzyskiwać natychmiastowy dostęp za pośrednictwem Azure Functions.
 
 * **Bezschematowe**. Azure Cosmos DB jest bezschematowa — w związku z tym jednoznacznie można obsłużyć wszelkie dane wyjściowe z funkcji platformy Azure. To podejście "dojście" umożliwia proste tworzenie różnych funkcji, które wszystkie dane wyjściowe będą Azure Cosmos DB.
 

@@ -8,13 +8,13 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546555"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Przegląd połączeń i zapytań dotyczących usługi Azure Database for PostgreSQL — pojedynczy serwer
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Przegląd nawiązywania połączenia i wykonywania zapytań w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 
 Poniższy dokument zawiera linki do przykładów przedstawiających sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL pojedynczego serwera i wykonywania w niej zapytań. Ten przewodnik zawiera również zalecenia i rozszerzenia protokołu TLS, których można użyć do nawiązania połączenia z serwerem w obsługiwanych językach poniżej.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90561844"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury maszyny wirtualnej platformy Azure na potrzeby hostowania klastra Service Fabric
@@ -41,13 +41,13 @@ Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. 
 
 4. Zmień typ **obrazu** na **Windows Server 2016 Datacenter**. 
  
-5. Zmień **rozmiar** wystąpienia na **Standardowy DS2 v2**. Ustaw **nazwę użytkownika** i **hasło**administratora, zwracając uwagę na to, co się stało.
+5. Zmień **rozmiar** wystąpienia na **Standardowy DS2 v2**. Ustaw **nazwę użytkownika** i **hasło** administratora, zwracając uwagę na to, co się stało.
 
 6. Pozostaw teraz zablokowane **reguły portów dla ruchu przychodzącego** . Skonfigurujemy te zasady w następnej sekcji.
 
 7. Na karcie **Sieć** utwórz nową **Virtual Network** i zanotuj jej nazwę.
 
-8. Następnie ustaw wartość Advanced **Network Security Group** (karta **Advanced**sieciowa). Utwórz nową grupę zabezpieczeń, zwracając nazwę i Utwórz następujące reguły, aby zezwolić na ruch TCP z dowolnego źródła:
+8. Następnie ustaw wartość Advanced **Network Security Group** (karta sieciowa). Utwórz nową grupę zabezpieczeń, zwracając nazwę i Utwórz następujące reguły, aby zezwolić na ruch TCP z dowolnego źródła:
 
    ![Zrzut ekranu przedstawia tworzenie reguł zezwalających na ruch przychodzący TCP.][sf-inbound]
 

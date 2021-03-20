@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023231"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transfer małych zestawów danych w przypadku niskiej lub umiarkowanej przepustowości sieci
@@ -49,7 +49,7 @@ W tym scenariuszu zalecane są następujące opcje:
 
 W poniższej tabeli podsumowano różnice w zakresie kluczowych funkcji.
 
-| Cechy | Eksplorator usługi Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
+| Cecha | Eksplorator usługi Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Dostępność | Pobieranie i instalowanie <br>Autonomiczne narzędzie | Narzędzia eksploracji oparte na sieci Web w Azure Portal | Narzędzie wiersza polecenia |Interfejsy programowalne w językach .NET, Java, Python, JavaScript, C++, go, Ruby i PHP |
 | Interfejs graficzny | Tak | Tak | Nie | Nie |

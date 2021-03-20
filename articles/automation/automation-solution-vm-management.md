@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b71e5b1a8ba5f3ee8f883c71a7221e01d4af4fb6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559362"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597712"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -91,7 +91,8 @@ Maszyny wirtualne można włączyć dla funkcji Start/Stop VMs during off-hours 
 | Microsoft. Autoryzacja/uprawnienia/Odczyt |Subskrypcja|
 | Microsoft. Authorization/roleAssignments/Read | Subskrypcja |
 | Microsoft.Authorization/roleAssignments/write | Subskrypcja |
-| Microsoft. Authorization/roleAssignments/Delete | Subskrypcja || Microsoft. Automation/automationAccounts/Connections/Read | Grupa zasobów |
+| Microsoft. Authorization/roleAssignments/Delete | Subskrypcja |
+| Microsoft. Automation/automationAccounts/Connections/Read | Grupa zasobów |
 | Microsoft. Automation/automationAccounts/Certificates/Read | Grupa zasobów |
 | Microsoft. Automation/automationAccounts/Write | Grupa zasobów |
 | Microsoft. OperationalInsights/obszary robocze/zapis | Grupa zasobów |
@@ -167,7 +168,7 @@ Nie włączaj wszystkich harmonogramów, ponieważ może to spowodować utworzen
 |Scheduled_StopVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z parametrem `Stop` każdego dnia o określonej godzinie. Automatycznie wstrzymuje wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne. Włącz powiązany harmonogram **zaplanowany — StartVM**.|
 |Scheduled_StartVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego dnia o określonej godzinie. Automatycznie uruchamia wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne. Włącz powiązany harmonogram **zaplanowany — StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), każdy piątek | Uruchamia **Sequenced_StopStop_Parent** elementu Runbook z wartością parametru `Stop` każdego piątku o określonej godzinie. Sekwencyjnie (rosnąco) przerywa wszystkie maszyny wirtualne ze znacznikiem **SequenceStop** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zmiennych zasobów, zobacz [elementy Runbook](#runbooks). Włącz harmonogram związany z **sekwencją-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (UTC), co poniedziałek | Uruchamia **SequencedStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego poniedziałek o określonej godzinie. Sekwencyjnie (malejąco) uruchamia wszystkie maszyny wirtualne z tagiem **SequenceStart** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zasobów zmiennych, zobacz [elementy Runbook](#runbooks). Włącz harmonogram związany z **sekwencją-StopVM**.
+|Sequenced-StartVM | 1:00 PM (UTC), co poniedziałek | Uruchamia **SequencedStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego poniedziałek o określonej godzinie. Sekwencyjnie (malejąco) uruchamia wszystkie maszyny wirtualne z tagiem **SequenceStart** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zasobów zmiennych, zobacz [elementy Runbook](#runbooks). Włącz harmonogram związany z **sekwencją-StopVM**.|
 
 ## <a name="use-the-feature-with-classic-vms"></a>Korzystanie z funkcji z klasycznymi maszynami wirtualnymi
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083220"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578026"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -99,7 +99,7 @@ To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directo
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: nie
 
-To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy* ). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak** , konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z systemu Windows 10 w wersji 1607 lub nowszej.
+To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy*). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak**, konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z systemu Windows 10 w wersji 1607 lub nowszej.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: tak
 
@@ -132,12 +132,12 @@ W polu "faza błędu" jest wskazywana faza błędu sprzężenia, podczas gdy "ko
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >    >    >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Poszukaj zdarzeń o następujących eventIDs 304, 305, 307.
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Zdarzenie z I D 305 jest widoczne, a jego informacje są wyświetlane z wyróżnionym kodem błędu." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Krok 4. Sprawdź możliwe przyczyny i rozwiązania z poniższych list
 
@@ -207,10 +207,10 @@ Wyszukaj "DRS Discovery test" w sekcji "dane diagnostyczne" w danych wyjściowyc
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >    >    >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 201
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 201, a jego informacje są wyświetlane z wyróżnionym kodem błędu." border="false":::
 
 ###### <a name="network-errors"></a>Błędy sieci
 
@@ -252,10 +252,10 @@ Przyczyny niepowodzenia:
 
 Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod błędu serwera i komunikat o błędzie serwera.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >    >    >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventID 305
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Widoczne jest zdarzenie z I D 305. Informacje są wyświetlane z wyróżnioną kodem błędu D a i." border="false":::
 
 ##### <a name="configuration-errors"></a>Błędy konfiguracji
 
@@ -278,7 +278,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
    - Przyczyna: przerwano połączenie z punktem końcowym uwierzytelniania.
    - Rozwiązanie: spróbuj ponownie za jakiś czas lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Przyczyna: nie można sprawdzić poprawności Transport Layer Security (TLS), wcześniej znanego jako SSL (SSL) certyfikatu wysłanego przez serwer.
+   - Przyczyna: nie można sprawdzić poprawności Transport Layer Security (TLS), wcześniej znanego jako Secure Sockets Layer (SSL) certyfikatu wysłanego przez serwer.
    - Rozwiązanie: Sprawdź pochylenie czasu klienta. Ponów próbę po upływie pewnego czasu lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Przyczyna: próba nawiązania połączenia `https://login.microsoftonline.com` nie powiodła się.
@@ -327,10 +327,10 @@ Pole "typ rejestracji" oznacza typ wykonanego sprzężenia.
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >    >    >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 204
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Informacje o zdarzeniu z I D 204 są wyświetlane wraz z kodem błędu, H T t P stanu i podświetlonym komunikatem." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>Błędy HTTP zwrócone z serwera DRS
 
@@ -387,14 +387,14 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Krok 5. zbieranie dzienników i pomoc techniczna firmy Microsoft kontaktów
 
-Pobierz Auth.zip pliku z [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Pobierz Auth.zip pliku z [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
-1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd** .
-1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd** .
+1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd**.
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd**.
 1. Użyj konta przełącznika, aby przełączyć się do innej sesji z użytkownikiem problemu.
 1. Odtwórz problem.
 1. Użyj opcji Przełącz konto, aby przełączyć się z powrotem do sesji administracyjnej z uruchomionym śledzeniem.
-1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **stop-auth. cmd** .
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **stop-auth. cmd**.
 1. Zip i Wyślij folder **Authlogs** z folderu, z którego zostały wykonane skrypty.
 
 ## <a name="troubleshoot-post-join-issues"></a>Rozwiązywanie problemów z przyłączaniem

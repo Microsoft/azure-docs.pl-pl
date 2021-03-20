@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
 ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898617"
 ---
 # <a name="create-python-model-module"></a>Utwórz moduł modelu języka Python
@@ -42,7 +42,7 @@ W tym artykule pokazano, jak używać metody **Create Python model** z prostym p
 
 ![Diagram tworzenia modelu języka Python](./media/module/create-python-model.png)
 
-1. Wybierz pozycję **Utwórz model Python**i Edytuj skrypt, aby zaimplementować proces modelowania lub zarządzania danymi. Model można utworzyć na podstawie dowolnych informacji, które znajdują się w pakiecie Python w środowisku Azure Machine Learning.
+1. Wybierz pozycję **Utwórz model Python** i Edytuj skrypt, aby zaimplementować proces modelowania lub zarządzania danymi. Model można utworzyć na podstawie dowolnych informacji, które znajdują się w pakiecie Python w środowisku Azure Machine Learning.
 
 > [!NOTE]
 > Należy zwrócić szczególną uwagę na komentarze w przykładowym kodzie skryptu i upewnić się, że skrypt jest ściśle zgodny z wymaganiami, w tym nazwą klasy, metodami, a także sygnaturą metody. Naruszenie będzie prowadzić do wyjątków. 

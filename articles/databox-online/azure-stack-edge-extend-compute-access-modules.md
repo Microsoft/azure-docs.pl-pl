@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894125"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Włączanie sieci obliczeniowej na Azure Stack Edge
@@ -58,12 +58,12 @@ Aby skonfigurować ustawienia obliczeń, wykonaj następujące kroki w lokalnym 
 Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urządzeniu Azure Stack EDGE Pro.
 
 1. Przejdź do zasobu IoT Hub skojarzonego z urządzeniem Azure Stack brzeg Pro, a następnie wybierz pozycję **IoT Edge urządzenie**.
-2. Wybierz urządzenie IoT Edge skojarzone z urządzeniem Azure Stack brzeg Pro. Na stronie **szczegóły urządzenia**wybierz pozycję **Ustaw moduły**. W obszarze **Dodaj moduły**wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
+2. Wybierz urządzenie IoT Edge skojarzone z urządzeniem Azure Stack brzeg Pro. Na stronie **szczegóły urządzenia** wybierz pozycję **Ustaw moduły**. W obszarze **Dodaj moduły** wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
 3. W bloku **IoT Edge modułów niestandardowych** :
 
     1. Określ **nazwę** modułu aplikacji WebServer, który chcesz wdrożyć.
     2. Podaj **Identyfikator URI obrazu** dla Twojego obrazu modułu. Pobierany jest moduł pasujący do podanej nazwy i tagów. W takim przypadku program `nginx:stable` będzie ściągał stabilny obraz Nginx (oznaczony jako stabilny) z publicznego [repozytorium platformy Docker](https://hub.docker.com/_/nginx/).
-    3. W obszarze **Opcje tworzenia kontenera**wklej następujący przykładowy kod:  
+    3. W obszarze **Opcje tworzenia kontenera** wklej następujący przykładowy kod:  
 
         ```
         {
@@ -87,7 +87,7 @@ Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urz�
 
 ## <a name="verify-module-access"></a>Weryfikuj dostęp do modułu
 
-1. Sprawdź, czy moduł został pomyślnie wdrożony i jest uruchomiony. Na stronie **szczegóły urządzenia** na karcie **moduły** powinien być **uruchomiony**stan środowiska uruchomieniowego modułu.  
+1. Sprawdź, czy moduł został pomyślnie wdrożony i jest uruchomiony. Na stronie **szczegóły urządzenia** na karcie **moduły** powinien być **uruchomiony** stan środowiska uruchomieniowego modułu.  
 2. Połącz się z modułem aplikacji serwera sieci Web. Otwórz okno przeglądarki i wpisz:
 
     `http://<compute-network-IP-address>:8080`

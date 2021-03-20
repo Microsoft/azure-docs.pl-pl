@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
 ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91761298"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Obsługa protokołu TLS w usłudze Azure IoT Hub Device Provisioning Service (DPS)
@@ -97,11 +97,11 @@ Poniższe linki służą do konfigurowania protokołu TLS 1,2 i dozwolonych szyf
 
 | Język | Wersje obsługujące protokół TLS 1,2 | Dokumentacja |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 lub nowszy            | [Powiązań](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Wersja 2.0.0 lub nowsza             | [Powiązań](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Wersja 1.21.4 lub nowsza            | [Powiązań](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Wersja 1.19.0 lub nowsza            | [Powiązań](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Wersja 1.12.2 lub nowsza            | [Powiązań](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 lub nowszy            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Wersja 2.0.0 lub nowsza             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Wersja 1.21.4 lub nowsza            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Wersja 1.19.0 lub nowsza            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Wersja 1.12.2 lub nowsza            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 ## <a name="use-tls-12-with-iot-hub"></a>Użyj protokołu TLS 1,2 z IoT Hub
 
