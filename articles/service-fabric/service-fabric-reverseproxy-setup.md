@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256335"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurowanie i Konfigurowanie zwrotnego serwera proxy na platformie Azure Service Fabric
@@ -23,7 +23,7 @@ Aby skonfigurować zwrotny serwer proxy podczas [tworzenia klastra przy użyciu 
 1. W **kroku 2: Konfiguracja klastra**, w obszarze **Konfiguracja typu węzła**, zaznacz opcję **Włącz zwrotny serwer proxy**.
 
    ![Włącz zwrotny serwer proxy w portalu](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. Obowiązkowe Aby skonfigurować bezpieczny zwrotny serwer proxy, należy skonfigurować certyfikat TLS/SSL. W **kroku 3: zabezpieczenia**, w obszarze **Konfigurowanie ustawień zabezpieczeń klastra**w obszarze **Typ konfiguracji**wybierz opcję **niestandardowy**. Następnie w obszarze **certyfikat protokołu SSL zwrotnego serwera**, wybierz opcję **Dołącz certyfikat SSL dla zwrotnego serwera proxy** i wprowadź szczegóły certyfikatu.
+2. Obowiązkowe Aby skonfigurować bezpieczny zwrotny serwer proxy, należy skonfigurować certyfikat TLS/SSL. W **kroku 3: zabezpieczenia**, w obszarze **Konfigurowanie ustawień zabezpieczeń klastra** w obszarze **Typ konfiguracji** wybierz opcję **niestandardowy**. Następnie w obszarze **certyfikat protokołu SSL zwrotnego serwera**, wybierz opcję **Dołącz certyfikat SSL dla zwrotnego serwera proxy** i wprowadź szczegóły certyfikatu.
 
    ![Konfigurowanie bezpiecznego zwrotnego serwera proxy w portalu](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy
         ...
     }
     ```
-3. Aby skonfigurować certyfikaty TLS/SSL na porcie dla zwrotnego serwera proxy, Dodaj certyfikat do właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) **Microsoft. servicefabric/** Reports.
+3. Aby skonfigurować certyfikaty protokołu TLS/SSL na porcie dla zwrotnego serwera proxy, Dodaj certyfikat do właściwości ***reverseProxyCertificate** _ w sekcji "_ *Microsoft. servicefabric/* Reports *  [Type](../azure-resource-manager/templates/template-syntax.md)".
 
     ```json
     {
@@ -243,10 +243,10 @@ Jeśli chcesz uwidocznić odwrotny serwer proxy publicznie dla klastra autonomic
 ### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Uwidacznianie zwrotnego serwera proxy przy użyciu Azure Portal 
 
 1. Na Azure Portal kliknij grupę zasobów klastra, a następnie kliknij moduł równoważenia obciążenia dla klastra.
-2. Aby dodać sondę kondycji dla portu zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia**kliknij pozycję **sondy kondycji**. Następnie kliknij pozycję **Dodaj** w górnej części okna sondy kondycji i wprowadź szczegóły portu zwrotnego serwera proxy, a następnie kliknij przycisk **OK**. Domyślnie port zwrotnego serwera proxy to 19081, chyba że został zmieniony podczas tworzenia klastra.
+2. Aby dodać sondę kondycji dla portu zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia** kliknij pozycję **sondy kondycji**. Następnie kliknij pozycję **Dodaj** w górnej części okna sondy kondycji i wprowadź szczegóły portu zwrotnego serwera proxy, a następnie kliknij przycisk **OK**. Domyślnie port zwrotnego serwera proxy to 19081, chyba że został zmieniony podczas tworzenia klastra.
 
    ![Konfigurowanie sondy kondycji zwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. Aby dodać regułę Load Balancer, aby uwidocznić port zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia**kliknij pozycję **reguły równoważenia obciążenia**. Następnie kliknij pozycję **Dodaj** w górnej części okna reguły równoważenia obciążenia i wprowadź szczegóły dla portu zwrotnego serwera proxy. Upewnij się, że wartość **portu** jest ustawiona na port, na którym ma być uwidoczniony zwrotny serwer proxy, wartość **portu zaplecza** do portu ustawionego po włączeniu zwrotnego serwera proxy oraz wartość **sondy** kondycji do sondy kondycji skonfigurowanej w poprzednim kroku. W razie potrzeby ustaw inne pola i kliknij przycisk **OK**.
+3. Aby dodać regułę Load Balancer, aby uwidocznić port zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia** kliknij pozycję **reguły równoważenia obciążenia**. Następnie kliknij pozycję **Dodaj** w górnej części okna reguły równoważenia obciążenia i wprowadź szczegóły dla portu zwrotnego serwera proxy. Upewnij się, że wartość **portu** jest ustawiona na port, na którym ma być uwidoczniony zwrotny serwer proxy, wartość **portu zaplecza** do portu ustawionego po włączeniu zwrotnego serwera proxy oraz wartość **sondy** kondycji do sondy kondycji skonfigurowanej w poprzednim kroku. W razie potrzeby ustaw inne pola i kliknij przycisk **OK**.
 
    ![Skonfiguruj regułę modułu równoważenia obciążenia dla zwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 

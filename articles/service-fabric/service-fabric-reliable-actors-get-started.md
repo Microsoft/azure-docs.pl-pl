@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573465"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Wprowadzenie do Reliable Actors
@@ -44,15 +44,15 @@ Rozwiązanie zawiera trzy projekty:
 
 * **Projekt interfejsu (HelloWorld. Interfaces)**. Ten projekt zawiera definicję interfejsu aktora. Interfejsy aktora można definiować w dowolnym projekcie z dowolną nazwą.  Interfejs definiuje kontrakt aktora, który jest współużytkowany przez implementację aktora i klientów wywołujących aktora.  Ze względu na to, że projekty klienta mogą być od niego zależne, zazwyczaj warto zdefiniować je w zestawie, który jest oddzielony od implementacji aktora.
 
-* **Projekt usługi aktora (HelloWorld)**. Ten projekt definiuje usługę Service Fabric, która będzie hostować aktora. Zawiera implementację aktora, *HelloWorld.cs*. Implementacja aktora to Klasa, która pochodzi od typu podstawowego `Actor` i implementuje interfejsy zdefiniowane w projekcie *webaktor. Interfaces* . Klasa aktora musi również implementować konstruktora, który akceptuje `ActorService` wystąpienie i `ActorId` i przekazuje je do `Actor` klasy bazowej.
+* **Projekt usługi aktora (HelloWorld)**. Ten projekt definiuje usługę Service Fabric, która będzie hostować aktora. Zawiera implementację aktora, *HelloWorld. cs*. Implementacja aktora to Klasa, która pochodzi od typu podstawowego `Actor` i implementuje interfejsy zdefiniowane w projekcie *webaktor. Interfaces* . Klasa aktora musi również implementować konstruktora, który akceptuje `ActorService` wystąpienie i `ActorId` i przekazuje je do `Actor` klasy bazowej.
     
-    Ten projekt zawiera również *program.cs*, który rejestruje klasy aktora w środowisku uruchomieniowym Service Fabric przy użyciu `ActorRuntime.RegisterActorAsync<T>()` . `HelloWorld`Klasa jest już zarejestrowana. Wszystkie dodatkowe implementacje aktora dodane do projektu również muszą być zarejestrowane w `Main()` metodzie.
+    Ten projekt zawiera również *program. cs*, który rejestruje klasy aktora w środowisku uruchomieniowym Service Fabric przy użyciu `ActorRuntime.RegisterActorAsync<T>()` . `HelloWorld`Klasa jest już zarejestrowana. Wszystkie dodatkowe implementacje aktora dodane do projektu również muszą być zarejestrowane w `Main()` metodzie.
 
 ## <a name="customize-the-helloworld-actor"></a>Dostosowywanie aktora HelloWorld
 
 Szablon projektu definiuje niektóre metody w `IHelloWorld` interfejsie i implementuje je w `HelloWorld` implementacji aktora.  Zastąp te metody, aby usługa aktora zwracała prosty ciąg "Hello world".
 
-W projekcie *HelloWorld. Interfaces* w pliku *IHelloWorld.cs* Zastąp definicję interfejsu w następujący sposób:
+W projekcie *HelloWorld. Interfaces* w pliku *IHelloWorld. cs* Zastąp definicję interfejsu w następujący sposób:
 
 ```csharp
 public interface IHelloWorld : IActor
@@ -61,7 +61,7 @@ public interface IHelloWorld : IActor
 }
 ```
 
-W projekcie **HelloWorld** w **HelloWorld.cs** Zastąp całą definicję klasy w następujący sposób:
+W projekcie **HelloWorld** w pliku **HelloWorld. cs** Zastąp całą definicję klasy w następujący sposób:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -110,7 +110,7 @@ Utwórz prostą aplikację konsolową, która wywoła usługę aktora.
     
     ![Okno dialogowe Dodawanie odwołania][7]
 
-6. W projekcie ActorClient Zastąp całą zawartość *program.cs* następującym kodem:
+6. W projekcie ActorClient Zastąp całą zawartość *programu program. cs* następującym kodem:
     
     ```csharp
     using System;

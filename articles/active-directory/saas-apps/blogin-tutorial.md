@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: a47a3ae27fd1a18b7e9acd7d8b25748f6274c3e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą blogu
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.blogin.co/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Dokładne wartości tych pól można uzyskać na stronie **Ustawienia** w obszarze blog (karta**User uwierzytelniania** > **Konfigurowanie logowania jednokrotnego i aprowizacji użytkowników**). Możesz też skontaktować się z [zespołem obsługi klienta w blogu](mailto:support@blogin.co) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Dokładne wartości tych pól można uzyskać na stronie **Ustawienia** w obszarze blog (karta **User uwierzytelniania** > **Konfigurowanie logowania jednokrotnego i aprowizacji użytkowników**). Możesz też skontaktować się z [zespołem obsługi klienta w blogu](mailto:support@blogin.co) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Aplikacja w blogu oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -143,7 +143,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie **blogu** na koncie blogu i 
 1. Przejdź do pozycji **Ustawienia**  >  **uwierzytelnianie użytkowników**  >  **Skonfiguruj Logowanie jednokrotne & Inicjowanie obsługi użytkowników**.
 2. Na następnym ekranie Zmień stan Sign-On na **włączone** , a następnie wybierz niestandardową nazwę przycisku logowania jednokrotnego, który będzie wyświetlany na ekranie logowania.
 
-3. Jeśli **adres URL metadanych federacji aplikacji** został zapisany w ostatnim kroku poprzedniej sekcji, wybierz **adres URL metadanych** metody konfiguracji i wklej **adres URL metadanych federacji aplikacji** do pola adres URL metadanych. W przeciwnym razie zmień metodę konfiguracji na **ręcznie, ręcznie**Wypełnij **adres URL logowania jednokrotnego dostawcy tożsamości (adres URL rejestracji)** i **wystawcę dostawcy tożsamości (identyfikator jednostki)**, a następnie Przekaż **certyfikat (base64)** uzyskany z usługi Azure AD.
+3. Jeśli **adres URL metadanych federacji aplikacji** został zapisany w ostatnim kroku poprzedniej sekcji, wybierz **adres URL metadanych** metody konfiguracji i wklej **adres URL metadanych federacji aplikacji** do pola adres URL metadanych. W przeciwnym razie zmień metodę konfiguracji na **ręcznie, ręcznie** Wypełnij **adres URL logowania jednokrotnego dostawcy tożsamości (adres URL rejestracji)** i **wystawcę dostawcy tożsamości (identyfikator jednostki)**, a następnie Przekaż **certyfikat (base64)** uzyskany z usługi Azure AD.
 
 4. Wybierz domyślną rolę użytkownika, aby uzyskać dostęp do blogu przy użyciu logowania jednokrotnego.
 

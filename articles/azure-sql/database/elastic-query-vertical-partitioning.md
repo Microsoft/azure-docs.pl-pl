@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792093"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Wykonywanie zapytań w bazach danych w chmurze z różnymi schematami (wersja zapoznawcza)
@@ -63,7 +63,7 @@ Składnia:
     CREDENTIAL = <credential_name>) [;]
 
 > [!IMPORTANT]
-> Parametr typu musi być ustawiony na wartość **RDBMS** .
+> Parametr typu musi być ustawiony na wartość **RDBMS**.
 
 ### <a name="example"></a>Przykład
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 Zapytanie elastyczne rozszerza istniejącą składnię tabeli zewnętrznej w celu zdefiniowania tabel zewnętrznych, które używają zewnętrznych źródeł danych typu RDBMS. Definicja tabeli zewnętrznej dla partycjonowania pionowego obejmuje następujące aspekty:
 
-* **Schemat** : tabela zewnętrzna DDL definiuje schemat, którego mogą używać zapytania. Schemat podany w definicji tabeli zewnętrznej musi pasować do schematu tabel w zdalnej bazie danych, w której przechowywane są rzeczywiste dane.
-* **Odwołanie do zdalnej bazy danych** : tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa nazwę serwera i nazwę bazy danych, w której przechowywane są rzeczywiste dane tabeli.
+* **Schemat**: tabela zewnętrzna DDL definiuje schemat, którego mogą używać zapytania. Schemat podany w definicji tabeli zewnętrznej musi pasować do schematu tabel w zdalnej bazie danych, w której przechowywane są rzeczywiste dane.
+* **Odwołanie do zdalnej bazy danych**: tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa nazwę serwera i nazwę bazy danych, w której przechowywane są rzeczywiste dane tabeli.
 
 Korzystając z zewnętrznego źródła danych, jak opisano w poprzedniej sekcji, Składnia służąca do tworzenia tabel zewnętrznych jest następująca:
 
@@ -135,7 +135,7 @@ Poniższa instrukcja języka DDL powoduje porzucanie istniejącej definicji tabe
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Uprawnienia do tworzenia/upuszczania tabeli zewnętrznej** : należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych w przypadku kodu DDL tabeli zewnętrznej, który jest również konieczny do odwoływania się do bazowego źródła danych.  
+**Uprawnienia do tworzenia/upuszczania tabeli zewnętrznej**: należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych w przypadku kodu DDL tabeli zewnętrznej, który jest również konieczny do odwoływania się do bazowego źródła danych.  
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 

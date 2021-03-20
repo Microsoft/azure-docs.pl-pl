@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249907"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Szablony produktów w usłudze Azure API Management
@@ -79,7 +79,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Type|Opis|  
+|Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |Stronicowanie|Jednostka [stronicowania](api-management-template-data-model-reference.md#Paging) .|Informacje o stronicowaniu dla kolekcji Products.|  
 |Filtrowanie|Obiekt [filtrowania](api-management-template-data-model-reference.md#Filtering) .|Informacje o filtrowaniu na stronie listy produktów.|  
@@ -204,7 +204,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Type|Opis|  
+|Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |Produkt|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
 |IsDeveloperSubscribed|boolean|Czy bieżący użytkownik subskrybuje ten produkt.|  

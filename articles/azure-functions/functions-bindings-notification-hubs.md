@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: c4198a1b73f76d61e39324befc85b55bd260e363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212219"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs powiązanie danych wyjściowych dla Azure Functions
@@ -244,15 +244,15 @@ W [bibliotekach klas języka C#](functions-dotnet-class-library.md), Użyj atryb
 
 Parametry i właściwości konstruktora atrybutu są opisane w sekcji [konfiguracji](#configuration) .
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `NotificationHub` atrybutu:
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** |nie dotyczy| Musi być ustawiony na `notificationHub` . |
-|**wskazywa** |nie dotyczy| Musi być ustawiony na `out` . | 
-|**Nazwij** |nie dotyczy| Nazwa zmiennej używana w kodzie funkcji dla komunikatu centrum powiadomień. |
+|**Wprowadź** |n/d| Musi być ustawiony na `notificationHub` . |
+|**wskazywa** |n/d| Musi być ustawiony na `out` . | 
+|**Nazwij** |n/d| Nazwa zmiennej używana w kodzie funkcji dla komunikatu centrum powiadomień. |
 |**tagExpression** |**TagExpression** | Wyrażenia tagów umożliwiają określenie, że powiadomienia mają być dostarczane do zestawu urządzeń, które zostały zarejestrowane w celu otrzymywania powiadomień pasujących do wyrażenia tagu.  Aby uzyskać więcej informacji, zobacz [Routing i wyrażenia tagów](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nazwa zasobu centrum powiadomień w Azure Portal. |
 |**połączenia** | **ConnectionStringSetting** | Nazwa ustawienia aplikacji, która zawiera Notification Hubs parametry połączenia.  Parametry połączenia muszą być ustawione na wartość *DefaultFullSharedAccessSignature* dla centrum powiadomień. Zobacz [Konfiguracja parametrów połączenia](#connection-string-setup) w dalszej części tego artykułu.|
@@ -287,7 +287,7 @@ Aby użyć powiązania danych wyjściowych centrum powiadomień, należy skonfig
 
 Aby skonfigurować parametry połączenia z istniejącym centrum powiadomień:
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do centrum powiadomień, wybierz pozycję **zasady dostępu**i wybierz przycisk Kopiuj obok zasad **DefaultFullSharedAccessSignature** . Spowoduje to skopiowanie parametrów połączenia dla zasad *DefaultFullSharedAccessSignatureymi* do centrum powiadomień. Te parametry połączenia umożliwiają funkcji wysyłanie komunikatów powiadomień do centrum.
+1. W [Azure Portal](https://portal.azure.com)przejdź do centrum powiadomień, wybierz pozycję **zasady dostępu** i wybierz przycisk Kopiuj obok zasad **DefaultFullSharedAccessSignature** . Spowoduje to skopiowanie parametrów połączenia dla zasad *DefaultFullSharedAccessSignatureymi* do centrum powiadomień. Te parametry połączenia umożliwiają funkcji wysyłanie komunikatów powiadomień do centrum.
     ![Kopiowanie parametrów połączenia centrum powiadomień](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
 1. Przejdź do aplikacji funkcji w Azure Portal, wybierz pozycję **Ustawienia aplikacji**, Dodaj klucz, taki jak **MyHubConnectionString**, wklej skopiowany *DefaultFullSharedAccessSignature*  dla centrum powiadomień jako wartość, a następnie kliknij przycisk **Zapisz**.
 
@@ -297,7 +297,7 @@ Nazwa tego ustawienia aplikacji ma wartość ustawienia połączenie wyjściowe 
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Tematy pomocy |
+| Wiązanie | Odwołanie |
 |---|---|
 | Centrum powiadomień | [Przewodnik obsługi](/rest/api/notificationhubs/) |
 

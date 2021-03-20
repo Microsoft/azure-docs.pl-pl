@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 06a4e8aa1ad74f47526f3a39931632953bfaaec2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla FishEye/tygla
@@ -85,7 +85,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Kantega SSO dla FishEye/tygla, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **Kantega Logowanie jednokrotne dla aplikacji fisheye/tygiel** wybierz pozycję **Logowanie**jednokrotne.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **Kantega Logowanie jednokrotne dla aplikacji fisheye/tygiel** wybierz pozycję **Logowanie** jednokrotne.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -180,7 +180,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
-    a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
+    a. Wybierz pozycję **plik metadanych na komputerze** i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
     b. Kliknij przycisk **Dalej**.
 

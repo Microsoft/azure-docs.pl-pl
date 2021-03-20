@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 12951f25feb6f3710b8d35fbc682caeeb480e788
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555613"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Samouczek — udzielanie dostępu do internetowego interfejsu API platformy Node.js z aplikacji klasycznej przy użyciu usługi Azure Active Directory B2C
 
 W tym samouczku przedstawiono sposób wywoływania Node.js internetowego interfejsu API chronionego przez program Azure Active Directory B2C (Azure AD B2C) z aplikacji klasycznej programu Windows Presentation Foundation (WPF), również chronionej przez Azure AD B2C.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie aplikacji internetowego interfejsu API
@@ -88,7 +88,7 @@ Teraz, gdy internetowy interfejs API jest zarejestrowany i masz dostępne zakres
 W ramach wymagań wstępnych dotyczących tego artykułu zmodyfikowano [aplikację klasyczną WPF](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) , aby umożliwić logowanie się przy użyciu przepływu użytkowników w dzierżawie Azure AD B2C. W tej sekcji zostanie zaktualizowana ta sama aplikacja, aby odwołać się do internetowego interfejsu API, który został zarejestrowany wcześniej, *webapi1*.
 
 1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** ( `active-directory-b2c-wpf.sln` ) w programie Visual Studio.
-1. W projekcie **Active-Directory-B2C-WPF** otwórz plik *App.XAML.cs* i Znajdź następujące definicje zmiennych.
+1. W projekcie **Active-Directory-B2C-WPF** Otwórz plik *App. XAML. cs* i Znajdź następujące definicje zmiennych.
     1. Zastąp wartość zmiennej wartością `ApiScopes` zanotowaną wcześniej podczas definiowania **demonstracji. zakres odczytu** .
     1. Zastąp wartość `ApiEndpoint` zmiennej **adresem URI przekierowania** , który został zarejestrowany wcześniej podczas rejestrowania internetowego interfejsu API (na przykład *webapi1*) w dzierżawie.
 

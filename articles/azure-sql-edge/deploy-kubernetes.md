@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395295"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Wdrażanie kontenera usługi Azure SQL Edge w Kubernetes
@@ -33,7 +33,7 @@ Kubernetes 1,6 i nowsze obsługują [klasy magazynu](https://kubernetes.io/docs/
 
 ![Usługa Azure SQL Edge w klastrze Kubernetes](media/deploy-kubernetes/kubernetes-sql-edge.png)
 
-Na powyższym diagramie `azure-sql-edge` jest kontenerem w elemencie [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/). Kubernetes organizuje zasoby w klastrze. [Zestaw replik](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) gwarantuje, że element pod zostanie automatycznie odzyskany po awarii węzła. Aplikacje nawiązują połączenie z usługą. W takim przypadku usługa reprezentuje moduł równoważenia obciążenia, który hostuje adres IP, który pozostaje taki sam po awarii `azure-sql-edge` .
+Na powyższym diagramie `azure-sql-edge` jest kontenerem w elemencie [](https://kubernetes.io/docs/concepts/workloads/pods/pod/). Kubernetes organizuje zasoby w klastrze. [Zestaw replik](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) gwarantuje, że element pod zostanie automatycznie odzyskany po awarii węzła. Aplikacje nawiązują połączenie z usługą. W takim przypadku usługa reprezentuje moduł równoważenia obciążenia, który hostuje adres IP, który pozostaje taki sam po awarii `azure-sql-edge` .
 
 Na poniższym diagramie `azure-sql-edge` kontener nie powiódł się. Ponieważ koordynator Kubernetes gwarantuje poprawną liczbę wystąpień w dobrej kondycji w zestawie replik i uruchamia nowy kontener zgodnie z konfiguracją. Program Orchestrator uruchamia nowe miejsce w tym samym węźle i `azure-sql-edge` ponownie nawiązuje połączenie z tym samym magazynem trwałym. Usługa nawiązuje połączenie z nowo utworzoną usługą `azure-sql-edge` .
 
@@ -108,7 +108,7 @@ Skonfiguruj w klastrze Kubernetes [wolumin trwały](https://kubernetes.io/docs/c
          storage: 8Gi
    ```
 
-   Zapisz plik (na przykład **PVC. YAML** ).
+   Zapisz plik (na przykład **PVC. YAML**).
 
 2. Utwórz w Kubernetes wartość trwałego żądania woluminu.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Przy użyciu `LoadBalancer` typu usługi wystąpienie programu Azure SQL Edge jest dostępne zdalnie (za pośrednictwem Internetu) na porcie 1433.
 
-   Zapisz plik (na przykład **sqledgedeploy. YAML** ).
+   Zapisz plik (na przykład **sqledgedeploy. YAML**).
 
 2. Utwórz wdrożenie.
 

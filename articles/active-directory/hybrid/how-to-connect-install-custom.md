@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096355"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Niestandardowa instalacja Azure Active Directory Connect
@@ -38,7 +38,7 @@ Na stronie **Ustawienia ekspresowe** wybierz pozycję **Dostosuj** , aby rozpocz
 
 - [Wymagane składniki](#install-required-components)
 - [Logowanie użytkownika](#user-sign-in)
-- [Łączenie z usługą Azure AD](#connect-to-azure-ad)
+- [Nawiązywanie połączenia z usługą Azure AD](#connect-to-azure-ad)
 - [Synchronizacja](#sync-pages)
 
 ### <a name="install-required-components"></a>Instalacja wymaganych składników
@@ -49,7 +49,7 @@ Po zainstalowaniu usług synchronizacji można pozostawić niewybraną sekcję k
 | Konfiguracja opcjonalna | Opis |
 | --- | --- |
 |Określ niestandardową lokalizację instalacji| Umożliwia zmianę domyślnej ścieżki instalacji Azure AD Connect.|
-| Użyj istniejącego serwera SQL Server |Pozwala określić nazwę SQL Server i nazwę wystąpienia. Wybierz tę opcję, jeśli masz już serwer bazy danych, którego chcesz użyć. W polu **Nazwa wystąpienia**wprowadź nazwę wystąpienia, przecinek i numer portu, jeśli wystąpienie SQL Server nie ma włączonej funkcji przeglądania.  Następnie określ nazwę bazy danych Azure AD Connect.  Twoje uprawnienia SQL określają, czy można utworzyć nową bazę danych, czy administrator SQL musi utworzyć bazę danych z wyprzedzeniem.  Jeśli masz uprawnienia administratora SQL Server (SA), zobacz [instalowanie Azure AD Connect przy użyciu istniejącej bazy danych](how-to-connect-install-existing-database.md).  Jeśli masz uprawnienia delegowane (DBO), zobacz [instalowanie Azure AD Connect przy użyciu uprawnień administratora delegowanego SQL](how-to-connect-install-sql-delegation.md). |
+| Użyj istniejącego serwera SQL Server |Pozwala określić nazwę SQL Server i nazwę wystąpienia. Wybierz tę opcję, jeśli masz już serwer bazy danych, którego chcesz użyć. W polu **Nazwa wystąpienia** wprowadź nazwę wystąpienia, przecinek i numer portu, jeśli wystąpienie SQL Server nie ma włączonej funkcji przeglądania.  Następnie określ nazwę bazy danych Azure AD Connect.  Twoje uprawnienia SQL określają, czy można utworzyć nową bazę danych, czy administrator SQL musi utworzyć bazę danych z wyprzedzeniem.  Jeśli masz uprawnienia administratora SQL Server (SA), zobacz [instalowanie Azure AD Connect przy użyciu istniejącej bazy danych](how-to-connect-install-existing-database.md).  Jeśli masz uprawnienia delegowane (DBO), zobacz [instalowanie Azure AD Connect przy użyciu uprawnień administratora delegowanego SQL](how-to-connect-install-sql-delegation.md). |
 | Użyj istniejącego konta usługi |Domyślnie usługa Azure AD Connect udostępnia wirtualne konto usługi dla usług synchronizacji. Jeśli używasz zdalnego wystąpienia SQL Server lub używasz serwera proxy wymagającego uwierzytelniania, możesz użyć *zarządzanego konta usługi* lub konta usługi chronionego hasłem w domenie. W takich przypadkach Wprowadź konto, którego chcesz użyć. Aby uruchomić instalację, musisz być skojarzeniem zabezpieczeń w programie SQL, aby można było utworzyć poświadczenia logowania dla konta usługi. Aby uzyskać więcej informacji, zobacz [Azure AD Connect kont i uprawnień](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Przy użyciu najnowszej kompilacji administrator programu SQL Server może teraz zainicjować obsługę administracyjną bazy danych poza pasmem. Następnie administrator Azure AD Connect może zainstalować go z prawami właściciela bazy danych.  Aby uzyskać więcej informacji, zobacz [instalowanie Azure AD Connect przy użyciu uprawnień administratora delegowanego SQL](how-to-connect-install-sql-delegation.md).|
 | Określ niestandardowe grupy synchronizacji |Domyślnie podczas instalowania usług synchronizacji program Azure AD Connect tworzy cztery grupy, które są lokalne dla serwera. Te grupy to Administratorzy, operatorzy, przeglądanie i resetowanie hasła. Możesz tu określić własne grupy. Grupy muszą być lokalne na serwerze. Nie mogą znajdować się w domenie. |
 |Importuj ustawienia synchronizacji (wersja zapoznawcza)|Umożliwia importowanie ustawień z innych wersji Azure AD Connect.  Aby uzyskać więcej informacji, zobacz [Importowanie i eksportowanie ustawień konfiguracji Azure AD Connect](how-to-connect-import-export-config.md).|
@@ -92,7 +92,7 @@ Aby nawiązać połączenie z usługą Active Directory Domain Services (Azure A
 
 ![Zrzut ekranu przedstawiający stronę "łączenie katalogów".](./media/how-to-connect-install-custom/connectdir01.png)
 
-Po wprowadzeniu nazwy lasu i wybraniu opcji  **Dodaj katalog**zostanie wyświetlone okno. W poniższej tabeli opisano opcje.
+Po wprowadzeniu nazwy lasu i wybraniu opcji  **Dodaj katalog** zostanie wyświetlone okno. W poniższej tabeli opisano opcje.
 
 | Opcja | Opis |
 | --- | --- |
@@ -102,7 +102,7 @@ Po wprowadzeniu nazwy lasu i wybraniu opcji  **Dodaj katalog**zostanie wyświetl
 ![Zrzut ekranu przedstawiający stronę "łączenie katalogu" i okno konta lasu D, w którym można utworzyć nowe konto lub użyć istniejącego konta.](./media/how-to-connect-install-custom/connectdir02.png)
 
 >[!NOTE]
-> W przypadku kompilacji 1.4.18.0 nie można użyć konta administratora przedsiębiorstwa lub administratora domeny jako konta łącznika usługi Azure AD DS. W przypadku wybrania opcji **Użyj istniejącego konta**w przypadku próby wprowadzenia konta administratora przedsiębiorstwa lub konta administratora domeny zostanie wyświetlony następujący komunikat o błędzie: "używanie konta przedsiębiorstwa lub administratora domeny dla konta lasu usługi AD jest niedozwolone. Zezwól Azure AD Connect utworzyć konta lub określ konto synchronizacji z odpowiednimi uprawnieniami ".
+> W przypadku kompilacji 1.4.18.0 nie można użyć konta administratora przedsiębiorstwa lub administratora domeny jako konta łącznika usługi Azure AD DS. W przypadku wybrania opcji **Użyj istniejącego konta** w przypadku próby wprowadzenia konta administratora przedsiębiorstwa lub konta administratora domeny zostanie wyświetlony następujący komunikat o błędzie: "używanie konta przedsiębiorstwa lub administratora domeny dla konta lasu usługi AD jest niedozwolone. Zezwól Azure AD Connect utworzyć konta lub określ konto synchronizacji z odpowiednimi uprawnieniami ".
 >
 
 ### <a name="azure-ad-sign-in-configuration"></a>Konfiguracja logowania się w usłudze Azure AD
@@ -260,7 +260,7 @@ Na komputerze, na którym są zasady grupy narzędzia do zarządzania:
 
 1.  Otwórz zasady grupy narzędzia do zarządzania.
 2.  Edytuj zasady grupy, które będą stosowane do wszystkich użytkowników. Na przykład domyślne zasady domeny.
-3.  Przejdź do pozycji **Konfiguracja użytkownika**  >  **Szablony administracyjne**  >  **składniki systemu Windows**internetowe  >  **Internet Explorer**  >  **Web Panel sterowania**Internet  >  **Security Page**. Następnie wybierz pozycję **lokacja do przypisywania stref**.
+3.  Przejdź do pozycji **Konfiguracja użytkownika**  >  **Szablony administracyjne**  >  **składniki systemu Windows** internetowe  >  **Internet Explorer**  >  **Web Panel sterowania** Internet  >  . Następnie wybierz pozycję **lokacja do przypisywania stref**.
 4.  Włącz zasady. Następnie w oknie dialogowym wprowadź nazwę wartości `https://autologon.microsoftazuread-sso.com` i wartość `1` . Twoja konfiguracja powinna wyglądać jak na poniższej ilustracji.
   
     ![Zrzut ekranu przedstawiający strefy intranetowe.](./media/how-to-connect-install-custom/sitezone.png)

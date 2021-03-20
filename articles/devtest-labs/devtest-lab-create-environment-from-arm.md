@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć środowiska wielu maszyn wirtualnych i P
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88182412"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Tworzenie środowisk z wieloma maszynami wirtualnymi i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager
@@ -82,7 +82,7 @@ Po utworzeniu i skonfigurowaniu repozytorium możesz dodać je do laboratorium p
    - **Gałąź** (opcjonalnie): Wprowadź nazwę gałęzi, aby uzyskać dostęp do definicji szablonów Azure Resource Manager.
    - **Osobisty token dostępu**: wprowadź osobisty token dostępu, który jest używany do bezpiecznego uzyskiwania dostępu do repozytorium.
      - Aby uzyskać token z Azure Repos, w obszarze Profil wybierz pozycję **Ustawienia użytkownika**  >  **zabezpieczenia**  >  **osobiste tokeny dostępu**.
-     - Aby uzyskać token z usługi GitHub, w obszarze Twój profil wybierz kolejno pozycje **Ustawienia**ustawienia  >  **deweloper**  >  **osobiste tokeny dostępu**.
+     - Aby uzyskać token z usługi GitHub, w obszarze Twój profil wybierz kolejno pozycje **Ustawienia** ustawienia  >  **deweloper**  >  **osobiste tokeny dostępu**.
    - **Ścieżki folderów**: wprowadź ścieżkę folderu względem identyfikatora URI klonowania git dla definicji artefaktów lub definicji szablonu Azure Resource Manager.
 
 1. Wybierz pozycję **Zapisz**.
@@ -125,7 +125,7 @@ Po dodaniu szablonu Azure Resource Manager do laboratorium użytkownicy laborato
 
    Szablon Azure Resource Manager definiuje resztę pól wejściowych. Jeśli szablon *azuredeploy.parameter.jsw* pliku definiuje wartości domyślne, pola wejściowe zawierają te wartości.
 
-   Dla parametrów typu *Secure ciąg*można użyć wpisów tajnych z Azure Key Vault. Aby dowiedzieć się więcej o przechowywaniu wpisów tajnych w magazynie kluczy i korzystaniu z nich podczas tworzenia zasobów laboratorium, zobacz [zapisywanie wpisów tajnych w Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).  
+   Dla parametrów typu *Secure ciąg* można użyć wpisów tajnych z Azure Key Vault. Aby dowiedzieć się więcej o przechowywaniu wpisów tajnych w magazynie kluczy i korzystaniu z nich podczas tworzenia zasobów laboratorium, zobacz [zapisywanie wpisów tajnych w Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).  
 
    ![Dodaj okienko](./media/devtest-lab-create-environment-from-arm/add.png)
 

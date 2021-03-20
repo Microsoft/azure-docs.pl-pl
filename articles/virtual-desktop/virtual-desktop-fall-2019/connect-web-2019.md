@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c8a55e35ba89caefc362024fc871ac5eb800447b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008427"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows (klasycznym) z klientem sieci Web
@@ -27,7 +27,7 @@ Klient sieci Web umożliwia dostęp do zasobów pulpitu wirtualnego systemu Wind
 
 Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficjalnie obsługujemy następujące systemy operacyjne i przeglądarki.
 
-| Przeglądarka           | Obsługiwane systemy operacyjne                     | Uwagi               |
+| Przeglądarka           | Obsługiwany system operacyjny                     | Uwagi               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

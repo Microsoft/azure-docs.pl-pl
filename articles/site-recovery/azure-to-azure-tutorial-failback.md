@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.openlocfilehash: 5c127010a7988bf08c77340a4fc10bb32dc76f87
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393948"
 ---
 # <a name="tutorial-fail-back-azure-vm-to-the-primary-region"></a>Samouczek: powrót po awarii maszyny wirtualnej platformy Azure do regionu podstawowego
@@ -49,10 +49,10 @@ Po ponownym włączeniu ochrony maszyn wirtualnych można wrócić do regionu po
     [Na stronie wyrażamy zgodę na uruchomienie trybu failover bez testowego przejścia w tryb failover](./media/azure-to-azure-tutorial-failback/no-test.png)
 
 4. W **trybie failover** Zanotuj kierunek od elementu pomocniczego do podstawowego, a następnie wybierz punkt odzyskiwania. Maszyna wirtualna platformy Azure w miejscu docelowym (region podstawowy) jest tworzona przy użyciu danych z tego punktu.
-   - **Ostatnio przetwarzane** : używa najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, więc zapewnia niski cel czasu odzyskiwania (RTO).
-   -  **Najnowsze** : przetwarza wszystkie dane wysyłane do Site Recovery, aby utworzyć punkt odzyskiwania dla każdej maszyny wirtualnej przed przełączeniem jej w tryb failover. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ wszystkie dane są replikowane do Site Recovery podczas wyzwolenia trybu failover.
-   - **Najnowsza spójna dla aplikacji** : Ta opcja powoduje przełączenie maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją. Wyświetlana jest sygnatura czasowa.
-   - **Niestandardowa** : przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej i nie korzysta z planu odzyskiwania.
+   - **Ostatnio przetwarzane**: używa najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, więc zapewnia niski cel czasu odzyskiwania (RTO).
+   -  **Najnowsze**: przetwarza wszystkie dane wysyłane do Site Recovery, aby utworzyć punkt odzyskiwania dla każdej maszyny wirtualnej przed przełączeniem jej w tryb failover. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ wszystkie dane są replikowane do Site Recovery podczas wyzwolenia trybu failover.
+   - **Najnowsza spójna dla aplikacji**: Ta opcja powoduje przełączenie maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją. Wyświetlana jest sygnatura czasowa.
+   - **Niestandardowa**: przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej i nie korzysta z planu odzyskiwania.
 
     > [!NOTE]
     > W przypadku przełączenia w tryb failover maszyny wirtualnej, do której dodano dysk po włączeniu replikacji dla maszyny wirtualnej, punkty replikacji będą zawierać dyski dostępne do odzyskania. Na przykład punkt replikacji, który został utworzony przed dodaniem drugiego dysku, będzie widoczny jako "1 z 2 dysków".

@@ -10,17 +10,17 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395092"
 ---
 # <a name="deploy-azure-sql-edge"></a>Wdrażanie usługi Azure SQL Edge 
 
 Usługa Azure SQL Edge jest aparatem relacyjnej bazy danych zoptymalizowanym pod kątem wdrożeń IoT i Azure IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. W tym przewodniku szybki start pokazano, jak rozpocząć tworzenie modułu usługi Azure SQL Edge za pośrednictwem Azure IoT Edge przy użyciu Azure Portal.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
@@ -52,7 +52,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
 
 4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge** modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 
 
-5. W sekcji *Ustawienia modułu* w bloku **Update IoT Edge module** określ odpowiednie wartości dla *IoT Edge Nazwa modułu* , *zasady ponownego uruchamiania* i *żądany stan*. 
+5. W sekcji *Ustawienia modułu* w bloku **Update IoT Edge module** określ odpowiednie wartości dla *IoT Edge Nazwa modułu*, *zasady ponownego uruchamiania* i *żądany stan*. 
 
    > [!IMPORTANT]    
    > Nie zmieniaj ani nie Aktualizuj ustawień **identyfikatora URI obrazu** w module.

@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499413"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurowanie Application Insights Profiler
@@ -63,7 +63,7 @@ Ta sekcja na stronie zawiera informacje o ostatnich sesjach profilowania. Sesja 
 Wyzwolone przez | Jak sesja została uruchomiona, przez wyzwalacz, profil teraz lub domyślne próbkowanie. 
 Nazwa aplikacji | Nazwa aplikacji, która została profilowana.
 Wystąpienie maszyny | Nazwa komputera, na którym uruchomiono agenta profilera.
-Timestamp | Godzina przechwycenia profilu.
+Znacznik czasu | Godzina przechwycenia profilu.
 Śledzenie | Liczba śladów, które zostały dołączone do poszczególnych żądań.
 CPU % | Procent użycia procesora CPU, który był używany podczas działania profilera.
 Rozmiar | Procent pamięci używanej podczas działania profilera.

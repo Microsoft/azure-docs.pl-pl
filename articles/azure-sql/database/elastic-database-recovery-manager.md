@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792229"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Używanie klasy RecoveryManager do rozwiązywanie problemów z mapą fragmentów
@@ -33,11 +33,11 @@ Aby zapoznać się z definicjami warunków, zobacz [słownik narzędzi Elastic D
 
 ## <a name="why-use-the-recovery-manager"></a>Dlaczego warto korzystać z Menedżera odzyskiwania
 
-W środowisku bazy danych podzielonej na fragmenty istnieje jedna dzierżawa na bazę danych, a wiele baz danych na serwer. W środowisku może być również wiele serwerów. Każda baza danych jest mapowana na mapie fragmentu, więc wywołania można kierować do właściwego serwera i bazy danych. Bazy danych są śledzone według **klucza fragmentowania** , a każdy fragmentu ma przypisany **zakres wartości klucza** . Na przykład klucz fragmentowania może reprezentować nazwy klientów od "D" do "F". Mapowanie wszystkich fragmentów (nazywanych również bazami danych) i ich zakresy mapowania są zawarte w **globalnej mapie fragmentu (GSM)** . Każda baza danych zawiera również mapę zakresów zawartych w fragmentu, która jest znana jako **lokalna Mapa fragmentu (LSM)** . Gdy aplikacja nawiązuje połączenie z fragmentu, mapowanie jest buforowane z aplikacją do szybkiego pobierania. LSM jest używany do walidacji danych w pamięci podręcznej.
+W środowisku bazy danych podzielonej na fragmenty istnieje jedna dzierżawa na bazę danych, a wiele baz danych na serwer. W środowisku może być również wiele serwerów. Każda baza danych jest mapowana na mapie fragmentu, więc wywołania można kierować do właściwego serwera i bazy danych. Bazy danych są śledzone według **klucza fragmentowania**, a każdy fragmentu ma przypisany **zakres wartości klucza**. Na przykład klucz fragmentowania może reprezentować nazwy klientów od "D" do "F". Mapowanie wszystkich fragmentów (nazywanych również bazami danych) i ich zakresy mapowania są zawarte w **globalnej mapie fragmentu (GSM)**. Każda baza danych zawiera również mapę zakresów zawartych w fragmentu, która jest znana jako **lokalna Mapa fragmentu (LSM)**. Gdy aplikacja nawiązuje połączenie z fragmentu, mapowanie jest buforowane z aplikacją do szybkiego pobierania. LSM jest używany do walidacji danych w pamięci podręcznej.
 
 Usługi GSM i LSM mogą stać się niezsynchronizowane z następujących powodów:
 
-1. Usunięcie elementu fragmentu, którego zakres nie jest już używany, lub zmiana nazwy fragmentu. Usunięcie fragmentu skutkuje **mapowaniem oddzielonym fragmentu** . Podobnie baza danych o zmienionej nazwie może spowodować oddzielenie mapowania fragmentu. W zależności od intencji zmiany fragmentu może być konieczne usunięcie lub należy zaktualizować lokalizację fragmentu. Aby odzyskać usuniętą bazę danych, zobacz [przywracanie usuniętej bazy danych](recovery-using-backups.md).
+1. Usunięcie elementu fragmentu, którego zakres nie jest już używany, lub zmiana nazwy fragmentu. Usunięcie fragmentu skutkuje **mapowaniem oddzielonym fragmentu**. Podobnie baza danych o zmienionej nazwie może spowodować oddzielenie mapowania fragmentu. W zależności od intencji zmiany fragmentu może być konieczne usunięcie lub należy zaktualizować lokalizację fragmentu. Aby odzyskać usuniętą bazę danych, zobacz [przywracanie usuniętej bazy danych](recovery-using-backups.md).
 2. Wystąpi zdarzenie geograficzne — tryb failover. Aby kontynuować, należy zaktualizować nazwę serwera i nazwę bazy danych Menedżera mapy fragmentu w aplikacji, a następnie zaktualizować szczegóły mapowania fragmentu dla wszystkich fragmentów na mapie fragmentu. W przypadku geograficznego trybu failover taka logika odzyskiwania powinna być zautomatyzowana w ramach przepływu pracy trybu failover. Automatyzacja akcji odzyskiwania umożliwia łatwość zarządzania bazami danych z obsługą geograficzną i unika ręcznych działań ludzkich. Aby dowiedzieć się więcej o opcjach odzyskiwania bazy danych w przypadku awarii centrum danych, zobacz [ciągłość](business-continuity-high-availability-disaster-recover-hadr-overview.md) działania i [odzyskiwanie po awarii](disaster-recovery-guidance.md).
 3. Baza danych fragmentu lub ShardMapManager jest przywracana do wcześniejszego punktu w czasie. Aby dowiedzieć się więcej o odzyskiwaniu do punktu w czasie za pomocą kopii zapasowych, zobacz [odzyskiwanie przy użyciu kopii zapas](recovery-using-backups.md)
 

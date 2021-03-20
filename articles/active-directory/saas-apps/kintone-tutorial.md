@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 96ea3423d3c2dff2c8ba8c82b4c26d318c47211f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Samouczek: integracja Azure Active Directory z usługą usługi Kintone
@@ -226,7 +226,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze usługi
 
     ![Administrowanie systemem & użytkownika](./media/kintone-tutorial/ic785880.png "Administrowanie systemem & użytkownika")
 
-1. W obszarze **Administracja użytkownikami**kliknij pozycję **działy & użytkownicy**.
+1. W obszarze **Administracja użytkownikami** kliknij pozycję **działy & użytkownicy**.
 
     ![Dział & użytkowników](./media/kintone-tutorial/ic785888.png "Dział & użytkowników")
 
@@ -238,7 +238,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze usługi
 
     ![Nowi użytkownicy](./media/kintone-tutorial/ic785890.png "Nowi użytkownicy")
 
-    a. Wpisz **nazwę wyświetlaną**, **nazwę logowania**, **nowe hasło**, **Potwierdź hasło**, **adres E-mail**i inne szczegóły dotyczące prawidłowego konta usługi Azure AD, które chcesz udostępnić w powiązanych polach tekstowych.
+    a. Wpisz **nazwę wyświetlaną**, **nazwę logowania**, **nowe hasło**, **Potwierdź hasło**, **adres E-mail** i inne szczegóły dotyczące prawidłowego konta usługi Azure AD, które chcesz udostępnić w powiązanych polach tekstowych.
 
     b. Kliknij pozycję **Zapisz**.
 

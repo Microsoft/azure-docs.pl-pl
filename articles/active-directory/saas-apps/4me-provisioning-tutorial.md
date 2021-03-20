@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998672"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 4me na potrzeby automatycznego aprowizacji użytkowników
@@ -156,7 +156,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* 4me ma różne adresy URL Standard scim punktów końcowych dla środowisk testowych i produkcyjnych. Dawniej z **. funkcja pytań i odpowiedzi** jest zakończona. **.com**
+* 4me ma różne adresy URL Standard scim punktów końcowych dla środowisk testowych i produkcyjnych. Dawniej z **. funkcja pytań i odpowiedzi** jest zakończona. 
 * Tokeny wygenerowanego klucza tajnego 4me mają datę wygaśnięcia miesiąca od wygenerowania.
 * 4me nie obsługuje operacji **usuwania**
 

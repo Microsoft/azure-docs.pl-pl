@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c3236f9c60cb359349d96e93f674c3e278e44f1e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376135"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Tworzenie dzierżawy usługi Azure AD
@@ -95,7 +95,7 @@ W tym kroku zarejestrowano dodatkowe aplikacje dla różnych użytkowników i gr
 
     ![Sieć VPN platformy Azure 2](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
 
-2. Na stronie **Rejestrowanie aplikacji** wprowadź **nazwę**. Wybierz żądane **obsługiwane typy kont** , a następnie kliknij pozycję **zarejestruj**.
+2. Na stronie **Rejestrowanie aplikacji** wprowadź **nazwę**. Wybierz żądane **obsługiwane typy kont**, a następnie kliknij pozycję **zarejestruj**.
 
     ![Sieć VPN platformy Azure 3](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
 
@@ -132,11 +132,11 @@ W tym kroku zarejestrowano dodatkowe aplikacje dla różnych użytkowników i gr
 
 Przypisz użytkowników do aplikacji.
 
-1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw** wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij przycisk **Zapisz**.
+1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw** wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij pozycję **Zapisz**.
 
     ![Azure VPN 8](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 
-2. Na stronie Aplikacja kliknij pozycję **Użytkownicy i grupy** , a następnie kliknij pozycję **+ Dodaj użytkownika**.
+2. Na stronie Aplikacja kliknij pozycję **Użytkownicy i grupy**, a następnie kliknij pozycję **+ Dodaj użytkownika**.
 
     ![Sieć VPN platformy Azure 9](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
 

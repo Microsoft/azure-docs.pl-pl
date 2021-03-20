@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
 ms.openlocfilehash: 806357670bead54658f0b501ca20473293275d58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91533370"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka poczty e-mail dla aplikacji LUIS
@@ -64,7 +64,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 ```
 #### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/V2)
 
-W poniższym przykładzie przedstawiono rozdzielczość **wbudowanej jednostki poczty e-mail** .
+Poniższy przykład pokazuje rozdzielczość jednostki **BUILTIN.email** .
 
 ```json
 "entities": [
