@@ -4,10 +4,10 @@ description: Dowiedz się, jak za pomocą Azure Portal dodać maszynę wirtualn�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 07efcf93b963009494021b90e6c730c4615301ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297627"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Dodawanie maszyny wirtualnej do laboratorium w Azure DevTest Labs
@@ -32,12 +32,12 @@ W tym artykule pokazano również, jak zarządzać artefaktami dla maszyny wirtu
 
         ![Zrzut ekranu przedstawiający stronę "Tworzenie zasobu laboratorium" z wybraną opcją "Ustawienia podstawowe" i wprowadzone wartości "Ustawienia użytkownika".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
-        Możesz również najpierw zapisać wpisy tajne w magazynie kluczy, a następnie użyć go podczas tworzenia maszyny wirtualnej w laboratorium. Aby uzyskać więcej informacji, zobacz [zapisywanie wpisów tajnych w magazynie kluczy](devtest-lab-store-secrets-in-key-vault.md). Aby użyć hasła przechowywanego w magazynie kluczy, wybierz opcję **Użyj zapisanego klucza tajnego**i określ kluczową wartość odpowiadającą hasłu (hasło).
+        Możesz również najpierw zapisać wpisy tajne w magazynie kluczy, a następnie użyć go podczas tworzenia maszyny wirtualnej w laboratorium. Aby uzyskać więcej informacji, zobacz [zapisywanie wpisów tajnych w magazynie kluczy](devtest-lab-store-secrets-in-key-vault.md). Aby użyć hasła przechowywanego w magazynie kluczy, wybierz opcję **Użyj zapisanego klucza tajnego** i określ kluczową wartość odpowiadającą hasłu (hasło).
     4. W sekcji **więcej opcji** wybierz pozycję **Zmień rozmiar**. Wybierz jeden ze wstępnie zdefiniowanych elementów, które określają rdzenie procesora, rozmiar pamięci RAM i rozmiar dysku twardego maszyny wirtualnej do utworzenia.
     5. Wybierz pozycję **Dodaj lub Usuń artefakty**. Wybierz i skonfiguruj artefakty, które chcesz dodać do obrazu podstawowego.
     **Uwaga:** Jeśli dopiero zaczynasz DevTest Labs lub konfigurujesz artefakty, zapoznaj się z sekcją [Dodaj istniejący artefakt do maszyny wirtualnej](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) , a następnie wróć tutaj po zakończeniu.
 2. Przejdź do karty **Ustawienia zaawansowane** u góry i wykonaj następujące czynności:
-    1. Aby zmienić sieć wirtualną, w której znajduje się maszyna wirtualna, wybierz pozycję **Zmień**Sieć wirtualna.
+    1. Aby zmienić sieć wirtualną, w której znajduje się maszyna wirtualna, wybierz pozycję **Zmień** Sieć wirtualna.
     2. Aby zmienić podsieć, wybierz pozycję **Zmień podsieć**.
     3. Określ, czy adres IP maszyny wirtualnej jest **publiczny, prywatny czy udostępniony**.
     4. Aby automatycznie usunąć maszynę wirtualną, określ **datę i godzinę wygaśnięcia**.

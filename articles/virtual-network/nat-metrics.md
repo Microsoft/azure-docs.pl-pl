@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
 ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87424055"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Metryki translatora adresów sieciowych na platformie Azure Virtual Network
@@ -36,13 +36,13 @@ Zasoby bramy translatora adresów sieciowych w usłudze Azure Virtual Network za
 
 Zasoby bramy NAT zapewniają następujące wielowymiarowe metryki w Azure Monitor:
 
-| Metryka | Opis | Zalecana agregacja | Wymiary |
+| Metric | Opis | Zalecana agregacja | Wymiary |
 |---|---|---|---|
-| Bajty | Przetworzone bajty przychodzące i wychodzące | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
-| SPI | Pakiety przetworzone do ruchu przychodzącego i wychodzącego | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
-| Pakiety opuszczone | Pakiety odrzucone przez bramę translatora adresów sieciowych | Suma | / |
-| Liczba połączeń z translatorem adresów sieciowych | Przejścia stanu na interwał | Suma | Stan połączenia, protokół (6 TCP; 17 połączeń UDP) |
-| Łączna liczba połączeń z wiązaniami adresów sieciowych | Bieżące aktywne połączenia z przydziałami (~ porty w użyciu) | Suma | Protokół (6 TCP; 17 UDP) |
+| Bajty | Przetworzone bajty przychodzące i wychodzące | Sum | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
+| SPI | Pakiety przetworzone do ruchu przychodzącego i wychodzącego | Sum | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
+| Pakiety opuszczone | Pakiety odrzucone przez bramę translatora adresów sieciowych | Sum | / |
+| Liczba połączeń z translatorem adresów sieciowych | Przejścia stanu na interwał | Sum | Stan połączenia, protokół (6 TCP; 17 połączeń UDP) |
+| Łączna liczba połączeń z wiązaniami adresów sieciowych | Bieżące aktywne połączenia z przydziałami (~ porty w użyciu) | Sum | Protokół (6 TCP; 17 UDP) |
 
 
 ## <a name="alerts"></a>Alerty

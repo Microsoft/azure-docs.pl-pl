@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341811"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>Jak utworzyć zasady zaświadczania
@@ -36,7 +36,7 @@ issuancerules
  
 Plik zasad ma trzy segmenty, jak pokazano powyżej:
 
-- **wersja** : wersja jest numerem wersji gramatyki, która jest obserwowana. 
+- **wersja**: wersja jest numerem wersji gramatyki, która jest obserwowana. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Plik zasad ma trzy segmenty, jak pokazano powyżej:
 
     Obecnie jedyną obsługiwaną wersją jest wersja 1,0.
 
-- **reguł autoryzacji** : Kolekcja reguł poświadczeń, które będą sprawdzane jako pierwsze, aby określić, czy zaświadczenie platformy Azure ma przebiegać do **issuancerules**. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej zostały zdefiniowane.
+- **reguł autoryzacji**: Kolekcja reguł poświadczeń, które będą sprawdzane jako pierwsze, aby określić, czy zaświadczenie platformy Azure ma przebiegać do **issuancerules**. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej zostały zdefiniowane.
 
-- **issuancerules** : Kolekcja reguł dotyczących roszczeń, które zostaną ocenione w celu dodania dodatkowych informacji do wyniku zaświadczania zgodnie z definicją w zasadach. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej są zdefiniowane, i są opcjonalne.
+- **issuancerules**: Kolekcja reguł dotyczących roszczeń, które zostaną ocenione w celu dodania dodatkowych informacji do wyniku zaświadczania zgodnie z definicją w zasadach. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej są zdefiniowane, i są opcjonalne.
 
 Aby uzyskać więcej informacji [, zobacz zasady dotyczące roszczeń i roszczeń](claim-rule-grammar.md) .
    
@@ -128,8 +128,8 @@ Po utworzeniu pliku zasad, aby przekazać zasady w formacie JWS, wykonaj poniżs
      ```
 
 2. Obowiązkowe Podpisz zasady. Zaświadczanie platformy Azure obsługuje następujące algorytmy:
-     - **Brak** : nie Podpisz ładunku zasad.
-     - **RS256** : obsługiwany algorytm podpisywania ładunku zasad
+     - **Brak**: nie Podpisz ładunku zasad.
+     - **RS256**: obsługiwany algorytm podpisywania ładunku zasad
 
 3. Przekaż JWS i sprawdź poprawność zasad.
      - Jeśli plik zasad nie zawiera błędów składni, plik zasad zostanie zaakceptowany przez usługę.

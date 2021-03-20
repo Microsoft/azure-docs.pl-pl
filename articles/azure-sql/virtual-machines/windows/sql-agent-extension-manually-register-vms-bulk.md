@@ -15,10 +15,10 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 558daede55f6563155d3f54e97d77c0a3ca4de59
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97357232"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu rozszerzenia programu SQL IaaS Agent
@@ -44,7 +44,7 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia, pot
 - Najnowsza wersja polecenia [AZ PowerShell (5,0 minimum)](/powershell/azure/new-azureps-module-az). 
 
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 

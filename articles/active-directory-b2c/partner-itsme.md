@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489519"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Konfigurowanie itsme OpenID Connect Connect (OIDC) z Azure Active Directory B2C
@@ -74,7 +74,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Upewnij się, że używasz katalogu, który zawiera Azure AD B2C dzierżawcy. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure AD B2C** (lub wybierz pozycję **więcej usług** i użyj pola wyszukiwania **wszystkie usługi** , aby wyszukać *Azure AD B2C*).
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C** (lub wybierz pozycję **więcej usług** i użyj pola wyszukiwania **wszystkie usługi** , aby wyszukać *Azure AD B2C*).
 
 3. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
 
@@ -94,13 +94,13 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Nazwa wyświetlana | name |
    |Imię | given_name |
    |Nazwisko | family_name |
-   |Poczta e-mail | poczta e-mail|
+   |E-mail | poczta e-mail|
 
 5. Wybierz pozycję **Zapisz**.
 
 ### <a name="configure-a-user-flow"></a>Konfigurowanie przepływu użytkownika
 
-1. W dzierżawie Azure AD B2C w obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. W dzierżawie Azure AD B2C w obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 
 2. Wybierz pozycję **Nowy przepływ użytkownika**.
 
@@ -121,7 +121,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ### <a name="register-an-application"></a>Rejestrowanie aplikacji
 
-1. W dzierżawie B2C w obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. W dzierżawie B2C w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
 2. Podaj **nazwę** aplikacji, a następnie wprowadź **Identyfikator URI przekierowania**. W celach testowych wprowadź `https://jwt.ms` .
 
@@ -129,7 +129,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Wybierz pozycję **Zarejestruj**.
 
-   a. W celach testowych wybierz pozycję **uwierzytelnianie**i w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatorów** .  
+   a. W celach testowych wybierz pozycję **uwierzytelnianie** i w obszarze **niejawne przyznanie** zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatorów** .  
 
    b. Wybierz pozycję **Zapisz**.
 

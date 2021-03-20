@@ -4,17 +4,17 @@ description: W tym artykule wyjaśniono, jak użytkownik laboratorium lub nauczy
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 8d0c8a3ad8ba92e606f19480bdb36483f377fa04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85443506"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Wyświetl informacje o pomocy technicznej (użytkownik laboratorium w Azure Lab Services)
 W tym artykule wyjaśniono, jak użytkownik (w ramach laboratorium) może wyświetlić następujące informacje o pomocy technicznej:
 
 - Adres URL
-- Poczta e-mail
+- E-mail
 - Telefon
 - Dodatkowe instrukcje
 
@@ -24,7 +24,7 @@ Korzystając z tych informacji, można uzyskać pomoc w przypadku problemów tec
 ## <a name="view-support-information"></a>Wyświetl informacje o pomocy technicznej
 1. Zaloguj się do [portalu Azure Lab Services](https://labs.azure.com).
 2. Wybierz **laboratorium lub maszynę wirtualną** , dla której potrzebujesz pomocy, a następnie wybierz pozycję **?** w prawym górnym rogu strony. 
-3. Potwierdź, że widzisz linki do **witryny sieci Web pomocy technicznej**, **pomocy technicznej poczty e-mail**i **numeru telefonu pomocy technicznej**.
+3. Potwierdź, że widzisz linki do **witryny sieci Web pomocy technicznej**, **pomocy technicznej poczty e-mail** i **numeru telefonu pomocy technicznej**.
 
     ![Wyświetl informacje o pomocy technicznej](./media/lab-user-support-information/support-information.png)
 4. Informacje kontaktowe pomocy technicznej dla innego laboratorium można wyświetlić, przełączając je na listę rozwijaną. 

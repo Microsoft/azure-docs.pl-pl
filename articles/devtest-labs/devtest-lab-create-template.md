@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć niestandardowy obraz w Azure DevTest La
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cac812a9c38fc1dedfd31659a626b122f9527e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87289411"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Tworzenie obrazu niestandardowego na podstawie pliku VHD
@@ -40,10 +40,10 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia niestandardowego obraz
 
 1. Wprowadź opis obrazu niestandardowego. Ten opis jest wyświetlany na liście obrazów podstawowych podczas tworzenia maszyny wirtualnej.
 
-1. W obszarze **Typ systemu operacyjnego**wybierz opcję **Windows** lub **Linux**.
+1. W obszarze **Typ systemu operacyjnego** wybierz opcję **Windows** lub **Linux**.
 
-    - W przypadku wybrania opcji **Windows**należy określić za pomocą pola wyboru, czy program *Sysprep* został uruchomiony na maszynie. 
-    - W przypadku wybrania systemu **Linux**należy określić za pomocą pola wyboru *, czy cofanie aprowizacji zostało uruchomione* na komputerze. 
+    - W przypadku wybrania opcji **Windows** należy określić za pomocą pola wyboru, czy program *Sysprep* został uruchomiony na maszynie. 
+    - W przypadku wybrania systemu **Linux** należy określić za pomocą pola wyboru *, czy cofanie aprowizacji zostało uruchomione* na komputerze. 
 
 1. Wybierz **dysk VHD** z menu rozwijanego. Jest to wirtualny dysk twardy, który zostanie użyty do utworzenia nowego obrazu niestandardowego. W razie potrzeby wybierz opcję **przekazania wirtualnego dysku twardego przy użyciu programu PowerShell**.
 

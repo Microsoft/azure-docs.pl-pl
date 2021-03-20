@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 605f033ed48dd79fd164aabd95e326a6467d0ecd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98726217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Samouczek: integracja Azure Active Directory z usługą rozwiązania Zscaler ZSCloud

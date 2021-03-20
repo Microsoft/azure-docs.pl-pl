@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551646"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoryzowanie dostępu do aplikacji internetowych usługi Azure Active Directory przy użyciu przepływu udzielania kodu OAuth 2.0
@@ -87,7 +87,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |optional |Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Może być `query` , `fragment` lub `form_post` . `query` udostępnia kod jako parametr ciągu zapytania w identyfikatorze URI przekierowania. Jeśli żądasz tokenu identyfikatora przy użyciu niejawnego przepływu, nie możesz użyć `query` określonego w [specyfikacji OpenID Connect](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Jeśli żądasz tylko kodu, możesz użyć `query` , `fragment` , lub `form_post` . `form_post` wykonuje wpis zawierający kod dla identyfikatora URI przekierowania. Wartość domyślna to `query` dla przepływu kodu.  |
 | stan |zalecane |Wartość zawarta w żądaniu, która jest również zwracana w odpowiedzi tokenu. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
 | zasób | zalecane |Identyfikator URI aplikacji docelowego internetowego interfejsu API (zabezpieczony zasób). Aby znaleźć identyfikator URI aplikacji, w witrynie Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, Otwórz stronę **Ustawienia** aplikacji, a następnie kliknij przycisk **Właściwości**. Może to być również zasób zewnętrzny, taki jak `https://graph.microsoft.com` . Jest to wymagane w jednym z żądań autoryzacji lub tokenu. Aby zapewnić mniejszą liczbę wierszy uwierzytelniania, umieść ją w żądaniu autoryzacji, aby upewnić się, że od użytkownika otrzymano zgodę. |
-| scope | **Ignoruj** | W przypadku aplikacji usługi Azure AD w wersji 1 zakresy muszą być konfigurowane statycznie w witrynie Azure Portal w obszarze **Ustawienia**aplikacji, **wymagane uprawnienia**. |
+| scope | **Ignoruj** | W przypadku aplikacji usługi Azure AD w wersji 1 zakresy muszą być konfigurowane statycznie w witrynie Azure Portal w obszarze **Ustawienia** aplikacji, **wymagane uprawnienia**. |
 | pytać |optional |Wskaż typ interakcji z użytkownikiem, która jest wymagana.<p> Prawidłowe wartości: <p> *Logowanie*: użytkownik powinien mieć monit o ponowne uwierzytelnienie. <p> *select_account*: użytkownik jest monitowany o wybranie konta, przerwanie logowania jednokrotnego. Użytkownik może wybrać istniejące zalogowane konto, wprowadzić poświadczenia dla konta zapamiętanego lub użyć innego konta. <p> *zgoda*: przyznano zgodę użytkownika, ale należy ją zaktualizować. Użytkownik powinien zostać poproszony o zgodę. <p> *admin_consent*: Administrator powinien otrzymywać monit o zgodę w imieniu wszystkich użytkowników w organizacji. |
 | login_hint |optional |Może służyć do wstępnego wypełniania pola Nazwa użytkownika/adres e-mail strony logowania dla użytkownika, jeśli znana jest jego nazwa użytkownika przed czasem. Często aplikacje używają tego parametru podczas ponownego uwierzytelniania, ponieważ już wyodrębnili nazwę użytkownika z poprzedniego logowania przy użyciu tego `preferred_username` żądania. |
 | domain_hint |optional |Zawiera wskazówkę dotyczącą dzierżawy lub domeny, której użytkownik powinien używać do logowania. Wartość domain_hint jest zarejestrowaną domeną dla dzierżawcy. Jeśli dzierżawca jest federacyjny do katalogu lokalnego, w usłudze AAD przekierowania do określonego serwera federacyjnego dzierżawcy. |

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478794"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Skalowanie infrastruktury Azure DevTest Labs
@@ -21,7 +21,7 @@ Przed wdrożeniem laboratoriów DevTest w skali przedsiębiorstwa istnieje kilka
 ## <a name="networking-and-security"></a>Sieci i zabezpieczenia
 Sieci i zabezpieczenia są podstawą dla wszystkich organizacji. Chociaż wdrożenie w całym przedsiębiorstwie wymaga znacznie dokładniejszej analizy, istnieje zmniejszona liczba wymagań, które pomogą pomyślnie wykonać weryfikację koncepcji. Oto kilka kluczowych obszarów fokusu:
 
-- **Subskrypcja platformy Azure** — aby wdrożyć DevTest Labs, musisz mieć dostęp do subskrypcji platformy Azure z odpowiednimi prawami do tworzenia zasobów. Istnieje kilka sposobów uzyskiwania dostępu do subskrypcji platformy Azure, w tym Umowa Enterprise i płatność zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do subskrypcji platformy Azure, zobacz [Licencjonowanie platformy Azure dla przedsiębiorstwa](https://azure.microsoft.com/pricing/enterprise-agreement/).
+- **Subskrypcja platformy Azure** — aby wdrożyć DevTest Labs, musisz mieć dostęp do subskrypcji platformy Azure z odpowiednimi prawami do tworzenia zasobów. Istnieje kilka sposobów uzyskiwania dostępu do subskrypcji platformy Azure, w tym Enterprise Agreement i płatność zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do subskrypcji platformy Azure, zobacz [Licencjonowanie platformy Azure dla przedsiębiorstwa](https://azure.microsoft.com/pricing/enterprise-agreement/).
 - **Dostęp do zasobów lokalnych** — niektóre organizacje wymagają, aby zasoby w DevTest Labs miały dostęp do zasobów lokalnych. Wymagana jest bezpieczne połączenie ze środowiska lokalnego z platformą Azure. W związku z tym ważne jest, aby skonfigurować/skonfigurować połączenie sieci VPN lub Express Route przed rozpoczęciem. Aby uzyskać więcej informacji, zobacz [Omówienie sieci wirtualnych](../virtual-network/virtual-networks-overview.md).
 - **Dodatkowe wymagania dotyczące zabezpieczeń** — inne wymagania dotyczące zabezpieczeń, takie jak zasady komputera, dostęp do publicznych adresów IP, nawiązywanie połączenia z Internetem to scenariusze, które mogą wymagać sprawdzenia przed wdrożeniem weryfikacji koncepcji. 
 

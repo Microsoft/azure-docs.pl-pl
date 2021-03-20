@@ -9,10 +9,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 968f82a143872fd282222539ab71a70db488a20d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91935767"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Konfigurowanie planu ciągłości działania i odzyskiwania po awarii
@@ -105,7 +105,7 @@ Agent FSLogix może obsługiwać wiele lokalizacji profilów w przypadku konfigu
 Aby skonfigurować wpisy rejestru:
 
 1. Otwórz **Edytor rejestru**.
-2. Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **FSLogix**  >  **Profile**FSLogix oprogramowania.
+2. Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >    >    >  **Profile** FSLogix oprogramowania.
    
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu okna Profile w Edytorze rejestru. Wybrano VHDLocation.](media/regedit-profiles.png)

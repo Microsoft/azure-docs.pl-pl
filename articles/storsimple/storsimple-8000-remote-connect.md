@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514573"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Zdalne nawiązywanie połączenia z urządzeniem z serii StorSimple 8000
@@ -195,7 +195,7 @@ Poniżej opisano każdą z tych procedur.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Aby dodać numery seryjne urządzeń do hosta zdalnego
 1. Uruchom Notatnik jako administrator, a następnie otwórz plik hosts znajdujący się w lokalizacji \Windows\System32\Drivers\etc.
-2. Dodaj następujące trzy wpisy do pliku hosts: **adres IP danych 0**, **stały adres IP kontrolera 0**i **stały adres IP kontrolera 1**.
+2. Dodaj następujące trzy wpisy do pliku hosts: **adres IP danych 0**, **stały adres IP kontrolera 0** i **stały adres IP kontrolera 1**.
 3. Wprowadź wcześniej zapisany numer seryjny urządzenia. Mapuj na adres IP, jak pokazano na poniższej ilustracji. W przypadku kontrolera 0 i 1 Dodaj **Controller0** i **Controller1** na końcu numeru SERYJNego (nazwa pospolita).
    
     ![Dodawanie nazwy POSPOLITej do pliku hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -239,5 +239,5 @@ Wykonaj poniższą procedurę na komputerze, z którego ma zostać utworzone zda
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [używaniu programu Windows PowerShell do administrowania urządzeniem StorSimple](storsimple-8000-windows-powershell-administration.md).
-* Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 7fa8c35185bb7e20454e8f803c5d3ee476655282
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92451397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Samouczek: integracja Azure Active Directory z usługą FreshGrade
@@ -85,7 +85,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FreshGrade, wykonaj następujące kroki:
 
-1. W witrynie [Azure Portal](https://portal.azure.com/) na stronie integracji usługi**FreshGrade** wybierz pozycję **Logowanie jednokrotne**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) na stronie integracji usługi **FreshGrade** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 

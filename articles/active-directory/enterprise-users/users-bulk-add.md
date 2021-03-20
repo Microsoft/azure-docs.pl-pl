@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c653f3e8583ef3aadff26cb2b7a3266555d313a2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547818"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
@@ -42,7 +42,7 @@ Pobierz i wypełnij szablon CSV przekazywanie zbiorcze, aby ułatwić pomyślne 
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Name [displayName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt;  &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Name [displayName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki

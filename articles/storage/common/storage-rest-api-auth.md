@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010906"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Wywoływanie operacji interfejsu API REST przy użyciu autoryzacji klucza wspólnego
@@ -66,7 +66,7 @@ Przejrzyj odwołanie do operacji [ListContainers](/rest/api/storageservices/List
 
 **Metoda żądania**: get. To zlecenie jest metodą HTTP określoną jako właściwość obiektu żądania. Inne wartości tego zlecenia obejmują nagłówek, PUT i DELETE, w zależności od wywoływanego interfejsu API.
 
-**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list` .Identyfikator URI żądania jest tworzony na podstawie punktu końcowego konta usługi BLOB Storage `https://myaccount.blob.core.windows.net` i ciągu zasobu `/?comp=list` .
+**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list` .  Identyfikator URI żądania jest tworzony na podstawie punktu końcowego konta usługi BLOB Storage `https://myaccount.blob.core.windows.net` i ciągu zasobu `/?comp=list` .
 
 [Parametry identyfikatora URI](/rest/api/storageservices/List-Containers2#uri-parameters): Istnieją dodatkowe parametry zapytania, których można użyć podczas wywoływania ListContainers. Kilka z tych parametrów jest *limitem czasu* dla wywołania (w sekundach) i *prefiksu*, który jest używany do filtrowania.
 
@@ -94,7 +94,7 @@ W celu zapewnienia bezpieczeństwa podczas pracy w środowisku produkcyjnym zaws
 
 W naszym przykładowym projekcie kod służący do tworzenia nagłówka autoryzacji znajduje się w osobnej klasie. Pomysłem jest to, że można przyjąć całą klasę i dodać ją do własnego rozwiązania i użyć jej "w takiej postaci, w jakiej jest". Kod nagłówka autoryzacji działa w przypadku większości wywołań interfejsu API REST do usługi Azure Storage.
 
-Aby skompilować żądanie, które jest obiektem HttpRequestMessage, przejdź do ListContainersAsyncREST w Program.cs. Poniżej przedstawiono procedurę tworzenia żądania:
+Aby skompilować żądanie, które jest obiektem HttpRequestMessage, przejdź do ListContainersAsyncREST w programie program. cs. Poniżej przedstawiono procedurę tworzenia żądania:
 
 - Utwórz identyfikator URI, który ma być używany do wywoływania usługi.
 - Utwórz obiekt HttpRequestMessage i ustaw ładunek. Ładunek ma wartość null dla ListContainersAsyncREST, ponieważ nie są przekazywane żadne elementy w.
@@ -286,19 +286,19 @@ Ten fragment kodu przedstawia format ciągu sygnatury klucza współdzielonego:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 Większość z tych pól jest rzadko używana. W przypadku usługi BLOB Storage należy określić CZASOWNIK, MD5, długość zawartości, nagłówki kanoniczne i zasób kanoniczny. Pozostałe wartości można pozostawić puste (ale umieścić je w tym obszarze, `\n` tak że są puste).

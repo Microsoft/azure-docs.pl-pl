@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie udziałami macierzy wirtualnych StorSimple | Microsoft Docs
-description: W tym artykule opisano Menedżer urządzeń StorSimple i wyjaśniono, jak używać go do zarządzania udziałami w macierzy wirtualnej StorSimple.
+description: W tym artykule opisano Device Manager StorSimple i wyjaśniono, jak używać go do zarządzania udziałami w macierzy wirtualnej StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 340b910319cabe3379bdb1bad1c09bc71c17f072
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994948"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Use StorSimple Device Manager service to manage shares on the StorSimple Virtual Array (Zarządzanie wirtualną tablicą udziałów za pomocą usługi StorSimple DeviceManager)
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak za pomocą usługi StorSimple Menedżer urządzeń utworzyć udziały w wirtualnej macierzy StorSimple i zarządzać nimi.
+W tym samouczku wyjaśniono, jak za pomocą usługi StorSimple Device Manager utworzyć udziały w wirtualnej macierzy StorSimple i zarządzać nimi.
 
-Usługa StorSimple Menedżer urządzeń jest rozszerzeniem Azure Portal, które umożliwia zarządzanie rozwiązaniem StorSimple z poziomu jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami, można użyć usługi StorSimple Menedżer urządzeń do wyświetlania i zarządzania urządzeniami, wyświetlania alertów, zarządzania zasadami tworzenia kopii zapasowych i zarządzania wykazem kopii zapasowych.
+Usługa StorSimple Device Manager jest rozszerzeniem Azure Portal, które umożliwia zarządzanie rozwiązaniem StorSimple z poziomu jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami, można użyć usługi StorSimple Device Manager do wyświetlania i zarządzania urządzeniami, wyświetlania alertów, zarządzania zasadami tworzenia kopii zapasowych i zarządzania wykazem kopii zapasowych.
 
 ## <a name="share-types"></a>Typy udziałów
 
@@ -40,7 +40,7 @@ Udziały StorSimple:
 
 Zapoznaj się z poniższą tabelą dotyczącą maksymalnej alokowanej pojemności dla każdego typu udziału.
 
-| **Identyfikator limitu** | **Limit** |
+| **Identyfikator limitu** | **Granice** |
 | --- | --- |
 | Minimalny rozmiar udziału warstwowego |500 GB |
 | Maksymalny rozmiar udziału warstwowego |20 TB |

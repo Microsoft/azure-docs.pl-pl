@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
 ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87416234"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Uruchamianie powrotu po awarii dla maszyn wirtualnych funkcji Hyper-V
@@ -36,9 +36,9 @@ W tym artykule opisano sposób powrotu po awarii maszyn wirtualnych platformy Az
 
 Aby zakończyć przywracanie maszyn wirtualnych funkcji Hyper-V na platformie Azure do oryginalnej lokalnej maszyny wirtualnej, uruchom planowane przejście w tryb failover z platformy Azure do lokacji lokalnej w następujący sposób:
 
-1. W magazynie > **zreplikowane elementy**wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **planowanej pracy w trybie failover**. Jeśli plan odzyskiwania kończy się niepowodzeniem, wybierz nazwę planu i kliknij pozycję Planowana praca w trybie **failover**  >  **Planned Failover**.
-2. W obszarze **Potwierdź planowane przejście w tryb failover**wybierz lokalizację źródłową i docelową. Zanotuj kierunek trybu failover. Jeśli przełączenie w tryb failover z lokacji głównej działa zgodnie z oczekiwaniami i wszystkie maszyny wirtualne znajdują się w lokalizacji pomocniczej, jest to tylko informacje.
-3. W obszarze **Synchronizacja danych**wybierz opcję:
+1. W magazynie > **zreplikowane elementy** wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **planowanej pracy w trybie failover**. Jeśli plan odzyskiwania kończy się niepowodzeniem, wybierz nazwę planu i kliknij pozycję Planowana praca w trybie **failover**  >  .
+2. W obszarze **Potwierdź planowane przejście w tryb failover** wybierz lokalizację źródłową i docelową. Zanotuj kierunek trybu failover. Jeśli przełączenie w tryb failover z lokacji głównej działa zgodnie z oczekiwaniami i wszystkie maszyny wirtualne znajdują się w lokalizacji pomocniczej, jest to tylko informacje.
+3. W obszarze **Synchronizacja danych** wybierz opcję:
     - **Synchronizuj dane przed przełączeniem w tryb failover (zsynchronizuj tylko zmiany różnicowe)**— ta opcja minimalizuje przestoje maszyn wirtualnych w trakcie synchronizacji bez jej zamykania.
         - **Faza 1**: tworzy MIGAWKĘ maszyny wirtualnej platformy Azure i kopiuje ją do lokalnego hosta funkcji Hyper-V. Maszyna kontynuuje działanie na platformie Azure.
         - **Faza 2**: zamyka maszynę wirtualną platformy Azure, aby nie pojawiły się żadne nowe zmiany. Końcowy zestaw zmian różnicowych jest transferowany na serwer lokalny, a lokalna maszyna wirtualna jest uruchamiana.
@@ -46,7 +46,7 @@ Aby zakończyć przywracanie maszyn wirtualnych funkcji Hyper-V na platformie Az
         - Pobiera dysk. 
         - Zalecamy użycie tej opcji, jeśli używasz platformy Azure przez pewien czas (co miesiąc lub więcej) lub jeśli lokalna maszyna wirtualna jest usuwana.
 
-4. Tylko w przypadku programu VMM, jeśli szyfrowanie danych jest włączone dla chmury, w **kluczu szyfrowania**wybierz certyfikat, który został wystawiony po włączeniu szyfrowania danych podczas instalacji dostawcy na serwerze programu VMM.
+4. Tylko w przypadku programu VMM, jeśli szyfrowanie danych jest włączone dla chmury, w **kluczu szyfrowania** wybierz certyfikat, który został wystawiony po włączeniu szyfrowania danych podczas instalacji dostawcy na serwerze programu VMM.
 5. Zainicjuj tryb failover. Na karcie **Zadania** można śledzić postęp trybu failover.
 6. W przypadku wybrania opcji synchronizowania danych przed przełączeniem w tryb failover po zakończeniu początkowej synchronizacji danych i przygotowaniu do zamknięcia maszyn wirtualnych na platformie Azure kliknij pozycję **zadania** > nazwa zadania > **zakończyć pracę w trybie failover**. Spowoduje to wykonanie następujących czynności:
     - Zamyka maszynę Azure.
@@ -64,10 +64,10 @@ Powrót po awarii do alternatywnej lokalizacji w następujący sposób:
 
 1. Jeśli konfigurujesz nowy sprzęt, zainstaluj [obsługiwaną wersję systemu Windows](hyper-v-azure-support-matrix.md#replicated-vms)i rolę funkcji Hyper-V na komputerze.
 2. Utwórz przełącznik sieci wirtualnej o takiej samej nazwie, jak na oryginalnym serwerze.
-3. W **Protected Items**  >  **grupie Ochrona**chronionych elementów  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> Wybierz maszynę wirtualną, której chcesz użyć do powrotu po awarii, a następnie wybierz pozycję **Planowana praca w trybie failover**.
+3. W   >  **grupie Ochrona** chronionych elementów  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> Wybierz maszynę wirtualną, której chcesz użyć do powrotu po awarii, a następnie wybierz pozycję **Planowana praca w trybie failover**.
 4. W obszarze **Potwierdź planowane przejście w tryb failover**, wybierz opcję **Utwórz lokalną maszynę wirtualną, jeśli nie istnieje**.
-5. W polu **Nazwa hosta**wybierz nowy serwer hosta funkcji Hyper-V, na którym chcesz umieścić maszynę wirtualną.
-6. W obszarze **Synchronizacja danych**zalecamy wybranie opcji synchronizowania danych przed przełączeniem w tryb failover. Pozwala to zminimalizować czas przestoju w przypadku synchronizacji z maszynami wirtualnymi bez ich zamykania. Wykonuje następujące czynności:
+5. W polu **Nazwa hosta** wybierz nowy serwer hosta funkcji Hyper-V, na którym chcesz umieścić maszynę wirtualną.
+6. W obszarze **Synchronizacja danych** zalecamy wybranie opcji synchronizowania danych przed przełączeniem w tryb failover. Pozwala to zminimalizować czas przestoju w przypadku synchronizacji z maszynami wirtualnymi bez ich zamykania. Wykonuje następujące czynności:
     - **Faza 1**: tworzy MIGAWKĘ maszyny wirtualnej platformy Azure i kopiuje ją do lokalnego hosta funkcji Hyper-V. Maszyna kontynuuje działanie na platformie Azure.
     - **Faza 2**: zamyka maszynę wirtualną platformy Azure, aby nie pojawiły się żadne nowe zmiany. Końcowy zestaw zmian jest transferowany na serwer lokalny, a lokalna maszyna wirtualna jest uruchamiana.
     

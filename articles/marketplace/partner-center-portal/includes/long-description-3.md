@@ -1,5 +1,5 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 description: " — plik"
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,17 +8,17 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
 ms.openlocfilehash: 5197b71db4f46d9908d5539c114d636b9474a870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87317690"
 ---
 Użyj tagów HTML, aby sformatować swój opis, aby był bardziej interesujący. Większość tagów wymaga zarówno składnika otwierającego, jak i zamykającego, jak pokazano w tej tabeli.
 
 |   Wymagana czynność  |  Zastosowanie  |  Jak to  |  Aby uzyskać ten   |
 | --- | --- | --- | --- |
-|   Pogrubienie  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
+|   Pogrubiona  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
 |   Kursywa  |  `<i> & </i>`  |  Wybierz `<i>` pierwszy `</i>` wiersz.  |  Wybierz *pierwszy* wiersz.   |
 |   Nowy wiersz  |  `<br>`  |  Jest to mój pierwszy wiersz. `<br>` Jest to mój drugi wiersz.  |  Jest to mój pierwszy wiersz.<br>Jest to mój drugi wiersz.  |
 |  Litery  |  `<p> & </p>`  |  `<p>`Jest to mój pierwszy akapit.`</p>`<br>`<p>`Jest to mój drugi akapit.`</p>`   |   <p>Jest to mój pierwszy akapit.</p><p>Jest to mój drugi akapit.</p>   |

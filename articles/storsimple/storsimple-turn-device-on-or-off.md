@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515267"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Włączanie lub wyłączanie urządzenia z serii StorSimple 8000
@@ -146,7 +146,7 @@ Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowany, można to z
 > [!IMPORTANT]
 > Nie zamykaj uruchomionego urządzenia przy użyciu przycisku energia z tyłu urządzenia.
 > 
-> Przed zamknięciem urządzenia upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu**i sprawdź, czy stan wszystkich składników jest zielony. Jest to prawdziwe tylko w przypadku systemu w dobrej kondycji. Jeśli system jest zamykany w celu zastąpienia nieprawidłowego składnika, w **stanie sprzętu**zostanie wyświetlony stan "Niepowodzenie" (czerwony) lub zdegradowany (żółty) dla odpowiedniego składnika.
+> Przed zamknięciem urządzenia upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu** i sprawdź, czy stan wszystkich składników jest zielony. Jest to prawdziwe tylko w przypadku systemu w dobrej kondycji. Jeśli system jest zamykany w celu zastąpienia nieprawidłowego składnika, w **stanie sprzętu** zostanie wyświetlony stan "Niepowodzenie" (czerwony) lub zdegradowany (żółty) dla odpowiedniego składnika.
 > 
 > 
 
@@ -154,7 +154,7 @@ Po uzyskaniu dostępu do program Windows PowerShell dla usługi StorSimple lub A
 
 ### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD <a name="8600a"></a>
 > [!IMPORTANT]
-> Przed zamknięciem obudowy podstawowej i obudowy EBOD upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu**i sprawdź, czy wszystkie składniki są w dobrej kondycji.
+> Przed zamknięciem obudowy podstawowej i obudowy EBOD upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu** i sprawdź, czy wszystkie składniki są w dobrej kondycji.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Aby zamknąć uruchomione urządzenie przy użyciu obudowy EBOD

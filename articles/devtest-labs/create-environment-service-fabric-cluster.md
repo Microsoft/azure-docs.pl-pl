@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484013"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Tworzenie środowiska z niezależnym klastrem Service Fabric w programie Azure DevTest Labs
@@ -33,11 +33,11 @@ Klastry Service Fabric są tworzone przy użyciu środowisk w DevTest Labs. Każ
 
     ![Wybierz z listy klaster Service Fabric Lab](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. Na stronie **Konfigurowanie ustawień** wykonaj następujące czynności: 
-    1. Określ **nazwę** **środowiska**klastra. Jest to nazwa grupy zasobów na platformie Azure, w której ma zostać utworzony klaster Service Fabric. 
+    1. Określ **nazwę** **środowiska** klastra. Jest to nazwa grupy zasobów na platformie Azure, w której ma zostać utworzony klaster Service Fabric. 
     2. Wybierz **system operacyjny** dla maszyn wirtualnych klastra. Wartość domyślna to: **Windows**.
     3. Określ nazwę **administratora** klastra. 
     4. Określ **hasło** dla administratora. 
-    5. Dla **certyfikatu**wprowadź informacje o certyfikacie jako ciąg szyfrowany algorytmem Base64. Aby utworzyć certyfikat, wykonaj następujące czynności:
+    5. Dla **certyfikatu** wprowadź informacje o certyfikacie jako ciąg szyfrowany algorytmem Base64. Aby utworzyć certyfikat, wykonaj następujące czynności:
         1. Pobierz plik **Create-ClusterCertificate.ps1** z [repozytorium git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Alternatywnie Sklonuj repozytorium na komputerze. 
         2. Uruchom program **PowerShell**. 
         3. Uruchom plik **ps1** za pomocą polecenia `.\Create-ClusterCertificate.ps1` . Zostanie wyświetlony plik tekstowy otwarty w programie Notepad z informacjami potrzebnymi do wypełnienia pól związanych z certyfikatem na tej stronie. . 
@@ -86,7 +86,7 @@ Klastry Service Fabric można także uruchamiać lub zatrzymywać zgodnie z harm
 Aby zrezygnować z harmonogramu uruchamiania, wykonaj następujące czynności:
 
 1. Wybierz pozycję **Uruchom ponownie** w menu po lewej stronie
-2. Wybierz **On** opcję włączone **, aby zezwolić na planowanie automatycznego uruchamiania tego klastra usługi Service Fabric**. Ta strona jest włączona tylko wtedy, gdy właściciel laboratorium zezwoli użytkownikom na Autouruchamianie ich maszyn wirtualnych lub klastrów Service Fabric.
+2. Wybierz  opcję włączone **, aby zezwolić na planowanie automatycznego uruchamiania tego klastra usługi Service Fabric**. Ta strona jest włączona tylko wtedy, gdy właściciel laboratorium zezwoli użytkownikom na Autouruchamianie ich maszyn wirtualnych lub klastrów Service Fabric.
 3. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
     ![Strona Autotekstu](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
@@ -95,7 +95,7 @@ Aby zrezygnować z harmonogramu uruchamiania, wykonaj następujące czynności:
 Aby zmienić ustawienia dotyczące zamykania, wykonaj następujące czynności:
 
 1. W menu po lewej stronie wybierz pozycję **automatyczne zamykanie** . 
-2. **Na tej**stronie możesz zrezygnować z automatycznego zamykania, wybierając pozycję **wyłączone** . 
+2. **Na tej** stronie możesz zrezygnować z automatycznego zamykania, wybierając pozycję **wyłączone** . 
 3. Jeśli **wybrano opcję** **włączone**, wykonaj następujące kroki:
     1. Określ **godzinę** zamknięcia.
     2. Określ **strefę** czasową. 

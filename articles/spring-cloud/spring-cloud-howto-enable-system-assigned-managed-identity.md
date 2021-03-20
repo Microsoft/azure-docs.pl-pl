@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92742809"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
@@ -34,8 +34,8 @@ Aby skonfigurować tożsamość zarządzaną w [Azure Portal](https://portal.azu
 
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 2. Przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
-3. Wybierz pozycję **tożsamość** .
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone* . Kliknij pozycję **Zapisz** .
+3. Wybierz pozycję **tożsamość**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij pozycję **Zapisz**.
 
  ![Tożsamość zarządzana w portalu](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,8 +72,8 @@ Usunięcie tożsamości przypisanej do systemu spowoduje również usunięcie je
 Aby usunąć tożsamość zarządzaną przypisaną przez system z aplikacji, która nie jest już potrzebna:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera wystąpienie chmury Azure wiosennej.
-1. Przejdź do odpowiedniej maszyny wirtualnej i wybierz pozycję **tożsamość** .
-1. W **System assigned** obszarze / **stan** przypisane do systemu wybierz pozycję **wyłączone** , a następnie kliknij pozycję **Zapisz** :
+1. Przejdź do odpowiedniej maszyny wirtualnej i wybierz pozycję **tożsamość**.
+1. W obszarze / **stan** przypisane do systemu wybierz pozycję **wyłączone** , a następnie kliknij pozycję **Zapisz**:
 
  ![Tożsamość zarządzana](./media/spring-cloud-managed-identity/remove-identity.png)
 

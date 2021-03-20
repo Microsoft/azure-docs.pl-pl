@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949908"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Zarządzanie rekordami kontroli dostępu za pomocą usługi StorSimple Manager
 
 ## <a name="overview"></a>Omówienie
-Rekordy kontroli dostępu (rekordami ACR) umożliwiają określenie, które hosty mogą łączyć się z woluminem na urządzeniu StorSimple. Rekordami ACR są ustawiane na określony wolumin i zawierają kwalifikowane nazwy iSCSI (IQNs) hostów. Gdy host próbuje nawiązać połączenie z woluminem, urządzenie sprawdzi ACR skojarzone z tym woluminem dla nazwy IQN i jeśli jest zgodne, połączenie zostanie nawiązane. Rekordy kontroli dostępu w sekcji **Konfiguracja** w bloku usługi StorSimple Menedżer urządzeń są wyświetlane wszystkie rekordy kontroli dostępu z odpowiednimi IQNs hostów.
+Rekordy kontroli dostępu (rekordami ACR) umożliwiają określenie, które hosty mogą łączyć się z woluminem na urządzeniu StorSimple. Rekordami ACR są ustawiane na określony wolumin i zawierają kwalifikowane nazwy iSCSI (IQNs) hostów. Gdy host próbuje nawiązać połączenie z woluminem, urządzenie sprawdzi ACR skojarzone z tym woluminem dla nazwy IQN i jeśli jest zgodne, połączenie zostanie nawiązane. Rekordy kontroli dostępu w sekcji **Konfiguracja** w bloku usługi StorSimple Device Manager są wyświetlane wszystkie rekordy kontroli dostępu z odpowiednimi IQNs hostów.
 
 Ten samouczek wyjaśnia następujące typowe zadania związane z ACR:
 
@@ -44,13 +44,13 @@ Wykonaj następujące kroki, aby uzyskać nazwę IQN hosta z systemem Windows, n
 
 
 ## <a name="add-an-access-control-record"></a>Dodawanie rekordu kontroli dostępu
-Aby dodać rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Menedżer urządzeń. Zazwyczaj należy skojarzyć jeden ACR z jednym woluminem.
+Aby dodać rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Device Manager. Zazwyczaj należy skojarzyć jeden ACR z jednym woluminem.
 
 Wykonaj następujące kroki, aby dodać ACR.
 
 #### <a name="to-add-an-acr"></a>Aby dodać ACR
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
+1. Przejdź do usługi StorSimple Device Manager, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
 2. W bloku **rekordy kontroli dostępu** kliknij pozycję **+ Dodaj ACR**.
 
     ![Kliknij pozycję Dodaj ACR](./media/storsimple-8000-manage-acrs/createacr1.png)
@@ -71,7 +71,7 @@ Wykonaj następujące kroki, aby dodać ACR.
 
 
 ## <a name="edit-an-access-control-record"></a>Edytowanie rekordu kontroli dostępu
-Aby edytować rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Menedżer urządzeń.
+Aby edytować rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Device Manager.
 
 > [!NOTE]
 > Zaleca się zmodyfikowanie tylko tych rekordami ACR, które nie są obecnie używane. Aby edytować ACR skojarzone z aktualnie używanym woluminem, musisz najpierw przełączyć wolumin w tryb offline.
@@ -79,7 +79,7 @@ Aby edytować rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usł
 Wykonaj następujące kroki, aby edytować ACR.
 
 #### <a name="to-edit-an-access-control-record"></a>Aby edytować rekord kontroli dostępu
-1.  Przejdź do usługi StorSimple Menedżer urządzeń, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
+1.  Przejdź do usługi StorSimple Device Manager, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
 
     ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/createacr1.png)
 
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby edytować ACR.
 
     ![Edytuj rekordy kontroli dostępu 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Kliknij przycisk **Zapisz**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. 
+4. Kliknij pozycję **Zapisz**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. 
 
     ![Edytuj rekordy kontroli dostępu 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby edytować ACR.
 
    
 ## <a name="delete-an-access-control-record"></a>Usuwanie rekordu kontroli dostępu
-Aby usunąć rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Menedżer urządzeń.
+Aby usunąć rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usługi StorSimple Device Manager.
 
 > [!NOTE]
 > Można usunąć tylko te rekordami ACR, które nie są obecnie używane. Aby usunąć ACR skojarzone z aktualnie używanym woluminem, należy najpierw przełączyć wolumin w tryb offline.
@@ -107,7 +107,7 @@ Aby usunąć rekordami ACR, należy użyć sekcji **Konfiguracja** w bloku usłu
 Wykonaj następujące kroki, aby usunąć rekord kontroli dostępu.
 
 #### <a name="to-delete-an-access-control-record"></a>Aby usunąć rekord kontroli dostępu
-1.  Przejdź do usługi StorSimple Menedżer urządzeń, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
+1.  Przejdź do usługi StorSimple Device Manager, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
 
     ![Przejdź do rekordów kontroli dostępu 1b](./media/storsimple-8000-manage-acrs/createacr1.png)
 

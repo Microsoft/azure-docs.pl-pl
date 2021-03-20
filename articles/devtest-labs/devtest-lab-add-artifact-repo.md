@@ -4,10 +4,10 @@ description: Dowiedz się, jak dodać repozytorium usługi GitHub lub Azure DevO
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483146"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Dodawanie repozytorium git do przechowywania niestandardowych artefaktów i szablonów Menedżer zasobów
@@ -36,7 +36,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
 4. W prawym górnym rogu usługi GitHub wybierz obraz profilu, a następnie wybierz pozycję **Ustawienia**.
 5. W menu **Ustawienia osobiste** po lewej stronie wybierz pozycję **osobiste tokeny dostępu**.
 6. Wybierz pozycję **Generuj nowy token**.
-7. Na stronie **nowy osobisty token dostępu** w obszarze **Opis tokenu**wprowadź opis. Zaakceptuj domyślne elementy w obszarze **Wybierz zakresy**, a następnie wybierz pozycję **Generuj token**.
+7. Na stronie **nowy osobisty token dostępu** w obszarze **Opis tokenu** wprowadź opis. Zaakceptuj domyślne elementy w obszarze **Wybierz zakresy**, a następnie wybierz pozycję **Generuj token**.
 8. Zapisz wygenerowany token. Token jest używany później.
 9. Zamknij witrynę GitHub.   
 10. Przejdź do sekcji [łączenie laboratorium z repozytorium](#connect-your-lab-to-the-repository) .
@@ -63,7 +63,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
 1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Wybierz pozycję **więcej usług**, a następnie wybierz pozycję **DevTest Labs** z listy usług.
 3. Z listy laboratoriów wybierz laboratorium. 
-4. Wybierz kolejno pozycje **Konfiguracja i repozytoria i zasady i**  >  **Repositories**  >  **Dodaj**.
+4. Wybierz kolejno pozycje **Konfiguracja i repozytoria i zasady i**  >    >  **Dodaj**.
 
     ![Przycisk Dodaj repozytorium](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Na drugiej stronie **repozytoria** podaj następujące informacje:

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272015"
 ---
 # <a name="retrieve-offer-status"></a>Pobieranie stanu oferty
@@ -29,10 +29,10 @@ Pobiera bieżący stan oferty.
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Identyfikator wydawcy, na przykład `Contoso`  |     Ciąg     |
 |  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     Ciąg     |
-|  api-version    | Najnowsza wersja interfejsu API                        |     Date       |
+|  api-version    | Najnowsza wersja interfejsu API                        |     Date (Data)       |
 |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 
 |  Nazwa           |  Wartość               |
@@ -126,7 +126,7 @@ Pobiera bieżący stan oferty.
 |  estimatedTimeFrame   | Oszacowanie czasu, jaki mógłby wykonać ten krok, w przyjaznym formacie                       |
 |  identyfikator                   | Identyfikator kroku                                                                         |
 |  krokname             | Nazwa kroku                                                                               |
-|  description          | Opis kroku                                                                        |
+|  description (opis)          | Opis kroku                                                                        |
 |  status               | Stan kroku. Aby uzyskać listę możliwych wartości, zobacz [Step status](#step-status) poniżej.    |
 |  z chmury do urządzenia             | Tablica komunikatów dotyczących kroku                                                          |
 |  processPercentage    | Procent wykonania kroku                                                              |
@@ -152,7 +152,7 @@ Pobiera bieżący stan oferty.
 |  NotStarted                  | Oferta jest nowa i nie została uruchomiona.                            |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.                 |
 |  Uruchomienie                     | Przesyłanie oferty jest przetwarzane.                     |
-|  Sukces                   | Przesyłanie oferty zostało zakończone.               |
+|  Powodzenie                   | Przesyłanie oferty zostało zakończone.               |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                           |
 |  Niepowodzenie                      | Nie można przesłać oferty.                                 |
 |  |  |

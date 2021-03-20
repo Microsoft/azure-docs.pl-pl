@@ -9,17 +9,17 @@ ms.date: 08/13/2020
 ms.author: danlep
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746932"
 ---
 ## <a name="create-azure-container-registry"></a>Tworzenie rejestru kontenerów platformy Azure
 
-Przed utworzeniem rejestru kontenerów należy zapewnić *grupę zasobów* , w której zostanie wdrożony. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania wszystkich zasobów platformy Azure i zarządzania nimi.
+Przed utworzeniem rejestru kontenerów należy zapewnić *grupę zasobów*, w której zostanie wdrożony. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania wszystkich zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus* :
+Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Po utworzeniu grupy zasobów utwórz rejestr kontenerów platformy Azure za pomo
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Oto częściowe dane wyjściowe dla nowego rejestru kontenerów platformy Azure o nazwie *mycontainerregistry082* :
+Oto częściowe dane wyjściowe dla nowego rejestru kontenerów platformy Azure o nazwie *mycontainerregistry082*:
 
 ```output
 {

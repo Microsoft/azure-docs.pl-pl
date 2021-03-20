@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91278332"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Hierarchia magazynu usługi Azure NetApp Files
@@ -74,7 +74,7 @@ Typ QoS jest atrybutem puli pojemności. Azure NetApp Files udostępnia dwa typy
     Na przykład Pula pojemności 4-TiB z poziomem usługi Ultra Service ma całkowitą wydajność przepływności wynoszącą 512 MiB/s (4 TiB x 128 MiB/s/TiB) dostępną dla woluminów.
 
 
-## <a name="volumes"></a><a name="volumes"></a>Objętości
+## <a name="volumes"></a><a name="volumes"></a>Woluminy
 
 - Woluminy są mierzone według użycia pojemności logicznej i można je skalować. 
 - Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli.

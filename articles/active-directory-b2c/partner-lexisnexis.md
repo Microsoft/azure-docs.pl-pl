@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108437"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
@@ -82,7 +82,7 @@ Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-inte
 
 Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](../app-service/configure-common.md#configure-app-settings).  Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
-| Ustawienia aplikacji | Źródło | Uwagi |
+| Ustawienia aplikacji | Element źródłowy | Uwagi |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: adres URL | Konfiguracja konta ThreatMetrix |     |
 |ThreatMetrix: OrgId | Konfiguracja konta ThreatMetrix |     |

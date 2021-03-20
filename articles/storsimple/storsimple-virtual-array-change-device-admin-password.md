@@ -16,13 +16,13 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8bc8846d546faec194617ccb753cdbd105e16bf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85513615"
 ---
-# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Zmień hasło administratora urządzenia macierzy wirtualnej StorSimple za pośrednictwem StorSimple Menedżer urządzeń
+# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Zmień hasło administratora urządzenia macierzy wirtualnej StorSimple za pośrednictwem StorSimple Device Manager
 
 ## <a name="overview"></a>Omówienie
 
@@ -60,7 +60,7 @@ Wykonaj następujące kroki, aby zmienić hasło administratora urządzenia za p
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Aby zmienić hasło administratora urządzenia za pośrednictwem lokalnego interfejsu użytkownika sieci Web
 
-1. W lokalnym interfejsie użytkownika sieci Web **Maintenance**kliknij pozycję  >  **zmiana hasła** konserwacji dla Twojego urządzenia.
+1. W lokalnym interfejsie użytkownika sieci Web kliknij pozycję  >  **zmiana hasła** konserwacji dla Twojego urządzenia.
    
     ![Zmień password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Wprowadź **bieżące hasło**.
