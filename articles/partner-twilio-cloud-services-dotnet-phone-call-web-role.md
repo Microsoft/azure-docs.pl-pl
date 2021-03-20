@@ -15,10 +15,10 @@ ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 22e0a19c0e2f5b29b35ebf43a3f250959c9b636d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95521125"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w roli sieci Web na platformie Azure
@@ -158,7 +158,7 @@ Ten kod został dostarczony, aby pokazać podstawowe funkcje przy użyciu Twilio
 * Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń Twilio na stronie [https://www.twilio.com/docs/security][twilio_docs_security] .
 * Dowiedz się więcej o usłudze Twilio pod adresem [https://www.twilio.com/docs][twilio_docs] .
 
-## <a name="see-also"></a><a name="seealso"></a>Zobacz także
+## <a name="see-also"></a><a name="seealso"></a>Zobacz też
 * [Jak korzystać z funkcji Twilio na potrzeby obsługi głosu i programu SMS z platformy Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

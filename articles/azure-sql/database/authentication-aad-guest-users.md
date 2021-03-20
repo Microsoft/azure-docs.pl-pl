@@ -10,10 +10,10 @@ ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
 ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675057"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Tworzenie użytkowników-gości usługi Azure AD i ustawianie jako administratora usługi Azure AD
@@ -21,9 +21,9 @@ ms.locfileid: "92675057"
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Ten artykuł jest w **publicznej wersji zapoznawczej** .
+> Ten artykuł jest w **publicznej wersji zapoznawczej**.
 
-Użytkownicy-Goście w Azure Active Directory (Azure AD) są użytkownikami zaimportowanymi do bieżącej usługi Azure AD z innych aktywnych katalogów platformy Azure lub poza nią. Na przykład użytkownicy-Goście mogą dołączać użytkowników z innych katalogów usługi Azure Active Directory lub z kont takich jak *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* lub *\@ gmail.com* . W tym artykule pokazano, jak utworzyć użytkownika-gościa usługi Azure AD i ustawić tego użytkownika jako administratora usługi Azure AD dla serwera logicznego usługi Azure SQL, bez konieczności posiadania tego użytkownika gościa do grupy w usłudze Azure AD.
+Użytkownicy-Goście w Azure Active Directory (Azure AD) są użytkownikami zaimportowanymi do bieżącej usługi Azure AD z innych aktywnych katalogów platformy Azure lub poza nią. Na przykład użytkownicy-Goście mogą dołączać użytkowników z innych katalogów usługi Azure Active Directory lub z kont takich jak *\@ Outlook.com*, *\@ hotmail.com*, *\@ Live.com* lub *\@ gmail.com*. W tym artykule pokazano, jak utworzyć użytkownika-gościa usługi Azure AD i ustawić tego użytkownika jako administratora usługi Azure AD dla serwera logicznego usługi Azure SQL, bez konieczności posiadania tego użytkownika gościa do grupy w usłudze Azure AD.
 
 ## <a name="feature-description"></a>Opis funkcji
 
@@ -133,7 +133,7 @@ Wykonaj następujące kroki, aby ustawić użytkownika-gościa usługi Azure AD 
 
 ## <a name="limitations"></a>Ograniczenia
 
-Istnieje ograniczenie dotyczące Azure Portal, które uniemożliwiają wybranie użytkownika Gość usługi Azure AD jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL. W przypadku kont Gości spoza usługi Azure AD, takich jak *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* lub *\@ gmail.com* , selektor administratora usługi AD zawiera te konta, ale są wyszarzone i nie można ich wybrać. Użyj powyższej listy [poleceń programu PowerShell lub interfejsu wiersza polecenia](#setting-a-guest-user-as-an-azure-ad-admin) , aby ustawić administratora usługi Azure AD. Alternatywnie można ustawić grupę usługi Azure AD zawierającą użytkownika Gość jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL.
+Istnieje ograniczenie dotyczące Azure Portal, które uniemożliwiają wybranie użytkownika Gość usługi Azure AD jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL. W przypadku kont Gości spoza usługi Azure AD, takich jak *\@ Outlook.com*, *\@ hotmail.com*, *\@ Live.com* lub *\@ gmail.com*, selektor administratora usługi AD zawiera te konta, ale są wyszarzone i nie można ich wybrać. Użyj powyższej listy [poleceń programu PowerShell lub interfejsu wiersza polecenia](#setting-a-guest-user-as-an-azure-ad-admin) , aby ustawić administratora usługi Azure AD. Alternatywnie można ustawić grupę usługi Azure AD zawierającą użytkownika Gość jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL.
 
 Ta funkcja zostanie włączona dla wystąpienia zarządzanego SQL przed ogólnym udostępnieniem tej funkcji.
 

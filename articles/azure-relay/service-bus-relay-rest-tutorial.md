@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922331"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Samouczek: samouczek REST platformy Azure WCF Relay
@@ -53,22 +53,22 @@ Główną różnicą między kontraktem programu WCF a kontraktem w stylu REST j
 
 1. Uruchom Microsoft Visual Studio jako administrator. Aby to zrobić, kliknij prawym przyciskiem myszy ikonę programu Visual Studio, a następnie wybierz polecenie **Uruchom jako administrator**.
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
 1. Nazwij projekt *ImageListener*. Użyj domyślnej **lokalizacji**, a następnie wybierz pozycję **Utwórz**.
 
-   W przypadku projektu C# Program Visual Studio tworzy plik *program.cs* . Ta klasa zawiera pustą metodę `Main()` wymaganą do prawidłowej kompilacji projektu aplikacji konsolowej.
+   W przypadku projektu C# Program Visual Studio tworzy plik *programu. cs* . Ta klasa zawiera pustą metodę `Main()` wymaganą do prawidłowej kompilacji projektu aplikacji konsolowej.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ImageListener** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
-1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ImageListener** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     Ten krok powoduje dodanie odwołań do Service Bus i *System.ServiceModel.dll*. Ten pakiet automatycznie dodaje odwołania do bibliotek Service Bus i programu WCF `System.ServiceModel` .
 
-1. Jawnie Dodaj odwołanie do `System.ServiceModel.Web.dll` projektu. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **odwołania** w folderze projektu, a następnie wybierz polecenie **Dodaj odwołanie**.
-1. W obszarze **Dodaj odwołanie**wybierz pozycję **Struktura** i wprowadź *System. ServiceModel. Web* in **Search**. Zaznacz pole wyboru **System.ServiceModel.Web** i kliknij przycisk **OK**.
+1. Jawnie Dodaj odwołanie do `System.ServiceModel.Web.dll` projektu. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **odwołania** w folderze projektu, a następnie wybierz polecenie **Dodaj odwołanie**.
+1. W obszarze **Dodaj odwołanie** wybierz pozycję **Struktura** i wprowadź *System. ServiceModel. Web* in **Search**. Zaznacz pole wyboru **System.ServiceModel.Web** i kliknij przycisk **OK**.
 
 Następnie wprowadź następujące zmiany kodu w projekcie:
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku *program.cs* .
+1. Dodaj następujące `using` instrukcje w górnej części pliku *program. cs* .
 
     ```csharp
     using System.ServiceModel;
@@ -130,7 +130,7 @@ Następnie wprowadź następujące zmiany kodu w projekcie:
 
    Kanał jest obiektem usługi WCF, za pomocą którego usługa i klient przekazują do siebie informacje. Później utworzysz kanał w aplikacji hosta. Azure Relay następnie używa tego kanału do przekazywania żądań HTTP GET z przeglądarki do `GetImage` implementacji. Przekaźnik używa także kanału, aby pobrać `GetImage` wartość zwracaną i przetłumaczyć ją na `HTTP GETRESPONSE` przeglądarkę klienta.
 
-1. Wybierz pozycję **kompilacja**Kompiluj  >  **rozwiązanie** , aby potwierdzić dokładność pracy wykonanej do tej pory.
+1. Wybierz pozycję **kompilacja** Kompiluj  >  **rozwiązanie** , aby potwierdzić dokładność pracy wykonanej do tej pory.
 
 ### <a name="example-that-defines-a-wcf-relay-contract"></a>Przykład definiujący kontrakt WCF Relay
 
@@ -204,7 +204,7 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
 
    W pozostałej części tego samouczka założono, że nazwa obrazu jest *image.jpg*. Jeśli masz inny plik, musisz zmienić jego nazwę lub zmienić swój kod, aby zrekompensować.
 
-1. Aby upewnić się, że uruchomiona usługa może znaleźć plik obrazu, w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy plik obrazu, a następnie wybierz polecenie **Właściwości**. W obszarze **Właściwości**ustaw opcję **Kopiuj do katalogu wyjściowego** na wartość **Kopiuj, jeśli nowszy**.
+1. Aby upewnić się, że uruchomiona usługa może znaleźć plik obrazu, w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy plik obrazu, a następnie wybierz polecenie **Właściwości**. W obszarze **Właściwości** ustaw opcję **Kopiuj do katalogu wyjściowego** na wartość **Kopiuj, jeśli nowszy**.
 
 1. Użyj procedury w programie, [Aby utworzyć kontrakt z interfejsem](#to-create-a-contract-with-an-interface) , aby dodać odwołanie do zestawu *System.Drawing.dll* do projektu.
 
@@ -248,13 +248,13 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
     }
     ```
 
-    Ta implementacja używa `MemoryStream` do pobrania obrazu i przygotowania go do przesyłania strumieniowego do przeglądarki. Zaczyna się ona od zera, deklaruje zawartość strumienia jako *jpg*i przesyła strumieniowo informacje.
+    Ta implementacja używa `MemoryStream` do pobrania obrazu i przygotowania go do przesyłania strumieniowego do przeglądarki. Zaczyna się ona od zera, deklaruje zawartość strumienia jako *jpg* i przesyła strumieniowo informacje.
 
-1. Wybierz pozycję **kompilacja**Kompiluj  >  **rozwiązanie**.
+1. Wybierz pozycję **kompilacja** Kompiluj  >  **rozwiązanie**.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Aby zdefiniować konfigurację uruchamiania usługi sieci Web w usłudze Service Bus
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 
     Plik *App.config* zawiera nazwę usługi, punkt końcowy i powiązanie. Punkt końcowy jest lokalizacją Azure Relay udostępnia klientom i hostom komunikację ze sobą. Powiązanie jest typem protokołu, który jest używany do komunikacji. Główną różnicą jest to, że skonfigurowany punkt końcowy usługi odwołuje się do powiązania [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) .
 
@@ -315,7 +315,7 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
     </behaviors>
     ```
 
-1. W *App.config*w `<appSettings>` elemencie Zastąp całą wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
+1. W *App.config* w `<appSettings>` elemencie Zastąp całą wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
 
     ```xml
     <appSettings>

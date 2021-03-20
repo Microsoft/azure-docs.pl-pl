@@ -1,23 +1,22 @@
 ---
-title: Zarządzanie użytkownikami dla aplikacji dla przedsiębiorstw w usłudze Azure AD
-description: Dowiedz się, jak zarządzać obsługą kont użytkowników w aplikacjach dla przedsiębiorstw przy użyciu Azure Active Directory
+title: Zarządzanie użytkownikami dla aplikacji dla przedsiębiorstw w Azure Active Directory
+description: Dowiedz się, jak zarządzać obsługą kont użytkowników w aplikacjach dla przedsiębiorstw przy użyciu Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555628"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579420"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw w Azure Portal
 
@@ -63,9 +62,7 @@ Wybierz pozycję **Testuj połączenie** , aby przetestować poświadczenia, pon
 
 Rozwiń węzeł **mapowania** , aby wyświetlić i edytować atrybuty użytkownika, które przepływają między usługą Azure AD a aplikacją docelową, gdy konta użytkowników są inicjowane lub aktualizowane.
 
-Istnieje wstępnie skonfigurowany zestaw mapowań między obiektami użytkowników usługi Azure AD i obiektami użytkowników aplikacji SaaS. Niektóre aplikacje również zarządzają obiektami grup. Wybierz mapowanie w tabeli, aby otworzyć Edytor mapowania po prawej stronie, gdzie można je przeglądać i dostosowywać.
-
-![Pokazuje ekran mapowania atrybutów](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+Istnieje wstępnie skonfigurowany zestaw mapowań między obiektami użytkowników usługi Azure AD i obiektami użytkowników aplikacji SaaS. Niektóre aplikacje również zarządzają obiektami grup. Wybierz mapowanie w tabeli, aby otworzyć Edytor mapowania, w którym można je przeglądać i dostosowywać.
 
 Obsługiwane dostosowania obejmują:
 
@@ -79,10 +76,10 @@ Obsługiwane dostosowania obejmują:
 
 ### <a name="settings"></a>Ustawienia
 
-Możesz uruchomić i zatrzymać usługę Azure AD Provisioning dla wybranej aplikacji w obszarze **Ustawienia** na ekranie **aprowizacji** . Możesz również wyczyścić pamięć podręczną aprowizacji i ponownie uruchomić usługę.
+Rozwiń pozycję **Ustawienia** , aby ustawić adres e-mail na potrzeby otrzymywania powiadomień i określić, czy otrzymywać alerty dotyczące błędów. Możesz również wybrać zakres użytkowników do synchronizowania. Można synchronizować wszystkich użytkowników i grupy lub tylko te, które są przypisane.
+
+### <a name="provisioning-status"></a>Stan aprowizacji 
 
 Jeśli Inicjowanie obsługi jest włączane po raz pierwszy dla aplikacji, Włącz usługę, zmieniając **stan aprowizacji** na **włączone**. Ta zmiana powoduje, że usługa aprowizacji usługi Azure AD uruchamia cykl początkowy. Odczytuje użytkowników przypisanych w sekcji **Użytkownicy i grupy** , wysyła zapytanie do aplikacji docelowej, a następnie uruchamia akcje aprowizacji zdefiniowane w sekcji **mapowania** usługi Azure AD. W trakcie tego procesu usługa aprowizacji przechowuje buforowane dane dotyczące kont użytkowników, którymi zarządza, dlatego nie ma to wpływu na konta niezarządzane w aplikacjach docelowych, które nigdy nie są objęte zakresem przydziału. Po wstępnym cyklu usługa aprowizacji automatycznie synchronizuje obiekty użytkowników i grup w przedziale 40-minutowym.
 
 Zmień **stan aprowizacji** na **wyłączony**  , aby wstrzymać usługę aprowizacji. W tym stanie platforma Azure nie tworzy, nie aktualizuje ani nie usuwa żadnych obiektów użytkowników ani grup w aplikacji. Zmień stan z powrotem na **włączony** , a usługa odbiera w miejscu, w którym została przerwana.
-
-**Wyczyść bieżący stan i ponownie uruchom synchronizację** wyzwala cykl początkowy. Następnie usługa ponownie oceni wszystkich użytkowników w systemie źródłowym i określi, czy znajdują się one w zakresie aprowizacji. Może to być przydatne, gdy aplikacja jest obecnie w kwarantannie lub trzeba wprowadzić zmiany mapowań atrybutów. Należy zauważyć, że cykl początkowy trwa dłużej niż typowy przyrostowy cykl ze względu na liczbę obiektów, które należy oszacować. Więcej informacji o wydajności początkowych i przyrostowych cykli można znaleźć [tutaj](application-provisioning-when-will-provisioning-finish-specific-user.md).

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918215"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579641"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Aby zarejestrować aplikację sieci Web w dzierżawie Azure AD B2C, możesz uży
 
 ## <a name="create-a-client-secret"></a>Tworzenie klucza tajnego klienta
 
-W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Ten klucz tajny będzie używany przez aplikację do wymiany kodu autoryzacji dla tokenu dostępu.
+W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Klucz tajny klienta jest również znany jako *hasło aplikacji*. Wpis tajny będzie używany przez aplikację do wymiany kodu autoryzacji dla tokenu dostępu.
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Ten klu
 1. Wybierz pozycję **Nowy wpis tajny klienta**.
 1. Wprowadź opis wpisu tajnego klienta w polu **Opis** . Na przykład *clientsecret1*.
 1. W obszarze **wygaśnięcie** wybierz czas trwania, dla którego wpis tajny jest prawidłowy, a następnie wybierz pozycję **Dodaj**.
-1. Zapisz **wartość** klucza tajnego. Ta wartość jest używana jako klucz tajny aplikacji w kodzie aplikacji.
+1. Zapisz **wartość** wpisu tajnego do użycia w kodzie aplikacji klienta. Ta wartość klucza tajnego nigdy nie jest ponownie wyświetlana po opuszczeniu tej strony. Ta wartość jest używana jako klucz tajny aplikacji w kodzie aplikacji.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
@@ -98,6 +98,9 @@ W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Ten klu
 1. Wybierz pozycję **Zapisz** , aby wyświetlić klucz. Zanotuj wartość pola **Klucz aplikacji**. Ta wartość jest używana jako klucz tajny aplikacji w kodzie aplikacji.
 
 * * *
+
+> [!NOTE]
+> Ze względów bezpieczeństwa można wycofać okresowo klucz tajny aplikacji lub natychmiast w przypadku awarii. Wszystkie aplikacje, które integrują się z Azure AD B2C powinny zostać przygotowane do obsługi tajnego zdarzenia przerzucania, niezależnie od tego, jak często mogą wystąpić. Możesz ustawić dwa wpisy tajne aplikacji, dzięki czemu aplikacja będzie mogła korzystać z starego klucza tajnego podczas zdarzenia rotacji klucza tajnego aplikacji. Aby dodać inny klucz tajny klienta, powtórz kroki opisane w tej sekcji. 
 
 ## <a name="enable-id-token-implicit-grant"></a>Włącz niejawne przyznanie tokenu identyfikatora
 

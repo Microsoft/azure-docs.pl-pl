@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674821"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
@@ -52,7 +52,7 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 ## <a name="add-the-connector"></a>Dodawanie łącznika
 
 > [!IMPORTANT]
-> Ten łącznik nie ma żadnych wyzwalaczy. Ma tylko akcje. Dlatego podczas tworzenia aplikacji logiki należy dodać kolejny wyzwalacz, aby uruchomić aplikację logiki, taką jak **harmonogram-cykl** lub **żądanie/odpowiedź-odpowiedź** . 
+> Ten łącznik nie ma żadnych wyzwalaczy. Ma tylko akcje. Dlatego podczas tworzenia aplikacji logiki należy dodać kolejny wyzwalacz, aby uruchomić aplikację logiki, taką jak **harmonogram-cykl** lub **żądanie/odpowiedź-odpowiedź**. 
 
 1. W [Azure Portal](https://portal.azure.com)Utwórz pustą aplikację logiki.
 
@@ -60,16 +60,16 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
     ![Okno dialogowe zawiera pole, aby przeszukać wszystkie wyzwalacze. Widoczny jest również pojedynczy wyzwalacz, "żądanie/odpowiedź-żądanie" z przyciskiem wyboru.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Wybierz pozycję **Zapisz** . Podczas zapisywania zostanie automatycznie wygenerowany adres URL żądania. 
+3. Wybierz pozycję **Zapisz**. Podczas zapisywania zostanie automatycznie wygenerowany adres URL żądania. 
 
-4. Wybierz pozycję **Nowy krok** , a następnie pozycję **Dodaj akcję** . Wpisz `oracle` , aby wyświetlić dostępne akcje: 
+4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. Wpisz `oracle` , aby wyświetlić dostępne akcje: 
 
     ![Pole wyszukiwania zawiera ciąg "Oracle". Wyszukiwanie tworzy jedno trafienie o nazwie "Oracle Database". Istnieje strona z kartami, jedna karta przedstawiająca "WYZWALACZe (0)", a druga — "akcje (6)". Zostanie wyświetlona sześć akcji. Pierwszy z nich to "Pobierz Podgląd wierszy".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Jest to również najszybszy sposób wyświetlania wyzwalaczy i akcji dostępnych dla każdego łącznika. Wpisz część nazwy łącznika, na przykład `oracle` . Projektant wyświetla wszystkie wyzwalacze i wszystkie akcje. 
 
-5. Wybierz jedną z akcji, na przykład **Oracle Database — Pobierz wiersz** . Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych** . Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło, a następnie wybierz bramę:
+5. Wybierz jedną z akcji, na przykład **Oracle Database — Pobierz wiersz**. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**. Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło, a następnie wybierz bramę:
 
     ![Okno dialogowe zatytułowane "Oracle Database-Get Row". Istnieje pole o nazwie "Połącz za pośrednictwem lokalnej bramy danych". Poniżej znajdują się pięć innych pól tekstowych.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -83,7 +83,7 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
     ![Istnieją dwa okna dialogowe. Pole "Wyślij wiadomość e-mail" zawiera pola, aby określić adres e-mail "treść", "podmiot" i "do". Okno dialogowe Dodawanie zawartości dynamicznej umożliwia wyszukiwanie zawartości dynamicznej w aplikacjach i usługach przepływu.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Zapisz** aplikację logiki, a następnie wybierz pozycję **Uruchom** . Zamknij projektanta i przejrzyj historię uruchamiania dla stanu. Jeśli to się nie powiedzie, wybierz wiersz komunikatu z błędem. Zostanie otwarty projektant, który pokazuje, który krok nie powiódł się, a także informacje o błędzie. Jeśli się powiedzie, należy odebrać wiadomość e-mail z dodanymi informacjami.
+8. **Zapisz** aplikację logiki, a następnie wybierz pozycję **Uruchom**. Zamknij projektanta i przejrzyj historię uruchamiania dla stanu. Jeśli to się nie powiedzie, wybierz wiersz komunikatu z błędem. Zostanie otwarty projektant, który pokazuje, który krok nie powiódł się, a także informacje o błędzie. Jeśli się powiedzie, należy odebrać wiadomość e-mail z dodanymi informacjami.
 
 
 ### <a name="workflow-ideas"></a>Pomysły dotyczące przepływu pracy
@@ -98,23 +98,23 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
 ## <a name="common-errors"></a>Typowe błędy
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Błąd** : nie można nawiązać połączenia z bramą
+#### <a name="error-cannot-reach-the-gateway"></a>**Błąd**: nie można nawiązać połączenia z bramą
 
-**Przyczyna** : lokalna Brama danych nie może nawiązać połączenia z chmurą. 
+**Przyczyna**: lokalna Brama danych nie może nawiązać połączenia z chmurą. 
 
-Środki **zaradcze** : Upewnij się, że brama jest uruchomiona na komputerze lokalnym, na którym został zainstalowany, i czy może nawiązać połączenie z Internetem.  Nie zaleca się instalowania bramy na komputerze, który może zostać wyłączony lub uśpiony. Możesz również ponownie uruchomić usługę lokalna Brama danych (PBIEgwService).
+Środki **zaradcze**: Upewnij się, że brama jest uruchomiona na komputerze lokalnym, na którym został zainstalowany, i czy może nawiązać połączenie z Internetem.  Nie zaleca się instalowania bramy na komputerze, który może zostać wyłączony lub uśpiony. Możesz również ponownie uruchomić usługę lokalna Brama danych (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd** : używany dostawca jest przestarzały: element "System. Data. OracleClient wymaga oprogramowania klienckiego Oracle w wersji 8.1.7 lub nowszej.". Zobacz, [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) Aby zainstalować oficjalnego dostawcę.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: element "System. Data. OracleClient wymaga oprogramowania klienckiego Oracle w wersji 8.1.7 lub nowszej.". Zobacz, [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) Aby zainstalować oficjalnego dostawcę.
 
-**Przyczyna** : zestaw SDK klienta Oracle nie jest zainstalowany na komputerze, na którym jest uruchomiona lokalna Brama danych.  
+**Przyczyna**: zestaw SDK klienta Oracle nie jest zainstalowany na komputerze, na którym jest uruchomiona lokalna Brama danych.  
 
-**Rozwiązanie** : Pobierz i Zainstaluj zestaw SDK klienta Oracle na tym samym komputerze, na którym znajduje się lokalna Brama danych.
+**Rozwiązanie**: Pobierz i Zainstaluj zestaw SDK klienta Oracle na tym samym komputerze, na którym znajduje się lokalna Brama danych.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Błąd** : tabela "[TableName]" nie definiuje żadnych kolumn klucza
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Błąd**: tabela "[TableName]" nie definiuje żadnych kolumn klucza
 
-**Przyczyna** : tabela nie ma klucza podstawowego.  
+**Przyczyna**: tabela nie ma klucza podstawowego.  
 
-**Rozwiązanie** : Łącznik Oracle Database wymaga użycia tabeli z kolumną klucza podstawowego.
+**Rozwiązanie**: Łącznik Oracle Database wymaga użycia tabeli z kolumną klucza podstawowego.
  
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

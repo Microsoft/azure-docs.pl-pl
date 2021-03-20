@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 26618382223a87f779f95452000a39126f37efbb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675428"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu narzędzia Azure AD SAML Toolkit
@@ -48,14 +48,14 @@ Aby skonfigurować integrację usługi Azure AD SAML Toolkit z usługą Azure AD
 
 1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Azure AD SAML Toolkit** w polu wyszukiwania.
 1. Wybierz pozycję **Azure AD SAML Toolkit** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-sso-for-azure-ad-saml-toolkit"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD dla zestawu narzędzi SAML usługi Azure AD
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą zestawu Azure AD SAML Toolkit przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w narzędziu SAML webtoolkit usługi Azure AD.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą zestawu Azure AD SAML Toolkit przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w narzędziu SAML webtoolkit usługi Azure AD.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą zestawu narzędzi SAML usługi Azure AD, wykonaj następujące czynności:
 
@@ -70,8 +70,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W Azure Portal na stronie integracja aplikacji **usługi Azure AD SAML Toolkit** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
+1. W Azure Portal na stronie integracja aplikacji **usługi Azure AD SAML Toolkit** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -94,37 +94,37 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
-   1. Kliknij pozycję **Utwórz** .
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do zestawu narzędzi SAML usługi Azure AD.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Na liście Aplikacje wybierz pozycję **Azure AD SAML Toolkit** .
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
-1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Azure AD SAML Toolkit**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-azure-ad-saml-toolkit-sso"></a>Konfigurowanie usługi Azure AD SAML Toolkit — Logowanie jednokrotne
 
-1. Otwórz nowe okno przeglądarki sieci Web, jeśli nie zarejestrowano Cię w witrynie sieci Web usługi Azure AD SAML Toolkit, najpierw Zarejestruj się, klikając **Rejestr** . Jeśli zarejestrowano się już, zaloguj się do witryny firmy Microsoft Azure webtoolkit przy użyciu zarejestrowanych poświadczeń logowania.
+1. Otwórz nowe okno przeglądarki sieci Web, jeśli nie zarejestrowano Cię w witrynie sieci Web usługi Azure AD SAML Toolkit, najpierw Zarejestruj się, klikając **Rejestr**. Jeśli zarejestrowano się już, zaloguj się do witryny firmy Microsoft Azure webtoolkit przy użyciu zarejestrowanych poświadczeń logowania.
 
     ![Rejestr zestawu Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/register.png)
 
-1. Kliknij **konfigurację SAML** .
+1. Kliknij **konfigurację SAML**.
 
     ![Konfiguracja SAML zestawu Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Kliknij pozycję **Utwórz** .
+1. Kliknij pozycję **Utwórz**.
 
     ![Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -140,7 +140,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     1. Kliknij pozycję **Wybierz plik** i Przekaż plik **certyfikatu (RAW)** pobrany z Azure Portal.
 
-    1. Kliknij pozycję **Utwórz** .
+    1. Kliknij pozycję **Utwórz**.
 
     1. Kopiuj adres URL logowania, identyfikator i wartości adresu URL usługi ACS na stronie Konfiguracja logowania jednokrotnego usługi SAML Toolkit i wklej do poszanowania pól tekstowych w **sekcji Podstawowa konfiguracja SAML** w Azure Portal.
 

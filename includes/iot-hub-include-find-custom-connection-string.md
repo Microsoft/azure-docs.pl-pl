@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 6f43bbcd83861f7d39de2aa89bbe035c2ff5b809
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70050454"
 ---
 <!-- This tells how to create a custom shared access policy for your IoT hub and get the connection string for it-->
@@ -25,13 +25,13 @@ Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia d
 
 1. W górnym menu powyżej listy zasad wybierz pozycję **Dodaj**.
 
-1. W obszarze **Dodawanie zasad dostępu współdzielonego**Wprowadź opisową nazwę zasad, taką jak *serviceAndRegistryRead*. W obszarze **uprawnienia**wybierz pozycję **Rejestr odczyt** i **Usługa łączenie**, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **Dodawanie zasad dostępu współdzielonego** Wprowadź opisową nazwę zasad, taką jak *serviceAndRegistryRead*. W obszarze **uprawnienia** wybierz pozycję **Rejestr odczyt** i **Usługa łączenie**, a następnie wybierz pozycję **Utwórz**.
 
     ![Pokaż, jak dodać nowe zasady dostępu współdzielonego](./media/iot-hub-include-find-custom-connection-string/iot-hub-add-custom-policy.png)
 
 1. Wybierz nowe zasady z listy zasad.
 
-1. W obszarze **klucze dostępu współdzielonego**wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
+1. W obszarze **klucze dostępu współdzielonego** wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
 
     ![Sposób pobierania parametrów połączenia](./media/iot-hub-include-find-custom-connection-string/iot-hub-get-connection-string.png)
 

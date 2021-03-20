@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: victorh
 ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87084674"
 ---
 # <a name="azure-firewall-central-management"></a>Centralne zarządzanie zaporą platformy Azure
@@ -27,9 +27,9 @@ Menedżer zapory platformy Azure to usługa zarządzania zabezpieczeniami sieci,
 
 ### <a name="firewall-policy"></a>Zasady zapory
 
-Zasady zapory to zasób platformy Azure, który zawiera kolekcje reguł translatora adresów sieciowych, sieci i aplikacji oraz ustawienia analizy zagrożeń. Jest to zasób globalny, który może być używany w wielu wystąpieniach zapory platformy Azure w *zabezpieczonych wirtualnych centrach* i *koncentratorach*wirtualnych. Nowe zasady mogą być tworzone od podstaw lub dziedziczone z istniejących zasad. Dziedziczenie umożliwia DevOps do tworzenia lokalnych zasad zapory na podstawie zasad obowiązujących w organizacji. Zasady działają między regionami i subskrypcjami.
+Zasady zapory to zasób platformy Azure, który zawiera kolekcje reguł translatora adresów sieciowych, sieci i aplikacji oraz ustawienia analizy zagrożeń. Jest to zasób globalny, który może być używany w wielu wystąpieniach zapory platformy Azure w *zabezpieczonych wirtualnych centrach* i *koncentratorach* wirtualnych. Nowe zasady mogą być tworzone od podstaw lub dziedziczone z istniejących zasad. Dziedziczenie umożliwia DevOps do tworzenia lokalnych zasad zapory na podstawie zasad obowiązujących w organizacji. Zasady działają między regionami i subskrypcjami.
  
-Zasady zapory i skojarzenia można utworzyć za pomocą Menedżera zapory platformy Azure. Można jednak tworzyć zasady i zarządzać nimi za pomocą interfejsu API REST, szablonów, Azure PowerShell i interfejsu wiersza polecenia. Po utworzeniu zasad można je skojarzyć z zaporą w wirtualnym koncentratorze sieci WAN, aby *zabezpieczyć ją koncentratorem wirtualnym* i/lub zaporą w sieci wirtualnej tworzącą *Virtual Network centrum*IT.
+Zasady zapory i skojarzenia można utworzyć za pomocą Menedżera zapory platformy Azure. Można jednak tworzyć zasady i zarządzać nimi za pomocą interfejsu API REST, szablonów, Azure PowerShell i interfejsu wiersza polecenia. Po utworzeniu zasad można je skojarzyć z zaporą w wirtualnym koncentratorze sieci WAN, aby *zabezpieczyć ją koncentratorem wirtualnym* i/lub zaporą w sieci wirtualnej tworzącą *Virtual Network centrum* IT.
 
 ### <a name="pricing"></a>Cennik
 

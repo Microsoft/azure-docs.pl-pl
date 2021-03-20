@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011688"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Śledź Event Grid asynchroniczne operacje na platformie Azure
@@ -72,7 +72,7 @@ Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym pr
 
 Operacje, które tworzą, aktualizują lub usuwają (PUT, PATCH, Usuń) zasobu zwykle zwracają `provisioningState` wartość. Po zakończeniu operacji jest zwracana jedna z następujących trzech wartości: 
 
-* Sukces
+* Powodzenie
 * Niepowodzenie
 * Anulowane
 

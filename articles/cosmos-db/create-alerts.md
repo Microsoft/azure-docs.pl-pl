@@ -8,10 +8,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339550"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Tworzenie alertów dla Azure Cosmos DB przy użyciu Azure Monitor
@@ -65,7 +65,7 @@ W tej sekcji przedstawiono sposób tworzenia alertu w przypadku otrzymania kodu 
 
    * W **logice alertu** ustaw wartość **próg** na **statyczny**. Próg statyczny używa wartości progowej zdefiniowanej przez użytkownika do oszacowania reguły, podczas gdy dynamiczne progi używają nieskompilowanych algorytmów uczenia maszynowego, aby stale uczyć się wzorca zachowania metryki i automatycznie obliczać progi.
 
-   * Ustaw **operator** na wartość **większą niż** , **typ agregacji** na **łączny** , a **wartością progową** na **100**. W przypadku tej logiki klient widzi więcej niż 100 żądań, które mają kod stanu 429, zostanie wyzwolony alert. Można również skonfigurować typ agregacji, stopień szczegółowości agregacji oraz częstotliwość oceny w zależności od wymagań.
+   * Ustaw **operator** na wartość **większą niż**, **typ agregacji** na **łączny**, a **wartością progową** na **100**. W przypadku tej logiki klient widzi więcej niż 100 żądań, które mają kod stanu 429, zostanie wyzwolony alert. Można również skonfigurować typ agregacji, stopień szczegółowości agregacji oraz częstotliwość oceny w zależności od wymagań.
 
    * Po wypełnieniu formularza wybierz pozycję **gotowe**. Poniższy zrzut ekranu przedstawia szczegóły logiki alertu:
 

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919662"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Składnia $select OData na platformie Azure Wyszukiwanie poznawcze
@@ -57,7 +57,7 @@ Dostępny jest również interaktywny diagram składni:
 
 W przypadku korzystania z drugiego formularza można określić tylko na liście pola do pobierania.
 
-Jeśli lista zawiera pole złożone bez określania jego pól podrzędnych, wszystkie możliwe do pobierania pola podrzędne zostaną uwzględnione w zestawie wyników zapytania. Załóżmy na przykład, że indeks zawiera `Address` pola `Street` , `City` i `Country` pola podrzędne, które są do pobierania. W przypadku określenia `Address` w **$SELECT**wyniki zapytania będą zawierać wszystkie trzy pola podrzędne.
+Jeśli lista zawiera pole złożone bez określania jego pól podrzędnych, wszystkie możliwe do pobierania pola podrzędne zostaną uwzględnione w zestawie wyników zapytania. Załóżmy na przykład, że indeks zawiera `Address` pola `Street` , `City` i `Country` pola podrzędne, które są do pobierania. W przypadku określenia `Address` w **$SELECT** wyniki zapytania będą zawierać wszystkie trzy pola podrzędne.
 
 ## <a name="examples"></a>Przykłady
 

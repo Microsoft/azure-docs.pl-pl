@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 9904fb8c2142816196a1939a16445318bdb245d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91262318"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Docker
@@ -24,7 +24,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 W tym przewodniku szybki start potrzebny jest program Docker w wersji 2.3.0.5 lub nowszej, który jest dostępny dla [systemu Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) lub [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Lub zainstaluj [interfejs wiersza polecenia integracji usługi Docker ACI dla systemu Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
 
 > [!IMPORTANT]
-> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Prześlij opinię na temat integracji platformy Docker z platformą Azure, tworząc problem w repozytorium GitHub [ACI-Integration-beta](https://github.com/docker/aci-integration-beta) .
+> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Prześlij opinię na temat integracji Docker-Azure, tworząc problem w repozytorium GitHub [ACI-Integration-beta](https://github.com/docker/aci-integration-beta) .
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 

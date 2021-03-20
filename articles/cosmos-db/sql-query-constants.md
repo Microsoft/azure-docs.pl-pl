@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339210"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB stałe zapytania SQL  
@@ -25,11 +25,11 @@ ms.locfileid: "93339210"
 |-|-|  
 |**Niezdefiniowane**|Pojedyncza wartość: **undefined**|  
 |**Null**|Pojedyncza wartość: **null**|  
-|**Wartość logiczna**|Wartości: **false** , **true**.|  
+|**Wartość logiczna**|Wartości: **false**, **true**.|  
 |**Liczba**|Liczba zmiennoprzecinkowa podwójnej precyzji, IEEE 754 Standard.|  
 |**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w pojedyncze lub podwójne cudzysłowy.|  
 |**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
-|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Obiekt**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Składnia
   
@@ -115,7 +115,7 @@ ms.locfileid: "93339210"
 |\f|kanał informacyjny formularza|U + 000C|  
 |\n|kanał informacyjny wiersza|U + 000A|  
 |\r|powrót karetki|U + 000D|  
-|\t| tabulator|U + 0009|  
+|\t|tabulator|U + 0009|  
 |\uXXXX|Znak Unicode zdefiniowany przez 4 cyfry szesnastkowe.|U + XXXX|  
 
 ## <a name="next-steps"></a>Następne kroki

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88933518"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Twórz zapytania umożliwiające wydajne wyświetlanie zasobów wsadowych
@@ -53,9 +53,9 @@ W tym przykładowym scenariuszu, jeśli w zadaniu istnieją tysiące zadań, wyn
 
 ## <a name="filter-select-and-expand"></a>Filtrowanie, wybieranie i rozszerzanie
 
-Interfejsy API usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) i usługi [Batch](/rest/api/batchservice/) umożliwiają zredukowanie liczby elementów, które są zwracane na liście, a także ilości informacji zwracanych dla każdego z nich. W tym celu należy określić parametry **Filter**, **SELECT**i **expand** podczas wykonywania zapytań dotyczących list.
+Interfejsy API usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) i usługi [Batch](/rest/api/batchservice/) umożliwiają zredukowanie liczby elementów, które są zwracane na liście, a także ilości informacji zwracanych dla każdego z nich. W tym celu należy określić parametry **Filter**, **SELECT** i **expand** podczas wykonywania zapytań dotyczących list.
 
-### <a name="filter"></a>Filtrowanie
+### <a name="filter"></a>Filtr
 
 Ciąg filtru jest wyrażeniem, które zmniejsza liczbę zwracanych elementów. Można na przykład wyświetlić listę tylko uruchomionych zadań dla zadania lub wyświetlić tylko węzły obliczeniowe, które są gotowe do uruchamiania zadań.
 
@@ -63,7 +63,7 @@ Ciąg filtru składa się z co najmniej jednego wyrażenia z wyrażeniem, które
 
 Ten przykładowy ciąg filtru zawiera listę tylko uruchomionych zadań renderowania: `(state eq 'running') and startswith(id, 'renderTask')` .
 
-### <a name="select"></a>Wybierz
+### <a name="select"></a>Wybierz pozycję
 
 Wybór ciągu ogranicza wartości właściwości, które są zwracane dla każdego elementu. Należy określić listę nazw właściwości rozdzielanych przecinkami, a tylko te wartości właściwości są zwracane dla elementów w wynikach zapytania. Można określić dowolną właściwość dla typu jednostki, dla którego jest wysyłana kwerenda.
 
@@ -172,7 +172,7 @@ Nazwy właściwości w parametrach Filter, Select i expand muszą odzwierciedla�
 
 Podczas konstruowania ciągu filtru dla [ODATADetailLevel. FilterClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), zapoznaj się z powyższą tabelą w sekcji "mapowania dla ciągów filtrów", aby znaleźć stronę dokumentacji interfejsu API REST, która odpowiada operacji listy, którą chcesz wykonać. Właściwości z możliwością filtrowania i ich obsługiwane operatory są dostępne w pierwszej tabeli multirow na tej stronie. Jeśli chcesz pobrać wszystkie zadania, których kod zakończenia miał wartość różną od zera, na przykład ten wiersz na [liście zadań skojarzonych z zadaniem](/rest/api/batchservice/task/list) określa odpowiedni ciąg właściwości i dozwolone operatory:
 
-| Właściwość | Dozwolone operacje | Type |
+| Właściwość | Dozwolone operacje | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -184,7 +184,7 @@ W tym celu ciąg filtru służący do tworzenia listy wszystkich zadań o niezer
 
 Aby skonstruować [ODATADetailLevel. SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause), zapoznaj się z powyższą tabelą w sekcji "mapowania dla wybranych ciągów" i przejdź do strony interfejsu API REST, która odnosi się do typu jednostki, która jest wyświetlona. Możliwe do wyboru właściwości i ich obsługiwane operatory zostaną znalezione w pierwszej tabeli multirow na tej stronie. Jeśli chcesz pobrać tylko identyfikator i wiersz polecenia dla każdego zadania na liście, możesz na przykład znaleźć te wiersze w odpowiedniej tabeli, aby [uzyskać informacje o zadaniu](/rest/api/batchservice/task/get):
 
-| Właściwość | Type | Uwagi |
+| Właściwość | Typ | Uwagi |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

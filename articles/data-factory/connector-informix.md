@@ -4,14 +4,14 @@ description: Dowiedz się, jak skopiować dane z i do programu IBM Informix przy
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af907704862e80a2747ac064b98242a1d9d7edb3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727910"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588872"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Kopiuj dane z i do programu IBM Informix przy użyciu Azure Data Factory
 
@@ -19,7 +19,7 @@ ms.locfileid: "101727910"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z magazynu danych programu IBM Informix. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik programu Informix jest obsługiwany przez następujące działania:
 
@@ -164,6 +164,7 @@ Aby skopiować dane do programu Informix, w sekcji **ujścia** działania kopiow
 | writeBatchTimeout |Czas oczekiwania na zakończenie operacji wstawiania partii przed upływem limitu czasu.<br/>Dozwolone wartości to: TimeSpan. Przykład: "00:30:00" (30 minut). |Nie |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie writeBatchSize.<br/>Dozwolone wartości to: Integer (liczba wierszy). |Nie (domyślnie: 0 — wykryto Autowykrywanie) |
 | preCopyScript |Określ zapytanie SQL dla działania kopiowania, które ma zostać wykonane przed zapisaniem danych w magazynie danych w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. |Nie |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368166"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Pojęcia, terminologia i jednostki w usłudze Azure Scheduler
@@ -248,15 +248,15 @@ Zadanie jest uruchamiane cyklicznie, jeśli definicja JSON zadania zawiera obiek
 
 | Właściwość | Wymagany | Wartość | Opis | 
 |----------|----------|-------|-------------| 
-| **frequency** | Tak, gdy jest używany obiekt **recurrence** | „Minute”, „Hour”, „Day”, „Week”, „Month”, „Year” | Jednostka czasu między wystąpieniami | 
-| **interval** | Nie | od 1 do 1000 (włącznie) | Dodatnia liczba całkowita określająca liczbę jednostek czasu między każdym wystąpieniem na podstawie właściwości **frequency** (częstotliwość) | 
+| **jaką** | Tak, gdy jest używany obiekt **recurrence** | „Minute”, „Hour”, „Day”, „Week”, „Month”, „Year” | Jednostka czasu między wystąpieniami | 
+| **dat** | Nie | od 1 do 1000 (włącznie) | Dodatnia liczba całkowita określająca liczbę jednostek czasu między każdym wystąpieniem na podstawie właściwości **frequency** (częstotliwość) | 
 | **rozkład** | Nie | Różnie | Szczegółowe informacje dla bardziej złożonych i zaawansowanych harmonogramów. Zobacz właściwości **hours**, **minutes**, **weekDays**, **months** i **monthDays** | 
 | **liczb** | Nie | Od 1 do 24 | Tablica z oznaczeniami godzin dla czasu uruchomienia zadania | 
 | **minut** | Nie | od 0 do 59 | Tablica z oznaczeniami minut dla czasu uruchomienia zadania | 
 | **months** | Nie | Od 1 do 12 | Tablica z miesiącami dla czasu uruchomienia zadania | 
 | **monthDays** | Nie | Różnie | Tablica z dniami miesiąca dla czasu uruchomienia zadania | 
 | **weekDays** | Nie | „Monday”, „Tuesday”, „Wednesday”, „Thursday”, „Friday”, „Saturday” lub „Sunday” | Tablica z dniami tygodnia dla czasu uruchomienia zadania | 
-| **liczbą** | Nie | <*dawaj*> | Liczba cykli. Wartość domyślna to cykl nieskończony. Nie można używać jednocześnie właściwości **count** i **endTime**. Obowiązuje zasada, że uwzględniana jest wartość, która kończy zadanie jako pierwsza. | 
+| **count** | Nie | <*dawaj*> | Liczba cykli. Wartość domyślna to cykl nieskończony. Nie można używać jednocześnie właściwości **count** i **endTime**. Obowiązuje zasada, że uwzględniana jest wartość, która kończy zadanie jako pierwsza. | 
 | **endTime** | Nie | <*dawaj*> | Data i godzina zakończenia cyklu. Wartość domyślna to cykl nieskończony. Nie można używać jednocześnie właściwości **count** i **endTime**. Obowiązuje zasada, że uwzględniana jest wartość, która kończy zadanie jako pierwsza. | 
 ||||
 

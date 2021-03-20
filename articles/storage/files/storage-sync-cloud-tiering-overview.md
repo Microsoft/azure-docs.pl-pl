@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576462"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze, opcjonalna funkcja Azure File Sync, zmniejsza ilość wymaganego magazynu lokalnego przy zachowaniu wydajności serwera plików lokalnych.
@@ -39,7 +39,7 @@ W przypadku **zasad daty** chłodne pliki są warstwami w chmurze, jeśli nie by
 Aby uzyskać więcej przykładów współpracy między zasadami daty i ilością wolnego miejsca na woluminie, zobacz [wybieranie Azure File Sync zasad obsługi warstw w chmurze](storage-sync-choose-cloud-tiering-policies.md).
 
 ### <a name="windows-server-data-deduplication"></a>Deduplikacja danych systemu Windows Server
-Funkcja deduplikacji danych jest obsługiwana na woluminach, na których włączono obsługę warstw w chmurze, począwszy od systemu Windows Server 2016. Aby uzyskać więcej informacji, zobacz [Planowanie wdrażania Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+Funkcja deduplikacji danych jest obsługiwana na woluminach, na których włączono obsługę warstw w chmurze, począwszy od systemu Windows Server 2016. Aby uzyskać więcej informacji, zobacz [Planowanie wdrażania Azure File Sync](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Obsługa warstw w chmurze mapę cieplną
 Azure File Sync monitoruje dostęp do pliku (operacje odczytu i zapisu) w miarę upływu czasu i, w zależności od częstości i ostatniego dostępu, przypisuje wynik ciepła do każdego pliku. Używa tych wyników do tworzenia "mapę cieplną" przestrzeni nazw na każdym punkcie końcowym serwera. Ta mapę cieplną to lista wszystkich plików synchronizowanych w lokalizacji z włączonym obsługą warstw w chmurze, uporządkowaną według ich wyniku ciepła. Pliki, które były ostatnio otwierane, są uznawane za gorące, podczas gdy pliki, które zostały stanowią jedynie ułamek, i nie były przez jakiś czas dostępne, są uważane za chłodną. 
@@ -109,4 +109,3 @@ Istnieje również możliwość, że plik jest częściowo warstwowy (lub częś
 ## <a name="next-steps"></a>Następne kroki
 * [Wybierz Azure File Sync zasad obsługi warstw w chmurze](storage-sync-choose-cloud-tiering-policies.md)
 * [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-

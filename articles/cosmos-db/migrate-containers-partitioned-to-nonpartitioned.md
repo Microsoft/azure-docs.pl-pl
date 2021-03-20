@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334093"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych
@@ -20,7 +20,7 @@ ms.locfileid: "93334093"
 
 Azure Cosmos DB obsługuje tworzenie kontenerów bez klucza partycji. Obecnie można tworzyć kontenery bez partycjonowania przy użyciu interfejsu wiersza polecenia platformy Azure i zestawów SDK Azure Cosmos DB (.NET, Java, NodeJs), które mają wersję mniejszą lub równą 2. x. Nie można utworzyć kontenerów bez partycjonowania przy użyciu Azure Portal. Jednak takie kontenery niepartycjonowane nie są elastyczne i mają stałą pojemność magazynu wynoszącą 20 GB i limit przepływności 10 000 jednostek RU/s.
 
-Kontenery bez partycjonowania są starsze i należy migrować istniejące kontenery niepodzielone na partycje w celu skalowania magazynu i przepływności. Azure Cosmos DB zapewnia mechanizm zdefiniowany przez system w celu migrowania kontenerów niepodzielonych na partycje do kontenerów podzielonych na partycje. W tym dokumencie wyjaśniono, w jaki sposób wszystkie istniejące kontenery niepodzielone na partycje są migrowane do kontenerów z podziałem na partycje. Możesz skorzystać z funkcji automigracji tylko wtedy, gdy używasz wersji v3 zestawów SDK we wszystkich językach.
+Kontenery bez partycjonowania są starsze i należy zmigrować istniejące kontenery niepodzielone na partycje w celu skalowania magazynu i przepływności. Usługa Azure Cosmos DB zapewnia mechanizm zdefiniowany przez system w celu migrowania kontenerów niepodzielonych na partycje do kontenerów podzielonych na partycje. W tym dokumencie wyjaśniono, w jaki sposób wszystkie istniejące kontenery niepodzielone na partycje są migrowane do kontenerów z podziałem na partycje. Możesz skorzystać z funkcji automatycznej migracji tylko wtedy, gdy używasz wersji 3 zestawów SDK we wszystkich językach.
 
 > [!NOTE]
 > Obecnie nie można migrować kont interfejsu API Azure Cosmos DB MongoDB i Gremlin za pomocą kroków opisanych w tym dokumencie.

@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 9f8e288f771b9d584a0fd3430115f5fa60f68e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88961809"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Bezpieczne nawiązywanie połączenia z zasobami zaplecza ze środowiska App Service
@@ -42,7 +42,7 @@ Wspólna konfiguracja SQL Server ma punkt końcowy nasłuchuje na porcie 1433:
 Istnieją dwa podejścia do ograniczania ruchu do tego punktu końcowego:
 
 * [Listy Access Control sieci][NetworkAccessControlLists] (listy ACL sieci)
-* [Sieciowe grupy zabezpieczeń][NetworkSecurityGroups]
+* [Grupy zabezpieczeń sieci][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Ograniczanie dostępu za pomocą listy ACL sieci
 Port 1433 może być zabezpieczony przy użyciu listy kontroli dostępu do sieci.  Poniższy przykład dodaje do uprawnień do przypisywania adresy klientów pochodzące z sieci wirtualnej i blokuje dostęp do wszystkich innych klientów.

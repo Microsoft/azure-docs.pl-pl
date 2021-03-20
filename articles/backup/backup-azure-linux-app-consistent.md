@@ -4,10 +4,10 @@ description: Twórz spójne z aplikacjami kopie zapasowe maszyn wirtualnych z sy
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88999244"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji

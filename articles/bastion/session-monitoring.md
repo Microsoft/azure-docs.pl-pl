@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
 ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980734"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorowanie sesji i zarządzanie nim w usłudze Azure bastionu
 
-Gdy usługa bastionu zostanie zainicjowana i wdrożona w sieci wirtualnej, można jej używać do bezproblemowego łączenia się z dowolną MASZYNą wirtualną w tej sieci wirtualnej. Gdy użytkownicy łączą się z obciążeniami, usługa Azure bastionu może służyć do monitorowania sesji zdalnych i wykonywania akcji szybkiego zarządzania. Monitorowanie sesji usługi Azure bastionu umożliwia przeglądanie użytkowników połączonych z maszynami wirtualnymi. Pokazuje on adres IP, z którego użytkownik nawiązał połączenie, jak długo zostały połączone i po nawiązaniu połączenia. Środowisko zarządzania sesjami umożliwia wybranie trwającej sesji i wymuszenie rozłączenia lub usunięcie sesji w celu rozłączenia użytkownika z trwającej sesji.
+Gdy usługa bastionu zostanie zainicjowana i wdrożona w sieci wirtualnej, można jej używać do bezproblemowego łączenia się z dowolną MASZYNą wirtualną w tej sieci wirtualnej. Gdy użytkownicy łączą się z obciążeniami, usługa Azure bastionu może służyć do monitorowania sesji zdalnych i wykonywania akcji szybkiego zarządzania. Monitorowanie sesji usługi Azure Bastion umożliwia wyświetlenie użytkowników połączonych z maszynami wirtualnymi. Pokazuje on adres IP, z którego użytkownik nawiązał połączenie, jak długo zostały połączone i po nawiązaniu połączenia. Środowisko zarządzania sesjami umożliwia wybranie trwającej sesji i wymuszenie rozłączenia lub usunięcie sesji w celu rozłączenia użytkownika z trwającej sesji.
 
 ## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Monitoruj sesje zdalne
 

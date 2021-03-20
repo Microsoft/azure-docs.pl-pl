@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91262998"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Tworzenie kopii zapasowej serwera programu Exchange na platformie Azure za pomocą Azure Backup Server
@@ -71,7 +71,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
 14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie wybierz pozycję **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**a następnie wybierz przycisk **dalej**. Na przykład:
+15. Zdefiniuj harmonogram **Azure Backup** a następnie wybierz przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -86,7 +86,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
 
     ![Określ zasady przechowywania danych online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Potwierdź ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
-19. Wybierz pozycję **Close** (Zamknij).
+19. Wybierz pozycję **Zamknij**.
 
 ## <a name="recover-the-exchange-database"></a>Odzyskiwanie bazy danych programu Exchange
 

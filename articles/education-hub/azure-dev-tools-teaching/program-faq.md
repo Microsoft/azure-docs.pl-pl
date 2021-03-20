@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675703"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Często zadawane pytania dotyczące Education Hub
@@ -117,9 +117,9 @@ Po przejściu do szczegółów subskrypcji w Azure Portal zobaczysz $0,00. Ofert
 
 Aby wyświetlić informacje o saldzie i sponsorze, przejdź do obszaru [sponsorowane platformy Azure](https://www.microsoftazuresponsorships.com/balance) i zaloguj się na swoim koncie.
 
-### <a name="can-i-apply-my-course-credits-to-an-existing-enterprise-agreement-ea"></a>Czy mogę zastosować kredyty na kurs do istniejącej Umowa Enterprise (EA)?
+### <a name="can-i-apply-my-course-credits-to-an-existing-enterprise-agreement-ea"></a>Czy mogę zastosować kredyty na kurs do istniejącej Enterprise Agreement (EA)?
 
-Nie można skojarzyć kredytów kursu z żadną subskrypcją, która znajduje się na koncie pod Umowa Enterprise (EA).
+Nie można skojarzyć kredytów kursu z żadną subskrypcją, która znajduje się na koncie pod Enterprise Agreement (EA).
 
 Aby zastosować kredyty kursowe, należy utworzyć nowe konto, które jest poza umową EA, które możemy przyznać.
 
@@ -252,8 +252,8 @@ Jeśli nadal nie możesz się zalogować, skontaktuj się z administratorem subs
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Jak mogę znaleźć mój identyfikator subskrybenta?
 
-- **Po pierwszym zarejestrowaniu w programie** : numer identyfikacyjny subskrybenta znajduje się w otrzymanej powitalnej wiadomości e-mail z subskrypcją.
-- W **przypadku odnowienia subskrypcji** : Identyfikator subskrybenta znajduje się w wiadomości e-mail z odnowieniem uzyskanym przez administratora subskrypcji.
+- **Po pierwszym zarejestrowaniu w programie**: numer identyfikacyjny subskrybenta znajduje się w otrzymanej powitalnej wiadomości e-mail z subskrypcją.
+- W **przypadku odnowienia subskrypcji**: Identyfikator subskrybenta znajduje się w wiadomości e-mail z odnowieniem uzyskanym przez administratora subskrypcji.
 
 Identyfikator subskrybenta jest również używany w portalu Visual Studio Subscription. Po zalogowaniu się poszukaj w obszarze **moja subskrypcja** na stronie **Moje konto** .
 
@@ -282,7 +282,7 @@ Jeśli nie otrzymasz tych wiadomości e-mail z przypomnieniem, że subskrypcja w
 
 Alternatywnie przejdź do [strony Azure dev Tools for nauczania-Renew](https://portal.azureforeducation.microsoft.com/)i Ukończ proces odnawiania.
 
-Aby sprawdzić datę wygaśnięcia subskrypcji, przejdź do [portalu zarządzania usługi Azure dev Tools for nauczania](https://azureforeducation.microsoft.com/account/Subscriptions)i zapoznaj się z tematem **subskrypcje** .
+Aby sprawdzić datę wygaśnięcia subskrypcji, przejdź do [portalu zarządzania usługi Azure dev Tools for nauczania](https://azureforeducation.microsoft.com/account/Subscriptions)i zapoznaj się z tematem **subskrypcje**.
 
 ### <a name="what-if-i-need-more-help"></a>Co zrobić, jeśli potrzebuję więcej pomocy?
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736682"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599174"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu
 
@@ -190,7 +190,7 @@ Teraz za pomocą tej kolumny wygenerujesz chmurę słów. Aby rozpocząć, klikn
 > [!NOTE]
 > Dlaczego lepiej wygenerować chmurę słów przy użyciu wyodrębnionych fraz kluczowych, a nie pełnego tekstu poszczególnych komentarzy? Frazy kluczowe dostarczają nam *ważnych* słów z komentarzy naszych klientów, a nie po prostu *najpopularniejszych* słów. Ponadto liczba słów w chmurze wynikowej nie jest zniekształcona przez częste użycie słowa w stosunkowo małej liczbie komentarzy.
 
-Jeśli nie masz jeszcze zainstalowanej wizualizacji niestandardowej Word Cloud, zainstaluj ją. W panelu Wizualizacje po prawej stronie obszaru roboczego kliknij przycisk z wielokropkiem (**...**) i wybierz pozycję **Zaimportuj ze sklepu**. Następnie wyszukaj słowo „cloud” i kliknij przycisk **Dodaj** obok wizualizacji Word Cloud. Usługa Power BI zainstaluje wizualizację Word Cloud i poinformuje Cię o jej pomyślnym zainstalowaniu.
+Jeśli nie masz jeszcze zainstalowanej wizualizacji niestandardowej Word Cloud, zainstaluj ją. W panelu wizualizacje po prawej stronie obszaru roboczego kliknij trzy kropki (**...**), a następnie wybierz pozycję **Importuj z rynku**. Jeśli wyraz "Chmura" nie znajduje się wśród wyświetlanych narzędzi wizualizacji na liście, możesz wyszukać "chmurę" i kliknąć przycisk **Dodaj** obok wyrazu wizualizacja w chmurze. Usługa Power BI zainstaluje wizualizację Word Cloud i poinformuje Cię o jej pomyślnym zainstalowaniu.
 
 ![[dodawanie wizualizacji niestandardowej]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Najpierw kliknij ikonę Word Cloud w panelu Wizualizacje.
 
 W obszarze roboczym zostanie wyświetlony nowy raport. Przeciągnij pole `keyphrases` z panelu Pola do pola Kategoria w panelu Wizualizacje. Wewnątrz raportu pojawi się chmura słów.
 
-Teraz przełącz na stronę Format panelu Wizualizacje. W kategorii Słowa ignorowane włącz opcję **Domyślne słowa ignorowane**, aby wyeliminować z chmury krótkie, popularne słowa, takie jak „z”. 
+Teraz przełącz na stronę Format panelu Wizualizacje. W kategorii Słowa ignorowane włącz opcję **Domyślne słowa ignorowane**, aby wyeliminować z chmury krótkie, popularne słowa, takie jak „z”. Jednak ze względu na to, że wizualizujemy kluczowe frazy, mogą nie zawierać słowa Stop.
 
 ![[aktywowanie domyślnych słów ignorowanych]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ Poniższa funkcja analizy opinii zwraca wynik informujący o tym, na ile pozytyw
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Poniżej przedstawiono dwie wersje funkcji wykrywania języka. Pierwsza zwraca kod języka ISO (na przykład `en` w przypadku języka angielskiego), podczas gdy druga zwraca „przyjazną” nazwę (na przykład `English`). Można zauważyć, że obie wersje różnią się tylko ostatnim wierszem treści.
@@ -249,8 +248,7 @@ Poniżej przedstawiono dwie wersje funkcji wykrywania języka. Pierwsza zwraca k
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Na koniec przedstawiamy wariant już omówionej funkcji fraz kluczowych, który zwraca frazy w postaci obiektu listy, a nie pojedynczego ciągu fraz rozdzielonych przecinkami. 

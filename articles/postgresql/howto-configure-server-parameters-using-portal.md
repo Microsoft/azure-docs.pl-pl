@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.openlocfilehash: e1b40e3116d56e87a2f397350ef2ba5510e04c0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707697"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Konfigurowanie parametrów serwera w Azure Database for PostgreSQL-pojedynczym serwerze za pośrednictwem Azure Portal 
@@ -29,19 +29,19 @@ Aby krokowo uzyskać ten przewodnik:
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png" alt-text="Strona przeglądu parametrów":::
 
 4. Wybierz przycisk **listy rozwijanej** , aby wyświetlić możliwe wartości parametrów wyliczanych, takich jak client_min_messages.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="Strona przeglądu parametrów":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="Wyliczenie listy rozwijanej":::
 
 5. Zaznacz lub umieść wskaźnik myszy nad przyciskiem **i** (informacjami), aby zobaczyć zakres możliwych wartości parametrów liczbowych, takich jak cpu_index_tuple_cost.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="Strona przeglądu parametrów":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="przycisk informacji":::
 
 6. W razie potrzeby użyj **pola wyszukiwania** , aby zawęzić do określonego parametru. Wyszukiwanie dotyczy nazwy i opisu parametrów.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Strona przeglądu parametrów":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Wyniki wyszukiwania":::
 
 7. Zmień wartości parametrów, które chcesz dostosować. Wszystkie zmiany wprowadzone w sesji są wyróżnione kolorem purpurowym. Po zmianie wartości możesz wybrać pozycję **Zapisz**. Możesz też **odrzucić** zmiany.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Strona przeglądu parametrów":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Zapisz lub Odrzuć zmiany":::
 
 8. Jeśli Zapisano nowe wartości parametrów, zawsze możesz przywrócić wszystkie elementy z powrotem do wartości domyślnych, wybierając pozycję **Zresetuj wszystkie do domyślnych**.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Strona przeglądu parametrów":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Zresetuj wszystkie do domyślnych":::
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej:

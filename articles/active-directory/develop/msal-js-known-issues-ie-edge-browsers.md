@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83772084"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Znane problemy w programie Internet Explorer i przeglądarki Microsoft Edge (MSAL.js)
@@ -51,7 +51,7 @@ Użyj obejść poniżej.
 #### <a name="other-workarounds"></a>Inne obejścia
 Upewnij się, że Twój problem występuje tylko w przypadku określonej wersji przeglądarki Microsoft Edge i działa w innych przeglądarkach przed zastosowaniem tych rozwiązań.  
 1. Pierwszym krokiem w celu rozwiązania tych problemów jest upewnienie się, że domena aplikacji i inne Lokacje związane z przekierowaniami przepływu uwierzytelniania są dodawane jako zaufane lokacje w ustawieniach zabezpieczeń przeglądarki, tak aby znajdowały się w tej samej strefie zabezpieczeń.
-Aby to zrobić, wykonaj następujące kroki:
+W tym celu wykonaj następujące czynności:
     - Otwórz program **Internet Explorer** i kliknij **Ustawienia** (ikonę koła zębatego) w prawym górnym rogu
     - Wybieranie **opcji internetowych**
     - Wybierz kartę **zabezpieczenia**
@@ -65,7 +65,7 @@ Należy zauważyć, że nie rozwiąże to problemu dotyczącego przeglądania In
 
 Istnieją przypadki, gdy okienka podręczne są blokowane w programie IE lub w przeglądarce Microsoft Edge, na przykład w przypadku drugiego okna podręcznego podczas [uwierzytelniania wieloskładnikowego](../authentication/concept-mfa-howitworks.md). W przeglądarce zostanie wyświetlony alert umożliwiający wyświetlenie okna podręcznego lub zawsze. Jeśli wybierzesz opcję Zezwalaj, przeglądarka automatycznie otworzy okno podręczne i zwróci `null` do niego uchwyt. W związku z tym biblioteka nie ma dojścia do okna i nie ma możliwości zamykania okna podręcznego. Ten sam problem nie występuje w programie Chrome, gdy zostanie wyświetlony komunikat z prośbą o zezwolenie na wyskakujące okienka, ponieważ nie powoduje automatycznego otwarcia okna podręcznego.
 
-W ramach tego **problemu**deweloperzy będą musieli zezwolić na wyskakujące okienka w programie IE i przeglądarce Microsoft Edge przed rozpoczęciem korzystania z aplikacji, aby uniknąć tego problemu.
+W ramach tego **problemu** deweloperzy będą musieli zezwolić na wyskakujące okienka w programie IE i przeglądarce Microsoft Edge przed rozpoczęciem korzystania z aplikacji, aby uniknąć tego problemu.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o [korzystaniu z MSAL.js w programie Internet Explorer](msal-js-use-ie-browser.md).

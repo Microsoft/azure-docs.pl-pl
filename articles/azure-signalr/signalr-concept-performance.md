@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74157669"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Przewodnik dotyczący wydajności usługi Azure SignalR Service
@@ -43,7 +43,7 @@ Usługa Azure Signal definiuje siedem warstw standardowych dla różnych pojemno
 
 -   Jakiego rodzaju serwer aplikacji (rozmiar maszyny wirtualnej) jest odpowiedni dla mnie? Ile z nich należy wdrożyć?
 
-Aby odpowiedzieć na te pytania, ten przewodnik najpierw zawiera ogólne wyjaśnienie czynników wpływających na wydajność. Następnie ilustruje maksymalną liczbę komunikatów przychodzących i wychodzących dla każdej warstwy dla typowych przypadków użycia: **echo**, **emisja**, **Wyślij do grupy**i **Wyślij do połączenia** (obsługa komunikacji równorzędnej między elementami równorzędnymi).
+Aby odpowiedzieć na te pytania, ten przewodnik najpierw zawiera ogólne wyjaśnienie czynników wpływających na wydajność. Następnie ilustruje maksymalną liczbę komunikatów przychodzących i wychodzących dla każdej warstwy dla typowych przypadków użycia: **echo**, **emisja**, **Wyślij do grupy** i **Wyślij do połączenia** (obsługa komunikacji równorzędnej między elementami równorzędnymi).
 
 Ten przewodnik nie może obejmować wszystkich scenariuszy (i różnych przypadków użycia, rozmiarów komunikatów, wzorców wysyłania komunikatów itp.). Udostępnia ona kilka metod, które ułatwiają:
 
@@ -58,7 +58,7 @@ W tej sekcji opisano metodologie oceny wydajności, a następnie wymieniono wszy
 
 *Przepływność* i *opóźnienie* są dwoma typowymi aspektami sprawdzania wydajności. W przypadku usługi Azure Signal każda warstwa SKU ma własne zasady ograniczania przepływności. Zasady definiują *maksymalną dozwoloną przepływność (przepustowość ruchu przychodzącego i wychodzącego)* jako maksymalną osiągniętą przepływność, gdy 99% komunikatów ma opóźnienie mniejsze niż 1 sekunda.
 
-Opóźnienie to przedział czasu z połączenia wysyłającego komunikat w celu odebrania komunikatu odpowiedzi z usługi Azure Signal. Podejmijmy **echo** jako przykład. Każde połączenie z klientem dodaje sygnaturę czasową w komunikacie. Centrum serwera aplikacji wysyła oryginalny komunikat z powrotem do klienta programu. Opóźnienie propagacji jest łatwo obliczane przez każde połączenie z klientem. Sygnatura czasowa jest dołączana do każdej wiadomości w **emisji**, **wysyłania do grupy**i **wysyłania do połączenia**.
+Opóźnienie to przedział czasu z połączenia wysyłającego komunikat w celu odebrania komunikatu odpowiedzi z usługi Azure Signal. Podejmijmy **echo** jako przykład. Każde połączenie z klientem dodaje sygnaturę czasową w komunikacie. Centrum serwera aplikacji wysyła oryginalny komunikat z powrotem do klienta programu. Opóźnienie propagacji jest łatwo obliczane przez każde połączenie z klientem. Sygnatura czasowa jest dołączana do każdej wiadomości w **emisji**, **wysyłania do grupy** i **wysyłania do połączenia**.
 
 Aby symulować tysiące współbieżnych połączeń klienta, w wirtualnej sieci prywatnej na platformie Azure są tworzone wiele maszyn wirtualnych. Wszystkie te maszyny wirtualne łączą się z tym samym wystąpieniem usługi Azure Signal instance.
 
@@ -74,7 +74,7 @@ Protokół WebSocket jest dwukierunkowym protokołem komunikacji dwubajtowej prz
 
 Koszt routingu wiadomości ogranicza także wydajność. Usługa Azure Signal Service odgrywa rolę jako router komunikatów, która kieruje komunikat z zestawu klientów lub serwerów do innych klientów lub serwerów. Inny scenariusz lub interfejs API wymaga innych zasad routingu. 
 
-W przypadku **ECHA**klient wysyła wiadomość do samego siebie, a miejsce docelowe routingu również należy do siebie. Ten wzorzec ma najniższy koszt routingu. W przypadku **emisji**, **wysyłania do grupy**i **wysyłania do połączenia**usługa Azure Signal Service musi wyszukiwać docelowe połączenia za pomocą wewnętrznej rozproszonej struktury danych. To dodatkowe przetwarzanie zużywa więcej przepustowości procesora, pamięci i sieci. W efekcie wydajność jest wolniejsza.
+W przypadku **ECHA** klient wysyła wiadomość do samego siebie, a miejsce docelowe routingu również należy do siebie. Ten wzorzec ma najniższy koszt routingu. W przypadku **emisji**, **wysyłania do grupy** i **wysyłania do połączenia** usługa Azure Signal Service musi wyszukiwać docelowe połączenia za pomocą wewnętrznej rozproszonej struktury danych. To dodatkowe przetwarzanie zużywa więcej przepustowości procesora, pamięci i sieci. W efekcie wydajność jest wolniejsza.
 
 W trybie domyślnym serwer aplikacji może również stać się wąskim gardłem w niektórych scenariuszach. Zestaw SDK usługi Azure Signal ma wywoływać centrum, podczas gdy utrzymuje połączenie na żywo z każdym klientem za pośrednictwem sygnałów pulsu.
 
@@ -172,7 +172,7 @@ W przypadku Unit100 maksymalna przepustowość wychodząca to 400 MB z poprzedni
 
 ##### <a name="mixed-use-cases"></a>Mieszane przypadki użycia
 
-Faktyczny przypadek użycia zwykle Miksuje cztery podstawowe przypadki użycia razem: **echo**, **emisja**, **Wyślij do grupy**i **Wyślij do połączenia**. Metodologia używana do oszacowania pojemności:
+Faktyczny przypadek użycia zwykle Miksuje cztery podstawowe przypadki użycia razem: **echo**, **emisja**, **Wyślij do grupy** i **Wyślij do połączenia**. Metodologia używana do oszacowania pojemności:
 
 1. Podziel mieszane przypadki użycia na cztery podstawowe przypadki użycia.
 1. Oblicz maksymalną przepustowość ruchu przychodzącego i wychodzącego, korzystając z poprzednich formuł osobno.
@@ -187,7 +187,7 @@ W przypadku użycia w przypadku wysyłania komunikatu do klientów upewnij się,
 
 ## <a name="case-study"></a>Analiza przypadku
 
-W poniższych sekcjach opisano cztery typowe przypadki użycia na potrzeby transportu protokołu WebSocket: **echo**, **emisja**, **Wyślij do grupy**i **Wyślij do połączenia**. W każdym scenariuszu sekcja zawiera listę bieżących, przychodzących i wychodzących zdolności produkcyjnych usługi Azure Signal Service. Wyjaśniono również główne czynniki wpływające na wydajność.
+W poniższych sekcjach opisano cztery typowe przypadki użycia na potrzeby transportu protokołu WebSocket: **echo**, **emisja**, **Wyślij do grupy** i **Wyślij do połączenia**. W każdym scenariuszu sekcja zawiera listę bieżących, przychodzących i wychodzących zdolności produkcyjnych usługi Azure Signal Service. Wyjaśniono również główne czynniki wpływające na wydajność.
 
 W trybie domyślnym serwer aplikacji tworzy pięć połączeń z serwerem za pomocą usługi Azure Signal Service. Serwer aplikacji domyślnie używa zestawu SDK usługi Azure Signal. W poniższych wynikach testu wydajności połączenia serwera są zwiększane do 15 (lub więcej na potrzeby rozgłaszania i wysyłania komunikatów do dużej grupy).
 
@@ -307,7 +307,7 @@ Wiele połączeń klientów wywołuje centrum, więc numer serwera aplikacji jes
 
 ##### <a name="big-group"></a>Duża grupa
 
-W przypadku **wysyłania do dużych grup**przepustowość wychodząca jest wąskim gardłem, zanim zostanie osiągnięty limit kosztów routingu. W poniższej tabeli przedstawiono maksymalną przepustowość wychodzącą, która jest niemal taka sama jak w przypadku **emisji**.
+W przypadku **wysyłania do dużych grup** przepustowość wychodząca jest wąskim gardłem, zanim zostanie osiągnięty limit kosztów routingu. W poniższej tabeli przedstawiono maksymalną przepustowość wychodzącą, która jest niemal taka sama jak w przypadku **emisji**.
 
 |    Wyślij do dużej grupy      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
@@ -365,14 +365,14 @@ Usługa Azure sygnalizująca zapewnia taką samą pojemność wydajności dla sy
 
 Test wydajności używa platformy Azure Web Apps ze [standardowego planu usługi S3](https://azure.microsoft.com/pricing/details/app-service/windows/) dla sygnalizującego ASP.NET.
 
-W poniższej tabeli przedstawiono sugerowaną liczbę aplikacji sieci Web na potrzeby **ECHA**sygnałów ASP.NET.
+W poniższej tabeli przedstawiono sugerowaną liczbę aplikacji sieci Web na potrzeby **ECHA** sygnałów ASP.NET.
 
 |   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Połączenia      | 1000 | 2000 | 5000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Liczba serwerów aplikacji | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-W poniższej tabeli przedstawiono sugerowaną liczbę aplikacji sieci Web dla **emisji**sygnałów ASP.NET.
+W poniższej tabeli przedstawiono sugerowaną liczbę aplikacji sieci Web dla **emisji** sygnałów ASP.NET.
 
 |  Emisja       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|

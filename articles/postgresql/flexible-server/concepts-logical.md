@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707867"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replikacja logiczna i dekodowanie logiczne w Azure Database for PostgreSQL-elastycznym serwerze
@@ -53,8 +53,8 @@ Dekodowanie logiczne
 
 ### <a name="logical-replication"></a>Replikacja logiczna
 Replikacja logiczna używa wyrazów "Wydawca" i "Subscriber". 
-* Wydawca to baza danych PostgreSQL, **z**której są wysyłane dane. 
-* Abonentem jest baza danych PostgreSQL, **do**której są wysyłane dane.
+* Wydawca to baza danych PostgreSQL, **z** której są wysyłane dane. 
+* Abonentem jest baza danych PostgreSQL, **do** której są wysyłane dane.
 
 Oto przykładowy kod, którego można użyć do wypróbowania replikacji logicznej.
 

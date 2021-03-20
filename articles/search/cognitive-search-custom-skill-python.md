@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936133"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu języka Python
@@ -44,7 +44,7 @@ Szablon projektu usługi Azure Functions w programie Visual Studio Code umożliw
 
 1. W Visual Studio Code naciśnij klawisz F1, aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create new project...` .
 
-1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz pozycję **Wybierz**.
 
     > [!NOTE]
     > Te kroki zostały zaprojektowane do ukończenia poza obszarem roboczym. Z tego powodu nie należy wybierać folderu projektu, który jest częścią obszaru roboczego.

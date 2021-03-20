@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607613"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Rozwiązywanie problemów z certyfikatami domeny i protokołu TLS/SSL w Azure App Service
@@ -201,8 +201,8 @@ Certyfikat App Service wymaga weryfikacji domeny, zanim certyfikat będzie gotow
 #### <a name="solution"></a>Rozwiązanie
 Ręcznie Zweryfikuj domenę przez dodanie rekordu TXT:
 
-1. Przejdź do dostawcy usługi nazw domen (DNS), który hostuje nazwę domeny.
-1. Dodaj rekord TXT dla domeny korzystającej z wartości tokenu domeny pokazanego w Azure Portal. 
+1. Przejdź do dostawcy systemu Domain Name Service (DNS), który hostuje nazwę domeny.
+1. Dodaj rekord TXT dla domeny korzystającej z wartości tokenu domeny pokazanego w witrynie Azure Portal. 
 
 Poczekaj kilka minut, aż Propagacja DNS zostanie uruchomiona, a następnie wybierz przycisk **Odśwież** , aby wyzwolić weryfikację. 
 

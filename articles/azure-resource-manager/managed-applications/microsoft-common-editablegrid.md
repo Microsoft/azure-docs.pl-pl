@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88893770"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Microsoft. Common. EditableGrid — element interfejsu użytkownika
@@ -134,7 +134,7 @@ Kontrolka służąca do zbierania danych wejściowych tabelarycznych. Wszystkie 
 
 - `label`Właściwość nie jest wyświetlana jako część kontrolki, ale jest wyświetlana na końcu podsumowania karty.
 - `ariaLabel`Właściwość jest etykietą dostępności dla siatki. Określ przydatny tekst dla użytkowników korzystających z czytników zawartości ekranu.
-- `constraints.width`Właściwość służy do ustawiania szerokości całkowitej siatki. Opcje są _pełne_, _średnie_i _małe_. Wartość domyślna to _pełna_.
+- `constraints.width`Właściwość służy do ustawiania szerokości całkowitej siatki. Opcje są _pełne_, _średnie_ i _małe_. Wartość domyślna to _pełna_.
 - `width`Właściwość elementów podrzędnych kolumn Określa szerokość kolumny. Szerokości są określane przy użyciu jednostek ułamkowych, takich jak _3fr_, z łącznym miejscem przydzielonym do kolumn proporcjonalnie do ich jednostek. Jeśli szerokość kolumny nie zostanie określona, wartością domyślną jest _1fr_.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87088023"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions F #
@@ -61,7 +61,7 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-Funkcja języka F # platformy Azure będzie mieć jeden lub więcej argumentów. Gdy będziemy mówić o Azure Functions argumentach, odwołująmy się do argumentów *wejściowych* i argumentów *danych wyjściowych* . Argument wejściowy jest dokładnie to, co brzmi: dane wejściowe do funkcji platformy Azure w języku F #. Argument *wyjściowy* jest modyfikowalnymi danymi lub `byref<>` argumentem, który służy jako sposób przekazywania danych z funkcji *out* .
+Funkcja języka F # platformy Azure będzie mieć jeden lub więcej argumentów. Gdy będziemy mówić o Azure Functions argumentach, odwołująmy się do argumentów *wejściowych* i argumentów *danych wyjściowych* . Argument wejściowy jest dokładnie to, co brzmi: dane wejściowe do funkcji platformy Azure w języku F #. Argument *wyjściowy* jest modyfikowalnymi danymi lub `byref<>` argumentem, który służy jako sposób przekazywania danych z funkcji  .
 
 W powyższym przykładzie `blob` jest argumentem wejściowym i `output` jest argumentem wyjściowym. Zwróć uwagę, że `byref<>` została użyta `output` (nie ma potrzeby dodawania `[<Out>]` adnotacji). Użycie `byref<>` typu umożliwia funkcji zmianę rekordu lub obiektu, do którego odwołuje się argument.
 

@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069021"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu programu PowerShell
@@ -145,7 +145,7 @@ Aby sprawdzić konfigurację aplikacji usługi Azure AD i zapewnić zgodę:
 
    [![Strona uwierzytelnianie z wprowadzonym identyfikatorem URI ](../media/management-ui-redirect-uri-inline.png) przekierowania](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. W lewym panelu wybierz pozycję **uprawnienia interfejsu API** , aby potwierdzić, że uprawnienia zostały dodane. Jeśli jesteś administratorem globalnym, wybierz przycisk **Udziel zgody przez administratora dla `tenantname` ** przycisku i postępuj zgodnie z instrukcjami wyświetlanymi w oknie dialogowym, aby zapewnić zgodę administratora na organizację.
+5. W lewym panelu wybierz pozycję **uprawnienia interfejsu API** , aby potwierdzić, że uprawnienia zostały dodane. Jeśli jesteś administratorem globalnym, wybierz przycisk **Udziel zgody przez administratora dla `tenantname`** przycisku i postępuj zgodnie z instrukcjami wyświetlanymi w oknie dialogowym, aby zapewnić zgodę administratora na organizację.
 
     [![Strona ](../media/management-ui-permissions-inline.png) uprawnień interfejsu API](../media/management-ui-permissions-expanded.png#lightbox)
 
@@ -162,7 +162,7 @@ Teraz, po skonfigurowaniu narzędzia do zarządzania w dowolnym momencie, możes
    > Jeśli nie przyznano zgody administratora podczas konfigurowania narzędzia do zarządzania, każdy użytkownik, który się zaloguje, będzie musiał podać własną zgodę użytkownika w celu korzystania z tego narzędzia.
 
 3. Po wyświetleniu monitu o wybranie grupy dzierżawców wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców** .
-4. Po wybraniu **domyślnej grupy dzierżawców**menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.
+4. Po wybraniu **domyślnej grupy dzierżawców** menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.
 
    > [!NOTE]
    > Jeśli masz niestandardową grupę dzierżawców, wprowadź nazwę ręcznie zamiast wybierać ją z listy rozwijanej.

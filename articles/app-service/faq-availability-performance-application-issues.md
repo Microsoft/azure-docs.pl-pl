@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88959004"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące wydajności aplikacji dla Web Apps na platformie Azure
@@ -32,11 +32,11 @@ Wiele czynników może przyczynić się do spowolnienia wydajności aplikacji. A
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów z dużym scenariuszem zużycia procesora CPU?
 
-W przypadku niektórych dużych scenariuszy użycia procesora CPU aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami duże użycie procesora CPU może być spowodowane przez złą pętlę lub przez zaawansowaną technikę kodowania. Uzyskanie wglądu w informacje o tym, co wyzwala użycie procesora CPU, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu zapewnienia wysokiego użycia procesora CPU dla Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
+W przypadku niektórych dużych scenariuszy użycia procesora CPU aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych. W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami duże użycie procesora CPU może być spowodowane przez złą pętlę lub przez zaawansowaną technikę kodowania. Uzyskanie wglądu w informacje o tym, co wyzwala użycie procesora CPU, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu zapewnienia wysokiego użycia procesora CPU dla Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów dotyczących dużego użycia pamięci?
 
-W niektórych dużych scenariuszach zużycia pamięci aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami usterka w kodzie może spowodować przeciek pamięci. Sposób tworzenia kodu może również zwiększyć zużycie pamięci.Uzyskanie wglądu w informacje o tym, co wyzwala duże użycie pamięci, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Diagnostykę awarii z galerii rozszerzeń witryn Azure można efektywnie wykonać obie te czynności. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu przeprowadzenia sporadycznej dużej ilości pamięci dla Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
+W niektórych dużych scenariuszach zużycia pamięci aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych. W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami usterka w kodzie może spowodować przeciek pamięci. Sposób tworzenia kodu może również zwiększyć zużycie pamięci. Uzyskanie wglądu w informacje o tym, co wyzwala duże użycie pamięci, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Diagnostykę awarii z galerii rozszerzeń witryn Azure można efektywnie wykonać obie te czynności. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu przeprowadzenia sporadycznej dużej ilości pamięci dla Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Jak mogę Automatyzowanie App Service aplikacji sieci Web przy użyciu programu PowerShell?
 
@@ -94,7 +94,7 @@ Domyślnie aplikacje sieci Web są zwalniane, jeśli są bezczynne przez określ
 1. W Azure Portal przejdź do aplikacji sieci Web.
 2. Wybierz **konfigurację**
 3. Wybierz pozycję **Ustawienia ogólne**.
-4. Dla opcji **zawsze włączone**wybierz pozycję **włączone**.
+4. Dla opcji **zawsze włączone** wybierz pozycję **włączone**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Jak mogę włączyć śledzenia nieudanych żądań?
 
@@ -102,7 +102,7 @@ Aby włączyć śledzenie nieudanych żądań:
 
 1. W Azure Portal przejdź do aplikacji sieci Web.
 3. Wybierz kolejno pozycje **wszystkie ustawienia**  >  **dzienniki diagnostyki**.
-4. W przypadku **śledzenia nieudanych żądań**wybierz pozycję **włączone**.
+4. W przypadku **śledzenia nieudanych żądań** wybierz pozycję **włączone**.
 5. Wybierz pozycję **Zapisz**.
 6. W bloku aplikacja sieci Web wybierz pozycję **Narzędzia**.
 7. Wybierz pozycję **Visual Studio Online**.

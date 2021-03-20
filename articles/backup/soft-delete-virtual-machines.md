@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
 ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89022245"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Usuwanie nietrwałe maszyn wirtualnych
@@ -29,7 +29,7 @@ Usuwanie nietrwałe jest obecnie obsługiwane w zachodnich środkowe stany USA, 
 
    ![Zrzut ekranu przedstawiający elementy Azure Portal kopii zapasowej](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. W poniższym oknie zostanie wybrana opcja usuwania lub zachowywania danych kopii zapasowej. W przypadku wybrania opcji **Usuń dane kopii zapasowej** , a następnie **zatrzymania wykonywania**kopii zapasowej kopia zapasowa maszyny wirtualnej nie zostanie trwale usunięta. Zamiast tego dane kopii zapasowej będą przechowywane przez 14 dni w stanie nietrwałego usunięcia. W przypadku wybrania opcji **Usuń dane kopii zapasowej** do skonfigurowanego identyfikatora poczty e-mail zostanie wysłany alert z informacją o tym, że 14 dni pozostaną Rozszerzone przechowywanie danych kopii zapasowej. Ponadto w 12-dniowym dniu jest wysyłany alert e-mail z informacją o tym, że pozostały jeszcze dwa dni, aby przywracania aktywności usunięte dane. Usuwanie zostanie odroczone do 15-dniowego dnia, po upływie którego nastąpi trwałe usunięcie i zostanie wysłany końcowy alert e-mail z informacją o trwałym usunięciu danych.
+2. W poniższym oknie zostanie wybrana opcja usuwania lub zachowywania danych kopii zapasowej. W przypadku wybrania opcji **Usuń dane kopii zapasowej** , a następnie **zatrzymania wykonywania** kopii zapasowej kopia zapasowa maszyny wirtualnej nie zostanie trwale usunięta. Zamiast tego dane kopii zapasowej będą przechowywane przez 14 dni w stanie nietrwałego usunięcia. W przypadku wybrania opcji **Usuń dane kopii zapasowej** do skonfigurowanego identyfikatora poczty e-mail zostanie wysłany alert z informacją o tym, że 14 dni pozostaną Rozszerzone przechowywanie danych kopii zapasowej. Ponadto w 12-dniowym dniu jest wysyłany alert e-mail z informacją o tym, że pozostały jeszcze dwa dni, aby przywracania aktywności usunięte dane. Usuwanie zostanie odroczone do 15-dniowego dnia, po upływie którego nastąpi trwałe usunięcie i zostanie wysłany końcowy alert e-mail z informacją o trwałym usunięciu danych.
 
    ![Zrzut ekranu przedstawiający ekran Azure Portal, Zatrzymaj tworzenie kopii zapasowej](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 

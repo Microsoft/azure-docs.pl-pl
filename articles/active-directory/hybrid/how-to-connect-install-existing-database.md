@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91265395"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalowanie programu Azure AD Connect przy użyciu istniejącej bazy danych programu ADSync
@@ -64,7 +64,7 @@ Ważne uwagi, które należy wziąć pod uwagę przed kontynuowaniem:
 > [!NOTE]
 > Użyj przełącznika **/UseExistingDatabase** tylko wtedy, gdy baza danych zawiera już dane z wcześniejszej instalacji Azure AD Connect. Na przykład podczas przechodzenia z lokalnej bazy danych do pełnej bazy danych SQL Server lub gdy serwer Azure AD Connect został odbudowany i przywrócono kopię zapasową bazy danych SQL ADSync z wcześniejszej instalacji programu Azure AD Connect. Jeśli baza danych jest pusta, czyli nie zawiera żadnych danych z poprzedniej instalacji Azure AD Connect, Pomiń ten krok.
 
-![Program PowerShell](./media/how-to-connect-install-existing-database/db2.png)
+![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Zobaczysz ekran powitalny programu Azure AD Connect. Gdy zaakceptujesz postanowienia licencyjne i uwagi na temat ochrony prywatności, kliknij pozycję **Kontynuuj**.
    ![Zrzut ekranu przedstawiający stronę "Witamy w usłudze Azure A D Connect"](./media/how-to-connect-install-existing-database/db3.png)
 1. Na ekranie **Instalowanie wymaganych składników** włączona jest opcja **Użyj istniejącego serwera SQL Server**. Określ nazwę serwera SQL Server hostującego bazę danych programu ADSync. Jeśli wystąpienie aparatu SQL używane do hostowania bazy danych programu ADSync nie jest domyślnym wystąpieniem serwera SQL Server, musisz określić nazwę wystąpienia aparatu SQL. Ponadto jeśli nie jest włączone przeglądanie SQL, musisz też określić numer portu wystąpienia aparatu SQL. Na przykład:         

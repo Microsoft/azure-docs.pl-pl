@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99af0ee46e2827ac8a5749d58bb19cf85f96aa46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577465"
 ---
 # <a name="get-started-with-custom-voice"></a>Wprowadzenie do usługi Custom Voice
 
@@ -69,7 +69,9 @@ Aby utworzyć swój pierwszy projekt, wybierz kartę **Zamiana tekstu na mowę/n
 
 ## <a name="how-to-migrate-to-custom-neural-voice"></a>Jak przeprowadzić migrację do niestandardowego głosu neuronowych
 
-Jeśli używasz niestandardowego głosu nieneuronowychego (lub standardowego), rozważ przeprowadzenie migracji do niestandardowego neuronowych głosu bezpośrednio po poniższych krokach. Przechodzenie do niestandardowego głosu neuronowych pomoże Ci w tworzeniu bardziej realistycznych głosów dla jeszcze bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym skorzystania z najnowszej technologii zamiany tekstu na mowę w odpowiedzialny sposób. 
+Warstwa szkoleniowa Standard/non-neuronowych (adaptacyjna, statystyczna parametryczna, concacenative) niestandardowego głosu jest przestarzała. Zawiadomienie został wysłany do wszystkich istniejących subskrypcji mowy przed 2/28/2021. W okresie wycofania (3/1/2021-2/29/2024) istniejący użytkownicy warstwy standardowej mogą nadal korzystać z utworzonych modeli innych niż neuronowych. Wszyscy nowi użytkownicy/nowe zasoby mowy powinny przejść do neuronowych warstwy/niestandardowego głosu neuronowych. Po 2/29/2024 wszystkie głosy niestandardowe/neuronowych nie będą już obsługiwane. 
+
+Jeśli używasz niestandardowego głosu nieneuronowychego/standardowego, Przeprowadź migrację do niestandardowego neuronowych głosu bezpośrednio po poniższych krokach. Przechodzenie do niestandardowego głosu neuronowych pomoże Ci w tworzeniu bardziej realistycznych głosów dla jeszcze bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym skorzystania z najnowszej technologii zamiany tekstu na mowę w odpowiedzialny sposób. 
 
 1. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) i [Zastosuj tutaj](https://aka.ms/customneural). Należy zauważyć, że dostęp do usługi Custom neuronowych Voice jest uzależniony od uznania firmy Microsoft na podstawie kryteriów kwalifikujących. Klienci mogą uzyskać dostęp do technologii dopiero po przejrzeniu ich aplikacji i zapewnieniu jej używania z naszymi [właściwymi zasadami AI](https://microsoft.com/ai/responsible-ai) i [kodeksem postępowania](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 2. Po zatwierdzeniu aplikacji uzyskasz dostęp do funkcji szkolenia "neuronowych". Upewnij się, że logujesz się do [niestandardowego portalu głosowego](https://speech.microsoft.com/customvoice) , korzystając z tej samej subskrypcji platformy Azure, którą podano w aplikacji. 
