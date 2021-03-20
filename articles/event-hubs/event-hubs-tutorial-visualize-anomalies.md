@@ -4,10 +4,10 @@ description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzecz
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98623462"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
@@ -16,7 +16,7 @@ Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analyti
 
 W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie można odczytać strumień danych w czasie rzeczywistym za pomocą Azure Stream Analytics, który oddziela prawidłowe transakcje od nieprawidłowych transakcji, a następnie używa Power BI do wizualnego identyfikowania transakcji, które są otagowane jako nieprawidłowe.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Tworzenie centrum zdarzeń

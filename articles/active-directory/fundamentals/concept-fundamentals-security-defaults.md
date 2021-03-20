@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029910"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98600132"
 ---
 # <a name="what-are-security-defaults"></a>Co to są wartości domyślne zabezpieczeń?
 
@@ -76,7 +76,7 @@ Chcemy myśleć, że konta administratorów są jedynymi kontami, które wymagaj
 
 Gdy Ci osoby atakujące uzyskali dostęp, mogą zażądać dostępu do informacji uprzywilejowanych w imieniu właściciela oryginalnego konta. Mogą nawet pobrać cały katalog, aby przeprowadzić atak wyłudzania informacji w całej organizacji. 
 
-Jedną z częstych metod ulepszania ochrony dla wszystkich użytkowników jest wymaganie silniejszej formy weryfikacji konta, takiej jak Multi-Factor Authentication, dla wszystkich. Po zakończeniu Multi-Factor Authentication rejestracji użytkownicy będą monitowani o dodatkowe uwierzytelnianie w razie potrzeby. Ta funkcja chroni wszystkie aplikacje zarejestrowane w usłudze Azure AD, w tym aplikacje SaaS.
+Jedną z częstych metod ulepszania ochrony dla wszystkich użytkowników jest wymaganie silniejszej formy weryfikacji konta, takiej jak Multi-Factor Authentication, dla wszystkich. Po zakończeniu Multi-Factor Authentication rejestracji użytkownicy będą monitowani o dodatkowe uwierzytelnianie w razie potrzeby. Użytkownicy będą przede wszystkim monitowani o uwierzytelnienie przy użyciu nowego urządzenia lub aplikacji lub wykonywania krytycznych ról i zadań. Ta funkcja chroni wszystkie aplikacje zarejestrowane w usłudze Azure AD, w tym aplikacje SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Blokowanie starszego uwierzytelniania
 
@@ -128,14 +128,14 @@ Te bezpłatne wartości domyślne zabezpieczeń umożliwiają rejestrację i kor
 | Kod weryfikacyjny z aplikacji mobilnej lub tokenu sprzętowego | X * * | X |
 | Wiadomość SMS na telefon |   | X |
 | Wywołanie telefonu |   | X |
-| Hasła aplikacji |   | X * * _ |
+| Hasła aplikacji |   | X * * * |
 
-- _ * Użytkownicy mogą używać kodów weryfikacyjnych z aplikacji Microsoft Authenticator, ale mogą się rejestrować tylko przy użyciu opcji powiadomień.
-- * * Hasła aplikacji są dostępne tylko w ramach usługi MFA dla poszczególnych użytkowników ze starszymi scenariuszami uwierzytelniania tylko wtedy, gdy są włączone przez administratorów.
+- * * Użytkownicy mogą używać kodów weryfikacyjnych z aplikacji Microsoft Authenticator, ale mogą się rejestrować tylko przy użyciu opcji powiadomień.
+- Hasła aplikacji są dostępne tylko w ramach usługi MFA dla poszczególnych użytkowników ze starszymi scenariuszami uwierzytelniania tylko wtedy, gdy są włączone przez administratorów.
 
 ### <a name="disabled-mfa-status"></a>Stan wyłączonej usługi MFA
 
-Jeśli Twoja organizacja jest poprzednim użytkownikiem opartym na użytkownikach usługi Azure AD Multi-Factor Authentication, nie musisz otrzymywać alertów, aby nie wyświetlać użytkowników w stanie "_ *Enabled**" lub **wymuszać** się na stronie stanu usługi uwierzytelniania wieloskładnikowego. **Wyłączone** to odpowiedni stan dla użytkowników korzystających z domyślnych ustawień zabezpieczeń lub Multi-Factor Authentication usługi Azure AD opartych na dostępie warunkowym.
+Jeśli Twoja organizacja jest poprzednim użytkownikiem opartym na użytkownikach usługi Azure AD Multi-Factor Authentication, nie musisz otrzymywać alertów, aby nie wyświetlać użytkowników w stanie **włączony** lub **wymuszany** , Jeśli zobaczysz stronę stanu usługi uwierzytelniania wieloskładnikowego. **Wyłączone** to odpowiedni stan dla użytkowników korzystających z domyślnych ustawień zabezpieczeń lub Multi-Factor Authentication usługi Azure AD opartych na dostępie warunkowym.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
 

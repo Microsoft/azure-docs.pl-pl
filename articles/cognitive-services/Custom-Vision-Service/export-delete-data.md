@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527398"
 ---
 # <a name="view-or-delete-user-data-in-custom-vision"></a>Wyświetlanie lub usuwanie danych użytkownika w Custom Vision
@@ -32,6 +32,6 @@ Aby dowiedzieć się, jak wyświetlać i usuwać dane użytkowników w Custom Vi
 | Szczegóły wydajności iteracji | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Lista iteracji | [Getiteracjis](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Projekty i szczegóły projektu | [Getproject](https://go.microsoft.com/fwlink/?linkid=865446) i [getprojects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Tagi obrazu | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) i [getTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
+| Tagi obrazów | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) i [getTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Obrazy | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (zapewnia identyfikator URI do pobrania obrazu) i [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (zapewnia identyfikator URI do pobrania obrazu) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Wyeksportowane iteracje | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Usunięte po usunięciu konta |

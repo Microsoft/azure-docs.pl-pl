@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94539060"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MySQL przy użyciu programu PowerShell
@@ -41,7 +41,7 @@ Podczas tworzenia serwera można wybrać między skonfigurowaniem serwera na pot
 > [!NOTE]
 > Po utworzeniu serwera należy zmienić jego rodzaj nadmiarowości, Geograficznie nadmiarowy a lokalnie nadmiarowy.
 
-Podczas tworzenia serwera za pomocą `New-AzMySqlServer` polecenia parametr **GeoRedundantBackup** decyduje o opcji nadmiarowości kopii zapasowej. Jeśli ta **Funkcja jest włączona** , tworzone są kopie zapasowe dublowane. Lub jeśli jest **wyłączone** , tworzone są lokalnie nadmiarowe kopie zapasowe.
+Podczas tworzenia serwera za pomocą `New-AzMySqlServer` polecenia parametr **GeoRedundantBackup** decyduje o opcji nadmiarowości kopii zapasowej. Jeśli ta **Funkcja jest włączona**, tworzone są kopie zapasowe dublowane. Lub jeśli jest **wyłączone**, tworzone są lokalnie nadmiarowe kopie zapasowe.
 
 Okres przechowywania kopii zapasowych jest ustawiany przez parametr **BackupRetentionDay** .
 
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-W tym przykładzie tworzony jest nowy serwer o nazwie **mydemoserver-georestore** w regionie Wschodnie stany USA, który należy do **zasobu**. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej **mydemoserver** , również **w grupie zasobów**.
+W tym przykładzie tworzony jest nowy serwer o nazwie **mydemoserver-georestore** w regionie Wschodnie stany USA, który należy do **zasobu**. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej **mydemoserver**, również **w grupie zasobów**.
 
 Aby utworzyć nowy serwer w innej grupie zasobów z istniejącego serwera, określ nową nazwę grupy zasobów przy użyciu parametru **ResourceGroupName** , jak pokazano w następującym przykładzie:
 

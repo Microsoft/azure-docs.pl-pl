@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541508"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Połącz istniejące Azure App Service z serwerem Azure Database for MySQL
 W tym temacie wyjaśniono, jak połączyć istniejące Azure App Service z serwerem Azure Database for MySQL.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MySQL. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć serwer Azure Database for MySQL z poziomu portalu](quickstart-create-mysql-server-database-using-azure-portal.md) lub [jak utworzyć serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Obecnie istnieją dwa rozwiązania umożliwiające dostęp z Azure App Service do Azure Database for MySQL. Oba rozwiązania obejmują Konfigurowanie reguł zapory na poziomie serwera.
@@ -28,7 +28,7 @@ Azure Database for MySQL zapewnia zabezpieczenia dostępu przy użyciu zapory do
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
 
-2. Wybierz pozycję **włączone** w obszarze **Zezwalaj na dostęp do usług platformy Azure** , a następnie **Zapisz**.
+2. Wybierz pozycję **włączone** w obszarze **Zezwalaj na dostęp do usług platformy Azure**, a następnie **Zapisz**.
    :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal — Zezwalaj na dostęp do platformy Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Rozwiązanie 2 — Tworzenie reguły zapory w celu jawnego zezwalania na wychodzące adresy IP

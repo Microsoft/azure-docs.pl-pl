@@ -9,30 +9,30 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 12e9bec0c560f1b068b07a1b6afe218a112e439f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553123"
 ---
 Po utworzeniu certyfikatu głównego z podpisem własnym wyeksportuj plik CER klucza publicznego certyfikatu głównego (nie klucz prywatny). Później przekażesz ten plik do platformy Azure. Poniższe kroki ułatwiają wyeksportowanie pliku CER dla certyfikatu głównego z podpisem własnym:
 
-1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Zlokalizuj certyfikat główny z podpisem własnym — zwykle znajduje się w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat” — a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania** , a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**. Jeśli nie możesz znaleźć certyfikatu w ramach bieżącego User\Personal\Certificates, być może przypadkowo otwarto "certyfikaty — komputer lokalny", a nie "Certyfikaty — bieżący użytkownik"). Jeśli chcesz otworzyć Menedżera certyfikatów w bieżącym zakresie użytkownika przy użyciu programu PowerShell, wpisz *certmgr* w oknie konsoli.
+1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Zlokalizuj certyfikat główny z podpisem własnym — zwykle znajduje się w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat” — a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**. Jeśli nie możesz znaleźć certyfikatu w ramach bieżącego User\Personal\Certificates, być może przypadkowo otwarto "certyfikaty — komputer lokalny", a nie "Certyfikaty — bieżący użytkownik"). Jeśli chcesz otworzyć Menedżera certyfikatów w bieżącym zakresie użytkownika przy użyciu programu PowerShell, wpisz *certmgr* w oknie konsoli.
 
    ![Zrzut ekranu przedstawia okno certyfikaty dla bieżącego użytkownika z wybranymi certyfikatami i menu kontekstowe z opcją eksportowania wybraną ze wszystkich zadań.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. W Kreatorze kliknij pozycję **Dalej**.
 
    ![Eksportowanie certyfikatu](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
-3. Wybierz pozycję **Nie eksportuj klucza prywatnego** , a następnie kliknij pozycję **Dalej**.
+3. Wybierz pozycję **Nie eksportuj klucza prywatnego**, a następnie kliknij pozycję **Dalej**.
 
    ![Nie Eksportuj klucza prywatnego](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
-4. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)** , a następnie kliknij pozycję **Dalej**.
+4. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**, a następnie kliknij pozycję **Dalej**.
 
    ![Base-64 — zakodowana](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
-5. W polu **plik do wyeksportowania** **Przejdź** do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **dalej**.
+5. W polu **plik do wyeksportowania** **Przejdź** do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Dalej**.
 
    ![Zrzut ekranu pokazuje Kreatora eksportu certyfikatów z polem tekstowym Nazwa pliku i opcją przeglądania.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
-6. Kliknij przycisk **Zakończ** , aby wyeksportować certyfikat.
+6. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.
 
    ![Zrzut ekranu pokazuje Kreatora eksportu certyfikatów z wybranymi ustawieniami.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Certyfikat został pomyślnie wyeksportowany.

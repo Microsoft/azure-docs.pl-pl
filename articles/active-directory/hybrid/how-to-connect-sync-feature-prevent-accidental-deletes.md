@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084613"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu
@@ -54,7 +54,7 @@ Jeśli jest to nieoczekiwane, zbadaj i wykonaj akcje naprawcze. Aby zobaczyć, k
 2. Przejdź do **łączników**.
 3. Wybierz łącznik z typem **Azure Active Directory**.
 4. W obszarze **Akcje** po prawej stronie wybierz pozycję **obszar łącznika wyszukiwania**.
-5. W podręcznym obszarze **zakres**wybierz opcję **Rozłączono od momentu** , a następnie wybierz godzinę w przeszłości. Kliknij przycisk **Wyszukaj**. Ta strona zawiera widok wszystkich obiektów, które zostaną usunięte. Klikając każdy element, można uzyskać dodatkowe informacje na temat obiektu. Możesz również kliknąć pozycję **ustawienie kolumny** , aby dodać dodatkowe atrybuty, które mają być widoczne w siatce.
+5. W podręcznym obszarze **zakres** wybierz opcję **Rozłączono od momentu** , a następnie wybierz godzinę w przeszłości. Kliknij przycisk **Wyszukaj**. Ta strona zawiera widok wszystkich obiektów, które zostaną usunięte. Klikając każdy element, można uzyskać dodatkowe informacje na temat obiektu. Możesz również kliknąć pozycję **ustawienie kolumny** , aby dodać dodatkowe atrybuty, które mają być widoczne w siatce.
 
 ![Wyszukaj w obszarze łącznika](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -72,5 +72,5 @@ Jeśli wszystkie usunięcia są odpowiednie, wykonaj następujące czynności:
 ## <a name="next-steps"></a>Następne kroki
 **Tematy dotyczące omówienia**
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

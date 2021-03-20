@@ -13,10 +13,10 @@ ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
 ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98599802"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Często zadawane pytania dotyczące baz danych ClearDB MySql przy użyciu Azure App Service
@@ -42,7 +42,7 @@ Jest to zależne od typu używanej subskrypcji. Poniżej przedstawiono niektóre
 * [Płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/)użyciem: wymaga karty kredytowej, a w przypadku zakupu płatnej bazy danych MySQL opłata za kartę kredytową jest naliczana.
 * [Bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/): obejmuje kredyty do użytku z usługami Microsoft Azure Services, ale nie zezwala na zakup zasobów innych firm. Aby kupić usługi innych firm lub płatną bazę danych MySQL, należy skorzystać z subskrypcji z obsługą kart kredytowych. Aby uzyskać Web Apps, możesz utworzyć bezpłatną bazę danych MySQL ClearDB.
 * [Subskrypcje MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) i **MSDN Dev Test — płatność zgodnie z rzeczywistym** użyciem: podobnie jak w przypadku bezpłatnej wersji próbnej subskrypcja MSDN wymaga posiadania karty kredytowej do zakupu płatnego rozwiązania MySQL od ClearDB.
-* [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): klienci z umowami EA są rozliczani według umowy EA każdego kwartału dla wszystkich zakupów w portalu Azure Marketplace na oddzielnej, skonsolidowanej fakturze. Opłaty są naliczane poza zaliczką na korzystanie z platformy Azure (wcześniej nazywanym zobowiązaniem pieniężnym) dla jakichkolwiek zakupów w portalu Marketplace. Należy pamiętać, że w tym momencie sklep systemu Azure nie jest dostępny dla klientów zarejestrowanych w Azerbejdżanu, Chorwacji, Norwegii i Portoryko. 
+* [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): klienci z umowami EA są rozliczani według umowy EA każdego kwartału dla wszystkich zakupów w portalu Azure Marketplace na oddzielnej, skonsolidowanej fakturze. Opłaty są naliczane poza zaliczką na korzystanie z platformy Azure (wcześniej nazywanym zobowiązaniem pieniężnym) dla jakichkolwiek zakupów w portalu Marketplace. Należy pamiętać, że w tym momencie sklep systemu Azure nie jest dostępny dla klientów zarejestrowanych w Azerbejdżanu, Chorwacji, Norwegii i Portoryko. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Dlaczego opłata była naliczana $3,50 dla aplikacji internetowej i bazy danych MySQL z portalu Azure Marketplace?
 Domyślna opcja bazy danych to Titan, co to jest $3,50. Nie pokazujemy kosztów podczas tworzenia bazy danych i można wypróbować wykupienie nieplanowanej bazy danych. Próbujemy znaleźć sposób ulepszania środowiska, ale do momentu, gdy po kliknięciu przycisku **Utwórz** i rozpocznie się wdrażanie zasobów, musisz sprawdzić wszystkie wybrane warstwy cenowe dla aplikacji sieci Web i bazy danych.

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146709"
 ---
 # <a name="edit-an-api"></a>Edytowanie interfejsu API
@@ -37,18 +37,18 @@ Kroki opisane w tym samouczku umożliwiają użycie usługi API Management (APIM
 
 ![Zrzut ekranu, który wyróżnia proces edytowania interfejsu API w programie APIM.](./media/edit-api/edit-api001.png)
 
-1. Kliknij kartę **Interfejsy API** .
+1. Kliknij kartę **Interfejsy API**.
 2. Wybierz jeden z wcześniej zaimportowanych interfejsów API.
-3. Wybierz kartę **Projekt** .
+3. Wybierz kartę **Projekt**.
 4. Wybierz operację, którą chcesz edytować.
-5. Aby zmienić nazwę operacji, wybierz ikonę **ołówka** w oknie **Fronton** .
+5. Aby zmienić nazwę operacji, wybierz ikonę **ołówka** w oknie **Fronton**.
 
 ## <a name="update-the-swagger"></a>Aktualizowanie programu Swagger
 
 Możesz zaktualizować interfejs API zaplecza w witrynie Azure Portal, wykonując następujące czynności:
 
 1. Wybierz **wszystkie operacje**
-2. Kliknij ikonę ołówka w oknie **Fronton** .
+2. Kliknij ikonę ołówka w oknie **Fronton**.
 
     ![Zrzut ekranu, który podświetla ikonę ołówka na ekranie frontonu.](./media/edit-api/edit-api002.png)
 
@@ -57,7 +57,7 @@ Możesz zaktualizować interfejs API zaplecza w witrynie Azure Portal, wykonują
     ![Edytowanie interfejsu API](./media/edit-api/edit-api003.png)
 
 3. Zaktualizuj program Swagger.
-4. Naciśnij pozycję **Zapisz** .
+4. Naciśnij pozycję **Zapisz**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -12,10 +12,10 @@ ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 5bd938fce347d439c2acb4e3fcace04d5b27d770
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94447777"
 ---
 # <a name="configure-authentication-for-models-deployed-as-web-services"></a>Konfigurowanie uwierzytelniania dla modeli wdrożonych jako usługi sieci Web
@@ -24,8 +24,8 @@ Azure Machine Learning pozwala na wdrożenie przeszkolonych modeli uczenia maszy
 
 Wdrożenia modelu utworzone przez Azure Machine Learning można skonfigurować tak, aby korzystały z jednej z dwóch metod uwierzytelniania:
 
-* **oparte na kluczach** : klucz statyczny jest używany do uwierzytelniania w usłudze sieci Web.
-* **oparta na tokenach** : tymczasowy token musi być uzyskany z obszaru roboczego Azure Machine Learning (przy użyciu Azure Active Directory) i używany do uwierzytelniania w usłudze sieci Web. Ten token wygasa po upływie okresu czasu i musi zostać odświeżony, aby kontynuować pracę z usługą sieci Web.
+* **oparte na kluczach**: klucz statyczny jest używany do uwierzytelniania w usłudze sieci Web.
+* **oparta na tokenach**: tymczasowy token musi być uzyskany z obszaru roboczego Azure Machine Learning (przy użyciu Azure Active Directory) i używany do uwierzytelniania w usłudze sieci Web. Ten token wygasa po upływie okresu czasu i musi zostać odświeżony, aby kontynuować pracę z usługą sieci Web.
 
     > [!NOTE]
     > Uwierzytelnianie oparte na tokenach jest dostępne tylko w przypadku wdrażania w usłudze Azure Kubernetes Service.

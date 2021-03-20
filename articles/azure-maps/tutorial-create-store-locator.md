@@ -10,15 +10,15 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625101"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy platformy Azure.

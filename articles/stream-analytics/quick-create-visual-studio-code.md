@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014615"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics w Visual Studio Code (wersja zapoznawcza)
@@ -21,7 +21,7 @@ W tym przewodniku szybki start pokazano, jak utworzyć i uruchomić zadanie Azur
 > [!NOTE]
 > Narzędzia Visual Studio i Visual Studio Code Tools nie obsługują zadań w regionach Chiny Wschodnie, Chiny Północne, Niemczech centralnych i Niemczech północnych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -43,7 +43,7 @@ W tym przewodniku szybki start pokazano, jak utworzyć i uruchomić zadanie Azur
 
 1. Wybierz ikonę **platformy Azure** na pasku działania Visual Studio Code. W obszarze **Stream Analytics** na pasku bocznym wybierz pozycję **Zaloguj się do platformy Azure**.
 
-   ![Zaloguj się do platformy Azure w Visual Studio Code](./media/quick-create-visual-studio-code/azure-sign-in.png)
+   ![Logowanie do platformy Azure w programie Visual Studio Code](./media/quick-create-visual-studio-code/azure-sign-in.png)
 
 2. Gdy użytkownik jest zalogowany, nazwa konta platformy Azure zostanie wyświetlona na pasku stanu w lewym dolnym rogu okna Visual Studio Code.
 

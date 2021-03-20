@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: b7de874cc074faa63203c58638fb04cc5cb2282b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Samouczek: integracja Azure Active Directory z usługą SmartRecruiters
@@ -144,7 +144,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SmartRecrui
 
     ![Zrzut ekranu przedstawia kontrolkę Włącz sieć Web s O.](./media/smartrecruiters-tutorial/configure2.png)
 
-1. W obszarze **Konfiguracja dostawcy tożsamości**wykonaj następujące czynności:
+1. W obszarze **Konfiguracja dostawcy tożsamości** wykonaj następujące czynności:
 
     ![Zrzut ekranu przedstawia konfigurację dostawcy tożsamości, w której można wprowadzić podane wartości.](./media/smartrecruiters-tutorial/configure4.png)
 
@@ -177,7 +177,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

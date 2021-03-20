@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012458"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Określ wymagany rozmiar podsieci & zakres dla wystąpienia zarządzanego Azure SQL
@@ -52,14 +52,14 @@ Należy zmienić rozmiar podsieci zgodnie z wdrożeniem przyszłych wystąpień 
 
 GP = ogólnego przeznaczenia; BC = krytyczne dla działania firmy; VC = klaster wirtualny
 
-| **Generator sprzętu** | **Warstwa cenowa** | **Użycie platformy Azure** | **Użycie VC** | **Użycie wystąpienia** | **Łącznie** _ |
+| **Generator sprzętu** | **Warstwa cenowa** | **Użycie platformy Azure** | **Użycie VC** | **Użycie wystąpienia** | **Ogólnego*** |
 | --- | --- | --- | --- | --- | --- |
 | Obliczenia | GP | 5 | 1 | 5 | 11 |
 | Obliczenia | BC | 5 | 1 | 5 | 11 |
 | 5 rdzeń | GP | 5 | 6 | 3 | 14 |
 | 5 rdzeń | BC | 5 | 6 | 5 | 16 |
 
-  \_ Całkowita kolumna zawiera liczbę adresów, które zostałyby wykonane, gdy jedno wystąpienie zostanie wdrożone w podsieci. Każde dodatkowe wystąpienie w podsieci dodaje liczbę adresów reprezentowanych w kolumnie użycie wystąpienia. Adresy reprezentowane za pomocą kolumny użycie platformy Azure są udostępniane w wielu klastrach wirtualnych, natomiast adresy reprezentowane za pomocą kolumny użycie VC są udostępniane między wystąpieniami umieszczonymi w tym klastrze wirtualnym.
+  \* Całkowita kolumna zawiera liczbę adresów, które zostałyby wykonane, gdy jedno wystąpienie zostanie wdrożone w podsieci. Każde dodatkowe wystąpienie w podsieci dodaje liczbę adresów reprezentowanych w kolumnie użycie wystąpienia. Adresy reprezentowane za pomocą kolumny użycie platformy Azure są udostępniane w wielu klastrach wirtualnych, natomiast adresy reprezentowane za pomocą kolumny użycie VC są udostępniane między wystąpieniami umieszczonymi w tym klastrze wirtualnym.
 
 Operacja aktualizacji zwykle wymaga zmiany rozmiaru klastra wirtualnego. W niektórych okolicznościach operacja aktualizacji będzie wymagała utworzenia klastra wirtualnego (Aby uzyskać więcej szczegółów, zobacz artykuł dotyczący [operacji administracyjnych](sql-managed-instance-paas-overview.md#management-operations)). W przypadku tworzenia klastra wirtualnego liczba wymaganych dodatkowych adresów jest równa liczbie adresów reprezentowanych przez kolumnę użycie VC z adresami wymaganymi dla wystąpień umieszczonych w tym klastrze wirtualnym (kolumna użycie wystąpienia).
 
@@ -74,12 +74,12 @@ Jak wspomniano powyżej, w niektórych przypadkach operacja aktualizacji będzie
 
 Gdy wystąpienia operacji skalowania tymczasowo wymagają dodatkowej pojemności IP, która zależy od warstwy cenowej i generowania sprzętu
 
-| **Generator sprzętu** | **Warstwa cenowa** | **Scenariusz** | **Dodatkowe adresy** _ |
+| **Generator sprzętu** | **Warstwa cenowa** | **Scenariusz** | **Dodatkowe adresy*** |
 | --- | --- | --- | --- |
 | Obliczenia | GP lub BC | Skalowanie rdzeni wirtualnych | 5 |
 | Obliczenia | GP lub BC | Skalowanie magazynu | 5 |
 | Obliczenia | GP lub BC | Przełączanie z zasad grupy do BC lub BC do GP | 5 |
-| Obliczenia | GP | Przełączanie do Gen5_ | 9 |
+| Obliczenia | GP | Przełączanie do 5 rdzeń * | 9 |
 | Obliczenia | BC | Przełączanie do 5 rdzeń * | 11 |
 | 5 rdzeń | GP | Skalowanie rdzeni wirtualnych | 3 |
 | 5 rdzeń | GP | Skalowanie magazynu | 0 |

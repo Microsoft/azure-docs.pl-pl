@@ -4,10 +4,10 @@ description: W tym artykule opisano usługę analizy błędów w Service Fabric,
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531381"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Wprowadzenie do usługi analizy błędów

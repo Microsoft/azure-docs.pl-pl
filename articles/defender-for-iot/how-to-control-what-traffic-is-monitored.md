@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522397"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Sterowanie monitorowanym ruchem
@@ -295,7 +295,7 @@ Aby wyświetlić wyniki skanowania:
 
 1. Po zakończeniu skanowania w okienku **Akcje** wybierz pozycję **Wyświetl wyniki skanowania**. Plik CSV z wynikami skanowania zostanie pobrany na komputer.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Badanie wykrywania czujników na mapie urządzeń](how-to-work-with-the-sensor-device-map.md)

@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861034"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
@@ -54,7 +54,7 @@ Nie można usunąć organizacji w usłudze Azure AD, dopóki nie przejdzie kilka
 
 Po skonfigurowaniu organizacji usługi Azure AD można także aktywować subskrypcje oparte na licencjach dla swojej organizacji, takie jak Azure AD — wersja Premium P2, Microsoft 365 Business Standard lub Enterprise Mobility + Security E5. Aby uniknąć przypadkowej utraty danych, nie można usunąć organizacji, dopóki subskrypcje nie zostaną całkowicie usunięte. Aby można było usunąć **organizację, subskrypcje** muszą być w stanie niedostępnym. **Wygasła** lub **anulowana** subskrypcja przechodzi do stanu **wyłączone** , a końcowym etapem jest stan **anulowania** aprowizacji.
 
-W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Enterprise Agreement lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Stan subskrypcji | Dane | Dostęp do danych
 ----- | ----- | -----
@@ -108,7 +108,7 @@ Po rozpoczęciu usuwania produktu samoobsługowego rejestracji, akcja spowoduje 
 
 Aby uzyskać więcej informacji na temat aktualnie dostępnych produktów i usług do samoobsługowego rejestrowania, zobacz [dostępne programy](/office365/admin/misc/self-service-sign-up#available-self-service-programs)samoobsługowe.
 
-W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
+W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Enterprise Agreement lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Stan produktu | Dane | Dostęp do danych
 ------------- | ---- | --------------

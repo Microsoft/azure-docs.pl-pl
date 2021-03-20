@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744155"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Otwórz bilet pomocy technicznej dla Azure Data Box
@@ -30,34 +30,34 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
     ![Nowy wniosek o pomoc techniczną](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
 
-2. W obszarze **nowe żądanie obsługi**wybierz pozycję **podstawowe**. W obszarze **podstawowe**wykonaj następujące czynności:
+2. W obszarze **nowe żądanie obsługi** wybierz pozycję **podstawowe**. W obszarze **podstawowe** wykonaj następujące czynności:
 
     1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**.
     2. Wybierz **subskrypcję**.
-    3. W obszarze **Usługa**Sprawdź **wszystkie usługi**. Z listy rozwijanej wybierz pozycję **urządzenie Data Box**. 
+    3. W obszarze **Usługa** Sprawdź **wszystkie usługi**. Z listy rozwijanej wybierz pozycję **urządzenie Data Box**. 
     4. Określ swój **Plan pomocy technicznej**.
     5. Kliknij przycisk **Dalej**.
 
         ![Podstawy](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
-3. W obszarze **nowe żądanie obsługi**wybierz pozycję **krok 2**. W obszarze **problem**wykonaj następujące czynności:
+3. W obszarze **nowe żądanie obsługi** wybierz pozycję **krok 2**. W obszarze **problem** wykonaj następujące czynności:
 
     1. Wybierz **wagę** jako **wpływ na C-minimalny**. W razie konieczności dział pomocy technicznej zaktualizuje ją.
     2. Wybierz **typ problemu** z listy rozwijanej.
     3. Na podstawie wybranego typu problemu wybierz odpowiednią **kategorię**.
     4. Podaj **tytuł** problemu i więcej **szczegółów**.
     5. Podaj datę i godzinę rozpoczęcia problemu.
-    6. W polu **przekazywanie pliku**kliknij ikonę folderu, aby przejrzeć wszystkie pliki, które chcesz przekazać.
+    6. W polu **przekazywanie pliku** kliknij ikonę folderu, aby przejrzeć wszystkie pliki, które chcesz przekazać.
     7. Sprawdź **udostępnianie informacji diagnostycznych**.
     8. Kliknij przycisk **Dalej**.
 
        ![Problem](./media/data-box-disk-contact-microsoft-support/data-box-disk-support2.png)
 
-4. W obszarze **nowe żądanie obsługi**kliknij pozycję **krok 3. informacje kontaktowe**. W oknie **informacje kontaktowe**wykonaj następujące czynności:
+4. W obszarze **nowe żądanie obsługi** kliknij pozycję **krok 3. informacje kontaktowe**. W oknie **informacje kontaktowe** wykonaj następujące czynności:
 
-   1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
-   2. W **informacjach kontaktowych**Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Wybierz pozycję **Zapisz zmiany kontaktów w przyszłych żądaniach pomocy technicznej**.
-   3. Kliknij przycisk **Utwórz**.
+   1. W obszarze **Opcje kontaktu** Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
+   2. W **informacjach kontaktowych** Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Wybierz pozycję **Zapisz zmiany kontaktów w przyszłych żądaniach pomocy technicznej**.
+   3. Kliknij pozycję **Utwórz**.
 
        ![Informacje kontaktowe](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
@@ -74,7 +74,7 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
     ![Zarządzanie żądaniami obsługi](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)
 
-2. W **oknie Pomoc i obsługa techniczna**jest wyświetlana tabelaryczna lista **najnowszych żądań obsługi** .
+2. W **oknie Pomoc i obsługa techniczna** jest wyświetlana tabelaryczna lista **najnowszych żądań obsługi** .
 
     ![Zarządzanie żądaniami obsługi 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 

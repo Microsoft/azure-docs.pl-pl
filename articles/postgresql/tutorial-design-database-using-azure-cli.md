@@ -9,10 +9,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93331900"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Samouczek: projektowanie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu interfejsu wiersza polecenia platformy Azure 
@@ -121,7 +121,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **administratorLogin** i **fullyQu
 ```
 
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Nawiązywanie połączenia z bazą danych Azure Database for PostgreSQL za pomocą narzędzia psql
-Jeśli na Twoim komputerze klienckim jest zainstalowana baza danych PostgreSQL, możesz użyć lokalnego wystąpienia narzędzia [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) lub konsoli Cloud Console, aby nawiązać połączenie z serwerem Azure PostgreSQL. Użyj teraz narzędzia wiersza polecenia psql, aby nawiązać połączenie z serwerem usługi Azure Database for PostgreSQL.
+Jeśli na komputerze klienckim jest zainstalowany program PostgreSQL, możesz użyć lokalnego wystąpienia programu [PSQL](https://www.postgresql.org/docs/9.6/static/app-psql.html)lub konsoli Azure Cloud Console, aby nawiązać połączenie z serwerem Azure PostgreSQL. Użyj teraz narzędzia wiersza polecenia psql, aby nawiązać połączenie z serwerem usługi Azure Database for PostgreSQL.
 
 1. Uruchom poniższe polecenie psql w celu nawiązania połączenia z bazą danych Azure Database for PostgreSQL:
    ```
@@ -145,7 +145,7 @@ Jeśli na Twoim komputerze klienckim jest zainstalowana baza danych PostgreSQL, 
    CREATE DATABASE mypgsqldb;
    ```
 
-3. W wierszu polecenia wykonaj następujące polecenie, aby przełączyć połączenie na nowo utworzoną bazę danych **mypgsqldb** :
+3. W wierszu polecenia wykonaj następujące polecenie, aby przełączyć połączenie na nowo utworzoną bazę danych **mypgsqldb**:
    ```sql
    \c mypgsqldb
    ```

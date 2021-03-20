@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89442824"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurowanie odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach VMM na platformie Azure
@@ -37,7 +37,7 @@ W tym samouczku założono, że zostały już wykonane następujące samouczki:
 ## <a name="select-a-replication-goal"></a>Wybieranie celu replikacji
 
 1. W Azure Portal przejdź do obszaru **magazyny Recovery Services** i wybierz magazyn **ContosoVMVault** , który został utworzony w samouczku [Przygotowywanie platformy Azure](tutorial-prepare-azure.md#create-a-recovery-services-vault) .
-1. W obszarze **wprowadzenie**wybierz pozycję **Site Recovery**  >  **Przygotuj infrastrukturę** i skonfiguruj następujące ustawienia:
+1. W obszarze **wprowadzenie** wybierz pozycję **Site Recovery**  >  **Przygotuj infrastrukturę** i skonfiguruj następujące ustawienia:
     1. **Cel ochrony**  >  **Gdzie znajdują się maszyny?** wybierz pozycję **lokalnie**.
     1. **Gdzie chcesz replikować maszyny?** wybierz pozycję **na platformie Azure**.
     1. **Czy maszyny są zwirtualizowane?** wybierz pozycję **tak, używając funkcji Hyper-V**.
@@ -65,9 +65,9 @@ Podczas konfigurowania środowiska źródłowego należy zainstalować dostawcę
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Instalowanie dostawcy na serwerze VMM
 
-1. W **Microsoft Update**Kreatora instalacji dostawcy Azure Site Recovery. Wybierz, aby użyć Microsoft Update do sprawdzenia dostępności aktualizacji dostawcy.
+1. W **Microsoft Update** Kreatora instalacji dostawcy Azure Site Recovery. Wybierz, aby użyć Microsoft Update do sprawdzenia dostępności aktualizacji dostawcy.
 1. **Instalacja**. Zaakceptuj domyślną lokalizację instalacji dostawcy i wybierz pozycję **Zainstaluj**.
-1. Po zakończeniu instalacji w Kreatorze Microsoft Azure rejestracji Site Recovery wybierz pozycję **ustawienia magazynu**, **Przeglądaj**i w polu **plik klucza**wybierz pobrany plik klucza magazynu.
+1. Po zakończeniu instalacji w Kreatorze Microsoft Azure rejestracji Site Recovery wybierz pozycję **ustawienia magazynu**, **Przeglądaj** i w polu **plik klucza** wybierz pobrany plik klucza magazynu.
 1. Określ subskrypcję Azure Site Recovery i nazwę magazynu (**ContosoVMVault**). Określ przyjazną nazwę serwera programu VMM, aby zidentyfikować ją w magazynie.
 1. **Ustawienia serwera proxy**. Wybierz pozycję **Połącz bezpośrednio, aby Azure Site Recovery bez serwera proxy**.
 1. Zaakceptuj domyślną lokalizację certyfikatu używanego do szyfrowania danych. Zaszyfrowane dane zostaną odszyfrowane po przełączeniu w tryb failover.
@@ -94,7 +94,7 @@ W Kreatorze instalacji agenta Microsoft Azure Recovery Services skonfiguruj nast
 
 ## <a name="set-up-the-target-environment"></a>Konfigurowanie środowiska docelowego
 
-1. Wybierz pozycję **Przygotuj**  >  **cel**infrastruktury.
+1. Wybierz pozycję **Przygotuj**  >  **cel** infrastruktury.
 1. Wybierz subskrypcję i grupę zasobów (**ContosoRG**), w której zostaną utworzone maszyny wirtualne platformy Azure po przejściu do trybu failover.
 1. Wybierz model wdrażania **Menedżer zasobów** .
 
@@ -103,7 +103,7 @@ Site Recovery sprawdza, czy istnieje co najmniej jedno zgodne konto usługi Azur
 ## <a name="configure-network-mapping"></a>Konfiguracja mapowania sieci
 
 1. **Infrastruktura Site Recovery**  >  **Mapowania sieci**  >  **Mapowanie sieci**. Wybierz ikonę **+ mapowanie sieci** .
-1. **Dodaj mapowanie sieci**. Wybierz **źródłowy serwer programu System Center VMM** . Dla **elementu docelowego**wybierz pozycję Azure.
+1. **Dodaj mapowanie sieci**. Wybierz **źródłowy serwer programu System Center VMM** . Dla **elementu docelowego** wybierz pozycję Azure.
 1. Sprawdź subskrypcję i model wdrożenia po przejściu do trybu failover.
 1. **Sieć źródłowa**. Wybierz źródłową lokalną maszynę wirtualną.
 1. **Sieć docelowa**. Wybierz sieć platformy Azure, w której będą znajdować się repliki maszyn wirtualnych platformy Azure po ich utworzeniu po przejściu do trybu failover. Następnie wybierz przycisk **OK**.
@@ -113,7 +113,7 @@ Site Recovery sprawdza, czy istnieje co najmniej jedno zgodne konto usługi Azur
 ## <a name="set-up-a-replication-policy"></a>Konfigurowanie zasad replikacji
 
 1. Wybierz kolejno pozycje **Przygotowanie infrastruktury**  >  **Ustawienia replikacji**  >  **+ Utwórz i skojarz**.
-1. W obszarze **Utwórz i skojarz zasady**Określ nazwę zasad. Korzystamy z usługi **ContosoReplicationPolicy**.
+1. W obszarze **Utwórz i skojarz zasady** Określ nazwę zasad. Korzystamy z usługi **ContosoReplicationPolicy**.
 1. Zaakceptuj ustawienia domyślne i wybierz **przycisk OK**:
    - **Częstotliwość kopiowania** wskazuje, że po replikacji początkowej dane różnicowe będą replikowane co pięć minut.
    - **Przechowywanie punktów odzyskiwania** wskazuje, że każdy punkt odzyskiwania będzie przechowywany przez dwie godziny.
@@ -135,4 +135,4 @@ Site Recovery sprawdza, czy istnieje co najmniej jedno zgodne konto usługi Azur
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Uruchamianie próbnego odzyskiwania](tutorial-dr-drill-azure.md)
+> [Uruchamianie próbnego odzyskiwania po awarii](tutorial-dr-drill-azure.md)

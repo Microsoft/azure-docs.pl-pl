@@ -7,10 +7,10 @@ keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2acf22ba76acdfa6152ef8966f4000aa325a9e91
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92209906"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
@@ -22,7 +22,7 @@ ms.locfileid: "92209906"
 
 Azure Automation Change Tracking i spis udostępnia interfejs użytkownika oparty na przeglądarce służący do konfigurowania i konfigurowania kolekcji spisu.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W okienku po lewej stronie witryny Azure Portal wybierz pozycję **Maszyny wirtualne**.
 2. Z listy maszyn wirtualnych wybierz maszynę.
-3. W menu **zasób** w obszarze **operacje**wybierz pozycję **spis**.
+3. W menu **zasób** w obszarze **operacje** wybierz pozycję **spis**.
 4. Wybierz obszar roboczy Log Analytics do przechowywania dzienników danych.
     Jeśli w tym regionie nie ma dostępnego dla Ciebie obszaru roboczego, pojawi się monit o utworzenie domyślnego obszaru roboczego i konta usługi Automation.
 5. Aby rozpocząć włączanie komputera, wybierz pozycję **Włącz**.
@@ -54,7 +54,7 @@ Po zakończeniu wdrażania pasek stanu zniknie. System nadal będzie zbierać da
 Domyślnie na potrzeby zbierania skonfigurowane są oprogramowanie, usługi systemu Windows oraz demony systemu Linux. Aby zbierać spis dla rejestru systemu Windows i plików, skonfiguruj ustawienia zbierania spisu.
 
 1. Na stronie spis kliknij pozycję **Edytuj ustawienia** w górnej części strony.
-2. Aby dodać nowe ustawienie kolekcji, przejdź do kategorii ustawień, która ma zostać dodana, wybierając kartę **Rejestr systemu Windows**, **pliki systemu Windows**lub system **Linux** .
+2. Aby dodać nowe ustawienie kolekcji, przejdź do kategorii ustawień, która ma zostać dodana, wybierając kartę **Rejestr systemu Windows**, **pliki systemu Windows** lub system **Linux** .
 3. Wybierz odpowiednią kategorię, a następnie kliknij przycisk **Dodaj** w górnej części strony.
 
 Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości, które można skonfigurować dla różnych kategorii.

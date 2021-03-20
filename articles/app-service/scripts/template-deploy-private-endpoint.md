@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: acf7198477ce0c55f9321fd3f8e57294a60c0961
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89652029"
 ---
 # <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Tworzenie aplikacji App Service i wdrażanie prywatnego punktu końcowego przy użyciu szablonu Azure Resource Manager
@@ -33,14 +33,14 @@ Ten szablon służy do tworzenia prywatnego punktu końcowego dla aplikacji inte
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Poniżej przedstawiono sposób wdrażania szablonu Azure Resource Manager na platformie Azure:
 
 1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz ten link:  [Wdróż na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). Szablon tworzy sieć wirtualną, aplikację sieci Web, prywatny punkt końcowy i prywatną strefę DNS.
 2. Wybierz lub Utwórz grupę zasobów.
 3. Wprowadź nazwę aplikacji sieci Web, plan Azure App Service i prywatny punkt końcowy.
-5. Zapoznaj się z instrukcją dotyczącą warunków i postanowień. Jeśli zgadzasz się, wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**  >  **Purchase**. Wdrożenie może potrwać kilka minut.
+5. Zapoznaj się z instrukcją dotyczącą warunków i postanowień. Jeśli zgadzasz się, wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**  >  . Wdrożenie może potrwać kilka minut.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

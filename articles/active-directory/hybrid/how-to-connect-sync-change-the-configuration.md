@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861854"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
@@ -264,7 +264,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Atrybut | Wartość | Szczegóły |
     | --- | --- | --- |
-    | Name | *Podaj nazwę* | Na przykład *w programie z usługi AD — User UserType* |
+    | Nazwa | *Podaj nazwę* | Na przykład *w programie z usługi AD — User UserType* |
     | Opis | *Podaj opis* |  |
     | Połączony system | *Wybieranie lokalnego łącznika usługi AD* |  |
     | Typ połączonego obiektu systemu | **Użytkownik** |  |
@@ -276,7 +276,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Użytkownik\_ |
+    | adminDescription | NOTSTARTWITH | Użytkownicy\_ |
 
     Filtr określania zakresu określa, do których lokalnych obiektów usługi AD jest stosowana ta reguła synchronizacji ruchu przychodzącego. W tym przykładzie korzystamy z tego samego filtru określania zakresu, który jest używany w regule *w programie z usługi AD — wspólna* wartość synchronizacji użytkownika, która uniemożliwia stosowanie reguły synchronizacji do obiektów użytkownika utworzonych za pomocą funkcji zapisywania zwrotnego użytkownika usługi Azure AD. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -306,7 +306,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Atrybut | Wartość | Szczegóły |
     | ----- | ------ | --- |
-    | Name | *Podaj nazwę* | Na przykład *do usługi AAD — User UserType* |
+    | Nazwa | *Podaj nazwę* | Na przykład *do usługi AAD — User UserType* |
     | Opis | *Podaj opis* ||
     | Połączony system | *Wybieranie łącznika usługi AAD* ||
     | Typ połączonego obiektu systemu | **Użytkownik** ||

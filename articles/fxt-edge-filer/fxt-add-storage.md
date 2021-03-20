@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217528"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Samouczek: Dodawanie magazynu zaplecza i konfigurowanie wirtualnej przestrzeni nazw
@@ -56,7 +56,7 @@ Po dodaniu podstawowego pliku programu można zaktualizować jego ustawienia na 
 
 ## <a name="add-a-core-filer"></a>Dodawanie podstawowego pliku
 
-Zdefiniuj podstawowy plik programu, klikając przycisk **Utwórz** na stronie **podstawowe**  >  ustawienia**zarządzania plikami podstawowymi** plików.
+Zdefiniuj podstawowy plik programu, klikając przycisk **Utwórz** na stronie **podstawowe**  >  ustawienia **zarządzania plikami podstawowymi** plików.
 
 ![Kliknięcie przycisku Utwórz powyżej listy plików podstawowych na stronie Zarządzanie podstawowymi plikami plików](media/fxt-cluster-config/create-core-filer-button.png)
 
@@ -80,7 +80,7 @@ Podzadania obejmują:
 
   ![Informacje o podstawowym pliku w chmurze w nowym Kreatorze podstawowego pliku](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Jeśli dodano już poświadczenia dostępu do chmury dla tego klastra, zostaną one wyświetlone na liście. Zaktualizuj i Dodaj poświadczenia na **Cluster**  >  stronie ustawień**poświadczeń chmury** klastra.
+  Jeśli dodano już poświadczenia dostępu do chmury dla tego klastra, zostaną one wyświetlone na liście. Zaktualizuj i Dodaj poświadczenia na   >  stronie ustawień **poświadczeń chmury** klastra.
 
 Po wypełnieniu wszystkich wymaganych ustawień w Kreatorze kliknij przycisk **Dodaj plik** , aby przesłać zmianę.
 
@@ -142,7 +142,7 @@ Tego systemu można użyć do uproszczenia ścieżki używanej w punktach instal
 
 ![Strona Kreatora dodawania nowej gałęzi z ustawieniami wypełnionymi](media/fxt-cluster-config/add-junction-full.png)
 
-Zapoznaj się z [ **VServer**  >  **przestrzenią nazw** vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) w podręczniku konfigurowania klastra, aby uzyskać szczegółowe informacje na temat tworzenia rozgałęzienia przestrzeni nazw.
+Zapoznaj się z [   >  **przestrzenią nazw** vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) w podręczniku konfigurowania klastra, aby uzyskać szczegółowe informacje na temat tworzenia rozgałęzienia przestrzeni nazw.
 
 ![Strona ustawienia przestrzeni nazw VServer > przedstawiające szczegóły rozgałęzienia](media/fxt-cluster-config/namespace-populated.png)
 

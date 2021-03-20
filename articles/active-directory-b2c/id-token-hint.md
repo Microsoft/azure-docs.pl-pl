@@ -12,17 +12,17 @@ ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97669163"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny wskazówki tokenu identyfikatora w zasadach niestandardowych Azure Active Directory B2C
 
 Azure AD B2C umożliwia aplikacjom jednostki uzależnionej wysyłanie przychodzącej JWT w ramach żądania autoryzacji OAuth2. Token JWT może być wystawiony przez aplikację jednostki uzależnionej lub dostawcę tożsamości i może przekazać wskazówkę dotyczącą użytkownika lub żądania autoryzacji. Azure AD B2C sprawdza poprawność podpisu, nazwy wystawcy oraz odbiorców tokenu i wyodrębnia z tokenu przychodzącego.
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 To rozwiązanie służy do wysyłania danych do Azure AD B2C hermetyzowanych przy użyciu jednego tokenu JWT. [Rozwiązanie z zaproszeniem do zaproszenia e-mail](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), w którym administrator systemu może wysyłać podpisane zaproszenie do użytkowników, jest oparty na id_token_hint. Tylko użytkownicy z dostępem do wiadomości e-mail z zaproszeniem mogą utworzyć konto w katalogu.
 
@@ -185,7 +185,7 @@ Wystawca tokenu musi podawać następujące punkty końcowe:
 * `/.well-known/openid-configuration` -Dobrze znany punkt końcowy konfiguracji z odpowiednimi informacjami o tokenie, takimi jak nazwa wystawcy tokenu i link do punktu końcowego JWK. 
 * `/.well-known/keys` -punkt końcowy JSON (JWK) z kluczem publicznym używanym do podpisywania klucza (z częściowym kluczem prywatnym certyfikatu).
 
-Zobacz przykład kontrolera [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC.
+Zobacz przykład [TokenMetadataController. cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC Controller.
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Krok 1. Przygotuj certyfikat z podpisem własnym
 

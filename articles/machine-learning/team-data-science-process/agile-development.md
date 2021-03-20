@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89440290"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Opracowywanie projektów analizy danych
@@ -35,13 +35,13 @@ Na poniższej ilustracji przedstawiono typowe Planowanie przebiegu, kodowanie i 
 
 ##  <a name="work-item-types"></a><a name='Terminology-1'></a>Typy elementów roboczych
 
-W środowisku planowania przetwarzania TDSP przebiegu są cztery często używane typy *elementów roboczych* : *funkcje*, *historie użytkowników*, *zadania*i *Błędy*. Zaległość wszystkich elementów roboczych jest na poziomie projektu, a nie na poziomie repozytorium git. 
+W środowisku planowania przetwarzania TDSP przebiegu są cztery często używane typy *elementów roboczych* : *funkcje*, *historie użytkowników*, *zadania* i *Błędy*. Zaległość wszystkich elementów roboczych jest na poziomie projektu, a nie na poziomie repozytorium git. 
 
 Poniżej przedstawiono definicje typów elementów roboczych:
 
 - **Funkcja**: funkcja odpowiada zakontraktowaniu projektu. Różne zaangażowanie z klientem to różne funkcje i najlepiej wziąć pod uwagę różne etapy projektu jako różne funkcje. W przypadku wybrania schematu, takiego jak *\<ClientName>-\<EngagementName>* nazwa funkcji, można łatwo rozpoznać kontekst projektu i zaangażowania z samych nazw.
   
-- **Scenariusz**użycia: historie użytkownika są elementami roboczymi, które są konieczne do zakończenia funkcji. Przykładami scenariuszy użycia są:
+- **Scenariusz** użycia: historie użytkownika są elementami roboczymi, które są konieczne do zakończenia funkcji. Przykładami scenariuszy użycia są:
   - Pobieranie danych 
   - Eksplorowanie danych 
   - Generuj funkcje
@@ -130,42 +130,42 @@ Analityki danych mogą być bardziej wygodne przy użyciu szablonu Agile, który
 
 1. Na stronie głównej organizacji usługi Azure DevOps wybierz pozycję **Ustawienia organizacji** w obszarze nawigacji po lewej stronie. 
    
-1. W lewym panelu nawigacyjnym **Ustawienia organizacji** w obszarze **płyty**wybierz pozycję **proces**. 
+1. W lewym panelu nawigacyjnym **Ustawienia organizacji** w obszarze **płyty** wybierz pozycję **proces**. 
    
 1. W okienku **wszystkie procesy** wybierz pozycję **...** obok metody **Agile**, a następnie wybierz pozycję **Utwórz Dziedziczony proces**.
    
    ![Utwórz Dziedziczony proces z Agile](./media/agile-development/10-settings.png) 
    
-1. W oknie dialogowym **Tworzenie dziedziczonego procesu z Agile** wprowadź nazwę *AgileDataScienceProcess*i wybierz pozycję **Utwórz proces**.
+1. W oknie dialogowym **Tworzenie dziedziczonego procesu z Agile** wprowadź nazwę *AgileDataScienceProcess* i wybierz pozycję **Utwórz proces**.
    
    ![Utwórz proces AgileDataScienceProcess](./media/agile-development/11-agileds.png)
    
-1. We **wszystkich procesach**wybierz nowy **AgileDataScienceProcess**. 
+1. We **wszystkich procesach** wybierz nowy **AgileDataScienceProcess**. 
    
-1. Na karcie **typy elementów roboczych** Wyłącz **epiku**, **funkcję**, **historię użytkownika**i **zadanie** , wybierając pozycję **...** obok każdego elementu, a następnie wybierz pozycję **Wyłącz**. 
+1. Na karcie **typy elementów roboczych** Wyłącz **epiku**, **funkcję**, **historię użytkownika** i **zadanie** , wybierając pozycję **...** obok każdego elementu, a następnie wybierz pozycję **Wyłącz**. 
    
    ![Wyłącz typy elementów roboczych](./media/agile-development/12-disable.png)
    
-1. We **wszystkich procesach**wybierz kartę **poziomy zaległości** . W obszarze **zaległości portfolio**wybierz pozycję **...** obok pozycji **epiku (wyłączone)**, a następnie wybierz pozycję **Edytuj/Zmień nazwę**. 
+1. We **wszystkich procesach** wybierz kartę **poziomy zaległości** . W obszarze **zaległości portfolio** wybierz pozycję **...** obok pozycji **epiku (wyłączone)**, a następnie wybierz pozycję **Edytuj/Zmień nazwę**. 
    
 1. W oknie dialogowym **Edytowanie poziomu zaległości** :
-   1. W obszarze **Nazwa**Zastąp **epiku** *projektami przetwarzania TDSP*. 
-   1. W obszarze **typy elementów roboczych na tym poziomie zaległości**wybierz pozycję **nowy typ elementu pracy**, wprowadź *projekt przetwarzania TDSP*i wybierz pozycję **Dodaj**. 
-   1. W obszarze **domyślny typ elementu pracy**rozwiń listę rozwijaną i wybierz pozycję **projekt przetwarzania TDSP**. 
+   1. W obszarze **Nazwa** Zastąp **epiku** *projektami przetwarzania TDSP*. 
+   1. W obszarze **typy elementów roboczych na tym poziomie zaległości** wybierz pozycję **nowy typ elementu pracy**, wprowadź *projekt przetwarzania TDSP* i wybierz pozycję **Dodaj**. 
+   1. W obszarze **domyślny typ elementu pracy** rozwiń listę rozwijaną i wybierz pozycję **projekt przetwarzania TDSP**. 
    1. Wybierz pozycję **Zapisz**.
    
    ![Ustaw poziom zaległości portfolio](./media/agile-development/13-rename.png)  
    
-1. Wykonaj te same kroki, aby zmienić nazwy **funkcji** na *etapy przetwarzania TDSP*i dodać następujące nowe typy elementów roboczych:
+1. Wykonaj te same kroki, aby zmienić nazwy **funkcji** na *etapy przetwarzania TDSP* i dodać następujące nowe typy elementów roboczych:
    
    - *Zrozumienie biznesowe*
    - *Pozyskiwanie danych*
    - *Modelowanie*
    - *Wdrożenie*
    
-1. W **obszarze zaległości wymagania**Zmień nazwy **wątków** na *podetapy przetwarzania TDSP*, Dodaj nowy typ elementu pracy *przetwarzania TDSP podetapu*i ustaw domyślny typ elementu pracy na **podetap przetwarzania TDSP**.
+1. W **obszarze zaległości wymagania** Zmień nazwy **wątków** na *podetapy przetwarzania TDSP*, Dodaj nowy typ elementu pracy *przetwarzania TDSP podetapu* i ustaw domyślny typ elementu pracy na **podetap przetwarzania TDSP**.
    
-1. W obszarze **zaległości iteracji**Dodaj nowy typ elementu pracy *przetwarzania TDSP zadania*i ustaw go jako domyślny typ elementu pracy. 
+1. W obszarze **zaległości iteracji** Dodaj nowy typ elementu pracy *przetwarzania TDSP zadania* i ustaw go jako domyślny typ elementu pracy. 
    
 Po wykonaniu tych kroków poziomy zaległości powinny wyglądać następująco:
    
@@ -179,7 +179,7 @@ Za pomocą szablonu procesu analizy danych można tworzyć projekty przetwarzani
    
 1. W oknie dialogowym **Utwórz nowy projekt** Nadaj projektowi nazwę, a następnie wybierz pozycję **Zaawansowane**. 
    
-1. W obszarze **proces elementu pracy**rozwiń listę rozwijaną i wybierz pozycję **AgileDataScienceProcess**, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **proces elementu pracy** rozwiń listę rozwijaną i wybierz pozycję **AgileDataScienceProcess**, a następnie wybierz pozycję **Utwórz**.
    
    ![Tworzenie projektu przetwarzania TDSP](./media/agile-development/15-newproject.png)
    

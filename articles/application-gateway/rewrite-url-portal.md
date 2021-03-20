@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215777"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Ponowne zapisywanie adresu URL za pomocą usługi Azure Application Gateway — Azure Portal (wersja zapoznawcza)
@@ -23,7 +23,7 @@ W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wyst�
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć wystąpienie jednostki SKU Application Gateway v2. Ponowne zapisywanie adresu URL nie jest obsługiwane w jednostce SKU v1. Jeśli nie masz jednostki SKU w wersji 2, przed rozpoczęciem Utwórz wystąpienie [jednostki sku Application Gateway v2](tutorial-autoscale-ps.md) .
 
@@ -53,13 +53,13 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
     
     c. Wybierz pozycję **Next** (Dalej).
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Dodaj zestaw do ponownego zapisu":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Skojarz z regułą":::
 
 5. Utwórz regułę ponownego zapisywania:
 
     a. Wybierz pozycję **Dodaj regułę ponownego zapisywania**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Dodaj zestaw do ponownego zapisu":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Zrzut ekranu, który wyróżnia regułę ponownego zapisywania.":::
     
     b. Wprowadź nazwę reguły ponownego zapisu w polu **Nazwa reguły ponownego zapisywania** . Wprowadź liczbę w polu **sekwencja reguł** .
 
@@ -71,7 +71,7 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
     
     c. Na liście **Zmienna serwera** wybierz uri_path
     
-    d. W obszarze **uwzględnianie wielkości**liter wybierz pozycję **nie**.
+    d. W obszarze **uwzględnianie wielkości** liter wybierz pozycję **nie**.
     
     e. Na liście **operator** wybierz pozycję **równe (=)**.
     
@@ -81,7 +81,7 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
 
     przykład Wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Dodaj zestaw do ponownego zapisu":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Warunek":::
 
  
 
@@ -91,23 +91,23 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
 
    b. Na liście **Typ akcji** wybierz pozycję **Ustaw**.
 
-   c. W obszarze **składniki**wybierz pozycję **Ścieżka adresu URL i ciąg zapytania adresu URL** .
+   c. W obszarze **składniki** wybierz pozycję **Ścieżka adresu URL i ciąg zapytania adresu URL** .
 
-   d. W polu **adres URL**wprowadź nową wartość ścieżki. W tym przykładzie będziemy używać **/article.aspx** 
+   d. W polu **adres URL** wprowadź nową wartość ścieżki. W tym przykładzie będziemy używać **/article.aspx** 
 
-   e. W polu **wartość ciągu zapytania adresu URL**wprowadź nową wartość ciągu zapytania adresu URL. W tym przykładzie będziemy używać **identyfikatora = {var_uri_path_1} &tytułu = {var_uri_path_2}**
+   e. W polu **wartość ciągu zapytania adresu URL** wprowadź nową wartość ciągu zapytania adresu URL. W tym przykładzie będziemy używać **identyfikatora = {var_uri_path_1} &tytułu = {var_uri_path_2}**
     
     `{var_uri_path_1}` i `{var_uri_path_1}` są używane do pobierania podciągów przechwytywanych podczas oceniania warunku w tym wyrażeniu `.*article/(.*)/(.*)`
     
    f. Wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Dodaj zestaw do ponownego zapisu":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Akcja":::
 
 8. Kliknij przycisk **Utwórz** , aby utworzyć zestaw do ponownego zapisywania.
 
 9. Sprawdź, czy nowy zestaw do ponownego zapisu pojawia się na liście zestawów do ponownego zapisu
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Dodaj zestaw do ponownego zapisu":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Dodaj regułę ponownego zapisu":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Weryfikowanie zapisywania adresów URL za poorednictwem dzienników dostępu
 

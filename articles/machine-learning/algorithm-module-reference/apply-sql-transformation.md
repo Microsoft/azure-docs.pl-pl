@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
 ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94555604"
 ---
 # <a name="apply-sql-transformation"></a>Stosowanie przekształcenia SQL
@@ -36,7 +36,7 @@ Za pomocą modułu przekształcenie języka SQL można:
 
 Moduł może przyjmować do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych połączonych z każdym portem wejściowym należy użyć nazw `t1` , `t2` i `t3` . Numer tabeli wskazuje indeks portu wejściowego.  
 
-Poniżej znajduje się przykładowy kod, który pokazuje, jak sprzęgać dwie tabele. T1 i T2 to dwa zestawy danych połączone z lewym i środkowymi portami wejściowymi **zastosowania transformacji SQL** :
+Poniżej znajduje się przykładowy kod, który pokazuje, jak sprzęgać dwie tabele. T1 i T2 to dwa zestawy danych połączone z lewym i środkowymi portami wejściowymi **zastosowania transformacji SQL**:
 
 ```sql
 SELECT t1.*

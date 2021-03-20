@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 8a00cf11edfea2e732a18a392d465525b38ea45f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Samouczek: integracja Azure Active Directory z usługą Picturepark
@@ -122,7 +122,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Picturepark
 
     ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
 
-7. W sekcji **Konfigurowanie Picturepark** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania**Użyj wartości z następującym wzorcem: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. W sekcji **Konfigurowanie Picturepark** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania** Użyj wartości z następującym wzorcem: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ to identyfikator dzierżawy subskrypcji usługi Azure AD.
@@ -163,7 +163,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Picturepark
 
 6. Aby ustawić atrybut **EmailAddress** w polu tekstowym **Claim** , wpisz `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` i kliknij przycisk **Zapisz**.
 
-      ![Konfiguracja](./media/picturepark-tutorial/ic795065.png "Konfiguracja")
+      ![Konfiguracja](./media/picturepark-tutorial/ic795065.png "Konfigurowanie")
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -187,7 +187,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -233,13 +233,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Picture
 
 1. W oknie dialogowym **Tworzenie użytkownika** wykonaj następujące kroki prawidłowego użytkownika Azure Active Directory, który chcesz udostępnić:
    
-    ![Utwórz użytkownika](./media/picturepark-tutorial/ic795069.png "Utwórz użytkownika")
+    ![Tworzenie użytkownika](./media/picturepark-tutorial/ic795069.png "Utwórz użytkownika")
    
     a. W polu tekstowym **adres e-mail** wpisz **adres e-mail** użytkownika `BrittaSimon@contoso.com` .  
    
     b. W polach tekstowych **hasło** i **Potwierdź hasło** wpisz **hasło** BrittaSimon. 
    
-    c. W polu tekstowym **imię i nazwisko** , wpisz **imię** **Britta**użytkownika. 
+    c. W polu tekstowym **imię i nazwisko** , wpisz **imię** **Britta** użytkownika. 
    
     d. W polu **tekstowym nazwisko** wpisz **nazwisko** użytkownika **Simon**.
    
@@ -253,7 +253,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Picture
 
     i. Wybierz **Język**.
    
-    j. Kliknij przycisk **Utwórz**.
+    j. Kliknij pozycję **Utwórz**.
 
 >[!NOTE]
 >Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Picturepark i interfejsów API udostępnionych przez usługę Picturepark.

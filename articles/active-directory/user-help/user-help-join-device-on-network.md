@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536974"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji
@@ -61,7 +61,7 @@ Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
     ![Konta na ekranie Ustawienia](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Wybierz pozycję **dostęp do**zasobów służbowych i upewnij się, że widzisz tekst podobny do tego, **połączony z *\<your_organization>* usługą Azure AD**.
+2. Wybierz pozycję **dostęp do** zasobów służbowych i upewnij się, że widzisz tekst podobny do tego, **połączony z *\<your_organization>* usługą Azure AD**.
 
     ![Zrzut ekranu przedstawiający okno "dostęp do pracy lub nauki" z wybranym kontem "Połączono do (Twoja organizacja") usługi Azure AD.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -71,7 +71,7 @@ Jeśli urządzenie zostało już przez pewien czas skonfigurowane, możesz wykon
 
 1. Otwórz pozycję **Ustawienia**, a następnie wybierz pozycję **konta**.
 
-2. Wybierz pozycję **dostęp do**zasobów służbowych, a następnie wybierz pozycję **Połącz**.
+2. Wybierz pozycję **dostęp do** zasobów służbowych, a następnie wybierz pozycję **Połącz**.
 
     ![Dostęp do linków służbowych i połączeń](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
@@ -106,7 +106,7 @@ Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
     ![Konta na ekranie Ustawienia](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Wybierz pozycję **dostęp do**zasobów służbowych i upewnij się, że widzisz tekst podobny do tego, **połączony z *\<your_organization>* usługą Azure AD**.
+2. Wybierz pozycję **dostęp do** zasobów służbowych i upewnij się, że widzisz tekst podobny do tego, **połączony z *\<your_organization>* usługą Azure AD**.
 
     ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

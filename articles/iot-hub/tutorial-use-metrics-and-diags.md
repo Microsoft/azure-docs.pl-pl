@@ -13,10 +13,10 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-csharp
 ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625202"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników przy użyciu Centrum IoT Hub oraz korzystanie z nich
@@ -333,7 +333,7 @@ Pobierz rozwiązanie na potrzeby [symulacji urządzenia IoT](https://github.com/
         await Task.Delay(1);
         ```
 
-    1. Zapisz zmiany w **SimulatedDevice.cs**.
+    1. Zapisz zmiany w **SimulatedDevice. cs**.
 
 1. W oknie terminalu lokalnego Uruchom następujące polecenie, aby zainstalować wymagane pakiety dla aplikacji symulowanego urządzenia:
 

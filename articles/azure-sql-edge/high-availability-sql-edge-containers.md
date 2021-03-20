@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 56b9f06547f737bc05d573f98ce1dbac2ba48758
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90937627"
 ---
 # <a name="high-availability-for-azure-sql-edge-containers"></a>Wysoka dostępność kontenerów usługi Azure SQL Edge
@@ -28,7 +28,7 @@ W tej konfiguracji Kubernetes odgrywa rolę koordynatora kontenerów.
 
 ![Diagram usługi Azure SQL Edge w klastrze Kubernetes](media/deploy-kubernetes/kubernetes-sql-edge.png)
 
-Na powyższym diagramie `azure-sql-edge` jest kontenerem w elemencie [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/). Kubernetes organizuje zasoby w klastrze. [Zestaw replik](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) gwarantuje, że element pod zostanie automatycznie odzyskany po awarii węzła. Aplikacje nawiązują połączenie z usługą. W takim przypadku usługa reprezentuje moduł równoważenia obciążenia, który hostuje adres IP, który pozostaje taki sam po awarii `azure-sql-edge` .
+Na powyższym diagramie `azure-sql-edge` jest kontenerem w elemencie [](https://kubernetes.io/docs/concepts/workloads/pods/pod/). Kubernetes organizuje zasoby w klastrze. [Zestaw replik](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) gwarantuje, że element pod zostanie automatycznie odzyskany po awarii węzła. Aplikacje nawiązują połączenie z usługą. W takim przypadku usługa reprezentuje moduł równoważenia obciążenia, który hostuje adres IP, który pozostaje taki sam po awarii `azure-sql-edge` .
 
 Na poniższym diagramie `azure-sql-edge` kontener nie powiódł się. Ponieważ koordynator Kubernetes gwarantuje poprawną liczbę wystąpień w dobrej kondycji w zestawie replik i uruchamia nowy kontener zgodnie z konfiguracją. Program Orchestrator uruchamia nowe miejsce w tym samym węźle i `azure-sql-edge` ponownie nawiązuje połączenie z tym samym magazynem trwałym. Usługa nawiązuje połączenie z nowo utworzoną usługą `azure-sql-edge` .
 

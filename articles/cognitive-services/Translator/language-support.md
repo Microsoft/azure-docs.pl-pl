@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
 ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738144"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
@@ -285,7 +285,7 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Norweski      | `nb`          |
 | Perski      | `fa`          |
 | polski      | `pl`          |
-| Portugalski (Brazylia)     | `pt`          |
+| portugalski (Brazylia)     | `pt`          |
 | Rumuński      | `ro`          |
 | Rosyjski      | `ru`          |
 | Serbski (łaciński)      | `sr-Latn`          |

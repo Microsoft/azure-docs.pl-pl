@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518810"
 ---
 # <a name="face-recognition-concepts"></a>Pojęcia dotyczące rozpoznawania
@@ -30,7 +30,7 @@ Operacje rozpoznawania używają głównie następujących struktur danych. Te o
 |DetectedFace| Ta reprezentacja pojedynczego kroju jest pobierana przez operację [wykrywania kroju](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) . Jego identyfikator wygasa po upływie 24 godzin od jego utworzenia.|
 |PersistedFace| Gdy obiekty DetectedFace są dodawane do grupy, takiej jak FaceList lub osoba, stają się obiektami PersistedFace. Mogą być [pobierane](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) w dowolnym momencie i nie wygasają.|
 |[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) lub [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| Ta struktura danych jest asortymentową listą obiektów PersistedFace. FaceList ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
-|[Osoba](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Ta struktura danych jest listą obiektów PersistedFace, które należą do tej samej osoby. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
+|[Person (Osoba)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Ta struktura danych jest listą obiektów PersistedFace, które należą do tej samej osoby. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
 |[Osoba](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) lub [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| Ta struktura danych jest asortymentową listą obiektów osób. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika. Aby można było użyć tej osoby, należy ją [przeszkolić](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) .|
 
 ## <a name="recognition-operations"></a>Operacje rozpoznawania
