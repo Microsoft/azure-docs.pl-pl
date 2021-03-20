@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje o pojęciach dotyczących dziennik�
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.openlocfilehash: 36ade14932b5d25c7a1fe05632da671de68ba3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574990"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Dzienniki diagnostyczne dla Azure Event Grid tematów/domen
@@ -22,7 +22,7 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
 | EventSubscriptionName | Ciąg | Nazwa subskrypcji zdarzeń <p>**Przykładowa wartość:** "EVENTSUB1"</p> <p>Ta właściwość istnieje tylko w przypadku dzienników błędów dostarczania.</p>  |
 | Kategoria | Ciąg | Nazwa kategorii dziennika. <p>**Przykładowe wartości:** "DeliveryFailures" lub "PublishFailures" | 
 | OperationName | Ciąg | Nazwa operacji spowodowała awarię.<p>**Przykładowe wartości:** "Dostarcz" w przypadku niepowodzeń dostarczania. |
-| Wiadomość | Ciąg | Komunikat dziennika dla użytkownika z wyjaśnieniem przyczyny niepowodzenia i innych dodatkowych szczegółów. |
+| Komunikat | Ciąg | Komunikat dziennika dla użytkownika z wyjaśnieniem przyczyny niepowodzenia i innych dodatkowych szczegółów. |
 | ResourceId | Ciąg | Identyfikator zasobu tematu/zasobu domeny<p>**Przykładowe wartości:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Przykład

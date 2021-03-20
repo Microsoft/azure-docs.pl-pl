@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874146"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
@@ -57,7 +57,7 @@ W przypadku steeltoe 3,0 Dodaj najnowszy pakiet [Microsoft. Azure. SpringCloud. 
 </ItemGroup>
 ```
 
-## <a name="update-programcs"></a>Aktualizacja Program.cs
+## <a name="update-programcs"></a>Aktualizuj program. cs
 
 W `Program.Main` metodzie Wywołaj `UseAzureSpringCloudService` metodę.
 
@@ -310,7 +310,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 </dependency>
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Analizowanie dzienników i metryk aplikacji](./diagnostic-services.md)
 * [Konfigurowanie serwera konfiguracji](./spring-cloud-tutorial-config-server.md)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](./spring-cloud-tutorial-distributed-tracing.md)

@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób wdrażania aplikacji Service Fabric 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260087"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej User-Assigned
@@ -27,7 +27,7 @@ Aby włączyć aplikację z tożsamością User-Assigned, należy najpierw doda�
 
 ### <a name="application-template"></a>Szablon aplikacji
 
-Aby włączyć aplikację z tożsamością przypisaną przez użytkownika, najpierw Dodaj właściwość **Identity** do zasobu aplikacji z typem **userAssigned** i przywoływaną tożsamością użytkownika, a następnie Dodaj do **properties** niej obiekt **managedIdentities** , który zawiera listę przyjaznych nazw mapowania principalId dla każdej tożsamości przypisanej do użytkownika.
+Aby włączyć aplikację z tożsamością przypisaną przez użytkownika, najpierw Dodaj właściwość **Identity** do zasobu aplikacji z typem **userAssigned** i przywoływaną tożsamością użytkownika, a następnie Dodaj do  niej obiekt **managedIdentities** , który zawiera listę przyjaznych nazw mapowania principalId dla każdej tożsamości przypisanej do użytkownika.
 
 ```json
 {

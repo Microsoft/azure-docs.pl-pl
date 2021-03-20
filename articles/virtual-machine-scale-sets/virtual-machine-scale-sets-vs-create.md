@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86503085"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą programu Visual Studio
@@ -38,13 +38,13 @@ Aby rozpocząć wdrażanie Virtual Machine Scale Sets w programie Visual Studio,
 
 1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
 
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **Grupa zasobów platformy Azure** dla języka C#, a następnie wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **Grupa zasobów platformy Azure** dla języka C#, a następnie wybierz pozycję **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę i wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę i wybierz pozycję **Utwórz**.
 
     ![Nazwa i tworzenie projektu](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
 
-1. Z listy szablonów wybierz opcję **zestaw skalowania maszyn wirtualnych z systemem Windows** lub szablon **zestawu skalowania maszyn wirtualnych** z systemem Linux. Kliknij przycisk **OK**.
+1. Z listy szablonów wybierz opcję **zestaw skalowania maszyn wirtualnych z systemem Windows** lub szablon **zestawu skalowania maszyn wirtualnych** z systemem Linux. Wybierz przycisk **OK**.
 
    ![Wybierz szablon maszyny wirtualnej](media/virtual-machine-scale-sets-vs-create/select-vm-template.png)
 
@@ -64,11 +64,11 @@ Moduł równoważenia obciążenia umożliwia łączenie się z wystąpieniami m
 
 Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania maszyn wirtualnych:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Wdróż**  >  **nowe**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Wdróż**  >  **nowe**.
 
     ![Wdrażanie projektu](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
-1. W obszarze **wdrażanie do grupy zasobów**wybierz subskrypcję, która ma zostać użyta, a następnie wybierz grupę zasobów. W razie potrzeby można utworzyć grupę zasobów.
+1. W obszarze **wdrażanie do grupy zasobów** wybierz subskrypcję, która ma zostać użyta, a następnie wybierz grupę zasobów. W razie potrzeby można utworzyć grupę zasobów.
 
 1. Następnie wybierz pozycję **Edytuj parametry** , aby wprowadzić parametry, które są przesyłane do szablonu.
 
@@ -78,13 +78,13 @@ Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania 
 
     ![Edytuj parametry wdrożenia](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
 
-1. W obszarze **wdrażanie do grupy zasobów**wybierz pozycję **Wdróż**. Akcja uruchamia skrypt **Deploy-AzureResourceGroup.ps1** . W oknie **danych wyjściowych** zostanie wyświetlony postęp wdrażania.
+1. W obszarze **wdrażanie do grupy zasobów** wybierz pozycję **Wdróż**. Akcja uruchamia skrypt **Deploy-AzureResourceGroup.ps1** . W oknie **danych wyjściowych** zostanie wyświetlony postęp wdrażania.
 
    ![Dane wyjściowe pokazują wyniki](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Eksplorowanie zestawu skalowania maszyn wirtualnych <a name="exploring-your-virtual-machine-scale-set"></a>
 
-Wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby wyświetlić nowy zestaw skalowania maszyn wirtualnych. W razie potrzeby użyj **Odśwież wszystko**.
+Wybierz pozycję **Wyświetl** program  >  **Cloud Explorer** , aby wyświetlić nowy zestaw skalowania maszyn wirtualnych. W razie potrzeby użyj **Odśwież wszystko**.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 

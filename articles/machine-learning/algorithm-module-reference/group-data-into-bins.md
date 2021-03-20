@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/13/2020
 ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91998478"
 ---
 # <a name="group-data-into-bins-module"></a>Grupowanie danych w moduł pojemników
@@ -23,7 +23,7 @@ W tym artykule opisano sposób używania modułu dane grupy do modułów w progr
 Moduł dane grupy do zasobników obsługuje wiele opcji danych pakowania. Możesz dostosować sposób ustawiania krawędzi pojemnika i sposobu, w jaki wartości są rozdzielane do zasobników. Można na przykład:  
 
 + Ręcznie wpisz serię wartości do obsłużenia jako granice pojemnika.  
-+ Przypisz wartości do pojemników przy użyciu *quantiles*lub rangi percentylu.  
++ Przypisz wartości do pojemników przy użyciu *quantiles* lub rangi percentylu.  
 + Wymuś równomierny rozkład wartości w pojemnikach.  
 
 ## <a name="more-about-binning-and-grouping"></a>Więcej informacji na temat pakowania i grupowania
@@ -72,14 +72,14 @@ Ze względu na to, że istnieje wiele sposobów grupowania danych, wszystkie mo�
 
 4. Jeśli używasz trybów pakowania **quantiles** i **równych szerokości** , użyj opcji **Liczba pojemników** , aby określić liczbę pojemników lub *quantiles*, które chcesz utworzyć.
 
-5. W przypadku **kolumn na bin**Użyj selektora kolumn, aby wybrać kolumny zawierające wartości, które chcesz umieścić w koszu. Kolumny muszą być typu danych liczbowych.
+5. W przypadku **kolumn na bin** Użyj selektora kolumn, aby wybrać kolumny zawierające wartości, które chcesz umieścić w koszu. Kolumny muszą być typu danych liczbowych.
 
     Ta sama reguła pakowania jest stosowana do wszystkich odpowiednich kolumn, które można wybrać. Jeśli konieczne jest przedzielenie niektórych kolumn za pomocą innej metody, użyj oddzielnego wystąpienia danych grupy do modułu zasobników dla każdego zestawu kolumn.
 
     > [!WARNING]
     > W przypadku wybrania kolumny, która nie jest dozwolonym typem, generowany jest błąd czasu wykonywania. Moduł zwraca błąd zaraz po znalezieniu dowolnej kolumny niedozwolonego typu. Jeśli wystąpi błąd, przejrzyj wszystkie wybrane kolumny. Błąd nie wyświetla wszystkich nieprawidłowych kolumn.
 
-6. W polu **tryb wyjściowy**wskaż, w jaki sposób chcesz wyprowadzać wartości Quantized:
+6. W polu **tryb wyjściowy** wskaż, w jaki sposób chcesz wyprowadzać wartości Quantized:
 
     + **Dołącz**: tworzy nową kolumnę z wartościami Binned i dołącza je do tabeli wejściowej.
 

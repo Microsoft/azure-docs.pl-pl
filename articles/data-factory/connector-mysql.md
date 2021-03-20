@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: jingwang
 ms.openlocfilehash: b6a2253a4a124fe5e3725863c799f91714e66cab
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375259"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiowanie danych z programu MySQL przy użyciu Azure Data Factory
@@ -25,7 +25,7 @@ W tym artykule opisano sposób używania działania kopiowania w Azure Data Fact
 >[!NOTE]
 >Aby skopiować dane z usługi lub do [Azure Database for MySQL](../mysql/overview.md) , użyj [łącznika](connector-azure-database-for-mysql.md)wyspecjalizowane Azure Database for MySQL.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik MySQL jest obsługiwany dla następujących działań:
 

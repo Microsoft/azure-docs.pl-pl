@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057981"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Szybki Start: Tworzenie zapory platformy Azure z wieloma publicznymi adresami IP — szablon ARM
@@ -51,7 +51,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon ARM na platformie Azure:
 

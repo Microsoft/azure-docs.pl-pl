@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250315"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Zarządzanie protokołami i szyfrowaniem w usłudze Azure API Management
@@ -38,7 +38,7 @@ Aby wykonać kroki opisane w tym artykule, musisz mieć:
 1. Przejdź do **wystąpienia API Management** w Azure Portal.
 2. Wybierz pozycję **Ustawienia protokołu** z menu.  
 3. Włącza lub wyłącza wymagane protokoły lub szyfry.
-4. Kliknij przycisk **Zapisz**. Zmiany zostaną zastosowane w ciągu godziny.  
+4. Kliknij pozycję **Zapisz**. Zmiany zostaną zastosowane w ciągu godziny.  
 
 ## <a name="next-steps"></a>Następne kroki
 

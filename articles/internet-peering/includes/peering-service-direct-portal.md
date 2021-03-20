@@ -1,7 +1,7 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 titleSuffix: Azure
-description: plik dołączany
+description: Plik dyrektywy include
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81687052"
 ---
 1. Wybierz połączenie komunikacji równorzędnej, które chcesz włączyć dla usługi Komunikacja równorzędna Azure. Następnie wybierz pozycję **...**  >  **Edytuj połączenie**.
     > [!div class="mx-imgBorder"]
     > ![Edytowanie połączenia komunikacji równorzędnej](../media/setup-direct-modify-editconnection.png)
-1. W obszarze **Użyj dla usługi Komunikacja równorzędna**wybierz pozycję **włączone** , a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Użyj dla usługi Komunikacja równorzędna** wybierz pozycję **włączone** , a następnie wybierz pozycję **Zapisz**.
     > [!div class="mx-imgBorder"]
     > ![Połączenie komunikacji równorzędnej Włącz usługę komunikacji równorzędnej](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
 1. Na ekranie **Przegląd** są wyświetlane szczegóły wdrożenia. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.

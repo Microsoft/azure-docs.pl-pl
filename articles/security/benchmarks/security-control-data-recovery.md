@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698822"
 ---
 # <a name="security-control-data-recovery"></a>Kontrola zabezpieczeń: odzyskiwanie danych
@@ -22,7 +22,7 @@ Upewnij się, że regularnie tworzone są kopie zapasowe wszystkich danych, konf
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9,1 | 10.1 | Klient |
+| 9,1 | 10.1 | Customer |
 
 Włącz Azure Backup i skonfiguruj Źródło kopii zapasowej (maszyny wirtualne platformy Azure, SQL Server lub udziały plików), a także żądaną częstotliwość i okres przechowywania.
 
@@ -32,7 +32,7 @@ Włącz Azure Backup i skonfiguruj Źródło kopii zapasowej (maszyny wirtualne 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9,2 | 10,2 | Klient |
+| 9,2 | 10,2 | Customer |
 
 Włącz Azure Backup i docelowe maszyny wirtualne, a także żądaną częstotliwość i okres przechowywania. Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
@@ -44,7 +44,7 @@ Włącz Azure Backup i docelowe maszyny wirtualne, a także żądaną częstotli
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9,3 | 10,3 | Klient |
+| 9,3 | 10,3 | Customer |
 
 Pamiętaj, aby okresowo wykonywać przywracanie danych w Azure Backup. Testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta.
 
@@ -56,7 +56,7 @@ Pamiętaj, aby okresowo wykonywać przywracanie danych w Azure Backup. Testowani
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9,4 | 10,4 | Klient |
+| 9,4 | 10,4 | Customer |
 
 W przypadku kopii zapasowych w środowisku lokalnym szyfrowanie danych w spoczynku odbywa się przy użyciu hasła podanego podczas tworzenia kopii zapasowej na platformie Azure. W przypadku maszyn wirtualnych platformy Azure dane są szyfrowane w spoczynku przy użyciu szyfrowania usługi Storage (SSE). Za pomocą kontroli dostępu opartej na rolach platformy Azure można chronić kopie zapasowe i klucze zarządzane przez klienta.  
 

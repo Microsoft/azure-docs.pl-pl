@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88141673"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Inspekcja historii aktywności dla przypisań uprzywilejowanych grup dostępu (wersja zapoznawcza) w Privileged Identity Management
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla uprzywilej
 
 1. Wybierz uprzywilejowaną grupę dostępu, dla której chcesz wyświetlić historię inspekcji.
 
-1. W obszarze **działanie**wybierz pozycję **Inspekcja zasobów**.
+1. W obszarze **działanie** wybierz pozycję **Inspekcja zasobów**.
 
 1. Przefiltruj historię przy użyciu wstępnie zdefiniowanej daty lub niestandardowego zakresu.
 
@@ -56,7 +56,7 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla uprzywilej
 
 1. Wybierz uprzywilejowaną grupę dostępu, dla której chcesz wyświetlić historię inspekcji.
 
-1. W obszarze **działanie**wybierz pozycję **moja Inspekcja**.
+1. W obszarze **działanie** wybierz pozycję **moja Inspekcja**.
 
 1. Przefiltruj historię przy użyciu wstępnie zdefiniowanej daty lub niestandardowego zakresu.
 

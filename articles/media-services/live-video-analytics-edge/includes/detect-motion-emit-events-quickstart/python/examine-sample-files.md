@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 46e8609be2ec57600e666ef9dab33eae2900e1ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88691122"
 ---
 1. W Visual Studio Code przejdź do pozycji *src/Edge*. Zobaczysz plik *. env* i kilka plików szablonów wdrożenia.

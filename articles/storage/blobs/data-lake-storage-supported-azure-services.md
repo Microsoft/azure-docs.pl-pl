@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 36e1a8a288e1f9b2a8d65ab966b607b594d66f4e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653605"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2
@@ -40,7 +40,7 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 |Usługa IoT Hub |Ogólnie dostępne|Tak|Tak|[Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Ogólnie dostępne|Tak|Tak|[Analizowanie danych w Data Lake Storage Gen2 przy użyciu Power BI](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)|Ogólnie dostępne|Tak|Tak|[Analizowanie danych na koncie magazynu](../../synapse-analytics/get-started-analyze-storage.md)|
-|Usługi SQL Server Integration Services (SSIS)|Ogólnie dostępne|Tak|Tak|[Menedżer połączeń usługi Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
+|SQL Server Integration Services (SSIS)|Ogólnie dostępne|Tak|Tak|[Menedżer połączeń usługi Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|Ogólnie dostępne|Tak|Tak|[Wykonywanie zapytań dotyczących danych w Azure Data Lake przy użyciu usługi Azure Eksplorator danych](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Wersja zapoznawcza|Tak|Tak|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../cdn/cdn-overview.md)|
@@ -49,6 +49,6 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 ## <a name="see-also"></a>Zobacz też
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-- [Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Funkcje magazynu obiektów blob dostępne w usłudze Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 - [Platformy Open source obsługujące Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Dostęp z wieloprotokołem do Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

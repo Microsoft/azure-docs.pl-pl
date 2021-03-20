@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375106"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
@@ -124,9 +124,9 @@ Poniższa tabela zawiera podsumowanie zaleceń dotyczących konfiguracji sieci i
 
 | Element źródłowy | Element docelowy | Konfiguracja sieci | Konfiguracja bramy |
 | ------ | ----------- | --------------------- | ------------- | 
-| Magazyn lokalny | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
-| Magazyn lokalny | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
-| Magazyn lokalny | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (publiczna Komunikacja równorzędna) | Brama musi być zainstalowana lokalnie | 
+| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
+| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
+| Lokalnie | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (publiczna Komunikacja równorzędna) | Brama musi być zainstalowana lokalnie | 
 
 Na poniższych ilustracjach przedstawiono użycie bramy Zarządzanie danymi do przeniesienia danych między lokalną bazą danych i usługami platformy Azure przy użyciu usługi Express Route i sieci VPN IPSec (z Virtual Network):
 

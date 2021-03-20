@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90892865"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Informacje o stanie aplikacji w usłudze Azure Spring Cloud
@@ -43,7 +43,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 |:--:|:----------------:|
 | Tworzenie | Tworzony jest zasób. |
 | Aktualizowanie | Zasób jest aktualizowany. |
-| Sukces | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
+| Powodzenie | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
 | Niepowodzenie | Nie można osiągnąć celu *zakończonego powodzeniem* . |
 | Usuwanie | Trwa usuwanie zasobu. Zapobiega to operacji, a zasób nie jest dostępny w tym stanie. |
 

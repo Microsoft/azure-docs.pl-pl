@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90884432"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Współlokalizacja tabeli w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
@@ -96,7 +96,7 @@ Następnie wyniki dwóch kroków muszą być połączone przez aplikację.
 
 Uruchomienie zapytań musi zajrzeć do danych w fragmentów rozproszeniu między węzłami.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Fragmentów":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Niewydajne zapytania":::
 
 W takim przypadku Dystrybucja danych tworzy znaczące wady:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Ze względu na filtr i sprzężenie w tenant_id, funkcja Citus (fragmentów) wie, że całe zapytanie może być odpowiedzią przy użyciu zestawu współdzielonego elementu, który zawiera dane dla danej dzierżawy. Pojedynczy węzeł PostgreSQL może odpowiedzieć na zapytanie w jednym kroku.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Fragmentów":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Lepsze zapytanie":::
 
 W niektórych przypadkach zapytania i schematy tabeli muszą zostać zmienione w celu uwzględnienia identyfikatora dzierżawy w unikatowych ograniczeniach i warunkach sprzężenia. Ta zmiana jest zwykle prosta.
 

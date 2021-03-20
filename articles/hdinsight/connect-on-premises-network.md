@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943397"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Łączenie usługi HDInsight z siecią lokalną
@@ -77,7 +77,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
     |Nazwa maszyny wirtualnej | Wprowadź przyjazną nazwę identyfikującą tę maszynę wirtualną. W tym przykładzie używa **DNSProxy**.|
     |Region (Region) | Wybierz ten sam region, w którym utworzono wcześniej sieć wirtualną.  Nie wszystkie rozmiary maszyn wirtualnych są dostępne we wszystkich regionach.  |
     |Opcje dostępności |  Wybierz żądany poziom dostępności.  Platforma Azure oferuje szeroką gamę opcji zarządzania dostępnością i odpornością aplikacji.  Zaarchitektj swoje rozwiązanie, aby używać zreplikowanych maszyn wirtualnych w Strefy dostępności lub zestawach dostępności w celu ochrony Twoich aplikacji i danych przed zdarzeniami awarii i konserwacji centrum danych. W tym przykładzie **nie jest wymagane użycie nadmiarowości infrastruktury**. |
-    |Image (Obraz) | Pozostaw na **serwerze Ubuntu Server 18,04 LTS**. |
+    |Obraz | Pozostaw na **serwerze Ubuntu Server 18,04 LTS**. |
     |Typ uwierzytelniania | __Hasło__ lub __klucz publiczny SSH__: Metoda uwierzytelniania dla konta SSH. Zalecamy korzystanie z kluczy publicznych, ponieważ są one bezpieczniejsze. Ten przykład używa **hasła**.  Aby uzyskać więcej informacji, zobacz dokument [dotyczący tworzenia i używania kluczy SSH dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/mac-create-ssh-keys.md) .|
     |Nazwa użytkownika |Wprowadź nazwę użytkownika administratora dla maszyny wirtualnej.  W tym przykładzie używa **sshuser**.|
     |Hasło lub klucz publiczny SSH | Dostępne pole jest określane przez wybór **typu uwierzytelniania**.  Wprowadź odpowiednią wartość.|

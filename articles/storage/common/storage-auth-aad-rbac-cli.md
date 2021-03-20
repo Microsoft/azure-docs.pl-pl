@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375990"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek

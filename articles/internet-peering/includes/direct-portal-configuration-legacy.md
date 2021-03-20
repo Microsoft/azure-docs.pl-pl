@@ -1,7 +1,7 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 titleSuffix: Azure
-description: plik dołączany
+description: Plik dyrektywy include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81678815"
 ---
 1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **Konfiguracja** Wypełnij pola, jak pokazano poniżej.
@@ -20,8 +20,8 @@ ms.locfileid: "81678815"
     > [!div class="mx-imgBorder"]
     > ![Tworzenie karty Konfiguracja strony komunikacji równorzędnej](../media/setup-direct-conf-tab.png)
 
-    * W obszarze **Typ komunikacji równorzędnej**wybierz pozycję **bezpośrednie**.
-    * W przypadku **sieci firmy Microsoft**wybierz pozycję **AS8075**. Nie wybieraj numeru ASN 8069. Jest ona zarezerwowana dla specjalnych aplikacji i jest używana tylko przez [komunikację równorzędną firmy Microsoft](mailto:peering@microsoft.com).
+    * W obszarze **Typ komunikacji równorzędnej** wybierz pozycję **bezpośrednie**.
+    * W przypadku **sieci firmy Microsoft** wybierz pozycję **AS8075**. Nie wybieraj numeru ASN 8069. Jest ona zarezerwowana dla specjalnych aplikacji i jest używana tylko przez [komunikację równorzędną firmy Microsoft](mailto:peering@microsoft.com).
     * Wybierz **jednostkę SKU** jako **bezpłatnie jako podstawową**. Nie wybieraj opcji Bezpłatna wersja Premium, ponieważ jest zarezerwowana dla aplikacji specjalnych.
     * Wybierz lokalizację **, w której chcesz** skonwertować komunikację równorzędną z zasobem platformy Azure. Jeśli masz połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **Metro** , która nie jest konwertowana na zasób platformy Azure, te połączenia będą wyświetlane w sekcji **połączenia komunikacji równorzędnej** , jak pokazano. Teraz możesz przekonwertować te połączenia komunikacji równorzędnej na zasób platformy Azure.
 
@@ -37,7 +37,7 @@ ms.locfileid: "81678815"
     > Jeśli chcesz dodać dodatkowe połączenia komunikacji równorzędnej do firmy Microsoft w wybranej lokalizacji **Metro** , wybierz pozycję **Utwórz nowy**. Aby uzyskać więcej informacji, zobacz [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu](../howto-direct-portal.md).
     >
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *z uruchomioną weryfikacją ostateczną...*
+1. Wybierz pozycję **Przejrzyj i utwórz**. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *z uruchomioną weryfikacją ostateczną...*
 
     > [!div class="mx-imgBorder"]
     > ![Karta Walidacja komunikacji równorzędnej](../media/setup-direct-review-tab-validation.png)

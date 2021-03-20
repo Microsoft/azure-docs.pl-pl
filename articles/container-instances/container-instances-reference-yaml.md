@@ -4,10 +4,10 @@ description: Odwołanie do pliku YAML obsługiwanego przez Azure Container Insta
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87084764"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Odwołanie YAML: Azure Container Instances
@@ -369,7 +369,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
 |  name | ciąg | Tak | Nazwa zmiennej środowiskowej. |
-|  value | ciąg | Nie | Wartość zmiennej środowiskowej. |
+|  wartość | ciąg | Nie | Wartość zmiennej środowiskowej. |
 |  secureValue | ciąg | Nie | Wartość zmiennej środowiskowej Secure. |
 
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359905"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji 
@@ -88,7 +88,7 @@ Dodaj następujące informacje do utworzonych zmiennych. Reprezentują one kolum
 
 ## <a name="read-the-excel-file"></a>Odczytaj plik programu Excel
 
-Kliknij pozycję **nowy krok** i wpisz polecenie **Excel** , a następnie wybierz pozycję **Lista wierszy znajdujących się w tabeli** z listy akcji.
+Kliknij pozycję **nowy krok** i wpisz polecenie **Excel**, a następnie wybierz pozycję **Lista wierszy znajdujących się w tabeli** z listy akcji.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Dodaj wiersze programu Excel.":::
@@ -170,7 +170,7 @@ W warunku **if Yes** wpisz w programie Excel, a następnie wybierz pozycję **Ak
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. ust":::
 
-Wprowadź informacje w programie Excel i zaktualizuj **kolumny klucza** , **wartość klucza** i **imię** . Spowoduje to dołączenie nazwy wykrytej przez interfejs API do arkusza programu Excel. 
+Wprowadź informacje w programie Excel i zaktualizuj **kolumny klucza**, **wartość klucza** i **imię** . Spowoduje to dołączenie nazwy wykrytej przez interfejs API do arkusza programu Excel. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 7":::
@@ -209,16 +209,16 @@ Wewnątrz akcji **Zastosuj do każdego 4** Dodaj kontrolkę **warunek** . Zostan
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. dwunastomiesięcznych":::
 
 
-W warunku **if Yes** kliknij pozycję **Dodaj akcję** , a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_plumbing` . Spowoduje to zastosowanie do wiersza etykiety "Instalacja wodociągowa".
+W warunku **if Yes** kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_plumbing` . Spowoduje to zastosowanie do wiersza etykiety "Instalacja wodociągowa".
 
-W **przypadku braku** warunku kliknij pozycję **Dodaj akcję** , a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_other` . Spowoduje to zastosowanie etykiety "Other" do wiersza.
+W **przypadku braku** warunku kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_other` . Spowoduje to zastosowanie etykiety "Other" do wiersza.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. trzynast":::
 
 ## <a name="test-the-workflow"></a>Testowanie przepływu pracy
 
-W prawym górnym rogu ekranu kliknij przycisk **Zapisz** , a następnie **Testuj**. Wybierz opcję  **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test** , **Uruchom przepływ** , a następnie **gotowe**.
+W prawym górnym rogu ekranu kliknij przycisk **Zapisz**, a następnie **Testuj**. Wybierz opcję  **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test**, **Uruchom przepływ**, a następnie **gotowe**.
 
 Plik programu Excel zostanie zaktualizowany na koncie w usłudze OneDrive. Będzie wyglądać tak jak poniżej.
 

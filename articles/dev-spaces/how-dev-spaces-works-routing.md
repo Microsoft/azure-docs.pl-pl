@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Zawiera opis procesów Azure Dev Spaces i sposobu działania routingu
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91977973"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Jak działa Routing przy użyciu Azure Dev Spaces
@@ -62,7 +62,7 @@ Na przykład:
 * Przestrzeń dev *azureuser* jest pochodną *domyślnego*.
 * Zaktualizowana wersja *usługi Service* . została wdrożona w *azureuser*.
 
-W przypadku korzystania z programu *azureuser*wszystkie żądania do *usługi Service* i będą kierowane do zaktualizowanej wersji w *azureuser*. Żądanie do *serviceB* najpierw będzie kierowane do *azureuser* wersji *serviceB*. Ponieważ nie istnieje, zostanie on rozesłany do *domyślnej* wersji *serviceB*. Jeśli *azureuser* wersja *usługi Service* of zostanie usunięta, wszystkie żądania do *usługi* będą powracać do korzystania z *domyślnej* wersji *usługi*.
+W przypadku korzystania z programu *azureuser* wszystkie żądania do *usługi Service* i będą kierowane do zaktualizowanej wersji w *azureuser*. Żądanie do *serviceB* najpierw będzie kierowane do *azureuser* wersji *serviceB*. Ponieważ nie istnieje, zostanie on rozesłany do *domyślnej* wersji *serviceB*. Jeśli *azureuser* wersja *usługi Service* of zostanie usunięta, wszystkie żądania do *usługi* będą powracać do korzystania z *domyślnej* wersji *usługi*.
 
 ## <a name="next-steps"></a>Następne kroki
 

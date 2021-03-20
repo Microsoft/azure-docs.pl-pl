@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878548"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Skonfiguruj zasady protokołu IPsec/IKE dla połączeń sieci VPN S2S lub komunikacji wirtualnej z siecią wirtualną: Azure Portal
@@ -28,11 +28,13 @@ Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania zasad prot
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Zasady protokołu IPsec/IKE działają tylko w następujących jednostkach SKU bramy:
-  * ***VpnGw1 ~ 5 i VpnGw1AZ ~ 5AZ**+ _ ***Standard** _ i _*_HighPerformance_*_ _ można określić tylko ***jedną** _ kombinacji zasad dla danego połączenia.
-  _ Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
+  * ***VpnGw1 ~ 5 i VpnGw1AZ ~ 5AZ***
+  * ***Standard** _ i _ *_HighPerformance_**
+* Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
+* Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
 * Zapoznaj się z wymaganiami dostawcy urządzeń sieci VPN, aby upewnić się, że zasady są obsługiwane na lokalnych urządzeniach sieci VPN. Połączenia S2S lub VNet-Sieć wirtualna nie mogą ustalić, czy zasady są niezgodne.
 
-## <a name="workflow"></a><a name ="workflow"></a>Utworzonego
+## <a name="workflow"></a><a name ="workflow"></a>Przepływ pracy
 
 Ta sekcja zawiera opis przepływu pracy w celu utworzenia i zaktualizowania zasad protokołu IPsec/IKE w połączeniu sieci VPN S2S lub połączenia między siecią wirtualną:
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
 ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263116"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Odzyskiwanie plików z platformy Azure na serwer z systemem Windows
@@ -43,7 +43,7 @@ Wraz z agentem usługi Microsoft Azure Recovery Services (MARS) jest instalowany
 
     ![Wybierz wolumin i datę](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
 
-    Po wybraniu opcji **zainstaluj**Azure Backup udostępnia punkt odzyskiwania jako dysk. Możesz przeglądać pliki na dysku i odzyskiwać je.
+    Po wybraniu opcji **zainstaluj** Azure Backup udostępnia punkt odzyskiwania jako dysk. Możesz przeglądać pliki na dysku i odzyskiwać je.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Przywracanie elementów z punktu odzyskiwania
 
