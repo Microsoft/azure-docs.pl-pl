@@ -9,15 +9,15 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992939"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Tworzenie umów z partnerami handlowymi w usłudze Azure Logic Apps i zarządzanie nimi
 
-[trading partner](../logic-apps/logic-apps-enterprise-integration-partners.md)  
+[](../logic-apps/logic-apps-enterprise-integration-partners.md)  
  *Umowa dotycząca* partnera handlowego pomaga organizacjom i firmom komunikować się bezproblemowo ze sobą przez zdefiniowanie określonego standardu branżowego, który ma być używany podczas wymiany komunikatów biznesowych (B2B). Umowy zapewniają typowe korzyści, na przykład:
 
 * Umożliwiają organizacjom wymianę informacji przy użyciu dobrze znanego formatu.

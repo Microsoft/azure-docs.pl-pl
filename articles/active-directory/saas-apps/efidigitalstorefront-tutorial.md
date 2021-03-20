@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.openlocfilehash: c4a07d676f1cb0f47d1eff1dd8e0321bbd407092
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Samouczek: integracja z usługą Azure Active Directory przy użyciu witryny EFI Digital wEBWitryna

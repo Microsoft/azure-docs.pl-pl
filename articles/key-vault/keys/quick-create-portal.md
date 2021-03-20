@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 419fe72d400177ce9fa3d9811d7dfa06e74c0810
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935057"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure Portal
@@ -60,7 +60,7 @@ Aby dodać klucz do magazynu, wystarczy wykonać kilka dodatkowych kroków. W ty
 3. Na ekranie **Tworzenie klucza** wybierz następujące wartości:
     - **Opcje**: generate.
     - **Nazwa**: ExampleKey.
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij przycisk **Utwórz**.
+    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
 
 Po otrzymaniu komunikatu o tym, że klucz został pomyślnie utworzony, możesz kliknąć go na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201230"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591983"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
 
@@ -66,6 +66,20 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 | @triggerBody(). fileName  |Nazwa pliku, którego tworzenie lub usuwanie spowodowało uruchomienie wyzwalacza.   |
 | @triggerBody(). nazwa_folderu  |Ścieżka do folderu, który zawiera plik określony przez `@triggerBody().fileName` . Pierwszy segment ścieżki folderu to nazwa kontenera Blob Storage platformy Azure.  |
 | @trigger(). startTime |Godzina uruchomienia wyzwalacza w celu wywołania uruchomienia potoku. |
+
+## <a name="custom-event-trigger-scope"></a>Zakres niestandardowego wyzwalacza zdarzeń
+
+Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>Azure Data Factory oczekuje formatowania zdarzenia niestandardowego ze [schematem zdarzenia Azure Event Grid](../event-grid/event-schema.md).
+
+| Nazwa zmiennej | Opis
+| --- | --- |
+| @triggerBody(). Event. eventType | Typ zdarzeń, które wyzwalają uruchomienie wyzwalacza zdarzeń niestandardowych. Typ zdarzenia to pole zdefiniowane przez klienta i przyjmuje wszystkie wartości typu String. |
+| @triggerBody(). Event. Subject | Temat zdarzenia niestandardowego, które spowodowało uruchomienie wyzwalacza. |
+| @triggerBody(). Event. Data. _NazwaKlucza_ | Pole danych w zdarzeniu niestandardowym jest bezpłatne od obiektu BLOB JSON, którego klient może używać do wysyłania komunikatów i danych. Użyj danych. _NazwaKlucza_ , aby odwołać się do każdego pola. Na przykład @triggerBody (). Event. Data. callback zwraca wartość pola _wywołania zwrotnego_ przechowywanego w obszarze _dane_. |
+| @trigger(). startTime | Godzina uruchomienia wyzwalacza w celu wywołania uruchomienia potoku. |
 
 ## <a name="next-steps"></a>Następne kroki
 

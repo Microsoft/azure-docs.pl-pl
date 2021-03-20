@@ -9,36 +9,36 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754451"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę usługi konsultingowej w komercyjnej witrynie Marketplace
 
 W tym artykule opisano sposób tworzenia oferty usługi konsultingowej dla komercyjnej witryny Marketplace firmy Microsoft przy użyciu Centrum partnerskiego. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby opublikować ofertę usługi konsultingowej, musisz spełnić pewne wymagania dotyczące uprawnień, aby przedstawić wiedzę fachową w Twoim zakresie. Jeśli jeszcze tego nie zrobiono, zapoznaj się z artykułem [Planowanie oferty usługi konsultingowej dla komercyjnej witryny Marketplace](./plan-consulting-service-offer.md). Zawiera opis wymagań wstępnych dotyczących usługi konsultingowej oraz zasobów potrzebnych podczas tworzenia oferty przy użyciu Centrum partnerskiego.
 
 ## <a name="create-a-new-consulting-service-offer"></a>Utwórz nową ofertę usługi konsultingowej
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2.  W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+2.  W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3.  Na karcie Przegląd wybierz pozycję **+ Nowa**  >  **Usługa konsultingowa** oferty.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-consulting-service.png)
 
-4. W oknie dialogowym **Nowa oferta** wprowadź **Identyfikator oferty** . Ten identyfikator jest widoczny w adresie URL aukcji komercyjnej na rynku. Jeśli na przykład w tym polu wprowadzisz wartość test-Offer-1, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+4. W oknie dialogowym **Nowa oferta** wprowadź **Identyfikator oferty**. Ten identyfikator jest widoczny w adresie URL aukcji komercyjnej na rynku. Jeśli na przykład w tym polu wprowadzisz wartość test-Offer-1, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 
     * Każda oferta w Twoim koncie musi mieć unikatowy identyfikator oferty.
     * Użyj tylko małych liter i cyfr. Identyfikator oferty może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczony do 50 znaków.
-    * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
+    * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-5. Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim. Nie jest on widoczny w sklepach online i różni się od nazwy oferty widocznej dla klientów.
-6. Aby wygenerować ofertę i kontynuować, wybierz pozycję **Utwórz** .
+5. Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim. Nie jest on widoczny w sklepach online i różni się od nazwy oferty widocznej dla klientów.
+6. Aby wygenerować ofertę i kontynuować, wybierz pozycję **Utwórz**.
 
 ## <a name="configure-lead-management"></a>Konfigurowanie zarządzania potencjalnymi klientami
 
@@ -57,9 +57,9 @@ Aby skonfigurować zarządzanie potencjalnymi klientami w centrum partnerskim:
     * [Konfigurowanie oferty do wysyłania potencjalnych klientów do programu Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
     * [Konfigurowanie oferty do wysyłania potencjalnych klientów do usługi Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
-5.  Aby sprawdzić podaną konfigurację, wybierz **link Weryfikuj** .
-6.  Po skonfigurowaniu szczegółów połączenia wybierz pozycję **Połącz** .
-7.  Wybierz pozycję **Zapisz wersję roboczą** .
+5.  Aby sprawdzić podaną konfigurację, wybierz **link Weryfikuj**.
+6.  Po skonfigurowaniu szczegółów połączenia wybierz pozycję **Połącz**.
+7.  Wybierz pozycję **Zapisz wersję roboczą**.
 
 Po przesłaniu oferty do publikacji w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta testowego. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem Przetestuj połączenie z liderem, próbując zakupić swoją ofertę samodzielnie w środowisku wersji zapoznawczej.
 

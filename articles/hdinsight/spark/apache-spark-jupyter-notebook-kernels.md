@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930386"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra dla Jupyter Notebook w klastrach Apache Spark w usłudze Azure HDInsight
@@ -75,7 +75,7 @@ Oto kilka korzyści z używania nowych jądra z Jupyter Notebook w klastrach us�
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli `-o` parametr zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako [Pandas](https://pandas.pydata.org/) Dataframe. |
    | local |`%%local`<br>`a=1` |Cały kod w późniejszych wierszach jest wykonywany lokalnie. Kod musi być prawidłowym kodem python2 niezależnie od tego, którego jądra używasz. Tak więc, nawet w przypadku wybrania jądra **PySpark3** lub **Spark** podczas tworzenia notesu, jeśli używasz `%%local` Magic w komórce, ta komórka musi mieć tylko prawidłowy kod python2. |
    | dzienniki |`%%logs` |Wyprowadza dzienniki dla bieżącej sesji usługi Livy. |
-   | usunięcie |`%%delete -f -s <session number>` |Usuwa określoną sesję bieżącego punktu końcowego usługi Livy. Nie można usunąć sesji, która została uruchomiona dla samego jądra. |
+   | delete |`%%delete -f -s <session number>` |Usuwa określoną sesję bieżącego punktu końcowego usługi Livy. Nie można usunąć sesji, która została uruchomiona dla samego jądra. |
    | oczyszczanie |`%%cleanup -f` |Usuwa wszystkie sesje dla bieżącego punktu końcowego usługi Livy, w tym sesję tego notesu. Flaga Force-f jest obowiązkowa. |
 
    > [!NOTE]  

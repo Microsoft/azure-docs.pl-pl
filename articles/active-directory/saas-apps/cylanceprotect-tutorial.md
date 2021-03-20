@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 2fd21731513d0b32a96a74a822e38075ad1d8eb2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą CylancePROTECT
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identifier** (Identyfikator) wpisz adres URL:
     
-    | Region | Wartość adresu URL |
+    | Region (Region) | Wartość adresu URL |
     |----------|---------|
     | Azja i Pacyfik północno-wschodnie (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Azja i Pacyfik południowo-wschodnie (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. W polu tekstowym **Reply URL** (Adres URL odpowiedzi) wpisz adres URL:
     
-    | Region | Wartość adresu URL |
+    | Region (Region) | Wartość adresu URL |
     |----------|---------|
     | Azja i Pacyfik północno-wschodnie (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Azja i Pacyfik południowo-wschodnie (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|

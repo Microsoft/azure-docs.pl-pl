@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć niestandardowy obraz w Azure DevTest La
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87277031"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej
@@ -33,13 +33,13 @@ Można utworzyć obraz niestandardowy na podstawie zainicjowanej maszyny wirtual
     :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Utwórz niestandardowy element menu obrazu":::
 1. W okienku **obraz niestandardowy** wprowadź nazwę i opis obrazu niestandardowego. Te informacje są wyświetlane na liście baz danych podczas tworzenia maszyny wirtualnej. Obraz niestandardowy będzie zawierać dysk systemu operacyjnego i wszystkie dyski z danymi dołączone do maszyny wirtualnej.
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Utwórz niestandardowy element menu obrazu":::
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Utwórz stronę obrazu niestandardowego":::
 1. Wybierz, czy program Sysprep został uruchomiony na maszynie wirtualnej. Jeśli program Sysprep nie został uruchomiony na maszynie wirtualnej, określ, czy program Sysprep ma być uruchamiany na maszynie wirtualnej po utworzeniu obrazu niestandardowego.
 1. Po zakończeniu tworzenia obrazu niestandardowego wybierz **przycisk OK** .
 
     Po kilku minutach obraz niestandardowy zostanie utworzony i będzie przechowywany w ramach konta magazynu laboratorium. Gdy użytkownik laboratorium chce utworzyć nową maszynę wirtualną, obraz jest dostępny na liście obrazów podstawowych.
 
-    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Utwórz niestandardowy element menu obrazu":::
+    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="niestandardowy obraz dostępny na liście obrazów podstawowych":::
 
 ## <a name="related-blog-posts"></a>Powiązane wpisy w blogu
 

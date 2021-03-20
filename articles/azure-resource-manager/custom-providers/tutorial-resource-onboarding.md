@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75649939"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Samouczek: dołączanie zasobów z dostawcami niestandardowymi platformy Azure
@@ -217,9 +217,9 @@ Wdróżmy infrastrukturę dostawcy niestandardowego. Skopiuj, Zapisz i Wdróż p
 
 3. Wybierz pozycję **Dodaj** w okienku **Szablony** :
 
-   ![Wybierz pozycję Dodaj](media/tutorial-resource-onboarding/templatesadd.png)
+   ![Wybierz pozycję Dodaj.](media/tutorial-resource-onboarding/templatesadd.png)
 
-4. W obszarze **Ogólne**wprowadź **nazwę** i **Opis** nowego szablonu:
+4. W obszarze **Ogólne** wprowadź **nazwę** i **Opis** nowego szablonu:
 
    ![Nazwa i opis szablonu](media/tutorial-resource-onboarding/templatesdescription.png)
 

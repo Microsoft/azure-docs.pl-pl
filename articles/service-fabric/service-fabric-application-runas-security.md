@@ -4,14 +4,14 @@ description: Dowiedz się, jak uruchomić aplikację Service Fabricową w ramach
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75610129"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Uruchamianie usługi jako konta użytkownika lokalnego lub lokalnego konta systemowego
-Za pomocą usługi Azure Service Fabric można zabezpieczyć aplikacje działające w klastrze pod różnymi kontami użytkowników. Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach którego działa proces Fabric.exe. Service Fabric oferuje również możliwość uruchamiania aplikacji na koncie użytkownika lokalnego lub systemu. Obsługiwane typy kont systemu lokalnego to **LocalUser**, **NetworkService**, **LocalService**i **LocalSystem**.  Jeśli używasz Service Fabric w klastrze autonomicznym systemu Windows, możesz uruchomić usługę w obszarze [Active Directory konta domeny](service-fabric-run-service-as-ad-user-or-group.md) lub [konta usług zarządzane przez grupę](service-fabric-run-service-as-gmsa.md).
+Za pomocą usługi Azure Service Fabric można zabezpieczyć aplikacje działające w klastrze pod różnymi kontami użytkowników. Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach którego działa proces Fabric.exe. Service Fabric oferuje również możliwość uruchamiania aplikacji na koncie użytkownika lokalnego lub systemu. Obsługiwane typy kont systemu lokalnego to **LocalUser**, **NetworkService**, **LocalService** i **LocalSystem**.  Jeśli używasz Service Fabric w klastrze autonomicznym systemu Windows, możesz uruchomić usługę w obszarze [Active Directory konta domeny](service-fabric-run-service-as-ad-user-or-group.md) lub [konta usług zarządzane przez grupę](service-fabric-run-service-as-gmsa.md).
 
 W manifeście aplikacji należy zdefiniować konta użytkowników wymagane do uruchamiania usług lub zabezpieczania zasobów w sekcji **podmiotów zabezpieczeń** . Można również zdefiniować i utworzyć grupy użytkowników, aby umożliwić zarządzanie jednym lub większą liczbą użytkowników. Jest to przydatne, jeśli istnieje wielu użytkowników dla różnych punktów wejścia usługi i potrzebne są typowe uprawnienia, które są dostępne na poziomie grupy.  Następnie użytkownicy odwołują się do zasad RunAs, które są stosowane do określonej usługi lub wszystkich usług w aplikacji. 
 
@@ -24,7 +24,7 @@ Domyślnie zasady RunAs są stosowane do głównego punktu wejścia.  Można ró
 ## <a name="run-a-service-as-a-local-user"></a>Uruchamianie usługi jako użytkownik lokalny
 Można utworzyć użytkownika lokalnego, którego można użyć do zabezpieczenia usługi w aplikacji. W przypadku określenia typu konta **LocalUser** w sekcji Principals manifestu aplikacji Service Fabric tworzy konta użytkowników lokalnych na maszynach, na których wdrożono aplikację. Domyślnie te konta nie mają tych samych nazw jak określone w manifeście aplikacji (na przykład *Customer3* w poniższym przykładzie manifestu aplikacji). Zamiast tego są one dynamicznie generowane i mają losowe hasła.
 
-W sekcji **RunAsPolicy** dla **ServiceManifestImport**Określ konto użytkownika z sekcji **podmioty zabezpieczeń** , aby uruchomić pakiet kodu usługi.  Poniższy przykład pokazuje, jak utworzyć użytkownika lokalnego i zastosować zasady RunAs do głównego punktu wejścia:
+W sekcji **RunAsPolicy** dla **ServiceManifestImport** Określ konto użytkownika z sekcji **podmioty zabezpieczeń** , aby uruchomić pakiet kodu usługi.  Poniższy przykład pokazuje, jak utworzyć użytkownika lokalnego i zastosować zasady RunAs do głównego punktu wejścia:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -55,7 +55,7 @@ W sekcji **RunAsPolicy** dla **ServiceManifestImport**Określ konto użytkownika
 ```
 
 ## <a name="create-a-local-user-group"></a>Utwórz lokalną grupę użytkowników
-Można utworzyć grupy użytkowników i dodać jednego lub kilku użytkowników do grupy. Jest to przydatne, jeśli istnieje wielu użytkowników dla różnych punktów wejścia usługi i że muszą mieć pewne typowe uprawnienia, które są dostępne na poziomie grupy. Poniższy przykład manifestu aplikacji przedstawia grupę lokalną o nazwie *LocalAdminGroup* , która ma uprawnienia administratora. Dwóch użytkowników, *Customer1* i *Customer2*, są członkami tej grupy lokalnej. W sekcji **ServiceManifestImport** zasady runas są stosowane do uruchamiania pakietu kodu *Stateful1Pkg* jako *Customer2*.  Do uruchamiania pakietu kodu *Web1Pkg* jako *Customer1*są stosowane inne zasady runas.
+Można utworzyć grupy użytkowników i dodać jednego lub kilku użytkowników do grupy. Jest to przydatne, jeśli istnieje wielu użytkowników dla różnych punktów wejścia usługi i że muszą mieć pewne typowe uprawnienia, które są dostępne na poziomie grupy. Poniższy przykład manifestu aplikacji przedstawia grupę lokalną o nazwie *LocalAdminGroup* , która ma uprawnienia administratora. Dwóch użytkowników, *Customer1* i *Customer2*, są członkami tej grupy lokalnej. W sekcji **ServiceManifestImport** zasady runas są stosowane do uruchamiania pakietu kodu *Stateful1Pkg* jako *Customer2*.  Do uruchamiania pakietu kodu *Web1Pkg* jako *Customer1* są stosowane inne zasady runas.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

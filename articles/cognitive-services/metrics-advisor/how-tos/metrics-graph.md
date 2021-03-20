@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbullwin
 ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043157"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Instrukcje: budowanie grafu metryk do analizowania powiązanych metryk
@@ -33,9 +33,9 @@ Kliknij kartę **metryki wykresu** na pasku nawigacyjnym. Pierwszym krokiem twor
 
 Następnie należy dodać inny węzeł i określić relację z istniejącymi węzłami. Wybierz istniejący węzeł i kliknij go prawym przyciskiem myszy. Zostanie wyświetlone menu kontekstowe z kilkoma opcjami. 
 
-Kliknij pozycję **Dodaj relację**i będzie można wybrać inną metrykę i określić typ relacji między dwoma węzłami. Można również zastosować określone filtry wymiarów. 
+Kliknij pozycję **Dodaj relację** i będzie można wybrać inną metrykę i określić typ relacji między dwoma węzłami. Można również zastosować określone filtry wymiarów. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Dodaj węzeł i relację":::
 
 Po powtórzeniu powyższych kroków będzie można grafować metryki opisujące relacje między wszystkimi powiązanymi metrykami.
 **Wskazówka dotycząca kolorów węzła**
@@ -48,9 +48,9 @@ Po powtórzeniu powyższych kroków będzie można grafować metryki opisujące 
 
 Gdy wykres metryk jest zbudowany, za każdym razem, gdy na wykresie zostanie wykryta anomalia, będzie można wyświetlić powiązane Stany anomalii i uzyskać ogólny widok zdarzenia. 
 
-Kliknij zdarzenie w grafie i przewiń w dół do **analizy metryk krzyżowych**poniżej informacji diagnostycznych.
+Kliknij zdarzenie w grafie i przewiń w dół do **analizy metryk krzyżowych** poniżej informacji diagnostycznych.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Wyświetl powiązane metryki i anomalie":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 37d31d753812924607c4d31df6d4f4d5e7b32d69
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 89ab25f45cd35a86d2ff4416ceb851ae6cd5e115
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890717"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657165"
 ---
 # <a name="what-is-custom-translator"></a>Co to jest rozszerzenie Custom Translator?
 
@@ -24,13 +24,20 @@ Systemy tłumaczenia wykorzystujące rozszerzenie [Custom Translator](https://po
 
 Rozszerzenie Custom Translator obsługuje ponad trzy tuziny języków i jest mapowane bezpośrednio na języki dostępne dla neuronowego tłumaczenia maszynowego. Aby uzyskać pełną listę, zobacz [Microsoft Translator Language (Języki w usłudze Microsoft Translator)](../language-support.md#customization).
 
+Ta dokumentacja zawiera następujące typy artykułów:
+
+* Przewodniki [**Szybki Start**](quickstart-build-deploy-custom-model.md) to instrukcje umożliwiające wykonywanie żądań do usługi.  
+* [**Przewodniki z**](how-to-create-project.md) instrukcjami zawierają instrukcje dotyczące korzystania z funkcji w bardziej specyficzny lub dostosowany sposób.  
+* [**Koncepcje**](workspace-and-project.md) zawierają szczegółowe wyjaśnienia funkcji funkcji.  
+
+
 ## <a name="features"></a>Funkcje
 
-Rozszerzenie Custom Translator udostępnia różne funkcje umożliwiające utworzenie niestandardowego systemu tłumaczenia, a następnie uzyskiwanie do niego dostępu.
+Translator niestandardowy udostępnia różne funkcje do tworzenia niestandardowego systemu tłumaczenia i uzyskiwania do niego dostępu.
 
-|Cechy  |Opis  |
+|Cecha  |Opis  |
 |---------|---------|
-|[Wykorzystanie technologii neuronowego tłumaczenia maszynowego](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Ulepsz swoje tłumaczenia dzięki wykorzystaniu neuronowego tłumaczenia maszynowego (NMT) dostarczanego przez rozszerzenie Custom Translator.       |
+|[Zastosuj technologię tłumaczenia maszynowego neuronowych](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Popraw tłumaczenie, stosując tłumaczenia maszynowego neuronowych (NMT) udostępniane przez translatora niestandardowego.       |
 |[Tworzenie systemów, które znają terminologię biznesową użytkownika](what-are-parallel-documents.md)     |  Dostosowywanie i tworzenie systemów tłumaczenia przy użyciu równoległych dokumentów, które rozumieją terminologie używane w firmie i w branży.       |
 |[Używanie słownika do tworzenia modeli](what-is-dictionary.md)     |   Jeśli nie masz zestawu danych szkoleniowych, możesz trenować model przy użyciu tylko danych słownika.       |
 |[Współpraca z innymi](how-to-manage-settings.md#share-your-workspace)     |   Współpracuj ze swoim zespołem, udostępniając swoją pracę różnym osobom.     |
@@ -52,7 +59,7 @@ W przypadku korzystania z rozszerzenia [Custom Translator](https://portal.custom
 
 Przy użyciu bezpiecznego portalu rozszerzenia [Custom Translator](https://portal.customtranslator.azure.ai) użytkownicy mogą przekazywać dane szkoleniowe, szkolić systemy, testować systemy i wdrażać je w środowisku produkcyjnym za pośrednictwem intuicyjnego interfejsu użytkownika. System będzie następnie dostępny do użytku na dużą skalę w ciągu kilku godzin (rzeczywisty czas zależy od rozmiaru danych szkoleniowych).
 
-Dostęp do rozszerzenia [Custom Translator](https://portal.customtranslator.azure.ai) może być również uzyskiwany programowo za pośrednictwem [dedykowanego interfejsu API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (obecnie w wersji zapoznawczej). Interfejs API umożliwia użytkownikom zarządzanie tworzeniem lub aktualizowanie szkolenia w regularnych odstępach czasu za pośrednictwem ich własnych aplikacji lub usługi internetowej.
+Dostęp do rozszerzenia [Custom Translator](https://portal.customtranslator.azure.ai) może być również uzyskiwany programowo za pośrednictwem [dedykowanego interfejsu API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (obecnie w wersji zapoznawczej). Interfejs API umożliwia użytkownikom zarządzanie tworzeniem lub aktualizowaniem szkoleń przy użyciu własnej aplikacji lub usługi sieci Web.
 
 Koszt używania modelu niestandardowego do tłumaczenia zawartości zależy od warstwy cenowej interfejsu API tłumaczenia tekstu w usłudze Translator użytkownika. Aby uzyskać szczegóły warstwy cenowej, zobacz [stronę internetową cennika interfejsu API tłumaczenia tekstu w usłudze Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

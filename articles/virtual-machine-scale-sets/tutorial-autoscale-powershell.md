@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
 ms.openlocfilehash: 8ee124f866a5241620671ff84c24f3713f62efe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078473"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell
@@ -65,7 +65,7 @@ Za pomocą polecenia [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insig
 
 W tej regule są używane następujące parametry:
 
-| Parametr               | Objaśnienie                                                                                                         | Wartość          |
+| Parametr               | Wyjaśnienie                                                                                                         | Wartość          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-Metricname*           | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
 | *-TimeGrain*            | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta       |
@@ -206,7 +206,7 @@ mstsc /v 52.168.121.216:50002
 
 Po zalogowaniu do drugiego wystąpienia maszyny wirtualnej powtórz poprzednie kroki, aby pobrać i uruchomić narzędzie *CPUSTRES.EXE*. Ponownie zaznacz pole **Active** (Aktywny) dla obu wątków i ustaw ich aktywność na opcję *Maximum* (Maksymalna).
 
-Aby narzędzie**CPU Stress** mogło kontynuować działanie, pozostaw otwarte obie sesje połączenia pulpitu zdalnego.
+Aby narzędzie **CPU Stress** mogło kontynuować działanie, pozostaw otwarte obie sesje połączenia pulpitu zdalnego.
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorowanie aktywnych reguł skalowania automatycznego

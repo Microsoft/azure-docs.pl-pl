@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579295"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Skonfiguruj zachowanie uczenia personalizacji
@@ -43,7 +43,7 @@ Aby dodać personalizację do aplikacji, należy wywołać interfejsy API rangi 
 
 1. Użyj istniejącej logiki biznesowej, aby obliczyć **wynagrodzenie** wyświetlonej akcji. Wartość musi należeć do zakresu od 0 do 1. Wyślij to wynagrodzenie do narzędzia Personalizacja przy użyciu [interfejsu API nagradzania](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). Wartość nagrody nie jest oczekiwana natychmiast i można ją opóźniać w okresie czasu — w zależności od logiki biznesowej.
 
-1. Jeśli nie zwrócisz nagrody w skonfigurowanym **czasie oczekiwania na poczekanie** , zamiast tego zostanie użyte domyślne wynagrodzenie.
+1. Jeśli nie zwrócisz nagrody w skonfigurowanym **czasie oczekiwania na poczekanie**, zamiast tego zostanie użyte domyślne wynagrodzenie.
 
 ## <a name="evaluate-apprentice-mode"></a>Oceń tryb praktykanta
 
@@ -52,10 +52,10 @@ W Azure Portal na stronie **oceny** zasobu personalizacji Przejrzyj **bieżącą
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający ocenę zachowania uczenia się w trybie nauczania w Azure Portal](media/settings/evaluate-apprentice-mode.png)
 
-Tryb praktykanta zapewnia następujące **metryki oceny** :
-* **Linia bazowa — średnia wynagrodzenie** : średnie nagrody wartości domyślnej (linii bazowej) aplikacji.
-* **Personalizacja — średnia Nagroda** : Średnia z całkowitego nagrody personalizacji byłaby prawdopodobnie osiągnięta.
-* **Stosunek liczby osiągnięć do najnowszych zdarzeń 1000** : stosunek linii bazowej i personalizacji, która została znormalizowana, w porównaniu z najnowszymi zdarzeniami 1000.
+Tryb praktykanta zapewnia następujące **metryki oceny**:
+* **Linia bazowa — średnia wynagrodzenie**: średnie nagrody wartości domyślnej (linii bazowej) aplikacji.
+* **Personalizacja — średnia Nagroda**: Średnia z całkowitego nagrody personalizacji byłaby prawdopodobnie osiągnięta.
+* **Stosunek liczby osiągnięć do najnowszych zdarzeń 1000**: stosunek linii bazowej i personalizacji, która została znormalizowana, w porównaniu z najnowszymi zdarzeniami 1000.
 
 ## <a name="switch-behavior-to-online-mode"></a>Przełącz zachowanie do trybu online
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: d201f80aea2c22e1bee06c776d2a84fb69f2bd7d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92452604"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FluxX Labs
@@ -141,7 +141,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu pokazujący sekcję "Ustawienia" z wybraną pozycją "Administrator".](./media/fluxxlabs-tutorial/config1.png)
 
-3. W panelu administratora wybierz opcję integracje dodatków **plug-in**,  >  **Integrations** a następnie wybierz pozycję **SAML SSO — (wyłączone).**
+3. W panelu administratora wybierz opcję integracje dodatków **plug-in**,  >   a następnie wybierz pozycję **SAML SSO — (wyłączone).**
 
     ![Zrzut ekranu pokazujący kartę "integracje" z wybraną opcją "S A M L s s O-(disabled).](./media/fluxxlabs-tutorial/config2.png)
 

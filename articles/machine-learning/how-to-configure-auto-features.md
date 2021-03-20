@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610305"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Cechowania danych w zautomatyzowanej usłudze Machine Learning
@@ -65,11 +65,11 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 
 |Cechowania &nbsp; kroki| Opis |
 | ------------- | ------------- |
-|**Porzuć wysoką Kardynalność lub brak funkcji wariancji** _ |Porzuć te funkcje z poziomu szkoleń i zestawów walidacji. Dotyczy funkcji mających wszystkie brakujące wartości, o tej samej wartości we wszystkich wierszach lub o dużej kardynalności (na przykład skrótów, identyfikatorów lub identyfikatorów GUID).|
-|_*Brak wartości w postaci kalkulacyjne**_ |W przypadku funkcji liczbowych można obliczyć wartości w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
-|_*Generuj więcej funkcji**_ |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> _For prognozowania zadań, * są tworzone następujące dodatkowe funkcje DateTime: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, AM/PM (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (stawka 12-HR)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
-|**Przekształć i Koduj** _|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
-|*Osadzenie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu wstępnie nauczonego modelu. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
+|**Porzuć wysoką Kardynalność lub brak funkcji wariancji*** |Porzuć te funkcje z poziomu szkoleń i zestawów walidacji. Dotyczy funkcji mających wszystkie brakujące wartości, o tej samej wartości we wszystkich wierszach lub o dużej kardynalności (na przykład skrótów, identyfikatorów lub identyfikatorów GUID).|
+|**Brak wartości w postaci kalkulacyjne*** |W przypadku funkcji liczbowych można obliczyć wartości w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
+|**Generuj więcej funkcji** _ |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> _For prognozowania zadań, * są tworzone następujące dodatkowe funkcje DateTime: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, AM/PM (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (stawka 12-HR)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
+|**Przekształcanie i kodowanie***|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
+|**Osadzanie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu wstępnie nauczonego modelu. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
 |**Odległość klastra**|Pociąga k-oznacza model klastra dla wszystkich kolumn liczbowych. Tworzy *k* nowe funkcje (jedna nowa funkcja liczbowa na klaster), które zawierają odległość poszczególnych próbek do centroida każdego klastra.|
 
 ## <a name="data-guardrails"></a>Guardrails danych

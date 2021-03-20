@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525499"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590470"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Wdrażanie i Konfigurowanie certyfikatów urzędu certyfikacji przedsiębiorstwa na potrzeby wersji zapoznawczej usługi Azure firewall
 
@@ -42,7 +42,7 @@ Aby użyć urzędu certyfikacji przedsiębiorstwa do wygenerowania certyfikatu d
 1. Uzyskaj dostęp do witryny rejestracji w sieci Web w głównym urzędzie certyfikacji, zazwyczaj `https://<servername>/certsrv` i wybierz pozycję **Żądaj certyfikatu**.
 1. Wybierz pozycję **Zaawansowane żądanie certyfikatu**.
 1. Wybierz pozycję **Utwórz i prześlij żądanie do tego urzędu certyfikacji**.
-1. Wypełnij formularz przy użyciu szablonu podrzędnego urzędu certyfikacji, jak pokazano poniżej:
+1. Wypełnij formularz przy użyciu szablonu podrzędnego urzędu certyfikacji.
 1. Prześlij żądanie i Zainstaluj certyfikat.
 1. Przy założeniu, że to żądanie jest nawiązywane z serwera z systemem Windows przy użyciu programu Internet Explorer, Otwórz **Opcje internetowe**.
 1. Przejdź do karty **zawartość** i wybierz pozycję **Certyfikaty**.

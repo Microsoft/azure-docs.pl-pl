@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: a43c1092cd916877b24fc145ed05c92f50127cca
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92452732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Samouczek: integracja Azure Active Directory z FM: systemy
@@ -188,7 +188,7 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 4. W sekcji **Create User** (Tworzenie użytkownika) wykonaj następujące kroki:
    
-    ![Utwórz użytkownika](./media/fm-systems-tutorial/ic795907.png "Utwórz użytkownika")
+    ![Tworzenie użytkownika](./media/fm-systems-tutorial/ic795907.png "Utwórz użytkownika")
    
     a. Wpisz **nazwę użytkownika**, **hasło**, **Potwierdź hasło**, **adres E-mail** i **identyfikator pracownika** dla prawidłowego konta Azure Active Directory, które chcesz udostępnić do powiązanych pól tekstowych.
    

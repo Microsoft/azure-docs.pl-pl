@@ -12,10 +12,10 @@ ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96170926"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania narzędzia administracyjnego TheAccessHub z Azure Active Directory B2C
@@ -94,7 +94,7 @@ Aby autoryzować narzędzie administracyjne TheAccessHub do uzyskiwania dostępu
 
 1. Zaloguj się do narzędzia administracyjnego TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **System Admin**  >  **Azure AD B2C konfiguracji** administratora systemu
+2. Przejdź do   >  **Azure AD B2C konfiguracji** administratora systemu
 
 3. Wybierz opcję **Autoryzuj połączenie**
 
@@ -194,7 +194,7 @@ Uprawnienia do zarządzania użytkownikami klienta i CSR/pomoc techniczna w narz
 
 1. Zaloguj się do narzędzia administracyjnego TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **Manager Tools**  >  **widoku drzewa** narzędzi Menedżera
+2. Przejdź do   >  **widoku drzewa** narzędzi Menedżera
 
 3. W tej reprezentacji można wizualizować, które współpracownicy i grupy mogą zarządzać organizacjami.
 
@@ -210,7 +210,7 @@ Aby dostosować powiadomienie:
 
 1. Zaloguj się do TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **powiadomień administratora systemu**  >  **Notifications**
+2. Przejdź do **powiadomień administratora systemu**  >  
 
 3. Wybieranie **szablonu tworzenia współpracownika**
 
@@ -228,7 +228,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
 1. Zaloguj się do narzędzia administracyjnego TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **System Admin**  >  **źródeł danych** administratora systemu
+2. Przejdź do   >  **źródeł danych** administratora systemu
 
 3. Wybierz pozycję **Dodaj źródło danych**
 
@@ -290,7 +290,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
 1. Zaloguj się do narzędzia administracyjnego TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **System Admin**  >  **synchronizacji danych** administratora systemu
+2. Przejdź do   >  **synchronizacji danych** administratora systemu
 
 3. Wybierz **nowe obciążenie**
 
@@ -332,7 +332,7 @@ Aby synchronizować dane z Azure AD B2C do narzędzia administracyjnego TheAcces
 
 1. Zaloguj się do narzędzia administracyjnego TheAccessHub przy użyciu poświadczeń dostarczonych przez N8 tożsamość
 
-2. Przejdź do **System Admin**  >  **synchronizacji danych** administratora systemu
+2. Przejdź do   >  **synchronizacji danych** administratora systemu
 
 3. Wybierz **nowe obciążenie**
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87292934"
 ---
 # <a name="go-live"></a>Przejdź na żywo
@@ -30,10 +30,10 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład `contoso`       |  Ciąg       |
 | offerId        | Identyfikator oferty oferty do pobrania                                   |  Ciąg       |
-| api-version    | Najnowsza wersja interfejsu API                                                   |  Date         |
+| api-version    | Najnowsza wersja interfejsu API                                                   |  Date (Data)         |
 |  |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 ------
 
 |  **Nazwa**       |     **Wartość**       |

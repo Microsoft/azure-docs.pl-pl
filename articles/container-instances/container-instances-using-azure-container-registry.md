@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736733"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
@@ -18,9 +18,9 @@ ms.locfileid: "92736733"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-**Rejestr kontenerów platformy Azure** : potrzebny jest rejestr kontenerów platformy Azure — i co najmniej jeden obraz kontenera w rejestrze — aby wykonać kroki opisane w tym artykule. Jeśli potrzebujesz rejestru, zobacz [Tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Rejestr kontenerów platformy Azure**: potrzebny jest rejestr kontenerów platformy Azure — i co najmniej jeden obraz kontenera w rejestrze — aby wykonać kroki opisane w tym artykule. Jeśli potrzebujesz rejestru, zobacz [Tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Interfejs wiersza polecenia platformy Azure** : przykładowe przykłady w tym artykule służą do korzystania z [interfejsu CLI platformy Azure](/cli/azure/) i są sformatowane dla powłoki bash. [Interfejs wiersza polecenia platformy Azure można zainstalować](/cli/azure/install-azure-cli) lokalnie lub użyć [Azure Cloud Shell][cloud-shell-bash].
+**Interfejs wiersza polecenia platformy Azure**: przykładowe przykłady w tym artykule służą do korzystania z [interfejsu CLI platformy Azure](/cli/azure/) i są sformatowane dla powłoki bash. [Interfejs wiersza polecenia platformy Azure można zainstalować](/cli/azure/install-azure-cli) lokalnie lub użyć [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Argument `--role` w poprzednim poleceniu konfiguruje jednostkę usługi z rolą *acrpull* , co spowoduje przyznanie dostępu tylko do ściągania do rejestru. Aby przyznać prawa dostępu do wypychania i ściągania, należy zmienić argument `--role` na wartość *acrpush* .
+Argument `--role` w poprzednim poleceniu konfiguruje jednostkę usługi z rolą *acrpull*, co spowoduje przyznanie dostępu tylko do ściągania do rejestru. Aby przyznać prawa dostępu do wypychania i ściągania, należy zmienić argument `--role` na wartość *acrpush*.
 
 Następnie należy zapisać *identyfikator appid* jednostki usługi w magazynie, który jest **nazwą użytkownika** , która zostanie przekazana do Azure Container Registry na potrzeby uwierzytelniania.
 
@@ -147,9 +147,9 @@ Jeśli przechowujesz obrazy kontenerów w usłudze Azure Container Registry, mo�
 
 1. W Azure Portal przejdź do rejestru kontenerów.
 
-1. Aby upewnić się, że konto administratora jest włączone, wybierz pozycję **klucze dostępu** , a w obszarze **administrator** wybierz pozycję **Włącz** .
+1. Aby upewnić się, że konto administratora jest włączone, wybierz pozycję **klucze dostępu**, a w obszarze **administrator** wybierz pozycję **Włącz**.
 
-1. Wybierz pozycję **repozytoria** , a następnie wybierz repozytorium, z którego chcesz wykonać wdrożenie, kliknij prawym przyciskiem myszy tag obrazu kontenera, który chcesz wdrożyć, a następnie wybierz polecenie **Uruchom wystąpienie** .
+1. Wybierz pozycję **repozytoria**, a następnie wybierz repozytorium, z którego chcesz wykonać wdrożenie, kliknij prawym przyciskiem myszy tag obrazu kontenera, który chcesz wdrożyć, a następnie wybierz polecenie **Uruchom wystąpienie**.
 
     !["Uruchom wystąpienie" w Azure Container Registry w Azure Portal][acr-runinstance-contextmenu]
 

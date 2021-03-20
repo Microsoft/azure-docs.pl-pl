@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
 ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91275425"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Zarządzanie regułami zapory dla Azure Database for PostgreSQL-ze skalowaniem (Citus)
@@ -30,18 +30,18 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 
 1. Na stronie Grupa serwerów PostgreSQL w obszarze nagłówek zabezpieczeń kliknij pozycję **Sieć** , aby otworzyć reguły zapory.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure Portal — karta sieciowa":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure Portal — kliknij pozycję Sieć":::
 
 2. Kliknij przycisk **Dodaj bieżący adres IP klienta** , aby utworzyć regułę zapory z publicznym adresem IP komputera, jak zostało to postrzegane przez system Azure.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal — karta sieciowa":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal kliknij pozycję Dodaj adres IP klienta":::
 
 Alternatywnie, kliknięcie **+ Dodaj 0.0.0.0-255.255.255.255** (z prawej strony opcji B) umożliwia nie tylko adres IP, ale cały Internet umożliwia dostęp do portu 5432 węzła koordynatora. W takiej sytuacji klienci nadal muszą zalogować się przy użyciu prawidłowej nazwy użytkownika i hasła w celu korzystania z klastra. Niemniej jednak zalecamy zezwolenie na dostęp na całym świecie tylko dla krótkich okresów i tylko dla baz danych nieprodukcyjnych.
 
 3. Sprawdź swój adres IP przed zapisaniem konfiguracji. W niektórych sytuacjach adres IP zaobserwowany przez Azure Portal różni się od adresu IP używanego podczas uzyskiwania dostępu do Internetu i serwerów platformy Azure. W związku z tym może zajść potrzeba zmiany początkowego adresu IP i końcowego adresu IP, aby zapewnić działanie reguły zgodnie z oczekiwaniami.
    Użyj wyszukiwarki lub innego narzędzia online do sprawdzenia własnego adresu IP. Na przykład wyszukaj ciąg "co to jest mój adres IP".
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Azure Portal — karta sieciowa":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Wyszukiwanie w usłudze Bing — mój adres IP":::
 
 4. Dodaj dodatkowe zakresy adresów. W regułach zapory można określić pojedynczy adres IP lub zakres adresów. Jeśli chcesz ograniczyć regułę do pojedynczego adresu IP, wpisz ten sam adres w polu dla początkowy adres IP i końcowy adres IP. Otwarcie zapory umożliwia administratorom, użytkownikom i aplikacjom dostęp do węzła koordynatora na porcie 5432.
 

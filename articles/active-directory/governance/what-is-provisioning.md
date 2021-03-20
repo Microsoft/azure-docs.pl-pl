@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96172456"
 ---
 # <a name="what-is-provisioning"></a>Co to jest aprowizacja?
@@ -26,7 +26,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji to procesy, które z
 
 Na przykład po dołączeniu nowego pracownika do organizacji ten pracownik jest wprowadzany do systemu kadr.  W tym momencie Inicjowanie obsługi **z** usługi HR **do** Azure Active Directory (Azure AD) może utworzyć odpowiednie konto użytkownika w usłudze Azure AD. Aplikacje, które wysyłają zapytania do usługi Azure AD, mogą zobaczyć konto dla tego nowego pracownika.  Jeśli istnieją aplikacje, które nie korzystają z usługi Azure AD, Inicjowanie obsługi administracyjnej **z** usługi Azure AD **do** baz danych aplikacji zapewnia użytkownikom dostęp do wszystkich aplikacji, do których użytkownik będzie potrzebował dostępu.  Ten proces umożliwia użytkownikowi uruchomienie pracy i uzyskanie dostępu do aplikacji i systemów, których potrzebują.  Podobnie, gdy ich właściwości, takie jak stan działu lub zatrudnienia, zmieniają się w systemie kadr, synchronizacja tych aktualizacji z systemu kadr do usługi Azure AD, a także do innych aplikacji i docelowych baz danych, zapewnia spójność.
 
-Usługa Azure AD obecnie udostępnia trzy obszary automatycznej aprowizacji.  Oto one:  
+Usługa Azure AD obecnie udostępnia trzy obszary automatycznej aprowizacji.  Są to:  
 
 - Inicjowanie obsługi administracyjnej niekatalogowego autorytatywnego systemu rekordów w usłudze Azure AD przy użyciu funkcji udostępniania na podstawie **[kadr](#hr-driven-provisioning)**  
 - Inicjowanie obsługi administracyjnej z usługi Azure AD do aplikacji przy użyciu funkcji **[aprowizacji aplikacji](#app-provisioning)**  

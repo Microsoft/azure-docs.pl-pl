@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97510502"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania środowiska App Service Environment
@@ -95,7 +95,7 @@ Aby tunelować cały ruch wychodzący ze środowiska ASE, z wyjątkiem tego wych
 
 3. Pobierz adres, który będzie używany dla całego ruchu wychodzącego ze środowiska App Service Environment do Internetu. Jeśli ruch jest przekierowywany lokalnie, te adresy pochodzą z translatora adresów sieciowych (NAT) lub są adresami IP bramy. Jeśli ruch wychodzący środowiska App Service Environment ma być kierowany przez urządzenie NVA, adres ruchu wychodzącego to publiczny adres IP urządzenia NVA.
 
-4. _Aby ustawić adresy ruchu wychodzącego w istniejącym App Service Environment:_ Przejdź do resources.azure.com i przejdź do pozycji subskrypcja/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Znajdziesz tam informacje w formacie JSON z opisem Twojego środowiska App Service Environment. Upewnij się, że u góry jest wyświetlana informacja **read/write** (odczyt/zapis). Wybierz pozycję **Edit** (Edytuj). Przewiń do samego dołu. Zmień ustawienie pozycji **userWhitelistedIpRanges** z wartości **null** na wartość podobną do następującej. Użyj adresów, które chcesz ustawić jako zakres adresów ruchu wychodzącego. 
+4. _Aby ustawić adresy ruchu wychodzącego w istniejącym App Service Environment:_ Przejdź do resources.azure.com i przejdź do pozycji subskrypcja/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Znajdziesz tam informacje w formacie JSON z opisem Twojego środowiska App Service Environment. Upewnij się, że u góry jest wyświetlana informacja **read/write** (odczyt/zapis). Wybierz pozycję **Edytuj**. Przewiń do samego dołu. Zmień ustawienie pozycji **userWhitelistedIpRanges** z wartości **null** na wartość podobną do następującej. Użyj adresów, które chcesz ustawić jako zakres adresów ruchu wychodzącego. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]

@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak utworzyć statyczny publiczny adres IP dla ruchu wychodzącego w klastrze usługi Azure Kubernetes Service (AKS) i korzystać z niego
 services: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726550"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592374"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego z *podstawową* usługą równoważenia obciążenia SKU w usłudze Azure Kubernetes Service (AKS)
 
-Domyślnie adres IP ruchu wychodzącego z klastra usługi Azure Kubernetes Service (AKS) jest losowo przypisywany. Ta konfiguracja nie jest idealna, gdy konieczne jest zidentyfikowanie adresu IP w celu uzyskania dostępu do usług zewnętrznych, na przykład. Zamiast tego może być konieczne przypisanie statycznego adresu IP do listy dozwolonych w celu uzyskania dostępu do usługi.
+Domyślnie adres IP ruchu wychodzącego z klastra usługi Azure Kubernetes Service (AKS) jest losowo przypisywany. Ta konfiguracja nie jest idealna, gdy konieczne jest zidentyfikowanie adresu IP w celu uzyskania dostępu do usług zewnętrznych, na przykład. Zamiast tego może być konieczne przypisanie statycznego adresu IP do elementu dozwolonych w celu uzyskania dostępu do usługi.
 
 W tym artykule opisano sposób tworzenia i używania statycznego publicznego adresu IP do użycia z ruchem wychodzącym w klastrze AKS.
 
@@ -107,7 +107,7 @@ Aby sprawdzić, czy statyczny publiczny adres IP jest używany, można użyć us
 Rozpocznij i Dołącz do podstawowego *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Aby uzyskać dostęp do witryny sieci Web z poziomu kontenera, użyj `apt-get` do zainstalowania `curl` w kontenerze.

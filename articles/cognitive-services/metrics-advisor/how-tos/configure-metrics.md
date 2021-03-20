@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048257"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Instrukcje: Konfigurowanie metryk i dostrajanie konfiguracji wykrywania
@@ -43,9 +43,9 @@ Metryka może zastosować co najmniej jedną konfigurację wykrywania. Istnieje 
 
 Ta konfiguracja zostanie zastosowana do wszystkich serii w tej metryce, z wyjątkiem tych, które mają osobną konfigurację. Konfiguracja poziomu metryki jest stosowana domyślnie podczas dołączania danych i jest wyświetlana na panelu po lewej stronie. Użytkownicy mogą bezpośrednio edytować konfigurację poziomu metryk na stronie metryki. 
 
-Istnieją dodatkowe parametry, takie jak **kierunek**i **prawidłowe anomalie** , których można użyć do dokładniejszego dostosowania konfiguracji. Można również łączyć różne metody wykrywania. 
+Istnieją dodatkowe parametry, takie jak **kierunek** i **prawidłowe anomalie** , których można użyć do dokładniejszego dostosowania konfiguracji. Można również łączyć różne metody wykrywania. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Wybierz metrykę" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Kombinacja konfiguracji" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>Dostosuj konfigurację dla określonej serii lub grupy
 
@@ -53,7 +53,7 @@ Kliknij pozycję **Konfiguracja zaawansowana** poniżej opcji konfiguracja pozio
 
 Ta konfiguracja zostanie zastosowana do grupy serii lub określonej serii zamiast konfiguracji poziomu metryki. Po ustawieniu warunków dla tej grupy Zapisz ją.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Wybierz metrykę" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Konfiguracja zaawansowana" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>Metody wykrywania anomalii
 
@@ -68,11 +68,11 @@ W trybie wykrywania inteligentnego parametry czułości i wersji granicy są uż
 
 Czułość może wpływać na szerokość oczekiwanego zakresu wartości każdego punktu. Po zwiększeniu oczekiwany zakres wartości będzie większy i zostanie zgłoszonych więcej anomalii:
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Inteligentne wykrywanie z wysoką czułością":::
 
 Gdy czułość jest wyłączona, oczekiwany zakres wartości będzie szerszy i zostanie zgłoszonych mniej anomalii:
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Inteligentne wykrywanie z niską czułością":::
 
 **Próg zmiany** 
 
@@ -85,16 +85,16 @@ Wykonaj następujące kroki, aby użyć tego trybu:
 
 1. Wybierz pozycję **Zmień próg** jako metodę wykrywania anomalii, gdy ustawisz konfiguracje wykrywania anomalii dla metryk lub szeregów czasowych.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="Wybierz metrykę":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="próg zmiany":::
 
 2. Wybierz **poza zakres** lub parametr **zakres w** oparciu o twój scenariusz.
 
     Jeśli chcesz wykryć wahania, zaznacz **poza zakresem**. Na przykład z poniższymi ustawieniami wszystkie punkty danych, które zmieniają się ponad 10% w porównaniu z poprzednią, zostaną wykryte jako elementy odstające.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="Wybierz metrykę":::
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="parametr poza zakresem":::
 
     Jeśli chcesz wykryć linie płaskie w danych, wybierz **zakres**. Na przykład z poniższymi ustawieniami każdy punkt danych, który zmienia się w ciągu 0,01% w porównaniu do poprzedniej, zostanie wykryty jako element odstający. Ponieważ próg jest tak mały (0,01%), wykrywa płaskie linie w danych jako elementy odstające.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Wybierz metrykę":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="W parametrze zakresu":::
 
 3. Ustaw wartość procentową zmiany, która będzie liczona jako anomalia i które wcześniej przechwycone punkty danych zostaną użyte do porównania. To porównanie jest zawsze między bieżącym punktem danych, a jeden punkt danych N wskazuje przed nim.
     
@@ -117,7 +117,7 @@ Czasami oczekiwane zdarzenia i wystąpienia (takie jak dni wolne) mogą generowa
 
 Kliknij przycisk **Konfiguruj wstępnie ustawiony zdarzenie** obok listy rozwijanej metryki na każdej stronie szczegółów metryk.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="przycisk zdarzenia wstępnego":::
 
 W wyświetlonym oknie Skonfiguruj opcje zgodnie z użyciem. Upewnij się, że wybrano **opcję Włącz zdarzenie urlopowe** , aby użyć konfiguracji. 
 
@@ -146,7 +146,7 @@ Nie wszystkie opcje są dostępne dla każdego stopnia szczegółowości. Dostę
 | Poziom szczegółowości | Zatrudnienia | Program | WoW | DoD |
 |:-|:-|:-|:-|:-|
 | Rocznie | X | X | X | X |
-| Co miesiąc | X | X | X | X |
+| Miesięcznie | X | X | X | X |
 | Co tydzień | ✔ | X | X | X |
 | Codziennie | ✔ | ✔ | ✔ | X |
 | Godzinowe | ✔ | ✔ | ✔ | ✔ |
@@ -161,7 +161,7 @@ X — niedostępne.
 
 Zdarzenie cykliczne służy do zmniejszania anomalii, jeśli są one zgodne ze wzorcem cyklicznym, ale zgłasza anomalię, jeśli wiele punktów danych nie jest zgodnych ze wzorcem. **Tryb Strict** jest używany do włączania raportowania anomalii, jeśli nawet jeden punkt danych nie jest zgodny ze wzorcem. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="Wybierz metrykę":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="Konfiguracja wstępnie ustawionych zdarzeń":::
 
 ## <a name="view-recent-incidents"></a>Wyświetlanie ostatnich zdarzeń
 

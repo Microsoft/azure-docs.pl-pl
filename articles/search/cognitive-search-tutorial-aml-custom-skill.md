@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98745637"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Przykład: Kompiluj i Wdróż niestandardową umiejętność za pomocą Azure Machine Learning 
@@ -41,7 +41,7 @@ Dostępne są dwa zestawy danych. Jeśli chcesz samodzielnie szkolić model, wym
 * [Konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Obszar roboczy usługi Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 * Klonowanie lub pobieranie zawartości [przykładowego repozytorium](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 * Wyodrębnij zawartość, jeśli pobieranie jest plikiem zip. Upewnij się, że pliki są do odczytu i zapisu.

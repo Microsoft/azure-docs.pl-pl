@@ -7,10 +7,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/25/2020
 ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92676113"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Zarządzanie środowiskiem usługi integracji (ISE) w usłudze Azure Logic Apps
@@ -25,9 +25,9 @@ W tym artykule pokazano, jak wykonywać zadania zarządzania dla [środowiska us
 
 ## <a name="view-your-ise"></a>Wyświetlanie ISE
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W polu wyszukiwania portalu wprowadź "środowiska usługi integracji", a następnie wybierz pozycję **środowiska usługi integracji** .
+1. W polu wyszukiwania portalu wprowadź "środowiska usługi integracji", a następnie wybierz pozycję **środowiska usługi integracji**.
 
    ![Znajdź środowiska usługi integracji](./media/ise-manage-integration-service-environment/find-integration-service-environment.png)
 
@@ -41,7 +41,7 @@ W tym artykule pokazano, jak wykonywać zadania zarządzania dla [środowiska us
 
 ## <a name="check-network-health"></a>Sprawdź kondycję sieci
 
-W menu ISE w obszarze **Ustawienia** wybierz pozycję **kondycja sieci** . W tym okienku jest wyświetlany stan kondycji podsieci i zależności wychodzące z innych usług.
+W menu ISE w obszarze **Ustawienia** wybierz pozycję **kondycja sieci**. W tym okienku jest wyświetlany stan kondycji podsieci i zależności wychodzące z innych usług.
 
 ![Sprawdź kondycję sieci](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
 
@@ -59,11 +59,11 @@ W menu ISE w obszarze **Ustawienia** wybierz pozycję **kondycja sieci** . W tym
 
 Aplikacje logiki można wyświetlać i zarządzać nimi, które znajdują się w ISE.
 
-1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Aplikacje logiki** .
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Aplikacje logiki**.
 
    ![Wyświetlanie aplikacji logiki](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. Aby usunąć aplikacje logiki, które nie są już potrzebne w ISE, wybierz te aplikacje logiki, a następnie wybierz pozycję **Usuń** . Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak** .
+1. Aby usunąć aplikacje logiki, które nie są już potrzebne w ISE, wybierz te aplikacje logiki, a następnie wybierz pozycję **Usuń**. Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak**.
 
 > [!NOTE]
 > Jeśli usuniesz i utworzysz ponownie podrzędną aplikację logiki, musisz ponownie zapisać nadrzędną aplikację logiki. Ponownie utworzona aplikacja podrzędna będzie miała inne metadane.
@@ -75,11 +75,11 @@ Aplikacje logiki można wyświetlać i zarządzać nimi, które znajdują się w
 
 Można wyświetlać i zarządzać połączeniami utworzonymi przez aplikacje logiki działające w ISE.
 
-1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **połączenia interfejsu API** .
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **połączenia interfejsu API**.
 
    ![Wyświetlanie połączeń interfejsu API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
 
-1. Aby usunąć połączenia, które nie są już potrzebne w ISE, wybierz te połączenia, a następnie wybierz pozycję **Usuń** . Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak** .
+1. Aby usunąć połączenia, które nie są już potrzebne w ISE, wybierz te połączenia, a następnie wybierz pozycję **Usuń**. Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak**.
 
 <a name="manage-api-connectors"></a>
 
@@ -87,11 +87,11 @@ Można wyświetlać i zarządzać połączeniami utworzonymi przez aplikacje log
 
 Można wyświetlać łączniki interfejsu API wdrożone w ISE i zarządzać nimi.
 
-1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki zarządzane** .
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki zarządzane**.
 
    ![Wyświetlanie łączników zarządzanych](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
 
-1. Aby usunąć łączniki, które nie mają być dostępne w ISE, wybierz te łączniki, a następnie wybierz pozycję **Usuń** . Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak** .
+1. Aby usunąć łączniki, które nie mają być dostępne w ISE, wybierz te łączniki, a następnie wybierz pozycję **Usuń**. Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak**.
 
 <a name="find-custom-connectors"></a>
 
@@ -99,21 +99,21 @@ Można wyświetlać łączniki interfejsu API wdrożone w ISE i zarządzać nimi
 
 Można wyświetlać łączniki niestandardowe wdrożone w ISE i zarządzać nimi.
 
-1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki niestandardowe** .
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki niestandardowe**.
 
    ![Znajdowanie łączników niestandardowych](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. Aby usunąć łączniki niestandardowe, które nie są już potrzebne w ISE, wybierz te łączniki, a następnie wybierz pozycję **Usuń** . Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak** .
+1. Aby usunąć łączniki niestandardowe, które nie są już potrzebne w ISE, wybierz te łączniki, a następnie wybierz pozycję **Usuń**. Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak**.
 
 <a name="find-integration-accounts"></a>
 
 ## <a name="manage-integration-accounts"></a>Zarządzanie kontami integracji
 
-1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **konta integracji** .
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **konta integracji**.
 
    ![Znajdowanie kont integracji](./media/ise-manage-integration-service-environment/ise-find-integration-accounts.png)
 
-1. Aby usunąć konta integracji z usługi ISE, gdy nie są już potrzebne, wybierz te konta integracji, a następnie wybierz pozycję **Usuń** .
+1. Aby usunąć konta integracji z usługi ISE, gdy nie są już potrzebne, wybierz te konta integracji, a następnie wybierz pozycję **Usuń**.
 
 <a name="add-capacity"></a>
 
@@ -123,11 +123,11 @@ Jednostka bazowa ISE Premium ma stałą pojemność, więc jeśli potrzebujesz w
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do ISE.
 
-1. Aby sprawdzić metryki użycia i wydajności dla ISE, w menu ISE wybierz pozycję **Przegląd** .
+1. Aby sprawdzić metryki użycia i wydajności dla ISE, w menu ISE wybierz pozycję **Przegląd**.
 
    ![Wyświetl użycie dla ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
 
-1. W obszarze **Ustawienia** wybierz pozycję **Skaluj w poziomie** . W okienku **Konfigurowanie** wybierz jedną z następujących opcji:
+1. W obszarze **Ustawienia** wybierz pozycję **Skaluj w poziomie**. W okienku **Konfigurowanie** wybierz jedną z następujących opcji:
 
    * [**Skalowanie ręczne**](#manual-scale): skalowanie w oparciu o liczbę jednostek przetwarzania, których chcesz użyć.
    * [**Niestandardowe automatyczne skalowanie**](#custom-autoscale): skalowanie w oparciu o metryki wydajności, wybierając spośród różnych kryteriów i określając warunki progowe spełniające te kryteria.
@@ -142,7 +142,7 @@ Jednostka bazowa ISE Premium ma stałą pojemność, więc jeśli potrzebujesz w
 
    ![Wybierz odpowiedni typ skalowania](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
 
-1. Po zakończeniu wybierz pozycję **Zapisz** .
+1. Po zakończeniu wybierz pozycję **Zapisz**.
 
 <a name="custom-autoscale"></a>
 
@@ -152,23 +152,23 @@ Jednostka bazowa ISE Premium ma stałą pojemność, więc jeśli potrzebujesz w
 
    ![Podaj nazwę ustawienia automatycznego skalowania i wybierz grupę zasobów](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
 
-1. W przypadku warunku **domyślnego** wybierz opcję **skalowanie na podstawie metryki** lub **skali do określonej liczby wystąpień** .
+1. W przypadku warunku **domyślnego** wybierz opcję **skalowanie na podstawie metryki** lub **skali do określonej liczby wystąpień**.
 
    * Jeśli wybierzesz opcję oparty na wystąpieniu, wprowadź liczbę jednostek przetwarzania, która jest wartością z przedziału od 0 do 10.
 
    * W przypadku wybrania opcji opartych na pomiarach wykonaj następujące czynności:
 
-     1. W sekcji **reguły** wybierz pozycję **Dodaj regułę** .
+     1. W sekcji **reguły** wybierz pozycję **Dodaj regułę**.
 
      1. W okienku **reguła skalowania** Skonfiguruj swoje kryteria i akcję, które mają być wykonywane po wyzwoleniu reguły.
 
      1. W obszarze **limity wystąpień** określ następujące wartości:
 
-        * **Minimum** : minimalna liczba jednostek przetwarzania do użycia
-        * **Maksimum** : Maksymalna liczba jednostek przetwarzania do użycia
-        * **Domyślnie** : Jeśli wystąpią problemy podczas odczytywania metryk zasobów, a bieżąca pojemność jest mniejsza niż domyślna pojemność, Skalowanie automatyczne jest skalowane do domyślnej liczby jednostek przetwarzania. Jeśli jednak bieżąca pojemność przekracza pojemność domyślną, Skalowanie automatyczne nie jest skalowane.
+        * **Minimum**: minimalna liczba jednostek przetwarzania do użycia
+        * **Maksimum**: Maksymalna liczba jednostek przetwarzania do użycia
+        * **Domyślnie**: Jeśli wystąpią problemy podczas odczytywania metryk zasobów, a bieżąca pojemność jest mniejsza niż domyślna pojemność, Skalowanie automatyczne jest skalowane do domyślnej liczby jednostek przetwarzania. Jeśli jednak bieżąca pojemność przekracza pojemność domyślną, Skalowanie automatyczne nie jest skalowane.
 
-1. Aby dodać kolejny warunek, wybierz pozycję **Dodaj warunek skalowania** .
+1. Aby dodać kolejny warunek, wybierz pozycję **Dodaj warunek skalowania**.
 
 1. Po zakończeniu korzystania z ustawień automatycznego skalowania Zapisz zmiany.
 
@@ -180,7 +180,7 @@ W przypadku zmiany ustawień serwera DNS lub serwera DNS należy ponownie urucho
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do ISE.
 
-1. W menu ISE wybierz pozycję **Przegląd** . Na pasku narzędzi przegląd **Uruchom ponownie** program.
+1. W menu ISE wybierz pozycję **Przegląd**. Na pasku narzędzi przegląd **Uruchom ponownie** program.
 
    ![Uruchom ponownie środowisko usługi integracji](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
 

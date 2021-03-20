@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 6ccf755a73cafa4b855f602aa18246d710e5e1ff
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Samouczek: integracja Azure Active Directory z usługą ENVI MMIS
@@ -158,7 +158,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Envi MMIS,
 
     c. Kliknij przycisk **OK**.
 
-7. Po przekazaniu pobranego pliku metadanych pola zostaną automatycznie wypełnione. Kliknij przycisk **Aktualizuj**
+7. Po przekazaniu pobranego pliku metadanych pola zostaną automatycznie wypełnione. Kliknij pozycję **Update** (Aktualizuj)
 
     ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure6.png)
 

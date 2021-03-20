@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96030836"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
@@ -135,7 +135,7 @@ Tak, wartość czasu wygaśnięcia jest obsługiwana.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Jak mogę monitorować infrastrukturę wraz z przepływem?
 
-Azure Cosmos DB to usługa platformy, która pozwala zwiększyć produktywność i nie martwić się o zarządzanie i monitorowanie infrastruktury. Na przykład nie trzeba monitorować stanu węzła, stanu repliki, GC i parametrów systemu operacyjnego wcześniej przy użyciu różnych narzędzi. Wystarczy zadbać o przepływność, która jest dostępna w metrykach portalu, aby zobaczyć, czy masz ograniczenie przepustowości, a następnie zwiększyć lub zmniejszyć tę przepływność. Możesz:
+Azure Cosmos DB to usługa platformy, która pozwala zwiększyć produktywność i nie martwić się o zarządzanie i monitorowanie infrastruktury. Na przykład nie trzeba monitorować stanu węzła, stanu repliki, GC i parametrów systemu operacyjnego wcześniej przy użyciu różnych narzędzi. Wystarczy zadbać o przepływność, która jest dostępna w metrykach portalu, aby zobaczyć, czy masz ograniczenie przepustowości, a następnie zwiększyć lub zmniejszyć tę przepływność. Oto co możesz zrobić:
 
 - Monitorowanie [umowy SLA](./monitor-cosmos-db.md)
 - Korzystanie z [metryk](use-metrics.md)

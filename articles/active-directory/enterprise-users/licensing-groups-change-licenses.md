@@ -17,17 +17,17 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 050ae95c79e7ecb98f8508c2fdb41b90fc1b1da0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546543"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmień przypisania licencji dla użytkownika lub grupy w Azure Active Directory
 
 W tym artykule opisano sposób przenoszenia użytkowników i grup między planami licencji usługi w Azure Active Directory (Azure AD). Podejście do usługi Azure AD ma na celu upewnienie się, że podczas zmiany licencji nie utracisz usługi ani danych. Użytkownicy powinni bezproblemowo przełączać się między usługami. W krokach przydziału planu licencji w tym artykule opisano zmianę użytkownika lub grupy w pakiecie Office 365 E1 na pakiet Office 365 E3, ale kroki dotyczą wszystkich planów licencji. Podczas aktualizowania przypisań licencji dla użytkownika lub grupy, usuwanie przypisania licencji i nowe przypisania są wprowadzane jednocześnie, aby użytkownicy nie utracili dostępu do swoich usług podczas zmian licencji lub zobaczą konflikty licencji między planami.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed zaktualizowaniem przypisań licencji należy sprawdzić, czy pewne założenia są spełnione dla wszystkich użytkowników lub grup, które mają zostać zaktualizowane. Jeśli założenia nie są spełnione dla wszystkich użytkowników w grupie, migracja może zakończyć się niepowodzeniem. W związku z tym niektórzy użytkownicy mogą utracić dostęp do usług lub danych. Upewnij się, że:
 

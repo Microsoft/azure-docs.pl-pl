@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 9b64dc95c6ee00a834c2741b30026df7350780c0
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657360"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Przewodnik migracji: dostęp do Azure SQL Database
 
@@ -42,17 +42,58 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
 1. Otwórz Asystent migracji do programu SQL Server, aby uzyskać dostęp. 
 1. Wybierz pozycję **plik** , a następnie wybierz pozycję **Nowy projekt**. Podaj nazwę projektu migracji. 
-1. Wybierz pozycję **Dodaj bazy danych** i wybierz bazy danych, które mają zostać dodane do nowego projektu
+
+   ![Wybierz nowy projekt](./media/access-to-sql-database-guide/new-project.png)
+
+1. Wybierz pozycję **Dodaj bazy danych** i wybierz bazy danych, które mają zostać dodane do nowego projektu. 
+
+   ![Wybierz pozycję Dodaj bazy danych](./media/access-to-sql-database-guide/add-databases.png)
+
 1. W **Eksploratorze metadanych programu Access** kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Utwórz raport**. 
+
+   ![Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie Utwórz raport.](./media/access-to-sql-database-guide/create-report.png)
+
 1. Zapoznaj się z przykładową oceną. Na przykład: 
+
+   ![Zapoznaj się z przykładową oceną raportu](./media/access-to-sql-database-guide/sample-assessment.png)
+
+### <a name="validate-data-types"></a>Sprawdzanie poprawności typów danych
+
+Sprawdź poprawność domyślnych mapowań typu danych i zmień je w zależności od wymagań, jeśli jest to konieczne. W tym celu wykonaj następujące czynności:
+
+1. Wybierz pozycję **Narzędzia** z menu. 
+1. Wybierz pozycję **Ustawienia projektu**. 
+1. Wybierz kartę **mapowania typu** . 
+
+   ![Mapowania typów](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. Można zmienić mapowanie typu dla każdej tabeli, wybierając tabelę w **Eksploratorze metadanych dostępu**.
+
 
 ### <a name="convert-schema"></a>Konwertuj schemat
 
 Aby skonwertować obiekty bazy danych, wykonaj następujące kroki: 
 
 1. Wybierz pozycję **Połącz z Azure SQL Database** i podaj szczegóły połączenia.
-1. Kliknij prawym przyciskiem myszy bazę danych w **Eksploratorze metadanych programu Access** i wybierz polecenie **Konwertuj schemat**.  
-1. Obowiązkowe Aby skonwertować pojedynczy obiekt, kliknij prawym przyciskiem myszy obiekt i wybierz polecenie **Konwertuj schemat**. Obiekt, który został przekonwertowany, pojawia się pogrubiony w **Eksploratorze metadanych dostępu**: 
+
+   ![Łączenie z bazą danych Azure SQL Database](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+
+1. Kliknij prawym przyciskiem myszy bazę danych w **Eksploratorze metadanych programu Access** i wybierz polecenie **Konwertuj schemat**. Alternatywnie możesz wybrać opcję **Konwertuj schemat** z górnego paska nawigacyjnego po wybraniu bazy danych.
+
+   ![Kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie Konwertuj schemat](./media/access-to-sql-database-guide/convert-schema.png)
+
+   Porównaj przekonwertowane zapytania z oryginalnymi zapytaniami: 
+
+   ![Skonwertowane zapytania można porównać z kodem źródłowym](./media/access-to-sql-database-guide/query-comparison.png)
+
+   Porównaj przekonwertowane obiekty z oryginalnymi obiektami: 
+
+   ![Skonwertowane obiekty można porównać ze źródłem](./media/access-to-sql-database-guide/table-comparison.png)
+
+1. Obowiązkowe Aby skonwertować pojedynczy obiekt, kliknij prawym przyciskiem myszy obiekt i wybierz polecenie **Konwertuj schemat**. Skonwertowane obiekty są pogrubione w **Eksploratorze metadanych dostępu**: 
+
+   ![Przekonwertowane obiekty pogrubione w Eksploratorze metadanych](./media/access-to-sql-database-guide/converted-items.png)
+ 
 1. Wybierz pozycję **przegląd wyników** w okienku dane wyjściowe i Przejrzyj błędy w okienku **Lista błędów** . 
 
 
@@ -64,9 +105,28 @@ Aby przeprowadzić migrację danych przy użyciu usługi ASYSTENCIE migracji w c
 
 1. Jeśli jeszcze tego nie zrobiono, wybierz pozycję **Połącz z Azure SQL Database** i podaj szczegóły połączenia. 
 1. Kliknij prawym przyciskiem myszy bazę danych w **Eksploratorze metadanych Azure SQL Database** i wybierz polecenie **Synchronizuj z bazą danych**. Ta akcja powoduje opublikowanie schematu MySQL w Azure SQL Database.
+
+   ![Synchronizuj z bazą danych](./media/access-to-sql-database-guide/synchronize-with-database.png)
+
+   Przejrzyj mapowanie między projektem źródłowym a obiektem docelowym:
+
+   ![Przegląd synchronizacji z bazą danych](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+
 1. Użyj **Eksploratora metadanych dostępu** , aby zaznaczyć pola obok elementów, które chcesz zmigrować. Jeśli chcesz migrować całą bazę danych, zaznacz pole wyboru obok bazy danych. 
 1. Kliknij prawym przyciskiem myszy bazę danych lub obiekt, który chcesz zmigrować, a następnie wybierz polecenie **Migruj dane**. 
    Aby migrować dane dla całej bazy danych, zaznacz pole wyboru obok nazwy bazy danych. Aby przeprowadzić migrację danych z pojedynczych tabel, rozwiń bazę danych, rozwiń węzeł tabele, a następnie zaznacz pole wyboru obok tabeli. Aby pominąć dane z poszczególnych tabel, wyczyść to pole wyboru.
+
+    ![Migrowanie danych](./media/access-to-sql-database-guide/migrate-data.png)
+
+    Przejrzyj zmigrowane dane: 
+
+    ![Migrowanie przeglądu danych](./media/access-to-sql-database-guide/migrate-data-review.png)
+
+1. Połącz się z Azure SQL Database przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) i sprawdź poprawność migracji, przeglądając dane i schemat.
+
+   ![Weryfikuj w ASYSTENCIE migracji](./media/access-to-sql-database-guide/validate-data.png)
+
+
 
 ## <a name="post-migration"></a>Po migracji 
 

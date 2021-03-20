@@ -1,17 +1,17 @@
 ---
-title: Zarządzanie połączeniami w Azure Functions
+title: Zarządzanie połączeniami w usłudze Azure Functions
 description: Dowiedz się, jak uniknąć problemów z wydajnością w Azure Functions przy użyciu klientów połączeń statycznych.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
 ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936706"
 ---
-# <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w Azure Functions
+# <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w usłudze Azure Functions
 
 Działa w ramach zasobów funkcji udział aplikacji. Wśród tych udostępnionych zasobów są połączenia: połączenia HTTP, połączenia baz danych i połączenia z usługami, takimi jak Azure Storage. Gdy wiele funkcji jest uruchomionych współbieżnie, możliwe jest wypróbowanie dostępnych połączeń. W tym artykule wyjaśniono, jak zakodować funkcje, aby uniknąć używania większej liczby połączeń niż te, które są im potrzebne.
 

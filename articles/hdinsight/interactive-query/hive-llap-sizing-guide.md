@@ -8,10 +8,10 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931103"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Przewodnik dotyczący zmiany wielkości klastra interakcyjnych zapytań usługi Azure HDInsight (Hive LLAP)
@@ -26,9 +26,9 @@ W tym dokumencie opisano rozmiar klastra interakcyjnych zapytań usługi HDInsig
 | Odpowiedzialn   | **D14 v2**        | **16 procesorów wirtualnych vCPU, 112 GB pamięci RAM, dysk SSD 800 GB**       |
 | ZooKeeper   | A4 v2        | 4 procesorów wirtualnych vCPU, 8 GB pamięci RAM, dysk SSD 40 GB       |
 
-**_Uwaga: wszystkie zalecane wartości konfiguracji są oparte na węźle procesu roboczego D14 v2 o typie_* _  
+***Uwaga: wszystkie zalecane wartości konfiguracji są oparte na węźle procesu roboczego typu D14 v2***  
 
-### <a name="_configuration"></a>_ *Konfiguracja:**    
+### <a name="configuration"></a>**Skonfigurować**    
 | Klucz konfiguracji      | Zalecana wartość  | Opis |
 | :---        |    :----:   | :---     |
 | przędzy. nodemanager. Resource. Memory-MB | 102400 (MB) | Całkowita ilość pamięci wyrażona w MB dla wszystkich kontenerów PRZĘDZy w węźle | 
@@ -52,59 +52,59 @@ W tym dokumencie opisano rozmiar klastra interakcyjnych zapytań usługi HDInsig
 ### <a name="llap-daemon-size-estimations"></a>**Oszacowania rozmiaru demona LLAP:** 
 
 #### <a name="1-determining-total-yarn-memory-allocation-for-all-containers-on-a-node"></a>**1. Określanie całkowitej alokacji pamięci PRZĘDZy dla wszystkich kontenerów w węźle**    
-Konfiguracja: **_przędzy. nodemanager. Resource. Memory-MB_* _  
+Konfiguracja: ***przędzy. nodemanager. Resource. Memory-MB***  
 
 Ta wartość wskazuje maksymalną ilość pamięci (w MB), która może być używana przez kontenery PRZĘDZy w każdym węźle. Określona wartość powinna być mniejsza niż całkowita ilość pamięci fizycznej w tym węźle.   
 Całkowita ilość pamięci dla wszystkich kontenerów PRZĘDZy w węźle = (całkowita ilość pamięci fizycznej — pamięć dla systemu operacyjnego i innych usług)  
 Ustaw tę wartość na ~ 90% dostępnej wielkości pamięci RAM.  
-W przypadku D14 v2 zalecaną wartością jest _ * 102400 MB * *. 
+W przypadku D14 v2 zalecaną wartością jest **102400 MB**. 
 
 #### <a name="2-determining-maximum-amount-of-memory-per-yarn-container-request"></a>**2. Określanie maksymalnej ilości pamięci na żądanie kontenera PRZĘDZy**  
-Konfiguracja: **_przędz. Scheduler. Maximum-Allocation-MB_* _
+Konfiguracja: ***przędz. Scheduler. Maximum-Allocation-MB***
 
-Ta wartość wskazuje maksymalną alokację dla każdego żądania kontenera w Menedżer zasobów w MB. Żądania pamięci wyższe niż określona wartość nie zostaną zastosowane. Menedżer zasobów może zapewniać pamięć do kontenerów z przyrostami _yarn. Scheduler. minimalna alokacja-MB * i nie może przekraczać rozmiaru określonego przez *przędzę. Scheduler. Maximum-Allocation-MB*. Określona wartość nie powinna być większa niż całkowita ilość danej pamięci dla wszystkich kontenerów w węźle określonym przez *przędzę. nodemanager. Resource. Memory-MB*.    
+Ta wartość wskazuje maksymalną alokację dla każdego żądania kontenera w Menedżer zasobów w MB. Żądania pamięci wyższe niż określona wartość nie zostaną zastosowane. Menedżer zasobów może zapewniać pamięć do kontenerów z przyrostem *przędzy. Scheduler. minimalna alokacja MB* i nie może przekraczać rozmiaru określonego przez *przędzę. Scheduler. Maximum-Allocation-MB*. Określona wartość nie powinna być większa niż całkowita ilość danej pamięci dla wszystkich kontenerów w węźle określonym przez *przędzę. nodemanager. Resource. Memory-MB*.    
 W przypadku węzłów procesu roboczego z D14 v2 zalecaną wartością jest **102400 MB**
 
 #### <a name="3-determining-maximum-amount-of-vcores-per-yarn-container-request"></a>**3. Określanie maksymalnej ilości rdzeni wirtualnych na żądanie kontenera PRZĘDZy**  
-Konfiguracja: **_przędz. Scheduler. Maximum-Allocation-rdzeni wirtualnych_* _  
+Konfiguracja: ***przędz. Scheduler. Maximum-Allocation-rdzeni wirtualnych***  
 
 Ta wartość wskazuje maksymalną liczbę rdzeni procesora CPU dla każdego żądania kontenera w Menedżer zasobów. Żądanie większej liczby rdzeni wirtualnych niż ta wartość zacznie obowiązywać. Jest to globalna Właściwość harmonogramu PRZĘDZy. Dla kontenera demona LLAP ta wartość może być ustawiona na 75% całkowitej dostępnej rdzeni wirtualnych. Pozostałe 25% powinno być zarezerwowane dla węzłów Nodemanager, datanode i innych usług uruchomionych w węzłach procesu roboczego.  
 Na maszynach wirtualnych z systemem D14 v2 jest 16 rdzeni wirtualnych oraz 75% całkowitej 16 rdzeni wirtualnych może być używany przez kontener demona LLAP.  
-W przypadku D14 v2 zalecaną wartością jest _ * 12 * *.  
+W przypadku D14 v2 zalecaną wartością jest **12**.  
 
 #### <a name="4-number-of-concurrent-queries"></a>**4. liczba współbieżnych zapytań**  
-Konfiguracja: **_Hive. serwer2. tez. Sessions. per. default. Queue_*
+Konfiguracja: ***Hive. serwer2. tez. Sessions. per. default. Queue***
 
 Ta wartość konfiguracji określa liczbę sesji tez, które mogą być uruchamiane równolegle. Te sesje tez będą uruchamiane dla każdej z kolejek określonych przez "Hive. serwer2. tez. default. Queues". Odnosi się do liczby tez AMs (koordynatorów zapytań). Zaleca się, aby była taka sama jak liczba węzłów procesu roboczego. Liczba tez AMs może być większa niż liczba węzłów demona LLAP. Główną odpowiedzialnością tez jest koordynowanie wykonywania zapytania i przypisywanie fragmentów planu zapytania do odpowiednich demonów LLAP do wykonania. Zachowaj tę wartość jako wielokrotność wielu węzłów demona LLAP, aby uzyskać większą przepływność.  
 
-Domyślny klaster usługi HDInsight ma cztery demoy LLAP uruchomione w czterech węzłach procesu roboczego, więc zalecana wartość to _ * 4 * *.  
+Domyślny klaster usługi HDInsight ma cztery demoy LLAP uruchomione w czterech węzłach procesu roboczego, więc zalecana wartość to **4**.  
 
 **Suwak interfejsu użytkownika Ambari dla zmiennej konfiguracyjnej Hive `hive.server2.tez.sessions.per.default.queue` :**
 
 !["Maksymalna liczba współbieżnych zapytań" LLAP "](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP Maksymalna liczba współbieżnych zapytań")
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. tez kontener i rozmiar główny aplikacji tez**    
-Konfiguracja: **_tez. am. Resource. Memory. MB, Hive. tez. Container. size_* _  
+Konfiguracja: ***tez. am. Resource. Memory. MB, Hive. tez. Container. size***  
 
-_tez. am. Resource. Memory. MB * — definiuje rozmiar główny aplikacji tez.  
+*tez. am. Resource. Memory. MB* — definiuje rozmiar główny aplikacji tez.  
 Zalecana wartość to **4096 MB**.
    
 *Hive. tez. Container. size* — definiuje ilość pamięci podaną dla kontenera tez. Ta wartość musi być ustawiona między minimalnym rozmiarem kontenera PRZĘDZy (*przędzy. Scheduler. minimalna liczba alokacji: MB*) i maksymalny rozmiar kontenera przędzy (*przędz. Scheduler. Maximum-Allocation-MB*). Program wykonujący demona LLAP korzysta z tej wartości, aby ograniczyć użycie pamięci na wykonawcę.  
 Zalecana wartość to **4096 MB**.  
 
 #### <a name="6-llap-queue-capacity-allocation"></a>**6. alokacja pojemności kolejki LLAP**   
-Konfiguracja: **_przędz. Scheduler. pojemność. root. llap. Pojemność_* _  
+Konfiguracja: ***przędz. Scheduler. pojemność. root. llap. Pojemność***  
 
 Ta wartość wskazuje procent pojemności dla kolejki llap. Alokacje pojemności mogą mieć różne wartości dla różnych obciążeń, w zależności od konfiguracji kolejek PRZĘDZy. Jeśli obciążenie jest operacją tylko do odczytu, należy ustawić ją tak, aby 90% pojemności była zadziałała. Jeśli jednak obciążenie jest mieszane z operacji aktualizowania/usuwania/scalania przy użyciu tabel zarządzanych, zaleca się przyznanie 85% pojemności dla kolejki llap. Pozostałe 15% pojemności może być używane przez inne zadania, takie jak kompaktowanie itp., aby przydzielić kontenery z kolejki domyślnej. Dzięki temu zadania w kolejce domyślnej nie pozbawienia zasobów PRZĘDZy.    
 
-Dla węzłów procesu roboczego D14v2 zalecaną wartością dla kolejki llap jest _ * 85 * *.     
+Dla węzłów procesu roboczego D14v2 zalecaną wartością dla kolejki llap jest **85**.     
 (W przypadku obciążeń w trybie tylko do odczytu można zwiększyć do 90 w odpowiedni sposób).  
 
 #### <a name="7-llap-daemon-container-size"></a>**7. rozmiar kontenera demona LLAP**    
-Konfiguracja: **_Hive. llap. Demon. przędz. Container. MB_* _  
+Konfiguracja: ***Hive. llap. Demon. przędz. Container. MB***  
    
 Demon LLAP jest uruchamiany jako kontener PRZĘDZy w każdym węźle procesu roboczego. Łączny rozmiar pamięci dla kontenera demona LLAP zależy od następujących czynników:    
-_ Konfiguracje rozmiaru kontenera PRZĘDZy (przędzy. Scheduler. minimalna alokacja — MB, przędzy. Scheduler. Maximum-Allocation-MB, przędzy. nodemanager. Resource. Memory-MB)
+*  Konfiguracje rozmiaru kontenera PRZĘDZy (przędzy. Scheduler. minimalna alokacja — MB, przędzy. Scheduler. Maximum-Allocation-MB, przędzy. nodemanager. Resource. Memory-MB)
 *  Liczba tez AMs w węźle
 *  Całkowita ilość pamięci skonfigurowanej dla wszystkich kontenerów w węźle i pojemności kolejki LLAP  
 
@@ -112,11 +112,11 @@ Pamięć wymagana przez wzorce aplikacji tez (tez AM) można obliczyć w następ
 Tez działa jako koordynator zapytań, a liczba tez AMs powinna być skonfigurowana na podstawie wielu współbieżnych zapytań, które mają być obsługiwane. Teoretycznie można rozważyć jedno tez AM na węzeł procesu roboczego. Jednak może być widoczny więcej niż jeden tez AM w węźle procesu roboczego. Na potrzeby obliczeń przyjęto jednolite dystrybucję usługi tez AMs we wszystkich węzłach/węzłach demona LLAP/procesów roboczych.
 Zalecane jest posiadanie 4 GB pamięci na tez AM.  
 
-Liczba tez AMS = wartość określona przez gałąź config ***Hive. serwer2. tez. Sessions. per. default. Queue**.  
-Liczba węzłów demona LLAP = określona przez zmienną ENV _*_num_llap_nodes_for_llap_daemons_*_ w interfejsie użytkownika Ambari.  
-Tez AM rozmiar kontenera = wartość określona przez tez config _*_tez. am. Resource. Memory. MB_*_.  
+Liczba tez AMS = wartość określona przez gałąź konfiguracji Hive ***. serwer2. tez. Sessions. per. default. Queue***.  
+Liczba węzłów demona LLAP = określona przez zmienną ENV ***num_llap_nodes_for_llap_daemons*** w interfejsie użytkownika Ambari.  
+Tez AM rozmiar kontenera = wartość określona przez tez config ***tez. am. Resource. Memory. MB***.  
 
-Tez am pamięci na węzeł = _ *(** ceil — **(** liczba tez AMs = **/** Liczba węzłów demona LLAP **)** **x** tez rozmiar kontenera **)**  
+Tez am pamięci na węzeł = **(** ceil — **(** liczba numerów tez AMs **/** w węzłach demona LLAP **)** **x** tez rozmiar kontenera **)**  
 W przypadku wersji D14 v2 domyślna konfiguracja ma cztery tez AMs i cztery węzły demona LLAP.  
 Tez AM pamięci na węzeł = (ceil — (4/4) x 4 GB) = 4 GB
 
@@ -133,22 +133,25 @@ W przypadku węzła roboczego D14 v2 HDI 4,0 — Zalecana wartość to (85 GB-4 
 (W przypadku HDI 3,6 Zalecana wartość to **79 GB** , ponieważ należy zarezerwować dodatkowe ~ 2 GB dla suwaka am).  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. Określanie liczby programów wykonujących na demona LLAP**  
-Konfiguracja: **_hive.llap.daemon.num.executors_* _, _*_Hive. llap. IO. wątków. size_*_
+Konfiguracja: ***hive.llap.daemon.num.executors** _, _ *_Hive. llap. IO. wątków. size_**
 
-_*_Cutorshive.llap.daemon.num.exe_*_:   
+***Cutorshive.llap.daemon.num.exe***:   
 Ta konfiguracja określa liczbę modułów wykonujących, które mogą wykonywać równolegle zadania równoległe na demona LLAP. Ta wartość zależy od liczby rdzeni wirtualnych, ilości pamięci używanej na wykonawcę i ilości całkowitej dostępnej pamięci dla kontenera demona LLAP.    Liczba modułów wykonujących można zasubskrybować do 120% dostępnych rdzeni wirtualnych na węzeł procesu roboczego. Należy jednak dostosować ją, jeśli nie spełni wymagania dotyczącej pamięci na podstawie ilości pamięci wymaganej dla wykonawcy i rozmiaru kontenera demona LLAP.
 
 Każdy moduł wykonujący jest odpowiednikiem kontenera tez i może zużywać 4 GB (tez rozmiar kontenera) pamięci. Wszystkie wykonawcy w demonze LLAP mają tę samą pamięć sterty. Przy założeniu, że nie wszystkie wykonawcze uruchamiają operacje intensywnie korzystające z pamięci, można rozważyć 75% rozmiaru kontenera tez (4 GB) na wykonawcę. W ten sposób można zwiększyć liczbę modułów wykonujących, dając każdy programowi wykonującemu mniejszą ilość pamięci (np. 3 GB). Jednak zaleca się dostrojenie tego ustawienia dla docelowego obciążenia.
 
 Na maszynach wirtualnych z systemem D14 v2 jest 16 rdzeni wirtualnych.
-W przypadku D14 v2 Zalecana wartość dla liczby modułów wykonujących to (16 rdzeni wirtualnych x 120%) ~ = _ *19** na każdym węźle roboczym, biorąc pod uwagę włączoną na wykonawcę.
+W przypadku D14 v2 Zalecana wartość dla liczby modułów wykonujących to (16 rdzeni wirtualnych x 120%) ~ = **19** na każdym węźle roboczym, biorąc pod uwagę włączoną na wykonawcę.
 
-**_Hive. llap. IO. Hive. size_*_: Ta wartość określa rozmiar puli wątków dla wykonawców. Ponieważ wykonawcy są rozprawione jako określone, będzie taka sama jak liczba wykonawców na demona LLAP. W przypadku D14 v2 zalecaną wartością jest _* 19**.
+***Hive. llap. IO. wątków. size***:   
+Ta wartość określa rozmiar puli wątków dla modułów wykonujących. Ponieważ wykonawcy są rozprawione jako określone, będzie taka sama jak liczba wykonawców na demona LLAP.    
+W przypadku D14 v2 zalecaną wartością jest **19**.
 
 #### <a name="9-determining-llap-daemon-cache-size"></a>**9. Określanie rozmiaru pamięci podręcznej demona LLAP**  
-Konfiguracja: **_Hive. llap. IO. Memory. size_* _
+Konfiguracja: ***Hive. llap. IO. Memory. size***
 
-Pamięć kontenera demona LLAP składa się z następujących składników: Pomieszczenie głowy
+Pamięć kontenera demona LLAP składa się z następujących składników:
+*  Pokój główny
 *  Pamięć sterty używana przez program wykonujący (XMX)
 *  Pamięć podręczna w pamięci na demon (rozmiar pamięci poza stertą, nie ma zastosowania, gdy włączono pamięć podręczną dysków SSD)
 *  Rozmiar metadanych pamięci podręcznej w pamięci (ma zastosowanie tylko wtedy, gdy włączono pamięć podręczną SSD)
@@ -181,18 +184,18 @@ W przypadku D14 v2 i HDI 4,0 zalecany rozmiar pamięci podręcznej SSD = 19 GB/0
 W przypadku D14 v2 i HDI 3,6 zalecany rozmiar pamięci podręcznej SSD = 18 GB/0,08 ~ = **225 GB**
 
 #### <a name="10-adjusting-map-join-memory"></a>**10. Dostosowywanie pamięci przyłączania mapy**   
-Konfiguracja: **_Hive. Auto. Convert. Join. noconditionaltask. size_* _
+Konfiguracja: ***Hive. Auto. Convert. Join. noconditionaltask. size***
 
-Upewnij się, że masz _hive. Auto. Convert. Join. noconditionaltask * włączone, aby ten parametr zaczęł obowiązywać.
+Upewnij się, że masz włączoną funkcję *Hive. Auto. Convert. Join. noconditionaltask* , aby ten parametr zaczęł obowiązywać.
 Ta konfiguracja określa próg wyboru MapJoin przez optymalizator Hive, który traktuje nadsubskrypcję pamięci z innych programów wykonujących, aby uzyskać więcej miejsca dla tabel skrótów w pamięci, aby umożliwić większą konwersję sprzężeń map. Biorąc pod uwagę WŁĄCZONĄ na wykonawcę, ten rozmiar można zasubskrybować do WŁĄCZONĄ, ale niektóre pamięci sterty mogą być również używane w przypadku buforów sortowania, losowych buforów itp. i innych operacji.   
 W przypadku D14 v2 z 3 GB pamięci na wykonawcę zaleca się ustawienie tej wartości na **2048 MB**.  
 
 (Uwaga: Ta wartość może wymagać dopasowania, które są odpowiednie dla obciążenia. Ustawienie tej wartości za mało może nie używać funkcji autoConvert. Ustawienie zbyt wysokie może skutkować niektórymi wyjątkami pamięci lub zatrzymaniem GC, co może spowodować niekorzystny wpływ na wydajność.  
 
 #### <a name="11-number-of-llap-daemons"></a>**11. liczba demonów LLAP**
-Zmienne środowiskowe Ambari: **_num_llap_nodes, num_llap_nodes_for_llap_daemons_* _  
+Zmienne środowiskowe Ambari: ***num_llap_nodes, num_llap_nodes_for_llap_daemons***  
 
-_ *num_llap_nodes** — określa liczbę węzłów używanych przez usługę Hive llap. obejmuje to węzły z uruchomionym systemem llap demona, Llap Service Master i tez Application Master (tez am).  
+**num_llap_nodes** — określa liczbę węzłów używanych przez usługę Hive llap. obejmuje to węzły z uruchomionym systemem llap demona, Llap Service Master i tez Application Master (tez am).  
 
 !["Liczba węzłów usługi LLAP"](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "Liczba węzłów dla usługi LLAP")  
 

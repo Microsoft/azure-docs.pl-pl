@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316566"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
@@ -51,7 +51,7 @@ Jednostka reprezentuje koncepcję danych _w wypowiedź_. Celem jest sklasyfikowa
 
 Weź pod uwagę następujące cztery wyrażenia długości:
 
-|Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Objaśnienie|
+|Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Wyjaśnienie|
 |--|--|--|--|
 |Pomoc|Pomoc|-|Brak elementów do wyodrębnienia.|
 |Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|
@@ -102,7 +102,7 @@ Wybierz jednostkę na podstawie sposobu wyodrębniania danych i sposobu ich repr
 |Typ jednostki|Przeznaczenie|
 |--|--|
 |[**Komputer — informacje**](tutorial-machine-learned-entity.md)|Wyodrębnij zagnieżdżone, złożone dane uzyskane z przykładów z etykietami. |
-|[**Staw**](reference-entity-list.md)|Lista elementów i ich synonimy wyodrębnione z **dokładnym dopasowaniem do tekstu**.|
+|[**Lista**](reference-entity-list.md)|Lista elementów i ich synonimy wyodrębnione z **dokładnym dopasowaniem do tekstu**.|
 |[**Wzorzec. any**](#patternany-entity)|Jednostka, gdzie znalezienie końca jednostki jest trudne do ustalenia, ponieważ jednostka jest bezpłatna. Dostępne tylko w [wzorcach](luis-concept-patterns.md).|
 |[**Wstępnie utworzonych**](luis-reference-prebuilt-entities.md)|Jest już szkolony do wyodrębniania określonego rodzaju danych, takich jak adres URL lub wiadomość e-mail. Niektóre z tych wstępnie skompilowanych jednostek są zdefiniowane w projekcie typu "Open Source [" — tekst](https://github.com/Microsoft/Recognizers-Text) . Jeśli określona kultura lub jednostka nie jest obecnie obsługiwana, współtworzy projekt.|
 |[**Wyrażenie regularne**](reference-entity-regular-expression.md)|Używa wyrażenia regularnego do **dokładnego dopasowania tekstu**.|
