@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358460"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
@@ -124,11 +124,11 @@ Jeśli pracujesz w widoku kodu dla aplikacji logiki, możesz zdefiniować `Forea
 
 Domyślnie cykle w pętli "foreach" są uruchamiane równolegle. Aby uruchomić każdy cykl sekwencyjnie, ustaw opcję **Sekwencyjna** pętla. Pętle "foreach" muszą być uruchamiane sekwencyjnie, gdy istnieją zagnieżdżone pętle lub zmienne wewnątrz pętli, w których oczekiwano przewidywalnych wyników. 
 
-1. W prawym górnym rogu pętli wybierz pozycję **wielokropek** ( **...** ) > **Ustawienia**.
+1. W prawym górnym rogu pętli wybierz pozycję **wielokropek** (**...**) > **Ustawienia**.
 
    ![W pętli "foreach" Wybierz pozycję "..." > "Ustawienia"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. W obszarze **Kontrola współbieżności** Zmień ustawienie **Kontrola współbieżności** **na włączone**. Przenieś suwak **stopień równoległości** na **1** , a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola współbieżności** Zmień ustawienie **Kontrola współbieżności** **na włączone**. Przenieś suwak **stopień równoległości** na **1**, a następnie wybierz pozycję **gotowe**.
 
    ![Włącz kontrolę współbieżności](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -215,7 +215,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
    ![Dodaj akcję zwiększającą zmienną](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. W polu **Nazwa** wybierz zmienną **Limit** . Dla **wartości wprowadź wartość** "1". 
+1. W polu **Nazwa** wybierz zmienną **Limit** . Dla **wartości wprowadź wartość**"1". 
 
      ![Zwiększ wartość "limit" o 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -251,9 +251,9 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
 Pętla "until" powoduje zatrzymanie wykonywania na podstawie tych właściwości, więc upewnij się, że odpowiednio ustawisz odpowiednie wartości:
 
-* **Liczba** : Ta wartość to największa liczba pętli, które są uruchamiane przed wyjściem z pętli. W przypadku domyślnych i maksymalnych limitów liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Liczba**: Ta wartość to największa liczba pętli, które są uruchamiane przed wyjściem z pętli. W przypadku domyślnych i maksymalnych limitów liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Limit czasu** : Ta wartość jest największą ilością czasu uruchomienia pętli przed wyjściem i jest określona w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). W przypadku domyślnych i maksymalnych limitów wartości **limitu czasu** można znaleźć w temacie [ograniczenia współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Limit czasu**: Ta wartość jest największą ilością czasu uruchomienia pętli przed wyjściem i jest określona w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). W przypadku domyślnych i maksymalnych limitów wartości **limitu czasu** można znaleźć w temacie [ograniczenia współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony.
 

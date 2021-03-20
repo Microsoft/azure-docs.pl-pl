@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331808"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Szybki Start: Tworzenie wystąpienia trybu hybrydowego z Azure Portal & Azure Database Migration Service
@@ -55,7 +55,7 @@ Zarejestruj dostawcę zasobów Microsoft. datamigration przed utworzeniem pierws
 
     ![Wyszukaj dostawcę zasobów](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-search-resource-provider.png)
 
-2. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration**wybierz pozycję **zarejestruj**.
+2. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration** wybierz pozycję **zarejestruj**.
 
     ![Rejestrowanie dostawcy zasobów](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-register-resource-provider.png)
 
@@ -71,7 +71,7 @@ Zarejestruj dostawcę zasobów Microsoft. datamigration przed utworzeniem pierws
     - Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć wystąpienie.
     - Wybierz istniejącą **grupę zasobów** lub Utwórz nową.
     - Wybierz pozycję **Lokalizacja** położoną najbliżej Twojego serwera źródłowego lub docelowego.
-    - W obszarze **tryb usługi**wybierz pozycję **hybrydowe (wersja zapoznawcza)**.
+    - W obszarze **tryb usługi** wybierz pozycję **hybrydowe (wersja zapoznawcza)**.
 
          ![Tworzenie usługi migracji — podstawy](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
@@ -94,7 +94,7 @@ Zarejestruj dostawcę zasobów Microsoft. datamigration przed utworzeniem pierws
 Musisz utworzyć identyfikator rejestracji aplikacji platformy Azure, który może być używany przez lokalny proces roboczy, aby komunikować się z Azure Database Migration Service w chmurze.
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
-2. Określ nazwę aplikacji, a następnie w obszarze **obsługiwane typy kont**wybierz typ kont do obsługi, aby określić, kto może korzystać z aplikacji.
+2. Określ nazwę aplikacji, a następnie w obszarze **obsługiwane typy kont** wybierz typ kont do obsługi, aby określić, kto może korzystać z aplikacji.
 
     ![Azure Database Migration Service aplikacji do rejestrowania w trybie hybrydowym](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
 
@@ -116,7 +116,7 @@ Musisz utworzyć identyfikator rejestracji aplikacji platformy Azure, który mo�
 
 1. W Azure Portal przejdź do wystąpienia Azure Database Migration Service.
 
-2. W obszarze **Ustawienia**wybierz pozycję **hybrydowe**, a następnie wybierz pozycję **Pobierz instalatora** , aby pobrać hybrydowy proces roboczy.
+2. W obszarze **Ustawienia** wybierz pozycję **hybrydowe**, a następnie wybierz pozycję **Pobierz instalatora** , aby pobrać hybrydowy proces roboczy.
 
     ![Azure Database Migration Service pobierania hybrydowego procesu roboczego](media/quickstart-create-data-migration-service-hybrid-portal/dms-installer-download.png)
 
@@ -139,7 +139,7 @@ Musisz utworzyć identyfikator rejestracji aplikacji platformy Azure, który mo�
 
     ![Azure Database Migration Service certyfikat hybrydowego procesu roboczego](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. W Azure Portal przejdź do identyfikatora aplikacji, w obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**, a następnie wybierz pozycję **Przekaż certyfikat** , aby wybrać wygenerowany certyfikat publiczny.
+6. W Azure Portal przejdź do identyfikatora aplikacji, w obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**, a następnie wybierz pozycję **Przekaż certyfikat** , aby wybrać wygenerowany certyfikat publiczny.
 
     ![Azure Database Migration Service przekazywanie certyfikatu hybrydowego procesu roboczego](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 

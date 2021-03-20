@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
 ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93357049"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
@@ -36,7 +36,7 @@ Rozwiązanie bazy danych grafu można optymalnie zastosować, jeśli jednostki i
 * Między jednostkami istnieją **relacje wiele-do-wielu** .
 * Istnieją **zarówno wymagania dotyczące zapisu, jak i odczytu dotyczące jednostek i relacji**. 
 
-Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań** , **skalowalności modelu danych** i **wydajności zapytań**.
+Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań**, **skalowalności modelu danych** i **wydajności zapytań**.
 
 Następnym krokiem jest określenie, czy wykres ma być używany do celów analitycznych czy transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zbadać [Cosmos DB łącznika Spark](./spark-connector.md) i korzystać z [biblioteki GraphX](https://spark.apache.org/graphx/). 
 
@@ -72,11 +72,11 @@ Pierwszym krokiem dla modelu danych wykresu jest zamapowanie każdej identyfikow
 
 Jednym z typowych Pitfall jest mapowanie właściwości pojedynczej jednostki jako oddzielnych wierzchołków. Rozważmy poniższy przykład, w którym ta sama jednostka jest reprezentowana na dwa różne sposoby:
 
-* **Właściwości oparte na wierzchołku** : w tym podejściu jednostka używa trzech oddzielnych wierzchołków i dwóch krawędzi do opisywania właściwości. Chociaż takie podejście może zmniejszyć nadmiarowość, zwiększa złożoność modelu. Zwiększenie złożoności modelu może skutkować dodaniem opóźnienia, złożonością zapytania i kosztem obliczeniowym. Ten model może również przedstawiać wyzwania na partycjonowanie.
+* **Właściwości oparte na wierzchołku**: w tym podejściu jednostka używa trzech oddzielnych wierzchołków i dwóch krawędzi do opisywania właściwości. Chociaż takie podejście może zmniejszyć nadmiarowość, zwiększa złożoność modelu. Zwiększenie złożoności modelu może skutkować dodaniem opóźnienia, złożonością zapytania i kosztem obliczeniowym. Ten model może również przedstawiać wyzwania na partycjonowanie.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
 
-* **Wierzchołki osadzone właściwości** : to podejście wykorzystuje listę par klucz-wartość do reprezentowania wszystkich właściwości jednostki w wierzchołku. Ta metoda zapewnia ograniczoną złożoność modelu, która będzie prowadzić do uproszczenia zapytań i bardziej wydajnego przechodzenia.
+* **Wierzchołki osadzone właściwości**: to podejście wykorzystuje listę par klucz-wartość do reprezentowania wszystkich właściwości jednostki w wierzchołku. Ta metoda zapewnia ograniczoną złożoność modelu, która będzie prowadzić do uproszczenia zapytań i bardziej wydajnego przechodzenia.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram przedstawia wierzchołek Luis z poprzedniego diagramu z i d, etykietami i właściwościami." border="false":::
 

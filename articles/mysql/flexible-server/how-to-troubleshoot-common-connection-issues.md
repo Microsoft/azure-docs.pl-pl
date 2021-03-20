@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
 ms.openlocfilehash: b328da01cd3b2ecb3eb5f183296eab808de27399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90937276"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for MySQL-elastyczny serwer
@@ -33,7 +33,7 @@ W tym artykule omówiono sposób rozwiązywania niektórych typowych błędów i
 Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for MySQL elastycznym serwerze, zazwyczaj wskazuje problem z jedną z następujących czynności:
 
 * Szyfrowane połączenie przy użyciu protokołu TLS/SSL: elastyczny serwer obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2) i wszystkie **połączenia przychodzące z protokołem tls 1,0 i tls 1,1 zostaną odrzucone**. Nie można wyłączyć ani zmienić wersji protokołu TLS. Dowiedz się więcej o [łączności szyfrowanej przy użyciu Transport Layer Security (TLS 1,2) w Azure Database for MySQL-elastycznym serwerze](./how-to-connect-tls-ssl.md).
-- Elastyczny serwer w *dostępie prywatnym (Integracja*z siecią wirtualną): Upewnij się, że łączysz się z tej samej sieci wirtualnej co serwer elastyczny. Zapoznaj się z tematem [Sieć wirtualna w Azure Database for MySQL elastyczny serwer]<!--(./concepts-networking-virtual-network.md)-->
+- Elastyczny serwer w *dostępie prywatnym (Integracja* z siecią wirtualną): Upewnij się, że łączysz się z tej samej sieci wirtualnej co serwer elastyczny. Zapoznaj się z tematem [Sieć wirtualna w Azure Database for MySQL elastyczny serwer]<!--(./concepts-networking-virtual-network.md)-->
 - Elastyczny serwer z *dostępem publicznym (dozwolone adresy IP)* upewnij się, że Zapora jest skonfigurowana tak, aby zezwalać na połączenia z Twojego klienta. Zapoznaj się z tematem [Tworzenie i zarządzanie elastycznymi regułami zapory serwera przy użyciu Azure Portal](./how-to-manage-firewall-portal.md).
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak MySQL w niektórych zaporach.
 * Błąd użytkownika: być może masz błędne typy parametrów połączenia, takie jak nazwa serwera w parametrach połączenia.

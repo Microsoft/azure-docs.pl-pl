@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647600"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
@@ -366,7 +366,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 |TransformationMethod|Oczekiwane dane wejściowe|Oczekiwane dane wyjściowe|Opis|
 |-----|-----|-----|-----|
-|Join|ciąg1, ciąg2, separator|Oświadczenie outputclaim|Sprzęga ciągi wejściowe przy użyciu separatora między. Na przykład: ciąg1: " foo@bar.com ", ciąg2: "piaskownica", separator: "." powoduje w oświadczenie outputclaim: " foo@bar.com.sandbox "|
+|Dołączanie|ciąg1, ciąg2, separator|Oświadczenie outputclaim|Sprzęga ciągi wejściowe przy użyciu separatora między. Na przykład: ciąg1: " foo@bar.com ", ciąg2: "piaskownica", separator: "." powoduje w oświadczenie outputclaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|Adres e-mail lub nazwa UPN|wyodrębniony ciąg|ExtensionAttributes 1-15 lub wszystkie inne rozszerzenia schematu, które przechowują nazwę UPN lub adres e-mail użytkownika, np. johndoe@contoso.com . Wyodrębnia lokalną część adresu e-mail. Na przykład: mail: " foo@bar.com " powoduje oświadczenie outputclaim: "foo". Jeśli \@ znak nie jest obecny, oryginalny ciąg wejściowy jest zwracany w postaci, w jakiej jest.|
 
 **InputClaims:** Użyj elementu InputClaims, aby przekazać dane ze wpisu schematu roszczeń do transformacji. Ma dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
@@ -417,7 +417,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 | TransformationMethod | Ograniczenia |
 | ----- | ----- |
 | ExtractMailPrefix | Brak |
-| Join | Dołączony sufiks musi być zweryfikowaną domeną dzierżawy zasobu. |
+| Dołączanie | Dołączony sufiks musi być zweryfikowaną domeną dzierżawy zasobu. |
 
 ### <a name="custom-signing-key"></a>Niestandardowy klucz podpisywania
 
@@ -532,7 +532,7 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
 - Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

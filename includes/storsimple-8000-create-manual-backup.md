@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93375974"
 ---
 #### <a name="to-create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
@@ -25,11 +25,11 @@ ms.locfileid: "93375974"
 
         ![Utwórz ręczną kopię zapasową 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
-    2. Kliknij przycisk **OK** , aby uruchomić zadanie tworzenia migawki. Po pomyślnym utworzeniu zadania w górnej części strony zostanie wyświetlone powiadomienie.
+    2. Kliknij przycisk **OK**, aby uruchomić zadanie tworzenia migawki. Po pomyślnym utworzeniu zadania w górnej części strony zostanie wyświetlone powiadomienie.
 
         ![Utwórz ręczną kopię zapasową 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
-    3. Aby monitorować zadanie, kliknij powiadomienie. Spowoduje to przejście do bloku **Zadania** , w którym można wyświetlić postęp zadania.
+    3. Aby monitorować zadanie, kliknij powiadomienie. Spowoduje to przejście do bloku **Zadania**, w którym można wyświetlić postęp zadania.
 
 
 5. Po zakończeniu zadania tworzenia kopii zapasowej przejdź do karty **Katalog kopii zapasowej**.

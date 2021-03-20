@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576221"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Przesyłanie strumieniowe danych z Azure Storage Blob do Azure Data Lake Storage Gen1 przy użyciu Azure Stream Analytics
@@ -48,17 +48,17 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
     ![Zrzut ekranu przedstawiający blok BLOB Storage — nowe dane wejściowe.](./media/data-lake-store-stream-analytics/create.input.2.png "Dodawanie danych wejściowych do zadania")
 
-   * Dla **aliasu wejściowego**wprowadź unikatową nazwę dla danych wejściowych zadania.
-   * W obszarze **Typ źródła**wybierz pozycję **strumień danych**.
-   * W obszarze **Źródło**wybierz pozycję **Magazyn obiektów BLOB**.
-   * W obszarze **subskrypcja**wybierz pozycję **Użyj magazynu obiektów blob z bieżącej subskrypcji**.
-   * W polu **konto magazynu**wybierz konto magazynu utworzone w ramach wymagań wstępnych. 
-   * W polu **kontener**wybierz kontener utworzony na wybranym koncie magazynu.
-   * W obszarze **format serializacji zdarzenia**wybierz opcję **CSV**.
-   * Dla **ogranicznika**wybierz pozycję **Tab**.
-   * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
+   * Dla **aliasu wejściowego** wprowadź unikatową nazwę dla danych wejściowych zadania.
+   * W obszarze **Typ źródła** wybierz pozycję **strumień danych**.
+   * W obszarze **Źródło** wybierz pozycję **Magazyn obiektów BLOB**.
+   * W obszarze **subskrypcja** wybierz pozycję **Użyj magazynu obiektów blob z bieżącej subskrypcji**.
+   * W polu **konto magazynu** wybierz konto magazynu utworzone w ramach wymagań wstępnych. 
+   * W polu **kontener** wybierz kontener utworzony na wybranym koncie magazynu.
+   * W obszarze **format serializacji zdarzenia** wybierz opcję **CSV**.
+   * Dla **ogranicznika** wybierz pozycję **Tab**.
+   * W obszarze **kodowanie** wybierz pozycję **UTF-8**.
 
-     Kliknij przycisk **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Utwórz Data Lake Storage Gen1 dane wyjściowe dla zadania
@@ -71,22 +71,22 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
     ![Zrzut ekranu przedstawiający blok Data Lake Storage Gen 1-New Output z opcją Autoryzuj.](./media/data-lake-store-stream-analytics/create.output.2.png "Dodawanie danych wyjściowych do zadania")
 
-    * Dla **aliasu danych wyjściowych**wprowadź unikatową nazwę dla danych wyjściowych zadania. Jest to przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tego konta Data Lake Storage Gen1.
+    * Dla **aliasu danych wyjściowych** wprowadź unikatową nazwę dla danych wyjściowych zadania. Jest to przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tego konta Data Lake Storage Gen1.
     * Zostanie wyświetlony monit o autoryzację dostępu do konta Data Lake Storage Gen1. Kliknij przycisk **Autoryzuj**.
 
 3. W bloku **nowe dane wyjściowe** Kontynuuj udostępnianie następujących wartości.
 
     ![Zrzut ekranu przedstawiający blok Data Lake Storage Gen 1-New Output.](./media/data-lake-store-stream-analytics/create.output.3.png "Dodawanie danych wyjściowych do zadania")
 
-   * W polu **nazwa konta**wybierz już utworzone konto Data Lake Storage Gen1, do którego mają być wysyłane dane wyjściowe zadania.
-   * W polu **wzorzec prefiksu ścieżki**wprowadź ścieżkę pliku używaną do zapisywania plików w ramach określonego konta Data Lake Storage Gen1.
-   * W przypadku **formatu daty**w przypadku użycia tokenu daty w ścieżce prefiksu można wybrać format daty, w którym są zorganizowane pliki.
-   * W przypadku **formatu**czasu, jeśli w ścieżce prefiksowej użyto tokenu czasu, określ format czasu, w którym są zorganizowane pliki.
-   * W obszarze **format serializacji zdarzenia**wybierz opcję **CSV**.
-   * Dla **ogranicznika**wybierz pozycję **Tab**.
-   * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
+   * W polu **nazwa konta** wybierz już utworzone konto Data Lake Storage Gen1, do którego mają być wysyłane dane wyjściowe zadania.
+   * W polu **wzorzec prefiksu ścieżki** wprowadź ścieżkę pliku używaną do zapisywania plików w ramach określonego konta Data Lake Storage Gen1.
+   * W przypadku **formatu daty** w przypadku użycia tokenu daty w ścieżce prefiksu można wybrać format daty, w którym są zorganizowane pliki.
+   * W przypadku **formatu** czasu, jeśli w ścieżce prefiksowej użyto tokenu czasu, określ format czasu, w którym są zorganizowane pliki.
+   * W obszarze **format serializacji zdarzenia** wybierz opcję **CSV**.
+   * Dla **ogranicznika** wybierz pozycję **Tab**.
+   * W obszarze **kodowanie** wybierz pozycję **UTF-8**.
     
-     Kliknij przycisk **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
     
 ## <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
@@ -102,7 +102,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
 3. Aby wyzwolić zadanie w celu wybrania danych z obiektu BLOB, skopiuj przykładowy plik danych do kontenera obiektów BLOB. Przykładowy plik danych można pobrać z [repozytorium Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Na potrzeby tego samouczka skopiujemy plik **vehicle1_09142014.csv**. Aby przekazać dane do kontenera obiektów blob, można użyć różnych klientów, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
-4. Na karcie **Przegląd** w obszarze **monitorowanie**Sprawdź, jak dane zostały przetworzone.
+4. Na karcie **Przegląd** w obszarze **monitorowanie** Sprawdź, jak dane zostały przetworzone.
 
     ![Monitorowanie zadania](./media/data-lake-store-stream-analytics/run.query.3.png "Monitorowanie zadania")
 

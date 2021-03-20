@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092718"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym

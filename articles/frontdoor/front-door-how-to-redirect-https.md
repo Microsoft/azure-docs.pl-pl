@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
 ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626646"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Utwórz tylne drzwi z przekierowaniami HTTP do HTTPS przy użyciu Azure Portal
@@ -31,33 +31,25 @@ Za pomocą Azure Portal można [utworzyć tylne drzwi](quickstart-create-front-d
     > [!NOTE]
     > Lokalizacja wyświetlana w interfejsie użytkownika dotyczy tylko grupy zasobów. Konfiguracja z drzwiami wstępnymi zostanie wdrożona we wszystkich [lokalizacjach pop zewnętrznych drzwi platformy Azure](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych":::
 
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** " na _hostach frontonu_ , aby utworzyć hosta frontonu.
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę " **+** " na _hostach frontonu_ , aby utworzyć hosta frontonu.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Projektant konfiguracji front-drzwi":::
 
 1. Wprowadź globalnie unikatową nazwę domyślnego hosta frontonu dla drzwi z przodu. Wybierz pozycję **Dodaj** , aby przejść do następnego kroku.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Dodawanie hosta frontonu":::
 
 ### <a name="create-backend-pool"></a>Utwórz pulę zaplecza
 
 1. Wybierz ikonę " **+** " w _pulach zaplecza_ , aby utworzyć pulę zaplecza. Podaj nazwę puli zaplecza, a następnie wybierz pozycję **Dodaj wewnętrzną bazę danych**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Pula zaplecza projektanta konfiguracji front-drzwi":::
 
 1. Wybierz typ hosta zaplecza jako _usługę App Service_. Wybierz subskrypcję, w której jest hostowana aplikacja sieci Web, a następnie wybierz konkretną aplikację sieci Web z listy rozwijanej **Nazwa hosta zaplecza**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Dodawanie zaplecza w puli zaplecza":::
 
 1. Wybierz pozycję **Dodaj** , aby zapisać zaplecze, a następnie ponownie wybierz pozycję **Dodaj** , aby zapisać konfigurację puli zaplecza. 
 
@@ -65,15 +57,11 @@ Za pomocą Azure Portal można [utworzyć tylne drzwi](quickstart-create-front-d
 
 1. Wybierz ikonę " **+** " w *regułach routingu* , aby utworzyć trasę. Podaj nazwę dla trasy, na przykład "HttpToHttpsRedirect", a następnie ustaw pole *zaakceptowanego protokołu* na wartość **"http Only"**. Upewnij się, że wybrano odpowiednie *frontony/domeny* .  
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Reguła routingu projektanta konfiguracji front-drzwi":::
 
 1. W sekcji *szczegóły trasy* Ustaw *Typ trasy* do **przekierowania**. Upewnij się, że *Typ przekierowania* jest ustawiony na wartość **znaleziono (302)** i *Przekieruj protokół* get **tylko na https**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Dodawanie trasy HTTP do protokołu HTTPS":::
 
 1. Wybierz pozycję **Dodaj** , aby zapisać regułę routingu dla przekierowania HTTP na https.
 
@@ -83,9 +71,7 @@ Za pomocą Azure Portal można [utworzyć tylne drzwi](quickstart-create-front-d
 
 1. W sekcji Szczegóły trasy Ustaw *Typ trasy* na **Prześlij dalej**. Upewnij się, że wybrano odpowiednią pulę zaplecza, a *Protokół przekazywania* jest ustawiony **tylko na https**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
-
-1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** " border="false":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Dodawanie trasy przesyłania dalej dla ruchu HTTPS" border="false":::
 
 1. Wybierz pozycję **Dodaj** , aby zapisać regułę routingu na potrzeby przekazywania żądań.
 

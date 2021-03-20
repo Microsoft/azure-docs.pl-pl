@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392031"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Obsługiwane funkcje usługi Azure SQL Edge 
@@ -59,7 +59,7 @@ Oprócz obsługi podzestawu funkcji programu SQL Server on Linux usługa Azure S
 
 Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są obecnie obsługiwane w usłudze Azure SQL Edge.
 
-| Obszar | Nieobsługiwana funkcja lub usługa |
+| Warstwowy | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Projekt bazy danych** | OLTP w pamięci i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
 | &nbsp; | `HierarchyID` Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
@@ -97,7 +97,7 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Zawsze włączone wystąpienie klastra trybu failover. |
 | &nbsp; | Dublowanie bazy danych. |
 | &nbsp; | Gorące Dodawanie pamięci i procesora CPU. |
-| **Zabezpieczenia** | Rozszerzalne zarządzanie kluczami. |
+| **Bezpieczeństwo** | Rozszerzalne zarządzanie kluczami. |
 | &nbsp; | Active Directory integrację.|
 | &nbsp; | Obsługa bezpiecznego enclaves.|
 | **Usługi** | SQL Server Browser. |

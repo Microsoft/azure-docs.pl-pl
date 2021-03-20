@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91574198"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizowanie danych w Azure Data Lake Storage Gen1 przy użyciu Power BI
@@ -20,7 +20,7 @@ W tym artykule dowiesz się, jak za pomocą Power BI Desktop analizować i wizua
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). W tym artykule przyjęto założenie, że utworzono już konto Data Lake Storage Gen1 o nazwie **myadlsg1**i przekazano do niego przykładowy plik danych (**Drivers.txt**). Ten przykładowy plik jest dostępny do pobrania z [Azure Data Lake repozytorium git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). W tym artykule przyjęto założenie, że utworzono już konto Data Lake Storage Gen1 o nazwie **myadlsg1** i przekazano do niego przykładowy plik danych (**Drivers.txt**). Ten przykładowy plik jest dostępny do pobrania z [Azure Data Lake repozytorium git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Możesz pobrać ten program z [Centrum pobierania Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Tworzenie raportu w programie Power BI Desktop
@@ -79,7 +79,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     3. Wykres kołowy powinien teraz wyglądać podobnie do przedstawionego poniżej.
        
         ![Wykres kołowy](./media/data-lake-store-power-bi/pie-chart.png "Tworzenie wizualizacji")
-16. Wybierając określony kraj/region z filtrów na poziomie strony, można teraz zobaczyć liczbę sterowników w każdym mieście wybranego kraju/regionu. Na przykład na karcie **wizualizacje** w obszarze filtry na **poziomie strony**wybierz pozycję **Brazylia**.
+16. Wybierając określony kraj/region z filtrów na poziomie strony, można teraz zobaczyć liczbę sterowników w każdym mieście wybranego kraju/regionu. Na przykład na karcie **wizualizacje** w obszarze filtry na **poziomie strony** wybierz pozycję **Brazylia**.
     
     ![Wybierz kraj/region](./media/data-lake-store-power-bi/select-country.png "Wybierz kraj/region")
 17. Wykres kołowy jest automatycznie aktualizowany w celu wyświetlenia sterowników w miejscowościach Brazylii.

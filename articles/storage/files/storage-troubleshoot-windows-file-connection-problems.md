@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878514"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
@@ -245,7 +245,7 @@ LeaseStatus           : Locked
 ```
 
 ### <a name="solution-2"></a>Rozwiązanie 2
-Aby usunąć dzierżawę z pliku, można zwolnić dzierżawę lub przerwać dzierżawę. Aby zwolnić dzierżawę, potrzebna jest LeaseId dzierżawy, która jest ustawiana podczas tworzenia dzierżawy. Nie potrzebujesz LeaseId do przerwania dzierżawy.
+Aby usunąć dzierżawę z pliku, możesz zwolnić dzierżawę lub ją przerwać. Aby zwolnić dzierżawę, potrzebny jest identyfikator LeaseId dzierżawy, który jest ustawiany podczas jej tworzenia. Nie potrzebujesz identyfikatora LeaseId, aby przerwać dzierżawę.
 
 Poniższy przykład pokazuje, jak przerwać dzierżawę dla pliku wskazanego w przyczynie 2 (w tym przykładzie jest to kontynuowane przy użyciu zmiennych programu PowerShell z przyczyny 2):
 

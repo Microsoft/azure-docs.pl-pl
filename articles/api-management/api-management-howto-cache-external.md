@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018226"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Używanie zewnętrznej pamięci podręcznej zgodnej z Redis na platformie Azure API Management
@@ -52,7 +52,7 @@ W tej sekcji opisano, jak utworzyć pamięć podręczną Azure Cache for Redis n
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Wdróż pamięć podręczną Redis w usłudze Kubernetes
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"></a> Wdróż pamięć podręczną Redis w usłudze Kubernetes
 
 W przypadku pamięci podręcznej bramy samoobsługowe korzystają wyłącznie z zewnętrznych pamięci podręcznych. Aby pamięć podręczna była skuteczna dla autonomicznych bram, a pamięci podręcznej, w której się znajdują, muszą znajdować się blisko siebie, aby zminimalizować opóźnienia wyszukiwania i przechowywania. Najlepszym rozwiązaniem jest wdrożenie pamięci podręcznej Redis w tym samym klastrze Kubernetes lub w oddzielnym klastrze. Skorzystaj z tego [linku](https://github.com/kubernetes/examples/tree/master/guestbook) , aby dowiedzieć się, jak wdrożyć pamięć podręczną Redis w klastrze Kubernetes.
 

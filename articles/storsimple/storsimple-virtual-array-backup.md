@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018294"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Tworzenie kopii zapasowej udziałów lub woluminów w macierzy wirtualnej StorSimple
@@ -46,7 +46,7 @@ Wirtualna macierz StorSimple ma domyślne zasady tworzenia kopii zapasowych, kt�
 
 #### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Aby zmienić godzinę rozpoczęcia dla domyślnych zasad tworzenia kopii zapasowych
 
-1. Przejdź do pozycji **urządzenia**. Zostanie wyświetlona lista urządzeń zarejestrowanych w usłudze StorSimple Menedżer urządzeń. 
+1. Przejdź do pozycji **urządzenia**. Zostanie wyświetlona lista urządzeń zarejestrowanych w usłudze StorSimple Device Manager. 
    
     ![Przejdź do urządzeń](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
@@ -102,7 +102,7 @@ Aby wyświetlić istniejące kopie zapasowe, wykonaj następujące kroki w Azure
    
    - **Zakres czasu** — może być **wcześniejsza niż 1 godzina**, **ostatnie 24 godziny**, **ostatnie 7 dni**, **ostatnie 30 dni**, **ubiegły rok** i **Data niestandardowa**.
     
-   - **Urządzenia** — wybierz z listy serwerów plików lub serwerów iSCSI zarejestrowanych w usłudze StorSimple Menedżer urządzeń.
+   - **Urządzenia** — wybierz z listy serwerów plików lub serwerów iSCSI zarejestrowanych w usłudze StorSimple Device Manager.
    
    - **Zainicjowane** — może być automatycznie **zaplanowana** (według zasad tworzenia kopii zapasowej) lub **ręcznie** zainicjowane (przez użytkownika).
    

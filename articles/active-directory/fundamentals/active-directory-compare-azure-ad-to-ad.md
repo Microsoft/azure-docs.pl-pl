@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: 64a8dabaedc3922ebd8d163b1ea162b7d1584de2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371923"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Compare Active Directory to Azure Active Directory (Porównanie usługi Active Directory z usługą Azure Active Directory)
@@ -26,7 +26,7 @@ Usługa Azure AD przyjmuje takie podejście do następnego poziomu, dostarczają
 
 Większość administratorów IT zna koncepcje Active Directory Domain Services. W poniższej tabeli przedstawiono różnice i podobieństwa między Active Directory pojęcia i Azure Active Directory.
 
-|Pojęcie|Active Directory (AD)|Usługa Azure Active Directory |
+|Pojęcie|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
 |**Użytkownicy**|||
 |Inicjowanie obsługi: Użytkownicy | Organizacje tworzą użytkowników wewnętrznych ręcznie lub używają wbudowanego lub zautomatyzowanego systemu aprowizacji, takiego jak Microsoft Identity Manager, do integracji z systemem kadr.|Istniejące organizacje usługi AD używają [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md) do synchronizowania tożsamości z chmurą.</br> Usługa Azure AD dodaje obsługę automatycznego tworzenia użytkowników z [systemów w chmurze](../saas-apps/workday-tutorial.md). </br>Usługa Azure AD może udostępniać tożsamości w [Standard scim włączonych](../app-provisioning/use-scim-to-provision-users-and-groups.md) aplikacjach SaaS w celu automatycznego dostarczania aplikacji z wymaganymi informacjami, aby umożliwić dostęp użytkownikom. |

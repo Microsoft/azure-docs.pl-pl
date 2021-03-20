@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.openlocfilehash: a070bee7a9fa836eeac7c739cf2757295533ad7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88165366"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem WebAPI (usługa połączona Azure Active Directory Visual Studio)
@@ -31,7 +31,7 @@ Aby uzyskać informacje na temat pracy z połączoną usługą, zobacz [wprowadz
 
 Dotyczy pliku projektu *. NET References i `packages.config` (odwołania NuGet).
 
-| Type | Tematy pomocy |
+| Typ | Odwołanie |
 | --- | --- |
 | Waga NuGet | Microsoft. Owin |
 | Waga NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -44,7 +44,7 @@ Dotyczy pliku projektu *. NET References i `packages.config` (odwołania NuGet).
 
 Dodatkowe odwołania w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
-| Type | Tematy pomocy |
+| Typ | Odwołanie |
 | --- | --- |
 | Waga NuGet | EntityFramework |
 | .NET        | EntityFramework. SqlServer (tylko w programie Visual Studio 2015) |
@@ -58,7 +58,7 @@ Dodatkowe odwołania w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
 Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie Visual Studio 2015):
 
-| Type | Tematy pomocy |
+| Typ | Odwołanie |
 | --- | --- |
 | Waga NuGet | Microsoft. AspNet. Identity. Core |
 | Waga NuGet | Microsoft. AspNet. Identity. EntityFramework |

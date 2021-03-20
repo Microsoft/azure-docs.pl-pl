@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 3e3d3c01ba1190871da39ce27de6a95952d09be1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99538210"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefiks publicznego adresu IPv6
@@ -40,7 +40,7 @@ Dostępne są następujące publiczne rozmiary prefiksów adresów IP:
 
 Rozmiar prefiksu jest określony jako rozmiar maski routingu bezklasowego Inter-Domain (CIDR). Na przykład maska/128 reprezentuje pojedynczy adres IPv6, ponieważ adresy IPv6 składają się z 128 bitów.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
  
 W przypadku kosztów związanych z korzystaniem z publicznych adresów IP platformy Azure, zarówno indywidualnych adresów IP, jak i zakresów adresów IP, zobacz [Cennik publicznego adresu IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 

@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91661163"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Azure Cosmos DB
@@ -42,11 +42,11 @@ Do utworzenia powiązania danych wyjściowych konieczne jest posiadanie konta us
 
 1. Wybierz pozycję **integracja** i **+ Dodaj dane wyjściowe**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Dodawanie powiązania danych wyjściowych Azure Cosmos DB." border="true":::
 
 1. Użyj ustawień **tworzenia danych wyjściowych** , jak określono w tabeli:
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Skonfiguruj powiązanie danych wyjściowych Azure Cosmos DB." border="true":::
 
     | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -132,29 +132,29 @@ Ten przykładowy kod odczytuje ciągi zapytań żądania HTTP i przypisuje je do
 
 ## <a name="test-the-function-and-database"></a>Testowanie funkcji i bazy danych
 
-1. Wybierz **test/Uruchom**. W obszarze **zapytanie**wybierz pozycję **+ Dodaj parametr** i Dodaj następujące parametry do ciągu zapytania:
+1. Wybierz pozycję **Testuj/uruchom**. W obszarze **zapytanie** wybierz pozycję **+ Dodaj parametr** i Dodaj następujące parametry do ciągu zapytania:
 
     + `name`
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Przetestuj funkcję." border="true":::
 
 
 1. Wybierz pozycję **Uruchom** i sprawdź, czy jest zwracany stan 200.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Zrzut ekranu pokazuje kod odpowiedzi HTTP 200 wyróżniony po wybraniu polecenia Uruchom." border="true":::
 
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Wyszukaj usługę Cosmos DB." border="true":::
 
 1. Wybierz konto Azure Cosmos DB, a następnie wybierz pozycję  **Eksplorator danych**.
 
 1. Rozwiń węzły **taskcollection** , zaznacz nowy dokument i upewnij się, że dokument zawiera wartości ciągu zapytania wraz z dodatkowymi metadanymi.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Sprawdź wartości ciągów w dokumencie." border="true":::
 
 Powiązanie zostało pomyślnie dodane do wyzwalacza HTTP w celu zapisania danych bez struktury w bazie danych Azure Cosmos DB.
 

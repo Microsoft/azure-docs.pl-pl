@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykład sposobu wdrażania zasob
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89649989"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Wzorzec Azure Policy: wdrażanie zasobów
@@ -20,7 +20,7 @@ Ta definicja zasad używa operatora **pola** do oszacowania `type` utworzonego l
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
-### <a name="explanation"></a>Objaśnienie
+### <a name="explanation"></a>Wyjaśnienie
 
 #### <a name="existencecondition"></a>existenceCondition
 
@@ -32,7 +32,7 @@ Blok **właściwości. Klasa policyrule. then. Details** informuje Azure Policy,
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="24-26":::
 
-Właściwość **roleDefinitionIds** _Array_ roleDefinitionIds w bloku **Properties. Klasa policyrule. then. Details** informuje definicję zasad o tym, które prawa tożsamości zarządzanej muszą wdrożyć dołączony szablon Menedżer zasobów. Ta właściwość musi być ustawiona tak, aby obejmowała role, które mają uprawnienia wymagane przez wdrożenie szablonu, ale powinny używać koncepcji "zasada najniższych uprawnień" i mieć tylko wymagane operacje i nic więcej.
+Właściwość  _Array_ roleDefinitionIds w bloku **Properties. Klasa policyrule. then. Details** informuje definicję zasad o tym, które prawa tożsamości zarządzanej muszą wdrożyć dołączony szablon Menedżer zasobów. Ta właściwość musi być ustawiona tak, aby obejmowała role, które mają uprawnienia wymagane przez wdrożenie szablonu, ale powinny używać koncepcji "zasada najniższych uprawnień" i mieć tylko wymagane operacje i nic więcej.
 
 #### <a name="deployment-template"></a>Szablon wdrożenia
 

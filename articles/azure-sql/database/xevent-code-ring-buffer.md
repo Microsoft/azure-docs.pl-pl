@@ -12,10 +12,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487307"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w Azure SQL Database
@@ -55,7 +55,7 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
 ## <a name="code-sample"></a>Przykład kodu
 
-W przypadku bardzo drobnej modyfikacji Poniższy przykład kodu buforu pierścieniowego można uruchomić na Azure SQL Database lub Microsoft SQL Server. Różnica polega na obecności węzła "_database" w nazwie niektórych dynamicznych widoków zarządzania (widoków DMV) użytego w klauzuli FROM w kroku 5. Przykład:
+W przypadku bardzo drobnej modyfikacji Poniższy przykład kodu buforu pierścieniowego można uruchomić na Azure SQL Database lub Microsoft SQL Server. Różnica polega na obecności węzła "_database" w nazwie niektórych dynamicznych widoków zarządzania (widoków DMV) użytego w klauzuli FROM w kroku 5. Na przykład:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets

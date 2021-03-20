@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 9929dc3dbe5870fbe1a5047fbc3fc552e32aba59
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456702"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą omnichannel

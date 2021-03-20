@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
 ms.openlocfilehash: 2d0d38dee15817e56c2784981365ea331b6a8459
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943148"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Za pomocą oprogramowania Apache Sqoop można importować i eksportować dane między Apache Hadoop w usłudze HDInsight i Azure SQL Database
@@ -116,7 +116,7 @@ Z usługi SQL do magazynu Azure Storage.
 
 1. Użyj [z usługi Beeline](./apache-hadoop-use-hive-beeline.md) , aby sprawdzić, czy tabela została utworzona w usłudze Hive.
 
-    1. Connect
+    1. Nawiązywanie połączenia
 
         ```bash
         beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'

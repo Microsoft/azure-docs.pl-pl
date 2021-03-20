@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371005"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania tożsamościami i dostępem Azure Active Directory
@@ -97,7 +97,7 @@ Jeśli w organizacji nie ma żadnej strategii odzyskiwania po awarii i trybu fai
 
 ![Zrzut ekranu przedstawiający konfigurację trybu przejściowego Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>Dbanie o aktualność
+#### <a name="stay-current"></a>Najnowsze informacje
 
 Aktualizacje firmy Microsoft są regularnie Azure AD Connect. Bądź na bieżąco, aby wykorzystać ulepszenia wydajności, poprawki błędów i nowe funkcje udostępniane przez każdą nową wersję.
 
@@ -170,7 +170,7 @@ Jeśli używasz obecnie narzędzia, takiego jak [Microsoft Identity Manager](/mi
 Właściciele zasobów mogą uznać, że grupa **Wszyscy użytkownicy** zawiera tylko **pracowników przedsiębiorstwa** , którzy w rzeczywistości mogą zawierać zarówno **pracowników przedsiębiorstwa** , jak i **Gości**. W związku z tym należy zachować szczególną ostrożność w przypadku używania grupy **Wszyscy użytkownicy** do przypisywania aplikacji i udzielania dostępu do zasobów, takich jak zawartość lub aplikacje programu SharePoint.
 
 > [!IMPORTANT]
-> Jeśli grupa **Wszyscy użytkownicy** jest włączona i użyta na potrzeby zasad dostępu warunkowego, aplikacji lub przydziału zasobów, należy [zabezpieczyć grupę](../external-identities/use-dynamic-groups.md) , jeśli nie chcesz uwzględniać użytkowników-Gości. Ponadto należy rozwiązać przydziały licencjonowania, tworząc i przypisując do grup, które zawierają tylko **pracowników przedsiębiorstwa** . Z drugiej strony, jeśli okaże się, że grupa **Wszyscy użytkownicy** jest włączona, ale nie jest używana do udzielania dostępu do zasobów, upewnij się, że wskazówki operacyjne w organizacji zacelowo używają tej grupy (obejmującej **pracowników** i **Gości**przedsiębiorstwa).
+> Jeśli grupa **Wszyscy użytkownicy** jest włączona i użyta na potrzeby zasad dostępu warunkowego, aplikacji lub przydziału zasobów, należy [zabezpieczyć grupę](../external-identities/use-dynamic-groups.md) , jeśli nie chcesz uwzględniać użytkowników-Gości. Ponadto należy rozwiązać przydziały licencjonowania, tworząc i przypisując do grup, które zawierają tylko **pracowników przedsiębiorstwa** . Z drugiej strony, jeśli okaże się, że grupa **Wszyscy użytkownicy** jest włączona, ale nie jest używana do udzielania dostępu do zasobów, upewnij się, że wskazówki operacyjne w organizacji zacelowo używają tej grupy (obejmującej **pracowników** i **Gości** przedsiębiorstwa).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Automatyczne Inicjowanie obsługi użytkowników w aplikacjach
 

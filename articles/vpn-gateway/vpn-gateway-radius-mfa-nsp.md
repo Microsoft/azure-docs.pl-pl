@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 208e99f61694f5a81a98dbc649e2a6035f57891b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018277"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrowanie uwierzytelniania usługi RADIUS bramy sieci VPN platformy Azure z serwerem NPS dla Multi-Factor Authentication 
@@ -81,5 +81,5 @@ Aby włączyć usługę MFA, użytkownicy muszą należeć do Azure Active Direc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Multi-Factor Authentication usługi Azure AD](../active-directory/authentication/concept-mfa-howitworks.md)
+- [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
 - [Integrowanie istniejącej infrastruktury NPS z usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

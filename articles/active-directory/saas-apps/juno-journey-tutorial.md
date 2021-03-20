@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 07bf762993ecdfbe8f53e80940ad34c1366045d8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459280"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-juno-journey"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu podróży Juno

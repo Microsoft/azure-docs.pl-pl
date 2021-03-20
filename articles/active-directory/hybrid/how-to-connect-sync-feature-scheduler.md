@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084740"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
@@ -169,7 +169,7 @@ Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian w konfigu
 
    ![Zrzut ekranu pokazuje Synchronization Service Manager z wybranymi łącznikami i uruchomionym łącznikiem z wybraną akcją Zatrzymaj.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
 
-   * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, podświetl łącznik z **uruchomionym**stanem i wybierz pozycję **Zatrzymaj** w akcjach.
+   * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, podświetl łącznik z **uruchomionym** stanem i wybierz pozycję **Zatrzymaj** w akcjach.
 
 Harmonogram jest nadal aktywny i zostanie uruchomiony ponownie przy następnej okazji.
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91848725"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
@@ -260,7 +260,7 @@ Aby przekazać szablon:
 
 2. Wybierz lub przeciągnij i upuść, lokalną pulę lub szablon zadania.
 
-3. Wybierz pozycję **Użyj tego szablonu**i postępuj zgodnie z monitami wyświetlanymi na ekranie.
+3. Wybierz pozycję **Użyj tego szablonu** i postępuj zgodnie z monitami wyświetlanymi na ekranie.
 
 ## <a name="file-groups-and-file-transfer"></a>Grupy plików i transfer plików
 

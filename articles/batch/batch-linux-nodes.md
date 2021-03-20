@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
 ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683704"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach wsadowym
@@ -29,7 +29,7 @@ Gdy tworzysz odwołanie do obrazu maszyny wirtualnej, musisz określić następu
 | --- | --- |
 | Publisher |Canonical |
 | Oferta |UbuntuServer |
-| Jednostka SKU |18,04 – LTS |
+| SKU |18,04 – LTS |
 | Wersja |latest |
 
 > [!TIP]
@@ -265,7 +265,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 Zamiast hasła można określić klucz publiczny SSH podczas tworzenia użytkownika w węźle. W zestawie SDK języka Python Użyj parametru **ssh_public_key** w [ComputeNodeUser](/python/api/azure-batch/azure.batch.models.computenodeuser). W programie .NET Użyj właściwości [ComputeNodeUser. SshPublicKey](/dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey) .
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Azure Batch jest oparta na platformie Azure Cloud Services i technologii Azure Virtual Machines. Sama usługa Batch jest oferowana bezpłatnie, co oznacza, że opłaty są naliczone wyłącznie za zasoby obliczeniowe (i powiązane z nimi koszty, które wiążą się z tym, że korzystasz z rozwiązań wsadowych). Po wybraniu opcji **Konfiguracja maszyny wirtualnej** opłata jest naliczana na podstawie [Virtual Machinesj struktury cenowej](https://azure.microsoft.com/pricing/details/virtual-machines/) .
 

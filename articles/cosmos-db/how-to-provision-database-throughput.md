@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93342002"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w interfejsie API Azure Cosmos DB-SQL
@@ -33,7 +33,7 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
    * Wprowadź identyfikator bazy danych.
    * Wybierz opcję **zainicjuj przepływność bazy danych** .
    * Wprowadź przepływność (na przykład 1000 jednostek RU).
-   * Wybierz pozycję **OK**.
+   * Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Zrzut ekranu okna dialogowego Nowa baza danych":::
 

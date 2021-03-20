@@ -4,10 +4,10 @@ description: Dowiedz się więcej o uaktualnianiu wersji lub konfiguracji autono
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 519a9163d16fda2dd9fcf49cf22fe4ad4a272e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260984"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uaktualnianie i aktualizowanie Service Fabric autonomicznego klastra
@@ -21,7 +21,7 @@ Można ustawić, aby klaster odbierał automatyczne uaktualnienia sieci szkielet
 
 ## <a name="customize-configuration-settings"></a>Dostosuj ustawienia konfiguracji
 
-Wiele różnych [ustawień konfiguracji](service-fabric-cluster-manifest.md) można ustawić wClusterConfig.jspliku, * na* przykład na poziomie niezawodności właściwości klastra i węzła.  Aby dowiedzieć się więcej, przeczytaj artykuł [Uaktualnij konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).  Wiele innych, bardziej zaawansowane, można również dostosować ustawienia.  Aby uzyskać więcej informacji, Przeczytaj [Service Fabric ustawienia sieci szkieletowej klastra](service-fabric-cluster-fabric-settings.md).
+Wiele różnych [ustawień konfiguracji](service-fabric-cluster-manifest.md) można ustawić wClusterConfig.jspliku, *na* przykład na poziomie niezawodności właściwości klastra i węzła.  Aby dowiedzieć się więcej, przeczytaj artykuł [Uaktualnij konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).  Wiele innych, bardziej zaawansowane, można również dostosować ustawienia.  Aby uzyskać więcej informacji, Przeczytaj [Service Fabric ustawienia sieci szkieletowej klastra](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="define-node-properties"></a>Definiowanie właściwości węzła
 Czasami warto upewnić się, że pewne obciążenia są uruchamiane tylko na niektórych typach węzłów w klastrze. Na przykład niektóre obciążenia mogą wymagać procesora GPU lub dysków SSD, a inne mogą nie być. Dla każdego z typów węzłów w klastrze można dodać niestandardowe właściwości węzła do węzłów klastra. Ograniczenia umieszczania to instrukcje dołączone do poszczególnych usług, które wybierają jedną lub więcej właściwości węzła. Ograniczenia umieszczania definiują, gdzie mają być uruchamiane usługi.

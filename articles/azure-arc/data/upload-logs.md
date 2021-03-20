@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ms.openlocfilehash: f3f29ae1ab868a96e6f70ed964f79c47bc591c4d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92378147"
 ---
 # <a name="upload-logs-to-azure-monitor"></a>Przekazywanie dzienników do usługi Azure Monitor
@@ -26,7 +26,7 @@ Okresowo możesz wyeksportować dzienniki, a następnie przekazać je do platfor
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed przekazaniem dzienników należy: 
 

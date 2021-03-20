@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205502"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitoruj interfejsy API przy użyciu usługi Azure API Management, Event Hubs i Moesif
@@ -295,7 +295,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Wykorzystuje `MoesifHttpMessageProcessor` [bibliotekę interfejsu API języka C# dla Moesif](https://www.moesif.com/docs/api?csharp#events) , która ułatwia wypychanie danych zdarzeń http do ich usługi. Aby można było wysyłać dane HTTP do interfejsu API modułu zbierającego Moesif, potrzebujesz konta i identyfikatora aplikacji. Możesz uzyskać identyfikator aplikacji Moesif, tworząc konto w [witrynie sieci Web Moesif](https://www.moesif.com) , a następnie przejdź do odpowiedniej _Top Right Menu_  ->  _konfiguracji aplikacji_menu w górnej części.
+Wykorzystuje `MoesifHttpMessageProcessor` [bibliotekę interfejsu API języka C# dla Moesif](https://www.moesif.com/docs/api?csharp#events) , która ułatwia wypychanie danych zdarzeń http do ich usługi. Aby można było wysyłać dane HTTP do interfejsu API modułu zbierającego Moesif, potrzebujesz konta i identyfikatora aplikacji. Możesz uzyskać identyfikator aplikacji Moesif, tworząc konto w [witrynie sieci Web Moesif](https://www.moesif.com) , a następnie przejdź do odpowiedniej   ->  _konfiguracji aplikacji_ menu w górnej części.
 
 ## <a name="complete-sample"></a>Ukończ przykład
 [Kod źródłowy](https://github.com/dgilling/ApimEventProcessor) i testy dla przykładu znajdują się w serwisie GitHub. Potrzebujesz [usługi API Management](get-started-create-service-instance.md), [połączonego centrum zdarzeń](api-management-howto-log-event-hubs.md)i [konta magazynu](../storage/common/storage-account-create.md) , aby samodzielnie uruchomić przykład.   

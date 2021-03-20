@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541921"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Dodaj wstępnie zbudowane modele dla typowych scenariuszy użycia
@@ -57,7 +57,7 @@ LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie do
     > [!div class="mx-imgBorder"]
     > ![Okno dialogowe Dodawanie wstępnie skompilowanej jednostki](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Wybierz pozycję **Gotowe**. Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
+1. Kliknij **Gotowe**. Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
 
 ## <a name="add-a-prebuilt-domain-entity"></a>Dodawanie wstępnie skompilowanej jednostki domeny
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
@@ -68,7 +68,7 @@ LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie do
 
 1. W oknie dialogowym **Dodawanie wstępnie utworzonych modeli domen** wybierz prekompilowaną jednostkę domeny.
 
-1. Wybierz pozycję **Gotowe**. Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
+1. Kliknij **Gotowe**. Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publikuj w celu wyświetlenia prekompilowanego modelu z poziomu punktu końcowego przewidywania
 

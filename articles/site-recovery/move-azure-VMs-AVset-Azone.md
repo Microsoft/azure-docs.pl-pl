@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393136"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
@@ -94,9 +94,9 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 Poniższe kroki poprowadzą Cię przez Azure Site Recovery, aby włączyć replikację danych do regionu docelowego przed przeniesieniem ich do Strefy dostępności.
 
 > [!NOTE]
-> Te kroki dotyczą pojedynczej maszyny wirtualnej. Można to zrobić na wielu maszynach wirtualnych. Przejdź do magazynu Recovery Services, wybierz pozycję **+ Replikuj** , a następnie wybierz odpowiednie maszyny wirtualne.
+> Te kroki dotyczą pojedynczej maszyny wirtualnej. Można to zrobić na wielu maszynach wirtualnych. Przejdź do magazynu Recovery Services, wybierz pozycję **+ Replikuj**, a następnie wybierz odpowiednie maszyny wirtualne.
 
-1. W Azure Portal wybierz pozycję **maszyny wirtualne** , a następnie wybierz maszynę wirtualną, do której chcesz przenieść strefy dostępności.
+1. W Azure Portal wybierz pozycję **maszyny wirtualne**, a następnie wybierz maszynę wirtualną, do której chcesz przenieść strefy dostępności.
 2. W obszarze **Operacja** wybierz pozycję **Odzyskiwanie po awarii**.
 3. W obszarze **Konfigurowanie odzyskiwania po awarii** > **Region docelowy** wybierz region docelowy, w którym maszyna będzie replikowana. Upewnij się, że ten region [obsługuje](../availability-zones/az-region.md) strefy dostępności.
 4. Wybierz pozycję **Dalej: Ustawienia zaawansowane**.
@@ -122,9 +122,9 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 2. Wybierz ikonę **test pracy w trybie failover** .
 3. W obszarze **test pracy w trybie failover** wybierz punkt odzyskiwania do użycia w trybie failover:
 
-   - **Najnowszy przetworzony** : wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
-   - **Najnowszy spójny na poziomie aplikacji** : ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
-   - **Niestandardowy** : można wybrać dowolny punkt odzyskiwania.
+   - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
+   - **Najnowszy spójny na poziomie aplikacji**: ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
+   - **Niestandardowy**: można wybrać dowolny punkt odzyskiwania.
 
 3. Wybierz testową docelową sieć wirtualną platformy Azure, do której chcesz przenieść maszyny wirtualne platformy Azure, aby przetestować konfigurację. 
 

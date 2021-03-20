@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530152"
 ---
 # <a name="manage-the-mobility-agent"></a>Zarządzanie agentem mobilności 
@@ -32,7 +32,7 @@ Agenta mobilności konfiguruje się na serwerze, korzystając z Azure Site Recov
 
      ![Okno zreplikowane elementy](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. Kliknij powiadomienie, a następnie w obszarze **aktualizacja agenta**wybierz komputery, na których chcesz uaktualnić usługę mobilności. Następnie kliknij przycisk **OK**.
+4. Kliknij powiadomienie, a następnie w obszarze **aktualizacja agenta** wybierz komputery, na których chcesz uaktualnić usługę mobilności. Następnie kliknij przycisk **OK**.
 
      ![Lista replikowanych elementów maszyn wirtualnych](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -69,7 +69,7 @@ Po wdrożeniu Site Recovery, w celu włączenia instalacji wypychanej usługi mo
 
 Odinstaluj z interfejsu użytkownika lub z wiersza polecenia.
 
-- **Z poziomu interfejsu użytkownika**: w panelu sterowania maszyny wybierz pozycję **programy**. Wybierz pozycję **Microsoft Azure Site Recovery usługi mobilności/Odinstaluj główny serwer docelowy**  >  **Uninstall**.
+- **Z poziomu interfejsu użytkownika**: w panelu sterowania maszyny wybierz pozycję **programy**. Wybierz pozycję **Microsoft Azure Site Recovery usługi mobilności/Odinstaluj główny serwer docelowy**  >  .
 - W **wierszu polecenia**: Otwórz okno wiersza polecenia jako administrator na komputerze. Uruchom następujące polecenie: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"

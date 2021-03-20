@@ -11,10 +11,10 @@ ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99537749"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Samouczek: Dodawanie domeny niestandardowej do punktu końcowego
@@ -27,7 +27,7 @@ Przykładowy adres URL to **https://contoso.azureedge.net/photo.png**.
 
 Azure CDN oferuje opcję kojarzenia domeny niestandardowej z punktem końcowym usługi CDN. Ta opcja dostarcza zawartość z domeną niestandardową w adresie URL zamiast w domenie domyślnej.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Tworzenie rekordu DNS CNAME.
 > - Kojarzenie domeny niestandardowej z punktem końcowym usługi CDN.
@@ -193,7 +193,7 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do punktu końcowego
     - W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
     - W przypadku profilów usługi **Azure CDN Standard from Verizon** oraz usługi **Azure CDN Premium from Verizon** propagacja zwykle trwa do 10 minut.   
 
-# <a name="powershell"></a>[**Program PowerShell**](#tab/azure-powershell)
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
 1. Zaloguj się do Azure PowerShell:
 
@@ -251,7 +251,7 @@ Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Us
 
    Skojarzenie domeny niestandardowej z punktem końcowym zostanie usunięte.
 
-# <a name="powershell"></a>[**Program PowerShell**](#tab/azure-powershell-cleanup)
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
 
 Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Usuń domenę niestandardową, wykonując następujące czynności:
 

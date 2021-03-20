@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499396"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilowanie aplikacji produkcyjnych na platformie Azure za pomocą Application Insights
@@ -30,7 +30,7 @@ Jeśli włączono Profiler, ale nie widzisz śladów, zapoznaj się [z naszym pr
 
 ## <a name="view-profiler-data"></a>Wyświetl dane profilera
 
-Aby Profiler mógł przekazać ślady, aplikacja musi aktywnie obsługiwać żądania. Jeśli wykonujesz eksperyment, możesz generować żądania do aplikacji sieci Web za pomocą [Application Insights testowania wydajnościowego](/vsts/load-test/app-service-web-app-performance-test). Jeśli wcześniej włączono Profiler, możesz uruchomić krótki test obciążenia. Gdy test obciążenia jest uruchomiony, wybierz przycisk **profil teraz** w [okienku **Ustawienia profilera** ](profiler-settings.md). Gdy profiler jest uruchomiony, profiluje losowo około raz na godzinę i przez dwa minuty. Jeśli aplikacja obsługuje stały strumień żądań, operacje przekazywania profilera są śladami co godzinę.
+Aby Profiler mógł przekazać ślady, aplikacja musi aktywnie obsługiwać żądania. Jeśli wykonujesz eksperyment, możesz generować żądania do aplikacji sieci Web za pomocą [Application Insights testowania wydajnościowego](/vsts/load-test/app-service-web-app-performance-test). Jeśli wcześniej włączono Profiler, możesz uruchomić krótki test obciążenia. Gdy test obciążenia jest uruchomiony, wybierz przycisk **profil teraz** w [okienku **Ustawienia profilera**](profiler-settings.md). Gdy profiler jest uruchomiony, profiluje losowo około raz na godzinę i przez dwa minuty. Jeśli aplikacja obsługuje stały strumień żądań, operacje przekazywania profilera są śladami co godzinę.
 
 Gdy aplikacja odbierze ruch, a program Profiler miał czas na przekazanie śladów, należy wyświetlić dane śledzenia. Ten proces może potrwać od 5 do 10 minut. Aby wyświetlić ślady, w okienku **wydajność** wybierz pozycję **Przejmij akcje**, a następnie wybierz przycisk **ślady profilera** .
 
@@ -55,7 +55,7 @@ Stos wywołań, który jest wyświetlany w widoku oś czasu jest wynikiem próbk
 
 ### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Alokacja obiektu (CLR! Kompilator JIT \_ New lub CLR! \_NEWARR1 JIT)
 
-**środowisko CLR! \_New** i CLR języka JIT ** \_NEWARR1 JIT** to funkcje pomocnika w .NET Framework przydzielania pamięci z sterty zarządzanej. **środowisko CLR! \_Nowy JIT** jest wywoływany po przydzieleniu obiektu. **środowisko CLR! \_NEWARR1 JIT** jest wywoływana, gdy przydzielono tablicę obiektów. Te dwie funkcje są zwykle szybkie i stosunkowo małe. Jeśli **CLR! Kompilator JIT \_ New** lub **CLR! \_NEWARR1 JIT** zajmuje dużo czasu na osi czasu, kod może przydzielić wiele obiektów i zużywać znaczną ilość pamięci.
+**środowisko CLR! \_New** i CLR języka JIT **\_NEWARR1 JIT** to funkcje pomocnika w .NET Framework przydzielania pamięci z sterty zarządzanej. **środowisko CLR! \_Nowy JIT** jest wywoływany po przydzieleniu obiektu. **środowisko CLR! \_NEWARR1 JIT** jest wywoływana, gdy przydzielono tablicę obiektów. Te dwie funkcje są zwykle szybkie i stosunkowo małe. Jeśli **CLR! Kompilator JIT \_ New** lub **CLR! \_NEWARR1 JIT** zajmuje dużo czasu na osi czasu, kod może przydzielić wiele obiektów i zużywać znaczną ilość pamięci.
 
 ### <a name="loading-code-clrtheprestub"></a><a id="theprestub"></a>Ładowanie kodu (CLR! ThePreStub)
 
@@ -107,7 +107,7 @@ Aplikacja wykonuje operacje sieciowe.
 
 ### <a name="when-column"></a><a id="when"></a>Kolumna, gdy
 
-Kolumna **when** to Wizualizacja, w jaki sposób zbierane próbki pobierane dla węzła różnią się w zależności od czasu. Łączny zakres żądania jest podzielony na 32 przedziałów czasu. Próbki włączne dla tego węzła są gromadzone w tych zasobnikach 32. Każdy zasobnik jest reprezentowany jako pasek. Wysokość paska reprezentuje przeskalowana wartość. W przypadku węzłów, które są oznaczone **CPU_TIME** lub **BLOCKED_TIME**lub jeśli istnieje oczywista relacja do zużywania zasobów (na przykład procesora, dysku lub wątku), pasek reprezentuje użycie jednego z zasobów w zasobniku. W przypadku tych metryk możliwe jest uzyskanie wartości większej niż 100 procent przez zużywanie wielu zasobów. Na przykład w przypadku korzystania z średnio dwóch procesorów CPU w interwale występuje 200 procent.
+Kolumna **when** to Wizualizacja, w jaki sposób zbierane próbki pobierane dla węzła różnią się w zależności od czasu. Łączny zakres żądania jest podzielony na 32 przedziałów czasu. Próbki włączne dla tego węzła są gromadzone w tych zasobnikach 32. Każdy zasobnik jest reprezentowany jako pasek. Wysokość paska reprezentuje przeskalowana wartość. W przypadku węzłów, które są oznaczone **CPU_TIME** lub **BLOCKED_TIME** lub jeśli istnieje oczywista relacja do zużywania zasobów (na przykład procesora, dysku lub wątku), pasek reprezentuje użycie jednego z zasobów w zasobniku. W przypadku tych metryk możliwe jest uzyskanie wartości większej niż 100 procent przez zużywanie wielu zasobów. Na przykład w przypadku korzystania z średnio dwóch procesorów CPU w interwale występuje 200 procent.
 
 ## <a name="limitations"></a>Ograniczenia
 
