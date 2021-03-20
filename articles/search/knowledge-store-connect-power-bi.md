@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89289175"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Łączenie ze sklepem wiedzy Power BI
@@ -47,15 +47,15 @@ Kliknij pozycję **Pobierz szablon Power BI** na stronie **Dodaj umiejętności 
 
 1. Kliknij przycisk **Połącz**.
 
-1. W polu **nazwa konta lub adres URL**wprowadź nazwę konta usługi Azure Storage (pełny adres URL zostanie utworzony).
+1. W polu **nazwa konta lub adres URL** wprowadź nazwę konta usługi Azure Storage (pełny adres URL zostanie utworzony).
 
 1. Jeśli zostanie wyświetlony monit, wprowadź klucz konta magazynu.
 
 1. Wybierz tabele zawierające dane dotyczące przeglądów hotelu utworzone przez poprzednie przewodniki. 
 
-   + Dla przewodnika po portalu nazwy tabel to *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases*i *hotelReviewsSsPages*. 
+   + Dla przewodnika po portalu nazwy tabel to *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases* i *hotelReviewsSsPages*. 
    
-   + W przypadku przewodnika REST nazwy tabel to *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases*i *hotelReviewsSentiment*.
+   + W przypadku przewodnika REST nazwy tabel to *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* i *hotelReviewsSentiment*.
 
 1. Kliknij przycisk **Załaduj**.
 
@@ -63,7 +63,7 @@ Kliknij pozycję **Pobierz szablon Power BI** na stronie **Dodaj umiejętności 
 
    ![Otwórz Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Otwórz Power Query")
 
-1. Wybierz pozycję *hotelReviewsSsDocument*, a następnie usuń kolumny *PartitionKey*, *RowKey*i *timestamp* . 
+1. Wybierz pozycję *hotelReviewsSsDocument*, a następnie usuń kolumny *PartitionKey*, *RowKey* i *timestamp* . 
    ![Edytuj tabele](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edytuj tabele")
 
 1. Kliknij ikonę z przeciwległymi strzałkami w prawym górnym rogu tabeli, aby rozwinąć *zawartość*. Gdy zostanie wyświetlona lista kolumn, zaznacz opcję wszystkie kolumny, a następnie usuń zaznaczenie kolumn, które zaczynają się od "Metadata". Kliknij przycisk **OK** , aby wyświetlić wybrane kolumny.
@@ -72,8 +72,8 @@ Kliknij pozycję **Pobierz szablon Power BI** na stronie **Dodaj umiejętności 
 
 1. Zmień typ danych dla następujących kolumn, klikając ikonę ABC-123 w lewym górnym rogu kolumny.
 
-   + W obszarze *Content. Latitude* i *Content. Długość geograficzna*wybierz **liczbę dziesiętną**.
-   + W obszarze *Content.reviews_date* i *Content.reviews_dateAdded*wybierz pozycję **Data/godzina**.
+   + W obszarze *Content. Latitude* i *Content. Długość geograficzna* wybierz **liczbę dziesiętną**.
+   + W obszarze *Content.reviews_date* i *Content.reviews_dateAdded* wybierz pozycję **Data/godzina**.
 
    ![Zmień typy danych](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Zmień typy danych")
 

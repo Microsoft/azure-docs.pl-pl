@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86027447"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacjonalizować platformy Spark — skompilowane modele uczenia maszynowego
@@ -545,7 +545,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Platforma Spark zapewnia mechanizm zdalnego przesyłania zadań wsadowych lub interakcyjnych zapytań za pomocą interfejsu REST ze składnikiem o nazwie usługi Livy. Usługi Livy jest domyślnie włączona w klastrze usługi HDInsight Spark. Aby uzyskać więcej informacji na temat usługi Livy, zobacz: [przesyłanie zadań platformy Spark zdalnie przy użyciu usługi Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Możesz użyć usługi Livy, aby zdalnie przesłać zadanie wsadowe ocenia plik, który jest przechowywany w obiekcie blob platformy Azure, a następnie zapisuje wyniki w innym obiekcie blob. W tym celu należy przekazać skrypt języka Python z  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) do obiektu BLOB klastra Spark. Aby skopiować skrypt do obiektu BLOB klastra, można użyć narzędzia, takiego jak **Eksplorator usługi Microsoft Azure Storage** lub **AzCopy** . W naszym przypadku przekazano skrypt do ***wasb:///example/Python/ConsumeGBNYCReg.py***.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) do obiektu BLOB klastra Spark. Aby skopiować skrypt do obiektu BLOB klastra, można użyć narzędzia, takiego jak **Eksplorator usługi Microsoft Azure Storage** lub **AzCopy** . W naszym przypadku przekazano skrypt do **_wasb:///example/Python/ConsumeGBNYCReg.py_**.   
 
 > [!NOTE]
 > Wymagane klucze dostępu można znaleźć w portalu dla konta magazynu skojarzonego z klastrem Spark. 

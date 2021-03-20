@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92014838"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Najlepsze rozwiązania dotyczące długotrwałych operacji
@@ -49,5 +49,5 @@ Przy użyciu replik zapytań tylko do odczytu, podczas gdy odświeża są wykony
 
 [Odświeżanie asynchroniczne za pomocą interfejsu API REST](analysis-services-async-refresh.md)  
 [Skalowanie w poziomie usług Azure Analysis Services](analysis-services-scale-out.md)  
-[Analysis Services wysoka dostępność](analysis-services-bcdr.md)  
+[Wysoka dostępność usług Analysis Services](analysis-services-bcdr.md)  
 [Wskazówki dotyczące ponawiania prób dla usług platformy Azure](/azure/architecture/best-practices/retry-service-specific)

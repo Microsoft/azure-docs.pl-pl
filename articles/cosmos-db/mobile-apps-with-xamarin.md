@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d1164c14b406fb66638e6a5333fe38180272aa14
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359340"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji mobilnych za pomocą platformy Xamarin i Azure Cosmos DB
@@ -47,7 +47,7 @@ Usługa Azure Cosmos DB oferuje następujące kluczowe możliwości dla dewelope
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Samouczek dotyczący usługi Azure Cosmos DB i platformy Xamarin
 W poniższym samouczku pokazano sposób tworzenia aplikacji mobilnych za pomocą platformy Xamarin i usługi Azure Cosmos DB. Pełny kod źródłowy samouczka możesz znaleźć w witrynie [platformy Xamarin i usługi Azure Cosmos DB w serwisie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin).
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 Rozpoczęcie pracy z usługą Azure Cosmos DB jest łatwe. Przejdź do witryny Azure Portal i utwórz nowe konto usługi Azure Cosmos DB. Kliknij kartę **Szybki Start** . Pobierz przykładową listę do wykonania formularzy Xamarin, która jest już połączona z kontem Azure Cosmos DB. 
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB — Szybki start dla aplikacji mobilnych":::

@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359459"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
@@ -42,7 +42,7 @@ W przypadku odwołania do tego artykułu są używane następujące parametry, a
 | **Węzeł1**   | AGNode1 (10.0.0.4) |
 | **Węzeł2**   | AGNode2 (10.0.0.5) |
 | **Nazwa klastra** | AGWGAG (10.0.0.6) |
-| **Odbiornika** | AGListener (10.0.0.7) | 
+| **Odbiornik** | AGListener (10.0.0.7) | 
 | **Sufiks DNS** | ag.wgcluster.example.com | 
 | **Nazwa grupy roboczej** | AGWorkgroup | 
 | &nbsp; | &nbsp; |

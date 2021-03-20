@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89291555"
 ---
 # <a name="filters"></a>Filtry
@@ -43,7 +43,7 @@ Istnieją dwa typy filtrów:
 * [Filtry kont](/rest/api/media/accountfilters) (globalne) — mogą być stosowane do każdego elementu zawartości w ramach konta Azure Media Services, które mają okres istnienia konta.
 * [Filtry zasobów](/rest/api/media/assetfilters) (lokalne) — mogą być stosowane tylko do zasobu, z którym filtr został skojarzony podczas tworzenia, mają okres istnienia elementu zawartości. 
 
-**Filtry konta** i typy **filtrów zasobów** mają dokładnie te same właściwości, które definiują/opisują filtr. Oprócz tworzenia **filtru zasobów**należy określić nazwę elementu zawartości, z którym ma zostać skojarzony filtr.
+**Filtry konta** i typy **filtrów zasobów** mają dokładnie te same właściwości, które definiują/opisują filtr. Oprócz tworzenia **filtru zasobów** należy określić nazwę elementu zawartości, z którym ma zostać skojarzony filtr.
 
 W zależności od danego scenariusza decyduje o tym, jaki typ filtru jest bardziej odpowiedni (filtr zasobów lub filtr konta). Filtry kont są odpowiednie dla profilów urządzeń (filtrowanie wersji), gdzie filtry zasobów mogą być używane do przycinania określonego elementu zawartości.
 

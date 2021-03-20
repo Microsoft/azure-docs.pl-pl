@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
 ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91309085"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu szablonu ARM
@@ -83,7 +83,7 @@ Użyj Azure Portal lub narzędzia, takiego jak [interfejs wiersza polecenia plat
 
 W przypadku rozwiązywania problemów z kontenerem lub uruchomioną w nim aplikacją przydatne jest przeglądanie dzienników wystąpienia kontenera.
 
-Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia**wybierz pozycję Dzienniki **kontenerów**  >  **Logs**. Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
+Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia** wybierz pozycję Dzienniki **kontenerów**  >  . Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
 
 ![Dzienniki kontenera w witrynie Azure Portal](media/container-instances-quickstart-template/aci-logs.png)
 

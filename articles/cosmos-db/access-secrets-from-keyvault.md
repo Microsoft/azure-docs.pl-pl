@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359329"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Zabezpieczanie kluczy usługi Azure Cosmos przy użyciu usługi Azure Key Vault 
@@ -61,7 +61,7 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
 
 1. Utwórz aplikację sieci Web platformy Azure lub aplikację można pobrać z [repozytorium GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Jest to prosta aplikacja MVC.  
 
-2. Rozpakuj pobrane aplikacje i Otwórz plik **HomeController.cs** . Zaktualizuj identyfikator wpisu tajnego w następującym wierszu:
+2. Rozpakuj pobrane aplikacje i Otwórz plik **HomeController. cs** . Zaktualizuj identyfikator wpisu tajnego w następującym wierszu:
 
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 

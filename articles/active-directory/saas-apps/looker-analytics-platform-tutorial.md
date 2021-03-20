@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
 ms.openlocfilehash: dbb6f6d278256730e77677e78f452615fe4b611e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-looker-analytics-platform"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu platformy do analizy wyszukiwania
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -124,7 +124,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się jako administrator, aby znaleźć witrynę internetową platformy analizy.
 
-1. Przejdź do uwierzytelniania przez **administratora**  ->  **Authentication**  ->  **SAML**
+1. Przejdź do uwierzytelniania przez **administratora**  ->    ->  **SAML**
 
     ![zrzut ekranu dla opcji SAML](./media/looker-analytics-platform-tutorial/admin.png)
 

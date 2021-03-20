@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/27/2019
 ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94593981"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Samouczek: Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover
@@ -48,21 +48,21 @@ W tym kroku utworzysz pulę elastyczną i dodasz do niej bazę danych.
 
 Utwórz pulę elastyczną przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję Pokaż szczegóły na kafelku bazy danych.
 1. Wybierz pozycję **Pula elastyczna** z listy rozwijanej **Typ zasobu** na kafelku **bazy danych SQL** . Wybierz pozycję **Utwórz** , aby utworzyć pulę elastyczną.
 
     ![Wybierz pulę elastyczną](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Skonfiguruj pulę elastyczną przy użyciu następujących wartości:
-   - **Nazwa** : Podaj unikatową nazwę puli elastycznej, na przykład `myElasticPool` .
-   - **Subskrypcja** : wybierz subskrypcję z listy rozwijanej.
+   - **Nazwa**: Podaj unikatową nazwę puli elastycznej, na przykład `myElasticPool` .
+   - **Subskrypcja**: wybierz subskrypcję z listy rozwijanej.
    - Grupa zasobów **: Wybierz** pozycję `myResourceGroup` z listy rozwijanej, a następnie kliknij pozycję utworzona w sekcji 1.
-   - **Serwer** : Wybierz serwer utworzony w sekcji 1 z listy rozwijanej.  
+   - **Serwer**: Wybierz serwer utworzony w sekcji 1 z listy rozwijanej.  
 
        ![Utwórz nowy serwer dla puli elastycznej](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Obliczenia + magazyn** : wybierz pozycję **Konfiguruj pulę elastyczną** , aby skonfigurować obliczenia, magazyn i dodać pojedynczą bazę danych do puli elastycznej. Na karcie **Ustawienia puli** pozostaw wartość domyślną 5 rdzeń z 2 rdzeni wirtualnych i 32 GB.
+   - **Obliczenia + magazyn**: wybierz pozycję **Konfiguruj pulę elastyczną** , aby skonfigurować obliczenia, magazyn i dodać pojedynczą bazę danych do puli elastycznej. Na karcie **Ustawienia puli** pozostaw wartość domyślną 5 rdzeń z 2 rdzeni wirtualnych i 32 GB.
 
 1. Na stronie **Konfigurowanie** wybierz kartę **bazy danych** , a następnie wybierz pozycję **Dodaj bazę danych**. Wybierz bazę danych utworzoną w sekcji 1, a następnie wybierz pozycję **Zastosuj** , aby dodać ją do puli elastycznej. Wybierz pozycję **Zastosuj** ponownie, aby zastosować ustawienia puli elastycznej i zamknąć stronę **Konfiguracja** .
 
@@ -133,7 +133,7 @@ W tym kroku utworzysz [grupę trybu failover](auto-failover-group-overview.md) m
 
 Utwórz grupę trybu failover przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz pulę elastyczną utworzoną w poprzedniej sekcji, na przykład `myElasticPool` .
 1. W okienku **Przegląd** wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
   
@@ -143,13 +143,13 @@ Utwórz grupę trybu failover przy użyciu Azure Portal.
 
     ![Dodaj nową grupę trybu failover](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. Na stronie **Grupa trybu failover** wprowadź lub wybierz następujące wartości, a następnie wybierz pozycję **Utwórz** :
-    - **Nazwa grupy trybu failover** : wpisz unikatową nazwę grupy trybu failover, taką jak `failovergrouptutorial` .
-    - **Serwer pomocniczy** : wybierz opcję *konfigurowania wymaganych ustawień* , a następnie wybierz pozycję **Utwórz nowy serwer**. Alternatywnie można wybrać istniejący serwer jako serwer pomocniczy. Po wprowadzeniu następujących wartości dla nowego serwera pomocniczego wybierz pozycję **Wybierz**.
-        - **Nazwa serwera** : wpisz unikatową nazwę serwera pomocniczego, na przykład `mysqlsecondary` .
-        - **Identyfikator logowania administratora serwera** : typ `azureuser`
-        - **Hasło** : wpisz złożone hasło spełniające wymagania dotyczące haseł.
-        - **Lokalizacja** : Wybierz lokalizację z listy rozwijanej, na przykład `East US` . Ta lokalizacja nie może być taka sama jak lokalizacja serwera podstawowego.
+1. Na stronie **Grupa trybu failover** wprowadź lub wybierz następujące wartości, a następnie wybierz pozycję **Utwórz**:
+    - **Nazwa grupy trybu failover**: wpisz unikatową nazwę grupy trybu failover, taką jak `failovergrouptutorial` .
+    - **Serwer pomocniczy**: wybierz opcję *konfigurowania wymaganych ustawień* , a następnie wybierz pozycję **Utwórz nowy serwer**. Alternatywnie można wybrać istniejący serwer jako serwer pomocniczy. Po wprowadzeniu następujących wartości dla nowego serwera pomocniczego wybierz pozycję **Wybierz**.
+        - **Nazwa serwera**: wpisz unikatową nazwę serwera pomocniczego, na przykład `mysqlsecondary` .
+        - **Identyfikator logowania administratora serwera**: typ `azureuser`
+        - **Hasło**: wpisz złożone hasło spełniające wymagania dotyczące haseł.
+        - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej, na przykład `East US` . Ta lokalizacja nie może być taka sama jak lokalizacja serwera podstawowego.
 
        > [!NOTE]
        > Ustawienia logowania serwera i zapory muszą być zgodne z serwerem podstawowym.
@@ -254,7 +254,7 @@ W tym kroku nastąpi niepowodzenie grupy trybu failover na serwerze pomocniczym,
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz pulę elastyczną utworzoną w poprzedniej sekcji, na przykład `myElasticPool` .
 1. Wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87543813"
 ---
 # <a name="the-azure-production-network"></a>Sieć produkcyjna platformy Azure
@@ -64,7 +64,7 @@ Dwie kategorie reguł są zaprogramowane tutaj:
 
 **Natywna Zapora hosta**: usługa Azure Service Fabric i usługa Azure Storage działają w natywnym systemie operacyjnym, w którym nie ma funkcji hypervisor i dlatego Zapora systemu Windows jest skonfigurowana z poprzednimi dwoma zestawami reguł.
 
-**Zapora**hosta: Zapora hosta chroni partycję hosta, w której jest uruchomiona funkcja hypervisor. Reguły są programowane, aby zezwalać tylko na pola FC i Przeskocz, aby komunikować się z partycją hosta na określonym porcie. Innymi wyjątkami są Zezwalanie na odpowiedzi DHCP i odpowiedzi DNS. Na platformie Azure jest używany plik konfiguracji komputera zawierający szablon reguł zapory dla partycji hosta. Istnieje również wyjątek zapory hosta, który umożliwia maszynom wirtualnym komunikowanie się ze składnikami hosta, serwerem sieci szkieletowej i serwerem metadanych przy użyciu określonych protokołów/portów.
+**Zapora** hosta: Zapora hosta chroni partycję hosta, w której jest uruchomiona funkcja hypervisor. Reguły są programowane, aby zezwalać tylko na pola FC i Przeskocz, aby komunikować się z partycją hosta na określonym porcie. Innymi wyjątkami są Zezwalanie na odpowiedzi DHCP i odpowiedzi DNS. Na platformie Azure jest używany plik konfiguracji komputera zawierający szablon reguł zapory dla partycji hosta. Istnieje również wyjątek zapory hosta, który umożliwia maszynom wirtualnym komunikowanie się ze składnikami hosta, serwerem sieci szkieletowej i serwerem metadanych przy użyciu określonych protokołów/portów.
 
 **Zapora gościa**: Element Zapora systemu Windows systemu operacyjnego gościa, który można skonfigurować przez klientów na maszynach wirtualnych i magazynach klienta.
 

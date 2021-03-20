@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
 ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594287"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
@@ -40,7 +40,7 @@ Należy wziąć pod uwagę następujące wymagania wstępne:
 
 Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz bazę danych, którą chcesz dodać do grupy trybu failover.
 1. Wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
 
@@ -52,7 +52,7 @@ Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy uży
 
 1. Na stronie **Grupa trybu failover** wprowadź lub wybierz wymagane wartości, a następnie wybierz pozycję **Utwórz**.
 
-   - **Bazy danych w grupie** : Wybierz bazę danych, którą chcesz dodać do grupy trybu failover. Dodanie bazy danych do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej.
+   - **Bazy danych w grupie**: Wybierz bazę danych, którą chcesz dodać do grupy trybu failover. Dodanie bazy danych do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej.
 
    ![Dodawanie SQL Database do grupy trybu failover](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
@@ -115,7 +115,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz bazę danych, którą chcesz dodać do grupy trybu failover.
 
    ![Otwórz serwer dla pojedynczej bazy danych](./media/auto-failover-group-configure/open-sql-db-server.png)
@@ -210,7 +210,7 @@ Utwórz grupę trybu failover dla puli elastycznej przy użyciu Azure Portal lub
 
 Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz pulę elastyczną, którą chcesz dodać do grupy trybu failover.
 1. W okienku **Przegląd** wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
   
@@ -282,7 +282,7 @@ Testowanie pracy w trybie failover puli elastycznej przy użyciu Azure Portal lu
 
 Niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót po awarii przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz ciąg "Azure SQL" w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz pulę elastyczną, którą chcesz dodać do grupy trybu failover.
 1. W okienku **Przegląd** wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
 
@@ -514,9 +514,9 @@ Utwórz połączenia między dwiema bramami przy użyciu Azure Portal.
     1. Wybierz subskrypcję z listy rozwijanej.
     1. Z listy rozwijanej wybierz grupę zasobów dla wystąpienia zarządzanego.
     1. Z listy rozwijanej wybierz lokalizację podstawowego wystąpienia zarządzanego.
-1. Na karcie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK** :
-    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej** , na przykład `Primary-Gateway` .  
-    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej** , na przykład `Secondary-Gateway` .
+1. Na karcie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK**:
+    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej**, na przykład `Primary-Gateway` .  
+    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej**, na przykład `Secondary-Gateway` .
     1. Zaznacz pole wyboru obok pozycji **Ustanów łączność dwukierunkową**.
     1. Pozostaw domyślną nazwę połączenia podstawowego lub Zmień nazwę na wybraną wartość.
     1. Podaj **klucz współużytkowany (PSK)** dla połączenia, na przykład `mi1m2psk` .
@@ -564,7 +564,7 @@ Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu Azure P
 
 Utwórz grupę trybu failover dla wystąpień zarządzanych SQL przy użyciu Azure Portal.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz główne wystąpienie zarządzane, które chcesz dodać do grupy trybu failover.  
 1. W obszarze **Ustawienia** przejdź do pozycji **grupy trybu failover wystąpienia** , a następnie wybierz pozycję **Dodaj grupę** , aby otworzyć stronę **Grupa trybu failover wystąpienia** .
 

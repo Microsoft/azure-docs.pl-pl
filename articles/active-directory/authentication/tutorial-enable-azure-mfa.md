@@ -11,10 +11,10 @@ author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881314"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Samouczek: Zabezpieczanie zdarzeń logowania użytkowników za pomocą usługi Azure AD Multi-Factor Authentication

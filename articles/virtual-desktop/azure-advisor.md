@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147537"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Używanie Azure Advisor z pulpitem wirtualnym systemu Windows
@@ -19,7 +19,7 @@ Azure Advisor może pomóc użytkownikom w rozwiązywaniu typowych problemów be
 
 W tym artykule przedstawiono sposób konfigurowania Azure Advisor w ramach wdrożenia pulpitu wirtualnego systemu Windows w celu ułatwienia użytkownikom.
 
-## <a name="what-is-azure-advisor"></a>Co to jest usługa Azure Advisor?
+## <a name="what-is-azure-advisor"></a>Co to jest Azure Advisor?
 
 Azure Advisor analizuje konfiguracje i dane telemetryczne w celu zaoferowania spersonalizowanych zaleceń w celu rozwiązywania typowych problemów. Korzystając z tych zaleceń, można zoptymalizować zasoby platformy Azure pod kątem niezawodności, bezpieczeństwa, doskonałości operacyjnej, wydajności i kosztów. Dowiedz się więcej o [witrynie sieci web Azure Advisor](https://azure.microsoft.com/services/advisor/).
 
@@ -32,7 +32,7 @@ Wszystko, co musisz zrobić, to konto platformy Azure na Azure Portal. Najpierw 
 
 Po otwarciu Azure Advisor zobaczysz pięć kategorii:
 
-- Koszty
+- Koszt
 - Zabezpieczenia
 - Niezawodność
 - Doskonałość operacyjna

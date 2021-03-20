@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851718"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API na platformie Azure API Management
@@ -34,7 +34,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
-    -   [Cel C](#ObjectiveC)  
+    -   [Objective C](#ObjectiveC)  
     -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
@@ -90,7 +90,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Type|Opis|  
+|Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |`apis`|Kolekcja jednostek [podsumowania interfejsu API](api-management-template-data-model-reference.md#APISummary) .|Interfejsy API widoczne dla bieżącego użytkownika.|  
   
@@ -345,7 +345,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Type|Opis|  
+|Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |`apiId`|ciąg|Identyfikator bieżącego interfejsu API.|  
 |`apiName`|ciąg|Nazwa interfejsu API.|  
@@ -657,7 +657,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 -   [JavaScript](#JavaScript)  
   
--   [Cel C](#ObjectiveC)  
+-   [Objective C](#ObjectiveC)  
   
 -   [PHP](#PHP)  
   

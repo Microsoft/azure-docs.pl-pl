@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89263182"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Storage
@@ -60,7 +60,7 @@ W tej sekcji utworzysz konto magazynu.
 3. W obszarze **Nazwa** wprowadź nazwę konta magazynu.
 4. Opcje **Model wdrażania** i **Rodzaj konta** należy ustawić na **Resource Manager** i **Magazyn (ogólnego przeznaczenia, wersja 1)**.
 5. Upewnij się, że **Subskrypcja** i **Grupa zasobów** pasują do wartości określonych podczas tworzenia maszyny wirtualnej w poprzednim kroku.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
     ![Tworzenie nowego konta magazynu](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -69,7 +69,7 @@ W tej sekcji utworzysz konto magazynu.
 Pliki wymagają magazynu obiektów blob, dlatego musimy utworzyć kontener obiektów blob, w którym będziemy przechowywać plik. Następnie przekaż plik do kontenera obiektów blob na nowym koncie magazynu.
 
 1. Przejdź z powrotem do nowo utworzonego konta magazynu.
-2. W obszarze **BLOB Service**kliknij pozycję **Containers (kontenery**).
+2. W obszarze **BLOB Service** kliknij pozycję **Containers (kontenery**).
 3. Kliknij pozycję **+ Kontener** w górnej części strony.
 4. W obszarze **Nowy kontener** wprowadź nazwę kontenera, a następnie w obszarze **Poziom dostępu publicznego** zachowaj wartość domyślną.
 
@@ -94,7 +94,7 @@ W tej sekcji pokazano, jak udzielić dostępu do maszyny wirtualnej do kontenera
 
     ![Przypisywanie uprawnień](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="access-data"></a>Uzyskiwanie dostępu do danych 
+## <a name="access-data"></a>Uzyskiwanie dostępu do danych 
 
 Usługa Azure Storage natywnie obsługuje uwierzytelnianie usługi Azure AD, więc może bezpośrednio akceptować tokeny dostępu pozyskane przy użyciu tożsamości zarządzanej. Jest to część integracji usługi Azure Storage z usługą Azure AD. Takie rozwiązanie różni się od podawania poświadczeń w parametrach połączenia.
 

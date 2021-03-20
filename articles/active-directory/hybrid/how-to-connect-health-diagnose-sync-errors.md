@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728241"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji zduplikowanego atrybutu
@@ -142,7 +142,7 @@ Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źr
 Określone ustawienia, takie jak [UserWriteback w Azure AD Connect](./how-to-connect-preview.md#user-writeback) nie są obsługiwane. Wyłącz ustawienia. 
 
 ## <a name="faq"></a>Często zadawane pytania
-**Pytania.** Co się stanie w przypadku niepowodzenia wykonania **zastosowania poprawki** ?  
+**PYTANIE:** Co się stanie w przypadku niepowodzenia wykonania **zastosowania poprawki** ?  
 **Z.** Jeśli wykonanie nie powiedzie się, istnieje możliwość, że Azure AD Connect jest uruchomiony błąd eksportu. Odśwież stronę portalu i ponów próbę po następnej synchronizacji. Domyślny cykl synchronizacji to 30 minut. 
 
 

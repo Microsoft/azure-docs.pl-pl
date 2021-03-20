@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 41add54ce767413982ab0503f7263c58aed4d4e2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359289"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
@@ -64,7 +64,7 @@ W poniższej tabeli opisano opcje, które można skonfigurować do automatyczneg
 | **Okres przechowywania** | 1-30 dni (30 dni) | Liczba dni przechowywania kopii zapasowej. |
 | **Konto magazynu** | Konto magazynu Azure | Konto usługi Azure Storage służące do przechowywania plików automatycznego tworzenia kopii zapasowych w usłudze BLOB Storage. W tej lokalizacji jest tworzony kontener służący do przechowywania wszystkich plików kopii zapasowej. Konwencja nazewnictwa plików kopii zapasowej obejmuje datę, godzinę i nazwę maszyny. |
 | **Szyfrowanie** | Włącz/Wyłącz (wyłączone) | Włącza lub wyłącza szyfrowanie. Po włączeniu szyfrowania certyfikaty używane do przywracania kopii zapasowej znajdują się na określonym koncie magazynu w tym samym `automaticbackup` kontenerze przy użyciu tej samej konwencji nazewnictwa. Jeśli hasło zostanie zmienione, zostanie wygenerowany nowy certyfikat z tym hasłem, ale stary certyfikat pozostaje przywrócony do przywrócenia poprzednich kopii zapasowych. |
-| **Hasło** | Tekst hasła | Hasło dla kluczy szyfrowania. Jest to wymagane tylko wtedy, gdy szyfrowanie jest włączone. Aby można było przywrócić zaszyfrowaną kopię zapasową, należy dysponować prawidłowym hasłem i powiązanym certyfikatem użytym w czasie wykonywania kopii zapasowej. |
+| **Password** (Hasło) | Tekst hasła | Hasło dla kluczy szyfrowania. Jest to wymagane tylko wtedy, gdy szyfrowanie jest włączone. Aby można było przywrócić zaszyfrowaną kopię zapasową, należy dysponować prawidłowym hasłem i powiązanym certyfikatem użytym w czasie wykonywania kopii zapasowej. |
 
 
 ## <a name="configure-new-vms"></a>Konfiguruj nowe maszyny wirtualne

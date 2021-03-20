@@ -12,13 +12,13 @@ ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042386"
 ---
-# <a name="moving-an-azure-key-vault-across-resource-groups"></a>Przechodzenie Azure Key Vault między grupami zasobów
+# <a name="moving-an-azure-key-vault-across-resource-groups"></a>Przenoszenie magazynu kluczy platformy Azure między grupami zasobów
 
 ## <a name="overview"></a>Omówienie
 
@@ -49,6 +49,6 @@ Upewnij się, że przejdź do strony Azure Policy na Azure Portal i sprawdź prz
 5. Wybierz pozycję "Przenieś do innej grupy zasobów" z opcji listy rozwijanej
 6. Wybierz grupę zasobów, w której chcesz przenieść magazyn kluczy
 7. Potwierdzenie ostrzeżenia dotyczącego przeniesienia zasobów
-8. Wybierz pozycję "OK"
+8. Wybierz pozycję „OK”
 
 Key Vault teraz oceni ważność przenoszonego zasobu i generuje alert o wszelkich błędach. Jeśli nie zostaną znalezione żadne błędy, przeniesienie zasobu zostanie ukończone. 

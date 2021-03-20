@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4ddadec327f1a4f6aa22d51ac073b9aebb0dee82
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383198"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory — często zadawane pytania
@@ -65,7 +65,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe | activities |
 | --- | --- |
 | [Klaster HDInsight na żądanie](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [świnie](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), usługa [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
+| [Usługa Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (klasyczny)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |

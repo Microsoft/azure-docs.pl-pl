@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: bbac6eade634ffcfdc47ae3d22b32e0bd429b7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85513184"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Zainstaluj aktualizację Update 5 na urządzeniu StorSimple

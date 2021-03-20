@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358320"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Konfigurowanie DNN dla wystąpienia klastra trybu failover
@@ -139,7 +139,7 @@ Aby zaktualizować możliwych właścicieli, wykonaj następujące kroki:
 
 ## <a name="restart-sql-server-instance"></a>Uruchom ponownie wystąpienie SQL Server 
 
-Użyj Menedżer klastra trybu failover, aby ponownie uruchomić wystąpienie SQL Server. Wykonaj następujące czynności:
+Użyj Menedżer klastra trybu failover, aby ponownie uruchomić wystąpienie SQL Server. Wykonaj następujące kroki:
 
 1. Przejdź do zasobu SQL Server w Menedżer klastra trybu failover.
 1. Kliknij prawym przyciskiem myszy zasób SQL Server i przełącz go w tryb offline. 

@@ -7,10 +7,10 @@ ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ms.openlocfilehash: e12327651165606e6a9b571d410f547a09a8ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87847928"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Samouczek: Tworzenie elementu Runbook w języku Python
@@ -28,7 +28,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia [elementu Runbook](../aut
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Konto usługi Automation](../index.yml) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.

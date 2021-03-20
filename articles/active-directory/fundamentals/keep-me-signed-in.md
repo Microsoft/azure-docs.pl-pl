@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89320260"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Skonfigurować "pozostania w Twojej rejestracji?" Monituj o konta usługi Azure AD
@@ -40,15 +40,20 @@ Na poniższym diagramie przedstawiono przepływ logowania użytkownika dla zarz�
    * Jeśli wybierzesz opcję **nie**, pozostanie **zalogowany** , gdy użytkownik się zaloguje, a użytkownik musi się zalogować za każdym razem, gdy przeglądarka zostanie zamknięta i ponownie otwarta.
    * Jeśli wybierzesz opcję **tak**, użytkownik zostanie **zalogowany** .
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagram przedstawiający przepływ logowania użytkownika dla dzierżawy zarządzanej a federacyjnej":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Zrzut ekranu przedstawia opcję Pokaż, która pozostanie niezalogowana":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem
 
 Jeśli użytkownik nie działa w wierszu **pozostawania z logowaniem?** , jak pokazano na poniższym diagramie, ale porzuca próbę logowania, zobaczysz wpis dziennika logowania wskazujący przerwanie.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagram przedstawiający przepływ logowania użytkownika dla dzierżawy zarządzanej a federacyjnej" podczas logowania użytkownika.
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Pokazuje, że zarejestrowano nadal? pytać":::
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagram przedstawiający przepływ logowania użytkownika dla dzierżawy zarządzanej a federacyjnej":::
+Szczegóły dotyczące błędu logowania są następujące i wyróżnione w przykładzie.
+
+* **Kod błędu logowania**: 50140
+* **Przyczyna niepowodzenia**: ten błąd wystąpił z powodu przerwania "nie wylogowuj mnie" podczas logowania użytkownika.
+
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Przykład wpisu dziennika logowania z przerwaniem &quot;nie wylogowuj mnie&quot;":::
 
 Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **opcję Pokaż na** wartość **nie** w ustawieniach zaawansowanych znakowania. Spowoduje to wyłączenie monitu KMSI dla wszystkich użytkowników w katalogu usługi Azure AD.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754531"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Element interfejsu użytkownika Microsoft. Storage. StorageBlobSelector
@@ -24,19 +24,19 @@ Użytkownik zobaczy opcję przeglądania dostępnych obiektów blob magazynu.
 
 Po wybraniu **przycisku Przeglądaj** użytkownik może wybrać konto magazynu.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft. Storage. StorageBlobSelector — przeglądanie":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft. Storage. StorageBlobSelector — wybór magazynu":::
 
 Użytkownik zobaczy kontenery na koncie magazynu i wybierze je.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. Storage. StorageBlobSelector — przeglądanie":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. Storage. StorageBlobSelector — Wybieranie kontenera":::
 
 Z kontenera użytkownik może wybrać plik.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. Storage. StorageBlobSelector — przeglądanie":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. Storage. StorageBlobSelector — plik":::
 
 Formant zostanie zaktualizowany, aby wyświetlić wybraną nazwę pliku.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. Storage. StorageBlobSelector — przeglądanie":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. Storage. StorageBlobSelector — Pokaż wybrany plik":::
 
 ## <a name="schema"></a>Schemat
 

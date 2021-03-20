@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881637"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Jak używać uments Azure.Search.Docw aplikacji .NET w języku C#
@@ -288,8 +288,8 @@ Dokładnie jedno pole w indeksie musi być kluczem dokumentu ( `IsKey = true` ).
 | Typ pola | Opis i użycie |
 |------------|-----------------------|
 | [`SearchField`](/dotnet/api/azure.search.documents.indexes.models.searchfield) | Klasa bazowa, z większością właściwości ustawioną na wartość null, z wyjątkiem tego, `Name` który jest wymagany, i `AnalyzerName` które domyślnie są standardowymi Lucene. |
-| [`SimpleField`](/dotnet/api/azure.search.documents.indexes.models.simplefield) | Model pomocnika. Może być dowolnego typu danych, jest zawsze niemożliwy do przeszukania (jest ignorowany w przypadku kwerend wyszukiwania pełnotekstowego) i można je pobrać (nie jest ukryte). Inne atrybuty są domyślnie wyłączone, ale można je włączyć. Możesz użyć `SimpleField` dla identyfikatorów dokumentu lub pól używanych tylko w filtrach, aspektach lub profilach oceniania. Jeśli tak, pamiętaj, aby zastosować wszelkie atrybuty, które są niezbędne dla tego scenariusza, `IsKey = true` na przykład identyfikator dokumentu. Aby uzyskać więcej informacji, zobacz [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) w kodzie źródłowym. |
-| [`SearchableField`](/dotnet/api/azure.search.documents.indexes.models.searchablefield) | Model pomocnika. Musi być ciągiem i jest zawsze możliwy do przeszukiwania i pobierania. Inne atrybuty są domyślnie wyłączone, ale można je włączyć. Ponieważ ten typ pola jest możliwy do przeszukiwania, obsługuje synonimy i pełen uzupełnianie właściwości analizatora. Aby uzyskać więcej informacji, zobacz [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) w kodzie źródłowym. |
+| [`SimpleField`](/dotnet/api/azure.search.documents.indexes.models.simplefield) | Model pomocnika. Może być dowolnego typu danych, jest zawsze niemożliwy do przeszukania (jest ignorowany w przypadku kwerend wyszukiwania pełnotekstowego) i można je pobrać (nie jest ukryte). Inne atrybuty są domyślnie wyłączone, ale można je włączyć. Możesz użyć `SimpleField` dla identyfikatorów dokumentu lub pól używanych tylko w filtrach, aspektach lub profilach oceniania. Jeśli tak, pamiętaj, aby zastosować wszelkie atrybuty, które są niezbędne dla tego scenariusza, `IsKey = true` na przykład identyfikator dokumentu. Aby uzyskać więcej informacji, zobacz [SimpleFieldAttribute. cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) w kodzie źródłowym. |
+| [`SearchableField`](/dotnet/api/azure.search.documents.indexes.models.searchablefield) | Model pomocnika. Musi być ciągiem i jest zawsze możliwy do przeszukiwania i pobierania. Inne atrybuty są domyślnie wyłączone, ale można je włączyć. Ponieważ ten typ pola jest możliwy do przeszukiwania, obsługuje synonimy i pełen uzupełnianie właściwości analizatora. Aby uzyskać więcej informacji, zobacz [SearchableFieldAttribute. cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) w kodzie źródłowym. |
 
 Bez względu na to, czy używasz podstawowego `SearchField` interfejsu API, czy jednego z modeli pomocników, musisz jawnie włączyć atrybuty Filter, facet i Sort. Na przykład, [IsFiltered](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [issorting](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)i [iskrojuing](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) musi być jawnie przypisany, jak pokazano w powyższym przykładzie.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588386"
 ---
 # <a name="connect-citrix-analytics-security"></a>Łączenie z rozwiązaniem Citrix Analytics (Security) 
@@ -36,7 +36,7 @@ Integracja Citrix Analytics (Security) z platformą Azure wskaźnikiem IT pomaga
 
 ## <a name="connect-azure-sentinel-to-citrix-analytics-security"></a>Łączenie usługi Azure Wskaźnikowanie z usługą Citrix Analytics (zabezpieczenia)
 
-1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **Citrix Analytics (Security)** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >   a następnie wybierz łącznik **Citrix Analytics (Security)** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 

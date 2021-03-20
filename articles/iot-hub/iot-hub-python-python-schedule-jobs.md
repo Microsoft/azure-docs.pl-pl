@@ -10,10 +10,10 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
 ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876686"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planowanie i emitowanie zadań (Python)
@@ -58,7 +58,7 @@ Na końcu tego samouczka będziesz mieć dwie aplikacje w języku Python:
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -155,7 +155,7 @@ W tej sekcji utworzysz aplikację konsolową w języku Python, która reaguje na
 
 W tym artykule opisano tworzenie usługi zaplecza, która wywołuje metodę bezpośrednią na urządzeniu i aktualizuje sznurek urządzeń. Usługa musi mieć uprawnienia do **połączenia z usługą** , aby wywołać metodę bezpośrednią na urządzeniu. Usługa wymaga również uprawnienia do **odczytu** rejestru i **zapisu** rejestru w celu odczytu i zapisu rejestru tożsamości. Nie ma domyślnych zasad dostępu współdzielonego, które zawierają tylko te uprawnienia, więc należy ją utworzyć.
 
-Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia do **nawiązywania połączenia z usługą**, **odczytu rejestru**i **zapisu rejestru** oraz do uzyskiwania parametrów połączenia dla tych zasad, wykonaj następujące kroki:
+Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia do **nawiązywania połączenia z usługą**, **odczytu rejestru** i **zapisu rejestru** oraz do uzyskiwania parametrów połączenia dla tych zasad, wykonaj następujące kroki:
 
 1. Otwórz Centrum IoT Hub w [Azure Portal](https://portal.azure.com). Najprostszym sposobem, aby uzyskać dostęp do usługi IoT Hub, jest wybranie opcji **grupy zasobów**, wybranie grupy zasobów, w której znajduje się centrum IoT Hub, a następnie wybranie Centrum IoT Hub z listy zasobów.
 
@@ -163,13 +163,13 @@ Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia d
 
 3. W górnym menu powyżej listy zasad wybierz pozycję **Dodaj**.
 
-4. W okienku **Dodawanie zasad dostępu współdzielonego** Wprowadź opisową nazwę zasad. na przykład: *serviceAndRegistryReadWrite*. W obszarze **uprawnienia**wybierz **pozycję Usługa Connect** i **Zapisz rejestr** (**odczyt rejestru** jest wybierany automatycznie po wybraniu pozycji **zapis w rejestrze**). Następnie wybierz przycisk **Utwórz**.
+4. W okienku **Dodawanie zasad dostępu współdzielonego** Wprowadź opisową nazwę zasad. na przykład: *serviceAndRegistryReadWrite*. W obszarze **uprawnienia** wybierz **pozycję Usługa Connect** i **Zapisz rejestr** (**odczyt rejestru** jest wybierany automatycznie po wybraniu pozycji **zapis w rejestrze**). Następnie wybierz pozycję **Utwórz**.
 
     ![Pokaż, jak dodać nowe zasady dostępu współdzielonego](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
 5. W okienku **zasady dostępu współdzielonego** wybierz nowe zasady z listy zasad.
 
-6. W obszarze **klucze dostępu współdzielonego**wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
+6. W obszarze **klucze dostępu współdzielonego** wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
 
     ![Sposób pobierania parametrów połączenia](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 

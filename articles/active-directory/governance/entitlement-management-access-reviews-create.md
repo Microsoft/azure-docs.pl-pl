@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798515"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Tworzenie przeglądu dostępu do pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
@@ -53,11 +53,11 @@ To ustawienie określa, jak często będą przeprowadzane przeglądy dostępu.
 
 1. Ustaw **czas trwania** , aby określić, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład można zaplanować coroczne przeglądy, które zaczynają się od 1 stycznia i są otwarte do przeglądu przez 30 dni, tak aby recenzenci musieli odpowiedzieć na koniec miesiąca.
 
-1. Obok pozycji **recenzenci**wybierz opcję **samodzielna Recenzja** , jeśli chcesz, aby użytkownicy korzystali z własnego przeglądu dostępu lub wybierali **określonych recenzentów** , jeśli chcesz wyznaczyć recenzenta.
+1. Obok pozycji **recenzenci** wybierz opcję **samodzielna Recenzja** , jeśli chcesz, aby użytkownicy korzystali z własnego przeglądu dostępu lub wybierali **określonych recenzentów** , jeśli chcesz wyznaczyć recenzenta.
 
     ![Wybierz pozycję Dodaj recenzentów](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
-1. W przypadku wybrania **określonych recenzentów**Określ, którzy użytkownicy będą wykonywać przegląd dostępu:
+1. W przypadku wybrania **określonych recenzentów** Określ, którzy użytkownicy będą wykonywać przegląd dostępu:
     1. Wybierz pozycję **Dodaj recenzentów**.
     1. W okienku **Wybierz recenzentów** Wyszukaj i wybierz użytkowników, którym chcesz być recenzentem.
     1. Po wybraniu recenzentów kliknij przycisk **Wybierz** .
@@ -70,7 +70,7 @@ To ustawienie określa, jak często będą przeprowadzane przeglądy dostępu.
 
 Po dacie rozpoczęcia przegląd dostępu zostanie wyświetlony w sekcji **przeglądy dostępu** . Wykonaj następujące kroki, aby wyświetlić stan przeglądu dostępu:
 
-1. W obszarze **Zarządzanie tożsamościami**kliknij pozycję **pakiety dostępu** , a następnie wybierz pakiet dostępu ze stanem przeglądu dostępu, który chcesz sprawdzić.   
+1. W obszarze **Zarządzanie tożsamościami** kliknij pozycję **pakiety dostępu** , a następnie wybierz pakiet dostępu ze stanem przeglądu dostępu, który chcesz sprawdzić.   
 
 1. Po przeprowadzeniu przeglądu pakietu dostępu kliknij pozycję **przeglądy dostępu** w menu po lewej stronie.
     

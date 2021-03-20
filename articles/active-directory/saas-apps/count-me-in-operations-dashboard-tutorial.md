@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98727681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pulpitem nawigacyjnym Count in Operations

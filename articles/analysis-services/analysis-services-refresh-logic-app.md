@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
 ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019090"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
@@ -20,7 +20,7 @@ Za pomocą Logic Apps i wywołań REST można wykonywać automatyczne operacje o
 
 Aby dowiedzieć się więcej o korzystaniu z interfejsów API REST z Azure Analysis Services, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładach w tym artykule zostanie użyta nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -70,7 +70,7 @@ Skonfiguruj działanie HTTP w następujący sposób:
 |**Nagłówki**     |   Content-Type, Application/JSON <br /> <br />  ![Nagłówki](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Treść**     |   Aby dowiedzieć się więcej na temat tworzenia treści żądania, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST — post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Authentication**     |Active Directory OAuth         |
-|**Dzierżawa**     |Wypełnij Azure Active Directory TenantId         |
+|**Dzierżaw**     |Wypełnij Azure Active Directory TenantId         |
 |**Grupy odbiorców**     |https://*. asazure. Windows. NET         |
 |**Identyfikator klienta**     |Wprowadź nazwę główną usługi ClientID         |
 |**Typ poświadczeń**     |Wpis tajny         |

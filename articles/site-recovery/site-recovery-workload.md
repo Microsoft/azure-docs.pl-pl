@@ -4,10 +4,10 @@ description: W tym artykule opisano obciążenia, które można chronić za pomo
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80062835"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Informacje o odzyskiwaniu po awarii dla aplikacji lokalnych
@@ -50,7 +50,7 @@ Usługa Site Recovery może replikować dowolną aplikację uruchomioną na obs�
 | Linux (system operacyjny i aplikacje) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft)|
 | Dynamics AX |Tak |Tak |Tak |Tak |Tak|
 | Serwer plików systemu Windows |Tak |Tak |Tak |Tak |Tak|
-| Citrix XenApp i XenDesktop |Tak|Brak |Tak |Brak |Tak |
+| Citrix XenApp i XenDesktop |Tak|Nie dotyczy |Tak |Nie dotyczy |Tak |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikacja usługi Active Directory i DNS
 
@@ -106,7 +106,7 @@ Za pomocą Azure Site Recovery można replikować następujące usługi:
 
 W poniższej tabeli przedstawiono opcje replikacji:
 
-| **LICENCJE** |**Replikacja maszyn wirtualnych platformy Azure na platformę Azure** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikowanie maszyn wirtualnych VMware na platformę Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure** |
+| **Usługi pulpitu zdalnego** |**Replikacja maszyn wirtualnych platformy Azure na platformę Azure** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikowanie maszyn wirtualnych VMware na platformę Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Pulpit wirtualny w puli (niezarządzany)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |
 | **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |

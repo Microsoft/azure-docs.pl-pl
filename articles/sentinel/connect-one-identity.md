@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588148"
 ---
 # <a name="connect-one-identity-safeguard"></a>Łączenie jednej ochrony tożsamości
@@ -31,7 +31,7 @@ ms.locfileid: "77588148"
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Połącz wskaźnik kontroli platformy Azure z jedną ochroną tożsamości
 
-1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz **jeden łącznik ochrony tożsamości** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >   a następnie wybierz **jeden łącznik ochrony tożsamości** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 

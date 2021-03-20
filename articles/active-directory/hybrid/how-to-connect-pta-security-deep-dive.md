@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280149"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory głębokiego uwierzytelniania przekazującego zabezpieczeń szczegółowe
@@ -72,7 +72,7 @@ W poniższych sekcjach szczegółowo omówiono te etapy.
 
 ### <a name="authentication-agent-installation"></a>Instalacja agenta uwierzytelniania
 
-Tylko Administratorzy globalni mogą instalować agenta uwierzytelniania (przy użyciu Azure AD Connect lub autonomicznego) na serwerze lokalnym. Instalacja dodaje dwa nowe pozycje w **Panelu sterowania**  >  lista**programy programy**  >  **i funkcje** :
+Tylko Administratorzy globalni mogą instalować agenta uwierzytelniania (przy użyciu Azure AD Connect lub autonomicznego) na serwerze lokalnym. Instalacja dodaje dwa nowe pozycje w **Panelu sterowania**  >  lista **programy programy**  >  **i funkcje** :
 - Sama aplikacja agenta uwierzytelniania. Ta aplikacja działa z uprawnieniami [NetworkService](/windows/win32/services/networkservice-account) .
 - Aplikacja Aktualizator, która służy do autoaktualizacji agenta uwierzytelniania. Ta aplikacja jest uruchamiana z uprawnieniami [LocalSystem](/windows/win32/services/localsystem-account) .
 

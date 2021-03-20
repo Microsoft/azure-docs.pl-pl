@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279656"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: koncepcje projektowania
@@ -62,7 +62,7 @@ Jeśli masz wiele lasów i nie przenosisz użytkowników między lasami i domena
 
 Jeśli przenosisz użytkowników między lasami i domenami, musisz znaleźć atrybut, który nie zmienia się ani nie może zostać przeniesiony do użytkowników podczas przenoszenia. Zalecanym podejściem jest wprowadzenie atrybutu syntetycznego. Atrybut, który może zawierać coś, który wygląda jak identyfikator GUID, będzie odpowiedni. Podczas tworzenia obiektu tworzony jest nowy identyfikator GUID i jest on stemplowany na użytkowniku. Niestandardowa reguła synchronizacji można utworzyć na serwerze aparatu synchronizacji, aby utworzyć tę wartość na podstawie właściwości **objectGUID** i zaktualizować wybrany atrybut w obszarze Dodawanie. Podczas przenoszenia obiektu upewnij się, że kopiujesz również zawartość tej wartości.
 
-Innym rozwiązaniem jest wybranie istniejącego atrybutu, który nie zmienia się. Najczęściej używane atrybuty obejmują **IDPracownika**. Jeśli rozważasz atrybut, który zawiera litery, upewnij się, że przypadek (wielkie litery a małe litery) może zmienić wartość atrybutu. Złe atrybuty, które nie powinny być używane, zawierają te atrybuty z nazwą użytkownika. W przypadku małżeństwa lub rozwodu nazwa powinna ulec zmianie, co nie jest dozwolone dla tego atrybutu. Jest to również powód, dlaczego atrybuty, takie jak **userPrincipalName**, **mail**i **targetAddress** , nie są jeszcze dostępne do wyboru w Kreatorze instalacji Azure AD Connect. Te atrybuty również zawierają znak " \@ ", który jest niedozwolony w sourceAnchor.
+Innym rozwiązaniem jest wybranie istniejącego atrybutu, który nie zmienia się. Najczęściej używane atrybuty obejmują **IDPracownika**. Jeśli rozważasz atrybut, który zawiera litery, upewnij się, że przypadek (wielkie litery a małe litery) może zmienić wartość atrybutu. Złe atrybuty, które nie powinny być używane, zawierają te atrybuty z nazwą użytkownika. W przypadku małżeństwa lub rozwodu nazwa powinna ulec zmianie, co nie jest dozwolone dla tego atrybutu. Jest to również powód, dlaczego atrybuty, takie jak **userPrincipalName**, **mail** i **targetAddress** , nie są jeszcze dostępne do wyboru w Kreatorze instalacji Azure AD Connect. Te atrybuty również zawierają znak " \@ ", który jest niedozwolony w sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Zmiana atrybutu sourceAnchor
 Nie można zmienić wartości atrybutu sourceAnchor po utworzeniu obiektu w usłudze Azure AD, a tożsamość jest zsynchronizowana.
@@ -140,7 +140,7 @@ Aby zmienić parametr objectGUID na ConsistencyGuid jako źródłowy atrybut zak
 
 3. Wprowadź swoje poświadczenia administratora usługi Azure AD, a następnie kliknij przycisk **dalej**.
 
-4. Kreator Azure AD Connect analizuje stan atrybutu MS-DS-ConsistencyGuid w Active Directory lokalnym. Jeśli atrybut nie jest skonfigurowany na żadnym obiekcie w katalogu, Azure AD Connect stwierdza, że żadna inna aplikacja nie korzysta obecnie z atrybutu i jest bezpieczna do użycia jako atrybut zakotwiczenia źródła. Kliknij przycisk **Dalej** , aby kontynuować.
+4. Kreator Azure AD Connect analizuje stan atrybutu MS-DS-ConsistencyGuid w Active Directory lokalnym. Jeśli atrybut nie jest skonfigurowany na żadnym obiekcie w katalogu, Azure AD Connect stwierdza, że żadna inna aplikacja nie korzysta obecnie z atrybutu i jest bezpieczna do użycia jako atrybut zakotwiczenia źródła. Kliknij pozycję **Next** (Dalej), aby kontynuować.
 
    ![Włącz ConsistencyGuid dla istniejącego wdrożenia — krok 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 

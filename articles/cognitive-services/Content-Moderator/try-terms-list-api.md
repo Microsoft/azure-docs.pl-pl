@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800044"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Umiarkowane z niestandardowymi listami terminów w konsoli interfejsu API
@@ -48,7 +48,7 @@ Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks, aby z
 
    **Lista terminów — zostanie otwarta strona indeks wyszukiwania odświeżania** .
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Listy terminów — odświeżanie zaznaczenia obszaru strony indeksu wyszukiwania](images/test-drive-region.png)
 
@@ -63,7 +63,7 @@ Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks, aby z
 
    **Lista terminów —** zostanie otwarta strona Tworzenie strony.
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Listy terminów — wybór regionu strony](images/test-drive-region.png)
 
@@ -95,11 +95,11 @@ Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks, aby z
 
    ![Listy terminów — pole wyboru Utwórz zawartość odpowiedzi konsoli pokazuje Identyfikator listy](images/try-terms-list-create-2.png)
  
-7. Dodaj warunki do listy Moje. W menu po lewej stronie w obszarze **termin**wybierz pozycję **Dodaj termin**. 
+7. Dodaj warunki do listy Moje. W menu po lewej stronie w obszarze **termin** wybierz pozycję **Dodaj termin**. 
 
    Zostanie otwarta strona **termin — Dodawanie terminu** . 
 
-8. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+8. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Termin — Dodaj region strony terminu](images/test-drive-region.png)
 
@@ -135,7 +135,7 @@ Ten przykład usuwa pojedynczy termin.
 
    Zostanie otwarty **termin usuwania** .
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Termin — Usuwanie obszaru strony](images/test-drive-region.png)
 
@@ -159,7 +159,7 @@ Można edytować nazwę i opis listy oraz dodawać elementy metadanych.
 
    **Lista terminów —** zostanie otwarta strona Szczegóły aktualizacji.
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Listy terminów — wybór obszaru strony szczegółów aktualizacji](images/test-drive-region.png)
 

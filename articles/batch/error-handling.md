@@ -4,10 +4,10 @@ description: Dowiedz się więcej o obsłudze błędów w przepływach pracy us�
 ms.topic: article
 ms.date: 05/15/2020
 ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85964281"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Obsługa błędów i wykrywanie w Azure Batch
