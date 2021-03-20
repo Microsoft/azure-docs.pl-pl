@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Az
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332818"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
@@ -89,7 +89,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
 7. Na ekranie **Przejrzyj przydział dysku** Sprawdź, czy dostępna jest ogólna ilość dostępnego miejsca do magazynowania i ilość miejsca na dysku. Wybierz opcję **Dalej**.
 
-8. W **Wybierz metodę tworzenia repliki**wybierz sposób tworzenia pierwszego punktu odzyskiwania. Początkową kopię zapasową można przenieść ręcznie (wyłączyć sieć), aby uniknąć przeciążenia przepustowości lub sieci. Jeśli zdecydujesz się na przeniesienie pierwszej kopii zapasowej, możesz określić godzinę wstępnego transferu. Wybierz opcję **Dalej**.
+8. W **Wybierz metodę tworzenia repliki** wybierz sposób tworzenia pierwszego punktu odzyskiwania. Początkową kopię zapasową można przenieść ręcznie (wyłączyć sieć), aby uniknąć przeciążenia przepustowości lub sieci. Jeśli zdecydujesz się na przeniesienie pierwszej kopii zapasowej, możesz określić godzinę wstępnego transferu. Wybierz opcję **Dalej**.
 
     ![Metoda replikacji początkowej](./media/backup-azure-backup-sql/pg-manual.png)
 

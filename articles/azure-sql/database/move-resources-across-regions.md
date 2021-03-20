@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594168"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Przenoszenie zasobów do nowego regionu — Azure SQL Database & wystąpienie zarządzane Azure SQL
@@ -68,7 +68,7 @@ Ten artykuł zawiera ogólny przepływ pracy służący do przeniesienia zasobó
 
 ### <a name="monitor-the-preparation-process"></a>Monitorowanie procesu przygotowania
 
-Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState** :
+Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) wskazuje, że baza danych jest zsynchronizowana i może być bezpiecznie przełączona w tryb failover.
 - **ReplicationState = 0** (inicjator) wskazuje, że baza danych nie została jeszcze zainicjowana, a próba przełączenia w tryb failover zakończy się niepowodzeniem.
@@ -122,7 +122,7 @@ Po zakończeniu przenoszenia Usuń zasoby w regionie źródłowym, aby uniknąć
 
 ### <a name="monitor-the-preparation-process"></a>Monitorowanie procesu przygotowania
 
-Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState** :
+Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) wskazuje, że baza danych jest zsynchronizowana i może być bezpiecznie przełączona w tryb failover.
 - **ReplicationState = 0** (inicjator) wskazuje, że baza danych nie została jeszcze zainicjowana, a próba przełączenia w tryb failover zakończy się niepowodzeniem.
@@ -170,7 +170,7 @@ Replikacja wszystkich baz danych w każdym wystąpieniu zostanie zainicjowana au
 
 ### <a name="monitor-the-preparation-process"></a>Monitorowanie procesu przygotowania
 
-Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState** :
+Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) wskazuje, że baza danych jest zsynchronizowana i może być bezpiecznie przełączona w tryb failover.
 - **ReplicationState = 0** (inicjator) wskazuje, że baza danych nie została jeszcze zainicjowana, a próba przełączenia w tryb failover zakończy się niepowodzeniem.

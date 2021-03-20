@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11102d95bc2aba65e6bc3cba71805a67f195947b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92681721"
 ---
 # <a name="how-to-use-microsoftazuresearch-in-a-c-net-application"></a>Jak używać Microsoft. Azure. Search w aplikacji C# .NET
@@ -572,7 +572,7 @@ Możliwość korzystania z własnych klas w celu współdziałania z dokumentami
 
 **Dlaczego należy używać typów danych dopuszczających wartość null**
 
-Podczas projektowania własnych klas modelu do mapowania na indeks Wyszukiwanie poznawcze platformy Azure zalecamy deklarowanie właściwości typów wartości takich jak `bool` i, `int` aby dopuszczać wartości null (na przykład `bool?` zamiast `bool` ). W przypadku użycia właściwości niedopuszczającej wartości null musisz **zagwarantować** , że żaden dokument w indeksie nie zawiera wartości null w odpowiednim polu. Nie pomoże to wymusić tego zestawu SDK ani usługi Azure Wyszukiwanie poznawcze.
+Podczas projektowania własnych klas modelu do mapowania na indeks Wyszukiwanie poznawcze platformy Azure zalecamy deklarowanie właściwości typów wartości takich jak `bool` i, `int` aby dopuszczać wartości null (na przykład `bool?` zamiast `bool` ). W przypadku użycia właściwości niedopuszczającej wartości null musisz **zagwarantować**, że żaden dokument w indeksie nie zawiera wartości null w odpowiednim polu. Nie pomoże to wymusić tego zestawu SDK ani usługi Azure Wyszukiwanie poznawcze.
 
 Nie jest to czysto hipotetyczny problem: wyobraź sobie scenariusz, w którym dodajesz nowe pole do istniejącego indeksu typu `Edm.Int32`. Po zaktualizowaniu definicji indeksu wszystkie dokumenty będą mieć wartość null dla tego nowego pola (ponieważ wszystkie typy są dopuszczane do wartości null na platformie Azure Wyszukiwanie poznawcze). Jeśli następnie dla tego pola użyjesz klasy modelu z właściwością `int` niedopuszczającą wartości null, podczas próby pobrania dokumentów otrzymasz wyjątek `JsonSerializationException` podobny do poniższego:
 

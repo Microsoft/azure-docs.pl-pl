@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c1a6957d347681f1c7dd9979429fffb153ccb39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546611"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory
@@ -59,7 +59,7 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Krok 2. sprawdzenie, czy początkowe przypisanie zostało zakończone
 
-1. Przejdź do **Azure Active Directory**  >  **grup** Azure Active Directory. Wybierz grupę, do której przypisano licencje.
+1. Przejdź do   >  **grup** Azure Active Directory. Wybierz grupę, do której przypisano licencje.
 
 1. Na stronie Grupa wybierz pozycję **licencje**. Dzięki temu można szybko potwierdzić, czy licencje zostały w pełni przypisane do użytkowników i czy występują błędy, które należy wziąć pod uwagę. Dostępne są następujące informacje:
 
@@ -81,7 +81,7 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Krok 3. sprawdzenie, czy występują problemy z licencją i rozwiązywanie problemów
 
-1. Przejdź do **Azure Active Directory**  >  **grup** Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
+1. Przejdź do   >  **grup** Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
 1. Na stronie Grupa wybierz pozycję **licencje**. Powiadomienie na stronie zawiera 10 użytkowników, do których nie można przypisać licencji. Otwórz go, aby wyświetlić listę wszystkich użytkowników w stanie błąd licencjonowania dla tej grupy.
 1. Kolumna **przydziałów zakończonych niepowodzeniem** informuje nas, że nie można przypisać do użytkowników obu licencji na produkt. **Górna przyczyna kolumny niepowodzenie** zawiera przyczynę niepowodzenia. W tym przypadku jest to **sprzeczne plany usługi**.
 

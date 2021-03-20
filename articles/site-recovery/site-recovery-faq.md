@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99820200"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
@@ -61,7 +61,7 @@ Obsługiwane są wdrożenia pakietu Azure Pack, systemu platformy Cloud Platform
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Czy są obsługiwane wdrożenia oparte na jednym pakiecie Azure Pack i jednym serwerze VMM?
 Tak. maszyny wirtualne funkcji Hyper-V można replikować na platformę Azure lub między lokacjami dostawcy usług.  Należy pamiętać, że w przypadku replikowania między lokacjami dostawcy usług integracja elementu Runbook platformy Azure jest niedostępna.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 ### <a name="where-can-i-find-pricing-information"></a>Gdzie mogę znaleźć informacje o cenach?
 Przejrzyj szczegóły [cennika Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) .

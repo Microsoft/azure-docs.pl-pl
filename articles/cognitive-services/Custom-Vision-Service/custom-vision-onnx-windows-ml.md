@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
 ms.openlocfilehash: 58ced0c45d66223ac3e40112126e92a4539db32d
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616080"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>używanie modelu ONNX z usługi Custom Vision z funkcją Windows ML (wersja zapoznawcza)
@@ -49,13 +49,13 @@ Aby użyć własnego modelu klasyfikatora obrazu, wykonaj następujące kroki:
 
 1. Utwórz i naucz klasyfikator przy użyciu usługi Custom Vision Service. Aby uzyskać instrukcje, jak to zrobić, zobacz [Tworzenie i uczenie klasyfikatora](./getting-started-build-a-classifier.md). Użyj jednej z domen **kompaktowych** , takich jak **General (Compact)**. 
    * Jeśli masz istniejący klasyfikator korzystający z innej domeny, możesz przekonwertować go na **kompaktowanie** w ustawieniach projektu. Następnie ponownie nauczenie projektu przed kontynuowaniem.
-1. Eksportuj model. Przejdź do karty wydajność i wybierz iterację przeszkolonej przy użyciu domeny **kompaktowej** . Wybierz przycisk **Eksportuj** , który zostanie wyświetlony. Następnie wybierz pozycję **ONNX** , a następnie opcję **Eksportuj**. Gdy plik będzie gotowy, wybierz przycisk **Pobierz**. Aby uzyskać więcej informacji na temat opcji eksportowania, zobacz [eksportowanie modelu](./export-your-model.md).
+1. Eksportuj model. Przejdź do karty wydajność i wybierz iterację przeszkolonej przy użyciu domeny **kompaktowej** . Wybierz przycisk **Eksportuj** , który zostanie wyświetlony. Następnie wybierz pozycję **ONNX**, a następnie opcję **Eksportuj**. Gdy plik będzie gotowy, wybierz przycisk **Pobierz**. Aby uzyskać więcej informacji na temat opcji eksportowania, zobacz [eksportowanie modelu](./export-your-model.md).
 1. Otwórz pobrany plik *zip* i Wyodrębnij z niego plik *model. Onnx* . Ten plik zawiera model klasyfikatora.
 1. W Eksplorator rozwiązań w programie Visual Studio kliknij prawym przyciskiem myszy folder **Assets** , a następnie wybierz pozycję __Dodaj istniejący element__. Wybierz plik ONNX.
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy plik ONNX i wybierz polecenie **Właściwości**. Zmień następujące właściwości pliku:
    * __Akcja kompilacji__  ->  __Zawartość__
    * __Kopiuj do katalogu wyjściowego__  ->  __Kopiuj, jeśli nowszy__
-1. Następnie otwórz _MainPage.XAML.cs_ i zmień wartość `_ourOnnxFileName` na nazwę pliku ONNX.
+1. Następnie otwórz plik _MainPage. XAML. cs_ i zmień wartość `_ourOnnxFileName` na nazwę pliku ONNX.
 1. Użyj, `F5` Aby skompilować i uruchomić projekt.
 1. Kliknij przycisk, aby wybrać obraz do oceny.
 

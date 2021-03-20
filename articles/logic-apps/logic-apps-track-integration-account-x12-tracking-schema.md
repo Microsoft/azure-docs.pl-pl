@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76905308"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Tworzenie schematów śledzenia komunikatów X12 w Azure Logic Apps
@@ -70,10 +70,10 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | transactionSetControlNumber | Nie | Ciąg | Numer kontrolny zestawu transakcji |
 | CorrelationMessageId | Nie | Ciąg | Identyfikator komunikatu korelacji, który jest połączeniem {Agreementname} {*GroupControlNumber*} {TransactionSetControlNumber} |
 | messageType | Nie | Ciąg | Zestaw transakcji lub typ dokumentu |
-| isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
-| isTechnicalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12 |
-| isFunctionalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie funkcjonalności jest skonfigurowane w umowie X12 |
-| needAk2LoopForValidMessages | Tak | Boolean | Czy pętla AK2 jest wymagana dla prawidłowego komunikatu |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat X12 nie powiódł się |
+| isTechnicalAcknowledgmentExpected | Tak | Wartość logiczna | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12 |
+| isFunctionalAcknowledgmentExpected | Tak | Wartość logiczna | Czy potwierdzenie funkcjonalności jest skonfigurowane w umowie X12 |
+| needAk2LoopForValidMessages | Tak | Wartość logiczna | Czy pętla AK2 jest wymagana dla prawidłowego komunikatu |
 | segmentsCount | Nie | Liczba całkowita | Liczba segmentów w zestawie transakcji X12 |
 |||||
 
@@ -129,11 +129,11 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | respondingFunctionalGroupId | Nie | Ciąg | Identyfikator grupy funkcjonalnej odpowiedzi, który jest mapowany do AK101 w potwierdzeniu |
 | respondingtransactionSetControlNumber | Nie | Ciąg | Numer kontrolny zestawu transakcji odpowiadający |
 | respondingTransactionSetId | Nie | Ciąg | Identyfikator zestawu transakcji odpowiadający, który mapuje do AK201 w potwierdzeniu |
-| statusCode | Tak | Boolean | Kod stanu potwierdzenia zestawu transakcji |
+| statusCode | Tak | Wartość logiczna | Kod stanu potwierdzenia zestawu transakcji |
 | segmentsCount | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i `AcceptedWithErrors` |
 | processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received` , `Generated` , i `Sent` |
 | CorrelationMessageId | Nie | Ciąg | Identyfikator komunikatu korelacji, który jest połączeniem {Agreementname} {*GroupControlNumber*} {TransactionSetControlNumber} |
-| isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat X12 nie powiódł się |
 | ak2Segment | Nie | Ciąg | Potwierdzenie dla zestawu transakcji w odebranej grupie funkcjonalnej |
 | ak3Segment | Nie | Ciąg | Zgłasza błędy w segmencie danych |
 | ak5Segment | Nie | Ciąg | Informuje, czy zestaw transakcji zidentyfikowany w segmencie AK2 jest akceptowany, czy odrzucany, i dlaczego |
@@ -181,8 +181,8 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo `send` |
 | interchangeControlNumber | Nie | Ciąg | Numer kontrolny wymiany |
 | isaSegment | Nie | Ciąg | Segment ISA komunikatu |
-| isTechnicalAcknowledgmentExpected | Boolean | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12  |
-| isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
+| isTechnicalAcknowledgmentExpected | Wartość logiczna | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12  |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat X12 nie powiódł się |
 | isa09 | Nie | Ciąg | Data wymiany dokumentu X12 |
 | isa10 | Nie | Ciąg | Czas wymiany dokumentu X12 |
 | isa11 | Nie | Ciąg | X12 — identyfikator standardów kontroli wymiany |
@@ -233,7 +233,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | interchangeControlNumber | Nie | Ciąg | Numer kontroli wymiany dla potwierdzenia technicznego otrzymanego od partnerów |
 | isaSegment | Nie | Ciąg | Segment ISA dla potwierdzenia technicznego otrzymanego od partnerów |
 | respondingInterchangeControlNumber | Nie | Ciąg | Numer kontroli wymiany dla potwierdzenia technicznego otrzymanego od partnerów |
-| isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat X12 nie powiódł się |
 | statusCode | Tak | Wyliczenie | Kod stanu potwierdzenia wymiany z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i `AcceptedWithErrors` |
 | processingStatus | Tak | Wyliczenie | Stan potwierdzenia z tymi dozwolonymi wartościami: `Received` , `Generated` i `Sent` |
 | ta102 | Nie | Ciąg | Data wymiany |
@@ -286,9 +286,9 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | interchangeControlNumber | Nie | Ciąg | Numer kontrolny wymiany |
 | functionalGroupControlNumber | Nie | Ciąg | Numer kontroli funkcjonalnej |
 | gsSegment | Nie | Ciąg | Segment GS komunikatu |
-| isTechnicalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12 |
-| isFunctionalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie funkcjonalności jest skonfigurowane w umowie X12 |
-| isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
+| isTechnicalAcknowledgmentExpected | Tak | Wartość logiczna | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12 |
+| isFunctionalAcknowledgmentExpected | Tak | Wartość logiczna | Czy potwierdzenie funkcjonalności jest skonfigurowane w umowie X12 |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat X12 nie powiódł się |
 | gs01 | Nie | Ciąg | Kod identyfikatora funkcjonalności |
 | gs02 | Nie | Ciąg | Kod nadawcy aplikacji |
 | gs03 | Nie | Ciąg | Kod odbiorcy aplikacji |
@@ -345,7 +345,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | gsSegment | Nie | Ciąg | Taki sam jak numer kontroli grupy funkcjonalnej, ale wypełniany tylko w określonych przypadkach |
 | respondingfunctionalGroupControlNumber | Nie | Ciąg | Numer kontrolny oryginalnej grupy funkcjonalnej |
 | respondingFunctionalGroupId | Nie | Ciąg | Mapuje do AK101 w identyfikator grupy funkcjonalnej potwierdzenia |
-| isMessageFailed | Boolean | Czy komunikat X12 nie powiódł się |
+| isMessageFailed | Wartość logiczna | Czy komunikat X12 nie powiódł się |
 | statusCode | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i `AcceptedWithErrors` |
 | processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received` , `Generated` , i `Sent` |
 | ak903 | Nie | Ciąg | Liczba odebranych zestawów transakcji |

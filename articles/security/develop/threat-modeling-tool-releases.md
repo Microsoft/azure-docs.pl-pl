@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
 ms.openlocfilehash: e6f8ba54218f9b5b730ce3454c087d6072930edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87825875"
 ---
 # <a name="threat-modeling-tool-releases"></a>Wersje Threat Modeling Tool
@@ -36,7 +36,7 @@ Microsoft Threat Modeling Tool jest obecnie zwalniana jako bezpłatna aplikacja 
 - Wymagania dodatkowe
   - Do otrzymywania aktualizacji narzędzia i szablonów jest wymagane połączenie z Internetem.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 - [Microsoft Threat Modeling Tool w wersji 7.3.00729.1](threat-modeling-tool-releases-73007291.md) – Lipiec 29 2020
 - [Microsoft Threat Modeling Tool w wersji 7.3.00714.2](threat-modeling-tool-releases-73007142.md) – Lipiec 14 2020

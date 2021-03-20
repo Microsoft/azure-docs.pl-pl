@@ -4,10 +4,10 @@ description: Opisuje definicję wykluczenia zasad używane przez Azure Policy do
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950180"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy struktura wykluczenia
@@ -20,7 +20,7 @@ Funkcja wykluczania Azure Policy (wersja zapoznawcza) służy do _wykluczania_ h
 Aby utworzyć wykluczenie zasad, należy użyć formatu JSON. Wykluczanie zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - metadane
 - przypisanie zasad
 - definicje zasad w ramach inicjatywy
@@ -88,7 +88,7 @@ Użyj **DisplayName** i **Description** , aby zidentyfikować wykluczenia zasad 
 
 ## <a name="metadata"></a>Metadane
 
-Właściwość **Metadata** umożliwia tworzenie wszelkich właściwości podrzędnych potrzebnych do przechowywania istotnych informacji. W powyższym przykładzie właściwości **RequestedBy**, **approvedBy**, **approvedOn**i **ticketRef** zawierają wartości klienta, aby podać informacje o osobach, które zażądały wykluczenia, kto je zatwierdził i kiedy oraz wewnętrzny bilet śledzenia żądania. Te właściwości **metadanych** są przykładami, ale nie są wymagane, a **metadane** nie są ograniczone do tych właściwości podrzędnych.
+Właściwość **Metadata** umożliwia tworzenie wszelkich właściwości podrzędnych potrzebnych do przechowywania istotnych informacji. W powyższym przykładzie właściwości **RequestedBy**, **approvedBy**, **approvedOn** i **ticketRef** zawierają wartości klienta, aby podać informacje o osobach, które zażądały wykluczenia, kto je zatwierdził i kiedy oraz wewnętrzny bilet śledzenia żądania. Te właściwości **metadanych** są przykładami, ale nie są wymagane, a **metadane** nie są ograniczone do tych właściwości podrzędnych.
 
 ## <a name="policy-assignment-id"></a>Identyfikator przypisania zasad
 

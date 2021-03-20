@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994761"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników
@@ -44,7 +44,7 @@ Organizacje mogą korzystać z wielu aplikacji w chmurze. Nie wszystkie te aplik
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od wszystkich użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego** zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
@@ -64,7 +64,7 @@ Organizacje mogą dołączać znane lokalizacje sieciowe znane jako **nazwane lo
 
 W przykładowych zasadach powyżej organizacja może zrezygnować z używania uwierzytelniania wieloskładnikowego w przypadku uzyskiwania dostępu do aplikacji w chmurze z sieci firmowej. W takim przypadku można dodać do zasad następującą konfigurację:
 
-1. W obszarze **przypisania** wybierz pozycję **warunki**  >  **Locations**.
+1. W obszarze **przypisania** wybierz pozycję **warunki**  >  .
    1. Skonfiguruj **tak**.
    1. Uwzględnij **dowolną lokalizację**.
    1. Wyklucz **wszystkie Zaufane lokalizacje**.

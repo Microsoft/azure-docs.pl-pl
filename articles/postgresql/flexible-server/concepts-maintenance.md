@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336313"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Konserwacja zaplanowana w usłudze Azure Database for PostgreSQL — serwer elastyczny
@@ -29,8 +29,8 @@ Powiadomienia dotyczące nadchodzącej zaplanowanej konserwacji mogą być nast�
 * Wyślij wiadomość e-mail na określony adres
 * Wyślij wiadomość e-mail do roli Azure Resource Manager
 * Wysyłane w wiadomości tekstowej (SMS) do urządzeń przenośnych
-* Wypychane jako powiadomienie do aplikacji platformy Azure
-* Dostarczone jako wiadomość głosowa
+* wypychane jako powiadomienie do aplikacji platformy Azure
+* dostarczone jako wiadomość głosowa
  
 Określając preferencje dla harmonogramu konserwacji, można wybrać dzień tygodnia i przedział czasu. Jeśli nie zostanie to określone, system wybierze godzinę między 23:00 a 7:00 czasu regionu serwera. Można zdefiniować różne harmonogramy dla każdego elastycznego serwera w ramach subskrypcji platformy Azure. 
  

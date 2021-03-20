@@ -9,10 +9,10 @@ ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341296"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w Azure Cosmos DB .NET v3 SDK
@@ -36,15 +36,15 @@ Na przykład, jeśli początkowe dane wejściowe to lista elementów, w których
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne wywołania do `CreateItemAsync` . Przykład:
+Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne wywołania do `CreateItemAsync` . Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Jeśli chcesz przeprowadzić *aktualizację* zbiorczą (podobną do korzystania z [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), musisz mieć współbieżne wywołania `ReplaceItemAsync` metody po zaktualizowaniu wartości elementu. Przykład:
+Jeśli chcesz przeprowadzić *aktualizację* zbiorczą (podobną do korzystania z [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), musisz mieć współbieżne wywołania `ReplaceItemAsync` metody po zaktualizowaniu wartości elementu. Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne wywołania do `DeleteItemAsync` , z `id` kluczem partycji i dla każdego elementu. Przykład:
+A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne wywołania do `DeleteItemAsync` , z `id` kluczem partycji i dla każdego elementu. Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -90,7 +90,7 @@ Aby uzyskać obsługę zbiorczą w zestawie SDK platformy .NET, nie ma żadnych 
 > [!NOTE]
 > W przypadkach, gdy jednostki żądania aprowizacji są znacznie mniejsze niż oczekiwane na podstawie ilości danych, warto rozważyć ustawienie wartości górnych. Operacja zbiorcza zajmie więcej czasu, ale ma wyższą szansę na całkowite sukcesy z powodu wyższych ponownych prób.
 
-## <a name="performance-improvements"></a>Ulepszenia wydajności
+## <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Podobnie jak w przypadku innych operacji przy użyciu zestawu .NET SDK, korzystanie z interfejsów API usługi Stream skutkuje lepszą wydajnością i pozwala uniknąć niepotrzebnej serializacji. 
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87077025"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
@@ -27,7 +27,7 @@ Aby uzyskać więcej informacji na temat składników łańcucha bloków Workben
 * Plan App Service (standardowa)
 * Application Insights
 * Event Grid
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Service Bus
 * SQL Database (standardowa S0)
 * Konto usługi Azure Storage (standardowa LRS)
@@ -74,7 +74,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
 
 1. Wybierz **przycisk OK** , aby zakończyć sekcję Konfiguracja ustawienia podstawowe.
 
-1. W obszarze **Ustawienia zaawansowane**wybierz, czy chcesz utworzyć nową sieć łańcucha bloków, czy użyć istniejącej sieci łańcucha bloków typu potwierdzenie urzędu certyfikacji.
+1. W obszarze **Ustawienia zaawansowane** wybierz, czy chcesz utworzyć nową sieć łańcucha bloków, czy użyć istniejącej sieci łańcucha bloków typu potwierdzenie urzędu certyfikacji.
 
     W przypadku **tworzenia nowego**:
 
@@ -118,7 +118,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
 Wdrożenie może potrwać do 90 minut. Aby monitorować postęp, można użyć Azure Portal. W nowo utworzonej grupie zasobów wybierz pozycję **wdrożenia > przegląd** , aby wyświetlić stan wdrożonych artefaktów.
 
 > [!IMPORTANT]
-> Po wdrożeniu należy wykonać Active Directory ustawienia. W przypadku wybrania opcji **Dodaj później**należy uruchomić [skrypt konfiguracji usługi Azure AD](#azure-ad-configuration-script).  W przypadku wybrania opcji **Dodaj teraz**należy [skonfigurować adres URL odpowiedzi](#configuring-the-reply-url).
+> Po wdrożeniu należy wykonać Active Directory ustawienia. W przypadku wybrania opcji **Dodaj później** należy uruchomić [skrypt konfiguracji usługi Azure AD](#azure-ad-configuration-script).  W przypadku wybrania opcji **Dodaj teraz** należy [skonfigurować adres URL odpowiedzi](#configuring-the-reply-url).
 
 ## <a name="blockchain-workbench-web-url"></a>Adres URL sieci Web łańcucha bloków Workbench
 
@@ -132,7 +132,7 @@ Po zakończeniu wdrożenia programu łańcucha bloków Workbench Nowa grupa zaso
 
     ![Lista usługi App Service](media/deploy/resource-group-list.png)
 
-1. W App Service **Przegląd**skopiuj wartość **adresu URL** , która reprezentuje adres URL sieci Web do wdrożonego łańcucha bloków Workbench.
+1. W App Service **Przegląd** skopiuj wartość **adresu URL** , która reprezentuje adres URL sieci Web do wdrożonego łańcucha bloków Workbench.
 
     ![Podstawowe informacje o usłudze App Service](media/deploy/app-service.png)
 
@@ -231,7 +231,7 @@ Następnie musisz zmodyfikować manifest, aby użyć ról aplikacji w usłudze A
 Aplikacja interfejsu API musi zażądać uprawnień od użytkownika w celu uzyskania dostępu do katalogu. Dla aplikacji interfejsu API ustaw następujące wymagane uprawnienia:
 
 1. W rejestracji aplikacji *interfejsu API łańcucha bloków* wybierz pozycję **uprawnienia interfejsu API**. Domyślnie dodawane jest uprawnienie interfejs API programu Graph **User. Read** .
-1. Aplikacja Workbench wymaga dostępu do odczytu do informacji o profilu podstawowym użytkownika. W obszarze *skonfigurowane uprawnienia*wybierz pozycję **Dodaj uprawnienie**. W obszarze **interfejsy API firmy Microsoft**wybierz pozycję **Microsoft Graph**.
+1. Aplikacja Workbench wymaga dostępu do odczytu do informacji o profilu podstawowym użytkownika. W obszarze *skonfigurowane uprawnienia* wybierz pozycję **Dodaj uprawnienie**. W obszarze **interfejsy API firmy Microsoft** wybierz pozycję **Microsoft Graph**.
 1. Ponieważ aplikacja Workbench używa uwierzytelnionych poświadczeń użytkownika, wybierz pozycję **uprawnienia delegowane**.
 1. W kategorii *użytkownik* wybierz uprawnienie **User. ReadBasic. All** .
 
@@ -239,7 +239,7 @@ Aplikacja interfejsu API musi zażądać uprawnień od użytkownika w celu uzysk
 
     Wybierz pozycję **Dodaj uprawnienia**.
 
-1. W obszarze *skonfigurowane uprawnienia*wybierz pozycję **Udziel zgody administratora** dla domeny, a następnie wybierz pozycję **tak** dla monitu weryfikacyjnego.
+1. W obszarze *skonfigurowane uprawnienia* wybierz pozycję **Udziel zgody administratora** dla domeny, a następnie wybierz pozycję **tak** dla monitu weryfikacyjnego.
 
    ![Udzielenie uprawnień](media/deploy/client-app-grant-permissions.png)
 

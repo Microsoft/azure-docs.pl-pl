@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92738850"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Samouczek: tworzenie pakietów kontenerów i wdrażanie ich jako aplikacji usługi Service Fabric za pomocą usługi Yeoman
@@ -80,7 +80,7 @@ Poniżej pokazano dane wejściowe i dane wyjściowe polecenia yo:
 
 Aby dodać kolejną usługę kontenera do aplikacji już utworzonej przy użyciu narzędzia Yeoman, wykonaj następujące czynności:
 
-1. Zmień katalog o jeden poziom na katalog **TestContainer** , na przykład *./TestContainer*
+1. Zmień katalog o jeden poziom na katalog **TestContainer**, na przykład *./TestContainer*
 2. Uruchom polecenie `yo azuresfcontainer:AddService`
 3. Nazwij usługę „azurevoteback”
 4. Podaj ścieżkę obrazu kontenera dla usługi Redis — „alpine:redis”
@@ -99,7 +99,7 @@ Wszystkie wpisy używane do dodania tej usługi są podane poniżej:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-W pozostałej części tego samouczka pracujemy w katalogu **TestContainer** . Na przykład *./TestContainer/TestContainer* . Zawartość tego katalogu powinna być następująca.
+W pozostałej części tego samouczka pracujemy w katalogu **TestContainer**. Na przykład *./TestContainer/TestContainer*. Zawartość tego katalogu powinna być następująca.
 
 ```bash
 $ ls
@@ -108,9 +108,9 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Konfigurowanie manifestu aplikacji przy użyciu poświadczeń dla usługi Azure Container Registry
 
-Aby usługa Service Fabric pobierała obrazy kontenerów z usługi Azure Container Registry, należy podać poświadczenia w pliku **ApplicationManifest.xml** .
+Aby usługa Service Fabric pobierała obrazy kontenerów z usługi Azure Container Registry, należy podać poświadczenia w pliku **ApplicationManifest.xml**.
 
-Zaloguj się do swojego wystąpienia ACR. Aby wykonać tę operację, użyj polecenia **az acr login** . Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
+Zaloguj się do swojego wystąpienia ACR. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Następnie uruchom następujące polecenie, aby pobrać hasło rejestru kontener
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-W pliku **ApplicationManifest.xml** dodaj fragment kodu pod elementem **ServiceManifestImport** dla usługi frontonu. Wstaw wartość **nazwaACR** w polu **AccountName** , a hasło zwrócone przez poprzednie polecenie — w polu **Password** . Pełny plik **ApplicationManifest.xml** znajduje się na końcu tego dokumentu.
+W pliku **ApplicationManifest.xml** dodaj fragment kodu pod elementem **ServiceManifestImport** dla usługi frontonu. Wstaw wartość **nazwaACR** w polu **AccountName**, a hasło zwrócone przez poprzednie polecenie — w polu **Password**. Pełny plik **ApplicationManifest.xml** znajduje się na końcu tego dokumentu.
 
 ```xml
 <Policies>
@@ -138,7 +138,7 @@ W pliku **ApplicationManifest.xml** dodaj fragment kodu pod elementem **ServiceM
 
 ### <a name="configure-communication-port"></a>Konfigurowanie portu komunikacji
 
-Skonfiguruj punkt końcowy HTTP, aby klienci mogli komunikować się z usługą. Otwórz plik *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* i zadeklaruj zasób punktu końcowego w elemencie **ServiceManifest** .  Dodaj protokół, port i nazwę. W tym samouczku usługa nasłuchuje na porcie 80. Poniższy fragment kodu jest umieszczony pod tagiem *ServiceManifest* w zasobie.
+Skonfiguruj punkt końcowy HTTP, aby klienci mogli komunikować się z usługą. Otwórz plik *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* i zadeklaruj zasób punktu końcowego w elemencie **ServiceManifest**.  Dodaj protokół, port i nazwę. W tym samouczku usługa nasłuchuje na porcie 80. Poniższy fragment kodu jest umieszczony pod tagiem *ServiceManifest* w zasobie.
 
 ```xml
 <Resources>
@@ -152,7 +152,7 @@ Skonfiguruj punkt końcowy HTTP, aby klienci mogli komunikować się z usługą.
 
 ```
 
-Podobnie zmodyfikuj manifest usługi dla usługi zaplecza. Otwórz plik *./TestContainer/azurevotebackPkg/ServiceManifest.xml* i zadeklaruj zasób punktu końcowego w elemencie **ServiceManifest** . W tym samouczku stosowana jest domyślna wartość usługi Redis — 6379. Poniższy fragment kodu jest umieszczony pod tagiem *ServiceManifest* w zasobie.
+Podobnie zmodyfikuj manifest usługi dla usługi zaplecza. Otwórz plik *./TestContainer/azurevotebackPkg/ServiceManifest.xml* i zadeklaruj zasób punktu końcowego w elemencie **ServiceManifest**. W tym samouczku stosowana jest domyślna wartość usługi Redis — 6379. Poniższy fragment kodu jest umieszczony pod tagiem *ServiceManifest* w zasobie.
 
 ```xml
 <Resources>
@@ -165,11 +165,11 @@ Podobnie zmodyfikuj manifest usługi dla usługi zaplecza. Otwórz plik *./TestC
 </Resources>
 ```
 
-Jeśli zostanie określony parametr **UriScheme** , punkt końcowy kontenera zostanie automatycznie zarejestrowany w usłudze nazewnictwa Service Fabric, aby można go było odnaleźć. Pełny przykładowy plik ServiceManifest.xml dla usługi zaplecza znajduje się na końcu tego artykułu.
+Jeśli zostanie określony parametr **UriScheme**, punkt końcowy kontenera zostanie automatycznie zarejestrowany w usłudze nazewnictwa Service Fabric, aby można go było odnaleźć. Pełny przykładowy plik ServiceManifest.xml dla usługi zaplecza znajduje się na końcu tego artykułu.
 
 ### <a name="map-container-ports-to-a-service"></a>Mapowanie portów kontenerów na usługę
 
-Aby udostępnić kontenery w klastrze, musimy również utworzyć powiązanie portu w pliku ApplicationManifest.xml. Zasady **PortBinding** odwołują się do punktów końcowych ( **Endpoints** ) zdefiniowanych w plikach **ServiceManifest.xml** . Żądania przychodzące do tych punktów końcowych są mapowane na porty kontenera, które są otwarte i ograniczone w tym miejscu. W pliku **ApplicationManifest.xml** dodaj następujący kod, aby powiązać porty 80 i 6379 z punktami końcowymi. Pełny plik **ApplicationManifest.xml** znajduje się na końcu tego dokumentu.
+Aby udostępnić kontenery w klastrze, musimy również utworzyć powiązanie portu w pliku ApplicationManifest.xml. Zasady **PortBinding** odwołują się do punktów końcowych (**Endpoints**) zdefiniowanych w plikach **ServiceManifest.xml**. Żądania przychodzące do tych punktów końcowych są mapowane na porty kontenera, które są otwarte i ograniczone w tym miejscu. W pliku **ApplicationManifest.xml** dodaj następujący kod, aby powiązać porty 80 i 6379 z punktami końcowymi. Pełny plik **ApplicationManifest.xml** znajduje się na końcu tego dokumentu.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -185,7 +185,7 @@ Aby udostępnić kontenery w klastrze, musimy również utworzyć powiązanie po
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Dodawanie nazwy DNS do usługi zaplecza
 
-Aby usługa Service Fabric przypisała tę nazwę DNS do usługi zaplecza, nazwa musi być określona w pliku **ApplicationManifest.xml** . Dodaj atrybut **ServiceDnsName** do elementu **Service** w następujący sposób:
+Aby usługa Service Fabric przypisała tę nazwę DNS do usługi zaplecza, nazwa musi być określona w pliku **ApplicationManifest.xml**. Dodaj atrybut **ServiceDnsName** do elementu **Service** w następujący sposób:
 
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -264,7 +264,7 @@ Połącz się z klastrem usługi Service Fabric na platformie Azure. Zastąp prz
 sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
-Użyj skryptu instalacji udostępnionego w katalogu **TestContainer** , aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
+Użyj skryptu instalacji udostępnionego w katalogu **TestContainer**, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
 
 ```bash
 ./install.sh

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 03c78f05566876356e4f486368dc2a5b3a29de43
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456262"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu zarządzania procesem zmiany
@@ -71,7 +71,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **Zarządzanie** integracją aplikacji **zarządzania procesem** wybierz pozycję **Logowanie jednokrotne**w sekcji Zarządzaj.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **Zarządzanie** integracją aplikacji **zarządzania procesem** wybierz pozycję **Logowanie jednokrotne** w sekcji Zarządzaj.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
@@ -104,7 +104,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 

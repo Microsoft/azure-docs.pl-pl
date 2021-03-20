@@ -8,10 +8,10 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8b4bd9ece5f010f1294356ad4673543834e5076a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94626915"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 Konto magazynu to udostępniona pula magazynu, za pomocą której można wdrażać udziały plików platformy Azure. Konto magazynu może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików, nieprzekraczającą limitów pojemności konta magazynu. W tym przykładzie tworzony jest program ogólnego przeznaczenia w wersji 2 (GPv2 Storage), który może magazynować standardowe udziały plików platformy Azure lub inne zasoby magazynu, takie jak obiekty blob lub kolejki, na nośniku rotacyjnym dysku twardego. Azure Files obsługuje również dyski półprzewodnikowe w warstwie Premium (dysków SSD); udziały plików platformy Azure w warstwie Premium można tworzyć na kontach magazynu FileStorage.
 
-W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu ma nazwę *mystorageaccount\<random number>* , a odwołanie do tego konta magazynu jest przechowywane w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
+W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu ma nazwę *mystorageaccount\<random number>*, a odwołanie do tego konta magazynu jest przechowywane w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"

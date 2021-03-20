@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546679"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
@@ -28,7 +28,7 @@ Skorzystaj z poniższych informacji i przykładów, aby uzyskać bardziej zaawan
 
 ## <a name="usage-location"></a>Lokalizacja użycia
 
-Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. W [Azure Portal](https://portal.azure.com)można określić lokalizację użycia w **User** &gt; **Profile** &gt; **ustawieniach** profilu użytkownika.
+Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. W [Azure Portal](https://portal.azure.com)można określić lokalizację użycia w  &gt;  &gt; **ustawieniach** profilu użytkownika.
 
 W przypadku przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Jeśli masz użytkowników w wielu lokalizacjach, upewnij się, że zostały one odzwierciedlone prawidłowo w zasobach użytkownika przed dodaniem użytkowników do grup z licencjami.
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputer
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332897"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
@@ -62,7 +62,7 @@ Po utworzeniu magazynu należy skonfigurować go do tworzenia kopii zapasowych s
 
     ![Konfigurowanie plików i folderów](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Po wybraniu przycisku **OK**obok pozycji **cel kopii zapasowej**pojawi się znacznik wyboru i zostanie otwarte okienko **Przygotowywanie infrastruktury** .
+    Po wybraniu przycisku **OK** obok pozycji **cel kopii zapasowej** pojawi się znacznik wyboru i zostanie otwarte okienko **Przygotowywanie infrastruktury** .
 
     ![Cel kopii zapasowej został skonfigurowany, następnym krokiem jest przygotowanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 

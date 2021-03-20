@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: duau
 ms.openlocfilehash: dcba2e9de2b37e8c432f94781b3c4c369ad52395
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97807945"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
@@ -89,7 +89,7 @@ W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi E
 * Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
 * Obsługa kontroli dostępu opartej na rolach (Azure RBAC) dla klasycznego modelu wdrażania. Nie można uruchomić formantów RBAC platformy Azure w ramach obwodu w klasycznym modelu wdrażania. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
 ## <a name="next-steps"></a>Następne kroki

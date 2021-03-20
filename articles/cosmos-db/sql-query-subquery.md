@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340859"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Przykłady podzapytań SQL dla Azure Cosmos DB
@@ -25,16 +25,16 @@ W tym artykule opisano podzapytania SQL i ich typowe przypadki użycia w program
 
 Istnieją dwa główne typy podzapytań:
 
-* **Skorelowane** : podzapytanie, które odwołuje się do wartości z zapytania zewnętrznego. Podzapytanie jest oceniane raz dla każdego wiersza, który przetwarza zapytanie zewnętrzne.
-* **Nieskorelowane** : podzapytanie, które jest niezależne od zapytania zewnętrznego. Może być uruchamiany samodzielnie bez polegania na zewnętrznym zapytaniu.
+* **Skorelowane**: podzapytanie, które odwołuje się do wartości z zapytania zewnętrznego. Podzapytanie jest oceniane raz dla każdego wiersza, który przetwarza zapytanie zewnętrzne.
+* **Nieskorelowane**: podzapytanie, które jest niezależne od zapytania zewnętrznego. Może być uruchamiany samodzielnie bez polegania na zewnętrznym zapytaniu.
 
 > [!NOTE]
 > Azure Cosmos DB obsługuje tylko skorelowane podzapytania.
 
 Podzapytania można zaklasyfikować w oparciu o liczbę wierszy i kolumn, które zwracają. Istnieją trzy typy:
-* **Tabela** : zwraca wiele wierszy i wiele kolumn.
-* Wiele **wartości** : zwraca wiele wierszy i pojedynczą kolumnę.
-* **Skalarny** : zwraca pojedynczy wiersz i pojedynczą kolumnę.
+* **Tabela**: zwraca wiele wierszy i wiele kolumn.
+* Wiele **wartości**: zwraca wiele wierszy i pojedynczą kolumnę.
+* **Skalarny**: zwraca pojedynczy wiersz i pojedynczą kolumnę.
 
 Zapytania SQL w Azure Cosmos DB zawsze zwracają pojedynczą kolumnę (prostą lub złożoną). W związku z tym w Azure Cosmos DB są stosowane tylko wielowartościowe i skalarne podzapytania. Można użyć wielowartościowego podzapytania tylko w klauzuli FROM jako wyrażenia relacyjnego. Można użyć podzapytania skalarnego jako wyrażenia skalarnego w klauzuli SELECT lub WHERE lub jako wyrażenie relacyjne w klauzuli FROM.
 

@@ -10,10 +10,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355478"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Wdrażanie do Azure Functions za pomocą DevOps Starter
@@ -26,7 +26,7 @@ DevOps Starter również:
 
 * Tworzy i konfiguruje potok wydania na platformie Azure DevOps dla ciągłej integracji/ciągłego wdrażania
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 >* Używanie narzędzia DevOps Starter do wdrażania aplikacji ASP.NET w usłudze Azure Function
@@ -53,7 +53,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     ![Pulpit nawigacyjny DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Wybierz pozycję **.NET**, a następnie wybierz pozycję **Dalej**. W obszarze **Wybierz strukturę aplikacji**wybierz pozycję **ASP.NET** , a następnie kliknij przycisk **dalej**.
+1. Wybierz pozycję **.NET**, a następnie wybierz pozycję **Dalej**. W obszarze **Wybierz strukturę aplikacji** wybierz pozycję **ASP.NET** , a następnie kliknij przycisk **dalej**.
 
 1. Wybierz **aplikacja funkcji** a następnie wybierz przycisk **dalej**.
 
@@ -97,7 +97,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Zrzut ekranu przedstawia pulpit nawigacyjny Azure Portal DevOps Starter ze strzałką wskazującą link w obszarze kompilacja w potoku C I/C D.](_img/azure-devops-project-functions/build.png)
 
-1. Kliknij pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Opcjonalnie możesz zdecydować się dołączyć gałęzie do procesu ciągłej integracji lub wykluczyć je z niego.
 

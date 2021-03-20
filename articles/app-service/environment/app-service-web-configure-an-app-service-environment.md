@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962591"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Konfigurowanie App Service Environment v1
@@ -24,7 +24,7 @@ ms.locfileid: "88962591"
 Na wysokim poziomie Azure App Service Environment składa się z kilku głównych składników:
 
 * Zasoby obliczeniowe, które są uruchomione w App Service Environment hostowanej usłudze
-* Magazyn
+* Storage
 * Baza danych programu
 * Klasyczny (v1) lub Menedżer zasobów (wersja 2) platformy Virtual Network Azure (Sieć wirtualna) 
 * Podsieć z uruchomioną App Service Environment usługą hostowaną
@@ -61,11 +61,11 @@ Jeśli aplikacje wymagają większego rozmiaru zasobów obliczeniowych, nie moż
 * Przypisz ponownie plany App Service, które obsługują aplikacje, które mają większy rozmiar, do nowo skonfigurowanej puli procesów roboczych. Jest to szybka operacja, którą należy wykonać krócej niż minutę.  
 * Skalowanie w dół pierwszej puli procesów roboczych, jeśli nie są już potrzebne nieużywane wystąpienia. Wykonanie tej operacji może potrwać kilka minut.
 
-**Skalowanie**automatyczne: jeden z narzędzi, które ułatwiają zarządzanie użyciem zasobów obliczeniowych, jest skalowaniem automatycznym. Skalowanie automatyczne można używać w przypadku pul frontonu lub procesów roboczych. Można wykonywać takie czynności, jak zwiększenie liczby wystąpień dowolnego typu puli rano i zmniejszenie jej w wieczór. Możesz też dodać wystąpienia, gdy liczba procesów roboczych, które są dostępne w puli procesu roboczego, spadnie poniżej określonego progu.
+**Skalowanie** automatyczne: jeden z narzędzi, które ułatwiają zarządzanie użyciem zasobów obliczeniowych, jest skalowaniem automatycznym. Skalowanie automatyczne można używać w przypadku pul frontonu lub procesów roboczych. Można wykonywać takie czynności, jak zwiększenie liczby wystąpień dowolnego typu puli rano i zmniejszenie jej w wieczór. Możesz też dodać wystąpienia, gdy liczba procesów roboczych, które są dostępne w puli procesu roboczego, spadnie poniżej określonego progu.
 
 Jeśli chcesz ustawić reguły skalowania automatycznego wokół metryk puli zasobów obliczeniowych, należy pamiętać o czasie, który jest wymagany. Aby uzyskać więcej informacji na temat automatycznego skalowania środowisk App Service, zobacz [jak skonfigurować Skalowanie automatyczne w App Service Environment][ASEAutoscale].
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Każde środowisko ASE jest skonfigurowane z 500 GB miejsca w magazynie. To miejsce jest używane we wszystkich aplikacjach w środowisku ASE. To miejsce do magazynowania jest częścią środowiska ASE i obecnie nie można go przełączyć do korzystania z miejsca do magazynowania. W przypadku wprowadzania zmian dotyczących routingu lub zabezpieczeń sieci wirtualnej należy nadal zezwolić na dostęp do usługi Azure Storage — lub środowisko ASE nie może działać.
 
 ### <a name="database"></a>baza danych
@@ -129,7 +129,7 @@ W bloku ASE istnieje sekcja **ustawień** , która zawiera kilka ważnych funkcj
 
 ![Blok ustawień i właściwości][4]
 
-**Ustawienia**  >  **Adresy IP**: w przypadku tworzenia aplikacji SSL IP (SSL) w środowisku ASE wymagany jest adres połączenie SSL z adresu IP. Aby można było uzyskać ten element, środowisko ASE wymaga Połączenie SSL z adresu IP adresów, do których należy przydzielenia. Po utworzeniu środowisko ASE ma jeden adres Połączenie SSL z adresu IP do tego celu, ale możesz dodać więcej. Jest naliczana opłata za dodatkowe adresy Połączenie SSL z adresu IP, jak pokazano w [App Service cenach][AppServicePricing] (w sekcji połączeń SSL). Cena dodatkowa to Połączenie SSL z adresu IP cena.
+**Ustawienia**  >  **Adresy IP**: w przypadku tworzenia aplikacji Secure Sockets Layer IP (SSL) w środowisku ASE wymagany jest adres połączenie SSL z adresu IP. Aby można było uzyskać ten element, środowisko ASE wymaga Połączenie SSL z adresu IP adresów, do których należy przydzielenia. Po utworzeniu środowisko ASE ma jeden adres Połączenie SSL z adresu IP do tego celu, ale możesz dodać więcej. Jest naliczana opłata za dodatkowe adresy Połączenie SSL z adresu IP, jak pokazano w [App Service cenach][AppServicePricing] (w sekcji połączeń SSL). Cena dodatkowa to Połączenie SSL z adresu IP cena.
 
 **Ustawienia**  >  **Pula**  /  frontonu **Pule procesów roboczych**: Każda z tych bloków puli zasobów umożliwia wyświetlanie informacji tylko w tej puli zasobów, a także zapewnianie kontroli w celu pełnego skalowania tej puli zasobów.  
 
@@ -154,7 +154,7 @@ Aby użyć operacji skalowania w bloku ASE, przeciągnij suwak do odpowiedniej i
 
 ![Interfejs użytkownika skalowania][6]
 
-Aby użyć funkcji ręcznych lub skalowania automatycznego w określonej puli zasobów, przejdź do pozycji **Ustawienia**  >  **Front End Pool**  /  **Pule procesów roboczych** puli frontonu zgodnie z potrzebami. Następnie otwórz pulę, którą chcesz zmienić. Przejdź do pozycji **Ustawienia**Skaluj w poziomie  >  **Scale Out** lub **Ustawienia**  >  **Skaluj w górę**. Blok **skalowanie w poziomie** pozwala sterować ilością wystąpień. **Skalowanie w górę** umożliwia sterowanie rozmiarem zasobów.  
+Aby użyć funkcji ręcznych lub skalowania automatycznego w określonej puli zasobów, przejdź do pozycji **Ustawienia**  >    /  **Pule procesów roboczych** puli frontonu zgodnie z potrzebami. Następnie otwórz pulę, którą chcesz zmienić. Przejdź do pozycji **Ustawienia** Skaluj w poziomie  >   lub **Ustawienia**  >  **Skaluj w górę**. Blok **skalowanie w poziomie** pozwala sterować ilością wystąpień. **Skalowanie w górę** umożliwia sterowanie rozmiarem zasobów.  
 
 ![Interfejs użytkownika ustawień skalowania][7]
 

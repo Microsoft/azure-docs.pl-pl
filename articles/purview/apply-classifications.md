@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
 ms.openlocfilehash: d12a7d52562fe32126e12a844c2d36c14cf01431
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554868"
 ---
 # <a name="apply-classifications-on-assets-in-azure-purview"></a>Stosowanie klasyfikacji zasobów na platformie Azure kontrolą
@@ -29,7 +29,7 @@ W tym dokumencie wyjaśniono, jak stosować klasyfikacje do danych.
 - Twórz niestandardowe klasyfikacje w zależności od potrzeb.
 - Skonfiguruj skanowanie źródeł danych.
 
-## <a name="apply-classifications"></a>Zastosuj klasyfikacje
+## <a name="apply-classifications"></a>Stosowanie klasyfikacji
 W usłudze Azure kontrolą można stosować klasyfikacje systemowe lub niestandardowe dla pliku, tabeli lub kolumny. W tym artykule opisano kroki ręcznego stosowania klasyfikacji do zasobów.
 
 ### <a name="apply-classification-to-a-file-asset"></a>Zastosuj klasyfikację do zasobu pliku
@@ -43,7 +43,7 @@ Wykonaj następujące kroki, aby dodać klasyfikację niestandardową lub system
 
     :::image type="content" source="./media/apply-classifications/asset-detail-page.png" alt-text="Zrzut ekranu przedstawiający stronę szczegółów zasobu.":::
 
-1. Na karcie **Przegląd** sprawdź sekcję **klasyfikacje** , aby sprawdzić, czy istnieją jakieś klasyfikacje. Wybierz pozycję **Edit** (Edytuj).
+1. Na karcie **Przegląd** sprawdź sekcję **klasyfikacje** , aby sprawdzić, czy istnieją jakieś klasyfikacje. Wybierz pozycję **Edytuj**.
 
 1. Z listy rozwijanej **klasyfikacje** wybierz interesujące Cię klasyfikacje. Na przykład **numer karty kredytowej**, który jest klasyfikacją systemu i **CustomerAccountID**, która jest klasyfikacją niestandardową.
 

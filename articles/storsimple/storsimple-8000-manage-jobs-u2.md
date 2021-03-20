@@ -1,6 +1,6 @@
 ---
 title: Wyświetlanie zadań i zarządzanie nimi dla serii StorSimple 8000 | Microsoft Docs
-description: Opisuje blok zadania usługi StorSimple Menedżer urządzeń i sposobu jego użycia do śledzenia ostatnich, bieżących i zaplanowanych zadań tworzenia kopii zapasowej.
+description: Opisuje blok zadania usługi StorSimple Device Manager i sposobu jego użycia do śledzenia ostatnich, bieżących i zaplanowanych zadań tworzenia kopii zapasowej.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949432"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do wyświetlania zadań i zarządzania nimi (Aktualizacja Update 3 i nowsze)
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Korzystanie z usługi StorSimple Device Manager do wyświetlania zadań i zarządzania nimi (Aktualizacja Update 3 i nowsze)
 
 ## <a name="overview"></a>Omówienie
-Blok **zadania** zawiera pojedynczy centralny portal umożliwiający wyświetlanie zadań uruchomionych na urządzeniach połączonych z usługą StorSimple Menedżer urządzeń i zarządzanie nimi. Można wyświetlać zadania zaplanowane, uruchomione, ukończone, anulowane i zakończone niepowodzeniem dla wielu urządzeń. Wyniki są prezentowane w formacie tabelarycznym.
+Blok **zadania** zawiera pojedynczy centralny portal umożliwiający wyświetlanie zadań uruchomionych na urządzeniach połączonych z usługą StorSimple Device Manager i zarządzanie nimi. Można wyświetlać zadania zaplanowane, uruchomione, ukończone, anulowane i zakończone niepowodzeniem dla wielu urządzeń. Wyniki są prezentowane w formacie tabelarycznym.
 
 ![Blok zadań](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
@@ -55,7 +55,7 @@ Na tej stronie można wykonać następujące akcje związane z zadaniami:
 Wykonaj poniższe kroki, aby wyświetlić szczegóły każdego zadania.
 
 #### <a name="to-view-job-details"></a>Aby wyświetlić szczegóły zadania
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie kliknij pozycję **Jobs (zadania**).
+1. Przejdź do usługi StorSimple Device Manager, a następnie kliknij pozycję **Jobs (zadania**).
 
 2. W bloku **zadania** Wyświetl zadania, które Cię interesują, uruchamiając zapytanie z odpowiednimi filtrami. Można wyszukiwać ukończone, uruchomione lub anulowane zadania.
 
@@ -87,5 +87,5 @@ Wykonaj następujące kroki, aby anulować uruchomione zadanie.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [zarządzać zasadami kopii zapasowych StorSimple](storsimple-8000-manage-backup-policies-u2.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).
 

@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87826215"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Przenoszenie zasobów aplikacji logiki do innych grup zasobów platformy Azure, regionów lub subskrypcji
@@ -41,7 +41,7 @@ Aby przenieść zasób, taki jak aplikacja logiki lub konto integracji, do innej
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz zasób aplikacji logiki, który chcesz przenieść.
 
-1. Na stronie **Przegląd** zasobu obok pozycji **subskrypcja**wybierz łącze **Zmień** .
+1. Na stronie **Przegląd** zasobu obok pozycji **subskrypcja** wybierz łącze **Zmień** .
 
 1. Na stronie **przenoszenie zasobów** wybierz zasób aplikacji logiki i wszystkie powiązane zasoby, które chcesz przenieść.
 
@@ -61,7 +61,7 @@ Przed rzeczywistym przeniesieniem zasobów między grupami można sprawdzić, cz
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz zasób aplikacji logiki, który chcesz przenieść.
 
-1. Na stronie **Przegląd** zasobu obok pozycji **Grupa zasobów**wybierz łącze **Zmień** .
+1. Na stronie **Przegląd** zasobu obok pozycji **Grupa zasobów** wybierz łącze **Zmień** .
 
 1. Na stronie **przenoszenie zasobów** wybierz zasób aplikacji logiki i wszystkie powiązane zasoby, które chcesz przenieść.
 
@@ -102,9 +102,9 @@ Szablon pobrany z programu Visual Studio zawiera tylko definicje zasobów dla ap
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz konto integracji.
 
-1. W menu konta integracji w obszarze **Ustawienia**wybierz pozycję **Eksportuj szablon**.
+1. W menu konta integracji w obszarze **Ustawienia** wybierz pozycję **Eksportuj szablon**.
 
-1. Na pasku narzędzi wybierz pozycję **Pobierz**i Zapisz szablon.
+1. Na pasku narzędzi wybierz pozycję **Pobierz** i Zapisz szablon.
 
 1. Otwórz i edytuj szablon, aby Sparametryzuj wymagane wartości dla wdrożenia.
 

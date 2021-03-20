@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87760128"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Akcje w aparacie reguł standardowych dla Azure CDN
@@ -63,9 +63,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w żądaniach w
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
+Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
 Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
-Usuwanie | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
 
 ### <a name="modify-response-header"></a>Modyfikuj nagłówek odpowiedzi
 
@@ -75,9 +75,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w odpowiedziach
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
+Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
 Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | Ciąg
-Usuwanie | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
 
 ### <a name="url-redirect"></a>Przekierowywanie adresów URL
 
@@ -87,7 +87,7 @@ Użyj tej akcji, aby przekierować klientów do nowego adresu URL.
 
 Pole | Opis 
 ------|------------
-Type | Wybierz typ odpowiedzi, aby powrócić do obiektu żądającego: znaleziono (302), przeniesione (301), tymczasowe przekierowanie (307) i trwałe przekierowanie (308).
+Typ | Wybierz typ odpowiedzi, aby powrócić do obiektu żądającego: znaleziono (302), przeniesione (301), tymczasowe przekierowanie (307) i trwałe przekierowanie (308).
 Protokół | Żądanie dopasowania, HTTP i HTTPS.
 Hostname (Nazwa hosta) | Wybierz nazwę hosta, do którego chcesz przekierować żądanie. Pozostaw to pole puste, aby zachować hosta przychodzącego.
 Ścieżka | Zdefiniuj ścieżkę do użycia w przekierowaniu. Pozostaw to pole puste, aby zachować ścieżkę przychodzącą.  
@@ -106,7 +106,7 @@ Pole | Opis
 ------|------------
 Wzorzec źródła | Zdefiniuj wzorzec źródłowy w ścieżce URL, który ma zostać zamieniony. Obecnie wzorzec źródłowy używa dopasowania opartego na prefiksie. Aby dopasować wszystkie ścieżki URL, użyj ukośnika ( **/** ) jako wartości wzorca źródła.
 Element docelowy | Zdefiniuj ścieżkę docelową do użycia podczas ponownego zapisywania. Ścieżka docelowa zastępuje wzorzec źródłowy.
-Zachowaj niedopasowaną ścieżkę | W przypadku ustawienia wartości **tak**pozostała ścieżka po wzorcu źródłowym zostanie dołączona do nowej ścieżki docelowej. 
+Zachowaj niedopasowaną ścieżkę | W przypadku ustawienia wartości **tak** pozostała ścieżka po wzorcu źródłowym zostanie dołączona do nowej ścieżki docelowej. 
 
 ## <a name="next-steps"></a>Następne kroki
 

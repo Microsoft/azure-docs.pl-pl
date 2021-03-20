@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97845453"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
@@ -36,14 +36,14 @@ LUIS rozumie wyrażenia długości w następujących językach:
 | Angielski (Stany Zjednoczone) |`en-US` | ✔ | ✔  |✔|✔|
 | francuski (Kanada) |`fr-CA` |-|-|-|✔|
 | Francuski (Francja) |`fr-FR` |✔| ✔ |✔ |✔|
-| niemiecki |`de-DE` |✔| ✔ |✔ |✔|
+| Niemiecki |`de-DE` |✔| ✔ |✔ |✔|
 | Gudżarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
 | Włoski |`it-IT` |✔| ✔ |✔|✔|
 | *[Japoński](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Tylko fraza klucza|
-| koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
+| Koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
 | Marathi | `mr-IN`|-|-|-|-|
-| Portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
+| portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
 | Hiszpański (Meksyk)|`es-MX` |-|-|✔|✔|
 | hiszpański (Hiszpania) |`es-ES` |✔| ✔ |✔|✔|
 | Tamilski | `ta-IN`|-|-|-|-|
@@ -90,14 +90,14 @@ Aby wykonać Uczenie maszynowe, LUIS dzieli wypowiedź na [tokeny](luis-glossary
 |Angielski (en-us)|✔ |||
 |Francuski (fr-FR)|✔|||
 |Francuski (fr-CA)|✔|||
-|niemiecki|✔||✔|
+|Niemiecki|✔||✔|
 |Gudżarati|✔|||
 |Hindi|✔|||
 |Włoski|✔|||
 |japoński|||✔
-|koreański||✔||
+|Koreański||✔||
 |Marathi|✔|||
-|Portugalski (Brazylia)|✔|||
+|portugalski (Brazylia)|✔|||
 |Hiszpański (es-ES)|✔|||
 |Hiszpański (es-MX)|✔|||
 |Tamilski|✔|||
@@ -111,8 +111,8 @@ Następujące kultury mają niestandardowe wersje tokenizatora:
 
 |Kultura|Wersja|Przeznaczenie|
 |--|--|--|
-|niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
-|niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
+|Niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
+|Niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
 |Niderlandzki<br>`nl-nl`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school` . Zezwalanie na oznaczanie `kleuter` i `school` niezależnie jako różne jednostki.|
 |Niderlandzki<br>`nl-nl`|1.0.1|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `kleuterschool` to, że jest oznaczona jako pojedyncza jednostka. |
 
