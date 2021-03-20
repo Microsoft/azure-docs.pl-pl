@@ -4,10 +4,10 @@ description: Skonfiguruj reguły adresów IP, aby umożliwić dostęp do usługi
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89488766"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurowanie reguł sieci publicznych adresów IP
@@ -46,9 +46,9 @@ az acr network-rule add \
 ## <a name="access-from-selected-public-network---portal"></a>Dostęp z wybranej publicznej sieci — Portal
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **Ustawienia**wybierz pozycję **Sieć**.
+1. W obszarze **Ustawienia** wybierz pozycję **Sieć**.
 1. Na karcie **dostęp publiczny** wybierz opcję, aby zezwolić na publiczny dostęp z **wybranych sieci**.
-1. W obszarze **Zapora**wprowadź publiczny adres IP, taki jak publiczny adres IP maszyny wirtualnej w sieci wirtualnej. Lub wprowadź zakres adresów w notacji CIDR, który zawiera adres IP maszyny wirtualnej.
+1. W obszarze **Zapora** wprowadź publiczny adres IP, taki jak publiczny adres IP maszyny wirtualnej w sieci wirtualnej. Lub wprowadź zakres adresów w notacji CIDR, który zawiera adres IP maszyny wirtualnej.
 1. Wybierz pozycję **Zapisz**.
 
 ![Konfigurowanie reguły zapory dla rejestru kontenerów][acr-access-selected-networks]
@@ -77,7 +77,7 @@ az acr update --name myContainerRegistry --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz przycisk **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej** wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
 
 ![Wyłącz dostęp publiczny][acr-access-disabled]
 
@@ -100,7 +100,7 @@ az acr update --name myContainerRegistry --public-network-enabled true
 ### <a name="restore-public-access---portal"></a>Przywracanie publicznego dostępu — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz przycisk **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej** wybierz pozycję **wszystkie sieci**. Następnie wybierz pozycję **Zapisz**.
 
 ![Publiczny dostęp ze wszystkich sieci][acr-access-all-networks]
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054946"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Tworzenie zasad tworzenia kopii zapasowych i zarządzanie nimi za pomocą StorSimple Snapshot Manager
@@ -48,16 +48,16 @@ Aby utworzyć nowe zasady tworzenia kopii zapasowych, wykonaj czynności opisane
    1. W polu tekstowym **Nazwa** wpisz nazwę zasady.
    2. W polu tekstowym **Grupa woluminów** wpisz nazwę grupy woluminów skojarzonej z zasadami.
    3. Wybierz **migawkę lokalną** lub **migawkę w chmurze**.
-   4. Wybierz liczbę migawek do zachowania. W przypadku wybrania opcji **wszystkie**migawki 64 będą zachowywane (wartość maksymalna).
+   4. Wybierz liczbę migawek do zachowania. W przypadku wybrania opcji **wszystkie** migawki 64 będą zachowywane (wartość maksymalna).
 4. Kliknij kartę **Harmonogram** .
 
     ![Tworzenie karty harmonogram zasad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 5. Na karcie **harmonogram** wykonaj następujące informacje:
 
    1. Kliknij pole wyboru **Włącz** , aby zaplanować następną kopię zapasową.
-   2. W obszarze **Ustawienia**wybierz **jeden raz**, **codziennie**, **co tydzień**lub **co miesiąc**.
+   2. W obszarze **Ustawienia** wybierz **jeden raz**, **codziennie**, **co tydzień** lub **co miesiąc**.
    3. W polu tekstowym **Start** kliknij ikonę kalendarza i wybierz datę rozpoczęcia.
-   4. W obszarze **Ustawienia zaawansowane**można ustawić opcjonalne harmonogramy powtarzania i datę końcową.
+   4. W obszarze **Ustawienia zaawansowane** można ustawić opcjonalne harmonogramy powtarzania i datę końcową.
    5. Kliknij przycisk **OK**.
 
 Po utworzeniu zasad tworzenia kopii zapasowych w okienku **wyników** zostaną wyświetlone następujące informacje:

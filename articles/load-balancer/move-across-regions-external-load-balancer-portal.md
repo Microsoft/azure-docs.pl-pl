@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94693753"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Przenoszenie zewnętrznego modułu równoważenia obciążenia do innego regionu przy użyciu Azure Portal
@@ -141,11 +141,11 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
  
 13. Wybierz pozycję **Zapisz** w edytorze online.
 
-14. Wybierz **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
+14. Wybierz pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
 
 15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy publiczny adres IP. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego publicznego adresu IP.
 
-16. Sprawdź, **BASICS** czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
+16. Sprawdź, czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
 
 17. W obszarze **Ustawienia** Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
 
@@ -181,7 +181,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony w powyższych krokach, najpierw należy uzyskać identyfikator zasobu, a następnie wkleić go do parameters.jsna pliku. Aby uzyskać identyfikator:
 
     1. W innej karcie lub oknie przeglądarki Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **grupy zasobów**.
-    2. Znajdź docelową grupę zasobów zawierającą publiczny adres IP, który został przeniesiony w powyższych krokach. Wybierz go.
+    2. Znajdź docelową grupę zasobów zawierającą publiczny adres IP, który został przeniesiony w powyższych krokach. Wybierz ją.
     3. Wybierz pozycję **Ustawienia** > **Właściwości**.
     4. W bloku po prawej stronie zaznacz **Identyfikator zasobu** i skopiuj go do Schowka. Alternatywnie możesz wybrać opcję **Kopiuj do schowka** z prawej strony ścieżki **identyfikatora zasobu** .
     5. Wklej identyfikator zasobu do właściwości **wartość** w edytorze **parametrów edycji** , który jest otwarty w innym oknie przeglądarki lub karcie:
@@ -389,11 +389,11 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
 12. Wybierz pozycję **Zapisz** w edytorze online.
 
-13. Wybierz **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
+13. Wybierz pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
 
 15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego zewnętrznego modułu równoważenia obciążenia. Możesz też wybrać istniejącą grupę zasobów utworzoną wcześniej dla publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego zewnętrznego modułu równoważenia obciążenia.
 
-16. Sprawdź, **BASICS** czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
+16. Sprawdź, czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
 
 17. W obszarze **Ustawienia** Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów. Sprawdź, czy identyfikatory zasobów są wypełnione dla wszystkich publicznych adresów IP w konfiguracji.
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89500134"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Wdrażanie własnej bramy w usłudze Kubernetes
@@ -35,7 +35,7 @@ W tym artykule opisano kroki wdrażania składnika bramy samoobsługowego API Ma
 3. Wybierz pozycję **wdrożenie**.
 4. Token dostępu w polu tekstowym **token** został automatycznie wygenerowany dla Ciebie, na podstawie domyślnych wartości kluczy **wygaśnięcia** i **tajnych** . W razie potrzeby wybierz wartości w jednej lub obu kontrolkach, aby wygenerować nowy token.
 5. Wybierz kartę **Kubernetes** w obszarze **Skrypty wdrażania**.
-6. Wybierz łącze plik ** \<gateway-name\> . yml** i Pobierz plik YAML.
+6. Wybierz łącze plik **\<gateway-name\> . yml** i Pobierz plik YAML.
 7. Wybierz ikonę **kopiowania** w prawym dolnym rogu pola tekstowego **Wdróż** , aby zapisać `kubectl` polecenia do Schowka.
 8. Wklej polecenia do okna terminalu (lub polecenia). Pierwsze polecenie tworzy wpis tajny Kubernetes, który zawiera token dostępu wygenerowany w kroku 4. Drugie polecenie stosuje plik konfiguracji pobrany w kroku 6 do klastra Kubernetes i oczekuje, że plik znajduje się w bieżącym katalogu.
 9. Uruchom polecenia, aby utworzyć niezbędne obiekty Kubernetes w [domyślnej przestrzeni nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) i uruchomić własne witryny bramy z [obrazu kontenera](https://aka.ms/apim/sputnik/dhub) pobranego z Container Registry firmy Microsoft.
@@ -112,7 +112,7 @@ Plik YAML, który znajduje się w polu Azure Portal ustawia w `externalTrafficPo
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Niestandardowe nazwy domen i certyfikaty SSL
 
-Jeśli używasz niestandardowych nazw domen dla punktów końcowych API Management, zwłaszcza jeśli używasz niestandardowej nazwy domeny dla punktu końcowego zarządzania, może być konieczne zaktualizowanie wartości `config.service.endpoint` w pliku ** \<gateway-name\> . YAML** , aby zastąpić domyślną nazwę domeny nazwą domeny niestandardowej. Upewnij się, że punkt końcowy zarządzania jest dostępny z poziomu usługi bramy samoobsługowej w klastrze Kubernetes.
+Jeśli używasz niestandardowych nazw domen dla punktów końcowych API Management, zwłaszcza jeśli używasz niestandardowej nazwy domeny dla punktu końcowego zarządzania, może być konieczne zaktualizowanie wartości `config.service.endpoint` w pliku **\<gateway-name\> . YAML** , aby zastąpić domyślną nazwę domeny nazwą domeny niestandardowej. Upewnij się, że punkt końcowy zarządzania jest dostępny z poziomu usługi bramy samoobsługowej w klastrze Kubernetes.
 
 W tym scenariuszu, jeśli certyfikat SSL używany przez punkt końcowy zarządzania nie jest podpisany przez dobrze znany certyfikat urzędu certyfikacji, należy się upewnić, że certyfikat urzędu certyfikacji jest zaufany w ramach bramy samoobsługowej.
 

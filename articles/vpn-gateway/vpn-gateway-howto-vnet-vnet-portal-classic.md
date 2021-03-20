@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103224"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurowanie połączenia Sieć wirtualna-sieć wirtualna (klasyczna)
@@ -26,7 +26,7 @@ Ten artykuł pomaga utworzyć połączenie bramy sieci VPN między sieciami wirt
 Kroki opisane w tym artykule mają zastosowanie do klasycznego modelu wdrażania i Azure Portal. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Klasyczny](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Motyw](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Resource Manager](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Łączenie sieci wirtualnych z różnymi modelami wdrażania](vpn-gateway-connect-different-deployment-models-portal.md)
 >
@@ -38,7 +38,7 @@ Połączenie sieci wirtualnej z inną siecią wirtualną (VNet-to-VNet) w klasyc
 
 Połączenie sieci wirtualnych może znajdować się w różnych subskrypcjach i w różnych regionach. Można połączyć sieć wirtualną z siecią wirtualną z konfiguracjami wielolokacjowymi. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagram przedstawiający architekturę klasycznej sieci wirtualnej do sieci wirtualnej":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagram przedstawiający połączenia":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>Dlaczego łączy się sieci wirtualne?
 
@@ -145,9 +145,9 @@ Należy pamiętać, że lokacja lokalna dla każdej sieci wirtualnej to inna Sie
 
 Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP urządzenia sieci VPN, z którym będzie tworzone połączenie, oraz zakresy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do tego urządzenia sieci VPN.
 
-1. Na stronie sieci wirtualnej w obszarze **Ustawienia**wybierz pozycję **połączenia lokacja-lokacja**.
+1. Na stronie sieci wirtualnej w obszarze **Ustawienia** wybierz pozycję **połączenia lokacja-lokacja**.
 1. Na stronie połączenia między lokacjami wybierz pozycję **+ Dodaj**.
-1. Na stronie **Konfigurowanie połączenia sieci VPN i bramy** dla **typu połączenia**pozostaw wybraną opcję **lokacja-lokacja** .
+1. Na stronie **Konfigurowanie połączenia sieci VPN i bramy** dla **typu połączenia** pozostaw wybraną opcję **lokacja-lokacja** .
 
    * **Adres IP bramy sieci VPN:** Publiczny adres IP urządzenia sieci VPN w sieci lokalnej. W tym ćwiczeniu można umieścić fikcyjny adres, ponieważ nie ma jeszcze adresu IP bramy sieci VPN dla innej lokacji. Na przykład 5.4.3.2. Później, po skonfigurowaniu bramy dla innej sieci wirtualnej, możesz dostosować tę wartość.
 

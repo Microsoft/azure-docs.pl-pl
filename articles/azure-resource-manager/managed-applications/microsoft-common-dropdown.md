@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92168345"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft. Common. DropDown — element interfejsu użytkownika
@@ -26,19 +26,19 @@ Gdy tylko jeden element jest dozwolony do zaznaczania, formant jest wyświetlany
 
 Po uwzględnieniu opisów kontrolka jest wyświetlana jako:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór z opisami":::
 
 W przypadku włączenia wyboru wielu elementów kontrolka dodaje opcję **Zaznacz wszystko** i zawiera pola wyboru umożliwiające wybranie więcej niż jednego elementu:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. DropDown — wybór wiele":::
 
 Opisy można dołączać z włączoną opcją wyboru wiele.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Zrzut ekranu, który pokazuje, w jaki sposób opisy mogą być dołączane z włączoną obsługą wyboru":::
 
 Po włączeniu filtrowania kontrolka zawiera pole tekstowe służące do dodawania wartości filtrowania.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown — wybór wieloznaczny z opisami":::
 
 ## <a name="schema"></a>Schemat
 

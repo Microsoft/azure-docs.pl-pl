@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
 ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660223"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
@@ -40,7 +40,7 @@ Komercyjna witryna Marketplace to punkt wyjścia do współpracy między firmami
 
 Komercyjna witryna Marketplace jest dostępna w 141 regionach na podstawie planu. 
 
-Zarządzamy płatnościami podatkowymi w wielu krajach/regionach i Zapewniamy dostęp do naszej sieci globalnej kanału odsprzedawcy. Możesz użyć umowy lub Umowa Enterprise klienta firmy Microsoft do sprzedaży do organizacji bez konieczności tworzenia nowej relacji kupowania.
+Zarządzamy płatnościami podatkowymi w wielu krajach/regionach i Zapewniamy dostęp do naszej sieci globalnej kanału odsprzedawcy. Możesz użyć umowy lub Enterprise Agreement klienta firmy Microsoft do sprzedaży do organizacji bez konieczności tworzenia nowej relacji kupowania.
 
 Aby dowiedzieć się więcej, zobacz [Microsoft Commercial Marketplace Hub](https://aka.ms/commercialmarketplacehub).
 
@@ -81,7 +81,7 @@ Udostępniamy raporty dotyczące ofert w portalu komercyjnym. Aby uzyskać dost�
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Co to jest relacja firmy Microsoft z klientami?
 
-Komercyjny Portal rynku współpracuje z modelem agencji. Klient podpisuje umowę zakupu w ramach umowy Microsoft Cloud lub Umowa Enterprise (EA). Firma Microsoft jest odpowiedzialna za rozliczenia, kolekcje, płatności podatkowe w odpowiednich regionach i wypłaty wydawcy. W przypadku wydawców należy ustawić cenę, ustawić warunki użytkowania i zapewnić pomoc techniczną.
+Komercyjny Portal rynku współpracuje z modelem agencji. Klient podpisuje umowę zakupu w ramach umowy Microsoft Cloud lub Enterprise Agreement (EA). Firma Microsoft jest odpowiedzialna za rozliczenia, kolekcje, płatności podatkowe w odpowiednich regionach i wypłaty wydawcy. W przypadku wydawców należy ustawić cenę, ustawić warunki użytkowania i zapewnić pomoc techniczną.
 
 ### <a name="what-terms-of-use-options-are-available-with-the-commercial-marketplace"></a>Jakie opcje użytkowania są dostępne w portalu komercyjnym?
 
@@ -276,7 +276,7 @@ Klienci są zwykle rozliczani miesięcznie za jakiekolwiek zakupy w poprzednim c
 
 Wypłaty wypłaty są comiesięczne. Aby uzyskać szczegółowe informacje na temat harmonogramów płatności, można znaleźć nadchodzące wypłaty w centrum partnerskim i sposób postępowania z niepłatami klientów, zobacz [Szczegóły zasad wypłaty](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
-- W przypadku transakcji, w których Klient użył Umowa Enterprise, wypłaty wypłaty są wydawane w następnym cyklu wypłaty 30 dni. 
+- W przypadku transakcji, w których Klient użył Enterprise Agreement, wypłaty wypłaty są wydawane w następnym cyklu wypłaty 30 dni. 
 - W przypadku transakcji, w których Klient użył karty kredytowej, po otrzymaniu płatności w celu zagwarantowania, że nie ma żadnych obciążeń zwrotnychych lub niejawnych oszustw, występuje dodatkowy 30-dniowy okres płatności.
 
 Wypłaty są wystawiane tylko wtedy, gdy sprzedaż osiągnęła minimalną łączną wartość $50,00.

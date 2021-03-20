@@ -10,22 +10,22 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397505"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Konfigurowanie kompleksowego protokołu TLS przy użyciu Application Gateway z portalem
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Konfigurowanie kompleksowego szyfrowania TLS przy użyciu usługi Application Gateway w portalu
 
-W tym artykule opisano, jak używać Azure Portal do konfigurowania kompleksowego szyfrowania Transport Layer Security (TLS), znanego wcześniej jako szyfrowanie SSL (SSL) za pośrednictwem jednostki SKU platformy Azure Application Gateway v1.
+W tym artykule opisano, jak używać Azure Portal do konfigurowania kompleksowego szyfrowania Transport Layer Security (TLS), znanego wcześniej jako szyfrowanie Secure Sockets Layer (SSL) za pośrednictwem jednostki SKU platformy Azure Application Gateway v1.
 
 > [!NOTE]
 > Jednostka SKU Application Gateway v2 wymaga zaufanych certyfikatów głównych do włączenia konfiguracji kompleksowej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby skonfigurować kompleksową transkonfigurację TLS przy użyciu bramy aplikacji, wymagany jest certyfikat dla bramy. Certyfikaty są również wymagane dla serwerów zaplecza. Certyfikat bramy służy do uzyskiwania klucza symetrycznego w zgodności ze specyfikacją protokołu TLS. Klucz symetryczny jest następnie używany do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. 
 
@@ -43,7 +43,7 @@ Aby dowiedzieć się więcej, zobacz [Włączanie zakończenia protokołu TLS po
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Dodawanie uwierzytelniania/certyfikatów głównych serwerów zaplecza
 
-1. Wybierz pozycję **Wszystkie zasoby** , a następnie wybierz pozycję **myAppGateway**.
+1. Wybierz pozycję **Wszystkie zasoby**, a następnie wybierz pozycję **myAppGateway**.
 
 2. Wybierz pozycję **Ustawienia http** z menu po lewej stronie. Platforma Azure automatycznie utworzyła domyślne ustawienie HTTP **appGatewayBackendHttpSettings** podczas tworzenia bramy aplikacji. 
 
@@ -78,7 +78,7 @@ Musisz użyć odbiornika z protokołem HTTPS i certyfikatem do włączenia zako�
 W przypadku wybrania tej opcji należy zastosować kroki opisane w poniższej procedurze.
 ### <a name="enable-tls-termination-in-an-existing-application-gateway"></a>Włączanie zakończenia protokołu TLS w istniejącej bramie aplikacji
 
-1. Wybierz pozycję **Wszystkie zasoby** , a następnie wybierz pozycję **myAppGateway**.
+1. Wybierz pozycję **Wszystkie zasoby**, a następnie wybierz pozycję **myAppGateway**.
 
 2. Wybierz pozycję **detektory** z menu po lewej stronie.
 
@@ -91,15 +91,15 @@ W przypadku wybrania tej opcji należy zastosować kroki opisane w poniższej pr
    > [!NOTE]
    > Do celów testowych można użyć certyfikatu z podpisem własnym. Nie jest to jednak zalecane w przypadku obciążeń produkcyjnych, ponieważ są one trudniejsze do zarządzania i nie są całkowicie bezpieczne. Aby uzyskać więcej informacji, zobacz [Tworzenie certyfikatu z](./create-ssl-portal.md#create-a-self-signed-certificate)podpisem własnym.
 
-6. Dodaj inne wymagane ustawienia dla **odbiornika** , w zależności od wymagań.
+6. Dodaj inne wymagane ustawienia dla **odbiornika**, w zależności od wymagań.
 
-7. Wybierz opcję **OK** , aby zapisać.
+7. Wybierz opcję **OK**, aby zapisać.
 
 ### <a name="add-authenticationtrusted-root-certificates-of-back-end-servers"></a>Dodawanie uwierzytelniania/zaufanych certyfikatów głównych serwerów zaplecza
 
-1. Wybierz pozycję **Wszystkie zasoby** , a następnie wybierz pozycję **myAppGateway**.
+1. Wybierz pozycję **Wszystkie zasoby**, a następnie wybierz pozycję **myAppGateway**.
 
-2. Wybierz pozycję **Ustawienia http** z menu po lewej stronie. Certyfikaty można umieścić w istniejącym ustawieniu HTTP zaplecza na liście bezpiecznych adresatów lub utworzyć nowe ustawienie protokołu HTTP. (W następnym kroku certyfikat dla domyślnego ustawienia HTTP, **appGatewayBackendHttpSettings** , zostanie dodany do listy bezpiecznych adresatów).
+2. Wybierz pozycję **Ustawienia http** z menu po lewej stronie. Certyfikaty można umieścić w istniejącym ustawieniu HTTP zaplecza na liście bezpiecznych adresatów lub utworzyć nowe ustawienie protokołu HTTP. (W następnym kroku certyfikat dla domyślnego ustawienia HTTP, **appGatewayBackendHttpSettings**, zostanie dodany do listy bezpiecznych adresatów).
 
 3. Wybierz pozycję **appGatewayBackendHttpSettings**.
 

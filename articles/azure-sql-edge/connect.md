@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395210"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge
@@ -36,8 +36,8 @@ Możesz połączyć się z wystąpieniem wystąpienia usługi Azure SQL Edge z d
 
 Aby nawiązać połączenie z aparatem bazy danych usługi Azure SQL Edge z komputera sieciowego, potrzebne są następujące elementy:
 
-- **Adres IP lub nazwa sieci komputera hosta** : jest to komputer-host, na którym działa kontener usługi Azure SQL Edge.
-- **Mapowanie portu hosta kontenera usługi Azure SQL Edge** : jest to mapowanie portu kontenera Docker na port na hoście. W kontenerze usługa Azure SQL Edge jest zawsze mapowana na port 1433. Możesz to zmienić, jeśli chcesz. Aby zmienić numer portu, zaktualizuj **Opcje tworzenia kontenera** dla modułu usługi Azure SQL Edge w Azure IoT Edge. W poniższym przykładzie port 1433 w kontenerze jest mapowany na port 1600 na hoście.
+- **Adres IP lub nazwa sieci komputera hosta**: jest to komputer-host, na którym działa kontener usługi Azure SQL Edge.
+- **Mapowanie portu hosta kontenera usługi Azure SQL Edge**: jest to mapowanie portu kontenera Docker na port na hoście. W kontenerze usługa Azure SQL Edge jest zawsze mapowana na port 1433. Możesz to zmienić, jeśli chcesz. Aby zmienić numer portu, zaktualizuj **Opcje tworzenia kontenera** dla modułu usługi Azure SQL Edge w Azure IoT Edge. W poniższym przykładzie port 1433 w kontenerze jest mapowany na port 1600 na hoście.
 
     ```JSON
     {
@@ -51,7 +51,7 @@ Aby nawiązać połączenie z aparatem bazy danych usługi Azure SQL Edge z komp
     }
     ```
 
-- **Hasło administratora wystąpienia usługi Azure SQL Edge** : jest to wartość określona dla `SA_PASSWORD` zmiennej środowiskowej podczas wdrażania usługi Azure SQL Edge.
+- **Hasło administratora wystąpienia usługi Azure SQL Edge**: jest to wartość określona dla `SA_PASSWORD` zmiennej środowiskowej podczas wdrażania usługi Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Nawiązywanie połączenia z aparatem bazy danych z poziomu kontenera
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Nawiązywanie połączenia z usługą Azure SQL Edge z innej maszyny sieciowej
 
-Możesz chcieć nawiązać połączenie z wystąpieniem usługi Azure SQL Edge z innego komputera w sieci. Aby to zrobić, użyj adresu IP hosta platformy Docker i portu hosta, do którego zamapowany jest kontener usługi Azure SQL Edge. Jeśli na przykład adres IP hosta platformy Docker to *xxx.xxx.xxx.xxx* , a kontener usługi Azure SQL Edge jest mapowany na port hosta *1600* , adres serwera dla wystąpienia usługi Azure SQL Edge to *xxx. xxx. xxx. xxx, 1600*. Zaktualizowany skrypt w języku Python to:
+Możesz chcieć nawiązać połączenie z wystąpieniem usługi Azure SQL Edge z innego komputera w sieci. Aby to zrobić, użyj adresu IP hosta platformy Docker i portu hosta, do którego zamapowany jest kontener usługi Azure SQL Edge. Jeśli na przykład adres IP hosta platformy Docker to *xxx.xxx.xxx.xxx*, a kontener usługi Azure SQL Edge jest mapowany na port hosta *1600*, adres serwera dla wystąpienia usługi Azure SQL Edge to *xxx. xxx. xxx. xxx, 1600*. Zaktualizowany skrypt w języku Python to:
 
 ```python
 

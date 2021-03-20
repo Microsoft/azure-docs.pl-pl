@@ -4,10 +4,10 @@ description: Dowiedz się, jak spakować istniejącą aplikację jako plik wykon
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86259269"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric
@@ -22,7 +22,7 @@ Przy pakowaniu istniejącego pliku wykonywalnego jako [plik wykonywalny gościa]
 
 Program Visual Studio zawiera Service Fabric szablon usługi ułatwiający wdrożenie pliku wykonywalnego gościa w klastrze Service Fabric.
 
-1. Wybierz pozycję **plik**  >  **Nowy projekt**i Utwórz aplikację Service Fabricową.
+1. Wybierz pozycję **plik**  >  **Nowy projekt** i Utwórz aplikację Service Fabricową.
 2. Wybierz **plik wykonywalny gościa** jako szablon usługi.
 3. Kliknij przycisk **Przeglądaj** , aby wybrać folder z plikiem wykonywalnym i uzupełnić pozostałe parametry w celu utworzenia usługi.
    * *Zachowanie pakietu kodu*. Można ustawić, aby skopiować całą zawartość folderu do projektu programu Visual Studio, co jest przydatne, jeśli plik wykonywalny nie zmienia się. Jeśli oczekujesz, że plik wykonywalny zostanie zmieniony i chcesz mieć możliwość dynamicznego pobierania nowych kompilacji, możesz połączyć się z folderem. Podczas tworzenia projektu aplikacji w programie Visual Studio można użyć folderów połączonych. Spowoduje to połączenie z lokalizacją źródłową z projektu, co umożliwia zaktualizowanie pliku wykonywalnego gościa w jego źródłowym miejscu docelowym. Te aktualizacje stają się częścią pakietu aplikacji podczas kompilacji.
@@ -33,7 +33,7 @@ Program Visual Studio zawiera Service Fabric szablon usługi ułatwiający wdro�
      * `CodePackage` Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` pokazany w poprzedniej strukturze plików).
      * `Work` Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
 4. Nadaj nazwę usłudze i kliknij przycisk **OK**.
-5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do pliku ServiceManifest.xml. Przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do pliku ServiceManifest.xml. Na przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Teraz można używać akcji Package i Publish względem lokalnego klastra przez debugowanie rozwiązania w programie Visual Studio. Gdy wszystko będzie gotowe, można opublikować aplikację w klastrze zdalnym lub zaewidencjonować rozwiązanie do kontroli źródła.
 7. Przeczytaj temat [Sprawdzanie działającej aplikacji](#check-your-running-application) , aby dowiedzieć się, jak wyświetlić usługę plików wykonywalnych gościa działającą w Service Fabric Explorer.
 

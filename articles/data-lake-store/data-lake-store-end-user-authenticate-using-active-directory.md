@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
 ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103785"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
@@ -107,7 +107,7 @@ Aby pobrać identyfikator URI przekierowania, wykonaj następujące czynności.
 
     ![Zrzut ekranu przedstawiający blok Dodawanie dostępu do interfejsu API z opcją wyboru uprawnień o nazwie "out" i bloku Włącz dostęp z opcją ma pełny dostęp do usługi Azure Data Lake, a opcja Select została wywołana.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    Kliknij pozycję **Gotowe**.
+    Kliknij przycisk **Gotowe**.
 
 5. Powtórz ostatnie dwa kroki, aby również udzielić uprawnień dla **systemu Windows Azure interfejs API zarządzania usługami** .
 

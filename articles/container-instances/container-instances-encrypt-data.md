@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686280"
 ---
 # <a name="encrypt-deployment-data"></a>Szyfrowanie danych wdrożenia
@@ -27,8 +27,8 @@ Możesz polegać na kluczach zarządzanych przez firmę Microsoft do szyfrowania
 |    |    Klucze zarządzane przez firmę Microsoft     |     Klucze zarządzane przez klienta     |
 |----|----|----|
 |    **Operacje szyfrowania/odszyfrowywania**    |    Azure    |    Azure    |
-|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    W usłudze Azure Key Vault    |
-|    **Odpowiedzialność za kluczowe rotacje**    |    Microsoft    |    Klient    |
+|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    Azure Key Vault    |
+|    **Odpowiedzialność za kluczowe rotacje**    |    Microsoft    |    Customer    |
 |    **Dostęp do klucza**    |    Tylko firma Microsoft    |    Firma Microsoft, klient    |
 
 Pozostała część dokumentu obejmuje kroki wymagane do zaszyfrowania danych wdrożenia ACI za pomocą klucza (klucza zarządzanego przez klienta). 

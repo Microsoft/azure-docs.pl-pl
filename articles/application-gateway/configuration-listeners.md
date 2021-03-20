@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397647"
 ---
 # <a name="application-gateway-listener-configuration"></a>Konfiguracja odbiornika Application Gateway
@@ -20,7 +20,7 @@ ms.locfileid: "93397647"
 
 Odbiornik jest jednostką logiczną, która sprawdza przychodzące żądania połączeń przy użyciu portu, protokołu, hosta i adresu IP. Podczas konfigurowania odbiornika należy wprowadzić wartości pasujące do odpowiednich wartości w żądaniu przychodzącym na bramie.
 
-Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy również utworzyć odbiornik domyślny, wybierając protokół i port odbiornika. Możesz wybrać, czy włączyć obsługę HTTP2 na odbiorniku. Po utworzeniu bramy aplikacji można edytować ustawienia tego odbiornika domyślnego ( *appGatewayHttpListener* ) lub utworzyć nowe odbiorniki.
+Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy również utworzyć odbiornik domyślny, wybierając protokół i port odbiornika. Możesz wybrać, czy włączyć obsługę HTTP2 na odbiorniku. Po utworzeniu bramy aplikacji można edytować ustawienia tego odbiornika domyślnego (*appGatewayHttpListener*) lub utworzyć nowe odbiorniki.
 
 ## <a name="listener-type"></a>Typ odbiornika
 
@@ -87,7 +87,7 @@ Aby skonfigurować globalną stronę błędu niestandardowego, zobacz [konfigura
 
 ## <a name="tls-policy"></a>Zasady protokołu TLS
 
-Można scentralizować zarządzanie certyfikatami TLS/SSL i zmniejszyć obciążenie odszyfrowywania dla farmy serwerów zaplecza. Scentralizowana obsługa protokołu TLS umożliwia również określenie centralnych zasad protokołu TLS, które są odpowiednie do wymagań dotyczących zabezpieczeń. Można wybrać *domyślne* , *wstępnie zdefiniowane* lub *niestandardowe* zasady protokołu TLS.
+Można scentralizować zarządzanie certyfikatami TLS/SSL i zmniejszyć obciążenie odszyfrowywania dla farmy serwerów zaplecza. Scentralizowana obsługa protokołu TLS umożliwia również określenie centralnych zasad protokołu TLS, które są odpowiednie do wymagań dotyczących zabezpieczeń. Można wybrać *domyślne*, *wstępnie zdefiniowane* lub *niestandardowe* zasady protokołu TLS.
 
 Zasady protokołu TLS można skonfigurować do kontroli wersji protokołu TLS. Bramę aplikacji można skonfigurować tak, aby korzystała z minimalnej wersji protokołu dla uzgadniania TLS z protokołów TLS 1.0, TLS 1.1 i TLS 1.2. Domyślnie protokoły SSL 2,0 i 3,0 są wyłączone i nie można ich konfigurować. Aby uzyskać więcej informacji, zobacz [Application Gateway zasad protokołu TLS](./application-gateway-ssl-policy-overview.md).
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98183136"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Zarządzanie metodami uwierzytelniania użytkowników w usłudze Azure AD Multi-Factor Authentication
@@ -44,7 +44,7 @@ Możesz dodać metody uwierzytelniania dla użytkownika za pośrednictwem Azure 
 
 Aby dodać metody uwierzytelniania dla użytkownika za pośrednictwem Azure Portal:  
 
-1. Zaloguj się w witrynie **Azure Portal**. 
+1. Zaloguj się do **Azure Portal**. 
 1. Przeglądaj, aby **Azure Active Directory**  >  **użytkowników**  >  **Wszyscy użytkownicy**. 
 1. Wybierz użytkownika, dla którego chcesz dodać metodę uwierzytelniania, a następnie wybierz pozycję **metody uwierzytelniania**.  
 1. W górnej części okna wybierz pozycję **+ Dodaj metodę uwierzytelniania**.

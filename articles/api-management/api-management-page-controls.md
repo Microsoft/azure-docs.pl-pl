@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250027"
 ---
 # <a name="azure-api-management-page-controls"></a>Kontrolki strony API Management platformy Azure
@@ -168,7 +168,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
  `sign-up`Kontrolka może być używana w następujących szablonach portalu dla deweloperów:  
   
--   [Zarejestruj się](api-management-page-templates.md#SignUp)  
+-   [Rejestrowanie](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subskrypcja — przycisk  
  `subscribe-button`Zawiera kontrolkę umożliwiającą subskrybowanie użytkownika w produkcie.  

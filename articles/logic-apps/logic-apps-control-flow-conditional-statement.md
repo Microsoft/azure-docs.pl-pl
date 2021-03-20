@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 19f42270e37c42cf56bbde04f73c01027a56ff63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657394"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Tworzenie instrukcji warunkowych kontrolujących akcje przepływu pracy w Azure Logic Apps
@@ -69,7 +69,7 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele w
    Aby dodać grupę z podwarunkami, wybierz pozycję **Dodaj**  >  **Dodaj grupę**. 
    Aby zgrupować istniejące wiersze, zaznacz pola wyboru dla tych wierszy, wybierz przycisk wielokropka (...) dla każdego wiersza, a następnie wybierz polecenie **Utwórz grupę**.
 
-1. W obszarze **Jeśli prawda** i w **przypadku wartości false**Dodaj kroki do wykonania w zależności od tego, czy warunek jest spełniony. Na przykład:
+1. W obszarze **Jeśli prawda** i w **przypadku wartości false** Dodaj kroki do wykonania w zależności od tego, czy warunek jest spełniony. Na przykład:
 
    ![Warunek z ścieżkami "If true" i "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

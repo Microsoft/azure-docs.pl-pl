@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c538c510eeafacd1596fdeb1b4593919e6236cf0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487087"
 ---
 1. W [Azure Portal](https://portal.azure.com)w obszarze **Wyszukaj zasoby, usługi i dokumenty (G +/)** wpisz **Brama sieci lokalnej**. Znajdź **bramę sieci lokalnej** w obszarze **Marketplace** w wynikach wyszukiwania i wybierz ją. Spowoduje to otwarcie strony **Tworzenie bramy sieci lokalnej** .

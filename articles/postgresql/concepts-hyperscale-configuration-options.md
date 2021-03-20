@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/12/2021
 ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165615"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opcje konfiguracji Azure Database for PostgreSQL — Citus)
@@ -82,7 +82,7 @@ Grupy serwerów ze skalowaniem (Citus) są dostępne w następujących regionach
     * Zachodnie stany USA 2
 * Azja i Pacyfik:
     * Australia Wschodnia
-    * Japan East
+    * Japonia Wschodnia
     * Korea Środkowa
     * Southeast Asia
 * Terenie
@@ -123,7 +123,7 @@ Do 2 TiB magazynu jest obsługiwana na węzłach koordynator i proces roboczy. Z
 
 Azure Portal zawiera poświadczenia, aby połączyć się z dokładnie jedną bazą danych (Citus) grupą serwerów, `citus` bazę danych programu. Tworzenie innej bazy danych jest obecnie niedozwolone, a polecenie Utwórz bazę danych zakończy się niepowodzeniem z powodu błędu.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/postgresql/)usługi.
 Aby wyświetlić koszt dla wybranej konfiguracji, [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) przedstawia miesięczny koszt na karcie **Konfiguracja** na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z kalkulatora cen platformy Azure, aby uzyskać szacowaną cenę. W witrynie sieci Web [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) wybierz pozycję **Dodaj elementy**, rozwiń kategorię **bazy danych** , a następnie wybierz pozycję **Azure Database for PostgreSQL — Citus** , aby dostosować opcje.
  

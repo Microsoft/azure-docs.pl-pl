@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696119"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Zabezpieczenia funkcji hypervisor w flotie platformy Azure
@@ -72,4 +72,4 @@ Aby dowiedzieć się więcej na temat tego, co robimy, aby zwiększyć integraln
 - [Bezpieczny rozruch](secure-boot.md)
 - [Mierzony zaświadczanie rozruchu i hosta](measured-boot-host-attestation.md)
 - [Projekt Cerberus](project-cerberus.md)
-- [Szyfrowanie w spoczynku](encryption-atrest.md)
+- [Szyfrowanie danych magazynowanych](encryption-atrest.md)

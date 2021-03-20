@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361697"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
@@ -101,7 +101,7 @@ Za pomocą jednego konta Gremlin można wydać nieograniczoną liczbę tokenów.
 
 ## <a name="permission"></a>Uprawnienie
 
-Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()* , *. addE ()* , *. Drop ()* , lub *. Property ()*.
+Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()*, *. addE ()*, *. Drop ()*, lub *. Property ()*.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Kontrola dostępu oparta na rolach (Azure RBAC)](role-based-access-control.md) w Azure Cosmos DB

@@ -6,17 +6,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944044"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Samouczek: tworzenie klastrów usługi Azure HDInsight za pomocą Azure Automation
 
 Azure Automation pozwala tworzyć skrypty uruchamiane w chmurze i zarządzać zasobami platformy Azure na żądanie lub na podstawie harmonogramu. W tym artykule opisano sposób tworzenia elementów Runbook programu PowerShell w celu tworzenia i usuwania klastrów usługi Azure HDInsight.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zainstaluj moduły niezbędne do współpracy z usługą HDInsight.

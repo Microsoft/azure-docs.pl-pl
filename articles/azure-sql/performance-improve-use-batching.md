@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792603"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Korzystanie z usługi Batch w celu usprawnienia Azure SQL Database i wydajności aplikacji wystąpienia zarządzanego Azure SQL
@@ -42,7 +42,7 @@ W pierwszej części tego artykułu są badane różne techniki wsadowe dla apli
 ### <a name="note-about-timing-results-in-this-article"></a>Uwaga dotycząca chronometrażu wyników w tym artykule
 
 > [!NOTE]
-> Wyniki nie są wzorcem, ale są przeznaczone do wyświetlania **względnej wydajności** . Chronometraż jest oparty na średniej z co najmniej 10 przebiegów testowych. Operacje są wstawiane do pustej tabeli. Te testy zostały zmierzone przed V12 i nie muszą odpowiadać przepływności, które można napotkać w bazie danych V12 przy użyciu nowych [warstw usług DTU](database/service-tiers-dtu.md) lub [rdzeń wirtualny usługi](database/service-tiers-vcore.md). Względne korzyści wynikające z techniki wsadowej powinny być podobne.
+> Wyniki nie są wzorcem, ale są przeznaczone do wyświetlania **względnej wydajności**. Chronometraż jest oparty na średniej z co najmniej 10 przebiegów testowych. Operacje są wstawiane do pustej tabeli. Te testy zostały zmierzone przed V12 i nie muszą odpowiadać przepływności, które można napotkać w bazie danych V12 przy użyciu nowych [warstw usług DTU](database/service-tiers-dtu.md) lub [rdzeń wirtualny usługi](database/service-tiers-vcore.md). Względne korzyści wynikające z techniki wsadowej powinny być podobne.
 
 ### <a name="transactions"></a>Transakcje
 
@@ -97,7 +97,7 @@ Transakcje są faktycznie używane w obu tych przykładach. W pierwszym przykła
 
 W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przeprowadzono te same sekwencyjne Wstawianie z i bez transakcji. W celu uzyskania większej perspektywy pierwszy zestaw testów działał zdalnie z poziomu laptopa do bazy danych w Microsoft Azure. Drugi zestaw testów został uruchomiony z poziomu usługi w chmurze i bazy danych, która znajduje się w tym samym Microsoft Azure Datacenter (Zachodnie stany USA). W poniższej tabeli przedstawiono czas trwania operacji wstawiania sekwencyjnego z i bez transakcji w milisekundach.
 
-**Lokalne na platformę Azure** :
+**Lokalne na platformę Azure**:
 
 | Operacje | Brak transakcji (MS) | Transakcja (MS) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przepro
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure na platformę Azure (to samo centrum danych)** :
+**Azure na platformę Azure (to samo centrum danych)**:
 
 | Operacje | Brak transakcji (MS) | Transakcja (MS) |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji o transakcjach w programie ADO.NET, zobacz [loka
 
 ### <a name="table-valued-parameters"></a>Parametry z wartościami przechowywanymi w tabeli
 
-Parametry z wartościami przechowywanymi w tabeli obsługują typy tabel zdefiniowane przez użytkownika jako parametry w instrukcjach języka Transact-SQL, procedurach składowanych i funkcjach. Ta technika wsadowa po stronie klienta umożliwia wysyłanie wielu wierszy danych w ramach parametru z wartościami przechowywanymi w tabeli. Aby użyć parametrów z wartościami przechowywanymi w tabeli, należy najpierw zdefiniować typ tabeli. Poniższa instrukcja języka Transact-SQL tworzy typ tabeli o nazwie **Webtabletype** .
+Parametry z wartościami przechowywanymi w tabeli obsługują typy tabel zdefiniowane przez użytkownika jako parametry w instrukcjach języka Transact-SQL, procedurach składowanych i funkcjach. Ta technika wsadowa po stronie klienta umożliwia wysyłanie wielu wierszy danych w ramach parametru z wartościami przechowywanymi w tabeli. Aby użyć parametrów z wartościami przechowywanymi w tabeli, należy najpierw zdefiniować typ tabeli. Poniższa instrukcja języka Transact-SQL tworzy typ tabeli o nazwie **Webtabletype**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-W poprzednim przykładzie obiekt **SqlCommand** wstawia wiersze z parametru z wartościami przechowywanymi w tabeli, **\@ TestTvp** . Wcześniej utworzony obiekt **DataTable** jest przypisany do tego parametru za pomocą metody **SqlCommand. Parameters. Add** . Przetwarzanie wsadowe operacji wstawiania w jednym wywołaniu znacznie zwiększa wydajność nad wstawianiem sekwencyjnym.
+W poprzednim przykładzie obiekt **SqlCommand** wstawia wiersze z parametru z wartościami przechowywanymi w tabeli, **\@ TestTvp**. Wcześniej utworzony obiekt **DataTable** jest przypisany do tego parametru za pomocą metody **SqlCommand. Parameters. Add** . Przetwarzanie wsadowe operacji wstawiania w jednym wywołaniu znacznie zwiększa wydajność nad wstawianiem sekwencyjnym.
 
 Aby dodatkowo poprawić poprzedni przykład, użyj procedury składowanej zamiast polecenia tekstowego. Poniższe polecenie języka Transact-SQL tworzy procedurę składowaną, która przyjmuje **SimpleTestTableType** parametr z wartościami przechowywanymi w tabeli.
 
@@ -212,7 +212,7 @@ Aby uzyskać więcej informacji na temat parametrów z wartościami przechowywan
 
 ### <a name="sql-bulk-copy"></a>Kopia Zbiorcza SQL
 
-Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe** lub instrukcji języka Transact-SQL, **BULK INSERT** . Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable** do tabeli docelowej, MyTable.
+Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe** lub instrukcji języka Transact-SQL, **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable** do tabeli docelowej, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -295,7 +295,7 @@ Klasa **DataAdapter** pozwala modyfikować obiekt **DataSet** , a następnie prz
 
 [Entity Framework Core](/ef/efcore-and-ef6/#saving-data) obsługuje przetwarzanie wsadowe.
 
-### <a name="xml"></a>Plik XML
+### <a name="xml"></a>XML
 
 W celu zapewnienia kompletności należy zwrócić uwagę na informacje dotyczące XML jako strategię przetwarzania wsadowego. Jednak użycie kodu XML nie ma żadnych korzyści w porównaniu z innymi metodami i kilkoma wadami. Podejście jest podobne do parametrów z wartościami przechowywanymi w tabeli, ale plik XML lub ciąg jest przesyłany do procedury składowanej zamiast tabeli zdefiniowanej przez użytkownika. Procedura składowana analizuje polecenia w procedurze składowanej.
 
@@ -321,7 +321,7 @@ Ze względu na te kompromisy należy oszacować typ operacji wykonywanych przez 
 
 W naszych testach zwykle nie ma możliwości dzielenia dużych partii na mniejsze fragmenty. W rzeczywistości ta częściowa część często spowodowało wolniejszą wydajność niż przesyłanie pojedynczej dużej partii. Rozważmy na przykład scenariusz, w którym chcesz wstawić 1000 wierszy. W poniższej tabeli pokazano, jak długo należy używać parametrów z wartościami przechowywanymi w tabeli do wstawiania wierszy 1000 w przypadku dzielenia na mniejsze partie.
 
-| Rozmiar partii | Iteracji | Parametry z wartościami przechowywanymi w tabeli (MS) |
+| Rozmiar partii | Iteracje | Parametry z wartościami przechowywanymi w tabeli (MS) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |

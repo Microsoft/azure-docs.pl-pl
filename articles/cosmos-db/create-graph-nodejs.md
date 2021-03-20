@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360143"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji Node.js przy użyciu konta interfejsu API usługi Azure Cosmos DB Gremlin
@@ -96,7 +96,7 @@ Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com
 
     ```
 
-  Konfiguracje są wszystkie w *config.js* , które edytujemy w [poniższej sekcji](#update-your-connection-string).
+  Konfiguracje są wszystkie w *config.js*, które edytujemy w [poniższej sekcji](#update-your-connection-string).
 
 * W celu wykonywania różnych operacji języka Gremlin zdefiniowano serie funkcji. To jest jedna z nich:
 
@@ -194,7 +194,7 @@ Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby wyśw
 
 W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy**. Rozwiń bazę danych i kontener, a następnie wybierz pozycję **Graf**.
 
-Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf** , gdy wybierzesz przycisk **Zastosuj filtr**.
+Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf**, gdy wybierzesz przycisk **Zastosuj filtr**.
 
 Spróbuj uzupełnić wartość `g.V()` ciągiem `.has('firstName', 'Thomas')`, aby przetestować filtr. Pamiętaj, że w wartości jest uwzględniana wielkość liter.
 

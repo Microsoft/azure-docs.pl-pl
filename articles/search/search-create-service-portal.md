@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100651990"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
@@ -87,7 +87,7 @@ Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów, zg
 
 + [Wzbogacanie AI](cognitive-search-concept-intro.md) wymaga, aby Cognitive Services znajdować się w tym samym regionie fizycznym co platforma Azure wyszukiwanie poznawcze. Istnieje tylko kilka regionów, które nie zapewniają obu tych wartości. Na stronie [dostępne są produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=search) jest wyświetlana podwójna dostępność, pokazując dwa skumulowane znaczniki wyboru. Niedostępna kombinacja ma Brak znacznika wyboru:
 
-  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Dostępność regionalna" border="true":::
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Dostępność w regionach" border="true":::
 
 + Wymagania dotyczące ciągłości działania i odzyskiwania po awarii (BCDR) powinny zostać spełnione przez utworzenie wielu usług wyszukiwania w [parach regionalnym](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA lub Północno-środkowe stany USA i Central w firmie dla każdej usługi wyszukiwania.
 

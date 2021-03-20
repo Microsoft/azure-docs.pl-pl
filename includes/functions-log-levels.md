@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
 ms.openlocfilehash: 72588ccfd9ad00305cbdeaf8132999731d86b9b1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164924"
 ---
 Do każdego dziennika jest przypisany *poziom dziennika* . Wartość jest liczbą całkowitą wskazującą ważność względną:
@@ -23,4 +23,4 @@ Do każdego dziennika jest przypisany *poziom dziennika* . Wartość jest liczb�
 |Krytyczne    | 5 | Dzienniki opisujące nieodwracalną awarię aplikacji lub systemu albo Katastrofalny błąd, który wymaga natychmiastowej uwagi. |
 |Brak        | 6 | Wyłącza rejestrowanie dla określonej kategorii. |
 
-[ *host.jsw* ](../articles/azure-functions/functions-host-json.md) obszarze Konfiguracja pliku określa, ile rejestrowania aplikacja funkcji wysyła do Application Insights.  
+[ *host.jsw*](../articles/azure-functions/functions-host-json.md) obszarze Konfiguracja pliku określa, ile rejestrowania aplikacja funkcji wysyła do Application Insights.  

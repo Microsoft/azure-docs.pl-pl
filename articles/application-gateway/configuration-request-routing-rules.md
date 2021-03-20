@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397539"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Reguły routingu żądań Application Gateway
 
-Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy utworzyć regułę domyślną ( *RULE1* ). Ta reguła wiąże domyślny odbiornik ( *appGatewayHttpListener* ) z domyślną pulą zaplecza ( *appGatewayBackendPool* ) i domyślnymi ustawieniami http zaplecza ( *appGatewayBackendHttpSettings* ). Po utworzeniu bramy można edytować ustawienia reguły domyślnej lub utworzyć nowe reguły.
+Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy utworzyć regułę domyślną (*RULE1*). Ta reguła wiąże domyślny odbiornik (*appGatewayHttpListener*) z domyślną pulą zaplecza (*appGatewayBackendPool*) i domyślnymi ustawieniami http zaplecza (*appGatewayBackendHttpSettings*). Po utworzeniu bramy można edytować ustawienia reguły domyślnej lub utworzyć nowe reguły.
 
 ## <a name="rule-type"></a>Typ reguły
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji na temat przekierowań, zobacz [Omówienie przek
 
 ### <a name="redirection-type"></a>Typ przekierowania
 
-Wybierz wymagany typ przekierowania: *trwały (301)* , *tymczasowy (307)* , *znaleziono (302)* lub *Zobacz inne (303)*.
+Wybierz wymagany typ przekierowania: *trwały (301)*, *tymczasowy (307)*, *znaleziono (302)* lub *Zobacz inne (303)*.
 
 ### <a name="redirection-target"></a>Cel przekierowania
 

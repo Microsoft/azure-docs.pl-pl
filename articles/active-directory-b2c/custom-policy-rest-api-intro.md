@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89594190"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
@@ -68,10 +68,10 @@ W [profilu technicznym RESTful](restful-technical-profile.md) `InputClaims` elem
 
 Można skonfigurować sposób, w jaki oświadczenia wejściowe są wysyłane do dostawcy oświadczeń RESTful za pomocą atrybutu SendClaimsIn. Możliwe wartości są następujące:
 
-- **Treść**wysłana w treści żądania HTTP post w formacie JSON.
-- **Formularz**wysłany w treści żądania HTTP post w formacie wartości klucza "&".
+- **Treść** wysłana w treści żądania HTTP post w formacie JSON.
+- **Formularz** wysłany w treści żądania HTTP post w formacie wartości klucza "&".
 - **Nagłówek**, wysłany w nagłówku żądania HTTP GET.
-- **Kolekcja QueryString**wysłana w ciągu zapytania żądania HTTP GET.
+- **Kolekcja QueryString** wysłana w ciągu zapytania żądania HTTP GET.
 
 W przypadku skonfigurowania opcji **treści** profil techniczny interfejsu API REST umożliwia wysyłanie złożonego ładunku JSON do punktu końcowego. Aby uzyskać więcej informacji, zobacz [wysyłanie ładunku JSON](restful-technical-profile.md#send-a-json-payload).
 
