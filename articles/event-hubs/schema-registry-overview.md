@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330499"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
@@ -17,7 +17,7 @@ W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komuni
 **Usługa Azure Schema Registry** jest funkcją Event Hubs, która udostępnia centralne repozytorium dla dokumentów schematów dla aplikacji opartych na zdarzeniach i obsługujących komunikaty. Zapewnia ona elastyczność dla aplikacji producentów i konsumentów do wymiany danych bez konieczności zarządzania i udostępniania schematu między nimi, a także do rozwijania z różnymi stawkami. Rejestr schematu udostępnia także prostą strukturę ładu dla schematów wielokrotnego użytku i definiuje relację między schematami za pomocą konstrukcji grupującej (grup schematów).
 
 > [!NOTE]
-> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej**i nie jest zalecana w przypadku obciążeń produkcyjnych.
+> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej** i nie jest zalecana w przypadku obciążeń produkcyjnych.
 > - Funkcja jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
 
 W przypadku platform serializacji opartych na schemacie, takich jak Apache Avro, metadane serializacji eksternalizacji do współużytkowanych schematów mogą również pomóc w znaczącym zmniejszeniu obciążenia dla poszczególnych komunikatów typu i nazw pól zawartych w każdym zestawie danych, tak jak w przypadku formatów oznakowanych, takich jak JSON. Schematy przechowywane wraz ze zdarzeniami i wewnątrz infrastruktury zdarzeń zapewniają, że metadane wymagane do serializacji/deserializacji są zawsze dostępne, a schematy nie mogą być umieszczane. 

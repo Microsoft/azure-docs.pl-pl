@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie usługi StorSimple Menedżer urządzeń na platformie Azure | Microsoft Docs
+title: Wdrażanie usługi StorSimple Device Manager na platformie Azure | Microsoft Docs
 description: Poznaj kroki wymagane do tworzenia, usuwania, migracji usługi i zarządzania kluczem rejestracji usługi.
 services: storsimple
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360703"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi StorSimple Menedżer urządzeń dla urządzeń z serii StorSimple 8000
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi StorSimple Device Manager dla urządzeń z serii StorSimple 8000
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Po utworzeniu usługi można za jej pomocą zarządzać wszystkimi urządzeniami połączonymi z usługą StorSimple Menedżer urządzeń z jednej lokalizacji centralnej, co zmniejsza obciążenie administracyjne.
+Usługa StorSimple Device Manager działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Po utworzeniu usługi można za jej pomocą zarządzać wszystkimi urządzeniami połączonymi z usługą StorSimple Device Manager z jednej lokalizacji centralnej, co zmniejsza obciążenie administracyjne.
 
-W tym samouczku opisano kroki wymagane do tworzenia, usuwania, migracji usługi i zarządzania kluczem rejestracji usługi. Informacje zawarte w tym artykule dotyczą tylko urządzeń z serii StorSimple 8000. Aby uzyskać więcej informacji na temat macierzy wirtualnych StorSimple, przejdź do [wdrożenia usługi StorSimple Menedżer urządzeń dla macierzy wirtualnej StorSimple](storsimple-virtual-array-manage-service.md).
+W tym samouczku opisano kroki wymagane do tworzenia, usuwania, migracji usługi i zarządzania kluczem rejestracji usługi. Informacje zawarte w tym artykule dotyczą tylko urządzeń z serii StorSimple 8000. Aby uzyskać więcej informacji na temat macierzy wirtualnych StorSimple, przejdź do [wdrożenia usługi StorSimple Device Manager dla macierzy wirtualnej StorSimple](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
 > -  Azure Portal obsługuje urządzenia z aktualizacją Update 5,0 lub nowszą. Jeśli urządzenie nie jest aktualne, należy natychmiast zainstalować aktualizację Update 5. Aby uzyskać więcej informacji, przejdź do [Install Update 5](storsimple-8000-install-update-5.md). 
@@ -37,28 +37,28 @@ W tym samouczku opisano kroki wymagane do tworzenia, usuwania, migracji usługi 
 > - Wszystkie urządzenia z aktualizacją Update 4,0 lub wcześniejszą spowodują zmniejszenie funkcjonalności zarządzania. 
 
 ## <a name="create-a-service"></a>Tworzenie usługi
-Aby utworzyć usługę StorSimple Menedżer urządzeń, musisz dysponować:
+Aby utworzyć usługę StorSimple Device Manager, musisz dysponować:
 
-* Subskrypcja z Umowa Enterprise
+* Subskrypcja z Enterprise Agreement
 * Konto magazynu Active Microsoft Azure
 * Informacje dotyczące rozliczeń, które są używane do zarządzania dostępem
 
-Dozwolone są tylko subskrypcje z Umowa Enterprise. Podczas tworzenia usługi można również generować domyślne konto magazynu.
+Dozwolone są tylko subskrypcje z Enterprise Agreement. Podczas tworzenia usługi można również generować domyślne konto magazynu.
 
 Pojedyncza usługa może zarządzać wieloma urządzeniami. Jednak urządzenie nie może obejmować wielu usług. Duże przedsiębiorstwo może mieć wiele wystąpień usługi do pracy z różnymi subskrypcjami, organizacjami lub nawet lokalizacjami wdrażania. 
 
 > [!NOTE]
-> Potrzebujesz oddzielnych wystąpień usługi StorSimple Menedżer urządzeń, aby zarządzać urządzeniami z serii StorSimple 8000 i macierzami wirtualnymi StorSimple.
+> Potrzebujesz oddzielnych wystąpień usługi StorSimple Device Manager, aby zarządzać urządzeniami z serii StorSimple 8000 i macierzami wirtualnymi StorSimple.
 
 Wykonaj następujące kroki, aby utworzyć usługę.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-Dla każdej usługi StorSimple Menedżer urządzeń istnieją następujące atrybuty:
+Dla każdej usługi StorSimple Device Manager istnieją następujące atrybuty:
 
-* **Name** — nazwa przypisana do usługi StorSimple Menedżer urządzeń, gdy została utworzona. **Nazwy usługi nie można zmienić po utworzeniu usługi. Dotyczy to również innych obiektów, takich jak urządzenia, woluminy, kontenery woluminów i zasady tworzenia kopii zapasowych, których nazwy nie można zmienić w Azure Portal.**
-* **Status** — stan usługi, która może być **aktywna** , **utworzona** lub w **trybie online**.
+* **Name** — nazwa przypisana do usługi StorSimple Device Manager, gdy została utworzona. **Nazwy usługi nie można zmienić po utworzeniu usługi. Dotyczy to również innych obiektów, takich jak urządzenia, woluminy, kontenery woluminów i zasady tworzenia kopii zapasowych, których nazwy nie można zmienić w Azure Portal.**
+* **Status** — stan usługi, która może być **aktywna**, **utworzona** lub w **trybie online**.
 * **Location** — lokalizacja geograficzna, w której zostanie wdrożone Urządzenie StorSimple.
 * **Subskrypcja** — subskrypcja rozliczeń skojarzona z usługą.
 
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby usunąć usługę.
 
     ![Usługa wyszukiwania do usunięcia](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Spowoduje to przejście do bloku usługi StorSimple Menedżer urządzeń. Kliknij polecenie **Usuń**.
+2. Spowoduje to przejście do bloku usługi StorSimple Device Manager. Kliknij polecenie **Usuń**.
 
     ![Usuń usługę](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
@@ -87,7 +87,7 @@ Wykonaj następujące kroki, aby usunąć usługę.
 
 ## <a name="get-the-service-registration-key"></a>Pobieranie klucza rejestracji usługi
 
-Po pomyślnym utworzeniu usługi konieczne będzie zarejestrowanie urządzenia z systemem StorSimple w usłudze. Aby zarejestrować swoje pierwsze urządzenie StorSimple, będzie potrzebny klucz rejestracji usługi. Do zarejestrowania dodatkowych urządzeń za pomocą istniejącej usługi StorSimple wymagany jest zarówno klucz rejestracji, jak i klucz szyfrowania danych usługi (który jest generowany na pierwszym urządzeniu podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi, zobacz [zabezpieczenia StorSimple](storsimple-8000-security.md). Klucz rejestracji można uzyskać, uzyskując dostęp do **kluczy** w bloku StorSimple Menedżer urządzeń.
+Po pomyślnym utworzeniu usługi konieczne będzie zarejestrowanie urządzenia z systemem StorSimple w usłudze. Aby zarejestrować swoje pierwsze urządzenie StorSimple, będzie potrzebny klucz rejestracji usługi. Do zarejestrowania dodatkowych urządzeń za pomocą istniejącej usługi StorSimple wymagany jest zarówno klucz rejestracji, jak i klucz szyfrowania danych usługi (który jest generowany na pierwszym urządzeniu podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi, zobacz [zabezpieczenia StorSimple](storsimple-8000-security.md). Klucz rejestracji można uzyskać, uzyskując dostęp do **kluczy** w bloku StorSimple Device Manager.
 
 Wykonaj następujące kroki, aby uzyskać klucz rejestracji usługi.
 
@@ -103,7 +103,7 @@ Należy ponownie wygenerować klucz rejestracji usługi, jeśli wymagane jest pr
 Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Aby ponownie wygenerować klucz rejestracji usługi
-1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt;** .
+1. W bloku **StorSimple Device Manager** przejdź do pozycji **klucze** **zarządzania &gt;** .
     
     ![Przejdź do bloku klucze](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -214,4 +214,4 @@ W Azure Portal obsługiwane są tylko urządzenia StorSimple z aktualizacją Upd
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [procesie wdrażania StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Dowiedz się więcej o [zarządzaniu kontem magazynu StorSimple](storsimple-8000-manage-storage-accounts.md).
-* Dowiedz się więcej na temat [używania usługi StorSimple Menedżer urządzeń do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej na temat [używania usługi StorSimple Device Manager do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

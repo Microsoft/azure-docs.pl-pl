@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84744055"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Osadź klienta analizatora internetowego
@@ -22,7 +22,7 @@ W tym artykule pokazano, jak osadzić klienta JavaScript w aplikacji. Instalacja
 > Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Analizator Internetu wymaga dostępu do platformy Azure i innych usług firmy Microsoft w celu poprawnego działania. Przed osadzeniem klienta Zezwól na dostęp do sieci `fpc.msedge.net` i wszelkich wstępnie skonfigurowanych adresów URL punktów końcowych (widocznych za pomocą [interfejsu wiersza polecenia](internet-analyzer-cli.md)).
 

@@ -4,10 +4,10 @@ description: Wdróż kroki dla przykładowego planu IRS 1075 (Rev. 11-2016), w t
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 6df2781207c623e10daf0681865b9246be1b1f4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571911"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Wdróż przykład planu IRS 1075

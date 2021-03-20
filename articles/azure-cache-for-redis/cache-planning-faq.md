@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537409"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące planowania usługi Azure cache for Redis.
 
-## <a name="common-questions-and-answers"></a>Często zadawane pytania i odpowiedzi
+## <a name="common-questions-and-answers"></a>Typowe pytania i odpowiedzi
 W tej sekcji omówiono następujące często zadawane pytania:
 
 * [Pamięć podręczna Azure dla wydajności Redis](#azure-cache-for-redis-performance)

@@ -7,10 +7,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.openlocfilehash: 975d72df32027888e217d5da9171dba0ba61f257
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943252"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — motywacji i korzyści
@@ -127,7 +127,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 |Zadania przesyłania strumieniowego ze strukturą|5 zadań — co minutę||
 |Zadania szkoleniowe dotyczące modelu ML|2 zadania — raz w tygodniu||
 |Języki programowania|Python, Scala, Java||
-|Obsługa skryptów|Shell, Python||
+|Skrypty|Shell, Python||
 |**Temat**: **dane**|||
 |Źródła danych|Pliki płaskie, JSON, Kafka, RDBMS||
 |Aranżacja danych|Przepływy pracy Oozie, przepływ powietrza||

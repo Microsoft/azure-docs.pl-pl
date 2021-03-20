@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92328848"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architektura referencyjna Azure DevTest Labs dla przedsiębiorstw
@@ -24,7 +24,7 @@ Ten artykuł zawiera architekturę referencyjną, która pomaga wdrożyć rozwi�
 Są to kluczowe elementy architektury referencyjnej:
 
 - **Azure Active Directory (Azure AD)**: DevTest Labs używa [usługi Azure AD do zarządzania tożsamościami](../active-directory/fundamentals/active-directory-whatis.md). Te dwa kluczowe aspekty należy wziąć pod uwagę w przypadku udzielenia użytkownikom dostępu do środowiska w oparciu o DevTest Labs:
-    - **Zarządzanie**zasobami: umożliwia dostęp do Azure Portal w celu zarządzania zasobami (tworzenia maszyn wirtualnych, tworzenia środowisk, uruchamiania, zatrzymywania, ponownego uruchamiania, usuwania i stosowania artefaktów; itd.). Zarządzanie zasobami odbywa się przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Przypisujesz role do użytkowników i ustawisz uprawnienia na poziomie zasobów i dostępu.
+    - **Zarządzanie** zasobami: umożliwia dostęp do Azure Portal w celu zarządzania zasobami (tworzenia maszyn wirtualnych, tworzenia środowisk, uruchamiania, zatrzymywania, ponownego uruchamiania, usuwania i stosowania artefaktów; itd.). Zarządzanie zasobami odbywa się przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Przypisujesz role do użytkowników i ustawisz uprawnienia na poziomie zasobów i dostępu.
     - **Maszyny wirtualne (na poziomie sieci)**: w konfiguracji domyślnej maszyny wirtualne używają konta administratora lokalnego. Jeśli istnieje dostępna domena ([Azure AD Domain Services](../active-directory-domain-services/overview.md), domena lokalna lub domena oparta na chmurze), komputery można przyłączyć do domeny. Użytkownicy mogą następnie łączyć się z maszynami wirtualnymi przy użyciu tożsamości opartych na domenie.
 - **Łączność lokalna**: w naszym diagramie architektury jest używany [ExpressRoute](../expressroute/expressroute-introduction.md) . Można również użyć [sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Chociaż ExpressRoute nie są wymagane w przypadku laboratoriów DevTest, często są używane w przedsiębiorstwach. ExpressRoute jest wymagany tylko wtedy, gdy potrzebny jest dostęp do zasobów firmy. Typowe scenariusze są następujące:
     - Masz dane lokalne, których nie można przenieść do chmury.

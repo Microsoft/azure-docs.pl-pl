@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91839643"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
@@ -33,7 +33,7 @@ Contoso to globalna organizacja finansowa z biurami w Europie i Azji. Planują p
 
 Na poniższej ilustracji przedstawiono ogólny widok istniejącej sieci globalnej, w tym połączenie z wieloma regionami świadczenia usługi Azure.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Istniejąca topologia sieci firmy Contoso":::
 **Ilustracja: istniejąca topologia sieci firmy Contoso**
 
 Następujące punkty można zrozumieć z istniejącej topologii sieci:
@@ -51,17 +51,17 @@ Zespół sieci został poddany procesowi dostarczającemu globalny model sieci, 
   * **Odgałęzienie do sieci wirtualnej**: podłączane przez sieć VPN aplikacje muszą mieć możliwość dostępu do aplikacji migrowanych do chmury w lokalnym regionie platformy Azure.
   * **Gałąź-do-Hub**: połączone urzędy sieci VPN muszą mieć możliwość dostępu do aplikacji migrowanych do chmury w zdalnym regionie platformy Azure.
   * **Odgałęzienie do gałęzi**: regionalne połączenia sieci VPN muszą być w stanie komunikować się ze sobą i ExpressRoute połączone witryny CENTRALĄ/DC.
-  * **Odgałęzienie**do koncentratora: oddzielone globalnie sieci VPN połączone urzędy muszą być w stanie komunikować się ze sobą i wszystkimi ExpressRoute połączonymi lokacjami CENTRALĄ/DC.
+  * **Odgałęzienie** do koncentratora: oddzielone globalnie sieci VPN połączone urzędy muszą być w stanie komunikować się ze sobą i wszystkimi ExpressRoute połączonymi lokacjami CENTRALĄ/DC.
   * **Rozgałęzienie do Internetu**: połączone Lokacje muszą być w stanie komunikować się z Internetem. Ten ruch musi być filtrowany i zarejestrowany.
   * **Sieć wirtualna-sieć VNET**: sieci wirtualne szprych w tym samym regionie muszą być w stanie komunikować się ze sobą.
-  * Połączenia między sieciami wirtualnymi **i piastą: sieć**wirtualna szprych w różnych regionach musi być w stanie komunikować się ze sobą.
+  * Połączenia między sieciami wirtualnymi **i piastą: sieć** wirtualna szprych w różnych regionach musi być w stanie komunikować się ze sobą.
 * Umożliwienie użytkownikom mobilnym contoso (laptop i telefon) uzyskiwania dostępu do zasobów firmy, a nie w sieci firmowej.
 
 ## <a name="azure-virtual-wan-architecture"></a><a name="architecture"></a>Architektura wirtualnej sieci WAN platformy Azure
 
 Na poniższej ilustracji przedstawiono ogólny widok zaktualizowanej topologii docelowej przy użyciu wirtualnej sieci WAN platformy Azure, aby spełnić wymagania opisane w poprzedniej sekcji.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Architektura wirtualnej sieci WAN firmy Contoso":::
 **Ilustracja: architektura wirtualnej sieci WAN platformy Azure**
 
 Podsumowanie:
@@ -82,7 +82,12 @@ W tej sekcji przedstawiono różne kroki migracji do wirtualnej sieci WAN platfo
 
 Na poniższej ilustracji przedstawiono topologię jednego regionu dla firmy Contoso przed wdrożeniem wirtualnej sieci WAN platformy Azure:
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="koncentrator i szprycha" (IaaS).
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="Topologia jednego regionu":::
+**Rysunek 1. ręczne centrum i-szprych w jednym regionie**
+
+W zachowaniu z podejściem gwiazdy i gwiazdy Sieć wirtualna centrum zarządzanego przez klienta zawiera kilka bloków funkcji:
+
+* Usługi udostępnione (każda wspólna funkcja wymagana przez wiele szprych). Przykład: Contoso używa kontrolerów domeny systemu Windows Server na maszynach wirtualnych "infrastruktura jako usługa" (IaaS).
 * Usługi zapory IP/routingu są udostępniane przez urządzenie wirtualne sieci innej firmy, co umożliwia routing protokołu IP dla satelity.
 * Internetowe usługi przychodzące/wychodzące, w tym Application Gateway platformy Azure dla przychodzących żądań HTTPS i usług serwera proxy innych firm działające na maszynach wirtualnych na potrzeby filtrowanego dostępu wychodzącego do zasobów internetowych.
 * Brama sieci wirtualnej ExpressRoute i VPN na potrzeby łączności z sieciami lokalnymi.
@@ -98,14 +103,14 @@ Wdróż Wirtualne Centrum sieci WAN w każdym regionie. Skonfiguruj Wirtualne Ce
 > Wirtualna sieć WAN platformy Azure musi używać standardowej jednostki SKU do włączania niektórych ścieżek ruchu pokazanych w tym artykule.
 >
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="Wdróż wirtualne centra sieci WAN":::
 **Rysunek 2: zarządzane przez klienta centrum-i-szprycha do migracji wirtualnej sieci WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Krok 3. Łączenie z witrynami zdalnymi (ExpressRoute i VPN) z wirtualną siecią WAN
 
 Podłącz wirtualne koncentrator sieci WAN do istniejących obwodów usługi ExpressRoute i skonfiguruj połączenia sieci VPN typu lokacja-lokacja za pośrednictwem Internetu w oddziałach zdalnych.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Połącz Lokacje zdalne z wirtualną siecią WAN":::
 **Rysunek 3: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 W tym momencie lokalne urządzenie sieciowe rozpocznie odbieranie tras odzwierciedlających przestrzeń adresową IP przypisaną do sieci wirtualnej koncentratora zarządzanego przez sieć WAN. Rozgałęzienia połączonej sieci VPN na tym etapie zostaną wyświetlone dwie ścieżki do wszystkich istniejących aplikacji w sieciach wirtualnych szprych. Te urządzenia powinny być skonfigurowane tak, aby w dalszym ciągu używać tunelu do koncentratora zarządzanego przez klienta w celu zapewnienia symetrycznego routingu podczas fazy przejścia.
@@ -114,14 +119,14 @@ W tym momencie lokalne urządzenie sieciowe rozpocznie odbieranie tras odzwierci
 
 Przed rozpoczęciem korzystania z zarządzanego wirtualnego koncentratora sieci WAN na potrzeby łączności produkcyjnej zalecamy skonfigurowanie sieci wirtualnej szprychy testowej i wirtualnego połączenia z siecią wirtualną sieci WAN. Sprawdź, czy połączenia z tym środowiskiem testowym działają przez ExpressRoute i sieci VPN między lokacjami, przed przejściem do następnego kroku.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="Testowanie łączności hybrydowej za pośrednictwem wirtualnej sieci WAN":::
 **Rysunek 4: zarządzane przez klienta centrum-i-szprycha do migracji wirtualnej sieci WAN**
 
 Na tym etapie ważne jest, aby rozpoznać, że zarówno oryginalna Sieć wirtualna koncentratora zarządzana przez klienta, jak i Nowa wirtualna koncentrator sieci WAN, są połączone z tym samym obwodem usługi ExpressRoute. Ze względu na to mamy ścieżkę ruchu, która może być używana do włączania szprych w obu środowiskach do komunikacji. Na przykład ruch z szprychy, który jest dołączony do sieci wirtualnej centrum zarządzanego przez klienta, przejdzie do MSEE urządzeń używanych do obwodu usługi ExpressRoute, aby dotrzeć do dowolnego szprych połączonego za pośrednictwem połączenia sieci wirtualnej z nowym wirtualnym koncentratorem sieci WAN. Pozwala to na przemieszczenie etapowe migracji szprych w kroku 5.
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Krok 5. przejście do koncentratora wirtualnej sieci WAN
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="Przejście do koncentratora wirtualnej sieci WAN":::
 **Rysunek 5: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 **a**. Usuń istniejące połączenia komunikacji równorzędnej z sieci wirtualnych szprych do starego centrum zarządzanego przez klienta. Dostęp do aplikacji w sieciach wirtualnych szprych jest niedostępny do momentu ukończenia kroków a-c.
@@ -138,7 +143,7 @@ Na tym etapie ważne jest, aby rozpoznać, że zarówno oryginalna Sieć wirtual
 
 Przeprojektowano teraz sieć platformy Azure w celu udostępnienia koncentratora wirtualnego sieci WAN centralnym punktem w naszej nowej topologii.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="Stary centrum stał się usługami udostępnionymi szprych":::
 **Rysunek 6: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 Ponieważ wirtualne Centrum sieci WAN jest zarządzaną jednostką i nie zezwala na wdrażanie zasobów niestandardowych, takich jak maszyny wirtualne, blok usługi udostępnione teraz istnieje jako sieć wirtualna szprych i udostępnia funkcje, takie jak ruch internetowy za pośrednictwem platformy Azure Application Gateway lub sieciowego zwirtualizowanej sieci. Ruch między środowiskiem usług udostępnionych i maszynami wirtualnymi zaplecza teraz przesyła koncentrator zarządzany przez wirtualną sieć WAN.
@@ -147,7 +152,7 @@ Ponieważ wirtualne Centrum sieci WAN jest zarządzaną jednostką i nie zezwala
 
 Na tym etapie firma Contoso przede wszystkim ukończyła migrację aplikacji firmowych do Microsoft Cloud z uwzględnieniem tylko kilku starszych aplikacji w lokalnym kontrolerze domeny.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="Optymalizacja łączności lokalnej w celu pełnego wykorzystania wirtualnej sieci WAN":::
 **Rysunek 7: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 Aby skorzystać z pełnej funkcjonalności wirtualnej sieci WAN platformy Azure, firma Contoso decyduje o zlikwidowaniu starszych lokalnych połączeń sieci VPN. Wszystkie gałęzie w celu uzyskania dostępu do sieci CENTRALĄ lub DC mogą przekierować sieć globalną firmy Microsoft przy użyciu wbudowanego routingu tranzytowego wirtualnej sieci WAN platformy Azure.
@@ -158,7 +163,7 @@ Aby skorzystać z pełnej funkcjonalności wirtualnej sieci WAN platformy Azure,
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Architektura stanu końcowego i ścieżki ruchu
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="Architektura stanu końcowego i ścieżki ruchu":::
 **Rysunek: wirtualna sieć WAN z podwójnym regionem**
 
 Ta sekcja zawiera podsumowanie, w jaki sposób Ta topologia spełnia pierwotne wymagania, patrząc na kilka przykładowych przepływów ruchu.
@@ -173,7 +178,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Azja wirtualnego centrum WAN kieruje ruch lokalnie do połączonej sieci wirtualnej.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="Przepływ 1":::
 
 ### <a name="path-2"></a>Ścieżka 2
 
@@ -185,7 +190,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu do sieci wirtualnej połączonej w regionie zdalnym.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="Przepływ 2":::
 
 ### <a name="path-3"></a>Ścieżka 3
 
@@ -199,7 +204,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="Przepływ 3":::
 
 ### <a name="path-4"></a>Ścieżka 4
 
@@ -209,7 +214,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Łączność globalna między koncentratorem wirtualnej sieci WAN umożliwia natywne tranzyt wszystkich połączonych sieci wirtualnych platformy Azure bez dalszej konfiguracji użytkownika.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="Flow 4":::
 
 ### <a name="path-5"></a>Ścieżka 5
 
@@ -221,13 +226,13 @@ Ruch jest kierowany w następujący sposób:
 
 * Wirtualne centrum WAN Europa Zachodnia kieruje ruch lokalnie do połączonej sieci wirtualnej.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="Przepływ 5":::
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>Zabezpieczenia i kontrola zasad za pośrednictwem zapory platformy Azure
 
 Firma Contoso ma teraz zweryfikowane połączenie między wszystkimi gałęziami i sieci wirtualnych zgodnie z wymaganiami omówionymi wcześniej w tym artykule. Aby spełnić wymagania dotyczące kontroli zabezpieczeń i izolacji sieci, muszą one nadal oddzielić ruch i rejestrować go za pośrednictwem sieci centrum. Wcześniej ta funkcja była wykonywana przez wirtualne urządzenie sieciowe (urządzenie WUS). Firma Contoso chce również zlikwidować istniejące usługi proxy i korzystać z natywnych usług platformy Azure na potrzeby filtrowania ruchu internetowego.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="Zabezpieczenia i kontrola zasad za pośrednictwem zapory platformy Azure":::
 **Ilustracja: Zapora platformy Azure w wirtualnej sieci WAN (zabezpieczony koncentrator wirtualny)**
 
 Poniższe kroki wysokiego poziomu są wymagane do wprowadzenia zapory platformy Azure do wirtualnych koncentratorów sieci WAN w celu zapewnienia ujednoliconego punktu kontroli zasad. Aby uzyskać więcej informacji na temat tego procesu i koncepcji bezpiecznych centrów wirtualnych, zobacz [Menedżer zapory platformy Azure](../firewall-manager/index.yml).
@@ -251,7 +256,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Zapora platformy Azure może stosować zasady do tych przepływów.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="Przepływ 6":::
 
 ### <a name="path-7"></a>Ścieżka 7
 
@@ -263,7 +268,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="Przepływ 7":::
 
 ### <a name="path-8"></a>Ścieżka 8
 
@@ -275,7 +280,7 @@ Ruch jest kierowany w następujący sposób:
 
 * Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="koncentrator i szprycha":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="Flow 8":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616896"
 ---
 # <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
@@ -33,7 +33,7 @@ Usługę Azure RBAC można przypisać do zasobu Custom Vision. Aby udzielić dos
 1. Wybierz pozycję **Dodaj**  ->  **Dodaj przypisanie roli**.
 1. Z listy rozwijanej **rola** wybierz rolę, którą chcesz dodać.
 1. Z listy **Wybierz** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną. Jeśli nie widzisz podmiotu zabezpieczeń na liście, możesz wpisać pole wyboru, aby przeszukać katalog pod kątem nazw wyświetlanych, adresów e-mail i identyfikatorów obiektów.
-1. Wybierz przycisk **Zapisz** , aby przypisać rolę.
+1. Wybierz przycisk **Zapisz**, aby przypisać rolę.
 
 W ciągu kilku minut obiekt docelowy zostanie przypisany do wybranej roli w wybranym zakresie.
 

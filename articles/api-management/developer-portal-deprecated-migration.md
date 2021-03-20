@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326025"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrowanie do nowego portalu dla deweloperów
@@ -57,7 +57,7 @@ Podczas migracji z przestarzałego portalu należy pamiętać o następujących 
 - Jeśli domyślne szablony powiadomień e-mail zostały zmienione w taki sposób, aby zawierały jawnie zdefiniowany przestarzały adres URL portalu, należy zmienić je na adres URL portalu lub wskazać nowy adres URL portalu. Jeśli zamiast tego szablony używają wbudowanego parametru adresu URL portalu, nie są wymagane żadne zmiany.
 - *Problemy* i *aplikacje* nie są obsługiwane w nowym portalu dla deweloperów.
 - Bezpośrednia integracja z dostawcami tożsamości w serwisach Facebook, Microsoft, Twitter i Google AS nie jest obsługiwana w nowym portalu dla deweloperów. Można zintegrować z tymi dostawcami za pośrednictwem Azure AD B2C.
-- Jeśli używasz delegowania, Zmień zwrotny adres URL w aplikacjach i Użyj [punktu końcowego interfejsu API *uzyskiwania tokenu dostępu współdzielonego* ](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) zamiast punktu końcowego *Generuj adres URL logowania jednokrotnego* .
+- Jeśli używasz delegowania, Zmień zwrotny adres URL w aplikacjach i Użyj [punktu końcowego interfejsu API *uzyskiwania tokenu dostępu współdzielonego*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) zamiast punktu końcowego *Generuj adres URL logowania jednokrotnego* .
 - Jeśli używasz usługi Azure AD jako dostawcy tożsamości:
 
     - Zmień zwrotny adres URL w aplikacji, aby wskazywał nową domenę portalu deweloperów.
@@ -67,7 +67,7 @@ Podczas migracji z przestarzałego portalu należy pamiętać o następujących 
 
     - Zmień zwrotny adres URL w aplikacji, aby wskazywał nową domenę portalu deweloperów.
     - Zmodyfikuj sufiks adresu URL zwrotnego w aplikacji z `/signin-aad` do `/signin` .
-    - Podaj *imię*i nazwisko, *nazwisko*i *Identyfikator obiektu użytkownika* w oświadczeniach aplikacji.
+    - Podaj *imię* i nazwisko, *nazwisko* i *Identyfikator obiektu użytkownika* w oświadczeniach aplikacji.
 
 - Jeśli używasz protokołu OAuth 2,0 w interaktywnej konsoli testowej, Zmień adres URL powrotu w aplikacji, aby wskazywał nową domenę portalu dla deweloperów i zmodyfikować sufiks:
 
@@ -82,5 +82,5 @@ Podczas migracji z przestarzałego portalu należy pamiętać o następujących 
 
 Dowiedz się więcej o portalu dla deweloperów:
 
-- [Portal deweloperów API Management platformy Azure — omówienie](api-management-howto-developer-portal.md)
+- [Portal deweloperów usługi Azure API Management — omówienie](api-management-howto-developer-portal.md)
 - [Dostęp do portalu dla deweloperów i dostosowywanie go](api-management-howto-developer-portal-customize.md)

@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565263"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększanie bezpieczeństwa wiadomości B2B przy użyciu certyfikatów
@@ -38,16 +38,16 @@ Aby używać *publicznego certyfikatu* w usłudze Logic Apps z możliwościami B
 
    ![Znajdź i wybierz swoje konto integracji](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-2. W obszarze **składniki**wybierz kafelek **Certyfikaty** .
+2. W obszarze **składniki** wybierz kafelek **Certyfikaty** .
 
    ![Wybieranie "certyfikatów"](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-3. W obszarze **Certyfikaty**wybierz pozycję **Dodaj**. W obszarze **Dodawanie certyfikatu**podaj te szczegóły certyfikatu. Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
+3. W obszarze **Certyfikaty** wybierz pozycję **Dodaj**. W obszarze **Dodawanie certyfikatu** podaj te szczegóły certyfikatu. Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
 
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "publicCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Public | Typ certyfikatu |
+   | **Typ certyfikatu** | Publiczne | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . |
    ||||
 
@@ -77,16 +77,16 @@ Po zdefiniowaniu właściwości w tworzonych [umowach](logic-apps-enterprise-int
 
    ![Znajdowanie konta integracji](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-4. W obszarze **składniki**wybierz kafelek **Certyfikaty** .  
+4. W obszarze **składniki** wybierz kafelek **Certyfikaty** .  
 
    ![Wybierz kafelek certyfikaty](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-5. W obszarze **Certyfikaty**wybierz pozycję **Dodaj**. W obszarze **Dodawanie certyfikatu**podaj te szczegóły certyfikatu. Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
+5. W obszarze **Certyfikaty** wybierz pozycję **Dodaj**. W obszarze **Dodawanie certyfikatu** podaj te szczegóły certyfikatu. Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
 
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "privateCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Private | Typ certyfikatu |
+   | **Typ certyfikatu** | Prywatny | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . W przypadku korzystania z magazynu kluczy dla klucza prywatnego przekazany plik będzie certyfikatem publicznym. | 
    | **Grupa zasobów** | <*Integracja — konto-Grupa zasobów*> | Grupa zasobów konta integracji, która jest w tym przykładzie "grupą zasobów" | 
    | **Usługa Key Vault** | <*Nazwa magazynu kluczy*> | Nazwa magazynu kluczy platformy Azure |

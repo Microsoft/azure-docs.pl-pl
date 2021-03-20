@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 134f1dc7cb6e53c181b2f518055e5cb758fccf31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91812715"
 ---
 1. W obszarze wirtualne sieci WAN wybierz pozycję centra i wybierz pozycję **+ nowe centrum**.
@@ -25,7 +25,7 @@ ms.locfileid: "91812715"
    * **Nazwa** — wprowadź nazwę, która ma być wywoływana z koncentratorem wirtualnym.
    * **Prywatna przestrzeń adresowa centrum** — zakres adresów centrum w notacji CIDR.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="nowe centrum":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Tworzenie koncentratora wirtualnego":::
 
 1. Na karcie punkt-lokacja wykonaj następujące pola:
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812715"
    * **Pula adresów klienta** — dla użytkowników zdalnych.
    * **Niestandardowy adres IP serwera DNS**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="nowe centrum":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="centrum z punktem do lokacji":::
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Na stronie **Walidacja została przeniesiona** wybierz pozycję **Utwórz**.

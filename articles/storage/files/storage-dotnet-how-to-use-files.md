@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492203"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
@@ -54,7 +54,7 @@ W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. 
 1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a następnie wybierz pozycję **dalej**.
 1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę aplikacji, a następnie wybierz pozycję **Utwórz**.
 
-Dodaj wszystkie przykłady kodu z tego artykułu do `Program` klasy w pliku *program.cs* .
+Dodaj wszystkie przykłady kodu z tego artykułu do `Program` klasy w pliku *program. cs* .
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
 
@@ -135,7 +135,7 @@ Zastąp ciąg `myaccount` nazwą konta magazynu i `StorageAccountKeyEndingIn==` 
 
 ## <a name="add-using-directives"></a>Dodawanie dyrektyw using
 
-W **Eksplorator rozwiązań** otwórz plik *program.cs* i Dodaj następujące dyrektywy using na początku pliku.
+W **Eksplorator rozwiązań** Otwórz plik *program. cs* i Dodaj następujące dyrektywy using na początku pliku.
 
 # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Programowy dostęp do udziału plików
 
-W pliku *program.cs* Dodaj następujący kod, aby programowo uzyskać dostęp do udziału plików.
+W pliku *program. cs* Dodaj następujący kod, aby programowo uzyskać dostęp do udziału plików.
 
 # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
@@ -547,7 +547,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 ## <a name="troubleshoot-azure-files-by-using-metrics"></a>Rozwiązywanie problemów z Azure Files przy użyciu metryk<a name="troubleshooting-azure-files-using-metrics"></a>
 
-Analityka magazynu platformy Azure obsługuje metryki dla Azure Files. Dane metryk umożliwiają śledzenie żądań i diagnozowanie problemów.
+Azure Storage Analytics obsługuje metryki dla Azure Files. Dane metryk umożliwiają śledzenie żądań i diagnozowanie problemów.
 
 Można włączyć metryki dla Azure Files z [Azure Portal](https://portal.azure.com). Można również programowo włączyć metryki, wywołując operację [ustawiania właściwości usługi plików](/rest/api/storageservices/set-file-service-properties) za pomocą interfejsu API REST lub jednego z jego analogek w Azure Filesej bibliotece klienta.
 
@@ -559,7 +559,7 @@ Poniższy przykład kodu pokazuje, jak używać biblioteki klienckiej .NET do w�
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Najpierw Dodaj następujące `using` dyrektywy do pliku *program.cs* oraz te, które zostały dodane powyżej:
+Najpierw Dodaj następujące `using` dyrektywy do pliku *programu program. cs* wraz z tymi, które zostały dodane powyżej:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
@@ -627,7 +627,7 @@ Aby uzyskać więcej informacji na temat Azure Files, zobacz następujące zasob
 - [Wprowadzenie do narzędzia AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
-### <a name="reference"></a>Odwołanie
+### <a name="reference"></a>Dokumentacja
 
 - [Interfejsy API usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
 - [Interfejs API REST usługi File (Plik)](/rest/api/storageservices/File-Service-REST-API)

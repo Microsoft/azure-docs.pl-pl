@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91766891"
 ---
-# <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z uszkodzeniem bazy danych w Azure Database for MySQL
+# <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z uszkodzeniem bazy danych w usłudze Azure Database for MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Uszkodzenie bazy danych może spowodować przestoje aplikacji. Istnieje również krytyczne rozwiązanie problemów z uszkodzeniem w czasie, aby uniknąć utraty danych. W przypadku uszkodzenia bazy danych w dziennikach serwera zostanie wyświetlony następujący błąd: `InnoDB: Database page corruption on disk or a failed.`

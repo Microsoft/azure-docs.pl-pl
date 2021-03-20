@@ -12,10 +12,10 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91714519"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB przy użyciu programu PowerShell
@@ -26,7 +26,7 @@ W tym artykule pokazano, jak używać poświadczeń usługi Azure Active Directo
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
+## <a name="install-the-powershell-module"></a>Zainstaluj moduł programu PowerShell
 
 W celu utworzenia sygnatury dostępu współdzielonego użytkownika w programie PowerShell należy zainstalować w wersji 1.10.0 lub nowszej modułu AZ. Storage. Wykonaj następujące kroki, aby zainstalować najnowszą wersję modułu:
 

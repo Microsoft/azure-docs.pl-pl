@@ -4,10 +4,10 @@ description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdar
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319389"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
@@ -27,7 +27,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Zestaw Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Pobierz](https://maven.apache.org/download.cgi) i [zainstaluj](https://maven.apache.org/install.html) archiwum binarne Maven.
-* [Git](https://www.git-scm.com/)
+* [Usługa Git](https://www.git-scm.com/)
 * **Konto usługi Azure Storage**. Jeśli go nie masz, [Utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie Stream Analytics w tym instruktażu przechowuje dane wyjściowe w usłudze Azure Blob Storage. 
 
 
@@ -63,7 +63,7 @@ Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt ko�
     ```
 
     Ten kod wysyła dane zdarzenia w formacie **JSON** . Podczas konfigurowania danych wejściowych dla zadania Stream Analytics należy określić kod JSON jako format danych wejściowych. 
-7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows w przypadku korzystania z ** wiersza poleceniaNode.js**przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer` folderu przed uruchomieniem tych poleceń. 
+7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows w przypadku korzystania z **wiersza poleceniaNode.js** przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer` folderu przed uruchomieniem tych poleceń. 
    
     ```shell
     mvn clean package
@@ -120,7 +120,7 @@ Zapytanie w Stream Analytics zadania przejdzie przez dane bez wykonywania żadne
 2. Wybierz pozycję **+ Dodaj** na pasku narzędzi i wybierz pozycję **BLOB Storage**
 3. Na stronie Ustawienia wyjściowe magazynu obiektów BLOB wykonaj następujące czynności: 
     1. Określ **alias** dla danych wyjściowych. 
-    2. Wybierz swoją **subskrypcję**platformy Azure. 
+    2. Wybierz swoją **subskrypcję** platformy Azure. 
     3. Wybierz **konto usługi Azure Storage**. 
     4. Wprowadź **nazwę kontenera** , w którym są przechowywane dane wyjściowe z kwerendy Stream Analytics.
     5. Wybierz pozycję **Zapisz**.
@@ -158,7 +158,7 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
     ```shell
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
-1. Upewnij się, że w **usłudze Azure Blob Storage**są generowane **dane wyjściowe** . W kontenerze zostanie wyświetlony plik JSON z 100 wierszami, które wyglądają jak w następujących przykładowych wierszach: 
+1. Upewnij się, że w **usłudze Azure Blob Storage** są generowane **dane wyjściowe** . W kontenerze zostanie wyświetlony plik JSON z 100 wierszami, które wyglądają jak w następujących przykładowych wierszach: 
 
     ```
     {"eventData":"Test Data 0","EventProcessedUtcTime":"2018-08-30T03:27:23.1592910Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}

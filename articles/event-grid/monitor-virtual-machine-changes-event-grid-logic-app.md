@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: 1a5d8c36382433024efd1f1cc6ba9fd878d28ddc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92329529"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Samouczek: Monitorowanie zmian maszyn wirtualnych przy użyciu usług Azure Event Grid i Logic Apps
@@ -58,11 +58,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu poświadczeń konta Azure.
 
-1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
+1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >    >  **aplikacja logiki**.
 
    ![Zrzut ekranu przedstawiający Azure Portal, pokazujący przycisk służący do tworzenia zasobu aplikacji logiki.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-1. W obszarze **aplikacja logiki**podaj informacje o zasobie aplikacji logiki. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+1. W obszarze **aplikacja logiki** podaj informacje o zasobie aplikacji logiki. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający menu tworzenia aplikacji logiki, pokazujący szczegóły, takie jak nazwa, subskrypcja, Grupa zasobów i lokalizacja.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
@@ -201,9 +201,9 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
-   | **Działanie** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
-   | **Podmiot** | Tak | `Resource updated:` **Podmiot** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
-   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:` **Typ zdarzenia**<p>`Event ID:` **ID (Identyfikator)**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
+   | **Do** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Temat** | Tak | `Resource updated:`**Temat** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
+   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:` **Typ zdarzenia**<p>`Event ID:` **ID (Identyfikator)**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat** zdarzenia, **Typ zdarzenia**, **Identyfikator** i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
    ||||
 
    > [!NOTE]

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842856"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Pojęcia dotyczące ponownego inicjowania obsługi administracyjnej urządzenia IoT Hub
@@ -60,7 +60,7 @@ W zależności od scenariusza urządzenie zazwyczaj wysyła żądanie do wystąp
 
     ![Diagram pokazujący, jak zasady podejmują akcję, gdy urządzenia skojarzone z wpisem rejestracji przesyłają nowe żądanie aprowizacji.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Nigdy nie należy ponownie**udostępniać: urządzenie nigdy nie jest przypisywane do innego centrum. Te zasady zapewniają zarządzanie zgodnością z poprzednimi wersjami.
+* **Nigdy nie należy ponownie** udostępniać: urządzenie nigdy nie jest przypisywane do innego centrum. Te zasady zapewniają zarządzanie zgodnością z poprzednimi wersjami.
 
 ### <a name="managing-backwards-compatibility"></a>Zarządzanie zgodnością z poprzednimi wersjami
 

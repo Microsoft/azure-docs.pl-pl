@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536066"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurowanie przekazywania plików IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -89,15 +89,15 @@ Teraz można skonfigurować Centrum IoT, aby umożliwić [przekazywanie plików 
 
 Konfiguracja wymaga następujących wartości:
 
-* **Kontener magazynu** : kontener obiektów BLOB na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure do skojarzenia z Twoim centrum IoT Hub. Pobrano niezbędne informacje o koncie magazynu w poprzedniej sekcji. IoT Hub automatycznie generuje identyfikatory URI SAS z uprawnieniami do zapisu w tym kontenerze obiektów BLOB dla urządzeń, które będą używane podczas przekazywania plików.
+* **Kontener magazynu**: kontener obiektów BLOB na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure do skojarzenia z Twoim centrum IoT Hub. Pobrano niezbędne informacje o koncie magazynu w poprzedniej sekcji. IoT Hub automatycznie generuje identyfikatory URI SAS z uprawnieniami do zapisu w tym kontenerze obiektów BLOB dla urządzeń, które będą używane podczas przekazywania plików.
 
-* **Odbieraj powiadomienia dla przekazanych plików** : Włącz lub Wyłącz powiadomienia dotyczące przekazywania plików.
+* **Odbieraj powiadomienia dla przekazanych plików**: Włącz lub Wyłącz powiadomienia dotyczące przekazywania plików.
 
-* Czas **wygaśnięcia sygnatury dostępu współdzielonego** : to ustawienie jest czasem wygaśnięcia identyfikatorów URI sygnatury dostępu współdzielonego zwróconego do urządzenia przez IoT Hub. Domyślnie ustawiona na godzinę.
+* Czas **wygaśnięcia sygnatury dostępu współdzielonego**: to ustawienie jest czasem wygaśnięcia identyfikatorów URI sygnatury dostępu współdzielonego zwróconego do urządzenia przez IoT Hub. Domyślnie ustawiona na godzinę.
 
-* **Ustawienia powiadomień o pliku domyślny czas wygaśnięcia** : godzina wygaśnięcia powiadomienia o przekazaniu pliku przed jego wygaśnięciem. Domyślnie ustawiona na jeden dzień.
+* **Ustawienia powiadomień o pliku domyślny czas wygaśnięcia**: godzina wygaśnięcia powiadomienia o przekazaniu pliku przed jego wygaśnięciem. Domyślnie ustawiona na jeden dzień.
 
-* **Maksymalna liczba dostaw powiadomień o pliku** : liczba prób dostarczenia przez IoT Hub powiadomienia o przekazaniu pliku. Domyślnie ustawiona na 10.
+* **Maksymalna liczba dostaw powiadomień o pliku**: liczba prób dostarczenia przez IoT Hub powiadomienia o przekazaniu pliku. Domyślnie ustawiona na 10.
 
 Użyj następujących poleceń interfejsu wiersza polecenia platformy Azure, aby skonfigurować ustawienia przekazywania plików w centrum IoT:
 

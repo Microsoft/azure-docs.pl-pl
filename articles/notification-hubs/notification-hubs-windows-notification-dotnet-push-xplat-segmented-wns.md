@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320570"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń z uruchomionymi platforma uniwersalna systemu Windows aplikacjami
@@ -81,7 +81,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
     </Grid>
     ```
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **klasę**. W obszarze **Dodaj nowy element**Nazwij pozycję *powiadomienia*, a następnie wybierz pozycję **Dodaj**. W razie potrzeby Dodaj `public` modyfikator do definicji klasy.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **klasę**. W obszarze **Dodaj nowy element** Nazwij pozycję *powiadomienia*, a następnie wybierz pozycję **Dodaj**. W razie potrzeby Dodaj `public` modyfikator do definicji klasy.
 
 1. Dodaj następujące `using` instrukcje do nowego pliku:
 
@@ -143,7 +143,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
 
     Aby uzyskać więcej informacji, zobacz [Szablony](notification-hubs-templates-cross-platform-push-messages.md).
 
-1. W pliku projektu *App.XAML.cs* Dodaj następującą właściwość do `App` klasy:
+1. W pliku projektu *App. XAML. cs* Dodaj następującą właściwość do `App` klasy:
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
@@ -156,13 +156,13 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
    > [!NOTE]
    > Ponieważ poświadczenia dystrybuowane przy użyciu aplikacji klienckiej nie są zazwyczaj zabezpieczone, przy użyciu aplikacji klienckiej dystrybuuj wyłącznie klucz dostępu do *nasłuchiwania*. Dostęp do nasłuchiwania umożliwia aplikacji rejestrowanie powiadomień, ale nie może ona modyfikować istniejących rejestracji ani wysyłać powiadomień. Klucz pełnego dostępu jest używany w zabezpieczonej usłudze zaplecza do wysyłania powiadomień oraz zmiany istniejących rejestracji.
 
-1. W pliku *MainPage.XAML.cs* Dodaj następujący wiersz:
+1. W pliku *MainPage. XAML. cs* Dodaj następujący wiersz:
 
     ```csharp
     using Windows.UI.Popups;
     ```
 
-1. W pliku *MainPage.XAML.cs* Dodaj następującą metodę:
+1. W pliku *MainPage. XAML. cs* Dodaj następującą metodę:
 
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
@@ -194,7 +194,7 @@ W tej sekcji rejestrujesz się w centrum powiadomień przy uruchamianiu przy uż
 > [!NOTE]
 > Ponieważ identyfikator URI kanału przypisany przez usługę powiadomień systemu Windows (WNS) może ulec zmianie w dowolnym momencie, należy często rejestrować się w celu otrzymywania powiadomień, aby uniknąć niepowodzeń ich dostarczania. Poniższy przykład przeprowadza rejestrację w celu otrzymywania powiadomień za każdym razem, gdy aplikacja jest uruchamiana. W przypadku aplikacji, które są uruchamiane często, powiedzmy, więcej niż raz dziennie, możesz prawdopodobnie pominąć rejestrację, aby zachować przepustowość, jeśli od czasu poprzedniej rejestracji upłynęło mniej niż jeden dzień.
 
-1. Aby użyć `notifications` klasy do subskrybowania na podstawie kategorii, Otwórz plik *App.XAML.cs* , a następnie zaktualizuj `InitNotificationsAsync` metodę.
+1. Aby użyć `notifications` klasy do subskrybowania na podstawie kategorii, Otwórz plik *App. XAML. cs* , a następnie zaktualizuj `InitNotificationsAsync` metodę.
 
     ```csharp
     // *** Remove or comment out these lines ***
@@ -206,7 +206,7 @@ W tej sekcji rejestrujesz się w centrum powiadomień przy uruchamianiu przy uż
     ```
 
     Ten proces zapewnia, że po uruchomieniu aplikacji pobiera kategorie z magazynu lokalnego. Następnie żąda rejestracji tych kategorii. W `InitNotificationsAsync` samouczku [wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji za pomocą usługi Azure Notification Hubs][get-started] można było utworzyć metodę.
-2. W pliku projektu *MainPage.XAML.cs* Dodaj następujący kod do `OnNavigatedTo` metody:
+2. W pliku projektu *MainPage. XAML. cs* Dodaj następujący kod do `OnNavigatedTo` metody:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)

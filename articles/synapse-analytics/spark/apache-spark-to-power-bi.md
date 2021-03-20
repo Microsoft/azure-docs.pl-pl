@@ -10,17 +10,17 @@ ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121077"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Samouczek: Tworzenie raportu Power BI przy użyciu Apache Spark i usługi Azure Synapse Analytics
 
 Organizacje często muszą przetwarzać duże ilości danych przed przekazaniem kluczowych stronom biznesowym. W tym samouczku dowiesz się, jak wykorzystać zintegrowane środowiska w usłudze Azure Synapse Analytics, aby przetwarzać dane przy użyciu Apache Spark i później udostępniać je użytkownikom końcowym za pośrednictwem Power BI i SQL Server.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 - [Obszar roboczy usługi Azure Synapse Analytics](../quickstart-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. 
 - Power BI obszar roboczy i Power BI Desktop do wizualizacji danych. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie obszaru roboczego Power BI](/power-bi/service-create-the-new-workspaces) i [Instalowanie programu Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Połączona usługa do łączenia obszarów roboczych usługi Azure Synapse Analytics i Power BI. Aby uzyskać szczegółowe informacje, zobacz [łączenie z obszarem roboczym Power BI](../quickstart-power-bi.md)

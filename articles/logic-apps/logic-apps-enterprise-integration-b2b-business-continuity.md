@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
 ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565415"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Skonfiguruj odzyskiwanie po awarii między regionami dla kont integracji w programie Azure Logic Apps
@@ -89,7 +89,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
 1. Tworzenie [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
-2. Wyszukaj w witrynie **X12**i wybierz pozycję **X12 — gdy numer kontrolny jest modyfikowany**.   
+2. Wyszukaj w witrynie **X12** i wybierz pozycję **X12 — gdy numer kontrolny jest modyfikowany**.   
 
    ![Wyszukaj X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
@@ -100,7 +100,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
    ![Zrzut ekranu pokazujący, gdzie wprowadzić nazwę połączenia i wybrać konto integracji podstawowego regionu. ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.   
+4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta** lub **sekundę** z interwałem.   
 
    ![Zrzut ekranu, który pokazuje datę i godzinę rozpoczęcia synchronizacji numeru kontrolnego.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
@@ -108,7 +108,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
    ![Zrzut ekranu pokazujący przycisk Nowy krok i opcję Dodaj akcję.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Wyszukaj w witrynie **X12**i wybierz pozycję **X12 — Dodaj lub zaktualizuj numery kontrolne**.   
+6. Wyszukaj w witrynie **X12** i wybierz pozycję **X12 — Dodaj lub zaktualizuj numery kontrolne**.   
 
    ![Dodaj lub zaktualizuj numery kontrolne](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
@@ -144,7 +144,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
 1. Tworzenie [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
-2. Wyszukaj w witrynie **EDIFACT**i wybierz pozycję **EDIFACT — gdy numer kontrolny jest modyfikowany**.
+2. Wyszukaj w witrynie **EDIFACT** i wybierz pozycję **EDIFACT — gdy numer kontrolny jest modyfikowany**.
 
    ![Wyszukaj EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
@@ -155,7 +155,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
    ![Nazwa konta integracji regionu podstawowego](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
-4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.    
+4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta** lub **sekundę** z interwałem.    
 
    ![Zrzut ekranu pokazujący ustawienia wartości daty i godziny.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
@@ -163,7 +163,7 @@ Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz us
 
    ![Zrzut ekranu pokazujący, gdzie wybrać opcję Dodaj akcję.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-7. Wyszukaj w witrynie **EDIFACT**i wybierz pozycję **EDIFACT — Dodaj lub zaktualizuj numery kontrolne**.   
+7. Wyszukaj w witrynie **EDIFACT** i wybierz pozycję **EDIFACT — Dodaj lub zaktualizuj numery kontrolne**.   
 
    ![Zrzut ekranu pokazujący, gdzie dodać lub zaktualizować numery kontrolne.](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
@@ -196,7 +196,7 @@ Ciągłość działania w przypadku dokumentów korzystających z protokołu AS2
 
 1. Utwórz [aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.  
 
-2. Wyszukaj w witrynie **AS2**i wybierz pozycję **AS2 — po utworzeniu wartości MIC**.   
+2. Wyszukaj w witrynie **AS2** i wybierz pozycję **AS2 — po utworzeniu wartości MIC**.   
 
    ![Wyszukaj AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
@@ -207,7 +207,7 @@ Ciągłość działania w przypadku dokumentów korzystających z protokołu AS2
 
    ![Zrzut ekranu pokazujący, gdzie wprowadzić nazwę połączenia podczas tworzenia wartości MIC.](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
-4. Ustawienie **daty i godziny początkowej synchronizacji wartości MIC** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.   
+4. Ustawienie **daty i godziny początkowej synchronizacji wartości MIC** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta** lub **sekundę** z interwałem.   
 
    ![Data i godzina](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
@@ -215,7 +215,7 @@ Ciągłość działania w przypadku dokumentów korzystających z protokołu AS2
 
    ![Nowy krok, Dodawanie akcji](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Wyszukaj w witrynie **AS2**i wybierz pozycję **AS2 — Dodaj lub zaktualizuj zawartość MIC**.  
+6. Wyszukaj w witrynie **AS2** i wybierz pozycję **AS2 — Dodaj lub zaktualizuj zawartość MIC**.  
 
    ![Dodanie lub aktualizacja mikrofonu](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 

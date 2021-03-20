@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86258970"
 ---
 # <a name="initializer-codepackages"></a>Pakiety CodePackage inicjatora
@@ -28,7 +28,7 @@ Oczekiwany jest CodePackage inicjatora do **pomyślnego ukończenia (kod zakońc
 ## <a name="specifying-initializer-codepackages"></a>Określanie CodePackages inicjatora
 Można oznaczyć CodePackage jako inicjator przez ustawienie atrybutu **inicjatora** na **true** w elemencie servicemanifest. Jeśli istnieje wiele CodePackages inicjatora, ich kolejność wykonywania może być określona za pomocą atrybutu **ExecOrder** . **ExecOrder** musi być nieujemną liczbą całkowitą i jest prawidłowy tylko dla inicjatora CodePackages. CodePackages inicjatora o niższych wartościach **ExecOrder** są wykonywane jako pierwsze. Jeśli **ExecOrder** nie zostanie określony dla inicjatora CodePackage, przyjmuje się wartość domyślną 0. Nie określono względnej kolejności wykonywania inicjatora CodePackages z tą samą wartością **ExecOrder** .
 
-Poniższy fragment kodu servicemanifest opisuje trzy CodePackages dwa, które są oznaczone jako inicjatory. Gdy ten pakiet servicepackage jest aktywowany, *InitCodePackage0* jest wykonywane jako pierwsze, ponieważ ma najniższą wartość **ExecOrder**. Po pomyślnym zakończeniu (kod zakończenia 0) z *InitCodePackage0*, *InitCodePackage1* jest wykonywane. Na koniec po pomyślnym *InitCodePackage1*zakończeniu InitCodePackage1 *WorkloadCodePackage* jest wykonywane.
+Poniższy fragment kodu servicemanifest opisuje trzy CodePackages dwa, które są oznaczone jako inicjatory. Gdy ten pakiet servicepackage jest aktywowany, *InitCodePackage0* jest wykonywane jako pierwsze, ponieważ ma najniższą wartość **ExecOrder**. Po pomyślnym zakończeniu (kod zakończenia 0) z *InitCodePackage0*, *InitCodePackage1* jest wykonywane. Na koniec po pomyślnym zakończeniu InitCodePackage1 *WorkloadCodePackage* jest wykonywane.
 
 ```xml
 <CodePackage Name="InitCodePackage0" Version="1.0" Initializer="true" ExecOrder="0">

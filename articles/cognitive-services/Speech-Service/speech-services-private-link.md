@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
 ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99559654"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Korzystanie z usług mowy za pomocą prywatnego punktu końcowego
@@ -555,11 +555,11 @@ Należy wycofać swoją aplikację do standardowego wystąpienia programu `Speec
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Link prywatny platformy Azure](../../private-link/private-link-overview.md)
 * [Zestaw SDK rozpoznawania mowy](speech-sdk.md)

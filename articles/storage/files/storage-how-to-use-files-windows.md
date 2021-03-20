@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94626898"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
@@ -110,16 +110,16 @@ Przejdź do elementu lub elementu nadrzędnego, który należy przywrócić. Kli
 
 ![Menu dla wybranego katalogu wyświetlane po kliknięciu prawym przyciskiem myszy](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
 
-Wybierz pozycję **Poprzednie wersje** , aby wyświetlić listę migawek udziału dla tego katalogu. Załadowanie listy może potrwać kilka sekund w zależności od szybkości sieci i liczby migawek udziałów w katalogu.
+Wybierz pozycję **Poprzednie wersje**, aby wyświetlić listę migawek udziału dla tego katalogu. Załadowanie listy może potrwać kilka sekund w zależności od szybkości sieci i liczby migawek udziałów w katalogu.
 
 ![Karta Poprzednie wersje](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
-Możesz wybrać pozycję **Otwórz** , aby otworzyć określoną migawkę. 
+Możesz wybrać pozycję **Otwórz**, aby otworzyć określoną migawkę. 
 
 ![Otwarta migawka](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
 #### <a name="restore-from-a-previous-version"></a>Uaktualnianie z poprzedniej wersji
-Wybierz pozycję **Przywróć** , aby rekursywnie skopiować zawartość całego katalogu podczas tworzenia migawki udziału do oryginalnej lokalizacji.
+Wybierz pozycję **Przywróć**, aby rekursywnie skopiować zawartość całego katalogu podczas tworzenia migawki udziału do oryginalnej lokalizacji.
 
  ![Przycisk Przywróć w komunikacie ostrzegawczym](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 

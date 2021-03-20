@@ -10,10 +10,10 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536049"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Tworzenie Centrum IoT Hub przy użyciu Azure Portal
@@ -36,13 +36,13 @@ Ustawienia istniejącego Centrum IoT można zmienić po jego utworzeniu w okienk
 
 Poniżej przedstawiono niektóre właściwości, które można ustawić dla Centrum IoT Hub:
 
-**Cennik i skala** : można użyć tej właściwości do migracji do innej warstwy lub ustawienia liczby jednostek IoT Hub. 
+**Cennik i skala**: można użyć tej właściwości do migracji do innej warstwy lub ustawienia liczby jednostek IoT Hub. 
 
-**Monitorowanie operacji** : Włącz lub Wyłącz różne kategorie monitorowania, takie jak rejestrowanie zdarzeń związanych z komunikatami z urządzenia do chmury lub komunikatami z chmury do urządzenia.
+**Monitorowanie operacji**: Włącz lub Wyłącz różne kategorie monitorowania, takie jak rejestrowanie zdarzeń związanych z komunikatami z urządzenia do chmury lub komunikatami z chmury do urządzenia.
 
-**Filtr IP** : Określ zakres adresów IP, które zostaną zaakceptowane lub odrzucone przez Centrum IoT.
+**Filtr IP**: Określ zakres adresów IP, które zostaną zaakceptowane lub odrzucone przez Centrum IoT.
 
-**Właściwości** : zawiera listę właściwości, które można kopiować i używać w innym miejscu, takich jak identyfikator zasobu, Grupa zasobów, lokalizacja itd.
+**Właściwości**: zawiera listę właściwości, które można kopiować i używać w innym miejscu, takich jak identyfikator zasobu, Grupa zasobów, lokalizacja itd.
 
 ### <a name="shared-access-policies"></a>Zasady dostępu współużytkowanego
 
@@ -74,13 +74,13 @@ Kliknij pozycję **Routing komunikatów** w obszarze **Obsługa** komunikatów, 
 
 ### <a name="routes"></a>Trasy
 
-Trasy to pierwsza karta w okienku routing wiadomości. Aby dodać nową trasę, kliknij pozycję + **Dodaj** . Zobaczysz poniższy ekran. 
+Trasy to pierwsza karta w okienku routing wiadomości. Aby dodać nową trasę, kliknij pozycję +**Dodaj**. Zobaczysz poniższy ekran. 
 
 ![Zrzut ekranu przedstawiający Dodawanie nowej trasy](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
 Nadaj nazwę trasie. Nazwa trasy musi być unikatowa na liście tras dla tego centrum. 
 
-W przypadku **punktu końcowego** można wybrać jeden z listy rozwijanej lub dodać nowy. W tym przykładzie konto magazynu i kontener są już dostępne. Aby dodać je jako punkt końcowy, kliknij przycisk + **Dodaj** obok listy rozwijanej punkt końcowy i wybierz pozycję **BLOB Storage** . Na poniższym ekranie przedstawiono, gdzie określono konto magazynu i kontener.
+W przypadku **punktu końcowego** można wybrać jeden z listy rozwijanej lub dodać nowy. W tym przykładzie konto magazynu i kontener są już dostępne. Aby dodać je jako punkt końcowy, kliknij przycisk +**Dodaj** obok listy rozwijanej punkt końcowy i wybierz pozycję **BLOB Storage**. Na poniższym ekranie przedstawiono, gdzie określono konto magazynu i kontener.
 
 ![Zrzut ekranu przedstawiający Dodawanie punktu końcowego magazynu dla reguły routingu](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
@@ -112,9 +112,9 @@ Aby zobaczyć pełny przykład korzystania z niestandardowych punktów końcowyc
 
 Poniżej przedstawiono dwa sposoby znajdowania określonego Centrum IoT Hub w ramach subskrypcji:
 
-1. Jeśli znasz grupę zasobów, do której należy Centrum IoT, kliknij pozycję **grupy zasobów** , a następnie wybierz z listy grupę zasobów. Na ekranie Grupa zasobów są wyświetlane wszystkie zasoby z tej grupy, w tym centra IoT Hub. Kliknij centrum, którego szukasz.
+1. Jeśli znasz grupę zasobów, do której należy Centrum IoT, kliknij pozycję **grupy zasobów**, a następnie wybierz z listy grupę zasobów. Na ekranie Grupa zasobów są wyświetlane wszystkie zasoby z tej grupy, w tym centra IoT Hub. Kliknij centrum, którego szukasz.
 
-2. Kliknij pozycję **Wszystkie zasoby** . W okienku **wszystkie zasoby** znajduje się lista rozwijana, która ma wartość domyślną `All types` . Kliknij listę rozwijaną, a następnie usuń zaznaczenie `Select all` . Znajdź `IoT Hub` i sprawdź. Kliknij pole listy rozwijanej, aby je zamknąć, a wpisy zostaną przefiltrowane, pokazując tylko centra IoT.
+2. Kliknij pozycję **Wszystkie zasoby**. W okienku **wszystkie zasoby** znajduje się lista rozwijana, która ma wartość domyślną `All types` . Kliknij listę rozwijaną, a następnie usuń zaznaczenie `Select all` . Znajdź `IoT Hub` i sprawdź. Kliknij pole listy rozwijanej, aby je zamknąć, a wpisy zostaną przefiltrowane, pokazując tylko centra IoT.
 
 ## <a name="delete-the-iot-hub"></a>Usuwanie Centrum IoT Hub
 

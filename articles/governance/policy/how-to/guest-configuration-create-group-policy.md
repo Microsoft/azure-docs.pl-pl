@@ -4,17 +4,17 @@ description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezp
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348648"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 
 Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje dotyczące omówienia koncepcji w [Azure Policy konfiguracji gościa](../concepts/guest-configuration.md). Aby dowiedzieć się więcej o tworzeniu niestandardowych definicji zasad konfiguracji gościa dla systemu Linux, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md). Aby dowiedzieć się więcej na temat tworzenia niestandardowych definicji zasad konfiguracji gościa dla systemu Windows, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md).
 
-Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie jest **zgodna** , zostanie wyzwolony efekt zasad *auditIfNotExists* .
+Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie jest **zgodna**, zostanie wyzwolony efekt zasad *auditIfNotExists* .
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) tylko inspekcji ustawień wewnątrz maszyn.
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ W tym przewodniku omówiono proces tworzenia Azure Policy pakietu konfiguracji G
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Pobierz linię bazową zabezpieczeń systemu Windows Server 2019 i zainstaluj powiązane moduły programu PowerShell
 
-Aby zainstalować **DSC** , **GuestConfiguration** , **Zarządzanie punktami odniesienia** i powiązane moduły platformy Azure w programie PowerShell:
+Aby zainstalować **DSC**, **GuestConfiguration**, **Zarządzanie punktami odniesienia** i powiązane moduły platformy Azure w programie PowerShell:
 
 1. W wierszu polecenia programu PowerShell uruchom następujące polecenie:
 

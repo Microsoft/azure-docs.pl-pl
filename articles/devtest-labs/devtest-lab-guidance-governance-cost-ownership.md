@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92328270"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Nadzór nad infrastrukturą Azure DevTest Labs — zarządzanie kosztami i własnością
@@ -22,12 +22,12 @@ Jak mogę zoptymalizować się pod kątem kosztów w ramach mojego środowiska D
 ### <a name="answer"></a>Odpowiedź
 Istnieje wiele wbudowanych funkcji DevTest Labs, które pomagają zoptymalizować się pod kątem kosztów. Aby ograniczyć działania użytkowników, zobacz artykuł [Zarządzanie kosztami, progi](devtest-lab-configure-cost-management.md) [i zasady](devtest-lab-set-lab-policy.md) . 
 
-Gdy korzystasz z usługi DevTest Labs na potrzeby obciążeń deweloperskich i testowych, możesz rozważyć wykorzystanie [korzyści z subskrypcji Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)w ramach Umowa Enterprise. Alternatywnie, jeśli masz płatność zgodnie z rzeczywistym użyciem, warto wziąć pod uwagę [ofertę DevTest płatność zgodnie z oczekiwaniami](https://azure.microsoft.com/offers/ms-azr-0023p/).
+Gdy korzystasz z usługi DevTest Labs na potrzeby obciążeń deweloperskich i testowych, możesz rozważyć wykorzystanie [korzyści z subskrypcji Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)w ramach Enterprise Agreement. Alternatywnie, jeśli masz płatność zgodnie z rzeczywistym użyciem, warto wziąć pod uwagę [ofertę DevTest płatność zgodnie z oczekiwaniami](https://azure.microsoft.com/offers/ms-azr-0023p/).
 
 Takie podejście zapewnia wiele korzyści:
 
 - Specjalne niższe stawki za tworzenie i testowanie w przypadku maszyn wirtualnych z systemem Windows, usług Cloud Services, HDInsight, App Service i Logic Apps
-- Wspaniałe stawki Umowa Enterprise (EA) na inne usługi platformy Azure
+- Wspaniałe stawki Enterprise Agreement (EA) na inne usługi platformy Azure
 - Dostęp do wyłącznego obrazu deweloperskiego/testowego w galerii, w tym Windows 8.1 i Windows 10
  
 Tylko aktywni subskrybenci programu Visual Studio (Subskrypcje standardowe, roczne subskrypcje chmurowe i miesięczne subskrypcje chmury) mogą używać zasobów platformy Azure działających w ramach subskrypcji tworzenia i testowania w przedsiębiorstwie. Użytkownicy końcowi mogą jednak uzyskać dostęp do aplikacji w celu zapewnienia opinii lub przeprowadzenia testów akceptacji. Korzystanie z zasobów w ramach tej subskrypcji jest ograniczone do tworzenia i testowania aplikacji, a nie jest oferowana gwarancja czasu.
