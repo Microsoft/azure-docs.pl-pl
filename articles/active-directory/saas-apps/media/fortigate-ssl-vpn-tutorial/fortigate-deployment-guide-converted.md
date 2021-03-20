@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: jeedes
 ms.openlocfilehash: cdaa6a9601452100ab90ef8b0f2191002f256b74
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025529"
 ---
 # <a name="fortigate-azure-virtual-machine-deployment-guide"></a>Przewodnik wdrażania maszyn wirtualnych FortiGate platformy Azure
@@ -45,7 +45,7 @@ W momencie pisania, maszyna wirtualna platformy Azure FortiGate nie jest dostarc
 2. Utwórz nową grupę zasobów lub Otwórz grupę zasobów, w której zostanie wdrożona maszyna wirtualna FortiGate.
 3. Wybierz pozycję **Dodaj**.
 4. W obszarze **Wyszukaj w portalu Marketplace** wprowadź *Forti*. Wybierz pozycję **Fortinet Fortigate nowej zapory**.
-5. Wybierz plan oprogramowania (Jeśli masz licencję lub z opcją płatność zgodnie z rzeczywistym użyciem, jeśli nie jest to możliwe). Wybierz pozycję **Utwórz**.
+5. Wybierz plan oprogramowania (Jeśli masz licencję lub z opcją płatność zgodnie z rzeczywistym użyciem, jeśli nie jest to możliwe). Wybierz przycisk **Utwórz**.
 6. Wypełnij konfigurację maszyny wirtualnej.
 
     ![Zrzut ekranu przedstawiający tworzenie maszyny wirtualnej.](virtual-machine.png)
@@ -64,7 +64,7 @@ Aby zapewnić spójne środowisko użytkownika, ustaw publiczny adres IP przypis
 
     ![Zrzut ekranu przedstawiający Fortigate SSL sieci VPN.](public-ip-address.png)
 
-3. Wybierz pozycję Zapisz **statyczny**  >  **Save**.
+3. Wybierz pozycję Zapisz **statyczny**  >  .
 
 Jeśli posiadasz publiczną nazwę domeny routingu dla środowiska, w którym jest wdrażana maszyna wirtualna FortiGate, Utwórz rekord hosta (A) dla maszyny wirtualnej. Ten rekord jest mapowany na poprzedni publiczny adres IP, który jest przypisany statycznie.
 
@@ -101,7 +101,7 @@ W poniższych sekcjach opisano sposób konfigurowania maszyny wirtualnej FortiGa
 
 ### <a name="install-the-license"></a>Zainstaluj licencję
 
-1. Przejdź do adresu `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Kontynuuj poprzednie Błędy certyfikatów.
 3. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
@@ -113,11 +113,11 @@ W poniższych sekcjach opisano sposób konfigurowania maszyny wirtualnej FortiGa
 
 ### <a name="update-firmware"></a>Aktualizowanie oprogramowania układowego
 
-1. Przejdź do adresu `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Kontynuuj poprzednie Błędy certyfikatów.
 3. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
-4. W menu po lewej stronie wybierz **System** pozycję  >  **oprogramowanie układowe** systemu.
+4. W menu po lewej stronie wybierz pozycję  >  **oprogramowanie układowe** systemu.
 5. W obszarze **Zarządzanie oprogramowaniem układowym** wybierz pozycję **Przeglądaj**, a następnie wybierz pobrany wcześniej plik oprogramowania układowego.
 6. Zignoruj ostrzeżenie i wybierz pozycję **Konfiguracja i uaktualnienie kopii zapasowej**.
 
@@ -132,7 +132,7 @@ W poniższych sekcjach opisano sposób konfigurowania maszyny wirtualnej FortiGa
 
 ### <a name="change-the-management-port-to-tcp-8443"></a>Zmień port zarządzania na TCP 8443
 
-1. Przejdź do adresu `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Kontynuuj poprzednie Błędy certyfikatów.
 3. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
@@ -144,11 +144,11 @@ W poniższych sekcjach opisano sposób konfigurowania maszyny wirtualnej FortiGa
 
 ### <a name="upload-the-azure-ad-saml-signing-certificate"></a>Przekaż certyfikat podpisywania SAML usługi Azure AD
 
-1. Przejdź do adresu `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Kontynuuj poprzednie Błędy certyfikatów.
 3. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
-4. W menu po lewej stronie wybierz **System** pozycję  >  **Certyfikaty** systemu.
+4. W menu po lewej stronie wybierz pozycję  >  **Certyfikaty** systemu.
 5. Wybierz pozycję **Importuj**  >  **certyfikat zdalny**.
 6. Przejdź do certyfikatu pobranego z niestandardowego wdrożenia aplikacji FortiGate w dzierżawie platformy Azure. Zaznacz go, a następnie wybierz **przycisk OK**.
 
@@ -156,17 +156,17 @@ W poniższych sekcjach opisano sposób konfigurowania maszyny wirtualnej FortiGa
 
 Możesz chcieć skonfigurować maszynę wirtualną FortiGate przy użyciu własnego certyfikatu SSL, który obsługuje nazwę FQDN, której używasz. Jeśli masz dostęp do certyfikatu SSL spakowanego przy użyciu klucza prywatnego w formacie PFX, można go użyć do tego celu.
 
-1. Przejdź do adresu `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Kontynuuj poprzednie Błędy certyfikatów.
 3. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
-4. W menu po lewej stronie wybierz **System** pozycję  >  **Certyfikaty** systemu.
+4. W menu po lewej stronie wybierz pozycję  >  **Certyfikaty** systemu.
 5. Wybierz pozycję **Importuj** certyfikat  >  **lokalny certyfikat**  >  **PKCS #12**.
 6. Przejdź do. Plik PFX zawierający certyfikat SSL i klucz prywatny.
 7. Podaj. Hasło PFX i zrozumiała Nazwa certyfikatu. Następnie wybierz przycisk **OK**.
-8. W menu po lewej stronie wybierz **System** pozycję  >  **Ustawienia** systemowe.
+8. W menu po lewej stronie wybierz pozycję  >  **Ustawienia** systemowe.
 9. W obszarze **Ustawienia administracyjne** rozwiń listę obok pozycji **certyfikat serwera https** i wybierz certyfikat SSL zaimportowany wcześniej.
-10. Wybierz pozycję **Zastosuj**.
+10. Wybierz przycisk **Zastosuj**.
 11. Zamknij okno przeglądarki i przejdź do `https://<address>:8443` .
 12. Zaloguj się przy użyciu poświadczeń administratora FortiGate. Powinien być teraz widoczny prawidłowy certyfikat SSL w użyciu.
 
@@ -185,7 +185,7 @@ Możesz chcieć skonfigurować maszynę wirtualną FortiGate przy użyciu własn
 
 ### <a name="ensure-network-interfaces-are-obtaining-ip-addresses"></a>Upewnij się, że interfejsy sieciowe uzyskują adresy IP
 
-1. Przejdź do adresu `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
 3. W menu po lewej stronie wybierz pozycję **Sieć**.
@@ -201,7 +201,7 @@ Możesz chcieć skonfigurować maszynę wirtualną FortiGate przy użyciu własn
 
 Wieloadresowe maszyny wirtualne platformy Azure mają wszystkie interfejsy sieciowe w tej samej sieci wirtualnej (ale prawdopodobnie są to oddzielne podsieci). Często oznacza to, że oba interfejsy sieciowe mają połączenie z lokalnymi zasobami firmowymi publikowanymi za pośrednictwem usługi FortiGate. Z tego powodu konieczne jest utworzenie niestandardowych wpisów tras, które gwarantują wyjście ruchu z poprawnego interfejsu, gdy zostaną wykonane żądania dotyczące lokalnych zasobów firmowych.
 
-1. Przejdź do adresu `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
+1. Przejdź do witryny `https://<address>:8443`. W tym miejscu `<address>` jest nazwa FQDN lub publiczny adres IP przypisany do maszyny wirtualnej Fortigate.
 
 2. Zaloguj się przy użyciu poświadczeń administratora podanych podczas wdrażania maszyny wirtualnej FortiGate.
 3. W menu po lewej stronie wybierz pozycję **Sieć**.

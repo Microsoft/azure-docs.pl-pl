@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 64e40341ec56a2e1c561b2bcbb5e584830c14015
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145586"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Omówienie obsługi wielu dzierżawców na potrzeby odzyskiwania po awarii oprogramowania VMware na platformie Azure przy użyciu dostawcy usług kryptograficznych
@@ -24,11 +24,11 @@ Ten artykuł zawiera Omówienie wdrażania wielu dzierżawców VMware i zarządz
 
 Istnieją trzy główne modele z wieloma dzierżawcami:
 
-* **Udostępniony dostawca usług hostingowych (HSP)** : partner jest właścicielem infrastruktury fizycznej i używa udostępnionych zasobów (vCenter, centrów danych, magazynu fizycznego itd.) do hostowania wielu maszyn wirtualnych dzierżawcy w tej samej infrastrukturze. Partner może zapewnić zarządzanie odzyskiwaniem po awarii jako usługę zarządzaną lub w ramach samoobsługowego rozwiązania.
+* **Udostępniony dostawca usług hostingowych (HSP)**: partner jest właścicielem infrastruktury fizycznej i używa udostępnionych zasobów (vCenter, centrów danych, magazynu fizycznego itd.) do hostowania wielu maszyn wirtualnych dzierżawcy w tej samej infrastrukturze. Partner może zapewnić zarządzanie odzyskiwaniem po awarii jako usługę zarządzaną lub w ramach samoobsługowego rozwiązania.
 
-* **Dedykowany dostawca usług hostingowych** : partner jest właścicielem infrastruktury fizycznej, ale używa dedykowanych zasobów (wielu vCenter, fizycznych magazynów danych itd.) w celu hostowania maszyn wirtualnych każdej dzierżawy w oddzielnej infrastrukturze. Partner może zapewnić zarządzanie odzyskiwaniem po awarii jako usługę zarządzaną, a Dzierżawca może być jego własnością jako samoobsługowe rozwiązanie.
+* **Dedykowany dostawca usług hostingowych**: partner jest właścicielem infrastruktury fizycznej, ale używa dedykowanych zasobów (wielu vCenter, fizycznych magazynów danych itd.) w celu hostowania maszyn wirtualnych każdej dzierżawy w oddzielnej infrastrukturze. Partner może zapewnić zarządzanie odzyskiwaniem po awarii jako usługę zarządzaną, a Dzierżawca może być jego własnością jako samoobsługowe rozwiązanie.
 
-* **Dostawca usług zarządzanych (msp)** : klient jest właścicielem infrastruktury fizycznej, która hostuje maszyny wirtualne, a partner zapewnia obsługę i zarządzanie odzyskiwaniem po awarii.
+* **Dostawca usług zarządzanych (msp)**: klient jest właścicielem infrastruktury fizycznej, która hostuje maszyny wirtualne, a partner zapewnia obsługę i zarządzanie odzyskiwaniem po awarii.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Udostępniony dostawca usług hostingowych (HSP)
 
@@ -56,9 +56,9 @@ Oddzielny serwer przetwarzania skalowany w poziomie jest również objęty kontr
 
 Każdy serwer konfiguracji w scenariuszu z wieloma dzierżawcami używa dwóch kont:
 
-- **konto dostępu vCenter** : to konto służy do odnajdywania maszyn wirtualnych dzierżawcy. Ma przypisane uprawnienia dostępu vCenter. Aby zapobiec przeciekom dostępu, zalecamy, aby partnerzy wprowadzili te poświadczenia w narzędziu konfiguracji.
+- **konto dostępu vCenter**: to konto służy do odnajdywania maszyn wirtualnych dzierżawcy. Ma przypisane uprawnienia dostępu vCenter. Aby zapobiec przeciekom dostępu, zalecamy, aby partnerzy wprowadzili te poświadczenia w narzędziu konfiguracji.
 
-- **Konto dostępu do maszyny wirtualnej** : to konto służy do instalowania agenta usługi mobilności na maszynach wirtualnych dzierżawcy przy użyciu funkcji automatycznego wypychania. Zwykle jest to konto domeny, które dzierżawcy może zapewnić partnerowi lub konto, które może bezpośrednio zarządzać partnerem. Jeśli dzierżawca nie chce bezpośrednio udostępniać szczegółowych informacji partnerskim, może wprowadzić poświadczenia w ograniczonym czasie dostępu do serwera konfiguracji. W przypadku pomocy partnera można ręcznie zainstalować agenta usługi mobilności.
+- **Konto dostępu do maszyny wirtualnej**: to konto służy do instalowania agenta usługi mobilności na maszynach wirtualnych dzierżawcy przy użyciu funkcji automatycznego wypychania. Zwykle jest to konto domeny, które dzierżawcy może zapewnić partnerowi lub konto, które może bezpośrednio zarządzać partnerem. Jeśli dzierżawca nie chce bezpośrednio udostępniać szczegółowych informacji partnerskim, może wprowadzić poświadczenia w ograniczonym czasie dostępu do serwera konfiguracji. W przypadku pomocy partnera można ręcznie zainstalować agenta usługi mobilności.
 
 ## <a name="vcenter-account-requirements"></a>wymagania dotyczące konta vCenter
 
@@ -76,10 +76,10 @@ Skonfiguruj serwer konfiguracji przy użyciu konta, do którego jest przypisana 
 2. Przypisz następujące uprawnienia do tej roli:
 
    * **Magazyn** danych: Przydziel miejsce, Przeglądaj magazyn danych, operacje na plikach niskiego poziomu, usuń plik, Aktualizuj pliki maszyny wirtualnej
-   * **Sieć** : przypisywanie sieci
-   * **Zasób** : Przypisz maszynę wirtualną do puli zasobów, Migruj ją z maszyny wirtualnej, Migruj ją na maszynie wirtualnej
-   * **Zadania** : Tworzenie zadania, aktualizowanie zadania
-   * **Maszyna wirtualna — konfiguracja** : wszystkie
+   * **Sieć**: przypisywanie sieci
+   * **Zasób**: Przypisz maszynę wirtualną do puli zasobów, Migruj ją z maszyny wirtualnej, Migruj ją na maszynie wirtualnej
+   * **Zadania**: Tworzenie zadania, aktualizowanie zadania
+   * **Maszyna wirtualna — konfiguracja**: wszystkie
    * > **interakcji z maszyną wirtualną** , połączenie z urządzeniem, Konfigurowanie nośnika CD, Konfigurowanie dyskietki, wyłączanie, Włączanie, Instalowanie narzędzi VMware
    * **Maszyna wirtualna — > tworzenia spisu** z istniejących, tworzenia nowych, rejestrowania, wyrejestrowywania
    * **Inicjowanie obsługi** maszyny wirtualnej > Zezwalanie na pobieranie maszyn wirtualnych, zezwalanie na przekazywanie plików maszyn wirtualnych
@@ -120,7 +120,7 @@ Aby ograniczyć liczbę operacji odzyskiwania po awarii do trybu failover tylko 
 
 1. W Azure Portal w utworzonym wcześniej magazynie zarejestruj serwer vCenter na serwerze konfiguracji przy użyciu utworzonego konta programu vCenter.
 2. Zakończ proces "Przygotuj infrastrukturę" dla Site Recovery na zwykły proces.
-3. Maszyny wirtualne są teraz gotowe do replikacji. Sprawdź, czy w obszarze **replikacja** są wyświetlane tylko maszyny wirtualne dzierżawy  >  **Select virtual machines** .
+3. Maszyny wirtualne są teraz gotowe do replikacji. Sprawdź, czy w obszarze **replikacja** są wyświetlane tylko maszyny wirtualne dzierżawy  >  .
 
 ## <a name="dedicated-hosting-solution"></a>Dedykowane rozwiązanie hostingu
 

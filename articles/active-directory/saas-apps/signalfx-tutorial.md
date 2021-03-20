@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SignalFx
@@ -64,7 +64,7 @@ Użyj tych instrukcji, aby rozpocząć proces konfiguracji dla logowania jednokr
 1. W górnym menu kliknij pozycję **Integrations (integracje**). 
 1. W polu wyszukiwania wprowadź i wybierz **Azure Active Directory**.
 1. Kliknij pozycję **Utwórz nową integrację**.
-1. W polu **Nazwa**wprowadź łatwą do rozpoznania nazwę, którą użytkownicy będą zrozumieć.
+1. W polu **Nazwa** wprowadź łatwą do rozpoznania nazwę, którą użytkownicy będą zrozumieć.
 1. Zaznacz pole **Pokaż na stronie logowania**.
     * Ta funkcja wyświetli dostosowany przycisk na stronie logowania, którą użytkownicy mogą kliknąć. 
     * Informacje wprowadzone w polu **Nazwa** będą wyświetlane na przycisku. W związku z tym wprowadź **nazwę** , którą użytkownicy będą rozpoznawać. 
@@ -84,9 +84,9 @@ Użyj tych instrukcji, aby włączyć logowanie jednokrotne w usłudze Azure AD 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** wykonaj następujące pola: 
 
-    a. W polu **Identyfikator**wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/metadata` i zamień go `<realm>` na obszar SignalFx. 
+    a. W polu **Identyfikator** wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/metadata` i zamień go `<realm>` na obszar SignalFx. 
 
-    b. W polu **adres URL odpowiedzi**wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` i zamień go na `<realm>` obszar SIGNALFX, a także `<integration ID>` **Identyfikator integracji** skopiowany wcześniej z interfejsu użytkownika SignalFx.
+    b. W polu **adres URL odpowiedzi** wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` i zamień go na `<realm>` obszar SIGNALFX, a także `<integration ID>` **Identyfikator integracji** skopiowany wcześniej z interfejsu użytkownika SignalFx.
 
 1. Aplikacja SignalFx oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. 
     
@@ -95,7 +95,7 @@ Użyj tych instrukcji, aby włączyć logowanie jednokrotne w usłudze Azure AD 
     | Nazwa |  Atrybut źródłowy|
     | ------------------- | -------------------- |
     | User.FirstName  | user.givenname |
-    | User. email  | user.mail |
+    | User.email  | user.mail |
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
@@ -115,10 +115,10 @@ Użyj tych instrukcji, aby utworzyć użytkownika testowego w Azure Portal o naz
 1. W Azure Portal w okienku nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. W górnej części strony wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** :
-   1. W polu **Nazwa użytkownika**wprowadź `username@companydomain.extension` , na przykład `b.simon@contoso.com` .
-   1. W polu **Nazwa**wprowadź `B.Simon` .
+   1. W polu **Nazwa użytkownika** wprowadź `username@companydomain.extension` , na przykład `b.simon@contoso.com` .
+   1. W polu **Nazwa** wprowadź `B.Simon` .
    1. Oznacz opcję **Pokaż hasło**, a następnie skopiuj wartość wyświetlaną w polu **hasło**. Te informacje będą potrzebne później do przetestowania tej integracji. 
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ## <a name="step-5-assign-the-azure-ad-test-user"></a>Krok 5. Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -142,8 +142,8 @@ Te instrukcje umożliwiają użytkownikom testowym korzystanie z rejestracji jed
 
 1. Otwórz poprzednią kartę i wróć do interfejsu użytkownika SignalFx, aby wyświetlić bieżącą stronę integracji Azure Active Directory. 
 1. Obok pozycji **certyfikat (base64)** kliknij pozycję **Przekaż plik**, a następnie zlokalizuj plik **certyfikatu zakodowany algorytmem Base64** , który został wcześniej pobrany z Azure Portal.
-1. W obszarze **Identyfikator usługi Azure AD**wklej wartość **identyfikatora usługi Azure AD** skopiowaną wcześniej z Azure Portal. 
-1. W polu **adres URL metadanych Federacji**wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną wcześniej z Azure Portal. 
+1. W obszarze **Identyfikator usługi Azure AD** wklej wartość **identyfikatora usługi Azure AD** skopiowaną wcześniej z Azure Portal. 
+1. W polu **adres URL metadanych Federacji** wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną wcześniej z Azure Portal. 
 1. Kliknij pozycję **Zapisz**.
 
 ## <a name="step-7-test-sso"></a>Krok 7. Testowanie rejestracji jednokrotnej
@@ -167,7 +167,7 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
 
 * Usługa SignalFx obsługuje funkcję tworzenia użytkowników **just in Time** , co oznacza, że jeśli użytkownik nie istnieje w SignalFx, konto użytkownika zostanie utworzone przy pierwszej próbie logowania.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

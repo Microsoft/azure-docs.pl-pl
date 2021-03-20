@@ -4,10 +4,10 @@ description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593346"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
@@ -28,7 +28,7 @@ Chociaż możesz łatwo rozpocząć ochronę infrastruktury i aplikacji na platf
 
 ![Architektura usługi Azure Backup](./media/guidance-best-practices/azure-backup-architecture.png)
 
-### <a name="workloads"></a>Obciążenia
+### <a name="workloads"></a>Pakiety robocze
 
 Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w chmurze). Jest to bezpieczny i niezawodny wbudowany mechanizm ochrony danych na platformie Azure. Może bezproblemowo skalować ochronę wielu obciążeń bez konieczności zarządzania przez Ciebie. Istnieje wiele kanałów automatyzacji, które umożliwiają włączenie tej funkcji (za pośrednictwem programu PowerShell, interfejsu wiersza polecenia, szablonów Azure Resource Manager i interfejsów API REST).
 

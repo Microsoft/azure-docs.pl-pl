@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014860"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Zastępowanie składnika sprzętowego na urządzeniu z serii StorSimple 8000
@@ -52,7 +52,7 @@ Zapoznaj się z informacjami o bezpieczeństwie dotyczącymi Twojego urządzenia
 
 Przed podjęciem próby zamiany składnika należy wziąć pod uwagę następujące informacje.
 
-![Ikona ostrzeżenia ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-hardware-component-replacement/Electric.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-hardware-component-replacement/Electric.png)  .
 
 * Poprawna, przy użyciu zrzutów elektrostatyczne lub do niestatycznego mat podczas obsługi modułów i składników urządzenia StorSimple.
 * Nie dotykaj żadnego obwodu. Użyj dostarczonych dojść i prowadnic podczas obsługi składników, które mogą mieć narażony obwód.

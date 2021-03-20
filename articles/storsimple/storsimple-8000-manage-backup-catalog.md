@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie wykazem kopii zapasowych StorSimple | Microsoft Docs
-description: Wyjaśnia, w jaki sposób używać strony wykazu kopii zapasowych StorSimple Menedżer urządzeń Service, aby wyświetlać, wybierać i usuwać zestawy kopii zapasowych.
+description: Wyjaśnia, w jaki sposób używać strony wykazu kopii zapasowych StorSimple Device Manager Service, aby wyświetlać, wybierać i usuwać zestawy kopii zapasowych.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017376"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Zarządzanie wykazem kopii zapasowych przy użyciu usługi StorSimple Menedżer urządzeń
+# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Zarządzanie wykazem kopii zapasowych przy użyciu usługi StorSimple Device Manager
 ## <a name="overview"></a>Omówienie
-Blok **wykazu kopii zapasowych** usługi StorSimple Menedżer urządzeń wyświetla wszystkie zestawy kopii zapasowych, które są tworzone podczas wykonywania ręcznych lub zaplanowanych kopii zapasowych. Ta strona umożliwia wyświetlenie listy wszystkich kopii zapasowych zasad tworzenia kopii zapasowych lub woluminu, wybranie lub usunięcie kopii zapasowej lub użycie kopii zapasowej do przywrócenia lub klonowania woluminu.
+Blok **wykazu kopii zapasowych** usługi StorSimple Device Manager wyświetla wszystkie zestawy kopii zapasowych, które są tworzone podczas wykonywania ręcznych lub zaplanowanych kopii zapasowych. Ta strona umożliwia wyświetlenie listy wszystkich kopii zapasowych zasad tworzenia kopii zapasowych lub woluminu, wybranie lub usunięcie kopii zapasowej lub użycie kopii zapasowej do przywrócenia lub klonowania woluminu.
 
 W tym samouczku wyjaśniono, jak wyświetlać, wybierać i usuwać zestaw kopii zapasowych. Aby dowiedzieć się, jak przywrócić urządzenie z kopii zapasowej, przejdź do obszaru [przywracanie urządzenia z zestawu kopii zapasowych](storsimple-8000-restore-from-backup-set-u2.md). Aby dowiedzieć się, jak sklonować wolumin, przejdź do [klonowania woluminu StorSimple](storsimple-8000-clone-volume-u2.md).
 
@@ -47,7 +47,7 @@ Filtrowane zestawy kopii zapasowych są następnie wyświetlane na podstawie nas
 Wykonaj następujące kroki, aby wyświetlić listę wszystkich kopii zapasowych zasad tworzenia kopii zapasowych.
 
 #### <a name="to-list-backup-sets"></a>Aby wyświetlić listę zestawów kopii zapasowych
-1. Przejdź do usługi StorSimple Menedżer urządzeń i kliknij pozycję **wykaz kopii zapasowych**.
+1. Przejdź do usługi StorSimple Device Manager i kliknij pozycję **wykaz kopii zapasowych**.
 
 2. Filtruj wybory w następujący sposób:
    
@@ -65,7 +65,7 @@ Wykonaj następujące kroki, aby wyświetlić listę wszystkich kopii zapasowych
 Wykonaj następujące kroki, aby wybrać zestaw kopii zapasowych dla woluminu lub zasad tworzenia kopii zapasowych.
 
 #### <a name="to-select-a-backup-set"></a>Aby wybrać zestaw kopii zapasowych
-1. Przejdź do usługi StorSimple Menedżer urządzeń i kliknij pozycję **wykaz kopii zapasowych**.
+1. Przejdź do usługi StorSimple Device Manager i kliknij pozycję **wykaz kopii zapasowych**.
 2. Filtruj wybory w następujący sposób:
    
    1. Określ zakres czasu. 
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby wybrać zestaw kopii zapasowych dla woluminu lu
 Usuń kopię zapasową, gdy nie chcesz już zachować skojarzonych z nią danych. Wykonaj następujące kroki, aby usunąć zestaw kopii zapasowych.
 
 #### <a name="to-delete-a-backup-set"></a>Aby usunąć zestaw kopii zapasowych
- Przejdź do usługi StorSimple Menedżer urządzeń i kliknij pozycję **wykaz kopii zapasowych**.
+ Przejdź do usługi StorSimple Device Manager i kliknij pozycję **wykaz kopii zapasowych**.
 1. Filtruj wybory w następujący sposób:
    
    1. Określ zakres czasu. 
@@ -111,5 +111,5 @@ Usuń kopię zapasową, gdy nie chcesz już zachować skojarzonych z nią danych
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się [, jak przywrócić urządzenie z zestawu kopii zapasowych przy użyciu wykazu kopii zapasowych](storsimple-8000-restore-from-backup-set-u2.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).
 

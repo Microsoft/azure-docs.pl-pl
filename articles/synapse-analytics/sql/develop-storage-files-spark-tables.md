@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446487"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Synchronizuj Apache Spark dla definicji tabeli zewnętrznej Synapse platformy Azure w bezserwerowej puli SQL
@@ -49,7 +49,7 @@ SELECT * FROM [db].dbo.[spark_table]
 | DoubleType      | float                       |
 | DecimalType     | decimal                     |
 | Timestamptype   | datetime2                   |
-| DataType        | date                        |
+| DataType        | data                        |
 | StringType      | varchar(max)\*               |
 | BinaryType      | varbinary                   |
 | Wartość logicznatype     | bit                         |

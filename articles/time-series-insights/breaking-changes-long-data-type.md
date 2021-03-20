@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: dpalled
 ms.openlocfilehash: 0f7ac9844bfe7eac7094d3b7fdf653e07f236599
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96780828"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Dodawanie obsługi długich typów danych w Azure Time Series Insights Gen2
@@ -33,7 +33,7 @@ Jeśli masz wpływ na następujące przypadki, wprowadź zalecane zmiany:
 
 Jeśli którykolwiek z tych przypadków dotyczy Ciebie, wprowadź zmiany w modelu. Zaktualizuj wyrażenie szeregów czasowych (TSX) w definicji zmiennej przy użyciu zalecanych zmian. Aktualizuj oba:
 
-- Eksplorator Azure Time Series Insights
+- Eksplorator usługi Azure Time Series Insights
 - Dowolny klient niestandardowy korzystający z naszych interfejsów API
 
 W zależności od rozwiązania IoT i ograniczeń można nie mieć wglądu w dane wysyłane do środowiska Azure Time Series Insights Gen2. Jeśli nie masz pewności, czy dane są tylko integralne, czy zarówno integralna, jak i niecałkowita, masz kilka opcji:

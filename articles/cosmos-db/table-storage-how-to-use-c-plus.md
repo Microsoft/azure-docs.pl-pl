@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489883"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Jak korzystać z usługi Azure Table Storage i interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka C++
@@ -500,10 +500,10 @@ else
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-W przypadku programu Visual Studio Community Edition, jeśli projekt pobiera błędy kompilacji z powodu plików dołączanych *storage_account. h* i *Table. h* , Usuń przełącznik kompilatora **/permissive-** :
+W przypadku programu Visual Studio Community Edition, jeśli projekt pobiera błędy kompilacji z powodu plików dołączanych *storage_account. h* i *Table. h*, Usuń przełącznik kompilatora **/permissive-** :
 
 1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości**.
-1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji** , rozwiń węzeł **C/C++** , a następnie wybierz pozycję **Język**.
+1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji**, rozwiń węzeł **C/C++**, a następnie wybierz pozycję **Język**.
 1. Zmień ustawienie **Tryb zgodności** na **Nie**.
 
 ## <a name="next-steps"></a>Następne kroki

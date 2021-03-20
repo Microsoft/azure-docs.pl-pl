@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098665"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Samouczek: Tworzenie aplikacji konsolowej Node.js przy użyciu zestawu SDK dla języka JavaScript na potrzeby zarządzania danymi interfejsu API SQL usługi Azure Cosmos DB
@@ -28,7 +28,7 @@ ms.locfileid: "93098665"
 
 Jako deweloper być może masz aplikacje, które używają danych dokumentów NoSQL. Konto interfejsu API SQL w usłudze Azure Cosmos DB umożliwia przechowywanie tych danych dokumentów i uzyskiwanie do nich dostępu. W tym samouczku pokazano, jak utworzyć aplikację konsolową Node.js na potrzeby tworzenia zasobów usługi Azure Cosmos DB i wykonywania zapytań względem nich.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Cosmos DB i łączenie się z nim
@@ -86,7 +86,7 @@ Gdy aplikacja już istnieje, musisz się upewnić, że może ona komunikować si
 
 1. Otwórz plik *config.js* w ulubionym edytorze tekstu.
 
-1. Skopiuj i wklej poniższy fragment kodu do pliku *config.js* i ustaw właściwości `endpoint` oraz `key` identyfikator URI punktu końcowego Azure Cosmos DB i klucz podstawowy. Baza danych programu, nazwy kontenerów są ustawiane na **zadania** i **elementy** . Klucz partycji, który będzie używany dla tej aplikacji, to **/Category** .
+1. Skopiuj i wklej poniższy fragment kodu do pliku *config.js* i ustaw właściwości `endpoint` oraz `key` identyfikator URI punktu końcowego Azure Cosmos DB i klucz podstawowy. Baza danych programu, nazwy kontenerów są ustawiane na **zadania** i **elementy**. Klucz partycji, który będzie używany dla tej aplikacji, to **/Category**.
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -94,7 +94,7 @@ Gdy aplikacja już istnieje, musisz się upewnić, że może ona komunikować si
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Zrzut ekranu przedstawiający pobieranie kluczy z witryny Azure Portal":::
 
-Zestaw SDK języka JavaScript używa *kontenera* warunków ogólnych i *elementu* . Kontener może być kolekcją, wykresem lub tabelą. Element może być dokumentem, krawędzią/wierzchołkiem lub wierszem i stanowi zawartość znajdująca się w kontenerze. W poprzednim fragmencie kodu `module.exports = config;` kod jest używany do eksportowania obiektu konfiguracji, aby można było odwołać się do niego w pliku *app.js* .
+Zestaw SDK języka JavaScript używa *kontenera* warunków ogólnych i *elementu*. Kontener może być kolekcją, wykresem lub tabelą. Element może być dokumentem, krawędzią/wierzchołkiem lub wierszem i stanowi zawartość znajdująca się w kontenerze. W poprzednim fragmencie kodu `module.exports = config;` kod jest używany do eksportowania obiektu konfiguracji, aby można było odwołać się do niego w pliku *app.js* .
 
 ## <a name="create-a-database-and-a-container"></a>Tworzenie bazy danych i kontenera
 
@@ -217,7 +217,7 @@ node app.js
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń** , a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
+Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
 

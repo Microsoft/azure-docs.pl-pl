@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: jeedes
 ms.openlocfilehash: 6372cd9d778210163c461c55119343e6c6911e4d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101649091"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Samouczek: Integrowanie adaptacyjnych szczegółowych informacji za pomocą Azure Active Directory
@@ -120,7 +120,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do sekcji **Administration** (Administracja).
 
-    ![Zrzut ekranu, który wyróżnia administrację w panelu nawigacji.](./media/adaptivesuite-tutorial/administration.png "Administrator")
+    ![Zrzut ekranu, który wyróżnia administrację w panelu nawigacji.](./media/adaptivesuite-tutorial/administration.png "Administracja")
 
 3. W sekcji **Użytkownicy i role** kliknij pozycję **Ustawienia logowania jednokrotnego** dla protokołu SAML.
 
@@ -164,7 +164,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania a
 
 2. Przejdź do sekcji **Administration** (Administracja).
 
-   ![Administracja](./media/adaptivesuite-tutorial/administration.png "Administrator")
+   ![Administracja](./media/adaptivesuite-tutorial/administration.png "Administracja")
 
 3. W sekcji **Użytkownicy i role** kliknij pozycję **Użytkownicy**.
 

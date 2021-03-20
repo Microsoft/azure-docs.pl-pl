@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Achieve3000
@@ -141,7 +141,7 @@ Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Achieve3000**, m
 
 ### <a name="create-achieve3000-test-user"></a>Tworzenie użytkownika testowego aplikacji Achieve3000
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Achieve3000. Skontaktuj się z  [zespołem pomocy technicznej aplikacji Achieve3000](https://www.achieve3000.com/contact-us/), aby uzyskać pomoc przy dodawaniu użytkowników na platformie Achieve3000. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Achieve3000. Aby dodać użytkowników na platformie Achieve3000, Pracuj z [zespołem pomocy technicznej Achieve3000](https://www.achieve3000.com/contact-us/) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 

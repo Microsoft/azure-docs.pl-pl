@@ -11,15 +11,15 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dc536fa4292d794e8d89a2564ad10a3c10dd0a3d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94560864"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: aplikacja rozszerzeń
 
-Po utworzeniu katalogu Azure AD B2C aplikacja o nazwie `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` zostanie utworzona automatycznie wewnątrz nowego katalogu. Ta aplikacja, nazywana **B2C-Extensions-App** , jest widoczna w *rejestracje aplikacji*. Jest on używany przez usługę Azure AD B2C do przechowywania informacji o użytkownikach i atrybutach niestandardowych. Jeśli aplikacja zostanie usunięta, Azure AD B2C nie będzie działać poprawnie, a Twoje środowisko produkcyjne będzie miało oddziaływać.
+Po utworzeniu katalogu Azure AD B2C aplikacja o nazwie `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` zostanie utworzona automatycznie wewnątrz nowego katalogu. Ta aplikacja, nazywana **B2C-Extensions-App**, jest widoczna w *rejestracje aplikacji*. Jest on używany przez usługę Azure AD B2C do przechowywania informacji o użytkownikach i atrybutach niestandardowych. Jeśli ta aplikacja zostanie usunięta, usługa Azure AD B2C nie będzie działać poprawnie, co będzie miało wpływ na Twoje środowisko produkcyjne.
 
 > [!IMPORTANT]
 > Nie usuwaj B2C-Extensions-App, chyba że planujesz natychmiastowe usunięcie dzierżawy. Jeśli aplikacja pozostanie usunięta przez ponad 30 dni, informacje o użytkowniku zostaną trwale utracone.

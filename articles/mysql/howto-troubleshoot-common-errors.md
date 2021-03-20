@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631371"
 ---
 # <a name="common-errors"></a>Typowe błędy
@@ -25,9 +25,9 @@ Powyższy błąd występuje po pomyślnym zalogowaniu, ale przed wykonaniem dowo
 
 Istnieją pewne parametry serwera, takie jak require_secure_transport, które nie są obsługiwane na poziomie sesji i dlatego próba zmiany wartości tych parametrów przy użyciu init_connect może spowodować błąd 1184 podczas łączenia się z serwerem MySQL, jak pokazano poniżej
 
-Baza danych MySQL> show Database; BŁĄD 2006 (HY000): serwer MySQL nie ma połączenia. Trwa próba ponownego nawiązania połączenia... Identyfikator połączenia: 64897 bieżąca baza danych: * * * brak * * _ błąd 1184 (08S01): przerwane połączenie 22 do bazy danych: "DB-Name" User: "User" host: "hostIP" (polecenie init_connect nie powiodło się)
+Baza danych MySQL> show Database; BŁĄD 2006 (HY000): serwer MySQL nie ma połączenia. Trwa próba ponownego nawiązania połączenia... Identyfikator połączenia: 64897 bieżąca baza danych: * * * brak * * * błąd 1184 (08S01): przerwane połączenie 22 do bazy danych: "DB-Name" User: "User" host: "hostIP" (polecenie init_connect nie powiodło się)
 
-_ *Rozdzielczość**: należy zresetować wartość init_connect na karcie parametry serwera w Azure Portal i ustawić tylko obsługiwane parametry serwera przy użyciu parametru init_connect. 
+**Rozwiązanie** : należy zresetować wartość init_connect na karcie parametry serwera w Azure Portal i ustawić tylko obsługiwane parametry serwera przy użyciu parametru init_connect. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Błędy ze względu na brak uprawnienia administratora i roli administratora systemu

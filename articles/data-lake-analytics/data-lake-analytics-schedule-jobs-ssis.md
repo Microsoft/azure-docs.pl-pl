@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/17/2018
 ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221455"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planowanie zadań U-SQL przy użyciu SQL Server Integration Services (SSIS)
@@ -35,7 +35,7 @@ Możesz uzyskać skrypt U-SQL z różnych miejsc za pomocą wbudowanych funkcji 
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scenariusz 1 — użycie wbudowanego wywołania skryptu TVFs i składowanych
 
-W Azure Data Lake Analytics edytorze zadań Skonfiguruj **sourceType** jako **DirectInput**i umieść instrukcje U-SQL w **USQLStatement**.
+W Azure Data Lake Analytics edytorze zadań Skonfiguruj **sourceType** jako **DirectInput** i umieść instrukcje U-SQL w **USQLStatement**.
 
 Aby zapewnić łatwą konserwację i Zarządzanie kodem, należy umieścić tylko krótki skrypt U-SQL jako skrypty wbudowane, na przykład można wywołać istniejące funkcje z wartościami przechowywanymi w tabeli oraz procedury składowane w bazach danych U-SQL. 
 
@@ -89,7 +89,7 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
     Aby utworzyć to połączenie z plikiem:
 
    1. Wybierz **\<New Connection...>** ustawienie w FileConnection.
-   2. Ustaw **Typ użycia** na **istniejący plik**i ustaw **plik** na ścieżkę pliku istniejącego pliku.
+   2. Ustaw **Typ użycia** na **istniejący plik** i ustaw **plik** na ścieżkę pliku istniejącego pliku.
 
        ![Zrzut ekranu przedstawiający Edytor Menedżera połączeń plików z wybranym elementem "typ użycia".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
@@ -128,7 +128,7 @@ Oprócz używania plików U-SQL przechowywanych w chmurze można również używ
 
 2. Wybierz typ **pliku** , a następnie kliknij przycisk **Dodaj...**.
 
-3. Ustaw **Typ użycia** na **istniejący plik**i ustaw **plik** na komputerze lokalnym.
+3. Ustaw **Typ użycia** na **istniejący plik** i ustaw **plik** na komputerze lokalnym.
 
     ![Dodaj połączenie z plikiem lokalnym](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 

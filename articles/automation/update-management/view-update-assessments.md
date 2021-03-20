@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222525"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Wyświetlanie ocen aktualizacji w Update Management
@@ -42,7 +42,7 @@ Aktualizacje środowiska są wyświetlane na stronie **Update Management** . Je�
 
 W kolumnie **zgodność** można zobaczyć czas ostatniego oceny maszyny. W kolumnie **Aktualizacja gotowości agenta** można sprawdzić kondycję agenta aktualizacji. Jeśli wystąpił problem, wybierz link, aby przejść do dokumentacji dotyczącej rozwiązywania problemów, która może pomóc w rozwiązaniu problemu.
 
-W obszarze **link do informacji**wybierz link do aktualizacji, aby otworzyć artykuł pomocy technicznej, który zawiera ważne informacje o aktualizacji.
+W obszarze **link do informacji** wybierz link do aktualizacji, aby otworzyć artykuł pomocy technicznej, który zawiera ważne informacje o aktualizacji.
 
 [![Wyświetl stan aktualizacji](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 

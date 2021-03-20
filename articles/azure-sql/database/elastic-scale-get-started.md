@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919548"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Wprowadzenie do narzędzi Elastic Database
@@ -104,13 +104,13 @@ Gratulacje! Pomyślnie skompilowano i uruchomiono pierwszą aplikację podzielon
 
 ## <a name="key-pieces-of-the-code-sample"></a>Najważniejsze fragmenty przykładu kodu
 
-* **Zarządzanie mapami fragmentów i fragmentu**: kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
+* **Zarządzanie mapami fragmentów i fragmentu**: kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils. cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing zależny od danych**: Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample.cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
+* **Routing zależny od danych**: Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample. cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
 
-* **Wykonywanie zapytania dotyczącego wielu fragmentów**: zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample.cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
+* **Wykonywanie zapytania dotyczącego wielu fragmentów**: zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample. cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
 
-* **Dodawanie pustego fragmentów**: iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
+* **Dodawanie pustego fragmentów**: iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample. cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Inne operacje skalowania elastycznego
 

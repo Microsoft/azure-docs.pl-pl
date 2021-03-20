@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017104"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Przechodzenie do trybu failover urządzenia fizycznego StorSimple na tym samym urządzeniu
@@ -41,13 +41,13 @@ Aby przełączyć urządzenie fizyczne w tryb failover na inne urządzenie fizyc
 
 Wykonaj poniższe czynności, jeśli chcesz przełączyć się do trybu failover na tym samym urządzeniu.
 
-1. Utwórz migawki w chmurze dla wszystkich woluminów na urządzeniu. Aby uzyskać więcej informacji, przejdź do obszaru [Tworzenie kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md).
+1. Utwórz migawki w chmurze dla wszystkich woluminów na urządzeniu. Aby uzyskać więcej informacji, przejdź do obszaru [Tworzenie kopii zapasowych za pomocą usługi StorSimple Device Manager](storsimple-8000-manage-backup-policies-u2.md).
 2. Zresetuj urządzenie do domyślnych ustawień fabrycznych. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [jak zresetować urządzenie StorSimple do domyślnych ustawień fabrycznych](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
-3. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie wybierz pozycję **urządzenia**. W bloku **urządzenia** stare urządzenie powinno być wyświetlane jako w **trybie offline**.
+3. Przejdź do usługi StorSimple Device Manager, a następnie wybierz pozycję **urządzenia**. W bloku **urządzenia** stare urządzenie powinno być wyświetlane jako w **trybie offline**.
 
     ![Urządzenie źródłowe w trybie offline](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev2.png)
 
-4. Skonfiguruj urządzenie i zarejestruj je ponownie za pomocą usługi StorSimple Menedżer urządzeń. Nowo zarejestrowane urządzenie powinno być widoczne jako **gotowe do skonfigurowania**. Nazwa urządzenia dla nowego urządzenia jest taka sama jak na starym urządzeniu, ale dołączona z cyfrą, aby wskazać, że urządzenie zostało zresetowane do domyślnych ustawień fabrycznych i zarejestrowane ponownie.
+4. Skonfiguruj urządzenie i zarejestruj je ponownie za pomocą usługi StorSimple Device Manager. Nowo zarejestrowane urządzenie powinno być widoczne jako **gotowe do skonfigurowania**. Nazwa urządzenia dla nowego urządzenia jest taka sama jak na starym urządzeniu, ale dołączona z cyfrą, aby wskazać, że urządzenie zostało zresetowane do domyślnych ustawień fabrycznych i zarejestrowane ponownie.
 
     ![Nowo zarejestrowane urządzenie gotowe do skonfigurowania](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
 5. Na nowym urządzeniu Ukończ konfigurację urządzenia. Aby uzyskać więcej informacji, przejdź do [kroku 4: kończenie minimalnej konfiguracji urządzenia](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). W bloku **urządzenia** stan urządzenia zmieni się na **online**.
@@ -82,5 +82,5 @@ Wykonaj poniższe czynności, jeśli chcesz przełączyć się do trybu failover
 ## <a name="next-steps"></a>Następne kroki
 
 * Po przejściu w tryb failover może być konieczne [Dezaktywowanie lub usunięcie urządzenia StorSimple](storsimple-8000-deactivate-and-delete-device.md).
-* Aby uzyskać informacje o sposobach korzystania z usługi StorSimple Menedżer urządzeń, przejdź do pozycji [Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Aby uzyskać informacje o sposobach korzystania z usługi StorSimple Device Manager, przejdź do pozycji [Korzystanie z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011544"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegowanie poddomeny Azure DNS
@@ -33,7 +33,7 @@ Najpierw Utwórz strefę dla poddomeny **inżynierów** .
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu wyszukiwania wpisz **DNS**, a następnie wybierz pozycję **strefa DNS**.
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. W okienku **Tworzenie strefy DNS** wpisz **Engineering.contoso.com** w polu tekstowym **Nazwa** .
 5. Wybierz grupę zasobów dla swojej strefy. Możesz chcieć używać tej samej grupy zasobów co strefa nadrzędna, aby zapewnić sobie podobne zasoby.
 6. Kliknij pozycję **Utwórz**.

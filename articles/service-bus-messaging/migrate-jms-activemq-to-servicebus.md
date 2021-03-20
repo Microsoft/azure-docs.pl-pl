@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515750"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migruj istniejące aplikacje JMS (Java Message Service) 2,0 z platformy Apache ActiveMQ do Azure Service Bus
@@ -35,7 +35,7 @@ Azure Service Bus i Apache ActiveMQ są brokerami komunikatów, działającymi j
 
 Nawet Dlatego istnieją pewne różnice między tymi dwoma, jak przedstawiono w poniższej tabeli:
 
-| Kategoria | ActiveMQ | Azure Service Bus |
+| Kategoria | ActiveMQ | Usługa Azure Service Bus |
 | --- | --- | --- |
 | Obsługa warstw aplikacji | Monolitu klastrowane | Dwie warstwy <br> (Brama + zaplecze) |
 | Obsługa protokołów | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540760"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Jak użyć WYJAŚNIj, aby uzyskać informacje o wydajności zapytań dotyczących profilów w Azure Database for MySQL
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Jak widać na podstawie danych wyjściowych, program MySQL nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Przy użyciu sortowania plików* , co oznacza, że baza danych MySQL tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
+Jak widać na podstawie danych wyjściowych, program MySQL nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Przy użyciu sortowania plików*, co oznacza, że baza danych MySQL tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
  
 Utworzenie indeksu dla samego kolumny **C2** nie powoduje żadnych różnic, a baza danych MySQL musi utworzyć tabelę tymczasową:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2** "bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
+W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2**"bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
