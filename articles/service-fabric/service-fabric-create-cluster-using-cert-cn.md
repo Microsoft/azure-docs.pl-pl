@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć klaster Service Fabric przy użyciu naz
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86246439"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Wdróż klaster Service Fabric, który używa nazwy pospolitej certyfikatu zamiast odcisku palca
@@ -78,7 +78,7 @@ Najpierw Otwórz *azuredeploy.parameters.jsw* pliku w edytorze tekstów i Dodaj 
 },
 ```
 
-Następnie ustaw wartości parametrów *certificateCommonName*, *sourceVaultValue*i *certificateUrlValue* na zwracane przez poprzedni skrypt:
+Następnie ustaw wartości parametrów *certificateCommonName*, *sourceVaultValue* i *certificateUrlValue* na zwracane przez poprzedni skrypt:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -120,7 +120,7 @@ Następnie otwórz *azuredeploy.jsw* pliku w edytorze tekstów i wprowadź trzy 
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  We **virtualMachineProfile** -> właściwościach rozszerzeń virtualMachineProfile**extensionProfiles** -> **extensions** -> **properties** -> **settings** -> **Certificates**, Add 
+3. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  We  -> właściwościach rozszerzeń virtualMachineProfile **extensionProfiles** ->  ->  ->  -> **Certificates**, Add 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

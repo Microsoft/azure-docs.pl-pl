@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: data-factory
 author: memildin
 ms.service: data-factory
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91401102"
 ---
 ```json
@@ -71,7 +71,7 @@ ms.locfileid: "91401102"
 |**Iszdarzenie**|Wartość logiczna|To pole określa, czy alert jest zdarzeniem (złożonym grupowaniem kilku alertów) czy pojedynczym alertem. Wartość domyślna dla pola to "false" (oznacza to, że jest to pojedynczy Alert).|
 |**ProcessingEndTime**|DateTime|Czas dostępności alertu dla użytkownika końcowego w oryginalnym produkcie zawierającym alert.|
 |**ProductName**|Ciąg|Nazwa produktu, który opublikował ten alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS itd.).|
-|**RemediationSteps**|Staw<String>|Ręczne elementy akcji, które należy wykonać w celu skorygowania alertu.|
+|**RemediationSteps**|Lista<String>|Ręczne elementy akcji, które należy wykonać w celu skorygowania alertu.|
 |**ResourceIdentifiers**|Lista (identyfikatory zasobów)|Identyfikatory zasobów dla tego alertu, których można użyć do skierowania alertu do odpowiedniej grupy zagrożeń produktu (dzierżawca, obszar roboczy, subskrypcja itp.). Dla każdego alertu może istnieć wiele identyfikatorów różnych typów.|
 |**Ważność**|Wyliczenie|Ważność alertu zgłoszonego przez dostawcę. Możliwe wartości: informacyjny, niski, średni i wysoki.|
 |**StartTimeUtc**|DateTime|Godzina pierwszego zdarzenia lub działania zawartego w alercie. Pole powinno być ciągiem, który jest zgodny z formatem ISO8601, w tym informacje o strefie czasowej UTC.|

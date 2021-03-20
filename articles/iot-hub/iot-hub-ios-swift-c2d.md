@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027537"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (iOS)
@@ -27,15 +27,15 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 * Odbieraj komunikaty z chmury do urządzenia na urządzeniu.
 
-* Z zaplecza rozwiązania Poproś o potwierdzenie dostarczenia ( *Opinie* ) o komunikatach wysyłanych do urządzenia z IoT Hub.
+* Z zaplecza rozwiązania Poproś o potwierdzenie dostarczenia (*Opinie*) o komunikatach wysyłanych do urządzenia z IoT Hub.
 
 Więcej informacji na temat komunikatów z chmury do urządzeń można znaleźć w sekcji komunikaty w [przewodniku dewelopera IoT Hub](iot-hub-devguide-messaging.md).
 
 Na końcu tego artykułu są uruchamiane dwa szybkie projekty systemu iOS:
 
-* **przykład — urządzenie** , ta sama aplikacja utworzona w [wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-ios.md), która łączy się z Centrum IoT Hub i odbiera komunikaty z chmury do urządzenia.
+* **przykład — urządzenie**, ta sama aplikacja utworzona w [wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-ios.md), która łączy się z Centrum IoT Hub i odbiera komunikaty z chmury do urządzenia.
 
-* **Przykładowa usługa** , która wysyła komunikat z chmury do urządzenia do aplikacji symulowanego urządzenia za pomocą IoT Hub, a następnie otrzymuje potwierdzenie dostarczenia.
+* **Przykładowa usługa**, która wysyła komunikat z chmury do urządzenia do aplikacji symulowanego urządzenia za pomocą IoT Hub, a następnie otrzymuje potwierdzenie dostarczenia.
 
 > [!NOTE]
 > IoT Hub obsługuje zestaw SDK dla wielu platform i języków urządzeń (w tym C, Java, Python i JavaScript) za pomocą zestawów SDK urządzeń usługi Azure IoT. Aby uzyskać instrukcje krok po kroku dotyczące sposobu łączenia urządzenia z tym kodem samouczka i ogólnie do usługi Azure IoT Hub, zobacz [Centrum deweloperów Azure IoT](https://www.azure.com/develop/iot).
@@ -70,7 +70,7 @@ W oknie terminalu przejdź do folderu Azure-IoT-Samples-iOS pobranego w ramach w
 cd quickstart/sample-device
 ```
 
-Upewnij się, że środowisko XCode jest zamknięte, a następnie uruchom następujące polecenie, aby zainstalować zasobniki CocoaPods zadeklarowane w pliku **podfile** :
+Upewnij się, że środowisko XCode jest zamknięte, a następnie uruchom następujące polecenie, aby zainstalować zasobniki CocoaPods zadeklarowane w pliku **podfile**:
 
 ```sh
 pod install
@@ -100,7 +100,7 @@ Oprócz instalacji zasobników wymaganych przez projekt polecenie instalacji two
 
 5. Zapisz zmiany. 
 
-6. Uruchom projekt w emulatorze urządzenia za pomocą przycisku **Skompiluj i uruchom** lub kombinacji klawiszy **Command + R** .
+6. Uruchom projekt w emulatorze urządzenia za pomocą przycisku **Skompiluj i uruchom** lub kombinacji klawiszy **Command + R**.
 
    ![Zrzut ekranu przedstawia przycisk Kompiluj i uruchom w emulatorze urządzenia.](media/iot-hub-ios-swift-c2d/run-sample.png)
 
@@ -124,7 +124,7 @@ Przejdź do folderu przykładów usługi Azure IoT dla systemu iOS pobranego w s
 cd quickstart/sample-service
 ```
 
-Upewnij się, że środowisko XCode jest zamknięte, a następnie uruchom następujące polecenie, aby zainstalować zasobniki CocoaPods zadeklarowane w pliku **podfile** :
+Upewnij się, że środowisko XCode jest zamknięte, a następnie uruchom następujące polecenie, aby zainstalować zasobniki CocoaPods zadeklarowane w pliku **podfile**:
 
 ```sh
 pod install
@@ -152,7 +152,7 @@ Oprócz instalacji zasobników wymaganych przez projekt polecenie instalacji two
 
    ![Zmień urządzenie emulatora](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. Uruchom projekt w emulatorze urządzenia za pomocą przycisku **Kompiluj i Uruchom, a** następnie polecenie Key kombi **+ r** .
+7. Uruchom projekt w emulatorze urządzenia za pomocą przycisku **Kompiluj i Uruchom, a** następnie polecenie Key kombi **+ r**.
 
    ![Zrzut ekranu przedstawia przycisk Kompilacja i uruchomienie.](media/iot-hub-ios-swift-c2d/run-app.png)
 
@@ -160,13 +160,13 @@ Oprócz instalacji zasobników wymaganych przez projekt polecenie instalacji two
 
 Teraz można przystąpić do korzystania z dwóch aplikacji do wysyłania i odbierania komunikatów z chmury do urządzenia.
 
-1. W **przykładowej aplikacji dla systemu iOS** działającej na symulowanym urządzeniu IoT kliknij przycisk **Uruchom** . Aplikacja uruchamia wysyłanie komunikatów z urządzenia do chmury, ale również zaczyna nasłuchuje komunikatów z chmury do urządzenia.
+1. W **przykładowej aplikacji dla systemu iOS** działającej na symulowanym urządzeniu IoT kliknij przycisk **Uruchom**. Aplikacja uruchamia wysyłanie komunikatów z urządzenia do chmury, ale również zaczyna nasłuchuje komunikatów z chmury do urządzenia.
 
    ![Wyświetlanie przykładowej aplikacji urządzenia IoT](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
 2. W **przykładowej aplikacji klienta usługi IoTHub** działającej na urządzeniu symulowanej usługi wprowadź identyfikator urządzenia IoT, do którego chcesz wysłać wiadomość. 
 
-3. Napisz wiadomość w postaci zwykłego tekstu, a następnie kliknij przycisk **Wyślij** .
+3. Napisz wiadomość w postaci zwykłego tekstu, a następnie kliknij przycisk **Wyślij**.
 
     Kilka akcji odbywa się zaraz po kliknięciu przycisku Wyślij. Przykład usługi wysyła wiadomość do centrum IoT Hub, do którego aplikacja ma dostęp z powodu dostarczonych przez Ciebie parametrów połączenia z usługą. Centrum IoT sprawdza identyfikator urządzenia, wysyła komunikat do urządzenia docelowego i wysyła potwierdzenie potwierdzenia do urządzenia źródłowego. Aplikacja uruchomiona na symulowanym urządzeniu IoT sprawdza komunikaty z IoT Hub i drukuje tekst z ostatniego pliku na ekranie.
 

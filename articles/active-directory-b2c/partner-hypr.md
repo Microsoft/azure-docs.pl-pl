@@ -12,10 +12,10 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953767"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania HYPR z Azure Active Directory B2C
@@ -32,7 +32,7 @@ Aby rozpocząć, musisz:
 
 - Dzierżawa w chmurze HYPR, uzyskaj bezpłatne [Konto próbne](https://get.hypr.com/free-trial).
 
-- Urządzenie przenośne użytkownika zarejestrowane przy użyciu interfejsów API REST usługi HYPR lub HYPR Menedżer urządzeń w dzierżawie HYPR. Na przykład możesz użyć [zestawu HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) , aby wykonać to zadanie.
+- Urządzenie przenośne użytkownika zarejestrowane przy użyciu interfejsów API REST usługi HYPR lub HYPR Device Manager w dzierżawie HYPR. Na przykład możesz użyć [zestawu HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) , aby wykonać to zadanie.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88009175"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Rozszerzanie istniejącej puli hostów na nowe hosty sesji na pulpicie wirtualnym systemu Windows (klasyczny)
@@ -54,7 +54,7 @@ Oto jak ponownie wdrożyć szablon Azure Resource Manager, aby rozszerzyć pulę
 5. Wybierz odpowiednie wdrożenie dla procesu tworzenia puli hostów:
      - Jeśli utworzono początkową pulę hostów za pomocą oferty portalu Azure Marketplace, wybierz wdrożenie zaczynające się od **usług RDS. WVD-Host-Pool**.
      - Jeśli została utworzona pierwotna Pula hostów z szablonem Azure Resource Manager GitHub, wybierz wdrożenie o nazwie **Microsoft. Template**.
-6. Wybierz pozycję **Wdróż**ponownie.
+6. Wybierz pozycję **Wdróż** ponownie.
 
      >[!NOTE]
      >Jeśli szablon nie zostanie automatycznie wdrożony po wybraniu opcji **ponowne wdrażanie**, wybierz pozycję **szablon** w panelu po lewej stronie przeglądarki, a następnie wybierz pozycję **Wdróż**.
@@ -78,16 +78,16 @@ Postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów za pomocą wi
 
 Wszystkie wartości w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji, z wyjątkiem *domyślnego użytkownika pulpitu*:
 
-1.    W obszarze *subskrypcja*wybierz subskrypcję, w której najpierw utworzono pulę hostów.
-2.    W obszarze *Grupa zasobów*wybierz tę samą grupę zasobów, w której znajdują się maszyny wirtualne hosta sesji istniejącej puli hostów.
-3.    W polu *region*wybierz ten sam region, w którym znajdują się maszyny wirtualne hosta sesji istniejącej puli hostów.
-4.    W polu *Nazwa Hostpool*wprowadź nazwę istniejącej puli hostów.
-5.    W *polu Typ pulpitu*wybierz typ pulpitu pasujący do istniejącej puli hostów.
-6.    W przypadku *domyślnych użytkowników pulpitu*wprowadź rozdzieloną przecinkami listę wszelkich dodatkowych użytkowników, którzy chcą zalogować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu po zakończeniu oferty portalu Azure Marketplace. Na przykład jeśli chcesz przypisać user3@contoso.com i user4@contoso.com uzyskać dostęp, wprowadź user3@contoso.com , user4@contoso.com .
+1.    W obszarze *subskrypcja* wybierz subskrypcję, w której najpierw utworzono pulę hostów.
+2.    W obszarze *Grupa zasobów* wybierz tę samą grupę zasobów, w której znajdują się maszyny wirtualne hosta sesji istniejącej puli hostów.
+3.    W polu *region* wybierz ten sam region, w którym znajdują się maszyny wirtualne hosta sesji istniejącej puli hostów.
+4.    W polu *Nazwa Hostpool* wprowadź nazwę istniejącej puli hostów.
+5.    W *polu Typ pulpitu* wybierz typ pulpitu pasujący do istniejącej puli hostów.
+6.    W przypadku *domyślnych użytkowników pulpitu* wprowadź rozdzieloną przecinkami listę wszelkich dodatkowych użytkowników, którzy chcą zalogować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu po zakończeniu oferty portalu Azure Marketplace. Na przykład jeśli chcesz przypisać user3@contoso.com i user4@contoso.com uzyskać dostęp, wprowadź user3@contoso.com , user4@contoso.com .
 7.    Wybierz pozycję **Dalej: Skonfiguruj maszynę wirtualną**.
 
 >[!NOTE]
->Z wyjątkiem *domyślnych użytkowników pulpitu*wszystkie pola muszą być zgodne z tym, co zostało skonfigurowane w istniejącej puli hostów. W przypadku niezgodności, która spowoduje powstanie nowej puli hostów.
+>Z wyjątkiem *domyślnych użytkowników pulpitu* wszystkie pola muszą być zgodne z tym, co zostało skonfigurowane w istniejącej puli hostów. W przypadku niezgodności, która spowoduje powstanie nowej puli hostów.
 
 ### <a name="configure-virtual-machines"></a>Konfigurowanie maszyn wirtualnych
 
@@ -98,7 +98,7 @@ Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami 
     >[!NOTE]
     >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru maszyny wirtualnej, jest to spowodowane tym, że nie zostało to jeszcze zrobione w narzędziu Azure Marketplace. Aby zażądać rozmiaru maszyny wirtualnej, Utwórz żądanie lub zagłosuj na istniejące żądanie na [forum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-2. Dostosuj *profil użycia*, *łącznego użytkownika*i *liczbę parametrów maszyn wirtualnych* , aby wybrać łączną liczbę hostów sesji, które mają być używane w puli hostów. Na przykład, jeśli rozszerzasz pulę hostów z pięciu sesji na osiem, skonfiguruj te opcje, aby uzyskać dostęp do 8 maszyn wirtualnych.
+2. Dostosuj *profil użycia*, *łącznego użytkownika* i *liczbę parametrów maszyn wirtualnych* , aby wybrać łączną liczbę hostów sesji, które mają być używane w puli hostów. Na przykład, jeśli rozszerzasz pulę hostów z pięciu sesji na osiem, skonfiguruj te opcje, aby uzyskać dostęp do 8 maszyn wirtualnych.
 3. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład w przypadku wprowadzenia nazwy "prefiks" maszyny wirtualne będą nazywane "prefiksem-0", "prefiksem-1" i tak dalej.
 4. Wybierz pozycję **Dalej: ustawienia maszyny wirtualnej**.
 
@@ -106,7 +106,7 @@ Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami 
 
 Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji:
 
-1. W polu *Źródło obrazu* i *wersja systemu operacyjnego obrazu*wprowadź te same informacje, które zostały podane podczas pierwszego utworzenia puli hostów.
+1. W polu *Źródło obrazu* i *wersja systemu operacyjnego obrazu* wprowadź te same informacje, które zostały podane podczas pierwszego utworzenia puli hostów.
 2. W przypadku *przyłączania do domeny usługi Active Directory UPN* i skojarzonych haseł wprowadź te same informacje, które zostały podane podczas pierwszego utworzenia puli hostów w celu dołączenia do maszyn wirtualnych do domeny Active Directory. Te poświadczenia będą używane do tworzenia konta lokalnego na maszynach wirtualnych. Możesz zresetować te konta lokalne, aby zmienić ich poświadczenia później.
 3. W polu Informacje o sieci wirtualnej wybierz tę samą sieć wirtualną i podsieć, w której znajdują się maszyny wirtualne hosta sesji puli hostów.
 4. Wybierz pozycję **Dalej: Skonfiguruj informacje o pulpicie wirtualnym systemu Windows**.
@@ -115,8 +115,8 @@ Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami 
 
 Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji:
 
-1. W polu *Nazwa grupy dzierżawy pulpitu wirtualnego systemu Windows*wprowadź nazwę grupy dzierżawców zawierającej dzierżawcę. Pozostaw to ustawienie domyślne, chyba że podano konkretną nazwę grupy dzierżawców.
-2. W polu *Nazwa dzierżawy pulpitu wirtualnego systemu Windows*wprowadź nazwę dzierżawy, w której chcesz utworzyć pulę hostów.
+1. W polu *Nazwa grupy dzierżawy pulpitu wirtualnego systemu Windows* wprowadź nazwę grupy dzierżawców zawierającej dzierżawcę. Pozostaw to ustawienie domyślne, chyba że podano konkretną nazwę grupy dzierżawców.
+2. W polu *Nazwa dzierżawy pulpitu wirtualnego systemu Windows* wprowadź nazwę dzierżawy, w której chcesz utworzyć pulę hostów.
 3. Określ te same poświadczenia, które zostały użyte podczas pierwszego utworzenia puli hostów i maszyn wirtualnych hosta sesji. Jeśli używasz nazwy głównej usługi, wprowadź identyfikator wystąpienia Azure Active Directory, w którym znajduje się nazwa główna usługi.
 4. Wybierz pozycję **Dalej: przegląd + Utwórz**.
 

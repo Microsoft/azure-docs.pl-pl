@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: ef18feb10dabc6a77e6512c6a32ad44b32c6e832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80334756"
 ---
 **Niezarządzane dyski maszyny wirtualnej w warstwie Premium: limity dla kont**
@@ -19,7 +19,7 @@ ms.locfileid: "80334756"
 | Całkowita pojemność migawki na konto |10 TB |
 | Maksymalna przepustowość na konto (ruch przychodzący i wychodzący)<sup>1</sup> |<= 50 Gb/s |
 
-<sup>1</sup>przychodzący*odnosi się* do wszystkich danych z żądań wysyłanych do konta magazynu. Ruch wychodzący *odnosi się* do wszystkich danych z odpowiedzi odbieranych z konta magazynu.
+<sup>1</sup>przychodzący *odnosi się* do wszystkich danych z żądań wysyłanych do konta magazynu. Ruch wychodzący *odnosi się* do wszystkich danych z odpowiedzi odbieranych z konta magazynu.
 
 **Niezarządzane dyski maszyny wirtualnej w warstwie Premium: limity poszczególnych dysków**
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86134732"
 ---
 # <a name="monitor-the-process-server"></a>Monitorowanie serwera przetwarzania
@@ -76,12 +76,12 @@ Serwer przetwarzania generuje wiele alertów dotyczących kondycji, które zosta
 
 Stan kondycji serwerów przetwarzania można monitorować w następujący sposób: 
 
-1. Aby monitorować kondycję i stan replikacji replikowanej maszyny oraz jej serwera przetwarzania, w magazynie > **zreplikowane elementy**kliknij maszynę, którą chcesz monitorować.
-2. W obszarze **kondycja replikacji**można monitorować stan kondycji maszyny wirtualnej. Kliknij stan, aby przejść do szczegółów, aby uzyskać szczegółowe informacje o błędach.
+1. Aby monitorować kondycję i stan replikacji replikowanej maszyny oraz jej serwera przetwarzania, w magazynie > **zreplikowane elementy** kliknij maszynę, którą chcesz monitorować.
+2. W obszarze **kondycja replikacji** można monitorować stan kondycji maszyny wirtualnej. Kliknij stan, aby przejść do szczegółów, aby uzyskać szczegółowe informacje o błędach.
 
     ![Kondycja serwera przetwarzania na pulpicie nawigacyjnym maszyny wirtualnej](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. W obszarze **kondycja serwera przetwarzania**można monitorować stan serwera przetwarzania. Szczegóły.
+4. W obszarze **kondycja serwera przetwarzania** można monitorować stan serwera przetwarzania. Szczegóły.
 
     ![Szczegóły serwera przetwarzania na pulpicie nawigacyjnym maszyny wirtualnej](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
@@ -90,7 +90,7 @@ Stan kondycji serwerów przetwarzania można monitorować w następujący sposó
     - Jeśli serwer przetwarzania jest uruchomiony w ramach domyślnego wdrożenia na serwerze konfiguracji, serwer konfiguracji zostanie odpowiednio wyróżniony.
     - Aby przejść do szczegółów, kliknij serwer konfiguracji lub serwer przetwarzania. Zwróć uwagę na wszelkie problemy i wszelkie zalecenia dotyczące korygowania.
 
-Możesz również monitorować serwery przetwarzania w magazynie w obszarze **Site Recovery infrastruktura**. W obszarze **Zarządzanie infrastrukturą Site Recovery**kliknij pozycję **serwery konfiguracji**. Wybierz serwer konfiguracji skojarzony z serwerem przetwarzania i przejdź do szczegółów serwera przetwarzania.
+Możesz również monitorować serwery przetwarzania w magazynie w obszarze **Site Recovery infrastruktura**. W obszarze **Zarządzanie infrastrukturą Site Recovery** kliknij pozycję **serwery konfiguracji**. Wybierz serwer konfiguracji skojarzony z serwerem przetwarzania i przejdź do szczegółów serwera przetwarzania.
 
 
 ## <a name="next-steps"></a>Następne kroki

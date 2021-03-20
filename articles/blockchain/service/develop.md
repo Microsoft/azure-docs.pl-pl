@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348377"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Omówienie tworzenia usług łańcucha bloków platformy Azure
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z Geth w celu
 Kworum to oparty na systemie Ethereum protokół księgi rozproszonej z transakcją oraz prywatnością umowy i nowymi konsensusami. Najważniejsze ulepszenia dotyczące Go-Ethereum obejmują:
 
 * **Prywatność** — kworum obsługuje transakcje prywatne i prywatne w ramach separacji Stanów publicznych i prywatnych oraz wykorzystuje wymiany komunikatów typu peer-to-peer do bezpośredniego transferu danych prywatnych do uczestników sieci.
-* **Alternatywne metody z Konsensusem** — weryfikacja typu "nie jest wymagana w przypadku sieci z uprawnieniami". Kworum oferuje wiele mechanizmów o consensusu, które są przeznaczone dla łańcuchów konsorcjum, takich jak TRATWy i IBFT.Usługa Azure łańcucha bloków używa mechanizmu IBFT o konsensusie.
+* **Alternatywne metody z Konsensusem** — weryfikacja typu "nie jest wymagana w przypadku sieci z uprawnieniami". Kworum oferuje wiele mechanizmów o consensusu, które są przeznaczone dla łańcuchów konsorcjum, takich jak TRATWy i IBFT.  Usługa Azure łańcucha bloków używa mechanizmu IBFT o konsensusie.
 * **Uprawnienie elementu równorzędnego** — uprawnienia węzła i elementu równorzędnego za pomocą inteligentnych kontraktów zapewniają, że tylko znane strony mogą dołączyć do sieci.
 * **Wyższa wydajność** — kworum zapewnia wyższą wydajność niż publiczne Geth.
 

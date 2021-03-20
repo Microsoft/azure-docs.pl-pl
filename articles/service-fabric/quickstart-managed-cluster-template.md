@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91410507"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Szybki Start: Wdrażanie klastra zarządzanego w Service Fabric (wersja zapoznawcza) przy użyciu szablonu Azure Resource Manager
@@ -46,7 +46,7 @@ Zanotuj odcisk palca certyfikatu, ponieważ będzie to wymagane do wdrożenia sz
     W tym przewodniku szybki start Podaj własne wartości dla następujących parametrów szablonu:
 
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**. Wprowadź unikatową nazwę grupy zasobów, *na przykład grupa zasobów, a*następnie wybierz przycisk **OK**.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**. Wprowadź unikatową nazwę grupy zasobów, *na przykład grupa zasobów, a* następnie wybierz przycisk **OK**.
     * **Lokalizacja**: Wybierz lokalizację, na przykład **eastus2**. Obsługiwane regiony dla Service Fabric klastrów zarządzanych w wersji zapoznawczej obejmują,,,, `centraluseuap` `eastus2euap` `eastasia` `northeurope` `westcentralus` i `eastus2` .
     * **Nazwa klastra**: Wprowadź unikatową nazwę klastra, na przykład *mysfcluster*.
     * **Nazwa użytkownika administratora**: Wprowadź nazwę administratora, który ma być używany na potrzeby protokołu RDP na podstawowych maszynach wirtualnych w klastrze.

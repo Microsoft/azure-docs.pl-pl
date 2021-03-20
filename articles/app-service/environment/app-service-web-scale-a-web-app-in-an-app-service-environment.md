@@ -8,10 +8,10 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86220562"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Skalowanie aplikacji w App Service Environment v1
@@ -39,11 +39,11 @@ Można utworzyć wiele planów usługi App Service przy użyciu zasobów oblicze
 ### <a name="scaling-the-number-of-instances"></a>Skalowanie liczby wystąpień
 Podczas pierwszej tworzenia aplikacji sieci Web w App Service Environment rozpoczyna się od 1 wystąpienia.  Następnie można skalować w poziomie do dodatkowych wystąpień, aby zapewnić dodatkowe zasoby obliczeniowe dla aplikacji.   
 
-Jeśli środowisko ASE ma wystarczającą ilość miejsca, jest to bardzo proste.  Przejdź do planu App Service, w którym znajdują się lokacje, które chcesz skalować w górę i wybierz pozycję Skala.  Spowoduje to otwarcie interfejsu użytkownika, w którym można ręcznie ustawić skalę dla ASP lub skonfigurować reguły automatycznego skalowania dla środowiska ASP.  Aby ręcznie skalować aplikację, wystarczy ustawić ***skalę według*** ***liczby wystąpień wprowadzanych ręcznie***.  W tym miejscu przeciągnij suwak do żądanej ilości lub wprowadź go w polu obok suwaka.  
+Jeśli środowisko ASE ma wystarczającą ilość miejsca, jest to bardzo proste.  Przejdź do planu App Service, w którym znajdują się lokacje, które chcesz skalować w górę i wybierz pozycję Skala.  Spowoduje to otwarcie interfejsu użytkownika, w którym można ręcznie ustawić skalę dla ASP lub skonfigurować reguły automatycznego skalowania dla środowiska ASP.  Aby ręcznie skalować aplikację, wystarczy ustawić ***skalę o** _ do _ *_liczbę wystąpień, którą wprowadzam ręcznie_* *.  W tym miejscu przeciągnij suwak do żądanej ilości lub wprowadź go w polu obok suwaka.  
 
 ![Zrzut ekranu pokazujący, gdzie można ustawić skalę dla ASP lub skonfigurować reguły automatycznego skalowania dla środowiska ASP.][2] 
 
-Reguły automatycznego skalowania środowiska ASP w środowisku ASE działają tak samo, jak w normalnych warunkach.  Możesz wybrać ***wartość procentową procesora CPU*** w obszarze ***skalowanie według*** i utworzyć reguły automatycznego skalowania dla ASP w oparciu o wartość procentową procesora CPU lub utworzyć bardziej złożone reguły przy użyciu ***reguł harmonogramu i wydajności***.  Aby zapoznać się z bardziej szczegółowymi informacjami na temat konfigurowania automatycznego skalowania, Skorzystaj z przewodnika [w sekcji skalowanie aplikacji w Azure App Service][AppScale]. 
+Reguły automatycznego skalowania środowiska ASP w środowisku ASE działają tak samo, jak w normalnych warunkach.  Możesz wybrać ***procent procesora CPU** w obszarze _*_skalowanie przez_*_ i utworzyć reguły automatycznego skalowania dla ASP w oparciu o wartość procentową procesora CPU lub utworzyć bardziej złożone reguły przy użyciu _ *_reguł harmonogramu i wydajności_* *.  Aby zapoznać się z bardziej szczegółowymi informacjami na temat konfigurowania automatycznego skalowania, Skorzystaj z przewodnika [w sekcji skalowanie aplikacji w Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Wybór puli procesów roboczych
 Jak wspomniano wcześniej, do wyboru puli procesów roboczych jest uzyskiwany dostęp z interfejsu użytkownika ASP.  Otwórz blok dla ASP, który chcesz skalować, i wybierz pozycję Pula procesów roboczych.  Zostaną wyświetlone wszystkie pule procesów roboczych, które zostały skonfigurowane w App Service Environment.  Jeśli istnieje tylko jedna pula procesów roboczych, zostanie wyświetlona tylko jedna pula.  Aby zmienić pulę procesów roboczych, w której znajduje się środowisko ASP, wystarczy wybrać pulę procesów roboczych, do której ma zostać przeniesiony plan App Service.  

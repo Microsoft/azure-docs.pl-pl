@@ -7,10 +7,10 @@ ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007815"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego
@@ -71,7 +71,7 @@ Aby bezpośrednio przypisać użytkownika do hosta sesji w Azure Portal:
 
 1. Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com>.
 2. Na pasku wyszukiwania wprowadź **pulpit wirtualny systemu Windows** .
-3. W obszarze **usługi**wybierz pozycję **pulpit wirtualny systemu Windows**.
+3. W obszarze **usługi** wybierz pozycję **pulpit wirtualny systemu Windows**.
 4. Na stronie pulpit wirtualny systemu Windows przejdź do menu po lewej stronie okna i wybierz pozycję **Pule hostów**.
 5. Wybierz nazwę puli hostów, którą chcesz zaktualizować.
 6. Następnie przejdź do menu po lewej stronie okna i wybierz pozycję **grupy aplikacji**.

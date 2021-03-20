@@ -14,10 +14,10 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86254660"
 ---
 # <a name="about-api-management"></a>Informacje o usłudze API Management
@@ -69,19 +69,19 @@ Aby uzyskać więcej informacji, zobacz oficjalny dokument PDF [Cloud-based API 
  * Analizy i metryki
  * Uzyskiwanie kontroli i wglądu dzięki platformie usługi API Management
  * Porównanie rozwiązań w chmurze i rozwiązań lokalnych
- * Azure API Management
+ * Usługa Azure API Management
  
 ## <a name="apis-and-operations"></a><a name="apis"> </a>Interfejsy API i operacje
 Interfejsy API są podstawą wystąpienia usługi API Management. Każdy interfejs API reprezentuje zestaw operacji dostępnych dla deweloperów. Każdy interfejs API zawiera odwołanie do usługi zaplecza, która implementuje interfejs API, oraz mapę odwzorowań operacji interfejsu API na operacje zaimplementowane w usłudze zaplecza. Operacje usługi API Management są wysoce konfigurowalne, pozwalają na kontrolę mapowania adresu URL, parametrów zapytania i ścieżki, zawartości żądania i odpowiedzi oraz buforowanie odpowiedzi operacji. Ograniczenia liczby wywołań, przydziały i zasady ograniczeń adresów IP mogą być implementowane zarówno na poziomie interfejsu API, jak i na poziomie poszczególnych operacji.
 
 Aby uzyskać więcej informacji, zobacz artykuły [How to create APIs][How to create APIs] (Tworzenie interfejsów API) i [How to add operations to an API][How to add operations to an API] (Dodawanie operacji do interfejsu API).
 
-## <a name="products"></a><a name="products"> </a> Produkty
+## <a name="products"></a><a name="products"></a> Produkty
 Produkty stanowią sposób udostępniania interfejsów API deweloperom. Produkty w usłudze API Management mają co najmniej jeden interfejs API oraz skonfigurowany tytuł, opis i warunki użytkowania. Produkty mogą być **otwarte** lub **chronione**. Produkty chronione trzeba subskrybować przed użyciem, a produkty otwarte mogą być używane bez subskrypcji. Kiedy produkt jest gotowy do użycia przez deweloperów, można go opublikować. Po opublikowaniu produktu deweloperzy mogą go wyświetlać (a w przypadku produktów chronionych również subskrybować). Zatwierdzenie subskrypcji jest konfigurowane na poziomie produktu i może wymagać zatwierdzenia przez administratora lub odbywać się automatycznie.
 
 Grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. 
 
-## <a name="groups"></a><a name="groups"> </a> Grupy
+## <a name="groups"></a><a name="groups"></a> Grupy
 Grupy służą do zarządzania widocznością produktów dla deweloperów. Usługa API Management ma następujące niezmienne grupy systemowe:
 
 * **Administratorzy** — do tej grupy należą administratorzy subskrypcji platformy Azure. Administratorzy zarządzają wystąpieniami usługi API Management, tworząc interfejsy API, operacje i produkty, które są używane przez deweloperów.
@@ -92,14 +92,14 @@ Oprócz tych grup systemowych administratorzy mogą tworzyć niestandardowe grup
 
 Aby uzyskać więcej informacji, zobacz artykuł [How to create and use groups][How to create and use groups] (Tworzenie i używanie grup).
 
-## <a name="developers"></a><a name="developers"> </a> Deweloperzy
+## <a name="developers"></a><a name="developers"></a> Deweloperzy
 Deweloperzy reprezentują konta użytkowników w wystąpieniu usługi API Management. Konta deweloperów mogą być tworzone lub dołączane na zaproszenie administratorów. Ponadto deweloperzy mogą się zarejestrować w [Portalu dla deweloperów][Developer portal]. Każdy deweloper jest członkiem co najmniej jednej grupy i może subskrybować produkty widoczne w tych grupach.
 
 Kiedy deweloperzy subskrybują produkt, otrzymują klucz podstawowy i pomocniczy produktu. Ten klucz jest używany podczas wywołań interfejsów API produktu.
 
 Aby uzyskać więcej informacji, zobacz [How to create or invite developers][How to create or invite developers] (Jak utworzyć i zaprosić deweloperów) i [How to associate groups with developers][How to associate groups with developers] (Jak skojarzyć grupy z deweloperami).
 
-## <a name="policies"></a><a name="policies"> </a> Zasady
+## <a name="policies"></a><a name="policies"></a> Zasady
 Zasady są zaawansowaną możliwością usługi API Management, która pozwala witrynie Azure Portal zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML na format JSON i ograniczanie liczby wywołań, aby zmniejszyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
 
 Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](./api-management-advanced-policies.md#choose) i [Ustawianie zmiennej](./api-management-advanced-policies.md#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](./api-management-advanced-policies.md#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](./api-management-policy-expressions.md) (Wyrażenia zasad).
@@ -108,7 +108,7 @@ Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstow
 Pełna lista zasad usługi API Management jest zawarta w artykule [Policy reference][Policy reference] (Dokumentacja zasad). Aby uzyskać więcej informacji na temat korzystania z zasad i konfigurowania ich, zobacz artykuł [API Management policies][API Management policies] (Zasady usługi API Management). Samouczek dotyczący tworzenia produktu z zasadami dotyczącymi ograniczania liczby wywołań i przydziałów jest zawarty w artykule [Tworzenie i konfigurowanie zaawansowanych ustawień produktów][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"></a><a name="developer-portal"> </a> Portal dla deweloperów
+## <a name="developer-portal"></a><a name="developer-portal"></a> Portal dla deweloperów
 Portal dla deweloperów jest miejscem, gdzie deweloperzy mogą poznawać interfejsy API, wyświetlać i wywoływać operacje oraz subskrybować produkty. Potencjalni klienci mogą odwiedzić portal dla deweloperów, wyświetlić interfejsy API i operacje oraz zarejestrować się. Adres URL do portalu dla deweloperów znajduje się na pulpicie nawigacyjnym w witrynie Azure Portal danego wystąpienia usługi API Management.
 
 Wygląd swojego portalu dla deweloperów możesz dostosować, dodając niestandardową zawartość, dostosowując style i dodając znak marki.

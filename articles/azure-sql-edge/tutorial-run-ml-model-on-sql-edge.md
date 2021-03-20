@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 9e5bb037b88b7c370e31d05c2d20fc6f558a8b39
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422199"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX 
@@ -25,7 +25,7 @@ W trzeciej części tego samouczka z trzema częściami w celu przewidywania zan
 
 ## <a name="key-components"></a>Najważniejsze składniki
 
-1. Rozwiązanie używa domyślnie 500 milisekund między każdą wiadomością wysłaną do centrum brzegowego. Można to zmienić w pliku **program.cs** 
+1. Rozwiązanie używa domyślnie 500 milisekund między każdą wiadomością wysłaną do centrum brzegowego. Można to zmienić w pliku **program. cs** 
    ```json
    TimeSpan messageDelay = configuration.GetValue("MessageDelay", TimeSpan.FromMilliseconds(500));
    ```

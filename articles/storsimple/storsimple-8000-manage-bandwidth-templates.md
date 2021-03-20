@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005898"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Zarządzanie szablonami przepustowości StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Zarządzanie szablonami przepustowości StorSimple przy użyciu usługi StorSimple Device Manager
 
 ## <a name="overview"></a>Omówienie
 
@@ -55,7 +55,7 @@ Wykonaj następujące kroki, aby utworzyć nowy szablon przepustowości.
 
 #### <a name="to-add-a-bandwidth-template"></a>Aby dodać szablon przepustowości
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń, kliknij pozycję **Szablony przepustowości** , a następnie kliknij pozycję **+ Dodaj szablon przepustowości**.
+1. Przejdź do usługi StorSimple Device Manager, kliknij pozycję **Szablony przepustowości** , a następnie kliknij pozycję **+ Dodaj szablon przepustowości**.
 
     ![Kliknij pozycję + Dodaj szablon przepustowości](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
 
@@ -88,7 +88,7 @@ Aby edytować szablon przepustowości, wykonaj następujące czynności.
 
 ### <a name="to-edit-a-bandwidth-template"></a>Aby edytować szablon przepustowości
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń i kliknij pozycję **Szablony przepustowości**.
+1. Przejdź do usługi StorSimple Device Manager i kliknij pozycję **Szablony przepustowości**.
 2. Na liście szablonów przepustowości wybierz szablon, który chcesz usunąć. Kliknij prawym przyciskiem myszy i z menu kontekstowego wybierz polecenie **Usuń**.
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**. Należy usunąć szablon przepustowości. 
 4. Lista szablonów przepustowości, które są aktualizowane w celu odzwierciedlenia usunięcia.
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby usunąć szablon przepustowości.
 
 #### <a name="to-delete-a-bandwidth-template"></a>Aby usunąć szablon przepustowości
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń i kliknij pozycję **Szablony przepustowości**.
+1. Przejdź do usługi StorSimple Device Manager i kliknij pozycję **Szablony przepustowości**.
 2. Na liście szablonów przepustowości wybierz szablon, który chcesz usunąć. Kliknij prawym przyciskiem myszy i z menu kontekstowego wybierz polecenie Usuń.
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**. Należy usunąć szablon przepustowości.
 4. Lista szablonów przepustowości, które są aktualizowane w celu odzwierciedlenia usunięcia.
@@ -171,5 +171,5 @@ Postępuj zgodnie z następującymi najlepszymi rozwiązaniami dotyczącymi urz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

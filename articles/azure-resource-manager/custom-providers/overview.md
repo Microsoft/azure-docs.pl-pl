@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80398477"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Niestandardowe dostawcy zasobów platformy Azure — omówienie
@@ -37,11 +37,11 @@ Poniżej przedstawiono kilka przykładów, które można osiągnąć za pomocą 
 
 ## <a name="what-is-a-custom-resource-provider"></a>Co to jest dostawca zasobów niestandardowych
 
-Dostawcy zasobów niestandardowych platformy Azure są tworzone przez utworzenie kontraktu między platformą Azure a punktem końcowym. Ten kontrakt definiuje listę nowych zasobów i akcji za pomocą nowego zasobu, **Microsoft. CustomProviders/resourceProviders**. Dostawca zasobów niestandardowych będzie uwidaczniał te nowe interfejsy API na platformie Azure. Dostawcy zasobów niestandardowych platformy Azure składają się z trzech części: niestandardowego dostawcy zasobów, **punktów końcowych**i zasobów niestandardowych.
+Dostawcy zasobów niestandardowych platformy Azure są tworzone przez utworzenie kontraktu między platformą Azure a punktem końcowym. Ten kontrakt definiuje listę nowych zasobów i akcji za pomocą nowego zasobu, **Microsoft. CustomProviders/resourceProviders**. Dostawca zasobów niestandardowych będzie uwidaczniał te nowe interfejsy API na platformie Azure. Dostawcy zasobów niestandardowych platformy Azure składają się z trzech części: niestandardowego dostawcy zasobów, **punktów końcowych** i zasobów niestandardowych.
 
 ## <a name="how-to-build-custom-resource-providers"></a>Jak utworzyć niestandardowych dostawców zasobów
 
-Dostawcy zasobów niestandardowych to lista kontraktów między platformą Azure i punktami końcowymi. W tym artykule opisano sposób współpracy platformy Azure z punktem końcowym. Dostawca zasobów działa jak serwer proxy i przekazuje żądania i odpowiedzi do i z określonego **punktu końcowego**. Dostawca zasobów może określić dwa typy kontraktów: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) i [**Actions**](./custom-providers-action-endpoint-how-to.md). Są one włączane za poorednictwem definicji punktów końcowych. Definicja punktu końcowego składa się z trzech pól: **name**, **routingtype**i **Endpoint**.
+Dostawcy zasobów niestandardowych to lista kontraktów między platformą Azure i punktami końcowymi. W tym artykule opisano sposób współpracy platformy Azure z punktem końcowym. Dostawca zasobów działa jak serwer proxy i przekazuje żądania i odpowiedzi do i z określonego **punktu końcowego**. Dostawca zasobów może określić dwa typy kontraktów: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) i [**Actions**](./custom-providers-action-endpoint-how-to.md). Są one włączane za poorednictwem definicji punktów końcowych. Definicja punktu końcowego składa się z trzech pól: **name**, **routingtype** i **Endpoint**.
 
 Przykładowy punkt końcowy:
 

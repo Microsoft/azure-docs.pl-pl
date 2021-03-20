@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652249"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
@@ -43,7 +43,7 @@ Po włączeniu replikacji dla maszyny wirtualnej Site Recovery zapewnia opcję a
 **Zasób docelowy** | **Ustawienie domyślne**
 --- | ---
 **Subskrypcja docelowa** | Taka sama jak w przypadku subskrypcji źródłowej.
-**Docelowa Grupa zasobów** | Grupa zasobów, do której maszyny wirtualne należą po przejściu w tryb failover.<br/><br/> Może ona znajdować się w dowolnym regionie świadczenia usługi Azure, z wyjątkiem regionu źródłowego.<br/><br/> Site Recovery tworzy nową grupę zasobów w regionie docelowym z sufiksem "ASR".<br/><br/>
+**Docelowa grupa zasobów** | Grupa zasobów, do której maszyny wirtualne należą po przejściu w tryb failover.<br/><br/> Może ona znajdować się w dowolnym regionie świadczenia usługi Azure, z wyjątkiem regionu źródłowego.<br/><br/> Site Recovery tworzy nową grupę zasobów w regionie docelowym z sufiksem "ASR".<br/><br/>
 **Docelowa sieć wirtualna** | Sieć wirtualna (VNet), w której znajdują się zreplikowane maszyny wirtualne, po przejściu w tryb failover. Tworzone jest mapowanie sieci między źródłową i docelową siecią wirtualną i odwrotnie.<br/><br/> Site Recovery utworzyć nową sieć wirtualną i podsieć z sufiksem "ASR".
 **Docelowe konto magazynu** |  Jeśli maszyna wirtualna nie używa dysku zarządzanego, jest to konto magazynu, do którego są replikowane dane.<br/><br/> Site Recovery tworzy nowe konto magazynu w regionie docelowym w celu dublowania źródłowego konta magazynu.
 **Dyski zarządzane repliki** | Jeśli maszyna wirtualna używa dysku zarządzanego, są to dyski zarządzane, do których są replikowane dane.<br/><br/> Site Recovery tworzy dyski zarządzane repliki w regionie magazynu w celu dublowania źródła.
@@ -62,7 +62,7 @@ Zasobami docelowymi można zarządzać w następujący sposób:
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Domyślny**
+**Ustawienie zasad** | **Szczegóły** | **Wartooć**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny
@@ -130,11 +130,11 @@ Jeśli dostęp wychodzący dla maszyn wirtualnych jest kontrolowany za pomocą a
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
-| Usługa Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Zezwala na dostęp do włączania replikacji dla maszyn wirtualnych z obsługą ADE za pośrednictwem portalu |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Zezwala na dostęp do włączania replikacji dla maszyn wirtualnych z obsługą ADE za pośrednictwem portalu |
 | Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Umożliwia włączenie autouaktualnienia agenta mobilności dla zreplikowanego elementu za pośrednictwem portalu |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Połączenia ruchu wychodzącego dla zakresów adresów IP

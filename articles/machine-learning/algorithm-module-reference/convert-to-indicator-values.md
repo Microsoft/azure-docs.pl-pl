@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420856"
 ---
 # <a name="convert-to-indicator-values"></a>Konwertowanie na wartości wskaźnika
@@ -48,8 +48,8 @@ Załóżmy, że masz kolumnę z wynikami wskazującą, czy serwer ma wysokie, ś
 | Identyfikator serwera | Ocena niepowodzenia |
 | --------- | ------------- |
 | 10301     | Niski           |
-| 10302     | Średniaa        |
-| 10303     | Wysoki          |
+| 10302     | Śred.        |
+| 10303     | Wys.          |
 
 Po zastosowaniu **konwersji do wartości wskaźnika** Projektant konwertuje pojedynczą kolumnę etykiet w wiele kolumn zawierających wartości logiczne:  
 
@@ -71,8 +71,8 @@ Teraz można użyć trzech kolumn wskaźnika jako funkcji w modelu uczenia maszy
 
 Moduł zwraca dwa dane wyjściowe:
 
-- **Zestaw danych wyników** : zestaw danych z przekonwertowane kolumny wartości wskaźnika. Kolumny niewybrane do czyszczenia są również "przenoszone przez".
-- **Przekształcanie wartości wskaźnika** : transformacja danych służąca do konwertowania na wartości wskaźnika, którą można zapisać w obszarze roboczym i zastosowana do nowych danych później.
+- **Zestaw danych wyników**: zestaw danych z przekonwertowane kolumny wartości wskaźnika. Kolumny niewybrane do czyszczenia są również "przenoszone przez".
+- **Przekształcanie wartości wskaźnika**: transformacja danych służąca do konwertowania na wartości wskaźnika, którą można zapisać w obszarze roboczym i zastosowana do nowych danych później.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Zastosuj operację zapisania wartości wskaźnika do nowych danych
 

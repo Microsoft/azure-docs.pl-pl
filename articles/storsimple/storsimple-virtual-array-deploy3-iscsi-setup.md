@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956555"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Wdróż macierz wirtualną StorSimple — Skonfiguruj jako serwer iSCSI za pośrednictwem Azure Portal
@@ -38,8 +38,8 @@ Aby ukończyć procedury opisane w tym miejscu, należy wykonać około 30 minut
 Przed skonfigurowaniem i skonfigurowaniem macierzy wirtualnej StorSimple upewnij się, że:
 
 * Zainicjowano obsługę macierzy wirtualnej i połączono z nią, zgodnie z opisem w artykule [wdrażanie StorSimple wirtualnej macierzy — inicjowanie macierzy wirtualnej w funkcji Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) lub [wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi macierzy wirtualnej w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Masz klucz rejestracji usługi z usługi StorSimple Menedżer urządzeń, który został utworzony w celu zarządzania macierzami wirtualnymi StorSimple. Aby uzyskać więcej informacji, zobacz **krok 2. Pobieranie klucza rejestracji usługi w artykule** [wdrażanie StorSimple Virtual Array — przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-* Jeśli jest to druga lub kolejna tablica wirtualna, która jest rejestrowana w istniejącej usłudze StorSimple Menedżer urządzeń, należy mieć klucz szyfrowania danych usługi. Ten klucz został wygenerowany, gdy pierwsze urządzenie zostało pomyślnie zarejestrowane w tej usłudze. Jeśli ten klucz został utracony, zobacz **Pobieranie klucza szyfrowania danych usługi** w programie [Korzystanie z interfejsu użytkownika sieci Web w celu administrowania wirtualną tablicą StorSimple](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+* Masz klucz rejestracji usługi z usługi StorSimple Device Manager, który został utworzony w celu zarządzania macierzami wirtualnymi StorSimple. Aby uzyskać więcej informacji, zobacz **krok 2. Pobieranie klucza rejestracji usługi w artykule** [wdrażanie StorSimple Virtual Array — przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+* Jeśli jest to druga lub kolejna tablica wirtualna, która jest rejestrowana w istniejącej usłudze StorSimple Device Manager, należy mieć klucz szyfrowania danych usługi. Ten klucz został wygenerowany, gdy pierwsze urządzenie zostało pomyślnie zarejestrowane w tej usłudze. Jeśli ten klucz został utracony, zobacz **Pobieranie klucza szyfrowania danych usługi** w programie [Korzystanie z interfejsu użytkownika sieci Web w celu administrowania wirtualną tablicą StorSimple](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## <a name="step-by-step-setup"></a>Konfiguracja krok po kroku
 
@@ -64,7 +64,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 2. Zaloguj się do internetowego interfejsu użytkownika urządzenia wirtualnego jako **StorSimpleAdmin**. Wprowadź hasło administratora urządzenia zmienione w kroku 3: uruchamianie urządzenia wirtualnego w [Wdróż StorSimple Virtual Array — Inicjowanie obsługi urządzenia wirtualnego w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) lub [wdrażanie StorSimple wirtualnej macierzy — Inicjowanie obsługi urządzenia wirtualnego w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
     ![Strona logowania](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
-3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania urządzenia wirtualnego za pomocą usługi StorSimple Menedżer urządzeń. Należy pamiętać, że **Ustawienia sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
+3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania urządzenia wirtualnego za pomocą usługi StorSimple Device Manager. Należy pamiętać, że **Ustawienia sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
    
     ![Strona główna](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. Na stronie **Ustawienia sieci** w obszarze **interfejsy sieciowe** zostaną automatycznie skonfigurowane dane 0. Każdy interfejs sieciowy jest domyślnie ustawiany do automatycznego uzyskiwania adresu IP (DHCP). W związku z tym adres IP, podsieć i Brama zostaną automatycznie przypisane (dla protokołów IPv4 i IPv6).
@@ -114,10 +114,10 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną Time.Windows.com. Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
    3. Opcjonalnie można określić **pomocniczy serwer NTP** dla urządzenia.
    4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
-9. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Menedżer urządzeń.
+9. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Device Manager.
    
    1. Wprowadź **klucz rejestracji usługi** uzyskany w **kroku 2. Pobieranie klucza rejestracji usługi** w temacie [wdrażanie StorSimple Virtual Array — przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-   2. Jeśli nie jest to pierwsze urządzenie, które jest zarejestrowana w ramach tej usługi, musisz podać **klucz szyfrowania danych usługi**. Ten klucz jest wymagany w przypadku klucza rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Menedżer urządzeń. Aby uzyskać więcej informacji, zobacz [Pobieranie klucza szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) w lokalnym interfejsie użytkownika sieci Web.
+   2. Jeśli nie jest to pierwsze urządzenie, które jest zarejestrowana w ramach tej usługi, musisz podać **klucz szyfrowania danych usługi**. Ten klucz jest wymagany w przypadku klucza rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Device Manager. Aby uzyskać więcej informacji, zobacz [Pobieranie klucza szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) w lokalnym interfejsie użytkownika sieci Web.
    3. Kliknij pozycję **Zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
       
       ![Zarejestruj urządzenie](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
@@ -133,7 +133,7 @@ Wykonaj następujące kroki w Azure Portal, aby zakończyć wymaganą konfigurac
 
 #### <a name="to-configure-the-device-as-iscsi-server"></a>Aby skonfigurować urządzenie jako serwer iSCSI
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
+1. Przejdź do usługi StorSimple Device Manager, a następnie przejdź do pozycji **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
    
     ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. Kliknij urządzenie i zostanie wyświetlony komunikat transparent wskazujący, że urządzenie jest gotowe do instalacji.

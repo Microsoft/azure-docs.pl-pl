@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80986696"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Klienci z systemem Windows
@@ -165,7 +165,7 @@ ms.locfileid: "80986696"
     ```
 12. Aby nawiązać połączenie przy użyciu graficznego interfejsu użytkownika, przejdź do pozycji Ustawienia systemu.
 13. Kliknij **+** , aby dodać nowe połączenie sieci VPN.
-14. W obszarze **Dodaj sieć VPN**wybierz pozycję **Importuj z pliku...**
+14. W obszarze **Dodaj sieć VPN** wybierz pozycję **Importuj z pliku...**
 15. Przejdź do pliku profilu, a następnie kliknij dwukrotnie lub wybierz pozycję **Otwórz**.
 16. Kliknij przycisk **Dodaj** w oknie **Dodawanie sieci VPN** .
   

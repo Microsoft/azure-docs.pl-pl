@@ -4,10 +4,10 @@ description: Użyj Azure Event Grid jako modułu na IoT Edge na potrzeby przesy�
 ms.topic: overview
 ms.date: 07/08/2020
 ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171520"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Co to jest Azure Event Grid na Azure IoT Edge?
@@ -71,7 +71,7 @@ Istnieje pięć koncepcji w Azure Event Grid, które umożliwiają rozpoczęcie 
 * **Subskrypcje zdarzeń** — punkt końcowy lub wbudowany mechanizm do kierowania zdarzeń, czasami do więcej niż jednego programu obsługi. Subskrypcje są również używane przez procedury obsługi w celu inteligentnego filtrowania zdarzeń przychodzących.
 * **Programy obsługi zdarzeń** — aplikacja lub usługa, która reaguje na zdarzenie.
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszt
 
 Event Grid on IoT Edge jest bezpłatny w publicznej wersji zapoznawczej.
 

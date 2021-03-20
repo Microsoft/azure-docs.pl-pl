@@ -4,10 +4,10 @@ description: Dowiedz się, jak szyfrować dane aplikacji w usłudze Azure Storag
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92146043"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
@@ -71,7 +71,7 @@ Aktualizacja tego ustawienia aplikacji powoduje ponowne uruchomienie aplikacji s
 
 Najlepszym rozwiązaniem jest okresowe obracanie klucza sygnatury dostępu współdzielonego konta magazynu. Aby upewnić się, że aplikacja sieci Web nie ma przypadkowo swobodnego dostępu, musisz również zaktualizować adres URL sygnatury SAS w Key Vault.
 
-1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia**  >  **klucze dostępu**kliknij ikonę, aby obrócić klucz SAS.
+1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia**  >  **klucze dostępu** kliknij ikonę, aby obrócić klucz SAS.
 
 1. Skopiuj nowy adres URL sygnatury dostępu współdzielonego i użyj następującego polecenia, aby ustawić zaktualizowany adres URL sygnatury dostępu współdzielonego w magazynie kluczy:
 

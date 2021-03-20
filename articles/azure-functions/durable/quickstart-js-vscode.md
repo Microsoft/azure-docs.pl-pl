@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335453"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Tworzenie pierwszej funkcji trwałej w języku Java Script
@@ -43,7 +43,7 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
 
 1. W Visual Studio Code naciśnij klawisz F1 (lub Ctrl/Cmd + Shift + P), aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create New Project...` .
 
-    ![Tworzenie funkcji](media/quickstart-js-vscode/functions-create-project.png)
+    ![Create, funkcja](media/quickstart-js-vscode/functions-create-project.png)
 
 1. Wybierz pustą lokalizację folderu dla projektu i wybierz **pozycję Wybierz**.
 
@@ -145,7 +145,7 @@ Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projekt
     | Wybierz konto magazynu | Tworzenie nowego konta magazynu |  |
     | Wprowadź nazwę nowego konta magazynu | *Unikatowa nazwa* | Nazwa konta magazynu do utworzenia |
     | Wybieranie grupy zasobów | *Unikatowa nazwa* | Nazwa grupy zasobów do utworzenia |
-    | Wybieranie lokalizacji | *region* | Zaznacz region blisko siebie |
+    | Wybieranie lokalizacji | *okolicy* | Zaznacz region blisko siebie |
 
 1. W panelu **terminalu** skopiuj punkt końcowy adresu URL funkcji wyzwalanej przez protokół HTTP.
 

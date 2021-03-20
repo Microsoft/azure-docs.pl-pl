@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
 ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630755"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB obsługę programu Graph i zgodność z funkcjami TinkerPop
@@ -25,7 +25,7 @@ Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przech
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin, których można użyć do usługi Azure Cosmos DB:
 
-| Pobierz | Element źródłowy | Getting Started | Obsługiwana wersja łącznika |
+| Pobierz | Element źródłowy | Wprowadzenie | Obsługiwana wersja łącznika |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Tworzenie grafu przy użyciu platformy .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Tworzenie grafu przy użyciu środowiska Java](create-graph-java.md) | 3.2.0+ |
@@ -169,31 +169,31 @@ Aparat zoptymalizowany pod kątem zapisu oferowany w usłudze Azure Cosmos DB ob
 
 ## <a name="behavior-differences"></a>Różnice w zachowaniu
 
-* Uruchomiono aparat wykresu Azure Cosmos DB ***szerokość pierwszej** _, podczas gdy TinkerPop Gremlin jest głębokością. Takie zachowanie zapewnia lepszą wydajność w skalowalnym systemie, takim jak Cosmos DB.
+* Aparat grafu Azure Cosmos DB uruchamia przechodzenie w ***pierwszej kolejności*** , podczas gdy TinkerPop Gremlin jest głębokością. Takie zachowanie zapewnia lepszą wydajność w skalowalnym systemie, takim jak Cosmos DB.
 
 ## <a name="unsupported-features"></a>Nieobsługiwane funkcje
 
-_ ***[Gremlin kod bajtowy](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ jest specyfikacją niezależny od języka programowania dla przechodzenia grafów. Program Cosmos DB Graph jeszcze nie obsługuje tego programu. Użyj `GremlinClient.SubmitAsync()` i przekaż przechodzenie jako ciąg tekstowy.
+* ***[Kod bajtowy języka Gremlin](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** to specyfikacja przechodzenia przez graf niezależna od języka programowania. Program Cosmos DB Graph jeszcze nie obsługuje tego programu. Użyj `GremlinClient.SubmitAsync()` i przekaż przechodzenie jako ciąg tekstowy.
 
-_ * **`property(set, 'xyz', 1)`** _ zestaw Kardynalność nie jest obecnie obsługiwany. Zamiast tego użyj polecenia cmdlet `property(list, 'xyz', 1)`. Aby dowiedzieć się więcej, zobacz [Właściwości wierzchołka z TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+* ***`property(set, 'xyz', 1)`*** ustawienie Kardynalność nie jest obecnie obsługiwane. Zamiast tego użyj polecenia cmdlet `property(list, 'xyz', 1)`. Aby dowiedzieć się więcej, zobacz [Właściwości wierzchołka z TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-_ ***`match()` Krok** _ nie jest obecnie dostępny. Ten krok zapewnia możliwości deklaracyjnego wykonywania zapytań.
+* Ten ***`match()` krok*** nie jest obecnie dostępny. Ten krok zapewnia możliwości deklaracyjnego wykonywania zapytań.
 
-_ ***Obiekty jako właściwości** _ dla wierzchołków lub krawędzi nie są obsługiwane. Właściwości mogą być tylko typami pierwotnymi lub tablicami.
+* ***Obiekty jako właściwości*** dla wierzchołków lub krawędzi nie są obsługiwane. Właściwości mogą być tylko typami pierwotnymi lub tablicami.
 
-_ ***Sortowanie według właściwości tablicy** _ `order().by(<array property>)` nie jest obsługiwane. Sortowanie jest obsługiwane tylko według typów pierwotnych.
+* ***Sortowanie według właściwości tablicy*** `order().by(<array property>)` nie jest obsługiwana. Sortowanie jest obsługiwane tylko według typów pierwotnych.
 
-_ ***Niepierwotne typy JSON** _ nie są obsługiwane. Użyj `string` `number` typów,, lub `true` / `false` . `null` wartości nie są obsługiwane. 
+* ***Niepierwotne typy JSON*** nie są obsługiwane. Użyj `string` `number` typów,, lub `true` / `false` . `null` wartości nie są obsługiwane. 
 
-_ * Serializator **GraphSONv3** _ nie jest obecnie obsługiwany. `GraphSONv2`W konfiguracji połączenia użyj klas serializatorów, czytników i składników zapisywania. Wyniki zwrócone przez interfejs API Azure Cosmos DB Gremlin nie mają takiego samego formatu jak format GraphSON. 
+* Serializator ***GraphSONv3*** nie jest obecnie obsługiwany. `GraphSONv2`W konfiguracji połączenia użyj klas serializatorów, czytników i składników zapisywania. Wyniki zwrócone przez interfejs API Azure Cosmos DB Gremlin nie mają takiego samego formatu jak format GraphSON. 
 
-**Wyrażenia lambda i funkcje** nie są obecnie obsługiwane. Obejmuje to `.map{<expression>}` `.by{<expression>}` funkcje, i `.filter{<expression>}` . Aby dowiedzieć się więcej, i dowiedzieć się, jak ponownie napisać je za pomocą kroków Gremlin, zobacz [uwagi na temat wyrażeń lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+* **Wyrażenia lambda i funkcje** nie są obecnie obsługiwane. Obejmuje to `.map{<expression>}` `.by{<expression>}` funkcje, i `.filter{<expression>}` . Aby dowiedzieć się więcej, i dowiedzieć się, jak ponownie napisać je za pomocą kroków Gremlin, zobacz [uwagi na temat wyrażeń lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
-* ***Transakcje** _ nie są obsługiwane z powodu rozproszonego charakteru systemu.  Skonfiguruj odpowiedni model spójności na koncie Gremlin na "odczytywanie własnych zapisów" i Użyj optymistycznej współbieżności, aby rozwiązać konflikty zapisów.
+* ***Transakcje*** nie są obsługiwane z powodu rozproszonego charakteru systemu.  Skonfiguruj odpowiedni model spójności na koncie Gremlin na "odczytywanie własnych zapisów" i Użyj optymistycznej współbieżności, aby rozwiązać konflikty zapisów.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-_ **Użycie indeksu dla zapytań Gremlin z `.V()` etapami przechodzenia w** dół: obecnie tylko pierwsze `.V()` wywołanie przechodzenia spowoduje użycie indeksu w celu rozpoznania dołączonych filtrów lub predykatów. Kolejne wywołania nie zapoznają się z indeksem, co może spowodować wydłużenie czasu oczekiwania i kosztów zapytania.
+* **Użycie indeksu dla zapytań Gremlin z `.V()` etapami przechodzenia do częściowej**: obecnie tylko pierwsze `.V()` wywołanie przechodzenia spowoduje użycie indeksu w celu rozpoznania dowolnych filtrów lub predykatów, do których dołączono. Kolejne wywołania nie zapoznają się z indeksem, co może spowodować wydłużenie czasu oczekiwania i kosztów zapytania.
     
 Przy założeniu domyślnego indeksowania, typowe zapytanie Gremlin odczytu, które rozpoczyna się od `.V()` kroku, będzie używać parametrów w dołączonych krokach filtrowania, takich jak `.has()` lub `.where()` w celu optymalizacji kosztu i wydajności zapytania. Na przykład:
 

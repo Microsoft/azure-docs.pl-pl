@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86133812"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji Dynamics AX   
@@ -99,7 +99,7 @@ Możesz utworzyć plan odzyskiwania w Site Recovery, aby zautomatyzować proces 
 
 1. Wybierz magazyn Site Recovery w ramach subskrypcji, a następnie wybierz kafelek **plany odzyskiwania** .
 
-2. Wybierz pozycję **+ plan odzyskiwania**i określ nazwę.
+2. Wybierz pozycję **+ plan odzyskiwania** i określ nazwę.
 
 3. Wybierz **Źródło** i **cel**. Celem może być platforma Azure lub lokacja dodatkowa. W przypadku wybrania platformy Azure należy określić model wdrażania.
 

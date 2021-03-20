@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać Azure DevTest Labs w Azure Pipelines kom
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080338"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Używanie usługi DevTest Labs w potokach kompilacji i wydań usługi Azure Pipelines
@@ -81,7 +81,7 @@ Tworzysz potok wersji z dwoma zadaniami: **Azure Deployment: Utwórz lub Zaktual
 
 Dla pierwszego zadania Określ nazwę i lokalizację grupy zasobów. Lokalizacja szablonu to połączony artefakt. Jeśli szablon Menedżer zasobów obejmuje połączone szablony, należy zaimplementować wdrożenie niestandardowej grupy zasobów. Szablon znajduje się w opublikowanym artefaktie drop. Przesłoń parametry szablonu dla szablonu Menedżer zasobów. Pozostałe ustawienia można pozostawić z wartościami domyślnymi. 
 
-W przypadku drugiego zadania **wdrażania Azure App Service**Określ subskrypcję platformy Azure, wybierz pozycję **aplikacja sieci Web** dla **typu aplikacji**, a dla **nazwy App Service**wartość **$ (witryna internetowa)** . Pozostałe ustawienia można pozostawić z wartościami domyślnymi. 
+W przypadku drugiego zadania **wdrażania Azure App Service** Określ subskrypcję platformy Azure, wybierz pozycję **aplikacja sieci Web** dla **typu aplikacji**, a dla **nazwy App Service** wartość **$ (witryna internetowa)** . Pozostałe ustawienia można pozostawić z wartościami domyślnymi. 
 
 ## <a name="test-run"></a>Przebieg testowy
 Teraz, gdy oba potoki zostały skonfigurowane, należy ręcznie utworzyć w kolejce kompilację i zobaczyć jej działanie. Następnym krokiem jest ustawienie odpowiedniego wyzwalacza dla kompilacji i połączenie kompilacji z potokiem wersji.
