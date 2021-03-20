@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 83976ed9d6f80b6c785cb84e74a0755472f9579f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 0146ff9ce3ec4821bee7ce34700ca4198bb23ddc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598868"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
 
@@ -22,7 +22,7 @@ Każdy klient korzystający z usług Azure Communications Services musi zostać 
 
 Inny typ uwierzytelniania korzysta z *tokenów dostępu użytkowników* do uwierzytelniania względem usług, które wymagają udziału użytkownika. Na przykład usługa Chat lub wywołująca korzysta z *tokenów dostępu użytkowników* , aby umożliwić Dodawanie użytkowników w wątku i konwersację ze sobą.
 
-## <a name="authentication-options"></a>Opcje uwierzytelniania:
+## <a name="authentication-options"></a>Opcje uwierzytelniania
 
 W poniższej tabeli przedstawiono biblioteki klienta usługi Azure Communication Services i ich opcje uwierzytelniania:
 
@@ -36,11 +36,23 @@ W poniższej tabeli przedstawiono biblioteki klienta usługi Azure Communication
 
 Każdą opcję autoryzacji można krótko opisać poniżej:
 
-- Uwierzytelnianie **klucza dostępu** jest odpowiednie dla aplikacji usługi działających w środowisku zaufanej usługi. Klucz dostępu można znaleźć w portalu usługi Azure Communication Services, a aplikacja usługi używa jej jako poświadczenia do inicjowania odpowiednich bibliotek klienckich. Zobacz przykład, w jaki sposób jest używany w [bibliotece klienta tożsamości](../quickstarts/access-tokens.md). Ponieważ klucz dostępu jest częścią parametrów połączenia zasobu, uwierzytelnianie za pomocą parametrów połączenia jest równoważne z uwierzytelnianiem przy użyciu klucza dostępu.
+### <a name="access-key"></a>Klucz dostępu
 
-- Uwierzytelnianie **tożsamości zarządzanej** zapewnia doskonałe zabezpieczenia i łatwość użycia w porównaniu z innymi opcjami autoryzacji. Na przykład przy użyciu usługi Azure AD nie trzeba przechowywać klucza dostępu do konta w kodzie, jak w przypadku autoryzacji klucza dostępu. Mimo że można nadal korzystać z autoryzacji klucza dostępu przy użyciu aplikacji usług komunikacyjnych, firma Microsoft zaleca przechodzenie do usługi Azure AD, jeśli to możliwe. Aby skonfigurować tożsamość zarządzaną, [Utwórz zarejestrowaną aplikację przy użyciu interfejsu wiersza polecenia platformy Azure](../quickstarts/managed-identity-from-cli.md). Następnie punkt końcowy i poświadczenia mogą służyć do uwierzytelniania bibliotek klienckich. Zobacz przykłady użycia [tożsamości zarządzanej](../quickstarts/managed-identity.md) .
+Uwierzytelnianie klucza dostępu jest odpowiednie dla aplikacji usługi działających w środowisku zaufanej usługi. Klucz dostępu można znaleźć w portalu usługi Azure Communication Services. Aplikacja usługi używa jej jako poświadczeń do inicjowania odpowiednich bibliotek klienckich. Zobacz przykład sposobu użycia w [bibliotece klienta tożsamości](../quickstarts/access-tokens.md). 
 
-- **Tokeny dostępu użytkowników** są generowane przy użyciu biblioteki klienta tożsamości i są skojarzone z użytkownikami utworzonymi w bibliotece klienta tożsamości. Zobacz przykład [tworzenia użytkowników i generowania tokenów](../quickstarts/access-tokens.md). Następnie tokeny dostępu użytkowników są używane do uwierzytelniania uczestników dodanych do konwersacji w programie Chat lub wywołaniu zestawu SDK. Aby uzyskać więcej informacji, zobacz [Dodawanie rozmowy do aplikacji](../quickstarts/chat/get-started.md). Uwierzytelnianie tokenu dostępu użytkowników jest różne w porównaniu z kluczem dostępu i uwierzytelnianiem tożsamości zarządzanej w celu uwierzytelnienia użytkownika, a nie zabezpieczonego zasobu platformy Azure.
+Ponieważ klucz dostępu jest częścią parametrów połączenia zasobu, uwierzytelnianie za pomocą parametrów połączenia jest równoważne z uwierzytelnianiem przy użyciu klucza dostępu.
+
+Jeśli chcesz ręcznie wywołać interfejsy API usługi ACS przy użyciu klucza dostępu, musisz podpisać żądanie. Podpisywanie żądania zostało szczegółowo opisane w [samouczku](../tutorials/hmac-header-tutorial.md).
+
+### <a name="managed-identity"></a>Tożsamość zarządzana
+
+Zarządzane tożsamości, zapewniają lepsze zabezpieczenia i łatwość użycia nad innymi opcjami autoryzacji. Na przykład przy użyciu usługi Azure AD unika się, aby nie trzeba było przechowywać klucza dostępu do konta w kodzie, jak w przypadku autoryzacji klucza dostępu. Mimo że można nadal korzystać z autoryzacji klucza dostępu przy użyciu aplikacji usług komunikacyjnych, firma Microsoft zaleca przechodzenie do usługi Azure AD, jeśli to możliwe. 
+
+Aby skonfigurować tożsamość zarządzaną, [Utwórz zarejestrowaną aplikację przy użyciu interfejsu wiersza polecenia platformy Azure](../quickstarts/managed-identity-from-cli.md). Następnie punkt końcowy i poświadczenia mogą służyć do uwierzytelniania bibliotek klienckich. Zobacz przykłady użycia [tożsamości zarządzanej](../quickstarts/managed-identity.md) .
+
+### <a name="user-access-tokens"></a>Tokeny dostępu użytkowników
+
+Tokeny dostępu użytkowników są generowane przy użyciu biblioteki klienta tożsamości i są skojarzone z użytkownikami utworzonymi w bibliotece klienta tożsamości. Zobacz przykład [tworzenia użytkowników i generowania tokenów](../quickstarts/access-tokens.md). Następnie tokeny dostępu użytkowników są używane do uwierzytelniania uczestników dodanych do konwersacji w programie Chat lub wywołaniu zestawu SDK. Aby uzyskać więcej informacji, zobacz [Dodawanie rozmowy do aplikacji](../quickstarts/chat/get-started.md). Uwierzytelnianie tokenu dostępu użytkowników jest różne w porównaniu z kluczem dostępu i uwierzytelnianiem tożsamości zarządzanej w celu uwierzytelnienia użytkownika, a nie zabezpieczonego zasobu platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

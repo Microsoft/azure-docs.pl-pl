@@ -9,10 +9,10 @@ ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6cc0855d3a4540de780a566a4613b4dbc647cfc5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369492"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrowanie serwerów z systemem Windows Server 2008 na platformę Azure
@@ -99,8 +99,8 @@ Wykonaj następujące zadania w celu przygotowania subskrypcji platformy Azure i
 
 ### <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com)  >  **Recovery Services**.
-2. Kliknij pozycję **Utwórz zasoby**  >  **Narzędzia do zarządzania**zasobami  >  **i Site Recovery**.
+1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com)  >  .
+2. Kliknij pozycję **Utwórz zasoby**  >  **Narzędzia do zarządzania** zasobami  >  **i Site Recovery**.
 3. W polu **Nazwa** podaj przyjazną nazwę **W2K8-migration**. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
 4. Utwórz grupę zasobów **w2k8migrate**.
 5. Określ region platformy Azure. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -120,7 +120,7 @@ Nowy magazyn zostanie dodany do sekcji **Pulpit nawigacyjny** w obszarze **Wszys
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe** infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ model wdrażania usługi Resource Manager.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 

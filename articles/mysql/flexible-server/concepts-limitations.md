@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
 ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543089"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Ograniczenia na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
@@ -68,7 +68,7 @@ Następujące elementy nie są obsługiwane:
 - Nieobsługiwane w warstwie obliczeniowej z możliwością naliczania.
 
 ### <a name="networking"></a>Sieć
-- Nie można zmienić metody łączności po utworzeniu serwera. Jeśli serwer został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , nie można go zmienić na *publiczny dostęp (dozwolone adresy IP)* po utworzeniu i odwrotnie
+- Nie można zmienić metody łączności po utworzeniu serwera. Jeśli serwer został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, nie można go zmienić na *publiczny dostęp (dozwolone adresy IP)* po utworzeniu i odwrotnie
 - Protokół TLS/SSL jest domyślnie włączony i nie można go wyłączyć.
 - Minimalna wersja protokołu TLS obsługiwana na serwerze to TLS 1.2. Aby dowiedzieć się więcej, zobacz [nawiązywanie połączenia za pomocą protokołu TLS/SSL](./how-to-connect-tls-ssl.md) .
 

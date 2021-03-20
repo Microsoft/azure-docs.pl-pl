@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0ed41cc01fcf5aa35b3d2195518b8e2bb0f3b9c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711845"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588243"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
@@ -26,7 +26,7 @@ Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plik�
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Zalecany system operacyjny     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
 |[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
-|Model rozliczeń         |[Płatność za zainicjowaną pojemność](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Płatność za obsługę administracyjną dla warstwy Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), [płatność zgodnie z rzeczywistym użyciem dla warstwy Standardowa](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
+|Model rozliczeń         |[Płatność za zainicjowaną pojemność](./understanding-billing.md#provisioned-model)         |[Płatność za obsługę administracyjną dla warstwy Premium](./understanding-billing.md#provisioned-model), [płatność zgodnie z rzeczywistym użyciem dla warstwy Standardowa](./understanding-billing.md#pay-as-you-go-model)         |
 |[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |

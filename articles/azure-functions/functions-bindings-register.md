@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88689569"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Rejestrowanie rozszerzeń powiązań Azure Functions
@@ -65,7 +65,7 @@ W przypadku projektu opartego na bibliotece klas języka C# rozszerzenia należy
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteka klas C z programem Visual Studio
 
-W programie **Visual Studio**można zainstalować pakiety z konsoli Menedżera pakietów za pomocą polecenia [install-package](/nuget/tools/ps-ref-install-package) , jak pokazano w następującym przykładzie:
+W programie **Visual Studio** można zainstalować pakiety z konsoli Menedżera pakietów za pomocą polecenia [install-package](/nuget/tools/ps-ref-install-package) , jak pokazano w następującym przykładzie:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -79,7 +79,7 @@ Jeśli używasz `Install-Package` , aby odwołać się do powiązania, nie musis
 
 ### <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteka klas języka C# z Visual Studio Code
 
-W **Visual Studio Code**Zainstaluj pakiety dla projektu biblioteki klas C# z wiersza polecenia przy użyciu polecenia [dotnet add Package](/dotnet/core/tools/dotnet-add-package) w interfejs wiersza polecenia platformy .NET Core. Poniższy przykład ilustruje sposób dodawania powiązania:
+W **Visual Studio Code** Zainstaluj pakiety dla projektu biblioteki klas C# z wiersza polecenia przy użyciu polecenia [dotnet add Package](/dotnet/core/tools/dotnet-add-package) w interfejs wiersza polecenia platformy .NET Core. Poniższy przykład ilustruje sposób dodawania powiązania:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

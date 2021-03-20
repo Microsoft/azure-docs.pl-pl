@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936711"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uaktualnianie wersji Azure Search .NET Management SDK
@@ -26,11 +26,11 @@ Zestawy SDK zarządzania są przeznaczone dla określonej wersji interfejsu API 
 
 | Wersja zestawu SDK | Odpowiadająca wersja interfejsu API REST | Dodawanie funkcji lub zmiana zachowania |
 |-------------|--------------------------------|-------------------------------------|
-| [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Dodaje zabezpieczenia punktu końcowego (zapory IP i integrację z [prywatnym łączem platformy Azure](../private-link/private-endpoint-overview.md)) |
-| [2,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Usprawnienia w zakresie użyteczności. Nieprzerwana zmiana [kluczy zapytania listy](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get jest wycofana). |
-| [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Pierwsza wersja |
+| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Dodaje zabezpieczenia punktu końcowego (zapory IP i integrację z [prywatnym łączem platformy Azure](../private-link/private-endpoint-overview.md)) |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Usprawnienia w zakresie użyteczności. Nieprzerwana zmiana [kluczy zapytania listy](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get jest wycofana). |
+| [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Pierwsza wersja |
 
-## <a name="how-to-upgrade"></a>Jak uaktualnić
+## <a name="how-to-upgrade"></a>Jak przeprowadzić uaktualnianie
 
 1. Zaktualizuj odwołanie do programu NuGet za `Microsoft.Azure.Management.Search` pomocą konsoli Menedżera pakietów NuGet lub klikając prawym przyciskiem myszy odwołania do projektu i wybierając pozycję "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
@@ -49,18 +49,18 @@ Wersja 3,0 dodaje prywatną ochronę punktu końcowego przez ograniczenie dostę
 | Interfejs API | Kategoria| Szczegóły |
 |-----|--------|------------------|
 | [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | Zapora IP | Ogranicz dostęp do punktu końcowego usługi do listy dozwolonych adresów IP. Zobacz [Konfigurowanie zapory IP](service-configure-firewall.md) dla koncepcji i instrukcje dotyczące portalu. |
-| [Zasób udostępnionego linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) | Link prywatny | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
-| [Połączenia prywatnego punktu końcowego](/rest/api/searchmanagement/privateendpointconnections) | Link prywatny | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
-| [Prywatne zasoby linku](/rest/api/searchmanagement/privatelinkresources/) | Link prywatny | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
-| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Link prywatny | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
+| [Zasób udostępnionego linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
+| [Połączenia prywatnego punktu końcowego](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
+| [Prywatne zasoby linku](/rest/api/searchmanagement/privatelinkresources/) | Private Link | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
 
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 
 Nie można już używać funkcji GET na [liście kluczy zapytań](/rest/api/searchmanagement/querykeys/listbysearchservice) . W poprzednich wersjach można było użyć opcji GET lub POST, w tej wersji i we wszystkich wersjach przenoszonych do przodu, obsługiwane są tylko pozycje POST. 
 
 ## <a name="upgrade-to-20"></a>Uaktualnij do 2,0
 
-Wersja 2 programu Azure Search .NET Management SDK jest drobnym uaktualnieniem, dlatego zmiana kodu powinna wymagać tylko minimalnego nakładu pracy. Zmiany w zestawie SDK są ścisłymi zmianami po stronie klienta, aby poprawić użyteczność samego zestawu SDK. Są to następujące zmiany:
+Wersja 2 programu Azure Search .NET Management SDK jest drobnym uaktualnieniem, dlatego zmiana kodu powinna wymagać tylko minimalnego nakładu pracy. Zmiany w zestawie SDK są ścisłymi zmianami po stronie klienta, aby poprawić użyteczność samego zestawu SDK. Są to m.in. następujące zmiany:
 
 * `Services.CreateOrUpdate` i jego wersje asynchroniczne teraz automatycznie sonduje Inicjowanie obsługi `SearchService` i nie zwracają do momentu ukończenia aprowizacji usługi. Dzięki temu możesz samodzielnie napisać ten kod sondowania.
 

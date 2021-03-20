@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 377abef31dbc4364f37161194923bbf74d272d80
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012295"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
@@ -20,7 +20,7 @@ Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządz
 
 Przykładowe zadanie odczytuje dane przesyłane strumieniowo z urządzenia usługi IoT Hub. Dane wejściowe są generowane przez symulator online urządzenia Raspberry Pi. Następnie zadanie usługi Stream Analytics przekształca dane za pomocą języka zapytań usługi Stream Analytics w celu filtrowania komunikatów, w których temperatura przekracza 27°. Na koniec zapisuje wynikowe zdarzenia wyjściowe w pliku w magazynie obiektów blob.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

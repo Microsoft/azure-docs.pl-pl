@@ -9,10 +9,10 @@ ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333447"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) przy użyciu programu PowerShell
@@ -27,7 +27,7 @@ W przypadku zarządzania różnymi platformami Azure Cosmos DB można użyć `Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Postępuj zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell][powershell-install-configure] , aby zainstalować i zalogować się do konta platformy Azure w programie PowerShell.
 

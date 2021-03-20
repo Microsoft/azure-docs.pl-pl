@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875013"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598137"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
 
 W tym artykule omówiono sposób rejestrowania i skanowania wystąpienia usługi Azure Synapse Analytics (dawniej SQL DW) w kontrolą.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Usługa Azure Synapse Analytics (wcześniej SQL DW) obsługuje pełne i przyrostowe skanowania w celu przechwytywania metadanych i schematu. Skanowanie umożliwia również automatyczne klasyfikowanie danych w oparciu o system i niestandardowe reguły klasyfikacji.
 
@@ -127,7 +127,7 @@ Aby zarejestrować nowy serwer usługi Azure Synapse Analytics w Data Catalog, w
 Na ekranie **Rejestr sources (Azure Synapse Analytics)** wykonaj następujące czynności:
 
 1. Wprowadź **nazwę** , z którą zostanie wyświetlone źródło danych w wykazie.
-1. Wybierz sposób wskazywania żądanego konta magazynu:
+1. Wybierz, w jaki sposób chcesz wskazać żądany SQL Server logiczny:
    1. Wybierz pozycję **z subskrypcji platformy Azure**, wybierz odpowiednią subskrypcję z listy rozwijanej **subskrypcja platformy Azure** i odpowiedni serwer w polu listy rozwijanej **Nazwa serwera** .
    1. Możesz też wybrać opcję **wprowadź ręcznie** i wprowadzić **nazwę serwera**.
 1. **Zakończ** , aby zarejestrować źródło danych.

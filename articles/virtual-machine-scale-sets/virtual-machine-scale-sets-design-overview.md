@@ -11,10 +11,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88648568"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
@@ -39,7 +39,7 @@ Niektóre funkcje są obecnie dostępne tylko na maszynach wirtualnych:
 - Pojedynczą maszynę wirtualną można migrować z dysków natywnych do usługi Managed disks, ale nie można migrować wystąpień maszyn wirtualnych w zestawie skalowania.
 - Publiczne adresy IP można przypisać do poszczególnych kart interfejsów sieci wirtualnej (nic), ale nie można tego zrobić dla wystąpień maszyn wirtualnych w zestawie skalowania. Publiczne adresy IP można przypisać do modułów równoważenia obciążenia przed indywidualnymi maszynami wirtualnymi lub maszynami wirtualnymi zestawów skalowania.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Zestawy skalowania przy użyciu usługi Azure Managed Disks
 Zestawy skalowania można tworzyć przy użyciu [usługi azure Managed disks](../virtual-machines/managed-disks-overview.md) zamiast tradycyjnych kont usługi Azure Storage. Managed Disks zapewnić następujące korzyści:

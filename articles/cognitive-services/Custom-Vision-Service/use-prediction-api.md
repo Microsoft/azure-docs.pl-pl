@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934756"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Korzystanie z modelu za pomocą interfejsu API przewidywania
@@ -27,7 +27,7 @@ Po nauczeniu modelu możesz programowo przetestować obrazy przez przesłanie ic
 
 ## <a name="publish-your-trained-iteration"></a>Publikowanie przeszkolonej iteracji
 
-Na stronie [Custom Vision ](https://customvision.ai) wybierz swój projekt, a następnie kartę __Wydajność__.
+Na stronie [Custom Vision](https://customvision.ai) wybierz swój projekt, a następnie kartę __Wydajność__.
 
 Aby przesłać obrazy do interfejsu API przewidywania, najpierw musisz opublikować iterację do prognozowania, którą można wykonać, wybierając pozycję __Publikuj__ i podając nazwę opublikowanej iteracji. Dzięki temu Twój model będzie dostępny dla interfejsu API przewidywania zasobów Custom Vision platformy Azure.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: e7fe68c2d0c51ffcc67693da722d9243ea3506f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91840799"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Samouczek: monitorowanie i diagnozowanie aplikacji platformy ASP.NET Core w usłudze Service Fabric przy użyciu usługi Application Insights
@@ -99,8 +99,8 @@ Poniżej przedstawiono procedurę konfigurowania pakietu NuGet:
 4. Po prawej stronie zaznacz dwa pola wyboru obok dwóch usług w aplikacji, **VotingWeb** i **VotingData** , a następnie wybierz pozycję **Zainstaluj**.
     ![Pakiet NuGet zestawu SDK usługi AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Wybierz pozycję **OK** w wyświetlonym oknie dialogowym *Podgląd zmian* i zaakceptuj *akceptację licencji*. Dodawanie pakietu NuGet do usług zostanie ukończone.
-6. Teraz musisz skonfigurować inicjator telemetrii w tych dwóch usługach. Aby to zrobić, Otwórz program *VotingWeb.cs* i *VotingData.cs*. W przypadku obu plików wykonaj następujące dwie czynności:
-    1. Dodaj te dwie instrukcje *using* w górnej części każdego * \<ServiceName> . cs*, po istniejącej instrukcji *using* :
+6. Teraz musisz skonfigurować inicjator telemetrii w tych dwóch usługach. Aby to zrobić, Otwórz program *VotingWeb. cs* i *VotingData. cs*. W przypadku obu plików wykonaj następujące dwie czynności:
+    1. Dodaj te dwie instrukcje *using* w górnej części każdego *\<ServiceName> . cs*, po istniejącej instrukcji *using* :
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -148,7 +148,7 @@ Poniżej przedstawiono procedurę konfigurowania pakietu NuGet:
         .Build();
     ```
 
-Sprawdź, czy `UseApplicationInsights()` Metoda jest wywoływana zarówno w *VotingWeb.cs* , jak i w *VotingData.cs* , jak pokazano powyżej.
+Sprawdź, czy `UseApplicationInsights()` Metoda jest wywoływana zarówno w *VotingWeb. cs* , jak i *VotingData. cs* , jak pokazano powyżej.
 
 >[!NOTE]
 >Przykładowa aplikacja używa protokołu HTTP dla zapewnienia komunikacji usług. W przypadku tworzenia aplikacji za pomocą wersji 2 zdalnej komunikacji usług musisz również dodać następujące wiersze kodu w tym samym miejscu co wcześniej.

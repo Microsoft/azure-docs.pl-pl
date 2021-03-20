@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86538007"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurowanie kontenerów aparatów rozpoznawania formularzy
@@ -35,7 +35,7 @@ Można skonfigurować środowisko uruchomieniowe kontenera aparatu rozpoznawania
 
 To `ApiKey` ustawienie określa klucz zasobów platformy Azure, który służy do śledzenia informacji rozliczeniowych dla kontenera. Wartość ApiKey musi być prawidłowym kluczem dla zasobu _aparatu rozpoznawania formularza_ , który jest określony `Billing` w sekcji "ustawienie konfiguracji rozliczeń".
 
-To ustawienie można znaleźć w Azure Portal w obszarze **klucze**w obszarze **Zarządzanie zasobami aparatu rozpoznawania formularzy**.
+To ustawienie można znaleźć w Azure Portal w obszarze **klucze** w obszarze **Zarządzanie zasobami aparatu rozpoznawania formularzy**.
 
 ## <a name="applicationinsights-setting"></a>Ustawienie ApplicationInsights
 
@@ -45,7 +45,7 @@ To ustawienie można znaleźć w Azure Portal w obszarze **klucze**w obszarze **
 
 `Billing`Ustawienie określa identyfikator URI punktu końcowego dla zasobu _aparatu rozpoznawania_ w systemie Azure, który służy do mierzenia informacji rozliczeniowych dla kontenera. Wartość tego ustawienia konfiguracji musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _aparatu rozpoznawania formularza_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
 
-To ustawienie można znaleźć w Azure Portal w sekcji **Omówienie aparatu rozpoznawania formularzy**w obszarze **punkt końcowy**.
+To ustawienie można znaleźć w Azure Portal w sekcji **Omówienie aparatu rozpoznawania formularzy** w obszarze **punkt końcowy**.
 
 |Wymagane| Nazwa | Typ danych | Opis |
 |--|------|-----------|-------------|
@@ -86,7 +86,7 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń. Gdy jest uruchomiona, kontener kontynuuje działanie, dopóki nie zostanie [zatrzymany](form-recognizer-container-howto.md#stop-the-container).
 
 * **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego ( \\ ) jako znaku kontynuacji wiersza. Zastąp lub Usuń ten znak, w zależności od wymagań systemu operacyjnego hosta.
-* **Kolejność**argumentów: nie zmieniaj kolejności argumentów, chyba że znasz kontenery Docker.
+* **Kolejność** argumentów: nie zmieniaj kolejności argumentów, chyba że znasz kontenery Docker.
 
 Zastąp {_argument_name_} w poniższej tabeli własnymi wartościami:
 

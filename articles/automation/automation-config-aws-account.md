@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: acb056fb959fda320a14059e2b36a0f5e3fb0b37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83837193"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Uwierzytelnianie elementów runbook w usłudze Amazon Web Services
@@ -33,7 +33,7 @@ Poświadczenia AWS muszą być przechowywane jako zasoby w Azure Automation. Aby
 
 Po utworzeniu i skopiowaniu kluczy zabezpieczeń AWS należy utworzyć zasób poświadczeń przy użyciu konta usługi Automation. Zasób umożliwia bezpieczne przechowywanie kluczy AWS i odwoływanie się do nich w elementach Runbook. Zobacz [Tworzenie nowego zasobu poświadczeń przy użyciu Azure Portal](shared-resources/credentials.md#create-a-new-credential-asset-with-the-azure-portal). Wprowadź następujące informacje AWS w udostępnionych polach:
     
-* **Nazwa**  -  **AWScred**lub odpowiednią wartość zgodnie ze standardami nazewnictwa
+* **Nazwa**  -  **AWScred** lub odpowiednią wartość zgodnie ze standardami nazewnictwa
 * **Nazwa użytkownika** — identyfikator dostępu
 * **Hasło** — nazwa klucza tajnego 
 

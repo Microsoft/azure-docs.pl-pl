@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650732"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599218"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -66,6 +66,7 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 | Wyszukiwanie opinii | ✔ |  |
 | Wyodrębnianie kluczowych fraz | ✔ | ✔* |
 | Rozpoznawanie jednostek nazwanych (w tym dane OSOBowe i PHI) | ✔ | ✔* |
+| Łączenie jednostek | ✔ | ✔* |
 | Analiza tekstu dla kondycji (kontener) | ✔ |  |
 | Analiza tekstu dla kondycji (API) |  | ✔  |
 
@@ -120,6 +121,7 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 
 * Wyodrębnianie kluczowych fraz 
 * Rozpoznawanie jednostek nazwanych (w tym dane OSOBowe i PHI)
+* Łączenie jednostek
 
 | Element | Prawidłowe wartości | Wymagane? | Użycie |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 |`documents` | Zawiera `id` pola i `text` poniżej | Wymagane | Zawiera informacje dotyczące każdego wysyłanego dokumentu oraz nieprzetworzony tekst dokumentu. |
 |`id` | Ciąg | Wymagane | Wprowadzone identyfikatory są używane do struktury danych wyjściowych. |
 |`text` | Nieprzetworzony tekst nieprzebudowany, do 125 000 znaków. | Wymagane | Musi być w języku angielskim, który jest obecnie obsługiwanym językiem. |
-|`tasks` | Program zawiera następujące funkcje analiza tekstu: `entityRecognitionTasks` , `keyPhraseExtractionTasks` lub `entityRecognitionPiiTasks` . | Wymagane | Co najmniej jedna z funkcji analiza tekstu, które mają być używane. Należy pamiętać, że `entityRecognitionPiiTasks` ma opcjonalny `domain` parametr, który można ustawić na `pii` lub `phi` . Jeśli nie zostanie określony, system ma wartość domyślną `pii` . |
+|`tasks` | Program zawiera następujące funkcje analiza tekstu: `entityRecognitionTasks` , `entityLinkingTasks` , `keyPhraseExtractionTasks` lub `entityRecognitionPiiTasks` . | Wymagane | Co najmniej jedna z funkcji analiza tekstu, które mają być używane. Należy pamiętać, że `entityRecognitionPiiTasks` ma opcjonalny `domain` parametr, który może być ustawiony na `pii` lub `phi` i na `pii-categories` potrzeby wykrywania wybranych typów jednostek. Jeśli `domain` parametr jest nieokreślony, system ma wartość domyślną `pii` . |
 |`parameters` | Zawiera `model-version` pola i `stringIndexType` poniżej | Wymagane | To pole jest zawarte w wybranych zadaniach funkcji. Zawierają one informacje o wersji modelu, która ma być używana, oraz typu indeksu. |
 |`model-version` | Ciąg | Wymagane | Określ, która wersja modelu jest wywoływana, która ma być używana.  |
 |`stringIndexType` | Ciąg | Wymagane | Określ dekoder tekstu, który jest zgodny ze środowiskiem programowania.  Obsługiwane typy to `textElement_v8` (domyślnie), `unicodeCodePoint` , `utf16CodeUnit` . Więcej informacji można znaleźć w [artykule przesunięcia tekstu](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
@@ -158,6 +160,14 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -231,16 +244,16 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 | Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
-| Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/health` punktu końcowego
 
 | Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
-| Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Anuluj zadanie | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Anuluj zadanie | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -278,7 +291,7 @@ Jeśli wywołanie asynchroniczne `/analyze` lub końcowe zostało wykonane `/hea
 1. W odpowiedzi interfejsu API Znajdź `Operation-Location` z nagłówka, który identyfikuje zadanie wysłane do interfejsu API. 
 2. Utwórz żądanie GET dla używanego punktu końcowego. Zapoznaj się z [powyższą tabelą](#set-up-a-request) w polu Format punktu końcowego i zapoznaj się z [dokumentacją interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Na przykład:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. Dodaj `Operation-Location` do żądania.
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090832"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588400"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
 
@@ -76,6 +76,17 @@ Aby przeprowadzić integrację z usługą Azure wiosną Cloud, wykonaj następuj
 1.  **Użyj sondy niestandardowej**: wybierz opcję *tak* , a następnie wybierz niestandardową sondę utworzoną powyżej.
 
     ![App Gateway 3](media/spring-cloud-load-balancers/app-gateway-3.png)
+
+### <a name="configure-rewrite-set"></a>Skonfiguruj zestaw do ponownego zapisywania
+1.  Wybierz pozycję **Przepisz** ponownie i ponownie **Napisz zestaw** , aby dodać zestaw do wielokrotnego zapisu.
+1.  Wybierz reguły routingu, które kierują żądania do publicznych punktów końcowych chmury platformy Azure.
+1.  Na karcie **Konfiguracja reguły ponownego zapisywania** wybierz pozycję **Dodaj regułę ponownego zapisywania**.
+1.  **Typ ponownego zapisywania**: Wybieranie **nagłówka żądania**
+1.  **Typ akcji**: wybierz pozycję **Usuń** .
+1.  **Nazwa nagłówka**: Wybierz **wspólny nagłówek**
+1.  **Wspólny nagłówek**: SELECT **X-Forwarded-proto**
+
+    ![App Gateway 4](media/spring-cloud-load-balancers/app-gateway-4.png)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Integruj chmurę z platformą Azure z usługą Azure front-drzwi
 

@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919492"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>Wprowadzenie do biblioteki Azure CDN dla platformy .NET
@@ -62,7 +62,7 @@ Nasz projekt będzie używać niektórych bibliotek platformy Azure zawartych w 
 ## <a name="directives-constants-main-method-and-helper-methods"></a>Dyrektywy, stałe, Metoda Main i metody pomocnika
 Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
-1. Po powrocie na karcie Program.cs Zastąp `using` dyrektywy w górnej części:
+1. Po powrocie na kartę program. cs Zastąp `using` dyrektywy w górnej części:
 
     ```csharp
     using System;
@@ -74,7 +74,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  W `Program` klasie, ale przed `Main` metodą, Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt; nawiasy &gt; kątowe**, z własnymi wartościami, zgodnie z potrzebami.
+2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  W `Program` klasie, ale przed `Main` metodą, Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym **&lt; nawiasy &gt; kątowe**, z własnymi wartościami, zgodnie z potrzebami.
 
     ```csharp
     //Tenant app constants
@@ -156,7 +156,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 Teraz, gdy podstawowa struktura naszego programu jest zapisywana, należy utworzyć metody wywoływane przez `Main` metodę.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Zanim będziemy mogli korzystać z biblioteki zarządzania Azure CDN, musimy uwierzytelnić naszą nazwę główną usługi i uzyskać token uwierzytelniania.  Ta metoda używa biblioteki ADAL do pobrania tokenu.
 
 ```csharp

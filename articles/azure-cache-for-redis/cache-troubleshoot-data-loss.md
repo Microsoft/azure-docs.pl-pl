@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538599"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Rozwiązywanie problemów z utratą danych w usłudze Azure Cache for Redis
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Nieprawidłowy wybór bazy danych
 
-Usługa Azure cache for Redis domyślnie używa bazy danych **DB0** . Jeśli przełączysz się do innej bazy danych (na przykład **DB1** ) i spróbujesz odczytać z niej klucze, usługa Azure cache for Redis nie będzie tam znajdować. Każda baza danych jest logicznie oddzielną jednostką i zawiera inny zestaw danych. Użyj polecenia [SELECT](https://redis.io/commands/select) , aby użyć innych dostępnych baz danych i wyszukać klucze w każdym z nich.
+Usługa Azure cache for Redis domyślnie używa bazy danych **DB0** . Jeśli przełączysz się do innej bazy danych (na przykład **DB1**) i spróbujesz odczytać z niej klucze, usługa Azure cache for Redis nie będzie tam znajdować. Każda baza danych jest logicznie oddzielną jednostką i zawiera inny zestaw danych. Użyj polecenia [SELECT](https://redis.io/commands/select) , aby użyć innych dostępnych baz danych i wyszukać klucze w każdym z nich.
 
 ### <a name="redis-instance-failure"></a>Niepowodzenie wystąpienia Redis
 

@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91813257"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
-W tym artykule wyjaśniono, jak przywrócić dane z magazynu kopii zapasowych. Aby przywrócić dane, użyj Kreatora odzyskiwania danych w agencie Microsoft Azure Recovery Services (MARS). Dostępne możliwości:
+W tym artykule wyjaśniono, jak przywrócić dane z magazynu kopii zapasowych. Aby przywrócić dane, użyj Kreatora odzyskiwania danych w agencie Microsoft Azure Recovery Services (MARS). Oto co możesz zrobić:
 
 * Przywróć dane do tego samego komputera, z którego wykonano kopie zapasowe.
 * Przywracanie danych do alternatywnej maszyny.
@@ -43,7 +43,7 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > **Next**.
+4. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > .
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania (Przywróć na ten sam komputer)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -109,11 +109,11 @@ Te kroki obejmują następującą terminologię:
 
     Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), [Pobierz nowy plik poświadczeń magazynu z przykładowego magazynu](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) w Azure Portal. Po podaniu prawidłowego poświadczenia magazynu zostanie wyświetlona nazwa odpowiedniego magazynu kopii zapasowych.
 
-6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz pozycję **Dalej**.
+6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz przycisk **Dalej**.
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych — strona wybierz serwer kopii zapasowej (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery**  >  **Next**.
+7. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery**  >  .
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 

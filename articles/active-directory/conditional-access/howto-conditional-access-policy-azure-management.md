@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366177"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla zarządzania na platformie Azure
@@ -42,16 +42,16 @@ Zasady dostępu warunkowego to zaawansowane narzędzia, dlatego zalecamy wyklucz
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagały dostępu do Microsoft Azure aplikacji [zarządzania](concept-conditional-access-cloud-apps.md#microsoft-azure-management) w celu przeprowadzania uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
-   1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
-1. W **obszarze aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **Wybierz aplikacje**, wybierz pozycję **Microsoft Azure zarządzanie**, a następnie wybierz pozycję **Wybierz** **gotowe**.
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy użytkownicy**.
+   1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
+   1. Kliknij **Gotowe**.
+1. W **obszarze aplikacje lub akcje w chmurze**  >  wybierz pozycję **Wybierz aplikacje**, wybierz pozycję **Microsoft Azure zarządzanie**, a następnie wybierz pozycję **Wybierz** **gotowe**.
 1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** w obszarze **Wybierz aplikacje klienckie te zasady zostaną zastosowane, aby** pozostawić wszystkie ustawienia domyślne, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+1. W obszarze **Kontrola dostępu**  >  **przyznawanie** wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

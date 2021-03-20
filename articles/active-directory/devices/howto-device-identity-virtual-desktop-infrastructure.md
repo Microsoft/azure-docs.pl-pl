@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96029351"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
@@ -56,7 +56,7 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzanie | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 | Zarejestrowane w usłudze Azure AD | Federacyjne/zarządzane | Windows na poziomie bieżącym/Windows | Trwały/nietrwały | Nie dotyczy |
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: aahi
-ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673057"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599144"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
-Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z aspektami (takimi jak atrybuty produktów lub usług) w tekście. 
+Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z wyrazami (np. z atrybutami produktów lub usług) w tekście. 
 
 Modele AI używane przez interfejs API są udostępniane przez usługę. Wystarczy przesłać zawartość do analizy.
 
@@ -49,9 +49,9 @@ Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznac
 
 ## <a name="opinion-mining"></a>Wyszukiwanie opinii
 
-Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji zapoznawczej 3,1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
+Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji zapoznawczej 3,1. Funkcja ta zapewnia także bardziej szczegółowe informacje o opiniach dotyczących atrybutów produktów lub usług w tekście, znane również jako analiza tonacji oparte na aspektach. Interfejs API prezentuje Opinie jako cel (rzeczownik lub czasownik) i ocenę (przymiotnik).
 
-Na przykład, jeśli klient opuści opinię na temat hotelu, na przykład "Pokój był świetny, ale personel był nieznajomy" ", Opinia dotycząca wyszukiwania będzie lokalizować aspekty w tekście oraz ich powiązane Opinie i mową. Analiza tonacji może zgłosić tylko ujemną tonacji.
+Na przykład jeśli klient opuści opinię na temat hotelu, na przykład "Pokój był świetny, ale personel był nieznajomy" ", opinia o przeszukiwaniu będzie lokalizować cele (aspekty) w tekście, a także powiązane oceny (Opinie) i mową. Analiza tonacji może zgłosić tylko ujemną tonacji.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagram przedstawiający przykład wyszukiwania opinii" lightbox="../media/how-tos/opinion-mining.png":::
 
@@ -72,7 +72,7 @@ Rozmiar dokumentu musi zawierać 5 120 znaków na dokument. Aby uzyskać maksyma
 
 Utwórz żądanie POST. Możesz [użyć programu Poster](text-analytics-how-to-call-api.md) lub **konsoli testowania interfejsu API** w poniższych linkach referencyjnych, aby szybko ją i ją wysłać. 
 
-#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
 
 [Dokumentacja analiza tonacji v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -89,17 +89,17 @@ Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu anali
 > [!NOTE]
 > Możesz znaleźć klucz i punkt końcowy dla zasobu analiza tekstu na Azure Portal. Zostaną one umieszczone na stronie **szybkiego startu** zasobu w obszarze **Zarządzanie zasobami**. 
 
-#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
 
 **Analiza tonacji**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **Wyszukiwanie opinii**
 
 Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Na przykład:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 Ten parametr jest domyślnie ustawiony na wartość `false` . 
 
@@ -142,7 +142,7 @@ Interfejs API analizy tekstu jest bezstanowy. Na Twoim koncie nie są przechowyw
 
 Dane wyjściowe są zwracane natychmiast. Można przesyłać strumieniowo wyniki do aplikacji, która akceptuje kod JSON lub zapisuje dane wyjściowe do pliku w systemie lokalnym. Następnie zaimportuj dane wyjściowe do aplikacji, która może być używana do sortowania, wyszukiwania i manipulowania danymi. Ze względu na obsługę wielojęzycznych i emoji, odpowiedź może zawierać przesunięcia tekstu. Aby uzyskać więcej informacji [, zobacz Jak przetwarzać przesunięcia](../concepts/text-offsets.md) .
 
-#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Przykład odpowiedzi wyszukiwania analiza tonacji i opinii
 
@@ -151,97 +151,99 @@ Dane wyjściowe są zwracane natychmiast. Można przesyłać strumieniowo wyniki
 
 Analiza tonacji v 3.1 może zwracać obiekty odpowiedzi zarówno dla analiza tonacji, jak i do wyszukiwania opinii.
   
-Analiza tonacji zwraca etykietę tonacji i wynik pewności dla całego dokumentu oraz każde zdanie w nim. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dokument może zawierać wiele zdań, a wyniki pewności w ramach każdego dokumentu lub zdania są dodawane do 1.
+Analiza tonacji zwraca etykietę tonacji i wynik pewności dla całego dokumentu oraz każde zdanie w nim. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dokument może zawierać wiele zdań, a wyniki pewności w ramach każdego dokumentu lub zdania są dodawane do 1. oceny 
 
-Opinia wyszukiwania będzie lokalizować aspekty w tekście oraz ich powiązane Opinie i mową. W poniższej odpowiedzi zdanie *w restauracji miało doskonałą żywność i nasz oczekiwał* ma dwa aspekty: *żywność* i *zaczekaj*. Każda właściwość aspektu `relations` zawiera `ref` wartość z odwołaniem identyfikatora URI do skojarzonych `documents` , `sentences` i `opinions` obiektów.
+Celem wyszukiwania opinii będzie lokalizowanie obiektów docelowych (rzeczowników lub czasowników) w tekście i skojarzonych z nimi ocen (przymiotnik). W poniższej odpowiedzi zdanie *w restauracji miało doskonałą żywność i nasz obiekt oczekiwał* ma dwa cele: *żywność* i *oczekujące*. Każda właściwość docelowa `relations` zawiera `ref` wartość z odwołaniem identyfikatora URI do skojarzonych `documents` , `sentences` i `assessments` obiektów.
+
+Interfejs API zwraca Opinie jako element docelowy (rzeczownik lub czasownik) i ocenę (przymiotnik).
 
 ```json
 {
-    "documents": [
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
         {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
                 {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly.",
-                    "aspects": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 25,
-                            "length": 4,
-                            "text": "food",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/0"
-                                }
-                            ]
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 38,
-                            "length": 6,
-                            "text": "waiter",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/1"
-                                }
-                            ]
-                        }
-                    ],
-                    "opinions": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 19,
-                            "length": 5,
-                            "text": "great",
-                            "isNegated": false
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 49,
-                            "length": 8,
-                            "text": "friendly",
-                            "isNegated": false
-                        }
-                    ]
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
                 }
-            ],
-            "warnings": []
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
         }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 
@@ -297,7 +299,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy analizy tonacji przy u�
 + Użyj `opinionMining=true` w żądaniach analizy Sentient, aby uzyskać wyniki wyszukiwania.
 + Dane wyjściowe odpowiedzi, które składają się z wyniku tonacji dla każdego identyfikatora dokumentu, mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON. Na przykład program Excel i Power BI.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/client-libraries-rest-api.md)

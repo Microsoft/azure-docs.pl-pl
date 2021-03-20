@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 72f279d90d071b0e5fe7f552a05474bc3b37a82e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011037"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Rozwiązywanie problemów z bramą Virtual Network i połączeniami przy użyciu usługi Azure Network Watcher
@@ -34,7 +34,7 @@ W tym artykule przedstawiono różne zadania zarządzania, które są obecnie do
 - [**Rozwiązywanie problemów z bramą Virtual Network**](#troubleshoot-a-virtual-network-gateway)
 - [**Rozwiązywanie problemów z połączeniem**](#troubleshoot-connections)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ARMclient jest używany do wywoływania interfejsu API REST przy użyciu programu PowerShell. ARMClient można znaleźć na czekolady w [ARMClient na czekoladie](https://chocolatey.org/packages/ARMClient)
 

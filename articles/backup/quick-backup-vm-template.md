@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: e64aa10d8ddadd367d04b2b480770a99f3ece1dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88826535"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Szybki Start: Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu szablonu ARM

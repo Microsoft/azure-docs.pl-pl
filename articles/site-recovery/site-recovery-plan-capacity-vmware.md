@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368030"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planowanie pojemności i skalowanie na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure
@@ -132,7 +132,7 @@ W przypadku skalowania wdrożenia poza 200 maszynami źródłowymi lub w przypad
 2. Kliknij prawym przyciskiem myszy aktualnie używany serwer przetwarzania, a następnie wybierz polecenie **Przełącz**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe serwer konfiguracji](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. Na stronie **Wybierz docelowy serwer przetwarzania**wybierz nowy serwer przetwarzania, którego chcesz użyć. Następnie wybierz maszyny wirtualne, które będą obsługiwane przez serwer. Aby uzyskać informacje o serwerze, wybierz ikonę informacji. Aby ułatwić podejmowanie decyzji dotyczących obciążenia, zostanie wyświetlony średni obszar, który jest wymagany do replikowania każdej wybranej maszyny wirtualnej na nowy serwer przetwarzania. Zaznacz znacznik wyboru, aby rozpocząć replikację do nowego serwera przetwarzania.
+3. Na stronie **Wybierz docelowy serwer przetwarzania** wybierz nowy serwer przetwarzania, którego chcesz użyć. Następnie wybierz maszyny wirtualne, które będą obsługiwane przez serwer. Aby uzyskać informacje o serwerze, wybierz ikonę informacji. Aby ułatwić podejmowanie decyzji dotyczących obciążenia, zostanie wyświetlony średni obszar, który jest wymagany do replikowania każdej wybranej maszyny wirtualnej na nowy serwer przetwarzania. Zaznacz znacznik wyboru, aby rozpocząć replikację do nowego serwera przetwarzania.
 
 ## <a name="deploy-additional-master-target-servers"></a>Wdrażanie dodatkowych głównych serwerów docelowych
 
@@ -146,7 +146,7 @@ Aby dowiedzieć się, jak dodać główny serwer docelowy dla maszyny wirtualnej
 
 Aby dodać główny serwer docelowy dla maszyny wirtualnej z systemem Windows:
 
-1. Przejdź do **magazynu Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji**infrastruktury.
+1. Przejdź do **magazynu Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji** infrastruktury.
 2. Wybierz wymagany serwer konfiguracji, a następnie wybierz opcję **główny serwer docelowy**.
 
     ![Zrzut ekranu przedstawiający przycisk Dodaj główny serwer docelowy](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
@@ -165,7 +165,7 @@ Aby dodać główny serwer docelowy dla maszyny wirtualnej z systemem Windows:
     ![Zrzut ekranu pokazujący, gdzie wprowadzić adres IP i hasło dla serwera konfiguracji](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Wybierz pozycję **Zarejestruj**. Po zakończeniu rejestracji wybierz pozycję **Zakończ**.
 
-Po pomyślnym zakończeniu rejestracji serwer jest wymieniony w Azure Portal w **magazynie Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji**infrastruktury na głównych serwerach docelowych serwera konfiguracji.
+Po pomyślnym zakończeniu rejestracji serwer jest wymieniony w Azure Portal w **magazynie Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji** infrastruktury na głównych serwerach docelowych serwera konfiguracji.
 
  > [!NOTE]
  > Pobierz najnowszą wersję [ujednoliconego pliku instalacji głównego serwera docelowego dla systemu Windows](https://aka.ms/latestmobsvc).

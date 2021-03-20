@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934841"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funkcje geoprzestrzenne OData w systemie Azure Wyszukiwanie poznawcze — `geo.distance` i `geo.intersects`
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje zapytania przestrzenne geograficzne w [wyrażeniach filtru OData](query-odata-filter-orderby-syntax.md) za pośrednictwem `geo.distance` `geo.intersects` funkcji i. `geo.distance`Funkcja zwraca odległość w kilometrach między dwoma punktami, jedną jako zmienną pola lub zakres i jedną z nich jest stałą przekazaną w ramach filtra. `geo.intersects`Funkcja zwraca `true` , jeśli dany punkt znajduje się w obrębie danego wielokąta, gdzie punkt jest zmienną pola lub zakresu, a Wielokąt jest określony jako element stały przekazany jako część filtru.
 
-`geo.distance`Funkcji można także użyć w [parametrze **$OrderBy** ](search-query-odata-orderby.md) , aby posortować wyniki wyszukiwania według odległości od danego punktu. Składnia dla `geo.distance` w **$OrderBy** jest taka sama jak w **$Filter**. W przypadku korzystania `geo.distance` z programu w **$OrderBy**pole, do którego ma zastosowanie, musi być typu, `Edm.GeographyPoint` a także do **sortowania**.
+`geo.distance`Funkcji można także użyć w [parametrze **$OrderBy**](search-query-odata-orderby.md) , aby posortować wyniki wyszukiwania według odległości od danego punktu. Składnia dla `geo.distance` w **$OrderBy** jest taka sama jak w **$Filter**. W przypadku korzystania `geo.distance` z programu w **$OrderBy** pole, do którego ma zastosowanie, musi być typu, `Edm.GeographyPoint` a także do **sortowania**.
 
 > [!NOTE]
 > W przypadku używania `geo.distance` parametrów **$OrderBy** pole przekazywane do funkcji musi zawierać tylko jeden punkt geograficzny. Innymi słowy, musi być typu `Edm.GeographyPoint` i nie `Collection(Edm.GeographyPoint)` . Nie można sortować według pól kolekcji na platformie Azure Wyszukiwanie poznawcze.

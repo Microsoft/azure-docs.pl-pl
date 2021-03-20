@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936507"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
@@ -76,7 +76,7 @@ Istnieje kilka rozwiązań:
 * Traceexception [()](#exceptions) wysyła ślady stosu. [Więcej informacji o wyjątkach](#exceptions).
 * Jeśli używasz już platformy rejestrowania, takiej jak Log4Net lub NLog, możesz [przechwytywać te dzienniki](asp-net-trace-logs.md) i wyświetlać je w przeszukiwaniu diagnostycznym obok danych żądania i wyjątków.
 
-Aby wyświetlić te zdarzenia, Otwórz [Wyszukiwanie](./diagnostic-search.md) w menu po lewej stronie, wybierz **typy zdarzeń**menu rozwijanego, a następnie wybierz zdarzenie niestandardowe, śledzenie lub wyjątek.
+Aby wyświetlić te zdarzenia, Otwórz [Wyszukiwanie](./diagnostic-search.md) w menu po lewej stronie, wybierz **typy zdarzeń** menu rozwijanego, a następnie wybierz zdarzenie niestandardowe, śledzenie lub wyjątek.
 
 ![Przeglądanie szczegółowe](./media/asp-net-exceptions/customevents.png)
 
@@ -95,7 +95,7 @@ Szczegóły żądania nie obejmują danych wysyłanych do aplikacji w wywołaniu
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Przechwytywanie wyjątków i powiązanych danych diagnostycznych
 Na początku nie zobaczysz w portalu wszystkich wyjątków, które powodują błędy w aplikacji. Zobaczysz dowolne wyjątki przeglądarki (Jeśli używasz [zestawu JavaScript SDK](./javascript.md) na stronach sieci Web). Jednak większość wyjątków serwera są przechwytywane przez usługi IIS i trzeba napisać bit kodu, aby je zobaczyć.
 
-Można:
+Oto co możesz zrobić:
 
 * **Rejestruj wyjątki jawnie** przez wstawianie kodu w obsłudze wyjątków w celu zgłoszenia wyjątków.
 * **Automatycznie Przechwytuj wyjątki** przez skonfigurowanie platformy ASP.NET. Niezbędne Dodatki są różne dla różnych typów platform.
@@ -184,7 +184,7 @@ public class GoodController : ApiController
 ## <a name="web-forms"></a>Formularze sieci Web
 W przypadku formularzy sieci Web moduł HTTP będzie mógł zbierać wyjątki, gdy nie ma żadnych przekierowań skonfigurowanych dla usługi CustomErrors.
 
-Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji Application_Error w Global.asax.cs. (Dodaj plik Global. asax, jeśli jeszcze go nie masz).
+Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji Application_Error w elemencie Global. asax. cs. (Dodaj plik Global. asax, jeśli jeszcze go nie masz).
 
 ```csharp
     void Application_Error(object sender, EventArgs e)
@@ -259,7 +259,7 @@ Zastąp atrybut HandleError nowym atrybutem na kontrolerach.
 [Przykład](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global.asax.cs:
+Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global. asax. cs:
 
 ```csharp
     public class MyMvcApplication : System.Web.HttpApplication
@@ -274,7 +274,7 @@ Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global.asax.cs:
 [Przykład](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
-Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
+Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig. cs:
 
 ```csharp
     public class FilterConfig

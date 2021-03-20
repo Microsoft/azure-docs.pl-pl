@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922824"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funkcja OData na platformie Azure wyszukiwanie poznawcze
@@ -74,7 +74,7 @@ Istnieją dwa przeciążenia `search.in` funkcji:
 
 Parametry są zdefiniowane w poniższej tabeli:
 
-| Nazwa parametru | Type | Opis |
+| Nazwa parametru | Typ | Opis |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Odwołanie do pola ciągu (lub zmienna zakresu w polu kolekcji ciągów w przypadku, gdzie `search.in` jest używana wewnątrz `any` `all` wyrażenia OR). |
 | `valueList` | `Edm.String` | Ciąg zawierający rozdzielaną listę wartości, które mają być zgodne z `variable` parametrem. Jeśli `delimiters` parametr nie jest określony, domyślne ograniczniki są spacjami i przecinkami. |

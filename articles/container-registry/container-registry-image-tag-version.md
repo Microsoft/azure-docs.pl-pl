@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75445739"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Zalecenia dotyczące tagowania i przechowywania wersji obrazów kontenerów
@@ -49,7 +49,7 @@ Jeśli obraz z stabilnym znacznikiem zostanie zaktualizowany, oznakowany wcześn
 Unikatowe znakowanie oznacza po prostu, że każdy obraz wypychany do rejestru ma unikatowy tag. Tagi nie są ponownie używane. Istnieje kilka wzorców, które można wykonać, aby generować unikatowe Tagi, w tym:
 
 * **Sygnatura daty i godziny** — ta metoda jest dość powszechna, ponieważ można jasno określić, kiedy obraz został skompilowany. Ale jak skorelować ją z powrotem do systemu kompilacji? Czy musisz znaleźć kompilację, która została ukończona w tym samym czasie? W jakiej strefie czasowej jesteś? Czy wszystkie systemy kompilacji zostały skalibrowane do czasu UTC?
-* **Zatwierdzenie git**  — to podejście działa do momentu rozpoczęcia obsługi aktualizacji obrazu podstawowego. W przypadku aktualizacji obrazu podstawowego system kompilacji rozpoczyna pracę z tym samym zatwierdzeniem git co poprzednią kompilację. Obraz podstawowy ma jednak nową zawartość. Ogólnie rzecz biorąc, zatwierdzenie git zawiera tag *częściowo*stabilny.
+* **Zatwierdzenie git**  — to podejście działa do momentu rozpoczęcia obsługi aktualizacji obrazu podstawowego. W przypadku aktualizacji obrazu podstawowego system kompilacji rozpoczyna pracę z tym samym zatwierdzeniem git co poprzednią kompilację. Obraz podstawowy ma jednak nową zawartość. Ogólnie rzecz biorąc, zatwierdzenie git zawiera tag *częściowo* stabilny.
 * **Szyfrowanie manifestu** — każdy obraz kontenera wypychany do rejestru kontenerów jest skojarzony z manifestem, identyfikowanym przez unikatowy skrót SHA-256 lub skrótem. Chociaż unikatowy, skrót jest długi, trudny do odczytania i nieskorelowany ze środowiskiem kompilacji.
 * **Identyfikator kompilacji** — ta opcja może być Najlepsza, ponieważ jest najprawdopodobniej przyrostowa i umożliwia korelację z powrotem z konkretną kompilacją w celu znalezienia wszystkich artefaktów i dzienników. Jednak takie jak szyfrowanie manifestu może być trudne do odczytania przez człowieka.
 

@@ -7,36 +7,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/02/2020
+ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 614d0fe69cee88791559758d5e08dda66672669b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 805c726d33f2050f6f2797c0689069aa5ec4ee71
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097302"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599315"
 ---
-[Analiza tekstu na potrzeby kondycji](../../how-tos/text-analytics-for-health.md) wykrywa koncepcje medyczne w następujących kategoriach.  (Należy pamiętać, że w tej wersji zapoznawczej kontenera jest obsługiwany tylko tekst w języku angielskim, a w każdym obrazie kontenera jest dostępny tylko jeden model).
+[Analiza tekstu procesów kondycji](../../how-tos/text-analytics-for-health.md) i wyodrębniania szczegółowych informacji z danych medycznych bez struktury. Usługa wykrywa i wyświetla koncepcje medyczne, przypisuje potwierdzenia do koncepcji, ustala relacje semantyczne między pojęciami i łączy je ze wspólnym ontologie lekarskim.
 
+Analiza tekstu na potrzeby kondycji wykrywa koncepcje medyczne w następujących kategoriach. W tej wersji zapoznawczej jest obsługiwany tylko tekst w języku angielskim i dostępna jest tylko jedna wersja modelu.
 
 | Kategoria  | Opis  |
 |---------|---------|
 | [ANATOMY](#anatomy) | pojęcia, które przechwytują informacje o systemach treści i anatomicznych, witrynach, lokalizacjach lub regionach. |
  | [DANE demograficzne](#demographics) | pojęcia, które przechwytują informacje o płci i wieku. |
  | [BADAWCZ](#examinations) | pojęcia, które przechwytują informacje o procedurach i testach diagnostycznych. |
+ | [OGÓLNE ATRYBUTY](#general-attributes) | pojęcia, które zawierają więcej informacji na temat innych koncepcji z powyższych kategorii. |
  | [GENOMICS](#genomics) | pojęcia, które przechwytują informacje o genów i odmianach. |
  | [ZDROWOTNE](#healthcare) | pojęcia, które przechwytują informacje o zdarzeniach administracyjnych, środowiskach opieki i zawódu opieki zdrowotnej. |
- | [WARUNEK MEDYCZNY](#medical-condition) | pojęcia, które przechwytują informacje o diagnozowaniu, objawach lub znakach. |
- | [LEKI](#medication) | pojęcia, które przechwytują informacje dotyczące leczenia, w tym nazwy leczenia, klasy, dozowanie i drogi administracyjne. |
+ | [WARUNEK MEDYCZNY](#medical-condition) | pojęcia, które przechwytują informacje o diagnozowaniu, objawy lub znakach. |
+ | [LEKI](#medication) | koncepcje, które przechwytują informacje dotyczące leczenia, w tym nazwy leczenia, klasy, dozowanie i trasy administracyjne. |
  | [PRACODAWC](#social) | pojęcia, które przechwytują informacje o istotnych aspektach społecznościowych, takich jak związek rodziny. |
  | [POSTĘPOWANIE](#treatment) | pojęcia, które przechwytują informacje o procedurach terapeutycznych. |
-  
-Każda kategoria może obejmować dwie grupy koncepcji:
 
-* **Jednostki** — warunki, które przechwytują koncepcje medyczne, takie jak diagnostyka, nazwa leczenia lub nazwa leczenia.  Na przykład *Bronchitis* jest diagnostyką *i jest to nazwa* leków.  Wzmianki w tej grupie mogą być połączone z IDENTYFIKATORem koncepcji UMLS.
-* Wyrażenia o **atrybutach** , które dostarczają więcej informacji o wykrytych jednostkach, na przykład *poważny* jest kwalifikator warunku dla *Bronchitis* lub *81 mg* , jest dozowaniem dla *programu.*  Wzmianki w tej kategorii nie zostaną połączone z IDENTYFIKATORem koncepcji UMLS.
-
-Ponadto usługa rozpoznaje relacje między różnymi koncepcjami, w tym relacjami między atrybutami i jednostkami, na przykład *kierunek* *struktury treści* lub *dozowanie* do *nazwy leczenia* i relacje między jednostkami na przykład w przypadku wykrywania skrótów.
+Więcej informacji i przykłady znajdziesz poniżej.
 
 ## <a name="anatomy"></a>Anatomy
 
@@ -49,21 +46,11 @@ Systemy **BODY_STRUCTURE** , lokalizacje lub regiony anatomiczne oraz Lokacje po
 
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Rozwinięty przykład jednostki struktury treści.":::
 
-### <a name="attributes"></a>Atrybuty
-
-**Kierunkowe** warunki, takie jak: Left, boczne, wielkie i przedniej, które charakteryzuje strukturę treści.
-
-:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Przykład atrybutu kierunkowego.":::
-
-### <a name="supported-relations"></a>Obsługiwane relacje
-
-* **DIRECTION_OF_BODY_STRUCTURE**
-
 ## <a name="demographics"></a>Dane demograficzne
 
 ### <a name="entities"></a>Jednostki
 
-**Wiek** — wszystkie warunki wieku i zwroty, w tym osoby pacjenta, członków rodziny i inne. Na przykład 40-Year-Old, 51 yo, 3 miesiące Old, dorosły, niemowląt, starszych, młodych, drobnych i średnich firm.
+**Wiek** — wszystkie warunki wieku i frazy, w tym dla pacjentów, członków rodziny i innych. Na przykład 40-Year-Old, 51 yo, 3 miesiące Old, dorosły, niemowląt, starszych, młodych, drobnych i średnich firm.
 
 :::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Przykład jednostki wiekowej.":::
 
@@ -74,61 +61,43 @@ Warunki **płciowe** , które ujawniają płeć podmiotu. Na przykład męski, K
 
 :::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Przykład jednostki płci.":::
 
-### <a name="attributes"></a>Atrybuty
-
-Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostką demograficzną a dodatkowymi informacjami.
-
-:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Przykład operatora relacyjnego.":::
-
 ## <a name="examinations"></a>Badania
 
 ### <a name="entities"></a>Jednostki
 
-**EXAMINATION_NAME** — procedury diagnostyczne i testy. Na przykład MRI, ECG, test HIV, hemoglobin, liczba płytek, systemy skalowania, takie jak *skalowanie Bristol*.
+**EXAMINATION_NAME** — procedury diagnostyczne i testy, w tym istotne oznaki i pomiary ciała. Na przykład MRI, ECG, test HIV, hemoglobin, liczba płytek, systemy skalowania, takie jak *skalowanie Bristol*.
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Przykład jednostki egzaminu.":::
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Inny przykład jednostki nazwa badania.":::
 
-### <a name="attributes"></a>Atrybuty
+## <a name="general-attributes"></a>Ogólne atrybuty
 
-**Kierunek** — warunki kierunkowe, które charakteryzują się badaniem.
+### <a name="entities"></a>Jednostki
 
-:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Przykład atrybutu kierunku z jednostką nazwa badania.":::
+**Data** — pełna Data odnosząca się do stanu medycznego, badania, leczenia, leczenia lub zdarzenia administracyjnego.
 
-**MEASUREMENT_UNIT** — jednostka badania. Na przykład w *hemoglobin > 9,5 g/dl*, termin *g/dl* jest jednostką dla testu *hemoglobin* .
+**Kierunek** — warunki kierunkowe, które mogą odnosić się do struktury treści, warunków leczenia, badania lub leczenia, takich jak: Left, boczne, wielkie i poboczne.
 
-:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Przykład atrybutu jednostki miary z jednostką nazwa badania.":::
+**Częstotliwość** — opisuje, jak często wystąpił stan medyczny, badanie, leczenie lub leczenie, występuje lub powinien wystąpić.
 
-**MEASUREMENT_VALUE** — wartość badania. Na przykład w *hemoglobin > 9,5 g/dl*, termin *9,5* jest wartością dla testu *hemoglobin* .
+**MEASUREMENT_VALUE** — wartość związana z badaniem lub pomiarem warunków medycznych.
 
-:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Przykład atrybutu wartości pomiaru z jednostką nazwa badania.":::
+**MEASUREMENT_UNIT** — jednostka miary związana z badaniem lub pomiarem warunków medycznych.
 
-**RELATIONAL_OPERATOR** — frazy, które wyrażają relację między badaniem i dodatkowymi informacjami. Na przykład wymagana wartość pomiaru dla badanego celu.
+Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację ilościową między jednostką a dodatkowymi informacjami.
 
-:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Przykład operatora relacyjnego z jednostką nazwa badania.":::
-
-**Czas** — terminy okresowe odnoszące się do początku i/lub długości (czas trwania) badania. Na przykład, gdy wystąpił test.
-
-:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Przykład atrybutu czasu z jednostką nazwa badania.":::
-
-### <a name="supported-relations"></a>Obsługiwane relacje
-
-+ **DIRECTION_OF_EXAMINATION**
-+   **RELATION_OF_EXAMINATION**
-+   **TIME_OF_EXAMINATION**
-+   **UNIT_OF_EXAMINATION**
-+   **VALUE_OF_EXAMINATION**
+**Czas** okresowe terminy odnoszące się do początku i/lub długości (czasu trwania) warunków leczenia, badania, traktowanie, leczenie lub zdarzenie administracyjne. 
 
 ## <a name="genomics"></a>Genomics
 
 ### <a name="entities"></a>Jednostki
 
-**Genu** — wszystkie wzmianki o genów. Na przykład MTRR, F2.
+**GENE_OR_PROTEIN** — wszystkie wzmianki dotyczące nazw i symboli ludzkich genów oraz chromosomów i części chromosomów oraz białek. Na przykład MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Przykład jednostki genu.":::
 
-**Variant** — wszystkie wzmianki o odmianach genu. Na przykład c. 524C>T, (MTRR): r.1462_1557del96
+**Variant** — wszystkie wzmianki o odmianach genu i mutacjach. Na przykład `c.524C>T` , `(MTRR):r.1462_1557del96`
   
 ## <a name="healthcare"></a>Opieka zdrowotna
 
@@ -164,9 +133,7 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Inny przykład znaku warunku medycznego lub elementu objawu.":::
 
-### <a name="attributes"></a>Atrybuty
-
-**CONDITION_QUALIFIER** — warunki dotyczące jakości, które są używane do opisywania warunków medycznych. Wszystkie następujące podkategorie są uważane za kwalifikatory:
+**CONDITION_QUALIFIER** — warunki jakościowe, które są używane do opisywania warunków medycznych. Wszystkie następujące podkategorie są uważane za kwalifikatory:
 
 1.  Wyrażenia dotyczące czasu: są to terminy opisujące wymiar czasu, na przykład nagły, ostry, przewlekły, od dawna dba. 
 2.  Wyrażenia jakości: są to warunki opisujące "naturę" warunków medycznych, takich jak nagrywanie, ostrość.
@@ -186,40 +153,6 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Ten zrzut ekranu przedstawia dodatkowy przykład atrybutu kwalifikatora warunku z jednostką diagnostyki.":::
 
-**Kierunkowe** warunki, które charakteryzują się warunkiem medycyny ciała.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Przykład atrybutu kierunku z jednostką warunków leczenia.":::
-
-**Częstotliwość** — jak często wystąpił stan medyczny, występuje lub powinien wystąpić.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Przykład atrybutu częstotliwości z jednostką warunków leczenia.":::
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Innym przykładem atrybutu kierunku z objawem lub podpisz jednostką.":::
-
-**MEASUREMENT_UNIT** — jednostka, która charakteryzuje się warunkiem lekarskim. Na przykład w *1,5 x2x1 cm Tumor*, termin *cm* jest jednostką miary dla *Tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Przykład atrybutu jednostki pomiaru z jednostką warunków leczenia.":::
-
-**MEASUREMENT_VALUE** — wartość, która charakteryzuje się warunkiem lekarskim. Na przykład w przypadku wartości *1,5 x2x1 cm Tumor* termin *1,5 x2x1* jest wartością miary dla *Tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Zrzut ekranu przedstawia przykład atrybutu kierunku ze znakiem objawu lub znaku.":::
-
-**RELATIONAL_OPERATOR** — wyrażenia, które wyrażają relację między warunkiem lekarskim, dodatkowe informacje. Na przykład wartość czasu lub pomiaru. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Zrzut ekranu przedstawia inny przykład atrybutu kierunku z objawem lub podpisz jednostką.":::
-
-**Czas** — terminy okresowe odnoszące się do początku i/lub długości (czasu trwania) warunku medycznego. Na przykład kiedy pojawił się objaw (początek) lub gdy wystąpiła choroba.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Zrzut ekranu przedstawia dodatkowy przykład atrybutu kierunku z objawem lub znakiem jednostki.":::
-
-### <a name="supported-relations"></a>Obsługiwane relacje
-
-+ **DIRECTION_OF_CONDITION**
-+   **QUALIFIER_OF_CONDITION**
-+   **TIME_OF_CONDITION**
-+   **UNIT_OF_CONDITION**
-+   **VALUE_OF_CONDITION**
-
 ## <a name="medication"></a>Leki
 
 ### <a name="entities"></a>Jednostki
@@ -228,21 +161,13 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Przykład jednostki klasy leków.":::
 
-**MEDICATION_NAME** — wzmianki dotyczące leków, w tym nazwy marki z prawami autorskimi i nazwy nienależące do marki. Na przykład Advil, ibuprofen.
+**MEDICATION_NAME** — wzmianki dotyczące leków, w tym nazwy marki z prawami autorskimi i nazwy nienależące do marki. Na przykład ibuprofen.
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Przykład jednostki nazw leków.":::
-
-### <a name="attributes"></a>Atrybuty
 
 **Dozowanie** — ilość zamówionej leków. Na przykład Dodaj roztworu chlorku sodowego *1000 ml*.
 
 :::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Przykład atrybutu dozowania leków.":::
-
-**Częstotliwość** — jak często należy podjąć leczenie.
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Przykład atrybutu częstotliwości leczenia.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Inny przykład atrybutu częstotliwości leczenia.":::
 
 **MEDICATION_FORM** — forma leczenia. Na przykład rozwiązanie, Pill, kapsułka, tablet, poprawka, żel, pasta, odrzucanie, śmietanka, syrop.
 
@@ -251,20 +176,6 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 **MEDICATION_ROUTE** — Metoda administracyjna leków. Na przykład Doustne, vaginal, IV, epidural, istotna, wdychane.
 
 :::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Przykład atrybutu trasy leków.":::
-
-Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między leków a dodatkowymi informacjami. Na przykład wymagana wartość pomiaru.
-
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Zrzut ekranu przedstawia przykład atrybutu operatora relacyjnego z jednostką leków.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Zrzut ekranu przedstawia inny przykład atrybutu operatora relacyjnego z jednostką leków.":::
-
-### <a name="supported-relations"></a>Obsługiwane relacje
-
-+ **DOSAGE_OF_MEDICATION**
-+   **FORM_OF_MEDICATION**
-+   **FREQUENCY_OF_MEDICATION**
-+   **ROUTE_OF_MEDICATION**
-+   **TIME_OF_MEDICATION**
 
 ## <a name="social"></a>Funkcje społecznościowe
 
@@ -281,27 +192,3 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między leków a
 **TREATMENT_NAME** — procedury terapeutyczne. Na przykład, Chirurgia zastępowanie kolan, szpik kostny Transplant, TAVI, dieta.
 
 :::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Przykład jednostki nazw traktowanych.":::
-
-### <a name="attributes"></a>Atrybuty
-
-**Kierunkowe** warunki, które charakteryzują się traktowaniem.
-
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Zrzut ekranu przedstawia przykład atrybutu kierunku przetwarzania.":::
-
-**Częstotliwość** — jak często występuje traktowanie lub powinno wystąpić.
-
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Zrzut ekranu przedstawia inny przykład atrybutu kierunku przetwarzania.":::
- 
-Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają zależność między traktowaniem a dodatkowymi informacjami.  Na przykład ilość czasu przeniesiona z poprzedniej procedury.
-
-:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Przykład zastosowania atrybutu operatora relacyjnego.":::
-
-**Czas bezterminowy** dotyczący początku i/lub długości (czasu trwania) obróbki. Na przykład Data podania.
-
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Zrzut ekranu przedstawia przykład atrybutu czasu obróbki.":::
-
-### <a name="supported-relations"></a>Obsługiwane relacje
-
-+ **DIRECTION_OF_TREATMENT**
-+   **TIME_OF_TREATMENT**
-+   **FREQUENCY_OF_TREATMENT**

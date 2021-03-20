@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90936933"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Uruchom ponownie Azure Database for PostgreSQL — elastyczny serwer
@@ -33,7 +33,7 @@ Aby ukończyć ten przewodnik, musisz:
 
 Wykonaj następujące kroki, aby ponownie uruchomić elastyczny serwer.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz elastyczny serwer, który chcesz ponownie uruchomić.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz elastyczny serwer, który chcesz ponownie uruchomić.
 
 2.  Kliknij pozycję **Przegląd** w lewym panelu, a następnie kliknij pozycję **Uruchom ponownie**.
    
@@ -43,11 +43,11 @@ Wykonaj następujące kroki, aby ponownie uruchomić elastyczny serwer.
 
 4.  Kliknij przycisk **tak** , jeśli chcesz kontynuować.
    
-     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Uruchom ponownie zaznaczenie":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Potwierdź ponowne uruchomienie":::
  
 6.  Zostanie wyświetlone powiadomienie z informacją o zainicjowaniu operacji ponownego uruchomienia.
 
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)

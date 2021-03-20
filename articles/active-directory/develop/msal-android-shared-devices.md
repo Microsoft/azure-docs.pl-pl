@@ -1,7 +1,7 @@
 ---
 title: Tryb udostępnionego urządzenia dla urządzeń z systemem Android
 titleSuffix: Microsoft identity platform | Azure
-description: Dowiedz się, jak włączyć tryb udostępnionego urządzenia, aby umożliwić pracownikom Firstline współużytkowanie urządzenia z systemem Android
+description: Dowiedz się, jak włączyć tryb udostępnionego urządzenia, aby umożliwić pracownikom teraźniejszości współużytkowanie urządzenia z systemem Android
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491558"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578825"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem Android
 
-Procesy robocze Firstline, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do pracy. Sprawia to problemy po rozpoczęciu udostępniania haseł lub numerów PIN w celu uzyskania dostępu do danych klienta i firmowych na udostępnionym urządzeniu.
+Procesy robocze teraźniejszości, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do pracy. Sprawia to problemy po rozpoczęciu udostępniania haseł lub numerów PIN w celu uzyskania dostępu do danych klienta i firmowych na udostępnionym urządzeniu.
 
 Tryb udostępnionego urządzenia umożliwia skonfigurowanie urządzenia z systemem Android w taki sposób, aby można je było łatwo udostępnić wielu pracownikom. Pracownicy mogą szybko logować się i uzyskiwać dostęp do informacji o klientach. Po zakończeniu przesunięcia lub przeprowadzenia zadania mogą się wylogować z urządzenia, a następnie być natychmiast gotowe do użycia przez następnego pracownika.
 
@@ -85,7 +85,7 @@ Poniższe różnice mają zastosowanie w zależności od tego, czy aplikacja jes
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Dlaczego warto obsługiwać tylko tryb pojedynczego konta
 
-Jeśli piszesz aplikację, która będzie używana tylko dla procesów roboczych Firstline przy użyciu urządzenia udostępnionego, zalecamy zapisanie aplikacji w celu zapewnienia obsługi tylko trybu pojedynczego konta. Obejmuje to większość aplikacji, które są zadaniami, takimi jak aplikacje do rekordów medycznych, aplikacje fakturowania i większość aplikacji biznesowych. Tryb tylko do obsługi jednego konta upraszcza programowanie, ponieważ nie trzeba implementować dodatkowych funkcji, które są częścią aplikacji z wieloma kontami.
+Jeśli piszesz aplikację, która będzie używana tylko dla procesów roboczych teraźniejszości przy użyciu urządzenia udostępnionego, zalecamy zapisanie aplikacji w celu zapewnienia obsługi tylko trybu pojedynczego konta. Obejmuje to większość aplikacji, które są zadaniami, takimi jak aplikacje do rekordów medycznych, aplikacje fakturowania i większość aplikacji biznesowych. Tryb tylko do obsługi jednego konta upraszcza programowanie, ponieważ nie trzeba implementować dodatkowych funkcji, które są częścią aplikacji z wieloma kontami.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>Co się stanie, gdy zmieni się tryb urządzenia
 
@@ -103,4 +103,4 @@ Na poniższym diagramie przedstawiono ogólny cykl życia aplikacji oraz typowe 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wypróbuj [tryb użytkowania urządzeń udostępnionych w aplikacji dla systemu Android](tutorial-v2-shared-device-mode.md) , który pokazuje, jak uruchomić aplikację Firstline Worker na urządzeniu z systemem Android w trybie współdzielonym.
+Wypróbuj [tryb użytkowania urządzeń udostępnionych w aplikacji dla systemu Android](tutorial-v2-shared-device-mode.md) , który pokazuje, jak uruchomić aplikację teraźniejszości Worker na urządzeniu z systemem Android w trybie współdzielonym.

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544755"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista kontrolna wydajności i skalowalności usługi BLOB Storage
@@ -33,9 +33,9 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Tarcze skalowalności |[Czy duża liczba klientów uzyskuje dostęp do pojedynczego obiektu BLOB współbieżnie?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Tarcze skalowalności |[Czy Twoja aplikacja mieści się w celach skalowalności dla pojedynczego obiektu BLOB?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Partycjonowanie |[Czy Twoja Konwencja nazewnictwa została zaprojektowana w celu umożliwienia lepszego równoważenia obciążenia?](#partitioning) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
-| &nbsp; |Networking |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
+| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
+| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
+| &nbsp; |Sieć |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
 | &nbsp; |Bezpośredni dostęp klienta |[Czy używasz sygnatur dostępu współdzielonego (SAS) i udostępniania zasobów między źródłami (CORS), aby umożliwić bezpośredni dostęp do usługi Azure Storage?](#sas-and-cors) |
 | &nbsp; |Buforowanie |[Czy aplikacja buforuje dane, które są często używane i rzadko zmieniane?](#reading-data) |
 | &nbsp; |Buforowanie |[Czy aplikacja wsadowa aktualizuje aktualizacje przez buforowanie ich na kliencie, a następnie przekazywanie ich w większych zestawach?](#uploading-data-in-batches) |
@@ -100,7 +100,7 @@ Zrozumienie, jak usługa Azure Storage Partitions dane obiektów BLOB są przyda
 
 Usługa BLOB Storage używa schematu partycjonowania opartego na zakresie na potrzeby skalowania i równoważenia obciążenia. Każdy obiekt BLOB ma klucz partycji składający się z pełnej nazwy obiektu BLOB (account + Container + BLOB). Klucz partycji służy do partycjonowania danych obiektów BLOB w ramach zakresów. Zakresy są następnie zrównoważone obciążenie między magazynem obiektów BLOB.
 
-Partycjonowanie oparte na zakresie oznacza, że konwencje nazewnictwa, które korzystają z porządkowania leksykalnego *myperformance*(na przykład *myemployees*:*log20160101*, *log20160102*, *log20160102* itp. *), są* bardziej podobne do tych, które znajdują się na tym samym serwerze partycji. , do momentu zwiększenia obciążenia wymaga, aby zostały podzielone na mniejsze zakresy. Wspólne lokalizowanie obiektów BLOB na tym samym serwerze partycji zwiększa wydajność, dzięki czemu istotna część rozszerzania wydajności polega na nazewnictwie obiektów BLOB w sposób, który organizuje je najbardziej efektywnie.
+Partycjonowanie oparte na zakresie oznacza, że konwencje nazewnictwa, które korzystają z porządkowania leksykalnego (na przykład :*log20160101*, *log20160102*, *log20160102* itp. *), są* bardziej podobne do tych, które znajdują się na tym samym serwerze partycji. , do momentu zwiększenia obciążenia wymaga, aby zostały podzielone na mniejsze zakresy. Wspólne lokalizowanie obiektów BLOB na tym samym serwerze partycji zwiększa wydajność, dzięki czemu istotna część rozszerzania wydajności polega na nazewnictwie obiektów BLOB w sposób, który organizuje je najbardziej efektywnie.
 
 Na przykład wszystkie obiekty blob w kontenerze mogą być obsługiwane przez jeden serwer, dopóki obciążenie tych obiektów BLOB nie wymaga dodatkowego ponownego zrównoważenia zakresów partycji. Analogicznie, Grupa jasno załadowanych kont z ich nazwami uporządkowanymi w kolejności leksykalnej może być obsługiwana przez jeden serwer do momentu, gdy obciążenie jednego lub wszystkich tych kont nie będzie wymagało ich podziału na wiele serwerów partycji.
 
@@ -116,7 +116,7 @@ Aby zmniejszyć częstotliwość takich operacji, można wykonać kilka najlepsz
   
 - Aby uzyskać więcej informacji o schemacie partycjonowania używanym w usłudze Azure Storage, zobacz [Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Ograniczenia sieci fizycznej aplikacji mogą mieć znaczący wpływ na wydajność. W poniższych sekcjach opisano niektóre ograniczenia, które mogą napotkać użytkownicy.  
 

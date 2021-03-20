@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-hub
 author: wesmc7777
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 49fbfe116a2fe554abb3a3ca4d1dcd6cab2b746d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "69626375"
 ---
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować już utworzone zasoby i użyć ich ponownie.
@@ -31,6 +31,6 @@ Aby usunąć grupę zasobów na podstawie nazwy:
 
 3. Z prawej strony grupy zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
 
-    ![Usuwanie](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
+    ![Usuń](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz ponownie nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń**. Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.

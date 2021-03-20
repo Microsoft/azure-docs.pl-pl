@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdaaed72b85bc3c0196a8897be311efa5fb714e2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366347"
 ---
 # <a name="common-conditional-access-policies"></a>Typowe zasady dostępu warunkowego
@@ -45,7 +45,7 @@ Więcej informacji o kontach dostępu awaryjnego i o tym, dlaczego są ważne, m
 * [Dostęp warunkowy oparty na ryzyku związanym z logowaniem (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk.md)
 * [Dostęp warunkowy oparty na ryzyku (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Wymaganie zaufanej lokalizacji na potrzeby rejestracji uwierzytelniania wieloskładnikowego](howto-conditional-access-policy-registration.md)
-* [Blokowanie dostępu według lokalizacji](howto-conditional-access-policy-location.md)
+* [Blokuj dostęp według lokalizacji](howto-conditional-access-policy-location.md)
 * [Wymaganie zgodnego urządzenia](howto-conditional-access-policy-compliant-device.md)
 * [Blokuj dostęp poza określonymi aplikacjami](howto-conditional-access-policy-block-access.md)
 

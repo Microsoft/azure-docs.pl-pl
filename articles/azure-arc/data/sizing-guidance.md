@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542681"
 ---
 # <a name="sizing-guidance"></a>Wskazówki dotyczące zmiany wielkości
@@ -124,9 +124,9 @@ Poniżej przedstawiono przykładowe Obliczanie wielkości.
 
 Wymagania:
 
-- **"SQL1"** : 1 wystąpienie zarządzane SQL z 16 GB pamięci RAM, 4 rdzeni
-- **"Sql2"** : 1 wystąpienie zarządzane SQL z 256 GB pamięci RAM, 16 rdzeni
-- **"Postgres1"** : 1 PostgreSQL grupy serwerów z 4 pracownikami w 12 GB pamięci RAM, 4 rdzeni
+- **"SQL1"**: 1 wystąpienie zarządzane SQL z 16 GB pamięci RAM, 4 rdzeni
+- **"Sql2"**: 1 wystąpienie zarządzane SQL z 256 GB pamięci RAM, 16 rdzeni
+- **"Postgres1"**: 1 PostgreSQL grupy serwerów z 4 pracownikami w 12 GB pamięci RAM, 4 rdzeni
 
 Obliczanie rozmiarów:
 

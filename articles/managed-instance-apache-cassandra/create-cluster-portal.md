@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: db3f188cc796642285d9b082b46371879491c632
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225238"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588617"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Szybki Start: Tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z poziomu Azure Portal (wersja zapoznawcza)
  
@@ -89,7 +89,6 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Wyświetl zasoby klastra." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 
-
 ## <a name="connecting-to-your-cluster"></a>Nawiązywanie połączenia z klastrem
 
 Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP, dlatego w celu nawiązania połączenia z nowo utworzonym klastrem Cassandra należy utworzyć inny zasób wewnątrz sieci wirtualnej. Może to być aplikacja lub maszyna wirtualna z zainstalowanym narzędziem zapytania typu "open source" programu Apache [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) . Możesz użyć [szablonu](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) , aby wdrożyć maszynę wirtualną Ubuntu. Po wdrożeniu programu Użyj protokołu SSH, aby nawiązać połączenie z maszyną, i zainstaluj CQLSH przy użyciu poniższych poleceń:
@@ -113,6 +112,15 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli wystąpi błąd podczas stosowania uprawnień do Virtual Network, takich jak *nie można znaleźć użytkownika lub nazwy głównej usługi w bazie danych grafu dla "e5007d2c-4b13-4a74-9b6a-605d99f03501"*, można ręcznie zastosować to samo uprawnienie z Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka **Kontrola dostępu (IAM)** istniejącej sieci wirtualnej i Dodaj przypisanie roli dla "Azure Cosmos DB" do roli "administrator sieci". Jeśli dwa wpisy są wyświetlane podczas wyszukiwania "Azure Cosmos DB", Dodaj zarówno wpisy, jak pokazano na poniższej ilustracji: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Zastosuj uprawnienia" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> Przypisanie roli Azure Cosmos DB jest używane tylko do celów wdrożeniowych. Usługa Azure Managed instanced dla platformy Apache Cassandra nie ma zależności zaplecza na Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

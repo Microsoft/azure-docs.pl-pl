@@ -5,16 +5,16 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 03/16/2021
 ms.custom: seodec18
-ms.openlocfilehash: d7e9b1ecef9cfda804b89f0ba1beeb54d7d48b98
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5b406d260b1c6518d9227c51d84ab7eb3754329
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020353"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598154"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Uwierzytelnianie Stream Analytics do Azure Data Lake Storage Gen1 przy użyciu tożsamości zarządzanych (wersja zapoznawcza)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Uwierzytelnianie Stream Analytics do Azure Data Lake Storage Gen1 przy użyciu tożsamości zarządzanych
 
 Azure Stream Analytics obsługuje uwierzytelnianie tożsamości zarządzanej z Azure Data Lake Storage (ADLS) Gen1 dane wyjściowe. Tożsamość to zarządzana aplikacja zarejestrowana w Azure Active Directory, która reprezentuje daną Stream Analytics zadanie i może służyć do uwierzytelniania w zasobie przeznaczonym do zasobów. Tożsamości zarządzane eliminują ograniczenia metod uwierzytelniania opartych na użytkownikach, takich jak wymaganie ponownego uwierzytelnienia ze względu na zmiany hasła lub wygaśnięcia tokenów użytkowników, które wystąpiły co 90 dni. Ponadto zarządzane tożsamości pomagają w automatyzowaniu wdrożeń zadań Stream Analytics, które są przekazywane do Azure Data Lake Storage Gen1.
 
@@ -36,7 +36,7 @@ W tym artykule przedstawiono trzy sposoby włączania zarządzanej tożsamości 
  
    Nazwa główna usługi ma taką samą nazwę jak zadanie Stream Analytics. Jeśli na przykład nazwa zadania to **MyASAJob**, tworzona jest również nazwa jednostki usługi **MyASAJob**.
 
-3. W oknie właściwości danych wyjściowych ujścia danych wyjściowych ADLS Gen1 kliknij listę rozwijaną tryb uwierzytelniania i wybierz pozycję * * tożsamość zarządzana * *.
+3. W oknie właściwości danych wyjściowych ujścia danych wyjściowych ADLS Gen1 kliknij listę rozwijaną tryb uwierzytelniania i wybierz pozycję **zarządzana tożsamość**.
 
 4. Wypełnij pozostałe właściwości. Aby dowiedzieć się więcej na temat tworzenia danych wyjściowych ADLS, zobacz [Tworzenie danych wyjściowych usługi Data Lake Store za pomocą usługi Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Po zakończeniu kliknij pozycję **Zapisz**.
 
@@ -70,7 +70,7 @@ W tym artykule przedstawiono trzy sposoby włączania zarządzanej tożsamości 
 
    ![Tożsamość zarządzana konfiguracji zadania Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. W oknie właściwości danych wyjściowych ujścia danych wyjściowych ADLS Gen1 kliknij listę rozwijaną tryb uwierzytelniania i wybierz pozycję * * tożsamość zarządzana * *.
+2. W oknie właściwości danych wyjściowych ujścia danych wyjściowych ADLS Gen1 kliknij listę rozwijaną tryb uwierzytelniania i wybierz pozycję **zarządzana tożsamość**.
 
    ![ADLS wyjściowe tożsamości zarządzane](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

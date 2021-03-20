@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842907"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury usług AWS do obsługi klastra usługi Service Fabric
@@ -39,7 +39,7 @@ Wybierz pozycję **Uruchom wystąpienie**. Na następnym ekranie wybierz przycis
 
 ![Wybór wystąpienia EC2][aws-ec2instance]
 
-Wybierz pozycję **t2.medium**, a następnie pozycję **Dalej: skonfiguruj szczegóły wystąpienia**. Na następnym ekranie zmień liczbę wystąpień na `3` i wybierz pozycję ** Szczegóły zaawansowane**, aby rozwinąć tę sekcję.
+Wybierz pozycję **t2.medium**, a następnie pozycję **Dalej: skonfiguruj szczegóły wystąpienia**. Na następnym ekranie zmień liczbę wystąpień na `3` i wybierz pozycję **Szczegóły zaawansowane**, aby rozwinąć tę sekcję.
 
 Aby połączyć maszyny wirtualne z usługą Service Fabric, maszyny wirtualne, które hostują infrastrukturę, muszą mieć takie same poświadczenia.  Istnieją dwa podstawowe sposoby na uzyskanie spójnych poświadczeń: dołączenie wszystkich hostów do tej samej domeny lub ustawienie takiego samego hasła administratora na każdej maszynie wirtualnej.  W tym samouczku użyto skryptu danych użytkownika w celu ustawienia dla wszystkich wystąpień EC2 takiego samego hasła.  W środowisku produkcyjnym dołączenie hostów do domeny systemu Windows jest bardziej bezpieczne.
 
