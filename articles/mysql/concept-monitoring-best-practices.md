@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.openlocfilehash: 59301e26f4d42056322ba5a7cdaff1555c531096
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96355051"
 ---
 # <a name="best-practices-for-monitoring-azure-database-for-mysql--single-server"></a>Najlepsze rozwiązania dotyczące monitorowania Azure Database for MySQL — pojedynczy serwer
@@ -33,7 +33,7 @@ Monitoruj użycie procesora i, jeśli baza danych zawiera wyczerpanie zasobów p
 ### <a name="memory"></a>Pamięć 
 Ilość pamięci dostępnej dla serwera bazy danych jest proporcjonalna do [liczby rdzeni wirtualnych](concepts-pricing-tiers.md). Upewnij się, że pamięć jest wystarczająca dla obciążenia. Przetestuj test, aby upewnić się, że pamięć jest wystarczająca dla operacji odczytu i zapisu. Jeśli zużycie pamięci bazy danych jest często zwiększane poza określoną wartość progową, oznacza to, że należy uaktualnić wystąpienie przez zwiększenie warstwy wydajności rdzeni wirtualnych lub wyższej. Użyj [magazynu zapytań](concepts-query-store.md), [zaleceń dotyczących wydajności zapytań](concepts-performance-recommendations.md) , aby identyfikować zapytania o najdłuższym czasie trwania, najczęściej wykonywanym. Poznaj możliwości optymalizacji. 
 
-### <a name="storage"></a>Magazyn 
+### <a name="storage"></a>Storage 
 [Ilość miejsca do magazynowania](howto-create-manage-server-portal.md#scale-compute-and-storage) obsługiwana dla serwera MySQL określa liczbę operacji we/wy dla serwera. Magazyn używany przez usługę obejmuje pliki bazy danych, dzienniki transakcji, Dzienniki serwera i migawki kopii zapasowych. Upewnij się, że zajęte miejsce na dysku nie przekracza ponad 85% całkowitego miejsca na dysku. W takim przypadku należy usunąć lub zarchiwizować dane z serwera bazy danych, aby zwolnić miejsce. 
 
 ### <a name="network-traffic"></a>Ruch sieciowy 

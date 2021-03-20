@@ -4,10 +4,10 @@ description: Uruchom kontenery init w Azure Container Instances, aby wykonać za
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85954285"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Uruchamianie kontenera init na potrzeby zadań instalacyjnych w grupie kontenerów
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak za pomocą szablonu Azure Resource Manager skonfigu
 
     |Zasady w grupie  |Zasady w init  |
     |---------|---------|
-    |Zawsze     |OnFailure (W razie niepowodzenia)         |
+    |Always (Zawsze)     |OnFailure (W razie niepowodzenia)         |
     |OnFailure (W razie niepowodzenia)     |OnFailure (W razie niepowodzenia)         |
     |Nigdy     |Nigdy         |
 * **Opłaty** — Grupa kontenerów wiąże się z pierwszym wdrożeniem kontenera init.
@@ -38,7 +38,7 @@ Zacznij od skopiowania następującego kodu JSON do nowego pliku o nazwie `azure
 
 * Kontener *init1* uruchamia obraz [BUSYBOX](https://hub.docker.com/_/busybox) z usługi Docker Hub. Uśpienie przez 60 sekund, a następnie zapisanie ciągu wiersza polecenia do pliku w [woluminie emptyDir](container-instances-volume-emptydir.md).
 * Oba kontenery aplikacji uruchamiają `aci-wordcount` obraz kontenera firmy Microsoft:
-    * Kontener *Hamlet* uruchamia aplikację WORDCOUNT w konfiguracji domyślnej, licząc częstotliwości wyrazów w *Hamlet*Play Szekspira.
+    * Kontener *Hamlet* uruchamia aplikację WORDCOUNT w konfiguracji domyślnej, licząc częstotliwości wyrazów w *Hamlet* Play Szekspira.
     * Kontener aplikacji *Juliet* odczytuje ciąg wiersza polecenia z woluminu emptDir, aby uruchomić aplikację WORDCOUNT zamiast Szekspira *Romeo i Juliet*.
 
 Aby uzyskać więcej informacji i przykładów przy użyciu `aci-wordcount` obrazu, zobacz [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](container-instances-environment-variables.md).
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji i przykładów przy użyciu `aci-wordcount` obra
 }
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 
@@ -213,7 +213,7 @@ Dane wyjściowe:
 
 Kontenery inicjowania ułatwiają wykonywanie zadań instalacyjnych i inicjalizacji dla kontenerów aplikacji. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań kontenera z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
 
-Azure Container Instances oferuje inne opcje modyfikacji zachowania kontenerów aplikacji. Przykłady:
+Azure Container Instances oferuje inne opcje modyfikacji zachowania kontenerów aplikacji. Przykłady obejmują:
 
 * [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](container-instances-environment-variables.md)
 * [Ustaw wiersz polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia](container-instances-start-command.md)

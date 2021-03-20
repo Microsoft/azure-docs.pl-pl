@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91439516"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal
@@ -40,7 +40,7 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
 
 2. Wybierz przycisk **Utwórz**.
 
-3. W obszarze **Tworzenie zestawu skalowania maszyn wirtualnych**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+3. W obszarze **Tworzenie zestawu skalowania maszyn wirtualnych** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | Ustawienie                        | Wartość                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -49,10 +49,10 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
     | Grupa zasobów                 | Wybierz pozycję Utwórz nowy, wprowadź nazwę **zasobu**, a następnie wybierz pozycję OK lub wybierz istniejącą grupę zasobów. |
     | **Szczegóły zestawu skalowania**          |                                                                                                       |
     | Nazwa zestawu skalowania maszyn wirtualnych | Wprowadź **myVMSS**                                                                                      |
-    | Region                         | Wybierz **Wschodnie stany USA 2**                                                                                    |
+    | Region (Region)                         | Wybierz **Wschodnie stany USA 2**                                                                                    |
     | Strefa dostępności              | Nie zaznaczaj **niczego**                                                                                       |
     | **Szczegóły wystąpienia**           |                                                                                                       |
-    | Obraz                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
+    | Image (Obraz)                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
     | Wystąpienie usługi Azure Spot            | Wybierz pozycję **nie**                                                                                         |
     | Rozmiar                           | Pozostaw domyślnie                                                                                      |
     | **Konto administratora**      |                                                                                                       |
@@ -64,13 +64,13 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Zrzut ekranu przedstawia kartę tworzenie podstawy zestawu skalowania maszyn wirtualnych." border="true":::
 
-4. Wybierz kartę **Sieć** .
+4. Wybierz kartę **Sieć**.
 
 5. Wprowadź lub wybierz te informacje na karcie **Sieć** :
 
      Ustawienie                           | Wartość                                                    |
     |-----------------------------------|----------------------------------------------------------|
-    | **Konfiguracja Virtual Network** |                                                          |
+    | **Konfiguracja sieci wirtualnej** |                                                          |
     | Sieć wirtualna                   | Wybierz **myVNet** lub istniejącą sieć wirtualną.      |
     | **Równoważenie obciążenia**                |                                                          |
     | Korzystanie z modułu równoważenia obciążenia               | Wybierz pozycję **Tak**                                           |
@@ -79,7 +79,7 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
     | Wybierz moduł równoważenia obciążenia            | Wybierz **myLoadBalancer** lub istniejący moduł równoważenia obciążenia |
     | Wybierz pulę zaplecza             | Wybierz **myBackendPool** lub istniejącą pulę zaplecza.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Zrzut ekranu przedstawia kartę tworzenie podstawy zestawu skalowania maszyn wirtualnych." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Zrzut ekranu przedstawia kartę tworzenie sieci zestawu skalowania maszyn wirtualnych." border="true":::
 
 6. Wybierz kartę **Zarządzanie** .
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak określić grupę zasobów dla maszyn wirtualnych
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483367"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Określ grupę zasobów dla maszyn wirtualnych laboratorium w Azure DevTest Labs
@@ -105,7 +105,7 @@ To ustawienie dotyczy nowych maszyn wirtualnych utworzonych w laboratorium. Star
 Jak używać tego interfejsu API:
 - Użyj interfejsu API w wersji **2018_10_15_preview**.
 - Jeśli określisz nową grupę zasobów, upewnij się, że masz **uprawnienia do zapisu w grupach zasobów** w ramach subskrypcji. Jeśli nie masz uprawnień do zapisu, tworzenie nowych maszyn wirtualnych w określonej grupie zasobów zakończy się niepowodzeniem.
-- Podczas korzystania z interfejsu API należy przekazać **pełny identyfikator grupy zasobów**. Przykład: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Upewnij się, że grupa zasobów znajduje się w tej samej subskrypcji co laboratorium. 
+- Podczas korzystania z interfejsu API należy przekazać **pełny identyfikator grupy zasobów**. Na przykład: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Upewnij się, że grupa zasobów znajduje się w tej samej subskrypcji co laboratorium. 
 
 
 ## <a name="next-steps"></a>Następne kroki

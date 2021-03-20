@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89399943"
 ---
 # <a name="application-layer-security-with-front-door"></a>Zabezpieczenia warstwy aplikacji z przednimi drzwiami
@@ -38,7 +38,7 @@ Ochrona aplikacji dla drzwi przednich jest konfigurowana w każdym środowisku b
 ## <a name="centralized-protection-policy"></a>Zasady centralnej ochrony
 - Można zdefiniować kilka reguł ochrony i dodać je do zasad w kolejności priorytetu. Reguły niestandardowe mają wyższy priorytet niż zarządzany zestaw reguł, aby zezwalać na wyjątki. Pojedyncze zasady są skojarzone z aplikacją sieci Web.  Te same zasady ochrony aplikacji sieci Web są replikowane do wszystkich serwerów brzegowych we wszystkich lokalizacjach, zapewniając spójne zasady zabezpieczeń we wszystkich regionach.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 - W trakcie korzystania z wersji zapoznawczej można używać interfejsów API REST, programu PowerShell lub interfejsu wiersza polecenia do tworzenia i wdrażania zasad ochrony aplikacji i zasad dotyczących drzwi przednich. Dostęp do portalu będzie obsługiwany, zanim usługa będzie ogólnie dostępna. 
 
 

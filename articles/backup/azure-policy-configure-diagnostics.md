@@ -4,10 +4,10 @@ description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich mag
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171548"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
@@ -22,7 +22,7 @@ Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z LA jako m
 
 * Zasady mogą być stosowane jednocześnie do wszystkich magazynów Recovery Services w określonej subskrypcji (lub w grupie zasobów w ramach subskrypcji). Użytkownik przypisujący zasady musi mieć dostęp **właściciela** do subskrypcji, do której przypisane są zasady.
 
-* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp **czytelnika**, **współautora**lub **właściciela** do subskrypcji, w której istnieje określony obszar roboczy La.
+* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp **czytelnika**, **współautora** lub **właściciela** do subskrypcji, w której istnieje określony obszar roboczy La.
 
 * Zakres grupy zarządzania nie jest obecnie obsługiwany.
 
@@ -46,11 +46,11 @@ Aby przypisać zasady dla magazynów w wymaganym zakresie, wykonaj następujące
 
 5. Wybierz przycisk **Przypisz** w górnej części okienka. Spowoduje to przekierowanie do okienka **przypisywanie zasad** .
 
-6. W obszarze **podstawy**wybierz trzy kropki obok pola **zakres** . Spowoduje to otwarcie prawego okienka kontekstowego, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku magazynów w określonej grupie zasobów.
+6. W obszarze **podstawy** wybierz trzy kropki obok pola **zakres** . Spowoduje to otwarcie prawego okienka kontekstowego, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku magazynów w określonej grupie zasobów.
 
     ![Podstawowe informacje dotyczące przypisywania zasad](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
-7. W obszarze **Parametry**wprowadź następujące informacje:
+7. W obszarze **Parametry** wprowadź następujące informacje:
 
     * **Nazwa profilu** — nazwa, która zostanie przypisana do ustawień diagnostycznych utworzonych przez zasady.
     * **Log Analytics obszar roboczy** — log Analytics obszar roboczy, do którego ma zostać skojarzone ustawienie diagnostyczne. Dane diagnostyczne wszystkich magazynów w zakresie przypisania zasad zostaną wypchnięte do określonego obszaru roboczego LA.

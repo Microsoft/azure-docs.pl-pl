@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912943"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Umiarkowane obrazy z konsoli interfejsu API
@@ -40,7 +40,7 @@ Aby można było przetestować interfejs API w konsoli online, musisz mieć swó
 
 4. W polu **treść żądania** Użyj domyślnego obrazu przykładowego lub określ obraz do skanowania. Możesz przesłać obraz jako dane binarne danych binarnych lub określić publicznie dostępny adres URL obrazu. 
 
-   Na potrzeby tego przykładu użyj ścieżki podanej w polu **treść żądania** , a następnie wybierz pozycję **Wyślij** . 
+   Na potrzeby tego przykładu użyj ścieżki podanej w polu **treść żądania** , a następnie wybierz pozycję **Wyślij**. 
 
    ![Wypróbuj obraz-Oceń treść żądania konsoli](images/try-image-api-2.PNG)
 
@@ -48,9 +48,9 @@ Aby można było przetestować interfejs API w konsoli online, musisz mieć swó
 
    ![Wypróbuj obraz-Oceń przykład konsoli](images/sample-image.jpg) 
 
-5. Wybierz pozycję **Wyślij** .
+5. Wybierz pozycję **Wyślij**.
 
-6. Interfejs API zwraca wynik prawdopodobieństwa dla każdej klasyfikacji. Zwraca również określenie, czy obraz spełnia warunki ( **true** lub **false** ). 
+6. Interfejs API zwraca wynik prawdopodobieństwa dla każdej klasyfikacji. Zwraca również określenie, czy obraz spełnia warunki (**true** lub **false**). 
 
    ![Wypróbuj obraz-Oceń wynik prawdopodobieństwa konsoli i określanie warunku](images/try-image-api-3.PNG)
 
@@ -58,7 +58,7 @@ Aby można było przetestować interfejs API w konsoli online, musisz mieć swó
 
 Możesz użyć interfejsu API moderowania obrazów, aby zlokalizować twarze na obrazie. Ta opcja może być przydatna, jeśli masz problemy z ochroną prywatności i chcesz zapobiec opublikowaniu na platformie określonego elementu. 
 
-1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz** wybierz pozycję **Znajdź twarze** . 
+1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz** wybierz pozycję **Znajdź twarze**. 
 
    Zostanie otwarta strona **Wyszukiwanie** twarzy.
 
@@ -74,7 +74,7 @@ Możesz użyć interfejsu API moderowania obrazów, aby zlokalizować twarze na 
 
    ![Spróbuj uzyskać przykładowe żądanie wyszukiwania obrazów](images/try-image-api-face-request.png)
 
-4. Wybierz pozycję **Wyślij** . W tym przykładzie interfejs API znajduje dwie twarze i zwraca ich współrzędne w obrazie.
+4. Wybierz pozycję **Wyślij**. W tym przykładzie interfejs API znajduje dwie twarze i zwraca ich współrzędne w obrazie.
 
    ![Wypróbuj obraz — pole zawartości przykładowej odpowiedzi](images/try-image-api-face-response.png)
 
@@ -82,7 +82,7 @@ Możesz użyć interfejsu API moderowania obrazów, aby zlokalizować twarze na 
 
 W celu wykrycia tekstu w obrazach można użyć funkcji Content Moderator OCR.
 
-1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz** wybierz pozycję **OCR** . 
+1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz** wybierz pozycję **OCR**. 
 
    Zostanie otwarta strona **OCR** .
 
@@ -96,7 +96,7 @@ W celu wykrycia tekstu w obrazach można użyć funkcji Content Moderator OCR.
 
 4. W polu **treść żądania** Użyj domyślnego obrazu przykładowego. Jest to ten sam obraz, który jest używany w poprzedniej sekcji.
 
-5. Wybierz pozycję **Wyślij** . Wyodrębniony tekst jest wyświetlany w formacie JSON:
+5. Wybierz pozycję **Wyślij**. Wyodrębniony tekst jest wyświetlany w formacie JSON:
 
    ![Obraz — przykładowe pole zawartości odpowiedzi na OCR](images/try-image-api-ocr.PNG)
 

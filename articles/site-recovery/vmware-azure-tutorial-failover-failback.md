@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132000"
 ---
 # <a name="fail-over--vmware-vms"></a>Praca awaryjna maszyn wirtualnych VMware
@@ -44,11 +44,11 @@ Przed uruchomieniem trybu failover Sprawdź właściwości maszyny wirtualnej, a
 
 Sprawdź właściwości w następujący sposób:
 
-1. W obszarze **chronione elementy**wybierz pozycję **zreplikowane elementy**, a następnie wybierz maszynę wirtualną, którą chcesz zweryfikować.
+1. W obszarze **chronione elementy** wybierz pozycję **zreplikowane elementy**, a następnie wybierz maszynę wirtualną, którą chcesz zweryfikować.
 
 2. Okienko **Zreplikowany element** zawiera podsumowanie informacji na temat maszyny wirtualnej, jej kondycję oraz najnowsze dostępne punkty odzyskiwania. Wybierz pozycję **Właściwości** , aby wyświetlić więcej szczegółów.
 
-3. W obszarze **obliczenia i sieć**można modyfikować te właściwości zgodnie z wymaganiami:
+3. W obszarze **obliczenia i sieć** można modyfikować te właściwości zgodnie z wymaganiami:
     * Nazwa platformy Azure
     * Grupa zasobów
     * Rozmiar docelowy
@@ -64,7 +64,7 @@ Sprawdź właściwości w następujący sposób:
 
 ## <a name="run-a-failover-to-azure"></a>Przełączanie do trybu failover na platformie Azure
 
-1. W obszarze **Ustawienia**  >  **zreplikowane elementy**wybierz maszynę wirtualną, która ma zostać przełączona w tryb failover, a następnie wybierz pozycję **Praca awaryjna**.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy** wybierz maszynę wirtualną, która ma zostać przełączona w tryb failover, a następnie wybierz pozycję **Praca awaryjna**.
 2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, do którego przełączenie w tryb failover ma zostać wykonane. Możesz użyć jednej z następujących opcji:
    * **Najnowszy**: ta opcja najpierw przetwarza wszystkie dane wysyłane do usługi Site Recovery. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ maszyna wirtualna platformy Azure utworzona po przejściu w tryb failover ma wszystkie dane, które zostały zreplikowane do Site Recovery podczas wyzwolenia trybu failover.
    * **Najnowsza przetworzony**: Ta opcja powoduje, że maszyna wirtualna nie jest w trybie failover do najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Ta opcja zapewnia niski RTO (cel czasu odzyskiwania), ponieważ nie trwa przetwarzanie nieprzetworzonych danych.

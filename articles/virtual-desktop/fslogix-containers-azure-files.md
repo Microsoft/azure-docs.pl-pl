@@ -7,10 +7,10 @@ ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225919"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Kontenery profili FSLogix i pliki platformy Azure
@@ -41,7 +41,7 @@ UPD i RUP są najczęściej używanymi technologiami dla profilów użytkownikó
 
 Istniejące i starsze rozwiązania firmy Microsoft dla profilów użytkowników mają różne wyzwania. Żadne poprzednie rozwiązanie nie zostało obsłużone przez cały profil użytkownika, który jest dostarczony ze środowiskiem hosta sesji usług pulpitu zdalnego lub infrastruktury VDI. Na przykład UPD nie może obsłużyć dużych plików OST, a RUP nie utrwala nowoczesnych ustawień.
 
-#### <a name="functionality"></a>Funkcja
+#### <a name="functionality"></a>Funkcjonalność
 
 W poniższej tabeli przedstawiono zalety i ograniczenia dotyczące wcześniejszych technologii profilu użytkownika.
 

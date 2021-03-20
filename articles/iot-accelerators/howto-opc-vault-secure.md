@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92926414"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Korzystanie z usługi zarządzania certyfikatami magazynu OPC
@@ -40,7 +40,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz certyfikat urzędu certyfikacji wystaw
 > Rola składnika zapisywania jest wymagana do zarejestrowania aplikacji.
 
 1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net` i zaloguj się.
-2. Przejdź do pozycji **Zarejestruj nowe** . W przypadku rejestracji aplikacji użytkownik musi mieć przypisaną co najmniej rolę składnika zapisywania.
+2. Przejdź do pozycji **Zarejestruj nowe**. W przypadku rejestracji aplikacji użytkownik musi mieć przypisaną co najmniej rolę składnika zapisywania.
 2. Formularz wprowadzania jest zgodny z konwencjami nazewnictwa w OPC UA. Na przykład na poniższym zrzucie ekranu przedstawiono ustawienia przykładowego [serwera referencyjnego OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) na STOSIE OPC UA .NET standard:
 
    ![Zrzut ekranu rejestracji serwera odwołań UA](media/howto-opc-vault-secure/reference-server-registration.png "Rejestracja serwera odwołań UA")
@@ -53,7 +53,7 @@ Zabezpiecz swoją aplikację OPC UA, wydając podpisany certyfikat na podstawie 
 
 #### <a name="request-a-new-certificate-with-a-new-keypair"></a>Zażądaj nowego certyfikatu przy użyciu nowej pary kluczy
 
-1. Przejdź do pozycji **aplikacje** .
+1. Przejdź do pozycji **aplikacje**.
 3. Wybierz pozycję **nowe żądanie** dla wymienionej aplikacji.
 
    ![Zrzut ekranu żądania nowego certyfikatu](media/howto-opc-vault-secure/request-new-certificate.png "Żądaj nowego certyfikatu")
@@ -71,14 +71,14 @@ Zabezpiecz swoją aplikację OPC UA, wydając podpisany certyfikat na podstawie 
    ![Zrzut ekranu przedstawiający wyświetlanie szczegółów żądania certyfikatu z komunikatem o zatwierdzeniu u dołu](media/howto-opc-vault-secure/view-key-pair.png "Wyświetl parę kluczy")
 
 7. Klucz prywatny (PFX lub PEM) i certyfikat (DER) można pobrać z tego miejsca w formacie wybranym jako plik binarny do pobrania. Dostępna jest również wersja zakodowana algorytmem Base64, na przykład w celu kopiowania i wklejania certyfikatu do wiersza polecenia lub wprowadzania tekstu. 
-8. Po pobraniu i zapisaniu klucza prywatnego można wybrać pozycję **Usuń klucz prywatny** . Certyfikat z kluczem publicznym pozostaje dostępny do użytku w przyszłości.
+8. Po pobraniu i zapisaniu klucza prywatnego można wybrać pozycję **Usuń klucz prywatny**. Certyfikat z kluczem publicznym pozostaje dostępny do użytku w przyszłości.
 9. Ze względu na użycie certyfikatu podpisanego przez urząd certyfikacji należy również pobrać certyfikat urzędu certyfikacji i listę odwołania certyfikatów (CRL).
 
 Teraz zależy to od urządzenia OPC UA, jak zastosować nową parę kluczy. Zazwyczaj certyfikat urzędu certyfikacji i listy CRL są kopiowane do `trusted` folderu, podczas gdy klucze publiczny i prywatny certyfikatu aplikacji są stosowane do `own` folderu w magazynie certyfikatów. Niektóre urządzenia mogą już obsługiwać wypychanie serwera na potrzeby aktualizacji certyfikatów. Zapoznaj się z dokumentacją urządzenia OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Zażądaj nowego certyfikatu za pomocą CSR 
 
-1. Przejdź do pozycji **aplikacje** .
+1. Przejdź do pozycji **aplikacje**.
 3. Wybierz pozycję **nowe żądanie** dla wymienionej aplikacji.
 
    ![Zrzut ekranu żądania nowego certyfikatu](media/howto-opc-vault-secure/request-new-certificate.png "Żądaj nowego certyfikatu")
@@ -87,7 +87,7 @@ Teraz zależy to od urządzenia OPC UA, jak zastosować nową parę kluczy. Zazw
 
    ![Zrzut ekranu przedstawiający generowanie nowego certyfikatu](media/howto-opc-vault-secure/generate-new-certificate.png "Generuj nowy certyfikat")
 
-4. Przekaż CSR, wybierając plik lokalny lub wklejając w postaci zakodowany w formacie base64 CSR. Wybierz pozycję **Generuj nowy certyfikat** .
+4. Przekaż CSR, wybierając plik lokalny lub wklejając w postaci zakodowany w formacie base64 CSR. Wybierz pozycję **Generuj nowy certyfikat**.
 
    ![Zrzut ekranu przedstawiający szczegóły żądania wyświetlenia certyfikatu](media/howto-opc-vault-secure/approve-reject-csr.png "Zatwierdź CSR")
 
@@ -96,7 +96,7 @@ Teraz zależy to od urządzenia OPC UA, jak zastosować nową parę kluczy. Zazw
    ![Zrzut ekranu pokazujący szczegóły żądania wyświetlenia certyfikatu i zawiera komunikat zatwierdzenia u dołu.](media/howto-opc-vault-secure/view-cert-csr.png "Wyświetl certyfikat")
 
 6. Certyfikat wynikający (DER) można pobrać z tego miejsca jako plik binarny. Dostępna jest również wersja zakodowana algorytmem Base64, na przykład w celu kopiowania i wklejania certyfikatu do wiersza polecenia lub wprowadzania tekstu. 
-10. Po pobraniu i zapisaniu certyfikatu można wybrać pozycję **Usuń certyfikat** .
+10. Po pobraniu i zapisaniu certyfikatu można wybrać pozycję **Usuń certyfikat**.
 11. Ze względu na użycie certyfikatu podpisanego przez urząd certyfikacji należy również pobrać certyfikat urzędu certyfikacji i listę CRL.
 
 Teraz zależy to od urządzenia OPC UA, jak zastosować nowy certyfikat. Zwykle certyfikat urzędu certyfikacji i listy CRL są kopiowane do `trusted` folderu, podczas gdy certyfikat aplikacji jest stosowany do `own` folderu w magazynie certyfikatów. Niektóre urządzenia mogą już obsługiwać wypychanie serwera na potrzeby aktualizacji certyfikatów. Zapoznaj się z dokumentacją urządzenia OPC UA.

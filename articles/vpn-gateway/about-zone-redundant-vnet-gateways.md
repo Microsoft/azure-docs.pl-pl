@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89401116"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Informacje o strefach nadmiarowych bram sieci wirtualnych w Strefy dostępności platformy Azure
@@ -63,7 +63,7 @@ Podczas tworzenia publicznego adresu IP przy użyciu **standardowej** jednostki 
 
 W przypadku tworzenia publicznego adresu IP przy użyciu **podstawowej** jednostki SKU publicznego adresu IP Brama jest wdrażana jako brama regionalna i nie ma żadnej wbudowanej ze strefą nadmiarowości w bramie.
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Co zmienią się, gdy wdrażam te nowe jednostki SKU?
 

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225212"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Model rozliczeń dla Azure Active Directory B2C
@@ -78,7 +78,7 @@ Dzierżawa musi być połączona z odpowiednią warstwą cenową platformy Azure
 
 Aby zmienić warstwę cenową, wykonaj następujące kroki.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający subskrypcję platformy Azure, z którą jest połączona dzierżawa usługi Azure B2C (*nie* wybieraj samej dzierżawy Azure AD B2C).
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
 ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913844"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Samouczek: Wdrażanie grupy wielokontenerowej przy użyciu Docker Compose 
@@ -86,7 +86,7 @@ services:
 
 W `azure-vote-front` konfiguracji należy wprowadzić następujące dwie zmiany:
 
-1. Zaktualizuj `image` Właściwość w `azure-vote-front` usłudze. Prefiks nazwy obrazu z nazwą serwera logowania usługi Azure Container Registry, \<acrName\> . azurecr.IO. Na przykład jeśli rejestr ma nazwę moje *Rejestr* , nazwa serwera logowania to *myregistry.azurecr.IO* (wszystkie małe litery), a następnie właściwość Image `myregistry.azurecr.io/azure-vote-front` .
+1. Zaktualizuj `image` Właściwość w `azure-vote-front` usłudze. Prefiks nazwy obrazu z nazwą serwera logowania usługi Azure Container Registry, \<acrName\> . azurecr.IO. Na przykład jeśli rejestr ma nazwę moje *Rejestr*, nazwa serwera logowania to *myregistry.azurecr.IO* (wszystkie małe litery), a następnie właściwość Image `myregistry.azurecr.io/azure-vote-front` .
 1. Zmień `ports` Mapowanie na `80:80` . Zapisz plik.
 
 Zaktualizowany plik powinien wyglądać podobnie do poniższego:
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Aby wyświetlić uruchomioną aplikację w chmurze, wprowadź wyświetlany adres IP w lokalnej przeglądarce sieci Web. W tym przykładzie wprowadź `52.179.23.131` . Zostanie załadowana przykładowa aplikacja, jak pokazano w poniższym przykładzie:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania w ACI":::
 
 Aby wyświetlić dzienniki kontenera frontonu, uruchom polecenie [Docker Logs](https://docs.docker.com/engine/reference/commandline/logs) . Na przykład:
 

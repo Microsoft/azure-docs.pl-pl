@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 2fd96c47e98a6f8a66a5fda555304c4448d772e0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
@@ -345,8 +345,8 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Identyfikator jednostki *: https://kerb-app.com.cutestat.com
     * Ustawienia nazw SP
     * Schemat: https
-    * Host: kerbapp200. predemonstracyjny. Live
-    * Opis: kerbapp200. predemonstracyjny. Live
+    * Host: kerbapp200.superdemo.live
+    * Opis: kerbapp200.superdemo.live
 
      ![Zrzut ekranu przedstawiający okno "Edytuj S A M L S P" z wybranymi "ustawieniami ogólnymi".](./media/kerbf5-tutorial/configure25.png)
 
@@ -382,7 +382,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
 1. Kliknij nazwę, KerbApp200, wykonaj poniższe informacje, a następnie kliknij przycisk **Aktualizuj**.
 
-    * Plik cookie domeny: niedemonstracja. Live
+    * Plik cookie domeny: superdemo.live
     * Konfiguracja logowania jednokrotnego: KerAppSSO_sso
 
         ![Zrzut ekranu przedstawiający stronę "S S/domeny uwierzytelniania" z wyróżnioną listą rozwijaną "domena cookie" i "Konfiguracja" S S ", a wybrany przycisk" Aktualizuj ".](./media/kerbf5-tutorial/configure31.png)
@@ -397,7 +397,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
     * **Session. Logon. Last. usernameUPN Expr {[mcget {Session. SAML. Last. Identity}]}**
 
-    * **preprezentacja tekstu Session. AD. lastactualdomain. Live**
+    * **Session. AD. lastactualdomain — tekst superdemo.live**
 
         ![Zrzut ekranu przedstawiający stronę "zasady dostępu" i okno dialogowe "Active Directory" z wyróżnionym polem tekstowym "SearchFilter".](./media/kerbf5-tutorial/configure35.png)
 
@@ -452,7 +452,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 *  **Krok 1:** Utwórz konto delegowania
 
     **Przykład:**
-    * Nazwa domeny: **preprezentacja. Live**
+    * Nazwa domeny: **superdemo.Live**
 
     * Nazwa konta sam: **Big-ipuser**
 

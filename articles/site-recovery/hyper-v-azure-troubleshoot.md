@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
 ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750806"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Rozwiązywanie problemów z replikacją i przełączaniem w tryb failover z funkcji Hyper-V do platformy Azure
@@ -56,7 +56,7 @@ Rozwiązywanie problemów ze wstępną i trwającą replikacją:
 1. Upewnij się, że korzystasz z [najnowszej wersji](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) usług Site Recovery Services.
 2. Sprawdź, czy replikacja została wstrzymana:
    - Sprawdź stan kondycji maszyny wirtualnej w konsoli Menedżera funkcji Hyper-V.
-   - Jeśli jest to krytyczne, kliknij prawym przyciskiem myszy maszynę wirtualną, > **Replication**  >  **kondycja replikacji widoku** replikacji.
+   - Jeśli jest to krytyczne, kliknij prawym przyciskiem myszy maszynę wirtualną, >   >  **kondycja replikacji widoku** replikacji.
    - Jeśli replikacja jest wstrzymana, kliknij pozycję **Wznów replikację**.
 3. Sprawdź, czy są uruchomione wymagane usługi. Jeśli nie, uruchom je ponownie.
     - W przypadku replikacji funkcji Hyper-V bez programu VMM Sprawdź, czy te usługi są uruchomione na hoście funkcji Hyper-V:
@@ -121,7 +121,7 @@ Migawka spójna na poziomie aplikacji to migawka danych aplikacji znajdujących 
     ![Dysk dynamiczny](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Sprawdź, czy dysk iSCSI nie jest podłączony do maszyny wirtualnej. Ta funkcja nie jest obsługiwana.
-5. Sprawdź, czy usługa tworzenia kopii zapasowych jest włączona. Sprawdź, czy jest włączona w usługach integracji **ustawień funkcji Hyper-V**  >  **Integration Services**.
+5. Sprawdź, czy usługa tworzenia kopii zapasowych jest włączona. Sprawdź, czy jest włączona w usługach integracji **ustawień funkcji Hyper-V**  >  .
 6. Upewnij się, że nie ma żadnych konfliktów z aplikacjami korzystającymi z migawek VSS. Jeśli wiele aplikacji próbuje wykonać migawki VSS w tym samym czasie, mogą wystąpić konflikty. Jeśli na przykład aplikacja kopii zapasowej pobiera migawki usługi VSS, gdy Site Recovery jest zaplanowana przez zasady replikacji w celu utworzenia migawki.   
 7. Sprawdź, czy maszyna wirtualna ma dużą szybkość zmian:
     - Można zmierzyć dzienny współczynnik zmian danych dla maszyn wirtualnych gościa przy użyciu liczników wydajności na hoście funkcji Hyper-V. Aby zmierzyć współczynnik zmian danych, Włącz następujący licznik. Agreguj próbkę tej wartości na dyskach maszyn wirtualnych przez 5-15 minut, aby uzyskać zmiany w maszynie wirtualnej.

@@ -8,10 +8,10 @@ ms.author: philmea
 ms.date: 11/19/2020
 ms.topic: how-to
 ms.openlocfilehash: 19d8738790b5634b9de989fa94edac6a542f85f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94917345"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure
@@ -117,7 +117,7 @@ Po utworzeniu zadania kolumna **stan** będzie aktualizowana przy użyciu komuni
 | Ukończone            | To zadanie zostało uruchomione na wszystkich urządzeniach.              |
 | Niepowodzenie               | To zadanie nie powiodło się i nie zostało w pełni uruchomione na urządzeniach.  |
 | Oczekiwanie              | To zadanie nie zostało jeszcze uruchomione na urządzeniach.         |
-| Uruchomiono              | To zadanie jest obecnie uruchomione na urządzeniach.             |
+| Uruchomienie              | To zadanie jest obecnie uruchomione na urządzeniach.             |
 | Zatrzymano              | Użytkownik ręcznie zatrzymał to zadanie.           |
 | Anulowane             | To zadanie zostało anulowane, ponieważ próg ustawiony na stronie **Opcje dostarczania** został przekroczony. |
 

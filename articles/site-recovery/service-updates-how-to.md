@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: ramamill
 ms.openlocfilehash: a1ea8b6fb9800d796670161288be0d86ce6ffc42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89424943"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aktualizacje usługi w Site Recovery
@@ -92,7 +92,7 @@ W tym scenariuszu zdecydowanie zalecamy [włączenie aktualizacji automatycznych
 
 Jeśli chcesz ręcznie zarządzać aktualizacjami, możesz wybrać jedną z następujących opcji:
 
-1. Gdy dostępna jest nowa aktualizacja agenta, Site Recovery udostępnia powiadomienie w magazynie w górnej części strony. W magazynie > **zreplikowane elementy**kliknij to powiadomienie w górnej części ekranu: 
+1. Gdy dostępna jest nowa aktualizacja agenta, Site Recovery udostępnia powiadomienie w magazynie w górnej części strony. W magazynie > **zreplikowane elementy** kliknij to powiadomienie w górnej części ekranu: 
     
     **Dostępna jest nowa aktualizacja agenta Site Recovery replikacji. Kliknij, aby zainstalować >** <br/><br/>Wybierz Maszyny wirtualne, dla których chcesz zastosować aktualizację, a następnie kliknij przycisk **OK**.
 

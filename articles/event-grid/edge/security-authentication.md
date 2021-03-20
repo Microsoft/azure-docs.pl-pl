@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171384"
 ---
 # <a name="security-and-authentication"></a>Zabezpieczenia i uwierzytelnianie
@@ -77,7 +77,7 @@ Jeśli klient przedstawia z podpisem własnym, domyślnie moduł Event Grid będ
 | fałsz | Żądania będą kończyć się niepowodzeniem, jeśli są prezentowane certyfikaty z podpisem własnym.
 
 >[!IMPORTANT]
->W scenariuszach produkcyjnych warto ustawić **wartość false**dla **inbound__clientAuth__clientCert__allowUnknownCA** .
+>W scenariuszach produkcyjnych warto ustawić **wartość false** dla **inbound__clientAuth__clientCert__allowUnknownCA** .
 
 ### <a name="sas-key-based-client-authentication"></a>Uwierzytelnianie klienta oparte na kluczach SAS
 
@@ -140,7 +140,7 @@ Jeśli certyfikat subskrybenta jest z podpisem własnym, domyślnie moduł Event
 | fałsz | Żądania będą kończyć się niepowodzeniem, jeśli są prezentowane certyfikaty z podpisem własnym.
 
 >[!IMPORTANT]
->W scenariuszach produkcyjnych należy ustawić **wartość false**dla **outbound__webhook__allowUnknownCA** .
+>W scenariuszach produkcyjnych należy ustawić **wartość false** dla **outbound__webhook__allowUnknownCA** .
 
 > [!NOTE]
 >Środowisko IoT Edge generuje certyfikaty z podpisem własnym. Zalecenie polega na wygenerowaniu certyfikatów wystawionych przez autoryzowanych urzędów certyfikacji dla obciążeń produkcyjnych i ustawiania właściwości **allowUnknownCA** zarówno dla ruchu przychodzącego, jak i wychodzącego do **Fałsz**.

@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900923"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Sprawdzanie tekstu względem listy terminów niestandardowych w języku C#
@@ -43,7 +43,7 @@ Aby użyć usług Content Moderator za pomocą interfejsu API REST lub zestawu S
 
 1. Dodaj nowy projekt **Aplikacja konsoli (.NET Framework)** do rozwiązania.
 
-1. Nazwij projekt **TermLists** . Wybierz ten projekt jako pojedynczy projekt startowy rozwiązania.
+1. Nazwij projekt **TermLists**. Wybierz ten projekt jako pojedynczy projekt startowy rozwiązania.
 
 ### <a name="install-required-packages"></a>Instalowanie wymaganych pakietów
 
@@ -134,10 +134,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>Tworzenie listy terminów
 
-Do tworzenia listy terminów służy metoda **ContentModeratorClient.ListManagementTermLists.Create** . Pierwszy parametr metody **Create** to ciąg zawierający typ MIME, który powinien mieć wartość „application/json”. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Drugi parametr to obiekt **Body** , który zawiera nazwę i opis nowej listy terminów.
+Do tworzenia listy terminów służy metoda **ContentModeratorClient.ListManagementTermLists.Create**. Pierwszy parametr metody **Create** to ciąg zawierający typ MIME, który powinien mieć wartość „application/json”. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Drugi parametr to obiekt **Body**, który zawiera nazwę i opis nowej listy terminów.
 
 > [!NOTE]
-> Istnieje maksymalny limit wynoszący **5 list terminów** , a poszczególne listy **nie mogą przekraczać 10 000 terminów** .
+> Istnieje maksymalny limit wynoszący **5 list terminów**, a poszczególne listy **nie mogą przekraczać 10 000 terminów**.
 
 Dodaj następującą definicję metody do przestrzeni nazw TermLists w klasie Program.
 
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>Aktualizacja nazwy i opisu listy terminów
 
-Do aktualizacji informacji o liście terminów służy metoda **ContentModeratorClient.ListManagementTermLists.Update** . Pierwszy parametr metody **Update** to identyfikator listy terminów. Drugi parametr to typ MIME, który powinien mieć wartość „application/json”. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Trzeci parametr to obiekt **Body** , który zawiera nową nazwę i nowy opis.
+Do aktualizacji informacji o liście terminów służy metoda **ContentModeratorClient.ListManagementTermLists.Update**. Pierwszy parametr metody **Update** to identyfikator listy terminów. Drugi parametr to typ MIME, który powinien mieć wartość „application/json”. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Trzeci parametr to obiekt **Body**, który zawiera nową nazwę i nowy opis.
 
 Dodaj następującą definicję metody do przestrzeni nazw TermLists w klasie Program.
 
@@ -239,7 +239,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks wyszukiwania, aby zmiany zostały uwzględnione przy następnym użyciu listy terminów do sprawdzania tekstu. Przypomina to działanie wyszukiwarki na komputerze (jeśli jest włączona) lub wyszukiwarki internetowej, które ciągle odświeżają swój indeks w celu uwzględnienia nowych plików lub stron.
 
-Do odświeżania indeksu wyszukiwania listy terminów służy metoda **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod** .
+Do odświeżania indeksu wyszukiwania listy terminów służy metoda **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
 
 Dodaj następującą definicję metody do przestrzeni nazw TermLists w klasie Program.
 
@@ -259,7 +259,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>Sprawdzanie tekstu przy użyciu listy terminów
 
-Do sprawdzania tekstu przy użyciu listy terminów służy metoda **ContentModeratorClient.TextModeration.ScreenText** , która przyjmuje następujące parametry.
+Do sprawdzania tekstu przy użyciu listy terminów służy metoda **ContentModeratorClient.TextModeration.ScreenText**, która przyjmuje następujące parametry.
 
 - Język terminów na liście terminów.
 - Typ MIME, który może mieć wartość „text/html”, „text/xml”, „text/markdown” lub „text/plain”.
@@ -270,7 +270,7 @@ Do sprawdzania tekstu przy użyciu listy terminów służy metoda **ContentModer
 
 Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** zwraca obiekt **Screen** , który ma właściwość **Terms** zawierającą listę terminów wykrytych przez usługi Content Moderator podczas sprawdzania. Należy pamiętać, że jeśli usługi Content Moderator nie wykryją żadnych warunków podczas sprawdzania, właściwość **Terms** będzie miała wartość **null** .
+**ScreenText** zwraca obiekt **Screen**, który ma właściwość **Terms** zawierającą listę terminów wykrytych przez usługi Content Moderator podczas sprawdzania. Należy pamiętać, że jeśli usługi Content Moderator nie wykryją żadnych warunków podczas sprawdzania, właściwość **Terms** będzie miała wartość **null**.
 
 Dodaj następującą definicję metody do przestrzeni nazw TermLists w klasie Program.
 
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 Usuwanie terminu lub listy jest bardzo proste. Zestaw SDK pozwala wykonać następuje zadania:
 
-- Usuwanie terminu. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
-- Usuwanie wszystkich terminów z listy, bez usuwania listy. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
-- Usuwanie listy i całej jej zawartości. ( **ContentModeratorClient.ListManagementTermLists.Delete** )
+- Usuwanie terminu. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
+- Usuwanie wszystkich terminów z listy, bez usuwania listy. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- Usuwanie listy i całej jej zawartości. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Usuwanie terminu
 
@@ -365,7 +365,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 
 ## <a name="compose-the-main-method"></a>Redaguj metodę Main
 
-Dodaj definicję metody **Main** do przestrzeni nazw **TermLists** w klasie **Program** . Na koniec zamknij klasę **Program** i przestrzeń nazw **TermLists** .
+Dodaj definicję metody **Main** do przestrzeni nazw **TermLists** w klasie **Program**. Na koniec zamknij klasę **Program** i przestrzeń nazw **TermLists**.
 
 ```csharp
 static void Main(string[] args)

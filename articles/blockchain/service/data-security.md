@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80879602"
 ---
 # <a name="azure-blockchain-service-security"></a>Zabezpieczenia usługi Azure łańcucha bloków
@@ -41,7 +41,7 @@ Uwierzytelnianie podstawowe używa nagłówka uwierzytelniania HTTP zawierające
 
 Klucze dostępu używają losowo generowanego ciągu zawartego w adresie URL punktu końcowego. Dwa klucze dostępu umożliwiają włączenie rotacji kluczy. Klucze można generować ponownie z Azure Portal i interfejsu wiersza polecenia.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure Active Directory (Azure AD) korzysta z mechanizmu uwierzytelniania opartego na żądaniach, w którym użytkownik jest uwierzytelniany przez usługę Azure AD przy użyciu poświadczeń użytkownika usługi Azure AD. Usługa Azure AD zapewnia oparte na chmurze zarządzanie tożsamościami i umożliwia klientom korzystanie z jednej tożsamości w całym przedsiębiorstwie i dostęp do aplikacji w chmurze. Usługa Azure łańcucha bloków integruje się z usługą Azure AD, włączając w to Federacji identyfikatora, logowania jednokrotnego i uwierzytelniania wieloskładnikowego. W organizacji można przypisywać użytkowników, grupy i role aplikacji w celu uzyskania dostępu do elementu członkowskiego łańcucha bloków i węzła.
 

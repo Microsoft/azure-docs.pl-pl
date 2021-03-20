@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449141"
 ---
 # <a name="front-door-routing-methods"></a>Metody routingu przed drzwiami
@@ -24,10 +24,10 @@ Drzwi frontonu platformy Azure obsługują różne rodzaje metod routingu ruchu,
 
 Dostępne są cztery metody routingu ruchu:
 
-* ** [Opóźnienie](#latency):** Routing oparty na opóźnieniu gwarantuje, że żądania są wysyłane do najniższych opóźnień zaakceptowanych w zakresie czułości. W zasadzie żądania użytkownika są wysyłane do "najbliższego" zestawu zakończonych w odniesieniu do opóźnienia sieci.
-* ** [Priorytet](#priority):** Można przypisać priorytety do zaplecza, gdy chcesz skonfigurować podstawowe zaplecze do obsługi całego ruchu. Pomocnicza baza danych może być kopią zapasową w przypadku, gdy pierwotna baza danych stanie się niedostępna.
-* ** [Ważone](#weighted):** Można przypisać wagi do zamiar zakończonych niektórym, gdy chcesz rozpowszechnić ruch w zestawie nadmiarowych. Czy chcesz równomiernie dystrybuować lub zgodnie z współczynnikiem wagi.
-* ** [Koligacja sesji](#affinity):** Koligację sesji dla hostów lub domen frontonu można skonfigurować w celu zapewnienia, że żądania od tego samego użytkownika końcowego są wysyłane do tego samego zaplecza.
+* **[Opóźnienie](#latency):** Routing oparty na opóźnieniu gwarantuje, że żądania są wysyłane do najniższych opóźnień zaakceptowanych w zakresie czułości. W zasadzie żądania użytkownika są wysyłane do "najbliższego" zestawu zakończonych w odniesieniu do opóźnienia sieci.
+* **[Priorytet](#priority):** Można przypisać priorytety do zaplecza, gdy chcesz skonfigurować podstawowe zaplecze do obsługi całego ruchu. Pomocnicza baza danych może być kopią zapasową w przypadku, gdy pierwotna baza danych stanie się niedostępna.
+* **[Ważone](#weighted):** Można przypisać wagi do zamiar zakończonych niektórym, gdy chcesz rozpowszechnić ruch w zestawie nadmiarowych. Czy chcesz równomiernie dystrybuować lub zgodnie z współczynnikiem wagi.
+* **[Koligacja sesji](#affinity):** Koligację sesji dla hostów lub domen frontonu można skonfigurować w celu zapewnienia, że żądania od tego samego użytkownika końcowego są wysyłane do tego samego zaplecza.
 
 Wszystkie konfiguracje usługi Front Door obejmują monitorowanie kondycji zaplecza i zautomatyzowane, natychmiastowe przechodzenie do trybu failover w skali globalnej. Aby uzyskać więcej informacji, zobacz [monitorowanie zaplecza front-drzwi](front-door-health-probes.md). Drzwi z przodu mogą być zależne od jednej metody routingu. W zależności od potrzeb aplikacji można także połączyć wiele metod routingu, aby utworzyć optymalną topologię routingu.
 

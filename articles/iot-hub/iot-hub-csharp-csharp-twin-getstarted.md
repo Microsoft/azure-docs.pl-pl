@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013762"
 ---
 # <a name="get-started-with-device-twins-net"></a>Wprowadzenie do bliźniaczych reprezentacji urządzeń (.NET)
@@ -39,7 +39,7 @@ W tym samouczku utworzysz następujące aplikacje konsolowe platformy .NET:
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -57,9 +57,9 @@ W tym samouczku utworzysz następujące aplikacje konsolowe platformy .NET:
 
 W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, która dodaje metadane lokalizacji do sznurka urządzenia skojarzonego z **myDeviceId**. Następnie wysyła zapytanie do bliźniaczych reprezentacji urządzenia przechowywanego w usłudze IoT Hub, wybierając urządzenia znajdujące się w Stanach Zjednoczonych, a następnie te, które zgłosiły połączenie komórkowe.
 
-1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę **AddTagsAndQuery**.
+1. W obszarze **Konfigurowanie nowego projektu** Nadaj projektowi nazwę **AddTagsAndQuery**.
 
     ![Konfigurowanie projektu AddTagsAndQuery](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
 
@@ -71,7 +71,7 @@ W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, któr
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) oraz jego zależności.
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
     ```csharp  
     using Microsoft.Azure.Devices;
@@ -139,9 +139,9 @@ W następnej sekcji utworzysz aplikację urządzenia, która zgłosi informacje 
 
 W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się z centrum jako **myDeviceId**, a następnie aktualizuje raportowane właściwości w taki sposób, aby zawierała informacje, które są połączone z siecią komórkową.
 
-1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę **ReportConnectivity**. W obszarze **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** Nadaj projektowi nazwę **ReportConnectivity**. W obszarze **rozwiązanie** wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **ReportConnectivity** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 
@@ -149,7 +149,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK urządzenia usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) oraz jego zależności.
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;
@@ -232,9 +232,9 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W **Common Properties**polu  >  **projekt uruchomieniowy**typowych właściwości wybierz pozycję **wiele projektów startowych**. Dla **ReportConnectivity**wybierz pozycję **Rozpocznij** jako **akcję**. Wybierz przycisk **OK**, aby zapisać zmiany.  
+1. W polu  >  **projekt uruchomieniowy** typowych właściwości wybierz pozycję **wiele projektów startowych**. Dla **ReportConnectivity** wybierz pozycję **Rozpocznij** jako **akcję**. Wybierz przycisk **OK**, aby zapisać zmiany.  
 
-1. Uruchom tę aplikację, klikając prawym przyciskiem myszy projekt **ReportConnectivity** i wybierając polecenie **Debuguj**, a następnie **Rozpocznij nowe wystąpienie**. Powinna zostać wyświetlona aplikacja, która pobiera informacje o bliźniaczych, a następnie wysyła łączność jako ***raportowaną Właściwość***.
+1. Uruchom tę aplikację, klikając prawym przyciskiem myszy projekt **ReportConnectivity** i wybierając polecenie **Debuguj**, a następnie **Rozpocznij nowe wystąpienie**. Powinna zostać wyświetlona aplikacja, która pobiera informacje o bliźniaczych, a następnie wysyła łączność jako **_raportowaną Właściwość_**.
 
     ![Uruchom aplikację urządzenia, aby zgłosić łączność](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

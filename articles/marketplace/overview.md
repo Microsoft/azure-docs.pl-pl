@@ -3,16 +3,15 @@ title: Co to jest komercyjna platforma handlowa firmy Microsoft?
 description: Przegląd korzyści i opcji dla partnerów firmy Microsoft, którzy tworzą listę rozwiązań na rynku komercyjnego firmy Microsoft.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: a559c8613af97251ea6e85ef2a16121a89ffb6ad
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739772"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "96780318"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjna platforma handlowa firmy Microsoft?
 

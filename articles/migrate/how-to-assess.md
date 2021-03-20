@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752264"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
@@ -41,7 +41,7 @@ W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](./
     
          ![Przycisk dodawania dodatkowych narzędzi do oceny](./media/how-to-assess/add-assessment-tool.png)
 
-    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do oceny, w **Servers**  >  **narzędziu do oceny** serwerów wybierz **pozycję kliknij tutaj**.
+    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do oceny, w   >  **narzędziu do oceny** serwerów wybierz **pozycję kliknij tutaj**.
 
         ![Przycisk umożliwiający dodanie pierwszego narzędzia do oceny](./media/how-to-assess/no-assessment-tool.png)
 
@@ -57,7 +57,7 @@ W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](./
 
     - Jeśli utworzono projekt Azure Migrate przy użyciu opcji **Oceń i Przeprowadź migrację bazy danych** w portalu, narzędzie do oceny bazy danych jest automatycznie dodawane do projektu. Aby dodać dodatkowe narzędzia do oceny, w obszarze **bazy danych** obok opcji **Narzędzia do oceny** wybierz pozycję **Dodaj więcej narzędzi**.
 
-    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do oceny bazy danych, w **Databases**  >  **narzędziu do oceny** baz danych wybierz **pozycję kliknij tutaj**.
+    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do oceny bazy danych, w   >  **narzędziu do oceny** baz danych wybierz **pozycję kliknij tutaj**.
 
 2. W **Azure Migrate**  >  **Dodaj narzędzia** wybierz narzędzia, które chcesz dodać. Następnie wybierz pozycję **Dodaj narzędzie**.
 
@@ -69,7 +69,7 @@ W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](./
 Jeśli utworzono projekt Azure Migrate przy użyciu opcji **Eksploruj więcej**  >  **aplikacji** internetowych w portalu, narzędzie do oceny aplikacji sieci Web zostanie automatycznie dodane do projektu. 
 
 
-1. Jeśli narzędzie do oceny aplikacji sieci Web nie znajduje się w projekcie **Web Apps**, w  >  **narzędziu do oceny** Web Apps wybierz **pozycję kliknij tutaj**.
+1. Jeśli narzędzie do oceny aplikacji sieci Web nie znajduje się w projekcie , w  >  **narzędziu do oceny** Web Apps wybierz **pozycję kliknij tutaj**.
     
     ![Dodawanie narzędzi do oceny aplikacji sieci Web](./media/how-to-assess/no-web-app-assessment-tool.png)
 

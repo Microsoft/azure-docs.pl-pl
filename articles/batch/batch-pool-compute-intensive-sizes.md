@@ -4,10 +4,10 @@ description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesor
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86147338"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
@@ -100,7 +100,7 @@ Aby uruchamiać aplikacje CUDA w puli węzłów systemu Windows NC, należy zain
 | Ustawienie | Wartość |
 | ---- | ----- | 
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Publisher** | MicrosoftWindowsServer |
+| **Wydawca** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
 | **Magazyn** | 2016 — centrum danych |
 | **Rozmiar węzła** | Standard NC6 |
@@ -154,7 +154,7 @@ Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę pr
 | Ustawienie | Wartość |
 | ---- | ---- |
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Publisher** | OpenLogic |
+| **Wydawca** | OpenLogic |
 | **Oferta** | CentOS — HPC |
 | **Magazyn** | 7,4 |
 | **Rozmiar węzła** | Standard H16r |

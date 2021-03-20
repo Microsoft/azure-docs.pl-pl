@@ -4,10 +4,10 @@ description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę
 ms.topic: quickstart
 ms.date: 12/15/2020
 ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646830"
 ---
 # <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyn hybrydowych przy użyciu serwerów z obsługą usługi Azure Arc

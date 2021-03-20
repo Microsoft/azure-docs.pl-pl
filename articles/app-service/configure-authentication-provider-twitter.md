@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519910"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do usługi Twitter
@@ -40,7 +40,7 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w usłudze T
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji usługi Twitter do aplikacji
 
 1. Przejdź do aplikacji w [Azure Portal].
-1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja** i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. Wybierz pozycję **Twitter**.
 1. Wklej `API key` `API secret key` wartości i, które zostały uzyskane wcześniej.
 1. Wybierz przycisk **OK**.
@@ -71,5 +71,5 @@ Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Tw
 
 [Deweloperzy usługi Twitter]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure Portal]: https://portal.azure.com/
+[Witryna Azure Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

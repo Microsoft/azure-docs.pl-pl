@@ -14,10 +14,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551711"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Wywołania usługi do obsługi przy użyciu poświadczeń klienta (wspólny klucz tajny lub certyfikat)
@@ -56,7 +56,7 @@ Gdy jest używany wspólny klucz tajny, żądanie tokenu dostępu między usług
 | --- | --- | --- |
 | grant_type |wymagane |Określa typ żądanego przydziału. W przepływie przydzielenia poświadczeń klienta wartość musi być **client_credentials**. |
 | client_id |wymagane |Określa identyfikator klienta usługi Azure AD wywołującej usługę sieci Web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [Azure Portal](https://portal.azure.com)kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację. Client_id jest *Identyfikator aplikacji* |
-| client_secret |wymagane |Wprowadź klucz zarejestrowany dla wywołującej usługi sieci Web lub aplikacji demona w usłudze Azure AD. Aby utworzyć klucz, w Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację, kliknij pozycję **Ustawienia**, kliknij pozycję **klucze**i Dodaj klucz.  URL — Koduj ten klucz tajny podczas jego udostępniania. |
+| client_secret |wymagane |Wprowadź klucz zarejestrowany dla wywołującej usługi sieci Web lub aplikacji demona w usłudze Azure AD. Aby utworzyć klucz, w Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację, kliknij pozycję **Ustawienia**, kliknij pozycję **klucze** i Dodaj klucz.  URL — Koduj ten klucz tajny podczas jego udostępniania. |
 | zasób |wymagane |Wprowadź identyfikator URI aplikacji dla usługi sieci Web otrzymującej. Aby znaleźć identyfikator URI aplikacji, w Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację usługi, a następnie kliknij pozycję **Ustawienia** i **Właściwości**. |
 
 #### <a name="example"></a>Przykład
