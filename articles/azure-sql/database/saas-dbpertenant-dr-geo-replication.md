@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: d2c1ddd1e0b5a080050e1ffeb28eded98dbfea3f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652113"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
@@ -52,7 +52,7 @@ Plan odzyskiwania po awarii oparty na replikacji geograficznej obejmuje trzy ró
 
 Wszystkie części muszą być traktowane ostrożnie, szczególnie w przypadku działania na dużą skalę. Ogólnie, plan musi mieć kilka celów:
 
-* Konfigurowanie
+* Konfiguracja
     * Ustanów i obsługuj środowisko obrazu dublowanego w regionie odzyskiwania. Tworzenie pul elastycznych i replikowanie wszystkich baz danych w tym środowisku odzyskiwania rezerwuje pojemność w regionie odzyskiwania. Utrzymywanie tego środowiska obejmuje replikowanie nowych baz danych dzierżawy w miarę ich udostępniania.  
 * Odzyskiwania
     * W przypadku, gdy środowisko odzyskiwania skalowane w dół służy do minimalizowania codziennych kosztów, pule i bazy danych muszą być skalowane w celu uzyskania pełnej pojemności operacyjnej w regionie odzyskiwania
@@ -314,6 +314,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Więcej informacji na temat technologii Azure SQL Database zapewnia możliwość zapewnienia ciągłości działania w dokumentacji usługi [Przegląd ciągłości biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

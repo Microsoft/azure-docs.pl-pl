@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: af4359efb48898c12bb8ee7ffb882448b5012d19
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151348"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurowanie wymuszonego tunelowania przy użyciu klasycznego modelu wdrażania
@@ -23,7 +23,7 @@ Wymuszane tunelowanie umożliwia przekierowywanie lub „wymuszanie” przekazyw
 W tym artykule omówiono konfigurowanie wymuszonego tunelowania dla sieci wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania. Wymuszone tunelowanie można skonfigurować przy użyciu programu PowerShell, a nie za pośrednictwem portalu. Jeśli chcesz skonfigurować Wymuszone tunelowanie dla Menedżer zasobówgo modelu wdrażania, wybierz pozycję Menedżer zasobów artykuł z poniższej listy rozwijanej:
 
 > [!div class="op_single_selector"]
-> * [Klasyczny](vpn-gateway-about-forced-tunneling.md)
+> * [Motyw](vpn-gateway-about-forced-tunneling.md)
 > * [Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 > 
 

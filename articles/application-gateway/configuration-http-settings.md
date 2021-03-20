@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89653021"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Konfiguracja ustawień protokołu HTTP Application Gateway
@@ -76,7 +76,7 @@ To ustawienie umożliwia skonfigurowanie opcjonalnej niestandardowej ścieżki p
 
 ## <a name="use-for-app-service"></a>Korzystanie z usługi App Service
 
-Jest to skrót tylko do interfejsu użytkownika, który wybiera dwa wymagane ustawienia dla Azure App Service zaplecza. Umożliwia **wybranie nazwy hosta z adresu zaplecza**i utworzenie nowej sondy niestandardowej, jeśli nie została ona jeszcze zainstalowana. (Aby uzyskać więcej informacji, zobacz sekcję [Wybieranie nazwy hosta z ustawienia adres zaplecza w](#pick-host-name-from-back-end-address)tym artykule). Zostanie utworzona nowa sonda, a nagłówek sondy jest wybierany z adresu członka zaplecza.
+Jest to skrót tylko do interfejsu użytkownika, który wybiera dwa wymagane ustawienia dla Azure App Service zaplecza. Umożliwia **wybranie nazwy hosta z adresu zaplecza** i utworzenie nowej sondy niestandardowej, jeśli nie została ona jeszcze zainstalowana. (Aby uzyskać więcej informacji, zobacz sekcję [Wybieranie nazwy hosta z ustawienia adres zaplecza w](#pick-host-name-from-back-end-address)tym artykule). Zostanie utworzona nowa sonda, a nagłówek sondy jest wybierany z adresu członka zaplecza.
 
 ## <a name="use-custom-probe"></a>Użyj sondy niestandardowej
 

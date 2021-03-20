@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową pojedyn
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89667516"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure z ustawień maszyny wirtualnej
@@ -35,13 +35,13 @@ Aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure, Azure Backup 
 2. Wybierz pozycję **wszystkie usługi** i w polu Filtr wpisz polecenie **maszyny wirtualne**, a następnie wybierz pozycję **maszyny wirtualne**.
 3. Z listy maszyn wirtualnych wybierz maszynę wirtualną, dla której chcesz utworzyć kopię zapasową.
 4. W menu maszyny wirtualnej wybierz pozycję **kopia zapasowa**.
-5. W **magazynie Recovery Services**wykonaj następujące czynności:
-   - Jeśli masz już magazyn, wybierz pozycję **Wybierz istniejący**i wybierz magazyn.
+5. W **magazynie Recovery Services** wykonaj następujące czynności:
+   - Jeśli masz już magazyn, wybierz pozycję **Wybierz istniejący** i wybierz magazyn.
    - Jeśli nie masz magazynu, wybierz pozycję **Utwórz nowy**. Określ nazwę magazynu. Jest on tworzony w tym samym regionie i grupie zasobów co maszyna wirtualna. Nie można modyfikować tych ustawień po włączeniu kopii zapasowej bezpośrednio z ustawień maszyny wirtualnej.
 
         ![Kreator włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. W obszarze **Wybieranie zasad tworzenia kopii zapasowej**wykonaj jedną z następujących czynności:
+6. W obszarze **Wybieranie zasad tworzenia kopii zapasowej** wykonaj jedną z następujących czynności:
 
    - Pozostaw zasady domyślne. Spowoduje to utworzenie kopii zapasowej maszyny wirtualnej raz dziennie o określonej godzinie i przechowywanie kopii zapasowych w magazynie przez 30 dni.
    - Wybierz istniejące zasady tworzenia kopii zapasowych, jeśli je masz.
@@ -49,7 +49,7 @@ Aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure, Azure Backup 
 
        ![Wybór zasad tworzenia kopii zapasowej](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Wybierz pozycję **Włącz wykonywanie kopii zapasowej**. Spowoduje to skojarzenie zasad tworzenia kopii zapasowych z maszyną wirtualną.
+7. Wybierz pozycję **Włącz kopię zapasową**. Spowoduje to skojarzenie zasad tworzenia kopii zapasowych z maszyną wirtualną.
 
     ![Przycisk Włącz wykonywanie kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
@@ -64,11 +64,11 @@ Aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure, Azure Backup 
 
 ## <a name="run-a-backup-immediately"></a>Natychmiastowe uruchamianie kopii zapasowej
 
-1. Aby natychmiast uruchomić kopię zapasową, w menu maszyny wirtualnej wybierz pozycję **Utwórz**kopię zapasową  >  **teraz**.
+1. Aby natychmiast uruchomić kopię zapasową, w menu maszyny wirtualnej wybierz pozycję **Utwórz** kopię zapasową  >  **teraz**.
 
     ![Uruchom kopię zapasową](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-2. W obszarze **kopia zapasowa**użyj kontrolki kalendarz do wybrania, dopóki punkt odzyskiwania zostanie zachowany > i **OK**.
+2. W obszarze **kopia zapasowa** użyj kontrolki kalendarz do wybrania, dopóki punkt odzyskiwania zostanie zachowany > i **OK**.
 
     ![Dzień przechowywania kopii zapasowych](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 

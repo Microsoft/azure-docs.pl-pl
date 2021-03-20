@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231150"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informacje o działaniach inspekcji usługi Azure AD
@@ -32,11 +32,11 @@ Architektura raportowania w usłudze Azure AD obejmuje następujące składniki:
 
 - **Raporty dotyczące działań** 
     - [Logowania](concept-sign-ins.md) — zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników
-    - [Dzienniki inspekcji](concept-audit-logs.md) — udostępnia możliwość śledzenia wszystkich zmian wprowadzanych przez różne funkcje usługi Azure AD za pomocą dzienników. 
+    - [Dzienniki inspekcji](concept-audit-logs.md) — umożliwia śledzenie przy użyciu dzienników dla wszystkich zmian wykonywanych przez różne funkcje w ramach usługi Azure AD. 
     
 - **Raporty dotyczące zabezpieczeń** 
-    - [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
-    - [Użytkownicy oflagowani w związku z ryzykiem](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
+    - [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika. 
+    - [Użytkownicy oflagowani do ryzyka](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, które mogło zostać naruszone. 
 
 W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w dziennikach inspekcji.
 
@@ -135,11 +135,11 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie aplikacjami|AdminPolicyDatas-SetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-GetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-RemoveResources|
-|Uwierzytelnianie|AdminUserJourneys-SetResources|
-|Uwierzytelnianie|Tworzenie dostawcy IdentityProvider|
-|Uwierzytelnianie|Tworzenie aplikacji w wersji 1|
-|Uwierzytelnianie|Tworzenie aplikacji w wersji 2|
-|Uwierzytelnianie|Tworzenie domen niestandardowych w ramach dzierżawy|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Tworzenie dostawcy IdentityProvider|
+|Authentication|Tworzenie aplikacji w wersji 1|
+|Authentication|Tworzenie aplikacji w wersji 2|
+|Authentication|Tworzenie domen niestandardowych w ramach dzierżawy|
 |Autoryzacja|Tworzenie nowego elementu AdminUserJourney|
 |Autoryzacja|Tworzenie zlokalizowanego pliku JSON zasobu|
 |Autoryzacja|Tworzenie nowego niestandardowego dostawcy tożsamości|

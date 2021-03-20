@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316004"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Samouczek: Udostępnianie urządzeń w centrach IoT o zrównoważonym obciążeniu
@@ -45,17 +45,17 @@ Lista rejestracji wskazuje, jaka metoda zaświadczania (potwierdzania tożsamoś
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Ustawienie zasad alokacji w usłudze Device Provisioning Service
 
-Zasady alokacji to ustawienie usługi Device Provisioning Service określające, w jaki sposób urządzenia są przypisane do centrum IoT. Są obsługiwane trzy zasady alokacji: 
+Zasady alokacji to ustawienie usługi Device Provisioning Service określające, w jaki sposób urządzenia są przypisane do centrum IoT. Są obsługiwane trzy zasady alokacji: 
 
 1. **Najmniejsze opóźnienie**: urządzenia są aprowizowane do centrum IoT z uwzględnieniem centrum z najmniejszym opóźnieniem do urządzenia.
-2. **Dystrybucja z równymi wagami** (domyślnie): aprowizacja do każdego z połączonych centrów IoT jest jednakowo prawdopodobna. Jest to ustawienie domyślne. W przypadku aprowizowania urządzeń tylko do jednego centrum IoT można pozostawić to ustawienie. 
+2. **Dystrybucja z równymi wagami** (domyślnie): aprowizacja do każdego z połączonych centrów IoT jest jednakowo prawdopodobna. Jest to ustawienie domyślne. W przypadku aprowizowania urządzeń tylko do jednego centrum IoT można pozostawić to ustawienie. 
 3. **Konfiguracja statyczna za pośrednictwem listy rejestracji**: określenie żądanego centrum IoT na liście rejestracji ma wyższy priorytet niż zasady alokacji na poziomie usługi Device Provisioning.
 
 Wykonaj następujące czynności, aby skonfigurować zasady alokacji:
 
 1. Aby ustawić zasady alokacji, na stronie Usługa Device Provisioning kliknij pozycję **Zarządzanie zasadami alokacji**.
 2. Wybierz zasady alokacji **Dystrybucja z równymi wagami**.
-3. Kliknij przycisk **Zapisz**.
+3. Kliknij pozycję **Zapisz**.
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Łączenie nowego centrum IoT z usługą Device Provisioning Service
 
@@ -65,7 +65,7 @@ Wykonaj następujące czynności, aby skonfigurować zasady alokacji:
 2. Na stronie Usługa Device Provisioning kliknij pozycję **Połączone centra IoT Hub**.
 3. Kliknij pozycję **Dodaj**.
 4. Na stronie **Dodawanie linku do centrum IoT Hub** użyj przycisków opcji, aby określić, czy połączone centrum IoT znajduje się w bieżącej subskrypcji, czy w innej subskrypcji. Następnie wybierz nazwę centrum IoT w polu **Centrum IoT**.
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

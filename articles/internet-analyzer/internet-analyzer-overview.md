@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360892"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Co to jest Analizator Internetu? (Wersja zapoznawcza)
@@ -36,9 +36,9 @@ Możesz skonfigurować własny niestandardowy punkt końcowy lub wybrać jedną 
 W trakcie okresu zapoznawczego dostępne są następujące wstępnie skonfigurowane punkty końcowe: 
 
 * **Regiony platformy Azure**
-    * Brazil South
+    * Brazylia Południowa
     * Indie Środkowe
-    * Środkowe stany USA
+    * Central US
     * Azja Wschodnia
     * East US
     * Japonia Zachodnia

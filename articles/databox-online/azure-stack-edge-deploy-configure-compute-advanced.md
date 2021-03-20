@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968292"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro dla zaawansowanego przepływu wdrażania
@@ -26,7 +26,7 @@ Obliczenia można skonfigurować dla prostego lub zaawansowanego przepływu wdra
 |------------------|--------------------------------------------------|---------------------------------------|
 | Przeznaczone dla     | Administratorzy IT                                | Deweloperzy                            |
 | Typ             | Wdrażanie modułów przy użyciu usługi Azure Stack Edge      | Wdrażanie modułów przy użyciu usługi IoT Hub |
-| Wdrożone moduły | Pojedyncze                                           | Łańcucha lub wiele modułów           |
+| Wdrożone moduły | Pojedynczy                                           | Łańcucha lub wiele modułów           |
 
 
 Wykonanie tej procedury może potrwać od 20 do 30 minut.
@@ -72,7 +72,7 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
 
     ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Wybierz pozycję **Recenzja + Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub **Omówienie** aktualizacji, aby wskazać, że usługa IoT Edge jest uruchomiona. 
+4. Wybierz pozycję **Przejrzyj i utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub **Omówienie** aktualizacji, aby wskazać, że usługa IoT Edge jest uruchomiona. 
 
     Gdy usługa IoT Edge jest skonfigurowana na urządzeniu brzegowym, tworzy dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
 
@@ -215,7 +215,7 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
    
    ![Określanie tras](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
-    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz pozycję **Dalej**.
+    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz opcję **Dalej**.
         
     ```
     "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"

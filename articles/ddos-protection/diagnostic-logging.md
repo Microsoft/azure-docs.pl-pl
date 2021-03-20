@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591885"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS
 
-Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
+Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk usługi Azure Monitor ujawnionych przez usługę DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
 
 Następujące dzienniki diagnostyczne są dostępne dla Azure DDoS Protection standard: 
 
@@ -46,12 +46,12 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Jeśli chcesz automatycznie włączyć rejestrowanie diagnostyczne dla wszystkich publicznych adresów IP w środowisku, pomiń to polecenie, aby [włączyć rejestrowanie diagnostyczne dla wszystkich publicznych adresów IP](#enable-diagnostic-logging-on-all-public-ips).
 
-1. Wybierz pozycję **wszystkie usługi** u góry, po lewej stronie portalu.
-2. Wprowadź wartość *monitor* w polu **Filtr** . Gdy **monitor** pojawi się w wynikach, wybierz go.
+1. W lewym górnym rogu portalu wybierz pozycję **Wszystkie usługi**.
+2. Wpisz *Monitor* w polu **Filtr**. Gdy w wynikach pojawi się pozycja **Monitor**, wybierz ją.
 3. W obszarze **Ustawienia** wybierz pozycję **Ustawienia diagnostyczne**.
-4. Wybierz **subskrypcję** i **grupę zasobów** ZAWIERAJĄCą publiczny adres IP, który chcesz zarejestrować.
+4. Wybierz **Subskrypcję** oraz **Grupę zasobów** zawierającą publiczny adres IP, który chcesz zarejestrować.
 5. Wybierz pozycję **publiczny adres IP** dla opcji **Typ zasobu**, a następnie wybierz konkretny publiczny adres IP, dla którego chcesz włączyć dzienniki.
-6. Wybierz pozycję **Dodaj ustawienia diagnostyczne**. W obszarze **szczegóły kategorii** wybierz dowolną z następujących opcji, a następnie wybierz pozycję **Zapisz**.
+6. Wybierz pozycję **Dodaj ustawienia diagnostyczne**. W obszarze **Szczegóły kategorii** wybierz tyle poniższych opcji, ile musisz, a następnie wybierz pozycję **Zapisz**.
 
     ![Ustawienia diagnostyki DDoS](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 

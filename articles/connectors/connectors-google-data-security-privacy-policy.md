@@ -7,22 +7,22 @@ ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91400761"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Zasady zabezpieczeń i ochrony danych dla łączników Google w Azure Logic Apps
 
-Od **1 maja 2020**zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com ), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors).
+Od **1 maja 2020** zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com ), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors).
 
 > [!NOTE]
 > Jeśli aplikacje logiki korzystają z łącznika usługi Gmail z kontem biznesowym usługi G (adres e-mail z domeną niestandardową), nie ma to wpływu na aplikacje logiki ani nie mają ograniczeń dotyczących używania łącznika usługi Gmail.
 
 ## <a name="affected-logic-apps"></a>Narażone Aplikacje logiki
 
-Jeśli masz aplikacje logiki korzystające z łącznika usługi Gmail, otrzymasz wiadomość e-mail o potencjalnie narażonych aplikacjach logiki. Jednak od **15 czerwca 2020**wszystkie niezgodne przepływy pracy zostaną wyłączone. Można wykonać jedną z następujących czynności:
+Jeśli masz aplikacje logiki korzystające z łącznika usługi Gmail, otrzymasz wiadomość e-mail o potencjalnie narażonych aplikacjach logiki. Jednak od **15 czerwca 2020** wszystkie niezgodne przepływy pracy zostaną wyłączone. Można wykonać jedną z następujących czynności:
 
 * Zaktualizuj odpowiednie Aplikacje logiki, [wykonując czynności opisane w tym temacie](#update-affected-workflows). Należy utworzyć aplikację kliencką Google, która udostępnia identyfikator klienta i klucz tajny klienta, które są używane do uwierzytelniania w wyzwalaczu lub akcji usługi Gmail.
 

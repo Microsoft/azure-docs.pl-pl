@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010966"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą Azure Portal
@@ -66,7 +66,7 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
     
         | Pole | Opis |
         | :--- | :--- |
-        | **Ustanawia** | Wybierz pozycję **X. 509**, **moduł TPM** lub **klucz symetryczny** dla mechanizmu zaświadczania, który ma być używany, w zależności od metody zaświadczania, która będzie używana przez urządzenia. |
+        | **Mechanism (Mechanizm)** | Wybierz pozycję **X. 509**, **moduł TPM** lub **klucz symetryczny** dla mechanizmu zaświadczania, który ma być używany, w zależności od metody zaświadczania, która będzie używana przez urządzenia. |
         | Ustawienia zaświadczania | Aby uzyskać instrukcje krok po kroku dotyczące tworzenia i używania indywidualnych rejestracji z kluczami symetrycznymi lub certyfikatami X. 509, zobacz jedno z [sekcji Udostępnianie urządzenia symetrycznego](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) lub [udostępnianie certyfikatu x. 509](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) przewodników Szybki Start.<br><br>Aby uzyskać instrukcje krok po kroku dotyczące tworzenia indywidualnych rejestracji i korzystania z nich przy użyciu zaświadczania modułu TPM, zobacz jeden z przykładowych [zainicjowania obsługi symulowanych urządzeń TPM](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) .|
         | **Identyfikator urządzenia IoT Hub** |  Ten identyfikator będzie reprezentować Twoje urządzenie. Musi być zgodna z regułami dotyczącymi identyfikatora urządzenia. Aby uzyskać więcej informacji, zobacz [właściwości tożsamości urządzenia](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>W przypadku używania certyfikatów X. 509 ten tekst musi być nazwą podmiotu w certyfikacie urządzenia przekazywanym do rejestracji. Ta nazwa podmiotu musi być zgodna z regułami dotyczącymi identyfikatora urządzenia.|
             

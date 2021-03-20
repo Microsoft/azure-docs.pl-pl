@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011068"
 ---
 # <a name="import-soap-api"></a>Importowanie interfejsu API protokołu SOAP
@@ -59,7 +59,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
     * **Starter (początkowy)**
     * **Nieograniczona liczba**   
 8. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testowanie nowego interfejsu API w portalu administracyjnym
 

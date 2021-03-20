@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
 ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602521"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności — Azure SQL Database & wystąpienia zarządzane SQL
@@ -57,13 +57,13 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 1
     
     | Pole      | Opis|
     |------------|--------------|
-    |Subskrypcja|Subskrypcja używana do regulowania rezerwacji zdolności produkcyjnych. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za pozostały koszt. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (Numer oferty MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.|
+    |Subskrypcja|Subskrypcja używana do regulowania rezerwacji zdolności produkcyjnych. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za pozostały koszt. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (Numer oferty MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji dla przedsiębiorstw opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.|
     |Zakres       |Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania pozycji <br/><br/>Rdzeń wirtualny rabat rezerwacji jest stosowany do bazy danych lub wystąpienia zarządzanego uruchomionego w dowolnej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.<br/><br/>**Pojedyncza subskrypcja**— rabat rezerwacji rdzeń wirtualny jest stosowany do baz danych lub wystąpień zarządzanych w tej subskrypcji. <br/><br/>**Pojedynczej grupy zasobów**, Rabat rezerwacji jest stosowany do wystąpień baz danych lub wystąpień zarządzanych w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.|
     |Region (Region)      |Region świadczenia usługi Azure objęty rezerwacją pojemności.|
     |Typ wdrożenia|Typ zasobu SQL, dla którego chcesz kupić rezerwację.|
     |Warstwa wydajności|Warstwa usług dla baz danych lub wystąpień zarządzanych. |
-    |Termin        |Jeden rok lub trzy lata.|
-    |Ilość    |Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji pojemności. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania lub planowania uruchamiania wielu baz danych o całkowitej pojemności obliczeniowej 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich baz danych. |
+    |Okres        |Jeden rok lub trzy lata.|
+    |Liczba    |Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji pojemności. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania lub planowania uruchamiania wielu baz danych o całkowitej pojemności obliczeniowej 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich baz danych. |
 
 1. Sprawdź koszt rezerwacji zdolności produkcyjnych w sekcji **koszty** .
 1. Wybierz pozycję **Kup**.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7195a126938deabf542e6fa3e52b72c2efdddac2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Samouczek: integracja Azure Active Directory z rozpoznawaniem
@@ -149,7 +149,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu rozpoznaw
    
     ![Zrzut ekranu przedstawia ustawienia S O, w których można wprowadzić podane wartości.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. Jako **włączenie logowania jednokrotnego**wybierz pozycję **włączone**.
+    a. Jako **włączenie logowania jednokrotnego** wybierz pozycję **włączone**.
 
     b. W polu tekstowym **Identyfikator jednostki dostawcy tożsamości** wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
     
@@ -191,7 +191,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -239,7 +239,7 @@ Ta aplikacja nie obsługuje aprowizacji Standard scim, ale ma alternatywną sync
    
     a. Gdy **Synchronizacja jest włączona**, wybierz pozycję **włączone**.
    
-    b. Jako **Wybierz dostawcę synchronizacji**wybierz pozycję **Microsoft/Office 365**.
+    b. Jako **Wybierz dostawcę synchronizacji** wybierz pozycję **Microsoft/Office 365**.
    
     c. Kliknij pozycję **Uruchom synchronizację użytkowników**.
 

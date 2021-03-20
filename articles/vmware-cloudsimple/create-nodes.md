@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ccff5b4dc6ed5a571e25ab0569b9fa92674e1340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140738"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Inicjowanie obsługi administracyjnej węzłów dla rozwiązań VMware platformy Azure według CloudSimple
@@ -42,7 +42,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 9. Wybierz dedykowaną lokalizację do hostowania zasobów węzła.
 10. Wybierz [Typ węzła](cloudsimple-node.md).
 11. Wybierz liczbę węzłów do aprowizacji.
-12. Wybierz pozycję **Recenzja + Utwórz**.
+12. Wybierz pozycję **Przejrzyj i utwórz**.
 13. Przejrzyj ustawienia. Aby zmodyfikować wszystkie ustawienia, kliknij przycisk **Wstecz**.
 14. Wybierz przycisk **Utwórz**.
 

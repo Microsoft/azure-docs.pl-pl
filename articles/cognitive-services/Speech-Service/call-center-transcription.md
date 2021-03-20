@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021970"
 ---
 # <a name="speech-service-for-telephony-data"></a>Usługa mowy dla danych telefonii
@@ -70,7 +70,7 @@ Nasze opóźnienia kompleksowe są znacznie niskie dla różnych technologii, ta
 
 Nasze nowe głosy są również odróżniane od głosów ludzkich. Możesz użyć naszych głosów, aby bot swój unikatowy charakter.
 
-### <a name="search"></a>Wyszukiwanie
+### <a name="search"></a>Wyszukaj
 
 Kolejną zszywaniem funkcji analitycznych jest zidentyfikowanie interakcji w przypadku wystąpienia konkretnego zdarzenia lub doświadczenia. Zwykle jest to wykonywane z jednym z dwóch metod; Wyszukiwanie ad hoc, w którym użytkownik po prostu wpisuje frazę i system odpowiada, lub bardziej strukturalne zapytanie, gdzie analityk może utworzyć zestaw instrukcji logicznych, które identyfikują scenariusz w wywołaniu, a następnie każde wywołanie może być indeksowane względem tego zestawu zapytań. Dobrym przykładem wyszukiwania jest Powszechna Deklaracja zgodności "to wywołanie jest rejestrowane w celach jakościowych... ". W wielu firmach chcemy upewnić się, że ich agenci dostarczą tej odpowiedzialności klientom przed faktycznym zarejestrowaniem połączenia. Większość systemów analitycznych ma możliwość trendu zachowań znalezionych przez algorytmy zapytań i wyszukiwania, a to raportowanie trendów jest ostatecznie jedną z najważniejszych funkcji systemu analitycznego. Za pomocą [katalogu usług poznawczych](https://azure.microsoft.com/services/cognitive-services/directory/search/) kompleksowe rozwiązanie można znacznie rozszerzyć za pomocą funkcji indeksowania i wyszukiwania.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568782"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Nawiązywanie połączenia z maszynami wirtualnymi platformy Azure po przejściu w tryb failover z lokalnego 
@@ -96,7 +96,7 @@ Przechowywanie adresów IP wymaga wykonania następujących czynności:
 
 ### <a name="failover-example"></a>Przykład pracy awaryjnej
 
-Przyjrzyjmy się przykładowi.
+Spójrzmy na przykład.
 
 - Fikcyjny Bank Woodgrove firmy hostuje swoje aplikacje biznesowe w środowisku lokalnym, które obsługują swoje aplikacje mobilne na platformie Azure.
 - Łączą się z lokalnymi z platformą Azure za pośrednictwem sieci VPN typu lokacja-lokacja. 
@@ -137,11 +137,11 @@ Aby zachować adresy, wykonaj czynności przedstawione poniżej.
 
 Przed przejściem w tryb failover Określ ustawienia sieci i adres IP dla docelowej maszyny wirtualnej platformy Azure.
 
-1.  W magazynie Recovery Services — > **zreplikowane elementy**wybierz maszynę lokalną.
+1.  W magazynie Recovery Services — > **zreplikowane elementy** wybierz maszynę lokalną.
 2. Na stronie **obliczenia i sieć** dla maszyny kliknij pozycję **Edytuj**, aby skonfigurować ustawienia sieci i karty dla docelowej maszyny wirtualnej platformy Azure.
-3. W obszarze **właściwości sieci**wybierz sieć docelową, w której będzie znajdować się maszyna wirtualna platformy Azure, gdy zostanie ona utworzona po przejściu do trybu failover.
-4. W obszarze **interfejsy sieciowe**Skonfiguruj karty sieciowe w sieci docelowej. Domyślnie Site Recovery są wyświetlane wszystkie wykryte karty sieciowe na komputerze lokalnym.
-    - W obszarze **docelowy typ interfejsu sieciowego** możesz ustawić każdą kartę sieciową jako **podstawową**, **pomocniczą**lub **nieutworzoną** , jeśli nie potrzebujesz tej konkretnej karty sieciowej w sieci docelowej. Jedna karta sieciowa musi być ustawiona jako podstawowa dla trybu failover. Należy zauważyć, że modyfikacja sieci docelowej ma wpływ na wszystkie karty sieciowe maszyny wirtualnej platformy Azure.
+3. W obszarze **właściwości sieci** wybierz sieć docelową, w której będzie znajdować się maszyna wirtualna platformy Azure, gdy zostanie ona utworzona po przejściu do trybu failover.
+4. W obszarze **interfejsy sieciowe** Skonfiguruj karty sieciowe w sieci docelowej. Domyślnie Site Recovery są wyświetlane wszystkie wykryte karty sieciowe na komputerze lokalnym.
+    - W obszarze **docelowy typ interfejsu sieciowego** możesz ustawić każdą kartę sieciową jako **podstawową**, **pomocniczą** lub **nieutworzoną** , jeśli nie potrzebujesz tej konkretnej karty sieciowej w sieci docelowej. Jedna karta sieciowa musi być ustawiona jako podstawowa dla trybu failover. Należy zauważyć, że modyfikacja sieci docelowej ma wpływ na wszystkie karty sieciowe maszyny wirtualnej platformy Azure.
     - Kliknij nazwę karty sieciowej, aby określić podsieć, w której zostanie wdrożona maszyna wirtualna platformy Azure.
     - Zastąp wartość **dynamiczną** prywatnym adresem IP, który chcesz przypisać do docelowej maszyny wirtualnej platformy Azure. Jeśli adres IP nie jest określony, Site Recovery przypisze następnego dostępnego adresu IP w podsieci do karty sieciowej w trybie failover.
     - [Dowiedz się więcej](site-recovery-manage-network-interfaces-on-premises-to-azure.md) o zarządzaniu kartami sieciowymi dla lokalnego trybu failover na platformie Azure.

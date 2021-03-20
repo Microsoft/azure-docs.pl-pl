@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5cf4dc5123040fd2af8efe54153867a8709fe1ef
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652232"
 ---
-# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii środowiska VMware na platformie Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
 W tym artykule opisano architekturę i procesy używane podczas wdrażania replikacji odzyskiwania po awarii, trybu failover i odzyskiwania maszyn wirtualnych VMware między lokalną lokacją programu VMware i platformą Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) .
 
@@ -45,8 +45,8 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
@@ -89,7 +89,7 @@ Pełna lista adresów URL, które mają być filtrowane w celu komunikacji międ
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Domyślny**
+**Ustawienie zasad** | **Szczegóły** | **Wartooć**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny

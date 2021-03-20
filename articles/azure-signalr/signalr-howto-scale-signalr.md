@@ -8,10 +8,10 @@ ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89595771"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Jak skalować wystąpienie usługi Azure sygnalizujące?
@@ -38,7 +38,7 @@ Aby uzyskać informacje na temat cen i pojemności poszczególnych usług sygnal
    
     ![Skalowanie w portalu](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ## <a name="scale-using-azure-cli"></a>Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure
 

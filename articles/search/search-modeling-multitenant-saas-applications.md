@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397372"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Wzorce projektowe dla wielodostępnych aplikacji SaaS i platformy Azure Wyszukiwanie poznawcze
@@ -41,7 +41,7 @@ Dodawanie i usuwanie partycji oraz replik umożliwia zwiększenie pojemności us
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limity usługi i indeksu na platformie Azure Wyszukiwanie poznawcze
 Na platformie Azure Wyszukiwanie poznawcze istnieje kilka różnych [warstw cenowych](https://azure.microsoft.com/pricing/details/search/) , a każda z nich ma różne [limity i przydziały](search-limits-quotas-capacity.md). Niektóre z tych limitów znajdują się na poziomie usługi, a niektóre z nich znajdują się na poziomie indeksu, a niektóre z nich znajdują się na poziomie partycji.
 
-|  | Podstawowy | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Podstawowa | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | **Maksymalna liczba replik na usługę** |3 |12 |12 |12 |12 |
 | **Maksymalna liczba partycji na usługę** |1 |12 |12 |12 |3 |
@@ -95,7 +95,7 @@ Jeśli łączna liczba indeksów rośnie zbyt duże dla pojedynczej usługi, nal
 
 ## <a name="2-service-per-tenant"></a>2. usługa na dzierżawcę
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Wskaźnik modelu indeksu na dzierżawcę" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Broszura modelu usługi dla dzierżawców" border="false":::
 
 W architekturze usługi dla dzierżawy każdy dzierżawca ma własną usługę wyszukiwania.
 

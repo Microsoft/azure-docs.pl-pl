@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94445158"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
@@ -28,32 +28,32 @@ Na przykład rozważmy model samochodu i chcesz przełączyć cały samochód, a
 
 Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
-* **`Hidden`** : Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
-* **`Tint color`** : Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
+* **`Hidden`**: Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
+* **`Tint color`**: Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
   
   ![Kolor odcienia używany do przekształcania obiektu na zielony](./media/color-tint.png)
 
-* **`See-through`** : Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
+* **`See-through`**: Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
 
   ![Tryb wyświetlania, używany do przezroczystości wybranych obiektów](./media/see-through.png)
 
   > [!IMPORTANT]
   > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **`Shell`** : Geometria jest renderowana jako przezroczysta, nienasyconej powłoki. Ten tryb pozwala zanikać nieważne części sceny przy zachowaniu sensu kształtu i względnego pozycjonowania. Aby zmienić wygląd renderowania powłoki, użyj stanu [ShellRenderingSettings](shell-effect.md) . Zapoznaj się z poniższym obrazem dla modelu samochodu w całości renderowanej powłoki, z wyjątkiem niebieskich sprężyn:
+* **`Shell`**: Geometria jest renderowana jako przezroczysta, nienasyconej powłoki. Ten tryb pozwala zanikać nieważne części sceny przy zachowaniu sensu kształtu i względnego pozycjonowania. Aby zmienić wygląd renderowania powłoki, użyj stanu [ShellRenderingSettings](shell-effect.md) . Zapoznaj się z poniższym obrazem dla modelu samochodu w całości renderowanej powłoki, z wyjątkiem niebieskich sprężyn:
 
   ![Tryb powłoki używany do zanikania określonych obiektów](./media/shell.png)
 
   > [!IMPORTANT]
   > Efekt powłoki działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **`Selected`** : Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
+* **`Selected`**: Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
   ![Opcja konspektu używana do wyróżnienia wybranej części](./media/selection-outline.png)
 
-* **`DisableCollision`** : Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
+* **`DisableCollision`**: Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
 
-* **`UseCutPlaneFilterMask`** : Użyj pojedynczej maski bitów filtru, aby kontrolować zaznaczenie opcji wycinania. Ta flaga określa, czy dana maska filtru powinna być używana, czy dziedziczona od jej elementu nadrzędnego. Sama maska bitów filtru jest ustawiana za pośrednictwem `CutPlaneFilterMask` właściwości. Aby uzyskać szczegółowe informacje na temat sposobu działania filtrowania, zapoznaj się z [akapitem selektywne wycinanie płaszczyzn](cut-planes.md#selective-cut-planes). Zapoznaj się z poniższym przykładem, gdy tylko opona i brzeg są obcinane, gdy pozostała część sceny pozostaje bez zmian.
+* **`UseCutPlaneFilterMask`**: Użyj pojedynczej maski bitów filtru, aby kontrolować zaznaczenie opcji wycinania. Ta flaga określa, czy dana maska filtru powinna być używana, czy dziedziczona od jej elementu nadrzędnego. Sama maska bitów filtru jest ustawiana za pośrednictwem `CutPlaneFilterMask` właściwości. Aby uzyskać szczegółowe informacje na temat sposobu działania filtrowania, zapoznaj się z [akapitem selektywne wycinanie płaszczyzn](cut-planes.md#selective-cut-planes). Zapoznaj się z poniższym przykładem, gdy tylko opona i brzeg są obcinane, gdy pozostała część sceny pozostaje bez zmian.
 ![Selektywne wycinanie płaszczyzn](./media/selective-cut-planes-hierarchical-override.png)
 
 

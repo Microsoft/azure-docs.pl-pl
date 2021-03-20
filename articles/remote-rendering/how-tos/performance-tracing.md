@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204099"
 ---
 # <a name="create-client-side-performance-traces"></a>Tworzenie śladów wydajności po stronie klienta
@@ -35,13 +35,13 @@ Podczas wyszukiwania informacji na temat śladów wydajności będzie można w s
 * `WPR`
 * `WPA`
 
-Na potrzeby **funkcji ETW** jest przygotowana dla usługi [ **E** **t** **W**indows](/windows/win32/etw/about-event-tracing). Jest to po prostu Przełożonej nazwy dla wydajnej funkcji śledzenia poziomu jądra, która jest wbudowana w system Windows. Jest to tzw. śledzenie *zdarzeń* , ponieważ aplikacje obsługujące ETW będą emitować zdarzenia do rejestrowania akcji, które mogą pomóc w śledzeniu problemów z wydajnością. Domyślnie system operacyjny emituje zdarzenia dotyczące takich operacji jak dostęp do dysku, przełączenia zadań. Aplikacje takie jak ARR dodatkowo emitują zdarzenia niestandardowe, na przykład w przypadku gubienia ramek, opóźnienia sieci itp.
+Na potrzeby **funkcji ETW** jest przygotowana dla usługi [  **t** indows](/windows/win32/etw/about-event-tracing). Jest to po prostu Przełożonej nazwy dla wydajnej funkcji śledzenia poziomu jądra, która jest wbudowana w system Windows. Jest to tzw. śledzenie *zdarzeń* , ponieważ aplikacje obsługujące ETW będą emitować zdarzenia do rejestrowania akcji, które mogą pomóc w śledzeniu problemów z wydajnością. Domyślnie system operacyjny emituje zdarzenia dotyczące takich operacji jak dostęp do dysku, przełączenia zadań. Aplikacje takie jak ARR dodatkowo emitują zdarzenia niestandardowe, na przykład w przypadku gubienia ramek, opóźnienia sieci itp.
 
-**W przypadku**usługi **ETL** odogginga na rasę **T** **1**. Oznacza to po prostu, że ślad został zebrany (zarejestrowany) i dlatego jest zazwyczaj używany jako rozszerzenie pliku dla plików, które przechowują dane śledzenia. W takim przypadku po wykonaniu śledzenia zazwyczaj będzie znajdował się \* plik. etl.
+**W przypadku** usługi **ETL** odogginga na rasę **T** **1**. Oznacza to po prostu, że ślad został zebrany (zarejestrowany) i dlatego jest zazwyczaj używany jako rozszerzenie pliku dla plików, które przechowują dane śledzenia. W takim przypadku po wykonaniu śledzenia zazwyczaj będzie znajdował się \* plik. etl.
 
-**WP** ma wartość [ **w**indows **P**Eksplorator **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu ( \* . wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
+**WP** ma wartość [ **w** indows **P** Eksplorator **R** ecorder](/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu ( \* . wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
 
-**WPA** oznacza w [ **W**indows **P**Eksplorator nalyzer **A**](/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \* plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
+**WPA** oznacza w [ indows **P** Eksplorator nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \* plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
 
 Śledzenie ETL można tworzyć na dowolnym urządzeniu z systemem Windows (na komputerze lokalnym, serwerze HoloLens, w chmurze itp.), które są zwykle zapisywane na dysku i analizowane przy użyciu protokołu WPA na komputerze stacjonarnym. Pliki ETL mogą być wysyłane do innych deweloperów, aby mieć do nich wygląd. Należy pamiętać, że informacje poufne, takie jak ścieżki plików i adresy IP, mogą być przechwytywane w śladach ETL. Funkcji ETW można używać na dwa sposoby: do rejestrowania śladów lub analizowania śladów. Rejestrowanie śledzenia jest proste i wymaga minimalnej konfiguracji. Analizowanie śladów z drugiej strony wymaga znośnego zrozumienie zarówno narzędzia WPA, jak i badanego problemu. Poniżej przedstawiono materiał ogólny do uczenia WPA, a także wskazówki dotyczące sposobu interpretacji śladów specyficznych dla ARR.
 

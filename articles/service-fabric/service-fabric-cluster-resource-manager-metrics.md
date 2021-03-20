@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173002"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Zarządzanie zużyciem zasobów i obciążeniem Service Fabric przy użyciu metryk
@@ -19,16 +19,16 @@ ms.locfileid: "92173002"
 Takie jak pamięć, dysk i użycie procesora są przykładowe metryki. Te metryki to metryki fizyczne, zasoby odpowiadające zasobom fizycznym w węźle, który musi być zarządzany. Metryki mogą być również (i często) metryki logiczne. Metryki logiczne są takie jak "MyWorkQueueDepth" lub "MessagesToProcess" lub "TotalRecords". Metryki logiczne są zdefiniowane przez aplikację i pośrednio odpowiadają pewnemu zużyciu zasobów fizycznych. Metryki logiczne są wspólne, ponieważ mogą być trudne do mierzenia i raportowania zużycia zasobów fizycznych na podstawie poszczególnych usług. Ze względu na złożoność mierzenia i raportowania własnych metryk fizycznych jest również Service Fabric udostępniają pewne metryki domyślne.
 
 ## <a name="default-metrics"></a>Metryki domyślne
-Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Oto one:
+Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Są to:
 
   - PrimaryCount — liczba replik podstawowych w węźle 
   - ReplicaCount — liczba całkowitych replik stanowych w węźle
   - Liczba — liczba wszystkich obiektów usługi (bezstanowe i stanowe) w węźle
 
-| Metryka | Obciążenie wystąpienia bezstanowego | Pomocnicze obciążenie stanowe | Stanowe obciążenie podstawowe | Waga |
+| Metric | Obciążenie wystąpienia bezstanowego | Pomocnicze obciążenie stanowe | Stanowe obciążenie podstawowe | Waga |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |Wysoki |
-| ReplicaCount |0 |1 |1 |Średniaa |
+| PrimaryCount |0 |0 |1 |Wys. |
+| ReplicaCount |0 |1 |1 |Śred. |
 | Liczba |1 |1 |1 |Niski |
 
 
@@ -236,7 +236,7 @@ OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
         cancellationToken);
 ```
 
-W tym przykładzie zostanie wykonana aktualizacja ostatniego zgłoszonego obciążenia dla partycji _53df3d7f-5471-403B-b736-bde6ad584f42_. Podstawowe obciążenie repliki dla _CustomMetricName0_ metryki zostanie zaktualizowane o wartości 100. W tym samym czasie obciążenie dla tej samej metryki dla określonej repliki pomocniczej znajdującej się w węźle _NodeName0_zostanie zaktualizowane o wartości 200.
+W tym przykładzie zostanie wykonana aktualizacja ostatniego zgłoszonego obciążenia dla partycji _53df3d7f-5471-403B-b736-bde6ad584f42_. Podstawowe obciążenie repliki dla _CustomMetricName0_ metryki zostanie zaktualizowane o wartości 100. W tym samym czasie obciążenie dla tej samej metryki dla określonej repliki pomocniczej znajdującej się w węźle _NodeName0_ zostanie zaktualizowane o wartości 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Aktualizowanie konfiguracji metryk usługi
 Lista metryk skojarzonych z usługą i właściwości tych metryk można aktualizować dynamicznie, gdy usługa jest aktywna. Pozwala to na eksperymentowanie i elastyczność. Oto kilka przykładów, z których jest to przydatne:

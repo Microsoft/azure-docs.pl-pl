@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 54790795aab8aac247e17198159130d7139dd38c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754742"
 ---
-# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Reagowanie na alerty usługi Azure Defender Menedżer zasobów
+# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Reagowanie na alerty usługi Azure Defender dla usługi Resource Manager
 
 Po otrzymaniu alertu z usługi Azure Defender dla Menedżer zasobów zalecamy badanie alertu i jego odpowiedź zgodnie z poniższym opisem. Usługa Azure Defender dla Menedżer zasobów chroni wszystkie połączone zasoby, więc nawet w przypadku znajomości aplikacji lub użytkownika, który wyzwolił alert, ważne jest, aby sprawdzić sytuacje związane z każdym alertem.  
 
