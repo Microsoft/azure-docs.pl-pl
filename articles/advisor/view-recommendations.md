@@ -4,10 +4,10 @@ description: Wyświetl i Filtruj zalecenia dotyczące Azure Advisor, aby zmniejs
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90986869"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Wyświetl Azure Advisor zaleceń dotyczących Ciebie
@@ -47,7 +47,7 @@ Azure Advisor pozwala odrzucić lub odłożyć zalecenia dotyczące pojedynczego
 1. Wybierz zalecenie z listy zaleceń
 1. Wybierz opcję Odłóż lub Odrzuć dla zalecenia, które chcesz odłożyć lub odrzucić
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Zrzut ekranu przedstawiający Azure Advisor z opcjami filtrowania.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Zrzut ekranu okna używanie Managed Disks, w którym wyświetlane są akcje wybierz kolumnę i odłóż i Odrzuć dla pojedynczego zaleceń wyróżnionych.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Odłóż lub Odrzuć wiele zaleceń w Azure Portal
 
@@ -57,7 +57,7 @@ Azure Advisor pozwala odrzucić lub odłożyć zalecenia dotyczące pojedynczego
 1. Zaznacz pole wyboru po lewej stronie wiersza dla wszystkich zasobów, które chcesz odłożyć lub odrzucić zalecenia.
 1. W lewym górnym rogu tabeli wybierz pozycję **Odłóż** lub **Odrzuć** .
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Zrzut ekranu przedstawiający Azure Advisor z opcjami filtrowania.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Zrzut ekranu okna używanie Managed Disks, w którym wyświetlane są akcje wybierz kolumnę i odłóż i Odrzuć w lewym górnym rogu wyróżnionej tabeli.":::
 
 > [!NOTE]
 > Musisz mieć uprawnienia współautora lub właściciela, aby odrzucić lub odłożyć zalecenie. Dowiedz się więcej o uprawnieniach w Azure Advisor.
@@ -73,7 +73,7 @@ Można aktywować zalecenie, które zostało odroczone lub odrzucone. Tę akcję
 
 1. Zmień filtr w panelu przegląd, aby **przesunięty**. Następnie usługa Advisor wyświetla odroczone lub odrzucone zalecenia.
 
-    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Zrzut ekranu przedstawiający Azure Advisor z opcjami filtrowania.":::
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Zrzut ekranu okna Azure Advisor, w którym zaznaczono menu rozwijane odroczone.":::
 
 1. Wybierz kategorię, aby zobaczyć **odroczone** i **odrzucone** zalecenia.
 
@@ -81,13 +81,13 @@ Można aktywować zalecenie, które zostało odroczone lub odrzucone. Tę akcję
 
 1. Kliknij pozycję **Aktywuj** na końcu wiersza. Po kliknięciu Rekomendacja jest aktywna dla tego zasobu i dlatego została usunięta z tej tabeli. Zalecenie jest teraz widoczne na **aktywnej** karcie.
  
-     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Zrzut ekranu przedstawiający Azure Advisor z opcjami filtrowania.":::
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Zrzut ekranu przedstawiający okno Włączanie usuwania nietrwałego z wyróżnioną kartą odroczone & z wyświetloną akcją Aktywuj.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule wyjaśniono, jak można wyświetlić zalecenia dotyczące Ciebie w Azure Advisor. Aby dowiedzieć się więcej na temat usługi Advisor, zobacz: 
 
-- [Co to jest usługa Azure Advisor?](advisor-overview.md)
+- [Co to jest Azure Advisor?](advisor-overview.md)
 - [Wprowadzenie z usługą Advisor](advisor-get-started.md)
 - [Uprawnienia w Azure Advisor](permissions.md)
 

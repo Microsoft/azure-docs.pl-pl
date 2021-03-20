@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176791"
 ---
 # <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
         -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
-        -   [Cel C](api-management-api-templates.md#ObjectiveC)  
+        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
@@ -57,9 +57,9 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
     -   [Subskrypcje](api-management-user-profile-templates.md#Subscriptions)  
     -   [Aplikacje](api-management-user-profile-templates.md#Applications)  
     -   [Aktualizowanie informacji o koncie](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [Pages](api-management-page-templates.md)  
+-   [Strony](api-management-page-templates.md)  
     -   [Zaloguj się](api-management-page-templates.md#SignIn)  
-    -   [Zarejestruj się](api-management-page-templates.md#SignUp)  
+    -   [Rejestrowanie](api-management-page-templates.md#SignUp)  
     -   [Nie znaleziono strony](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Następne kroki  

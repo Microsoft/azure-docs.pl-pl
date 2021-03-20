@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558619"
 ---
 # <a name="about-the-forescout-integration"></a>Informacje o integracji Forescout
@@ -82,7 +82,7 @@ Aby wygenerować token:
 1. W oknie dialogowym **tokeny dostępu** wybierz pozycję **Generuj nowy token** .
 1. Wprowadź opis tokenu w oknie dialogowym **nowy token dostępu** .
    :::image type="content" source="media/integration-forescout/new-forescout-token.png" alt-text="Nowy token dostępu":::
-1. Wybierz pozycję **Dalej**. Token jest wyświetlany w oknie dialogowym. :::image type="content" source="media/integration-forescout/forescout-access-token-display-screen.png" alt-text="Wyświetl token":::
+1. Wybierz opcję **Dalej**. Token jest wyświetlany w oknie dialogowym. :::image type="content" source="media/integration-forescout/forescout-access-token-display-screen.png" alt-text="Wyświetl token":::
    > [!NOTE]
    > *Zapisz token w bezpiecznym miejscu. Będzie on potrzebny podczas konfigurowania platformy Forescout*.
 1. Wybierz pozycję **Zakończ**.

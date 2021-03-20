@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609999"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Ponowna konfiguracja na platformie Azure Service Fabric
@@ -33,7 +33,7 @@ Ponowna konfiguracja jest wykonywana w kilku fazach:
 
 - **Phase0**: Ta faza ma miejsce w przypadku ponownej konfiguracji wymiany, w której bieżący podstawowy przeniesie stan do nowego podstawowego i przejść do aktywnego pomocniczego.
 
-- **Faza fazy: Ta**faza odbywa się podczas ponownej konfiguracji, w której jest zmieniana wartość podstawowa. W tej fazie Service Fabric identyfikuje poprawną podstawową między bieżącymi replikami. Ta faza nie jest wymagana podczas ponownej konfiguracji wymiany podstawowego, ponieważ nowy podstawowy został już wybrany. 
+- **Faza fazy: Ta** faza odbywa się podczas ponownej konfiguracji, w której jest zmieniana wartość podstawowa. W tej fazie Service Fabric identyfikuje poprawną podstawową między bieżącymi replikami. Ta faza nie jest wymagana podczas ponownej konfiguracji wymiany podstawowego, ponieważ nowy podstawowy został już wybrany. 
 
 - Faza **2**: w tej fazie Service Fabric zapewnia, że wszystkie dane są dostępne w większości replik bieżącej konfiguracji.
 

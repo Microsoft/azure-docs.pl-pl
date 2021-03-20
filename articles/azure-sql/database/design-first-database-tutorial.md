@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674878"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database przy użyciu programu SSMS
@@ -48,7 +48,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następują
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure portal](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database-in-azure-sql-database"></a>Utwórz pustą bazę danych w Azure SQL Database
 
@@ -56,8 +56,8 @@ Baza danych w Azure SQL Database jest tworzona ze zdefiniowanym zestawem zasobó
 
 Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
-1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób** .
-2. Na stronie **Nowy** wybierz pozycję **Bazy danych** w sekcji Azure Marketplace, a następnie kliknij pozycję **Baza danych SQL** w sekcji **Polecane** .
+1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
+2. Na stronie **Nowy** wybierz pozycję **Bazy danych** w sekcji Azure Marketplace, a następnie kliknij pozycję **Baza danych SQL** w sekcji **Polecane**.
 
    ![tworzenie pustej bazy danych](./media/design-first-database-tutorial/create-empty-database.png)
 
@@ -76,21 +76,21 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
     | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). |
-    | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
+    | **Password** (Hasło) | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
     | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
     ![tworzenie serwera bazy danych](./media/design-first-database-tutorial/create-database-server.png)
 
-5. Kliknij pozycję **Wybierz** .
-6. Kliknij pozycję **Warstwa cenowa** , aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
+5. Kliknij pozycję **Wybierz**.
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
 
-    Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj** .
+    Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj**.
 
 7. Wprowadź **sortowanie** dla pustej bazy danych (na potrzeby tego samouczka użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań, zobacz [Sortowania](/sql/t-sql/statements/collations)
 
-8. Teraz, po uzupełnieniu formularza usługi **SQL Database** , kliknij przycisk **Utwórz** , aby aprowizować bazę danych. Może to potrwać kilka minut.
+8. Teraz, po uzupełnieniu formularza usługi **SQL Database**, kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Może to potrwać kilka minut.
 
-9. Na pasku narzędzi kliknij pozycję **Powiadomienia** , aby monitorować proces wdrażania.
+9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
 
    ![Zrzut ekranu przedstawia menu powiadomienia z wdrożeniem w toku.](./media/design-first-database-tutorial/notification.png)
 
@@ -115,9 +115,9 @@ Azure SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożliwi
 
 1. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory bazującej na adresach IP. Reguła zapory bazująca na adresach IP może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-1. Kliknij pozycję **Zapisz** . Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
+1. Kliknij pozycję **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
 
-1. Kliknij przycisk **OK** , a następnie zamknij stronę **Ustawienia zapory** .
+1. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 
 Adres IP może teraz być przekazywany przez zaporę IP. Teraz możesz nawiązać połączenie z bazą danych przy użyciu SQL Server Management Studio lub innego wybranego narzędzia. Używaj wcześniej utworzonego konta administratora serwera.
 
@@ -134,20 +134,20 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Typ serwera** | Aparat bazy danych | Ta wartość jest wymagana. |
-   | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Przykład: *yourserver.database.windows.net* . |
+   | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Przykład: *yourserver.database.windows.net*. |
    | **Authentication** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-   | **Identyfikator logowania** | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
-   | **Hasło** | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
+   | **Zaloguj się** | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
+   | **Password** (Hasło) | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
 
    ![łączenie z serwerem](./media/design-first-database-tutorial/connect.png)
 
-3. Kliknij przycisk **Opcje** w oknie dialogowym **Połącz z serwerem** . W sekcji **Nawiązywanie połączenia z bazą danych** wprowadź ciąg *yourDatabase* , aby nawiązać połączenie z tą bazą danych.
+3. Kliknij przycisk **Opcje** w oknie dialogowym **Połącz z serwerem**. W sekcji **Nawiązywanie połączenia z bazą danych** wprowadź ciąg *yourDatabase*, aby nawiązać połączenie z tą bazą danych.
 
     ![nawiązywanie połączenia z bazą danych na serwerze](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Kliknij przycisk **Podłącz** . W programie SSMS zostanie otwarte okno **Eksplorator obiektów** .
+4. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno **Eksplorator obiektów**.
 
-5. W **Eksploratorze obiektów** rozwiń pozycję **Bazy danych** , a następnie rozwiń pozycję *yourDatabase* , aby wyświetlić obiekty w przykładowej bazie danych.
+5. W **Eksploratorze obiektów** rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję *yourDatabase*, aby wyświetlić obiekty w przykładowej bazie danych.
 
    ![obiekty bazy danych](./media/design-first-database-tutorial/connected.png)  
 
@@ -155,19 +155,19 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 
 Utwórz schemat bazy danych z czterema tabelami, które modelują system zarządzania studentami dla uczelni wyższych, korzystając z języka [Transact-SQL](/sql/t-sql/language-reference):
 
-- Osoba
+- Person (Osoba)
 - Kurs
 - Uczeń
 - Środki
 
-Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Niektóre z tych tabel odwołują się do kolumn w innych tabelach. Na przykład tabela *Student* odwołuje się do kolumny *PersonId* w tabeli *Person* . Zapoznaj się z tym diagramem, aby zrozumieć, jak tabele w tym samouczku są ze sobą powiązane. Szczegółowe omówienie tworzenia efektywnych tabel bazy danych znajduje się w temacie [Tworzenie efektywnych tabel bazy danych](/previous-versions/tn-archive/cc505842(v=technet.10)). Aby uzyskać informacje dotyczące wybierania typów danych, zobacz [Typy danych](/sql/t-sql/data-types/data-types-transact-sql).
+Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Niektóre z tych tabel odwołują się do kolumn w innych tabelach. Na przykład tabela *Student* odwołuje się do kolumny *PersonId* w tabeli *Person*. Zapoznaj się z tym diagramem, aby zrozumieć, jak tabele w tym samouczku są ze sobą powiązane. Szczegółowe omówienie tworzenia efektywnych tabel bazy danych znajduje się w temacie [Tworzenie efektywnych tabel bazy danych](/previous-versions/tn-archive/cc505842(v=technet.10)). Aby uzyskać informacje dotyczące wybierania typów danych, zobacz [Typy danych](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
 > W celu tworzenia i projektowania tabel można również użyć [projektanta tabel w programie SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools).
 
 ![Relacje między tabelami](./media/design-first-database-tutorial/tutorial-database-tables.png)
 
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy pozycję *yourDatabase* i wybierz pozycję **Nowe zapytanie** . Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy pozycję *yourDatabase* i wybierz pozycję **Nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
 
 2. W oknie zapytania wykonaj następujące zapytanie, aby utworzyć cztery tabele w bazie danych:
 
@@ -214,7 +214,7 @@ Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Ni
 
    ![Tworzenie tabel](./media/design-first-database-tutorial/create-tables.png)
 
-3. Rozwiń węzeł **Tabele** w obszarze bazy danych *yourDatabase* w **Eksploratorze obiektów** , aby wyświetlić utworzone tabele.
+3. Rozwiń węzeł **Tabele** w obszarze bazy danych *yourDatabase* w **Eksploratorze obiektów**, aby wyświetlić utworzone tabele.
 
    ![Utworzone tabele w programie SSMS](./media/design-first-database-tutorial/ssms-tables-created.png)
 
@@ -222,14 +222,14 @@ Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Ni
 
 1. W folderze Pobrane utwórz folder o nazwie *sampleData* do przechowywania przykładowych danych bazy danych.
 
-2. Kliknij prawym przyciskiem myszy poniższe linki i zapisz je w folderze *sampleData* .
+2. Kliknij prawym przyciskiem myszy poniższe linki i zapisz je w folderze *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Otwórz okno wiersza polecenia i przejdź do folderu *sampleData* .
+3. Otwórz okno wiersza polecenia i przejdź do folderu *sampleData*.
 
 4. Wykonaj następujące polecenia, aby wstawić przykładowe dane do tabel, zastępując wartości *server* (serwer), *database* (baza danych), *user* (użytkownik) i *password* (hasło) wartościami odpowiednimi dla Twojego środowiska.
 

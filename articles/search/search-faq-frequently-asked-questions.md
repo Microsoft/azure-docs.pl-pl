@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923096"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Wyszukiwanie poznawcze platformy Azure — często zadawane pytania
@@ -105,4 +105,4 @@ Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Zażądaj funkcji w
 
  [StackOverflow: Azure Wyszukiwanie poznawcze](https://stackoverflow.com/questions/tagged/azure-search)   
  [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)  
- [Co to jest platforma Azure Wyszukiwanie poznawcze?](search-what-is-azure-search.md)
+ [Co to jest usługa Azure Cognitive Search?](search-what-is-azure-search.md)

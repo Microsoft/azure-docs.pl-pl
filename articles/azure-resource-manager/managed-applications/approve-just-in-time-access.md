@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75651022"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Konfigurowanie i zatwierdzanie dostępu just in Time do Azure Managed Applications
@@ -55,7 +55,7 @@ Ten artykuł koncentruje się na działaniach podejmowanych przez klientów w ce
    * Maksymalny czas trwania dostępu — 8 godzin
    * Osoby zatwierdzające — brak
 
-   Gdy tryb zatwierdzania jest ustawiony na **automatyczny**, osoby zatwierdzające odbierają powiadomienie dla każdego żądania, ale żądanie jest automatycznie zatwierdzane. Po wybraniu opcji **ręcznie**osoby zatwierdzające odbierają powiadomienie dla każdego żądania, a jedna z nich musi je zatwierdzić.
+   Gdy tryb zatwierdzania jest ustawiony na **automatyczny**, osoby zatwierdzające odbierają powiadomienie dla każdego żądania, ale żądanie jest automatycznie zatwierdzane. Po wybraniu opcji **ręcznie** osoby zatwierdzające odbierają powiadomienie dla każdego żądania, a jedna z nich musi je zatwierdzić.
 
    Maksymalny czas trwania aktywacji określa maksymalną ilość czasu, przez który Wydawca może zażądać dostępu do zarządzanej grupy zasobów.
 
@@ -103,7 +103,7 @@ Aby zatwierdzić żądania przez Azure AD Privileged Identity Management:
 
    ![Wybierz pozycję Zatwierdź żądania](./media/approve-just-in-time-access/select-approve-requests.png)
 
-1. Wybierz pozycję **aplikacje zarządzane przez platformę Azure**i wybierz żądanie do zatwierdzenia.
+1. Wybierz pozycję **aplikacje zarządzane przez platformę Azure** i wybierz żądanie do zatwierdzenia.
 
    ![Wybierz żądania](./media/approve-just-in-time-access/view-requests.png)
 

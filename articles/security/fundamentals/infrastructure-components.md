@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68727213"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Składniki i granice systemu informacji platformy Azure
@@ -78,14 +78,14 @@ Różne grupy inżynieryjne, znane jako zespoły usługi, zarządzają obsługą
 Zespoły usługi:
 
 - Platforma aplikacji
-- Usługa Azure Active Directory
+- Azure Active Directory
 - Azure Compute
 - Usługa Azure NET
 - Usługi w chmurze
 - ISSD: zabezpieczenia
 - Uwierzytelnianie wieloskładnikowe
-- Baza danych SQL
-- Magazyn
+- SQL Database
+- Storage
 
 ## <a name="types-of-users"></a>Typy użytkowników
 Pracownicy (lub wykonawcy) firmy Microsoft są uznawani za użytkowników wewnętrznych. Wszyscy inni użytkownicy są uważani za użytkowników zewnętrznych. Wszyscy użytkownicy wewnętrzni platformy Azure mają swój stan pracownika kategorii według poziomu czułości, który definiuje ich dostęp do danych klienta (dostęp lub brak dostępu). Uprawnienia użytkownika do platformy Azure (uprawnienie autoryzacji po uzyskaniu uwierzytelnienia) są opisane w poniższej tabeli:

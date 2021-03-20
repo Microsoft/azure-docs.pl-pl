@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68728042"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling Tool środki zaradcze
@@ -35,7 +35,7 @@ Odwiedź **[Threat Modeling Tool](threat-modeling-tool.md)** , aby zacząć już
 | Kategoria | Opis |
 | -------- | ----------- |
 | **[Inspekcja i rejestrowanie](threat-modeling-tool-auditing-and-logging.md)** | Jak i kiedy? Inspekcja i rejestrowanie — Zobacz, jak aplikacja rejestruje zdarzenia związane z zabezpieczeniami |
-| **[Authentication](threat-modeling-tool-authentication.md)** | Kim jesteś? Uwierzytelnianie to proces, w którym jednostka udowadnia tożsamość innej jednostki, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. |
+| **[Ponowne](threat-modeling-tool-authentication.md)** | Jaka jest Twoja rola? Uwierzytelnianie to proces, w którym jednostka udowadnia tożsamość innej jednostki, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. |
 | **[Autoryzacja](threat-modeling-tool-authorization.md)** | Co możesz zrobić? Autoryzacja to sposób, w jaki aplikacja zapewnia kontrolę dostępu dla zasobów i operacji |
 | **[Zabezpieczenia komunikacji](threat-modeling-tool-communication-security.md)** | Na kogo rozmawiasz? Zabezpieczenia komunikacji zapewniają, że cała komunikacja jest tak bezpieczna, jak to możliwe |
 | **[Zarządzanie konfiguracją](threat-modeling-tool-configuration-management.md)** | Kto działa jako aplikacja? Z których baz danych nawiązuje połączenie? Jak ma być administrowane Twoja aplikacja? Jak są zabezpieczane te ustawienia? Zarządzanie konfiguracją to sposób, w jaki aplikacja obsługuje te problemy operacyjne |
@@ -50,7 +50,7 @@ Ułatwia to zidentyfikowanie:
 * Gdzie znajdują się najczęstsze błędy
 * Gdzie są najbardziej funkcjonalne ulepszenia
 
-W związku z tym te kategorie są używane do skoncentrowania się i określania priorytetów pracy bezpieczeństwa, dlatego w przypadku znajomości najważniejszych problemów z zabezpieczeniami w kategoriach walidacji danych wejściowych, uwierzytelniania i autoryzacji można rozpocząć pracę. Aby uzyskać więcej informacji, odwiedź stronę ** [tego linku patentowego](https://www.google.com/patents/US7818788)**
+W związku z tym te kategorie są używane do skoncentrowania się i określania priorytetów pracy bezpieczeństwa, dlatego w przypadku znajomości najważniejszych problemów z zabezpieczeniami w kategoriach walidacji danych wejściowych, uwierzytelniania i autoryzacji można rozpocząć pracę. Aby uzyskać więcej informacji, odwiedź stronę **[tego linku patentowego](https://www.google.com/patents/US7818788)**
 
 ## <a name="next-steps"></a>Następne kroki
 

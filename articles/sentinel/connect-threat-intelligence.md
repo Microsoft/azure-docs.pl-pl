@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96121744"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Łączenie danych od dostawców analizy zagrożeń
@@ -86,7 +86,7 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
     
     c. Dla akcji Określ alert.
 
-5. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **platformy analizy zagrożeń (wersja zapoznawcza)** .
+5. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >   a następnie wybierz łącznik **platformy analizy zagrożeń (wersja zapoznawcza)** .
 
 6. Wybierz **Otwórz stronę łącznika**, a następnie **Połącz się**.
 
@@ -102,7 +102,7 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 ### <a name="instructions"></a>Instrukcje
 
-1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **analizy zagrożeń — TAXII (wersja zapoznawcza)** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >   a następnie wybierz łącznik **analizy zagrożeń — TAXII (wersja zapoznawcza)** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 

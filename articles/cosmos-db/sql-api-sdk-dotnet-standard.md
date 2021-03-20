@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 11a2f42685f0d211b7c2fe1d7bc10769b3a99049
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e82372642dceada966d939290a26b5419d7d273f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423777"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577068"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 for SQL API: pobieranie i informacje o wersji
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "102423777"
 > * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Linki |
 |---|---|
 |**Zestaw SDK do pobrania**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb)|

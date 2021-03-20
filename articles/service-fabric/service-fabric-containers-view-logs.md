@@ -4,10 +4,10 @@ description: Opisuje sposób wyświetlania dzienników kontenerów dla uruchomio
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75458185"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Wyświetlanie dzienników usługi kontenera Service Fabric
@@ -16,9 +16,9 @@ Usługa Azure Service Fabric jest koordynatorem kontenera i obsługuje [kontener
 ## <a name="access-the-logs-of-a-running-container"></a>Dostęp do dzienników działającego kontenera
 Dostęp do dzienników kontenerów można uzyskać przy użyciu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  W przeglądarce sieci Web otwórz Service Fabric Explorer z punktu końcowego zarządzania klastrami, przechodząc do witryny `http://mycluster.region.cloudapp.azure.com:19080/Explorer` .  
 
-Dzienniki kontenerów znajdują się w węźle klastra, na którym jest uruchomione wystąpienie usługi kontenera. Przykładowo można pobrać dzienniki kontenera frontonu sieci Web [aplikacji przykładowej głosowania systemu Linux](service-fabric-quickstart-containers-linux.md). W widoku drzewa rozwiń węzeł aplikacje **klastra** > **Applications** > **VotingType** > **:/głosowania/azurevotefront**.  Następnie rozwiń partycję (d1aa737e-f22a-e347-BE16-eec90be24bc1 w tym przykładzie) i sprawdź, czy kontener jest uruchomiony w węźle klastra *_lnxvm_0*.
+Dzienniki kontenerów znajdują się w węźle klastra, na którym jest uruchomione wystąpienie usługi kontenera. Przykładowo można pobrać dzienniki kontenera frontonu sieci Web [aplikacji przykładowej głosowania systemu Linux](service-fabric-quickstart-containers-linux.md). W widoku drzewa rozwiń węzeł aplikacje **klastra** >  >  > **:/głosowania/azurevotefront**.  Następnie rozwiń partycję (d1aa737e-f22a-e347-BE16-eec90be24bc1 w tym przykładzie) i sprawdź, czy kontener jest uruchomiony w węźle klastra *_lnxvm_0*.
 
-W widoku drzewa Znajdź pakiet kodu w węźle *_lnxvm_0* przez powiększanie **węzłów** > **_lnxvm_0** > **Sieć szkieletowa:/głosowania** > **azurevotfrontPkg** > **kod pakietów kodu**azurevotfrontPkg > **code**.  Następnie wybierz opcję **dzienniki kontenerów** , aby wyświetlić dzienniki kontenerów.
+W widoku drzewa Znajdź pakiet kodu w węźle *_lnxvm_0* przez powiększanie **węzłów** > **_lnxvm_0** > **Sieć szkieletowa:/głosowania** >  > **kod pakietów kodu** azurevotfrontPkg > .  Następnie wybierz opcję **dzienniki kontenerów** , aby wyświetlić dzienniki kontenerów.
 
 ![Platforma Service Fabric][Image1]
 
@@ -33,7 +33,7 @@ Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service 
 
 Ustawienie **ContainersRetentionCount** określa liczbę kontenerów do przechowywania w przypadku wystąpienia w nich błędu. Jeśli zostanie określona wartość ujemna, będą przechowywane wszystkie kontenery z błędami. Jeśli atrybut **ContainersRetentionCount** nie jest określony, kontenery nie będą zachowywane. Atrybut **ContainersRetentionCount** obsługuje też parametry aplikacji, dzięki czemu użytkownicy mogą określać różne wartości dla klastrów testowych i produkcyjnych. W przypadku używania tej funkcji można zastosować ograniczenia rozmieszczania, tak aby obiektem docelowym usługi kontenera był określony węzeł, co zapobiega przenoszeniu usługi kontenera do innych węzłów. Wszelkie kontenery przechowywane przy użyciu tej funkcji należy usunąć ręcznie.
 
-Ustawienie **RunInteractive** odnosi się do flag platformy Docker `--interactive` i `tty` [flags](https://docs.docker.com/engine/reference/commandline/run/#options). Gdy to ustawienie ma wartość true w pliku manifestu, te flagi są używane do uruchamiania kontenera.  
+Ustawienie **RunInteractive** odnosi się do flag platformy Docker `--interactive` i `tty` [](https://docs.docker.com/engine/reference/commandline/run/#options). Gdy to ustawienie ma wartość true w pliku manifestu, te flagi są używane do uruchamiania kontenera.  
 
 ### <a name="rest"></a>REST
 Użyj operacji [Pobierz dzienniki kontenera wdrożone w węźle](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) , aby pobrać dzienniki dla nieoczekiwanego kontenera. Określ nazwę węzła, na którym uruchomiono kontener, nazwę aplikacji, nazwę manifestu usługi i nazwę pakietu kodu.  Podaj wartość `&Previous=true`. Odpowiedź będzie zawierać dzienniki kontenerów dla martwego kontenera wystąpienia pakietu kodu.

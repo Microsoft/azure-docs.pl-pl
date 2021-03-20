@@ -6,10 +6,10 @@ ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: caefb11e3d691cea940bae5103bf918d3d31cc96
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972451"
 ---
 Po zakończeniu korzystania z aplikacji i konta Azure Cosmos DB można usunąć utworzone zasoby platformy Azure, aby nie nawiązać dodatkowych opłat. Aby usunąć zasoby:

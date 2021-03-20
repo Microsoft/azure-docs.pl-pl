@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90983888"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Uwidacznianie lokalnej usługi WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay
@@ -78,20 +78,20 @@ Najpierw utworzysz symulowany system katalogu produktów w środowisku lokalnym.
 
 1. Uruchom Microsoft Visual Studio jako administrator. Aby to zrobić, kliknij prawym przyciskiem myszy ikonę programu Visual Studio, a następnie wybierz polecenie **Uruchom jako administrator**.
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
 1. Nadaj projektowi nazwę *ProductsServer* i wybierz pozycję **Utwórz**.
 
    ![Skonfiguruj nowy projekt][11]
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ProductsServer** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
-1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ProductsServer** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
    ![Wybieranie pakietu NuGet][13]
 
    Wymagane zestawy klientów są teraz przywoływane.
 
-1. Dodaj nową klasę dla kontraktu produktu. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ProductsServer** i wybierz polecenie **Dodaj**  >  **klasę**.
-1. W polu **Nazwa**wprowadź nazwę *ProductsContract.cs* i wybierz pozycję **Dodaj**.
+1. Dodaj nową klasę dla kontraktu produktu. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ProductsServer** i wybierz polecenie **Dodaj**  >  **klasę**.
+1. W polu **Nazwa** wprowadź nazwę *ProductsContract. cs* i wybierz pozycję **Dodaj**.
 
 Wprowadź następujące zmiany kodu w rozwiązaniu:
 
@@ -132,7 +132,7 @@ Wprowadź następujące zmiany kodu w rozwiązaniu:
     }
     ```
 
-1. W *program.cs*Zastąp definicję przestrzeni nazw następującym kodem, który dodaje usługę profilu i hosta dla niego.
+1. W programie *program. cs* Zastąp definicję przestrzeni nazw następującym kodem, który dodaje usługę profilu i hosta dla niego.
 
     ```csharp
     namespace ProductsServer
@@ -187,7 +187,7 @@ Wprowadź następujące zmiany kodu w rozwiązaniu:
     }
     ```
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio. W dolnej części `<system.ServiceModel>` elementu, ale nadal w `<system.ServiceModel>` , Dodaj następujący kod XML. Pamiętaj, aby zamienić na `yourServiceNamespace` nazwę przestrzeni nazw oraz `yourKey` z kluczem sygnatury dostępu współdzielonego pobranym wcześniej z portalu:
+1. W **Eksplorator rozwiązań** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio. W dolnej części `<system.ServiceModel>` elementu, ale nadal w `<system.ServiceModel>` , Dodaj następujący kod XML. Pamiętaj, aby zamienić na `yourServiceNamespace` nazwę przestrzeni nazw oraz `yourKey` z kluczem sygnatury dostępu współdzielonego pobranym wcześniej z portalu:
 
     ```xml
     <system.serviceModel>
@@ -214,7 +214,7 @@ Wprowadź następujące zmiany kodu w rozwiązaniu:
     > [!NOTE]
     > Błąd spowodowany przez `transportClientEndpointBehavior` to ostrzeżenie i nie jest problemem blokującym dla tego przykładu.
 
-1. W *App.config*w `<appSettings>` elemencie Zastąp wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
+1. W *App.config* w `<appSettings>` elemencie Zastąp wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
 
     ```xml
     <appSettings>
@@ -234,26 +234,26 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
 
 1. Upewnij się, że program Visual Studio jest uruchomiony jako administrator.
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
 1. Nadaj projektowi nazwę *ProductsPortal* i wybierz pozycję **Utwórz**.
-1. W obszarze **Utwórz nową aplikację sieci Web ASP.NET**wybierz pozycję **MVC** i wybierz pozycję **Zmień** w obszarze **uwierzytelnianie**.
+1. W obszarze **Utwórz nową aplikację sieci Web ASP.NET** wybierz pozycję **MVC** i wybierz pozycję **Zmień** w obszarze **uwierzytelnianie**.
 
    ![Wybieranie aplikacji internetowej ASP.NET][16]
 
-1. W obszarze **Zmień uwierzytelnianie**wybierz pozycję **bez uwierzytelniania** , a następnie wybierz pozycję **OK**. Na potrzeby tego samouczka wdrażana jest aplikacja, która nie wymaga od użytkownika logowania.
+1. W obszarze **Zmień uwierzytelnianie** wybierz pozycję **bez uwierzytelniania** , a następnie wybierz pozycję **OK**. Na potrzeby tego samouczka wdrażana jest aplikacja, która nie wymaga od użytkownika logowania.
 
     ![Określanie uwierzytelniania][18]
 
-1. Po powrocie do **tworzenia nowej aplikacji sieci Web ASP.NET**wybierz pozycję **Utwórz** , aby utworzyć aplikację MVC.
+1. Po powrocie do **tworzenia nowej aplikacji sieci Web ASP.NET** wybierz pozycję **Utwórz** , aby utworzyć aplikację MVC.
 1. Skonfiguruj zasoby platformy Azure dla nowej aplikacji sieci Web. Wykonaj kroki opisane w temacie [publikowanie aplikacji sieci Web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Następnie wróć do tego samouczka i przejdź do następnego kroku.
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
-1. Nazwij klasę *Product.cs*, a następnie wybierz pozycję **Dodaj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
+1. Nazwij klasy *Product. cs*, a następnie wybierz pozycję **Dodaj**.
 
     ![Tworzenie modelu produktu][17]
 
 ### <a name="modify-the-web-application"></a>Modyfikowanie aplikacji internetowej
 
-1. W pliku *Product.cs* w programie Visual Studio Zastąp istniejącą definicję przestrzeni nazw następującym kodem:
+1. W pliku *Product. cs* w programie Visual Studio Zastąp istniejącą definicję przestrzeni nazw następującym kodem:
 
    ```csharp
     // Declare properties for the products inventory.
@@ -268,7 +268,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     }
     ```
 
-1. W **Eksplorator rozwiązań**rozwiń węzeł **Kontrolery**, a następnie kliknij dwukrotnie pozycję **HomeController.cs** , aby otworzyć plik w programie Visual Studio.
+1. W **Eksplorator rozwiązań** rozwiń węzeł **Kontrolery**, a następnie kliknij dwukrotnie pozycję **HomeController. cs** , aby otworzyć plik w programie Visual Studio.
 1. W pliku *HomeController.cs* zastąp istniejącą definicję przestrzeni nazw następującym kodem:
 
     ```csharp
@@ -291,13 +291,13 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     }
     ```
 
-1. W **Eksplorator rozwiązań**rozwiń węzeł **widoki**  >  **udostępnione**, a następnie kliknij dwukrotnie pozycję **_Layout. cshtml** , aby otworzyć plik w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań** rozwiń węzeł **widoki**  >  **udostępnione**, a następnie kliknij dwukrotnie pozycję **_Layout. cshtml** , aby otworzyć plik w edytorze programu Visual Studio.
 1. Zmień wszystkie wystąpienia `My ASP.NET Application` na *produkty Northwind Traders*.
 1. Usuń `Home` linki, `About` i `Contact` . W poniższym przykładzie usuń wyróżniony kod.
 
     ![Usuwanie wygenerowanych elementów listy][41]
 
-1. W **Eksplorator rozwiązań**rozwiń węzeł **widoki**  >  **Główne**, a następnie kliknij dwukrotnie pozycję **index. cshtml** , aby otworzyć plik w edytorze programu Visual Studio. Zastąp całą zawartość pliku następującym kodem:
+1. W **Eksplorator rozwiązań** rozwiń węzeł **widoki**  >  **Główne**, a następnie kliknij dwukrotnie pozycję **index. cshtml** , aby otworzyć plik w edytorze programu Visual Studio. Zastąp całą zawartość pliku następującym kodem:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -351,10 +351,10 @@ Aplikacja powinna uruchomić się w przeglądarce.
 Następny krok polega na połączeniu lokalnego serwera produktów z aplikacją ASP.NET.
 
 1. Jeśli nie jest jeszcze otwarty, w programie Visual Studio Otwórz projekt **ProductsPortal** , który został utworzony w sekcji [Tworzenie aplikacji ASP.NET](#create-an-aspnet-application) .
-1. Podobnie jak w sekcji [Tworzenie serwera lokalnego](#create-an-on-premises-server) Dodaj pakiet NuGet do odwołań projektu. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. Podobnie jak w sekcji [Tworzenie serwera lokalnego](#create-an-on-premises-server) Dodaj pakiet NuGet do odwołań projektu. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 1. Wyszukaj ciąg *WindowsAzure.ServiceBus*, a następnie wybierz element **WindowsAzure.ServiceBus**. Następnie Zakończ instalację i Zamknij to okno dialogowe.
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Dodaj**  >  **istniejący element**.
-1. Przejdź do pliku *ProductsContract.cs* z projektu konsolowego **ProductsServer**. Wyróżnij *ProductsContract.cs*. Wybierz strzałkę w dół obok pozycji **Dodaj**, a następnie wybierz pozycję **Dodaj jako link**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Dodaj**  >  **istniejący element**.
+1. Przejdź do pliku *ProductsContract.cs* z projektu konsolowego **ProductsServer**. Wyróżnij *ProductsContract. cs*. Wybierz strzałkę w dół obok pozycji **Dodaj**, a następnie wybierz pozycję **Dodaj jako link**.
 
    ![Dodaj jako link][24]
 
@@ -400,19 +400,19 @@ Następny krok polega na połączeniu lokalnego serwera produktów z aplikacją 
    }
    ```
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie **ProductsPortal** . Upewnij się, że kliknij prawym przyciskiem myszy rozwiązanie, a nie projekt. Wybierz pozycję **Dodaj**  >  **istniejący projekt**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie **ProductsPortal** . Upewnij się, że kliknij prawym przyciskiem myszy rozwiązanie, a nie projekt. Wybierz pozycję **Dodaj**  >  **istniejący projekt**.
 1. Przejdź do projektu **ProductsServer**, a następnie kliknij dwukrotnie plik rozwiązania *ProductsServer.csproj*, aby go dodać.
-1. **ProductsServer** musi być uruchomiona, aby wyświetlić dane w **ProductsPortal**. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie **ProductsPortal** i wybierz pozycję **Właściwości** , aby wyświetlić **strony właściwości**.
-1. Wybierz **Common Properties**  >  **projekt startowy** wspólne właściwości, a następnie wybierz **wiele projektów startowych**. Upewnij się, że **ProductsServer** i **ProductsPortal** pojawiają się w tej kolejności i że **Akcja** dla obydwu jest **uruchamiana**.
+1. **ProductsServer** musi być uruchomiona, aby wyświetlić dane w **ProductsPortal**. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie **ProductsPortal** i wybierz pozycję **Właściwości** , aby wyświetlić **strony właściwości**.
+1. Wybierz   >  **projekt startowy** wspólne właściwości, a następnie wybierz **wiele projektów startowych**. Upewnij się, że **ProductsServer** i **ProductsPortal** pojawiają się w tej kolejności i że **Akcja** dla obydwu jest **uruchamiana**.
 
       ![Wiele projektów startowych][25]
 
 1. Zaznacz pozycję **wspólne właściwości**  >  **zależności projektu** po lewej stronie.
-1. W obszarze **projekty**wybierz pozycję **ProductsPortal**. Upewnij się, że projekt **ProductsServer** jest wybrany.
+1. W obszarze **projekty** wybierz pozycję **ProductsPortal**. Upewnij się, że projekt **ProductsServer** jest wybrany.
 
     ![Zależności projektu][26]
 
-1. W obszarze **projekty**wybierz pozycję **ProductsServer**. Upewnij się, że **ProductsPortal** nie jest zaznaczone, a następnie wybierz przycisk **OK** , aby zapisać zmiany.
+1. W obszarze **projekty** wybierz pozycję **ProductsServer**. Upewnij się, że **ProductsPortal** nie jest zaznaczone, a następnie wybierz przycisk **OK** , aby zapisać zmiany.
 
 ## <a name="run-the-project-locally"></a>Lokalne uruchamianie projektu
 
@@ -428,7 +428,7 @@ Zamknij obie aplikacje przed przejściem do następnej sekcji.
 
 Następnym krokiem jest ponowne opublikowanie frontonu aplikacji internetowej platformy Azure **ProductsPortal** :
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Publikuj**. Na stronie **Publikowanie** wybierz pozycję **Publikuj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **ProductsPortal** , a następnie wybierz pozycję **Publikuj**. Na stronie **Publikowanie** wybierz pozycję **Publikuj**.
 
    > [!NOTE]
    > Gdy projekt sieci Web **ProductsPortal** zostanie automatycznie uruchomiony po wdrożeniu, w oknie przeglądarki może zostać wyświetlony komunikat o błędzie. Jest to oczekiwane. Błąd występuje, ponieważ aplikacja **ProductsServer** nie jest jeszcze uruchomiona.
@@ -443,7 +443,7 @@ Następnym krokiem jest ponowne opublikowanie frontonu aplikacji internetowej pl
 <a name="set-productsportal-as-web-app"></a>Przed uruchomieniem aplikacji w chmurze musisz upewnić się, że usługa **ProductsPortal** jest uruchamiana z poziomu programu Visual Studio jako aplikacja internetowa.
 
 1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **ProductsPortal** i wybierz polecenie **Właściwości**.
-1. Wybierz pozycję **Sieć Web**. W obszarze **Akcja początkowa**wybierz pozycję **początkowy adres URL**. Wprowadź adres URL wcześniej wdrożonej aplikacji sieci Web, w tym przykładzie `https://productsportal20190906122808.azurewebsites.net/` .
+1. Wybierz pozycję **Sieć Web**. W obszarze **Akcja początkowa** wybierz pozycję **początkowy adres URL**. Wprowadź adres URL wcześniej wdrożonej aplikacji sieci Web, w tym przykładzie `https://productsportal20190906122808.azurewebsites.net/` .
 
     ![Początkowy adres URL][27]
 

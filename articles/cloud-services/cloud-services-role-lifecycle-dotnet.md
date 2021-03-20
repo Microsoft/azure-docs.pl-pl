@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741336"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Dostosowywanie cyklu życia roli sieci Web lub procesu roboczego w programie .NET
@@ -37,7 +37,7 @@ Podczas rozszerzania **RoleEntryPoint** należy mieć świadomość następując
 Jeśli rola nie zostanie uruchomiona lub jest odtwarzana między Stanami inicjowania, zajętości i zatrzymywania, kod może zgłaszać nieobsługiwany wyjątek w ramach jednego z zdarzeń cyklu życia po każdym ponownym uruchomieniu roli. W takim przypadku należy użyć zdarzenia [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) do określenia przyczyny wyjątku i odpowiednio je obsłużyć. Rola może również zwracać z metody [Run](/previous-versions/azure/reference/ee772746(v=azure.100)) , która powoduje ponowne uruchomienie roli. Aby uzyskać więcej informacji o Stanach wdrożenia, zobacz [typowe problemy, które powodują](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)odtworzenie ról.
 
 > [!NOTE]
-> Jeśli używasz **narzędzi platformy Azure dla Microsoft Visual Studio** do tworzenia aplikacji, szablony projektów ról automatycznie rozszerzają klasę **RoleEntryPoint** , w plikach *WebRole.cs* i *WorkerRole.cs* .
+> Jeśli używasz **narzędzi platformy Azure dla Microsoft Visual Studio** do tworzenia aplikacji, szablony projektów ról automatycznie rozszerzają klasę **RoleEntryPoint** , w plikach *webrole. cs* i *rola procesu roboczego. cs* .
 > 
 > 
 

@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741540"
 ---
 # <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze (klasyczny) i jak go spakować?

@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0a84d0310573a1210e21157102a445fff9244782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923980"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>`search.score`Funkcja OData na platformie Azure wyszukiwanie poznawcze
 
-Po wysłaniu zapytania do Wyszukiwanie poznawcze platformy Azure bez parametru [ **$OrderBy** ](search-query-odata-orderby.md), przywracane wyniki zostaną posortowane w kolejności malejącej według oceny istotności. Nawet w przypadku używania **$OrderBy**ocena znaczenia będzie używana w celu podzielenia powiązań domyślnie. Jednak czasami warto użyć oceny istotności jako początkowego kryterium sortowania i innych kryteriów jako powiązania. `search.score`Funkcja ta umożliwia wykonywanie tych czynności.
+Po wysłaniu zapytania do Wyszukiwanie poznawcze platformy Azure bez parametru [ **$OrderBy**](search-query-odata-orderby.md), przywracane wyniki zostaną posortowane w kolejności malejącej według oceny istotności. Nawet w przypadku używania **$OrderBy** ocena znaczenia będzie używana w celu podzielenia powiązań domyślnie. Jednak czasami warto użyć oceny istotności jako początkowego kryterium sortowania i innych kryteriów jako powiązania. `search.score`Funkcja ta umożliwia wykonywanie tych czynności.
 
 ## <a name="syntax"></a>Składnia
 

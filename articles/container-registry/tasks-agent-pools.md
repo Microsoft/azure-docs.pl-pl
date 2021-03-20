@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920311"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Uruchamianie zadania ACR w dedykowanej puli agentów
@@ -96,7 +96,7 @@ Pule agentów zadań wymagają dostępu do następujących usług platformy Azur
 | Kierunek | Protokół | Element źródłowy         | Port źródłowy | Element docelowy          | Port docelowy | Użyte    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | AzureKeyVault        | 443       | Domyślne |
-| Wychodzący  | TCP      | VirtualNetwork | Dowolne         | Magazyn              | 443       | Domyślne |
+| Wychodzący  | TCP      | VirtualNetwork | Dowolne         | Storage              | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | EventHub             | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | Usługi azureactivedirectory | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | AzureMonitor         | 443       | Domyślne |

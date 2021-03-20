@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96169447"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Instrukcje: Konfigurowanie MSAL dla systemów iOS i macOS w celu korzystania z różnych dostawców tożsamości
@@ -180,7 +180,7 @@ Może być konieczne przekazanie różnych zakresów do poszczególnych suwerenn
 
 Jeśli adres URL urzędu jest ustawiony na `"login.microsoftonline.com/common"` , użytkownik zostanie zalogowany do swojej dzierżawy domowej. Niektóre aplikacje mogą jednak wymagać podpisania użytkownika w innej dzierżawie, a niektóre aplikacje współpracują tylko z jedną dzierżawą.
 
-Aby podpisać użytkownika w określonej dzierżawie, należy skonfigurować `MSALPublicClientApplication` z określonym Urzędem. Przykład:
+Aby podpisać użytkownika w określonej dzierżawie, należy skonfigurować `MSALPublicClientApplication` z określonym Urzędem. Na przykład:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 

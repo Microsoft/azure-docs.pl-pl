@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75563330"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Wprowadzenie do Service Fabric Menedżera zasobów klastra
-Tradycyjnie zarządza systemami IT lub Usługi online przeznaczonymi do dedykowanych maszyn fizycznych lub wirtualnych do tych konkretnych usług lub systemów. Usługi zostały zaprojektowane jako warstwy. Byłaby to warstwa "Web" i warstwa "Data" lub "Storage". Aplikacje będą mieć warstwę obsługi komunikatów, w której żądania przepływają i wychodzące, a także zestaw maszyn przeznaczony do buforowania. Dla każdej warstwy lub typu obciążenia odnoszą się do nich określone maszyny: baza danych ma kilka komputerów przeznaczonych dla niego, a także kilka serwerów sieci Web. Jeśli określony typ obciążenia spowodował, że maszyny były uruchomione zbyt gorące, dodaliśmy więcej maszyn z tą samą konfiguracją do tej warstwy. Nie wszystkie obciążenia mogą jednak być skalowane w taki sposób, aby w szczególności z warstwy danych były zazwyczaj zastępowane maszyny z większą ilością maszyn. Łatwe w obsłudze. Jeśli wystąpił błąd maszyny, ta część ogólnej aplikacji działała o mniejszej pojemności do momentu przywrócenia maszyny. Nadal dość łatwo (jeśli nie jest to konieczne).
+Tradycyjnie zarządza systemami IT lub Usługi online przeznaczonymi do dedykowanych maszyn fizycznych lub wirtualnych do tych konkretnych usług lub systemów. Usługi zostały zaprojektowane jako warstwy. Byłaby to warstwa "Web" i warstwa "Data" lub "Storage". Aplikacje będą mieć warstwę obsługi komunikatów, w której żądania przepływają i wychodzące, a także zestaw maszyn przeznaczony do buforowania. Dla każdej warstwy lub typu obciążenia odnoszą się do nich określone maszyny: baza danych ma kilka komputerów przeznaczonych dla niego, a także kilka serwerów sieci Web. Jeśli określony typ obciążenia spowodował, że maszyny były uruchomione zbyt gorące, dodaliśmy więcej maszyn z tą samą konfiguracją do tej warstwy. Nie wszystkie obciążenia mogą jednak być skalowane w taki sposób, aby w szczególności z warstwy danych były zazwyczaj zastępowane maszyny z większą ilością maszyn. Łatwe. Jeśli wystąpił błąd maszyny, ta część ogólnej aplikacji działała o mniejszej pojemności do momentu przywrócenia maszyny. Nadal dość łatwo (jeśli nie jest to konieczne).
 
 Teraz jednak świat usługi i architektury oprogramowania uległy zmianie. Jest to bardziej powszechne, gdy aplikacje przyjęły projekt skalowalny w poziomie. Często trwa Kompilowanie aplikacji z kontenerami lub mikrousługami. Teraz można nadal korzystać tylko z kilku maszyn, ale nie są one uruchomione tylko jedno wystąpienie obciążenia. Mogą nawet jednocześnie uruchamiać wiele różnych obciążeń. Masz teraz dziesiątki różnych typów usług (brak zużywanych zasobów pełnej maszyny), a nawet setki różnych wystąpień tych usług. Każde nazwane wystąpienie ma jedno lub więcej wystąpień lub replik wysokiej dostępności (HA). W zależności od rozmiarów obciążeń i sposobu ich zajętości można znaleźć setki lub tysiące maszyn. 
 

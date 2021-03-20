@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945448"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Zasady dotyczące obsługi i wycofania systemu operacyjnego gościa platformy Azure
@@ -52,7 +52,7 @@ Jeśli klienci ustawili automatyczne aktualizowanie systemu operacyjnego gościa
 
 Wersje systemu operacyjnego gościa są publikowane co miesiąc. Ze względu na częstotliwość regularnych wydań każda wersja ma stały cykl życia.
 
-O 60 dni w cykl życia wersja jest*wyłączana*. Wartość "wyłączone" oznacza, że wersja jest usuwana z portalu. Nie można już ustawić wersji z pliku konfiguracyjnego CSCFG. Istniejące wdrożenia pozostają uruchomione. Ale nowe wdrożenia i aktualizacje kodu i konfiguracji do istniejących wdrożeń nie będą dozwolone.
+O 60 dni w cykl życia wersja jest *wyłączana*. Wartość "wyłączone" oznacza, że wersja jest usuwana z portalu. Nie można już ustawić wersji z pliku konfiguracyjnego CSCFG. Istniejące wdrożenia pozostają uruchomione. Ale nowe wdrożenia i aktualizacje kodu i konfiguracji do istniejących wdrożeń nie będą dozwolone.
 
 Po zakończeniu "wyłączone" wersja systemu operacyjnego gościa "wygasa" i wszystkie instalacje nadal działają, że wygasła wersja jest narażona na problemy z zabezpieczeniami i lukami w zabezpieczeniach. Ogólnie rzecz biorąc, wygaśnięcie jest wykonywane w partiach, dlatego okres od wyłączenia do wygaśnięcia może się różnić.
 

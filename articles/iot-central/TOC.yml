@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: Najnowsze aktualizacje
       items:
+        - name: Luty 2021. nowe i zaktualizowane funkcje
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
         - name: Styczeń 2021. nowe i zaktualizowane funkcje
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: "Nowe i zaktualizowane funkcje — listopad 2020\_r."
@@ -129,6 +131,8 @@
       href: core/concepts-architecture.md
     - name: Przewodnik dla deweloperów urządzeń
       href: core/overview-iot-central-developer.md
+    - name: Podręcznik operatora
+      href: core/overview-iot-central-operator.md
     - name: Przewodnik po konstruktorze rozwiązań
       href: core/overview-iot-central-solution-builder.md
     - name: Co to są szablony aplikacji?

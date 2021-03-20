@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558729"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>Aplikacja do zarządzania usługą ICS dla usługi IoT usługi ServiceNow
@@ -153,7 +153,7 @@ Aby zdefiniować regułę:
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Wyślij atrybuty urządzenia usługi Defender for IoT
 
-W tym artykule opisano sposób konfigurowania usługi Defender for IoT w celu wypychania szerokiego zakresu atrybutów urządzeń do tabel usługi ServiceNow. Zobacz **_Informacje o spisie_* _, aby uzyskać szczegółowe informacje o rodzaju informacji wypychanych do usługi ServiceNow.
+W tym artykule opisano sposób konfigurowania usługi Defender for IoT w celu wypychania szerokiego zakresu atrybutów urządzeń do tabel usługi ServiceNow. Zobacz ***informacje dotyczące spisu*** , aby uzyskać szczegółowe informacje o rodzaju informacji wypychanych do usługi ServiceNow.
 
 Aby wysłać atrybuty do usługi ServiceNow, należy zmapować lokalną konsolę zarządzania na wystąpienie usługi ServiceNow. Dzięki temu platforma Defender for IoT może komunikować się i uwierzytelniać za pomocą wystąpienia.
 
@@ -161,7 +161,7 @@ Aby dodać wystąpienie usługi ServiceNow:
 
 1. Zaloguj się do usługi Defender for IoT w lokalnej konsoli zarządzania.
 
-1. Wybierz _ *Ustawienia systemowe**, a następnie **usługi ServiceNow** w sekcji integracja z lokalną konsolą zarządzania.
+1. Wybierz pozycję **Ustawienia systemowe** , a następnie **usługi ServiceNow** w sekcji integracja z lokalną konsolą zarządzania.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Wybierz przycisk usługi ServiceNow.":::
 
@@ -351,7 +351,7 @@ W tym artykule opisano rodzaj alertów każdego wyzwalacza silnika.
 
 | Typ alertu | Opis |
 |--|--|
-| Alerty naruszenia zasad | Wyzwalane, gdy aparat naruszenia zasad wykrywa odchylenia od wcześniej podanego ruchu. Przykład: <br /><br />-Zostanie wykryte nowe urządzenie. <br /><br />-Na urządzeniu Wykryto nową konfigurację. <br /><br />-Urządzenie nie zostało zdefiniowane jako urządzenie programistyczne przeprowadzi zmianę programistyczną. <br /><br />-Zmieniono wersję oprogramowania układowego. |
+| Alerty naruszenia zasad | Wyzwalane, gdy aparat naruszenia zasad wykrywa odchylenia od wcześniej podanego ruchu. Na przykład: <br /><br />-Zostanie wykryte nowe urządzenie. <br /><br />-Na urządzeniu Wykryto nową konfigurację. <br /><br />-Urządzenie nie zostało zdefiniowane jako urządzenie programistyczne przeprowadzi zmianę programistyczną. <br /><br />-Zmieniono wersję oprogramowania układowego. |
 | Alerty naruszenia protokołu | Wyzwalane, gdy aparat naruszenia protokołu wykryje struktury pakietów lub wartości pól, które nie są zgodne ze specyfikacją protokołu. |
 | Alerty operacyjne | Wyzwalane, gdy aparat operacyjny wykrywa zdarzenia operacyjne lub nieprawidłowe działanie urządzenia. Na przykład urządzenie sieciowe zostało zatrzymane przy użyciu polecenia zatrzymania PLC lub interfejs na czujniku przestał ruch monitorowania. |
 | Alerty złośliwego oprogramowania | Wyzwalane, gdy aparat złośliwego oprogramowania wykryje złośliwe działanie sieci, na przykład znane ataki, takie jak robak. |

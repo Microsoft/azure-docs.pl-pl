@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: dd91b4331a6093d1cf208893d5d88746707b473b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74224738"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Oficjalne dokumenty dotyczące systemu Azure dotyczące tematów dotyczących komputerów mainframe

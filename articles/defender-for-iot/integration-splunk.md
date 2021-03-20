@@ -9,10 +9,10 @@ ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558569"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Aplikacja do monitorowania usługi Defender dla IoT i ICS dla programu Splunk
@@ -126,7 +126,7 @@ Następujące informacje o alercie są wysyłane do serwera Splunk.
 
 Przykładowe dane wyjściowe przedstawiono poniżej:
 
-| Godzina | Wydarzenie |
+| Godzina | Zdarzenie |
 |--|--|
 | 7/23/15<br />9:28:31.000 PM | **Alert dotyczący platformy usługi Defender for IoT**: urządzenie zostało zatrzymane przez PLC polecenie<br /><br />**Typ**: naruszenie operacyjne <br /><br />**Ważność**: główna <br /><br />**Nazwa źródła**: my_device1 <br /><br />**Źródłowy adres IP**: 192.168.110.131 <br /><br />**Nazwa miejsca docelowego**: my_device2<br /><br /> **Docelowy adres IP**: 10.140.33.238 <br /><br />**Komunikat**: urządzenie sieciowe zostało zatrzymane przy użyciu polecenia zatrzymania PLC. To urządzenie nie będzie działać do momentu wysłania polecenia uruchomienia. 192.168.110.131 został zatrzymany przez 10.140.33.238 (urządzenie z systemem Siemens S7) przy użyciu polecenia PLC zatrzymania.<br /><br />**Host**: 192.168.90.43 <br /><br />**SourceType**: Sensor_Agent |
 

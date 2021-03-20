@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67182906"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,7 +18,7 @@ ms.locfileid: "67182906"
 
 Teraz, gdy masz tabelę, przyjrzyjmy się sposobom zarządzania jednostkami lub wierszami w tabeli. 
 
-Jednostki mogą mieć do 255 właściwości, w tym trzy właściwości systemowe: **PartitionKey**, **RowKey**i **timestamp**. Użytkownik jest odpowiedzialny za Wstawianie i aktualizowanie wartości **PartitionKey** i **RowKey**. Serwer zarządza wartością **sygnatury czasowej**, której nie można modyfikować. **PartitionKey** i **RowKey** jednoznacznie identyfikują każdą jednostkę w tabeli.
+Jednostki mogą mieć do 255 właściwości, w tym trzy właściwości systemowe: **PartitionKey**, **RowKey** i **timestamp**. Użytkownik jest odpowiedzialny za Wstawianie i aktualizowanie wartości **PartitionKey** i **RowKey**. Serwer zarządza wartością **sygnatury czasowej**, której nie można modyfikować. **PartitionKey** i **RowKey** jednoznacznie identyfikują każdą jednostkę w tabeli.
 
 * **PartitionKey**: Określa partycję, w której jest przechowywana jednostka.
 * **RowKey**: unikatowy identyfikator jednostki w ramach partycji.
@@ -60,7 +60,7 @@ Add-AzTableRow `
 Można wysyłać zapytania o jednostki w tabeli za pomocą polecenia **Get-AzTableRow** .
 
 > [!NOTE]
-> Polecenia cmdlet **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**i **Get-AzureStorageTableRowByCustomFilter** są przestarzałe i zostaną usunięte w przyszłej aktualizacji.
+> Polecenia cmdlet **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName** i **Get-AzureStorageTableRowByCustomFilter** są przestarzałe i zostaną usunięte w przyszłej aktualizacji.
 
 #### <a name="retrieve-all-entities"></a>Pobierz wszystkie jednostki
 
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 To zapytanie pobiera jeden rekord.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 1 |
 | nazwa użytkownika | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 To zapytanie pobiera jeden rekord.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 1 |
 | nazwa użytkownika | Chris |
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 Wyniki przedstawiają rekord Jessie2.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 2 |
 | nazwa użytkownika | Jessie2 |

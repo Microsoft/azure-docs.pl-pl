@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741200"
 ---
 # <a name="common-cloud-service-classic-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze (klasycznej)
@@ -87,7 +87,7 @@ Poniżej przedstawiono odpowiednie sekcje pliku [ServiceDefinition. csdef] , kt�
 Plik wsadowy *Start. cmd* używa *AppCmd.exe* do dodawania sekcji kompresji i wpisu kompresji dla formatu JSON do pliku *Web.config* . Oczekiwana liczba **ERRORLEVEL** z 183 jest ustawiona na zero przy użyciu programu wiersza polecenia VERIFY.EXE. Nieoczekiwane ERRORLEVEL są rejestrowane w StartupErrorLog.txt.
 
 ```cmd
-REM   **_ Add a compression section to the Web.config file. _*_
+REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -102,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Add compression for json. _*_
+REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -110,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Exit batch file. _*_
+REM   *** Exit batch file. ***
 EXIT /b 0
 
-REM   _*_ Log error and exit _*_
+REM   *** Log error and exit ***
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -129,7 +129,7 @@ Druga Zapora kontroluje połączenia między maszyną wirtualną a procesami w r
 
 Platforma Azure tworzy reguły zapory dla procesów uruchomionych w ramach ról. Na przykład po uruchomieniu usługi lub programu Platforma Azure automatycznie tworzy niezbędne reguły zapory, aby umożliwić tej usłudze komunikowanie się z Internetem. Jeśli jednak utworzysz usługę uruchomioną przez proces poza rolą (np. z usługą COM+ lub zaplanowanym zadaniem systemu Windows), musisz ręcznie utworzyć regułę zapory, aby zezwolić na dostęp do tej usługi. Te reguły zapory można utworzyć przy użyciu zadania uruchamiania.
 
-Zadanie uruchamiania, które tworzy regułę zapory, musi mieć zadanie [kontekście wykonywania][] _ * z podwyższonym poziomem uprawnień * *. Dodaj następujące zadanie uruchamiania do pliku [ServiceDefinition. csdef] .
+Zadanie uruchamiania, które tworzy regułę zapory, musi mieć zadanie [kontekście wykonywania][] o **podniesionych uprawnieniach**. Dodaj następujące zadanie uruchamiania do pliku [ServiceDefinition. csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

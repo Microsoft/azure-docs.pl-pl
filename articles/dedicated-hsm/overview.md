@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90970199"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Co to jest dedykowany moduł HSM platformy Azure?
@@ -60,7 +60,7 @@ Azure Dedicated HSM to wyspecjalizowana usługa zaspokajająca unikatowe wymagan
 
 ### <a name="best-fit"></a>Najlepsze dopasowanie
 
-Usługa Azure Dedicated HSM jest najbardziej odpowiednia dla scenariuszy migracji metodą „lift-and-shift”, które wymagają bezpośredniego i wyłącznego dostępu do urządzeń HSM. Przykłady:
+Usługa Azure Dedicated HSM jest najbardziej odpowiednia dla scenariuszy migracji metodą „lift-and-shift”, które wymagają bezpośredniego i wyłącznego dostępu do urządzeń HSM. Przykłady obejmują:
 
 - Migrowanie aplikacji ze środowiska lokalnego do usługi Azure Virtual Machines
 - Migrowanie aplikacji z usługi Amazon AWS EC2 na maszyny wirtualne, które korzystają z usługi AWS Cloud HSM Classic (firma Amazon nie oferuje tej usługi dla nowych klientów)
