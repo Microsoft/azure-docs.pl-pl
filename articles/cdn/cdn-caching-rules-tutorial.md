@@ -15,10 +15,10 @@ ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: ae217352b83617600fd983a747d578f8f28e7ddd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779241"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Samouczek — konfigurowanie reguł buforowania usługi Azure CDN
@@ -48,11 +48,11 @@ Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć profil usł
 
 1. Wybierz profil usługi CDN w witrynie [Azure Portal](https://portal.azure.com), a następnie wybierz punkt końcowy.
 
-2. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania** .
+2. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania**.
 
    ![Przycisk Reguły buforowania usługi CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   Zostanie wyświetlona strona **Reguły buforowania** .
+   Zostanie wyświetlona strona **Reguły buforowania**.
 
    ![Strona Reguły buforowania usługi CDN](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
@@ -61,11 +61,11 @@ Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć profil usł
 
 Utwórz globalną regułę buforowania w następujący sposób:
 
-1. W obszarze **Globalne reguły buforowania** ustaw **Zachowanie buforowania ciągu kwerendy** na **Ignoruj ciągi zapytań** .
+1. W obszarze **Globalne reguły buforowania** ustaw **Zachowanie buforowania ciągu kwerendy** na **Ignoruj ciągi zapytań**.
 
-2. Ustaw opcję **Zachowanie buforowania** na **Ustaw, jeśli brak** .
+2. Ustaw opcję **Zachowanie buforowania** na **Ustaw, jeśli brak**.
        
-3. Dla opcji **Czas wygasania pamięci podręcznej** wprowadź wartość 10 w polu **Dni** .
+3. Dla opcji **Czas wygasania pamięci podręcznej** wprowadź wartość 10 w polu **Dni**.
 
     Globalna reguła buforowania ma wpływ na wszystkie żądania do punktu końcowego. Ta reguła będzie uwzględniać nagłówki dyrektywy pamięci podręcznej źródła, o ile takie istnieją (`Cache-Control` lub `Expires`). Jeśli nie są one określone, spowoduje to ustawienie pamięci podręcznej na 10 dni. 
 
@@ -77,7 +77,7 @@ Utwórz niestandardową regułę buforowania w następujący sposób:
 
 1. W obszarze **Niestandardowe reguły buforowania** ustaw opcję **Warunek dopasowania** na **Ścieżka** i **Wartość dopasowania** na `/images/*.jpg`.
     
-2. Ustaw **Zachowanie buforowania** na **Zastąp** , a następnie wprowadź wartość 30 w polu **Dni** .
+2. Ustaw **Zachowanie buforowania** na **Zastąp**, a następnie wprowadź wartość 30 w polu **Dni**.
        
     Ta niestandardowa reguła buforowania ustawia czas buforowania na 30 dni na dowolnym pliku obrazów `.jpg` w folderze `/images` punktu końcowego. Zastępuje wszystkie nagłówki HTTP `Cache-Control` lub `Expires` wysyłane przez serwer źródłowy.
 
@@ -90,13 +90,13 @@ W poprzednich krokach utworzono reguły buforowania. Jeśli nie chcesz już ich 
  
 1. Wybierz profil usługi CDN, a następnie punkt końcowy z regułami buforowania, które chcesz usunąć.
 
-2. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania** .
+2. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania**.
 
-3. W obszarze **Globalne reguły buforowania** ustaw opcję **Zachowanie buforowania** na **Nie ustawiono** .
+3. W obszarze **Globalne reguły buforowania** ustaw opcję **Zachowanie buforowania** na **Nie ustawiono**.
  
 4. W obszarze **Niestandardowe reguły buforowania** zaznacz pole wyboru obok reguły, którą chcesz usunąć.
 
-5. Wybierz pozycję **Usuń** .
+5. Wybierz pozycję **Usuń**.
 
 6. Kliknij przycisk **Zapisz** u góry strony.
 

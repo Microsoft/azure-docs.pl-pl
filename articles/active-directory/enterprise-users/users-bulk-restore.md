@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571508"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Przywracanie zbiorcze usuniętych użytkowników w Azure Active Directory
@@ -35,7 +35,7 @@ Pobierz i wypełnij szablon CSV, aby ułatwić pomyślne przywrócenie użytkown
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Object ID [objectId] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt;  &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Object ID [objectId] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki

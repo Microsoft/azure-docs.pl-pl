@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
 ms.openlocfilehash: 3baf2d7ed7c326895ae40948fc2d0a4cc03021f9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788370"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Szybki Start: Konfigurowanie połączenia punkt-lokacja z wystąpieniem zarządzanym usługi Azure SQL z lokalnego
@@ -65,29 +65,29 @@ Ten przewodnik Szybki start:
 
 ## <a name="create-a-vpn-connection"></a>Tworzenie połączenia sieci VPN
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Otwórz grupę zasobów, w której została utworzona Brama sieci wirtualnej, a następnie otwórz zasób bramy sieci wirtualnej.
-3. Wybierz pozycję **Konfiguracja punktu do lokacji** , a następnie wybierz pozycję **Pobierz klienta sieci VPN** .
+3. Wybierz pozycję **Konfiguracja punktu do lokacji** , a następnie wybierz pozycję **Pobierz klienta sieci VPN**.
 
     ![Pobierz klienta VPN](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. Na lokalnym komputerze klienckim Wyodrębnij pliki z pliku zip, a następnie otwórz folder przy użyciu wyodrębnionych plików.
 5. Otwórz folder **WindowsAmd64** i otwórz plik **VpnClientSetupAmd64.exe** .
-6. Jeśli otrzymasz **chroniony komputer z systemem Windows** , kliknij pozycję **więcej informacji** , a następnie kliknij pozycję **Uruchom mimo to** .
+6. Jeśli otrzymasz **chroniony komputer z systemem Windows** , kliknij pozycję **więcej informacji** , a następnie kliknij pozycję **Uruchom mimo to**.
 
     ![Instalowanie klienta VPN](./media/point-to-site-p2s-configure/vpn-client-defender.png)
-7. W oknie dialogowym Kontrola konta użytkownika kliknij przycisk **Tak** , aby kontynuować.
+7. W oknie dialogowym Kontrola konta użytkownika kliknij przycisk **Tak**, aby kontynuować.
 8. W oknie dialogowym odwołującym się do sieci wirtualnej wybierz pozycję **tak** , aby zainstalować klienta sieci VPN dla sieci wirtualnej.
 
 ## <a name="connect-to-the-vpn-connection"></a>Nawiązywanie połączenia z siecią VPN
 
-1. Przejdź do sieci **VPN** w obszarze **Sieć & Internet** na lokalnym komputerze klienckim i wybierz sieć wirtualną wystąpienia zarządzanego SQL, aby nawiązać połączenie z tą wirtualną. Na poniższej ilustracji Sieć wirtualna ma nazwę **MyNewVNet** .
+1. Przejdź do sieci **VPN** w obszarze **Sieć & Internet** na lokalnym komputerze klienckim i wybierz sieć wirtualną wystąpienia zarządzanego SQL, aby nawiązać połączenie z tą wirtualną. Na poniższej ilustracji Sieć wirtualna ma nazwę **MyNewVNet**.
 
     ![Połączenie VPN](./media/point-to-site-p2s-configure/vpn-connection.png)  
-2. Wybierz pozycję **Połącz** .
-3. W oknie dialogowym wybierz pozycję **Połącz** .
+2. Wybierz pozycję **Połącz**.
+3. W oknie dialogowym wybierz pozycję **Połącz**.
 
     ![Zrzut ekranu, który podświetla przycisk Połącz.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
-4. Gdy zostanie wyświetlony monit, że Menedżer połączeń potrzebuje podniesionych uprawnień, aby zaktualizować tabelę tras, wybierz pozycję **Kontynuuj** .
+4. Gdy zostanie wyświetlony monit, że Menedżer połączeń potrzebuje podniesionych uprawnień, aby zaktualizować tabelę tras, wybierz pozycję **Kontynuuj**.
 5. Aby kontynuować, wybierz pozycję **tak** w oknie dialogowym Kontrola konta użytkownika.
 
    Nawiązano połączenie sieci VPN z siecią wirtualną wystąpienia zarządzanego SQL.
@@ -98,7 +98,7 @@ Ten przewodnik Szybki start:
 
 1. Na lokalnym komputerze klienckim Otwórz SQL Server Management Studio.
 2. W oknie dialogowym **łączenie z serwerem** wprowadź w pełni kwalifikowaną **nazwę hosta** dla wystąpienia zarządzanego w polu **Nazwa serwera** .
-3. Wybierz pozycję **uwierzytelnianie SQL Server** , podaj nazwę użytkownika i hasło, a następnie wybierz pozycję **Połącz** .
+3. Wybierz pozycję **uwierzytelnianie SQL Server**, podaj nazwę użytkownika i hasło, a następnie wybierz pozycję **Połącz**.
 
     ![Łączenie programu SSMS](./media/point-to-site-p2s-configure/ssms-connect.png)  
 

@@ -7,10 +7,10 @@ ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89226118"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu Android
@@ -39,8 +39,8 @@ Aby subskrybować źródło danych:
    - Aby nawiązać połączenie za pomocą portalu US Gov, użyj <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Naciśnij pozycję **DALEJ**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
-   - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
-   - W polu **hasło**Podaj hasło skojarzone z nazwą użytkownika.
+   - W polu **Nazwa użytkownika** Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
+   - W polu **hasło** Podaj hasło skojarzone z nazwą użytkownika.
    - Może być również wyświetlony monit o podanie dodatkowych czynników, jeśli administrator skonfigurował uwierzytelnianie w taki sposób.
 
 Po zasubskrybowaniu centrum połączeń powinno wyświetlić zasoby zdalne.

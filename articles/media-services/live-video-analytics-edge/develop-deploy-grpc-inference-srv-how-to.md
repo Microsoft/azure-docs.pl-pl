@@ -4,10 +4,10 @@ description: Ten artykuł zawiera wskazówki dotyczące tworzenia i wdrażania s
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881656"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Przewodnik — tworzenie i wdrażanie serwera wnioskowania gRPC
@@ -148,7 +148,7 @@ Aby zrozumieć szczegóły dotyczące sposobu opracowania serwera gRPC, przejdź
 1. Uruchom programu vscode i przejdź do folderu/src/edge/modules/grpcExtension.
 1. Wykonajmy szybkie Instruktaż dotyczący plików:
 
-    1. **Program.cs**: to jest punkt wejścia aplikacji. Jest on odpowiedzialny za Inicjowanie i zarządzanie serwerem gRPC, który będzie pełnić rolę hosta. W naszym przykładzie port do nasłuchiwania przychodzących komunikatów gRPC z klienta gRPC (na przykład usługi Live Video Analytics) jest określony przez element konfiguracji grpcBindings w AppConfig.jsna.
+    1. **Program. cs**: jest to punkt wejścia aplikacji. Jest on odpowiedzialny za Inicjowanie i zarządzanie serwerem gRPC, który będzie pełnić rolę hosta. W naszym przykładzie port do nasłuchiwania przychodzących komunikatów gRPC z klienta gRPC (na przykład usługi Live Video Analytics) jest określony przez element konfiguracji grpcBindings w AppConfig.jsna.
     
         ```json    
         {
@@ -191,7 +191,7 @@ Teraz, po skonfigurowaniu i zainicjowaniu połączeń portów serwera gRPC, przy
               }
             }
             ```
-        * W zależności od wartości batchSize w Appconfig.jsw systemie, nasz serwer będzie przechowywać komunikaty i przechowywać na liście ramki wideo. Po osiągnięciu limitu batchSize funkcja będzie wywoływała funkcję lub plik, który będzie przetwarzać obraz. W naszym przypadku metoda wywołuje plik o nazwie BatchImageProcessor.cs
+        * W zależności od wartości batchSize w Appconfig.jsw systemie, nasz serwer będzie przechowywać komunikaty i przechowywać na liście ramki wideo. Po osiągnięciu limitu batchSize funkcja będzie wywoływała funkcję lub plik, który będzie przetwarzać obraz. W naszym przypadku metoda wywołuje plik o nazwie BatchImageProcessor. cs
     1. **Processors\BatchImageProcessor.cs**: Ta klasa jest odpowiedzialna za przetwarzanie obrazów. W tym przykładzie użyto modelu klasyfikacji obrazów. Dla każdego obrazu, który zostanie przetworzony, używany algorytm jest następujący:
 
         1. Konwertuj obraz w tablicy bajtów do przetwarzania. Patrz metoda: `GetBytes(Bitmap image)`
@@ -207,7 +207,7 @@ Teraz, po skonfigurowaniu i zainicjowaniu połączeń portów serwera gRPC, przy
     IEnumerable<Inference> ProcessImage(List<Image> images) 
     ```
 
-    Po dodaniu nowej klasy należy zaktualizować MediaGraphExtensionService.cs, aby utworzyć wystąpienie klasy, a następnie wywoła na niej metodę ProcessImage w celu uruchomienia logiki przetwarzania. 
+    Po dodaniu nowej klasy należy zaktualizować MediaGraphExtensionService. cs, aby utworzyć wystąpienie klasy, a następnie wywoła na niej metodę ProcessImage w celu uruchomienia logiki przetwarzania. 
 
 ## <a name="connect-with-live-video-analytics-module"></a>Łączenie się z modułem analizy wideo na żywo
 
@@ -228,7 +228,7 @@ Po utworzeniu modułu rozszerzenia gRPC teraz utworzysz i wdrożono topologię p
 
     * C2D-Console-App. csproj — plik projektu dla Visual Studio Code.
     * operations.jslistę operacji, które program ma uruchomić.
-    * Program.cs — przykładowy kod programu. Ten kod:
+    * Program. cs — przykładowy kod programu. Ten kod:
 
         * Ładuje ustawienia aplikacji.
         * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).

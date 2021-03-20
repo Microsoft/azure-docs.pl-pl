@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317620"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
@@ -37,7 +37,7 @@ Automatyczne uaktualnianie jest domyślnie włączone dla następujących:
 
 Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polecenia cmdlet programu PowerShell `Get-ADSyncAutoUpgrade` . Ma następujące stany:
 
-| State | Komentarz |
+| Stan | Komentarz |
 | --- | --- |
 | Enabled (Włączony) |Automatyczne uaktualnianie jest włączone. |
 | Suspended |Ustawiane tylko przez system. System nie kwalifikuje się **obecnie** do otrzymywania automatycznych uaktualnień. |

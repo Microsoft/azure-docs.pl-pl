@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93346778"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
@@ -64,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 

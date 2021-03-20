@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326341"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
@@ -91,7 +91,7 @@ Wybierz pozycję **Azure Repos Git** jako źródło, projekt zespołowy **Voting
 
 ![Wybieranie repozytorium][select-repo]
 
-W obszarze **Wybierz szablon**wybierz szablon **aplikacja Azure Service Fabric** i kliknij przycisk **Zastosuj**.
+W obszarze **Wybierz szablon** wybierz szablon **aplikacja Azure Service Fabric** i kliknij przycisk **Zastosuj**.
 
 ![Wybieranie szablonu kompilacji][select-build-template]
 

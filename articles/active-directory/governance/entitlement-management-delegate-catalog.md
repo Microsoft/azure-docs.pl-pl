@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798430"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegowanie dostępu ładu do twórców wykazu w usłudze Azure AD uprawnienia zarządzania
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby przypisać użytkownika do roli twórcy katalog
 
 1. Kliknij pozycję **Wybierz**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Zezwalaj na role delegowane w celu uzyskania dostępu do Azure Portal
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784102"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
@@ -59,8 +59,8 @@ W związku z tym nie można wyświetlić listy wszystkich obiektów w pojedyncze
 
 Odpowiedź na operację tworzenia segmentów z segmentacją obejmuje:
 
-* *_segment* , który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
-* *continuation_token* , która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
+* *_segment*, który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
+* *continuation_token*, która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
 
 Na przykład typowe wywołanie listy wszystkich obiektów BLOB w kontenerze może wyglądać podobnie jak w poniższym fragmencie kodu. Kod jest dostępny w naszych [przykładach](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 

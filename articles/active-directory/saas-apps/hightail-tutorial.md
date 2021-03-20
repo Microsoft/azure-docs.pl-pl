@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/06/2020
 ms.author: jeedes
 ms.openlocfilehash: 29f2610c371ecd567a18dc70e51b3eb34754d8ff
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180867"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Hightail
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | FirstName (Imię) | user.givenname |
     | LastName (Nazwisko) | user.surname |
     | E-mail | user.mail |
-    | Tożsamość użytkownika | user.mail |
+    | UserIdentity | user.mail |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -118,7 +118,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

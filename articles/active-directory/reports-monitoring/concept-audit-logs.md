@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995985"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
@@ -34,7 +34,7 @@ Architektura raportowania składa się z następujących składników:
 
 - **Działanie** 
     - **Logowania** — [raport logowania](concept-sign-ins.md) zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
-    - **Dzienniki inspekcji** — udostępnia możliwość śledzenia wszystkich zmian wprowadzanych przez różne funkcje usługi Azure AD za pomocą dzienników. Przykłady dzienników inspekcji obejmują zmiany wprowadzone w zasobach w usłudze Azure AD, takie jak dodawanie lub usuwanie użytkowników, aplikacji, grup, ról i zasad.
+    - **Dzienniki inspekcji** — umożliwia śledzenie przy użyciu dzienników dla wszystkich zmian wykonywanych przez różne funkcje w ramach usługi Azure AD. Działania umieszczane w dziennikach inspekcji to na przykład zmiany wprowadzone w dowolnych zasobach usługi Azure AD, takie jak dodawanie lub usuwanie użytkowników, aplikacji, grup, ról i zasad.
     - **Dzienniki aprowizacji**  -  [Dzienniki aprowizacji](./concept-provisioning-logs.md) umożliwiają klientom monitorowanie aktywności przy użyciu usługi aprowizacji, takiej jak tworzenie grupy w usługi ServiceNow lub użytkownik zaimportowany z produktu Workday. 
 - **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika. 

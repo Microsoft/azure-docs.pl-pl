@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
 ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89146406"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Omówienie narzędzi i interfejsów API usługi Batch
@@ -77,7 +77,7 @@ Te dodatkowe narzędzia mogą być przydatne do kompilowania i debugowania aplik
 - [Azure Batch stocznie](https://github.com/Azure/batch-shipyard): stoczniowe narzędzie do obsługi inicjowania, wykonywania i monitorowania przetwarzania wsadowego opartego na kontenerach i obciążeń HPC na Azure Batch.
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/): Chociaż nie jest to dokładnie narzędzie Azure Batch, Eksplorator usługi Storage jest innym przydatnym narzędziem, które trzeba uzyskać podczas tworzenia i debugowania rozwiązań wsadowych.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Aby dowiedzieć się więcej o zdarzeniach rejestrowania z aplikacji usługi Batch, zobacz [metryki usługi Batch, alerty i dzienniki na potrzeby oceny i monitorowania diagnostyki](batch-diagnostics.md).
 - Informacje referencyjne dotyczące zdarzeń zgłaszanych przez usługę Batch można znaleźć w temacie [Batch Analytics](batch-analytics.md).

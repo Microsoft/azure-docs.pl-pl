@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050326"
 ---
 Ta procedura obejmuje następujące czynności:
@@ -38,7 +38,7 @@ Ta procedura obejmuje następujące czynności:
 
     `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. Na serwerze frontonu sieci Web w obszarze **Administracja centralna**Edytuj **Ogólne ustawienia aplikacji sieci Web** dla żądanej bazy danych zawartości, aby tymczasowo wyłączyć kosz. Ta akcja spowoduje również opróżnienie kosza dla wszystkich powiązanych kolekcji witryn. W tym celu kliknij pozycję **Administracja centralna**  ->  **aplikacja**  ->  **sieci Web aplikacje (Zarządzanie aplikacjami sieci Web)**  ->  **SharePoint-80**  ->  **Ogólne ustawienia aplikacji**. Ustaw **stan kosza** na **wyłączony**.
+2. Na serwerze frontonu sieci Web w obszarze **Administracja centralna** Edytuj **Ogólne ustawienia aplikacji sieci Web** dla żądanej bazy danych zawartości, aby tymczasowo wyłączyć kosz. Ta akcja spowoduje również opróżnienie kosza dla wszystkich powiązanych kolekcji witryn. W tym celu kliknij pozycję **Administracja centralna**  ->  **aplikacja**  ->  **sieci Web aplikacje (Zarządzanie aplikacjami sieci Web)**  ->  **SharePoint-80**  ->  **Ogólne ustawienia aplikacji**. Ustaw **stan kosza** na **wyłączony**.
    
     ![Ustawienia ogólne aplikacji sieci Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -62,5 +62,5 @@ Ta procedura obejmuje następujące czynności:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. Na serwerze frontonu sieci Web w witrynie **Administracja centralna**Edytuj **Ustawienia ogólne aplikacji sieci Web** dla żądanej bazy danych zawartości, aby ponownie włączyć Kosz. W tym celu kliknij pozycję **Administracja centralna**  ->  **aplikacja**  ->  **sieci Web aplikacje (Zarządzanie aplikacjami sieci Web)**  ->  **SharePoint-80**  ->  **Ogólne ustawienia aplikacji**. Ustaw stan kosza na **włączone**.
+2. Na serwerze frontonu sieci Web w witrynie **Administracja centralna** Edytuj **Ustawienia ogólne aplikacji sieci Web** dla żądanej bazy danych zawartości, aby ponownie włączyć Kosz. W tym celu kliknij pozycję **Administracja centralna**  ->  **aplikacja**  ->  **sieci Web aplikacje (Zarządzanie aplikacjami sieci Web)**  ->  **SharePoint-80**  ->  **Ogólne ustawienia aplikacji**. Ustaw stan kosza na **włączone**.
 

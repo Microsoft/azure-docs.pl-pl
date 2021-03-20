@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383674"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiowanie danych z Concur za pomocą Azure Data Factory (wersja zapoznawcza)
@@ -22,7 +22,7 @@ W tym artykule opisano sposób używania działania kopiowania w Azure Data Fact
 > [!IMPORTANT]
 > Ten łącznik jest obecnie w wersji zapoznawczej. Możesz ją wypróbować i przekazać nam swoją opinię. Jeśli w swoim rozwiązaniu chcesz wprowadzić zależność od łączników w wersji zapoznawczej, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik Concur jest obsługiwany dla następujących działań:
 

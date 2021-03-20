@@ -13,10 +13,10 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89268608"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Włączanie roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory
@@ -58,7 +58,7 @@ Wykonaj następujące kroki, aby wyświetlić raport o stanie synchronizacji urz
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com/).
 1. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 1. Wybierz użytkownika, a następnie wybierz pozycję **urządzenia**.
-1. W obszarze **Pokaż**wybierz pozycję **urządzenia Synchronizuj ustawienia i dane aplikacji** , aby wyświetlić stan synchronizacji.
+1. W obszarze **Pokaż** wybierz pozycję **urządzenia Synchronizuj ustawienia i dane aplikacji** , aby wyświetlić stan synchronizacji.
   
    ![obraz przedstawiający ustawienie danych synchronizacji urządzeń](./media/enterprise-state-roaming-enable/sync-status.png)
   

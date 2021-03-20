@@ -10,10 +10,10 @@ ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 545ffd303d2039a3c54088220c1fa74e742c750f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360772"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Samouczek: wykonywanie zapytań względem interfejsu API języka Gremlin w usłudze Azure Cosmos DB przy użyciu języka Gremlin
@@ -46,7 +46,7 @@ Filtry można wykonywać przy użyciu kroków `has` i `hasLabel`, a także łąc
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
-## <a name="projection"></a>Rzut
+## <a name="projection"></a>Projekcja
 
 Pewne właściwości wyników zapytania można poddawać projekcji za pomocą kroku `values`:
 

@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882403"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Rejestruj i Skanuj Azure Data Lake Storage Gen2
 
 W tym artykule opisano sposób rejestrowania Azure Data Lake Storage Gen2 jako źródła danych w usłudze Azure kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Azure Data Lake Storage Gen2 źródło danych obsługuje następujące funkcje:
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: ff5da4b87589889172a9518fd67486fe14451630
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Samouczek: integracja Azure Active Directory z dokumentacją

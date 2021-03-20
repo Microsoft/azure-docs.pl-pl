@@ -5,10 +5,10 @@ ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 1/4/2021
 ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97860987"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Co to jest BareMetal Infrastructure w wersji zapoznawczej na platformie Azure?
@@ -40,7 +40,7 @@ Firma Microsoft jest odpowiedzialna za:
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Model obsługi infrastruktury BareMetal" border="false":::
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 Infrastruktura BareMetal oferuje wiele jednostek SKU dla wyspecjalizowanych obciążeń. Dostępne jednostki SKU są dostępne w zakresie od mniejszego systemu dwugniazdowego do systemu 24-gniazdowego. Użyj jednostek SKU specyficznych dla obciążenia dla wyspecjalizowanego obciążenia.
 
 Sama sygnatura wystąpienia BareMetal łączy następujące składniki:
@@ -71,13 +71,13 @@ Dostępne wersje systemu operacyjnego Linux to:
    - SLES 12 Z DODATKIEM SP5
    - SLES 15 SP1
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 Wystąpienia BareMetal oparte na konkretnym typie jednostki SKU są dostępne ze wstępnie zdefiniowanym magazynem NFS dla określonego typu obciążenia. Po udostępnieniu BareMetal można udostępnić więcej przestrzeni dyskowej na podstawie szacowanego wzrostu przez przesłanie żądania pomocy technicznej. Wszystkie magazyny są dostarczane z dyskiem flash z poprawkami 4,2 z obsługą NFSv3 i NFSv4. Zostanie udostępniona nowsza wersja 4,5 interfejsu SSD. Aby uzyskać więcej informacji na temat określania rozmiarów magazynu, zobacz sekcję [Typ obciążenia BareMetal](../../../virtual-machines/workloads/sap/get-started.md) .
 
 >[!NOTE]
 >Magazyn używany do BareMetal jest zgodny z wymaganiami dotyczącymi [publikacji FIPS (Federal Information Processing Standard) 140-2](/microsoft-365/compliance/offering-fips-140-2) . Dane są bezpiecznie przechowywane na dyskach.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Architektura usług sieciowych platformy Azure to kluczowy składnik dla pomyślnego wdrożenia wyspecjalizowanych obciążeń w wystąpieniach BareMetal. Prawdopodobnie nie wszystkie systemy IT znajdują się już na platformie Azure. Platforma Azure oferuje technologię sieciową, dzięki której platforma Azure będzie wyglądać jak wirtualne centrum danych do lokalnych wdrożeń oprogramowania. Funkcje sieci platformy Azure wymagane przez wystąpienia BareMetal są następujące:
 
 - Sieci wirtualne platformy Azure są połączone z obwodem usługi ExpressRoute, który łączy się z zasobami sieci lokalnej.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78186203"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Samouczek: uwierzytelnianie użytkowników w natywnym kliencie klasycznym przy użyciu Azure Active Directory B2C
@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 Aby zaktualizować aplikację do pracy z dzierżawą Azure AD B2C i wywoływać przepływy użytkowników zamiast tych w domyślnej dzierżawie demonstracyjnej:
 
 1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** ( `active-directory-b2c-wpf.sln` ) w programie Visual Studio.
-2. W projekcie **Active-Directory-B2C-WPF** otwórz plik *App.XAML.cs* i Znajdź następujące definicje zmiennych. Zamień `{your-tenant-name}` na nazwę dzierżawy Azure AD B2C i `{application-ID}` Identyfikator aplikacji, który został zarejestrowany wcześniej.
+2. W projekcie **Active-Directory-B2C-WPF** Otwórz plik *App. XAML. cs* i Znajdź następujące definicje zmiennych. Zamień `{your-tenant-name}` na nazwę dzierżawy Azure AD B2C i `{application-ID}` Identyfikator aplikacji, który został zarejestrowany wcześniej.
 
     ```csharp
     private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";

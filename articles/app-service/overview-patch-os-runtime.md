@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558491"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego w Azure App Service
@@ -90,7 +90,7 @@ W poniższej tabeli przedstawiono, jak wersje systemu Windows i środowisko uruc
 >
 >
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 [Centrum zaufania: zabezpieczenia](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 ASP.NET Core bit na Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

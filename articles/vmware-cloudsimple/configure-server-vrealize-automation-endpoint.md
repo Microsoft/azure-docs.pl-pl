@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895057"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Skonfiguruj program vCenter w chmurze prywatnej na potrzeby automatyzacji vRealize Automation
 
 Program VMware vCenter Server można skonfigurować w prywatnej chmurze CloudSimple jako punkt końcowy dla usługi VMware vRealize Automation.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wykonaj te zadania przed skonfigurowaniem serwera vCenter:
 

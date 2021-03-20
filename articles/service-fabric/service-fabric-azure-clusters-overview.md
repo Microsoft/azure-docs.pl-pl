@@ -6,10 +6,10 @@ documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97882215"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
@@ -68,14 +68,14 @@ Oprócz certyfikatów klienta Azure Active Directory można również skonfiguro
 
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról
+### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC platformy Azure są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD przy użyciu reguł RBAC platformy Azure, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
 Aby uzyskać więcej informacji, Przeczytaj [Service Fabric kontroli dostępu opartej na rolach](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
-### <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń 
+### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) kontrolują ruch przychodzący i wychodzący podsieci, maszyny wirtualnej lub konkretnej karty sieciowej.  Domyślnie, gdy wiele maszyn wirtualnych jest umieszczanych w tej samej sieci wirtualnej, mogą komunikować się ze sobą za pośrednictwem dowolnego portu.  Jeśli chcesz ograniczyć komunikację między maszynami, możesz zdefiniować sieciowych grup zabezpieczeń do segmentacji sieci lub izolowania maszyn wirtualnych od siebie.  Jeśli w klastrze istnieje wiele typów węzłów, można zastosować sieciowych grup zabezpieczeń do podsieci, aby uniemożliwić komunikację między maszynami należącymi do różnych typów węzłów.  
 
 Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md)
@@ -101,9 +101,9 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 | 20H2 systemu Windows Server | 7.2.445.9590 | Nie dotyczy |
 | System Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
 | System Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| System Windows Server 1709 | 6,0 | 7.2.445.9590 |
+| System Windows Server 1709 | 6.0 | 7.2.445.9590 |
 | Windows Server 2012 | Wszystkie wersje | Nie dotyczy | 
-| Linux Ubuntu 16,04 | 6,0 | Nie dotyczy |
+| Linux Ubuntu 16,04 | 6.0 | Nie dotyczy |
 | Linux Ubuntu 18,04 | 7.1 | Nie dotyczy |
 
 Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](./service-fabric-versions.md#supported-operating-systems)

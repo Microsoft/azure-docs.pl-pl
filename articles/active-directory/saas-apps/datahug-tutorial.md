@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 94cafb5044dab8e5ce6f965df73972dc21fe2744
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Samouczek: integracja Azure Active Directory z usługą Datahug
@@ -126,7 +126,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Datahug, 
 
     b. Wybierz pozycję **SHA-1** w obszarze **Algorytm podpisywania**.
     
-    c. Kliknij pozycję **Zapisz**
+    c. Kliknij pozycję **Zapisz**.
 
     ![Opcja podpisywania Communifire](./media/datahug-tutorial/tutorial_datahug_signingoption.png)
 

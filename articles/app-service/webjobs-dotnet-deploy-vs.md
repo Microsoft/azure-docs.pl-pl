@@ -9,10 +9,10 @@ ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89226033"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Opracowywanie i wdrażanie zadań WebJob za pomocą programu Visual Studio
@@ -102,7 +102,7 @@ Aby utworzyć nowy projekt z obsługą zadań WebJob, użyj szablonu projektu ap
     Utwórz projekt, który jest skonfigurowany do automatycznego wdrażania jako zadanie WebJob podczas wdrażania projektu sieci Web w tym samym rozwiązaniu. Użyj tej opcji, jeśli chcesz uruchomić zadanie WebJob w tej samej aplikacji sieci Web, w której uruchomiono powiązaną aplikację sieci Web.
 
 > [!NOTE]
-> Szablon nowy projekt Zadania WebJob automatycznie instaluje pakiety NuGet i zawiera kod w *program.cs* dla [zestawu SDK usługi WebJobs](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Jeśli nie chcesz używać zestawu SDK zadań WebJob, Usuń lub Zmień `host.RunAndBlock` instrukcję w *program.cs*.
+> Szablon nowy projekt Zadania WebJob automatycznie instaluje pakiety NuGet i zawiera kod w *programie program. cs* dla [zestawu SDK usługi WebJobs](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Jeśli nie chcesz używać zestawu SDK zadań WebJob, Usuń lub Zmień `host.RunAndBlock` instrukcję w *programie program. cs*.
 > 
 > 
 
@@ -157,7 +157,7 @@ W przypadku łączenia projektu z obsługą zadań WebJob z projektem sieci Web 
 Ten plik można edytować bezpośrednio w programie Visual Studio przy użyciu funkcji IntelliSense. Schemat pliku jest przechowywany w lokalizacji [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) .
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Wdróż projekt WebJob
-Projekt WebJobs, który został połączony z projektem sieci Web, jest wdrażany automatycznie w projekcie sieci Web. Aby uzyskać informacje na temat wdrażania projektu sieci Web, zobacz **przewodniki dotyczące**wdrażania  >  **aplikacji** w lewym okienku nawigacji.
+Projekt WebJobs, który został połączony z projektem sieci Web, jest wdrażany automatycznie w projekcie sieci Web. Aby uzyskać informacje na temat wdrażania projektu sieci Web, zobacz **przewodniki dotyczące** wdrażania  >  **aplikacji** w lewym okienku nawigacji.
 
 Aby wdrożyć projekt zadań WebJob, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj jako zadanie WebJob platformy Azure**. 
 
@@ -218,10 +218,10 @@ Następujące ustawienia są obsługiwane przez Zadania WebJob:
 
 | **Ustawienie** | **Typ**  | **Opis** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Wszystkie | Umożliwia uruchomienie zadania WebJob bez uprzedniego kopiowania do folderu tymczasowego. Aby uzyskać więcej informacji, zobacz [katalog roboczy zadania WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_in_place` | Wszystko | Umożliwia uruchomienie zadania WebJob bez uprzedniego kopiowania do folderu tymczasowego. Aby uzyskać więcej informacji, zobacz [katalog roboczy zadania WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Ciągłe | W przypadku skalowania w poziomie nie uruchamiaj Zadania WebJob tylko dla jednego wystąpienia. Aby uzyskać więcej informacji, zobacz [Ustawianie ciągłego zadania jako pojedyncze](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Wyzwalane | Uruchom zadanie WebJob na podstawie harmonogramu opartego na języku cronus. Aby uzyskać więcej informacji, zobacz [wyrażenia NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Wszystkie | Umożliwia sterowanie zachowaniem zamknięcia. Aby uzyskać więcej informacji, zobacz [bezpieczne zamykanie](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Wszystko | Umożliwia sterowanie zachowaniem zamknięcia. Aby uzyskać więcej informacji, zobacz [bezpieczne zamykanie](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ### <a name="continuous-execution"></a>Ciągłe wykonywanie
 

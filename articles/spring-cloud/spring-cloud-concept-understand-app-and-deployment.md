@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323641"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informacje o aplikacji i wdrażaniu w chmurze Azure wiosennej
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
-**Aplikacje** i **wdrożenia** to dwie kluczowe koncepcje w modelu zasobów chmury wiosennej platformy Azure. W chmurze Azure wiosną *aplikacja* jest abstrakcją jednej aplikacji biznesowej lub jednej mikrousługi.  Jedna wersja kodu lub plik binarny wdrożony jako *aplikacja* jest uruchamiana w ramach *wdrożenia*.  Aplikacje są uruchamiane w *wystąpieniu usługi chmurowej Azure wiosny*lub po prostu *wystąpienie usługi*, jak pokazano Dalej.
+**Aplikacje** i **wdrożenia** to dwie kluczowe koncepcje w modelu zasobów chmury wiosennej platformy Azure. W chmurze Azure wiosną *aplikacja* jest abstrakcją jednej aplikacji biznesowej lub jednej mikrousługi.  Jedna wersja kodu lub plik binarny wdrożony jako *aplikacja* jest uruchamiana w ramach *wdrożenia*.  Aplikacje są uruchamiane w *wystąpieniu usługi chmurowej Azure wiosny* lub po prostu *wystąpienie usługi*, jak pokazano Dalej.
 
  ![Aplikacje i wdrożenia](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 
@@ -31,11 +31,11 @@ Następujące funkcje/właściwości są zdefiniowane na poziomie aplikacji.
 
 | Funkcje | Opis |
 |:--|:----------------|
-| Public</br>Punkt końcowy | Adres URL dostępu do aplikacji |
-| Niestandardowy</br>Obszar | Rekord CNAME, który zabezpiecza domenę niestandardową |
+| Publiczne</br>Punkt końcowy | Adres URL dostępu do aplikacji |
+| Niestandardowy</br>Domena | Rekord CNAME, który zabezpiecza domenę niestandardową |
 | Usługa</br>Wiązanie | Połączenie z innymi usługami platformy Azure |
-| Zarządzani</br>Tożsamość | Tożsamość zarządzana przez Azure Active Directory umożliwia aplikacji łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault |
-| Stale</br>Magazyn | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
+| Zarządzanie</br>Tożsamość | Tożsamość zarządzana przez Azure Active Directory umożliwia aplikacji łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault |
+| Stale</br>Storage | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
 
 ## <a name="deployment"></a>Wdrożenie
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89278602"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Prywatność użytkownika i bezproblemowe logowanie jednokrotne do usługi Azure AD
@@ -43,7 +43,7 @@ Zdecydowanie zalecamy, aby druga opcja była łatwiejsza do wdrożenia i konserw
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Usuń pliki dziennika śledzenia Azure AD Connect
 
-Sprawdź zawartość folderu **%ProgramData%\AADConnect** i Usuń zawartość dziennika śledzenia (pliki**Trace- \* . log** ) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia Azure AD Connect lub zmodyfikowania bezproblemowej konfiguracji logowania jednokrotnego, ponieważ ta akcja może utworzyć dane objęte Rodo.
+Sprawdź zawartość folderu **%ProgramData%\AADConnect** i Usuń zawartość dziennika śledzenia (pliki **Trace- \* . log** ) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia Azure AD Connect lub zmodyfikowania bezproblemowej konfiguracji logowania jednokrotnego, ponieważ ta akcja może utworzyć dane objęte Rodo.
 
 >[!IMPORTANT]
 >Nie usuwaj pliku **PersistedState.xml** w tym folderze, ponieważ ten plik jest używany do zachowywania stanu poprzedniej instalacji Azure AD Connect i jest używany podczas instalacji uaktualnienia. Ten plik nigdy nie będzie zawierał żadnych danych dotyczących osoby i nigdy nie powinien być usunięty.

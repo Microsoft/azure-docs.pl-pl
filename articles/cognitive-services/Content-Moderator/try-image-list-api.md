@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800152"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Umiarkowane z listami obrazów niestandardowych w konsoli interfejsu API
@@ -46,7 +46,7 @@ Po wprowadzeniu zmian na liście obrazów należy odświeżyć jej indeks, aby z
 
    **Lista obrazów — zostanie otwarta strona indeks wyszukiwania odświeżania** .
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
  
     ![Listy obrazów — odświeżanie zaznaczenia obszaru strony indeksu wyszukiwania](images/test-drive-region.png)
 
@@ -63,7 +63,7 @@ Po wprowadzeniu zmian na liście obrazów należy odświeżyć jej indeks, aby z
 
    **Lista obrazów —** zostanie otwarta strona tworzenie. 
 
-3. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację.
+3. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację.
 
    ![Listy obrazów — wybór regionu strony](images/test-drive-region.png)
 
@@ -99,7 +99,7 @@ Po wprowadzeniu zmian na liście obrazów należy odświeżyć jej indeks, aby z
 
    Zostanie otwarta strona **Dodawanie obrazu** . 
 
-9. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację.
+9. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację.
 
    ![Obraz — Dodawanie obszaru strony obrazu](images/test-drive-region.png)
 
@@ -131,7 +131,7 @@ Ten przykład usuwa pojedynczy obraz:
 
    Zostanie otwarta strona **Usuwanie obrazu** .
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
    ![Obraz — usuwanie zaznaczenia obszaru strony](images/test-drive-region.png)
  
@@ -153,7 +153,7 @@ Można edytować nazwę i opis listy oraz dodawać elementy metadanych.
 
    **Lista obrazów —** zostanie otwarta strona Szczegóły aktualizacji.
 
-2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację.  
+2. W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację.  
 
     ![Listy obrazów — Aktualizuj wybór obszaru strony szczegółów](images/test-drive-region.png)
 

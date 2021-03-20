@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
 ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89227903"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Tworzenie i uruchamianie zautomatyzowanych przepływów zadań opartych na zdarzeniach za pomocą elementów webhook protokołu HTTP w Azure Logic Apps
@@ -42,7 +42,7 @@ Więcej informacji można znaleźć w następujących tematach:
 * [Elementy webhook i subskrypcje](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Tworzenie niestandardowych interfejsów API, które obsługują element webhook](../logic-apps/logic-apps-create-api-app.md)
 
-Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań przychodzących do aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL) lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań przychodzących do aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako Secure SOCKETS Layer (SSL) lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -142,7 +142,7 @@ Ta wbudowana akcja wywołuje punkt końcowy subskrypcji w usłudze docelowej i r
 
 Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza lub akcji elementu webhook protokołu HTTP, które zwracają następujące informacje:
 
-| Nazwa właściwości | Type | Opis |
+| Nazwa właściwości | Typ | Opis |
 |---------------|------|-------------|
 | nagłówka | object | Nagłówki żądania |
 | body | object | Obiekt JSON | Obiekt z zawartością treści z żądania |

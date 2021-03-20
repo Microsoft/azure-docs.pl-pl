@@ -4,15 +4,15 @@ description: Utwórz plik parametrów do przekazywania wartości podczas wdraża
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89276664"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
-Zamiast przekazywać parametry jako wartości wbudowane w skrypcie, można ułatwić korzystanie z pliku JSON, który zawiera wartości parametrów. W tym artykule pokazano, jak utworzyć plik parametrów.
+Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. W tym artykule pokazano, jak utworzyć plik parametrów.
 
 ## <a name="parameter-file"></a>Plik parametrów
 

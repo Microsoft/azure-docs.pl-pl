@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326171"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Skonfiguruj lokalne Programowanie dla usługi Azure static Web Apps Preview
@@ -65,7 +65,7 @@ Rozszerzenie serwer na żywo dla Visual Studio Code zapewnia lokalny serwer siec
 
 #### <a name="create-a-repository"></a>Tworzenie repozytorium
 
-1. Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) i Utwórz nowy projekt GitHub o nazwie **Wanili-API**przy użyciu tego szablonu.
+1. Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) i Utwórz nowy projekt GitHub o nazwie **Wanili-API** przy użyciu tego szablonu.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Okno nowego repozytorium GitHub":::
 
@@ -75,7 +75,7 @@ Rozszerzenie serwer na żywo dla Visual Studio Code zapewnia lokalny serwer siec
 
 1. W polu wyszukiwania wpisz **klon** , a następnie wybierz pozycję **git: Klonuj**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Opcja klonowania Git w Visual Studio Code":::
 
 1. Wprowadź następującą wartość dla **adresu URL repozytorium**.
 
@@ -85,9 +85,9 @@ Rozszerzenie serwer na żywo dla Visual Studio Code zapewnia lokalny serwer siec
 
 1. Wybierz lokalizację folderu dla nowego projektu.
 
-1. Po wyświetleniu monitu, aby otworzyć Sklonowane repozytorium, wybierz pozycję **Otwórz**.
+1. Po wyświetleniu monitu o otwarcie sklonowanego repozytorium, wybierz przycisk **Open** (Otwórz).
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Otwórz w nowym oknie":::
 
 Visual Studio Code otwiera sklonowany projekt w edytorze.
 
@@ -99,7 +99,7 @@ Visual Studio Code otwiera sklonowany projekt w edytorze.
 
     Zostanie otwarta karta przeglądarka, w której zostanie wyświetlona aplikacja.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Prosta lokacja statyczna uruchomiona w przeglądarce":::
 
     Ta aplikacja wysyła żądanie HTTP do `api/message` punktu końcowego. Teraz to żądanie kończy się niepowodzeniem, ponieważ część interfejsu API tej aplikacji musi zostać uruchomiona.
 
@@ -113,13 +113,13 @@ W ramach procesu tworzenia interfejsu API konfiguracja uruchamiania jest tworzon
 
 1. Zostanie otwarte nowe wystąpienie terminalu pokazujące dane wyjściowe procesu kompilacji interfejsu API.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Interfejs API działający w Visual Studio Code terminalu":::
 
    Pasek stanu w Visual Studio Code jest teraz pomarańczowy. Ten kolor wskazuje, że interfejs API jest teraz uruchomiony i debuger jest dołączony.
 
 1. Następnie naciśnij **klawisze Ctrl/Cmd** i kliknij adres URL w terminalu, aby otworzyć okno przeglądarki, które wywołuje interfejs API.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Wyświetlenie wyniku wywołania interfejsu API w przeglądarce":::
 
 ### <a name="debugging-the-api"></a>Debugowanie interfejsu API
 
@@ -127,19 +127,19 @@ W ramach procesu tworzenia interfejsu API konfiguracja uruchamiania jest tworzon
 
 1. Kliknij lewy margines w wierszu 2, aby ustawić punkt przerwania. Zostanie wyświetlona czerwona kropka, która wskazuje, że punkt przerwania jest ustawiony.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Punkt przerwania w Visual Studio Code":::
 
 1. W przeglądarce Odśwież stronę z systemem <http://127.0.0.1:7071/api/message> .
 
 1. Punkt przerwania został trafiony w Visual Studio Code i wykonywanie programu jest wstrzymane.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Okno nowego repozytorium GitHub":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Osiągnięto punkt przerwania w Visual Studio Code":::
 
    Pełne [środowisko debugowania jest dostępne w Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) dla interfejsu API.
 
 1. Naciśnij przycisk **Kontynuuj** na pasku debugowania, aby kontynuować wykonywanie.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="Przycisk Kontynuuj w Visual Studio Code":::
 
 ### <a name="calling-the-api-from-the-application"></a>Wywoływanie interfejsu API z aplikacji
 
@@ -192,7 +192,7 @@ Aby uzyskać więcej informacji na temat konfigurowania plików środowiskowych 
 
 1. Wpisz **serwer Live Server** i wybierz pozycję **serwer aktywny: Zatrzymaj serwer na żywo**.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Zatrzymaj polecenie Live Server w palecie poleceń programu Visual Studio":::
 
 1. Naciśnij klawisz **F1**, aby otworzyć paletę poleceń.
 
@@ -200,7 +200,7 @@ Aby uzyskać więcej informacji na temat konfigurowania plików środowiskowych 
 
 1. Odśwież aplikację uruchomioną w systemie `http://locahost:3000` . W przeglądarce jest teraz wyświetlany komunikat zwrócony z interfejsu API.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Okno nowego repozytorium GitHub":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Powitanie z interfejsu API wyświetlanego w przeglądarce":::
 
 ## <a name="next-steps"></a>Następne kroki
 

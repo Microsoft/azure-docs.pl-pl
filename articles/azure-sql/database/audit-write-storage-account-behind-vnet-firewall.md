@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348257"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
@@ -85,7 +85,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 1. Zarejestruj serwer w usłudze Azure Active Directory (Azure AD). Użyj programu PowerShell lub interfejsu API REST.
 
-   **PowerShell**
+   **Program PowerShell**
 
    ```powershell
    Connect-AzAccount
@@ -118,12 +118,12 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
    }
    ```
 
-2. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do konta magazynu. Znajdź **Access Control (IAM)** , a następnie kliknij pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektów blob magazynu współautor** roli platformy Azure do serwera, na którym znajduje się baza danych, która została zarejestrowana w Azure Active Directory (Azure AD), jak w poprzednim kroku.
+2. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do konta magazynu. Znajdź **Access Control (IAM)**, a następnie kliknij pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektów blob magazynu współautor** roli platformy Azure do serwera, na którym znajduje się baza danych, która została zarejestrowana w Azure Active Directory (Azure AD), jak w poprzednim kroku.
 
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z [wbudowanymi rolami platformy Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Skonfiguruj [zasady inspekcji obiektów BLOB serwera](/rest/api/sql/server%20auditing%20settings/createorupdate)bez określania *storageAccountAccessKey* :
+3. Skonfiguruj [zasady inspekcji obiektów BLOB serwera](/rest/api/sql/server%20auditing%20settings/createorupdate)bez określania *storageAccountAccessKey*:
 
    Przykładowe żądanie
 

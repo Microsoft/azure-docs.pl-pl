@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555156"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Zrozumienie funkcji słownika biznesowego w usłudze Azure kontrolą

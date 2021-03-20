@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050435"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Wdróż moduł IoT Edge Event Grid
@@ -35,7 +35,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 
-Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
+Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras** i **przeglądanie wdrożenia**.
 
 ### <a name="add-modules"></a>Dodaj moduły
 
@@ -67,7 +67,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     }
 ```
 
- 1. Kliknij pozycję **Zapisz**
+ 1. Kliknij pozycję **Zapisz**.
  1. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
     > [!NOTE]

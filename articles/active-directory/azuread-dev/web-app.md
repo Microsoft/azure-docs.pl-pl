@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: e4a7fb72d40f5db65e8e30264e9d68b2727749e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154410"
 ---
 # <a name="web-apps"></a>Aplikacje internetowe
@@ -42,7 +42,7 @@ Aplikacje sieci Web to aplikacje, które uwierzytelniają użytkownika w przegl�
 
 Zapoznaj się z przykładami kodu dotyczącymi scenariuszy aplikacji sieci Web w przeglądarce internetowej. I sprawdź często, jak często dodawane są nowe przykłady.
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 Aby zarejestrować aplikację sieci Web, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

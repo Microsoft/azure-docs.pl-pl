@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230784"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Szybki start: tworzenie serwera — portal
@@ -25,12 +25,12 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal 
 
-[Zaloguj się do portalu](https://portal.azure.com)
+[Logowanie się do portalu](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Tworzenie serwera
 
-1. Kliknij pozycję **+ Utwórz**  >  **Analytics**  >  **Analysis Services**analizy zasobów.
+1. Kliknij pozycję **+ Utwórz**  >    >  **Analysis Services** analizy zasobów.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -58,4 +58,4 @@ Gdy serwer nie będzie już potrzebny, usuń go. Na stronie **Przegląd** serwer
 W tym przewodniku Szybki Start przedstawiono sposób tworzenia serwera w ramach subskrypcji platformy Azure. Teraz, po utworzeniu serwera, możesz go zabezpieczyć, konfigurując (opcjonalną) zaporę serwera. Możesz też dodać do serwera podstawowy przykładowy model danych bezpośrednio w portalu. Przykładowy model służy do zdobywania wiedzy na temat konfigurowania ról modelowej bazy danych oraz testowania połączeń klienckich. Aby dowiedzieć się więcej, przejdź do samouczka dotyczącego dodawania przykładowego modelu.
 
 > [!div class="nextstepaction"]
-> [Szybki start: konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   
+> [Szybki start: Konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   
