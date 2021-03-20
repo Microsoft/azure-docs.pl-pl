@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537664"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące zarządzania usługą Azure cache for Redis.
 
-## <a name="common-questions-and-answers"></a>Często zadawane pytania i odpowiedzi
+## <a name="common-questions-and-answers"></a>Typowe pytania i odpowiedzi
 W tej sekcji omówiono następujące często zadawane pytania:
 
 * [Kiedy należy włączyć port bez protokołu TLS/SSL na potrzeby łączenia się z usługą Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -142,7 +142,7 @@ Jak skonfigurować to ustawienie:
     ```
 
     > [!NOTE]
-    > Wartość określona przez tę metodę jest ustawieniem globalnym wpływającym na całą domenę aplikacji. Na przykład jeśli masz maszynę 4-rdzeniową i chcesz ustawić *MinWorkerThreads* i *minIoThreads* na 50 na procesor CPU podczas wykonywania, użyj **puli wątków. SetMinThreads — (200, 200)** .
+    > Wartość określona przez tę metodę jest ustawieniem globalnym wpływającym na całą domenę aplikacji. Na przykład jeśli masz maszynę 4-rdzeniową i chcesz ustawić *MinWorkerThreads* i *minIoThreads* na 50 na procesor CPU podczas wykonywania, użyj **puli wątków. SetMinThreads — (200, 200)**.
 
 * Można również określić ustawienie minimalnych wątków przy użyciu [Ustawienia konfiguracji *MinIoThreads* lub *MinWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) w obszarze `<processModel>` elementu konfiguracji w programie `Machine.config` , zwykle znajdującego się pod adresem `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Ustawienie minimalnej liczby wątków w ten sposób zwykle nie jest zalecane, ponieważ jest to ustawienie na poziomie całego systemu.**
 

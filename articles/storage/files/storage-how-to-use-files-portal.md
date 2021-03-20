@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629822"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą witryny Azure Portal 
@@ -31,7 +31,7 @@ Aby utworzyć udział plików platformy Azure, wykonaj następujące czynności:
 
 3. W menu w górnej części strony **usługi plików** kliknij pozycję **udział plików**. Zostanie rozwinięta strona **Nowy udział plików**.
 4. W polu **Nazwa** wpisz ciąg *myshare*.
-5. Kliknij przycisk **OK** , aby utworzyć udział plików platformy Azure.
+5. Kliknij przycisk **OK**, aby utworzyć udział plików platformy Azure.
 
 Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
@@ -61,7 +61,7 @@ Aby utworzyć nowy katalog o nazwie *myDirectory* w katalogu głównym udziału 
 
 1. Na stronie **Usługa plików** wybierz udział plików **myshare**. Zostanie otwarta strona udziału plików.
 2. W menu w górnej części strony wybierz pozycję **+ Dodaj katalog**. Zostanie rozwinięta strona **Nowy katalog**.
-3. Wpisz nazwę *myDirectory* , a następnie kliknij przycisk **OK**.
+3. Wpisz nazwę *myDirectory*, a następnie kliknij przycisk **OK**.
 
 #### <a name="upload-a-file"></a>Przekazywanie pliku 
 Aby można było zademonstrować przekazywanie pliku, najpierw musisz utworzyć lub wybrać plik do przekazania. Możesz to zrobić w dowolny sposób. Po wybraniu pliku do przekazania:

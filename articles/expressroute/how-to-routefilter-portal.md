@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109140"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Samouczek: Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft przy użyciu Azure Portal
@@ -27,13 +27,13 @@ Filtry tras to sposób na korzystanie z podzestawu obsługiwanych usług przy u�
 
 Usługi Microsoft 365, takie jak Exchange Online, SharePoint Online i Skype dla firm, są dostępne za pomocą komunikacji równorzędnej firmy Microsoft. Po skonfigurowaniu komunikacji równorzędnej firmy Microsoft w obwodzie usługi ExpressRoute wszystkie prefiksy związane z tymi usługami są anonsowane za pomocą ustanowionych przez siebie sesji protokołu BGP. Wartość atrybutu Community protokołu BGP jest dołączana do każdego prefiksu w celu zidentyfikowania usługi oferowanej za pośrednictwem prefiksu. Aby zapoznać się z listą wartości społeczności BGP i usług, do których są mapowane, zobacz [społeczności protokołu BGP](expressroute-routing.md#bgp).
 
-Łączność z wszystkimi usługami platformy Azure i Microsoft 365 powoduje, że wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Duża liczba prefiksów znacząco zwiększa rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Można:
+Łączność z wszystkimi usługami platformy Azure i Microsoft 365 powoduje, że wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Duża liczba prefiksów znacząco zwiększa rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Oto co możesz zrobić:
 
 * Odfiltruj niechciane prefiksy, stosując filtry tras dla społeczności protokołu BGP. Filtrowanie tras jest standardową metodą sieciową i jest używane często w wielu sieciach.
 
 * Zdefiniuj filtry tras i zastosuj je do obwodu ExpressRoute. Filtr tras to nowy zasób, który pozwala wybrać listę usług, które mają być używane przez komunikację równorzędną firmy Microsoft. Routery ExpressRoute wysyłają tylko listę prefiksów należących do usług określonych w filtrze tras.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Pobierz wartości społeczności BGP.
 > - Utwórz filtr tras i regułę filtrowania.
@@ -79,27 +79,27 @@ Filtr trasy może mieć tylko jedną regułę, a reguła musi być typu "Zezwala
 
 1. Umieść filtr trasy w grupie zasobów. Upewnij się, że lokalizacja jest taka sama jak obwód ExpressRoute. Wybierz kolejno pozycje **Przegląd + Utwórz** i **Utwórz**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie filtru trasy z wprowadzonymi przykładowymi wartościami":::
 
 ### <a name="create-a-filter-rule"></a>Utwórz regułę filtru
 
 1. Aby dodać i zaktualizować reguły, wybierz kartę Zarządzanie regułami dla filtru tras.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Zrzut ekranu pokazujący stronę przegląd z wyróżnioną akcją Zarządzaj regułą":::
 
 1. Wybierz z listy rozwijanej usługi, z którymi chcesz nawiązać połączenie i Zapisz regułę po zakończeniu.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Zrzut ekranu przedstawiający okno Zarządzanie regułą z usługami wybranymi na liście rozwijanej dozwolone społeczności usług":::
 
 ## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Dołącz filtr trasy do obwodu ExpressRoute
 
 Dołącz filtr trasy do obwodu, wybierając przycisk **+ Dodaj obwód** i wybierając obwód ExpressRoute z listy rozwijanej.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Zrzut ekranu pokazujący stronę przegląd z wybranym akcją Dodaj obwód":::
 
 Jeśli dostawca łączności konfiguruje komunikację równorzędną dla obwodu usługi ExpressRoute, Odśwież obwód ze strony obwodu ExpressRoute przed wybraniem przycisku **+ Dodaj obwód** .
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Zrzut ekranu pokazujący stronę przegląd z wybranym akcją Odśwież.":::
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Typowe zadania
 
@@ -107,30 +107,30 @@ Jeśli dostawca łączności konfiguruje komunikację równorzędną dla obwodu 
 
 Właściwości filtru tras można wyświetlić po otwarciu zasobu w portalu.
 
-:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę Przegląd":::
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Aby zaktualizować właściwości filtru tras
 
 1. Możesz zaktualizować listę wartości społeczności BGP dołączanych do obwodu, wybierając przycisk **Zarządzaj regułą** .
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Aktualizowanie filtrów tras za pomocą akcji zarządzania regułą":::
 
 1. Wybierz odpowiednie społeczności usługi, a następnie wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Zrzut ekranu pokazujący okno Zarządzanie regułą z wybranymi usługami":::
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Aby odłączyć filtr trasy z obwodu usługi ExpressRoute
 
 Aby odłączyć obwód od filtra trasy, kliknij prawym przyciskiem myszy obwód i wybierz polecenie **Usuń skojarzenie**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Zrzut ekranu pokazujący stronę przegląd z wyróżnioną akcją Usuń skojarzenie":::
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Filtr tras można usunąć, wybierając przycisk **Usuń** . Upewnij się, że filtr trasy nie jest skojarzony z żadnym obwodem przed wykonaniem tej operacji.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Zrzut ekranu przedstawiający stronę filtru trasy":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Usuwanie filtru tras":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106624"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Rejestruj dane z Azure Data Lake Storage Gen1 w Azure Data Catalog
@@ -35,7 +35,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
     ![Rejestrowanie źródła danych](./media/data-lake-store-with-data-catalog/register-data-source.png "Rejestrowanie źródła danych")
 1. Na następnej stronie kliknij pozycję **Uruchom aplikację**. Spowoduje to pobranie pliku manifestu aplikacji na komputerze. Kliknij dwukrotnie plik manifestu, aby uruchomić aplikację.
-1. Na stronie powitalnej kliknij przycisk **Zaloguj**i wprowadź swoje poświadczenia.
+1. Na stronie powitalnej kliknij przycisk **Zaloguj** i wprowadź swoje poświadczenia.
 
     ![Ekran powitalny](./media/data-lake-store-with-data-catalog/welcome.screen.png "Ekran powitalny")
 1. Na stronie Wybierz źródło danych wybierz pozycję **Azure Data Lake Store**, a następnie kliknij przycisk **dalej**.
@@ -71,7 +71,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     * [Dodawanie adnotacji do źródeł danych w Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Dokumentowanie źródeł danych w Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Dodawanie adnotacji do źródeł danych w Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Dokumentowanie źródeł danych w Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integracja Data Lake Storage Gen1 z innymi usługami platformy Azure](data-lake-store-integrate-with-other-services.md)

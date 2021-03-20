@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368268"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrowanie zadań usługi Azure Scheduler do usługi Azure Logic Apps
@@ -67,7 +67,7 @@ Można uruchomić wiele jednorazowych zadań, tworząc tylko jedną aplikację l
 
    1. W wyzwalaczu żądania wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**Podaj przykładowy ładunek i wybierz pozycję **gotowe**, na przykład:
+   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON** Podaj przykładowy ładunek i wybierz pozycję **gotowe**, na przykład:
 
       ![Przykładowy ładunek](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
@@ -193,7 +193,7 @@ Jeśli nie uda się uruchomić akcji domyślnej w usłudze Azure Scheduler, moż
 
    ![Skonfiguruj przebieg po](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
-1. Wyczyść pole wyboru dla właściwości **is powiodło się** . Wybierz te właściwości: **zakończyło się niepowodzeniem**, **pominięto**i przekroczono **limit czasu**
+1. Wyczyść pole wyboru dla właściwości **is powiodło się** . Wybierz te właściwości: **zakończyło się niepowodzeniem**, **pominięto** i przekroczono **limit czasu**
 
    ![Skonfiguruj właściwości "Uruchom po"](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
@@ -206,19 +206,19 @@ Aby dowiedzieć się więcej o obsłudze wyjątków, zobacz temat [Obsługa bł�
 <a name="retire-date"></a>
 
 **P**: Kiedy trwa wycofywanie usługi Azure Scheduler? <br>
-Odp **.: usługa**Azure Scheduler została zaplanowana w pełni w dniu 31 grudnia 2019. Aby zapoznać się z ważnymi krokami, które należy wykonać przed tą datą i szczegółowa oś czasu, zobacz [rozszerzanie daty wycofania usługi Scheduler do 31 grudnia 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Aby uzyskać ogólne aktualizacje, zobacz [Azure Updates-Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
+Odp **.: usługa** Azure Scheduler została zaplanowana w pełni w dniu 31 grudnia 2019. Aby zapoznać się z ważnymi krokami, które należy wykonać przed tą datą i szczegółowa oś czasu, zobacz [rozszerzanie daty wycofania usługi Scheduler do 31 grudnia 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Aby uzyskać ogólne aktualizacje, zobacz [Azure Updates-Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
 **P**: co się stanie z moimi kolekcjami zadań i zadaniami po zakończeniu usługi? <br>
 Odp **.:** wszystkie kolekcje zadań usługi Scheduler i zadania przestają działać i są usuwane z systemu.
 
 **P**: Czy muszę wykonać kopię zapasową lub wykonać inne zadania przed migracją zadań harmonogramu do Logic Apps? <br>
-Odp.: najlepszym rozwiązaniem **jest**zawsze Tworzenie kopii zapasowej pracy. Przed usunięciem lub wyłączaniem zadań harmonogramu należy sprawdzić, czy utworzone aplikacje logiki działają zgodnie z oczekiwaniami.
+Odp.: najlepszym rozwiązaniem **jest** zawsze Tworzenie kopii zapasowej pracy. Przed usunięciem lub wyłączaniem zadań harmonogramu należy sprawdzić, czy utworzone aplikacje logiki działają zgodnie z oczekiwaniami.
 
 **P**: czy istnieje narzędzie, które może pomóc mi migrować moje zadania z usługi Scheduler do Logic Apps? <br>
-Odp.: każde zadanie usługi Scheduler jest unikatowe, dlatego nie istnieje **Narzędzie z jednym**rozmiarem. Jednak w zależności od potrzeb można [edytować ten skrypt, aby migrować zadania usługi Azure Scheduler do Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
+Odp.: każde zadanie usługi Scheduler jest unikatowe, dlatego nie istnieje **Narzędzie z jednym** rozmiarem. Jednak w zależności od potrzeb można [edytować ten skrypt, aby migrować zadania usługi Azure Scheduler do Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P**: gdzie mogę uzyskać pomoc techniczną dotyczącą migrowania moich zadań harmonogramu? <br>
-Odp.: Oto kilka **sposobów, aby**uzyskać pomoc techniczną:
+Odp.: Oto kilka **sposobów, aby** uzyskać pomoc techniczną:
 
 **Witryna Azure Portal**
 
@@ -232,7 +232,7 @@ Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, mo�
    |---------|-------|
    | **Typ problemu** | **Szczegóły techniczne** |
    | **Subskrypcja** | <*Twoja subskrypcja — Azure*> |
-   | **Usługa** | W obszarze **monitorowanie & zarządzanie**wybierz pozycję **harmonogram**. Jeśli nie możesz znaleźć **harmonogramu**, najpierw wybierz pozycję **wszystkie usługi** . |
+   | **Usługa** | W obszarze **monitorowanie & zarządzanie** wybierz pozycję **harmonogram**. Jeśli nie możesz znaleźć **harmonogramu**, najpierw wybierz pozycję **wszystkie usługi** . |
    ||| 
 
 1. Wybierz żądaną opcję pomocy technicznej. Jeśli masz płatny Plan pomocy technicznej, wybierz pozycję **dalej**.

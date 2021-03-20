@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 99c02644649e133a7634418a5edaaf228d52f0d3
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98201284"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MariaDB
@@ -500,7 +500,7 @@ Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: Azure Database for MariaDB obsługuje łączenie serwera Azure Database for MariaDB z aplikacjami klienckimi przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako SSL (SSL). Wymuszanie połączeń TLS między serwerem bazy danych i aplikacjami klienckimi pomaga chronić przed atakami typu man-the-Middle przez szyfrowanie strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że dla wszystkich wystąpień usługi MariaDB jest włączone polecenie Wymuszaj połączenie SSL.
+**Wskazówki**: Azure Database for MariaDB obsługuje łączenie serwera Azure Database for MariaDB z aplikacjami klienckimi przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako Secure SOCKETS Layer (SSL). Wymuszanie połączeń TLS między serwerem bazy danych i aplikacjami klienckimi pomaga chronić przed atakami typu man-the-Middle przez szyfrowanie strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że dla wszystkich wystąpień usługi MariaDB jest włączone polecenie Wymuszaj połączenie SSL.
 
 Jak skonfigurować szyfrowanie podczas przesyłania dla MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 

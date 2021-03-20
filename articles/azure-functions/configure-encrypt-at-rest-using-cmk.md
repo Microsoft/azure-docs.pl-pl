@@ -4,10 +4,10 @@ description: Szyfruj dane aplikacji w usłudze Azure Storage i wdróż je jako p
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108035"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Szyfruj dane aplikacji w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta
@@ -71,7 +71,7 @@ Aktualizacja tego ustawienia aplikacji powoduje ponowne uruchomienie aplikacji f
 
 Najlepszym rozwiązaniem jest okresowe obracanie klucza sygnatury dostępu współdzielonego konta magazynu. Aby upewnić się, że aplikacja funkcji nie ma niezamierzonego dostępu, należy również zaktualizować adres URL SAS w Key Vault.
 
-1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia**  >  **klucze dostępu**kliknij ikonę, aby obrócić klucz SAS.
+1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia**  >  **klucze dostępu** kliknij ikonę, aby obrócić klucz SAS.
 
 1. Skopiuj nowy adres URL sygnatury dostępu współdzielonego i użyj następującego polecenia, aby ustawić zaktualizowany adres URL sygnatury dostępu współdzielonego w magazynie kluczy:
 

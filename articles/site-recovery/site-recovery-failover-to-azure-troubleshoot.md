@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371991"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformie Azure
@@ -84,7 +84,7 @@ Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem SSH 
 
 Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest wyszarzony i nie masz połączenia z platformą Azure za pośrednictwem usługi Express Route lub sieci VPN typu lokacja-lokacja, a następnie
 
-1. Przejdź do **sieci maszyn wirtualnych**  >  **Networking**, kliknij nazwę wymaganego interfejsu sieciowego.  ![Zrzut ekranu przedstawia stronę sieci maszyny wirtualnej z wybraną nazwą interfejsu sieciowego.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Przejdź do **sieci maszyn wirtualnych**  >  , kliknij nazwę wymaganego interfejsu sieciowego.  ![Zrzut ekranu przedstawia stronę sieci maszyny wirtualnej z wybraną nazwą interfejsu sieciowego.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Przejdź do opcji **konfiguracje IP**, a następnie kliknij pole Nazwa wymaganej konfiguracji protokołu IP. ![Zrzut ekranu przedstawia stronę konfiguracyjną I P dla interfejsu sieciowego z wybraną nazwą I P.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Aby włączyć publiczny adres IP, kliknij pozycję **Włącz**. ![Włącz adres IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Kliknij pozycję **Konfiguruj wymagane ustawienia**  >  **Utwórz nowy**. ![Utwórz nowy](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)

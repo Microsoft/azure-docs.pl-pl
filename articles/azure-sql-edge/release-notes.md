@@ -11,10 +11,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
 ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98696383"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
@@ -40,7 +40,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 15.0.2000.1553 kompilacji aparatu SQL
 
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 
 - Zezwalaj na wyrażenia Date_Bucket zdefiniowane w kolumnach obliczanych.
 
@@ -55,7 +55,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 15.0.2000.1552 kompilacji aparatu SQL
 
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 - Obrazy kontenerów oparte na Ubuntu 18,04 
 - Obsługa `IGNORE NULL` składni i `RESPECT NULL` `LAST_VALUE()` `FIRST_VALUE()` funkcji i 
 - Udoskonalenia niezawodności dla przewidywania za pomocą ONNX
@@ -89,7 +89,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-23"></a>CTP 2,3
 15.0.2000.1549 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 - Obsługa niestandardowych źródeł w funkcji Date_Bucket () 
 - Obsługa plików BACPAC w ramach wdrożenia programu SQL
 - Obsługa oczyszczania na podstawie zasad przechowywania danych:      
@@ -107,7 +107,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-22"></a>CTP 2,2
 15.0.2000.1546 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 - Obsługa kontenerów innych niż główne 
 - Obsługa zbierania danych użycia i diagnostyki 
 - Aktualizacje przesyłania strumieniowego T-SQL:
@@ -129,7 +129,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-20"></a>CTP 2,0 
 15.0.2000.1401 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 -   Nazwa produktu została zaktualizowana do *usługi Azure SQL Edge*
 -  Funkcja Date_Bucket:
     - Obsługa typów dat, godzin i DateTime
@@ -153,7 +153,7 @@ Na [stronie pomocy](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/H
 
 ## <a name="ctp-15"></a>CTP 1,5
 15.0.2000.1331 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 - Funkcja Date_Bucket:
     - Obsługa typu DateTimeOffset
 - PRZEWIDYWANie przy użyciu modeli ONNX:
@@ -161,7 +161,7 @@ Na [stronie pomocy](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/H
  
 ## <a name="ctp-14"></a>CTP 1,4
 15.0.2000.1247 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 -   PRZEWIDYWANie przy użyciu modeli ONNX:
     - Obsługa VARCHAR
     - Migracja do środowiska uruchomieniowego ONNX w wersji 1,0 
@@ -175,7 +175,7 @@ Na [stronie pomocy](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/H
  
 ## <a name="ctp-13"></a>CTP 1,3
 15.0.2000.1147 kompilacji aparatu SQL
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 - Wdrożenie portalu Azure IoT: 
     - Obsługa wdrażania obrazów AMD64 i ARM
     - Obsługa tworzenia zadań przesyłania strumieniowego

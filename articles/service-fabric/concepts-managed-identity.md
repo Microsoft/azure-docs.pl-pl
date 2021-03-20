@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat używania tożsamości zarządzanych 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881724"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Korzystanie z tożsamości zarządzanych dla platformy Azure z Service Fabric

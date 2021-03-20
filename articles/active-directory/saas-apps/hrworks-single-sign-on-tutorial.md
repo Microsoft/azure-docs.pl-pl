@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
 ms.openlocfilehash: d6b23213d9d986c62a227b3e182a22896d128222
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442545"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z HRworks Single Sign-On
@@ -132,13 +132,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Jeśli chcesz ręcznie skonfigurować HRworks pojedyncze Sign-On, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do swojej HRworks Sign-On pojedynczej witryny firmowej jako administrator i wykonaj następujące czynności:
 
-1. Kliknij pozycję **Administrator**  >  **podstawowe informacje**na temat zabezpieczeń Administrator Logowanie jednokrotne  >  **Security**  >  **Single Sign-on** z lewej strony paska menu i wykonaj następujące czynności:
+1. Kliknij pozycję   >  **podstawowe informacje** na temat zabezpieczeń Administrator Logowanie jednokrotne  >    >   z lewej strony paska menu i wykonaj następujące czynności:
 
     ![Konfigurowanie logowania jednokrotnego](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Zaznacz pole wyboru **Użyj logowania jednokrotnego** .
 
-    b. Wybierz pozycję **metadane XML** jako **metodę wejścia**metadanych.
+    b. Wybierz pozycję **metadane XML** jako **metodę wejścia** metadanych.
 
     c. Wybierz **indywidualny identyfikator NameID** jako **wartość dla NameID**.
 
@@ -154,7 +154,7 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się, aby korzystać z l
 
 1. Zaloguj się, aby HRworks jeden Sign-On jako administrator.
 
-1. Kliknij pozycję **administratorzy**  >  **osoby**  >  **Persons**  >  **New person** z lewej strony na pasku menu.
+1. Kliknij pozycję **administratorzy**  >  **osoby**  >    >   z lewej strony na pasku menu.
 
      ![Zrzut ekranu przedstawia zrzut ekranu przedstawiający stronę c R Works z wybranymi osobami i nową osobą.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
@@ -162,7 +162,7 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się, aby korzystać z l
 
     ![Zrzut ekranu przedstawia listę krajów, które można wybrać dla osoby.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
-1. Na wyskakującym okienku **Utwórz nową osobę z krajem dla warunków prawnych** Wypełnij odpowiednie szczegóły, takie jak **imię**i nazwisko **, nazwisko, a następnie** kliknij przycisk **Utwórz**.
+1. Na wyskakującym okienku **Utwórz nową osobę z krajem dla warunków prawnych** Wypełnij odpowiednie szczegóły, takie jak **imię** i nazwisko **, nazwisko, a następnie** kliknij przycisk **Utwórz**.
 
     ![Zrzut ekranu przedstawia pola tekstowe, w których można wprowadzić imiona i nazwiska osoby.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 

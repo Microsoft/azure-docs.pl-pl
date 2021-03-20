@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 2d9dc483a9d60dc395c0aff52b721690d4fc701d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442443"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu planisty centrum
@@ -145,7 +145,7 @@ Po włączeniu rozszerzenia należy włączyć logowanie jednokrotne dla Twojego
 
 1. Przejdź do obszaru **Settings** (Ustawienia).
 1. W menu po stronie wybierz pozycję **uwierzytelnianie**.
-1. Wybierz pozycję **SSO (logowanie**jednokrotne).
+1. Wybierz pozycję **SSO (logowanie** jednokrotne).
 1. Wprowadź dodatkowe informacje o uwierzytelnianiu, jak pokazano na poniższej ilustracji, a następnie wybierz pozycję **Zapisz**.
 
 ![Zrzut ekranu ustawień logowania jednokrotnego](media/hub-planner-tutorial/sso-settings.png)

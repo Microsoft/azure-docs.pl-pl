@@ -12,10 +12,10 @@ manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442069"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Model rozliczeń dla tożsamości zewnętrznych usługi Azure AD
@@ -51,11 +51,11 @@ Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure
 
     ![Wybierz ikonę katalogu i subskrypcji](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
+3. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 
 4. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
 
-5. W obszarze **subskrypcje**wybierz pozycję **połączone subskrypcje**.
+5. W obszarze **subskrypcje** wybierz pozycję **połączone subskrypcje**.
 
 6. Na liście dzierżawców zaznacz pole wyboru obok dzierżawy, a następnie wybierz pozycję **Połącz subskrypcję**.
 
@@ -68,7 +68,7 @@ Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure
 
     ![Wybierz subskrypcję i grupę zasobów](media/external-identities-pricing/link-subscription-resource.png)
 
-Po wykonaniu tych kroków subskrypcja platformy Azure jest rozliczana na podstawie szczegółowych informacji dotyczących usługi Azure Direct lub Umowa Enterprise, jeśli ma to zastosowanie.
+Po wykonaniu tych kroków subskrypcja platformy Azure jest rozliczana na podstawie szczegółowych informacji dotyczących usługi Azure Direct lub Enterprise Agreement, jeśli ma to zastosowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

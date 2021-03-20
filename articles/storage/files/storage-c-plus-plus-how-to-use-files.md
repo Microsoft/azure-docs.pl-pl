@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629703"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Programowanie dla Azure Files przy użyciu języka C++
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Wyliczanie plików i katalogów w udziale plików platformy Azure
 
-Aby uzyskać listę plików i katalogów w ramach udziału, można łatwo wykonać wywołania **list_files_and_directories** na **cloud_file_directory** odwołanie. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_file_and_directory_item** , należy wywołać metodę **list_file_and_directory_item. as _file** , aby uzyskać obiekt **cloud_file** lub metodę **list_file_and_directory_item. as _directory** , aby uzyskać obiekt **cloud_file_directory** .
+Aby uzyskać listę plików i katalogów w ramach udziału, można łatwo wykonać wywołania **list_files_and_directories** na **cloud_file_directory** odwołanie. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_file_and_directory_item**, należy wywołać metodę **list_file_and_directory_item. as _file** , aby uzyskać obiekt **cloud_file** lub metodę **list_file_and_directory_item. as _directory** , aby uzyskać obiekt **cloud_file_directory** .
 
 Poniższy kod ilustruje sposób pobierania i wyprowadzania identyfikatorów URI każdego elementu w katalogu głównym udziału.
 

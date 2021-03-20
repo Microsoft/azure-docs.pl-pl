@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090129"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: przemieszczanie serwera i odzyskiwania po awarii
@@ -56,18 +56,18 @@ Aby zastosować tę metodę, wykonaj następujące kroki:
 5. [Przełącz aktywny serwer](#switch-active-server)
 
 #### <a name="prepare"></a>Przygotowywanie
-1. Zainstaluj Azure AD Connect, wybierz **tryb przejściowy**i usuń zaznaczenie opcji **Rozpocznij synchronizację** na ostatniej stronie Kreatora instalacji. Ten tryb umożliwia ręczne uruchomienie aparatu synchronizacji.
+1. Zainstaluj Azure AD Connect, wybierz **tryb przejściowy** i usuń zaznaczenie opcji **Rozpocznij synchronizację** na ostatniej stronie Kreatora instalacji. Ten tryb umożliwia ręczne uruchomienie aparatu synchronizacji.
    ![Zrzut ekranu przedstawia stronę gotowy do konfiguracji w oknie dialogowym Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Wyloguj się/Zaloguj się i z menu Start wybierz pozycję **usługa synchronizacji**.
 
-#### <a name="configuration"></a>Konfiguracja
+#### <a name="configuration"></a>Konfigurowanie
 Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przemieszczania, użyj [Azure AD Connect documention Configuration](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importowanie i synchronizacja
-1. Wybierz pozycję **Łączniki**i wybierz pierwszy łącznik z typem **Active Directory Domain Services**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import**i przycisk **OK**. Wykonaj te kroki dla wszystkich łączników tego typu.
-2. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import**i przycisk **OK**.
-3. Upewnij się, że łączniki kart są nadal zaznaczone. Dla każdego łącznika z typem **Active Directory Domain Services**, kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa**i **przycisk OK**.
-4. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa**i przycisk **OK**.
+1. Wybierz pozycję **Łączniki** i wybierz pierwszy łącznik z typem **Active Directory Domain Services**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import** i przycisk **OK**. Wykonaj te kroki dla wszystkich łączników tego typu.
+2. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import** i przycisk **OK**.
+3. Upewnij się, że łączniki kart są nadal zaznaczone. Dla każdego łącznika z typem **Active Directory Domain Services**, kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa** i **przycisk OK**.
+4. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa** i przycisk **OK**.
 
 Teraz przygotowano zmiany w usłudze Azure AD i lokalnej usłudze AD (Jeśli korzystasz z wdrażania hybrydowego programu Exchange). Następne kroki umożliwiają sprawdzenie, co się zmieniło przed faktycznym rozpoczęciem eksportowania do katalogów.
 
@@ -113,7 +113,7 @@ Strategiczna strategia polega na zaplanowaniu odbudowy serwera w razie potrzeby.
 Serwer aparatu synchronizacji nie przechowuje żadnego stanu dotyczącego obiektów, dzięki czemu baza danych może zostać odbudowana na podstawie danych z Active Directory i usługi Azure AD. Atrybut **sourceAnchor** służy do przyłączania obiektów z lokalizacji lokalnej i w chmurze. W przypadku odbudowania serwera z istniejącymi obiektami w środowisku lokalnym i w chmurze, aparat synchronizacji dopasowuje te obiekty ponownie w przypadku ponownej instalacji. Elementy potrzebne do dokumentowania i zapisania to zmiany konfiguracji wprowadzone na serwerze, takie jak filtrowanie i reguły synchronizacji. Te konfiguracje niestandardowe należy zastosować ponownie przed rozpoczęciem synchronizowania.
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Posiadanie zapasowego serwera rezerwy w trybie przejściowym
-Jeśli masz bardziej złożone środowisko, będzie zalecane posiadanie co najmniej jednego serwera rezerwowego. Podczas instalacji można włączyć **tryb przejściowy**serwera.
+Jeśli masz bardziej złożone środowisko, będzie zalecane posiadanie co najmniej jednego serwera rezerwowego. Podczas instalacji można włączyć **tryb przejściowy** serwera.
 
 Aby uzyskać więcej informacji, zobacz [tryb przejściowy](#staging-mode).
 
@@ -151,9 +151,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency
@@ -270,5 +270,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Następne kroki
 **Tematy dotyczące omówienia**  
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)  
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)  
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)  

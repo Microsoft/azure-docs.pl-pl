@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371515"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Możliwości zarządzania dla ról usługi Azure AD w Privileged Identity Management
@@ -42,8 +42,8 @@ W wielu przypadkach nawet jeśli nie chcesz, aby użytkownicy mieli uprawnienia 
 
 Dodawane są również nowe ustawienia dla ról usługi Azure AD.
 
-- **Wcześniej**można skonfigurować tylko ustawienia aktywacji dla poszczególnych ról. Oznacza to, że ustawienia aktywacji, takie jak wymagania dotyczące uwierzytelniania wieloskładnikowego i zdarzenia/bilet żądania zostały zastosowane do wszystkich użytkowników uprawnionych do określonej roli.
-- **Teraz**można skonfigurować, czy indywidualni użytkownicy muszą przeprowadzić uwierzytelnianie wieloskładnikowe, zanim będą mogli aktywować rolę. Ponadto możesz mieć zaawansowaną kontrolę nad Privileged Identity Managementymi wiadomościami e-mail związanymi z określonymi rolami.
+- **Wcześniej** można skonfigurować tylko ustawienia aktywacji dla poszczególnych ról. Oznacza to, że ustawienia aktywacji, takie jak wymagania dotyczące uwierzytelniania wieloskładnikowego i zdarzenia/bilet żądania zostały zastosowane do wszystkich użytkowników uprawnionych do określonej roli.
+- **Teraz** można skonfigurować, czy indywidualni użytkownicy muszą przeprowadzić uwierzytelnianie wieloskładnikowe, zanim będą mogli aktywować rolę. Ponadto możesz mieć zaawansowaną kontrolę nad Privileged Identity Managementymi wiadomościami e-mail związanymi z określonymi rolami.
 
 ## <a name="extend-and-renew-assignments"></a>Przedłużanie i odnawianie przypisań
 

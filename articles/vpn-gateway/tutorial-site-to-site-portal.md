@@ -8,10 +8,10 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/04/2020
 ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945203"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Samouczek: Tworzenie połączenia typu lokacja-lokacja w Azure Portal
@@ -20,7 +20,7 @@ Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacja
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji":::
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej

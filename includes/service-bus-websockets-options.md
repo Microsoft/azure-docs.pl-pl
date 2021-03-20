@@ -9,10 +9,10 @@ ms.date: 11/24/2020
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: ca483d0b71bde945a7e46da785dd6a76b3a8f177
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98693407"
 ---
 Opcja protokołu AMQP-over-WebSockets jest uruchamiana przez port TCP 443, podobnie jak interfejs API protokołu HTTP/REST, ale w przeciwnym razie jest identyczny z zwykłym AMQP. Ta opcja ma nieco wyższy czas oczekiwania na połączenie z powodu rozliczania i nieznacznie większego obciążenia jako kompromisu dla udostępniania portu HTTPS. W przypadku wybrania tego trybu port TCP 443 jest wystarczający do komunikacji. Poniższe opcje umożliwiają wybranie trybu AMQP lub AMQP obiektów WebSockets:

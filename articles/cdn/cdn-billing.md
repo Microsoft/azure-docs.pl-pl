@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018685"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Omówienie rozliczania za usługę Azure CDN
@@ -92,7 +92,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 
 - Azure Storage
 - Azure Media Services
-- Maszyny wirtualne platformy Azure
+- Azure Virtual Machines
 - Virtual Network
 - Load Balancer
 - Application Gateway
@@ -107,7 +107,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Usługa Azure App Service
 - Azure Functions
 - Azure Data Factory
-- Azure API Management
+- Usługa Azure API Management
 - Usługa Azure Batch 
 - Azure Data Explorer
 - HDInsight

@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92429368"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Szybki Start: Inicjowanie obsługi symetrycznego urządzenia klucza przy użyciu języka C #
@@ -98,7 +98,7 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
     cd provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. W folderze *SymmetricKeySample* Otwórz *program.cs* w edytorze tekstów i Znajdź wiersze kodu, które ustawiają `individualEnrollmentPrimaryKey` `individualEnrollmentSecondaryKey` ciągi i. Zaktualizuj te wiersze kodu w następujący sposób, aby zmienne środowiskowe były używane zamiast twardej kodowania kluczy.
+3. W folderze *SymmetricKeySample* Otwórz *program. cs* w edytorze tekstów i Znajdź wiersze kodu, które ustawiają `individualEnrollmentPrimaryKey` `individualEnrollmentSecondaryKey` ciągi i. Zaktualizuj te wiersze kodu w następujący sposób, aby zmienne środowiskowe były używane zamiast twardej kodowania kluczy.
  
     ```csharp
         //These are the two keys that belong to your individual enrollment. 
@@ -119,7 +119,7 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
         private static string registrationId = Environment.GetEnvironmentVariable("PROVISIONING_REGISTRATION_ID");;
     ```
 
-    Zapisz zmiany w *program.cs*.
+    Zapisz zmiany w *programie. cs*.
 
 3. W wierszu polecenia Dodaj zmienne środowiskowe dla zakresu identyfikatorów, identyfikatora rejestracji, podstawowego i pomocniczych kluczy symetrycznych skopiowane z rejestracji indywidualnej w poprzedniej sekcji.  
 

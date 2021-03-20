@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123427"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Łączenie urządzenia Azure Sphere z aplikacją Azure IoT Central
@@ -47,13 +47,13 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 Aby utworzyć urządzenie Azure Sphere w IoT Central:
 
-1. W aplikacji IoT Central platformy Azure wybierz kartę **Szablony urządzeń** i wybierz pozycję **+ Nowy**. W sekcji **Użyj proponowanego szablonu urządzenia**wybierz pozycję **Azure Sphere przykładowe urządzenie**.
+1. W aplikacji IoT Central platformy Azure wybierz kartę **Szablony urządzeń** i wybierz pozycję **+ Nowy**. W sekcji **Użyj proponowanego szablonu urządzenia** wybierz pozycję **Azure Sphere przykładowe urządzenie**.
 
     :::image type="content" source="media/howto-connect-sphere/sphere-create-template.png" alt-text="Szablon urządzenia dla Azure Sphere DevKit":::
 
 1. W szablonie urządzenia edytuj widok o nazwie **Przegląd** , aby wyświetlić **temperaturę** i **naciśnięcie przycisku**.
 
-1. Wybierz pozycję **Edytowanie urządzenia i danych w chmurze** , aby dodać kolejny widok, który pokazuje **diodę stanu**właściwości odczyt/zapis. Przeciągnij Właściwość **status LED** do pustego, kropkowanego prostokąta po prawej stronie formularza. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Edytowanie urządzenia i danych w chmurze** , aby dodać kolejny widok, który pokazuje **diodę stanu** właściwości odczyt/zapis. Przeciągnij Właściwość **status LED** do pustego, kropkowanego prostokąta po prawej stronie formularza. Wybierz pozycję **Zapisz**.
 
 ## <a name="prepare-the-device"></a>Przygotowywanie urządzenia
 
@@ -67,7 +67,7 @@ Aby umożliwić przykładowi łączenie się z IoT Central, musisz [skonfigurowa
 
 Gdy urządzenie jest połączone z IoT Central, dane telemetryczne są widoczne na pulpicie nawigacyjnym.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Szablon urządzenia dla Azure Sphere DevKit":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Pulpit nawigacyjny dla Azure Sphere DevKit":::
 
 ## <a name="create-a-simulated-device"></a>Tworzenie symulowanego urządzenia
 

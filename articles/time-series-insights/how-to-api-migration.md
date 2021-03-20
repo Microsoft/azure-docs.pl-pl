@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
 ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97740559"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrowanie do nowych wersji interfejsu API Azure Time Series Insights Gen2
@@ -84,7 +84,7 @@ Jeśli aplikacja niestandardowa przeprowadza wywołania do następujących punkt
 
 - Interfejsy API modelu szeregów czasowych
   - Interfejsy API ustawień modelu
-    - [Pobierz](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Get](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Aktualizowanie](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Interfejsy API wystąpienia
     - [Wszystkie operacje wsadowe](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)

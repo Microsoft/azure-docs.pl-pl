@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370189"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest usługa Azure AD Privileged Identity Management?
@@ -47,7 +47,7 @@ Privileged Identity Management zapewnia aktywację roli opartej na czasie i zatw
 
 ## <a name="what-can-i-do-with-it"></a>Co mogę zrobić z nim?
 
-Po skonfigurowaniu Privileged Identity Management zobaczysz opcje **zadania**, **Zarządzaj**i **działania** w menu nawigacji po lewej stronie. Jako administrator będziesz wybierać między opcjami, takimi jak zarządzanie **rolami usługi Azure AD**, zarządzanie rolami **zasobów platformy Azure** lub uprzywilejowanymi grupami dostępu. Po wybraniu elementów, którymi chcesz zarządzać, zobaczysz odpowiedni zestaw opcji dla tej opcji.
+Po skonfigurowaniu Privileged Identity Management zobaczysz opcje **zadania**, **Zarządzaj** i **działania** w menu nawigacji po lewej stronie. Jako administrator będziesz wybierać między opcjami, takimi jak zarządzanie **rolami usługi Azure AD**, zarządzanie rolami **zasobów platformy Azure** lub uprzywilejowanymi grupami dostępu. Po wybraniu elementów, którymi chcesz zarządzać, zobaczysz odpowiedni zestaw opcji dla tej opcji.
 
 ![Zrzut ekranu przedstawiający Privileged Identity Management w Azure Portal](./media/pim-configure/pim-quickstart.png)
 

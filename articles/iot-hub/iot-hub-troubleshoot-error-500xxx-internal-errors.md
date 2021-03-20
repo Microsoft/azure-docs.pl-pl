@@ -9,15 +9,15 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538208"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx błędy wewnętrzne
 
-W tym artykule opisano przyczyny i rozwiązania **500xxx błędów wewnętrznych** .
+W tym artykule opisano przyczyny i rozwiązania **500xxx błędów wewnętrznych**.
 
 ## <a name="symptoms"></a>Objawy
 
@@ -25,11 +25,11 @@ W tym artykule opisano przyczyny i rozwiązania **500xxx błędów wewnętrznych
 
 * **500001 błąd servererror** IoT Hub: Wystąpił problem po stronie serwera.
 
-* **500008 GenericTimeout** : IoT Hub nie może zakończyć żądania połączenia przed upływem limitu czasu.
+* **500008 GenericTimeout**: IoT Hub nie może zakończyć żądania połączenia przed upływem limitu czasu.
 
-* **Serviceniedostępny (brak kodu błędu)** : IoT Hub napotkał błąd wewnętrzny.
+* **Serviceniedostępny (brak kodu błędu)**: IoT Hub napotkał błąd wewnętrzny.
 
-* **InternalServerError (brak kodu błędu)** : IoT Hub napotkał błąd wewnętrzny.
+* **InternalServerError (brak kodu błędu)**: IoT Hub napotkał błąd wewnętrzny.
 
 ## <a name="cause"></a>Przyczyna
 

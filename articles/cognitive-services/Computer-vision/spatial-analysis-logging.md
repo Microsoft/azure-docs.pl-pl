@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98186026"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
@@ -216,9 +216,9 @@ Dzienniki są przekazywane na żądanie za pomocą `getRTCVLogs` metody IoT Edge
 
 
 1. Przejdź do strony portalu IoT Hub, wybierz pozycję **urządzenia brzegowe**, a następnie wybierz urządzenie i moduł diagnostyczny. 
-2. Przejdź do strony szczegółów modułu i kliknij kartę **_Metoda bezpośrednia_* _.
+2. Przejdź do strony szczegółów modułu i kliknij kartę ***Metoda bezpośrednia*** .
 3. Wpisz `getRTCVLogs` nazwę metody i ciąg formatu JSON w ładunku. Możesz wprowadzić `{}` , który jest pustym ładunkiem. 
-4. Ustaw limity czasu połączenia i metody, a następnie kliknij _ * Invoke metoda * *.
+4. Ustaw limity czasu połączenia i metody, a następnie kliknij pozycję **Wywołaj metodę**.
 5. Wybierz kontener docelowy i skompiluj ciąg JSON ładunku przy użyciu parametrów opisanych w sekcji **składnia rejestrowania** . Kliknij pozycję **Wywołaj metodę** , aby wykonać żądanie.
 
 >[!NOTE]
@@ -245,7 +245,7 @@ W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 
 | Słowo kluczowe | Opis|
 |--|--|
-|DoPost| *Wartość true* lub *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. W przypadku wybrania opcji nie przekazuj dzienników interfejs API zwraca informacje ***synchronicznie** _. Po wybraniu przekazania dzienników interfejs API zwraca 200, jeśli żądanie jest prawidłowe i zaczyna przekazywania dzienników _*_asynchronicznie_*_.|
+|DoPost| *Wartość true* lub *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. W przypadku wybrania opcji nie przekazuj dzienników interfejs API zwraca informacje ***synchronicznie** _. Po wybraniu przekazania dzienników interfejs API zwraca 200, jeśli żądanie jest prawidłowe i rozpocznie przekazywanie dzienników _ *_asynchronicznie_* *.|
 |TimeFilter| Filtr czasu zastosowany do dzienników.|
 |ValueFilters| Filtry słów kluczowych zastosowane do dzienników. |
 |Znacznik czasu| Godzina rozpoczęcia wykonywania metody. |
@@ -298,7 +298,7 @@ W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 }
 ```
 
-Sprawdź wiersze, czasy i rozmiary dziennika pobierania, jeśli te ustawienia wyglądają na _*_DoPost_*_ `true` i które wypychają dzienniki z tymi samymi filtrami do miejsc docelowych. 
+Sprawdź wiersze, czasy i rozmiary dziennika pobierania, jeśli te ustawienia wyglądają na ***DoPost*** `true` i które wypychają dzienniki z tymi samymi filtrami do miejsc docelowych. 
 
 Podczas rozwiązywania problemów można eksportować dzienniki z Blob Storage platformy Azure. 
 
@@ -316,7 +316,7 @@ Poniższa sekcja zawiera pomoc dotyczącą debugowania i weryfikacji stanu urzą
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Dostęp do punktu końcowego interfejsu API Kubernetes. 
 
-1. W lokalnym interfejsie użytkownika urządzenia przejdź na stronę _ *Devices**. 
+1. W lokalnym interfejsie użytkownika urządzenia przejdź do strony **urządzenia** . 
 2. W obszarze **punkty końcowe urządzenia** Skopiuj punkt końcowy usługi interfejsu API Kubernetes. Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute..[device-IP-address]` .
 3. Zapisz ciąg punktu końcowego. Będzie on używany później podczas konfigurowania programu `kubectl` w celu uzyskania dostępu do klastra Kubernetes.
 

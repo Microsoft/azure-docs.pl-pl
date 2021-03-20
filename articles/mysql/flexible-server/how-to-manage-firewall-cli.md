@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545076"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Tworzenie reguł zapory serwera Azure Database for MySQL elastycznych i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -89,11 +89,11 @@ Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wie
 Polecenie **AZ MySQL elastyczny-Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
 Polecenia:
-- **Tworzenie** : Tworzenie elastycznej reguły zapory serwera.
-- **Lista** : Lista elastycznych reguł zapory serwera.
-- **Aktualizacja** : aktualizowanie elastycznej reguły zapory serwera.
-- **Pokaż** : pokazuje szczegóły elastycznej reguły zapory serwera.
-- **usuwanie** : usuwanie elastycznej reguły zapory serwera.
+- **Tworzenie**: Tworzenie elastycznej reguły zapory serwera.
+- **Lista**: Lista elastycznych reguł zapory serwera.
+- **Aktualizacja**: aktualizowanie elastycznej reguły zapory serwera.
+- **Pokaż**: pokazuje szczegóły elastycznej reguły zapory serwera.
+- **usuwanie**: usuwanie elastycznej reguły zapory serwera.
 
 Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. Na przykład w poniższych poleceniach można opcjonalnie określić grupę zasobów.
 

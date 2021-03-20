@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018991"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Uruchamianie skryptów U-SQL na komputerze lokalnym
@@ -72,7 +72,7 @@ Projekt U-SQL zarządza izolowanym lokalnym środowiskiem uruchomieniowym za pom
 
 Projekt U-SQL tworzy lokalny folder główny danych i konfiguruje dane dla konta **lokalnego projektu** . Tymczasowy folder główny danych jest czyszczony i tworzony ponownie w katalogu roboczym projektu U-SQL za każdym razem, gdy następuje Odbudowywanie i lokalne uruchomienie. Wszystkie źródła danych, które są konfigurowane przez projekt U-SQL, są kopiowane do tego tymczasowego folderu głównego danych lokalnych przed uruchomieniem zadania lokalnego. 
 
-Folder główny źródeł danych można skonfigurować. Kliknij prawym przyciskiem myszy **U-SQL project**  >  **Property**  >  **Źródło danych test** właściwości U-SQL. Po uruchomieniu skryptu U-SQL na koncie w **projekcie lokalnym** wszystkie pliki i podfoldery w folderze **źródła danych testowych** są kopiowane do tymczasowego folderu głównego danych lokalnych. Pliki znajdujące się w podfolderach są uwzględniane. Po uruchomieniu zadania lokalnego wyniki wyjściowe można także znaleźć w folderze tymczasowych lokalnych danych w katalogu roboczym projektu. Wszystkie te dane wyjściowe są usuwane i czyszczone, gdy projekt zostanie odbudowany i oczyszczony. 
+Folder główny źródeł danych można skonfigurować. Kliknij prawym przyciskiem myszy   >    >  **Źródło danych test** właściwości U-SQL. Po uruchomieniu skryptu U-SQL na koncie w **projekcie lokalnym** wszystkie pliki i podfoldery w folderze **źródła danych testowych** są kopiowane do tymczasowego folderu głównego danych lokalnych. Pliki znajdujące się w podfolderach są uwzględniane. Po uruchomieniu zadania lokalnego wyniki wyjściowe można także znaleźć w folderze tymczasowych lokalnych danych w katalogu roboczym projektu. Wszystkie te dane wyjściowe są usuwane i czyszczone, gdy projekt zostanie odbudowany i oczyszczony. 
 
 ![Konfigurowanie testowego źródła danych projektu](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -93,7 +93,7 @@ W poniższej tabeli przedstawiono więcej różnic między kontami **lokalnymi**
 |----------------|---------------|---------------|
 |Dostęp lokalny|Dostępne dla wszystkich projektów.|Tylko odpowiedni projekt może uzyskać dostęp do tego konta.|
 |Lokalny folder danych głównych|Stały folder lokalny. Skonfigurowane za poorednictwem **narzędzi**  >  **Data Lake**  >  **Opcje i ustawienia**.|Folder tymczasowy utworzony dla każdego lokalnego uruchomienia w katalogu roboczym projektu U-SQL. Folder jest czyszczony, gdy następuje ponowne kompilowanie lub ponowne uruchomienie.|
-|Dane wejściowe dla skryptu U-SQL|Ścieżka względna w folderze głównym stałego danych lokalnych.|Ustaw za poorednictwem źródła danych testu **właściwości projektu U-SQL**  >  **Test Data Source**. Wszystkie pliki i podfoldery są kopiowane do tymczasowego folderu głównego danych przed uruchomieniem lokalnym.|
+|Dane wejściowe dla skryptu U-SQL|Ścieżka względna w folderze głównym stałego danych lokalnych.|Ustaw za poorednictwem źródła danych testu **właściwości projektu U-SQL**  >  . Wszystkie pliki i podfoldery są kopiowane do tymczasowego folderu głównego danych przed uruchomieniem lokalnym.|
 |Dane wyjściowe dla skryptu U-SQL|Ścieżka względna w folderze głównym stałego danych lokalnych.|Dane wyjściowe do tymczasowego folderu głównego danych. Wyniki są czyszczone, gdy następuje ponowne kompilowanie lub ponowne uruchomienie.|
 |Wdrożenie bazy danych, której dotyczy odwołanie|Bazy danych, do których występują odwołania, nie są wdrażane automatycznie podczas uruchamiania na koncie **komputera lokalnego** . Jest to taka sama dla przesyłania do konta Azure Data Lake Analytics.|Bazy danych, do których istnieją odwołania, są wdrażane automatycznie na koncie w **projekcie lokalnym** przed uruchomieniem lokalnym. Wszystkie środowiska bazy danych są czyszczone i ponownie wdrażane, gdy następuje ponowna kompilacja lub ponowna instalacja.|
 

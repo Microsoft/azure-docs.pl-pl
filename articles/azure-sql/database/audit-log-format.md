@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
 ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572225"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database format dziennika inspekcji
@@ -38,11 +38,11 @@ Dzienniki inspekcji [replik tylko do odczytu](read-scale-out.md) są przechowywa
 
 ### <a name="event-hub"></a>Centrum zdarzeń
 
-Zdarzenia inspekcji są zapisywane w przestrzeni nazw i centrum zdarzeń, które zostało zdefiniowane podczas konfiguracji inspekcji i są przechwytywane w treści Avro zdarzeń platformy [Apache](https://avro.apache.org/) i przechowywane przy użyciu formatowania JSON przy użyciu kodowania UTF-8. Aby odczytać dzienniki inspekcji, można użyć [narzędzi Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) lub podobnych narzędzi, które przetwarzają ten format.
+Zdarzenia inspekcji są zapisywane w przestrzeni nazw i centrum zdarzeń, które zostało zdefiniowane podczas konfiguracji inspekcji i są przechwytywane w treści zdarzeń [Apache Avro](https://avro.apache.org/) i przechowywane przy użyciu formatowania JSON i kodowania UTF-8. Aby odczytać dzienniki inspekcji, można użyć [narzędzi Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) lub podobnych narzędzi, które przetwarzają ten format.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Zdarzenia inspekcji są zapisywane w obszarze roboczym Log Analytics zdefiniowanym podczas konfigurowania inspekcji do `AzureDiagnostics` tabeli z kategorią `SQLSecurityAuditEvents` . Aby uzyskać dodatkowe przydatne informacje na temat języka i poleceń wyszukiwania Log Analytics, zobacz [log Analytics informacje o wyszukiwaniu](../../azure-monitor/logs/log-query-overview.md).
+Zdarzenia inspekcji są zapisywane w obszarze roboczym usługi Log Analytics zdefiniowanym podczas konfigurowania inspekcji w tabeli `AzureDiagnostics` z kategorią `SQLSecurityAuditEvents`. Aby uzyskać dodatkowe przydatne informacje na temat języka i poleceń wyszukiwania usługi Log Analytics, zobacz [Informacje o wyszukiwaniu w usłudze Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Pola dziennika inspekcji
 

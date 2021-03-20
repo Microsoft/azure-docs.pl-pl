@@ -11,17 +11,17 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545399"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatyczne zarządzanie urządzeniami i modułami IoT przy użyciu witryny Azure Portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatyczne zarządzanie urządzeniami w systemie Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem dużymi flotami urządzeń. Za pomocą funkcji automatycznego zarządzania urządzeniami można kierować zestawem urządzeń na podstawie ich właściwości, definiować żądaną konfigurację, a następnie zezwalać IoT Hub na aktualizowanie urządzeń w zakresie. Ta aktualizacja jest wykonywana przy użyciu _automatycznej konfiguracji urządzenia_ lub _automatycznej konfiguracji modułu_ , która umożliwia podsumowywanie i zgodność, obsługę scalania i konfliktów oraz wdrażanie konfiguracji w ramach podejścia etapowego.
+Automatyczne zarządzanie urządzeniami w systemie Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem dużymi flotami urządzeń. Za pomocą funkcji automatycznego zarządzania urządzeniami można kierować zestawem urządzeń na podstawie ich właściwości, definiować żądaną konfigurację, a następnie zezwalać IoT Hub na aktualizowanie urządzeń w zakresie. Ta aktualizacja jest wykonywana przy użyciu _automatycznej konfiguracji urządzenia_ lub _automatycznej konfiguracji modułu_, która umożliwia podsumowywanie i zgodność, obsługę scalania i konfliktów oraz wdrażanie konfiguracji w ramach podejścia etapowego.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ Automatyczne zarządzanie urządzeniami działa przez aktualizację zestawu bli�
 
 * **Zawartość docelowa** definiuje żądane właściwości, które mają zostać dodane lub zaktualizowane w docelowym urządzeniu bliźniaczych reprezentacji lub bliźniaczych reprezentacji modułu. Zawartość zawiera ścieżkę do sekcji żądanych właściwości, które mają zostać zmienione.
 
-* **Metryki** definiują podsumowania różnych stanów konfiguracji, takich jak **sukces** , **w toku** i **błąd** . Metryki niestandardowe są określane jako zapytania dotyczące właściwości zgłaszanych przez sznurek.  Metryki systemu są domyślnymi metrykami, które mierzą stan aktualizacji bliźniaczych, takich jak liczba bliźniaczych reprezentacji, które są przeznaczone do użycia i liczba pomyślnie zaktualizowanych bliźniaczych reprezentacji.
+* **Metryki** definiują podsumowania różnych stanów konfiguracji, takich jak **sukces**, **w toku** i **błąd**. Metryki niestandardowe są określane jako zapytania dotyczące właściwości zgłaszanych przez sznurek.  Metryki systemu są domyślnymi metrykami, które mierzą stan aktualizacji bliźniaczych, takich jak liczba bliźniaczych reprezentacji, które są przeznaczone do użycia i liczba pomyślnie zaktualizowanych bliźniaczych reprezentacji.
 
 Automatyczne konfiguracje są uruchamiane po raz pierwszy wkrótce po utworzeniu konfiguracji, a następnie co pięć minut. Zapytania metryk są uruchamiane przy każdym uruchomieniu automatycznej konfiguracji.
 
@@ -58,9 +58,9 @@ Przed utworzeniem konfiguracji należy określić, które urządzenia lub moduł
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub. 
 
-2. Wybierz pozycję **Konfiguracja urządzenia IoT** .
+2. Wybierz pozycję **Konfiguracja urządzenia IoT**.
 
-3. Wybierz pozycję **Dodaj konfigurację urządzenia** lub **Dodaj konfigurację modułu** .
+3. Wybierz pozycję **Dodaj konfigurację urządzenia** lub **Dodaj konfigurację modułu**.
 
    ![Dodaj konfigurację urządzenia lub konfigurację modułu](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
@@ -96,7 +96,7 @@ Jeśli co najmniej dwie konfiguracje mają tę samą ścieżkę jednoosiową, zo
 
 Jeśli chcesz usunąć istniejącą właściwość, określ wartość właściwości `null` .
 
-Możesz dodać dodatkowe ustawienia, wybierając pozycję **Dodaj ustawienie sznurka urządzenia** lub **Dodaj ustawienie sznurka modułu** .
+Możesz dodać dodatkowe ustawienia, wybierając pozycję **Dodaj ustawienie sznurka urządzenia** lub **Dodaj ustawienie sznurka modułu**.
 
 ### <a name="specify-metrics-optional"></a>Określ metryki (opcjonalnie)
 
@@ -104,9 +104,9 @@ Metryki zawierają podsumowanie liczb różnych stanów, które urządzenie lub 
 
 Każda konfiguracja może mieć maksymalnie pięć metryk niestandardowych. 
 
-1. Wprowadź nazwę dla **nazwy metryki** .
+1. Wprowadź nazwę dla **nazwy metryki**.
 
-2. Wprowadź zapytanie dla **kryteriów metryki** .  Zapytanie jest oparte na raportowanych właściwościach urządzenia.  Metryka reprezentuje liczbę wierszy zwracanych przez zapytanie.
+2. Wprowadź zapytanie dla **kryteriów metryki**.  Zapytanie jest oparte na raportowanych właściwościach urządzenia.  Metryka reprezentuje liczbę wierszy zwracanych przez zapytanie.
 
 Na przykład:
 
@@ -150,7 +150,7 @@ Ponieważ wiele konfiguracji może wskazywać na to samo urządzenie lub moduł,
 
 ### <a name="review-configuration"></a>Przegląd konfiguracji
 
-Przejrzyj informacje o konfiguracji, a następnie wybierz pozycję **Prześlij** .
+Przejrzyj informacje o konfiguracji, a następnie wybierz pozycję **Prześlij**.
 
 ## <a name="monitor-a-configuration"></a>Monitoruj konfigurację
 
@@ -158,7 +158,7 @@ Aby wyświetlić szczegóły konfiguracji i monitorować urządzenia, na któryc
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub. 
 
-2. Wybierz pozycję **Konfiguracja urządzenia IoT** .
+2. Wybierz pozycję **Konfiguracja urządzenia IoT**.
 
 3. Sprawdź listę konfiguracji. Dla każdej konfiguracji można wyświetlić następujące informacje:
 
@@ -180,7 +180,7 @@ Aby wyświetlić szczegóły konfiguracji i monitorować urządzenia, na któryc
 
    * **Warunek docelowy** — urządzenia lub moduły, które pasują do warunku docelowego. 
 
-   * **Metryki** — lista metryk systemowych i metryki niestandardowe.  Można wyświetlić listę urządzeń lub modułów, które są zliczane dla każdej metryki, wybierając metrykę z listy rozwijanej, a następnie wybierając pozycję **Wyświetl urządzenia** lub **Widok moduły** .
+   * **Metryki** — lista metryk systemowych i metryki niestandardowe.  Można wyświetlić listę urządzeń lub modułów, które są zliczane dla każdej metryki, wybierając metrykę z listy rozwijanej, a następnie wybierając pozycję **Wyświetl urządzenia** lub **Widok moduły**.
 
    * Ustawienia **sznurka urządzenia** lub **Ustawienia sznurka modułu** — ustawienia dwuosiowe ustawiane przez konfigurację. 
 
@@ -202,7 +202,7 @@ Aby zmodyfikować konfigurację, wykonaj następujące czynności:
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub. 
 
-2. Wybierz pozycję **Konfiguracja urządzenia IoT** . 
+2. Wybierz pozycję **Konfiguracja urządzenia IoT**. 
 
 3. Wybierz konfigurację, którą chcesz zmodyfikować. 
 
@@ -213,7 +213,7 @@ Aby zmodyfikować konfigurację, wykonaj następujące czynności:
    * Priorytet 
    * Metryki
 
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
 5. Wykonaj kroki opisane w sekcji [monitorowanie konfiguracji](#monitor-a-configuration) , aby obejrzeć zmiany. 
 
@@ -223,11 +223,11 @@ Po usunięciu konfiguracji wszystkie urządzenia bliźniaczych reprezentacjią s
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub. 
 
-2. Wybierz pozycję **Konfiguracja urządzenia IoT** . 
+2. Wybierz pozycję **Konfiguracja urządzenia IoT**. 
 
 3. Użyj pola wyboru, aby wybrać konfigurację, która ma zostać usunięta. 
 
-4. Wybierz pozycję **Usuń** .
+4. Wybierz pozycję **Usuń**.
 
 5. Zostanie wyświetlony monit z prośbą o potwierdzenie.
 

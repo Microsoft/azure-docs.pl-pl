@@ -8,10 +8,10 @@ ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
 ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010127"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Konfigurowanie Configuration Manager punktu końcowego firmy Microsoft
@@ -47,9 +47,9 @@ Aby utworzyć kolekcję:
 
 1. Wybierz pozycję **zasoby i zgodność**.
 2. Przejdź do **omówienia**  >  **Kolekcje urządzeń** , a następnie kliknij prawym przyciskiem myszy pozycję **Kolekcje urządzeń** , a następnie wybierz pozycję **Utwórz kolekcję urządzeń** z menu rozwijanego.
-3. Na karcie **Ogólne** w wyświetlonym menu Wprowadź nazwę opisującą kolekcję w polu **Nazwa** . W polu **komentarz** możesz podać dodatkowe informacje opisujące zawartość kolekcji. W obszarze **ograniczanie kolekcji**Zdefiniuj maszyny, które są umieszczane w kwerendzie kolekcji.
+3. Na karcie **Ogólne** w wyświetlonym menu Wprowadź nazwę opisującą kolekcję w polu **Nazwa** . W polu **komentarz** możesz podać dodatkowe informacje opisujące zawartość kolekcji. W obszarze **ograniczanie kolekcji** Zdefiniuj maszyny, które są umieszczane w kwerendzie kolekcji.
 4. Na karcie **reguły członkostwa** Dodaj regułę dla zapytania, wybierając pozycję **Dodaj regułę**, a następnie wybierając pozycję **reguła zapytania**.
-5. We **właściwościach reguły zapytania**wprowadź nazwę reguły, a następnie zdefiniuj parametry reguły, wybierając **Edytuj instrukcję zapytania**.
+5. We **właściwościach reguły zapytania** wprowadź nazwę reguły, a następnie zdefiniuj parametry reguły, wybierając **Edytuj instrukcję zapytania**.
 6. Wybierz pozycję **Pokaż instrukcję zapytania**.
 7. W instrukcji wprowadź następujący ciąg:
 

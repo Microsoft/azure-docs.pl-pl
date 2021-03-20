@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92427201"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
@@ -26,7 +26,7 @@ ms.locfileid: "92427201"
 
 Korzystając z tego samouczka i dostarczonego przykładu odtwarzacza, można skonfigurować kompleksowy podsystem ochrony zawartości multimedialnej na Azure Media Services (AMS) i Azure Active Directory (AAD) do przesyłania strumieniowego zawartości multimedialnej ze wszystkimi obsługiwanymi protokołami DRM/AES-128, przesyłania strumieniowego, koderem-dekoder i formatami kontenerów. Przykład jest wystarczająco ogólny, aby zabezpieczyć dostęp do dowolnego interfejsu API REST chronionego przez uwierzytelnianie OAuth 2 za pomocą przepływu kodu autoryzacji z kluczem testowym dla wymiany kodu (PKCE). (Usługa dostarczania licencji Azure Media Services jest tylko jedną z nich). Działa również w przypadku interfejsu API Microsoft Graph lub dowolnego niestandardowego interfejsu API REST zabezpieczonego za pomocą przepływu kodu autoryzacji OAuth 2. Jest to dokument towarzyszący do [przykładowego kodu](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -173,7 +173,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 | Opis zgody administratora * * | *Zakres zasobów zaplecza dostarczania licencji DRM* | Szczegółowy opis zakresu, który jest wyświetlany, gdy administratorzy dzierżawy rozszerzają zakres na ekranie wyrażania zgody. |
 | Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika | *Zastosowanie. License. Delivery* | Zakres, który zostanie wywołany na ekranie wyrażania zgody, gdy użytkownicy wyrażają zgodę na ten zakres. |
 | Opis na potrzeby wyrażenia zgody przez użytkownika | *Zakres zasobów zaplecza dostarczania licencji DRM* | Jest to szczegółowy opis zakresu, który jest wyświetlany, gdy użytkownicy rozszerzają zakres na ekranie wyrażania zgody. |
-| Stan | *Włączone* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
+| Stan | *Włączono* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
 
 ## <a name="register-the-client-app"></a>Rejestrowanie aplikacji klienckiej
 

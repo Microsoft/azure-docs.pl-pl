@@ -4,10 +4,10 @@ description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabr
 ms.topic: article
 ms.date: 2/01/2019
 ms.openlocfilehash: 2607502af44b178131820d78f23bcdf4e32454a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018889"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informacje o konfiguracji okresowej kopii zapasowej na platformie Azure Service Fabric
@@ -183,7 +183,7 @@ Na poniższym diagramie przedstawiono jawnie włączone zasady tworzenia kopii z
 
 ![Service Fabric hierarchia aplikacji][0]
 
-## <a name="disable-backup"></a>Wyłącz kopię zapasową
+## <a name="disable-backup"></a>Wyłączanie kopii zapasowej
 Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby tworzenia kopii zapasowych danych. Zasady tworzenia kopii zapasowych włączone w _aplikacji_ można wyłączyć tylko w tej samej _aplikacji_ przy użyciu opcji Wyłącz interfejs API [tworzenia kopii](/rest/api/servicefabric/sfclient-api-disableapplicationbackup) zapasowej aplikacji, a zasady tworzenia kopii zapasowych włączone w _usłudze_ _mogą być_ wyłączone _w tej samej_ _usłudze_ przy [użyciu interfejsu API](/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [usługi Disable Backup](/rest/api/servicefabric/sfclient-api-disableservicebackup) .
 
 * Wyłączenie zasad tworzenia kopii zapasowych dla _aplikacji_ powoduje zatrzymanie wszystkich okresowych kopii zapasowych danych w wyniku propagacji zasad tworzenia kopii zapasowych na niezawodne partycje usługi stanowej lub niezawodne partycje aktora.

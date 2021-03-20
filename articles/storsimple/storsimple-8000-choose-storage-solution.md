@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882216"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Compare StorSimple with Azure File Sync and Data Box Edge data transfer options (Porównanie usługi StorSimple z usługami Azure File Sync i opcjami transferu danych usługi Data Box Edge) 
@@ -30,7 +30,7 @@ Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę A
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |**Omówienie**     |Magazyn i archiwum hybrydowe warstwowe|Ogólny magazyn serwera plików z obsługą warstw chmury i synchronizacji z obsługą wiele lokacji.  |Rozwiązanie magazynu do wstępnego przetwarzania danych i wysyłania ich przez sieć do platformy Azure.        |
 |**Scenariusze**    |Serwer plików, archiwizowanie, miejsce docelowe kopii zapasowej |Serwer plików, archiwizowanie (wiele lokacji)   |Transfer danych, przetwarzanie wstępne danych, w tym inferencing ML, IoT, archiwalny    |
-|**Funkcja obliczeniowa Edge** |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
+|**Obliczenia brzegowe** |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
 |**Współczynnik postaci**  |Urządzenie fizyczne   |Agent zainstalowany w systemie Windows Server |Urządzenie fizyczne   |
 |**Sprzęt**     |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi | Dostarczone przez klienta |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi  |
 |**Format danych**  |Format niestandardowy   |Pliki         |Obiekty blob lub pliki    |

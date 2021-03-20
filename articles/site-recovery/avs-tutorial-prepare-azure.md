@@ -10,10 +10,10 @@ ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395482"
 ---
 # <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>Przygotowanie Azure Site Recovery zasobów na potrzeby odzyskiwania po awarii maszyn wirtualnych rozwiązań VMware platformy Azure
@@ -59,7 +59,7 @@ Aby można było wykonać te zadania, do konta musi być przypisana wbudowana ro
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób** , a następnie przeszukaj witrynę Marketplace pod kątem **odzyskiwania**.
+1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**, a następnie przeszukaj witrynę Marketplace pod kątem **odzyskiwania**.
 2. Wybierz pozycję **kopia zapasowa i Site Recovery** z wyników wyszukiwania, a następnie na stronie kopia zapasowa i Site Recovery kliknij przycisk **Utwórz**. 
 3. Na stronie **Tworzenie magazynu Recovery Services** wybierz **subskrypcję**. Korzystamy z **subskrypcji firmy Contoso**.
 4. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Na potrzeby tego samouczka używamy grupy **contosoRG**.
@@ -82,7 +82,7 @@ Aby można było wykonać te zadania, do konta musi być przypisana wbudowana ro
 5. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć sieć.
 6. Określ **grupę zasobów** , w której zostanie utworzona sieć. Należy użyć istniejącej grupy zasobów **contosoRG**.
 7. W obszarze **Lokalizacja** wybierz ten sam region, w którym został utworzony magazyn Recovery Services. W naszym samouczku jest **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn.
-8. W obszarze **zakres adresów** Wprowadź zakres sieci. Korzystamy z **10.1.0.0/24** , a nie do korzystania z podsieci.
+8. W obszarze **zakres adresów** Wprowadź zakres sieci. Korzystamy z **10.1.0.0/24**, a nie do korzystania z podsieci.
 9. Opuszczamy domyślne opcje podstawowej ochrony DDoS, bez punktu końcowego usługi ani zapory w sieci.
 9. Wybierz przycisk **Utwórz**.
 
