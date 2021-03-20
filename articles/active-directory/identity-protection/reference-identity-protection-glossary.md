@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88949178"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection słownik
@@ -35,7 +35,7 @@ Zasady zabezpieczające dostęp do zasobów. Reguły dostępu warunkowego są pr
 ### <a name="credentials"></a>Poświadczenia
 Informacje, które obejmują identyfikację i weryfikację tożsamości, która jest używana do uzyskiwania dostępu do zasobów lokalnych i sieciowych. Przykładami poświadczeń są nazwy i hasła użytkowników, karty inteligentne i certyfikaty.
 
-### <a name="event"></a>Wydarzenie
+### <a name="event"></a>Zdarzenie
 Rekord działania w Azure Active Directory.
 
 ### <a name="false-positive-risk-detection"></a>FAŁSZ — pozytywne (wykrywanie ryzyka)
@@ -160,4 +160,4 @@ Konfiguracja lub warunek w Azure Active Directory, który sprawia, że katalog j
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](./overview-identity-protection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

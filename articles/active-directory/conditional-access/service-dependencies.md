@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91258612"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Co to są zależności usługi w Azure Active Directory dostęp warunkowy? 
@@ -48,23 +48,23 @@ W poniższej tabeli wymieniono dodatkowe zależności usługi, w przypadku któr
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 | Microsoft — Klasa | Exchange                                    | Wczesna granica |
-|                     | Sharepoint                                  | Wczesna granica |
+|                     | SharePoint                                  | Wczesna granica |
 | Microsoft Teams     | Exchange                                    | Wczesna granica |
 |                     | Planista firmy Microsoft                                  | Późne wiązanie  |
 |                     | Usługa Microsoft Stream                            | Późne wiązanie  |
-|                     | Sharepoint                                  | Wczesna granica |
+|                     | SharePoint                                  | Wczesna granica |
 |                     | Skype dla firm Online                   | Wczesna granica |
 | Portal Office       | Exchange                                    | Późne wiązanie  |
-|                     | Sharepoint                                  | Późne wiązanie  |
+|                     | SharePoint                                  | Późne wiązanie  |
 | Grupy programu Outlook      | Exchange                                    | Wczesna granica |
-|                     | Sharepoint                                  | Wczesna granica |
+|                     | SharePoint                                  | Wczesna granica |
 | PowerApps           | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 |                     | Windows Azure Active Directory              | Wczesna granica |
-| Projekt             | Dynamics CRM                                | Wczesna granica |
+| Project             | Dynamics CRM                                | Wczesna granica |
 | Skype dla firm  | Exchange                                    | Wczesna granica |
 | Visual Studio       | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 | Microsoft Forms     | Exchange                                    | Wczesna granica |
-|                     | Sharepoint                                  | Wczesna granica |
+|                     | SharePoint                                  | Wczesna granica |
 | Microsoft To-Do     | Exchange                                    | Wczesna granica |
 
 ## <a name="next-steps"></a>Następne kroki

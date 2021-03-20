@@ -7,10 +7,10 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77671396"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Uaktualnianie Snapshot Debugger
@@ -25,7 +25,7 @@ Aby zapewnić najwyższy możliwy bezpieczeństwo danych, firma Microsoft nie ko
 
 Jeśli debuger migawek został włączony przy użyciu rozszerzenia witryny, można przeprowadzić uaktualnienie przy użyciu następującej procedury:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do zasobu z włączonym debugerem Application Insights i migawek. Na przykład w przypadku aplikacji sieci Web przejdź do App Service zasobu:
 
    ![Zrzut ekranu poszczególnych zasobów App Service o nazwie DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
@@ -50,7 +50,7 @@ Jeśli debuger migawek został włączony przy użyciu rozszerzenia witryny, mo�
 
    ![Zrzut ekranu strony konfiguracji App Service Application Insights z wyróżnionym przyciskiem Zastosuj w kolorze czerwonym](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-8. Po kliknięciu przycisku **Zastosuj**zostanie wyświetlony monit o potwierdzenie zmian.
+8. Po kliknięciu przycisku **Zastosuj** zostanie wyświetlony monit o potwierdzenie zmian.
 
     > [!NOTE]
     > Lokacja zostanie ponownie uruchomiona w ramach procesu uaktualniania.

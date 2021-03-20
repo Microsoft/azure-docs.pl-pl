@@ -7,17 +7,17 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880562"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Samouczek: Tworzenie bramy VPN Gateway i zarządzanie nią przy użyciu Azure Portal
 
 Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacjami klienta a platformą Azure. Ten samouczek obejmuje podstawowe etapy wdrażania bramy sieci VPN, takie jak tworzenie bramy i zarządzanie nią. Bramę można również utworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](create-routebased-vpn-gateway-cli.md) lub [Azure PowerShell](create-routebased-vpn-gateway-powershell.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej

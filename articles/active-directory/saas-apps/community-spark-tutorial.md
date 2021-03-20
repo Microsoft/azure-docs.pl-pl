@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
 ms.openlocfilehash: ad7952a604f8c02d16502d89bf14e7fb0ad15388
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455480"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-community-spark"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z platformą Spark dla społeczności
@@ -39,7 +39,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Platforma Spark dla **SP** społeczności
+* Platforma Spark dla  społeczności
 
 * Platforma Spark Community obsługuje funkcję aprowizacji użytkowników **just in Time**
 

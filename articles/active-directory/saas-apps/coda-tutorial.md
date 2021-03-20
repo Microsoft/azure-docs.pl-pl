@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: jeedes
 ms.openlocfilehash: c78744538991e337b226e49a053807ef8174d507
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z użyciem formatu CODA
@@ -155,9 +155,9 @@ Aby ukończyć instalację, wprowadź wartości z Azure Active Directory w panel
 1. W formacie Coda Otwórz panel **Ustawienia organizacji** .
 1. W obszarze **uwierzytelnianie przy użyciu logowania jednokrotnego (SAML)** wybierz opcję **Konfiguruj SAML** .
 1. Ustaw **dostawcę SAML** na **Azure Active Directory**.
-1. W polu **adres URL logowania dostawcy tożsamości**wklej **adres URL logowania** z konsoli platformy Azure.
-1. W obszarze **wystawcy dostawcy tożsamości**wklej **Identyfikator usługi Azure AD** z konsoli platformy Azure.
-1. W obszarze **certyfikat publiczny dostawcy tożsamości**wybierz opcję **Przekaż certyfikat** i wybierz pobrany wcześniej plik certyfikatu.
+1. W polu **adres URL logowania dostawcy tożsamości** wklej **adres URL logowania** z konsoli platformy Azure.
+1. W obszarze **wystawcy dostawcy tożsamości** wklej **Identyfikator usługi Azure AD** z konsoli platformy Azure.
+1. W obszarze **certyfikat publiczny dostawcy tożsamości** wybierz opcję **Przekaż certyfikat** i wybierz pobrany wcześniej plik certyfikatu.
 1. Wybierz pozycję **Zapisz**.
 
 Spowoduje to zakończenie pracy niezbędnej do ustawienia połączenia SSO protokołu SAML.

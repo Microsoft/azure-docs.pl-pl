@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946849"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
@@ -25,7 +25,7 @@ Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane przy uży
 
 ## <a name="enable-encryption-in-transit"></a>Włącz szyfrowanie podczas przesyłania
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal, wykonaj następujące czynności:
 

@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 1fcfc7a9e632e5db1fb809dba7a938c8641c9ddc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048104"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Co to jest program urządzenia z certyfikatem platformy Azure?
@@ -69,7 +69,7 @@ _Certyfikacja Plug and Play IoT_, przyrostowa Certyfikacja certyfikatu urządzen
 
 ### <a name="edge-managed"></a>Zarządzane przez brzeg
 
-_Certyfikacja zarządzana_za pomocą programu Edge, przyrostowa Certyfikacja certyfikatu urządzenia z certyfikatem platformy Azure, koncentruje się na standardach zarządzania urządzeniami dla urządzeń z systemem Windows, Linux lub RTO. Obecnie ta certyfikacja programu koncentruje się na zgodności środowiska uruchomieniowego Edge w przypadku wdrażania modułów i zarządzania nimi.
+_Certyfikacja zarządzana_ za pomocą programu Edge, przyrostowa Certyfikacja certyfikatu urządzenia z certyfikatem platformy Azure, koncentruje się na standardach zarządzania urządzeniami dla urządzeń z systemem Windows, Linux lub RTO. Obecnie ta certyfikacja programu koncentruje się na zgodności środowiska uruchomieniowego Edge w przypadku wdrażania modułów i zarządzania nimi.
 
 > [!TIP]
 > Ten program był wcześniej znany jako _program certyfikacji IoT Edge_.

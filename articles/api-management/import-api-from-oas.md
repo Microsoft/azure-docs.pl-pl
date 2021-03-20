@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994712"
 ---
 # <a name="import-an-openapi-specification"></a>Importowanie specyfikacji interfejsu OpenAPI
@@ -43,7 +43,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 
     ![Specyfikacja OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Wprowadź ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 > [!NOTE]
 > Ograniczenia importu interfejsu API są udokumentowane w [innym artykule](api-management-api-import-restrictions.md).

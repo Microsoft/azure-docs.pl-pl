@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 0b797e2416b4d8849da19e4e75127f86a6f17322
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87102181"
 ---
 # <a name="quickstart-set-up-a-course-and-create-a-classroom"></a>Szybki Start: Konfigurowanie kursu i Tworzenie klasy
@@ -45,17 +45,17 @@ Wykonaj następujące kroki, aby utworzyć kurs i klasę przy użyciu jednej z d
 
 1. Wybierz ikonę **+ Dodaj** w lewym górnym rogu tabeli, aby uruchomić przepływ pracy tworzenia.
 
-    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Strona kursów Education Hub platformy Azure" border="false":::
+    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Dodaj kurs do usługi Azure Education Hub" border="false":::
 
 1. Listę można utworzyć, korzystając z dwóch metod: przekazując listę lub korzystając z kodu zaproszenia.
-    - Lista **: Jeśli**masz już nazwy i identyfikatory logowania wszystkich uczniów, możesz wypełnić i przekazać plik listy. Aby pobrać przykładowy plik. csv, który jest wymagany do przekazania listy, wybierz łącze **Pobierz przykładowy plik** w prawym górnym rogu.
+    - Lista **: Jeśli** masz już nazwy i identyfikatory logowania wszystkich uczniów, możesz wypełnić i przekazać plik listy. Aby pobrać przykładowy plik. csv, który jest wymagany do przekazania listy, wybierz łącze **Pobierz przykładowy plik** w prawym górnym rogu.
     - **Kod zaproszenia**: Jeśli zdecydujesz się użyć kodu zaproszenia, zdecyduj, ile kodów może być zrealizowanych i kiedy wygasną. Wyślemy do Ciebie uczniów następujący link umożliwiający zrealizowanie kodu: https://aka.ms/joinedu .
 
-      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Strona kursów Education Hub platformy Azure" border="false":::
+      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Wprowadź kod zaproszenia na platformie Azure Education Hub" border="false":::
 
 1. Wybierz pozycję **Utwórz klasę** w prawym dolnym rogu. Może to potrwać kilka minut.
 
-   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Strona kursów Education Hub platformy Azure" border="false":::
+   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Tworzenie klasy na platformie Azure Education Hub" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

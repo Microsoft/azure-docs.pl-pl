@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
 ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92079126"
 ---
-# <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure Bastion przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule opisano sposób tworzenia hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure. Po udostępnieniu usługi Azure bastionu w sieci wirtualnej, bezproblemowe środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Wdrożenie usługi Azure bastionu odbywa się na sieć wirtualną, a nie na subskrypcję/konto lub maszynę wirtualną.
 
@@ -39,7 +39,7 @@ Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure bastionu przy użyciu i
    az network vnet create --resource-group MyResourceGroup --name MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet --subnet-prefix 10.0.0.0/24 --location northeurope
    ```
 
-2. Utwórz publiczny adres IP dla usługi Azure bastionu. Publiczny adres IP jest publicznym adresem IP, do którego zostanie uzyskany dostęp do protokołu RDP/SSH (za pośrednictwem portu 443). Publiczny adres IP musi znajdować się w tym samym regionie co tworzony zasób bastionu.
+2. Utwórz publiczny adres IP dla usługi Azure Bastion. Publiczny adres IP jest publicznym adresem IP, do którego zostanie uzyskany dostęp do protokołu RDP/SSH (za pośrednictwem portu 443). Publiczny adres IP musi znajdować się w tym samym regionie co tworzony zasób bastionu.
 
    ```azurecli-interactive
    az network public-ip create --resource-group MyResourceGroup --name MyIp --sku Standard --location northeurope

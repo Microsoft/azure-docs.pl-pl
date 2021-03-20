@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183724"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: żądania obsługi plików
@@ -48,11 +48,11 @@ ms.locfileid: "78183724"
     * Wybierz odpowiednią **kategorię**.
     * Opisz swój problem w polu **szczegóły** . Podaj szczegóły, takie jak nazwa dzierżawy B2C, opis problemu, komunikaty o błędach, identyfikatory korelacji (jeśli są dostępne) itd.
     * W polu **przedział czasu** Podaj datę i godzinę (w tym strefę czasową) wystąpienia problemu.
-    * W obszarze **przekazywanie plików**Przekaż wszystkie zrzuty ekranu i pliki, które mogą być pomocne w rozwiązaniu problemu.
+    * W obszarze **przekazywanie plików** Przekaż wszystkie zrzuty ekranu i pliki, które mogą być pomocne w rozwiązaniu problemu.
 
      ![Strona problemu z wyróżnionym przyciskiem dalej w Azure Portal](./media/support-options/support-problem.png)
 
-1. W bloku **informacje kontaktowe** Dodaj swoje informacje kontaktowe. Kliknij przycisk **Utwórz**.
+1. W bloku **informacje kontaktowe** Dodaj swoje informacje kontaktowe. Kliknij pozycję **Utwórz**.
 
     ![Strona informacje kontaktowe z wyróżnionym przyciskiem Utwórz w portalu](./media/support-options/support-contact.png)
 

@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b40918db03c260f899c36d306c892b787cc6371c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724895"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Tworzenie odporności w ramach zarządzania tożsamościami i dostępem klientów przy użyciu Azure Active Directory B2C

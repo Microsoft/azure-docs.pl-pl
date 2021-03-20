@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347816"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
@@ -24,7 +24,7 @@ Najbardziej komercyjnie dostępne bazy danych NoSQL, dostępne na rynku, już dz
 - *Powiązana nieaktualność*
 - *Sesja*
 - *Spójny prefiks*
-- *Ewentualn*
+- *Ostateczna*
 
 Każdy poziom zapewnia kompromisy dostępności i wydajności. Na poniższej ilustracji przedstawiono różne poziomy spójności jako spektrum.
 
@@ -149,7 +149,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 |**Powiązana nieaktualność**|Lokalna mniejszości|Większość lokalna|
 |**Sesja**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
 |**Spójny prefiks**|Pojedyncza replika|Większość lokalna|
-|**Ewentualn**|Pojedyncza replika|Większość lokalna|
+|**Ostateczna**|Pojedyncza replika|Większość lokalna|
 
 > [!NOTE]
 > Koszt operacji odczytu (RU/s) dla lokalnego odczytu mniejszościowego jest dwa razy większy niż słabsze poziomy spójności, ponieważ odczyty są wykonywane z dwóch replik w celu zapewnienia spójności mocnej i ograniczonej nieodświeżoności.

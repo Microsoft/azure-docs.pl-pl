@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 9512287f656c6c64399cb8749b7451a5a780bba8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsara"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Samsara
@@ -49,11 +49,11 @@ Aby skonfigurować integrację programu Samsara z usługą Azure AD, musisz doda
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
     
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
@@ -66,7 +66,7 @@ Aby skonfigurować integrację programu Samsara z usługą Azure AD, musisz doda
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsara"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Samsara
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Samsara przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w samsara.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Samsara przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w samsara.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Samsara, wykonaj następujące czynności:
 
@@ -81,11 +81,11 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W Azure Portal na stronie integracja aplikacji **Samsara** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. W Azure Portal na stronie integracja aplikacji **Samsara** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania, adresu URL odpowiedzi i identyfikatora. Skontaktuj się z [zespołem obsługi klienta Samsara](mailto:support@samsara.com) , aby uzyskać te wartości, lub w Samsara, przejdź do pozycji **Ustawienia** Logowanie jednokrotne w  >  **Single-Sign-On**  >  **nowym połączeniu SAML** , aby uzyskać \<ORGID\> . Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania, adresu URL odpowiedzi i identyfikatora. Skontaktuj się z [zespołem obsługi klienta Samsara](mailto:support@samsara.com) , aby uzyskać te wartości, lub w Samsara, przejdź do pozycji **Ustawienia** Logowanie jednokrotne w  >    >  **nowym połączeniu SAML** , aby uzyskać \<ORGID\> . Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -116,22 +116,22 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
-   1. Kliknij pozycję **Utwórz** .
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi samsara.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Na liście Aplikacje wybierz pozycję **Samsara** .
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
-1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Samsara**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .

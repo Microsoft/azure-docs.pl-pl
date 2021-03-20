@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592638"
 ---
 # <a name="import-data-module"></a>Importuj moduł danych
@@ -70,7 +70,7 @@ Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i doda�
 
     ![Importowanie danych — wersja zapoznawcza](media/module/import-data.png)
 
-1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe** , decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
+1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 
     Jest to domyślnie niezaznaczone, co oznacza, że moduł został wykonany z tymi samymi parametrami, system użyje danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
 

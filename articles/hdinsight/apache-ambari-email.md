@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946973"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
 
 W tym samouczku skonfigurujesz powiadomienia e-mail Apache Ambari za pomocą usługi SendGrid. Usługa [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) upraszcza zarządzanie klastrem usługi HDInsight i ich monitorowanie, zapewniając łatwy w użyciu interfejs użytkownika sieci Web i interfejs API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight i służy do monitorowania klastra i wprowadzania zmian w konfiguracji. [SendGrid](https://sendgrid.com/solutions/) to bezpłatna usługa poczty e-mail oparta na chmurze, która zapewnia niezawodne dostarczanie transakcyjnych wiadomości e-mail, skalowalność i analizę w czasie rzeczywistym oraz elastyczne interfejsy API, które ułatwiają integrację niestandardową. W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uzyskaj nazwę użytkownika SendGrid

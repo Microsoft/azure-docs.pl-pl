@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d63b1fa82400d95b18c6dbd7f37ec321f72b3a7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Samouczek: integracja Azure Active Directory z systemem Explanation-Based inspekcji

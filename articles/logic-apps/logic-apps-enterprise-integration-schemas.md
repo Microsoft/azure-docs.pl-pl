@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75979378"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Waliduj kod XML przy użyciu schematów w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
@@ -60,7 +60,7 @@ Aplikacja logiki nie jest potrzebna podczas tworzenia i dodawania schematów. Je
 
    ![Wybierz konto integracji](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **schematy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **schematy** .
 
    ![Wybierz "schematy"](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
@@ -74,7 +74,7 @@ Na podstawie rozmiaru pliku schematu (XSD) postępuj zgodnie z instrukcjami doty
 
 ### <a name="add-schemas-up-to-2-mb"></a>Dodaj schematy do 2 MB
 
-1. W obszarze **Dodaj schemat**wprowadź nazwę schematu. 
+1. W obszarze **Dodaj schemat** wprowadź nazwę schematu. 
    Pozostaw wybrany **mały plik** . Obok pola **schemat** wybierz ikonę folderu. Znajdź i wybierz przeszukiwany schemat, na przykład:
 
    ![Przekaż mniejszy schemat](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
@@ -123,7 +123,7 @@ Aby dodać większy schemat, możesz przekazać schemat do kontenera obiektów b
 1. W polu **Identyfikator URI zawartości** Wklej adres URL schematu. 
    Zakończ dodawanie schematu.
 
-Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświetlony schemat. Na stronie **Przegląd** konta integracji w obszarze **składniki**na kafelku **schematy** jest teraz wyświetlana liczba przekazanych schematów.
+Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświetlony schemat. Na stronie **Przegląd** konta integracji w obszarze **składniki** na kafelku **schematy** jest teraz wyświetlana liczba przekazanych schematów.
 
 <a name="no-public-access"></a>
 
@@ -144,7 +144,7 @@ Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświet
 
 1. W polu **Identyfikator URI zawartości** wklej wcześniej wygenerowany identyfikator URI SAS. Zakończ dodawanie schematu.
 
-Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświetlony schemat. Na stronie **Przegląd** konta integracji w obszarze **składniki**na kafelku **schematy** jest teraz wyświetlana liczba przekazanych schematów.
+Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświetlony schemat. Na stronie **Przegląd** konta integracji w obszarze **składniki** na kafelku **schematy** jest teraz wyświetlana liczba przekazanych schematów.
 
 ## <a name="edit-schemas"></a>Edytuj schematy
 
@@ -158,10 +158,10 @@ Aby zaktualizować istniejący schemat, należy przekazać nowy plik schematu z 
 
 1. Wybierz konto integracji, do którego chcesz zaktualizować schemat.
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **schematy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **schematy** .
 
 1. Po otwarciu strony **schematy** wybierz schemat. 
-   Aby najpierw pobrać i edytować schemat, wybierz pozycję **Pobierz**i Zapisz schemat.
+   Aby najpierw pobrać i edytować schemat, wybierz pozycję **Pobierz** i Zapisz schemat.
 
 1. Gdy wszystko będzie gotowe do przekazania zaktualizowanego schematu, na stronie **schematy** wybierz schemat, który chcesz zaktualizować, a następnie wybierz pozycję **Aktualizuj**.
 
@@ -178,7 +178,7 @@ Aby zaktualizować istniejący schemat, należy przekazać nowy plik schematu z 
 
 1. Wybierz konto integracji, do którego chcesz usunąć schemat.
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **schematy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **schematy** .
 
 1. Po otwarciu strony **schematy** wybierz schemat i wybierz polecenie **Usuń**.
 

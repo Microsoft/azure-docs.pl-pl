@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: alkohli
 ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950316"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Zachowanie list ACL plików, atrybutów i sygnatur czasowych przy użyciu Azure Data Box
@@ -68,7 +68,7 @@ Listy ACL zawierają deskryptory zabezpieczeń z następującymi właściwościa
 Transfer list ACL jest domyślnie włączony. To ustawienie można wyłączyć w lokalnym interfejsie użytkownika sieci Web na urządzenie Data Box. Aby uzyskać więcej informacji, zobacz [Korzystanie z lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy](./data-box-local-web-ui-admin.md).
 
 > [!NOTE]
-> Pliki z listami ACL zawierającymi ciągi wpisów kontroli dostępu warunkowego (ACE) nie są kopiowane. To jest znany problem. Aby obejść ten krok, skopiuj te pliki do udziału Azure Files ręcznie, instalując udział, a następnie używając narzędzia kopiowania, które obsługuje kopiowanie list ACL.
+> Pliki z listami ACL zawierającymi ciągi wpisów kontroli dostępu warunkowego (ACE) nie są kopiowane. Jest to znany problem. Aby obejść ten krok, skopiuj te pliki do udziału Azure Files ręcznie, instalując udział, a następnie używając narzędzia kopiowania, które obsługuje kopiowanie list ACL.
 
 ## <a name="copying-data-and-metadata"></a>Kopiowanie danych i metadanych
 
@@ -84,7 +84,7 @@ W przypadku korzystania `/copyall` z `/dcopy:DAT` opcji lub upewnij się, że wy
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
 
-where
+gdzie
 
 |Opcja |Opis |
 |------------------- | ----- |

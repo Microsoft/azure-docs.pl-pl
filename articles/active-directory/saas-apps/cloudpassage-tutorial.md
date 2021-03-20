@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.openlocfilehash: b720f7e49fc0679de5c3f430122bab05d5b706f8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą CloudPassage
@@ -192,7 +192,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w CloudPassage.
   
     b. W polu tekstowym **Last Name (Nazwisko)** wpisz Simon.
   
-    c. W polu tekstowym **Username (Nazwa użytkownika)**, polu tekstowym**Email (Adres e-mail)** i polu tekstowym **Retype Email (Wpisz ponownie adres e-mail)** wpisz nazwę użytkownika Britta w usłudze Azure AD.
+    c. W polu tekstowym **Username (Nazwa użytkownika)**, polu tekstowym **Email (Adres e-mail)** i polu tekstowym **Retype Email (Wpisz ponownie adres e-mail)** wpisz nazwę użytkownika Britta w usłudze Azure AD.
   
     d. Jako **typ dostępu** wybierz opcję **Enable Halo Portal Access (Włącz dostęp z poziomu portalu Halo)**.
   

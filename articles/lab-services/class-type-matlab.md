@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85445002"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Konfigurowanie laboratorium do uczenia programu MATLAB
@@ -34,9 +34,9 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Aby utworzyć nowe laboratorium, postępuj zgodnie z [samouczkiem dotyczącym laboratorium zajęć](tutorial-setup-classroom-lab.md).  Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Obraz |
+| Rozmiar maszyny wirtualnej | Image (Obraz) |
 | -------------------- | ----- |
-| Średniaa | Windows 10 |
+| Śred. | Windows 10 |
 
 System MATLAB jest obsługiwany w większej liczbie systemów operacyjnych.  Aby uzyskać szczegółowe informacje, zobacz sekcję [wymagania systemowe programu MATLAB](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) .
 
@@ -65,7 +65,7 @@ Musisz być administratorem licencji, aby pobrać pliki instalacyjne, a także p
 7. Na stronie **Zaloguj się do konta MathWorks** wprowadź swoje konto MathWorks.
 8. Na stronie **Umowa licencyjna MathWorks** Zaakceptuj termin i kliknij przycisk **dalej** .
 9. Kliknij listę rozwijaną **Zaawansowane opcje** i wybierz pozycję **Chcę pobrać bez instalacji**.
-10. W obszarze **Wybieranie folderu docelowego**kliknij przycisk **dalej**.
+10. W obszarze **Wybieranie folderu docelowego** kliknij przycisk **dalej**.
 11. Wybierz pozycję **Windows** jako platformę komputera, który ma zostać zainstalowany w programie Matlab.
 12. Na stronie **Wybierz produkt** upewnij się, że jest ZAZNACZONA opcja MATLAB oraz inne MathWorks produkty, które chcesz zainstalować.
 13. Na stronie **Potwierdzanie opcji i pobieranie** kliknij pozycję **Rozpocznij pobieranie**.  

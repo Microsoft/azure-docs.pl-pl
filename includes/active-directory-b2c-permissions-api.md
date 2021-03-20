@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
 ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994325"
 ---
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
@@ -32,4 +32,4 @@ ms.locfileid: "95994325"
 1. Wybierz pozycję **Dostęp do interfejsu API**, a następnie wybierz polecenie **Dodaj**.
 1. Z listy rozwijanej **Wybierz interfejs API** wybierz interfejs API, do którego aplikacja sieci Web ma otrzymać dostęp. Na przykład *webapi1*.
 1. Z listy rozwijanej **Wybierz zakresy** wybierz zdefiniowane wcześniej zakresy. Na przykład *Demonstracja. odczyt* i *Demonstracja. Write*.
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.

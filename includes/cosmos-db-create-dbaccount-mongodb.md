@@ -4,10 +4,10 @@ description: Plik dyrektywy include
 services: cosmos-db
 ms.custom: include file
 ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994562"
 ---
 1. W nowym oknie przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com/).

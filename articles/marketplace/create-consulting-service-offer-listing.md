@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754511"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>Jak skonfigurować szczegóły aukcji oferty usługi konsultingowej
@@ -29,11 +29,11 @@ Na stronie z **listą ofert** podaj poniższe informacje. Aby dowiedzieć się w
 1.  Pole **Nazwa** jest wstępnie wypełnione nazwą wprowadzoną wcześniej w oknie dialogowym **Nowa oferta** , ale można ją zmienić w dowolnym momencie. Ta nazwa zostanie wyświetlona jako tytuł oferty w sklepie online.
 
     > [!IMPORTANT]
-    > Nazwa oferty musi mieć nazwę format *: duration + Type* . Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o ofercie](./plan-consulting-service-offer.md#offer-listing-details).
+    > Nazwa oferty musi mieć nazwę format *: duration + Type*. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o ofercie](./plan-consulting-service-offer.md#offer-listing-details).
 
 2. W polu **podsumowania wyników wyszukiwania** opisz cel lub cel oferty w 200 lub mniejszej liczbie znaków.
 3. W polu **Opis** opisz swoją ofertę usługi konsultingowej. Możesz użyć tagów HTML do formatowania opisu. W tym polu można wprowadzić do 2 000 znaków tekstu, w tym Tagi HTML i spacje. Aby uzyskać informacje na temat formatowania HTML, zobacz [tagi HTML obsługiwane w opisach oferty](./supported-html-tags.md).
-4. Istnieje możliwość wprowadzenia do trzech **słów kluczowych wyszukiwania** . Te słowa kluczowe ułatwią klientom znalezienie oferty w sklepie online. Nie trzeba dołączać nazwy oferty i opisu.
+4. Istnieje możliwość wprowadzenia do trzech **słów kluczowych wyszukiwania**. Te słowa kluczowe ułatwią klientom znalezienie oferty w sklepie online. Nie trzeba dołączać nazwy oferty i opisu.
 5. W polu listy rozwijanej **czas trwania** wprowadź oczekiwany czas trwania usługi konsultingowej. Wybrany czas musi być zgodny z czasem trwania określonym w nazwie oferty.
 
 ## <a name="contact-information"></a>Informacje kontaktowe
@@ -76,8 +76,8 @@ Możesz dodawać linki do klipów wideo w usłudze YouTube lub Vimeo, które dem
 3.  Przeciągnij i upuść. Plik PNG (1280 x 720 pikseli) do szarego pola miniatury.
 4.  Aby dodać kolejne wideo, powtórz kroki od 1 do 3.
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty: **Cennik i dostępność** .
+Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty: **Cennik i dostępność**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie cen i dostępności](create-consulting-service-pricing-availability.md)
+* [Konfigurowanie cennika i dostępności](create-consulting-service-pricing-availability.md)

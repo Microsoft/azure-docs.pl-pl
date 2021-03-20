@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 6c35ce5e4b420b7f203b33b640a3175ba4c2739b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181513"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Samouczek: integracja Sansan z usługą Azure Active Directory
@@ -112,7 +112,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

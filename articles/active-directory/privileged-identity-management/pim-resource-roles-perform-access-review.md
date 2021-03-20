@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8091890d174ae68f012a6ec24685a0e705100f8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743681"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Przejrzyj dostęp do ról zasobów platformy Azure w Privileged Identity Management
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby znaleźć i ukończyć przegląd dostępu:
    ![Zrzut ekranu aplikacji Privileged Identity Management z wybranym blokiem przegląd dostępu](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 1. Wybierz przegląd, który chcesz zakończyć.
-1. Wybierz pozycję **Zatwierdź** lub **Odmów**. W **polu podaj przyczynę**wprowadź uzasadnienie biznesowe dla swojej decyzji w razie potrzeby.
+1. Wybierz pozycję **Zatwierdź** lub **Odmów**. W **polu podaj przyczynę** wprowadź uzasadnienie biznesowe dla swojej decyzji w razie potrzeby.
 
    ![Zrzut ekranu przedstawiający stronę szczegółów przeglądu](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 

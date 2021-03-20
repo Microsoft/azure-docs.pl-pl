@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272049"
 ---
 # <a name="publish-an-offer"></a>Publikowanie oferty
@@ -30,10 +30,10 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 |  ------------- |  ------------------------------------            |   -----------  |
 |  publisherId   | Identyfikator wydawcy, na przykład `contoso`      |   Ciąg       |
 |  offerId       | Identyfikator oferty                                 |   Ciąg       |
-|  api-version   | Najnowsza wersja interfejsu API                        |   Date         |
+|  api-version   | Najnowsza wersja interfejsu API                        |   Date (Data)         |
 |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 ------
 
 |  **Nazwa**        |    **Wartość**          |

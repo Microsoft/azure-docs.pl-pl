@@ -4,10 +4,10 @@ description: DevTest Labs dostarczają informacji, których można użyć do dia
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480817"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnozowanie błędów artefaktów w laboratorium 
@@ -23,7 +23,7 @@ Po utworzeniu artefaktu możesz sprawdzić, czy zakończyło się powodzeniem, c
 
 1. W Azure Portal na liście zasobów wybierz swoje laboratorium.
 2. Wybierz maszynę wirtualną z systemem Windows, która zawiera artefakt, który chcesz zbadać.
-3. W lewym panelu w obszarze **Ogólne**wybierz pozycję **artefakty**. Zostanie wyświetlona lista artefaktów skojarzonych z tą maszyną wirtualną. Nazwa artefaktu i stan artefaktu są wskazane.
+3. W lewym panelu w obszarze **Ogólne** wybierz pozycję **artefakty**. Zostanie wyświetlona lista artefaktów skojarzonych z tą maszyną wirtualną. Nazwa artefaktu i stan artefaktu są wskazane.
 
    ![Stan artefaktu](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure-new.png)
 

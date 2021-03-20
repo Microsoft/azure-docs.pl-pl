@@ -4,10 +4,10 @@ description: Dowiedz się, jak wdrożyć zagnieżdżone szablony Azure Resource 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481344"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Wdróż zagnieżdżone szablony Azure Resource Manager dla środowisk testowych
@@ -57,7 +57,7 @@ Oto prosty przykład wdrożenia zagnieżdżonego:
 "outputs": {}
 ```
 
-Folder w repozytorium zawierającym ten szablon ma podfolder `nestedtemplates` z plikami **NestOne.json** i **NestOne.parameters.json**. W **azuredeploy.jsna**identyfikator URI dla szablonu jest tworzony przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonów, zagnieżdżonej nazwy pliku szablonu. Podobnie identyfikatory URI parametrów są kompilowane przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonów i pliku parametrów dla szablonu zagnieżdżonego. 
+Folder w repozytorium zawierającym ten szablon ma podfolder `nestedtemplates` z plikami **NestOne.json** i **NestOne.parameters.json**. W **azuredeploy.jsna** identyfikator URI dla szablonu jest tworzony przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonów, zagnieżdżonej nazwy pliku szablonu. Podobnie identyfikatory URI parametrów są kompilowane przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonów i pliku parametrów dla szablonu zagnieżdżonego. 
 
 Poniżej znajduje się obraz tej samej struktury projektu w programie Visual Studio: 
 

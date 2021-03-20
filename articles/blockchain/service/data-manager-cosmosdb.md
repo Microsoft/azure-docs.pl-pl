@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91283461"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Samouczek: wysyłanie danych do Azure Cosmos DB za pomocą łańcucha bloków Data Manager
@@ -47,7 +47,7 @@ Wystąpienie Data Manager łańcucha bloków nawiązuje połączenie i monitoruj
 
     ![Dodaj Data Manager łańcucha bloków](./media/data-manager-cosmosdb/add-instance.png)
 
-    Wprowadź następujące wartości:
+    Wprowadź następujące informacje:
 
     Ustawienie | Przykład | Opis
     --------|---------|------------
@@ -56,7 +56,7 @@ Wystąpienie Data Manager łańcucha bloków nawiązuje połączenie i monitoruj
     Nazwa połączenia | cosmosdb | Wprowadź unikatową nazwę połączenia wychodzącego, w którym są wysyłane dane transakcji łańcucha bloków.
     Punkt końcowy siatki zdarzeń | Temat | Wybierz temat dotyczący siatki zdarzeń utworzony w ramach wymagania wstępnego. Uwaga: wystąpienie Data Manager łańcucha bloków i temat usługi Event Grid muszą znajdować się w tej samej subskrypcji.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     Utworzenie wystąpienia Data Manager łańcucha bloków może zająć mniej niż minutę. Po wdrożeniu wystąpienia zostanie ono automatycznie uruchomione. Uruchomione wystąpienie Data Manager łańcucha bloków przechwytuje zdarzenia łańcucha bloków z węzła Transaction i wysyła dane do usługi Event Grid.
 
@@ -150,7 +150,7 @@ Dla każdego obiektu BLOB Wygeneruj sygnaturę dostępu współdzielonego.
     ABI kontraktu | Ścieżka URL do pliku ABI kontraktu. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
     Kod bajtowy kontraktu | Ścieżka adresu URL do pliku kodu bajtowego. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     Po utworzeniu aplikacji aplikacja zostanie wyświetlona na liście aplikacji łańcucha bloków.
 
@@ -178,7 +178,7 @@ Możesz użyć Eksplorator danych w Azure Portal, aby utworzyć bazę danych i k
     | Identyfikator kontenera | Wprowadź **komunikaty** jako nazwę nowego kontenera. |
     | Klucz partycji | Użyj **/MessageType** jako klucza partycji. |
 
-1. Kliknij przycisk **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
+1. Wybierz przycisk **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
 
 ## <a name="create-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -190,7 +190,7 @@ Azure Logic Apps pomaga zaplanować i zautomatyzować procesy biznesowe i przep�
     Aby uzyskać więcej informacji na temat tworzenia aplikacji logiki, zobacz [Tworzenie zautomatyzowanych przepływów pracy za pomocą Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. Po wdrożeniu aplikacji przez platformę Azure wybierz zasób aplikacji logiki.
-1. W projektancie Logic Apps w obszarze **Szablony**wybierz pozycję **pusta aplikacja logiki**.
+1. W projektancie Logic Apps w obszarze **Szablony** wybierz pozycję **pusta aplikacja logiki**.
 
 ### <a name="add-event-grid-trigger"></a>Dodaj wyzwalacz Event Grid
 
@@ -213,7 +213,7 @@ Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywo
 Dodaj akcję w celu utworzenia dokumentu w Cosmos DB dla każdej transakcji. Użyj typu komunikatu Transaction jako klucza partycji do kategoryzacji komunikatów.
 
 1. Wybierz pozycję **Nowy krok**.
-1. W obszarze **Wybierz akcję**Wyszukaj **Azure Cosmos DB**.
+1. W obszarze **Wybierz akcję** Wyszukaj **Azure Cosmos DB**.
 1. Wybierz **Azure Cosmos DB akcje > > Utwórz lub zaktualizuj dokument**.
 1. Utwórz połączenie interfejsu API z bazą danych Cosmos DB.
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347742"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla usługi Azure App Service
 
 Możesz ograniczyć dostęp do aplikacji Azure App Service, włączając dla niej różne typy uwierzytelniania. Jednym ze sposobów jest zażądanie certyfikatu klienta, gdy żądanie klienta dotyczy protokołu TLS/SSL i zweryfikowania certyfikatu. Mechanizm ten jest nazywany uwierzytelnianiem obustronnym protokołu TLS lub uwierzytelnianiem certyfikatu klienta. W tym artykule pokazano, jak skonfigurować aplikację do korzystania z uwierzytelniania za pomocą certyfikatu klienta.
 

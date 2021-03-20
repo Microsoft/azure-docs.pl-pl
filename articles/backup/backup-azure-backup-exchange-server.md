@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91271651"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
@@ -86,7 +86,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie wybierz pozycję **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**a następnie wybierz przycisk **dalej**. Na przykład:
+15. Zdefiniuj harmonogram **Azure Backup** a następnie wybierz przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -101,7 +101,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 
     ![Określ zasady przechowywania danych online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Potwierdź ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
-19. Wybierz pozycję **Close** (Zamknij).
+19. Wybierz pozycję **Zamknij**.
 
 ## <a name="recover-the-exchange-database"></a>Odzyskiwanie bazy danych programu Exchange
 
