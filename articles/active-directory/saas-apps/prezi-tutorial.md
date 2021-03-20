@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 4ff8196ff4e30aa6ed036cabe00a72bfa8a5c51f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515325"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą Prezi
@@ -82,7 +82,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** użytkownik nie musi wykonywać żadnych czynności, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące czynności, jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program **SP**:
+1. Wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące czynności, jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program **SP**:
 
     W polu **adres URL logowania** wprowadź adres URL: `https://prezi.com/login/sso/` .
 
@@ -141,7 +141,7 @@ W tej sekcji należy włączyć usługę B. Simon, aby korzystać z logowania je
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do Prezi przy użyciu konta zespołu i przejdź do [konsoli administracyjnej](https://prezi.com/organizations/manage).
 
-1. W **konsoli administracyjnej**wybierz kartę **Ustawienia** .
+1. W **konsoli administracyjnej** wybierz kartę **Ustawienia** .
 
     ![Karta Ustawienia](./media/prezi-tutorial/settings-image.png)
 
@@ -171,7 +171,7 @@ W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure 
 
 Po wybraniu kafelka Prezi w panelu dostępu należy automatycznie zalogować się do konta Prezi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 - [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002242"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Skonfiguruj Akcelerator rozwiązania połączonej fabryki
@@ -32,7 +32,7 @@ Każda fabryka firmy Contoso ma linie produkcyjne, które składają się z trze
 * Stacja testowa
 * Stacja pakowania
 
-Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Możliwości obejmują:
+Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Obejmuje to następujące działania:
 
 * Bieżący stan operacyjny, na przykład bieżące zużycie mocy.
 * Informacje o produkcji, takie jak liczba produkowanych produktów.
@@ -337,7 +337,7 @@ Ta konfiguracja umożliwia wykonywanie zapytań dotyczących wartości telemetry
 * Średnia wszystkich wartości.
 * Suma wszystkich wartości dla wszystkich unikatowych **OpcUri** (**ApplicationUri**), par **NodeId** w danym przedziałze czasu.
 
-Jedną cechą wartości węzła **NumberOfManufactureredProducts** jest to, że tylko zwiększa. Aby obliczyć liczbę produktów wyprodukowanych w TimeSpan, połączona fabryka używa SubMaxMin **kodu operacji** **SubMaxMin**. Obliczenie Pobiera wartość minimalną na początku przedziału czasu i wartość maksymalną na końcu przedziału czasu.
+Jedną cechą wartości węzła **NumberOfManufactureredProducts** jest to, że tylko zwiększa. Aby obliczyć liczbę produktów wyprodukowanych w TimeSpan, połączona fabryka używa SubMaxMin **kodu operacji** . Obliczenie Pobiera wartość minimalną na początku przedziału czasu i wartość maksymalną na końcu przedziału czasu.
 
 **Kod operacji** w konfiguracji konfiguruje logikę obliczeń, aby obliczyć wynik różnicy wartości maksymalnej i minimalnej. Te wyniki są następnie sumowane na poziomie głównym (globalnym) i wyświetlane na pulpicie nawigacyjnym.
 

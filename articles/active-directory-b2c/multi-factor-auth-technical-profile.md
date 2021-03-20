@@ -12,17 +12,17 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e81ac35555e6653cecb602e5af2f19aa3e2f05e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840597"
 ---
 # <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny usługi Azure AD MFA w zasadach niestandardowych Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę weryfikowania numeru telefonu przy użyciu usługi Azure AD Multi-Factor Authentication (MFA). Ten profil techniczny służy do generowania i wysyłania kodu do numeru telefonu, a następnie sprawdzania kodu. Profil techniczny usługi Azure AD MFA może również zwrócić komunikat o błędzie.  Profil techniczny weryfikacji weryfikuje dane dostarczone przez użytkownika przed kontynuowaniem podróży użytkownika. Po sprawdzeniu profilu technicznego na stronie z potwierdzeniem zostanie wyświetlony komunikat o błędzie.
+Usługa Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę weryfikowania numeru telefonu przy użyciu usługi Azure AD Multi-Factor Authentication (MFA). Użyj tego profilu technicznego, aby wygenerować i wysłać kod na numer telefonu, a następnie zweryfikować ten kod. Profil techniczny usługi Azure AD MFA może również zwrócić komunikat o błędzie.  Profil techniczny weryfikacji weryfikuje dane dostarczone przez użytkownika przed kontynuowaniem podróży użytkownika. Po sprawdzeniu profilu technicznego na stronie z potwierdzeniem zostanie wyświetlony komunikat o błędzie.
 
 Ten profil techniczny:
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620906"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="data-types-extensions"></a>Rozszerzenia typów danych
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Zawiera typ ciągu znaków bez uwzględniania wielkości liter. |
 > | [modułów](https://www.postgresql.org/docs/current/static/cube.html) | Udostępnia typ danych dla modułów wielowymiarowych. |
@@ -47,7 +47,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="full-text-search-extensions"></a>Rozszerzenia wyszukiwania pełnotekstowego
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [DICT \_ int](https://www.postgresql.org/docs/current/static/dict-int.html) | Udostępnia szablon słownika wyszukiwania tekstu dla liczb całkowitych. |
 > | [DICT \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów. |
@@ -56,7 +56,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="functions-extensions"></a>Rozszerzenia funkcji
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | Funkcje do autozwiększania wartości pól. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | Zapewnia środki do obliczania dużej liczby okręgów na powierzchni ziemi. |
@@ -78,14 +78,14 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="hyperscale-citus-extensions"></a>Rozszerzenia funkcji przeskalowania (Citus)
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus rozproszonej bazy danych. |
 
 ### <a name="index-types-extensions"></a>Rozszerzenia typów indeksów
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [lotem](https://www.postgresql.org/docs/current/bloom.html) | Metoda dostępu rozwiniętego — indeks oparty na plikach sygnatur. |
 > | [Podczas aktywowania RowsetBulk \_ ątek](https://www.postgresql.org/docs/current/static/btree-gin.html) | Dostarcza przykładowe klasy operatorów ĄTEK, które implementują zachowanie typu B-drzewo dla określonych typów danych. |
@@ -94,14 +94,14 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="language-extensions"></a>Rozszerzenia językowe
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | Język proceduralny z możliwością ładowania PL/pgSQL. |
 
 ### <a name="miscellaneous-extensions"></a>Różne rozszerzenia
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funkcje administracyjne dla PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funkcje do sprawdzania integralności relacji. |
@@ -126,7 +126,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="postgis-extensions"></a>Rozszerzenia PostGIS
 
 > [!div class="mx-tableFixed"]
-> | **Rozszerzenie** | **Opis** |
+> | **Wewnętrzny** | **Opis** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), \_ topologia PostGIS, \_ PostGIS \_ geokodera Tiger, PostGIS \_ sfcgal | Obiekty przestrzenne i geograficzne dla PostgreSQL. |
 > | \_normalizacja adresów, \_ \_ \_ nawiązanie przez nas danych | Służy do analizowania adresu w elementach składowych. Używane do obsługi kroku normalizacji adresów geokodowania. |

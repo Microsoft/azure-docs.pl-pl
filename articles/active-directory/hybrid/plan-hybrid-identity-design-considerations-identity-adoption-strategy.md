@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836193"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
@@ -158,7 +158,7 @@ W tym celu należy wykonać następujące czynności:
 * Domenę DNS można zarejestrować tylko w jednym katalogu usługi Azure AD, aby nazwy UPN użytkowników w lokalnej usłudze AD musiały używać oddzielnych przestrzeni nazw
 * Użytkownicy w jednym wystąpieniu usługi Azure AD będą mogli zobaczyć użytkowników z ich wystąpienia.  Nie będą oni mogli zobaczyć użytkowników w innych wystąpieniach
 * Tylko jeden z katalogów usługi Azure AD może włączyć funkcję hybrydową programu Exchange z lokalną usługą AD
-* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Możliwości obejmują:
+* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Obejmuje to następujące działania:
   * Grupuj kopie zapasowe z konfiguracją domyślną
   * Zapisywanie zwrotne urządzeń
 
@@ -213,6 +213,6 @@ Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratoró
 ## <a name="next-steps"></a>Następne kroki
 [Określanie wymagań dotyczących ochrony danych](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

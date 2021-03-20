@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96339612"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich przy użyciu usługi Azure Wyszukiwanie poznawcze
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-`source`Informuje funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projektem MVC, wywołuje funkcję **Sugeruj** w **HomeController.cs** , która zawiera logikę do zwracania sugestii zapytania. Ta funkcja przekazuje również kilka parametrów w celu kontrolowania świateł, dopasowywania rozmytego i warunku. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
+`source`Informuje funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projektem MVC, wywołuje funkcję **Sugeruj** w **HomeController. cs** , która zawiera logikę do zwracania sugestii dotyczących zapytań. Ta funkcja przekazuje również kilka parametrów w celu kontrolowania świateł, dopasowywania rozmytego i warunku. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
 
 `minLength: 3`Zapewnia, że zalecenia będą wyświetlane tylko wtedy, gdy w polu wyszukiwania znajdują się co najmniej trzy znaki.
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Funkcja Sugeruj
 
-Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
+Jeśli używasz języka C# i aplikacji MVC, plik **HomeController. cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
 `InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Właściwości klasy [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) określają, które pola są przeszukiwane i zwracane w wynikach, liczbę dopasowań oraz czy użyto dopasowania rozmytego. 
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funkcja Autouzupełnianie
 
-Autouzupełnianie jest oparte na [metodzie AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Podobnie jak w przypadku sugestii, ten blok kodu przejdzie do pliku **HomeController.cs** .
+Autouzupełnianie jest oparte na [metodzie AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Podobnie jak w przypadku sugestii, ten blok kodu przejdzie do pliku **HomeController. cs** .
 
 ```csharp
 public async Task<ActionResult> AutoCompleteAsync(string term)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
 ms.openlocfilehash: 15bf8f4fde2128181664fa7b94f2479bac7ad5b9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881521"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (oparte na agentach)
@@ -19,7 +19,7 @@ ms.locfileid: "98881521"
 W tym artykule opisano sposób migrowania lokalnych maszyn wirtualnych programu VMware na platformę Azure przy użyciu narzędzia do [migracji Azure Migrate: serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) z migracją opartą na agentach.  Można również migrować maszyny wirtualne VMware przy użyciu migracji bez agentów. [PORÓWNAJ](server-migrate-overview.md#compare-migration-methods) metody.
 
 
- Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+ Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Przygotuj platformę Azure do pracy z Azure Migrate.
 > * Przygotuj się do migracji opartej na agencie. Skonfiguruj konto VMware, aby Azure Migrate mogły odnajdywać maszyny do migracji. Skonfiguruj konto, aby Agent usługi mobilności mógł zostać zainstalowany na maszynach, które mają zostać poddane migracji, i przygotuj komputer do działania jako urządzenie replikacji.
@@ -356,7 +356,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
 
 ## <a name="post-migration-best-practices"></a>Najlepsze rozwiązania po migracji
 
-- Magazyn lokalny
+- Lokalnie
     - Przenieś ruch aplikacji do aplikacji uruchomionej na zmigrowanym wystąpieniu maszyny wirtualnej platformy Azure.
     - Usuń lokalne maszyny wirtualne z lokalnego spisu maszyn wirtualnych.
     - Usuń lokalne maszyny wirtualne z lokalnych kopii zapasowych.

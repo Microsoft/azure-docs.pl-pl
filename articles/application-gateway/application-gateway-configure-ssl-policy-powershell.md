@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397930"
 ---
-# <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Skonfiguruj wersje zasad protokołu TLS i mechanizmy szyfrowania na Application Gateway
+# <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurowanie wersji zasad protokołu TLS i mechanizmów szyfrowania w usłudze Application Gateway
 
 Dowiedz się, jak skonfigurować wersje zasad protokołu TLS/SSL i mechanizmy szyfrowania na Application Gateway. Można wybrać jedną z listy wstępnie zdefiniowanych zasad, które zawierają różne konfiguracje wersji zasad protokołu TLS i włączonych mechanizmów szyfrowania. Istnieje również możliwość zdefiniowania [niestandardowych zasad protokołu TLS](#configure-a-custom-tls-policy) zgodnie z wymaganiami.
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Aktualizowanie istniejącej bramy aplikacji przy użyciu wstępnie zdefiniowanych zasad protokołu TLS
 
-Aby ustawić niestandardowe zasady protokołu TLS, należy przekazać następujące parametry: **policyType** , **MinProtocolVersion** , **CipherSuite** i **elementu applicationgateway**. Aby ustawić wstępnie zdefiniowane zasady protokołu TLS, należy przekazać następujące parametry: **policyType** , **PolicyName** i **elementu applicationgateway**. Jeśli próbujesz przekazać inne parametry, podczas tworzenia lub aktualizowania Application Gateway wystąpi błąd.
+Aby ustawić niestandardowe zasady protokołu TLS, należy przekazać następujące parametry: **policyType**, **MinProtocolVersion**, **CipherSuite** i **elementu applicationgateway**. Aby ustawić wstępnie zdefiniowane zasady protokołu TLS, należy przekazać następujące parametry: **policyType**, **PolicyName** i **elementu applicationgateway**. Jeśli próbujesz przekazać inne parametry, podczas tworzenia lub aktualizowania Application Gateway wystąpi błąd.
 
 W poniższym przykładzie istnieją przykłady kodu dla zasad niestandardowych i wstępnie zdefiniowanych zasad. Usuń komentarz z zasad, których chcesz użyć.
 

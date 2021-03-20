@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835989"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Środowiska użytkownika z Azure AD Identity Protection
@@ -80,8 +80,8 @@ Administratorzy mogą blokować użytkownikom logowanie się w zależności od p
 
 Pracownicy działu IT mogą postępować zgodnie z instrukcjami w sekcji [odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) , aby umożliwić użytkownikom ponowne logowanie.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Korygowanie zagrożeń i odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md)
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](./overview-identity-protection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

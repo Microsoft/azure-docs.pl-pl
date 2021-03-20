@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220120"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych
@@ -62,7 +62,7 @@ Jeśli nie wybrano w hiperłączu, gdy testujesz powyższe połączenie, postęp
 ## <a name="check-the-connection-works"></a>Sprawdź, czy połączenie działa
 1. Przejdź do karty **Zarządzanie** i wybierz utworzoną usługę połączoną.
 1. Upewnij się, że **interaktywna autorstwo** jest aktywna.
-1. Wybierz **Test connection**. Powinno zostać wyświetlone połączenie.
+1. Wybierz pozycję **Testuj połączenie**. Powinno zostać wyświetlone połączenie.
 
 Nawiązano połączenie bezpiecznego i prywatnego między Synapse i połączoną usługą.
 

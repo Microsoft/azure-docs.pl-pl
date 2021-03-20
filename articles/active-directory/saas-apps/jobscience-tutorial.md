@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: integracja Azure Active Directory z usługą Jobscience
@@ -129,7 +129,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 1. Przejdź do pozycji **Konfiguracja**.
    
-   ![Zrzut ekranu przedstawia element konfiguracji firmy.](./media/jobscience-tutorial/IC784358.png "Konfigurowanie")
+   ![Zrzut ekranu przedstawia element konfiguracji firmy.](./media/jobscience-tutorial/IC784358.png "Konfiguracja")
 
 1. W okienku nawigacji po lewej stronie w sekcji **Administruj** kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
    
@@ -240,7 +240,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Jobscie
 
 1. Przejdź do pozycji Konfiguracja.
    
-   ![Zrzut ekranu przedstawia element Instalatora.](./media/jobscience-tutorial/ic784358.png "Konfigurowanie")
+   ![Zrzut ekranu przedstawia element Instalatora.](./media/jobscience-tutorial/ic784358.png "Konfiguracja")
 1. Przejdź do pozycji **Zarządzaj \> użytkownikami** użytkownicy.
    
    ![Użytkownicy](./media/jobscience-tutorial/ic784369.png "Użytkownicy")

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Samouczek: integracja Azure Active Directory z usługą Printix
@@ -71,7 +71,7 @@ Aby skonfigurować integrację programu Printix z usługą Azure AD, musisz doda
 
     ![Zrzut ekranu przedstawia wyszukiwanie Printix w oknie dialogowym Dodawanie z galerii.](./media/printix-tutorial/tutorial_printix_search.png)
 
-1. W panelu wyników wybierz pozycję **Printix** , a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W panelu wyników wybierz pozycję **Printix**, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Zrzut ekranu przedstawia wybraną opcję Printix.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
@@ -123,7 +123,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 1. Zaloguj się do dzierżawy Printix jako administrator.
 
-1. W menu u góry kliknij ikonę w prawym górnym rogu, a następnie wybierz pozycję " **uwierzytelnianie** ".
+1. W menu u góry kliknij ikonę w prawym górnym rogu, a następnie wybierz pozycję "**uwierzytelnianie**".
    
     ![Zrzut ekranu przedstawia uwierzytelnienie wybrane z menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -131,19 +131,19 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
    
     ![Zrzut ekranu przedstawia stronę Printix.net, na której można wybrać opcję Włącz uwierzytelnianie Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. Na karcie **Azure** wprowadź adres URL metadanych Federacji do pola tekstowego " **dokument metadanych Federacji** ". 
+1. Na karcie **Azure** wprowadź adres URL metadanych Federacji do pola tekstowego "**dokument metadanych Federacji**". 
 
     Dołącz plik XML metadanych, który został pobrany z usługi Azure AD do [zespołu pomocy technicznej Printix](mailto:support@printix.net). Następnie przekażą plik XML i podają adres URL metadanych Federacji.
    
     ![Zrzut ekranu przedstawia stronę Printix.net, na której można określić dokument metadanych Federacji.](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Kliknij przycisk " **test** ", a następnie kliknij przycisk **OK** , jeśli test zakończył się pomyślnie.
+1. Kliknij przycisk "**test**", a następnie kliknij przycisk **OK**, jeśli test zakończył się pomyślnie.
    
      Po kliknięciu przycisku **Testuj** zostanie wyświetlona strona usługi Azure Active Directory. "Test zakończył się pomyślnie" oznacza, że po wprowadzeniu poświadczeń konta testowego platformy Azure zostanie wyświetlony komunikat "Ustawienia przetestowane OK". Następnie kliknij przycisk **OK** .
    
     ![Zrzut ekranu przedstawia wyniki testu.](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Kliknij przycisk **Zapisz** na stronie " **uwierzytelnianie** ".
+1. Kliknij przycisk **Zapisz** na stronie "**uwierzytelnianie**".
 
 
 > [!TIP]

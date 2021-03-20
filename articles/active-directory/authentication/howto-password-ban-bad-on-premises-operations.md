@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2e11fa1bb9f1d3a3986a19da8ed44229829ec81
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96741783"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Włącz ochronę hasłem Azure Active Directory lokalnych
@@ -26,13 +26,13 @@ Aby chronić lokalne środowisko Active Directory Domain Services (AD DS), może
 
 Aby uzyskać więcej informacji na temat sposobu działania ochrony haseł usługi Azure AD w środowisku lokalnym, zobacz [Jak wymusić ochronę hasłem usługi Azure AD dla systemu Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule pokazano, jak włączyć ochronę hasłem w usłudze Azure AD dla środowiska lokalnego. Przed ukończeniem tego artykułu [Zainstaluj i Zarejestruj usługę serwera proxy ochrony hasłem usługi Azure AD i agentów kontrolerów domeny](howto-password-ban-bad-on-premises-deploy.md) w lokalnym środowisku AD DS.
 
 ## <a name="enable-on-premises-password-protection"></a>Włącz ochronę hasłem lokalnym
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do **Azure Active Directory**  >  **Security**  >  **metod uwierzytelniania** zabezpieczeń  >  **Ochrona hasłem**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do **Azure Active Directory**  >    >  **metod uwierzytelniania** zabezpieczeń  >  **Ochrona hasłem**.
 1. Ustaw opcję **Włącz ochronę hasłem w systemie Windows Server Active Directory** na *wartość tak*.
 
     Jeśli to ustawienie ma wartość *nie*, wszystkie wdrożone Agenty usługi Azure AD Password Protection są w trybie quiescent, w którym wszystkie hasła są akceptowane jako-is. Nie są wykonywane żadne działania weryfikacyjne, a zdarzenia inspekcji nie są generowane.

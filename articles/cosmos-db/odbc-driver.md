@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003501"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
@@ -222,7 +222,7 @@ Możesz użyć nowego DSN do łączenia się z Azure Cosmos DB przy użyciu dowo
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Pobieranie danych w Power BI Desktop":::
 
-1. W oknie **pobieranie danych** kliknij pozycję **inne**  |  **ODBC**  |  **łączenie** ODBC.
+1. W oknie **pobieranie danych** kliknij pozycję **inne**  |    |  **łączenie** ODBC.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Wybierz źródło danych ODBC w Power BI Pobierz dane":::
 

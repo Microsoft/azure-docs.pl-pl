@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: be52d220848a27c1307e71fdb7cc4dccfaeb9618
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92509466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Samouczek: integracja Azure Active Directory z usługą UserEcho
@@ -142,7 +142,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą UserEcho, w
    
     ![Zrzut ekranu przedstawia stronę SAML logowania jednokrotnego, na której można wprowadzić podane wartości.](./media/userecho-tutorial/tutorial_userecho_09.png)
     
-    a. Jako **włączony protokół SAML**wybierz pozycję **tak**.
+    a. Jako **włączony protokół SAML** wybierz pozycję **tak**.
     
     b. Wklej **adres URL logowania**, który został skopiowany z Azure Portal do pola tekstowego **adresu URL rejestracji jednokrotnej protokołu SAML** .
     
@@ -174,7 +174,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841992"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
@@ -157,7 +157,7 @@ W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi A
 - [Azure SQL Database i analiza Synapse Azure](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
-- Azure Service Bus
+- Usługa Azure Service Bus
 - Zapory aplikacji sieci Web
 
 Zapoznaj się z tematem [opracowywanie bezpiecznych aplikacji na platformie Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) , aby poznać pytania zabezpieczające i kontrolki, które należy wziąć pod uwagę w każdej fazie cyklu projektowania oprogramowania podczas tworzenia aplikacji dla chmury.

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395227"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Konfigurowanie replikacji do usługi Azure SQL Edge 
@@ -83,7 +83,7 @@ Następujące opcje nie są obsługiwane w przypadku subskrypcji usługi Azure S
 Utwórz publikację i subskrypcję wypychaną. Aby uzyskać więcej informacji, zobacz:
   
 - [Tworzenie publikacji](/sql/relational-databases/replication/publish/create-a-publication)
-- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription/) przy użyciu nazwy i adresu IP serwera usługi Azure SQL Edge jako subskrybenta (na przykład **myEdgeinstance, 1433** ) i nazwy bazy danych w wystąpieniu usługi Azure SQL Edge jako docelowej bazy danych (na przykład **AdventureWorks** ).  
+- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription/) przy użyciu nazwy i adresu IP serwera usługi Azure SQL Edge jako subskrybenta (na przykład **myEdgeinstance, 1433**) i nazwy bazy danych w wystąpieniu usługi Azure SQL Edge jako docelowej bazy danych (na przykład **AdventureWorks**).  
 
 ## <a name="next-steps"></a>Następne kroki  
 

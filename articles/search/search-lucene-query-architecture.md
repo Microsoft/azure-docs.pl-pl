@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002752"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze
@@ -251,7 +251,7 @@ Jest to typowy, ale nie jest wymagany, aby używać tych samych analizatorów dl
 
 Powracamy do naszego przykładu dla pola **title** indeks odwrócony wygląda następująco:
 
-| Termin | Lista dokumentów |
+| Okres | Lista dokumentów |
 |------|---------------|
 | atman | 1 |
 | sekwencje | 2 |
@@ -265,7 +265,7 @@ W polu title tylko *Hotel* pojawia się w dwóch dokumentach: 1, 3.
 
 W przypadku pola **Description** indeks jest następujący:
 
-| Termin | Lista dokumentów |
+| Okres | Lista dokumentów |
 |------|---------------|
 | dmuchaw | 3
 | oraz | 4
@@ -373,7 +373,7 @@ Oznacza to, że ocena przydatności *może* być różna dla identycznych dokume
 
 Ogólnie rzecz biorąc, Ocena dokumentu nie jest najlepszym atrybutem do porządkowania dokumentów, jeśli trwałość zamówienia jest ważna. Na przykład, jeśli dwa dokumenty mają identyczny wynik, nie ma gwarancji, która jest najpierw wyświetlana w kolejnych uruchomieniach tego samego zapytania. Wynik dokumentu powinien zawierać jedynie ogólny sens dotyczący istotności dokumentu względem innych dokumentów w zestawie wyników.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Sukcesy aparatów wyszukiwania internetowego zgłosiły oczekiwania na wyszukiwanie pełnotekstowe w danych prywatnych. W przypadku niemal dowolnego rodzaju środowiska wyszukiwania oczekujemy, że aparat zapoznaje się z intencją, nawet jeśli warunki są błędne lub niekompletne. Możemy nawet oczekiwać dopasowania w oparciu o niemal równoważne warunki lub synonimy, które nigdy nie zostały określone.
 

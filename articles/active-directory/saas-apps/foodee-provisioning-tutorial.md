@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358687"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Foodee na potrzeby automatycznego aprowizacji użytkowników
@@ -83,7 +83,7 @@ Aby dodać Foodee z galerii aplikacji usługi Azure AD, wykonaj następujące cz
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-1. W polu wyszukiwania wprowadź **Foodee** , w okienku wyników wybierz pozycję **Foodee** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
+1. W polu wyszukiwania wprowadź **Foodee**, w okienku wyników wybierz pozycję **Foodee** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
     ![Foodee na liście wyników](common/search-new-app.png)
 
@@ -152,7 +152,7 @@ Skonfiguruj automatyczne Inicjowanie obsługi użytkowników dla Foodee w usłud
 
     ![Przełącznik stanu aprowizacji](common/provisioning-toggle-on.png)
 
-1. W obszarze **Ustawienia** , na liście rozwijanej **zakres** Zdefiniuj użytkowników lub grupy, które chcesz udostępnić Foodee.
+1. W obszarze **Ustawienia**, na liście rozwijanej **zakres** Zdefiniuj użytkowników lub grupy, które chcesz udostępnić Foodee.
 
     ![Lista rozwijana zakresu aprowizacji](common/provisioning-scope.png)
 

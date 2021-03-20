@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 2cfef9626983ed0fa120e11bbfebdc2a38d91096
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97506349"
 ---
 Aby użyć najnowszej wersji biblioteki klienta analiza tekstu v3, należy pobrać najnowszy pakiet oprogramowania z `Azure.AI.TextAnalytics` przestrzeni nazw. Sekcja **Konfigurowanie** w [artykule szybki start](../quickstarts/client-libraries-rest-api.md) zawiera listę poleceń, których można użyć dla preferowanego języka, z przykładowym kodem.

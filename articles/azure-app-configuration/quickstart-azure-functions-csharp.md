@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724246"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji Azure Functions przy użyciu konfiguracji aplikacji platformy Azure
@@ -50,7 +50,7 @@ Ten projekt będzie używać [iniekcji zależności w programie .net Azure Funct
    - [Microsoft.Extensions.Configwersja. AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) w wersji 4.1.0 lub nowszej
    - [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) w wersji 1.1.0 lub nowszej 
 
-2. Dodaj nowy plik *Startup.cs* z poniższym kodem. Definiuje klasę o nazwie `Startup` implementującej `FunctionsStartup` klasę abstrakcyjną. Atrybut Assembly służy do określania nazwy typu używanej podczas uruchamiania Azure Functions.
+2. Dodaj nowy plik, *Start. cs*, z poniższym kodem. Definiuje klasę o nazwie `Startup` implementującej `FunctionsStartup` klasę abstrakcyjną. Atrybut Assembly służy do określania nazwy typu używanej podczas uruchamiania Azure Functions.
 
     `ConfigureAppConfiguration`Metoda zostanie zastąpiona, a dostawca konfiguracji aplikacji platformy Azure jest dodawany jako dodatkowe źródło konfiguracji przez wywołanie `AddAzureAppConfiguration()` . `Configure`Ta metoda jest pusta, ponieważ nie trzeba rejestrować żadnych usług w tym momencie.
     
@@ -78,7 +78,7 @@ Ten projekt będzie używać [iniekcji zależności w programie .net Azure Funct
     }
     ```
 
-3. Otwórz *Function1.cs* i Dodaj następującą przestrzeń nazw.
+3. Otwórz *Function1. cs* i Dodaj następującą przestrzeń nazw.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

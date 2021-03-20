@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219976"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Opracowywanie języka U-SQL przy użyciu języków Python, R i C# dla Azure Data Lake Analytics w Visual Studio Code
@@ -56,7 +56,7 @@ Zarejestruj zestawy rozszerzeń języka Python i rozszerzenia R dla konta usług
         USING Outputters.Csv();
     ```
     
-3. Kliknij prawym przyciskiem myszy plik skryptu, a następnie wybierz pozycję **ADL: Generuj plik z kodem**w języku Python. 
+3. Kliknij prawym przyciskiem myszy plik skryptu, a następnie wybierz pozycję **ADL: Generuj plik z kodem** w języku Python. 
 4. Plik **xxx.usql.py** jest generowany w folderze roboczym. Napisz swój kod w pliku języka Python. Poniżej znajduje się przykładowy kod.
 
     ```Python
@@ -123,7 +123,7 @@ Zarejestruj zestawy rozszerzeń języka Python i rozszerzenia R dla konta usług
 5. Kliknij prawym przyciskiem myszy plik **USQL** , a następnie kliknij polecenie **Kompiluj skrypt** lub **Prześlij zadanie** , aby uruchomić zadanie.
 
 ## <a name="develop-c-file"></a>Opracowywanie pliku C#
-Plik związany z kodem to plik języka C# skojarzony z jednym skryptem U-SQL. Można zdefiniować skrypt dedykowany dla UDO, UDA, UDT i UDF w pliku związanym z kodem. UDO, UDA, UDT i UDF można używać bezpośrednio w skrypcie bez wcześniejszego rejestrowania zestawu. Plik związany z kodem jest umieszczany w tym samym folderze co plik skryptu U-SQL. Jeśli skrypt ma nazwę xxx. usql, kod źródłowy jest nazwany jako xxx.usql.cs. Jeśli ręcznie usuniesz plik związany z kodem, funkcja związana z kodem zostanie wyłączona dla skojarzonego skryptu U-SQL. Aby uzyskać więcej informacji na temat pisania kodu klienta dla skryptu U-SQL, zobacz [pisanie i używanie kodu niestandardowego w języku u-SQL: funkcje User-Defined]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Plik związany z kodem to plik języka C# skojarzony z jednym skryptem U-SQL. Można zdefiniować skrypt dedykowany dla UDO, UDA, UDT i UDF w pliku związanym z kodem. UDO, UDA, UDT i UDF można używać bezpośrednio w skrypcie bez wcześniejszego rejestrowania zestawu. Plik związany z kodem jest umieszczany w tym samym folderze co plik skryptu U-SQL. Jeśli skrypt ma nazwę xxx. usql, kod źródłowy jest nazwany jako xxx. usql. cs. Jeśli ręcznie usuniesz plik związany z kodem, funkcja związana z kodem zostanie wyłączona dla skojarzonego skryptu U-SQL. Aby uzyskać więcej informacji na temat pisania kodu klienta dla skryptu U-SQL, zobacz [pisanie i używanie kodu niestandardowego w języku u-SQL: funkcje User-Defined]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Kliknij **nowy plik** w obszarze roboczym.
 2. Napisz swój kod w pliku U-SQL. Poniżej znajduje się przykładowy kod.
@@ -156,7 +156,7 @@ Plik związany z kodem to plik języka C# skojarzony z jednym skryptem U-SQL. Mo
         USING Outputters.Tsv();
     ```
 3. Kliknij prawym przyciskiem myszy plik **USQL** , a następnie wybierz pozycję **ADL: Generuj kod CS związany z plikiem**. 
-4. Plik **xxx.usql.cs** jest generowany w folderze roboczym. Napisz swój kod w pliku CS. Poniżej znajduje się przykładowy kod.
+4. Plik **xxx. usql. cs** jest generowany w folderze roboczym. Napisz swój kod w pliku CS. Poniżej znajduje się przykładowy kod.
 
     ```CS
     namespace USQLApplication_codebehind

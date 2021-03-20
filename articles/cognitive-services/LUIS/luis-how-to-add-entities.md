@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540969"
 ---
 # <a name="add-entities-to-extract-data"></a>Dodawanie jednostek do wyodrębniania danych
@@ -75,7 +75,7 @@ Ten proces działa w przypadku obiektów, które są obsługiwane przez maszynę
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający tworzenie jednostki uzyskanej na maszynie.](media/add-entities/machine-learned-entity-with-structure.png)
 
-1. W obszarze **Dodawanie podjednostek**Dodaj podjednostkę, wybierając ją **+** w wierszu jednostki nadrzędnej.
+1. W obszarze **Dodawanie podjednostek** Dodaj podjednostkę, wybierając ją **+** w wierszu jednostki nadrzędnej.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający Dodawanie podjednostek.](media/add-entities/machine-learned-entity-with-subentities.png)

@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218429"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Manage Azure Data Lake Analytics using the Azure portal (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal)
@@ -69,7 +69,7 @@ Za pomocą Eksplorator danych można przeglądać źródła danych i wykonywać 
 
 Możesz użyć Data Lake Analytics, aby zapewnić dalsze blokowanie dostępu do konta Data Lake Analytics na poziomie sieci. Możesz włączyć zaporę, określić adres IP lub zdefiniować zakres adresów IP dla zaufanych klientów. Po włączeniu tych miar tylko klienci, którzy mają adresy IP w określonym zakresie, mogą łączyć się ze sklepem.
 
-Jeśli inne usługi platformy Azure, takie jak Azure Data Factory lub maszyny wirtualne, łączą się z kontem Data Lake Analytics, upewnij się, że **On**włączono opcję Zezwalaj na korzystanie z **usług platformy Azure** . 
+Jeśli inne usługi platformy Azure, takie jak Azure Data Factory lub maszyny wirtualne, łączą się z kontem Data Lake Analytics, upewnij się, że włączono opcję Zezwalaj na korzystanie z **usług platformy Azure** . 
 
 ### <a name="set-up-a-firewall-rule"></a>Konfigurowanie reguły zapory
 
@@ -81,7 +81,7 @@ Jeśli inne usługi platformy Azure, takie jak Azure Data Factory lub maszyny wi
 Za pomocą **Kreatora dodawania użytkownika** można łatwo inicjować obsługę nowych użytkowników Data Lake.
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
-2. Po lewej stronie w obszarze **wprowadzenie**kliknij pozycję **Kreator dodawania użytkownika**.
+2. Po lewej stronie w obszarze **wprowadzenie** kliknij pozycję **Kreator dodawania użytkownika**.
 3. Wybierz użytkownika, a następnie kliknij przycisk **Wybierz**.
 4. Wybierz rolę, a następnie kliknij przycisk **Wybierz**. Aby skonfigurować nowego dewelopera do korzystania z Azure Data Lake, wybierz **Data Lake Analytics rolę dewelopera** .
 5. Wybierz listy kontroli dostępu (ACL) dla baz danych U-SQL. Po spełnieniu wybranych opcji kliknij pozycję **Wybierz**.
@@ -137,7 +137,7 @@ Użyj roli deweloper Data Lake Analytics, aby umożliwić deweloperom U-SQL korz
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **Wyświetl wszystkie zadania**. Zostanie wyświetlona lista wszystkich aktywnych i ostatnio zakończonych zadań w ramach konta.
-3. Opcjonalnie kliknij przycisk **Filtruj** , aby pomóc znaleźć zadania według **zakresu czasu**, **nazwy zadania**i wartości **autora** . 
+3. Opcjonalnie kliknij przycisk **Filtruj** , aby pomóc znaleźć zadania według **zakresu czasu**, **nazwy zadania** i wartości **autora** . 
 
 ### <a name="monitoring-pipeline-jobs"></a>Monitorowanie zadań potoku
 Zadania, które są częścią potoku, działają razem, zwykle sekwencyjnie, w celu wykonania konkretnego scenariusza. Można na przykład utworzyć potok, który czyści, wyodrębnia, przekształca, agreguje użycie dla szczegółowych informacji o klientach. Zadania potoku są identyfikowane przy użyciu właściwości "potok", gdy zadanie zostało przesłane. Dla zadań zaplanowanych za pomocą usługi ADF w wersji 2 automatycznie zostanie wypełniona ta właściwość. 

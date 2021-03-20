@@ -13,19 +13,19 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840196"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w Azure Active Directory B2C
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w usłudze Azure Active Directory B2C
 
-Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami dla aplikacji, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie **przepływy użytkownika**. Przepływ użytkownika umożliwia określenie sposobu, w jaki użytkownicy korzystają z aplikacji, gdy wykonują takie czynności jak logowanie, tworzenie konta, edytowanie profilu lub Resetowanie hasła. W przypadku przepływów użytkowników można kontrolować następujące możliwości:
+Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami dla aplikacji, portal usługi Azure AD B2C zawiera wstępnie zdefiniowane, konfigurowalne zasady nazywane **przepływami użytkownika**. Przepływ użytkownika umożliwia określenie sposobu, w jaki użytkownicy korzystają z aplikacji, gdy wykonują takie czynności jak logowanie, tworzenie konta, edytowanie profilu lub Resetowanie hasła. W przypadku przepływów użytkowników można kontrolować następujące możliwości:
 
 - Typy kont używane do logowania, takie jak konta społecznościowe, takie jak konta w serwisie Facebook lub konto lokalne
 - Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy i rozmiar butów
-- Multi-Factor Authentication usługi Azure AD
+- Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
 - Dostosowanie interfejsu użytkownika
 - Informacje odbierane przez aplikację jako oświadczenia w tokenie
 
@@ -68,7 +68,7 @@ Azure AD B2C obejmuje kilka typów przepływów użytkownika:
 Większość typów przepływów użytkownika ma zarówno **zalecaną** wersję, jak i wersję **standardową** . Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkownika](user-flow-versions.md).
 
 > [!IMPORTANT]
-> Jeśli pracujesz z przepływami użytkowników w Azure AD B2C wcześniej, zobaczysz, że został zmieniony sposób odniesienia do wersji przepływu użytkownika. Wcześniej oferujemy wersje V1 (produkcyjne gotowe) i wersje 1.1 i v2 (wersja zapoznawcza). Teraz zostały skonsolidowane przepływy użytkowników w dwie wersje:
+> Jeśli pracujesz z przepływami użytkowników w Azure AD B2C wcześniej, zobaczysz, że został zmieniony sposób odniesienia do wersji przepływu użytkownika. Wcześniej oferowaliśmy wersje V1 (gotowe do zastosowań produkcyjnych) oraz wersje V1.1 i V2 (wersje zapoznawcze). Teraz zostały skonsolidowane przepływy użytkowników w dwie wersje:
 >
 >- **Zalecane** przepływy użytkowników to nowe wersje zapoznawcze przepływów użytkowników. Są one dokładnie przetestowane i łączą wszystkie funkcje starszych wersji **v2** i **1.1** . W przód nowe zalecane przepływy użytkowników zostaną utrzymane i zaktualizowane. Po przejściu do tych nowych zalecanych przepływów użytkowników będziesz mieć dostęp do nowych funkcji po ich udostępnieniu.
 >- **Standardowe** przepływy użytkowników, znane wcześniej jako **V1**, są ogólnie dostępne, gotowe do użycia w środowisku produkcyjnym. Jeśli przepływ użytkownika jest krytyczny i zależy od wysoce stabilnych wersji, można nadal używać standardowych przepływów użytkowników, w przypadku których te wersje nie będą przechowywane i aktualizowane.
