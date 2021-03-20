@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613751"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Zainstaluj agenta aprowizacji Azure AD Connect
@@ -60,7 +60,7 @@ Aby zainstalować agenta, wykonaj następujące kroki.
  12. Na ekranie **połącz Active Directory** wybierz pozycję **Dodaj katalog**. Następnie zaloguj się przy użyciu konta administratora Active Directory. Ta operacja umożliwia dodanie katalogu lokalnego. 
  13. Opcjonalnie można zarządzać preferencjami kontrolerów domeny, które będą używane przez agenta, wybierając **pozycję Wybierz priorytet kontrolera domeny** i porządkując listę kontrolerów domeny.   Kliknij przycisk **OK**.
   ![Zamawianie kontrolerów domeny](media/how-to-install/install-2a.png)</br>
- 14. Wybierz pozycję **Dalej**.
+ 14. Wybierz opcję **Dalej**.
   ![Ekran Active Directory łączenia](media/how-to-install/install-3a.png)</br>
  15.  Na ekranie **Instalacja agenta** Potwierdź ustawienia i konto, które zostanie utworzone, a następnie kliknij przycisk **Potwierdź**.
   ![Potwierdź ustawienia](media/how-to-install/install-11.png)</br>
@@ -74,7 +74,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki.
 
- 1. Zaloguj się do witryny Azure Portal.
+ 1. Zaloguj się w witrynie Azure Portal.
  2. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj synchronizacją chmury**.
 
    ![Azure Portal](media/how-to-install/install-6.png)</br>

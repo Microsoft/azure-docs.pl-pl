@@ -8,10 +8,10 @@ ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91329464"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Samouczek: rozszerzanie serwerów plików systemu Windows przy użyciu usługi Azure File Sync
@@ -79,7 +79,7 @@ Na tym etapie utworzono konto magazynu i udział plików zawierający jeden plik
 
 1. Przejdź do witryny Azure Portal i rozwiń menu po lewej stronie. W lewym górnym rogu wybierz pozycję **Utwórz zasób**.
 1. W polu wyszukiwania nad listą zasobów **Azure Marketplace** wpisz nazwę **Windows Server 2016 Datacenter** i wybierz ją w wynikach. Wybierz pozycję **Utwórz**.
-1. Przejdź do karty **podstawowe informacje** . W obszarze **szczegóły projektu**wybierz grupę zasobów utworzoną dla tego samouczka.
+1. Przejdź do karty **podstawowe informacje** . W obszarze **szczegóły projektu** wybierz grupę zasobów utworzoną dla tego samouczka.
 
    ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
@@ -102,7 +102,7 @@ Na tym etapie utworzono konto magazynu i udział plików zawierający jeden plik
       ![Szczegóły dysku z danymi](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
    1. Wybierz przycisk **OK**.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
    Możesz wybrać ikonę **Powiadomienia**, aby sprawdzić **postęp wdrażania**. Utworzenie nowej maszyny wirtualnej może zająć kilka minut.
@@ -159,7 +159,7 @@ Teraz można dodać dysk z danymi do maszyny wirtualnej.
 1. Kliknij prawym przyciskiem myszy dysk o pojemności 1 GB o nazwie **Msft Virtual Disk** i wybierz pozycję **Nowy wolumin**.
 1. Wykonaj kroki kreatora. Użyj ustawień domyślnych i zapisz przypisaną literę dysku.
 1. Wybierz przycisk **Utwórz**.
-1. Wybierz pozycję **Close** (Zamknij).
+1. Wybierz pozycję **Zamknij**.
 
    Na tym etapie przeniesiono dysk do trybu online i utworzono wolumin. Otwórz Eksploratora plików na maszynie wirtualnej z systemem Windows Server, aby potwierdzić obecność dodanego przed chwilą dysku z danymi.
 
@@ -238,7 +238,7 @@ Agent usługi Azure File Sync to możliwy do pobrania pakiet, który umożliwia 
 
    ![Wybieranie agenta](media/storage-sync-files-extend-servers/select-agent.png)
 
-1. Zaznacz opcję **Zezwalaj, gdy**  >  **uruchomisz**polecenie  >  **Otwórz**.
+1. Zaznacz opcję **Zezwalaj, gdy**  >  **uruchomisz** polecenie  >  **Otwórz**.
 1. Jeśli okno programu PowerShell nie zostało jeszcze zamknięte, wykonaj tę czynność.
 1. Zaakceptuj wartości domyślne w **Kreatorze instalacji agenta synchronizacji magazynu**.
 1. Wybierz pozycję **Zainstaluj**.

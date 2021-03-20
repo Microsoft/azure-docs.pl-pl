@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142467"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planowanie i emitowanie zadań (.NET)
@@ -72,19 +72,19 @@ W tej sekcji utworzysz aplikację konsolową .NET, która reaguje na metodę bez
 
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacja konsoli (.NET Framework)** . Wybierz przycisk **Dalej**, aby kontynuować.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateDeviceMethods*, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** Nazwij projekt *SimulateDeviceMethods*, a następnie wybierz pozycję **Utwórz**.
 
     ![Konfigurowanie projektu SimulateDeviceMethods](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **SimulateDeviceMethods** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 
-1. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj** i Wyszukaj, a następnie wybierz pozycję **Microsoft. Azure. Devices. Client**. Wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj** i Wyszukaj, a następnie wybierz pozycję **Microsoft. Azure. Devices. Client**. Wybierz pozycję **Zainstaluj**.
 
     ![Aplikacja kliencka Menedżera pakietów NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
     Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK urządzenia usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) oraz jego zależności.
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -167,19 +167,19 @@ W tej sekcji utworzysz aplikację konsolową .NET, która reaguje na metodę bez
 
 W tej sekcji utworzysz aplikację konsolową .NET (przy użyciu języka C#), która używa zadań do wywołania metody **LockDoor** Direct i wysyłania wymaganych aktualizacji właściwości na wiele urządzeń.
 
-1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *ScheduleJob*. W obszarze **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** Nadaj projektowi nazwę *ScheduleJob*. W obszarze **rozwiązanie** wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
 
     ![Nazwa i konfiguracja projektu ScheduleJob](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **ScheduleJob** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 
-1. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj**, Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**, a następnie wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**, Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**, a następnie wybierz pozycję **Zainstaluj**.
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) oraz jego zależności.
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
     ```csharp
     using Microsoft.Azure.Devices;

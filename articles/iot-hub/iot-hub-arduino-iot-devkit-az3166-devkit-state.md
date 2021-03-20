@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148776"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -51,7 +51,7 @@ Tego przykładu można użyć do monitorowania informacji zestawu deweloperskieg
    > [!NOTE]
    > Jeśli masz już bezpłatną IoT Hub, możesz pominąć ten krok.
 
-5. Po wyświetleniu monitu z komunikatem *co chcesz wybrać Centrum IoT*wybierz lub Utwórz IoT Hub.
+5. Po wyświetleniu monitu z komunikatem *co chcesz wybrać Centrum IoT* wybierz lub Utwórz IoT Hub.
 
 6. Jest wyświetlana coś podobnego do *aplikacji funkcji: Nazwa aplikacji funkcji: xxx*. Zanotuj nazwę aplikacji funkcji; zostanie ona użyta w późniejszym kroku.
 

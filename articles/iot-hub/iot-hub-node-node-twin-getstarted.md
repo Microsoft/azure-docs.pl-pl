@@ -10,10 +10,10 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336789"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Rozpoczynanie pracy z usługą Device bliźniaczych reprezentacji (Node.js)
@@ -24,7 +24,7 @@ Na końcu tego samouczka będziesz mieć dwie Node.js aplikacje konsolowe:
 
 * **AddTagsAndQuery.js**, Node.js aplikacji zaplecza, która dodaje Tagi i kwerendy bliźniaczych reprezentacji urządzeń.
 
-* **TwinSimulatedDevice.js**aplikacja Node.js, która symuluje urządzenie, które nawiązuje połączenie z Centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia i zgłasza warunek łączności.
+* **TwinSimulatedDevice.js** aplikacja Node.js, która symuluje urządzenie, które nawiązuje połączenie z Centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia i zgłasza warunek łączności.
 
 > [!NOTE]
 > Artykuł [Azure IoT SDK](iot-hub-devguide-sdks.md) zawiera informacje na temat zestawów SDK usługi Azure IoT, których można użyć do tworzenia aplikacji zarówno dla urządzeń, jak i zaplecza.
@@ -40,7 +40,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -159,7 +159,7 @@ W tej sekcji utworzysz aplikację konsolową Node.js, która łączy się z cent
     npm init --yes
     ```
 
-2. W wierszu polecenia w folderze **reportconnectivity** Uruchom następujące polecenie, aby zainstalować pakiety **Azure-IoT-Device**i **Azure-IoT-Device-MQTT** :
+2. W wierszu polecenia w folderze **reportconnectivity** Uruchom następujące polecenie, aby zainstalować pakiety **Azure-IoT-Device** i **Azure-IoT-Device-MQTT** :
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save

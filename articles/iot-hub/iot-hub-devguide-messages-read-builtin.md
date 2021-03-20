@@ -12,15 +12,15 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147677"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
 
-Domyślnie komunikaty są kierowane do wbudowanego punktu końcowego opartego na usłudze (**komunikaty/zdarzenia**), który jest zgodny z [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Ten punkt końcowy jest obecnie ujawniany tylko przy użyciu protokołu [AMQP](https://www.amqp.org/) na porcie 5671. Centrum IoT udostępnia następujące właściwości, które umożliwiają kontrolowanie wbudowanych **komunikatów i zdarzeń**punktu końcowego komunikacji zgodnego z centrum zdarzeń.
+Domyślnie komunikaty są kierowane do wbudowanego punktu końcowego opartego na usłudze (**komunikaty/zdarzenia**), który jest zgodny z [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Ten punkt końcowy jest obecnie ujawniany tylko przy użyciu protokołu [AMQP](https://www.amqp.org/) na porcie 5671. Centrum IoT udostępnia następujące właściwości, które umożliwiają kontrolowanie wbudowanych **komunikatów i zdarzeń** punktu końcowego komunikacji zgodnego z centrum zdarzeń.
 
 | Właściwość            | Opis |
 | ------------------- | ----------- |
@@ -47,7 +47,7 @@ W przypadku korzystania z Event Hubs zestawów SDK lub integracji produktów, kt
 
 2. Kliknij pozycję **wbudowane punkty końcowe**.
 
-3. Sekcja **Events** zawiera następujące wartości: **partycje**, **nazwa zgodna z centrum**zdarzeń, **punkt końcowy zgodny z centrum zdarzeń**, **czas przechowywania**i **grupy konsumentów**.
+3. Sekcja **Events** zawiera następujące wartości: **partycje**, **nazwa zgodna z centrum** zdarzeń, **punkt końcowy zgodny z centrum zdarzeń**, **czas przechowywania** i **grupy konsumentów**.
 
     ![Ustawienia urządzenia do chmury](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 

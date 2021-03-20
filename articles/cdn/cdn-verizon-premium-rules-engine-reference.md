@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91362584"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN z referencyjnego aparatu reguł Verizon Premium
@@ -99,7 +99,7 @@ Znak | Opis
 % | Symbol procentu jest używany do wskazania kodowania adresów URL (na przykład `%20` ).
 \* | Gwiazdka jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków.
 Miejsce | Znak spacji wskazuje, że warunek dopasowania może być spełniony przez jedną z określonych wartości lub wzorców.
-wartościami | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw pojedynczych cudzysłowów służy do wskazywania, że wartość powinna być traktowana jako wartość literału. Może być używana w następujący sposób:<br><br/>-Pozwala na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <br/><br/>/Business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template. **ma**p<br /><br />— Umożliwia określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie pojedynczych cudzysłowów (czyli `' '` lub `'sample value'` ).<br/>-Umożliwia określenie wartości pustej. Określ wartość pustą, określając zestaw pojedynczych cudzysłowów (czyli "").<br /><br/>**Ważne:**<br/>— Jeśli określona wartość nie zawiera symbolu wieloznacznego, zostanie automatycznie uznana za wartość literału, co oznacza, że nie jest konieczne określenie zestawu pojedynczych cudzysłowów.<br/>-Jeśli ukośnik odwrotny nie powoduje ucieczki innego znaku w tej tabeli, jest on ignorowany, gdy jest określony w ramach zestawu pojedynczych cudzysłowów.<br/>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego (czyli, `\` ).
+wartościami | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw pojedynczych cudzysłowów służy do wskazywania, że wartość powinna być traktowana jako wartość literału. Może być używana w następujący sposób:<br><br/>-Pozwala na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <br/><br/>/Business/**ma** rathon/asset.htm<br/>**ma** p.gif<br/>/business/template. **ma** p<br /><br />— Umożliwia określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie pojedynczych cudzysłowów (czyli `' '` lub `'sample value'` ).<br/>-Umożliwia określenie wartości pustej. Określ wartość pustą, określając zestaw pojedynczych cudzysłowów (czyli "").<br /><br/>**Ważne:**<br/>— Jeśli określona wartość nie zawiera symbolu wieloznacznego, zostanie automatycznie uznana za wartość literału, co oznacza, że nie jest konieczne określenie zestawu pojedynczych cudzysłowów.<br/>-Jeśli ukośnik odwrotny nie powoduje ucieczki innego znaku w tej tabeli, jest on ignorowany, gdy jest określony w ramach zestawu pojedynczych cudzysłowów.<br/>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego (czyli, `\` ).
 
 ### <a name="regular-expressions"></a>Wyrażenia regularne
 
@@ -119,7 +119,7 @@ Dopasuj warunki i funkcje, które obsługują wyrażenia regularne akceptują wz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Zastępowanie zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2f393701b97be76acab49a627a195b337018fa29
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144424"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu API REST dostawcy zasobów (.NET)
@@ -44,7 +44,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 4. W Menedżerze pakietów NuGet Wyszukaj ciąg **Microsoft. IdentityModel. clients. ActiveDirectory**.  Kliknij przycisk **Instaluj**, w obszarze **Przegląd zmian** kliknij przycisk **OK**, a następnie kliknij przycisk **Akceptuję** , aby zaakceptować licencję.
 
-5. W Program.cs Zastąp istniejące instrukcje **using** następującym kodem:
+5. W programie program. cs Zastąp istniejące instrukcje **using** następującym kodem:
 
     ```csharp
     using System;
@@ -60,7 +60,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
     using System.Threading;
     ```
 
-6. W Program.cs Dodaj następujące zmienne statyczne, zastępując wartości symboli zastępczych. W tym samouczku zawarto uwagi na temat identyfikatora **aplikacji**, identyfikatora **subskrypcji**, **TenantId**i **hasła** . **Nazwa grupy zasobów** to nazwa grupy zasobów, która jest używana podczas tworzenia Centrum IoT Hub. Można użyć istniejącej lub nowej grupy zasobów. **Nazwa IoT Hub** to nazwa tworzonego IoT Hub, na przykład **MyIoTHub**. Nazwa Centrum IoT musi być globalnie unikatowa. **Nazwa wdrożenia** to nazwa wdrożenia, taka jak **Deployment_01**.
+6. W programie program. cs Dodaj następujące zmienne statyczne, zastępując wartości symboli zastępczych. W tym samouczku zawarto uwagi na temat identyfikatora **aplikacji**, identyfikatora **subskrypcji**, **TenantId** i **hasła** . **Nazwa grupy zasobów** to nazwa grupy zasobów, która jest używana podczas tworzenia Centrum IoT Hub. Można użyć istniejącej lub nowej grupy zasobów. **Nazwa IoT Hub** to nazwa tworzonego IoT Hub, na przykład **MyIoTHub**. Nazwa Centrum IoT musi być globalnie unikatowa. **Nazwa wdrożenia** to nazwa wdrożenia, taka jak **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -80,7 +80,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 Użyj [interfejsu API REST dostawcy zasobów IoT Hub](/rest/api/iothub/iothubresource) , aby utworzyć Centrum IoT w grupie zasobów. Możesz również użyć interfejsu API REST dostawcy zasobów, aby wprowadzić zmiany w istniejącym Centrum IoT.
 
-1. Dodaj następującą metodę do Program.cs:
+1. Dodaj następującą metodę do programu program. cs:
 
     ```csharp
     static void CreateIoTHub(string token)

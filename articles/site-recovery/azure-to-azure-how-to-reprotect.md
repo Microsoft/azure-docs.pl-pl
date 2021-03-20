@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360875"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Ponowne włączanie ochrony maszyn wirtualnych platformy Azure w regionie podstawowym po przełączeniu w tryb failover
@@ -29,7 +29,7 @@ Po przełączeniu maszyn wirtualnych platformy Azure w [tryb failover](site-reco
 
 ## <a name="reprotect-a-vm"></a>Ponowne włączanie ochrony maszyny wirtualnej
 
-1. W **Vault**obszarze  >  **zreplikowane elementy**magazynu kliknij prawym przyciskiem myszy maszynę wirtualną w trybie failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Kierunek ochrony powinien być pokazywany z poziomu pomocniczego do podstawowego.
+1. W obszarze  >  **zreplikowane elementy** magazynu kliknij prawym przyciskiem myszy maszynę wirtualną w trybie failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Kierunek ochrony powinien być pokazywany z poziomu pomocniczego do podstawowego.
 
    ![Zrzut ekranu przedstawia maszynę wirtualną z menu kontekstowym z wybranym ponownie ochroną.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -46,7 +46,7 @@ Podczas ponownej ochrony można dostosować następujące właściwości docelow
 
 |Właściwość |Uwagi  |
 |---------|---------|
-|Docelowa Grupa zasobów | Zmodyfikuj docelową grupę zasobów, w której jest tworzona maszyna wirtualna. W ramach ochrony, docelowa maszyna wirtualna jest usuwana. Możesz wybrać nową grupę zasobów, w której ma zostać utworzona maszyna wirtualna po zakończeniu pracy w trybie failover. |
+|Docelowa grupa zasobów | Zmodyfikuj docelową grupę zasobów, w której jest tworzona maszyna wirtualna. W ramach ochrony, docelowa maszyna wirtualna jest usuwana. Możesz wybrać nową grupę zasobów, w której ma zostać utworzona maszyna wirtualna po zakończeniu pracy w trybie failover. |
 |Docelowa sieć wirtualna | Nie można zmienić sieci docelowej podczas zadania ponownego włączania ochrony. Aby zmienić sieć, wykonaj ponownie mapowanie sieci. |
 |Magazyn docelowy (pomocnicza maszyna wirtualna nie używa dysków zarządzanych) | Można zmienić konto magazynu używane przez maszynę wirtualną po zakończeniu pracy w trybie failover. |
 |Dyski zarządzane repliki (pomocnicza maszyna wirtualna korzysta z dysków zarządzanych) | Site Recovery tworzy dyski zarządzane repliki w regionie podstawowym w celu dublowania dysków zarządzanych pomocniczej maszyny wirtualnej. |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 19d762a55127af34e84185b11518aa6584acb5bd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012414"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics wyjściowe zasady błędów
@@ -22,7 +22,7 @@ Zasady obsługi błędów danych wyjściowych mają zastosowanie tylko do błęd
 ![Lokalizacja zasad błędów danych wyjściowych Azure Stream Analytics](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
-## <a name="retry"></a>Ponawianie próby
+## <a name="retry"></a>Ponów próbę
 Gdy wystąpi błąd, Azure Stream Analytics ponawianie próby zapisania zdarzenia przez czas, dopóki zapis nie powiedzie się. Nie ma limitu czasu dla ponownych prób. Ostatecznie wszystkie kolejne zdarzenia są blokowane przed przetwarzaniem przez zdarzenie, które jest ponawiane. Ta opcja jest domyślną zasadą obsługi błędów wyjścia.
 
 ## <a name="drop"></a>Listy rozwijanej

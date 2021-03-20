@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151657"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować usługę Azure IoT Hub do innego regionu
@@ -107,7 +107,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące migracji centrum.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Znajdź oryginalny centrum i wyeksportuj go do szablonu zasobu.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
 
 1. Przejdź do pozycji **grupy zasobów** i wybierz grupę zasobów zawierającą centrum, które chcesz przenieść. Możesz również przejść do **zasobów** i znaleźć centrum. Wybierz centrum.
 
@@ -347,13 +347,13 @@ Teraz masz szablon, który spowoduje utworzenie nowego centrum, które będzie w
 
 Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. W przypadku zasobów routingu, które mają zostać przeniesione, zasoby powinny zostać skonfigurowane w nowej lokalizacji, a odwołania w szablonie zaktualizowane do dopasowania. Jeśli nie przenosisz zasobów routingu, powinny one znajdować się w szablonie z zaktualizowanymi kluczami.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **Utwórz zasób**. 
 
 1. W polu wyszukiwania wprowadź ciąg "wdrożenie szablonu" i wybierz polecenie wprowadź.
 
-1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz pozycję **Utwórz**. Zostanie wyświetlony następujący ekran:
+1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz przycisk **Utwórz**. Zostanie wyświetlony następujący ekran:
 
    ![Zrzut ekranu przedstawiający polecenie tworzenia własnego szablonu](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -526,7 +526,7 @@ Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, co to są ar
     
 1. Kliknij prawym przyciskiem myszy projekt *ImportExportDevicesSample* i wybierz pozycję **Ustaw jako projekt startowy**.    
     
-1. Ustaw zmienne w górnej części elementu Program.cs w folderze ImportExportDevicesSample, aby wyświetlić pięć opcji.
+1. Ustaw zmienne w górnej części programu program. cs w folderze ImportExportDevicesSample, aby wyświetlić pięć opcji.
 
    ``` csharp
    // Add randomly created devices to the source hub.

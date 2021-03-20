@@ -13,15 +13,15 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147799"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Opis i wywoływanie metod bezpośrednich z usługi IoT Hub
 
-IoT Hub umożliwia wywoływanie metod bezpośrednich na urządzeniach z chmury. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Takie podejście jest przydatne w scenariuszach, w których kurs natychmiastowego działania różni się w zależności od tego, czy urządzenie mogło reagować.
+IoT Hub umożliwia wywoływanie metod bezpośrednich na urządzeniach z chmury. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Ta metoda przydaje się w scenariuszach, gdzie procedura natychmiastowego działania różni się w zależności od tego, czy urządzenie było w stanie odpowiedzieć.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

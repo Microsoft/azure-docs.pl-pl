@@ -4,10 +4,10 @@ description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywr�
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378325"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Tworzenie kopii zapasowej farmy programu SharePoint na Azure Stack
@@ -20,7 +20,7 @@ Azure Backup for serwera usługi MAB obsługuje następujące scenariusze:
 
 | Obciążenie | Wersja | Wdrożenie programu SharePoint | Ochrona i odzyskiwanie |
 | --- | --- | --- | --- |
-| Sharepoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Program SharePoint wdrożony jako Azure Stacką maszynę wirtualną <br> -------------- <br> Program SQL AlwaysOn | Ochrona farmy programu SharePoint opcje odzyskiwania: Farma odzyskiwania, baza danych i plik lub element listy z punktów odzyskiwania dysku.  Odzyskiwanie farmy i bazy danych z punktów odzyskiwania platformy Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Program SharePoint wdrożony jako Azure Stacką maszynę wirtualną <br> -------------- <br> Program SQL AlwaysOn | Ochrona farmy programu SharePoint opcje odzyskiwania: Farma odzyskiwania, baza danych i plik lub element listy z punktów odzyskiwania dysku.  Odzyskiwanie farmy i bazy danych z punktów odzyskiwania platformy Azure. |
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -42,7 +42,7 @@ Dodatkowe wymagania wstępne i ograniczenia:
 
 * Nie można włączyć ochrony baz danych programu SharePoint jako źródła danych programu SQL Server. Z kopii zapasowej farmy można odzyskiwać pojedyncze bazy danych.
 
-* Należy pamiętać, że serwera usługi MAB jest uruchamiany jako **System lokalny**i aby utworzyć kopię zapasową baz danych SQL Server, potrzebne są uprawnienia sysadmin dla tego konta dla programu SQL Server. Na SQL Server chcesz utworzyć kopię zapasową, ustaw NT NT\SYSTEM na **sysadmin**.
+* Należy pamiętać, że serwera usługi MAB jest uruchamiany jako **System lokalny** i aby utworzyć kopię zapasową baz danych SQL Server, potrzebne są uprawnienia sysadmin dla tego konta dla programu SQL Server. Na SQL Server chcesz utworzyć kopię zapasową, ustaw NT NT\SYSTEM na **sysadmin**.
 
 * Dla każdego 10 000 000 elementów w farmie musi znajdować się co najmniej 2 GB miejsca na woluminie, na którym znajduje się folder serwera usługi MAB. Miejsce to jest wymagane na potrzeby generowania wykazów. Aby umożliwić użycie serwera usługi MAB do wykonania określonego odzyskania elementów (zbiory witryn, witryny, listy, biblioteki dokumentów, foldery, pojedyncze dokumenty i elementy listy), generacja wykazu tworzy listę adresów URL zawartych w każdej bazie danych zawartości. Listę adresów URL można wyświetlić w okienku element możliwy do odzyskania w obszarze zadań odzyskiwanie w konsola administratora serwera usługi MAB.
 
@@ -76,35 +76,35 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
         Po uruchomieniu ConfigureSharePoint.exe należy uruchomić go ponownie w przypadku zmiany poświadczeń administratora farmy programu SharePoint.
 
-1. Aby utworzyć grupę ochrony, wybierz pozycję **Protection**  >  **Akcje**ochrony  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** w konsoli serwera usługi MAB.
+1. Aby utworzyć grupę ochrony, wybierz pozycję   >  **Akcje** ochrony  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** w konsoli serwera usługi MAB.
 
 1. W obszarze **Wybierz typ grupy ochrony** wybierz pozycję **Serwery**.
 
-1. W obszarze **Wybierz członków grupy**rozwiń serwer, który zawiera rolę WFE. Jeśli istnieje więcej niż jeden serwer WFE, wybierz ten, na którym zainstalowano ConfigureSharePoint.exe.
+1. W obszarze **Wybierz członków grupy** rozwiń serwer, który zawiera rolę WFE. Jeśli istnieje więcej niż jeden serwer WFE, wybierz ten, na którym zainstalowano ConfigureSharePoint.exe.
 
     Po rozszerzeniu programu SharePoint Server serwera usługi MAB zapytania usługi VSS, aby zobaczyć, jakie dane mogą być chronione przez serwera usługi MAB.  Jeśli baza danych programu SharePoint jest zdalna, serwera usługi MAB łączy się z nią. Jeśli źródła danych programu SharePoint nie są wyświetlane, sprawdź, czy składnik zapisywania usługi VSS jest uruchomiony na serwerze programu SharePoint i wszystkich SQL Server zdalnych, a następnie upewnij się, że agent serwera usługi MAB jest zainstalowany na serwerze programu SharePoint i SQL Server zdalnym. Ponadto upewnij się, że bazy danych programu SharePoint nie są chronione w innym miejscu jako SQL Server bazy danych.
 
-1. W obszarze **Wybierz metodę ochrony danych**Określ, jak mają być obsługiwane krótkoterminowe i długoterminowe \- kopie zapasowe. Krótkoterminowe \- Tworzenie kopii zapasowych zawsze odbywa się na dysku, z opcją tworzenia kopii zapasowych na dysku w chmurze platformy Azure z Azure Backupm \( krótkim lub długim \- okresem \) .
+1. W obszarze **Wybierz metodę ochrony danych** Określ, jak mają być obsługiwane krótkoterminowe i długoterminowe \- kopie zapasowe. Krótkoterminowe \- Tworzenie kopii zapasowych zawsze odbywa się na dysku, z opcją tworzenia kopii zapasowych na dysku w chmurze platformy Azure z Azure Backupm \( krótkim lub długim \- okresem \) .
 
-1. W obszarze **Wybierz \- cele krótkoterminowe**Określ sposób tworzenia kopii zapasowej do krótkoterminowego \- przechowywania na dysku.   W obszarze **Zakres przechowywania** Określ, jak długo chcesz przechowywać dane na dysku. W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz sprawdzić tuż przed punktem odzyskiwania, aby program serwera usługi MAB uruchomił ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
+1. W obszarze **Wybierz \- cele krótkoterminowe** Określ sposób tworzenia kopii zapasowej do krótkoterminowego \- przechowywania na dysku.   W obszarze **Zakres przechowywania** Określ, jak długo chcesz przechowywać dane na dysku. W obszarze **częstotliwość synchronizacji** Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz sprawdzić tuż przed punktem odzyskiwania, aby program serwera usługi MAB uruchomił ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
 
 1. Na stronie Przejrzyj przydział dysku Przejrzyj miejsce na dysku w puli magazynów przydzielone danej grupie ochrony.
 
     **Łączny rozmiar danych** to rozmiar danych, których kopia zapasowa ma zostać utworzona, oraz miejsce na dysku, które ma **zostać zainicjowane w systemie serwera usługi MAB** , to miejsce, które serwera usługi MAB zaleca dla grupy ochrony. SERWERA usługi MAB wybiera idealny wolumin kopii zapasowej na podstawie ustawień. Opcje wielkości kopii zapasowej można jednak edytować w obszarze **Szczegóły przydziału dysku**. W przypadku obciążeń wybierz z menu rozwijanego preferowany magazyn. Edycja zmienia wartości pozycji **Całkowita ilość miejsca dla magazynu** i **Wolne miejsce w magazynie** w okienku **Dostępny magazyn dyskowy**. Zajęte miejsce to ilość serwera usługi MAB magazynu sugerująca dodanie do woluminu, co pozwala na płynne wykonywanie kopii zapasowych w przyszłości.
 
-1. W obszarze **Wybierz metodę tworzenia repliki**wybierz, jak chcesz obsługiwać początkową pełną replikację danych.  W przypadku wybrania replikacji przez sieć zalecamy wybranie czasu poza godzinami szczytu. W przypadku dużych ilości danych lub nieoptymalnych warunków sieciowych należy wziąć pod uwagę replikację danych w trybie offline za pomocą nośników wymiennych.
+1. W obszarze **Wybierz metodę tworzenia repliki** wybierz, jak chcesz obsługiwać początkową pełną replikację danych.  W przypadku wybrania replikacji przez sieć zalecamy wybranie czasu poza godzinami szczytu. W przypadku dużych ilości danych lub nieoptymalnych warunków sieciowych należy wziąć pod uwagę replikację danych w trybie offline za pomocą nośników wymiennych.
 
 1. W polu **Wybierz opcje sprawdzania spójności** wybierz sposób automatyzacji sprawdzania spójności. Można włączyć uruchamianie sprawdzania tylko wtedy, gdy dane są niespójne, lub zgodnie z harmonogramem. Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, w dowolnym momencie możesz uruchomić sprawdzanie ręczne, klikając prawym przyciskiem myszy grupę ochrony w obszarze **Ochrona** w konsoli programu serwera usługi MAB, a następnie wybierając polecenie **Przeprowadź sprawdzanie spójności**.
 
 1. Jeśli wybrano opcję tworzenia kopii zapasowych w chmurze przy użyciu usługi Azure Backup, sprawdź, czy na stronie **Określanie danych chronionych w trybie online** zaznaczono obciążenia, dla których ma być tworzona kopia zapasowa na platformie Azure.
 
-1. W obszarze **Określ harmonogram kopii zapasowych online**Określ, jak często mają być wykonywane przyrostowe kopie zapasowe na platformie Azure. Wykonywanie kopii zapasowych można zaplanować na każdy dzień/tydzień/miesiąc/rok, natomiast godziny/daty pozwalają ustalić konkretny czas uruchomienia wykonywania kopii zapasowych. Kopie zapasowe mogą być tworzone maksymalnie dwa razy dziennie. Za każdym razem, gdy wykonywana jest kopia zapasowa, punkt odzyskiwania danych jest tworzony na platformie Azure na podstawie kopii kopii zapasowej danych przechowywanych na dysku serwera usługi MAB.
+1. W obszarze **Określ harmonogram kopii zapasowych online** Określ, jak często mają być wykonywane przyrostowe kopie zapasowe na platformie Azure. Wykonywanie kopii zapasowych można zaplanować na każdy dzień/tydzień/miesiąc/rok, natomiast godziny/daty pozwalają ustalić konkretny czas uruchomienia wykonywania kopii zapasowych. Kopie zapasowe mogą być tworzone maksymalnie dwa razy dziennie. Za każdym razem, gdy wykonywana jest kopia zapasowa, punkt odzyskiwania danych jest tworzony na platformie Azure na podstawie kopii kopii zapasowej danych przechowywanych na dysku serwera usługi MAB.
 
-1. W obszarze **Określ zasady przechowywania danych online**możesz określić sposób zachowywania punktów odzyskiwania tworzonych na podstawie kopii zapasowych na dzień/tydzień/miesiąc/rok.
+1. W obszarze **Określ zasady przechowywania danych online** możesz określić sposób zachowywania punktów odzyskiwania tworzonych na podstawie kopii zapasowych na dzień/tydzień/miesiąc/rok.
 
-1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
+1. W obszarze **Wybierz replikację online** Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
 
-1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
+1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę** następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
 
 ## <a name="monitoring"></a>Monitorowanie
 
@@ -116,19 +116,19 @@ Po utworzeniu grupy ochrony następuje Replikacja początkowa i serwera usługi 
 
 ### <a name="set-up-monitoring-notifications"></a>Konfigurowanie powiadomień dotyczących monitorowania
 
-1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji.
+1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >    >  **Opcje** akcji.
 
 2. Wybierz pozycję **serwer SMTP**, wpisz nazwę serwera, port i adres e-mail, z którego będą wysyłane powiadomienia. Adres musi być prawidłowy.
 
-3. W obszarze **uwierzytelniony serwer SMTP**wpisz nazwę użytkownika i hasło. Nazwa użytkownika i hasło muszą być nazwą konta domeny osoby, której adres "od" został opisany w poprzednim kroku. W przeciwnym razie dostarczanie powiadomień nie powiedzie się.
+3. W obszarze **uwierzytelniony serwer SMTP** wpisz nazwę użytkownika i hasło. Nazwa użytkownika i hasło muszą być nazwą konta domeny osoby, której adres "od" został opisany w poprzednim kroku. W przeciwnym razie dostarczanie powiadomień nie powiedzie się.
 
 4. Aby przetestować ustawienia serwera SMTP, wybierz pozycję **Wyślij testową wiadomość e-mail**, wpisz adres e-mail, na który chcesz wysłać wiadomość testową, a następnie wybierz przycisk **OK**. Wybierz pozycję **Opcje**  >  **powiadomienia** , a następnie wybierz typy alertów, o których odbiorcy chcą być powiadamiani. W polu **odbiorcy** wpisz adres e-mail każdego odbiorcy, do którego chcesz serwera usługi MAB wysyłać kopie powiadomień.
 
 ### <a name="publish-operations-manager-alerts"></a>Publikowanie alertów dotyczących programu Operations Manager
 
-1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji  >  **Publikowanie alertów**  >  **Publikuj aktywne alerty**
+1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >    >  **Opcje** akcji  >  **Publikowanie alertów**  >  **Publikuj aktywne alerty**
 
-2. Po włączeniu **publikowania alertów**wszystkie istniejące alerty serwera usługi MAB, które mogą wymagać akcji użytkownika, są publikowane w dzienniku zdarzeń **alertów serwera usługi MAB** . Agent Operations Manager zainstalowany na serwerze serwera usługi MAB następnie publikuje te alerty w Operations Manager i aktualizuje konsolę w miarę generowania nowych alertów.
+2. Po włączeniu **publikowania alertów** wszystkie istniejące alerty serwera usługi MAB, które mogą wymagać akcji użytkownika, są publikowane w dzienniku zdarzeń **alertów serwera usługi MAB** . Agent Operations Manager zainstalowany na serwerze serwera usługi MAB następnie publikuje te alerty w Operations Manager i aktualizuje konsolę w miarę generowania nowych alertów.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Przywracanie elementu programu SharePoint z dysku przy użyciu serwera usługi MAB
 
@@ -172,7 +172,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
     SERWERA usługi MAB dołącza bazę danych zawartości, która hostuje element programu SharePoint, do wystąpienia tymczasowego SQL Server. Z bazy danych zawartości odzyskuje element i umieszcza go w lokalizacji pliku przemieszczania w systemie serwera usługi MAB. Odzyskany element, który znajduje się w lokalizacji tymczasowej, musi zostać wyeksportowany do lokalizacji tymczasowej w farmie programu SharePoint.
 
     ![Location2 przemieszczania](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Wybierz opcję **Dalej**.
+10. Wybierz opcję **Określ opcje odzyskiwania** i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Wybierz opcję **Dalej**.
 
     ![Opcje odzyskiwania](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -211,7 +211,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
 
     ![SERWERA usługi MAB SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Close** (Zamknij).
+    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Zamknij**.
 
     ![SERWERA usługi MAB SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Wybierz obiekt programu SharePoint wyświetlany na karcie **odzyskiwanie** serwera usługi MAB, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj**.
@@ -236,7 +236,7 @@ Poniższa procedura używa przykładu farmy serwerów z dwoma serwerami frontonu
     stsadm -o unregisterwsswriter
     ```
 
-1. Na *serwerze Serwer1*Otwórz Edytor rejestru i przejdź do następującego klucza:
+1. Na *serwerze Serwer1* Otwórz Edytor rejestru i przejdź do następującego klucza:
 
    **HKLM\System\CCS\Services\VSS\VssAccessControl**
 
@@ -247,7 +247,7 @@ Poniższa procedura używa przykładu farmy serwerów z dwoma serwerami frontonu
    > [!WARNING]
    > Można przełączyć tylko serwery frontonu sieci Web, jeśli oba serwery znajdują się w tej samej domenie.
 
-1. Na serwerze *Serwer2*w wierszu polecenia Zmień katalog na `_MABS installation location_\bin\` i uruchom **ConfigureSharepoint**. Aby uzyskać więcej informacji na temat ConfigureSharePoint, zobacz [Konfigurowanie kopii zapasowej](#configure-backup).
+1. Na serwerze *Serwer2* w wierszu polecenia Zmień katalog na `_MABS installation location_\bin\` i uruchom **ConfigureSharepoint**. Aby uzyskać więcej informacji na temat ConfigureSharePoint, zobacz [Konfigurowanie kopii zapasowej](#configure-backup).
 
 1. Wybierz grupę ochrony, do której należy farma serwerów, a następnie wybierz pozycję **Modyfikuj grupę ochrony**.
 

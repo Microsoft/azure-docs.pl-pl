@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154767"
 ---
 # <a name="service-to-service-apps"></a>Aplikacje usługi Service to Service
@@ -59,7 +59,7 @@ W ramach przepływu omówionego poniżej przyjęto założenie, że użytkownik 
 
 Zapoznaj się z przykładami kodu dotyczącymi scenariuszy dla interfejsu API sieci Web lub aplikacji serwerowych: [serwer lub demon do interfejsu API sieci Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 * Pojedynczy dzierżawca — zarówno w przypadku tożsamości aplikacji, jak i delegowanych przypadków tożsamości użytkowników, Demon lub aplikacja serwera musi być zarejestrowana w tym samym katalogu w usłudze Azure AD. Internetowy interfejs API można skonfigurować tak, aby uwidaczniał zestaw uprawnień, który służy do ograniczania dostępu do zasobów przez demon lub serwer. Jeśli jest używany typ tożsamości delegowanego użytkownika, aplikacja serwera musi wybrać odpowiednie uprawnienia. Na stronie **uprawnienia interfejsu API** do rejestracji aplikacji po wybraniu opcji **Dodaj uprawnienie** i wybraniu rodziny interfejsów API wybierz pozycję **uprawnienia delegowane**, a następnie wybierz swoje uprawnienia. Ten krok nie jest wymagany, jeśli jest używany typ tożsamości aplikacji.
 * Dla wielu dzierżawców — aplikacja demona lub serwer jest skonfigurowana tak, aby wskazywała uprawnienia wymagane do działania. Ta lista wymaganych uprawnień jest wyświetlana w oknie dialogowym, gdy użytkownik lub administrator w katalogu docelowym wyrazi zgodę na aplikację, która staje się dostępna dla swojej organizacji. Niektóre aplikacje wymagają tylko uprawnień na poziomie użytkownika, do których można wyrazić zgodę. Inne aplikacje wymagają uprawnień na poziomie administratora, których użytkownik w organizacji nie może wyrazić zgody. Tylko administrator katalogu może wyrazić zgodę na aplikacje, które wymagają tego poziomu uprawnień. Gdy użytkownik lub administrator wyraził zgodę, oba interfejsy API sieci Web są rejestrowane w ich katalogu.

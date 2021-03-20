@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007413"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
@@ -495,7 +495,7 @@ W tej sekcji wygenerujemy nowe etykiety i funkcje bezpośrednio przy użyciu zap
 #### <a name="label-generation-generate-class-labels"></a>Generowanie etykiety: generowanie etykiet klas
 W poniższym przykładzie Wygenerowano dwa zestawy etykiet do użycia podczas modelowania:
 
-1. Przerzucane **tipped** etykiety klas binarnych (przewidywanie, jeśli zostanie podaną wskazówką)
+1. Przerzucane  etykiety klas binarnych (przewidywanie, jeśli zostanie podaną wskazówką)
 2. **\_ Klasa** etykiet dla wielu klas (przewidywanie pojemnika lub zakresu końcówki)
 
 ```sql   

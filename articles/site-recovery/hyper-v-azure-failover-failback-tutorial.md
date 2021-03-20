@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132454"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Przełączanie maszyn wirtualnych funkcji Hyper-V do trybu failover na platformie Azure
@@ -29,7 +29,7 @@ Jest to piąty samouczek z tej serii. Założono w nim, że zostały już wykona
 1. [Przygotowywanie platformy Azure](tutorial-prepare-azure.md)
 2. [Przygotowywanie lokalnej funkcji Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 3. Konfigurowanie odzyskiwania po awarii dla [maszyn wirtualnych funkcji Hyper-V](./hyper-v-azure-tutorial.md) lub dla [maszyn wirtualnych funkcji Hyper-V zarządzanych w chmurach programu System Center VMM](./hyper-v-vmm-azure-tutorial.md)
-4. [Uruchamianie próbnego odzyskiwania](tutorial-dr-drill-azure.md)
+4. [Uruchamianie próbnego odzyskiwania po awarii](tutorial-dr-drill-azure.md)
 
 [Dowiedz się więcej o](failover-failback-overview.md#types-of-failover) różnych typach trybu failover. Jeśli chcesz przejść do trybu failover wielu maszyn wirtualnych w planie odzyskiwania, zapoznaj się z [tym artykułem](site-recovery-failover.md).
 
@@ -58,7 +58,7 @@ W obszarze **Chronione elementy** kliknij kolejno pozycje **Zreplikowane element
 
 ## <a name="fail-over-to-azure"></a>Przełączenie do trybu failover na platformie Azure
 
-1. W obszarze **Ustawienia**  >  **zreplikowane elementy**kliknij maszynę wirtualną > **tryb failover**.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy** kliknij maszynę wirtualną > **tryb failover**.
 2. W obszarze **Tryb failover** wybierz **Najnowszy** punkt odzyskiwania. 
 3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłowe maszyny wirtualne przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 4. Po weryfikacji przełączenia do trybu failover kliknij przycisk **Zatwierdź**. To działanie usuwa wszystkie dostępne punkty odzyskiwania.

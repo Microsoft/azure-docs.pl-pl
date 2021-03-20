@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92145087"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Rozwiązywanie problemów z logowaniem przy użyciu dostępu warunkowego
@@ -71,7 +71,7 @@ Aby dowiedzieć się, które zasady dostępu warunkowego lub zasady są stosowan
 1. Po znalezieniu zdarzenia logowania odpowiadającego błędowi logowania użytkownika wybierz kartę **dostęp warunkowy** . Na karcie dostęp warunkowy zostaną wyświetlone określone zasady lub zasady, które spowodowały przerwanie logowania.
    1. Informacje na karcie **Rozwiązywanie problemów i pomoc techniczna** mogą stanowić wyraźny powód, dla którego logowanie nie powiodło się, takie jak urządzenie, które nie spełnia wymagań dotyczących zgodności.
    1. Aby dowiedzieć się więcej, przejdź do szczegółów konfiguracji zasad, klikając **nazwę zasad**. Kliknięcie **nazwy zasad** spowoduje wyświetlenie interfejsu użytkownika konfiguracji zasad dla wybranych zasad na potrzeby przeglądania i edytowania.
-   1. **Szczegóły dotyczące** **użytkownika** i urządzenia, które były używane na potrzeby oceny zasad dostępu warunkowego, są również dostępne na kartach **podstawowe informacje**, **Lokalizacja**, **Informacje o urządzeniu**, **szczegóły uwierzytelniania**i **dodatkowe szczegóły** dotyczące zdarzenia logowania.
+   1. **Szczegóły dotyczące** **użytkownika** i urządzenia, które były używane na potrzeby oceny zasad dostępu warunkowego, są również dostępne na kartach **podstawowe informacje**, **Lokalizacja**, **Informacje o urządzeniu**, **szczegóły uwierzytelniania** i **dodatkowe szczegóły** dotyczące zdarzenia logowania.
 
 ### <a name="policy-details"></a>Szczegóły zasad
 

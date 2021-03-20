@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94948752"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatyzacja inspekcji sieciowej grupy zabezpieczeń za pomocą widoku grupy zabezpieczeń Network Watcher platformy Azure
@@ -28,7 +28,7 @@ Jeśli nie znasz sieciowych grup zabezpieczeń, zobacz [Omówienie zabezpieczeń
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym scenariuszu należy porównać znaną dobrą linię bazową z wynikami widoku grupy zabezpieczeń zwróconymi dla maszyny wirtualnej.
 

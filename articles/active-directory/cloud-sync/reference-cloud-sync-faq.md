@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39d1554fd1b6cac1a90a794cfd93def97e494bfe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613529"
 ---
 # <a name="azure-active-directory-connect-cloud-sync-faq"></a>Azure Active Directory Connect — często zadawane pytania dotyczące synchronizacji w chmurze

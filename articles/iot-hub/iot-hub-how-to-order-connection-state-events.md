@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147277"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Porządkowanie zdarzeń połączenia urządzenia pochodzących z usługi Azure IoT Hub przy użyciu usługi Azure Cosmos DB
@@ -153,7 +153,7 @@ Najpierw należy utworzyć aplikację logiki i dodać wyzwalacz usługi Event Gr
    > [!NOTE]
    > Aby ponownie znaleźć i otworzyć aplikację logiki, wybierz pozycję **grupy zasobów** i wybierz grupę zasobów, której używasz na potrzeby tej procedury. Następnie wybierz nową aplikację logiki. Spowoduje to otwarcie projektanta aplikacji logiki.
 
-4. W Projektancie aplikacji logiki przewiń w prawo, aż zobaczysz typowe wyzwalacze. W obszarze **Szablony**wybierz pozycję **pusta aplikacja logiki** , aby można było skompilować aplikację logiki od podstaw.
+4. W Projektancie aplikacji logiki przewiń w prawo, aż zobaczysz typowe wyzwalacze. W obszarze **Szablony** wybierz pozycję **pusta aplikacja logiki** , aby można było skompilować aplikację logiki od podstaw.
 
 ### <a name="select-a-trigger"></a>Wybieranie wyzwalacza
 
@@ -233,7 +233,7 @@ W przepływie pracy aplikacji logiki warunki ułatwiają wykonywanie określonyc
 
    ![Zrzut ekranu przedstawia element procedury składowanej Execute z wprowadzonymi parametrami.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Upewnij się, że w górnej części okienka znajduje się informacja **o każdej**z nich, w obszarze **Wybierz dane wyjściowe z poprzednich kroków**upewnij się, że jest wybrana  **treść** .
+7. Upewnij się, że w górnej części okienka znajduje się informacja **o każdej** z nich, w obszarze **Wybierz dane wyjściowe z poprzednich kroków** upewnij się, że jest wybrana  **treść** .
 
    ![Wypełnij aplikację logiki dla — Each](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
@@ -257,7 +257,7 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
 
 1. W witrynie Azure Portal przejdź do centrum IoT Hub.
 
-2. Wybierz pozycję **zdarzenia**.
+2. Wybierz pozycję **Zdarzenia**.
 
    ![Wyświetlanie szczegółów usługi Event Grid](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
@@ -271,7 +271,7 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
 
    ![Ustawianie typów zdarzeń do wyszukania](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-6. W obszarze **Szczegóły punktu końcowego**wybierz pozycję typ punktu końcowego jako **element webhook** i kliknij pozycję Wybierz punkt końcowy, a następnie wklej adres URL skopiowany z aplikacji logiki i potwierdź wybór.
+6. W obszarze **Szczegóły punktu końcowego** wybierz pozycję typ punktu końcowego jako **element webhook** i kliknij pozycję Wybierz punkt końcowy, a następnie wklej adres URL skopiowany z aplikacji logiki i potwierdź wybór.
 
    ![Wybierz adres URL punktu końcowego](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
@@ -333,7 +333,7 @@ Wyniki wykonanej procedury składowanej można zobaczyć w dokumencie Cosmos DB.
 
    ![Jak uzyskać wyniki](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
-## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 

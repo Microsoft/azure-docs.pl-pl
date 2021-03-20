@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: fef3e3cc63fb9e1ca6aa64cf799a620f187db76f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744499"
 ---
 # <a name="azure-cloud-services-extended-support-definition-webrole-schema"></a>Microsoft Azure Cloud Services (rozszerzona obsługa) Definicja schematu webrole
@@ -470,7 +470,7 @@ W poniższej tabeli opisano atrybuty `SourceDirectory` elementu.
 | --------- | ---- | ----------- |  
 |path|ciąg|Wymagane. Ścieżka względna lub bezwzględna katalogu lokalnego, którego zawartość zostanie skopiowana na maszynę wirtualną platformy Azure. Rozszerzanie zmiennych środowiskowych w ścieżce katalogu jest obsługiwane.|  
   
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Schemat definicji usługi w chmurze (obsługa rozszerzona)](schema-csdef-file.md).
 
 

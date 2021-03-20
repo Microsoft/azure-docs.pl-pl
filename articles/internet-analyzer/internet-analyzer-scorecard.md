@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91330217"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretowanie karty wyników
@@ -35,7 +35,7 @@ Liczba pomiarów wpływa na wiarygodność analizy. Im większa liczba, tym dok�
 
 Opóźnienie (w milisekundach) to popularna Metryka do mierzenia szybkości między źródłem a miejscem docelowym w Internecie. Dane opóźnienia nie są zwykle dystrybuowane (tj. nie są zgodne ze znakiem "dzwonka"), ponieważ występuje "Long-Tail" wartości dużych opóźnień, które pochylać wyniki podczas korzystania z statystyk, takich jak średnia arytmetyczna. Alternatywnym rozwiązaniem jest to, że percentyly umożliwiają analizowanie danych. Na przykład mediana lub 50. percentyl podsumowuje średnią część dystrybucji — połowa wartości powyżej, a połowa jest poniżej. Wartość percentylu 75. oznacza, że jest ona większa niż 75% wszystkich wartości w dystrybucji. Analizator Internetu odwołuje się do percentylów w postaci skróconej, jak P50, P75 i p95.
 
-Percentyle analizatora Internetu są _przykładowymi metrykami_. Jest to w przeciwieństwie do _metryki_prawdziwej populacji. Na przykład codzienne rzeczywiste prawdziwe wypełnienie w czasie trwania dla studentów na uczelni Południowo-środkowe, a firma Microsoft to wartość mediana opóźnienia wszystkich żądań w danym dniu. W praktyce pomiar wartości wszystkich żądań jest niepraktyczny, więc Załóżmy, że uzasadniona duża próbka jest reprezentatywna dla prawdziwej populacji.
+Percentyle analizatora Internetu są _przykładowymi metrykami_. Jest to w przeciwieństwie do _metryki_ prawdziwej populacji. Na przykład codzienne rzeczywiste prawdziwe wypełnienie w czasie trwania dla studentów na uczelni Południowo-środkowe, a firma Microsoft to wartość mediana opóźnienia wszystkich żądań w danym dniu. W praktyce pomiar wartości wszystkich żądań jest niepraktyczny, więc Załóżmy, że uzasadniona duża próbka jest reprezentatywna dla prawdziwej populacji.
 
 Na potrzeby analizy P50 (mediana) jest przydatne jako oczekiwana wartość rozkładu opóźnień. Wyższe percentyly, takie jak P95, są przydatne do identyfikowania, jak duże opóźnienie jest w najgorszym przypadku. Jeśli interesują Cię ogólne informacje o opóźnieniu klienta, P50 jest poprawną metryką, na którą należy się skoncentrować. Jeśli chodzi o zrozumienie wydajności dla najgorszych klientów, P95 powinna być fokusem. P75 to równowaga między tymi dwoma.
 

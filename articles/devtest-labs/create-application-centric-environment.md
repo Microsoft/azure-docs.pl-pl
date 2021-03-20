@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono sposób tworzenia środowiska zoriento
 ms.topic: how-to
 ms.date: 11/26/2020
 ms.openlocfilehash: 88244f268d5ed038e9bb7082d3d5cc1179e5ec4e
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94918264"
 ---
 # <a name="create-an-application-centric-environment"></a>Tworzenie środowiska zorientowanego na aplikacje
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak utworzyć środowisko zorientowane na aplikacje z C
 
 1. Zarejestruj się, aby skorzystać z bezpłatnej wersji próbnej z [kolonii](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview).
 
-    :::image type="content" source="./media/create-application-centric-environment/free-trial.png" alt-text="Zarejestruj się, aby skorzystać z bezpłatnej wersji próbnej":::    
+    :::image type="content" source="./media/create-application-centric-environment/free-trial.png" alt-text="Utwórz konto w celu korzystania z bezpłatnej wersji próbnej":::    
 1. Połącz swoje konto platformy Azure ([Wyświetl tutaj kroki](https://colonysupport.quali.com/hc/articles/360008222234)).
 
     :::image type="content" source="./media/create-application-centric-environment/welcome.png" alt-text="Witamy w Kolonii":::     

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: mbullwin
 ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420963"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Często zadawane pytania dotyczące klasyfikatora metryk
@@ -109,14 +109,14 @@ Szczegóły można znaleźć w [konfiguracjach wykrywania anomalii](how-tos/conf
 
 1.  Użytkownik z uprawnieniami administratora subskrypcji lub grupy zasobów musi przejść do zasobu klasyfikatora metryk, który został utworzony w Azure Portal, i wybrać kartę **Kontrola dostępu (IAM)** . 
 2.  Wybierz pozycję **Dodaj przypisania ról**
-3.  Wybierz rolę **Cognitive Services administrator doradcy metryk** , zaznacz Twoje konto, tak jak na poniższej ilustracji.
+3.  Wybierz rolę **Cognitive Services administrator doradcy metryk**, zaznacz Twoje konto, tak jak na poniższej ilustracji.
 4.  Kliknij przycisk **Zapisz** , a następnie został pomyślnie dodany jako administrator zasobu klasyfikatora metryk. Należy pamiętać, że wszystkie powyższe akcje muszą zostać wykonane przez administratora subskrypcji lub administratora grupy zasobów. 
 
 :::image type="content" source="media/access-control.png" alt-text="Strona menu kontroli dostępu (IAM) z wybraną pozycją Dodaj przypisanie roli, a następnie pole z uprawnieniem Przypisz dostęp do wybranego użytkownika z rolą dostępu Cognitive Services administrator doradcy metryk, a następnie przycisk Zapisz wybranego interfejsu użytkownika do zilustrowania kroków wyszukiwania użytkownika i dodawania określonego poziomu uprawnień dostępu." lightbox="media/access-control.png":::
 
 
 5.  Propagowanie uprawnień może potrwać do jednej minuty. Następnie wybierz obszar roboczy klasyfikatora metryk i wybierz opcję **Ustawienia poczty e-mail** w lewym panelu nawigacyjnym. Wprowadź wymagane elementy, w szczególności informacje dotyczące protokołu SMTP. 
-6.  Wybierz pozycję **Zapisz** , a następnie wszystko jest ustawione z konfiguracją poczty e-mail. Możesz tworzyć nowe punkty zaczepienia i subskrybować anomalie metryk dla alertów niemal w czasie rzeczywistym. 
+6.  Wybierz pozycję **Zapisz**, a następnie wszystko jest ustawione z konfiguracją poczty e-mail. Możesz tworzyć nowe punkty zaczepienia i subskrybować anomalie metryk dla alertów niemal w czasie rzeczywistym. 
 
 ## <a name="advanced-concepts"></a>Pojęcia zaawansowane
 

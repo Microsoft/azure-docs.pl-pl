@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87927287"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych serwerów fizycznych
 
 Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do realizacji strategii odzyskiwania po awarii przez zarządzanie replikacją, przełączaniem do trybu failover i powrotem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure oraz koordynowanie tych procesów.
 
-W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii lokalnych fizycznych serwerów z systemami Windows i Linux na platformie Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii lokalnych fizycznych serwerów z systemami Windows i Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj platformę Azure i lokalne wymagania wstępne
@@ -84,7 +84,7 @@ Skonfiguruj [konto usługi Azure Storage](../storage/common/storage-account-crea
 Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana usługa mobilności. Site Recovery automatycznie instaluje tę usługę po włączeniu replikacji dla serwera. Aby automatycznie zainstalować program, należy przygotować konto, które będzie używane przez Site Recovery do uzyskiwania dostępu do serwera.
 
 - Możesz użyć domeny lub konta lokalnego
-- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**Dodaj wpis DWORD **LocalAccountTokenFilterPolicy**o wartości 1.
+- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** Dodaj wpis DWORD **LocalAccountTokenFilterPolicy** o wartości 1.
 - Aby dodać wpis rejestru w celu wyłączenia ustawienia z interfejsu wiersza polecenia, wpisz:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - W przypadku systemu Linux konto powinno być kontem głównym na źródłowym serwerze z systemem Linux.
 
@@ -98,16 +98,16 @@ Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana us�
 Wybierz elementy, które mają być replikowane, i Replikuj je do.
 
 1. Kliknij pozycję **Magazyny usługi Recovery Services** > magazyn.
-2. W menu zasób kliknij **Site Recovery**  >  **Przygotuj**  >  **cel ochrony**infrastruktury.
-3. W obszarze **cel ochrony**wybierz pozycję **platforma Azure**  >  **nie została Zwirtualizowana/inna**.
+2. W menu zasób kliknij **Site Recovery**  >  **Przygotuj**  >  **cel ochrony** infrastruktury.
+3. W obszarze **cel ochrony** wybierz pozycję **platforma Azure**  >  **nie została Zwirtualizowana/inna**.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
 Skonfiguruj serwer konfiguracji, zarejestruj go w magazynie i odnajdź maszyny wirtualne.
 
-1. Kliknij pozycję **Site Recovery**  >  **Przygotuj**  >  **Źródło**infrastruktury.
+1. Kliknij pozycję **Site Recovery**  >  **Przygotuj**  >  **Źródło** infrastruktury.
 2. Jeśli nie masz serwera konfiguracji, kliknij przycisk **+ serwer konfiguracji**.
-3. W obszarze **Dodawanie serwera**Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
+3. W obszarze **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 5. Pobierz klucz rejestracji magazynu. Jest on potrzebny po uruchomieniu ujednoliconej konfiguracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
@@ -141,7 +141,7 @@ Uruchom ujednoliconą konfigurację jako administrator lokalny, aby zainstalowa�
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe** infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ docelowy model wdrażania.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
@@ -154,7 +154,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 2. W obszarze **Tworzenie zasad replikacji** określ nazwę zasad.
 3. W obszarze **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Ta wartość określa, jak często są tworzone punkty odzyskiwania danych. Przekroczenie tego limitu przez replikację ciągłą spowoduje wygenerowanie alertu.
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ (w godzinach), jak długie jest okno przechowywania dla każdego punktu odzyskiwania. Replikowane maszyny wirtualne można odzyskać do dowolnego punktu w tym oknie. Przechowywanie do 24 godzin jest obsługiwane dla maszyn replikowanych do magazynu w warstwie Premium, zaś do 72 godzin dla magazynu w warstwie Standardowa.
-5. W obszarze **częstotliwość tworzenia migawek**na poziomie aplikacji Określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Kliknij przycisk **OK**, aby utworzyć zasady.
+5. W obszarze **częstotliwość tworzenia migawek** na poziomie aplikacji Określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Kliknij przycisk **OK**, aby utworzyć zasady.
 
     ![Zrzut ekranu przedstawiający opcje tworzenia zasad replikacji.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
@@ -168,17 +168,17 @@ Włącz replikację dla każdego serwera.
 - Site Recovery zainstaluje usługę mobilności po włączeniu replikacji.
 - Po włączeniu replikacji dla serwera może upłynąć 15 minut lub dłużej, aby zmiany zaczęły obowiązywać i pojawiają się w portalu.
 
-1. Kliknij pozycję **Replikuj**  >  **Źródło**aplikacji.
+1. Kliknij pozycję **Replikuj**  >  **Źródło** aplikacji.
 2. W obszarze **Źródło** wybierz serwer konfiguracji.
-3. W obszarze **Typ maszyny**wybierz pozycję **maszyny fizyczne**.
+3. W obszarze **Typ maszyny** wybierz pozycję **maszyny fizyczne**.
 4. Wybierz serwer przetwarzania (serwer konfiguracji). Następnie kliknij przycisk **OK**.
-5. W obszarze **cel**wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne platformy Azure po przejściu do trybu failover. Wybierz model wdrażania, którego chcesz użyć na platformie Azure (wersja klasyczna lub zarządzanie zasobami).
+5. W obszarze **cel** wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne platformy Azure po przejściu do trybu failover. Wybierz model wdrażania, którego chcesz użyć na platformie Azure (wersja klasyczna lub zarządzanie zasobami).
 6. Wybierz konto usługi Azure Storage, którego chcesz użyć na potrzeby replikacji danych. 
 7. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover.
 8. Wybierz pozycję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz pozycję **Konfiguruj później** , aby wybrać sieć platformy Azure na maszynę. 
-9. W obszarze **maszyny fizyczne**i kliknij pozycję **+ maszyna fizyczna**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, którą chcesz replikować. Odnajdywanie i wykrycie serwerów może potrwać kilka minut. 
-10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości**wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
-11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji**Sprawdź, czy wybrano odpowiednie zasady replikacji. 
+9. W obszarze **maszyny fizyczne** i kliknij pozycję **+ maszyna fizyczna**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, którą chcesz replikować. Odnajdywanie i wykrycie serwerów może potrwać kilka minut. 
+10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości** wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
+11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji** Sprawdź, czy wybrano odpowiednie zasady replikacji. 
 12. Kliknij pozycję **Włącz replikację**. Postęp zadania **Włącz ochronę** można śledzić w obszarze **Ustawienia**  >  **zadania**  >  **Site Recovery zadania**. Po uruchomieniu zadania **finalizowania ochrony** maszyna jest gotowa do pracy w trybie failover.
 
 

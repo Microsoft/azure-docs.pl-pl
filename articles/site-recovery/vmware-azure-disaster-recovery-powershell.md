@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129912"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Skonfiguruj odzyskiwanie po awarii maszyn wirtualnych VMware na platformę Azure za pomocą programu PowerShell
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Ustaw kontekst magazynu za pomocą polecenia cmdlet Set-ASRVaultContext. Po ustawieniu kolejne Azure Site Recovery operacje w sesji programu PowerShell są wykonywane w kontekście wybranego magazynu.
 
 > [!TIP]
-> Azure Site Recovery module programu PowerShell (AZ. RecoveryServices module) zawiera łatwe do użycia aliasy dla większości poleceń cmdlet. Polecenia cmdlet w module przyjmują postać * \<Operation> - **AzRecoveryServicesAsr** \<Object> * i mają równoważne aliasy, które przyjmują formularz usługi * \<Operation> - **ASR** \<Object> *. Aliasy poleceń cmdlet można zastąpić, aby ułatwić korzystanie z programu.
+> Azure Site Recovery module programu PowerShell (AZ. RecoveryServices module) zawiera łatwe do użycia aliasy dla większości poleceń cmdlet. Polecenia cmdlet w module przyjmują postać *\<Operation> - **AzRecoveryServicesAsr** \<Object>* i mają równoważne aliasy, które przyjmują formularz usługi *\<Operation> - **ASR** \<Object>*. Aliasy poleceń cmdlet można zastąpić, aby ułatwić korzystanie z programu.
 
 W poniższym przykładzie szczegóły magazynu ze zmiennej $vault są używane do określania kontekstu magazynu dla sesji programu PowerShell.
 
@@ -172,7 +172,7 @@ W tym przykładzie mamy następujące elementy:
    1     ConfigurationServer
    ```
 
-   Z danych wyjściowych powyżej ***$ProcessServers [0]*** odpowiada *skalowania-ProcessServer* , a ***$ProcessServers [1]*** odpowiada roli serwera przetwarzania na *ConfigurationServer*
+   Dane wyjściowe powyżej ***$ProcessServers [0]** _ odpowiadają _skalowania-ProcessServer * i ***$ProcessServers [1]**_ odpowiadają roli serwera przetwarzania w _ConfigurationServer *
 
 3. Zidentyfikuj konta, które zostały skonfigurowane na serwerze konfiguracji.
 
@@ -189,7 +189,7 @@ W tym przykładzie mamy następujące elementy:
    3         LinuxAccount
    ```
 
-   Z danych wyjściowych powyżej ***$AccountHandles [0]*** odpowiada konto *vCenter_account*, ***$AccountHandles [1]*** do konta *WindowsAccount*, a ***$AccountHandles [2]*** do konta *LinuxAccount*
+   Z danych wyjściowych powyżej ***$AccountHandles [0]** _ odpowiada konto _vCenter_account *, ***$AccountHandles [1]**_ do konta _WindowsAccount * i ***$AccountHandles [2]**_ do konta _LinuxAccount *
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
 
@@ -342,7 +342,7 @@ Aby chronić odnalezioną maszynę wirtualną, potrzebne są następujące szcze
 * Element objęty ochroną do replikacji.
 * Konto magazynu, do którego należy replikować maszynę wirtualną (tylko w przypadku replikowania do konta magazynu). 
 * Magazyn dzienników jest wymagany do ochrony maszyn wirtualnych na koncie magazynu w warstwie Premium lub na dysku zarządzanym.
-* Serwer przetwarzania, który ma być używany na potrzeby replikacji. Lista dostępnych serwerów procesów została pobrana i zapisana w ***$ProcessServers [0]***  *(skalowania-ProcessServer)* i ***$ProcessServers [1]*** *(ConfigurationServer)* zmiennych.
+* Serwer przetwarzania, który ma być używany na potrzeby replikacji. Lista dostępnych serwerów przetwarzania została pobrana i zapisana w ***$ProcessServers [0]** _ _(skalowania-ProcessServer) * i ***$ProcessServers [1]**_ _ (ConfigurationServer) * zmienne.
 * Konto używane do wypychania instalacji oprogramowania usługi mobilności na maszynach. Lista dostępnych kont została pobrana i zapisana w zmiennej ***$AccountHandles*** .
 * Mapowanie kontenera ochrony dla zasad replikacji, które ma być używane na potrzeby replikacji.
 * Grupa zasobów, w której maszyny wirtualne muszą zostać utworzone w trybie failover.
@@ -351,7 +351,7 @@ Aby chronić odnalezioną maszynę wirtualną, potrzebne są następujące szcze
 Teraz Replikuj następujące maszyny wirtualne przy użyciu ustawień określonych w tej tabeli
 
 
-|Maszyna wirtualna  |Serwer przetwarzania        |Konto magazynu              |Konto magazynu dzienników  |Zasady           |Konto do instalacji usługi mobilności|Docelowa Grupa zasobów  | Docelowa sieć wirtualna  |Podsieć docelowa  |
+|Maszyna wirtualna  |Serwer przetwarzania        |Konto magazynu              |Konto magazynu dzienników  |Zasady           |Konto do instalacji usługi mobilności|Docelowa grupa zasobów  | Docelowa sieć wirtualna  |Podsieć docelowa  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |Nie dotyczy| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |   

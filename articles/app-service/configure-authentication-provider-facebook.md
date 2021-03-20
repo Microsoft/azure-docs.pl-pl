@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519956"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania w serwisie Facebook
@@ -35,8 +35,8 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
    1. Ukończ sprawdzanie zabezpieczeń.
 
    Zostanie otwarty pulpit nawigacyjny dewelopera dla nowej aplikacji w serwisie Facebook.
-1. Wybierz pozycję **pulpit nawigacyjny**logowanie do usługi  >  **Facebook**  >  **Konfiguracja**  >  **sieci Web**.
-1. W lewym okienku nawigacji w obszarze **Logowanie do serwisu Facebook**wybierz pozycję **Ustawienia**.
+1. Wybierz pozycję **pulpit nawigacyjny** logowanie do usługi  >  **Facebook**  >  **Konfiguracja**  >  **sieci Web**.
+1. W lewym okienku nawigacji w obszarze **Logowanie do serwisu Facebook** wybierz pozycję **Ustawienia**.
 1. W polu **prawidłowe identyfikatory URI przekierowania OAuth** wprowadź wartość `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` . Pamiętaj, aby zamienić na `<app-name>` nazwę aplikacji Azure App Service.
 1. Wybierz pozycję **Zapisz zmiany**.
 1. W lewym okienku wybierz pozycję **Ustawienia**  >  **podstawowe**. 
@@ -53,7 +53,7 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji w serwisie Facebook do aplikacji
 
 1. Zaloguj się do [Azure Portal] i przejdź do aplikacji App Service.
-1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja** i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. Wybierz pozycję **Facebook**, a następnie wklej wartości w polu Identyfikator aplikacji i klucz tajny aplikacji, które zostały uzyskane wcześniej. Włącz wszystkie zakresy wymagane przez aplikację.
 1. Wybierz przycisk **OK**.
 
@@ -80,4 +80,4 @@ Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Fa
 [Deweloperzy serwisu Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Portal]: https://portal.azure.com/
+[Witryna Azure Portal]: https://portal.azure.com/

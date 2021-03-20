@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
 ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013043"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
@@ -87,7 +87,7 @@ Kroki wysokiego poziomu związane z tym przykładem scenariusza migracji obejmuj
 1. Skonfiguruj komunikację równorzędną sieci wirtualnych między klasyczną siecią wirtualną i nową Menedżer zasobów sieci wirtualnej.
 1. Później należy [przeprowadzić migrację dodatkowych zasobów][migrate-iaas] z klasycznej sieci wirtualnej zgodnie z wymaganiami.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Podczas przygotowywania i migrowania domeny zarządzanej istnieją pewne kwestie dotyczące dostępności usług uwierzytelniania i zarządzania. Domena zarządzana jest niedostępna przez pewien czas podczas migracji. Aplikacje i usługi, które opierają się na usłudze Azure AD DS na czas przestoju podczas migracji.
 

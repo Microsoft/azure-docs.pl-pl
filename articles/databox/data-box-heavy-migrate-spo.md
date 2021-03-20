@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92127118"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Użyj Azure Data Box Heavy do migrowania zawartości udziału plików do usługi SharePoint Online
@@ -31,7 +31,7 @@ W tym artykule opisano, jak używać Data Box Heavy do migrowania zawartości ud
 
 ### <a name="for-data-box-heavy"></a>Usługa Data Box Heavy
 
-- Data Box Heavy jest dostępna tylko dla Umowa Enterprise (EA), dostawcy rozwiązań w chmurze (CSP) lub usług sponsorowanych przez platformę Azure. Jeśli Twoja subskrypcja nie należy do żadnego z powyższych typów, skontaktuj się z firmą pomoc techniczna firmy Microsoft, aby uaktualnić subskrypcję lub zobaczyć [Cennik subskrypcji platformy Azure](https://azure.microsoft.com/pricing/).
+- Data Box Heavy jest dostępna tylko dla Enterprise Agreement (EA), dostawcy rozwiązań w chmurze (CSP) lub usług sponsorowanych przez platformę Azure. Jeśli Twoja subskrypcja nie należy do żadnego z powyższych typów, skontaktuj się z firmą pomoc techniczna firmy Microsoft, aby uaktualnić subskrypcję lub zobaczyć [Cennik subskrypcji platformy Azure](https://azure.microsoft.com/pricing/).
 - Istnieje opłata za korzystanie z Data Box Heavy. Zapoznaj się z [cennikiem Data Box Heavy](https://azure.microsoft.com/pricing/details/databox/heavy/).
 
 

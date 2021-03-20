@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135795"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych z obsługą usługi Azure Disk Encryption w innym regionie platformy Azure
@@ -42,7 +42,7 @@ Aby włączyć replikację maszyn wirtualnych z włączoną funkcją szyfrowania
 
 Aby zarządzać uprawnieniami, przejdź do zasobu magazynu kluczy w portalu. Dodaj wymagane uprawnienia dla użytkownika. Poniższy przykład pokazuje, jak włączyć uprawnienia do magazynu kluczy *ContosoWeb2Keyvault*, który znajduje się w regionie źródłowym.
 
-1. Przejdź do **głównych**  >  **magazynów**kluczy  >  **ContosoWeb2KeyVault > zasad dostępu**.
+1. Przejdź do **głównych**  >  **magazynów** kluczy  >  **ContosoWeb2KeyVault > zasad dostępu**.
 
    ![Okno uprawnień magazynu kluczy](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -86,9 +86,9 @@ W tym przykładzie głównym regionem świadczenia usługi Azure jest Azja Wscho
     - **Subskrypcja źródłowa**: subskrypcja, do której należą źródłowe maszyny wirtualne. Może to być dowolna subskrypcja, która znajduje się w tej samej dzierżawie Azure Active Directory, co magazyn usługi Recovery Services.
     - **Grupa zasobów**: Grupa zasobów, do której należą źródłowe maszyny wirtualne. W następnym kroku zostaną wyświetlone wszystkie maszyny wirtualne w wybranej grupie zasobów do ochrony.
 
-3. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
+3. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne** zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
 
-4. W obszarze **Ustawienia**można skonfigurować następujące ustawienia lokacji docelowej.
+4. W obszarze **Ustawienia** można skonfigurować następujące ustawienia lokacji docelowej.
 
     - **Lokalizacja docelowa**: lokalizacja, w której będą replikowane dane źródłowej maszyny wirtualnej. Site Recovery zawiera listę odpowiednich regionów docelowych na podstawie lokalizacji wybranej maszyny. Zalecamy używanie tej samej lokalizacji co lokalizacja magazynu Recovery Services.
     - **Subskrypcja docelowa**: subskrypcja docelowa używana na potrzeby odzyskiwania po awarii. Domyślnie subskrypcja docelowa jest taka sama jak w przypadku subskrypcji źródłowej.
@@ -109,14 +109,14 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 1. Wybierz pozycję **Dostosuj** obok pozycji "subskrypcja docelowa", aby zmodyfikować domyślną subskrypcję docelową. Wybierz subskrypcję z listy subskrypcji dostępnych w dzierżawie usługi Azure AD.
 
 2. Wybierz pozycję **Dostosuj** obok pozycji "Grupa zasobów, Sieć, magazyn i zestawy dostępności", aby zmodyfikować następujące ustawienia domyślne:
-    - Dla **docelowej grupy zasobów**wybierz grupę zasobów z listy grup zasobów w lokalizacji docelowej subskrypcji.
-    - W polu **docelowa sieć wirtualna**wybierz sieć z listy sieci wirtualnych w lokalizacji docelowej.
-    - W przypadku **zestawu dostępności**można dodać ustawienia zestawu dostępności do maszyny wirtualnej, jeśli są one częścią zestawu dostępności w regionie źródłowym.
-    - W przypadku **docelowych kont magazynu**wybierz konto, które ma być używane.
+    - Dla **docelowej grupy zasobów** wybierz grupę zasobów z listy grup zasobów w lokalizacji docelowej subskrypcji.
+    - W polu **docelowa sieć wirtualna** wybierz sieć z listy sieci wirtualnych w lokalizacji docelowej.
+    - W przypadku **zestawu dostępności** można dodać ustawienia zestawu dostępności do maszyny wirtualnej, jeśli są one częścią zestawu dostępności w regionie źródłowym.
+    - W przypadku **docelowych kont magazynu** wybierz konto, które ma być używane.
 
 2. Wybierz pozycję **Dostosuj** obok pozycji "ustawienia szyfrowania", aby zmodyfikować następujące ustawienia domyślne:
-   - W przypadku **magazynu kluczy szyfrowania dysku docelowego**wybierz magazyn klucza szyfrowania dysku docelowego z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
-   - W przypadku **magazynu kluczy szyfrowania klucza docelowego**Wybierz docelowy Magazyn kluczy szyfrowania z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
+   - W przypadku **magazynu kluczy szyfrowania dysku docelowego** wybierz magazyn klucza szyfrowania dysku docelowego z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
+   - W przypadku **magazynu kluczy szyfrowania klucza docelowego** Wybierz docelowy Magazyn kluczy szyfrowania z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
 
 3. Wybierz pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 4. Po włączeniu maszyn wirtualnych na potrzeby replikacji można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**.
@@ -129,7 +129,7 @@ W następujących scenariuszach wymagane jest zaktualizowanie ustawień szyfrowa
   - Włączono Site Recovery replikację na maszynie wirtualnej. Później można było włączyć szyfrowanie dysków na źródłowej maszynie wirtualnej.
   - Włączono Site Recovery replikację na maszynie wirtualnej. Później zmieniono klucz szyfrowania dysku lub klucz szyfrowania klucza na źródłowej maszynie wirtualnej.
 
-Możesz użyć [skryptu](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) , aby skopiować klucze szyfrowania do regionu docelowego, a następnie zaktualizować docelowe ustawienia szyfrowania w obszarze właściwości zreplikowanego elementu **magazynu usługi Recovery Services**  >  *replicated item*  >  **Properties**  >  **Compute and Network**.
+Możesz użyć [skryptu](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) , aby skopiować klucze szyfrowania do regionu docelowego, a następnie zaktualizować docelowe ustawienia szyfrowania w obszarze właściwości zreplikowanego elementu **magazynu usługi Recovery Services**  >    >    >  .
 
 ![Okno dialogowe Aktualizowanie ustawień ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -153,7 +153,7 @@ Masz wszystkie uprawnienia do magazynu kluczy w regionie źródłowym. Ale w tra
 
 Wymagane uprawnienie w [magazynie kluczy docelowych](#required-user-permissions)
 
-**Jak naprawić:** Przejdź do pozycji **Główne**  >  **magazyny**kluczy  >  **ContosotargetKeyvault**  >  **zasady dostępu** i Dodaj odpowiednie uprawnienia.
+**Jak naprawić:** Przejdź do pozycji **Główne**  >  **magazyny** kluczy  >  **ContosotargetKeyvault**  >  **zasady dostępu** i Dodaj odpowiednie uprawnienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

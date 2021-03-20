@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94920444"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Rozpoczynanie pracy z certyfikatami usługi Key Vault
@@ -37,7 +37,7 @@ Certyfikaty składają się z trzech powiązanych zasobów połączonych razem j
 
 **Krok 1** — dostawcy urzędu certyfikacji  
 -   Dołączanie do programu jako administrator IT, administrator infrastruktury PKI lub każda osoba zarządzająca kontami z urzędami certyfikacji dla danej firmy (np. Firma Contoso) jest warunkiem wstępnym korzystania z certyfikatów Key Vault.  
-    Następujące urzędy certyfikacji są bieżącymi dostawcami partnerskimi z Key Vault. Więcej informacji można znaleźć [tutaj](./create-certificate.md#partnered-ca-providers)   
+    Następujące urzędy certyfikacji są bieżącymi dostawcami partnerskimi z Key Vault. Dowiedz się więcej [tutaj](./create-certificate.md#partnered-ca-providers)   
     -   DigiCert — Key Vault oferuje OV protokołu TLS/SSL z DigiCert.  
     -   GlobalSign — Key Vault oferuje OV protokołu TLS/SSL z GlobalSign.  
 

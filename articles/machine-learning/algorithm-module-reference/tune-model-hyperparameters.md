@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
 ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420635"
 ---
 # <a name="tune-model-hyperparameters"></a>Dostrajanie hiperparametrów modelu
 
 W tym artykule opisano, jak używać modułu dostrajania parametrów modelu w programie Azure Machine Learning Designer. Celem jest określenie optymalnych parametrów dla modelu uczenia maszynowego. Moduł kompiluje i testuje wiele modeli przy użyciu różnych kombinacji ustawień. Porównuje metryki dla wszystkich modeli w celu uzyskania kombinacji ustawień. 
 
-*Parametr* terms i *parametr preparameter* mogą być mylące. *Parametry* modelu są ustawiane w prawym okienku modułu. Zasadniczo ten moduł wykonuje *odczyszczenie parametrów* względem określonych ustawień parametrów. Poznasz optymalny zestaw _parametrów_ , które mogą być różne dla każdego określonego drzewa decyzyjnego, zestawu danych lub metody regresji. Proces znajdowania optymalnej konfiguracji jest czasami nazywany *dostrajaniem*. 
+*Parametr* terms i *parametr preparameter* mogą być mylące. *Parametry* modelu są ustawiane w prawym okienku modułu. Zasadniczo ten moduł wykonuje *odczyszczenie parametrów* względem określonych ustawień parametrów. Poznasz optymalny zestaw _parametrów_, które mogą być różne dla każdego określonego drzewa decyzyjnego, zestawu danych lub metody regresji. Proces znajdowania optymalnej konfiguracji jest czasami nazywany *dostrajaniem*. 
 
 Moduł obsługuje następującą metodę wyszukiwania optymalnych ustawień modelu: *zintegrowane uczenie i dostrajanie.* W tej metodzie należy skonfigurować zestaw parametrów do użycia. Następnie pozwól, aby moduł przekroczy wiele kombinacji. Moduł mierzy dokładność do momentu znalezienia "najlepszego" modelu. W przypadku większości modułów szkoleniowych można wybrać parametry, które należy zmienić podczas procesu szkolenia, a które powinny pozostać stałe.
 
@@ -49,13 +49,13 @@ W tej sekcji opisano, jak wykonać podstawowe odwzorowanie parametrów, które p
 
 3.  Dodaj zestaw danych, który ma być używany na potrzeby szkolenia, i połącz go z środkowym wejściem parametrów strojenia modelu.  
 
-    Opcjonalnie, jeśli masz oznakowany zestaw danych, możesz połączyć go z najbardziej przyłączonym portem wejściowym ( **opcjonalny zestaw danych walidacji** ). Pozwala to mierzyć dokładność podczas uczenia i dostrajania.
+    Opcjonalnie, jeśli masz oznakowany zestaw danych, możesz połączyć go z najbardziej przyłączonym portem wejściowym (**opcjonalny zestaw danych walidacji**). Pozwala to mierzyć dokładność podczas uczenia i dostrajania.
 
 4.  W prawym panelu strojenia parametrów modelu wybierz wartość dla **trybu odchylenia parametru**. Ta opcja określa, jak są wybierane parametry.
 
-    - **Cała siatka** : w przypadku wybrania tej opcji moduł jest pętlą względem siatki wstępnie zdefiniowanej przez system, aby wypróbować różne kombinacje i zidentyfikować najlepszą naukę. Ta opcja jest przydatna, gdy nie wiesz, jakie są ustawienia najlepszych parametrów, i chcesz wypróbować wszystkie możliwe kombinacje wartości.
+    - **Cała siatka**: w przypadku wybrania tej opcji moduł jest pętlą względem siatki wstępnie zdefiniowanej przez system, aby wypróbować różne kombinacje i zidentyfikować najlepszą naukę. Ta opcja jest przydatna, gdy nie wiesz, jakie są ustawienia najlepszych parametrów, i chcesz wypróbować wszystkie możliwe kombinacje wartości.
 
-    - **Losowe wyczyszczenie** : po wybraniu tej opcji moduł będzie losowo wybierać wartości parametrów w zakresie zdefiniowanym przez system. Należy określić maksymalną liczbę uruchomień wykonywanych przez moduł. Ta opcja jest przydatna, gdy chcesz zwiększyć wydajność modelu przy użyciu wybranych przez siebie metryk, ale nadal zachowuj zasoby obliczeniowe.    
+    - **Losowe wyczyszczenie**: po wybraniu tej opcji moduł będzie losowo wybierać wartości parametrów w zakresie zdefiniowanym przez system. Należy określić maksymalną liczbę uruchomień wykonywanych przez moduł. Ta opcja jest przydatna, gdy chcesz zwiększyć wydajność modelu przy użyciu wybranych przez siebie metryk, ale nadal zachowuj zasoby obliczeniowe.    
 
 5.  Dla **kolumny etykieta** Otwórz selektor kolumny, aby wybrać jedną kolumnę etykiety.
 
@@ -92,11 +92,11 @@ Ta sekcja zawiera szczegóły i porady dotyczące implementacji.
 
 Podczas konfigurowania odchylenia parametrów należy zdefiniować zakres wyszukiwania. Wyszukiwanie może używać skończonej liczby parametrów wybranych losowo. Lub może to być wyczerpujące wyszukiwanie na zdefiniowanej przestrzeni parametrów.
 
-+ **Losowe wyczyszczenie** : Ta opcja pociąga za model przy użyciu zestawu iteracji. 
++ **Losowe wyczyszczenie**: Ta opcja pociąga za model przy użyciu zestawu iteracji. 
 
   Należy określić zakres wartości do iteracji, a moduł używa losowo wybranego podzbioru tych wartości. Wartości są wybierane z zastępowaniem, co oznacza, że numery wcześniej wybrane losowo nie są usuwane z puli dostępnych numerów. Dlatego, że jakakolwiek wybrana wartość pozostaje taka sama we wszystkich przebiegach.  
 
-+ **Cała siatka** : Opcja używania całej siatki oznacza, że każda kombinacja jest testowana. Ta opcja jest najbardziej dokładna, ale wymaga najwięcej czasu. 
++ **Cała siatka**: Opcja używania całej siatki oznacza, że każda kombinacja jest testowana. Ta opcja jest najbardziej dokładna, ale wymaga najwięcej czasu. 
 
 ### <a name="controlling-the-length-and-complexity-of-training"></a>Kontrolowanie długości i złożoności szkolenia
 
@@ -142,7 +142,7 @@ Jednak podczas uczenia należy wybrać *jedną* metrykę do użycia w celu klasy
 
 -   **Kwadratowy błąd względny** normalizuje łączny kwadratowy błąd dzielący przez łączny kwadratowy błąd prognozowanych wartości.  
 
--   **Współczynnik wyznaczania** jest pojedynczą liczbą, która wskazuje, jak dobre dane pasują do modelu. Wartość jednego oznacza, że model dokładnie dopasowuje dane. Wartość zero oznacza, że dane są losowo lub w przeciwnym razie nie można dopasować do modelu. Często nazywa się *r <sup>2</sup>* , *r <sup>2</sup>* lub *r-kwadrat*.  
+-   **Współczynnik wyznaczania** jest pojedynczą liczbą, która wskazuje, jak dobre dane pasują do modelu. Wartość jednego oznacza, że model dokładnie dopasowuje dane. Wartość zero oznacza, że dane są losowo lub w przeciwnym razie nie można dopasować do modelu. Często nazywa się *r <sup>2</sup>*, *r <sup>2</sup>* lub *r-kwadrat*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Moduły, które nie obsługują odchylenia parametrów
 

@@ -4,10 +4,10 @@ description: Opisuje sposób rozwiązywania problemów, gdy rozmiar zadania lub 
 ms.topic: troubleshooting
 ms.date: 01/19/2021
 ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610407"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Rozwiązano błędy w przypadku przekroczenia rozmiaru zadania
@@ -22,10 +22,10 @@ Podczas wdrażania szablonu pojawia się błąd informujący o przekroczeniu lim
 
 Ten błąd występuje, gdy wdrożenie przekroczy jeden z dozwolonych limitów. Zazwyczaj ten błąd jest wyświetlany, gdy szablon lub zadanie uruchamiające wdrożenie jest zbyt duże.
 
-Zadanie wdrażania nie może przekroczyć 1 MB. Zadanie zawiera metadane dotyczące żądania. W przypadku dużych szablonów metadane połączone z szablonem mogą przekraczać dozwolony rozmiar zadania.
+Zadanie wdrażania nie może przekroczyć 1 MB. Zadanie zawiera metadane dotyczące żądania. W przypadku dużych szablonów metadane w połączeniu z szablonem mogą przekraczać dozwolony rozmiar zadania.
 
 
-Ten szablon nie może przekroczyć 4 MB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu na definicje zasobów używające [kopiowania](copy-resources.md) do tworzenia wielu wystąpień. Ostatni stan zawiera również rozpoznane wartości zmiennych i parametrów.
+Rozmiar szablonu nie może przekraczać 4 MB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu na definicje zasobów używające [kopiowania](copy-resources.md) do tworzenia wielu wystąpień. Stan końcowy zawiera również rozpoznane wartości dla zmiennych i parametrów.
 
 Inne limity dla szablonu są następujące:
 

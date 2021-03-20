@@ -4,10 +4,10 @@ description: W tym artykule pokazano, jak przenieść dedykowany klaster platfor
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89380835"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Przenoszenie dedykowanego klastra Event Hubs platformy Azure do innego regionu
@@ -38,24 +38,24 @@ Wdróż szablon, aby utworzyć dedykowany klaster Event Hubs w regionie docelowy
 
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**i wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** i wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 1. Zaktualizuj wartość `location` właściwości, aby wskazywała na nowy region. Aby uzyskać kody lokalizacji, zapoznaj się z tematem [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu bez spacji, na przykład, `West US` jest równa `westus` .
 1. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 1. Na stronie **wdrożenie niestandardowe** wykonaj następujące kroki: 
-    1. Wybierz **subskrypcję**platformy Azure. 
+    1. Wybierz **subskrypcję** platformy Azure. 
     2. Wybierz istniejącą **grupę zasobów** lub utwórz ją. 
     3. Wybierz **lokalizację** docelową lub region. W przypadku wybrania istniejącej grupy zasobów to ustawienie jest tylko do odczytu. 
     4. W sekcji **Ustawienia** wykonaj następujące czynności:    
         1. Wprowadź nazwę nowego **klastra**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Pobierz szablon Menedżer zasobów":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Wdróż szablon Menedżer zasobów":::
     5. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony. 
     1. Na stronie **Recenzja i tworzenie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.  
 
 ## <a name="discard-or-clean-up"></a>Odrzucanie lub czyszczenie
-Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **element docelowy Event Hubs dedykowany klaster**i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
+Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **element docelowy Event Hubs dedykowany klaster** i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
 
 Aby zatwierdzić zmiany i zakończyć przenoszenie klastra Event Hubs, Usuń **klaster Event Hubs** w pierwotnym regionie. 
 

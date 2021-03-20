@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132317"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurowanie odzyskiwania po awarii dla Active Directory i systemu DNS
@@ -79,7 +79,7 @@ Większość aplikacji wymaga obecności kontrolera domeny lub serwera DNS. W zw
 1. Utwórz sieć izolowaną. Każda sieć wirtualna utworzona na platformie Azure jest domyślnie odizolowana od innych sieci. Zalecamy używanie tego samego zakresu adresów IP dla tej sieci, która jest używana w sieci produkcyjnej. Nie włączaj łączności między lokacjami w tej sieci.
 1. Podaj adres IP DNS w sieci izolowanej. Użyj adresu IP, który ma zostać pobrany przez maszynę wirtualną DNS. Jeśli wykonujesz replikację do platformy Azure, podaj adres IP maszyny wirtualnej używanej w trybie failover. Aby wprowadzić adres IP, na zreplikowanej maszynie wirtualnej w ustawieniach **obliczenia i sieci** wybierz **docelowe ustawienia adresu IP** .
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Sieć platformy Azure":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure test Network":::
 
    > [!TIP]
    > Site Recovery próbuje utworzyć testowe maszyny wirtualne w podsieci o tej samej nazwie i przy użyciu tego samego adresu IP, który jest podany w ustawieniach **obliczeniowych i sieciowych** maszyny wirtualnej. Jeśli podsieć o tej samej nazwie nie jest dostępna w sieci wirtualnej platformy Azure podanej na potrzeby testowego przejścia w tryb failover, testowa maszyna wirtualna jest tworzona w pierwszej podsieci w kolejności alfabetycznej.
@@ -118,21 +118,21 @@ Jeśli zabezpieczenia wirtualizacji są wyzwalane po testowym przejściu w tryb 
 
 - Wartość **GenerationId** zmieni się:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Sieć platformy Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Zmiana identyfikatora generacji":::
 
 - Wartość **InvocationID** zmieni się:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Sieć platformy Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Zmiana identyfikatora wywołania":::
 
 - `SYSVOL` folder i `NETLOGON` udziały nie są dostępne.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Sieć platformy Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Udział folderu SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Sieć platformy Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Folder SYSVOL NtFrs":::
 
 - Bazy danych DFSR są usuwane.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Sieć platformy Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Bazy danych DFSR są usuwane":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Rozwiązywanie problemów z kontrolerem domeny podczas testu pracy w trybie failover
 

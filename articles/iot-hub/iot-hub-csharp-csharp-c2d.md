@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142361"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Wysyłanie komunikatów z chmury do urządzenia przy użyciu IoT Hub (.NET)
@@ -116,19 +116,19 @@ W tym artykule opisano tworzenie usługi zaplecza do wysyłania komunikatów z c
 
 W tej sekcji utworzysz aplikację konsolową .NET, która wysyła komunikaty z chmury do urządzenia do aplikacji symulowanego urządzenia.
 
-1. W bieżącym rozwiązaniu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W bieżącym rozwiązaniu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. Nazwij projekt *SendCloudToDevice*. W obszarze **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania** i zaakceptuj najnowszą wersję .NET Framework. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
+1. Nazwij projekt *SendCloudToDevice*. W obszarze **rozwiązanie** wybierz pozycję **Dodaj do rozwiązania** i zaakceptuj najnowszą wersję .NET Framework. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
    ![Konfigurowanie nowego projektu w programie Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nowy projekt, a następnie wybierz polecenie **Zarządzaj pakietami NuGet**.
 
-1. W obszarze **Zarządzaj pakietami NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**. Wybierz pozycję  **Zainstaluj**.
+1. W obszarze **Zarządzaj pakietami NuGet** wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**. Wybierz pozycję  **Zainstaluj**.
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do [pakietu NuGet zestawu SDK usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Dodaj następującą `using` instrukcję w górnej części pliku **program.cs** .
+1. Dodaj następującą `using` instrukcję w górnej części pliku **program. cs** .
 
    ``` csharp
    using Microsoft.Azure.Devices;
@@ -167,7 +167,7 @@ W tej sekcji utworzysz aplikację konsolową .NET, która wysyła komunikaty z c
 
 1. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W polu **Common Properties**  >  **projekt startowy**właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **SimulatedDevice** i **SendCloudToDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
+1. W polu   >  **projekt startowy** właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **SimulatedDevice** i **SendCloudToDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
 
 1. Naciśnij klawisz **F5**. Należy uruchomić obie aplikacje. Wybierz okno **SendCloudToDevice** , a następnie naciśnij klawisz **Enter**. Powinien zostać wyświetlony komunikat, który jest odbierany przez aplikację urządzenia.
 

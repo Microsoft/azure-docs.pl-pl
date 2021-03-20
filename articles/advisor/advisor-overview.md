@@ -4,10 +4,10 @@ description: Użyj Azure Advisor, aby zoptymalizować wdrożenia platformy Azure
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91405211"
 ---
 # <a name="introduction-to-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
@@ -51,7 +51,7 @@ Możesz również wyświetlić zalecenia doradcy za pomocą interfejsu zasobów 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Jakie uprawnienia muszę uzyskać dostęp do usługi Advisor?
  
-Możesz uzyskać dostęp do zaleceń klasyfikatora jako *właściciela*, *współautora*lub *czytelnika* subskrypcji, grupy zasobów lub zasobu.
+Możesz uzyskać dostęp do zaleceń klasyfikatora jako *właściciela*, *współautora* lub *czytelnika* subskrypcji, grupy zasobów lub zasobu.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Dla jakich zasobów usługa Advisor udostępnia zalecenia?
 

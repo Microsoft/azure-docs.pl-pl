@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142504"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Rozpoczynanie pracy z modułem IoT Hub Identity and module (.NET)
@@ -54,17 +54,17 @@ Na końcu tego samouczka będziesz mieć dwie aplikacje konsolowe .NET:
 
 W tej sekcji tworzysz na urządzeniu symulowanym aplikację konsolową .NET, która aktualizuje zgłoszone właściwości bliźniaczej reprezentacji modułu.
 
-Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). Przejdź do centrum i wybierz pozycję **urządzenia IoT**. Znajdź **myFirstDevice**. Wybierz pozycję **myFirstDevice** , aby ją otworzyć, a następnie wybierz pozycję **myFirstModule** , aby ją otworzyć. W obszarze **szczegóły tożsamości modułu**Skopiuj **Parametry połączenia (klucz podstawowy)** w razie konieczności w poniższej procedurze.
+Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). Przejdź do centrum i wybierz pozycję **urządzenia IoT**. Znajdź **myFirstDevice**. Wybierz pozycję **myFirstDevice** , aby ją otworzyć, a następnie wybierz pozycję **myFirstModule** , aby ją otworzyć. W obszarze **szczegóły tożsamości modułu** Skopiuj **Parametry połączenia (klucz podstawowy)** w razie konieczności w poniższej procedurze.
 
    ![Szczegóły modułu w witrynie Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
 1. W programie Visual Studio Dodaj nowy projekt do rozwiązania, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze Utwórz nowy projekt wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz pozycję **dalej**.
 
-1. Nadaj projektowi nazwę *UpdateModuleTwinReportedProperties*. W obszarze **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
+1. Nadaj projektowi nazwę *UpdateModuleTwinReportedProperties*. W obszarze **rozwiązanie** wybierz pozycję **Dodaj do rozwiązania**. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
 
     ![Tworzenie projektu programu Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. Wybierz pozycję **Utwórz** , aby utworzyć projekt.
+1. Wybierz przycisk **Utwórz**, aby utworzyć projekt.
 
 1. W programie Visual Studio Otwórz pozycję **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
 
@@ -72,7 +72,7 @@ Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witry
 
     ![Zrzut ekranu pokazujący wybraną wartość "Microsoft. Azure. Devices. Client" i wyróżniony przycisk "Zainstaluj".](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -167,9 +167,9 @@ Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witry
 
 Teraz możesz uruchamiać aplikacje.
 
-1. W programie Visual Studio w **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz polecenie **Ustaw projekty startowe**.
+1. W programie Visual Studio w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz polecenie **Ustaw projekty startowe**.
 
-1. W obszarze **wspólne właściwości**wybierz pozycję **projekt startowy.**
+1. W obszarze **wspólne właściwości** wybierz pozycję **projekt startowy.**
 
 1. Wybierz opcję **wiele projektów startowych**, a następnie wybierz pozycję **Uruchom** jako akcję dla aplikacji, a następnie kliknij **przycisk OK** , aby zaakceptować zmiany.
 

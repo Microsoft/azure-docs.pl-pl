@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92131840"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Azure Application Gateway
@@ -297,11 +297,11 @@ Druga z nich (reguła 942130) jest interesująca. Można zobaczyć szczegóły, 
 
 ## <a name="finding-request-header-names"></a>Znajdowanie nazw nagłówków żądań
 
-Programu Fiddler to przydatne narzędzie ponownie, aby znaleźć nazwy nagłówka żądania. Na poniższym zrzucie ekranu widoczne są nagłówki tego żądania GET, w tym *Typ zawartości*, *agent użytkownika*i tak dalej.
+Programu Fiddler to przydatne narzędzie ponownie, aby znaleźć nazwy nagłówka żądania. Na poniższym zrzucie ekranu widoczne są nagłówki tego żądania GET, w tym *Typ zawartości*, *agent użytkownika* i tak dalej.
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Zrzut ekranu przedstawiający debuger sieci Web w programie Progress Telerik programu Fiddler. Karta RAW zawiera listę szczegółów nagłówka żądania, takich jak połączenie, typ zawartości i agent użytkownika." border="false":::
 
-Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich programu Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić**  ->  **Narzędzia deweloperskie**i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
+Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich programu Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić**  ->  **Narzędzia deweloperskie** i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak ustawiać zmienne środowiskowe w kontenerach uru
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169769"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów
@@ -144,7 +144,7 @@ Azure:\
 Aby ustawić zmienne środowiskowe podczas uruchamiania kontenera w Azure Portal, należy je określić na stronie **Zaawansowane** podczas tworzenia kontenera.
 
 1. Na stronie **Zaawansowane** Ustaw **zasady ponownego uruchamiania** na *Niepowodzenie*
-2. W obszarze **zmienne środowiskowe**wprowadź `NumWords` wartość `5` dla pierwszej zmiennej, a `MinLength` następnie wprowadź wartość `8` dla drugiej zmiennej. 
+2. W obszarze **zmienne środowiskowe** wprowadź `NumWords` wartość `5` dla pierwszej zmiennej, a `MinLength` następnie wprowadź wartość `8` dla drugiej zmiennej. 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić, a następnie wdrożyć kontener.
 
 ![Strona portalu przedstawiająca przycisk włączania zmiennych środowiskowych i pól tekstowych][portal-env-vars-01]

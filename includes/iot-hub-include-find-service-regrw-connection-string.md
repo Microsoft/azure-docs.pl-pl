@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 04/03/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 1a0502568c1673bcd7f57d3e9bc9c95ed90bbefa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80756906"
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->
@@ -25,13 +25,13 @@ Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia d
 
 1. W górnym menu powyżej listy zasad wybierz pozycję **Dodaj**.
 
-1. W obszarze **Dodawanie zasad dostępu współdzielonego**Wprowadź opisową nazwę zasad, taką jak *serviceAndRegistryReadWrite*. W obszarze **uprawnienia**wybierz pozycję **zapis rejestru** i **Usługa połączenie usługi**, a następnie wybierz pozycję **Utwórz**. (W przypadku wybrania **zapisu w rejestrze**zostanie automatycznie dołączone uprawnienie **odczyt rejestru** ).
+1. W obszarze **Dodawanie zasad dostępu współdzielonego** Wprowadź opisową nazwę zasad, taką jak *serviceAndRegistryReadWrite*. W obszarze **uprawnienia** wybierz pozycję **zapis rejestru** i **Usługa połączenie usługi**, a następnie wybierz pozycję **Utwórz**. (W przypadku wybrania **zapisu w rejestrze** zostanie automatycznie dołączone uprawnienie **odczyt rejestru** ).
 
     ![Pokaż, jak dodać nowe zasady dostępu współdzielonego](./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-add-svc-regrw-policy.png)
 
 1. Wybierz nowe zasady z listy zasad.
 
-1. W obszarze **klucze dostępu współdzielonego**wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
+1. W obszarze **klucze dostępu współdzielonego** wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
 
     ![Sposób pobierania parametrów połączenia](./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-get-connection-string.png)
 

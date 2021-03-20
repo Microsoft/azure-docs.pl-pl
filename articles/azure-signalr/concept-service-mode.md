@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143260"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Tryb usługi w usłudze Azure Signal Service
@@ -21,7 +21,7 @@ Tryb usługi jest ważnym pojęciem w usłudze Azure Signal Service. Podczas two
 
 Możesz również zmienić ją później w menu Ustawienia:
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Wybierz tryb usługi podczas tworzenia":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Aktualizowanie trybu usługi":::
 
 Usługa Azure sygnalizująca obecnie obsługuje trzy tryby usługi: **domyślne**, **bezserwerowe** i **klasyczne**. Zasób sygnalizujący będzie zachowywać się inaczej w różnych trybach. Ten artykuł zawiera informacje o różnicach i sposobach wybierania odpowiedniego trybu usługi w oparciu o twój scenariusz.
 
@@ -29,7 +29,7 @@ Usługa Azure sygnalizująca obecnie obsługuje trzy tryby usługi: **domyślne*
 
 Domyślny tryb jest wartością domyślną dla trybu usługi podczas tworzenia nowego zasobu sygnalizującego. W tym trybie aplikacja działa jako Typowa aplikacja sygnalizująca ASP.NET Core (lub ASP.NET), w której znajduje się serwer sieci Web, który hostuje centrum (o nazwie serwer centralny dalej), a klienci mogą komunikować się z serwerem centralnym w czasie rzeczywistym. Jedyną różnicą jest zamiast bezpośredniego łączenia klienta i serwera, klient i serwer programu łączą się z usługą sygnalizującą i używają usługi jako serwera proxy. Poniżej znajduje się diagram, który ilustruje typową strukturę aplikacji w trybie domyślnym:
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Wybierz tryb usługi podczas tworzenia":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Struktura aplikacji w trybie domyślnym":::
 
 Dlatego jeśli masz aplikację sygnalizującą i chcesz zintegrować ją z usługą sygnalizująca, w większości przypadków należy wybrać tryb domyślny.
 
@@ -59,7 +59,7 @@ Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zobacz ten
 
 Poniżej znajduje się diagram, który ilustruje sposób działania trybu bezserwerowego:
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Wybierz tryb usługi podczas tworzenia":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Struktura aplikacji w trybie bezserwerowym":::
 
 > [!NOTE]
 > Należy pamiętać, że w trybie domyślnym można także użyć interfejsu API REST/zarządzanie SDK/funkcja, aby bezpośrednio wysyłać komunikaty do klienta, jeśli nie chcesz przechodzić przez serwer centrum. Jednak połączenia klienta w trybie domyślnym nadal są obsługiwane przez serwery centrów, a tryb nadrzędny nie będzie działał w tym trybie.

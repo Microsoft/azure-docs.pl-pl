@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 0064794701e87419da086c458673f7ccee4f37dd
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744798"
 ---
 # <a name="azure-cloud-services-extended-support-definition-networktrafficrules-schema"></a>Schemat NetworkTrafficRules definicji platformy Cloud Services Azure (obsługa rozszerzona)
@@ -94,7 +94,7 @@ Poniżej przedstawiono podstawowy format pliku definicji usługi zawierającego 
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Wymagane. Nazwa roli, z której ma być dozwolona komunikacja.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Schemat definicji usługi w chmurze (obsługa rozszerzona)](schema-csdef-file.md).
 
 

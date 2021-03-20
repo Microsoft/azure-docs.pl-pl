@@ -1,18 +1,18 @@
 ---
 title: Schemat zdarzeń Azure Event Grid
-description: Opisuje właściwości i schemat, które są obecne dla wszystkich zdarzeń.Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych.
+description: Opisuje właściwości i schemat, które są obecne dla wszystkich zdarzeń. Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych.
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86105884"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schemat zdarzeń Azure Event Grid
 
-W tym artykule opisano właściwości i schemat, które są obecne dla wszystkich zdarzeń.Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych. Właściwości są wspólne dla wszystkich zdarzeń z dowolnego wydawcy. Obiekt danych ma właściwości, które są specyficzne dla każdego wydawcy. W przypadku tematów systemowych te właściwości są specyficzne dla dostawcy zasobów, na przykład Azure Storage lub Azure Event Hubs.
+W tym artykule opisano właściwości i schemat, które są obecne dla wszystkich zdarzeń. Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych. Właściwości są wspólne dla wszystkich zdarzeń z dowolnego wydawcy. Obiekt danych ma właściwości, które są specyficzne dla każdego wydawcy. W przypadku tematów systemowych te właściwości są specyficzne dla dostawcy zasobów, na przykład Azure Storage lub Azure Event Hubs.
 
 Źródła zdarzeń wysyłają zdarzenia do Azure Event Grid w tablicy, które mogą mieć kilka obiektów zdarzeń. Podczas ogłaszania zdarzeń w temacie Event Grid tablica może mieć łączny rozmiar do 1 MB. Każde zdarzenie w tablicy jest ograniczone do 1 MB. Jeśli zdarzenie lub tablica jest większe niż limity rozmiaru, otrzymasz **ładunek odpowiedzi 413 za duży**. W przypadku operacji jest naliczana wartość 64 KB. Dlatego zdarzenia przekraczające 64 KB powodują naliczanie opłat za operacje, tak jakby były to wiele zdarzeń. Na przykład zdarzenie o 130 KB może pociągać za sobą operacje, tak jakby były to trzy oddzielne zdarzenia.
 

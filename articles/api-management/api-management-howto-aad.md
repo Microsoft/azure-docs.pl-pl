@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91363209"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoryzowanie kont deweloperów przy użyciu usługi Azure Active Directory w usłudze Azure API Management
@@ -34,15 +34,15 @@ W tym artykule opisano sposób włączania dostępu do portalu dla deweloperów 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoryzuj konta dewelopera przy użyciu usługi Azure AD
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. Wybierz ![Ikona strzałki.](./media/api-management-howto-aad/arrow.png).
+2. Wybierz pozycję ![Ikona strzałki.](./media/api-management-howto-aad/arrow.png).
 3. Wpisz w polu wyszukiwania **interfejs API** .
 4. Wybierz pozycję **API Management Services**.
 5. Wybierz swoje wystąpienie usługi API Management.
-6. W obszarze **Portal deweloperów**wybierz pozycję **tożsamości**.
+6. W obszarze **Portal deweloperów** wybierz pozycję **tożsamości**.
 7. Wybierz pozycję **+ Dodaj** z góry.
 
     Po prawej stronie pojawi się okienko **Dodawanie dostawcy tożsamości** .
-8. W obszarze **Typ dostawcy**wybierz pozycję **Azure Active Directory**.
+8. W obszarze **Typ dostawcy** wybierz pozycję **Azure Active Directory**.
 
     Kontrolki, które umożliwiają wprowadzanie innych niezbędnych informacji, są wyświetlane w okienku. Formanty obejmują **Identyfikator klienta** i **klucz tajny klienta**. (Informacje o tych kontrolkach są uzyskiwane w dalszej części artykułu).
 9. Zanotuj zawartość **adresu URL przekierowania**.
@@ -61,7 +61,7 @@ W tym artykule opisano sposób włączania dostępu do portalu dla deweloperów 
 14.  Po zarejestrowaniu aplikacji Skopiuj **Identyfikator aplikacji (klienta)** ze strony **Przegląd** . 
 15. Wróć do wystąpienia API Management. W oknie **Dodawanie dostawcy tożsamości** wklej wartość **identyfikatora aplikacji (klienta)** do pola **Identyfikator klienta** .
 16. Przejdź z powrotem do konfiguracji usługi Azure AD, wybierz pozycję **certyfikaty & wpisy tajne** w obszarze **Zarządzaj**. Wybierz przycisk **Nowy klucz tajny klienta**. Wprowadź wartość w polu **Opis**, wybierz dowolną opcję w polu **Wygasa** i wybierz polecenie **Dodaj**. Skopiuj wartość klucza tajnego klienta przed opuszczeniem strony. Będą one potrzebne w kolejnym kroku. 
-17. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie** , a następnie pozycję **tokeny ID** w obszarze **niejawne udzielenie**
+17. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie** , a następnie pozycję **tokeny ID** w obszarze **niejawne udzielenie**
 18. Wróć do wystąpienia API Management, wklej wpis tajny do pola **klucz tajny klienta** .
 
     > [!IMPORTANT]

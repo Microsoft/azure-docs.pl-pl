@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355129"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Rozwiązywanie typowych problemów indeksatora na platformie Azure Wyszukiwanie poznawcze
@@ -30,7 +30,7 @@ Indeksatory mogą być uruchamiane w ramach wielu problemów podczas indeksowani
 >
 > Adres IP usługi wyszukiwania można sprawdzić, wysyłając polecenie ping do jego w pełni kwalifikowanej nazwy domeny (np. `<your-search-service-name>.search.windows.net` ).
 >
-> Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
+> Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
 
 ### <a name="configure-firewall-rules"></a>Konfigurowanie reguł zapory
 
