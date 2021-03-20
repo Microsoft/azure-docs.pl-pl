@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86218185"
 ---
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).

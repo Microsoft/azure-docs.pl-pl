@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94952951"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Samouczek: tworzenie rekordów DNS w domenie niestandardowej dla aplikacji internetowej 
@@ -29,7 +29,7 @@ Aby to zrobić, musisz utworzyć trzy rekordy:
 
 Należy pamiętać, że w przypadku utworzenia rekordu A dla aplikacji internetowej na platformie Azure rekord A musi być ręcznie zaktualizowany, jeżeli zmieni się podstawowy adres IP aplikacji internetowej.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie rekordu A i TXT dla domeny niestandardowej
@@ -174,7 +174,7 @@ Otwórz przeglądarkę i przejdź do `http://www.<your domainname>` oraz `http:/
 > [!NOTE]
 > Upewnij się, że dołączysz `http://` prefiks, w przeciwnym razie przeglądarka może próbować przewidzieć adres URL.
 
-Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Przykład:
+Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Na przykład:
 
 ![Usługa aplikacji Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

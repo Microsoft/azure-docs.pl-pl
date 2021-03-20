@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: 1716db0476169e12822b3f47f7199bf6e2c4ee92
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753777"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Przygotowanie do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia
@@ -39,7 +39,7 @@ W ramach subskrypcji platformy Azure Twoje konto musi mieć dostęp do **program
 1. W witrynie Azure Portal otwórz pozycję **Subskrypcje**.
 2. Wybierz odpowiednią subskrypcję. Jeśli go nie widzisz, wybierz **Filtr subskrypcje globalne**. 
 3. Wybierz pozycję **Moje uprawnienia**. Następnie wybierz **pozycję kliknij tutaj, aby wyświetlić pełne szczegóły dostępu dla tej subskrypcji**.
-4. W **widoku przypisania ról**  >  **View** Sprawdź uprawnienia. Jeśli Twoje konto nie ma uprawnień, poprosimy administratora subskrypcji o dodanie do roli [administratora dostępu użytkownika](../role-based-access-control/built-in-roles.md#user-access-administrator) lub roli [właściciela](../role-based-access-control/built-in-roles.md#owner) .
+4. W **widoku przypisania ról**  >  Sprawdź uprawnienia. Jeśli Twoje konto nie ma uprawnień, poprosimy administratora subskrypcji o dodanie do roli [administratora dostępu użytkownika](../role-based-access-control/built-in-roles.md#user-access-administrator) lub roli [właściciela](../role-based-access-control/built-in-roles.md#owner) .
 
 ## <a name="allow-access-to-urls"></a>Zezwalanie na dostęp do adresów URL
 

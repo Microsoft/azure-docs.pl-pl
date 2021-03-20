@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77594315"
 ---
 # <a name="about-service-meshes"></a>Informacje o siatkach usług
@@ -26,7 +26,7 @@ Poniżej przedstawiono niektóre scenariusze, które mogą być włączone dla o
 
 - **Zarządzanie ruchem i manipulowanie** — Tworzenie zasad w usłudze, które będą ograniczać ruch do wersji usługi z określonego źródła. Lub zasad, które stosują strategię ponawiania, do klas błędów między określonymi usługami. Duplikowanie ruchu na żywo do nowych wersji usług podczas migracji lub debugowania problemów. Wsuń błędy między usługami w środowisku testowym w celu przetestowania odporności.
 
-- **Observability** Wgląd w szczegółowe informacje na temat sposobu połączenia usług z ruchem między nimi. Uzyskiwanie metryk, dzienników i śladów dla całego ruchu w klastrze oraz danych przychodzących/wychodzących. Dodawanie rozproszonych możliwości śledzenia do aplikacji.
+-  Wgląd w szczegółowe informacje na temat sposobu połączenia usług z ruchem między nimi. Uzyskiwanie metryk, dzienników i śladów dla całego ruchu w klastrze oraz danych przychodzących/wychodzących. Dodawanie rozproszonych możliwości śledzenia do aplikacji.
 
 ## <a name="architecture"></a>Architektura
 

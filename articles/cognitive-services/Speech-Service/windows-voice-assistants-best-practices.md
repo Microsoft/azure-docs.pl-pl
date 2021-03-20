@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
 ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92165149"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Środowiska asystenta projektowego dla systemu Windows 10
@@ -145,11 +145,11 @@ Asystent firmy Contoso ma stronę główną na pasku zadań: przewirowanie, okr�
 
 ![Zrzut ekranu przedstawiający asystenta głosowego w systemie Windows jako ikonę na pasku zadań przed aktywacją](media/voice-assistants/windows_voice_assistant/pre_compact_view.png)
 
-**W miarę postępów aktywacji**asystent żąda aktywacji w tle. Asystent otrzymuje małe okienko podglądu (domyślna szerokość 408 i Wysokość: 248). Jeśli aktywacja głosu po stronie serwera określa, że sygnał był fałszywie dodatni, ten widok może zostać odrzucony w celu zapewnienia minimalnej przerwy.
+**W miarę postępów aktywacji** asystent żąda aktywacji w tle. Asystent otrzymuje małe okienko podglądu (domyślna szerokość 408 i Wysokość: 248). Jeśli aktywacja głosu po stronie serwera określa, że sygnał był fałszywie dodatni, ten widok może zostać odrzucony w celu zapewnienia minimalnej przerwy.
 
 ![Zrzut ekranu asystenta głosowego w systemie Windows w widoku kompaktowym podczas weryfikacji aktywacji](media/voice-assistants/windows_voice_assistant/compact_view_activating.png)
 
-**Po potwierdzeniu końcowej aktywacji**asystent prezentuje środowisko słuchania. Asystent musi zawsze narysować Odrzuć X w prawym górnym rogu wersji zapoznawczej aktywacji głosowej.
+**Po potwierdzeniu końcowej aktywacji** asystent prezentuje środowisko słuchania. Asystent musi zawsze narysować Odrzuć X w prawym górnym rogu wersji zapoznawczej aktywacji głosowej.
 
 ![Zrzut ekranu przedstawiający asystenta głosowego w systemie Windows nasłuchiwanie w widoku kompaktowym](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 

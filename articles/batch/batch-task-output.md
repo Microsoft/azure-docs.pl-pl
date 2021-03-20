@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85965114"
 ---
 # <a name="persist-job-and-task-output"></a>Utrwalanie danych wyjściowych zadań i zadań podrzędnych
@@ -73,7 +73,7 @@ Podczas projektowania rozwiązania do przetwarzania wsadowego należy wziąć po
 
 - **Pobieranie danych wyjściowych**: możesz pobrać dane wyjściowe zadania bezpośrednio z węzłów obliczeniowych w puli lub z usługi Azure Storage lub innego magazynu danych, jeśli masz utrwalone dane wyjściowe zadania. Aby pobrać dane wyjściowe zadania bezpośrednio z węzła obliczeniowego, należy mieć nazwę pliku i jego lokalizację wyjściową w węźle. W przypadku utrwalania danych wyjściowych zadań w usłudze Azure Storage potrzebna jest pełna ścieżka do pliku w usłudze Azure Storage w celu pobrania plików wyjściowych za pomocą zestawu SDK usługi Azure Storage.
 
-- **Wyświetlanie danych wyjściowych**: po przejściu do zadania wsadowego w Azure Portal i wybraniu **plików w węźle**zostaną wyświetlone wszystkie pliki skojarzone z zadaniem, a nie tylko pliki wyjściowe, które Cię interesują. Ponownie pliki w węzłach obliczeniowych są dostępne tylko wtedy, gdy węzeł istnieje i tylko w czasie przechowywania pliku ustawionym dla zadania. Aby wyświetlić dane wyjściowe zadania, które zostały utrwalone w usłudze Azure Storage, możesz użyć Azure Portal lub aplikacji klienckiej usługi Azure Storage, takiej jak [Eksplorator usługi Azure Storage][storage_explorer]. Aby wyświetlić dane wyjściowe w usłudze Azure Storage przy użyciu portalu lub innego narzędzia, należy znać lokalizację pliku i przejść bezpośrednio do niego.
+- **Wyświetlanie danych wyjściowych**: po przejściu do zadania wsadowego w Azure Portal i wybraniu **plików w węźle** zostaną wyświetlone wszystkie pliki skojarzone z zadaniem, a nie tylko pliki wyjściowe, które Cię interesują. Ponownie pliki w węzłach obliczeniowych są dostępne tylko wtedy, gdy węzeł istnieje i tylko w czasie przechowywania pliku ustawionym dla zadania. Aby wyświetlić dane wyjściowe zadania, które zostały utrwalone w usłudze Azure Storage, możesz użyć Azure Portal lub aplikacji klienckiej usługi Azure Storage, takiej jak [Eksplorator usługi Azure Storage][storage_explorer]. Aby wyświetlić dane wyjściowe w usłudze Azure Storage przy użyciu portalu lub innego narzędzia, należy znać lokalizację pliku i przejść bezpośrednio do niego.
 
 ## <a name="next-steps"></a>Następne kroki
 

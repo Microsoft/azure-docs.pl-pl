@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148432"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Samouczek: wdrażanie aplikacji sieci Web z rejestru kontenerów platformy Azure z replikacją geograficzną
@@ -66,7 +66,7 @@ Po zakończeniu wdrażania możesz wyświetlić uruchomioną aplikację, przecho
 
 W portalu wybierz pozycję **App Services**, a następnie aplikację internetową aprowizowaną w poprzednim kroku. W tym przykładzie aplikacja internetowa nosi nazwę *uniqueregistryname-westus*.
 
-Wybierz adres URL z hiperłączami aplikacji sieci Web w prawym górnym rogu omówienia **App Service** , aby wyświetlić uruchomioną aplikację w przeglądarce.
+Wybierz adres URL aplikacji internetowej z hiperlinku w prawym górnym rogu okna przeglądu **App Service**, aby wyświetlić uruchomioną aplikację w przeglądarce.
 
 ![Zrzut ekranu przedstawia Omówienie App Service z wyróżnionym adresem URL aplikacji sieci Web.][deploy-app-portal-04]
 
@@ -96,7 +96,7 @@ Jak poprzednio, możesz wyświetlić uruchomioną aplikację, przechodząc do je
 
 W portalu wybierz pozycję **App Services**, a następnie aplikację internetową aprowizowaną w poprzednim kroku. W tym przykładzie aplikacja internetowa nosi nazwę *uniqueregistryname-eastus*.
 
-Wybierz adres URL aplikacji internetowej z hiperlinku w prawym górnym rogu okna przeglądu **App Service**, aby wyświetlić uruchomioną aplikację w przeglądarce.
+Wybierz adres URL z hiperłączami aplikacji sieci Web w prawym górnym rogu **omówienia App Service** , aby wyświetlić uruchomioną aplikację w przeglądarce.
 
 ![Aplikacja internetowa w konfiguracji systemu Linux w witrynie Azure Portal][deploy-app-portal-07]
 

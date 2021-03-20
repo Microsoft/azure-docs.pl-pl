@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
 ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460307"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Szybki Start: Tworzenie klastra Service Fabric przy użyciu szablonu ARM
@@ -111,7 +111,7 @@ Otwórz *azuredeploy.parameters.jsna* i edytuj wartości parametrów, tak aby:
 * wartość **ClusterName** pasuje do wartości podanej dla *CertDNSName* podczas tworzenia certyfikatu klastra
 * **adminUserName** jest wartością inną niż domyślny token *Gen-Unique*
 * **adminPassword** jest wartością inną niż domyślny token ogólnego *hasła*
-* **certificateThumbprint**, **sourceVaultResourceId**i **certificateUrlValue** są pustym ciągiem ( `""` )
+* **certificateThumbprint**, **sourceVaultResourceId** i **certificateUrlValue** są pustym ciągiem ( `""` )
 
 Na przykład:
 

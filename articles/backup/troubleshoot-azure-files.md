@@ -4,10 +4,10 @@ description: W tym artykule znajdują się informacje dotyczące rozwiązywania 
 ms.date: 02/10/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376982"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
@@ -51,7 +51,7 @@ Ponów próbę rejestracji. Jeśli problem będzie się powtarzać, skontaktuj s
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Nie można usunąć magazynu Recovery Services po wyłączeniu ochrony udziału plików
 
-W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapasowej**magazynu  >  **Storage accounts**. Wybierz pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
+W Azure Portal Otwórz   >  konta magazynu **infrastruktury kopii zapasowej** magazynu  >  . Wybierz pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
 
 >[!NOTE]
 >Magazyn Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
@@ -261,7 +261,7 @@ Kod błędu: UserErrorAnotherRestoreInProgressOnSameTarget
 
 Komunikat o błędzie: inne zadanie przywracania jest w toku w tym samym docelowym udziale plików
 
-Użyj innego docelowego udziału plików. Alternatywnie możesz anulować lub poczekać na zakończenie innych operacji przywracania.
+Użyj innego docelowego udziału plików. Alternatywnie możesz anulować swoją operację lub poczekać na zakończenie innej operacji przywracania.
 
 ## <a name="common-modify-policy-errors"></a>Typowe błędy zasad modyfikacji
 

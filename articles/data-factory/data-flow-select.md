@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040238"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Wybierz transformację w mapowaniu przepływu danych
@@ -44,7 +44,7 @@ Stałe mapowania mogą służyć do mapowania podkolumny kolumny hierarchicznej 
 
 Jeśli chcesz zmapować wiele kolumn jednocześnie lub przekazywać kolumny z przełożeniami, użyj mapowania opartego na regułach, aby zdefiniować mapowania przy użyciu wzorców kolumn. Dopasowanie na podstawie `name` kolumn, `type` , `stream` i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
 
-Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach** .
+Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach**.
 
 ![Zrzut ekranu przedstawia mapowanie oparte na regułach wybrane na podstawie dodawania mapowania.](media/data-flow/rule2.png "Mapowanie oparte na regułach")
 

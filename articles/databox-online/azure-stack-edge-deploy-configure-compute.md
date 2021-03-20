@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968725"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych przy użyciu Azure Stack EDGE Pro
@@ -57,12 +57,12 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
     |---------|---------|
     |Subskrypcja     |Wybierz subskrypcję dla zasobu IoT Hub. Możesz użyć tej samej subskrypcji, która jest używana przez zasób Azure Stack Edge.         |
     |Grupa zasobów     |Wybierz grupę zasobów dla zasobu IoT Hub. Możesz użyć tej samej grupy zasobów, która jest używana przez zasób Azure Stack Edge.         |
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób usługi IoT Hub używa tej samej subskrypcji i grupy zasobów, które są używane przez zasób usługi Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
     ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
-4. Wybierz pozycję **Recenzja + Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub **Omówienie** aktualizacji, aby wskazać, że usługa IoT Edge jest uruchomiona. 
+4. Wybierz pozycję **Przejrzyj i utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub **Omówienie** aktualizacji, aby wskazać, że usługa IoT Edge jest uruchomiona. 
 
     ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-deploy-configure-compute/configure-compute-4.png)    
     

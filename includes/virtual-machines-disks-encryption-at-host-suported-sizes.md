@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,17 +9,17 @@ ms.date: 07/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5a811620de8336abd3e0df6d72db761ce18b2b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86230994"
 ---
 Wszystkie najnowsze generacji rozmiarów maszyn wirtualnych obsługują szyfrowanie na hoście:
 
-|Type  |Nieobsługiwane  |Obsługiwane  |
+|Typ  |Nieobsługiwane  |Obsługiwane  |
 |---------|---------|---------|
-|Zastosowania ogólne     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
+|Ogólnego przeznaczenia     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
 |Optymalizacja pod kątem obliczeń     |         | Fsv2        |
 |Optymalizacja pod kątem pamięci     | EV3, Eav4        | DSv2, Esv3, M, Mv2, Easv4        |
 |Optymalizacja pod kątem magazynu     |         | Ls, Lsv2 (dyski interfejsu NVMe nie są szyfrowane)        |

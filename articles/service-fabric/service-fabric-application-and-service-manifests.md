@@ -4,10 +4,10 @@ description: Opisuje, w jaki sposób manifesty są używane do opisywania Servic
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86248224"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric manifesty aplikacji i usług
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji na temat konfigurowania SetupEntryPoint, zobacz 
 
 **Pakiet** danych (nie został ustawiony w poprzednim przykładzie) deklaruje folder **o nazwie,** który zawiera dowolne dane statyczne do użycia przez proces w czasie wykonywania.
 
-**ConfigPackage** deklaruje folder **o nazwie,** który zawiera plik *Settings.xml* . Plik ustawień zawiera sekcje ustawień zdefiniowanych przez użytkownika, pary klucz-wartość, które proces odczytuje z powrotem w czasie wykonywania. W trakcie uaktualniania, jeśli tylko wersja **ConfigPackage** **version** została zmieniona, uruchomiony proces nie zostanie ponownie uruchomiony. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, aby można je było ponownie załadować dynamicznie. Oto przykładowy plik *Settings.xml* :
+**ConfigPackage** deklaruje folder **o nazwie,** który zawiera plik *Settings.xml* . Plik ustawień zawiera sekcje ustawień zdefiniowanych przez użytkownika, pary klucz-wartość, które proces odczytuje z powrotem w czasie wykonywania. W trakcie uaktualniania, jeśli tylko wersja **ConfigPackage**  została zmieniona, uruchomiony proces nie zostanie ponownie uruchomiony. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, aby można je było ponownie załadować dynamicznie. Oto przykładowy plik *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -159,7 +159,7 @@ Podobnie jak w przypadku manifestów usługi, atrybuty **wersji** są ciągami b
 
 **Ograniczenia umieszczania** to instrukcje określające, gdzie mają być uruchamiane usługi. Te instrukcje są dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Aby uzyskać więcej informacji, zobacz temat [ograniczenia umieszczania i składnia właściwości węzła](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax) .
 
-**Zasady** (nie zostały ustawione w poprzednim przykładzie) opisują zbieranie dzienników, [domyślne zasady uruchamiania](service-fabric-application-runas-security.md)i [kondycji](service-fabric-health-introduction.md#health-policies), aby [security access](service-fabric-application-runas-security.md) ustawić na poziomie aplikacji, w tym czy usługi mają dostęp do Service Fabric środowiska uruchomieniowego.
+**Zasady** (nie zostały ustawione w poprzednim przykładzie) opisują zbieranie dzienników, [domyślne zasady uruchamiania](service-fabric-application-runas-security.md)i [kondycji](service-fabric-health-introduction.md#health-policies), aby [](service-fabric-application-runas-security.md) ustawić na poziomie aplikacji, w tym czy usługi mają dostęp do Service Fabric środowiska uruchomieniowego.
 
 > [!NOTE] 
 > Domyślnie aplikacje Service Fabric mają dostęp do środowiska uruchomieniowego Service Fabric, w postaci punktu końcowego akceptującego żądania specyficzne dla aplikacji, a zmienne środowiskowe wskazujące ścieżki plików na hoście zawierającym pliki sieci szkieletowej i specyficzne dla aplikacji. Należy rozważyć wyłączenie tego dostępu, gdy aplikacja zawiera kod niezaufany (tj. kod, którego pochodzenie jest nieznany lub którego właściciel aplikacji nie ma być bezpiecznie wykonywany). Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania w zakresie zabezpieczeń w Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 

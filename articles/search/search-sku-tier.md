@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99987891"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
@@ -56,7 +56,7 @@ Większość funkcji jest dostępnych na wszystkich warstwach, w tym w warstwie 
 | Cecha | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD.  |
-| [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
+| [Wzbogacanie AI](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
 | [Zarządzane lub zaufane tożsamości dla dostępu wychodzącego (indeksatora)](search-howto-managed-identities-data-sources.md) | Niedostępne w warstwie Bezpłatna.|
 | [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) | Niedostępne w warstwie Bezpłatna. |
 | [Dostęp do zapory IP](service-configure-firewall.md) | Niedostępne w warstwie Bezpłatna. |

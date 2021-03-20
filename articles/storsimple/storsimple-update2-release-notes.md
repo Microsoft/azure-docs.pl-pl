@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: b68e338c2675a3aeefda390d12ab2d82ea1c7a9f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956657"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 Series Update 2 — informacje o wersji
@@ -64,7 +64,7 @@ Aktualizacja Update 2 wprowadza następujące nowe funkcje.
 ## <a name="issues-fixed-in-update-2"></a>Problemy rozwiązane w aktualizacji Update 2
 W poniższych tabelach przedstawiono podsumowanie problemów, które zostały rozwiązane w aktualizacji Update 2.    
 
-| Nie. | Obiekt feature | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Cecha | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- |
 | 1 |Interfejsy sieciowe |Po uaktualnieniu do wersji Update 1 Usługa StorSimple Manager zgłosiła, że porty Dane2 i DATA3 nie powiodły się na jednym kontrolerze. Ten problem został rozwiązany. |Tak |Nie |
 | 2 |Aktualizacje |Po uaktualnieniu do wersji Update 1 alerty alarmu dźwiękowego wystąpiły w klasycznym portalu Azure na wielu urządzeniach. Ten problem został rozwiązany. |Tak |Nie |
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono podsumowanie problemów, które zostały ro
 ## <a name="known-issues-in-update-2"></a>Znane problemy z aktualizacją Update 2
 Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej wersji.
 
-| Nie. | Obiekt feature | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Cecha | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Kworum dysku |W rzadkich przypadkach, jeśli większość dysków w obudowie EBOD urządzenia 8600 zostanie odłączona, co spowodowało brak kworum dysku, Pula magazynów przejdzie w tryb offline. Pozostanie ono w trybie offline, nawet jeśli dyski zostaną ponownie połączone. |Konieczne będzie ponowne uruchomienie urządzenia. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu wykonania następnych kroków. |Tak |Nie |
 | 2 |Niepoprawny identyfikator kontrolera |Gdy jest przeprowadzane Zastępowanie kontrolera, kontroler 0 może być wyświetlany jako kontroler 1. Podczas zastępowania kontrolera, gdy obraz jest ładowany z węzła równorzędnego, identyfikator kontrolera może początkowo być wyświetlany jako identyfikator kontrolera równorzędnego. W rzadkich przypadkach takie zachowanie może być również widoczne po ponownym uruchomieniu systemu. |Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika. Ta sytuacja zostanie rozwiązany po zakończeniu zastępowania kontrolera. |Tak |Nie |

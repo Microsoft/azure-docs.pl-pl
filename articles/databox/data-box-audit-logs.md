@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209977"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Dzienniki inspekcji dla Azure Data Box i Azure Data Box Heavy
@@ -49,7 +49,7 @@ Następujące identyfikatory zdarzeń dziennika systemu są zbierane jako dzienn
 |    |                              |
 |Microsoft-Windows-jądro  |41  |System został uruchomiony ponownie bez czystego zamknięcia.| 
 |    |                              |
-|Microsoft-Windows-BitLocker-sterownik|Wszystkie|    |
+|Microsoft-Windows-BitLocker-sterownik|Wszystko|    |
 
 ### <a name="security-logs"></a>Dzienniki zabezpieczeń
 
@@ -65,9 +65,9 @@ Następujące identyfikatory zdarzeń dzienników zabezpieczeń są zbierane jak
 
 Następujące identyfikatory zdarzeń dzienników aplikacji są zbierane jako część dzienników inspekcji pakietu na urządzenie Data Box.     
 
-- **Microsoft-Azure-DataBox-OOBE-Audit** -zawiera zdarzenia występujące w lokalnym interfejsie użytkownika. 
+- **Microsoft-Azure-DataBox-OOBE-Audit** -zawiera zdarzenia występujące w lokalnym interfejsie użytkownika. 
 - **Microsoft-Azure-DataBox-reaprowizacji-Audit** -zawiera zdarzenia dotyczące ponownego inicjowania obsługi urządzenia urządzenie Data Box. Ponowne Inicjowanie obsługi urządzenie Data Box występuje, gdy urządzenie zostanie zresetowane za pomocą lokalnego interfejsu użytkownika. Należy wybrać tę opcję, jeśli chcesz wymazać skopiowane dane, usuwając istniejące udziały i ponownie tworząc udziały w ramach ponownego inicjowania obsługi administracyjnej lub resetowania urządzenia.
-- **Microsoft-Azure-DataBox-HcsMgmt-Audit** -zawiera zdarzenia związane tylko z etapem **przygotowywania do wysłania** , zanim urządzenie zostanie wysłane z powrotem do centrum danych platformy Azure. 
+- **Microsoft-Azure-DataBox-HcsMgmt-Audit** -zawiera zdarzenia związane tylko z etapem **przygotowywania do wysłania** , zanim urządzenie zostanie wysłane z powrotem do centrum danych platformy Azure. 
 - **Microsoft-Azure-DataBox-IfxAudit** — zawiera komunikaty zarejestrowane przez różne jednostki produktu o zadaniach, dzienniki wskazujące więcej informacji na temat tego, co się dzieje w niektórych przepływach.
 
 Poniżej przedstawiono tabelę zawierającą podsumowanie różnych dostawców zdarzeń i identyfikatory zdarzeń, które są zbierane w każdym przypadku.
@@ -83,7 +83,7 @@ Poniżej przedstawiono tabelę zawierającą podsumowanie różnych dostawców z
 |                                                  |                 |         |
 |Microsoft-Azure-DataBox-HcsMgmt-Audit        |65003       |NotStarted stanu zdarzenia przygotowanie do wysłania, InProgress, niepomyślne, anulowane, zakończone powodzeniem, ScanCompletedWithIssues, SucceededWithWarnings          |
 |                                                  |                 |     |
-|Microsoft-Azure-DataBox-IfxAudit    |Wszystkie |Wszystkie zdarzenia są rejestrowane za pomocą interfejsu API dziennika inspekcji w kodzie |
+|Microsoft-Azure-DataBox-IfxAudit    |Wszystko |Wszystkie zdarzenia są rejestrowane za pomocą interfejsu API dziennika inspekcji w kodzie |
 
 Oto przykład dziennika inspekcji struktury Instrumentacji (IFX):
 

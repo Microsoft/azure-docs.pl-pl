@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86231713"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenariusz urządzenia wirtualnego
@@ -77,30 +77,30 @@ Aby zapewnić, że komunikacja odbywa się przez odpowiednie urządzenie zapory,
 ### <a name="azgwudr"></a>azgwudr
 W tym scenariuszu jedyny ruch przepływający z lokalnego na platformę Azure będzie używany do zarządzania zaporami przez połączenie z usługą **AZF3**, a ruch musi przechodzić przez zaporę wewnętrzną, **AZF2**. W związku z tym w **GatewaySubnet** jest konieczna tylko jedna trasa, jak pokazano poniżej.
 
-| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Wyjaśnienie |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Zezwala na ruch lokalny do **AZF3** zapory zarządzania |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Wyjaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Zezwala na ruch do podsieci zaplecza hostującym serwer aplikacji za pomocą **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Zezwala na kierowanie całego ruchu przez **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Wyjaśnienie |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Zezwala na **azsn2** ruchu z serwera aplikacji do serwera WebServer za pośrednictwem usługi **AZF2** |
 
 Należy również utworzyć tabele tras dla podsieci w **onpremvnet** , aby naśladować lokalny centrum danych.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Wyjaśnienie |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Zezwala na ruch do **onpremsn2** przez **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Wyjaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Zezwala na ruch do podsieci z kopią zapasową na platformie Azure za pomocą **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Zezwala na ruch do **onpremsn1** przez **OPFW** |
@@ -125,7 +125,7 @@ Bez włączonego przekazywania adresów IP dla **OPFW**, logika sieci wirtualnej
 
 Dzięki funkcji przekazywania adresów IP logika sieci wirtualnej platformy Azure będzie przekazywać pakiety do OPFW bez konieczności zmiany oryginalnego adresu docelowego. **OPFW** musi obsługiwać pakiety i określać, co należy zrobić z nimi.
 
-Aby zapoznać się z powyższym scenariuszem, należy włączyć przekazywanie adresów IP na kartach sieciowych dla **OPFW**, **AZF1**, **AZF2**i **AZF3** , które są używane do routingu (wszystkie karty sieciowe z wyjątkiem tych połączonych z podsiecią zarządzania). 
+Aby zapoznać się z powyższym scenariuszem, należy włączyć przekazywanie adresów IP na kartach sieciowych dla **OPFW**, **AZF1**, **AZF2** i **AZF3** , które są używane do routingu (wszystkie karty sieciowe z wyjątkiem tych połączonych z podsiecią zarządzania). 
 
 ## <a name="firewall-rules"></a>Reguły zapory
 Zgodnie z powyższym opisem, przekazywanie IP tylko zapewnia, że pakiety są wysyłane do urządzeń wirtualnych. Urządzenie nadal musi zdecydować, co należy zrobić z tymi pakietami. W powyższym scenariuszu konieczne będzie utworzenie następujących reguł w urządzeniach:

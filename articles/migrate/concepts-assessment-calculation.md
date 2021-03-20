@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567747"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)
@@ -131,7 +131,7 @@ Oto nowości w ocenie maszyny wirtualnej platformy Azure w ramach oceny serwera:
 **Rabat (%)** | Wszystkie zniżki związane z subskrypcją, które otrzymujesz w ramach oferty platformy Azure. Ustawienie domyślne to 0%.
 **Czas pracy maszyny wirtualnej** | Czas trwania w dniach miesięcznie i godzin dziennie maszyn wirtualnych platformy Azure, które nie będą działać w sposób ciągły. Oszacowania kosztów bazują na tym czasie.<br/><br/> Wartości domyślne to 31 dni miesięcznie i 24 godziny dziennie.
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz program Software Assurance i kwalifikujesz się do [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Jeśli ustawienie ma wartość domyślną "tak", ceny platformy Azure dla systemów operacyjnych innych niż Windows są brane pod uwagę w przypadku maszyn wirtualnych z systemem Windows.
-**Subskrypcja EA** | Określa, że subskrypcja Umowa Enterprise (EA) jest używana do szacowania kosztów. Uwzględnia rabat dotyczący subskrypcji. <br/><br/> Pozostaw ustawienia dla wystąpień zarezerwowanych, Rabat (%) i właściwości czasu działania maszyny wirtualnej z ustawieniami domyślnymi.
+**Subskrypcja EA** | Określa, że subskrypcja Enterprise Agreement (EA) jest używana do szacowania kosztów. Uwzględnia rabat dotyczący subskrypcji. <br/><br/> Pozostaw ustawienia dla wystąpień zarezerwowanych, Rabat (%) i właściwości czasu działania maszyny wirtualnej z ustawieniami domyślnymi.
 
 
 [Zapoznaj się z najlepszymi rozwiązaniami](best-practices-assessment.md) dotyczącymi tworzenia ocen przy użyciu oceny serwera.

@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono różne sposoby rozwiązywania problem
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 9c52ba8561c10dd94ec6ef51c78b8534c6c58e96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417598"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Rozwiązywanie problemów dotyczących Azure Event Grid

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247425"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitor and diagnose services in a local machine development setup (Monitorowanie i diagnozowanie usług w konfiguracji środowiska deweloperskiego na maszynie lokalnej)
@@ -43,13 +43,13 @@ Szablony projektów programu Service Fabric Visual Studio zawierają przykładow
 W przypadku projektów utworzonych na podstawie **szablonów usług** (bezstanowe lub stanowe) można wyszukać `RunAsync` implementację:
 
 1. Wywołanie `ServiceEventSource.Current.ServiceMessage` `RunAsync` metody w metodzie pokazuje przykład NIESTANDARDOWEGO śledzenia ETW z kodu aplikacji.
-2. W pliku **ServiceEventSource.cs** znajduje się Przeciążenie `ServiceEventSource.ServiceMessage` metody, która powinna być używana dla zdarzeń o wysokiej częstotliwości ze względu na wydajność.
+2. W pliku **serviceeventsource. cs** znajdziesz Przeciążenie `ServiceEventSource.ServiceMessage` metody, która powinna być używana dla zdarzeń o wysokiej częstotliwości ze względu na wydajność.
 
 W przypadku projektów utworzonych na podstawie **szablonów aktora** (bezstanowe lub stanowe):
 
 1. Otwórz plik **"ProjectName". cs "** , gdzie *ProjectName* jest nazwą wybraną dla projektu programu Visual Studio.  
 2. Znajdź kod `ActorEventSource.Current.ActorMessage(this, "Doing Work");` w metodzie *DoWorkAsync* .  Jest to przykład niestandardowego śledzenia ETW zarejestrowanego z kodu aplikacji.  
-3. W pliku **ActorEventSource.cs**można znaleźć Przeciążenie `ActorEventSource.ActorMessage` metody, która powinna być używana dla zdarzeń o wysokiej częstotliwości ze względu na wydajność.
+3. W pliku **ActorEventSource. cs** znajdziesz Przeciążenie `ActorEventSource.ActorMessage` metody, która powinna być używana dla zdarzeń o wysokiej częstotliwości ze względu na wydajność.
 
 Po dodaniu niestandardowego śledzenia funkcji ETW do kodu usługi możesz ponownie skompilować, wdrożyć i uruchomić aplikację, aby zobaczyć swoje zdarzenia w Podglądzie zdarzeń diagnostycznych. Jeśli debugujesz aplikację przy użyciu klawisza **F5**, Podgląd zdarzeń diagnostycznych zostanie otwarty automatycznie.
 
