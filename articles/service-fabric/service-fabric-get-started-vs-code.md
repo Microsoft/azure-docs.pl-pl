@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
 ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92316668"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric Visual Studio Code
@@ -28,7 +28,7 @@ Poniższe wymagania wstępne muszą być zainstalowane we wszystkich środowiska
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
-* [Git](https://git-scm.com/)
+* [Usługa Git](https://git-scm.com/)
 * [Zestaw SDK Service Fabric](./service-fabric-get-started.md)
 * Generatory narzędzia Yeoman — Zainstaluj odpowiednie generatory dla aplikacji
 
@@ -51,7 +51,7 @@ Następujące wymagania wstępne muszą być zainstalowane na potrzeby programow
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (wersja 2.0.0 lub nowsza)
 * [Rozszerzenie C# dla Visual Studio Code (obsługiwane przez OmniSharp) vs Code rozszerzenia](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Wymagany do debugowania usług C#. Możesz zainstalować program, klikając ikonę rozszerzenia na **pasku działania** w vs Code i wyszukując rozszerzenie lub z poziomu witryny vs Code Marketplace.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 1. Otwórz program VS Code.
 2. Kliknij ikonę rozszerzenia na **pasku działania** po lewej stronie vs Code. Wyszukaj ciąg "Service Fabric". Kliknij przycisk **Instaluj** dla rozszerzenia Service Fabric Reliable Services.

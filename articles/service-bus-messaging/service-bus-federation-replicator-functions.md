@@ -4,13 +4,13 @@ description: Ten artykuł zawiera omówienie tworzenia zadań i aplikacji replik
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 4db151f54a2ad236ba937b005ba6a1fd3edd5967
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657497"
 ---
-# <a name="message-replication-tasks-and-applications"></a>Zadania i aplikacje replikacji komunikatów
+# <a name="message-replication-tasks-and-applications"></a>Zadania i aplikacje do replikacji komunikatów
 
 Zgodnie z objaśnieniem w artykule [replikacja komunikatów i w ramach federacji między różnymi](service-bus-federation-overview.md) lokalizacjami, replikacja sekwencji komunikatów między parami jednostek Service Bus i między Service Bus i innymi źródłami komunikatów i obiektami docelowymi zazwyczaj jest pochylenie w Azure Functions.
 

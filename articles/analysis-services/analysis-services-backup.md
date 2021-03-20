@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013007"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Analysis Services kopii zapasowej i przywracania bazy danych
@@ -59,7 +59,7 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 
 1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych > **utworzyć kopię zapasową**.
 
-2. W obszarze kopia zapasowa pliku kopii zapasowej **bazy danych**  >  **Backup file** kliknij przycisk **Przeglądaj**.
+2. W obszarze kopia zapasowa pliku kopii zapasowej **bazy danych**  >  kliknij przycisk **Przeglądaj**.
 
 3. W oknie dialogowym **Zapisz plik jako** Sprawdź ścieżkę folderu, a następnie wpisz nazwę pliku kopii zapasowej. 
 

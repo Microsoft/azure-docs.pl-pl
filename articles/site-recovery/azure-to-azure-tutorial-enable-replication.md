@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
 ms.openlocfilehash: 473a264ef497cab4bd4f88372600161b33178099
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656873"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Samouczek: Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
@@ -79,8 +79,8 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
@@ -119,11 +119,11 @@ Utwórz magazyn Recovery Services w dowolnym regionie, z wyjątkiem regionu źr�
 5. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów dla magazynu lub Utwórz nową.
 6. W polu **Nazwa magazynu** Określ przyjazną nazwę identyfikującą magazyn.
 7. W **obszarze region** wybierz region świadczenia usługi Azure, w którym ma zostać umieszczony magazyn. [Sprawdź Obsługiwane regiony](https://azure.microsoft.com/pricing/details/site-recovery/).
-8. Wybierz pozycję **Przeglądanie + tworzenie**.
+8. Wybierz pozycję **Przejrzyj i utwórz**.
 
    ![Ustawienia magazynu na stronie na potrzeby tworzenia nowego magazynu](./media/azure-to-azure-tutorial-enable-replication/vault-basics.png)
 
-9. W obszarze **Recenzja + tworzenie** wybierz pozycję **Utwórz**.
+9. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
 10. Rozpoczęcie wdrażania magazynu. Postępuj zgodnie z postępem w powiadomieniach.
 11. Po wdrożeniu magazynu wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby zapisać go na potrzeby szybkiego odwoływania się do niego. Wybierz pozycję **Przejdź do zasobu** , aby otworzyć nowy magazyn. 
@@ -154,7 +154,7 @@ Wybierz ustawienia źródłowe i Włącz replikację maszyny wirtualnej.
 
      ![Konfiguracja źródła](./media/azure-to-azure-tutorial-enable-replication/source.png)
 
-7. Wybierz pozycję **Dalej**.
+7. Wybierz opcję **Dalej**.
 
 ### <a name="select-the-vms"></a>Wybieranie maszyn wirtualnych
 
@@ -164,7 +164,7 @@ Site Recovery pobiera maszyny wirtualne skojarzone z wybraną subskrypcją/grup�
 
      ![Strona do wybierania maszyn wirtualnych do replikacji](./media/azure-to-azure-tutorial-enable-replication/select-vm.png)
 
-2. Wybierz pozycję **Dalej**.
+2. Wybierz opcję **Dalej**.
 
 ### <a name="review-replication-settings"></a>Przegląd ustawień replikacji
 

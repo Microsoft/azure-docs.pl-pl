@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 4ce7ffc66e0b6164b2e4ca9725b3f26403292a4a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220775"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Samouczek: Konfigurowanie ustawień sieciowych klastra
@@ -46,7 +46,7 @@ Aby dowiedzieć się więcej na temat ustawień sieci dla klastra, przeczytaj te
 
 * Skonfiguruj pliki do pobrania dla Active Directory i nazwy użytkownika/grupy (w razie konieczności)
 
-  Jeśli hosty sieci używają Active Directory lub innego rodzaju zewnętrznej usługi katalogowej, należy zmodyfikować konfigurację usług katalogowych klastra, aby skonfigurować sposób, w jaki klaster pobiera informacje o nazwie użytkownika i grupie. **Cluster**  >  Aby uzyskać szczegółowe informacje, przeczytaj temat**usługi katalog** klastra w przewodniku konfigurowania klastra.
+  Jeśli hosty sieci używają Active Directory lub innego rodzaju zewnętrznej usługi katalogowej, należy zmodyfikować konfigurację usług katalogowych klastra, aby skonfigurować sposób, w jaki klaster pobiera informacje o nazwie użytkownika i grupie.   >  Aby uzyskać szczegółowe informacje, przeczytaj temat **usługi katalog** klastra w przewodniku konfigurowania klastra.
 
   Jeśli chcesz obsługiwać protokół SMB, wymagany jest serwer usługi AD. Skonfiguruj usługi AD przed rozpoczęciem konfigurowania protokołu SMB.
 
@@ -59,7 +59,7 @@ Aby dowiedzieć się więcej na temat ustawień sieci dla klastra, przeczytaj te
   Jeśli klaster używa serwera proxy w celu uzyskania dostępu do adresów zewnętrznych, wykonaj następujące kroki, aby go skonfigurować:
 
   1. Definiowanie serwera proxy na stronie ustawień **konfiguracji serwera proxy**
-  1. Zastosuj konfigurację serwera proxy na **Cluster**  >  stronie**Ogólne ustawienia** klastra lub na stronie **szczegółów podstawowego pliku** .
+  1. Zastosuj konfigurację serwera proxy na   >  stronie **Ogólne ustawienia** klastra lub na stronie **szczegółów podstawowego pliku** .
   
   Aby uzyskać więcej informacji, zapoznaj się z tematem [Korzystanie z serwerów proxy sieci Web](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) w podręczniku konfiguracji klastra.
 
@@ -75,9 +75,9 @@ Klaster programu FXT Edge używa certyfikatów X. 509 dla następujących funkcj
 
 * Weryfikowanie certyfikatów serwera dostawcy chmury
 
-Jeśli konieczne jest przekazanie certyfikatów do klastra, użyj **Cluster**  >  strony ustawienia**certyfikatów** klastra. Szczegóły znajdują się na stronie [> certyfikatów](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) w przewodniku konfigurowania klastra.
+Jeśli konieczne jest przekazanie certyfikatów do klastra, użyj   >  strony ustawienia **certyfikatów** klastra. Szczegóły znajdują się na stronie [> certyfikatów](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) w przewodniku konfigurowania klastra.
 
-Aby zaszyfrować komunikację z zarządzaniem klastrami, użyj **Cluster**  >  strony**Ogólne ustawienia konfiguracji** klastra, aby wybrać certyfikat do użycia na potrzeby administracyjnego protokołu TLS.
+Aby zaszyfrować komunikację z zarządzaniem klastrami, użyj   >  strony **Ogólne ustawienia konfiguracji** klastra, aby wybrać certyfikat do użycia na potrzeby administracyjnego protokołu TLS.
 
 > [!Note]
 > Klucze dostępu do usługi w chmurze są przechowywane przy użyciu strony Konfiguracja **poświadczeń w chmurze** . Powyżej przedstawiono przykładową sekcję [Dodawanie podstawowego pliku](fxt-add-storage.md#add-a-core-filer) Szczegółowe informacje znajdują się [w sekcji Przewodnik po konfiguracji](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) klastra.
@@ -139,7 +139,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ### <a name="enable-dns-in-the-cluster"></a>Włączanie usługi DNS w klastrze
 
-Określ serwer DNS, którego klaster używa na **Cluster**  >  stronie ustawień**sieci administracyjnej** klastra. Ustawienia na tej stronie obejmują:
+Określ serwer DNS, którego klaster używa na   >  stronie ustawień **sieci administracyjnej** klastra. Ustawienia na tej stronie obejmują:
 
 * Adres serwera DNS
 * Nazwa domeny DNS

@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93125041"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji przy użyciu usługi Azure Notification Hubs
@@ -41,7 +41,7 @@ Wykonaj następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Visual Studio 2017 lub nowszy. Przykład w tym samouczku używa [programu Visual Studio 2019](https://www.visualstudio.com/products).
 - [Zainstalowane narzędzia do programowania aplikacji platformy UWP](/windows/uwp/get-started/get-set-up)
 - Aktywne konto Sklepu Windows
@@ -57,13 +57,13 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
 Aby wysyłać powiadomienia wypychane do aplikacji platformy UWP, skojarz aplikację ze Sklepem Windows. Następnie skonfiguruj integrację centrum powiadomień z usługą WNS.
 
-1. Przejdź do [Centrum deweloperów systemu Windows](https://partner.microsoft.com/dashboard/windows/first-run-experience), zaloguj się przy użyciu konta Microsoft, a następnie wybierz pozycję **Utwórz nową aplikację** .
+1. Przejdź do [Centrum deweloperów systemu Windows](https://partner.microsoft.com/dashboard/windows/first-run-experience), zaloguj się przy użyciu konta Microsoft, a następnie wybierz pozycję **Utwórz nową aplikację**.
 
     ![Przycisk Nowa aplikacja](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
-2. Wpisz nazwę aplikacji i wybierz pozycję **Rezerwuj nazwę produktu** . Spowoduje to utworzenie nowej rejestracji aplikacji w Sklepie Windows.
+2. Wpisz nazwę aplikacji i wybierz pozycję **Rezerwuj nazwę produktu**. Spowoduje to utworzenie nowej rejestracji aplikacji w Sklepie Windows.
 
     ![Nazwa aplikacji w Sklepie](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Rozwiń węzeł **Zarządzanie produktem** , wybierz pozycję **WNS/usługi MPNS** , a następnie wybierz pozycję **usługi Live Services** . Zaloguj się na konto Microsoft. Strona Rejestracja aplikacji zostanie otwarta na nowej karcie. Alternatywnie możesz przejść bezpośrednio do strony [Moje aplikacje](https://apps.dev.microsoft.com) i wybrać nazwę aplikacji, aby uzyskać dostęp do tej strony.
+3. Rozwiń węzeł **Zarządzanie produktem**, wybierz pozycję **WNS/usługi MPNS**, a następnie wybierz pozycję **usługi Live Services**. Zaloguj się na konto Microsoft. Strona Rejestracja aplikacji zostanie otwarta na nowej karcie. Alternatywnie możesz przejść bezpośrednio do strony [Moje aplikacje](https://apps.dev.microsoft.com) i wybrać nazwę aplikacji, aby uzyskać dostęp do tej strony.
 
     ![Strona usługi WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 4. Zanotuj hasło **tajne aplikacji** oraz **Identyfikator zabezpieczeń (SID) pakietu** i **tożsamość aplikacji** w sekcji Sklep Windows.
@@ -77,8 +77,8 @@ Aby wysyłać powiadomienia wypychane do aplikacji platformy UWP, skojarz aplika
 
 ### <a name="configure-wns-settings-for-the-hub"></a>Konfigurowanie ustawień usługi WNS na potrzeby centrum
 
-1. W kategorii **USTAWIENIA POWIADOMIEŃ** wybierz pozycję **Windows (WNS)** .
-2. Wprowadź wartości w pozycjach **Identyfikator SID pakietu** oraz **Wpis tajny** , które zostały zanotowane w poprzedniej sekcji.
+1. W kategorii **USTAWIENIA POWIADOMIEŃ** wybierz pozycję **Windows (WNS)**.
+2. Wprowadź wartości w pozycjach **Identyfikator SID pakietu** oraz **Wpis tajny**, które zostały zanotowane w poprzedniej sekcji.
 3. Kliknij przycisk **Zapisz** na pasku narzędzi.
 
     ![Pola Identyfikator SID pakietu i Klucz zabezpieczeń](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
@@ -87,23 +87,23 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS. Ma
 
 ## <a name="create-a-sample-windows-app"></a>Tworzenie przykładowej aplikacji systemu Windows
 
-1. W programie Visual Studio otwórz menu **Plik** , wybierz pozycję **Nowy** , a następnie wybierz pozycję **Projekt** .
+1. W programie Visual Studio otwórz menu **Plik**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Projekt**.
 2. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności:
 
-    1. W polu wyszukiwania u góry wpisz **uniwersalne systemu Windows** .
-    2. W wynikach wyszukiwania wybierz pozycję **pusta aplikacja (platforma uniwersalna systemu Windows)** , a następnie wybierz przycisk **dalej** .
+    1. W polu wyszukiwania u góry wpisz **uniwersalne systemu Windows**.
+    2. W wynikach wyszukiwania wybierz pozycję **pusta aplikacja (platforma uniwersalna systemu Windows)**, a następnie wybierz przycisk **dalej**.
 
        ![Okno dialogowe Nowy projekt](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 
     3. W oknie dialogowym **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** i **lokalizację** plików projektu.
-    4. Wybierz pozycję **Utwórz** .
+    4. Wybierz przycisk **Utwórz**.
 
-3. Zaakceptuj wartości domyślne dla wersji platformy **docelowej** i **minimalnej** , a następnie wybierz pozycję **OK** .
-4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze sklepu Windows, wybierz pozycję **Publikuj** , a następnie wybierz pozycję **Skojarz aplikację ze sklepem** . Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows** .
+3. Zaakceptuj wartości domyślne dla wersji platformy **docelowej** i **minimalnej**, a następnie wybierz pozycję **OK**.
+4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze sklepu Windows, wybierz pozycję **Publikuj**, a następnie wybierz pozycję **Skojarz aplikację ze sklepem**. Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows**.
 5. W kreatorze zaloguj się za pomocą konta Microsoft.
-6. Wybierz aplikację zarejestrowaną w kroku 2, wybierz przycisk **Dalej** , a następnie wybierz pozycję **Skojarz** . Spowoduje to dodanie wymaganych informacji dotyczących rejestracji w Sklepie Windows do manifestu aplikacji.
-7. W programie Visual Studio kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Zarządzaj pakietami NuGet** . Zostanie otwarte okno **Zarządzanie pakietami NuGet** .
-8. W polu wyszukiwania wprowadź ciąg **WindowsAzure.Messaging.Managed** , wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
+6. Wybierz aplikację zarejestrowaną w kroku 2, wybierz przycisk **Dalej**, a następnie wybierz pozycję **Skojarz**. Spowoduje to dodanie wymaganych informacji dotyczących rejestracji w Sklepie Windows do manifestu aplikacji.
+7. W programie Visual Studio kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Zostanie otwarte okno **Zarządzanie pakietami NuGet**.
+8. W polu wyszukiwania wprowadź ciąg **WindowsAzure.Messaging.Managed**, wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     ![Okno Zarządzanie pakietami NuGet][20]
 
@@ -149,9 +149,9 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS. Ma
 
     Ta akcja gwarantuje, że identyfikator URI kanału jest rejestrowany w centrum powiadomień przy każdym uruchomieniu aplikacji.
 
-12. Kliknij prawym przyciskiem myszy `Package.appxmanifest` i wybierz pozycję Wyświetl kod ( **F7** ). Znajdź  `<Identity .../>` i Zastąp wartość **tożsamością aplikacji** utworzoną [wcześniej](#create-an-app-in-windows-store)WNS.
+12. Kliknij prawym przyciskiem myszy `Package.appxmanifest` i wybierz pozycję Wyświetl kod (**F7**). Znajdź  `<Identity .../>` i Zastąp wartość **tożsamością aplikacji** utworzoną [wcześniej](#create-an-app-in-windows-store)WNS.
 
-13. Aby uruchomić aplikację, naciśnij klawisz **F5** na klawiaturze. Zostanie wyświetlone okno dialogowe z kluczem rejestracji. Kliknij przycisk **OK** , aby zamknąć okno dialogowe.
+13. Aby uruchomić aplikację, naciśnij klawisz **F5** na klawiaturze. Zostanie wyświetlone okno dialogowe z kluczem rejestracji. Kliknij przycisk **OK**, aby zamknąć okno dialogowe.
 
     ![Rejestracja zakończona powodzeniem](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
@@ -165,9 +165,9 @@ Możesz szybko przetestować odbieranie powiadomień w aplikacji, wysyłając po
 
     ![Przycisk Wysyłanie testowe](./media/notification-hubs-windows-store-dotnet-get-started/test-send-button.png)
 2. W oknie **Wysyłanie testowe** wykonaj następujące czynności:
-    1. W obszarze **Platformy** wybierz pozycję **Windows** .
-    2. W obszarze **Typ powiadomienia** wybierz pozycję **Wyskakujące** .
-    3. Wybierz pozycję **Wyślij** .
+    1. W obszarze **Platformy** wybierz pozycję **Windows**.
+    2. W obszarze **Typ powiadomienia** wybierz pozycję **Wyskakujące**.
+    3. Wybierz pozycję **Wyślij**.
 
         ![Okienko Wysyłanie testowe](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 3. Zobacz wynik operacji wysyłania na liście **Wynik** w dolnej części okna. Możesz też zobaczyć komunikat alertu.

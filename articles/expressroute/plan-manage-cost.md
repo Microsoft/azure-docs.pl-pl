@@ -8,10 +8,10 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: de8405477611d62b8a46e8b6b645887cc4d30099
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784245"
 ---
 # <a name="plan-and-manage-costs-for-azure-expressroute"></a>Planowanie i zarządzanie kosztami usługi Azure ExpressRoute
@@ -88,7 +88,7 @@ Korzystając z analizy kosztów, można wyświetlać koszt obwodu usługi Expres
 
 Aby wyświetlić koszty ExpressRoute w analizie kosztów:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 1. Przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów. Domyślnie koszt usług jest pokazywany na pierwszym wykresie pierścieniowym.
 

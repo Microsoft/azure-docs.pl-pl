@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452227"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
@@ -104,7 +104,7 @@ Poniżej znajdują się trzy najbardziej zalecane opcje organizowania replikacji
 |**Obsługuje kopiowanie różnic**     |   Tak      | Nie         | Nie         |
 |**Wbudowana aranżacja**     |  Nie (Użyj Oozie Flow lub zadań firmy CRONUS)       | Tak        | Nie (Użyj Azure Automation lub Harmonogram zadań systemu Windows)         |
 |**Obsługiwane systemy plików**     | ADL, HDFS, WASB, S3, GS, CFS        |Wiele, zobacz [Łączniki](../data-factory/connector-azure-blob-storage.md).         | ADL do ADL, WASB do ADL (tylko ten sam region)        |
-|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Brak          | Windows 10         |
+|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Nie dotyczy          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Użyj pomocą distcp do przenoszenia danych między dwiema lokalizacjami
 
@@ -138,7 +138,7 @@ Aby uzyskać więcej alertów w czasie rzeczywistym i więcej kontroli nad miejs
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Włączanie rejestrowania na poziomie debugowania w usłudze HDInsight
 
-Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość w konfiguracji **Ambari**  >  **przędzy** Ambari  >  **Config**  >  **Advanced przędz-Log4J Configurations**:
+Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość w konfiguracji   >  **przędzy** Ambari  >    >  **Advanced przędz-Log4J Configurations**:
 
 `log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 

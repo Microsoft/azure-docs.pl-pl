@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96451632"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
@@ -43,7 +43,7 @@ Przed rozpoczęciem upewnij się, że masz następujące wymagania wstępne:
 * W przypadku dedykowanej puli SQL potrzebny jest istniejący magazyn danych. Aby go utworzyć, zobacz [Tworzenie dedykowanej puli SQL](../quickstart-create-sql-pool-portal.md). W przypadku bezserwerowej puli SQL, która jest już zainicjowana, nazywa się wbudowaną w obszarze roboczym podczas tworzenia. 
 * W pełni kwalifikowana nazwa SQL Server. Aby znaleźć tę nazwę, zobacz [nawiązywanie połączenia z usługą SQL Synapse](connect-overview.md).
 
-## <a name="connect"></a>Połącz
+## <a name="connect"></a>Nawiązywanie połączenia
 
 ### <a name="dedicated-sql-pool"></a>Dedykowana pula SQL
 

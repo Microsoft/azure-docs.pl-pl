@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331740"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Definiowanie hierarchii reguł przy użyciu zasad zapory platformy Azure
@@ -48,7 +48,7 @@ Utwórz zasady dla każdego zespołu aplikacji:
 - Zasady zapory bazy danych. Zasady zapory bazy danych dziedziczą podstawowe zasady zapory.
 - Zasady zapory inżynieryjnej. Zasady zapory inżynieryjnej również dziedziczą podstawowe zasady zapory.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Zespoły i wymagania" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarchia zasad" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Tworzenie ról niestandardowych w celu uzyskania dostępu do grup kolekcji reguł 
 
@@ -91,13 +91,13 @@ Użyj poniższej procedury wysokiego poziomu, aby zdefiniować role niestandardo
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
    Operacja do właściwości **Actions**   . Pamiętaj o dodaniu przecinka po operacji odczytu. Ta akcja umożliwia użytkownikowi tworzenie i aktualizowanie grup kolekcji reguł.
-6. W programie **AssignableScopes**Dodaj swój identyfikator subskrypcji o następującym formacie: 
+6. W programie **AssignableScopes** Dodaj swój identyfikator subskrypcji o następującym formacie: 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
    Musisz jawnie dodać identyfikatory subskrypcji, ponieważ w przeciwnym razie nie będzie można zaimportować roli do subskrypcji.
-7. Usuń **Id**   wiersz właściwości ID i zmień właściwość **IsCustom**   na wartość true.
-8. Zmień właściwości **nazwy**   i **opisu**   na *autora grupy kolekcji reguł AZFM* , a *Użytkownicy w tej roli mogą edytować grupy kolekcji reguł zasad zapory*
+7. Usuń ****   wiersz właściwości ID i zmień właściwość **IsCustom**   na wartość true.
+8. Zmień właściwości  **nazwy**   i  **opisu**   na *autora grupy kolekcji reguł AZFM* , a *Użytkownicy w tej roli mogą edytować grupy kolekcji reguł zasad zapory*
 
 Plik JSON powinien wyglądać podobnie do poniższego przykładu:
 
@@ -134,9 +134,9 @@ Aby wyświetlić listę wszystkich ról niestandardowych, można użyć Get-AzRo
 
 Role niestandardowe można także wyświetlić w Azure Portal. Przejdź do subskrypcji, wybierz pozycję **Kontrola dostępu (IAM)**, **role**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Zespoły i wymagania":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Zespoły i wymagania":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Uprawnienie do odczytu SalesAppPolicy":::
 
 Aby uzyskać więcej informacji, zobacz [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

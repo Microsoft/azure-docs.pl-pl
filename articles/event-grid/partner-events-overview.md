@@ -4,10 +4,10 @@ description: Wysyłaj zdarzenia z partnerów Event Grid SaaS i PaaS bezpośredni
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506150"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Zdarzenia partnerskie w Azure Event Grid (wersja zapoznawcza)
@@ -82,15 +82,15 @@ Na poniższej ilustracji przedstawiono przepływ operacji na płaszczyźnie kont
 
 1. Wydawca tworzy **rejestrację partnera**. Rejestracje partnerów są globalne. Oznacza to, że nie są one skojarzone z określonym regionem świadczenia usługi Azure. Ta czynność jest opcjonalna.
 1. Wydawca tworzy **przestrzeń nazw partnera** w określonym regionie.
-1. Gdy subskrybent 1 podejmie próbę utworzenia tematu partnera, **kanał zdarzenia** , kanał zdarzenia 1, zostanie najpierw utworzony w ramach subskrypcji platformy Azure wydawcy.
+1. Gdy subskrybent 1 podejmie próbę utworzenia tematu partnera, **kanał zdarzenia**, kanał zdarzenia 1, zostanie najpierw utworzony w ramach subskrypcji platformy Azure wydawcy.
 1. Następnie w ramach subskrypcji platformy Azure na subskrybencie zostanie utworzony temat dotyczący **partnera** 1. Subskrybent musi aktywować temat partnera. 
 1. Subskrybent 1 tworzy **subskrypcję Azure Logic Apps** w temacie dotyczącym partnera 1.
 1. Subskrybent 1 tworzy **subskrypcję usługi Azure Blob Storage** w temacie dotyczącym partnera 1. 
-1. Gdy subskrybent 2 podejmie próbę utworzenia tematu partnera, w pierwszej kolejności zostanie utworzony nowy **kanał zdarzenia** , kanał usługi Event 2. 
+1. Gdy subskrybent 2 podejmie próbę utworzenia tematu partnera, w pierwszej kolejności zostanie utworzony nowy **kanał zdarzenia**, kanał usługi Event 2. 
 1. Następnie w ramach subskrypcji platformy Azure w drugim subskrybencie zostanie utworzony **temat partnera** 2. Subskrybent musi aktywować temat partnera. 
 1. Subskrybent 2 tworzy **subskrypcję Azure Functions** dla tematu partnera 2. 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Tematy dotyczące partnerów są rozliczone według liczby operacji wykonanych podczas korzystania z Event Grid. Aby uzyskać więcej informacji na temat wszystkich typów operacji, które są używane jako podstawa rozliczeń i szczegółowych informacji o cenach, zobacz [Event Grid Cennik](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="limits"></a>Limity

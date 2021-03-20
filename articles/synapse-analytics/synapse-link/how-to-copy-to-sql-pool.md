@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309214"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Kopiowanie danych z Azure Cosmos DB do dedykowanej puli SQL przy użyciu Apache Spark
@@ -50,7 +50,7 @@ W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest to cz�
 * weekStarting: Long (nullable = true)
 * _etag: ciąg (nullable = true)
 
-Będziemy agregować sprzedaż ( *ilość* , *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec będziemy eksportować te dane do dedykowanej tabeli puli SQL o nazwie **dbo. ProductSales**.
+Będziemy agregować sprzedaż (*ilość*, *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec będziemy eksportować te dane do dedykowanej tabeli puli SQL o nazwie **dbo. ProductSales**.
 
 ## <a name="configure-a-spark-notebook"></a>Konfigurowanie notesu platformy Spark
 Utwórz Notes Spark z Scala jako Spark (Scala) jako język główny. Używamy domyślnego ustawienia notesu dla sesji.

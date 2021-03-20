@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626975"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Samouczek: Importowanie i publikowanie pierwszego interfejsu API
@@ -48,7 +48,7 @@ W tej sekcji przedstawiono sposób importowania i publikowania interfejsu API za
 
    Możesz ustawić wartości interfejsu API podczas tworzenia lub później, przechodząc do karty **Ustawienia** .
 
-   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Nowy interfejs API w API Management":::
+   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Tworzenie interfejsu API":::
 
 
    |Ustawienie|Wartość|Opis|
@@ -75,11 +75,11 @@ Jeśli masz problemy z importowaniem definicji interfejsu API, zobacz [listę zn
 
 Operacje interfejsu API można wywoływać bezpośrednio z Azure Portal, co zapewnia wygodny sposób wyświetlania i testowania operacji.
 
-1. Na lewym pasku nawigacyjnym wystąpienia **API Management wybierz pozycję API**  >  **demona wideokonferencji interfejs**użytkownika.
+1. Na lewym pasku nawigacyjnym wystąpienia **API Management wybierz pozycję API**  >  **demona wideokonferencji interfejs** użytkownika.
 1. Wybierz kartę **test** , a następnie wybierz pozycję **getgłośników**. Na stronie są wyświetlane parametry i **nagłówki** **zapytania** , jeśli istnieją. Wartość **OCP-APIM-Subscription-Key** jest automatycznie wypełniana dla klucza subskrypcji skojarzonego z tym interfejsem API.
 1. Wybierz pozycję **Wyślij**.
 
-   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Nowy interfejs API w API Management":::
+   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Testowanie interfejsu API w Azure Portal":::
 
    Zaplecze reaguje na **200 OK** i pewne dane.
 

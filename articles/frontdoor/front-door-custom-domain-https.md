@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740787"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
@@ -33,7 +33,7 @@ Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
 - Dostępne jest kompletne zarządzanie certyfikatami: użytkownik obsługuje wszystkie operacje nabywania certyfikatów i zarządzania nimi. Certyfikaty są automatycznie aprowizowane i odnawiane przed wygaśnięciem ważności, co powoduje wyeliminowanie ryzyka przerwania działania usługi z powodu wygaśnięcia ważności certyfikatu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Włączanie protokołu HTTPS w domenie niestandardowej
 > - Używanie certyfikatu zarządzanego przez usługę AFD 
@@ -133,7 +133,12 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
     Z przodu platformy Azure są wyświetlane następujące informacje: 
     - Konta magazynów kluczy dla Twojego identyfikatora subskrypcji. 
     - Certyfikaty (klucze tajne) dla wybranego magazynu kluczy. 
-    - Dostępne wersje certyfikatów.
+    - Dostępne wersje certyfikatów. 
+
+> [!NOTE]
+> Pozostawienie wersji certyfikatu jako pustej doprowadziłoby do:
+> - Wybrana jest Najnowsza wersja certyfikatu.
+> - Automatyczne rotacja certyfikatów do najnowszej wersji, gdy w Key Vault jest dostępna nowsza wersja certyfikatu.
  
 5. Jeśli używasz własnego certyfikatu, walidacja domeny nie jest wymagana. Przejdź do sekcji [Oczekiwanie na propagację](#wait-for-propagation).
 
@@ -275,7 +280,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 * Sprawdź poprawność domeny.
 * Włącz protokół HTTPS dla domeny niestandardowej.
 
-Aby dowiedzieć się, jak skonfigurować zasady filtrowania geograficznego dla drzwi przednich, przejdź do następnego samouczka.
+Aby dowiedzieć się, jak skonfigurować zasady filtrowania geograficznego dla drzwi z przodu, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie zasad filtrowania geograficznego](front-door-geo-filtering.md)

@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94492093"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
@@ -130,8 +130,8 @@ Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania.
 ## <a name="link-to-your-offer-page-from-your-website"></a>Link do strony oferty z witryny sieci Web
 
 Po dołączeniu z usługi AppSource lub identyfikatora portalu Azure Marketplace w witrynie do listy w portalu komercyjnym można obsługiwać silną analizę i raportowanie, dołączając następujące parametry zapytania na końcu adresu URL:
-* **src** : Uwzględnij źródło, z którego jest kierowany ruch do AppSource (na przykład witryna sieci Web, LinkedIn lub Facebook).
-* **mktcmpid** : Identyfikator kampanii marketingowej, który może zawierać maksymalnie 16 znaków w dowolnej kombinacji liter, cyfr, podkreśleń i łączników (na przykład *blogpost_12* ).
+* **src**: Uwzględnij źródło, z którego jest kierowany ruch do AppSource (na przykład witryna sieci Web, LinkedIn lub Facebook).
+* **mktcmpid**: Identyfikator kampanii marketingowej, który może zawierać maksymalnie 16 znaków w dowolnej kombinacji liter, cyfr, podkreśleń i łączników (na przykład *blogpost_12*).
 
 Następujący przykładowy adres URL zawiera oba z powyższych parametrów zapytania: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

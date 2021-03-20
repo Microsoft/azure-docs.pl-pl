@@ -6,10 +6,10 @@ ms.date: 11/04/2020
 ms.author: inhenkel
 ms.custom: portal
 ms.openlocfilehash: 4867d4fc3a43fe65fbc20db1ad070a99fdbf6225
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013268"
 ---
 <!--Create a resourse group in the portal-->
@@ -22,4 +22,4 @@ ms.locfileid: "96013268"
 1. Wybierz subskrypcję, której chcesz użyć dla tej grupy zasobów.
 1. Wprowadź nazwę grupy zasobów w polu **Grupa zasobów** .
 1. Wybierz **region** dla grupy zasobów.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.

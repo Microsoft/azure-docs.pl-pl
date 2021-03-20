@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93103114"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Obsługa limitów czasu procedury składowanej w łączniku SQL dla Azure Logic Apps
@@ -37,10 +37,10 @@ BEGIN
 END
 ```
 
-Zamiast bezpośrednio wywołać procedurę składowaną, można asynchronicznie uruchomić procedurę w tle przy użyciu *agenta zadań* . Dane wejściowe i wyjściowe można przechowywać w tabeli stanu, z którą można następnie korzystać za pomocą aplikacji logiki. Jeśli dane wejściowe i wyjściowe nie są potrzebne, lub jeśli masz już zapisane wyniki w tabeli w procedurze składowanej, możesz uprościć to podejście.
+Zamiast bezpośrednio wywołać procedurę składowaną, można asynchronicznie uruchomić procedurę w tle przy użyciu *agenta zadań*. Dane wejściowe i wyjściowe można przechowywać w tabeli stanu, z którą można następnie korzystać za pomocą aplikacji logiki. Jeśli dane wejściowe i wyjściowe nie są potrzebne, lub jeśli masz już zapisane wyniki w tabeli w procedurze składowanej, możesz uprościć to podejście.
 
 > [!IMPORTANT]
-> Upewnij się, że procedura składowana i wszystkie zadania są *idempotentne* , co oznacza, że mogą być uruchamiane wiele razy bez wpływu na wyniki. Jeśli asynchroniczne przetwarzanie kończy się niepowodzeniem lub przekroczy limit czasu, Agent zadania może ponowić próbę wykonania kroku, a tym samym procedurę składowaną, wiele razy. Aby uniknąć duplikowania danych wyjściowych, przed utworzeniem jakichkolwiek obiektów zapoznaj się z tymi [najlepszymi rozwiązaniami i](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts)metodami.
+> Upewnij się, że procedura składowana i wszystkie zadania są *idempotentne*, co oznacza, że mogą być uruchamiane wiele razy bez wpływu na wyniki. Jeśli asynchroniczne przetwarzanie kończy się niepowodzeniem lub przekroczy limit czasu, Agent zadania może ponowić próbę wykonania kroku, a tym samym procedurę składowaną, wiele razy. Aby uniknąć duplikowania danych wyjściowych, przed utworzeniem jakichkolwiek obiektów zapoznaj się z tymi [najlepszymi rozwiązaniami i](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts)metodami.
 
 W następnej sekcji opisano, jak można użyć agenta elastycznego zadania platformy Azure dla Azure SQL Database. W przypadku SQL Server i wystąpienia zarządzanego usługi Azure SQL można użyć agenta SQL Server. Niektóre szczegóły dotyczące zarządzania różnią się, ale podstawowe kroki pozostają takie same jak w przypadku konfigurowania agenta zadań dla Azure SQL Database.
 
@@ -48,7 +48,7 @@ W następnej sekcji opisano, jak można użyć agenta elastycznego zadania platf
 
 ## <a name="job-agent-for-azure-sql-database"></a>Agent zadań dla Azure SQL Database
 
-Aby utworzyć zadanie, które może uruchomić procedurę przechowywaną dla [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), użyj [agenta elastycznego zadania platformy Azure](../azure-sql/database/elastic-jobs-overview.md). Utwórz agenta zadań w Azure Portal. Takie podejście spowoduje dodanie kilku procedur składowanych do bazy danych używanej przez agenta, znanej również jako *baza danych agentów* . Następnie można utworzyć zadanie, które uruchamia procedurę przechowywaną w docelowej bazie danych i przechwytuje dane wyjściowe po zakończeniu.
+Aby utworzyć zadanie, które może uruchomić procedurę przechowywaną dla [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), użyj [agenta elastycznego zadania platformy Azure](../azure-sql/database/elastic-jobs-overview.md). Utwórz agenta zadań w Azure Portal. Takie podejście spowoduje dodanie kilku procedur składowanych do bazy danych używanej przez agenta, znanej również jako *baza danych agentów*. Następnie można utworzyć zadanie, które uruchamia procedurę przechowywaną w docelowej bazie danych i przechwytuje dane wyjściowe po zakończeniu.
 
 Aby można było utworzyć zadanie, należy skonfigurować uprawnienia, grupy i cele zgodnie z opisem w [pełnej dokumentacji dla agenta elastycznego zadania platformy Azure](../azure-sql/database/elastic-jobs-overview.md). Należy również utworzyć tabelę pomocniczą w docelowej bazie danych, zgodnie z opisem w poniższych sekcjach.
 

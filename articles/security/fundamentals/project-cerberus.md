@@ -9,13 +9,13 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: f085858a9d550623704efd4f051ed525e55a37e0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557854"
 ---
-# <a name="project-cerberus"></a>Cerberus projektu
+# <a name="project-cerberus"></a>Projekt Cerberus
 
 Cerberus jest zgodnym z certyfikatem głównym sprzętu NIST 800-193 z tożsamością, której nie można sklonować. Usługa Cerberus została zaprojektowana w celu dokładniejszego podniesienia poziomu zabezpieczeń stan infrastruktury platformy Azure, zapewniając mocną kotwicę zaufania dla integralności oprogramowania układowego.
 
@@ -47,5 +47,5 @@ Aby dowiedzieć się więcej na temat tego, co robimy, aby zwiększyć integraln
 - [Zabezpieczenia oprogramowania układowego](firmware.md)
 - [Bezpieczny rozruch](secure-boot.md)
 - [Mierzony zaświadczanie rozruchu i hosta](measured-boot-host-attestation.md)
-- [Szyfrowanie w spoczynku](encryption-atrest.md)
+- [Szyfrowanie danych magazynowanych](encryption-atrest.md)
 - [Zabezpieczenia funkcji hypervisor](hypervisor.md)

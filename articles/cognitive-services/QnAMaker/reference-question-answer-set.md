@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506009"
 ---
 # <a name="question-and-answer-pair"></a>Para pytań i odpowiedzi
@@ -28,8 +28,8 @@ Każda para jest reprezentowana przez **Identyfikator**.
 **Opcjonalne** ustawienia dla pary obejmują:
 
 * **Alternatywne formy pytania** — pomaga QNA Maker zwrócić poprawną odpowiedź w celu uzyskania większej liczby pytań frazy
-* **Metadane** : metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
-* Wyświetlanie wielowierszowych **ekranów** , służących do kontynuowania konwersacji z obsługą wielodostępności
+* **Metadane**: metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
+* Wyświetlanie wielowierszowych **ekranów**, służących do kontynuowania konwersacji z obsługą wielodostępności
 
 ![QnA Maker bazy wiedzy](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

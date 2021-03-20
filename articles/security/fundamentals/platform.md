@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 4755bc19a645d196487f0b8e0f4d1ef2120723ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557983"
 ---
 # <a name="platform-integrity-and-security-overview"></a>Omówienie integralności i zabezpieczeń platformy
@@ -24,8 +24,8 @@ W tej serii artykułów opisano, jak firma Microsoft zapewnia integralność i b
 - [Zabezpieczenia oprogramowania układowego](firmware.md)
 - [Bezpieczny rozruch z interfejsem UEFI](secure-boot.md)
 - [Mierzony zaświadczanie rozruchu i hosta](measured-boot-host-attestation.md)
-- [Cerberus projektu](project-cerberus.md)
-- [Szyfrowanie w spoczynku](encryption-atrest.md)
+- [Projekt Cerberus](project-cerberus.md)
+- [Szyfrowanie danych magazynowanych](encryption-atrest.md)
 - [Zabezpieczenia funkcji hypervisor](hypervisor.md)
  
 ## <a name="next-steps"></a>Następne kroki

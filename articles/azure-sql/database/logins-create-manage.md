@@ -14,10 +14,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
 ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452425"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzowanie dostępu do bazy danych w usługach SQL Database, SQL Managed Instance i Azure Synapse Analytics
@@ -59,7 +59,7 @@ Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowa
 
 - Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Identyfikator logowania](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) to pojedyncze konto użytkownika służące do logowania się do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse.
 - Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](/sql/relational-databases/security/authentication-access/principals-database-engine). Nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
-- [user account](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
+- [](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
 
 Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty **Właściwości** serwera lub wystąpienia zarządzanego.
 
@@ -125,7 +125,7 @@ Przykłady pokazujące sposób tworzenia logowań i użytkowników znajdują si�
 - [Utwórz nazwę logowania dla Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
 - [Utwórz nazwę logowania dla wystąpienia zarządzanego Azure SQL](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Utwórz nazwę logowania dla usługi Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
-- [Tworzenie użytkownika](/sql/t-sql/statements/create-user-transact-sql#examples)
+- [Utwórz użytkownika](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Tworzenie użytkowników zawartych w usłudze Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]

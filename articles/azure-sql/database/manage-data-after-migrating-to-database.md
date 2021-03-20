@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446121"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
@@ -63,9 +63,9 @@ Ciągłość działania i możliwości odzyskiwania po awarii umożliwiają kont
 
 Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest to konieczne. SQL Database automatycznie tworzy kopie zapasowe baz danych, dzięki czemu nie trzeba już martwić się o planowanie i tworzenie kopii zapasowych oraz zarządzanie nimi. Platforma wykonuje pełną kopię zapasową co tydzień, różnicową kopię zapasową co kilka godzin i kopię zapasową dziennika co 5 minut, aby zapewnić wydajność odzyskiwania po awarii i niewielką utratę danych. Pierwsza pełna kopia zapasowa odbywa się zaraz po utworzeniu bazy danych. Te kopie zapasowe są dostępne przez pewien czas o nazwie "okres przechowywania" i różnią się w zależności od wybranej warstwy usług. SQL Database zapewnia możliwość przywracania do dowolnego punktu w czasie w tym okresie przechowywania przy użyciu funkcji [odzyskiwania do punktu w czasie (kopie)](recovery-using-backups.md#point-in-time-restore).
 
-|Warstwa usługi|Okres przechowywania w dniach|
+|Warstwa usług|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowy|7|
+|Podstawowa|7|
 |Standardowa|35|
 |Premium|35|
 |||
@@ -127,7 +127,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Zapora
+#### <a name="firewall"></a>Firewall
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -169,7 +169,7 @@ Szyfrowanie zapewnia silny mechanizm ochrony i zabezpieczania poufnych danych pr
 W SQL Database Domyślnie dane przechowywane w plikach danych i dziennika w podsystemie magazynowania są całkowicie i zawsze szyfrowane za pośrednictwem [transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Kopie zapasowe są również szyfrowane. Z TDE nie ma żadnych zmian wymaganych na stronie aplikacji, które uzyskują dostęp do tych danych. Szyfrowanie i odszyfrowywanie odbywa się w sposób przezroczysty; w związku z tym nazwa.
 Aby chronić poufne dane w locie i w spoczynku, SQL Database zapewnia funkcję o nazwie [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE to forma szyfrowania po stronie klienta, która szyfruje poufne kolumny w bazie danych (dzięki czemu są one szyfrowane dla administratorów baz danych i nieautoryzowanych użytkowników). Serwer odbiera zaszyfrowane dane, aby rozpocząć od. Klucz dla Always Encrypted jest również przechowywany po stronie klienta, więc tylko autoryzowani klienci mogą odszyfrować poufne kolumny. Administratorzy serwera i danych nie mogą zobaczyć poufnych danych, ponieważ klucze szyfrowania są przechowywane na kliencie. AE szyfruje poufne kolumny w tabeli na końcu, od nieautoryzowanych klientów do dysku fizycznego. AE obsługuje teraz porównania równości, więc przetwarzający może kontynuować zapytania o zaszyfrowane kolumny w ramach poleceń SQL. Always Encrypted może być używana z różnymi opcjami magazynu kluczy, takimi jak [Azure Key Vault](always-encrypted-azure-key-vault-configure.md), magazyn certyfikatów systemu Windows i lokalne sprzętowe moduły zabezpieczeń.
 
-|**Właściwości**|**Zawsze szyfrowane**|**Niewidoczne szyfrowanie danych**|
+|**Właściwości**|**Zawsze szyfrowane**|**Transparent Data Encryption**|
 |---|---|---|
 |**Zakres szyfrowania**|Od końca do końca|Dane w spoczynku|
 |**Serwer może uzyskać dostęp do poufnych danych**|Nie|Tak, ponieważ szyfrowanie jest przeznaczone dla danych przechowywanych w spoczynku|
@@ -199,7 +199,7 @@ Istnieje dwukluczowa hierarchia w TDE — dane w każdej bazie danych użytkowni
 
 Domyślnie klucz główny dla Transparent Data Encryption jest zarządzany przez usługę SQL Database dla wygody. Jeśli Twoja organizacja będzie mieć kontrolę nad kluczem głównym, istnieje możliwość użycia Azure Key Vault] (zawsze szyfrowany-Azure-Key-Store-configure.md) jako magazynu kluczy. Korzystając z Azure Key Vault, organizacja zakłada kontrolę nad kontrolami, rotacją i uprawnieniami do obsługi kluczy. [Obracanie lub przełączanie typu klucza głównego TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) jest szybkie, ponieważ powoduje tylko ponowne zaszyfrowanie bazy danych szyfrowania danych. W przypadku organizacji z separacją ról między zabezpieczeniami i zarządzaniem danymi administrator zabezpieczeń może udostępnić klucz klucza głównego TDE w Azure Key Vault i podać administratorowi bazy danych identyfikator klucza Azure Key Vault, który ma być używany do szyfrowania na serwerze. Key Vault jest zaprojektowana tak, że firma Microsoft nie widzi ani nie wyodrębni kluczy szyfrowania. Możesz również centralnie zarządzać kluczami dla swojej organizacji.
 
-#### <a name="always-encrypted"></a>Zawsze szyfrowane
+#### <a name="always-encrypted"></a>Funkcja Always Encrypted
 
 Istnieje również [dwukluczowa hierarchia](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) w Always Encrypted — kolumna danych poufnych jest szyfrowana za pomocą klucza szyfrowania AES 256-kolumnowego (CEK), który z kolei jest szyfrowany przy użyciu klucza głównego kolumny (CMK). Sterowniki klienta podane dla Always Encrypted nie mają ograniczeń dotyczących długości CMKs. Zaszyfrowana wartość CEK jest przechowywana w bazie danych, a CMK jest przechowywana w zaufanym magazynie kluczy, takim jak magazyn certyfikatów systemu Windows, Azure Key Vault lub sprzętowy moduł zabezpieczeń.
 
@@ -301,11 +301,11 @@ Aby uzyskać kompleksowy zestaw zaleceń dotyczących dostrajania problemów z w
 
 SQL Database oferuje różne warstwy usług w warstwach Podstawowa, standardowa i Premium. Każda warstwa usług otrzymuje przewidywalną wydajność, która jest powiązana z tą warstwą usług. W zależności od obciążenia może istnieć szereg aktywności, w których wykorzystanie zasobów może osiągnąć górny limit bieżącego rozmiaru obliczeniowego, w którym się znajdujesz. W takich przypadkach warto najpierw zacząć od oceny, czy dostrojenie może pomóc (na przykład dodając lub modyfikując indeks itp.). Jeśli nadal występują problemy z ograniczeniami, rozważ przeniesienie do wyższej warstwy usług lub rozmiaru obliczeń.
 
-|**Warstwa usługi**|**Typowe scenariusze przypadków użycia**|
+|**Warstwa usług**|**Typowe scenariusze przypadków użycia**|
 |---|---|
-|**Podstawowe**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
+|**Podstawowa**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
 |**Standardowa**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
-|**Tytułu**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
+|**Premium**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
 |||
 
 Aby mieć pewność, że korzystasz z odpowiedniego rozmiaru obliczeń, możesz monitorować użycie zasobów zapytania i bazy danych za pomocą jednego z powyższych metod w "Jak mogę monitorować wydajność i wykorzystanie zasobów w SQL Database". Należy się dowiedzieć, że zapytania/bazy danych stale działają na gorąco na procesorze CPU/pamięci itp. Możesz rozważyć skalowanie do wyższego rozmiaru. Podobnie, jeśli należy zauważyć, że nawet w godzinach szczytu nie będziesz używać zasobów tak samo, jak to możliwe. Rozważ przeskalowanie w dół od bieżącego rozmiaru obliczeń.

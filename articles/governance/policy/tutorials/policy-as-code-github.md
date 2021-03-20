@@ -4,10 +4,10 @@ description: W tym samouczku zaimplementowano Azure Policy jako przepływ pracy 
 ms.date: 10/20/2020
 ms.topic: tutorial
 ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326158"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Samouczek: implementowanie Azure Policy jako kodu w usłudze GitHub
@@ -88,11 +88,11 @@ Zasoby Azure Policy są eksportowane do następującej struktury w wybranym repo
 
 1. Przepływ pracy synchronizuje zmiany wprowadzone w obiektach zasad z platformą Azure i zapewnia stan w dziennikach.
 
-   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Zrzut ekranu przedstawiający przyciski akcja, przepływ pracy i Uruchom przepływ pracy w interfejsie sieci Web usługi GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Zrzut ekranu przedstawiający przepływ pracy i zarejestrowane szczegóły w dziennikach.":::
 
 1. Przepływ pracy dodaje także szczegółowe informacje w Azure Policy obiektów do `properties.metadata` śledzenia.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Zrzut ekranu przedstawiający przyciski akcja, przepływ pracy i Uruchom przepływ pracy w interfejsie sieci Web usługi GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Zrzut ekranu definicji Azure Policy w Azure Portal aktualizowany za pomocą metadanych specyficznych dla akcji usługi GitHub.":::
 
 ### <a name="trigger-compliance-scans-using-github-action"></a>Wyzwalanie skanowania zgodności przy użyciu akcji GitHub
 

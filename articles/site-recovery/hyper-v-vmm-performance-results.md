@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92327641"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Wyniki testu dla replikacji funkcji Hyper-V do lokacji dodatkowej
@@ -170,7 +170,7 @@ Wyniki jasno pokazują, że Site Recovery, w połączeniu z funkcją Hyper-V Rep
 
 Tabela zawiera podsumowanie metryk wydajności i liczników, które były mierzone we wdrożeniu.
 
-| Metryka | Licznik |
+| Metric | Licznik |
 | --- | --- |
 | Procesor CPU |\Processor(_Total)\% Processor Time |
 | Dostępna pamięć |\Memory\Available (MB) |

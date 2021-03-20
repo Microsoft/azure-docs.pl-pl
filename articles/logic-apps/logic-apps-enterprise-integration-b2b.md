@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93310500"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Odbieraj i potwierdzaj wiadomości AS2 B2B przy użyciu Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
@@ -77,7 +77,7 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
      ![Wybierz wartość "treść" z wyzwalacza](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK** :
+   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
 
      `triggerOutputs()['body']`
 
@@ -95,7 +95,7 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
       ![Zrzut ekranu pokazujący, że wybrano "Przełącz nagłówki wiadomości do trybu tekstowego".](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   1. Kliknij wewnątrz pola **nagłówka komunikatu** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK** :
+   1. Kliknij wewnątrz pola **nagłówka komunikatu** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
 
       `triggerOutputs()['Headers']`
 
@@ -113,7 +113,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. W obszarze akcji **dekodowania AS2** wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz akcję** , w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Na liście **Akcje** wybierz pozycję **Warunek**.
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Na liście **Akcje** wybierz pozycję **Warunek**.
 
    ![Dodaj akcję "Condition"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

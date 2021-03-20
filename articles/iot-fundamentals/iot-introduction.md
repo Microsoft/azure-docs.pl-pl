@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453016"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Co to jest usługa Azure Internet of Things (IoT)?
@@ -23,7 +23,7 @@ Azure Internet of Things (IoT) to kolekcja zarządzanych przez firmę Microsoft 
 
 ## <a name="iot-devices"></a>Urządzenia IoT
 
-Urządzenie IoT zwykle składa się z tablicy obwodowej z dołączanymi czujnikami, które używają sieci Wi-Fi do łączenia się z Internetem. Przykład:
+Urządzenie IoT zwykle składa się z tablicy obwodowej z dołączanymi czujnikami, które używają sieci Wi-Fi do łączenia się z Internetem. Na przykład:
 
 * Czujnik ciśnienia na zdalnej pompie naftowej.
 * Czujniki temperatury i wilgotności w jednostce klimatyzacyjnej.

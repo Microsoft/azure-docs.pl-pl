@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
 ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932175"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Uruchamianie zadania MapReduce przy użyciu zestawu SDK dla platformy .NET usługi HDInsight
@@ -39,7 +39,7 @@ Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie pla
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Skopiuj poniższy kod do **program.cs**. Następnie Edytuj kod, ustawiając wartości dla: `existingClusterName` ,,, `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` i `defaultStorageContainerName` .
+1. Skopiuj poniższy kod do **programu program. cs**. Następnie Edytuj kod, ustawiając wartości dla: `existingClusterName` ,,, `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` i `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;

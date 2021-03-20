@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255377"
 ---
-# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Ochrona kont użytkowników przed atakami za pomocą usługi inteligentnego blokowania Azure Active Directory
+# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Ochrona kont użytkowników przed atakami za pomocą blokady inteligentnej w usłudze Azure Active Directory
 
-Inteligentna blokada ułatwia zablokowanie nieprawidłowych aktorów próbujących odgadnąć hasła użytkowników lub użyć metod w celu uzyskania w programie. Inteligentna blokada może rozpoznawać logowania pochodzące od prawidłowych użytkowników i traktować je inaczej niż osoby atakujące i inne nieznane źródła. Osoby atakujące są Zablokowani, podczas gdy użytkownicy nadal uzyskują dostęp do swoich kont i mogą pracować wydajnie.
+Blokada inteligentna ułatwia blokowanie złośliwych podmiotów próbujących odgadnąć hasła użytkowników lub wykorzystać metody siłowe w celu uzyskania dostępu. Blokada inteligentna może rozpoznawać logowania pochodzące od prawidłowych użytkowników i traktować je inaczej niż osoby atakujące i inne nieznane źródła. Osoby atakujące są blokowane, podczas gdy Twoi użytkownicy nadal uzyskują dostęp do swoich kont i mogą wydajnie pracować.
 
 ## <a name="how-smart-lockout-works"></a>Jak działa inteligentna blokada
 

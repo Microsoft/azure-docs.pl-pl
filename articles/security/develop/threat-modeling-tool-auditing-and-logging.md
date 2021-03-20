@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518281"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Ramka zabezpieczeń: Inspekcja i rejestrowanie | Środki zaradcze 
@@ -29,7 +29,7 @@ ms.locfileid: "94518281"
 | **Dynamics CRM**    | <ul><li>[Zidentyfikuj poufne jednostki w rozwiązaniu i zaimplementuj inspekcję zmian](#sensitive-entities)</li></ul> |
 | **Aplikacja sieci Web** | <ul><li>[Upewnij się, że Inspekcja i rejestrowanie są wymuszane w aplikacji](#auditing)</li><li>[Upewnij się, że rotacja i separacja dzienników są stosowane](#log-rotation)</li><li>[Upewnij się, że aplikacja nie rejestruje poufnych danych użytkownika](#log-sensitive-data)</li><li>[Upewnij się, że pliki inspekcji i dziennika mają ograniczony dostęp](#log-restricted-access)</li><li>[Upewnij się, że zdarzenia zarządzania użytkownikami są rejestrowane](#user-management)</li><li>[Upewnij się, że system ma wbudowane zabezpieczenia przed nieprawidłowym użyciem](#inbuilt-defenses)</li><li>[Włączanie rejestrowania diagnostycznego dla aplikacji sieci Web w programie Azure App Service](#diagnostics-logging)</li></ul> |
 | **Database** (Baza danych) | <ul><li>[Upewnij się, że inspekcja logowania jest włączona na SQL Server](#identify-sensitive-entities)</li><li>[Włączanie wykrywania zagrożeń w usłudze Azure SQL](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Używanie analityka magazynu platformy Azure do inspekcji dostępu do usługi Azure Storage](#analytics)</li></ul> |
+| **Azure Storage** | <ul><li>[Używanie Azure Storage Analytics do inspekcji dostępu do usługi Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementowanie wystarczającego rejestrowania](#sufficient-logging)</li><li>[Implementowanie wystarczającej obsługi błędów inspekcji](#audit-failure-handling)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że Inspekcja i rejestrowanie są wymuszane w interfejsie API sieci Web](#logging-web-api)</li></ul> |
 | **Brama pola IoT** | <ul><li>[Upewnij się, że w bramie pola jest wymuszane odpowiednie inspekcje i rejestrowanie](#logging-field-gateway)</li></ul> |
@@ -145,7 +145,7 @@ ms.locfileid: "94518281"
 | **Odwołania**              | [Wprowadzenie do wykrywania zagrożeń SQL Database](../../azure-sql/database/threat-detection-configure.md)|
 | **Kroki** |<p>Wykrywanie zagrożeń wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych. Zapewnia nową warstwę zabezpieczeń, która umożliwia klientom wykrywanie potencjalnych zagrożeń i reagowanie na nie w miarę ich występowania, zapewniając alerty zabezpieczeń w przypadku nietypowych działań.</p><p>Użytkownicy mogą eksplorować podejrzane zdarzenia za pomocą inspekcji Azure SQL Database, aby określić, czy mają one wpływ na próbę uzyskania dostępu do bazy danych, naruszenia jej lub wykorzystania.</p><p>Wykrywanie zagrożeń ułatwia rozwiązywanie potencjalnych zagrożeń dla bazy danych bez potrzeby eksperta zabezpieczeń lub zarządzania zaawansowanymi systemami monitorowania zabezpieczeń</p>|
 
-## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Używanie analityka magazynu platformy Azure do inspekcji dostępu do usługi Azure Storage
+## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Używanie Azure Storage Analytics do inspekcji dostępu do usługi Azure Storage
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -154,7 +154,7 @@ ms.locfileid: "94518281"
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy |
 | **Odwołania**              | [Używanie analityka magazynu do monitorowania typu autoryzacji](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
-| **Kroki** | <p>Każde konto magazynu może umożliwić analityka magazynu platformy Azure wykonywanie rejestrowania i przechowywanie danych metryk. Dzienniki analizy magazynu zawierają ważne informacje, takie jak metoda uwierzytelniania używana przez kogoś podczas uzyskiwania dostępu do magazynu.</p><p>Może to być naprawdę przydatne, jeśli masz ścisłą ochronę dostępu do magazynu. Na przykład w Blob Storage można ustawić wszystkie kontenery jako prywatne i zaimplementować korzystanie z usługi sygnatury dostępu współdzielonego w aplikacjach. Następnie można regularnie sprawdzać dzienniki, aby sprawdzić, czy dostęp do obiektów BLOB odbywa się przy użyciu kluczy konta magazynu, co może wskazywać na naruszenie zabezpieczeń lub jeśli obiekty blob są publiczne, ale nie powinny być.</p>|
+| **Kroki** | <p>Każde konto magazynu może umożliwić Azure Storage Analytics wykonywanie rejestrowania i przechowywanie danych metryk. Dzienniki analizy magazynu zawierają ważne informacje, takie jak metoda uwierzytelniania używana przez kogoś podczas uzyskiwania dostępu do magazynu.</p><p>Może to być naprawdę przydatne, jeśli masz ścisłą ochronę dostępu do magazynu. Na przykład w Blob Storage można ustawić wszystkie kontenery jako prywatne i zaimplementować korzystanie z usługi sygnatury dostępu współdzielonego w aplikacjach. Następnie można regularnie sprawdzać dzienniki, aby sprawdzić, czy dostęp do obiektów BLOB odbywa się przy użyciu kluczy konta magazynu, co może wskazywać na naruszenie zabezpieczeń lub jeśli obiekty blob są publiczne, ale nie powinny być.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementowanie wystarczającego rejestrowania
 

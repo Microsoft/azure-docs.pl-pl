@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289893"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Użyj `az keyvault create` polecenia, aby utworzyć magazyn kluczy. Ten skrypt ma trzy obowiązkowe parametry: nazwę grupy zasobów, nazwę magazynu kluczy i lokalizację geograficzną.
 
-Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault** , w grupie zasobów  **ContosoResourceGroup** , znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
+Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault**, w grupie zasobów  **ContosoResourceGroup**, znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 Dane wyjściowe tego polecenia przedstawiają właściwości utworzonego magazynu kluczy. Dwie najważniejsze właściwości to:
 
-* **Nazwa** : w tym przykładzie nazwa to ContosoKeyVault. Ta nazwa będzie używana do innych poleceń Key Vault.
-* **vaultUri** : w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net . Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Nazwa**: w tym przykładzie nazwa to ContosoKeyVault. Ta nazwa będzie używana do innych poleceń Key Vault.
+* **vaultUri**: w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net . Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Od tej pory nikt nie jest autoryzowany.
 

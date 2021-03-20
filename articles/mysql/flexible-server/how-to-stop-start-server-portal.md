@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241926"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Zatrzymywanie/uruchamianie Azure Database for MySQL-elastyczny serwer (wersja zapoznawcza)
@@ -36,7 +36,7 @@ Aby ukończyć ten przewodnik, musisz:
 
 3.  Kliknij przycisk **tak** , aby potwierdzić zatrzymywanie serwera.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Zatrzymaj elastyczny serwer."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Upewnij się, że serwer elastyczny został zatrzymany."::: 
 
 > [!NOTE]
 > Po zatrzymaniu serwera inne operacje zarządzania nie są dostępne dla serwera elastycznego.
@@ -47,7 +47,7 @@ Aby ukończyć ten przewodnik, musisz:
 
 2.  Na stronie **Przegląd** kliknij przycisk **Start** na pasku narzędzi.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Zatrzymaj elastyczny serwer.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Uruchom serwer elastyczny.":::  
 
 > [!NOTE]
 > Po uruchomieniu serwera wszystkie operacje zarządzania będą teraz dostępne dla serwera elastycznego.

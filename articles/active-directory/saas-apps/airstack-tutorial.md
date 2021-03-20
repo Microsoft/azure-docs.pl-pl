@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318948"
 ---
 # <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Samouczek: integracja ze stosem obsługi przy użyciu Azure Active Directory
@@ -128,7 +128,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-airstack-test-user"></a>Utwórz użytkownika testowego stosu
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w stosie. Pracuj z [zespołem pomocy technicznej stosu](mailto:jsinger@lenovo.com) , aby dodać użytkowników na platformie stosu. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w stosie. Pracuj z [zespołem pomocy technicznej stosu](mailto:jsinger@lenovo.com) , aby dodać użytkowników na platformie stosu. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
