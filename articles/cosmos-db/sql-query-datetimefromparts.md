@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: da992715b5cf624592db72cacefd35c9513ac43f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b0e7996b71e68db371201da1f0f5c93486ae4e29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335776"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592100"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,17 +48,17 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 Zwraca wartość ciągu ISO 8601 daty i czasu UTC w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |Format|Opis|
-  |-|-|
-  |YYYY|rok czterocyfrowy|
-  |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
-  |DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
-  |T|Oznaczanie na początku elementów czasu|
-  |hh|godzina dwucyfrowy (od 00 do 23)|
-  |mm|minuty dwucyfrowe (od 00 do 59)|
-  |ss|dwa cyfry sekund (od 00 do 59)|
-  |. fffffff|siedem cyfr sekund|
-  |Z|Oznaczenie UTC (skoordynowany czas uniwersalny)||
+|Format|Opis|
+|-|-|
+|YYYY|rok czterocyfrowy|
+|MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
+|DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
+|T|Oznaczanie na początku elementów czasu|
+|hh|godzina dwucyfrowy (od 00 do 23)|
+|mm|minuty dwucyfrowe (od 00 do 59)|
+|ss|dwa cyfry sekund (od 00 do 59)|
+|. fffffff|siedem cyfr sekund|
+|Z|Oznaczenie UTC (skoordynowany czas uniwersalny)|
   
  Aby uzyskać więcej informacji na temat formatu ISO 8601, zobacz [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

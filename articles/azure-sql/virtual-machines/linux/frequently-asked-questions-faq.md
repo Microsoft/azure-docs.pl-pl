@@ -12,10 +12,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792552"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Często zadawane pytania dotyczące SQL Server on Linux maszyn wirtualnych
@@ -95,13 +95,13 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="resources"></a>Zasoby
 
-**Maszyny wirtualne z systemem Linux** :
+**Maszyny wirtualne z systemem Linux**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](sql-vm-create-portal-quickstart.md)
 * [Dokumentacja SQL Server on Linux](/sql/linux/sql-server-linux-overview)
 
-**Maszyny wirtualne z systemem Windows** :
+**Maszyny wirtualne z systemem Windows**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-vm-create-portal-quickstart.md)

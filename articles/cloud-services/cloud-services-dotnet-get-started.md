@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742084"
 ---
 # <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Wprowadzenie do usługi Azure Cloud Services (klasyczne) i ASP.NET

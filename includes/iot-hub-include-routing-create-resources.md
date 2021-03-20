@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 5680bd1c3fadab8edcde1634c708ca8683c0e99c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76020936"
 ---
 ## <a name="create-base-resources"></a>Utwórz zasoby podstawowe

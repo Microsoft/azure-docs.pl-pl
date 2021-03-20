@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609744"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurowanie Reliable Actors--ReliableDictionaryActorStateProvider
@@ -78,13 +78,13 @@ Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i po
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekundy |0,015 |Okres, przez który Replikator w dodatkowej chwili czeka po odebraniu operacji przed wysłaniem potwierdzenia do elementu podstawowego. Wszystkie inne potwierdzenia do wysłania dla operacji przetworzonych w ramach tego interwału są wysyłane jako jedna odpowiedź. |
-| ReplicatorEndpoint |Brak |Brak domyślnego parametru--Required |Adres IP i port, które będą używane przez Replikator podstawowy/pomocniczy do komunikowania się z innymi replikatorami w zestawie replik. Powinno to odwoływać się do punktu końcowego zasobu TCP w manifeście usługi. Zapoznaj się z informacjami o [zasobach manifestu usługi](service-fabric-service-manifest-resources.md) , aby dowiedzieć się więcej na temat definiowania zasobów punktu końcowego w manifeście usługi. |
+| ReplicatorEndpoint |Nie dotyczy |Brak domyślnego parametru--Required |Adres IP i port, które będą używane przez Replikator podstawowy/pomocniczy do komunikowania się z innymi replikatorami w zestawie replik. Powinno to odwoływać się do punktu końcowego zasobu TCP w manifeście usługi. Zapoznaj się z informacjami o [zasobach manifestu usługi](service-fabric-service-manifest-resources.md) , aby dowiedzieć się więcej na temat definiowania zasobów punktu końcowego w manifeście usługi. |
 | MaxReplicationMessageSize |Bajty |50 MB |Maksymalny rozmiar danych replikacji, które mogą być przesyłane w jednej wiadomości. |
 | MaxPrimaryReplicationQueueSize |Liczba operacji |8192 |Maksymalna liczba operacji w kolejce głównej. Operacja jest zwalniana, gdy podstawowy Replikator otrzyma potwierdzenie ze wszystkich dodatkowych replik. Ta wartość musi być większa niż 64 i potęgą 2. |
 | MaxSecondaryReplicationQueueSize |Liczba operacji |16384 |Maksymalna liczba operacji w kolejce pomocniczej. Operacja zostanie zwolniona po przeprowadzeniu wysokiej dostępności stanu przez trwałość. Ta wartość musi być większa niż 64 i potęgą 2. |
 | CheckpointThresholdInMB |MB |200 |Ilość miejsca w pliku dziennika, po którym stan jest tworzony w punkcie kontrolnym. |
 | MaxRecordSizeInKB |KB |1024 |Największy rozmiar rekordu, który Replikator może zapisać w dzienniku. Ta wartość musi być wielokrotnością 4 i większa niż 16. |
-| OptimizeLogForLowerDiskUsage |Boolean |true |Jeśli wartość jest równa true, dziennik jest skonfigurowany tak, aby dedykowany plik dziennika repliki został utworzony przy użyciu pliku rozrzedzonego NTFS. Zmniejsza to rzeczywiste użycie miejsca na dysku dla pliku. W przypadku wartości false plik jest tworzony ze stałymi alokacjami, co zapewnia najlepszą wydajność zapisu. |
+| OptimizeLogForLowerDiskUsage |Wartość logiczna |true |Jeśli wartość jest równa true, dziennik jest skonfigurowany tak, aby dedykowany plik dziennika repliki został utworzony przy użyciu pliku rozrzedzonego NTFS. Zmniejsza to rzeczywiste użycie miejsca na dysku dla pliku. W przypadku wartości false plik jest tworzony ze stałymi alokacjami, co zapewnia najlepszą wydajność zapisu. |
 | SharedLogId |guid |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania udostępnionego pliku dziennika używanego z tą repliką. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 

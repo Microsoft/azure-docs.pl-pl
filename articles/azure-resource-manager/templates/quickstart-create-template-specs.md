@@ -6,10 +6,10 @@ ms.date: 12/14/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ms.openlocfilehash: 1d3e7c6ee6d19d4d2cd3828d5abf95ccb5457e76
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511352"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
@@ -91,7 +91,7 @@ Specyfikacja szablonu jest typem zasobu o nazwie `Microsoft.Resources/templateSp
     :::image type="content" source="./media/quickstart-create-template-specs/open-folder.png" alt-text="Otwórz folder":::
 
 1. Przejdź do zapisanego przez siebie szablonu lokalnego i wybierz go. Wybierz pozycję **Otwórz**.
-1. Wybierz pozycję **Import** (Importuj).
+1. Wybierz pozycję **Importuj**.
 
     :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="Wybierz opcję importowania":::
 
@@ -103,8 +103,8 @@ Specyfikacja szablonu jest typem zasobu o nazwie `Microsoft.Resources/templateSp
     - **Lokalizacja**: wybierz lokalizację grupy zasobów. Na przykład  **zachodnie stany USA 2**.
     - **Wersja**: wprowadź wersję specyfikacji szablonu. Użyj **1,0**.
 
-1. Wybierz pozycję **Recenzja + Utwórz**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 # <a name="arm-template"></a>[Szablon ARM](#tab/azure-resource-manager)
 
@@ -318,7 +318,7 @@ Aby wdrożyć specyfikację szablonu, należy użyć tych samych poleceń wdraż
     - **Grupa zasobów**: wybierz pozycję **Utwórz nową** , a następnie wprowadź **storageRG**.
     - **Typ konta magazynu**: wybierz pozycję **Standard_GRS**.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
 # <a name="arm-template"></a>[Szablon ARM](#tab/azure-resource-manager)
@@ -473,7 +473,7 @@ Zamiast tworzyć nową specyfikację szablonu dla zweryfikowanego szablonu, Doda
    :::image type="content" source="./media/quickstart-create-template-specs/deploy-version.png" alt-text="Wybierz wersję do wdrożenia":::
 
 1. Wypełnij pola, tak jak podczas wdrażania wcześniejszej wersji.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
 # <a name="arm-template"></a>[Szablon ARM](#tab/azure-resource-manager)

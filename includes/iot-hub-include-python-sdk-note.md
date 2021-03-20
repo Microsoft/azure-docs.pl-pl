@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 1cdf8495ed0e8ffab32b5fa66b03dc196c98ac54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73591151"
 ---
 > [!NOTE]

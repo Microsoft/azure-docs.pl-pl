@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: 830ecc44d0def13e51cb06704bef429bb8860cd6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780227"
 ---
 # <a name="business-critical-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Krytyczne dla działania firmy warstwy Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL 
@@ -50,12 +50,12 @@ Krytyczne dla działania firmy warstwa usług została zaprojektowana dla aplika
 
 Najważniejsze przyczyny wyboru Krytyczne dla działania firmy warstwy usług zamiast warstwy Ogólnego przeznaczenia są następujące:
 -   **Wymagania niskiego opóźnienia we/wy** — obciążenia wymagające szybkiej odpowiedzi z warstwy magazynowania (średnia 1-2 milisekund) powinny używać warstwy krytyczne dla działania firmy. 
--   **Częsta komunikacja między aplikacjami i bazami danych** . Aplikacje, które nie mogą korzystać z buforowania warstwy aplikacji lub [żądania wsadowego](../performance-improve-use-batching.md) i muszą wysyłać wiele zapytań SQL, które muszą być szybko przetwarzane, są dobrymi kandydatami do warstwy krytyczne dla działania firmy.
+-   **Częsta komunikacja między aplikacjami i bazami danych**. Aplikacje, które nie mogą korzystać z buforowania warstwy aplikacji lub [żądania wsadowego](../performance-improve-use-batching.md) i muszą wysyłać wiele zapytań SQL, które muszą być szybko przetwarzane, są dobrymi kandydatami do warstwy krytyczne dla działania firmy.
 -   **Duża liczba aktualizacji** — operacje INSERT, Update i DELETE modyfikują strony danych w pamięci (zanieczyszczoną stronę), które muszą zostać zapisane w plikach danych z `CHECKPOINT` operacją. Potencjalna awaria procesu aparatu bazy danych lub przełączenia w tryb failover bazy danych z dużą liczbą zanieczyszczonych stron może zwiększyć czas odzyskiwania w warstwie Ogólnego przeznaczenia. Użyj warstwy Krytyczne dla działania firmy, jeśli masz obciążenie, które powoduje wiele zmian w pamięci. 
--   **Długotrwałe transakcje, które modyfikują dane** . Transakcje, które są otwarte przez dłuższy czas, uniemożliwiają Obcinanie pliku dziennika, co może zwiększyć rozmiar dziennika i liczbę [wirtualnych plików dziennika (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Duża liczba VLFs może spowolnić odzyskiwanie bazy danych po przejściu do trybu failover.
+-   **Długotrwałe transakcje, które modyfikują dane**. Transakcje, które są otwarte przez dłuższy czas, uniemożliwiają Obcinanie pliku dziennika, co może zwiększyć rozmiar dziennika i liczbę [wirtualnych plików dziennika (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Duża liczba VLFs może spowolnić odzyskiwanie bazy danych po przejściu do trybu failover.
 -   **Obciążenie przy użyciu zapytań i raportów analitycznych** , które można przekierować do bezpłatnej repliki tylko do odczytu.
-- **Wyższa odporność i szybsze odzyskiwanie po awarii** . W przypadku awarii systemu baza danych w wystąpieniu podstawowym zostanie wyłączona, a jedna z replik pomocniczych stanie się natychmiast nową podstawową bazą danych do odczytu i zapisu, która jest gotowa do przetwarzania zapytań. Aparat bazy danych nie musi analizować i ponawiać transakcji z pliku dziennika i ładować wszystkich danych w buforze pamięci.
-- **Zaawansowana ochrona przed uszkodzeniem danych** . Warstwa Krytyczne dla działania firmy korzysta z replik bazy danych w tle w celu zapewnienia ciągłości działania, a więc usługa używa automatycznej naprawy strony, która jest tą samą technologią, która jest używana do SQL Server dublowania baz danych [i grup dostępności](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). W przypadku, gdy replika nie może odczytać strony z powodu problemu z integralnością danych, Nowa kopia strony zostanie pobrana z innej repliki, zastępując nieczytelną stronę bez utraty danych lub przestoju klienta. Ta funkcja ma zastosowanie w warstwie Ogólnego przeznaczenia, jeśli baza danych ma replikę geograficzną.
+- **Wyższa odporność i szybsze odzyskiwanie po awarii**. W przypadku awarii systemu baza danych w wystąpieniu podstawowym zostanie wyłączona, a jedna z replik pomocniczych stanie się natychmiast nową podstawową bazą danych do odczytu i zapisu, która jest gotowa do przetwarzania zapytań. Aparat bazy danych nie musi analizować i ponawiać transakcji z pliku dziennika i ładować wszystkich danych w buforze pamięci.
+- **Zaawansowana ochrona przed uszkodzeniem danych**. Warstwa Krytyczne dla działania firmy korzysta z replik bazy danych w tle w celu zapewnienia ciągłości działania, a więc usługa używa automatycznej naprawy strony, która jest tą samą technologią, która jest używana do SQL Server dublowania baz danych [i grup dostępności](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). W przypadku, gdy replika nie może odczytać strony z powodu problemu z integralnością danych, Nowa kopia strony zostanie pobrana z innej repliki, zastępując nieczytelną stronę bez utraty danych lub przestoju klienta. Ta funkcja ma zastosowanie w warstwie Ogólnego przeznaczenia, jeśli baza danych ma replikę geograficzną.
 - **Wyższa dostępność** — warstwa krytyczne dla działania firmy w ramach konfiguracji z obsługą wiele-AZ — zapewnia dostępność na 99,995% w porównaniu do 99,99% warstwy ogólnego przeznaczenia.
 - **Szybka replikacja geograficzna** — warstwa krytyczne dla działania firmy skonfigurowana z replikacją geograficzną ma gwarantowany cel punktu odzyskiwania (RPO) wynoszący 5 sekund i cel czasu odzyskiwania (RTO) wynoszący 30 sekund przez 100% czasu wdrożenia.
 

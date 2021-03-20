@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384978"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Zarządzanie zagrożeniami dla zasobów i danych w Azure Active Directory B2C
@@ -41,15 +41,15 @@ Aby zarządzać ustawieniami ochrony hasłem, w tym progiem blokady:
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Użyj filtru **katalogów i subskrypcji** w górnym menu, aby wybrać katalog, który zawiera dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **zabezpieczenia**wybierz pozycję **metody uwierzytelniania (wersja zapoznawcza)**, a następnie wybierz pozycję **Ochrona hasłem**.
+1. W obszarze **zabezpieczenia** wybierz pozycję **metody uwierzytelniania (wersja zapoznawcza)**, a następnie wybierz pozycję **Ochrona hasłem**.
 1. Wprowadź odpowiednie ustawienia ochrony hasłem, a następnie wybierz pozycję **Zapisz**.
 
     ![Strona ochrony hasłem Azure Portal w ustawieniach usługi Azure AD](./media/threat-management/portal-02-password-protection.png)
-    <br />*Ustawienie progu blokady na 5 w ustawieniach **ochrony haseł** *.
+    <br />*Ustawienie progu blokady na 5 w ustawieniach **ochrony haseł***.
 
 ## <a name="view-locked-out-accounts"></a>Wyświetl zablokowane konta
 
-Aby uzyskać informacje o kontach zablokowanych, można sprawdzić [raport dotyczący działań związanych z logowaniem](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. W obszarze **stan**wybierz pozycję **Niepowodzenie**. Nieudane próby logowania przy użyciu **kodu błędu logowania** `50053` wskazują zablokowane konto:
+Aby uzyskać informacje o kontach zablokowanych, można sprawdzić [raport dotyczący działań związanych z logowaniem](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. W obszarze **stan** wybierz pozycję **Niepowodzenie**. Nieudane próby logowania przy użyciu **kodu błędu logowania** `50053` wskazują zablokowane konto:
 
 ![Sekcja raportu logowania usługi Azure AD przedstawiająca zablokowane konto](./media/threat-management/portal-01-locked-account.png)
 

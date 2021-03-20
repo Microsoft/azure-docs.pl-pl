@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92678336"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Opracowywanie aplikacji Service Fabric C# przy użyciu Visual Studio Code
@@ -34,7 +34,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 ## <a name="open-the-application-in-vs-code"></a>Otwórz aplikację w VS Code
 
 ### <a name="windows"></a>Windows
-Kliknij prawym przyciskiem myszy ikonę VS Code w menu Start i wybierz polecenie **Uruchom jako administrator** . Aby dołączyć debuger do usług, musisz uruchomić VS Code jako administrator.
+Kliknij prawym przyciskiem myszy ikonę VS Code w menu Start i wybierz polecenie **Uruchom jako administrator**. Aby dołączyć debuger do usług, musisz uruchomić VS Code jako administrator.
 
 ### <a name="linux"></a>Linux
 Za pomocą terminalu przejdź do ścieżki/service-fabric-dotnet-core-getting-started/Services/CounterService z katalogu, do którego aplikacja została sklonowana lokalnie.
@@ -57,7 +57,7 @@ Aplikacja powinna teraz pojawić się w obszarze roboczym VS Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Wdrażanie aplikacji w klastrze lokalnym
 Po skompilowaniu aplikacji można wdrożyć ją w klastrze lokalnym. 
 
-1. W **palecie poleceń** wybierz **polecenie Service Fabric: Deploy Application (localhost)** . Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
+1. W **palecie poleceń** wybierz **polecenie Service Fabric: Deploy Application (localhost)**. Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
 
    ![Polecenie wdrażania aplikacji w VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Wraz z wdrażaniem aplikacji w klastrze lokalnym można również opublikować j
 
 1. Upewnij się, że aplikacja została skompilowana przy użyciu powyższych instrukcji. Zaktualizuj wygenerowany plik konfiguracji `Cloud.json` , podając szczegóły zdalnego klastra, w którym chcesz publikować.
 
-2. W **palecie poleceń** wybierz **polecenie Service Fabric: Publish Application** . Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
+2. W **palecie poleceń** wybierz **polecenie Service Fabric: Publish Application**. Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
 
    ![Polecenie publikowania aplikacji w VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
@@ -101,7 +101,7 @@ Aby ustawić punkt przerwania i debugowanie, wykonaj następujące czynności:
 
    ![Proces podstawowy](./media/service-fabric-develop-csharp-applications-with-vs-code/select-process.png)
 
-5. Punkt przerwania w pliku *CounterService.cs* zostanie szybko trafiony. Następnie można eksplorować wartości zmiennych lokalnych. Użyj paska narzędzi debugowania w górnej części VS Code, aby kontynuować wykonywanie, przekroczyć wiersze, wkroczyć metody lub krok poza bieżącą metodę. 
+5. Punkt przerwania w pliku *CounterService. cs* zostanie natrafiony bardzo szybko. Następnie można eksplorować wartości zmiennych lokalnych. Użyj paska narzędzi debugowania w górnej części VS Code, aby kontynuować wykonywanie, przekroczyć wiersze, wkroczyć metody lub krok poza bieżącą metodę. 
 
    ![Wartości debugowania](./media/service-fabric-develop-csharp-applications-with-vs-code/breakpoint-hit.png)
 

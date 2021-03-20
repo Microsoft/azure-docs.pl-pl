@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dba9e4f727b56e5093171c2ea59382075563f31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592068"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 
@@ -323,13 +323,8 @@ Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odst
 
 Aby uzyskać więcej informacji na temat wyzwalaczy okna wirowania i dla przykładów, zobacz [Tworzenie wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md).
 
-## <a name="event-based-trigger"></a>Wyzwalacz oparty na zdarzeniach
-
-Wyzwalacz oparty na zdarzeniach uruchamia potoki w odpowiedzi na zdarzenie, takie jak nadejście pliku lub usuwanie pliku, w usłudze Azure Blob Storage.
-
-Aby uzyskać więcej informacji dotyczących wyzwalaczy opartych na zdarzeniach, zobacz [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie).
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Przykłady harmonogramów cyklu wyzwalaczy
+
 Ta sekcja zawiera przykłady harmonogramów cyklu. Koncentruje się ona na obiekcie **schedule** i jego elementach.
 
 W przykładach założono, że wartość **interwału** wynosi 1 i że wartość **częstotliwości** jest poprawna zgodnie z definicją harmonogramu. Na przykład nie można mieć wartości **frequency** równej „day” i jednocześnie mieć modyfikacji **monthDays** w obiekcie **schedule**. Tego rodzaju ograniczenia są opisane w tabeli w poprzedniej sekcji.
@@ -364,6 +359,7 @@ W przykładach założono, że wartość **interwału** wynosi 1 i że wartość
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 w trzecią środę każdego miesiąca. |
 
 ## <a name="trigger-type-comparison"></a>Porównanie typów wyzwalaczy
+
 Zarówno wyzwalacz okna wirowania, jak i wyzwalacz harmonogramu pracują w oparciu o pulsy czasu. Czym się od siebie różnią?
 
 > [!NOTE]
@@ -380,7 +376,17 @@ Poniższa tabela zawiera porównanie wyzwalacza okna wirowania i wyzwalacza harm
 | **Zmienne systemu** | Wraz z @trigger (). scheduledTime i @trigger (). StartTime obsługuje także użycie zmiennych systemowych **WindowStart** i **WindowEnd** . Użytkownicy mogą uzyskiwać dostęp do zmiennych `trigger().outputs.windowStartTime` i `trigger().outputs.windowEndTime` jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Wartości są używane odpowiednio jako czas rozpoczęcia okna i czas zakończenia okna. Na przykład w przypadku wyzwalacza okna wirowania uruchamianego co godzinę dla okna od godz. 1:00 do 2:00 definicją jest zmienna `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` i `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Obsługiwane są tylko @trigger zmienne default (). scheduledTime i @trigger (). StartTime. |
 | **Relacja potoku do wyzwalacza** | Obsługuje relację „jeden do jednego”. Można wyzwolić tylko jeden potok. | Obsługuje relacje „wiele do wielu”. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchamiać wiele potoków. |
 
+## <a name="event-based-trigger"></a>Wyzwalacz oparty na zdarzeniach
+
+Wyzwalacz oparty na zdarzeniach uruchamia potoki w odpowiedzi na zdarzenie. Istnieją dwa typy wyzwalaczy opartych na zdarzeniach.
+
+* _Wyzwalacz zdarzeń magazynu_ uruchamia potok dla zdarzeń występujących na koncie magazynu, takich jak nadejście pliku lub usuwanie pliku na koncie usługi Azure Blob Storage.
+* _Niestandardowe procesy wyzwalające zdarzenia_ i obsługują [niestandardowe tematy](../event-grid/custom-topics.md) w Event Grid
+
+Aby uzyskać więcej informacji na temat wyzwalaczy opartych na zdarzeniach, zobacz [wyzwalacz zdarzenia magazynu](how-to-create-event-trigger.md) i [wyzwalacz zdarzeń niestandardowych](how-to-create-custom-event-trigger.md).
+
 ## <a name="next-steps"></a>Następne kroki
+
 Zobacz następujące samouczki:
 
 - [Szybki start: tworzenie fabryki danych przy użyciu zestawu SDK platformy .NET](quickstart-create-data-factory-dot-net.md)

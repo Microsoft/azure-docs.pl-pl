@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91932468"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Korzyści związane z używaniem usługi Azure NetApp Files w usłudze Windows Virtual Desktop 
@@ -35,7 +35,7 @@ Następujące przykładowe plany pokazują integrację pulpitu wirtualnego syste
 
 W przypadku scenariusza w puli zespół pulpitów wirtualnych systemu Windows [zaleca](/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) następujące wskazówki według liczby użytkowników do vCPU. Należy pamiętać, że w tym zaleceniu nie określono rozmiaru maszyny wirtualnej.
 
-|     Typ obciążenia     |     Jasny    |     Średniaa    |     Ciężki    |
+|     Typ obciążenia     |     Jasny    |     Śred.    |     Ciężki    |
 |-----------------------|--------------|---------------|--------------|
 |     Użytkownicy na vCPU    |     6        |     4         |     2        |
 

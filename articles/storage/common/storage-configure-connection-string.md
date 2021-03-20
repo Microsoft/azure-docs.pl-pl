@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783882"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfiguracja parametrów połączenia usługi Azure Storage
@@ -57,7 +57,7 @@ Na przykład parametry połączenia mogą wyglądać podobnie do następujących
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Mimo że usługa Azure Storage obsługuje zarówno protokół HTTP, jak i HTTPS w parametrach połączenia, *zdecydowanie zaleca się użycie protokołu HTTPS* .
+Mimo że usługa Azure Storage obsługuje zarówno protokół HTTP, jak i HTTPS w parametrach połączenia, *zdecydowanie zaleca się użycie protokołu HTTPS*.
 
 > [!TIP]
 > Parametry połączenia konta magazynu można znaleźć w [Azure Portal](https://portal.azure.com). Przejdź do **ustawień**  >  **klucze dostępu** w bloku menu konta magazynu, aby wyświetlić parametry połączenia dla podstawowych i pomocniczych kluczy dostępu.

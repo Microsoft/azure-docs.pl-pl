@@ -4,10 +4,10 @@ description: Dowiedz się, jak zapewnić dostęp do obrazów w rejestrze kontene
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74456506"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Uwierzytelnianie za pomocą Azure Container Registry z Azure Container Instances

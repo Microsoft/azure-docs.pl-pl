@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: b8e59e96d5ecb65933120ecaa4aa43fe4d59d367
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567547"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Samouczek: Ocena serwerów fizycznych do migracji na platformę Azure
@@ -21,7 +21,7 @@ W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, 
 W tym artykule opisano sposób oceny lokalnych serwerów fizycznych na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate:.
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 - Uruchom ocenę na podstawie metadanych maszyn i informacji o konfiguracji.
 - Uruchom ocenę na podstawie danych wydajności.
@@ -104,7 +104,7 @@ Uruchom ocenę w następujący sposób:
         - Jest to przydatne w przypadku maszyn wirtualnych platformy Azure, które nie będą działać w sposób ciągły.
         - Oszacowania kosztów są uzależnione od określonego czasu trwania.
         - Wartość domyślna to 31 dni miesięcznie/24 godziny dziennie.
-    - W obszarze **subskrypcja umowy EA** Określ, czy ma zostać uwzględniony rabat za subskrypcję Umowa Enterprise (EA) w celu oszacowania kosztów. 
+    - W obszarze **subskrypcja umowy EA** Określ, czy ma zostać uwzględniony rabat za subskrypcję Enterprise Agreement (EA) w celu oszacowania kosztów. 
     - W polu **korzyść użycia hybrydowego platformy Azure** Określ, czy masz już licencję systemu Windows Server. Jeśli to zrobisz, a zostaną objęte aktywnym programem Software Assurance subskrypcji systemu Windows Server, możesz zastosować [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) po przeniesieniu licencji na platformę Azure.
 
 1. Jeśli wprowadzisz zmiany, kliknij przycisk **Zapisz** .

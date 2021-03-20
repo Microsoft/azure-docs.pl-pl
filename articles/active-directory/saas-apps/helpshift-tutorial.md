@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b20d47962bf5467b9a5d69327e7fc152215edaa7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92445056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helpshift"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą helpshift

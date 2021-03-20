@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90947774"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na serwerze elastycznym Azure Database for PostgreSQL
@@ -44,7 +44,7 @@ Aby zainstalować `psycopg2` program, Otwórz terminal lub wiersz polecenia i ur
 Połączenie z serwerem elastycznym Azure Database for PostgreSQL wymaga w pełni kwalifikowanej nazwy serwera i poświadczeń logowania. Te informacje można uzyskać z Azure Portal.
 
 1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz elastyczną nazwę serwera. 
-2. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora**. W pełni kwalifikowana **Nazwa serwera** ma zawsze postać * \<my-server-name> . Postgres.Database.Azure.com*.
+2. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora**. W pełni kwalifikowana **Nazwa serwera** ma zawsze postać *\<my-server-name> . Postgres.Database.Azure.com*.
 
    Potrzebujesz także hasła administratora. Jeśli zapomnisz, możesz zresetować ją ze strony przegląd. 
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64ab5901ad54e37fc05d7da757ce7f31d42fe3b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85357107"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Korzystanie z karty operacje Service Manager synchronizacji
@@ -43,7 +43,7 @@ Kolumna **stan** jest najważniejszymi informacjami i pokazuje najbardziej powa�
 | ukończone — \* ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Dopóki nie zostaną rozkierowane błędy, nie należy badać ostrzeżeń. |
 | powodzenie |Brak problemów. |
 
-Po wybraniu wiersza Dolna aktualizacja pokazuje szczegóły tego uruchomienia. Na końcu z lewej strony możesz wyświetlić listę z informacją o **kroku #**. Ta lista pojawia się tylko wtedy, gdy w lesie istnieje wiele domen, w których każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją**nagłówka. W obszarze **Statystyka synchronizacji**można znaleźć więcej informacji na temat liczby przetworzonych zmian. Możesz kliknąć linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w obszarze **Błędy synchronizacji**.
+Po wybraniu wiersza Dolna aktualizacja pokazuje szczegóły tego uruchomienia. Na końcu z lewej strony możesz wyświetlić listę z informacją o **kroku #**. Ta lista pojawia się tylko wtedy, gdy w lesie istnieje wiele domen, w których każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją** nagłówka. W obszarze **Statystyka synchronizacji** można znaleźć więcej informacji na temat liczby przetworzonych zmian. Możesz kliknąć linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w obszarze **Błędy synchronizacji**.
 
 Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z obiektem, który nie jest synchronizowany](tshoot-connect-object-not-syncing.md)
 

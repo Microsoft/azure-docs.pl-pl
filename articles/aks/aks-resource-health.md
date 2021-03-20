@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
 ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070660"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Sprawdź, czy Resource Health zdarzenia mające wpływ na klaster AKS (wersja zapoznawcza)
@@ -39,7 +39,7 @@ Podczas uruchamiania obciążeń kontenerów w usłudze AKS, należy się upewni
 
 Azure Resource Health pomaga zdiagnozować i uzyskać pomoc techniczną dotyczącą problemów z usługami, które mają wpływ na zasoby platformy Azure. Resource Health raporty dotyczące bieżącej i wcześniejszej kondycji zasobów oraz pozwalają określić, czy problem jest spowodowany przez akcję zainicjowaną przez użytkownika, czy też zdarzenie platformy.
 
-Resource Health odbiera sygnały dla zarządzanego klastra w celu określenia stanu kondycji klastra. Bada stan kondycji klastra AKS i zgłasza akcje wymagane dla każdego sygnału kondycji. Sygnały te są różne od rozwiązywania problemów, planowanych aktualizacji, nieplanowanych zdarzeń związanych z kondycją i niedostępności spowodowanych przez akcje inicjowane przez użytkownika. Te sygnały są klasyfikowane przy użyciu stanu kondycji Azure Resource Health: *dostępne*, *niedostępne*, *nieznane*i o *obniżonej wydajności*.
+Resource Health odbiera sygnały dla zarządzanego klastra w celu określenia stanu kondycji klastra. Bada stan kondycji klastra AKS i zgłasza akcje wymagane dla każdego sygnału kondycji. Sygnały te są różne od rozwiązywania problemów, planowanych aktualizacji, nieplanowanych zdarzeń związanych z kondycją i niedostępności spowodowanych przez akcje inicjowane przez użytkownika. Te sygnały są klasyfikowane przy użyciu stanu kondycji Azure Resource Health: *dostępne*, *niedostępne*, *nieznane* i o *obniżonej wydajności*.
 
 - **Dostępne**: Jeśli nie ma żadnych znanych problemów wpływających na kondycję klastra, Resource Health zgłasza klaster jako *dostępny*.
 
@@ -47,7 +47,7 @@ Resource Health odbiera sygnały dla zarządzanego klastra w celu określenia st
 
 - **Nieznane**: gdy istnieje tymczasowa utrata połączenia z metrykami kondycji klastra, Resource Health zgłasza klaster jako *nieznany*.
 
-- **Obniżony**poziom: Jeśli wystąpi problem z kondycją wymagający działania, Resource Health zgłasza klaster jako *obniżony*.
+- **Obniżony** poziom: Jeśli wystąpi problem z kondycją wymagający działania, Resource Health zgłasza klaster jako *obniżony*.
 
 Aby uzyskać dodatkowe informacje na temat tego, co wskazuje każdy stan kondycji, odwiedź [Resource Health Omówienie](../service-health/resource-health-overview.md#health-status).
 

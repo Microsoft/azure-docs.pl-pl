@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558549"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Usługa Defender dla programu IoT i Fortinet IIoT oraz wykrywanie zagrożeń usługi ICS & zapobiegania

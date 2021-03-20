@@ -11,10 +11,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0fd693573858df095b62a7a7917563141ac19c5b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579338"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Pobierz typ konta magazynu i nazwę jednostki SKU z platformą .NET
@@ -23,9 +23,9 @@ W tym artykule pokazano, jak uzyskać typ konta usługi Azure Storage i nazwę j
 
 ## <a name="about-account-type-and-sku-name"></a>Informacje o typie konta i nazwie jednostki SKU
 
-**Typ konta** : prawidłowe typy kont to `BlobStorage` , `BlockBlobStorage` , `FileStorage` , `Storage` i `StorageV2` . [Omówienie konta usługi Azure Storage](storage-account-overview.md) zawiera więcej informacji, w tym opisy różnych kont magazynu.
+**Typ konta**: prawidłowe typy kont to `BlobStorage` , `BlockBlobStorage` , `FileStorage` , `Storage` i `StorageV2` . [Omówienie konta usługi Azure Storage](storage-account-overview.md) zawiera więcej informacji, w tym opisy różnych kont magazynu.
 
-**Nazwa jednostki SKU** : prawidłowe nazwy jednostek SKU obejmują,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` , i `Standard_ZRS` . Nazwy jednostek SKU są rozróżniane wielkości liter i są polami ciągów w [klasie SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname).
+**Nazwa jednostki SKU**: prawidłowe nazwy jednostek SKU obejmują,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` , i `Standard_ZRS` . Nazwy jednostek SKU są rozróżniane wielkości liter i są polami ciągów w [klasie SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname).
 
 ## <a name="retrieve-account-information"></a>Pobierz informacje o koncie
 

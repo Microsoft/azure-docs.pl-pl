@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96168682"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Synchronizacja LDAP z Azure Active Directory
@@ -59,5 +59,5 @@ Należy synchronizować dane tożsamości między lokalnymi katalogami LDAP v3 a
 * [Omówienie i Tworzenie łącznika LDAP](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
-   > Łączniki LDAP to zaawansowana konfiguracja wymagająca pewnej znajomości programu Forefront Identity Manager i/lub Microsoft Identity Manager. Jeśli są używane w środowisku produkcyjnym, firma Microsoft zaleca pytania dotyczące tej konfiguracji, korzystając z [Pomoc techniczna Premier](https://support.microsoft.com/premier) lub Microsoft Partner Network.
+   > Łączniki LDAP to zaawansowana konfiguracja wymagająca pewnej znajomości programu Forefront Identity Manager i/lub Microsoft Identity Manager. Jeśli są używane w środowisku produkcyjnym, firma Microsoft zaleca pytania dotyczące tej konfiguracji, korzystając z [Pomoc techniczna premium](https://support.microsoft.com/premier) lub Microsoft Partner Network.
 

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 1c3e5a44e01f3fa43b82644103066f5a03684ad2
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94591584"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Skonfiguruj połączenie SSL w aplikacji, aby bezpiecznie połączyć się z Azure Database for MySQL
 
-Azure Database for MySQL obsługuje łączenie serwera Azure Database for MySQL z aplikacjami klienckimi przy użyciu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
+Azure Database for MySQL obsługuje łączenie serwera Azure Database for MySQL z aplikacjami klienckimi przy użyciu Secure Sockets Layer (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Krok 1. Uzyskiwanie certyfikatu SSL
 
@@ -62,7 +62,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Krok 3: wymuszanie połączeń SSL na platformie Azure
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Korzystając z Azure Portal, odwiedź Azure Database for MySQL serwer, a następnie kliknij pozycję **zabezpieczenia połączeń**. Użyj przycisku przełącznika, aby włączyć lub wyłączyć ustawienie **Wymuszaj połączenie SSL** , a następnie kliknij przycisk **Zapisz**. Firma Microsoft zaleca, aby zawsze włączyć ustawienie **Wymuszaj połączenie SSL** w celu zwiększenia bezpieczeństwa.
 

@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96548005"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6811a06eb3483fd53b6e566033935c3b2e00ceca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84887243"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alerty w czasie rzeczywistym w usłudze Microsoft Azure CDN
@@ -27,7 +27,7 @@ ms.locfileid: "84887243"
 ## <a name="overview"></a>Omówienie
 W tym dokumencie opisano alerty w czasie rzeczywistym w usłudze Microsoft Azure CDN. Ta funkcja zapewnia powiadomienia w czasie rzeczywistym o wydajności punktów końcowych w Twoim profilu CDN.  Możesz skonfigurować alerty e-mail lub HTTP na podstawie:
 
-* Przepustowość
+* Szerokość pasma
 * Kody stanu
 * Stany pamięci podręcznej
 * Połączenia
@@ -63,16 +63,16 @@ W tym dokumencie opisano alerty w czasie rzeczywistym w usłudze Microsoft Azure
    > Musisz wybrać **duży obiekt http** jako **Typ nośnika**.  Inne opcje nie są używane przez **Azure CDN z Verizon**.  Niepowodzenie wybrania **dużego obiektu http** powoduje, że alert nigdy nie zostanie wyzwolony.
    > 
    > 
-8. Utwórz **wyrażenie** do monitorowania, wybierając **metrykę**, **operator**i **wartość wyzwalającą**.
+8. Utwórz **wyrażenie** do monitorowania, wybierając **metrykę**, **operator** i **wartość wyzwalającą**.
    
-   * W obszarze **Metryka**wybierz typ warunku, który ma być monitorowany.  **Przepustowość MB/s** to wielkość użycia przepustowości w megabitach na sekundę.  **Suma połączeń** to liczba jednoczesnych połączeń HTTP z serwerami brzegowymi.  Aby uzyskać definicje różnych stanów pamięci podręcznej i kodów stanu, zobacz [Azure CDN kodów stanu pamięci podręcznej](/previous-versions/azure/mt759237(v=azure.100)) i [Azure CDN kodów stanu HTTP](/previous-versions/azure/mt759238(v=azure.100))
+   * W obszarze **Metryka** wybierz typ warunku, który ma być monitorowany.  **Przepustowość MB/s** to wielkość użycia przepustowości w megabitach na sekundę.  **Suma połączeń** to liczba jednoczesnych połączeń HTTP z serwerami brzegowymi.  Aby uzyskać definicje różnych stanów pamięci podręcznej i kodów stanu, zobacz [Azure CDN kodów stanu pamięci podręcznej](/previous-versions/azure/mt759237(v=azure.100)) i [Azure CDN kodów stanu HTTP](/previous-versions/azure/mt759238(v=azure.100))
    * **Operator** jest operatorem matematycznym, który określa relację między metryką a wartością wyzwalacza.
    * **Wartość wyzwalacza** to wartość progowa, która musi zostać spełniona przed wysłaniem powiadomienia.
      
      W poniższym przykładzie utworzone wyrażenie wskazuje, że powiadomienie jest wysyłane, gdy liczba kodów stanu 404 jest większa niż 25.
      
      ![Wyrażenie przykładowe alertu w czasie rzeczywistym](./media/cdn-real-time-alerts/cdn-expression.png)
-9. Dla **interwału**Określ, jak często ma być oceniane wyrażenie.
+9. Dla **interwału** Określ, jak często ma być oceniane wyrażenie.
 10. Na liście rozwijanej **powiadamianie** wybierz, Kiedy chcesz otrzymywać powiadomienia, gdy wyrażenie ma wartość true.
     
     * **Początkowy warunek** wskazuje, że powiadomienie jest wysyłane po wykryciu określonego warunku.
@@ -83,7 +83,7 @@ W tym dokumencie opisano alerty w czasie rzeczywistym w usłudze Microsoft Azure
     
     ![Wiadomość E-mail z powiadomieniem](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
-    W polu **do** wprowadź adres e-mail, na który mają być wysyłane powiadomienia. W przypadku **tematu** i **treści**można pozostawić wartość domyślną lub można dostosować komunikat przy użyciu listy **dostępne słowa kluczowe** , aby dynamicznie wstawiać dane alertu podczas wysyłania wiadomości.
+    W polu **do** wprowadź adres e-mail, na który mają być wysyłane powiadomienia. W przypadku **tematu** i **treści** można pozostawić wartość domyślną lub można dostosować komunikat przy użyciu listy **dostępne słowa kluczowe** , aby dynamicznie wstawiać dane alertu podczas wysyłania wiadomości.
     
     > [!NOTE]
     > Powiadomienie e-mail można przetestować, klikając przycisk **Testuj powiadomienie** , ale dopiero po zapisaniu konfiguracji alertów.
@@ -93,7 +93,7 @@ W tym dokumencie opisano alerty w czasie rzeczywistym w usłudze Microsoft Azure
     
     ![Powiadamiaj za pomocą formularza POST protokołu HTTP](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    W polu **adres URL** wprowadź adres URL, na który ma zostać ogłoszona wiadomość http. W polu tekstowym **nagłówki** wprowadź nagłówki HTTP, które mają być wysyłane w żądaniu.  W przypadku **treści**można dostosować komunikat przy użyciu listy **dostępne słowa kluczowe** , aby dynamicznie wstawiać dane alertu podczas wysyłania komunikatu.  **Nagłówki** i **treść** są domyślne w ładunku XML podobnym do poniższego przykładu:
+    W polu **adres URL** wprowadź adres URL, na który ma zostać ogłoszona wiadomość http. W polu tekstowym **nagłówki** wprowadź nagłówki HTTP, które mają być wysyłane w żądaniu.  W przypadku **treści** można dostosować komunikat przy użyciu listy **dostępne słowa kluczowe** , aby dynamicznie wstawiać dane alertu podczas wysyłania komunikatu.  **Nagłówki** i **treść** są domyślne w ładunku XML podobnym do poniższego przykładu:
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">

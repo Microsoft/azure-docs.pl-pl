@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929646"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uaktualnianie do najnowszego interfejsu API REST na platformie Azure Wyszukiwanie poznawcze
@@ -26,7 +26,7 @@ Wersja 2020-06-30 zawiera ważną nową funkcję ([Magazyn wiedzy](knowledge-sto
 
 <a name="UpgradeSteps"></a>
 
-## <a name="how-to-upgrade"></a>Jak uaktualnić
+## <a name="how-to-upgrade"></a>Jak przeprowadzić uaktualnianie
 
 W przypadku uaktualniania do nowej wersji prawdopodobnie nie będzie konieczne wprowadzanie wielu zmian w kodzie, innych niż zmiana numeru wersji. Jedyne sytuacje, w których może zajść potrzeba zmiany kodu, są następujące:
 
@@ -67,7 +67,7 @@ Wersja 2019-05-06 to Poprzednia ogólnie dostępna wersja interfejsu API REST. F
 * [Tryby analizy JsonLines](search-howto-index-json-blobs.md), część indeksowania obiektów blob platformy Azure, tworzy jeden dokument wyszukiwania na jednostkę JSON rozdzieloną wierszem.
 * [Wzbogacanie AI](cognitive-search-concept-intro.md) zapewnia indeksowanie, które wykorzystuje silniki wzbogacania AI Cognitive Services.
 
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 
 Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2019-05-06 i nowszych, jeśli kod zawiera następujące funkcje:
 

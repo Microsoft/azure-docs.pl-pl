@@ -4,10 +4,10 @@ description: W tym artykule opisano dwie role klienta i uprawnienia udostępnian
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75451896"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Kontrola dostępu oparta na rolach dla klientów Service Fabric
@@ -89,7 +89,7 @@ Typ kontroli dostępu użytkownika jest domyślnie ograniczony do następującyc
 Kontrola dostępu administratora ma również dostęp do poprzednich operacji.
 
 ## <a name="changing-default-settings-for-client-roles"></a>Zmiana ustawień domyślnych dla ról klienta
-W pliku manifestu klastra w razie potrzeby można udostępnić klientom funkcje administracyjne. Ustawienia domyślne można zmienić, przechodząc do opcji **Ustawienia sieci szkieletowej** podczas [tworzenia klastra](service-fabric-cluster-creation-via-portal.md)i podając powyższe ustawienia w polach **Nazwa**, **administrator**, **użytkownik**i **wartość** .
+W pliku manifestu klastra w razie potrzeby można udostępnić klientom funkcje administracyjne. Ustawienia domyślne można zmienić, przechodząc do opcji **Ustawienia sieci szkieletowej** podczas [tworzenia klastra](service-fabric-cluster-creation-via-portal.md)i podając powyższe ustawienia w polach **Nazwa**, **administrator**, **użytkownik** i **wartość** .
 
 ## <a name="next-steps"></a>Następne kroki
 [Service Fabric zabezpieczenia klastra](service-fabric-cluster-security.md)

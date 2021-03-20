@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792110"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Raportowanie w skalowanych bazach danych w chmurze (wersja zapoznawcza)
@@ -163,7 +163,7 @@ Klauzula DISTRIBUTION określa dystrybucję danych używaną dla tej tabeli. Pro
 2. **Zreplikowane** oznacza, że identyczne kopie tabeli są obecne w każdej bazie danych. Jest odpowiedzialny za zapewnienie, że repliki są identyczne w bazach danych.
 3. **Zaokrąglij \_ ROBIN** oznacza, że tabela jest w poziomie partycjonowana przy użyciu metody dystrybucji zależnej od aplikacji.
 
-**Odwołanie do warstwy danych** : tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa mapę fragmentu, która dostarcza tabelę zewnętrzną z informacjami niezbędnymi do lokalizowania wszystkich baz danych w warstwie danych.
+**Odwołanie do warstwy danych**: tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa mapę fragmentu, która dostarcza tabelę zewnętrzną z informacjami niezbędnymi do lokalizowania wszystkich baz danych w warstwie danych.
 
 ### <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 

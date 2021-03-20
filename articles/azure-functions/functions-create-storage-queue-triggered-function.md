@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: d722d420597bb459d3e7b6d2ca33fdc49bfe6f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90981576"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Queue Storage
@@ -34,13 +34,13 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 1. Wybierz pozycję **funkcje**, a następnie wybierz pozycję **+ Dodaj** , aby dodać nową funkcję.
 
-   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Wybierz szablon funkcji w Azure Portal." border="true":::
 
 1. Wybierz szablon **wyzwalacza usługi Azure queue storage** .
 
 1. Użyj ustawień w sposób określony w tabeli znajdującej się poniżej obrazu.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Nazwa i konfiguracja funkcji wyzwalanej przez magazyn kolejek." border="true":::
 
 
     | Ustawienie | Sugerowana wartość | Opis |
@@ -51,7 +51,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 1. Wybierz pozycję **Utwórz funkcję** , aby utworzyć funkcję.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Utwórz funkcję wyzwalaną przez magazyn kolejek." border="true":::
 
 Następnie nawiąż połączenie z kontem usługi Azure Storage i Utwórz kolejkę magazynu **elementów webqueue** .
 
@@ -59,19 +59,19 @@ Następnie nawiąż połączenie z kontem usługi Azure Storage i Utwórz kolejk
 
 1. W funkcji na stronie **Przegląd** wybierz grupę zasobów.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="Wybierz grupę zasobów Azure Portal." border="true":::
 
 1. Znajdź i wybierz konto magazynu grupy zasobów.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="Uzyskaj dostęp do konta magazynu." border="true":::
 
 1. Wybierz **kolejno pozycje kolejki**, a następnie pozycję **+ Queue**. 
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Dodaj kolejkę do konta magazynu w Azure Portal." border="true":::
 
 1. W polu **Nazwa** wpisz `myqueue-items` , a następnie wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Nazwij kontener magazynu kolejki." border="true":::
 
 Teraz, gdy masz już kolejkę magazynu, możesz przetestować funkcję, dodając komunikat do kolejki.
 
@@ -79,21 +79,21 @@ Teraz, gdy masz już kolejkę magazynu, możesz przetestować funkcję, dodając
 
 1. Wróć do witryny Azure Portal, przejdź do swoich funkcji, rozwiń pozycję **Dzienniki** w dolnej części strony i upewnij się, że strumieniowe przesyłanie dzienników nie jest wstrzymane.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Rozwiń dziennik w Azure Portal." border="true":::
 
 1. W osobnym oknie przeglądarki przejdź do grupy zasobów w Azure Portal i wybierz konto magazynu.
 
 1. Wybierz pozycję **kolejki**, a następnie wybierz kontener **elementy z kolejki** .
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Przejdź do kolejki elementu webqueue-Items w Azure Portal." border="true":::
 
-1. Wybierz pozycję **Dodaj komunikat**i wpisz "Hello World!" w **wiadomości tekstowej**. Wybierz przycisk **OK**.
+1. Wybierz pozycję **Dodaj komunikat** i wpisz "Hello World!" w **wiadomości tekstowej**. Wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Zrzut ekranu pokazuje wybrany przycisk Dodaj komunikat, a pole tekst komunikatu wyróżnione." border="true":::
 
 1. Poczekaj kilka sekund, a następnie wróć do dzienników funkcji i sprawdź, czy nowy komunikat został odczytany z kolejki.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="Pomyślnie utworzono aplikację funkcji.." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="Wyświetlanie komunikatu w dziennikach." border="true":::
 
 1. Wróć do kolejki magazynu, wybierz pozycję **Odśwież** i sprawdź, czy komunikat został przetworzony i czy nie jest już w kolejce.
 

@@ -10,10 +10,10 @@ ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91951149"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików przy użyciu Azure Stack EDGE Pro
@@ -77,7 +77,7 @@ Usługa Azure Container Registry to rejestr prywatny platformy Docker na platfor
 
       ![Tworzenie rejestru kontenerów](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Po utworzeniu rejestru kontenerów przejdź do niego i wybierz pozycję **Klucze dostępu**.
 
     ![Pobierz klucze dostępu](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -125,8 +125,8 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
 
 ### <a name="update-the-module-with-custom-code"></a>Aktualizowanie modułu przy użyciu kodu niestandardowego
 
-1. W Eksploratorze VS Code Otwórz **moduł > FileCopyModule > program.cs**.
-2. W górnej części **przestrzeni nazw FileCopyModule**Dodaj następujące instrukcje using dla typów, które są używane później. **Microsoft. Azure. Devices. Client. transport. MQTT** to protokół służący do wysyłania komunikatów do centrum IoT Edge.
+1. W Eksploratorze VS Code Otwórz **moduł > FileCopyModule > program. cs**.
+2. W górnej części **przestrzeni nazw FileCopyModule** Dodaj następujące instrukcje using dla typów, które są używane później. **Microsoft. Azure. Devices. Client. transport. MQTT** to protokół służący do wysyłania komunikatów do centrum IoT Edge.
 
     ```
     namespace FileCopyModule
@@ -160,7 +160,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
     }
     ```
 
-5. W **metodzie init**kod tworzy i konfiguruje obiekt **ModuleClient** . Ten obiekt umożliwia modułowi łączenie się z lokalnymi Azure IoT Edge środowiska uruchomieniowego przy użyciu protokołu MQTT w celu wysyłania i odbierania komunikatów. Parametry połączenia używane w metodzie Init są dostarczane do modułu za pośrednictwem środowiska uruchomieniowego usługi IoT Edge. Kod rejestruje wywołanie zwrotne operacja FileCopy, aby odbierać komunikaty z Centrum IoT Edge za pośrednictwem punktu końcowego **INPUT1** . Zastąp **metodę init** poniższym kodem.
+5. W **metodzie init** kod tworzy i konfiguruje obiekt **ModuleClient** . Ten obiekt umożliwia modułowi łączenie się z lokalnymi Azure IoT Edge środowiska uruchomieniowego przy użyciu protokołu MQTT w celu wysyłania i odbierania komunikatów. Parametry połączenia używane w metodzie Init są dostarczane do modułu za pośrednictwem środowiska uruchomieniowego usługi IoT Edge. Kod rejestruje wywołanie zwrotne operacja FileCopy, aby odbierać komunikaty z Centrum IoT Edge za pośrednictwem punktu końcowego **INPUT1** . Zastąp **metodę init** poniższym kodem.
 
     ```
     /// <summary>
@@ -240,7 +240,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
     ```
 
 7. Zapisz ten plik.
-8. Możesz również [pobrać istniejący przykład kodu](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) dla tego projektu. Następnie można sprawdzić poprawność pliku zapisanego w pliku **program.cs** w tym przykładzie.
+8. Możesz również [pobrać istniejący przykład kodu](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) dla tego projektu. Następnie można sprawdzić poprawność pliku zapisanego w pliku **program. cs** w tym przykładzie.
 
 ## <a name="build-your-iot-edge-solution"></a>Kompilowanie rozwiązania usługi IoT Edge
 

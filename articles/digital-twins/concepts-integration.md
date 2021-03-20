@@ -8,10 +8,10 @@ ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043072"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami
@@ -39,9 +39,9 @@ Usługa Azure Digital bliźniaczych reprezentacji może wysyłać dane do podł�
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Punkty końcowe są dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API zarządzania lub Azure Portal. Dowiedz się więcej na temat sposobu dołączania punktu końcowego do usługi Azure Digital bliźniaczych reprezentacji w temacie [*How to: Manage Endpoints and Routes*](how-to-manage-routes-apis-cli.md).
+Punkty końcowe są dołączone do usługi Azure Digital Twins przy użyciu interfejsów API zarządzania lub witryny Azure Portal. Dowiedz się więcej na temat sposobu dołączania punktu końcowego do usługi Azure Digital bliźniaczych reprezentacji w temacie [*How to: Manage Endpoints and Routes*](how-to-manage-routes-apis-cli.md).
 
-Istnieje wiele innych usług, w których możesz chcieć ostatecznie skierować dane, takie jak [usługa Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)lub [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Aby wysłać dane do usług takich jak te, Dołącz usługę docelową do punktu końcowego.
+Istnieje wiele innych usług, do których możesz chcieć ostatecznie skierować swoje dane, takich jak usługa [Azure Storage](../storage/common/storage-introduction.md), usługa [Azure Maps](../azure-maps/about-azure-maps.md) lub usługa [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Aby wysłać dane do usług takich jak te, Dołącz usługę docelową do punktu końcowego.
 
 Na przykład, jeśli używasz również Azure Maps i chcesz skorelować lokalizację z [grafem wieloosiowym](concepts-twins-graph.md)usługi Azure Digital bliźniaczych reprezentacji, możesz użyć Azure Functions z Event Grid, aby nawiązać komunikację między wszystkimi usługami w danym wdrożeniu. Dowiedz się więcej na ten temat na ten temat [ *: korzystanie z usługi Azure Digital bliźniaczych reprezentacji do aktualizowania Azure Mapsj mapy pomieszczeń*](how-to-integrate-maps.md)
 

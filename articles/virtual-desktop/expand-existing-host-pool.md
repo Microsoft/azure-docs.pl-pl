@@ -7,10 +7,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929595"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
@@ -26,7 +26,7 @@ W tym artykule przedstawiono, jak można rozszerzyć istniejącą pulę hostów 
 
 Przed rozpoczęciem upewnij się, że utworzono pulę hostów i maszyny wirtualne hosta sesji (VM), korzystając z jednej z następujących metod:
 
-- [Azure Portal](./create-host-pools-azure-marketplace.md)
+- [Witryna Azure Portal](./create-host-pools-azure-marketplace.md)
 - [Tworzenie puli hostów przy użyciu programu PowerShell](./create-host-pools-powershell.md)
 
 Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymagane są również następujące informacje:
@@ -39,7 +39,7 @@ Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymag
 
 Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 
@@ -58,9 +58,9 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
     >[!NOTE]
     >Chociaż istnieje możliwość edytowania obrazu i prefiksu maszyn wirtualnych, nie zaleca się ich edytowania w przypadku maszyn wirtualnych z różnymi obrazami w tej samej puli hostów. Edytuj obraz i prefiks tylko wtedy, gdy planujesz usuwanie maszyn wirtualnych ze starszymi obrazami z tej puli.
 
-9. W polu **Informacje o sieci wirtualnej**wybierz sieć wirtualną i podsieć, do której chcesz dołączyć maszyny wirtualne. Możesz wybrać tę samą sieć wirtualną, której aktualnie używają istniejące maszyny, lub wybrać inną, która jest bardziej odpowiednia dla regionu wybranego w kroku 7.
+9. W polu **Informacje o sieci wirtualnej** wybierz sieć wirtualną i podsieć, do której chcesz dołączyć maszyny wirtualne. Możesz wybrać tę samą sieć wirtualną, której aktualnie używają istniejące maszyny, lub wybrać inną, która jest bardziej odpowiednia dla regionu wybranego w kroku 7.
 
-10. W przypadku **konta administratora**wprowadź Active Directory nazwę użytkownika domeny i hasło skojarzone z wybraną siecią wirtualną. Te poświadczenia będą używane do przyłączania maszyn wirtualnych do sieci wirtualnej.
+10. W przypadku **konta administratora** wprowadź Active Directory nazwę użytkownika domeny i hasło skojarzone z wybraną siecią wirtualną. Te poświadczenia będą używane do przyłączania maszyn wirtualnych do sieci wirtualnej.
 
       >[!NOTE]
       >Upewnij się, że nazwy administratorów są zgodne z informacjami podanym w tym miejscu. I że na koncie nie włączono uwierzytelniania wieloskładnikowego.

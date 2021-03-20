@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc891a7b07305fc0ef55376d7b6fbb262d740bb5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547495"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Samouczek: automatyczne dodawanie lub usuwanie członków grupy
@@ -89,10 +89,10 @@ Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszys
 **Aby usunąć grupę użytkowników-gości**
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji.
-2. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory. Wybierz grupę **Guest users Contoso**, wybierz symbol wielokropka (...), a następnie wybierz polecenie **Usuń**. Podczas usuwania grupy zostaną usunięte wszystkie przypisane licencje.
+2. Wybierz   >  **grupy** Azure Active Directory. Wybierz grupę **Guest users Contoso**, wybierz symbol wielokropka (...), a następnie wybierz polecenie **Usuń**. Podczas usuwania grupy zostaną usunięte wszystkie przypisane licencje.
 
 **Aby przywrócić grupę Wszyscy użytkownicy**
-1. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory. Wybierz nazwę grupy **Wszyscy użytkownicy**, aby otworzyć grupę.
+1. Wybierz   >  **grupy** Azure Active Directory. Wybierz nazwę grupy **Wszyscy użytkownicy**, aby otworzyć grupę.
 1. Wybierz pozycję **Reguły członkostwa dynamicznego**, wyczyść tekst w regule, a następnie wybierz polecenie **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070949"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasadach usługi API Management
@@ -100,7 +100,7 @@ Gdy wystąpi błąd i formant przechodzi do `on-error` sekcji zasad, ten błąd 
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny wbudowanych kroków przetwarzania.
 
-| Element źródłowy        | Warunek                                 | Przyczyna                  | Wiadomość                                                                                                                |
+| Element źródłowy        | Warunek                                 | Przyczyna                  | Komunikat                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguracja | Identyfikator URI nie jest zgodny z żadnym interfejsem API ani operacją | OperationNotFound       | Nie można dopasować przychodzącego żądania do operacji.                                                                      |
 | autoryzacja | Nie podano klucza subskrypcji             | SubscriptionKeyNotFound | Odmowa dostępu z powodu braku klucza subskrypcji. Pamiętaj o dołączeniu klucza subskrypcji podczas wykonywania żądań do tego interfejsu API. |
@@ -113,7 +113,7 @@ Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny zasad.
 
-| Element źródłowy       | Warunek                                                       | Przyczyna                    | Wiadomość                                                                                                                              |
+| Element źródłowy       | Warunek                                                       | Przyczyna                    | Komunikat                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | stawka — limit   | Przekroczono limit szybkości                                             | RateLimitExceeded         | Przekroczono limit szybkości                                                                                                               |
 | limit przydziału        | Przekroczono limit przydziału                                                  | QuotaExceeded             | Poza limitem woluminu wywołania. Przydział zostanie uzupełniony w XX: XX: XX. -lub do limitu przydziału przepustowości. Przydział zostanie uzupełniony w XX: XX: XX. |

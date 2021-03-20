@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243209"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590997"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Zarządzanie odzyskiwaniem po awarii przy użyciu replikacji między regionami 
 
@@ -38,10 +38,10 @@ Gdy konieczne jest aktywowanie woluminu docelowego (na przykład w przypadku prz
 1. Aby przerwać replikację komunikacji równorzędnej, wybierz wolumin docelowy. Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
 
 2.  Przed kontynuowaniem sprawdź następujące pola:  
-    * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
-        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _Uninitialized *.
-    * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
-        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _Transferring *.   
+    * Upewnij się, że stan dublowania pokazuje ***dublowanie***.   
+        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje *niezainicjowany*.
+    * Upewnij się, że stan relacji jest wyświetlany jako ***bezczynny***.   
+        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje *transfer*.   
 
     Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Po zakończeniu operacji ponownej synchronizacji z lokalizacji docelowej do źr�
 1. Przerwij komunikację równorzędną replikacji:  
     a. Wybierz wolumin *docelowy* . Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
     b. Przed kontynuowaniem sprawdź następujące pola:   
-    * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
-    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _uninitialized *.  
-    * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
-    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _transferring *.    
+    * Upewnij się, że stan dublowania pokazuje ***dublowanie***.   
+    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje *niezainicjowany*.  
+    * Upewnij się, że stan relacji jest wyświetlany jako ***bezczynny***.   
+    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje *transfer*.    
 
         Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
 
@@ -102,6 +102,7 @@ Po zakończeniu operacji ponownej synchronizacji z lokalizacji docelowej do źr�
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
+* [Zmiana rozmiaru woluminu docelowego replikacji między regionami](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
 * [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)

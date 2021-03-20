@@ -9,10 +9,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
 ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91295621"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Rozwiązywanie problemów z połączeniami w celu Azure Database for PostgreSQL-Citus
@@ -32,7 +32,7 @@ Ogólnie rzecz biorąc problemy z połączeniami ze skalą (Citus) można klasyf
 * Błędy przejściowe (krótko-lub sporadyczne)
 * Błędy trwałe lub nieprzejściowe (błędy, które regularnie powtarzają się)
 
-## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów z błędami przejściowymi
+## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów dotyczących błędów przejściowych
 
 Błędy przejściowe występują z kilku powodów. Najbardziej typową czynnością jest konserwacja systemu, błąd ze sprzętem lub oprogramowaniem, a także rdzeń wirtualny uaktualnienia węzłów koordynatora.
 

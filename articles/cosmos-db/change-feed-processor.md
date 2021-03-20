@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340230"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
@@ -84,7 +84,7 @@ Na przykład może istnieć jedna jednostka wdrożenia, która wyzwala zewnętrz
 
 Jak wspomniano wcześniej, w jednostce wdrożenia może istnieć co najmniej jedno wystąpienie. Aby skorzystać z dystrybucji obliczeniowej w ramach jednostki wdrożenia, jedynymi wymaganiami są:
 
-1. Wszystkie wystąpienia powinny mieć tę samą konfigurację kontenera dzierżawy.
+1. Wszystkie wystąpienia powinny mieć taką samą konfigurację kontenera dzierżawy.
 1. Wszystkie wystąpienia powinny być takie same `processorName` .
 1. Każde wystąpienie musi mieć inną nazwę (`WithInstanceName`).
 
@@ -106,7 +106,7 @@ Domyślnie, gdy procesor źródła zmian jest uruchamiany po raz pierwszy, zosta
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Odczytywanie od podanej daty i godziny
 
-Możliwe jest zainicjowanie procesora kanału informacyjnego, aby odczytywać zmiany, rozpoczynając od **określonej daty i godziny** , przekazując wystąpienie `DateTime` do `WithStartTime` rozszerzenia konstruktora:
+Możliwe jest zainicjowanie procesora kanału informacyjnego, aby odczytywać zmiany, rozpoczynając od **określonej daty i godziny**, przekazując wystąpienie `DateTime` do `WithStartTime` rozszerzenia konstruktora:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 

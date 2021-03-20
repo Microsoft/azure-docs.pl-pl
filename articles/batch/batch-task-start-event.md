@@ -4,10 +4,10 @@ description: Informacje referencyjne dotyczące zdarzenia uruchamiania zadania w
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 3a57ffbb1e1659cff54d101aa4b90ca1bd5d3a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91851020"
 ---
 # <a name="task-start-event"></a>Zdarzenie rozpoczęcia zadania
@@ -40,7 +40,7 @@ ms.locfileid: "91851020"
 }
 ```
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`jobId`|Ciąg|Identyfikator zadania zawierającego zadanie.|
 |`id`|Ciąg|Identyfikator zadania.|
@@ -54,25 +54,25 @@ ms.locfileid: "91851020"
 
 ###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`poolId`|Ciąg|Identyfikator puli, w której uruchomiono zadanie.|
 |`nodeId`|Ciąg|IDENTYFIKATOR węzła, w którym uruchomiono zadanie.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`numberOfInstances`|int|Liczba węzłów obliczeniowych wymaganych przez zadanie.|
 
 ###  <a name="constraints"></a><a name="constraints"></a> powiązanych
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Maksymalna liczba prób wykonania zadania. Usługa Batch ponawia próbę wykonania zadania, jeśli jego kod zakończenia jest różny od zera.<br /><br /> Należy zauważyć, że ta wartość kontroluje liczbę ponownych prób. Usługa Batch spróbuje wykonać zadanie jeden raz, a następnie ponowić próbę wykonania tego limitu. Jeśli na przykład maksymalna liczba ponownych prób wynosi 3, zadanie wsadowe próbuje wykonać zadania do 4 razy (jedna początkowa próba i 3 ponownych prób).<br /><br /> Jeśli maksymalna liczba ponownych prób wynosi 0, usługa Batch nie wykonuje żadnych ponownych prób wykonywania zadań.<br /><br /> Jeśli maksymalna liczba ponownych prób wynosi-1, usługa Batch ponawia zadania bez ograniczeń.<br /><br /> Wartość domyślna to 0 (brak ponownych prób).|
 
 ###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
 
-|Nazwa elementu|Type|Uwagi|
+|Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`retryCount`|Int32|Liczba ponownych prób wykonania zadania przez usługę Batch. Zadanie jest ponawiane, jeśli zostanie zakończone z niezerowym kodem zakończenia, do określonego MaxTaskRetryCount|

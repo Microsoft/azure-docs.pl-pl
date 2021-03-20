@@ -5,10 +5,10 @@ ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
 ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91930870"
 ---
 # <a name="dependency-auto-collection"></a>Automatyczne zbieranie zależności
@@ -43,7 +43,7 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Struktury aplikacji </b> |  |
-| [Spring](https://spring.io/) | 3,0 |
+| [Spring](https://spring.io/) | 3.0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
 | Serwletu Java | 3.1 + |
 | <b>Biblioteki komunikacji</b> |  |
@@ -83,7 +83,7 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 
 | Biblioteki komunikacji | Wersje |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystkie |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystko |
 
 ## <a name="next-steps"></a>Następne kroki
 

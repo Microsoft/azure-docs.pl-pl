@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
 ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972469"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Szybki Start: Tworzenie bazy danych grafu w Azure Cosmos DB przy użyciu języka Python i Azure Portal
@@ -187,7 +187,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
 
 5. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
@@ -197,7 +197,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
     > [!NOTE]
     > W tym przewodniku Szybki start zostaje utworzona kolekcja niepartycjonowana. Niemniej jednak, jeśli utworzysz kolekcję partycjonowaną poprzez określenie klucza partycji podczas tworzenia kolekcji, musisz uwzględnić klucz partycji jako klucz w każdym nowym wierzchołku. 
 
-6. Wybierz pozycję **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
+6. Wybierz przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
 
 7. Ponownie wybierz **nowy wierzchołek** i Dodaj dodatkowego nowego użytkownika. 
 
@@ -205,14 +205,14 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
 
 9. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości:
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|mężczyzna| 
     szkoła|MIT| 
 
-10. Wybierz pozycję **OK**. 
+10. Wybierz przycisk **OK**. 
 
 11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
 

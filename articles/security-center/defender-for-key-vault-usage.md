@@ -1,5 +1,5 @@
 ---
-title: Jak odpowiedzieć na alerty usługi Azure Defender Key Vault
+title: Jak reagować na alerty usługi Azure Defender dla usługi Key Vault
 description: Dowiedz się więcej na temat kroków niezbędnych do reagowania na alerty z usługi Azure Defender dla Key Vault.
 author: memildin
 ms.author: memildin
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96122197"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Reagowanie na alerty usługi Azure Defender dla usługi Key Vault
-Po otrzymaniu alertu z usługi Azure Defender dla Key Vault zalecamy badanie alertu i jego odpowiedź zgodnie z poniższym opisem. Usługa Azure Defender dla Key Vault chroni aplikacje i poświadczenia, więc nawet w przypadku znajomości aplikacji lub użytkownika, który wyzwolił alert, ważne jest, aby sprawdzić sytuacje związane z każdym alertem.  
+Po otrzymaniu alertu z usługi Azure Defender dla Key Vault zalecamy badanie alertu i jego odpowiedź zgodnie z poniższym opisem. Usługa Azure Defender dla usługi Key Vault chroni aplikacje i poświadczenia, a więc nawet jeśli wiesz, która aplikacja wyzwoliła alert lub który użytkownik to zrobił, konieczne jest sprawdzenie okoliczności każdego alertu.  
 
 Każdy alert z usługi Azure Defender dla Key Vault obejmuje następujące elementy:
 
@@ -23,7 +23,7 @@ Każdy alert z usługi Azure Defender dla Key Vault obejmuje następujące eleme
 - Główna nazwa użytkownika lub adres IP podejrzanego zasobu
 
 > [!TIP]
-> W zależności od *typu* dostępu, który wystąpił, niektóre pola mogą być niedostępne. Na przykład, jeśli do Twojego magazynu kluczy uzyskano dostęp do aplikacji, nie zostanie wyświetlona skojarzona główna nazwa użytkownika. Jeśli ruch pochodzi spoza platformy Azure, nie zobaczysz identyfikatora obiektu.
+> W zależności od *typu* dostępu, który wystąpił, niektóre pola mogą być niedostępne. Jeśli na przykład dostęp do usługi Key Vault został uzyskany przez aplikację, powiązana główna nazwa użytkownika nie zostanie wyświetlona. Jeśli ruch pochodził spoza platformy Azure, identyfikator obiektu nie zostanie wyświetlony.
 
 ## <a name="step-1-contact"></a>Krok 1. Kontakt
 

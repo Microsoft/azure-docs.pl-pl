@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320582"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria metryki: Application Insights model danych
@@ -45,7 +45,7 @@ Pojedyncza wartość miary. Suma pojedynczych pomiarów dla agregacji.
 
 Waga metryki zagregowanej metryki. Nie należy ustawiać dla miary.
 
-## <a name="min"></a>Min.
+## <a name="min"></a>Min
 
 Minimalna wartość zagregowanej metryki. Nie należy ustawiać dla miary.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75430575"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Nie można zaktualizować nazw hostów usługi API Management
@@ -41,7 +41,7 @@ Aby rozwiązać ten problem, wykonaj poniższe czynności:
 1. Przejdź do [Azure Portal](Https://portal.azure.com), wybierz wystąpienie API Management, a następnie wybierz pozycję **zarządzane tożsamości**. Upewnij się, że opcja **register with Azure Active Directory** ma wartość **Yes (tak**). 
     ![Rejestrowanie w usłudze Azure Active Directory](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. W Azure Portal Otwórz usługę **magazyny kluczy** i wybierz magazyn kluczy, którego próbujesz użyć dla domeny niestandardowej.
-1. Wybierz pozycję **zasady dostępu**i sprawdź, czy istnieje jednostka usługi odpowiadająca nazwie wystąpienia usługi API Management. Jeśli istnieje, wybierz jednostkę usługi i upewnij się, że ma ona uprawnienie **Get** wymienione w obszarze **uprawnienia klucza tajnego**.  
+1. Wybierz pozycję **zasady dostępu** i sprawdź, czy istnieje jednostka usługi odpowiadająca nazwie wystąpienia usługi API Management. Jeśli istnieje, wybierz jednostkę usługi i upewnij się, że ma ona uprawnienie **Get** wymienione w obszarze **uprawnienia klucza tajnego**.  
     ![Dodawanie zasad dostępu dla jednostki usługi](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Jeśli usługa API Management nie znajduje się na liście, wybierz pozycję **Dodaj zasady dostępu**, a następnie Utwórz następujące zasady dostępu:
     - **Konfiguruj z szablonu**: brak

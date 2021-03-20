@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020188"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu interfejs API wyszukiwania jednostek Bing
@@ -34,7 +34,7 @@ Mimo że w tym przykładzie używa się funkcji platformy Azure do hostowania in
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-1. W programie Visual Studio wybierz pozycję **Nowy**  >  **projekt** z menu plik.
+1. W programie Visual Studio wybierz pozycję **Nowy** > **Projekt** z menu Plik.
 
 1. W oknie dialogowym Nowy projekt wybierz pozycję **zainstalowane**, rozwiń węzeł **Visual C#**  >  **Cloud**, wybierz **Azure Functions**, wpisz nazwę projektu i wybierz **przycisk OK**. Nazwa aplikacji funkcji musi być prawidłowa jako przestrzeń nazw języka C#, dlatego nie należy używać podkreśleń, łączników ani żadnych innych znaków innych niż alfanumeryczne.
 
@@ -50,7 +50,7 @@ Mimo że w tym przykładzie używa się funkcji platformy Azure do hostowania in
 
 Program Visual Studio tworzy projekt, a w nim klasę zawierającą standardowy kod dla wybranego typu funkcji. Atrybut *FunctionName* metody ustawia nazwę funkcji. Atrybut *HttpTrigger* określa, że funkcja jest wyzwalana przez żądanie HTTP.
 
-Teraz Zastąp całą zawartość pliku *Function1.cs* następującym kodem:
+Teraz Zastąp całą zawartość pliku *Function1. cs* następującym kodem:
 
 ```csharp
 using System;
@@ -312,7 +312,7 @@ namespace SampleSkills
 }
 ```
 
-Upewnij się, że na *key* `key` podstawie klucza, który ma być używany podczas rejestrowania się w celu korzystania z interfejsu API wyszukiwania jednostek Bing, wprowadzono własną wartość klucza.
+Upewnij się, że na  `key` podstawie klucza, który ma być używany podczas rejestrowania się w celu korzystania z interfejsu API wyszukiwania jednostek Bing, wprowadzono własną wartość klucza.
 
 Ten przykład zawiera wszystkie niezbędne kody w pojedynczym pliku dla wygody. Możesz znaleźć nieco bardziej strukturalną wersję tej samej umiejętności w [repozytorium umiejętności oszczędzania](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 

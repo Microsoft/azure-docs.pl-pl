@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781230"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Raportowanie w skalowanych bazach danych w chmurze (wersja zapoznawcza)
@@ -37,7 +37,7 @@ W tym miejscu utworzysz Menedżera mapy fragmentu wraz z kilkoma fragmentów, a 
 1. Utwórz i uruchom przykładową aplikację **wprowadzenie do Elastic Database Tools** , wykonując kroki opisane w sekcji artykułu [pobieranie i uruchamianie przykładowej aplikacji](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Po zakończeniu wszystkich kroków zobaczysz następujący wiersz polecenia:
 
     ![wiersz polecenia][1]
-2. W oknie wiersza polecenia wpisz "1" i naciśnij klawisz **Enter** . Spowoduje to utworzenie Menedżera mapy fragmentu i dodanie dwóch fragmentów do serwera. Następnie wpisz "3" i naciśnij klawisz **Enter** ; Powtarzaj akcję cztery razy. Spowoduje to wstawienie przykładowych wierszy danych w fragmentów.
+2. W oknie wiersza polecenia wpisz "1" i naciśnij klawisz **Enter**. Spowoduje to utworzenie Menedżera mapy fragmentu i dodanie dwóch fragmentów do serwera. Następnie wpisz "3" i naciśnij klawisz **Enter**; Powtarzaj akcję cztery razy. Spowoduje to wstawienie przykładowych wierszy danych w fragmentów.
 3. [Azure Portal](https://portal.azure.com) powinny zawierać trzy nowe bazy danych na serwerze:
 
    ![Potwierdzenie programu Visual Studio][2]
@@ -121,13 +121,13 @@ Zobaczysz, że zapytanie agreguje wyniki ze wszystkich fragmentów i daje nastę
 
 1. Uruchom program Excel 2013.
 2. Przejdź do wstążki **dane** .
-3. Kliknij **z innych źródeł** i kliknij pozycję **z SQL Server** .
+3. Kliknij **z innych źródeł** i kliknij pozycję **z SQL Server**.
 
    ![Import programu Excel z innych źródeł][5]
-4. W **Kreatorze połączenia danych** wpisz nazwę serwera i poświadczenia logowania. Następnie kliknij przycisk **Dalej** .
-5. W oknie dialogowym **Wybierz bazę danych zawierającą dane, których chcesz użyć** , a następnie wybierz bazę danych **ElasticDBQuery** .
-6. Wybierz tabelę **Customers** w widoku listy, a następnie kliknij przycisk **dalej** . Następnie kliknij przycisk **Zakończ** .
-7. W formularzu **Importuj dane** w obszarze **Wybierz sposób wyświetlania tych danych w skoroszycie** wybierz pozycję **tabela** , a następnie kliknij przycisk **OK** .
+4. W **Kreatorze połączenia danych** wpisz nazwę serwera i poświadczenia logowania. Następnie kliknij przycisk **Dalej**.
+5. W oknie dialogowym **Wybierz bazę danych zawierającą dane, których chcesz użyć**, a następnie wybierz bazę danych **ElasticDBQuery** .
+6. Wybierz tabelę **Customers** w widoku listy, a następnie kliknij przycisk **dalej**. Następnie kliknij przycisk **Zakończ**.
+7. W formularzu **Importuj dane** w obszarze **Wybierz sposób wyświetlania tych danych w skoroszycie** wybierz pozycję **tabela** , a następnie kliknij przycisk **OK**.
 
 Wszystkie wiersze z tabeli **Customers** , przechowywane w różnych fragmentówach wypełniają arkusz programu Excel.
 

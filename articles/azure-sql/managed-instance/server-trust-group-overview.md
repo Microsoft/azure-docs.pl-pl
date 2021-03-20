@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790733"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Używanie grup zaufania serwera do konfigurowania zaufania i zarządzania nimi między wystąpieniami zarządzanymi SQL
@@ -42,13 +42,13 @@ W poniższej sekcji opisano konfigurowanie grupy zaufania serwera.
 
 4. Na stronie Konfiguracja grupy zaufania serwera wybierz ikonę **Nowa grupa** .
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Grupy zaufania serwera":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Nowa grupa":::
 
-5. W bloku Tworzenie **grupy zaufania SQL** wybierz **nazwę grupy** . Musi być unikatowa we wszystkich regionach, w których znajdują się członkowie grupy. **Zakres zaufania** definiuje typ scenariusza obejmującego wiele wystąpień, który jest włączony w grupie zaufania serwera. W wersji zapoznawczej jedynym odpowiednim zakresem zaufania są **transakcje rozproszone** , dlatego są one wybierane i nie można ich zmienić. Wszyscy **członkowie grupy** muszą należeć do tej samej **subskrypcji** , ale mogą znajdować się w różnych grupach zasobów. Wybierz **grupę zasobów** i **SQL Server/wystąpienie** , aby wybrać wystąpienie zarządzane Azure SQL, które ma być członkiem grupy.
+5. W bloku Tworzenie **grupy zaufania SQL** wybierz **nazwę grupy**. Musi być unikatowa we wszystkich regionach, w których znajdują się członkowie grupy. **Zakres zaufania** definiuje typ scenariusza obejmującego wiele wystąpień, który jest włączony w grupie zaufania serwera. W wersji zapoznawczej jedynym odpowiednim zakresem zaufania są **transakcje rozproszone**, dlatego są one wybierane i nie można ich zmienić. Wszyscy **członkowie grupy** muszą należeć do tej samej **subskrypcji** , ale mogą znajdować się w różnych grupach zasobów. Wybierz **grupę zasobów** i **SQL Server/wystąpienie** , aby wybrać wystąpienie zarządzane Azure SQL, które ma być członkiem grupy.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Grupy zaufania serwera":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Blok tworzenia grupy zaufania serwera":::
 
-6. Po wypełnieniu wszystkich wymaganych pól kliknij przycisk **Zapisz** .
+6. Po wypełnieniu wszystkich wymaganych pól kliknij przycisk **Zapisz**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Obsługa i usuwanie grupy zaufania serwera
 
@@ -59,11 +59,11 @@ W poniższej sekcji opisano proces usuwania grupy zaufania serwera.
 2. Przejdź do wystąpienia zarządzanego, które należy do grupy zaufania.
 3. Na stronie ustawienia **zabezpieczeń** wybierz kartę **grupy zaufania SQL** .
 4. Wybierz grupę zaufania, którą chcesz usunąć.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Grupy zaufania serwera":::
-5. Kliknij pozycję **Usuń grupę** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Grupy zaufania serwera":::
-6. Wpisz nazwę grupy zaufania serwera, aby potwierdzić usunięcie, a następnie kliknij przycisk **Usuń** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Grupy zaufania serwera":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Wybierz grupę zaufania serwera":::
+5. Kliknij pozycję **Usuń grupę**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Usuń grupę zaufania serwera":::
+6. Wpisz nazwę grupy zaufania serwera, aby potwierdzić usunięcie, a następnie kliknij przycisk **Usuń**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Potwierdzenie usunięcia grupy zaufania serwera":::
 
 > [!NOTE]
 > Usunięcie grupy zaufania serwera może nie natychmiast usunąć relacji zaufania między dwoma wystąpieniami zarządzanymi. Usunięcie zaufania można wymusić, wywołując w [trybie failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) wystąpienia zarządzane. Sprawdź [znane problemy](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) z najnowszymi aktualizacjami.

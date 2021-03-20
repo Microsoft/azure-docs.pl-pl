@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746926"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera
@@ -24,7 +24,7 @@ Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na pl
 
 W następnym artykule, czyli ostatnim z tej serii, będzie miało miejsce wdrożenie kontenera z poziomu rejestru prywatnego do usługi Azure Container Instances.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
@@ -40,7 +40,7 @@ Najpierw pobierz pełną nazwę serwera logowania dla rejestru kontenerów platf
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Przykładowo jeśli rejestr ma nazwę *mycontainerregistry082* :
+Przykładowo jeśli rejestr ma nazwę *mycontainerregistry082*:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -58,7 +58,7 @@ Teraz wyświetl listę obrazów lokalnych przy użyciu polecenia [docker images]
 docker images
 ```
 
-Wraz z innymi obrazami na maszynie powinien zostać wyświetlony obraz *aci-tutorial-app* , który został utworzony w [poprzednim samouczku](container-instances-tutorial-prepare-app.md):
+Wraz z innymi obrazami na maszynie powinien zostać wyświetlony obraz *aci-tutorial-app*, który został utworzony w [poprzednim samouczku](container-instances-tutorial-prepare-app.md):
 
 ```console
 $ docker images

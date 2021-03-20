@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88933311"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET
@@ -214,10 +214,10 @@ Istnieje również możliwość skorelowania identyfikatora operacji Application
 #### <a name="enqueue"></a>Dodawania
 Ponieważ kolejki magazynu obsługują interfejs API protokołu HTTP, wszystkie operacje z kolejką są automatycznie śledzone przez Application Insights. W wielu przypadkach ta Instrumentacja powinna być wystarczająca. Jednak aby skorelować ślady po stronie konsumenta ze śladami producenta, należy przekazać jakiś kontekst korelacji podobnie jak w protokole HTTP dla korelacji. 
 
-Ten przykład pokazuje, jak śledzić `Enqueue` operację. Można:
+Ten przykład pokazuje, jak śledzić `Enqueue` operację. Oto co możesz zrobić:
 
  - **Skorelowanie ponownych prób (jeśli istnieją)**: wszystkie mają jeden wspólny element nadrzędny, który jest `Enqueue` operacją. W przeciwnym razie są one śledzone jako elementy podrzędne żądania przychodzącego. Jeśli kolejka zawiera wiele żądań logicznych, może być trudne do znalezienia, które wywołanie spowodowało ponowną próbę.
- - **Skorelowanie dzienników magazynu (jeśli**są one i w razie konieczności): są skorelowane z Application Insights telemetrii.
+ - **Skorelowanie dzienników magazynu (jeśli** są one i w razie konieczności): są skorelowane z Application Insights telemetrii.
 
 `Enqueue`Operacja jest elementem podrzędnym operacji nadrzędnej (na przykład przychodzące żądanie HTTP). Wywołanie zależności HTTP jest elementem podrzędnym `Enqueue` operacji i grandchild żądania przychodzącego:
 

@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788829"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
@@ -162,11 +162,11 @@ Klienci z obciążeniami, które są zależne od zmian sprzętu lub klientów, k
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Czy muszę przełączyć swoją aplikację w tryb offline, aby skonwertować ją z warstwy usług opartych na protokole DTU do warstwy usług opartych na rdzeń wirtualny?
 
-Nie. Nie musisz przełączyć aplikacji do trybu offline. Nowe warstwy usług oferują prostą metodę konwersji w trybie online, która jest podobna do istniejącego procesu uaktualniania baz danych ze standardu do warstwy usługi Premium i odwrotnie. Konwersję można rozpocząć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure, języka T-SQL lub interfejsu API REST. Zobacz [Zarządzanie pojedynczymi bazami danych](single-database-scale.md) i [zarządzanie pulami elastycznymi](elastic-pool-overview.md).
+Nie. Nie musisz przełączyć aplikacji do trybu offline. Nowe warstwy usług oferują prostą metodę konwersji w trybie online, która jest podobna do istniejącego procesu uaktualniania baz danych ze standardu do warstwy usługi Premium i odwrotnie. Konwersję można rozpocząć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure, języka T-SQL lub interfejsu API REST. Zobacz [Zarządzanie pojedynczymi bazami danych](single-database-scale.md) i [Zarządzanie elastycznymi pulami](elastic-pool-overview.md).
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>Czy mogę przekonwertować bazę danych z warstwy usługi w modelu zakupu opartego na rdzeń wirtualny na warstwę usługi w modelu zakupu opartym na jednostkach DTU?
 
-Tak. bazę danych można łatwo skonwertować do dowolnego obsługiwanego celu wydajności przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure, języka T-SQL lub interfejsu API REST. Zobacz [Zarządzanie pojedynczymi bazami danych](single-database-scale.md) i [zarządzanie pulami elastycznymi](elastic-pool-overview.md).
+Tak. bazę danych można łatwo skonwertować do dowolnego obsługiwanego celu wydajności przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure, języka T-SQL lub interfejsu API REST. Zobacz [Zarządzanie pojedynczymi bazami danych](single-database-scale.md) i [Zarządzanie elastycznymi pulami](elastic-pool-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
