@@ -1,21 +1,21 @@
 ---
-title: Analiza tonacji w czasie rzeczywistym w usłudze Twitter przy użyciu Azure Stream Analytics
-description: W tym artykule opisano, jak używać Stream Analytics do analizy tonacji w czasie rzeczywistym. Wskazówki krok po kroku dotyczące generowania zdarzeń do danych na aktywnym pulpicie nawigacyjnym.
+title: Analiza mediów społecznościowych z Azure Stream Analytics
+description: W tym artykule opisano sposób korzystania z Stream Analytics na potrzeby analizy mediów społecznościowych przy użyciu interfejsu API klienta w usłudze Twitter. Wskazówki krok po kroku dotyczące generowania zdarzeń do danych na aktywnym pulpicie nawigacyjnym.
 services: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589671"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
+# <a name="social-media-analysis-with-azure-stream-analytics"></a>Analiza mediów społecznościowych z Azure Stream Analytics
 
 W tym artykule przedstawiono sposób tworzenia rozwiązania do analizy mediów społecznościowych tonacji przez umieszczenie zdarzeń w czasie rzeczywistym w usłudze Azure Event Hubs. Napisz Azure Stream Analytics zapytanie, aby analizować dane i przechowywać wyniki do późniejszego użycia, lub utworzyć pulpit nawigacyjny [Power BI](https://powerbi.com/) , aby uzyskać wgląd w dane w czasie rzeczywistym.
 

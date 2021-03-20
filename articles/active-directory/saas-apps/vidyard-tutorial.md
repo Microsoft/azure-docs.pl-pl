@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4176c92d48b67b9f9207f22ebd8939b5ec1437ee
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Samouczek: integracja Azure Active Directory z usługą Vidyard
@@ -51,11 +51,11 @@ Aby skonfigurować integrację programu Vidyard z usługą Azure AD, musisz doda
 
 **Aby dodać Vidyard z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Aby skonfigurować integrację programu Vidyard z usługą Azure AD, musisz doda
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Vidyard** , wybierz pozycję **Vidyard** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Vidyard**, wybierz pozycję **Vidyard** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Vidyard na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Vidyard na podstawie użytkownika testowego o nazwie **Britta Simon** .
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Vidyard na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Vidyard.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Vidyard, należy wykonać następujące bloki konstrukcyjne:
@@ -87,15 +87,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Vidyard** wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Vidyard** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
     > [!NOTE]
     > Te wartości nie są prawdziwe. Te wartości zostaną zaktualizowane za pomocą rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On, co zostało wyjaśnione w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -134,7 +134,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej witryny firmy Vidyard jako administrator.
 
-2. Na pulpicie nawigacyjnym Vidyard wybierz **Group** pozycję  >  **zabezpieczenia** grupy
+2. Na pulpicie nawigacyjnym Vidyard wybierz pozycję  >  **zabezpieczenia** grupy
 
     ![Zrzut ekranu przedstawia zabezpieczenia wybrane z grupy w witrynie Vidyard Software.](./media/vidyard-tutorial/configure1.png)
 
@@ -158,7 +158,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
 
     f. W polu tekstowym **adres URL punktu końcowego SAML** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    przykład Kliknij pozycję **Potwierdź** .
+    przykład Kliknij pozycję **Potwierdź**.
 
 5. Na karcie Logowanie jednokrotne wybierz pozycję **Przypisz** obok istniejącego profilu
 
@@ -167,11 +167,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
     > [!NOTE]
     > Po utworzeniu profilu logowania jednokrotnego należy przypisać go do wszystkich grup, dla których użytkownicy będą musieli uzyskać dostęp za pomocą platformy Azure. Jeśli użytkownik nie istnieje w grupie, do której zostały przypisane, Vidyard automatycznie utworzy konto użytkownika i przypisze swoją rolę w czasie rzeczywistym.
 
-6. Wybierz grupę organizacji widoczną w **grupach dostępnych do przypisania** .
+6. Wybierz grupę organizacji widoczną w **grupach dostępnych do przypisania**.
 
     ![Zrzut ekranu przedstawia sekcję przypisywanie konfiguracji SAML do organizacji, w której można wybrać grupę.](./media/vidyard-tutorial/configure5.png)
 
-7. Przypisane grupy można wyświetlić w obszarze **aktualnie przypisanych grup** . Wybierz rolę dla grupy zgodnie z Twoją organizacją, a następnie kliknij przycisk **Potwierdź** .
+7. Przypisane grupy można wyświetlić w obszarze **aktualnie przypisanych grup**. Wybierz rolę dla grupy zgodnie z Twoją organizacją, a następnie kliknij przycisk **Potwierdź**.
 
     ![Zrzut ekranu przedstawia sekcję przypisywanie konfiguracji SAML do organizacji, w której można wybrać rolę.](./media/vidyard-tutorial/configure6.png)
 
@@ -182,7 +182,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -194,31 +194,31 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
+    a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz** .
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Vidyard.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **Vidyard** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Vidyard**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Vidyard** .
+2. Na liście Aplikacje wybierz pozycję **Vidyard**.
 
     ![Link Vidyard na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -226,7 +226,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-vidyard-test-user"></a>Utwórz użytkownika testowego Vidyard
 

@@ -27,6 +27,8 @@
       href: tutorial-connect-virtual-networks-portal.md
     - name: Tworzenie i weryfikowanie bramy translatora adresów sieciowych
       href: tutorial-create-nat-gateway-portal.md
+    - name: Integrowanie publicznego modułu równoważenia obciążenia bramy translatora adresów sieciowych
+      href: tutorial-nat-gateway-load-balancer-public-portal.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure

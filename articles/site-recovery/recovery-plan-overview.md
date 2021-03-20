@@ -4,10 +4,10 @@ description: Zapoznaj się z planami odzyskiwania w Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343918"
 ---
 # <a name="about-recovery-plans"></a>Informacje o planach odzyskiwania
@@ -62,11 +62,11 @@ Dzięki temu dostosowaniu, co się dzieje, gdy uruchomisz tryb failover w ramach
 
 Odzyskiwanie dużych aplikacji może być złożonym zadaniem. Ręczne kroki sprawiają, że proces podatny na błędy, a osoba pracująca w trybie failover może nie wiedzieć o wszystkich złożonego aplikacji. Można użyć planu odzyskiwania, aby wprowadzić zamówienie i zautomatyzować akcje potrzebne w każdym kroku, korzystając z Azure Automation elementów Runbook w celu przełączenia w tryb failover do platformy Azure lub skryptów. W przypadku zadań, które nie mogą być zautomatyzowane, można wstawiać pauzy dla akcji ręcznych w planach odzyskiwania. Istnieje kilka typów zadań, które można skonfigurować:
 
-* **Zadania na maszynie wirtualnej platformy Azure po**przejściu w tryb failover: w przypadku przełączenia awaryjnego na platformę Azure zwykle trzeba wykonać akcje, aby można było nawiązać połączenie z maszyną wirtualną po zakończeniu pracy w trybie failover. Na przykład: 
+* **Zadania na maszynie wirtualnej platformy Azure po** przejściu w tryb failover: w przypadku przełączenia awaryjnego na platformę Azure zwykle trzeba wykonać akcje, aby można było nawiązać połączenie z maszyną wirtualną po zakończeniu pracy w trybie failover. Na przykład: 
     * Utwórz publiczny adres IP na maszynie wirtualnej platformy Azure.
     * Przypisz sieciową grupę zabezpieczeń do karty sieciowej maszyny wirtualnej platformy Azure.
     * Dodaj moduł równoważenia obciążenia do zestawu dostępności.
-* **Zadania w ramach maszyny wirtualnej po**przejściu do trybu failover: te zadania zwykle ponownie konfigurują aplikację uruchomioną na komputerze, tak aby nadal działała poprawnie w nowym środowisku. Na przykład:
+* **Zadania w ramach maszyny wirtualnej po** przejściu do trybu failover: te zadania zwykle ponownie konfigurują aplikację uruchomioną na komputerze, tak aby nadal działała poprawnie w nowym środowisku. Na przykład:
     * Zmodyfikuj parametry połączenia z bazą danych w ramach maszyny.
     * Zmień konfigurację lub reguły serwera sieci Web.
 

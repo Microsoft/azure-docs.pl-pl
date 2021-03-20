@@ -8,15 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83848232"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub adresy IP
 
-Prefiksy adresów IP IoT Hub publicznych punktów końcowych są publikowane okresowo w _AzureIoTHub_ [tagu usługi](../virtual-network/service-tags-overview.md)AzureIoTHub.
+Prefiksy adresów IP IoT Hub publicznych punktów końcowych są publikowane okresowo w  [tagu usługi](../virtual-network/service-tags-overview.md)AzureIoTHub.
 
 > [!NOTE]
 > W przypadku urządzeń wdrożonych wewnątrz sieci lokalnych platforma Azure IoT Hub obsługuje integrację łączności sieci wirtualnej z prywatnymi punktami końcowymi. Aby uzyskać więcej informacji, zobacz [obsługa IoT Hub sieci wirtualnej](./virtual-network-support.md) .

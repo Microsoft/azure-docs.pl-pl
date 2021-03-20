@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
-ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.date: 03/16/2020
+ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986128"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600887"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Skonfiguruj subskrypcję portalu Azure Marketplace dla hostowanych dysków testowych
 
@@ -43,26 +43,18 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
     5. W obszarze obsługiwane typy kont wybierz pozycję **konto w dowolnym katalogu organizacji i osobiste konta Microsoft**.
     6. Wybierz pozycję **Utwórz** i poczekaj na utworzenie aplikacji.
     7. Po utworzeniu aplikacji należy zwrócić uwagę na **Identyfikator aplikacji** wyświetlany na ekranie przegląd. Ta wartość będzie potrzebna później podczas konfigurowania dysku testowego.
-    8. Aby dodać identyfikator URI przekierowania nativeclient, wybierz blok **uwierzytelnianie** . W obszarze **Konfiguracja platformy** wybierz opcję **Dodaj**  >    >  kafelek aplikacji **klasycznej** platformy mobilnej. Wybierz identyfikator URI przekierowania **nativeclient** i wybierz pozycję **Konfiguruj**.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Dodawanie identyfikatora URI przekierowania nativeclient.":::
-
-    9. W obszarze **Zarządzanie aplikacją** wybierz pozycję **uprawnienia interfejsu API**.
-    10. Wybierz pozycję **Dodaj uprawnienie** , a następnie **Microsoft Graph interfejs API**.
-    11. Wybierz kategorię uprawnienia **aplikacji** , a następnie **katalog. odczyt. wszystkie** i katalog. **ReadWrite. wszystkie** uprawnienia.
+    8. W obszarze **Zarządzanie aplikacją** wybierz pozycję **uprawnienia interfejsu API**.
+    9. Wybierz pozycję **Dodaj uprawnienie** , a następnie **Microsoft Graph interfejs API**.
+    10. Wybierz kategorię uprawnienia **aplikacji** , a następnie pozycję **User. ReadWrite. All**, **Directory. Read. All** i **Directory. ReadWrite. All** .
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Ustawianie uprawnień aplikacji.":::
 
-    12. Aby dodać dostęp do **personifikacji użytkownika w programie Dynamics CRM** dla listy dozwolonych aplikacji usługi Azure AD, wybierz pozycję **Dodaj uprawnienie** ponownie.
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Żądanie uprawnień aplikacji.":::
-
-    13. Po dodaniu uprawnienia wybierz pozycję **Udziel zgody administrator na firmę Microsoft**.
-    14. Na stronie alertu wiadomości wybierz pozycję **tak**.
+    11. Po dodaniu uprawnienia wybierz pozycję **Udziel zgody administrator na firmę Microsoft**.
+    12. Na stronie alertu wiadomości wybierz pozycję **tak**.
 
         [![Pokazuje, że uprawnienia aplikacji zostały pomyślnie przyznane.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. Aby wygenerować klucz tajny dla aplikacja usługi Azure AD:
+    13. Aby wygenerować klucz tajny dla aplikacja usługi Azure AD:
         1. W obszarze **Zarządzanie aplikacją** wybierz pozycję **certyfikat i wpisy tajne**.
         2. W obszarze wpisy tajne klienta wybierz pozycję **nowy klucz tajny klienta**.
         3. Wprowadź opis, taki jak *dysk testowy*, i wybierz odpowiedni czas trwania. Po upływie tego klucza dysk testowy zostanie przerwany, w którym momencie trzeba będzie wygenerować i udostępnić nowy klucz AppSource.
@@ -70,8 +62,7 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Dodawanie klucza tajnego klienta.":::
 
-5. Czasami Synchronizacja użytkownika z usługi Azure AD z wystąpieniem programu CRM trwa dłużej niż oczekiwano. Aby uzyskać pomoc w tym, dodaliśmy proces wymuszania użytkownika synchronizacji, ale wymaga to, aby aplikacja usługi Azure AD była allowlisted przez centrum partnerskie. Aby to zrobić, zobacz temat [Synchronizacja użytkownika z wystąpieniem zaangażowanie klienta](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
-6. Dodaj rolę jednostki usługi do aplikacji, aby umożliwić aplikacji usługi Azure AD usuwanie użytkowników z dzierżawy platformy Azure.
+5. Dodaj rolę jednostki usługi do aplikacji, aby umożliwić aplikacji usługi Azure AD usuwanie użytkowników z dzierżawy platformy Azure.
     1. Otwórz wiersz polecenia programu PowerShell na poziomie administracyjnym.
     2. Install-Module MSOnline (Uruchom to polecenie, jeśli MSOnline nie jest zainstalowana).
     3. Connect-MsolService (spowoduje to wyświetlenie okna podręcznego; Zaloguj się przy użyciu nowo utworzonej dzierżawy organizacji).
@@ -81,7 +72,7 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Logowanie się do konta.":::
 
-7. Dodaj powyżej utworzoną aplikację platformy Azure jako użytkownika aplikacji do wystąpienia testowego programu CRM.
+6. Dodaj powyżej utworzoną aplikację platformy Azure jako użytkownika aplikacji do wystąpienia testowego programu CRM.
     1. Dodaj nowego użytkownika w **Azure Active Directory**. Tylko wartości **name** i **username** (należące do tej samej dzierżawy) są wymagane do utworzenia tego użytkownika, pozostałe pola należy pozostawić jako domyślne. Skopiuj wartość Nazwa użytkownika.
     2. Zaloguj się do **wystąpienia programu CRM** i wybierz pozycję **Ustawianie**  >    >  **użytkowników** zabezpieczeń.
     3. Zmień widok na **użytkowników aplikacji**.
@@ -97,7 +88,8 @@ W tym artykule wyjaśniono, jak skonfigurować subskrypcję portalu Azure Market
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Wybieranie uprawnień roli.":::
 
-    10. Przypisz użytkownika aplikacji do niestandardowej roli zabezpieczeń utworzonej dla danego dysku testowego.
+    10. Ponadto należy włączyć **działanie w imieniu innego użytkownika** .
+    11. Przypisz użytkownika aplikacji do niestandardowej roli zabezpieczeń utworzonej dla danego dysku testowego.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Konfiguracja programu Dynamics 365 dla operacji
 

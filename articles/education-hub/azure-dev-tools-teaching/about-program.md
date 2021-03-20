@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 680e22974aa85ae2d179f0b927a44b3471b4939d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87102134"
 ---
 # <a name="what-is-azure-dev-tools-for-teaching"></a>Co to jest program Azure Dev Tools for Teaching?
@@ -26,7 +26,7 @@ Jako administrator usługi Azure dev Tools for nauczania można:
 
 ## <a name="program-details"></a>Szczegóły programu
 
-Zaprojektowano narzędzia deweloperskie platformy Azure do uczenia się w przypadku instrukcji opartych na TRZONie. Każdy zespół kursów, który koncentruje się na nauce, technologii, inżynierii lub matematyki, może korzystać z narzędzi deweloperskich platformy Azure w celu uczenia się, że wykładowcy naukę i uczniów bardziej efektywnie. 
+Subskrypcja Azure Dev Tools for Teaching została zaprojektowana z myślą o szkoleniach ukierunkowanych na nauki ścisłe. Program nauczania dowolnego kursu skupiający się na nauce, technologii, inżynierii lub matematyce jest uprawniony do korzystania z subskrypcji Azure Dev Tools for Teaching, aby ułatwić profesorom skuteczniejsze nauczanie, a studentom uczenie się. 
 
 Microsoft Azure narzędzia deweloperskie dla subskrypcji nauczania zapewniają dostęp do niektórych narzędzi programistycznych oprogramowania. Te narzędzia są dostępne do pobrania bezpłatnie. Jeśli jesteś członkiem wykładowcy zarejestrowanym w zatwierdzonym kursie, możesz zainstalować narzędzia deweloperskie platformy Azure na potrzeby nauczania oprogramowania na komputerze osobistym w celu niekomercyjnego użytku.
 

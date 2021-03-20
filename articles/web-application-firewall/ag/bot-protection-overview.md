@@ -9,10 +9,10 @@ ms.date: 05/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e01f9ac8966223e11ad218af7bf6fbb2462f28f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83714903"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Omówienie funkcji Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway bot Protection
@@ -26,7 +26,7 @@ Możesz włączyć zarządzany zestaw reguł ochrony przed botami dla zapory apl
 
 ## <a name="use-with-owasp-rulesets"></a>Używanie z zestawami reguł OWASP
 
-Możesz użyć zestawu reguł ochrony przed botami wraz z dowolnym zestawem reguł OWASP (2.2.9, 3.0 i 3.1). W danym momencie może być używany tylko jeden zestaw reguł OWASP. Zestaw reguł ochrony przed botami zawiera dodatkową regułę, która pojawia się we własnym zestawie reguł. Jest ona zatytułowana **Microsoft_BotManagerRuleSet_0 dziesiąta**i można ją włączyć lub wyłączyć, podobnie jak w przypadku innych reguł OWASP.
+Możesz użyć zestawu reguł ochrony przed botami wraz z dowolnym zestawem reguł OWASP (2.2.9, 3.0 i 3.1). W danym momencie może być używany tylko jeden zestaw reguł OWASP. Zestaw reguł ochrony przed botami zawiera dodatkową regułę, która pojawia się we własnym zestawie reguł. Jest ona zatytułowana **Microsoft_BotManagerRuleSet_0 dziesiąta** i można ją włączyć lub wyłączyć, podobnie jak w przypadku innych reguł OWASP.
 
 ![Zestaw reguł bot](../media/bot-protection-overview/bot-ruleset.png)
 

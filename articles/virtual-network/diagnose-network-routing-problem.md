@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84705053"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnozowanie problemu z routingiem maszyny wirtualnej
@@ -30,7 +30,7 @@ W tym artykule dowiesz się, jak zdiagnozować problem z routingiem, wyświetlaj
 
 Podjęto próbę nawiązania połączenia z maszyną wirtualną, ale połączenie nie powiedzie się. Aby określić, dlaczego nie można nawiązać połączenia z maszyną wirtualną, można wyświetlić obowiązujące trasy dla interfejsu sieciowego za pomocą witryny Azure [Portal](#diagnose-using-azure-portal), [programu PowerShell](#diagnose-using-powershell)lub [interfejsu wiersza polecenia platformy Azure](#diagnose-using-azure-cli).
 
-W poniższej procedurze przyjęto założenie, że masz istniejącą maszynę wirtualną do wyświetlania obowiązujących tras. Jeśli nie masz istniejącej maszyny wirtualnej, najpierw Wdróż maszynę wirtualną z systemem [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby wykonać zadania z tego artykułu. Przykłady w tym artykule dotyczą maszyny wirtualnej o nazwie *myVM* z interfejsem sieciowym o nazwie *myVMNic1*. Maszyna wirtualna i interfejs sieciowy znajdują się w grupie zasobów o nazwie Moja *zasobów*i znajdują się w regionie *Wschodnie stany USA* . W razie potrzeby zmień wartości w odpowiednich krokach dla maszyny wirtualnej, dla której jest diagnozowany problem.
+W poniższej procedurze przyjęto założenie, że masz istniejącą maszynę wirtualną do wyświetlania obowiązujących tras. Jeśli nie masz istniejącej maszyny wirtualnej, najpierw Wdróż maszynę wirtualną z systemem [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby wykonać zadania z tego artykułu. Przykłady w tym artykule dotyczą maszyny wirtualnej o nazwie *myVM* z interfejsem sieciowym o nazwie *myVMNic1*. Maszyna wirtualna i interfejs sieciowy znajdują się w grupie zasobów o nazwie Moja *zasobów* i znajdują się w regionie *Wschodnie stany USA* . W razie potrzeby zmień wartości w odpowiednich krokach dla maszyny wirtualnej, dla której jest diagnozowany problem.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnozuj przy użyciu Azure Portal
 

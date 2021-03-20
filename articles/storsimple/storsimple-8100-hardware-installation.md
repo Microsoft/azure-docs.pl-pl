@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84699119"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Rozpakowywanie, montowanie w stojaku i Podłączanie kabli do urządzenia z systemem StorSimple 8100
@@ -109,7 +109,7 @@ Zestaw szyn montażowych jest dostępny do użycia z 19-calowym szafą w stojaku
     1     | M 3x4 — wkręty z przyciskiem
     2     | Slajdy obudowy
 
-2. Dołączaj zewnętrzne i zewnętrzne zespoły kolejek do szafy w stojaku do pionowej składowej szafy. Nawiasy są oznaczone jako **LH**, **RH**i **tej samej strony** , aby przekierować użytkownika do odpowiedniej orientacji.
+2. Dołączaj zewnętrzne i zewnętrzne zespoły kolejek do szafy w stojaku do pionowej składowej szafy. Nawiasy są oznaczone jako **LH**, **RH** i **tej samej strony** , aby przekierować użytkownika do odpowiedniej orientacji.
 3. Znajdź bolce szyny z przodu i z tyłu zestawu prowadnic. Zwiększ poziom szyny, aby dopasować się do wpisów w stojaku i wstawić numery PIN do elementów członkowskich publikowania w stojaku do przodu i do tyłu. Upewnij się, że zestaw szyny jest poziom.
 4. Aby zabezpieczyć zestaw szyny do pionowych elementów członkowskich stojaka, należy użyć dwóch z dostarczonych wartości. Użyj jednego gwintu na wierzchu i po jednym z tyłu.
 5. Powtórz te kroki dla drugiego zestawu szyn.<br/>

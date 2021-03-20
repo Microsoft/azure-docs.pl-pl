@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777296"
 ---
 # <a name="personalizer-terminology"></a>Terminologia dotycząca personalizacji
@@ -18,13 +18,13 @@ Personalizowanie używa terminologii z uczenia wzmacniania. Te warunki są używ
 
 ## <a name="conceptual-terminology"></a>Terminologia dotycząca pojęć
 
-* **Pętla szkoleniowa**: tworzysz zasób narzędzia personalizacji o nazwie _Pętla szkoleniowa_dla każdej części aplikacji, która może korzystać z personalizacji. Jeśli masz więcej niż jedno środowisko do personalizacji, Utwórz pętlę dla każdego z nich.
+* **Pętla szkoleniowa**: tworzysz zasób narzędzia personalizacji o nazwie _Pętla szkoleniowa_ dla każdej części aplikacji, która może korzystać z personalizacji. Jeśli masz więcej niż jedno środowisko do personalizacji, Utwórz pętlę dla każdego z nich.
 
 * **Model**: model personalizowania przechwytuje wszystkie dane, które są uzyskiwane na temat zachowania użytkowników, uzyskiwanie danych szkoleniowych z kombinacji argumentów wysyłanych do rangi i płatnych wywołań oraz z zachowaniem szkolenia określonym przez zasady uczenia się.
 
 * **Tryb online**: domyślne [zachowanie uczenia](#learning-behavior) dla programu personalizacji, w którym pętla szkoleniowa korzysta z uczenia maszynowego do kompilowania modelu, który przewiduje **najwyższą akcję** dla zawartości.
 
-* **Tryb**współdziałania: [zachowanie uczenia](#learning-behavior) , które pomaga w rozpoczęciu pracy modelu personalizowania w celu uczenia się bez wpływu na wyniki i działania aplikacji.
+* **Tryb** współdziałania: [zachowanie uczenia](#learning-behavior) , które pomaga w rozpoczęciu pracy modelu personalizowania w celu uczenia się bez wpływu na wyniki i działania aplikacji.
 
 ## <a name="learning-behavior"></a>Zachowanie uczenia:
 

@@ -4,10 +4,10 @@ description: Uzyskaj informacje z chmury prywatnej rozwiązań VMware platformy 
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542409"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Otwórz żądanie obsługi dla wdrożenia rozwiązania Azure VMware lub niepowodzenia aprowizacji
@@ -55,7 +55,7 @@ Aby uzyskać dostęp do dziennika wdrożenia:
 
    :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Zrzut ekranu pokazujący ikonę powiadomienia w Azure Portal.":::
 
-1. W okienku **powiadomienia** wybierz pozycję **więcej zdarzeń w dzienniku aktywności** :
+1. W okienku **powiadomienia** wybierz pozycję **więcej zdarzeń w dzienniku aktywności**:
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Zrzut ekranu pokazujący więcej zdarzeń w linku dziennika aktywności wybranym w okienku powiadomienia.":::
 
@@ -112,7 +112,7 @@ Aby utworzyć żądanie pomocy technicznej dotyczące wdrożenia rozwiązania Az
 
 1. Wprowadź lub wybierz wymagane informacje:
 
-   1. Na karcie **Ustawienia podstawowe** :
+   1. Na karcie **Ustawienia podstawowe**:
 
       1. W obszarze **typ problemu** wybierz pozycję **Konfiguracja i problemy z instalacją**.
 

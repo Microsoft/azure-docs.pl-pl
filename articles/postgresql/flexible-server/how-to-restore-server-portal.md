@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938866"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Przywracanie do punktu w czasie dla elastycznego serwera
@@ -30,7 +30,7 @@ Aby ukończyć ten przewodnik, musisz:
 
 Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu najwcześniejszej istniejącej kopii zapasowej.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
 
 2.  Kliknij pozycję **Przegląd** w panelu po lewej stronie, a następnie kliknij pozycję **Przywróć** .
    
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 
 4.  Wybierz **najwcześniejszy punkt przywracania** i podaj nową nazwę serwera w polu **Przywróć do nowego serwera** . Zostanie wyświetlona Najwcześniejsza sygnatura czasowa, do której można wykonać przywracanie. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Przegląd przywracania":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Najwcześniejszy czas przywracania":::
 
 5.  Kliknij przycisk **OK**.
 
@@ -50,7 +50,7 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 
 Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu najwcześniejszej istniejącej kopii zapasowej.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
 
 2.  Na stronie Przegląd kliknij przycisk **Przywróć**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Przegląd przywracania":::
@@ -61,7 +61,7 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 
 5.  Wybierz datę i godzinę i podaj nową nazwę serwera w polu **Przywróć do nowego serwera** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Przegląd przywracania":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Niestandardowy czas przywracania":::
  
 6.  Kliknij przycisk **OK**.
 
@@ -70,5 +70,5 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
 -   Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)

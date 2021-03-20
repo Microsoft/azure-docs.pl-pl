@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67183040"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -83,10 +83,10 @@ Wartości odpowiadają następującym rozmiarom pamięci podręcznej:
 
 | Wartość | Basic i Standard<br>rozmiar pamięci podręcznej | Premium<br>rozmiar pamięci podręcznej |
 | :---: | :------------------------------: | :-------------------: |
-| 0     | 250 MB (wartość domyślna)                 | nie dotyczy                   |
+| 0     | 250 MB (wartość domyślna)                 | n/d                   |
 | 1     | 1 GB                             | 6 GB (wartość domyślna)        |
 | 2     | 2,5 GB                           | 13 GB                 |
 | 3     | 6 GB                             | 26 GB                 |
 | 4     | 13 GB                            | 53 GB                 |
 | 5     | 26 GB                            | 120 GB                |
-| 6     | 53 GB                            | nie dotyczy                   |
+| 6     | 53 GB                            | n/d                   |

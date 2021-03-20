@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90937329"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Zarządzanie serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza) przy użyciu Azure Portal
@@ -26,7 +26,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Przejdź do el
 
 ## <a name="scale-compute-and-storage"></a>Skalowanie zasobów obliczeniowych i magazynu
 
-Po utworzeniu serwera można skalować różne [warstwy cenowe](https://azure.microsoft.com/pricing/details/mysql/) odpowiednio do potrzeb. Możesz również skalować w górę lub w dół zasoby obliczeniowe i pamięć, zwiększając lub zmniejszając rdzeni wirtualnych.
+Po utworzeniu serwera można skalować różne [warstwy cenowe](https://azure.microsoft.com/pricing/details/mysql/) odpowiednio do potrzeb. Możesz również skalować w górę lub w dół zasoby obliczeniowe i pamięć, zwiększając lub zmniejszając liczbę rdzeni wirtualnych.
 
 1. Wybierz serwer w Azure Portal. Wybierz pozycję **obliczeniowe + magazyn**, znajdujący się w sekcji **Ustawienia** .
 
@@ -50,7 +50,7 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
 2. Wprowadź nowe hasło i Potwierdź hasło. W polu tekstowym zostanie wyświetlony monit o podanie wymagań dotyczących złożoności haseł.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="skalowanie serwera elastycznego magazynu":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Zresetuj hasło dla serwera elastycznego":::
 
 3. Wybierz pozycję **Zapisz** , aby zapisać nowe hasło.
 
@@ -63,7 +63,7 @@ Serwer można usunąć, jeśli nie jest już potrzebny.
 2. Wpisz nazwę serwera w polu wejściowym, aby potwierdzić, że chcesz usunąć serwer.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="skalowanie serwera elastycznego magazynu":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Usuń elastyczny serwer":::
 
    > [!NOTE]
    > Usuwanie serwera jest nieodwracalne.

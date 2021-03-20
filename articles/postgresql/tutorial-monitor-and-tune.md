@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336983"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Samouczek: monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
@@ -27,7 +27,7 @@ Usługa Azure Database for PostgreSQL zawiera funkcje, które pomagają zrozumie
 Potrzebujesz serwera usługi Azure Database for PostgreSQL z programem PostgreSQL w wersji 9.6 lub 10. Możesz wykonać kroki opisane w [samouczku dotyczącym tworzenia](tutorial-design-database-using-azure-portal.md), aby utworzyć serwer.
 
 > [!IMPORTANT]
-> Funkcje **Magazyn zapytań** , **Szczegółowe informacje o wydajności zapytań** i **Zalecenia dotyczące wydajności** są dostępne w publicznej wersji zapoznawczej.
+> Funkcje **Magazyn zapytań**, **Szczegółowe informacje o wydajności zapytań** i **Zalecenia dotyczące wydajności** są dostępne w publicznej wersji zapoznawczej.
 
 ## <a name="enabling-data-collection"></a>Włączanie zbierania danych
 [Magazyn zapytań](concepts-query-store.md) przechwytuje historię zapytań i statystyki oczekiwania na serwerze i przechowuje je w bazie danych **azure_sys** na serwerze. Jest to funkcja opcjonalna. Aby ją włączyć:
@@ -36,9 +36,9 @@ Potrzebujesz serwera usługi Azure Database for PostgreSQL z programem PostgreSQ
 
 2. Wybierz serwer usługi Azure Database for PostgreSQL.
 
-3. Wybierz pozycję **Parametry serwera** , znajdującą się w sekcji **Ustawienia** menu po lewej stronie.
+3. Wybierz pozycję **Parametry serwera**, znajdującą się w sekcji **Ustawienia** menu po lewej stronie.
 
-4. Ustaw parametr **pg_qs.query_capture_mode** na wartość **TOP** , aby rozpocząć zbieranie danych o wydajności zapytań. Ustaw parametr **pgms_wait_sampling.query_capture_mode** na wartość **ALL** , aby rozpocząć zbieranie statystyk oczekiwania. Zapisz zmiany.
+4. Ustaw parametr **pg_qs.query_capture_mode** na wartość **TOP**, aby rozpocząć zbieranie danych o wydajności zapytań. Ustaw parametr **pgms_wait_sampling.query_capture_mode** na wartość **ALL**, aby rozpocząć zbieranie statystyk oczekiwania. Zapisz zmiany.
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parametry serwera magazynu zapytań":::
 
@@ -62,7 +62,7 @@ W widoku [Szczegółowe informacje o wydajności zapytań](concepts-query-perfor
 
 5. Wyświetl tabelę poniżej wykresu, aby uzyskać więcej szczegółów na temat długotrwałych zapytań w tym przedziale czasu.
 
-6. Wybierz kartę **Statystyki oczekiwania** , aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
+6. Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Szczegółowe informacje o wydajności zapytań — statystyki oczekiwania":::
 
@@ -83,7 +83,7 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 4. W oknie **Zalecenia dotyczące wydajności** zostanie wyświetlona lista zaleceń, jeśli jakieś znaleziono. 
 
-5. Zalecenia będą zawierały informacje o odpowiedniej **bazie danych** , **tabeli** , **kolumnie** i **rozmiarze indeksu**.
+5. Zalecenia będą zawierały informacje o odpowiedniej **bazie danych**, **tabeli**, **kolumnie** i **rozmiarze indeksu**.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Zalecenia dotyczące wydajności, wyniki":::
 

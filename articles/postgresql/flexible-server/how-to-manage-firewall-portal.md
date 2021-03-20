@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 8c107b88f964d8e657d6833fc3a2e8425d9053ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90936921"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Utwórz reguły zapory dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal i zarządzaj nimi
@@ -32,7 +32,7 @@ W tym artykule skupmy się na tworzeniu serwera PostgreSQL z **dostępem publicz
 3. Wybierz pozycję **elastyczny serwer** jako opcję wdrożenia.
 4. Wypełnij formularz **podstawy** .
 5. Przejdź do karty **Sieć** , aby skonfigurować sposób nawiązywania połączenia z serwerem.
-6. W polu **Metoda łączności**wybierz pozycję *dostęp publiczny (dozwolone adresy IP)*. Aby utworzyć **reguły zapory**, określ nazwę reguły zapory oraz pojedynczy adres IP lub zakres adresów. Jeśli chcesz ograniczyć regułę do pojedynczego adresu IP, wpisz ten sam adres w polu początkowy adres IP i końcowy adres IP. Otwarcie zapory umożliwia administratorom, użytkownikom i aplikacjom dostęp do dowolnych baz danych na serwerze PostgreSQL, do których mają prawidłowe poświadczenia.
+6. W polu **Metoda łączności** wybierz pozycję *dostęp publiczny (dozwolone adresy IP)*. Aby utworzyć **reguły zapory**, określ nazwę reguły zapory oraz pojedynczy adres IP lub zakres adresów. Jeśli chcesz ograniczyć regułę do pojedynczego adresu IP, wpisz ten sam adres w polu początkowy adres IP i końcowy adres IP. Otwarcie zapory umożliwia administratorom, użytkownikom i aplikacjom dostęp do dowolnych baz danych na serwerze PostgreSQL, do których mają prawidłowe poświadczenia.
    > [!Note]
    > Azure Database for PostgreSQL — serwer elastyczny tworzy zaporę na poziomie serwera. Uniemożliwia ona zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że utworzysz regułę otwierającą zaporę dla konkretnych adresów IP.
 7. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć konfigurację elastycznego serwera.

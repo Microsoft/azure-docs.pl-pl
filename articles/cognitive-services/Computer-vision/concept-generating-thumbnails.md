@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945231"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generowanie miniatur inteligentnych z przyciętymi przetwarzanie obrazów
@@ -42,7 +42,7 @@ Wygenerowane miniatury mogą się znacznie różnić w zależności od tego, co 
 
 W poniższej tabeli przedstawiono typowe miniatury wygenerowane przez przetwarzanie obrazów dla przykładowych obrazów. Miniatury zostały wygenerowane dla określonej wartości docelowej wysokości i szerokości 50 pikseli, z włączonym funkcją inteligentnego przycinania.
 
-| Obraz | Miniaturk |
+| Image (Obraz) | Miniaturk |
 |-------|-----------|
 |![Górski grunty na zachód słońca i Silhouette osoby](./Images/mountain_vista.png) | ![Miniatura górskiego góry o zachodzie słońca i Silhouette osoby](./Images/mountain_vista_thumbnail.png) |
 |![Biały kwiat z zielonym tłem](./Images/flower.png) | ![Vision Analizuj miniaturę kwiatów](./Images/flower_thumbnail.png) |

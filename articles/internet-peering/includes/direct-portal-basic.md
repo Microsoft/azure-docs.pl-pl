@@ -1,7 +1,7 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 titleSuffix: Azure
-description: plik dołączany
+description: Plik dyrektywy include
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: e2804c8f9b1af89ac0ea86ec14136df66d900060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83846174"
 ---
 1. Wybierz pozycję **Utwórz zasób**  >  **Zobacz wszystko**.
@@ -35,8 +35,8 @@ ms.locfileid: "83846174"
     > [!div class="mx-imgBorder"]
     > ![Karta podstawy komunikacji równorzędnej](../media/setup-basics-tab.png)
 
-    * Wybierz swoją **subskrypcję**platformy Azure.
-    * W obszarze **Grupa zasobów**można wybrać istniejącą grupę zasobów z listy rozwijanej lub utworzyć nową grupę, wybierając pozycję **Utwórz nową**. W tym przykładzie utworzymy nową grupę zasobów.
+    * Wybierz swoją **subskrypcję** platformy Azure.
+    * W obszarze **Grupa zasobów** można wybrać istniejącą grupę zasobów z listy rozwijanej lub utworzyć nową grupę, wybierając pozycję **Utwórz nową**. W tym przykładzie utworzymy nową grupę zasobów.
     * **Nazwa** odpowiada nazwie zasobu i może być dowolna.
     * **Region** jest wybierany w przypadku wybrania istniejącej grupy zasobów. Jeśli wybrano opcję utworzenia nowej grupy zasobów, należy również wybrać region platformy Azure, w którym ma się znajdować zasób.
 
@@ -52,4 +52,4 @@ ms.locfileid: "83846174"
         > [!div class="mx-imgBorder"]
         > ![Napełnione podstawy komunikacji równorzędnej](../media/setup-direct-basics-filled-tab.png)
 
-    * Wybierz pozycję **Dalej: >konfiguracji ** , aby kontynuować.
+    * Wybierz pozycję **Dalej: >konfiguracji** , aby kontynuować.

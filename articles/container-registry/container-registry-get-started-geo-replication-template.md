@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827002"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Szybki Start: tworzenie rejestru kontenerów z replikacją geograficzną przy użyciu szablonu ARM
@@ -65,7 +65,7 @@ Więcej przykładów szablonów Azure Container Registry można znaleźć w [gal
 
 1. Po pomyślnym utworzeniu rejestru otrzymasz powiadomienie:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Właściwości szablonu":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Powiadomienie portalu":::
 
  Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,17 +77,17 @@ Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia platf
 
 1. Na stronie **Przegląd** Zanotuj nazwę **serwera logowania** rejestru. Użyj tego identyfikatora URI w przypadku używania platformy Docker do tagów i wypychania obrazów do rejestru. Aby uzyskać więcej informacji, zobacz [wypychanie pierwszego obrazu przy użyciu interfejsu wiersza polecenia platformy Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Właściwości szablonu":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Przegląd rejestru":::
 
 1. Na stronie **replikacje** Potwierdź lokalizacje repliki głównej oraz replikę dodaną przez szablon. W razie potrzeby Dodaj więcej replik na tej stronie.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Właściwości szablonu":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replikacje rejestru":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie są już potrzebne, Usuń grupę zasobów, rejestr i replikę rejestru. W tym celu przejdź do Azure Portal, wybierz grupę zasobów zawierającą rejestr, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
-:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Właściwości szablonu":::
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Usuwanie grupy zasobów":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343024"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Nagłówki HTTP do debugowania X-we dla aparatu reguł Azure CDN
@@ -54,7 +54,7 @@ Nagłówki odpowiedzi pamięci podręcznej debugowania mogą być wymagane przez
 ## <a name="cache-status-code-information"></a>Informacje o kodzie stanu pamięci podręcznej
 Nagłówek odpowiedzi X-we-Debug może identyfikować serwer i sposób obsługi odpowiedzi przez następujące dyrektywy:
 
-Header | Opis
+Nagłówek | Opis
 -------|------------
 X-we-Debug: x-we-cache | Ten nagłówek jest raportowany za każdym razem, gdy zawartość jest kierowana przez sieć CDN. Identyfikuje serwer POP, który spełnił żądanie.
 X-we-Debug: x-we-cache-Remote | Ten nagłówek jest raportowany tylko wtedy, gdy żądana zawartość została buforowana na serwerze ochrony źródła lub serwerze bramy wdrożenie.

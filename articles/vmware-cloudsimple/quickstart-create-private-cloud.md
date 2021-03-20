@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073905"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Szybki Start — Konfigurowanie środowiska chmury prywatnej
@@ -37,7 +37,7 @@ Chmurami prywatnymi zarządza się za pomocą portalu CloudSimple. Mają własny
 1. Wybierz pozycję **Wszystkie usługi**.
 2. Wyszukaj **usługi CloudSimple Services**.
 3. Wybierz usługę CloudSimple, w której chcesz utworzyć chmurę prywatną.
-4. W obszarze **Przegląd**kliknij pozycję **Utwórz chmurę prywatną** , aby otworzyć nową kartę przeglądarki dla portalu CloudSimple.  Jeśli zostanie wyświetlony monit, zaloguj się przy użyciu poświadczeń logowania na platformie Azure.  
+4. W obszarze **Przegląd** kliknij pozycję **Utwórz chmurę prywatną** , aby otworzyć nową kartę przeglądarki dla portalu CloudSimple.  Jeśli zostanie wyświetlony monit, zaloguj się przy użyciu poświadczeń logowania na platformie Azure.  
 
     ![Utwórz chmurę prywatną na platformie Azure](media/create-private-cloud-from-azure.png)
 
@@ -58,7 +58,7 @@ Chmurami prywatnymi zarządza się za pomocą portalu CloudSimple. Mają własny
 
 11. Kliknij przycisk **Dalej: Przejrzyj i Utwórz**.
 12. Przejrzyj ustawienia. Jeśli musisz zmienić dowolne ustawienia, kliknij przycisk **Wstecz**.
-13. Kliknij przycisk **Utwórz**.
+13. Kliknij pozycję **Utwórz**.
 
 Rozpocznie się proces aprowizacji w chmurze prywatnej.  Zainicjowanie obsługi chmury prywatnej może potrwać do dwóch godzin.
 
@@ -85,14 +85,14 @@ Połączenie sieci VPN typu punkt-lokacja jest najprostszym sposobem nawiązywan
 
     ![Tworzenie bramy sieci VPN](media/create-vpn-gateway.png)
 
-4. W obszarze **Konfiguracja bramy**określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
+4. W obszarze **Konfiguracja bramy** określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
 
     * Wybierz **Sieć VPN typu punkt-lokacja** jako typ bramy.
     * Wprowadź nazwę identyfikującą bramę.
     * Wybierz lokalizację platformy Azure, w której wdrożono usługę CloudSimple.
     * Określ podsieć klienta dla bramy punkt-lokacja.  Po nawiązaniu połączenia będą nadawane adresy DHCP z tej podsieci.
 
-5. W polu **połączenie/użytkownik**określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
+5. W polu **połączenie/użytkownik** określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
 
     * Aby automatycznie zezwolić wszystkim bieżącym i przyszłym użytkownikom na dostęp do chmury prywatnej za pomocą tej bramy punkt-lokacja, zaznacz opcję **automatycznie Dodaj wszystkich użytkowników**. Po wybraniu tej opcji Wszyscy użytkownicy z listy użytkowników są wybierani automatycznie. Możesz przesłonić opcję automatyczną, usuwając zaznaczenie poszczególnych użytkowników na liście.
     * Aby zaznaczyć tylko poszczególnych użytkowników, kliknij pola wyboru na liście użytkownik.
@@ -154,7 +154,7 @@ Usługa CloudSimple udostępnia obwód usługi ExpressRoute dla chmury prywatnej
 
 Teraz możesz zalogować się do programu vCenter, aby skonfigurować maszyny wirtualne i zasady.
 
-1. Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na stronie głównej w obszarze **typowe zadania**kliknij pozycję **Uruchom program vSphere Client**.  Wybierz chmurę prywatną, a następnie kliknij pozycję **Uruchom klienta vSphere** w chmurze prywatnej.
+1. Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na stronie głównej w obszarze **typowe zadania** kliknij pozycję **Uruchom program vSphere Client**.  Wybierz chmurę prywatną, a następnie kliknij pozycję **Uruchom klienta vSphere** w chmurze prywatnej.
 
     ![Uruchom klienta vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 

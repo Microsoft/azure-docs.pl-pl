@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84692524"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Zarządzaj VMware vCenter Server
@@ -38,7 +38,7 @@ Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMwar
 
 ### <a name="account-permissions"></a>Uprawnienia konta
 
-|**Zadanie** | **Konto** | **Uprawnienia** | **Szczegóły**|
+|**Zadanie** | **Koncie** | **Uprawnienia** | **Szczegóły**|
 |--- | --- | --- | ---|
 |**Odnajdywanie/migracja maszyny wirtualnej (bez powrotu po awarii)** | Co najmniej konto użytkownika tylko do odczytu. | Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = tylko do odczytu | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Brak dostępu** z obiektem **Propaguj do obiektu podrzędnego** do obiektów podrzędnych (hostów vSphere, magazynów danych, maszyn wirtualnych i sieci).|
 |**Replikacja/tryb failover** | Co najmniej konto użytkownika tylko do odczytu. | Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = tylko do odczytu | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Brak dostępu** z obiektem **Propaguj do obiektu podrzędnego** do obiektów podrzędnych (hostów vSphere, magazynów danych, maszyn wirtualnych i sieci).<br/><br/> Przydatne do migracji, ale nie pełna replikacja, tryb failover i powrót po awarii.|
@@ -48,9 +48,9 @@ Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMwar
 
 Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMware należy dodać hosta vCenter Server/vSphere, na którym są odnajdywane maszyny wirtualne do magazynu Site Recovery, w następujący sposób:
 
-1. W obszarze magazyn > **Site Recovery**  >  **serwery konfiguracji**infrastruktury Otwórz serwer konfiguracji.
+1. W obszarze magazyn > **Site Recovery**  >  **serwery konfiguracji** infrastruktury Otwórz serwer konfiguracji.
 1. Na stronie **szczegółów** kliknij przycisk **vCenter**.
-1. W obszarze **Dodawanie programu vCenter**Określ przyjazną nazwę hosta vSphere lub serwera vCenter.
+1. W obszarze **Dodawanie programu vCenter** Określ przyjazną nazwę hosta vSphere lub serwera vCenter.
 1. Określ adres IP lub nazwę FQDN serwera.
 1. Pozostaw port ustawiony na 443, chyba że Twoje serwery VMware są skonfigurowane do nasłuchiwania żądań na innym porcie.
 1. Wybierz konto używane do nawiązania połączenia z serwerem VMware vCenter lub vSphere ESXi. Następnie kliknij przycisk **OK**.
@@ -66,16 +66,16 @@ W razie potrzeby można zmodyfikować poświadczenia używane do nawiązywania p
    ![Dodaj konto](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Podaj szczegóły nowego konta, a następnie kliknij przycisk **OK**. Konto musi mieć uprawnienia wymienione w tabeli [uprawnień konta](#account-permissions) .
-1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  **Configuration Severs**, Otwórz serwer konfiguracji.
-1. W obszarze **szczegóły**kliknij przycisk **Odśwież serwer**.
+1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  , Otwórz serwer konfiguracji.
+1. W obszarze **szczegóły** kliknij przycisk **Odśwież serwer**.
 1. Po zakończeniu zadania odświeżania serwera wybierz vCenter Server.
-1. W obszarze **Podsumowanie**wybierz nowo dodane konto na **serwerze vCenter/vSphere**, a następnie kliknij przycisk **Zapisz**.
+1. W obszarze **Podsumowanie** wybierz nowo dodane konto na **serwerze vCenter/vSphere**, a następnie kliknij przycisk **Zapisz**.
 
    ![modyfikowanie konta](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Usuwanie vCenter Server
 
-1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  **Configuration Severs**, Otwórz serwer konfiguracji.
+1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  , Otwórz serwer konfiguracji.
 1. Na stronie **szczegóły** wybierz serwer vCenter.
 1. Kliknij przycisk **Usuń** .
 
@@ -85,9 +85,9 @@ W razie potrzeby można zmodyfikować poświadczenia używane do nawiązywania p
 
 Można zmodyfikować adres IP vCenter Server lub porty używane do komunikacji między serwerem i Site Recovery. Domyślnie Site Recovery uzyskuje dostęp do informacji o hoście vCenter Server/vSphere za pomocą portu 443.
 
-1. W magazynie > **Site Recovery**  >  **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
-1. W obszarze **serwery vCenter**kliknij vCenter Server, które chcesz zmodyfikować.
-1. W obszarze **Podsumowanie**zaktualizuj adres IP i port, a następnie Zapisz zmiany.
+1. W magazynie > **Site Recovery**  >  **serwery konfiguracji** infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
+1. W obszarze **serwery vCenter** kliknij vCenter Server, które chcesz zmodyfikować.
+1. W obszarze **Podsumowanie** zaktualizuj adres IP i port, a następnie Zapisz zmiany.
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
@@ -97,9 +97,9 @@ Można zmodyfikować adres IP vCenter Server lub porty używane do komunikacji m
 
 Jeśli chcesz zmigrować wszystkie maszyny wirtualne, aby użyć nowej vCenter Server, wystarczy zaktualizować adres IP przypisany do vCenter Server. Nie dodawaj kolejnego konta VMware, ponieważ może to prowadzić do duplikowania wpisów. Zaktualizuj adres w następujący sposób:
 
-1. W magazynie > **Site Recovery**  >  **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
+1. W magazynie > **Site Recovery**  >  **serwery konfiguracji** infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
 1. W sekcji **serwery vCenter** kliknij vCenter Server, z których chcesz przeprowadzić migrację.
-1. W obszarze **Podsumowanie**zaktualizuj adres IP do nowego vCenter Server i Zapisz zmiany.
+1. W obszarze **Podsumowanie** zaktualizuj adres IP do nowego vCenter Server i Zapisz zmiany.
 1. Gdy tylko adres IP zostanie zaktualizowany, Site Recovery rozpocznie otrzymywanie informacji o odnajdywaniu maszyn wirtualnych z nowego vCenter Server. Nie ma to wpływu na bieżące działania związane z replikacją.
 
 ## <a name="migrate-a-few-vms-to-a-new-server"></a>Migrowanie kilku maszyn wirtualnych na nowy serwer

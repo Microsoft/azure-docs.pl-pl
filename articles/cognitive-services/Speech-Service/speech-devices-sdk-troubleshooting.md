@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74815567"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Rozwiązywanie problemów z zestawem Speech Devices SDK
@@ -25,11 +25,11 @@ Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów, które 
 
 Jeśli podczas korzystania z usługi mowy wystąpią błędy certyfikatów, upewnij się, że urządzenie ma poprawną datę i godzinę:
 
-1. Przejdź do obszaru **Settings** (Ustawienia). W obszarze **system**wybierz **datę & czas**.
+1. Przejdź do obszaru **Settings** (Ustawienia). W obszarze **system** wybierz **datę & czas**.
 
     ![W obszarze Ustawienia wybierz pozycję Data & godzina](media/speech-devices-sdk/qsg-12.png)
 
-1. Pozostaw wybraną opcję **automatycznego & daty** . W obszarze **Wybierz strefę czasową**wybierz bieżącą strefę czasową.
+1. Pozostaw wybraną opcję **automatycznego & daty** . W obszarze **Wybierz strefę czasową** wybierz bieżącą strefę czasową.
 
     ![Wybierz Opcje strefy daty i godziny](media/speech-devices-sdk/qsg-13.png)
 
