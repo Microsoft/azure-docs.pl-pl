@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171571"
 ---
 # <a name="event-schemas"></a>Schematy zdarzeń
@@ -55,7 +55,7 @@ Wszystkie zdarzenia mają następujące dane najwyższego poziomu:
 | Właściwość | Typ | Wymagane | Opis |
 | -------- | ---- | ----------- |-----------
 | temat | ciąg | Nie | Powinien być zgodny z tematem, na którym został opublikowany. Event Grid wypełnia ją nazwą tematu, na którym jest publikowana, jeśli nie została określona. |
-| Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| subject | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | eventType | ciąg | Tak | Typ zdarzenia dla tego źródła zdarzeń, na przykład BlobCreated. |
 | eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | ID (Identyfikator) | ciąg | Nie | Unikatowy identyfikator zdarzenia. |

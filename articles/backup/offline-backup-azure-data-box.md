@@ -4,10 +4,10 @@ description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wype
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752587"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz pozycję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz opcję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 

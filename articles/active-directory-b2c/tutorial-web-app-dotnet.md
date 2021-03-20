@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953036"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web przy użyciu Azure Active Directory B2C
 
 W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do logowania się i rejestrowania użytkowników w aplikacji sieci Web ASP.NET. Usługa Azure AD B2C umożliwia aplikacjom uwierzytelnianie się na kontach społecznościowych, kontach przedsiębiorstw i kontach usługi Azure Active Directory za pomocą otwartych standardowych protokołów.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Aktualizowanie aplikacji w usłudze Azure AD B2C
@@ -95,7 +95,7 @@ Zaktualizuj ustawienia w pliku Web.config, aby współdziałać z przepływem u�
 1. Otwórz rozwiązanie **B2C-WebAPI-DotNet** w programie Visual Studio.
 1. W projekcie **TaskWebApp** otwórz plik **Web.config**.
     1. Zaktualizuj wartość `ida:Tenant` i `ida:AadInstance` o nazwę utworzonej dzierżawy Azure AD B2C. Na przykład Zastąp ciąg `fabrikamb2c` opcją `contoso` .
-    1. Zastąp wartość `ida:TenantId` identyfikatorem katalogu, który można znaleźć we właściwościach dzierżawy usługi Azure B2C (w obszarze Azure Portal w obszarze właściwości **Azure Active Directory**  >  **Properties**  >  **Identyfikator katalogu**).
+    1. Zastąp wartość `ida:TenantId` identyfikatorem katalogu, który można znaleźć we właściwościach dzierżawy usługi Azure B2C (w obszarze Azure Portal w obszarze właściwości **Azure Active Directory**  >    >  **Identyfikator katalogu**).
     1. Zastąp wartość `ida:ClientId` identyfikatorem aplikacji, która została zarejestrowana.
     1. Zastąp wartość elementu `ida:ClientSecret` zanotowanym kluczem. Jeśli wpis tajny klienta zawiera wszystkie wstępnie zdefiniowane jednostki XML, na przykład mniejsze niż ( `<` ), większe niż () `>` , handlowe "i" (), `&` lub podwójne cudzysłowy ( `"` ), należy wypróbować te znaki przez Kodowanie XML przed dodaniem go do Web.config.
     1. Zastąp wartość wartością `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .

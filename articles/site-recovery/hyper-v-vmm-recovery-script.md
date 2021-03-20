@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425878"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Dodawanie skryptu programu VMM do planu odzyskiwania
@@ -45,7 +45,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
   
   1. Otwórz Edytor rejestru, a następnie przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Zmień wartość parametru **ScriptLibraryPath** na ** \\ \libserver2.contoso.com\share \\ **. Określ pełną nazwę FQDN. Podaj uprawnienia do lokalizacji udziału. Jest to węzeł główny udziału. Aby sprawdzić węzeł główny, w programie VMM przejdź do węzła głównego w bibliotece. Otwierana ścieżka jest katalogiem głównym ścieżki. Jest to ścieżka, której należy użyć w zmiennej.
+  1. Zmień wartość parametru **ScriptLibraryPath** na **\\ \libserver2.contoso.com\share \\**. Określ pełną nazwę FQDN. Podaj uprawnienia do lokalizacji udziału. Jest to węzeł główny udziału. Aby sprawdzić węzeł główny, w programie VMM przejdź do węzła głównego w bibliotece. Otwierana ścieżka jest katalogiem głównym ścieżki. Jest to ścieżka, której należy użyć w zmiennej.
 
   1. Przetestuj skrypt przy użyciu konta użytkownika o takim samym poziomie jak konto usługi programu VMM. Korzystając z tych praw użytkownika, program sprawdza, czy te autonomiczne testy są uruchamiane tak samo, jak w planach odzyskiwania. Na serwerze programu VMM Ustaw zasady wykonywania do obejścia w następujący sposób:
 
@@ -71,7 +71,7 @@ Po dodaniu maszyn wirtualnych lub grup replikacji do planu odzyskiwania i utworz
 1. Otwórz plan odzyskiwania.
 1. Z listy **krok** wybierz element. Następnie wybierz opcję **skrypt** lub **czynność ręczna**.
 1. Określ, czy dodać skrypt lub akcję przed lub po wybranym elemencie. Aby przenieść pozycję skryptu w górę lub w dół, wybierz przyciski **Przenieś w górę** i **Przenieś w dół** .
-1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**. W polu **ścieżka skryptu**wprowadź ścieżkę względną do udziału. Na przykład wprowadź **\RPScripts\RPScript.PS1**.
+1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**. W polu **ścieżka skryptu** wprowadź ścieżkę względną do udziału. Na przykład wprowadź **\RPScripts\RPScript.PS1**.
 1. W przypadku dodawania elementu Runbook Azure Automation Określ konto usługi Automation, w którym znajduje się element Runbook. Następnie wybierz skrypt elementu Runbook platformy Azure, którego chcesz użyć.
 1. Aby upewnić się, że skrypt działa zgodnie z oczekiwaniami, wykonaj test pracy w trybie failover w ramach planu odzyskiwania.
 

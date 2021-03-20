@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008597"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie puli hostów w programie Virtual Desktop systemu Windows (klasyczny)
@@ -61,12 +61,12 @@ Następnie postępuj zgodnie z instrukcjami w następnej sekcji, aby wprowadzić
 Oto co należy zrobić w przypadku karty **podstawowe** :
 
 1. Wybierz **subskrypcję**.
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** i podaj nazwę nowej grupy zasobów.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** i podaj nazwę nowej grupy zasobów.
 1. Wybierz **region**.
 1. Wprowadź nazwę puli hostów, która jest unikatowa w ramach dzierżawy pulpitu wirtualnego systemu Windows.
-1. Wybierz pozycję **Typ pulpitu**. W przypadku wybrania opcji **osobiste**każdy użytkownik, który łączy się z tą pulą hostów, zostaje trwale przypisany do maszyny wirtualnej.
+1. Wybierz pozycję **Typ pulpitu**. W przypadku wybrania opcji **osobiste** każdy użytkownik, który łączy się z tą pulą hostów, zostaje trwale przypisany do maszyny wirtualnej.
 1. Wprowadź użytkowników, którzy mogą logować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu. Użyj listy rozdzielanej przecinkami. Na przykład jeśli chcesz przypisać `user1@contoso.com` i `user2@contoso.com` uzyskać dostęp, wprowadź *`user1@contoso.com,user2@contoso.com`*
-1. W polu **Lokalizacja metadanych usługi**wybierz tę samą lokalizację co sieć wirtualna, która ma łączność z serwerem Active Directory.
+1. W polu **Lokalizacja metadanych usługi** wybierz tę samą lokalizację co sieć wirtualna, która ma łączność z serwerem Active Directory.
 
    >[!IMPORTANT]
    >Jeśli używasz czystego Azure Active Directory Domain Services (Azure AD DS) i rozwiązania Azure Active Directory (Azure AD), upewnij się, że wdrożono pulę hostów w tym samym regionie co usługa Azure AD DS, aby uniknąć błędów przyłączania do domeny i poświadczeń.
@@ -82,14 +82,14 @@ Na karcie **Konfiguruj maszyny wirtualne** :
     >[!NOTE]
     >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru, oznacza to, że nie zostało to jeszcze zrobione przez nas do narzędzia Azure Marketplace. Aby zażądać rozmiaru, Utwórz żądanie lub zagłosuj na istniejące żądanie na [forum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-1. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład, jeśli wprowadzisz *prefiks*, maszyny wirtualne będą nazywane **prefiksem-0**, **prefiks-1**i tak dalej.
+1. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład, jeśli wprowadzisz *prefiks*, maszyny wirtualne będą nazywane **prefiksem-0**, **prefiks-1** i tak dalej.
 1. Wybierz pozycję **Dalej: ustawienia maszyny wirtualnej**.
 
 ### <a name="virtual-machine-settings"></a>Ustawienia maszyny wirtualnej
 
 Na karcie **ustawienia maszyny wirtualnej** :
 
-1. W polu **Źródło obrazu**wybierz źródło i wprowadź odpowiednie informacje na temat sposobu ich znalezienia i sposobu ich przechowywania. Opcje różnią się w przypadku usługi BLOB Storage, obrazu zarządzanego i galerii.
+1. W polu **Źródło obrazu** wybierz źródło i wprowadź odpowiednie informacje na temat sposobu ich znalezienia i sposobu ich przechowywania. Opcje różnią się w przypadku usługi BLOB Storage, obrazu zarządzanego i galerii.
 
    W przypadku wybrania opcji nie używaj dysków zarządzanych wybierz konto magazynu zawierające plik *VHD* .
 1. Wprowadź główną nazwę użytkownika i hasło. To konto musi być kontem domeny, które będzie przyłączać maszyny wirtualne do domeny Active Directory. Ta sama nazwa użytkownika i hasło zostaną utworzone na maszynach wirtualnych jako konto lokalne. Możesz zresetować te konta lokalne później.
@@ -106,18 +106,18 @@ Na karcie **ustawienia maszyny wirtualnej** :
 
 Na karcie **Informacje o dzierżawie pulpitu wirtualnego systemu Windows** :
 
-1. W polu **Nazwa grupy dzierżawy pulpitu wirtualnego systemu Windows**wprowadź nazwę grupy dzierżawców zawierającej dzierżawcę. Pozostaw to ustawienie domyślne, chyba że podano konkretną nazwę grupy dzierżawców.
-1. W polu **Nazwa dzierżawy pulpitu wirtualnego systemu Windows**wprowadź nazwę dzierżawy, w której chcesz utworzyć pulę hostów.
+1. W polu **Nazwa grupy dzierżawy pulpitu wirtualnego systemu Windows** wprowadź nazwę grupy dzierżawców zawierającej dzierżawcę. Pozostaw to ustawienie domyślne, chyba że podano konkretną nazwę grupy dzierżawców.
+1. W polu **Nazwa dzierżawy pulpitu wirtualnego systemu Windows** wprowadź nazwę dzierżawy, w której chcesz utworzyć pulę hostów.
 1. Określ typ poświadczeń, które mają być używane do uwierzytelniania jako właściciel usług pulpitu wirtualnego systemu Windows. Wprowadź nazwę UPN lub nazwę główną usługi i hasło.
 
    Jeśli ukończono tworzenie jednostek [usługi i przypisań ról przy użyciu programu PowerShell](create-service-principal-role-powershell.md), wybierz pozycję Nazwa **główna usługi**.
 
-1. W przypadku nazwy **głównej usługi**dla **identyfikatora dzierżawy usługi Azure AD**Wprowadź konto administratora dzierżawy dla wystąpienia usługi Azure AD, które zawiera nazwę główną. Obsługiwane są tylko jednostki usługi z poświadczeniami hasła.
+1. W przypadku nazwy **głównej usługi** dla **identyfikatora dzierżawy usługi Azure AD** Wprowadź konto administratora dzierżawy dla wystąpienia usługi Azure AD, które zawiera nazwę główną. Obsługiwane są tylko jednostki usługi z poświadczeniami hasła.
 1. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Ukończ instalację i Utwórz maszynę wirtualną
 
-W obszarze **Przegląd i tworzenie**Przejrzyj informacje o instalacji. Jeśli chcesz zmienić coś, wróć i wprowadź zmiany. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wdrożyć pulę hostów.
+W obszarze **Przegląd i tworzenie** Przejrzyj informacje o instalacji. Jeśli chcesz zmienić coś, wróć i wprowadź zmiany. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wdrożyć pulę hostów.
 
 W zależności od liczby tworzonych maszyn wirtualnych proces ten może potrwać 30 minut lub dłużej.
 

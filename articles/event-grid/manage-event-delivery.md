@@ -4,10 +4,10 @@ description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Even
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460941"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Ustawianie lokalizacji utraconych komunikatów i zasad ponawiania
@@ -48,7 +48,7 @@ Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić po
 > [!NOTE]
 > Jeśli używasz interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, powinien on być w wersji co najmniej 2.0.56. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $containername = "testcontainer"
@@ -101,7 +101,7 @@ az eventgrid event-subscription create \
 > [!NOTE]
 > Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń. Na przykład jeśli ustawisz 30 minut jako czas wygaśnięcia (TTL) i 10 maksymalnej liczby prób dostarczenia. Gdy zdarzenie nie zostanie dostarczone po 30 minutach (lub) nie zostanie dostarczone po 10 próbach, w zależności od tego, gdy wystąpi pierwsze, zdarzenie zostanie utracone.  
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Aby ustawić czas wygaśnięcia zdarzenia na żywo na wartość inną niż 1440 minut, użyj:
 

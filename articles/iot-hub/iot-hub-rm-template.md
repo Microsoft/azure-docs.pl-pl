@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: db4b676e65d36a9476fd72b66cc8ccfa38af4d85
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144488"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Tworzenie Centrum IoT Hub przy użyciu szablonu Azure Resource Manager (.NET)
@@ -47,7 +47,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 4. W Menedżerze pakietów NuGet Wyszukaj ciąg **Microsoft. IdentityModel. clients. ActiveDirectory**.  Kliknij przycisk **Instaluj**, w obszarze **Przegląd zmian** kliknij przycisk **OK**, a następnie kliknij przycisk **Akceptuję** , aby zaakceptować licencję.
 
-5. W Program.cs Zastąp istniejące instrukcje **using** następującym kodem:
+5. W programie program. cs Zastąp istniejące instrukcje **using** następującym kodem:
 
     ```csharp
     using System;
@@ -57,7 +57,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
     using Microsoft.Rest;
     ```
 
-6. W Program.cs Dodaj następujące zmienne statyczne, zastępując wartości symboli zastępczych. W tym samouczku zawarto uwagi na temat identyfikatora **aplikacji**, identyfikatora **subskrypcji**, **TenantId**i **hasła** . **Nazwa konta usługi Azure Storage** to nazwa konta usługi Azure Storage, na którym są przechowywane pliki szablonów Azure Resource Manager. **Nazwa grupy zasobów** to nazwa grupy zasobów, która jest używana podczas tworzenia Centrum IoT Hub. Nazwa może być istniejącą lub nową grupą zasobów. **Nazwa wdrożenia** to nazwa wdrożenia, taka jak **Deployment_01**.
+6. W programie program. cs Dodaj następujące zmienne statyczne, zastępując wartości symboli zastępczych. W tym samouczku zawarto uwagi na temat identyfikatora **aplikacji**, identyfikatora **subskrypcji**, **TenantId** i **hasła** . **Nazwa konta usługi Azure Storage** to nazwa konta usługi Azure Storage, na którym są przechowywane pliki szablonów Azure Resource Manager. **Nazwa grupy zasobów** to nazwa grupy zasobów, która jest używana podczas tworzenia Centrum IoT Hub. Nazwa może być istniejącą lub nową grupą zasobów. **Nazwa wdrożenia** to nazwa wdrożenia, taka jak **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -128,15 +128,15 @@ Użyj szablonu i pliku parametrów JSON, aby utworzyć Centrum IoT w grupie zaso
     ```
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-5. W **Eksplorator serwera**Połącz się z subskrypcją platformy Azure, a na koncie usługi Azure Storage Utwórz kontener o nazwie **templates**. W panelu **Właściwości ustaw właściwość** **publiczny dostęp do odczytu** dla kontenera **templates** na **obiekt BLOB**.
+5. W **Eksplorator serwera** Połącz się z subskrypcją platformy Azure, a na koncie usługi Azure Storage Utwórz kontener o nazwie **templates**. W panelu **Właściwości ustaw właściwość** **publiczny dostęp do odczytu** dla kontenera **templates** na **obiekt BLOB**.
 
-6. W **Eksplorator serwera**kliknij prawym przyciskiem myszy kontener **szablonów** , a następnie kliknij polecenie **Wyświetl kontener obiektów BLOB**. Kliknij przycisk **Przekaż obiekt BLOB** , wybierz dwa pliki, **parameters.json** i **templates.json**, a następnie kliknij przycisk **Otwórz** , aby przekazać pliki JSON do kontenera **szablonów** . Adresy URL obiektów BLOB zawierających dane JSON to:
+6. W **Eksplorator serwera** kliknij prawym przyciskiem myszy kontener **szablonów** , a następnie kliknij polecenie **Wyświetl kontener obiektów BLOB**. Kliknij przycisk **Przekaż obiekt BLOB** , wybierz dwa pliki, **parameters.json** i **templates.json**, a następnie kliknij przycisk **Otwórz** , aby przekazać pliki JSON do kontenera **szablonów** . Adresy URL obiektów BLOB zawierających dane JSON to:
 
     ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
-7. Dodaj następującą metodę do Program.cs:
+7. Dodaj następującą metodę do programu program. cs:
 
     ```csharp
     static void CreateIoTHub(ResourceManagementClient client)

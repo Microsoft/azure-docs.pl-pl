@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80881252"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Instrukcje: Konfigurowanie logowania jednokrotnego w systemach macOS i iOS
@@ -96,7 +96,7 @@ Po poprawnym skonfigurowaniu uprawnień zobaczysz `entitlements.plist` plik w ka
 
 #### <a name="add-a-new-keychain-group"></a>Dodaj nową grupę pęku kluczy
 
-Dodaj nową grupę pęku kluczy do **możliwości**projektu. Grupa łańcucha kluczy powinna:
+Dodaj nową grupę pęku kluczy do **możliwości** projektu. Grupa łańcucha kluczy powinna:
 * `com.microsoft.adalcache` w systemie iOS 
 * `com.microsoft.identity.universalstorage` w witrynie macOS.
 
@@ -137,7 +137,7 @@ do {
 > Jest to szczególnie zagrożone w przypadku aplikacji korzystających z tokenów do wykonywania zadań w tle.
 > Udostępnianie łańcucha kluczy oznacza, że należy zachować ostrożność, gdy aplikacja korzysta z operacji usuwania Microsoft Identity SDK.
 
-To wszystko. Zestaw SDK tożsamości firmy Microsoft będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista kont również będzie współużytkowana przez wystąpienia aplikacji.
+Gotowe. Zestaw SDK tożsamości firmy Microsoft będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista kont również będzie współużytkowana przez wystąpienia aplikacji.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>Logowanie jednokrotne za pośrednictwem brokera uwierzytelniania w systemie iOS
 

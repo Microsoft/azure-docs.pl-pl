@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487402"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Użyj Azure DNS, aby podać niestandardowe ustawienia domeny dla usługi platformy Azure
@@ -46,7 +46,7 @@ Przejdź do strefy DNS, a następnie kliknij pozycję **+ zestaw rekordów**. Wy
 |Jednostka TTL     | Godziny        | Godziny są używane jako pomiar czasu         |
 |Alias     | adatumfunction.azurewebsites.net        | Nazwa DNS, dla której tworzysz alias, w tym przykładzie jest to nazwa adatumfunction.azurewebsites.net DNS udostępniona domyślnie dla aplikacji funkcji.        |
 
-Wróć do aplikacji funkcji, kliknij pozycję **funkcje platformy**i w obszarze **Sieć** kliknij pozycję **domeny niestandardowe**, a następnie w obszarze **niestandardowe nazwy hostów** kliknij pozycję **+ Dodaj nazwę hosta**.
+Wróć do aplikacji funkcji, kliknij pozycję **funkcje platformy** i w obszarze **Sieć** kliknij pozycję **domeny niestandardowe**, a następnie w obszarze **niestandardowe nazwy hostów** kliknij pozycję **+ Dodaj nazwę hosta**.
 
 W bloku **Dodaj nazwę hosta** Wprowadź rekord CNAME w polu tekstowym **Nazwa hosta** , a następnie kliknij przycisk **Weryfikuj**. Jeśli rekord zostanie znaleziony, zostanie wyświetlony przycisk **Dodaj nazwę hosta** . Kliknij przycisk **Dodaj nazwę hosta** , aby dodać alias.
 
@@ -119,7 +119,7 @@ Jeśli musisz zakupić domenę niestandardową, odwiedź stronę [kupowanie nies
 
 Poniższe kroki przeprowadzimy przez proces konfigurowania rekordu CNAME dla konta usługi BLOB Storage przy użyciu metody asverify. Ta metoda zapewnia brak przestojów.
 
-Przejdź do **Storage**  >  **konta**magazynu magazynu, wybierz konto magazynu, a następnie kliknij pozycję **domena niestandardowa**. Notate nazwę FQDN w kroku 2, ta wartość jest używana do tworzenia pierwszego rekordu CNAME
+Przejdź do   >  **konta** magazynu magazynu, wybierz konto magazynu, a następnie kliknij pozycję **domena niestandardowa**. Notate nazwę FQDN w kroku 2, ta wartość jest używana do tworzenia pierwszego rekordu CNAME
 
 ![Domena niestandardowa magazynu obiektów BLOB](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -162,7 +162,7 @@ Przejdź do strefy DNS, a następnie kliknij pozycję **+ zestaw rekordów**. Wy
 |Jednostka TTL     | Godziny        | Godziny są używane jako pomiar czasu         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Nazwa DNS, dla której tworzysz alias, w tym przykładzie jest to nazwa cdnverify.adatumcdnendpoint.azureedge.net DNS podana domyślnie dla konta magazynu.        |
 
-Wróć do punktu końcowego usługi CDN, klikając kolejno pozycje **Sieć**  >  **CDN profile**i profil usługi CDN. Kliknij pozycję **+ domena niestandardowa** i wprowadź alias rekordu CNAME bez prefiksu cdnverify, a następnie kliknij przycisk **Dodaj**.
+Wróć do punktu końcowego usługi CDN, klikając kolejno pozycje **Sieć**  >  **CDN profile** i profil usługi CDN. Kliknij pozycję **+ domena niestandardowa** i wprowadź alias rekordu CNAME bez prefiksu cdnverify, a następnie kliknij przycisk **Dodaj**.
 
 Po zakończeniu tego kroku Wróć do strefy DNS i Utwórz rekord CNAME bez prefiksu cdnverify.  Po tym momencie można bezpiecznie usunąć rekord CNAME z prefiksem cdnverify. Aby uzyskać więcej informacji na temat sieci CDN i jak skonfigurować domenę niestandardową bez kroku rejestracji pośredniej, odwiedź stronę [mapowanie Azure CDN zawartości do domeny niestandardowej](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 

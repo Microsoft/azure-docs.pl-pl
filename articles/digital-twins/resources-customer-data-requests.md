@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
 ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461763"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funkcje żądania danych klienta Digital bliźniaczych reprezentacji na platformie Azure
@@ -31,7 +31,7 @@ Aby wyświetlać, eksportować i usuwać dane osobowe, do których można się o
 
 Usługa Azure Digital bliźniaczych reprezentacji traktuje *dane osobowe* , które są skojarzone z administratorami i użytkownikami. 
 
-Usługa Azure Digital bliźniaczych reprezentacji przechowuje [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) *Identyfikator obiektu* Azure Active Directory użytkowników mających dostęp do środowiska. Usługa Azure Digital bliźniaczych reprezentacji w Azure Portal wyświetla adresy e-mail użytkowników, ale te adresy e-mail nie są przechowywane w usłudze Azure Digital bliźniaczych reprezentacji. Są one dynamicznie wyszukiwane w Azure Active Directory przy użyciu identyfikatora obiektu Azure Active Directory.
+Usługa Azure Digital bliźniaczych reprezentacji przechowuje [](../active-directory/fundamentals/active-directory-whatis.md) *Identyfikator obiektu* Azure Active Directory użytkowników mających dostęp do środowiska. Usługa Azure Digital bliźniaczych reprezentacji w Azure Portal wyświetla adresy e-mail użytkowników, ale te adresy e-mail nie są przechowywane w usłudze Azure Digital bliźniaczych reprezentacji. Są one dynamicznie wyszukiwane w Azure Active Directory przy użyciu identyfikatora obiektu Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Usuwanie danych klienta
 

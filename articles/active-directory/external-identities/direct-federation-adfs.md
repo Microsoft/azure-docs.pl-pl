@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909564"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Przykład: bezpośrednia Federacja z Active Directory Federation Services (AD FS) (wersja zapoznawcza)
@@ -58,8 +58,8 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 ### <a name="add-the-claim-description"></a>Dodaj opis zgłoszenia
 
 1. Na serwerze AD FS wybierz pozycję **Narzędzia**  >  **AD FS zarządzanie**.
-2. W okienku nawigacji wybierz pozycję opisy **usług**  >  **Claim Descriptions**.
-3. W obszarze **Akcje**wybierz pozycję **Dodaj opis żądania**.
+2. W okienku nawigacji wybierz pozycję opisy **usług**  >  .
+3. W obszarze **Akcje** wybierz pozycję **Dodaj opis żądania**.
 4. W oknie **Dodawanie opisu roszczeń** określ następujące wartości:
 
    - **Nazwa wyświetlana**: Identyfikator trwały
@@ -73,13 +73,13 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 
 1. Na serwerze AD FS przejdź do pozycji **Narzędzia**  >  **AD FS zarządzanie**.
 2. W okienku nawigacji wybierz pozycję **zaufania relacje**  >  **zaufania jednostek uzależnionych**.
-3. W obszarze **Akcje**wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**. 
-4. W Kreatorze dodawania zaufania jednostki uzależnionej dla **wyboru źródła danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji — https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml . Pozostaw inne ustawienia domyślne. Wybierz pozycję **Close** (Zamknij).
+3. W obszarze **Akcje** wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**. 
+4. W Kreatorze dodawania zaufania jednostki uzależnionej dla **wyboru źródła danych** Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji — https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml . Pozostaw inne ustawienia domyślne. Wybierz pozycję **Zamknij**.
 5. Zostanie otwarty Kreator **edycji reguł dotyczących roszczeń** .
-6. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły**wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**. Wybierz opcję **Dalej**.
-7. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości: 
+6. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły** wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**. Wybierz opcję **Dalej**.
+7. W obszarze **Konfigurowanie reguły roszczeń** określ następujące wartości: 
 
-   - **Nazwa reguły**dotyczącej roszczeń: reguła dotycząca roszczeń e-mail 
+   - **Nazwa reguły** dotyczącej roszczeń: reguła dotycząca roszczeń e-mail 
    - **Magazyn atrybutów**: Active Directory 
    - **Atrybut LDAP**: adresy e-mail 
    - **Typ zgłoszenia wychodzącego**: adres E-mail
@@ -89,10 +89,10 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 10. Kliknij przycisk **OK**.  
 
 ### <a name="create-an-email-transform-rule"></a>Tworzenie reguły przekształcania wiadomości e-mail
-1. Przejdź do pozycji **Edytuj reguły dotyczące roszczeń** i kliknij pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły**wybierz pozycję **Przekształć przychodzące zdarzenie** i kliknij przycisk **dalej**. 
-2. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości: 
+1. Przejdź do pozycji **Edytuj reguły dotyczące roszczeń** i kliknij pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły** wybierz pozycję **Przekształć przychodzące zdarzenie** i kliknij przycisk **dalej**. 
+2. W obszarze **Konfigurowanie reguły roszczeń** określ następujące wartości: 
 
-   - **Nazwa reguły**dotyczącej roszczeń: reguła transformacji poczty e-mail 
+   - **Nazwa reguły** dotyczącej roszczeń: reguła transformacji poczty e-mail 
    - **Typ zgłoszenia przychodzącego**: adres E-mail 
    - **Typ zgłoszenia wychodzącego**: identyfikator nazwy 
    - **Format identyfikatora nazwy wychodzącej**: Identyfikator trwały 
@@ -129,21 +129,21 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Dodawanie zaufania jednostki uzależnionej i reguł dotyczących roszczeń 
 1. Na serwerze AD FS przejdź do pozycji **Narzędzia**  >  **AD FS zarządzanie**. 
 1. W okienku nawigacji wybierz pozycję **zaufania relacje**  >  **zaufania jednostek uzależnionych**. 
-1. W obszarze **Akcje**wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**.  
-1. W Kreatorze dodawania zaufania jednostki uzależnionej dla **Wybierz źródło danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Pozostaw inne ustawienia domyślne. Wybierz pozycję **Close** (Zamknij).
+1. W obszarze **Akcje** wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**.  
+1. W Kreatorze dodawania zaufania jednostki uzależnionej dla **Wybierz źródło danych** Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Pozostaw inne ustawienia domyślne. Wybierz pozycję **Zamknij**.
 1. Zostanie otwarty Kreator **edycji reguł dotyczących roszczeń** . 
-1. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły**wybierz pozycję **Wyślij oświadczenia przy użyciu reguły niestandardowej**. Wybierz opcję *Dalej*. 
-1. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości:
+1. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły** wybierz pozycję **Wyślij oświadczenia przy użyciu reguły niestandardowej**. Wybierz opcję *Dalej*. 
+1. W obszarze **Konfigurowanie reguły roszczeń** określ następujące wartości:
 
-   - **Nazwa reguły**dotyczącej roszczeń: problem z niezmiennym identyfikatorem  
+   - **Nazwa reguły** dotyczącej roszczeń: problem z niezmiennym identyfikatorem  
    - **Reguła niestandardowa**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Wybierz pozycję **Zakończ**. 
 1. W oknie **Edycja reguł roszczeń** zostanie wyświetlona Nowa reguła. Kliknij pozycję **Zastosuj**.  
-1. W tym samym kreatorze **edycji reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Typ reguły**dla dowolnego węża wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**. Wybierz opcję **Dalej**.
-1. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości: 
+1. W tym samym kreatorze **edycji reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Typ reguły** dla dowolnego węża wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**. Wybierz opcję **Dalej**.
+1. W obszarze **Konfigurowanie reguły roszczeń** określ następujące wartości: 
 
-   - **Nazwa reguły**dotyczącej roszczeń: reguła dotycząca roszczeń e-mail  
+   - **Nazwa reguły** dotyczącej roszczeń: reguła dotycząca roszczeń e-mail  
    - **Magazyn atrybutów**: Active Directory  
    - **Atrybut LDAP**: adresy e-mail  
    - **Typ zgłoszenia wychodzącego**: adres E-mail 

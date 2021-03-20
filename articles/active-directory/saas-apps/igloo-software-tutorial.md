@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 033561ac3c4a510927691dc8db4f61196f54ec2a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem Igloo
@@ -155,17 +155,17 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
     e. Otwórz certyfikat zakodowany w formacie **Base-64** w programie Notepad pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikatu publicznego** .
 
-6. W **konfiguracji odpowiedzi i uwierzytelniania**wykonaj następujące czynności:
+6. W **konfiguracji odpowiedzi i uwierzytelniania** wykonaj następujące czynności:
 
     ![Konfiguracja odpowiedzi i uwierzytelniania](./media/igloo-software-tutorial/IC783971.png "Konfiguracja odpowiedzi i uwierzytelniania")
   
-    a. Jako **dostawcę tożsamości**wybierz pozycję **Microsoft AD FS**.
+    a. Jako **dostawcę tożsamości** wybierz pozycję **Microsoft AD FS**.
 
-    b. Jako **Typ identyfikatora**wybierz opcję **adres e-mail**. 
+    b. Jako **Typ identyfikatora** wybierz opcję **adres e-mail**. 
 
     c. W polu tekstowym **atrybut wiadomości e-mail** wpisz **EmailAddress**.
 
-    d. W polu tekstowym **nazwa atrybutu imięname** . **givenname**
+    d. W polu tekstowym **nazwa atrybutu imięname** . 
 
     e. W polu tekstowym nazwisko **atrybutu** wpisz **nazwisko**.
 
@@ -173,9 +173,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
     ![Tworzenie użytkownika podczas logowania](./media/igloo-software-tutorial/IC783972.png "Tworzenie użytkownika podczas logowania") 
 
-    a. Podczas **tworzenia użytkownika podczas logowania**wybierz pozycję **Utwórz nowego użytkownika w Twojej witrynie podczas logowania**.
+    a. Podczas **tworzenia użytkownika podczas logowania** wybierz pozycję **Utwórz nowego użytkownika w Twojej witrynie podczas logowania**.
 
-    b. W **obszarze Ustawienia logowania**wybierz pozycję **Użyj przycisku SAML na ekranie "Logowanie"**.
+    b. W **obszarze Ustawienia logowania** wybierz pozycję **Użyj przycisku SAML na ekranie "Logowanie"**.
 
     c. Kliknij pozycję **Zapisz**.
 

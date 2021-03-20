@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954243"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
@@ -114,11 +114,11 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Konfigurowanie urządzenia |Kliknij prawym przyciskiem myszy węzeł **urządzenia** . |Kliknij pozycję **Konfiguruj urządzenie** , aby skonfigurować jedno urządzenie lub wiele urządzeń w celu nawiązania połączenia z hostem systemu Windows. |
 | Tworzenie zasad kopii zapasowych |Wykonaj jedną z następujących czynności:<ul><li>Kliknij prawym przyciskiem myszy pozycję **zasady tworzenia kopii zapasowych**.</li><li>Kliknij lub rozwiń pozycję **grupy woluminów**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li><li>Kliknij lub rozwiń pozycję **wykaz kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li></ul> |Kliknij pozycję **Utwórz zasady tworzenia kopii zapasowych** , aby skonfigurować zaplanowaną kopię zapasową dla grupy woluminów. |
 | Utwórz grupę woluminów |Wykonaj jedną z następujących czynności:<ul><li>Kliknij węzeł **woluminy** , a następnie kliknij prawym przyciskiem myszy wolumin w okienku **wyników** .</li><li>Kliknij prawym przyciskiem myszy węzeł **grupy woluminów** .</li></ul> |Kliknij pozycję **Utwórz grupę woluminów** , aby przypisać woluminy do grupy woluminów. |
-| Usuwanie |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach  **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
+| Usuń |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach  **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
 | Szczegóły |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **szczegóły** , aby wyświetlić szczegóły konfiguracji urządzenia. |
 | Edytuj |Kliknij pozycję **zasady tworzenia kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy zasady w okienku **wyników** . |Kliknij przycisk **Edytuj** , aby zmienić harmonogram tworzenia kopii zapasowych dla grupy woluminów. |
 | Eksportuj listę |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Eksportuj listę** , aby zapisać listę w pliku z wartościami rozdzielanymi przecinkami (CSV). Następnie można zaimportować ten plik do aplikacji arkusza kalkulacyjnego do analizy. |
-| Pomoc |Kliknij dowolny węzeł lub wynik. (Ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Pomoc** , aby otworzyć Pomoc online w osobnym oknie przeglądarki. |
+| Help |Kliknij dowolny węzeł lub wynik. (Ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Pomoc** , aby otworzyć Pomoc online w osobnym oknie przeglądarki. |
 | Nowe okno w tym miejscu |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij pozycję **nowe okno w tym miejscu** , aby otworzyć nowe okno Snapshot Manager StorSimple. |
 | Odśwież |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Odśwież** , aby zaktualizować aktualnie wyświetlane okno StorSimple Snapshot Manager. |
 | Odśwież urządzenie |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **Odśwież urządzenie** , aby zsynchronizować określone podłączone urządzenie z StorSimple Snapshot Manager. |
@@ -126,7 +126,7 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Skanuj ponownie woluminy |Kliknij prawym przyciskiem myszy węzeł **woluminy** . |Kliknij pozycję **Skanuj ponownie woluminy** , aby zaktualizować listę woluminów, które pojawiają się w okienku **wyników** . |
 | Przywracanie |Rozwiń węzeł **wykaz kopii zapasowych**, rozwiń grupę woluminów, rozwiń węzeł **migawki lokalne** lub **migawki w chmurze**, a następnie kliknij prawym przyciskiem myszy kopię zapasową. |Kliknij przycisk **Przywróć** , aby zastąpić bieżące dane grupy woluminów danymi z wybranej kopii zapasowej. |
 | Utwórz kopię zapasową |Wykonaj jedną z następujących czynności:<ul><li>Rozwiń węzeł **grupy woluminów**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li><li>Rozwiń węzeł **wykaz kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li></ul> |Kliknij pozycję **Utwórz kopię zapasową** , aby natychmiast uruchomić zadanie tworzenia kopii zapasowej. |
-| Przełącz wyświetlanie importów |Kliknij prawym przyciskiem myszy górny węzeł w okienku **zakres** ( **StorSimple Snapshot Manager** węzła w przykładach). |Kliknij pozycję **Przełącz Importy** , aby wyświetlić lub ukryć grupy woluminów i skojarzone kopie zapasowe, które zostały zaimportowane z pulpitu nawigacyjnego usługi StorSimple Menedżer urządzeń. |
+| Przełącz wyświetlanie importów |Kliknij prawym przyciskiem myszy górny węzeł w okienku **zakres** ( **StorSimple Snapshot Manager** węzła w przykładach). |Kliknij pozycję **Przełącz Importy** , aby wyświetlić lub ukryć grupy woluminów i skojarzone kopie zapasowe, które zostały zaimportowane z pulpitu nawigacyjnego usługi StorSimple Device Manager. |
 
 ### <a name="view-menu"></a>Menu Widok
 Użyj menu **Widok** , aby utworzyć niestandardowy widok zawartości okienka **wyników** . Menu **Widok** zawiera **Dodawanie/usuwanie kolumn** i **Dostosowywanie** opcji.

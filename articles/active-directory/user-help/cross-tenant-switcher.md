@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913249"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Przełączanie organizacji w portalu
@@ -30,7 +30,7 @@ Przełącznik organizacji jest dostępny w następujących portalach:
 - [**Mój dostęp**](https://myaccess.microsoft.com)
 - [**Mój personel**](https://mystaff.microsoft.com)
 
-Przełączanie organizacji nie jest dostępne w przypadku **moich** logowań, **informacji zabezpieczających** lub **moich grup** .
+Przełączanie organizacji nie jest dostępne w przypadku **moich** logowań, **informacji zabezpieczających** lub **moich grup**.
 
 ## <a name="switch-organizations"></a>Zmiana organizacji
 
@@ -39,7 +39,7 @@ Oto jak przełączyć się na inną organizację. Ten przykład korzysta z porta
 1. Zaloguj się do konta służbowego, a następnie otwórz stronę [Moje konto](https://myaccount.microsoft.com) .
 1. W górnej części strony wybierz ikonę w obszarze przełącznik :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="organizacji"::: , a następnie na zdjęcie Twojego konta.
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="organizacji":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="Menu organizacji, do których można się przełączyć":::
 
 1. Wybierz organizację, do której chcesz się przełączyć. Nastąpi automatyczne przełączenie na wybraną organizację.
 

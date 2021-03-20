@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100517590"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ponowne uczenie i wdrażanie modelu uczenia maszynowego
@@ -66,7 +66,7 @@ Wykonaj następujące kroki, aby wywołać interfejsy API ponownego uczenia:
 1. Kliknij usługę sieci Web, z którą pracujesz.
 1. Kliknij **pozycję** Użyj.
 1. W dolnej części strony **Zużywaj** w sekcji **przykładowy kod** kliknij pozycję **Batch**.
-1. Skopiuj przykładowy kod w języku C# na potrzeby wykonywania wsadowego i wklej go do pliku Program.cs. Upewnij się, że przestrzeń nazw pozostaje nienaruszona.
+1. Skopiuj przykładowy kod w języku C# na potrzeby wykonywania wsadowego i wklej go do pliku program. cs. Upewnij się, że przestrzeń nazw pozostaje nienaruszona.
 
 Dodaj pakiet NuGet Microsoft. AspNet. WebApi. Client, zgodnie z opisem w komentarzach. Aby dodać odwołanie do Microsoft.WindowsAzure.Storage.dll, może być konieczne zainstalowanie [biblioteki klienckiej dla usług Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage).
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
 ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489748"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Przenoszenie bazy danych platformy Azure dla Azure Database for PostgreSQL-pojedynczego serwera do innego regionu przy użyciu Azure Portal
@@ -33,7 +33,7 @@ Do przechodzenia do innego regionu można użyć Azure Database for PostgreSQL [
 
 Aby przygotować serwer źródłowy do replikacji przy użyciu Azure Portal, wykonaj następujące czynności: 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Wybierz istniejący serwer Azure Database for PostgreSQL, który ma być używany jako serwer źródłowy. Ta akcja powoduje otwarcie strony **Przegląd** .
 1. Z menu serwer wybierz pozycję **replikacja**. Jeśli Obsługa replikacji platformy Azure została ustawiona na co najmniej **replikę**, można utworzyć repliki odczytu. 
 1. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę**, ustaw ją. Wybierz pozycję **Zapisz**.
@@ -69,7 +69,7 @@ Aby zatrzymać replikację do repliki z Azure Portal, wykonaj następujące czyn
 
 ## <a name="clean-up-source-server"></a>Oczyść serwer źródłowy
 
-Możesz chcieć usunąć źródłowy serwer Azure Database for PostgreSQL. Aby to zrobić, skorzystaj z poniższych instrukcji:
+Możesz chcieć usunąć źródłowy serwer Azure Database for PostgreSQL. Aby to zrobić, wykonaj następujące kroki:
 
 1. Po utworzeniu repliki Znajdź i wybierz serwer źródłowy Azure Database for PostgreSQL.
 1. W oknie **Przegląd** wybierz pozycję **Usuń**.

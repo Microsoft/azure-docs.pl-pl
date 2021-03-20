@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355741"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
@@ -22,7 +22,7 @@ ms.locfileid: "91355741"
 
 Application Gateway obejmuje następujące funkcje:
 
-- [Zakończenie SSL (SSL/TLS)](#secure-sockets-layer-ssltls-termination)
+- [Zakończenie Secure Sockets Layer (SSL/TLS)](#secure-sockets-layer-ssltls-termination)
 - [Skalowanie automatyczne](#autoscaling)
 - [Nadmiarowość stref](#zone-redundancy)
 - [Statyczny adres VIP](#static-vip)
@@ -38,7 +38,7 @@ Application Gateway obejmuje następujące funkcje:
 - [Ponowne zapisywanie nagłówków HTTP i adresów URL](#rewrite-http-headers-and-url)
 - [Ustalanie rozmiaru](#sizing)
 
-## <a name="secure-sockets-layer-ssltls-termination"></a>Zakończenie SSL (SSL/TLS)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Zakończenie Secure Sockets Layer (SSL/TLS)
 
 Brama Application Gateway obsługuje zakończenie protokołu SSL/TLS w bramie, po czym ruch przeważnie jest przenoszony do serwerów zaplecza. Ta funkcja umożliwia odciążenie serwerów sieci Web z nadmiaru kosztownych operacji szyfrowania i odszyfrowywania. Jednak czasami zaszyfrowana komunikacja z serwerami nie jest akceptowalną opcją. Może to być spowodowane wymaganiami dotyczącymi zabezpieczeń, wymaganiami dotyczącymi zgodności lub zastosowaniem tylko bezpiecznego połączenia. W przypadku tych aplikacji Brama Application Gateway obsługuje kompleksowe szyfrowanie SSL/TLS.
 
@@ -58,7 +58,7 @@ Application Gateway Standard_v2 może obejmować wiele Strefy dostępnościów, 
 
 Jednostka SKU Standard_v2 bramy aplikacji obsługuje wyłącznie statyczny typ adresu VIP. Dzięki temu wirtualne adresy IP skojarzone z bramą aplikacji nie zmieniają się nawet w okresie istnienia Application Gateway.
 
-## <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+## <a name="web-application-firewall"></a>Web Application Firewall
 
 Zapora aplikacji sieci Web (WAF) to usługa, która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach. WAF opiera się na regułach z [OWASP (Open Web Application Security Project) podstawowych zestawów reguł](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (tylko WAF_v2), 3,0 i 2.2.9. 
 
@@ -149,13 +149,13 @@ Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP i adresó
 
 Standard_v2 Application Gateway można skonfigurować na potrzeby wdrożeń skalowania automatycznego lub stałego rozmiaru. Jednostka SKU v2 nie oferuje różnych rozmiarów wystąpień. Aby uzyskać więcej informacji na temat wydajności i cen w wersji 2, zobacz [Skalowanie automatyczne w wersji 2](application-gateway-autoscaling-zone-redundant.md) i [Informacje o cenach](understanding-pricing.md).
 
-Standard Application Gateway (v1) jest oferowany w trzech rozmiarach: **małych**, **średnich**i **dużych**. Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
+Standard Application Gateway (v1) jest oferowany w trzech rozmiarach: **małych**, **średnich** i **dużych**. Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
 
 Pełna lista limitów usługi Application Gateway znajduje się na stronie [ograniczeń usługi Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 W poniższej tabeli przedstawiono średnią przepływność wydajności dla każdego wystąpienia usługi Application Gateway V1 z włączonym odciążeniem SSL:
 
-| Średni rozmiar odpowiedzi strony zaplecza | Mała | Średniaa | Duża |
+| Średni rozmiar odpowiedzi strony zaplecza | Mały | Śred. | Duży |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mb/s |13 Mb/s |50 Mb/s |
 | 100 KB |35 Mb/s |100 Mb/s |200 Mb/s |

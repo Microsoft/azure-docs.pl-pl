@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
 ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074733"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Jak monitorować opóźnienia po stronie serwera dla operacji w kontenerze Azure Cosmos DB lub koncie
@@ -30,27 +30,27 @@ Można wyszukać dziennik diagnostyczny, aby zobaczyć rozmiar zwracanych danych
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki** .
+1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki**.
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
-1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję** i **grupę zasobów** . W polu **Typ zasobu** wybierz pozycję **konta Azure Cosmos DB** , wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj** .
+1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję** i **grupę zasobów**. W polu **Typ zasobu** wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Okienko metryki w Azure Monitor":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Wybierz konto Azure Cosmos DB, aby wyświetlić metryki":::
 
 1. Następnie wybierz metrykę **opóźnienia po stronie serwera**  z listy dostępnych metryk. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **opóźnienie po stronie serwera** i **średnią** jako wartość agregacji. Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres. W wybranym okresie można zobaczyć opóźnienia po stronie serwera na minutę.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Okienko metryki w Azure Monitor":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Wybierz Server-Side metrykę opóźnienia z Azure Portal":::
 
 ## <a name="filters-for-server-side-latency"></a>Filtry dla opóźnień po stronie serwera
 
-Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez określoną **CollectionName** , **connectionmode** , **DatabaseName** , **OperationType** , **region** i **PublicAPIType** . 
+Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez określoną **CollectionName**, **connectionmode**, **DatabaseName**, **OperationType**, **region** i **PublicAPIType**. 
 
-Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **PublicAPIType** , i wybierz wartość **SQL** . Dodaj inny filtr dla elementu **OperationType** . Na wykresie są następnie wyświetlane opóźnienia po stronie serwera dla różnych operacji w wybranym okresie. Operacje wykonywane za pośrednictwem procedury składowanej nie są rejestrowane, więc nie są dostępne w ramach metryki operacji.
+Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **PublicAPIType** , i wybierz wartość **SQL**. Dodaj inny filtr dla elementu **OperationType**. Na wykresie są następnie wyświetlane opóźnienia po stronie serwera dla różnych operacji w wybranym okresie. Operacje wykonywane za pośrednictwem procedury składowanej nie są rejestrowane, więc nie są dostępne w ramach metryki operacji.
 
 Metryki **opóźnienia po stronie serwera** dla każdej operacji są wyświetlane jak pokazano na poniższej ilustracji:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Okienko metryki w Azure Monitor":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filtry dla metryk opóźnienia po stronie serwera":::
 
 Metryki można także grupować przy użyciu opcji **Zastosuj dzielenie** .  
 

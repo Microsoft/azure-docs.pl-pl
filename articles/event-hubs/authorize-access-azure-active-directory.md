@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu d
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910801"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory
@@ -46,11 +46,11 @@ Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy okreś
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów Event Hubs, rozpoczynając od najwęższego zakresu:
 
-- **Grupa konsumentów** : w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli platformy Azure do podmiotu zabezpieczeń na tym poziomie. 
-- **Centrum zdarzeń** : przypisanie roli dotyczy jednostki centrum zdarzeń i grupy konsumentów.
-- **Przestrzeń nazw** : przypisanie roli obejmuje całą topologię Event Hubs w przestrzeni nazw oraz do skojarzonej z nią grupy odbiorców.
-- **Grupa zasobów** : przypisanie roli dotyczy wszystkich zasobów Event Hubs w grupie zasobów.
-- **Subskrypcja** : przypisanie roli dotyczy wszystkich zasobów Event Hubs we wszystkich grupach zasobów w subskrypcji.
+- **Grupa konsumentów**: w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli platformy Azure do podmiotu zabezpieczeń na tym poziomie. 
+- **Centrum zdarzeń**: przypisanie roli dotyczy jednostki centrum zdarzeń i grupy konsumentów.
+- **Przestrzeń nazw**: przypisanie roli obejmuje całą topologię Event Hubs w przestrzeni nazw oraz do skojarzonej z nią grupy odbiorców.
+- **Grupa zasobów**: przypisanie roli dotyczy wszystkich zasobów Event Hubs w grupie zasobów.
+- **Subskrypcja**: przypisanie roli dotyczy wszystkich zasobów Event Hubs we wszystkich grupach zasobów w subskrypcji.
 
 > [!NOTE]
 > - Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut. 

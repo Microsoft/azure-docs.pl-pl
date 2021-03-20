@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421247"
 ---
 # <a name="permutation-feature-importance"></a>Ważność funkcji permutacji
@@ -40,7 +40,7 @@ Generowanie zestawu wyników funkcji wymaga, aby był już szkolony model, a tak
 
      Wartość inicjatora jest opcjonalna, ale należy podać wartość, jeśli chcesz, aby odtwarzalność w przebiegach tego samego potoku.  
 
-5.  Aby uzyskać **metrykę mierzenia wydajności** , wybierz jedną metrykę, która ma być używana podczas obliczania jakości modelu po permutacji.  
+5.  Aby uzyskać **metrykę mierzenia wydajności**, wybierz jedną metrykę, która ma być używana podczas obliczania jakości modelu po permutacji.  
 
      Azure Machine Learning Designer obsługuje następujące metryki, w zależności od tego, czy oceniasz model klasyfikacji czy regresji:  
 

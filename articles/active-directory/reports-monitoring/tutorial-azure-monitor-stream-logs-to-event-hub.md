@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89469188"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure
@@ -65,7 +65,7 @@ Do korzystania z tej funkcji są potrzebne następujące elementy:
 
 9. Wybierz pozycję **Zapisz**, aby zapisać ustawienie.
 
-    ![Ustawienia diagnostyczne](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
+    ![Ustawienia diagnostyki](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. Po około 15 minutach sprawdź, czy zdarzenia są wyświetlane w centrum zdarzeń. Aby to zrobić, przejdź do centrum zdarzeń w portalu i sprawdź, czy liczba **komunikatów przychodzących** jest większa od zera. 
 

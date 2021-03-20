@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81260245"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN lokalizacje POP według skrótu
@@ -30,7 +30,7 @@ ms.locfileid: "81260245"
 
 W tym artykule wymieniono lokalizacje POP, posortowane według skrótów POP, **Azure CDN z Verizon**.
 
-Skrót | Lokalizacja | Region
+Skrót | Lokalizacja | Region (Region)
 | --- | --- | --- |
 AGA | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA
 AGB | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA

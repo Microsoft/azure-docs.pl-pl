@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89424875"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodawanie elementów Runbook usługi Azure Automation do planów odzyskiwania
@@ -121,7 +121,7 @@ Blog Aman Sharma w usłudze w [chmurze zbierających](http://harvestingclouds.co
     ![Kliknij przycisk Dostosuj](media/site-recovery-runbook-automation-new/custom-rp.png)
 
 2. Kliknij przycisk wielokropka (...) obok pozycji **Grupa 1: Rozpocznij**  >  **Dodawanie wpisu**.
-3. W obszarze **Wstaw akcję**Sprawdź, czy jest wybrany **skrypt** , a następnie określ nazwę skryptu (**Hello World**).
+3. W obszarze **Wstaw akcję** Sprawdź, czy jest wybrany **skrypt** , a następnie określ nazwę skryptu (**Hello World**).
 4. Określ konto usługi Automation i wybierz element Runbook. Aby zapisać skrypt, kliknij przycisk **OK**. Skrypt zostanie dodany do **grupy 1: kroki po kroku**.
 
 

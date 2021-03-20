@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87906087"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Szybki start: Dodawanie użytkowników-gości do katalogu w witrynie Azure Portal
@@ -66,7 +66,7 @@ Dodaj aplikację Salesforce do swojej dzierżawy testowej i przypisz testowego u
 
     ![Zrzut ekranu przedstawiający Dodawanie z galerii pola wyszukiwania](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Wybierz pozycję **Dodaj**.
-6. W obszarze **Zarządzaj** wybierz pozycję **Logowanie jednokrotne**, a w obszarze **Tryb logowania jednokrotnego** wybierz pozycję **Logowanie oparte na haśle** i kliknij przycisk ** Zapisz**.
+6. W obszarze **Zarządzaj** wybierz pozycję **Logowanie jednokrotne**, a w obszarze **Tryb logowania jednokrotnego** wybierz pozycję **Logowanie oparte na haśle** i kliknij przycisk **Zapisz**.
 7. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy** > **Dodaj użytkownika** > **Użytkownicy i grupy**.
 8. Za pomocą pola wyszukiwania wyszukaj użytkownika testowego (jeśli to konieczne) i wybierz go z listy. Następnie kliknij pozycję **Wybierz**.
 9. Wybierz opcję **Przypisz**. 

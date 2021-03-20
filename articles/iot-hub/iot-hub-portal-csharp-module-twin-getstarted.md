@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 0d16d7a6dbf903ae790015c12e3d34e4a2a553d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139351"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Rozpoczynanie pracy z tożsamością modułu i bliźniaczą reprezentacją modułu usługi IoT Hub przy użyciu portalu i urządzenia platformy .NET
@@ -75,7 +75,7 @@ Aby utworzyć aplikację, która aktualizuje raportowane właściwości w module
 
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź *UpdateModuleTwinReportedProperties* jako **nazwę projektu**. Wybierz pozycję **Utwórz** , aby kontynuować.
+1. W obszarze **Konfigurowanie nowego projektu** wprowadź *UpdateModuleTwinReportedProperties* jako **nazwę projektu**. Wybierz pozycję **Utwórz** , aby kontynuować.
 
     ![Konfigurowanie projektu programu Visual Studio](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
@@ -99,7 +99,7 @@ Potrzebujesz parametrów połączenia modułu dla aplikacji konsolowej. Wykonaj 
 
 1. Przejdź do centrum IoT Hub i wybierz pozycję **urządzenia IoT**. Otwórz **myFirstDevice** i zobaczysz, że **myFirstModule** został pomyślnie utworzony.
 
-1. Wybierz pozycję **myFirstModule** w obszarze **tożsamości modułów**. W obszarze **szczegóły tożsamości modułu**Skopiuj **Parametry połączenia (klucz podstawowy)**.
+1. Wybierz pozycję **myFirstModule** w obszarze **tożsamości modułów**. W obszarze **szczegóły tożsamości modułu** Skopiuj **Parametry połączenia (klucz podstawowy)**.
 
     ![Szczegóły modułu w witrynie Azure Portal](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
@@ -107,7 +107,7 @@ Potrzebujesz parametrów połączenia modułu dla aplikacji konsolowej. Wykonaj 
 
 Aby utworzyć aplikację, wykonaj następujące kroki:
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

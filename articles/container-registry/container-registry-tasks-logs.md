@@ -4,10 +4,10 @@ description: Jak wyświetlać dzienniki uruchamiania generowane przez zadania AC
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027180"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Wyświetlanie dzienników uruchamiania zadań i zarządzanie nimi
@@ -65,14 +65,14 @@ Jeśli zadanie jest wyzwalane automatycznie, na przykład przez aktualizację ko
 Aby wyświetlić dzienniki uruchamiania w portalu:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **usługi** wybierz pozycję **zadania**  >  **uruchomienia** .
+1. W obszarze **usługi** wybierz pozycję **zadania**  >  **uruchomienia**.
 1. Wybierz **Identyfikator uruchomienia** , aby wyświetlić stan uruchomienia i dzienniki uruchomienia. Dziennik zawiera te same informacje, co w przypadku dziennika strumieniowego, jeśli został wygenerowany.
 
 ![Wyświetl Portal logowania uruchamiania zadań](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Aby wyświetlić dziennik przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Task Logs](/cli/azure/acr/task#az-acr-task-logs) i określ identyfikator uruchomienia, nazwę zadania lub określony obraz tworzony przez zadanie kompilacji. Jeśli nazwa zadania zostanie określona, polecenie wyświetli dziennik dla ostatniego utworzonego uruchomienia.
 
-Poniższy przykład wyprowadza dziennik dla przebiegu o IDENTYFIKATORze *CF4* :
+Poniższy przykład wyprowadza dziennik dla przebiegu o IDENTYFIKATORze *CF4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
