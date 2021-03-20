@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674517"
 ---
 # <a name="azure-farmbeats-apis"></a>Interfejsy API usługi Azure FarmBeats
@@ -68,7 +68,7 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Oto najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do usługi Azure FarmBeats Datahub.
 
 
-**Nagłówki** | **Opis i przykład**
+**Nagłówek** | **Opis i przykład**
 --- | ---
 Content-Type  | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Content-Type: Application/JSON
 Autoryzacja  | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
@@ -143,23 +143,23 @@ W tym przykładzie podczas tworzenia farmy nie określono obowiązkowego pola "n
 
 Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą użytkownika lub rejestracji aplikacji w Azure Active Directory. Aby utworzyć rejestrację aplikacji w Azure Active Directory, wykonaj następujące kroki:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** . Alternatywnie możesz użyć istniejącego konta.
+1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**. Alternatywnie możesz użyć istniejącego konta.
 2. W przypadku nowego konta wykonaj następujące czynności:
 
     - Wprowadź nazwę.
-    - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)** .
+    - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)**.
     - Użyj wartości domyślnych w pozostałych polach.
-    - Wybierz pozycję **Zarejestruj** .
+    - Wybierz pozycję **Zarejestruj**.
 
 3. W okienku **Przegląd** nowych i istniejących aplikacji wykonaj następujące czynności:
 
-    - Przechwyć **Identyfikator klienta** i **Identyfikator dzierżawy** .
-    - Przejdź do pozycji **Certyfikaty i wpisy tajne** , aby wygenerować nowy klucz tajny klienta i przechwycić **wpis tajny klienta** .
-    - Wróć do **omówienia** i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym** .
-    - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu** .
+    - Przechwyć **Identyfikator klienta** i **Identyfikator dzierżawy**.
+    - Przejdź do pozycji **Certyfikaty i wpisy tajne** , aby wygenerować nowy klucz tajny klienta i przechwycić **wpis tajny klienta**.
+    - Wróć do **omówienia** i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym**.
+    - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu**.
 
 4. Przejdź do Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) i wykonaj następujące czynności:
-    - Przejdź do **interfejsu API RoleAssignment** .
+    - Przejdź do **interfejsu API RoleAssignment**.
     - Wykonaj wpis, aby utworzyć obiekt **RoleAssignment** dla właśnie utworzonego **identyfikatora obiektu** .
  
 ```json

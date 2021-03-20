@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu programu ADP Globalview | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a aplikacją ADP Globalview.
+title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu programu ADP Globalview (przestarzałe) | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ADP Globalview (przestarzałe).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,91 +9,89 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c11dd5ae3bc312cfea1a047c2db4396ba2cb50da
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 08b1294436ead372234104008a48ca23e56de389
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309033"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589314"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu programu ADP Globalview
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview-deprecated"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu programu ADP Globalview (przestarzałe)
 
-W tym samouczku dowiesz się, jak zintegrować Globalview ADP z usługą Azure Active Directory (Azure AD). Po zintegrowaniu programu ADP Globalview z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować Globalview ADP (przestarzałe) z Azure Active Directory (Azure AD). Po zintegrowaniu programu ADP Globalview (przestarzały) z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do Globalview ADP.
-* Zezwól użytkownikom na automatyczne logowanie do programu ADP Globalview przy użyciu kont usługi Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do Globalview ADP (przestarzałe).
+* Zezwól użytkownikom na automatyczne logowanie do programu ADP Globalview (przestarzałe) za pomocą kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Globalview.
+* Globalview ADP (przestarzałe) subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja ADP Globalview obsługuje logowanie jednokrotne inicjowane przez **dostawcę tożsamości**
+* Globalview ADP (przestarzałe) obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne.
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Dodawanie aplikacji ADP Globalview z galerii
+## <a name="adding-adp-globalview-deprecated-from-the-gallery"></a>Dodawanie Globalview ADP (przestarzałe) z galerii
 
-Aby skonfigurować integrację aplikacji ADP Globalview z usługą Azure AD, należy z poziomu galerii dodać tę aplikację do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu ADP Globalview (przestarzałe) z usługą Azure AD, musisz dodać ADP Globalview (przestarzałe) z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **ADP Globalview** w polu wyszukiwania.
-1. Wybierz pozycję **ADP Globalview** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **ADP Globalview (przestarzałe)** w polu wyszukiwania.
+1. Wybierz pozycję **ADP Globalview (przestarzałe)** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Globalview ADP
+## <a name="configure-and-test-azure-ad-sso-for-adp-globalview-deprecated"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu ADP Globalview (przestarzałe)
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu ADP Globalview przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie ADP Globalview.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu ADP Globalview (przestarzałe) przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie ADP Globalview (przestarzałe).
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu ADP Globalview, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu ADP Globalview (przestarzałe), wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj ADP Globalview Logowanie jednokrotne](#configure-adp-globalview-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika programu ADP Globalview testowego](#create-adp-globalview-test-user)** , aby dysponować odpowiednikiem B. Simon w ADP Globalview, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj ADP Globalview (przestarzałe) logowanie JEDNOkrotne](#configure-adp-globalview-deprecated-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz GLOBALVIEW ADP (przestarzałe) test użytkownika](#create-adp-globalview-deprecated-test-user)** — Aby uzyskać odpowiedni odpowiednik B. Simon w ADP Globalview (przestarzały), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją w programie **ADP Globalview** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **ADP Globalview (przestarzałe)** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
     
-    W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
+    W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu jednego z następujących wzorców:
 
-    ```https
-    https://<subdomain>.globalview.adp.com/federate
-    https://<subdomain>.globalview.adp.com/federate2
-    ```
-
+    | Identyfikator |
+    | ----------- |
+    | `https://<subdomain>.globalview.adp.com/federate` |
+    | `https://<subdomain>.globalview.adp.com/federate2` |
+    |
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego identyfikatora. Skontaktuj się z[zespołem obsługi klienta aplikacji ADP Globalview](https://www.adp.com/contact-us/overview.aspx), aby uzyskać tę wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego identyfikatora. Skontaktuj się z [zespołem pomocy technicznej Globalview (przestarzałe)](https://www.adp.com/contact-us/overview.aspx) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie programu ADP Globalview** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie programu ADP Globalview (przestarzałe)** skopiuj odpowiednie adresy URL na podstawie wymagań.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -111,42 +109,33 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Globalview ADP.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Globalview ADP (przestarzałe).
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **ADP Globalview**.
+1. Na liście Aplikacje wybierz pozycję **ADP Globalview (przestarzałe)**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-adp-globalview-sso"></a>Skonfiguruj ADP Globalview Logowanie jednokrotne
+## <a name="configure-adp-globalview-deprecated-sso"></a>Konfigurowanie Globalview ADP (przestarzałe) Logowanie jednokrotne
 
-Aby skonfigurować logowanie jednokrotne po stronie aplikacji **ADP Globalview**, należy wysłać pobrany **certyfikat (Base64)** i odpowiednie adresy URL skopiowane z witryny Azure Portal do [zespołu pomocy technicznej aplikacji ADP Globalview](https://www.adp.com/contact-us/overview.aspx). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **ADP Globalview (przestarzałe)** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [ADP Globalview (przestarzałe)](https://www.adp.com/contact-us/overview.aspx). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-adp-globalview-test-user"></a>Tworzenie użytkownika testowego aplikacji ADP Globalview
+### <a name="create-adp-globalview-deprecated-test-user"></a>Tworzenie Globalview ADP (przestarzałe) użytkownika testowego
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w ADP Globalview. Skontaktuj się z  [zespołem pomocy technicznej aplikacji ADP Globalview](https://www.adp.com/contact-us/overview.aspx) w celu dodania użytkowników na platformie ADP Globalview. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w ADP Globalview (przestarzałe). Pracuj z [zespołem pomocy technicznej Globalview (przestarzałe)](https://www.adp.com/contact-us/overview.aspx) , aby dodać użytkowników z platformy ADP Globalview (przestarzałe). Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po kliknięciu kafelka ADP Globalview w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji ADP Globalview, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do elementu ADP Globalview (przestarzałe), dla którego skonfigurowano Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka ADP Globalview (przestarzałe) w obszarze Moje aplikacje należy automatycznie zalogować się do programu ADP Globalview (przestarzałe), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj program ADP Globalview z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu programu ADP Globalview (przestarzałe) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

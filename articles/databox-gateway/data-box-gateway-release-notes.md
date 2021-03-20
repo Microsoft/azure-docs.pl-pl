@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 2984f7990b9570c5ec57633de7f7e50162fb6f46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583016"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Informacje o wersji ogólnych dostępności Azure Data Box Edge/Azure Data Box Gateway
@@ -40,7 +40,7 @@ Wersja GA odnosi się do wersji oprogramowania:
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących Data Box Gateway z uruchomioną wersją programu.
 
-| Nie. | Obiekt feature | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Typy plików | Następujące typy plików nie są obsługiwane: pliki znaków, pliki blokowe, gniazda, potoki, linki symboliczne.  |Skopiowanie tych plików spowoduje utworzenie plików o zerowej długości dla udziału NFS. Te pliki pozostają w stanie błędu i są również zgłaszane w *error.xml*. <br> Symboliczne linki do katalogów powodują, że nigdy nie są oznaczone jako offline. W związku z tym może nie być widoczne szare przekroczenie katalogów wskazujących, że katalogi są w trybie offline, a cała skojarzona zawartość została całkowicie przekazana na platformę Azure. |
 | **2.** |Usunięcie | Z powodu błędu w tej wersji, jeśli udział NFS zostanie usunięty, udział nie może zostać usunięty. Stan udziału *zostanie wyświetlony.*  |Dzieje się tak tylko wtedy, gdy udział korzysta z nieobsługiwanej nazwy pliku. |

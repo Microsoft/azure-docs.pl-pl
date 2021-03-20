@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7f4903cf29f15132db91e47d78efe5a556efd937
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340247"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architektury oparte na zdarzeniach bezserwerowych z Azure Cosmos DB i Azure Functions
@@ -31,8 +31,8 @@ Korzystając z [wyzwalacza Azure Functions dla Cosmos DB](../azure-functions/fun
 
 Aby zaimplementować przepływ oparty na zdarzeniach bezserwerowych, potrzebne są:
 
-* **Monitorowany kontener** : monitorowany kontener jest monitorowanym kontenerem usługi Azure Cosmos i przechowuje dane, z których jest generowana podawanie zmian. Wszystkie operacje wstawiania, aktualizacje monitorowanego kontenera są odzwierciedlane w kanale zmian kontenera.
-* **Kontener dzierżawy** : kontener dzierżawy zachowuje stan między wieloma i dynamicznymi wystąpieniami funkcji platformy Azure bez serwera i umożliwia dynamiczne skalowanie. Ten kontener dzierżawy może być ręcznie lub automatycznie tworzony przez wyzwalacz Azure Functions dla Cosmos DB. Aby automatycznie utworzyć kontener dzierżawy, Ustaw flagę *CreateLeaseCollectionIfNotExists* w [konfiguracji](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Podzielone na partycje kontenery dzierżaw muszą mieć `/id` definicję klucza partycji.
+* **Monitorowany kontener**: monitorowany kontener jest monitorowanym kontenerem usługi Azure Cosmos i przechowuje dane, z których jest generowana podawanie zmian. Wszystkie operacje wstawiania, aktualizacje monitorowanego kontenera są odzwierciedlane w kanale zmian kontenera.
+* **Kontener dzierżawy**: kontener dzierżawy zachowuje stan między wieloma i dynamicznymi wystąpieniami funkcji platformy Azure bez serwera i umożliwia dynamiczne skalowanie. Ten kontener dzierżawy może być ręcznie lub automatycznie tworzony przez wyzwalacz Azure Functions dla Cosmos DB. Aby automatycznie utworzyć kontener dzierżawy, Ustaw flagę *CreateLeaseCollectionIfNotExists* w [konfiguracji](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Podzielone na partycje kontenery dzierżaw muszą mieć `/id` definicję klucza partycji.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Utwórz wyzwalacz Azure Functions dla Cosmos DB
 

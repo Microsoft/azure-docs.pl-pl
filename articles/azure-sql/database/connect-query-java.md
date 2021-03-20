@@ -1,5 +1,5 @@
 ---
-title: Używanie języka Java i JDBC z Azure SQL Database
+title: Używanie języka Java i funkcji JDBC z usługą Azure SQL Database
 description: Dowiedz się, jak używać języka Java i JDBC z Azure SQL Database.
 services: sql-database
 author: jdubois
@@ -11,10 +11,10 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972678"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Używanie języka Java i JDBC z Azure SQL Database
@@ -497,5 +497,5 @@ az group delete \
 ## <a name="next-steps"></a>Następne kroki
 
 - [Projektuj swoją pierwszą bazę danych w Azure SQL Database](design-first-database-tutorial.md)  
-- [Sterownik JDBC firmy Microsoft dla SQL Server](https://github.com/microsoft/mssql-jdbc)  
+- [Sterownik JDBC firmy Microsoft dla programu SQL Server](https://github.com/microsoft/mssql-jdbc)  
 - [Zgłaszanie problemów/zadawanie pytań](https://github.com/microsoft/mssql-jdbc/issues)

@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup s
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91254435"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM
@@ -61,7 +61,7 @@ Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za po
 
     ![Protection11 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Close** (Zamknij).
+    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Zamknij**.
 
     ![Protection12 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Wybierz obiekt programu SharePoint wyświetlany na karcie **odzyskiwanie** programu DPM, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj**.

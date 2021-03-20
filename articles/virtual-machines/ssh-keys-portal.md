@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88929446"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generowanie i przechowywanie kluczy SSH w Azure Portal
@@ -28,7 +28,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia i używania kluczy SSH 
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace**wybierz pozycję **klucze SSH**.
+1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace** wybierz pozycję **klucze SSH**.
 
 1. Na stronie **klucz SSH** wybierz pozycję **Utwórz**.
 
@@ -40,7 +40,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia i używania kluczy SSH 
 
 1. Wpisz nazwę klucza w polu **Nazwa pary kluczy**.
 
-1. W polu **Źródło klucza publicznego SSH**wybierz pozycję **Generuj Źródło klucza publicznego**. 
+1. W polu **Źródło klucza publicznego SSH** wybierz pozycję **Generuj Źródło klucza publicznego**. 
 
 1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**.
 
@@ -48,7 +48,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia i używania kluczy SSH 
 
 1. Następnie zostanie wyświetlone okno podręczne, a następnie wybierz pozycję **Pobierz klucz prywatny i utwórz zasób**. Spowoduje to pobranie klucza SSH jako pliku PEM.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Tworzenie nowej grupy zasobów i generowanie pary kluczy SSH":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Pobierz klucz prywatny jako plik PEM":::
 
 1. Po pobraniu pliku PEM warto go przenieść w dowolnym miejscu na komputerze, na którym można łatwo wskazywać od klienta SSH.
 
@@ -70,11 +70,11 @@ Możesz również przekazać publiczny klucz SSH do przechowywania na platformie
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace*wybierz pozycję **klucze SSH**.
+1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace* wybierz pozycję **klucze SSH**.
 
 1. Na stronie **klucz SSH** wybierz pozycję **Utwórz**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Tworzenie nowej grupy zasobów i generowanie pary kluczy SSH":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Przekazywanie klucza publicznego SSH do przechowywania na platformie Azure":::
 
 1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów, w której mają być przechowywane klucze. Wpisz nazwę grupy zasobów, a następnie wybierz przycisk **OK**.
 
@@ -82,7 +82,7 @@ Możesz również przekazać publiczny klucz SSH do przechowywania na platformie
 
 1. Wpisz nazwę klucza w polu **Nazwa pary kluczy**.
 
-1. W polu **Źródło klucza publicznego SSH**wybierz opcję **Przekaż istniejący klucz publiczny**. 
+1. W polu **Źródło klucza publicznego SSH** wybierz opcję **Przekaż istniejący klucz publiczny**. 
 
 1. Wklej pełną zawartość klucza publicznego w polu **klucz przekazywania** , a następnie wybierz pozycję **Przegląd + Utwórz**.
 
@@ -98,7 +98,7 @@ Klucze SSH utworzone w portalu są przechowywane jako zasoby, dzięki czemu moż
 1. W obszarze Filtry wybierz opcję **Typ**, usuń zaznaczenie opcji **Zaznacz wszystko** , aby wyczyścić listę.
 1. W filtrze wpisz **SSH** , a następnie wybierz pozycję **klucz SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Tworzenie nowej grupy zasobów i generowanie pary kluczy SSH":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Zrzut ekranu przedstawiający sposób filtrowania listy w celu wyświetlenia wszystkich kluczy SSH.":::
 
 ## <a name="get-the-public-key"></a>Pobierz klucz publiczny
 

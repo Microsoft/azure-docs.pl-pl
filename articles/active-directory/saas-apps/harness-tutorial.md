@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.openlocfilehash: d6a6c8b49582b34c2603e0ddf78b76736f97c183
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92445583"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z programem obsługi
@@ -136,11 +136,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Jeśli chcesz ręcznie skonfigurować program instalacyjny, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do firmowej lokacji firmy jako administrator i wykonaj następujące czynności:
 
-4. W prawym górnym rogu strony kliknij pozycję **stałe**  >  Ustawienia uwierzytelniania**Zarządzanie dostępem do**zabezpieczeń  >  **Authentication Settings**.
+4. W prawym górnym rogu strony kliknij pozycję **stałe**  >  Ustawienia uwierzytelniania **Zarządzanie dostępem do** zabezpieczeń  >  .
 
     ![Zrzut ekranu pokazujący menu "zabezpieczenia ciągłe" z wybraną opcją "Zarządzanie dostępem" i "ustawienia uwierzytelniania".](./media/harness-tutorial/configure01.png)
 
-5. W sekcji **dostawcy logowania jednokrotnego** kliknij pozycję **+ Dodaj dostawcę rejestracji jednokrotnej**protokołu  >  **SAML**.
+5. W sekcji **dostawcy logowania jednokrotnego** kliknij pozycję **+ Dodaj dostawcę rejestracji jednokrotnej** protokołu  >  **SAML**.
 
     ![Zrzut ekranu pokazujący dostawców "S S" z opcją "+ Add S O Providers-S A M".](./media/harness-tutorial/configure03.png)
 

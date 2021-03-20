@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078184"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji pulpitu wirtualnego systemu Windows (klasycznych) przy użyciu Azure Automation
@@ -44,7 +44,7 @@ W czasie użytkowania poza szczytem zadanie Określa, ile maszyn wirtualnych hos
 >[!NOTE]
 >Jeśli ręcznie ustawisz maszynę wirtualną hosta sesji do trybu opróżniania, zadanie nie będzie zarządzać maszyną wirtualną hosta sesji. Jeśli maszyna wirtualna hosta sesji jest uruchomiona i ma ustawiony tryb opróżniania, będzie traktowana jako niedostępna, co spowoduje uruchomienie dodatkowych maszyn wirtualnych do obsługi obciążenia. Zalecamy oznaczanie maszyn wirtualnych platformy Azure przed ręcznym ustawieniem ich na tryb opróżniania. Można nazwać tag przy użyciu parametru *MaintenanceTagName* podczas późniejszego tworzenia usługi Azure Logic App Scheduler. Tagi ułatwiają odróżnienie tych maszyn wirtualnych od tych, które są zarządzane przez narzędzie do skalowania. Ustawienie tagu obsługi zapobiega także wprowadzeniu zmian w maszynie wirtualnej do momentu usunięcia znacznika.
 
-Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwala na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja komputera**  >  **zasady**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **limity czasu sesji**hosta sesji. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma żadnych aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
+Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwala na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja komputera**  >  **zasady**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **limity czasu sesji** hosta sesji. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma żadnych aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
 
 W dowolnym momencie zadanie przyjmuje również *MaxSessionLimit* puli hostów, aby określić, czy bieżąca liczba sesji przekracza 90% maksymalnej wydajności. Jeśli tak jest, zadanie rozpocznie dodatkowe maszyny wirtualne hosta sesji.
 
@@ -319,7 +319,7 @@ Gdy zgłaszasz problem, musisz podać poniższe informacje, aby pomóc nam w roz
 
 - Data wygaśnięcia [konta Uruchom jako](#create-an-azure-automation-run-as-account). Aby to sprawdzić, Otwórz konto Azure Automation, a następnie wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta** w okienku po lewej stronie okna. Data wygaśnięcia powinna być **uwzględniona w ramach konta Uruchom jako platformy Azure**.
 
-### <a name="log-analytics"></a>Usługa Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 
 Jeśli zamierzasz używać Log Analytics, możesz wyświetlić wszystkie dane dziennika w dzienniku niestandardowym o nazwie **WVDTenantScale_CL** w obszarze **dzienniki niestandardowe** w widoku **dzienniki** w obszarze roboczym log Analytics. Wystawiłeś przykładowe zapytania, które mogą być przydatne.
 

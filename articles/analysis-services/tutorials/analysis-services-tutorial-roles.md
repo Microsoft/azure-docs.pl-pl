@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018699"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
@@ -52,7 +52,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 1. W programie SSMS wybierz pozycję **Eksplorator obiektów**, a następnie kliknij pozycję **Połącz** > **Analysis Services**.
 
-    ![Połącz](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. W oknie dialogowym **Połączenie z serwerem** w polu **Nazwa serwera** skopiuj i wklej nazwę serwera skopiowaną z portalu. W polu **Uwierzytelnianie** wybierz pozycję **Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego**, a następnie wprowadź nazwę konta użytkownika i naciśnij przycisk **Połącz**.
    
@@ -130,13 +130,13 @@ W tym zadaniu użyjesz polecenia [Create](/analysis-services/tmsl/create-command
 ## <a name="verify-your-changes"></a>Sprawdzanie zmian
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Odśwież** lub naciśnij klawisz **F5**.
-2. Rozwiń węzeł **bazy danych**  >  **adventureworks**  >  **role**AdventureWorks. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
+2. Rozwiń węzeł **bazy danych**  >    >  **role** AdventureWorks. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
 
     ![Sprawdzenie w Eksploratorze obiektów](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć **Role Properties**  >  **przynależności** do właściwości roli, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
+Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć   >  **przynależności** do właściwości roli, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki

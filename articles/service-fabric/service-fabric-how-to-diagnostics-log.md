@@ -7,10 +7,10 @@ ms.date: 03/27/2018
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a36425acf42a469c7f48b2e954bdacfdfcce1b10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011484"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Add logging to your Service Fabric application (Dodawanie rejestrowania do aplikacji usługi Service Fabric)
@@ -93,7 +93,7 @@ internal sealed class ServiceEventSource : EventSource
 
 Użycie hybrydowej Instrumentacji strukturalnej i ogólnej może również współpracować. Instrumentacja strukturalna jest używana do raportowania błędów i metryk. Zdarzenia ogólne mogą służyć do szczegółowego rejestrowania używanego przez inżynierów w celu rozwiązywania problemów.
 
-## <a name="microsoftextensionslogging"></a>Microsoft. Extensions. Logging
+## <a name="microsoftextensionslogging"></a>Microsoft.Extensions.Logging
 
 Rejestrowanie ASP.NET Core ([pakiet NuGet Microsoft. Extensions. rejestrowania](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) to struktura rejestrowania, która udostępnia interfejs API rejestrowania standardowego dla aplikacji. Aby obsłużyć inne rejestracje, można podłączyć się do ASP.NET Core rejestrowania. Zapewnia to szeroką gamę obsługi rejestrowania w aplikacji, bez konieczności zmiany kodu.
 
@@ -126,7 +126,7 @@ Rejestrowanie ASP.NET Core ([pakiet NuGet Microsoft. Extensions. rejestrowania](
 
 Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sekcji, w tym [Serilog](https://serilog.net/), [nLOG](https://nlog-project.org/)i [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Każdy z nich można podłączyć do ASP.NET Core rejestrowania lub użyć ich osobno. Serilog zawiera funkcję, która wzbogaca wszystkie komunikaty wysyłane z rejestratora. Ta funkcja może być przydatna do wyprowadzania nazwy usługi, typu i informacji o partycji. Aby skorzystać z tej możliwości w infrastrukturze ASP.NET Core, wykonaj następujące czynności:
 
-1. Dodaj **Serilog**, **Serilog. Extensions. Logging**, **Serilog. ujścias. Literate**i **Serilog. ujścia. zauważalne** pakiety NuGet do projektu. 
+1. Dodaj **Serilog**, **Serilog. Extensions. Logging**, **Serilog. ujścias. Literate** i **Serilog. ujścia. zauważalne** pakiety NuGet do projektu. 
 2. Utwórz `LoggerConfiguration` wystąpienie rejestratora i.
 
    ```csharp
@@ -139,7 +139,7 @@ Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sek
    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
    ```
 
-4. W konstruktorze usług tworzy wzbogacania właściwości dla **ServiceTypeName**, **ServiceName**, **PartitionID**i **InstanceId**.
+4. W konstruktorze usług tworzy wzbogacania właściwości dla **ServiceTypeName**, **ServiceName**, **PartitionID** i **InstanceId**.
 
    ```csharp
    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)

@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274116"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Zarządzanie Active Directory Federation Servicesami i dostosowywanie ich przy użyciu Azure AD Connect
@@ -58,7 +58,7 @@ Za pomocą Azure AD Connect można sprawdzić bieżącą kondycję AD FS i zaufa
 
    ![Zrzut ekranu przedstawiający stronę "poświadczenia dostępu zdalnego" z przykładowymi poświadczeniami.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
-    Po kliknięciu **przycisku dalej**Azure AD Connect sprawdza kondycję certyfikatu i pokazuje wszelkie problemy.
+    Po kliknięciu **przycisku dalej** Azure AD Connect sprawdza kondycję certyfikatu i pokazuje wszelkie problemy.
 
     ![Stan certyfikatów](./media/how-to-connect-fed-management/RepairADTrust4.PNG)
 
@@ -114,7 +114,7 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
    ![Serwery AD FS](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
 
-6. Kliknij przycisk **dalej**i przejdź przez ostateczną stronę **konfigurowania** . Po zakończeniu dodawania serwerów do farmy AD FS Azure AD Connect zostanie nadana opcja sprawdzenia łączności.
+6. Kliknij przycisk **dalej** i przejdź przez ostateczną stronę **konfigurowania** . Po zakończeniu dodawania serwerów do farmy AD FS Azure AD Connect zostanie nadana opcja sprawdzenia łączności.
 
    ![Zrzut ekranu przedstawiający stronę "gotowe do skonfigurowania" z listą akcji do wykonania po kliknięciu pozycji "Zainstaluj".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
@@ -225,7 +225,7 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 
 W tej regule są używane zapytania dotyczące wartości **MS-ds-consistencyguid** i **objectGUID** dla użytkownika z Active Directory. Zmień nazwę magazynu na odpowiednią nazwę magazynu we wdrożeniu AD FS. Zmień również typ oświadczenia na odpowiedni typ oświadczenia dla Federacji, zgodnie z definicją dla **objectGUID** i **MS-ds-consistencyguid**.
 
-Ponadto przy użyciu opcji **Dodaj** **i nie należy**unikać dodawania wychodzącego problemu dla jednostki i można używać wartości jako wartości pośrednich. Po ustaleniu wartości, która ma być używana jako niezmienny identyfikator, zostanie wystawione w późniejszej regule.
+Ponadto przy użyciu opcji **Dodaj** **i nie należy** unikać dodawania wychodzącego problemu dla jednostki i można używać wartości jako wartości pośrednich. Po ustaleniu wartości, która ma być używana jako niezmienny identyfikator, zostanie wystawione w późniejszej regule.
 
 **Reguła 2. Sprawdź, czy dla użytkownika istnieje usługa MS-ds-consistencyguid**
 

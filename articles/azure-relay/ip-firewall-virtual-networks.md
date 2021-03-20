@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób używania reguł zapory do zezwalani
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999511"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurowanie zapory IP dla Azure Relay przestrzeni nazw
@@ -32,7 +32,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
     ![Zrzut ekranu przedstawia stronę sieci z wybraną opcją wszystkie sieci.](./media/ip-firewall/all-networks-selected.png)
 1. Aby ograniczyć dostęp do określonych sieci i adresów IP, wybierz opcję **wybrane sieci** . W sekcji **Zapora** wykonaj następujące kroki:
     1. Wybierz opcję **Dodaj adres IP klienta** , aby zapewnić bieżącemu adresowi IP klienta dostęp do przestrzeni nazw. 
-    2. W polu **zakres adresów**wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
+    2. W polu **zakres adresów** wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
 
         ![Zapora — wybrana opcja Wszystkie sieci](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia. Poczekaj kilka minut, aż potwierdzenie będzie widoczne na powiadomieniach portalu.

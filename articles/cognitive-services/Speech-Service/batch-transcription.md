@@ -12,10 +12,10 @@ ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659975"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
@@ -180,7 +180,7 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       Opcjonalny adres URL z [ad hoc SAS](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Sygnatura dostępu współdzielonego z przechowywanymi zasadami zapisu **nie** jest obsługiwana. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
-ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4b9cd0db2a3a99aca80f42b6d69485a542bbadb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000440"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580957"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Jak używać Twilio do obsługi głosu i SMS w języku Python
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -86,7 +86,7 @@ Najpierw [Skonfiguruj nową maszynę wirtualną platformy Azure z systemem Linux
 ### <a name="add-an-incoming-rule"></a>Dodawanie reguły przychodzącej
   1. Przejdź do strony [Network Security Group] [azure_nsg].
   2. Wybierz grupę zabezpieczeń sieci zgodną z maszyną wirtualną.
-  3. Dodaj **regułę i wychodzące reguły** dla **portu 80**. Pamiętaj, aby zezwolić na ruch przychodzący z dowolnego adresu.
+  3. Dodaj **regułę wychodzącą** dla **portu 80**. Pamiętaj, aby zezwolić na ruch przychodzący z dowolnego adresu.
 
 ### <a name="set-the-dns-name-label"></a>Ustawianie etykiety nazwy DNS
   1. Przejdź do strony [Publiczne adresy IP] [azure_ips].
@@ -151,6 +151,9 @@ call = client.calls.create(to=to_number,
                            url=url + urlencode({'Message': message}))
 print(call.sid)
 ```
+
+> [!IMPORTANT]
+> Numery telefonów powinny być sformatowane przy użyciu znak "+" i kodu kraju. Na przykład + 16175551212 (format E. 164). Twilio również akceptuje niesformatowane numery US. Na przykład: (415) 555-1212 lub 415-555-1212.
 
 Jak wspomniano, ten kod używa witryny dostarczonej przez Twilio do zwrócenia odpowiedzi TwiML. Zamiast tego możesz użyć własnej lokacji, aby zapewnić odpowiedź TwiML; Aby uzyskać więcej informacji, zobacz artykuł [jak zapewnić odpowiedzi TwiML z własnej witryny sieci Web](#howto_provide_twiml_responses).
 

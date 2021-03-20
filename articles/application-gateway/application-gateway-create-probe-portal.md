@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95975959"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Tworzenie niestandardowej sondy dla Application Gateway przy użyciu portalu
@@ -57,7 +57,7 @@ Sondy są konfigurowane w procesie dwuetapowym za pomocą portalu. Pierwszym kro
    |**Limit czasu (w sekundach)**|30|Czas, przez jaki sonda czeka przed upływem limitu czasu. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. Interwał limitu czasu musi być wystarczająco duży, aby można było wykonać wywołanie http, aby zapewnić dostępność strony kondycji zaplecza. Należy zauważyć, że wartość limitu czasu nie powinna być większa niż wartość "Interval" użyta w tym ustawieniu sondy lub wartość "Request timeout" w ustawieniach HTTP, która zostanie skojarzona z tą sondą.|
    |**Próg złej kondycji**|3|Liczba kolejnych nieudanych prób w złej kondycji. Próg można ustawić na wartość 1 lub większą.|
    |**Użyj warunków dopasowywania sondy**|Tak lub Nie|Domyślnie odpowiedź HTTP (S) o kodzie stanu z zakresu od 200 do 399 jest traktowana w dobrej kondycji. Można zmienić akceptowalny zakres kodu odpowiedzi zaplecza lub treści odpowiedzi zaplecza. [Dowiedz się więcej](./application-gateway-probe-overview.md#probe-matching)|
-   |**Ustawienia protokołu HTTP**|wybór z listy rozwijanej|Sonda zostanie skojarzona z ustawieniami protokołu HTTP wybranymi tutaj i w związku z tym będzie monitorować kondycję tej puli zaplecza, która jest skojarzona z wybranym ustawieniem protokołu HTTP. Użyje tego samego portu dla żądania sondowania jako, który jest używany w wybranym ustawieniu protokołu HTTP. Można wybrać tylko te ustawienia protokołu HTTP, które nie są skojarzone z żadną inną sondą niestandardową. <br>Należy zauważyć, że tylko te ustawienia protokołu HTTP są dostępne dla skojarzenia, które mają ten sam protokół, co protokół wybrany w tej konfiguracji sondowania i mają ten sam stan dla *nazwy wybranego hosta z przełącznika ustawienia http zaplecza* .|
+   |**Ustawienia HTTP**|wybór z listy rozwijanej|Sonda zostanie skojarzona z ustawieniami protokołu HTTP wybranymi tutaj i w związku z tym będzie monitorować kondycję tej puli zaplecza, która jest skojarzona z wybranym ustawieniem protokołu HTTP. Użyje tego samego portu dla żądania sondowania jako, który jest używany w wybranym ustawieniu protokołu HTTP. Można wybrać tylko te ustawienia protokołu HTTP, które nie są skojarzone z żadną inną sondą niestandardową. <br>Należy zauważyć, że tylko te ustawienia protokołu HTTP są dostępne dla skojarzenia, które mają ten sam protokół, co protokół wybrany w tej konfiguracji sondowania i mają ten sam stan dla *nazwy wybranego hosta z przełącznika ustawienia http zaplecza* .|
    
    > [!IMPORTANT]
    > Sonda będzie monitorować kondycję zaplecza tylko wtedy, gdy jest skojarzona z co najmniej jednym ustawieniem HTTP. Będzie monitorować zasoby zaplecza tych pul zaplecza, które są skojarzone z ustawieniami HTTP, z którymi jest skojarzona ta sonda. Żądanie sondowania zostanie wysłane jako \<protocol\> :// \<hostName\> : \<port\> / \<urlPath\> .

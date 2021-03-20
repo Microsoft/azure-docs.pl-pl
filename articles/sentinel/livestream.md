@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84783167"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Wykrywanie zagrożeń przy użyciu transmisję strumieniową łowiectwa w wskaźniku platformy Azure
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Wykrywanie zagrożeń przy użyciu transmisji strumieniowej na żywo wyszukiwania zagrożeń w usłudze Azure Sentinel
 
 Za pomocą transmisję strumieniową łowiectwa można tworzyć interakcyjne sesje umożliwiające testowanie nowo utworzonych zapytań w miarę wystąpienia zdarzeń, otrzymywanie powiadomień z sesji po znalezieniu dopasowania i w razie potrzeby dochodzeń. Sesję transmisję strumieniową można szybko utworzyć przy użyciu dowolnego zapytania Log Analytics.
 
@@ -43,7 +43,7 @@ Za pomocą transmisję strumieniową łowiectwa można tworzyć interakcyjne ses
 
 Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zapytania polowania lub utworzyć sesję od podstaw.
 
-1. W Azure Portal przejdź do polowania dotyczącego **Sentinel**  >  **zarządzania zagrożeniami**wskaźnikiem  >  **Hunting**.
+1. W Azure Portal przejdź do polowania dotyczącego   >  **zarządzania zagrożeniami** wskaźnikiem  >  .
 
 1. Aby utworzyć sesję transmisję strumieniową na podstawie zapytania polowania:
     
@@ -76,7 +76,7 @@ Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zap
 
 ## <a name="view-your-livestream-sessions"></a>Wyświetlanie sesji transmisję strumieniową
 
-1. W Azure Portal przejdź do karty **wskaźnik**  >  **zagrożeń zarządzania Threat**  >  **Hunting**  >  **transmisję strumieniową** .
+1. W Azure Portal przejdź do karty **wskaźnik**  >  **zagrożeń zarządzania Threat**  >    >  **transmisję strumieniową** .
 
 1. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Na przykład:
     

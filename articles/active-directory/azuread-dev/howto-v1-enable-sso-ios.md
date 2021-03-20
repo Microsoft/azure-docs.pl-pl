@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383703"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie iOS przy użyciu biblioteki ADAL
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Po udostępnieniu łańcucha kluczy w aplikacjach każda aplikacja może usuwać użytkowników lub gorszyć usuwanie wszystkich tokenów w aplikacji. Jest to szczególnie katastrofalne, jeśli masz aplikacje, które opierają się na tokenach do wykonywania zadań w tle. Udostępnianie łańcucha kluczy oznacza, że należy zachować ostrożność w każdej operacji usuwania za pośrednictwem zestawów SDK tożsamości.
 
-To wszystko. Zestaw SDK będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
+Gotowe. Zestaw SDK będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Włączanie logowania jednokrotnego dla brokera z pomocą usługi logowania jednokrotnego
 

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339669"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Szybki Start: Tworzenie Azure Cosmos DB i kontenera przy użyciu szablonu ARM
@@ -63,20 +63,20 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
     O ile nie zostanie on określony, użyj wartości domyślnych, aby utworzyć zasoby usługi Azure Cosmos.
 
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
-    * **Lokalizacja** : wybierz lokalizację.  Na przykład **Środkowe stany USA**.
-    * **Nazwa konta** : Wprowadź nazwę dla konta usługi Azure Cosmos. Musi być globalnie unikatowa.
-    * **Lokalizacja** : wprowadź lokalizację, w której chcesz utworzyć konto usługi Azure Cosmos. Konto usługi Azure Cosmos może znajdować się w tej samej lokalizacji co grupa zasobów.
-    * **Region podstawowy** : podstawowy region repliki dla konta usługi Azure Cosmos.
-    * **Region pomocniczy** : pomocniczy region repliki dla konta usługi Azure Cosmos.
-    * **Domyślny poziom spójności** : domyślny poziom spójności dla konta usługi Azure Cosmos.
-    * **Maksymalny prefiks nieodświeżony** : Maksymalna liczba starych żądań. Wymagane dla BoundedStaleness.
-    * **Maksymalny interwał w sekundach** : maksymalny czas opóźnienia. Wymagane dla BoundedStaleness.
-    * **Nazwa bazy danych** : Nazwa bazy danych usługi Azure Cosmos.
-    * **Nazwa kontenera** : nazwa kontenera usługi Azure Cosmos.
-    * **Przepływność** : przepływność dla kontenera, minimalna wartość przepływności to 400 ru/s.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia** : Zaznacz.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
+    * **Lokalizacja**: wybierz lokalizację.  Na przykład **Środkowe stany USA**.
+    * **Nazwa konta**: Wprowadź nazwę dla konta usługi Azure Cosmos. Musi być globalnie unikatowa.
+    * **Lokalizacja**: wprowadź lokalizację, w której chcesz utworzyć konto usługi Azure Cosmos. Konto usługi Azure Cosmos może znajdować się w tej samej lokalizacji co grupa zasobów.
+    * **Region podstawowy**: podstawowy region repliki dla konta usługi Azure Cosmos.
+    * **Region pomocniczy**: pomocniczy region repliki dla konta usługi Azure Cosmos.
+    * **Domyślny poziom spójności**: domyślny poziom spójności dla konta usługi Azure Cosmos.
+    * **Maksymalny prefiks nieodświeżony**: Maksymalna liczba starych żądań. Wymagane dla BoundedStaleness.
+    * **Maksymalny interwał w sekundach**: maksymalny czas opóźnienia. Wymagane dla BoundedStaleness.
+    * **Nazwa bazy danych**: Nazwa bazy danych usługi Azure Cosmos.
+    * **Nazwa kontenera**: nazwa kontenera usługi Azure Cosmos.
+    * **Przepływność**: przepływność dla kontenera, minimalna wartość przepływności to 400 ru/s.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
 
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu konta usługi Azure Cosmos otrzymasz powiadomienie:
 

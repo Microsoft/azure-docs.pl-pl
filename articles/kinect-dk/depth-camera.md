@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, aparat głębokości, TOF, zasady, wydajność, unieważnienie
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85277511"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Aparat głębokości usługi Azure urządzenia Kinect DK
@@ -56,7 +56,7 @@ Błąd systematyczny jest definiowany jako różnica między zmierzoną głębok
 
 ![Błąd systematyczny głębokości](./media/concepts/depth-camera-systematic-error.png)
 
-Gdzie *d<sub>t</sub> * wskazuje głębokość miary w czasie *t*, *N* to liczba klatek używanych w przypadku średniej procedury, a wartość *d<sub>gt</sub> * to podstawa prawdy.
+Gdzie *d <sub>t</sub>* wskazuje głębokość miary w czasie *t*, *N* to liczba klatek używanych w przypadku średniej procedury, a wartość *d <sub>gt</sub>* to podstawa prawdy.
 
 Systematyczna Specyfikacja błędów aparatu głębokości jest wykluczana z pominięciem wielościeżkowego zakłócenia (MPI). MPI jest, gdy jeden piksel czujnika integruje światło, które jest odzwierciedlone przez więcej niż jeden obiekt. MPI jest częściowo zminimalizowany w naszym aparacie głębokości przy użyciu wyższych częstotliwości modulacji wraz z nieprawidłową głębokością, którą wprowadzimy w przyszłości.
 
@@ -66,7 +66,7 @@ Załóżmy, że zajmiemy 100 obrazów tego samego obiektu bez przechodzenia do a
 
 ![Losowy błąd głębokości](./media/concepts/depth-camera-random-error.png)
 
-Gdzie *N* wskazuje liczbę pomiarów głębokości, *d<sub>t</sub> * reprezentuje pomiar głębokości w czasie *t* i *d* oznacza wartość średniej obliczoną dla wszystkich pomiarów głębokości *d<sub>t</sub>*.
+Gdzie *N* wskazuje liczbę pomiarów głębokości, *d <sub>t</sub>* reprezentuje pomiar głębokości w czasie *t* i *d* oznacza wartość średniej obliczoną dla wszystkich pomiarów głębokości *d <sub>t</sub>*.
 
 ## <a name="invalidation"></a>Unieważniania
 

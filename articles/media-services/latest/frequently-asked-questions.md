@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505770"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581120"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -86,12 +86,12 @@ Aplikacja sieci Web powinna monitować użytkownika o zakończenie emisji w trak
 
 #### <a name="server-side"></a>Po stronie serwera
 
-Możesz monitorować zdarzenia na żywo, subskrybując zdarzenia Azure Event Grid. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń EventGrid](media-services-event-schemas.md#live-event-types).
+Możesz monitorować zdarzenia na żywo, subskrybując zdarzenia Azure Event Grid. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń EventGrid](monitoring/media-services-event-schemas.md#live-event-types).
 
 Można:
 
-* [Zasubskrybuj](reacting-to-media-services-events.md) zdarzenia [Microsoft. Media. LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) na poziomie strumienia i monitoruj, że żadne ponowne połączenia nie są dostępne przez pewien czas, aby zatrzymać i usunąć wydarzenie na żywo.
-* [Zasubskrybuj](reacting-to-media-services-events.md) zdarzenia [pulsu](media-services-event-schemas.md#liveeventingestheartbeat) poziomu śledzenia. Jeśli wszystkie ścieżki mają przychodzącą szybkość transmisji bitów do 0 lub Ostatnia sygnatura czasowa nie rośnie, można bezpiecznie zamknąć wydarzenie na żywo. Zdarzenia pulsu są dostępne co 20 sekund dla każdej ścieżki, więc może być to bit.
+* [Zasubskrybuj](monitoring/reacting-to-media-services-events.md) zdarzenia [Microsoft. Media. LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) na poziomie strumienia i monitoruj, że żadne ponowne połączenia nie są dostępne przez pewien czas, aby zatrzymać i usunąć wydarzenie na żywo.
+* [Zasubskrybuj](monitoring/reacting-to-media-services-events.md) zdarzenia [pulsu](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) poziomu śledzenia. Jeśli wszystkie ścieżki mają przychodzącą szybkość transmisji bitów do 0 lub Ostatnia sygnatura czasowa nie rośnie, można bezpiecznie zamknąć wydarzenie na żywo. Zdarzenia pulsu są dostępne co 20 sekund dla każdej ścieżki, więc może być to bit.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Jak mogę Wstawianie pęknięć/filmów wideo i obrazów w strumieniu na żywo?
 
@@ -117,7 +117,7 @@ Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu Media 
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Jak i gdzie uzyskać token JWT przed użyciem go w celu zażądania licencji lub klucza?
 
-W przypadku produkcji należy mieć usługę Secure Token Service (czyli usługę sieci Web), która wystawia token JWT przy żądaniu HTTPS. Dla testu można użyć kodu pokazanego w `GetTokenAsync` metodzie zdefiniowanej w [program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+W przypadku produkcji należy mieć usługę Secure Token Service (czyli usługę sieci Web), która wystawia token JWT przy żądaniu HTTPS. W przypadku testu można użyć kodu podanego w `GetTokenAsync` metodzie zdefiniowanej w [programie program. cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 Gracz wysyła żądanie, po uwierzytelnieniu użytkownika w usłudze STS dla takiego tokenu i przypisuje go jako wartość tokenu. Możesz użyć [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 

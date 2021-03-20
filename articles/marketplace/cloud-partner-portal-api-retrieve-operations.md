@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271947"
 ---
 # <a name="retrieve-operations"></a>Pobieranie operacji
@@ -36,10 +36,10 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  publisherId       |  Identyfikator wydawcy, na przykład `Contoso`                                                                   |  Ciąg       |
 |  offerId           |  Identyfikator oferty                                                                                              |  Ciąg       |
 |  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację na ofercie. OperationId może zostać pobrany za pomocą tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla dowolnej długotrwałej operacji, takiej jak interfejs API [oferty publikacji](./cloud-partner-portal-api-publish-offer.md) .  |   Guid (identyfikator GUID)   |
-|  api-version       | Najnowsza wersja interfejsu API |    Date      |
+|  api-version       | Najnowsza wersja interfejsu API |    Date (Data)      |
 |  |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**          |  **Wartość**           |
 |  ---------------   | -------------------- |
@@ -185,7 +185,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | Szacowany czas trwania tej operacji |
 | identyfikator | Unikatowy identyfikator procesu kroku |
-| description | Opis kroku |
+| description (opis) | Opis kroku |
 | krokname | Przyjazna nazwa kroku |
 | status | Stan kroku, `notStarted` \| `running` \| `failed` albo \|`completed` |
 | z chmury do urządzenia | Wszystkie powiadomienia lub ostrzeżenia wystąpiły w trakcie tego kroku. Tablica ciągów |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85252971"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
@@ -26,7 +26,7 @@ Poniżej znajduje się lista ustawień, które mają być przenoszone lub tworzo
 
 W poniższej tabeli znajduje się podsumowanie informacji o urządzeniach i typach kont obsługiwanych przez środowisko synchronizacji, wykonywania kopii zapasowych i przywracania w systemie Windows 10.
 
-| Typ konta i operacja | Klasyczna | Komórkowy |
+| Typ konta i operacja | Klasyczna | Aplikacje mobilne |
 | --- | --- | --- |
 | Azure Active Directory: synchronizacja |Tak |Nie |
 | Azure Active Directory: kopia zapasowa/przywracanie |Nie |Nie |
@@ -69,7 +69,7 @@ W poniższej tabeli inne wpisy w kolumnie grupa ustawień odnoszą się do ustaw
 Wpisy wewnętrzne w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko w ramach samej aplikacji lub wyłączając synchronizację dla całego urządzenia za pomocą ustawień zarządzania urządzeniami przenośnymi (MDM) lub zasady grupy.
 Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należeć do grupy.
 
-| Ustawienia | Klasyczna | Komórkowy | Group (Grupa) |
+| Ustawienia | Klasyczna | Aplikacje mobilne | Group (Grupa) |
 | --- | --- | --- | --- |
 | **Konta**: obraz konta |synchronizacja |X |Motyw |
 | **Konta**: inne ustawienia konta |X |X | |

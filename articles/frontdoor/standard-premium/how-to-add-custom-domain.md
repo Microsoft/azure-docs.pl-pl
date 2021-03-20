@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099891"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588753"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Utwórz domenę niestandardową w wersji Standard/Premium drzwi platformy Azure (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -38,6 +38,9 @@ Po utworzeniu profilu warstwy Standardowa/Premium platformy Azure domyślny Host
 * Jeśli używasz platformy Azure do hostowania [domen DNS](../../dns/dns-overview.md), musisz delegować system nazw domen (DNS) dostawcy domeny do Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, musisz ręcznie zweryfikować domenę, wprowadzając monity o rekordy TXT DNS.
 
 ## <a name="add-a-new-custom-domain"></a>Dodaj nową domenę niestandardową
+
+> [!NOTE]
+> W publicznej wersji zapoznawczej używanie Azure DNS do tworzenia domen Apex nie jest obsługiwane w standardowym lub Premium platformy Azure. Istnieją inni dostawcy DNS, którzy obsługują spłaszczanie CNAME lub kartach DNS, które umożliwiają korzystanie z domen WIERZCHOŁKów na platformie Azure — warstwa standardowa/Premium.
 
 Domena niestandardowa jest zarządzana przez sekcje w portalu. Domenę niestandardową można utworzyć i zweryfikować przed skojarzeniem z punktem końcowym. Domena niestandardowa i jej domeny podrzędne można skojarzyć tylko z jednym punktem końcowym w danym momencie. Można jednak używać różnych poddomen z tej samej domeny niestandardowej dla różnych drzwi zewnętrznych. Możesz również mapować domeny niestandardowe z różnymi domenami poddomeny do tego samego punktu końcowego czołowego drzwi.
 

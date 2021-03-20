@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281919"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Zarządzanie usługą certyfikatów magazynu OPC
@@ -30,8 +30,8 @@ Po wdrożeniu magazynu OPC należy utworzyć certyfikat głównego urzędu certy
 
 1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net` i zaloguj się.
 2. Przejdź do pozycji **grupy certyfikatów**.
-3. Na liście znajduje się jedna domyślna grupa certyfikatów. Kliknij pozycję **Edytuj**.
-4. W obszarze **Edytuj szczegóły grupy certyfikatów**możesz zmodyfikować nazwę podmiotu i okres istnienia urzędu certyfikacji i certyfikatów aplikacji. Temat i okresy istnienia powinny być ustawiane tylko raz przed wystawieniem pierwszego certyfikatu urzędu certyfikacji. Zmiany okresu istnienia podczas operacji mogą spowodować niespójne okresy istnienia wystawionych certyfikatów i list CRL.
+3. Na liście znajduje się jedna domyślna grupa certyfikatów. Wybierz pozycję **Edytuj**.
+4. W obszarze **Edytuj szczegóły grupy certyfikatów** możesz zmodyfikować nazwę podmiotu i okres istnienia urzędu certyfikacji i certyfikatów aplikacji. Temat i okresy istnienia powinny być ustawiane tylko raz przed wystawieniem pierwszego certyfikatu urzędu certyfikacji. Zmiany okresu istnienia podczas operacji mogą spowodować niespójne okresy istnienia wystawionych certyfikatów i list CRL.
 5. Wprowadź prawidłowy temat (na przykład `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > W przypadku zmiany tematu należy odnowić certyfikat wystawcy lub usługa nie będzie mogła podpisać certyfikatów aplikacji. Podmiot konfiguracji jest sprawdzany pod względem tematu aktywnego certyfikatu wystawcy. Jeśli tematy nie są zgodne, odmówiono podpisania certyfikatu.
@@ -101,9 +101,9 @@ Domyślnie tożsamość usługi ma tylko ograniczone uprawnienia dostępu Key Va
 4. Przejdź do pozycji **zasady dostępu**.
 5. Wybierz pozycję **Dodaj nowy**.
 6. Pomiń szablon. Nie istnieje szablon, który spełnia wymagania.
-7. Wybierz **pozycję Wybierz podmiot zabezpieczeń**i wybierz użytkownika do dodania lub Zaproś nowego użytkownika do dzierżawy.
-8. Wybierz następujące **uprawnienia**: **pobieranie**, **Wyświetlanie**i **podpisywanie**.
-9. Wybierz następujące **uprawnienia tajne**: **Get**, **list**, **Set**i **delete**.
+7. Wybierz **pozycję Wybierz podmiot zabezpieczeń** i wybierz użytkownika do dodania lub Zaproś nowego użytkownika do dzierżawy.
+8. Wybierz następujące **uprawnienia**: **pobieranie**, **Wyświetlanie** i **podpisywanie**.
+9. Wybierz następujące **uprawnienia tajne**: **Get**, **list**, **Set** i **delete**.
 10. Wybierz następujące **uprawnienia certyfikatów**: **Pobierz** i **Wyświetl**.
 11. Wybierz **przycisk OK**, a następnie wybierz pozycję **Zapisz**.
 
@@ -115,10 +115,10 @@ Domyślnie tożsamość usługi ma tylko ograniczone uprawnienia dostępu Key Va
 4. Przejdź do pozycji **zasady dostępu**.
 5. Wybierz pozycję **Dodaj nowy**.
 6. Pomiń szablon. Nie istnieje szablon, który spełnia wymagania.
-7. Wybierz **pozycję Wybierz podmiot zabezpieczeń**i wybierz użytkownika do dodania lub Zaproś nowego użytkownika do dzierżawy.
-8. Wybierz następujące **uprawnienia**: **pobieranie**, **Wyświetlanie**i **podpisywanie**.
-9. Wybierz następujące **uprawnienia tajne**: **Get**, **list**, **Set**i **delete**.
-10. Wybierz następujące **uprawnienia certyfikatów**: **pobieranie**, **Wyświetlanie**, **Aktualizowanie**, **Tworzenie**i **Importowanie**.
+7. Wybierz **pozycję Wybierz podmiot zabezpieczeń** i wybierz użytkownika do dodania lub Zaproś nowego użytkownika do dzierżawy.
+8. Wybierz następujące **uprawnienia**: **pobieranie**, **Wyświetlanie** i **podpisywanie**.
+9. Wybierz następujące **uprawnienia tajne**: **Get**, **list**, **Set** i **delete**.
+10. Wybierz następujące **uprawnienia certyfikatów**: **pobieranie**, **Wyświetlanie**, **Aktualizowanie**, **Tworzenie** i **Importowanie**.
 11. Wybierz **przycisk OK**, a następnie wybierz pozycję **Zapisz**.
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Usuń zasady dostępu użytkowników z Azure Key Vault

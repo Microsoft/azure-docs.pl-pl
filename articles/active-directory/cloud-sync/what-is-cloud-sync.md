@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3b880d70baf7c160f8235bd01a5000f83825c36
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98614841"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Co to jest Azure AD Connect Sync Cloud?
@@ -42,7 +42,7 @@ Poniższy krótki film zawiera doskonałe Omówienie Azure AD Connect synchroniz
 
 Poniższa tabela zawiera porównanie między Azure AD Connect i Azure AD Connect synchronizacji z chmurą:
 
-| Cechy | Synchronizacja Azure Active Directory Connect| Azure Active Directory Connect synchronizacji w chmurze |
+| Cecha | Synchronizacja Azure Active Directory Connect| Azure Active Directory Connect synchronizacji w chmurze |
 |:--- |:---:|:---:|
 |Połączenie z pojedynczym lokalnym lasem usługi AD|● |● |
 | Połączenie z wieloma lokalnymi lasami usługi AD |● |● |

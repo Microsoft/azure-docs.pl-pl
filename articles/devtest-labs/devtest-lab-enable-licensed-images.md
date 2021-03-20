@@ -4,10 +4,10 @@ description: Dowiedz się, jak włączyć licencjonowany obraz w Azure DevTest L
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91276360"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Włącz licencjonowany obraz w laboratorium w Azure DevTest Labs
@@ -23,9 +23,9 @@ Pierwszym krokiem, aby umożliwić użytkownikom tworzenie maszyn wirtualnych pr
 
 1. Z listy laboratoriów wybierz odpowiednie laboratorium.  
 
-1. W lewym panelu w obszarze **Ustawienia**wybierz pozycję **Konfiguracja i zasady**.
+1. W lewym panelu w obszarze **Ustawienia** wybierz pozycję **Konfiguracja i zasady**.
 
-1. W lewym panelu w obszarze **bazy maszyn wirtualnych**wybierz pozycję **obrazy z witryny Marketplace**. 
+1. W lewym panelu w obszarze **bazy maszyn wirtualnych** wybierz pozycję **obrazy z witryny Marketplace**. 
 
     ![Element menu obrazów witryny Marketplace](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 

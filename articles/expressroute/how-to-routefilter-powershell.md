@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 90d4def5a1c08e305b9315f299e83e2187b6be2c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91969946"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>Samouczek: Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft przy użyciu programu PowerShell
@@ -29,13 +29,13 @@ Usługi Microsoft 365, takie jak Exchange Online, SharePoint Online i Skype dla 
 
 Po skonfigurowaniu komunikacji równorzędnej firmy Microsoft w obwodzie usługi ExpressRoute wszystkie prefiksy związane z tymi usługami są anonsowane za pomocą ustanowionych przez siebie sesji protokołu BGP. Wartość atrybutu Community protokołu BGP jest dołączana do każdego prefiksu w celu zidentyfikowania usługi oferowanej za pośrednictwem prefiksu. Aby zapoznać się z listą wartości społeczności BGP i usług, do których są mapowane, zobacz [społeczności protokołu BGP](expressroute-routing.md#bgp).
 
-Łączność z wszystkimi usługami platformy Azure i Microsoft 365 powoduje, że wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Duża liczba prefiksów znacząco zwiększa rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Można:
+Łączność z wszystkimi usługami platformy Azure i Microsoft 365 powoduje, że wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Duża liczba prefiksów znacząco zwiększa rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Oto co możesz zrobić:
 
 * Odfiltruj niechciane prefiksy, stosując filtry tras dla społeczności protokołu BGP. Filtrowanie tras jest standardową metodą sieciową i jest używane często w wielu sieciach.
 
 * Zdefiniuj filtry tras i zastosuj je do obwodu ExpressRoute. Filtr tras to nowy zasób, który pozwala wybrać listę usług, które mają być używane przez komunikację równorzędną firmy Microsoft. Routery ExpressRoute wysyłają tylko listę prefiksów należących do usług określonych w filtrze tras.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Pobierz wartości społeczności BGP.
 > - Utwórz filtr tras i regułę filtrowania.

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697446"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions powiązania wyjściowe HTTP
@@ -21,7 +21,7 @@ Domyślną wartością zwracaną dla funkcji wyzwalanej przez protokół HTTP je
 - `HTTP 204 No Content` z pustą treścią w funkcjach 2. x i wyższych
 - `HTTP 200 OK` z pustą treścią w funkcjach 1. x
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawione w *function.js* pliku. W przypadku bibliotek klas języka C# nie ma właściwości atrybutów odpowiadających tym *function.js* właściwości.
 

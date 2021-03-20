@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002797"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Jak wdrożyć nawigację aspektową na platformie Azure Wyszukiwanie poznawcze
@@ -39,7 +39,7 @@ W tym artykule jest na przykład wykorzystywany Portal wyszukiwania zadań. Przy
 
 - Pobierz kod z [repozytorium Azure-Samples w witrynie GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Jeśli dopiero zaczynasz opracowywanie aplikacji, najlepszym sposobem na podejście do nawigowania po aspektach jest wyświetlenie możliwości wyszukiwania z własnym kierowaniem. Jest to typ środowiska wyszukiwania przechodzenia do szczegółów na podstawie wstępnie zdefiniowanych filtrów, służący do szybkiego zawężania wyników wyszukiwania przez akcje typu punkt-kliknięcie. 
 
 ### <a name="interaction-model"></a>Model interakcji
@@ -362,7 +362,7 @@ Aby filtrować dokumenty w oparciu o wybrany zakres, można użyć `"ge"` `"lt"`
 ## <a name="filter-based-on-distance"></a>Filtrowanie na podstawie odległości
 Często można zobaczyć filtry, które ułatwiają wybranie sklepu, restauracji lub lokalizacji docelowej na podstawie bliskości bieżącej lokalizacji. Mimo że ten typ filtru może wyglądać podobnie do nawigacji aspektowej, jest to filtr. Wspominamy o tym w tym miejscu dla osób, które w szczególności szukają porady dotyczącej tego problemu podczas projektowania.
 
-Istnieją dwie funkcje geograficzne na platformie Azure Wyszukiwanie poznawcze, **lokalizacji geograficznej** i **lokalizacji geograficznej. przecinają**się.
+Istnieją dwie funkcje geograficzne na platformie Azure Wyszukiwanie poznawcze, **lokalizacji geograficznej** i **lokalizacji geograficznej. przecinają** się.
 
 * Funkcja **Geo. Distance** zwraca odległość w kilometrach między dwoma punktami. Jednym z punktów jest pole, a inne jest stałą przekazaną w ramach filtra. 
 * Funkcja **Geo. intersects** zwraca wartość true, jeśli dany punkt znajduje się w obrębie danego wielokąta. Punkt to pole, a Wielokąt jest określony jako stała Lista współrzędnych przenoszona jako część filtru.

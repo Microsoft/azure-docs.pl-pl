@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91275187"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak używać usługi Azure Wyszukiwanie poznawcze do in
 
 Indeksator usługi Azure Table Storage można skonfigurować przy użyciu następujących zasobów:
 
-* [Azure Portal](https://ms.portal.azure.com)
+* [Witryna Azure Portal](https://ms.portal.azure.com)
 * [Interfejs API REST](/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
 * Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/overview/azure/search)
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła dany
 Poświadczenia dla tabeli można podać w jeden z następujących sposobów: 
 
 - **Parametry połączenia tożsamości zarządzanej**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` te parametry połączenia nie wymagają klucza konta, ale musisz postępować zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej](search-howto-managed-identities-storage.md).
-- **Pełny dostęp do parametrów połączenia konta magazynu**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Parametry połączenia można uzyskać z Azure Portal, przechodząc do kluczy ustawień **bloku konta magazynu**  >  **Settings**  >  **Keys** (dla klasycznych kont magazynu) lub **Settings**  >  **kluczy dostępu** ustawień (dla Azure Resource Manager kont magazynu).
+- **Pełny dostęp do parametrów połączenia konta magazynu**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Parametry połączenia można uzyskać z Azure Portal, przechodząc do kluczy ustawień **bloku konta magazynu**  >    >   (dla klasycznych kont magazynu) lub   >  **kluczy dostępu** ustawień (dla Azure Resource Manager kont magazynu).
 - **Parametry połączenia sygnatury dostępu współdzielonego konta magazynu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` sygnatura dostępu współdzielonego powinna mieć uprawnienia listy i odczytu w kontenerach (w tym przypadku tabel w tym przypadku) i obiektach (wiersze tabeli).
 -  **Sygnatura dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` sygnatura dostępu współdzielonego powinna mieć uprawnienia zapytania (odczyt) w tabeli.
 

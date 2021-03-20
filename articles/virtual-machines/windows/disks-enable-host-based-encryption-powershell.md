@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017209"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580321"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Użyj modułu Azure PowerShell, aby umożliwić kompleksowe szyfrowanie przy użyciu szyfrowania na hoście
 
@@ -32,7 +32,20 @@ Rozmiary maszyn wirtualnych można również wyszukać programowo. Aby dowiedzie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft.com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
+Przed użyciem właściwości EncryptionAtHost dla maszyny wirtualnej/VMSS należy włączyć tę funkcję dla subskrypcji. Wykonaj poniższe kroki, aby włączyć funkcję dla subskrypcji:
+
+1.  Wykonaj następujące polecenie, aby zarejestrować funkcję dla subskrypcji
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  Sprawdź, czy stan rejestracji został zarejestrowany (trwa kilka minut) przy użyciu poniższego polecenia przed podjęciem próby wykonania tej funkcji.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Tworzenie Azure Key Vault i DiskEncryptionSet
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak dostarczać weryfikację koncepcji, aby Azure Dev
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288026"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Dostarczenie dowodu koncepcji 
 
-Jednym z kluczowych scenariuszy dla Azure DevTest Labs jest włączenie środowisk deweloperskich i testowych w chmurze. Przykłady:
+Jednym z kluczowych scenariuszy dla Azure DevTest Labs jest włączenie środowisk deweloperskich i testowych w chmurze. Przykłady obejmują:
 
 * Tworzenie pulpitów deweloperów w chmurze.
 * Konfigurowanie środowisk do testowania.
@@ -37,7 +37,7 @@ Aby rozpocząć świadczenie, zapoznaj się z weryfikacją koncepcji. Ważne jes
 
 Aby pomyślnie ukończyć pilotaż lub weryfikację koncepcji z DevTest Labs, istnieje kilka wymagań wstępnych: 
 
-* **Subskrypcja platformy Azure**: przedsiębiorstwa często mają istniejące [Umowa Enterprise](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) , które umożliwiają dostęp do platformy Azure i mogą korzystać z istniejącej lub nowej subskrypcji usługi DevTest Labs. Alternatywnie przedsiębiorstwa mogą korzystać z [subskrypcji programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) podczas pilotażu (korzystając z bezpłatnych kredytów na korzystanie z platformy Azure). Jeśli żadna z tych opcji nie jest dostępna, przedsiębiorstwo może utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)i korzystać z niego. Jeśli istnieje Umowa Enterprise, korzystanie z [subskrypcji Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/) jest doskonałym rozwiązaniem umożliwiającym uzyskanie dostępu do systemów operacyjnych klienta Windows 10/Windows 8.1 oraz obniżonych stawek za tworzenie i testowanie obciążeń. 
+* **Subskrypcja platformy Azure**: przedsiębiorstwa często mają istniejące [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) , które umożliwiają dostęp do platformy Azure i mogą korzystać z istniejącej lub nowej subskrypcji usługi DevTest Labs. Alternatywnie przedsiębiorstwa mogą korzystać z [subskrypcji programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) podczas pilotażu (korzystając z bezpłatnych kredytów na korzystanie z platformy Azure). Jeśli żadna z tych opcji nie jest dostępna, przedsiębiorstwo może utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)i korzystać z niego. Jeśli istnieje Enterprise Agreement, korzystanie z [subskrypcji Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/) jest doskonałym rozwiązaniem umożliwiającym uzyskanie dostępu do systemów operacyjnych klienta Windows 10/Windows 8.1 oraz obniżonych stawek za tworzenie i testowanie obciążeń. 
 * **Azure Active Directory dzierżawca**: aby umożliwić zarządzanie użytkownikami (na przykład dodawania użytkowników lub dodawania właścicieli laboratorium), Ci użytkownicy muszą być częścią [dzierżawy Azure Active Directory](https://azure.microsoft.com/services/active-directory/) używanej w subskrypcji platformy Azure dla programu pilotażowego. Często przedsiębiorstwa skonfigurują [tożsamość hybrydową](../active-directory/hybrid/whatis-hybrid-identity.md) , aby umożliwić użytkownikom korzystanie z lokalnej tożsamości w chmurze, ale nie jest to wymagane w przypadku pilotażu DevTest Labs. 
 
 ## <a name="scoping-of-the-pilot"></a>Określanie zakresu pilotażu 

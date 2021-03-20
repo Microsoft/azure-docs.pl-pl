@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: a9e35c7d4d64279c65971dd512bcd2107dad6594
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92000071"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Jak wycofać certyfikaty urządzeń X. 509 w aplikacji IoT Central
@@ -57,7 +57,7 @@ Jeśli używasz wycofywania certyfikatów do obsługi wygaśnięć certyfikatów
 
 Jeśli używasz wycofywania certyfikatów w odpowiedzi na naruszenie zabezpieczeń, użyj następującego podejścia, aby natychmiast zaktualizować bieżący certyfikat:
 
-1. Wybierz pozycję **urządzenia**i wybierz urządzenie.
+1. Wybierz pozycję **urządzenia** i wybierz urządzenie.
 
 2. Wybierz pozycję **Połącz**, a następnie wybierz pozycję Połącz metodę jako **rejestrację indywidualną**
 
@@ -75,7 +75,7 @@ Jeśli aktualizujesz certyfikaty, aby obsługiwać wygaśnięcia certyfikatów, 
 
 Gdy certyfikat pomocniczy zbliża się do wygaśnięcia i musi być rzutowany, można go obrócić, aby użyć konfiguracji podstawowej. Obracanie między głównymi i dodatkowymi certyfikatami w ten sposób zmniejsza czas przestoju w przypadku urządzeń, które próbują zainicjować obsługę administracyjną.
 
-1. Wybierz pozycję **urządzenia**i wybierz urządzenie.
+1. Wybierz pozycję **urządzenia** i wybierz urządzenie.
 
 2. Wybierz pozycję **Połącz**, a następnie wybierz pozycję Połącz metodę jako **rejestrację indywidualną**
 

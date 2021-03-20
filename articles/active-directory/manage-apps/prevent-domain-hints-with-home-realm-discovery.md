@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589382"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Wyłącz funkcję autoprzyspieszania w dostawcy tożsamości federacyjnym podczas logowania użytkownika przy użyciu zasad odnajdywania obszaru macierzystego
 
-[Zasady odnajdywania obszaru macierzystego](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) oferują administratorom wiele sposobów na kontrolowanie sposobu, w jaki użytkownicy są uwierzytelniani. `domainHintPolicy`Sekcja zasad HRD służy do przeprowadzenia migracji użytkowników federacyjnych do poświadczeń zarządzanych przez chmurę, takich jak [Fido](../authentication/howto-authentication-passwordless-security-key.md), przez zapewnienie, że zawsze odwiedzają stronę logowania usługi Azure AD i nie są autoprzyspieszone do federacyjnego dostawcy tożsamości ze względu na wskazówki dotyczące domeny.
+[Zasady odnajdywania obszaru macierzystego](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) oferują administratorom wiele sposobów na kontrolowanie sposobu, w jaki użytkownicy są uwierzytelniani. `domainHintPolicy`Sekcja zasad HRD służy do przeprowadzenia migracji użytkowników federacyjnych do poświadczeń zarządzanych przez chmurę, takich jak [Fido](../authentication/howto-authentication-passwordless-security-key.md), przez zapewnienie, że zawsze odwiedzają stronę logowania usługi Azure AD i nie są autoprzyspieszone do federacyjnego dostawcy tożsamości ze względu na wskazówki dotyczące domeny.
 
 Te zasady są niezbędne w sytuacjach, w których administratorzy nie mogą kontrolować ani aktualizować dodawania podpowiedzi do domeny podczas logowania.  Na przykład program `outlook.com/contoso.com` wysyła użytkownika do strony logowania z `&domain_hint=contoso.com` parametrem dołączonym, aby przyspieszyć użytkownika bezpośrednio do dostawcy tożsamości federacyjnego dla `contoso.com` domeny. Użytkownicy z poświadczeniami zarządzanymi wysyłanymi do dostawcy tożsamości federacyjnego nie mogą logować się przy użyciu ich poświadczeń zarządzanych, co zmniejsza bezpieczeństwo i frustrujące użytkowników przy użyciu losowych środowisk logowania. Administratorzy wprowadzający zarządzane poświadczenia [powinny również skonfigurować te zasady](#suggested-use-within-a-tenant) , aby upewnić się, że użytkownicy będą zawsze mogli korzystać z ich zarządzanych poświadczeń.
 
@@ -101,7 +101,7 @@ Po wykonaniu kroku 4 wszyscy użytkownicy `guestHandlingDomain.com` mogą zalogo
 
 ## <a name="configuring-policy-through-graph-explorer"></a>Konfigurowanie zasad przy użyciu Eksploratora grafów
 
-Ustaw [zasady HRD](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) jako standardowe przy użyciu Microsoft Graph.  
+Ustaw [zasady HRD](/graph/api/resources/homeRealmDiscoveryPolicy) jako standardowe przy użyciu Microsoft Graph.  
 
 1. Przyznaj uprawnienie Policy. ReadWrite. ApplicationConfiguration w [Eksploratorze grafu](https://developer.microsoft.com/graph/graph-explorer).  
 1. Użyj adresu URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`

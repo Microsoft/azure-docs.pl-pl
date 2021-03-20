@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923402"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter` , `$orderby` i `$select` na platformie Azure wyszukiwanie poznawcze
 
-Usługa Azure Wyszukiwanie poznawcze obsługuje podzbiór składni wyrażenia OData dla wyrażeń **$Filter**, **$OrderBy**i **$SELECT** . Wyrażenia filtru są oceniane podczas analizowania zapytania, ograniczając wyszukiwanie do określonych pól lub dodając kryteria dopasowywania używane podczas skanowania indeksów. Wyrażenia order-by są stosowane jako krok przetwarzania końcowego względem zestawu wyników w celu sortowania zwracanych dokumentów. Wybór wyrażeń określa, które pola dokumentu są uwzględniane w zestawie wyników. Składnia tych wyrażeń różni się od [prostej](query-simple-syntax.md) lub [pełnej](query-lucene-syntax.md) składni zapytań, która jest używana w parametrze **wyszukiwania** , chociaż występuje kilka nakładania się w składni dla pól, do których się odwołuje.
+Usługa Azure Wyszukiwanie poznawcze obsługuje podzbiór składni wyrażenia OData dla wyrażeń **$Filter**, **$OrderBy** i **$SELECT** . Wyrażenia filtru są oceniane podczas analizowania zapytania, ograniczając wyszukiwanie do określonych pól lub dodając kryteria dopasowywania używane podczas skanowania indeksów. Wyrażenia order-by są stosowane jako krok przetwarzania końcowego względem zestawu wyników w celu sortowania zwracanych dokumentów. Wybór wyrażeń określa, które pola dokumentu są uwzględniane w zestawie wyników. Składnia tych wyrażeń różni się od [prostej](query-simple-syntax.md) lub [pełnej](query-lucene-syntax.md) składni zapytań, która jest używana w parametrze **wyszukiwania** , chociaż występuje kilka nakładania się w składni dla pól, do których się odwołuje.
 
 Ten artykuł zawiera omówienie języka wyrażeń OData używany w filtrach, wyrażeniach order-by i SELECT. Język jest prezentowany "u dołu", zaczynając od najbardziej podstawowych elementów i tworząc je. Składnia każdego z parametrów najwyższego poziomu jest opisana w osobnym artykule:
 
@@ -79,7 +79,7 @@ Przykłady ścieżek pól przedstawiono w poniższej tabeli:
 | `room/Type` | Odwołuje się do `Type` podpola `room` zmiennej zakresu, na przykład w wyrażeniu filtru `Rooms/any(room: room/Type eq 'deluxe')` |
 | `store/Address/Country` | Odwołuje się do `Country` podpola `Address` podrzędnego podpola `store` zmiennej zakresu, na przykład w wyrażeniu filtru. `Stores/any(store: store/Address/Country eq 'Canada')` |
 
-Znaczenie ścieżki pola różni się w zależności od kontekstu. W filtrach ścieżka pola odnosi się do wartości *pojedynczego wystąpienia* pola w bieżącym dokumencie. W innych kontekstach, takich jak **$OrderBy**, **$SELECT**lub w [wyszukiwaniu w polu Pełna składnia](query-lucene-syntax.md#bkmk_fields), ścieżka pola odnosi się do samego pola. Różnica ta ma pewne konsekwencje dla sposobu używania ścieżek pól w filtrach.
+Znaczenie ścieżki pola różni się w zależności od kontekstu. W filtrach ścieżka pola odnosi się do wartości *pojedynczego wystąpienia* pola w bieżącym dokumencie. W innych kontekstach, takich jak **$OrderBy**, **$SELECT** lub w [wyszukiwaniu w polu Pełna składnia](query-lucene-syntax.md#bkmk_fields), ścieżka pola odnosi się do samego pola. Różnica ta ma pewne konsekwencje dla sposobu używania ścieżek pól w filtrach.
 
 Rozważ użycie ścieżki pola `Address/City` . W filtrze odnosi się to do jednego miasta dla bieżącego dokumentu, takiego jak "San Francisco". W przeciwieństwie `Rooms/Type` odnosi się do `Type` podpola dla wielu pokojów (na przykład "Standardowa" w pierwszym pokoju, "Deluxe" dla drugiego pokoju itd.). Ponieważ `Rooms/Type` nie odwołuje się do *pojedynczego wystąpienia* podpola `Type` , nie można go używać bezpośrednio w filtrze. Zamiast tego, aby odfiltrować typ pokoju, należy użyć [wyrażenia lambda](search-query-odata-collection-operators.md) z zmienną zakresu, takiej jak:
 
@@ -211,7 +211,7 @@ Dostępny jest również interaktywny diagram składni:
 
 Jednak większość czasu potrzebuje bardziej złożonych wyrażeń, które odwołują się do więcej niż jednego pola i stałej. Wyrażenia te są tworzone na różne sposoby w zależności od parametru.
 
-Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla parametrów **$Filter**, **$OrderBy**i **$SELECT** . Są one tworzone na podstawie prostszych wyrażeń odwołujących się do ścieżek pól i stałych:
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla parametrów **$Filter**, **$OrderBy** i **$SELECT** . Są one tworzone na podstawie prostszych wyrażeń odwołujących się do ścieżek pól i stałych:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -233,7 +233,7 @@ Dostępny jest również interaktywny diagram składni:
 
 Parametry **$OrderBy** i **$SELECT** są rozdzielanymi przecinkami listami prostszych wyrażeń. **$Filter** parametr jest wyrażeniem logicznym, które składa się z prostszych wyrażeń podrzędnych. Te wyrażenia podrzędne są łączone za pomocą operatorów logicznych, takich jak [ `and` , `or` , `not` i ](search-query-odata-logical-operators.md)operatory porównania, takie jak,, [ `eq` `lt` `gt` , i tak dalej](search-query-odata-comparison-operators.md), oraz operatorów kolekcji, takich jak [ `any` i `all` ](search-query-odata-collection-operators.md).
 
-Parametry **$Filter**, **$OrderBy**i **$SELECT** zostały omówione bardziej szczegółowo w następujących artykułach:
+Parametry **$Filter**, **$OrderBy** i **$SELECT** zostały omówione bardziej szczegółowo w następujących artykułach:
 
 - [Składnia $filter OData na platformie Azure Wyszukiwanie poznawcze](search-query-odata-filter.md)
 - [Składnia $orderby OData na platformie Azure Wyszukiwanie poznawcze](search-query-odata-orderby.md)

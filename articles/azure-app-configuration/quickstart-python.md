@@ -9,10 +9,10 @@ ms.custom: devx-track-python
 ms.date: 9/17/2020
 ms.author: drewbat
 ms.openlocfilehash: 954f4edcd10d701d00d9cd23280aaac7c287992d
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91997468"
 ---
 # <a name="quickstart-create-a-python-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu konfiguracji aplikacji platformy Azure
@@ -77,7 +77,7 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
 
 ## <a name="configure-your-app-configuration-connection-string"></a>Konfigurowanie parametrów połączenia konfiguracji aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **AZURE_APP_CONFIG_CONNECTION_STRING**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie:
+1. Ustaw zmienną środowiskową o nazwie **AZURE_APP_CONFIG_CONNECTION_STRING** i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie:
 
     ```cmd
     setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85358671"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalowanie programu Azure AD Connect za pomocą delegowanych uprawnień administratora usługi SQL
@@ -28,7 +28,7 @@ Przed najnowszą Azure AD Connect kompilacją administracyjną, podczas wdrażan
 
 W najnowszej wersji Azure AD Connect aprowizacji bazy danych można teraz wykonać poza pasmem przez administratora SQL, a następnie zainstalować go przez administratora Azure AD Connect z prawami właściciela bazy danych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Aby skorzystać z tej funkcji, należy pamiętać, że istnieje kilka ruchomych części, a każdy z nich może mieć innego administratora w organizacji.  Poniższa tabela zawiera podsumowanie poszczególnych ról i ich obowiązków związanych z wdrażaniem Azure AD Connect za pomocą tej funkcji.
 
 |Rola|Opis|

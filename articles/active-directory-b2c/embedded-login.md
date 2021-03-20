@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/16/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9e248c10c15ba0318c6b23fcbf88be04dd9896a2
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 1255c4962de1fce19efa9c0b0e1d28fc348463ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573068"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580151"
 ---
 # <a name="embedded-sign-in-experience"></a>Wbudowane środowisko logowania
 
@@ -35,7 +36,7 @@ W przypadku używania elementu IFRAME należy wziąć pod uwagę następujące k
 - Osadzona Rejestracja jest obsługiwana tylko na kontach lokalnych. Większość dostawców tożsamości społecznościowych (np. Google i Facebook) uniemożliwia renderowanie stron logowania w ramkach wbudowanych.
 - Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Aby użyć tego samego źródła, [Włącz domeny niestandardowe](custom-domain.md) dla Azure AD B2C dzierżawy, a następnie skonfiguruj aplikację sieci Web przy użyciu tego samego źródła. Na przykład aplikacja hostowana w programie https://app.contoso.com ma takie samo źródło jak Azure AD B2C uruchomionym w systemie https://login.contoso.com .
 
-## <a name="perquisites"></a>Perquisites
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * Wykonaj kroki opisane w temacie [wprowadzenie do zasad niestandardowych w Active Directory B2C](custom-policy-get-started.md).
 * [Włącz domeny niestandardowe](custom-domain.md) dla zasad.
@@ -87,7 +88,7 @@ div.api_container{
 
 W niektórych przypadkach możesz chcieć wysłać powiadomienie do swojej aplikacji, która Azure AD B2C strona jest aktualnie wyświetlana. Na przykład, gdy użytkownik wybierze opcję rejestracji, możesz chcieć, aby aplikacja mogła reagować, ukrywając linki do logowania za pomocą konta społecznościowego lub dostosowując rozmiar elementu iframe.
 
-Aby powiadomić aplikację o bieżącej Azure AD B2C, [Włącz zasady dla języka JavaScript](javascript-samples.md), a następnie użyj komunikatów post HTML5. Poniższy kod JavaScript wysyła wiadomość post do aplikacji przy użyciu `signUp` :
+Aby powiadomić aplikację o bieżącej Azure AD B2C, [Włącz zasady dla języka JavaScript](./javascript-and-page-layout.md), a następnie użyj komunikatów post HTML5. Poniższy kod JavaScript wysyła wiadomość post do aplikacji przy użyciu `signUp` :
 
 ```javascript
 window.parent.postMessage("signUp", '*');
@@ -155,5 +156,5 @@ Zapoznaj się z następującymi artykułami:
 
 - [Dostosowywanie interfejsu użytkownika](customize-ui.md)
 - Odwołanie do elementu [RelyingParty](relyingparty.md)
-- [Włączanie zasad dla języka JavaScript](javascript-samples.md)
+- [Włączanie zasad dla języka JavaScript](./javascript-and-page-layout.md)
 - [Przykłady kodu](code-samples.md)

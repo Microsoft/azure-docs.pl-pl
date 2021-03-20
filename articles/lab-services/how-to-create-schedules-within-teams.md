@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć harmonogramy usług Lab w ramach zespoł
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042341"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>Tworzenie harmonogramów usług Lab i zarządzanie nimi w ramach zespołów
@@ -28,7 +28,7 @@ Użytkownicy mogą tworzyć, edytować i usuwać harmonogramy laboratorium w ram
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>Ustawienia automatycznego zamykania i rozłączania
 
 Możesz włączyć kilka funkcji kontroli kosztów automatycznego zamykania, aby aktywnie uniknąć dodatkowych kosztów, gdy maszyny wirtualne nie są aktywnie używane. Kombinacja następujących trzech funkcji automatycznego zamykania i rozłączania przechwytuje większość przypadków, w których użytkownicy przypadkowo opuszczają maszyny wirtualne z systemem:
- 
+ 
 - Automatyczne rozłączanie użytkowników z maszyn wirtualnych uznawanych za bezczynne przez system operacyjny.
 - Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników.
 - Automatycznie Zamykaj uruchomione maszyny wirtualne, ale użytkownicy nie łączą się.

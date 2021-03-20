@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 84bbec783630aadc68a9632c90ee90f4a8cc98d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92446705"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Grovo
@@ -135,7 +135,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do Grovo jako administrator.
 
-2. Przejdź do **Admin**pozycji  >  **integracje**administratorów.
+2. Przejdź do pozycji  >  **integracje** administratorów.
  
     ![Zrzut ekranu pokazujący menu "Administrator" z wybraną opcją "integracje".](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 

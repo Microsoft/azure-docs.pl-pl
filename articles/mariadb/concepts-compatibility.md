@@ -3,14 +3,14 @@ title: Zgodność sterowników i narzędzi — Azure Database for MariaDB
 description: W tym artykule opisano sterowniki MariaDB i narzędzia do zarządzania, które są zgodne z Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: e1d544004d4361d11b40d8016f38f8bdd01bf5c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 49fd2c8da3ba0a44f4901bc6c7a2241e9e20df4d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659873"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Sterowniki MariaDB i narzędzia do zarządzania zgodne z Azure Database for MariaDB

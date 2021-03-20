@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
 ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92676007"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Szybki Start: Tworzenie profilu Traffic Manager przy użyciu szablonu ARM
@@ -21,7 +21,7 @@ W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Man
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-traffic-manager-external-endpoint%2Fazuredeploy.json)
 
@@ -41,7 +41,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
@@ -62,11 +62,11 @@ Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, z
 
 1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej** .
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
 
 1. Wprowadź wartości.
 
-    Wdrożenie szablonu tworzy profil z dwoma zewnętrznymi punktami końcowymi. **Endpoint1** używa docelowego punktu końcowego `www.microsoft.com` z lokalizacją w **Europie Północnej** . **Endpoint2** używa docelowego punktu końcowego z `docs.microsoft.com` lokalizacją w regionie **Południowo-środkowe stany USA** .
+    Wdrożenie szablonu tworzy profil z dwoma zewnętrznymi punktami końcowymi. **Endpoint1** używa docelowego punktu końcowego `www.microsoft.com` z lokalizacją w **Europie Północnej**. **Endpoint2** używa docelowego punktu końcowego z `docs.microsoft.com` lokalizacją w regionie **Południowo-środkowe stany USA**.
 
     Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** .
 
