@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503865"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji jednostronicowej (SPA) w Azure Active Directory B2C
@@ -53,13 +53,13 @@ Jeśli nie utworzono jeszcze własnej [dzierżawy Azure AD B2C](tutorial-create-
 
 ## <a name="register-the-spa-application"></a>Rejestrowanie aplikacji SPA
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *spaapp1*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym dostawcy tożsamości lub katalogu organizacji (do uwierzytelniania użytkowników za pomocą przepływów użytkowników).**
-1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **aplikacja jednostronicowa (Spa)**, a następnie wprowadź `https://jwt.ms` wartość w polu tekstowym adres URL.
+1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym dostawcy tożsamości lub katalogu organizacji (do uwierzytelniania użytkowników za pomocą przepływów użytkowników).**
+1. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **aplikacja jednostronicowa (Spa)**, a następnie wprowadź `https://jwt.ms` wartość w polu tekstowym adres URL.
 
     Identyfikator URI przekierowania jest punktem końcowym, do którego użytkownik jest wysyłany przez serwer autoryzacji (Azure AD B2C w tym przypadku) po zakończeniu interakcji z użytkownikiem oraz do którego zostanie wysłany token dostępu lub kod autoryzacji po pomyślnej autoryzacji. W aplikacji produkcyjnej zwykle jest dostępny publicznie punkt końcowy, w którym działa aplikacja, na przykład `https://contoso.com/auth-response` . Do celów testowych, takich jak ten samouczek, można ustawić dla niego `https://jwt.ms` aplikację sieci Web firmy Microsoft, która wyświetla zdekodowaną zawartość tokenu (zawartość tokenu nigdy nie opuszcza przeglądarki). Podczas tworzenia aplikacji możesz dodać punkt końcowy, w którym aplikacja nasłuchuje lokalnie, na przykład `http://localhost:5000` . Można w dowolnym momencie dodawać i modyfikować identyfikatory URI przekierowań w zarejestrowanych aplikacjach.
 
@@ -68,15 +68,15 @@ Jeśli nie utworzono jeszcze własnej [dzierżawy Azure AD B2C](tutorial-create-
     * Adres URL odpowiedzi musi rozpoczynać się od schematu `https` , chyba że jest używany `localhost` .
     * W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc` , nie należy określać jej `.../ABC/response-oidc` w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
 
-1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
+1. W obszarze **uprawnienia** zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
 1. Wybierz pozycję **Zarejestruj**.
 
 
 ## <a name="enable-the-implicit-flow"></a>Włącz przepływ niejawny
 W przypadku użycia niejawnego przepływu należy włączyć przepływ niejawnego przydzielenia w rejestracji aplikacji.
 
-1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatora** .
+1. W menu po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **niejawne przyznanie** zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatora** .
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="migrate-from-the-implicit-flow"></a>Migrowanie z niejawnego przepływu
@@ -85,8 +85,8 @@ Jeśli masz istniejącą aplikację, która używa przepływu niejawnego, zaleca
 
 Jeśli wszystkie produkcyjne aplikacje jednostronicowe reprezentowane przez rejestrację aplikacji używają przepływu kodu autoryzacji, należy wyłączyć ustawienia przepływu niejawnego. 
 
-1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **niejawne przyznanie**Usuń zaznaczenie pól wyboru **tokeny dostępu** i **tokeny identyfikatora** .
+1. W menu po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **niejawne przyznanie** Usuń zaznaczenie pól wyboru **tokeny dostępu** i **tokeny identyfikatora** .
 1. Wybierz pozycję **Zapisz**.
 
 Aplikacje korzystające z niejawnego przepływu mogą nadal działać w przypadku pozostawienia włączonego przepływu niejawnego (zaznaczone).

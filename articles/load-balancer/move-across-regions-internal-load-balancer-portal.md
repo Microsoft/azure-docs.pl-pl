@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698495"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Przenoszenie wewnętrznej Load Balancer platformy Azure do innego regionu przy użyciu Azure Portal
@@ -43,7 +43,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Wyeksportuj szablon sieci wirtualnej i Wdróż go z Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
+1. Zaloguj się do [](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
 2. Znajdź grupę zasobów zawierającą źródłową sieć wirtualną i kliknij ją.
 3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
@@ -87,11 +87,11 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
     ```
 
-11. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  **centralus**.
+11. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  .
 
 12. Możesz również zmienić inne parametry w **template.jsw** pliku, jeśli wybierzesz, i są opcjonalne w zależności od wymagań:
 
-    * **Przestrzeń adresowa** — przed zapisaniem można zmienić przestrzeń adresową sieci wirtualnej, modyfikując sekcję **resources**  >  **addressSpace** zasobów i zmieniając właściwość **addressPrefixes** w **template.js** w pliku:
+    * **Przestrzeń adresowa** — przed zapisaniem można zmienić przestrzeń adresową sieci wirtualnej, modyfikując sekcję   >  **addressSpace** zasobów i zmieniając właściwość **addressPrefixes** w **template.js** w pliku:
 
         ```json
                 "resources": [
@@ -180,11 +180,11 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 13. Kliknij przycisk **Zapisz** w edytorze online.
 
-14. Kliknij **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna.
+14. Kliknij pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna.
 
 15. Kliknij pozycję **podstawowe**  >  **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożona docelowa sieć wirtualna.  Możesz kliknąć przycisk **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowej sieci wirtualnej.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącej sieci wirtualnej.
 
-16. Sprawdź **BASICS**  >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
+16. Sprawdź   >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
 
 17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.
 
@@ -194,7 +194,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon wewnętrznego modułu równoważenia obciążenia i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
+1. Zaloguj się do [](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
 2. Znajdź grupę zasobów zawierającą źródłowy wewnętrzny moduł równoważenia obciążenia i kliknij ją.
 3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
@@ -218,9 +218,9 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 6. Aby edytować wartość docelowej sieci wirtualnej, która została przeniesiona powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do **parameters.js** pliku. Aby uzyskać identyfikator:
 
-    1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów** Azure Portal w innej karcie lub oknie przeglądarki.
+    1. Zaloguj się do [](https://portal.azure.com)  >  **grup zasobów** Azure Portal w innej karcie lub oknie przeglądarki.
     2. Znajdź docelową grupę zasobów zawierającą przenoszonej sieci wirtualnej z powyższych kroków i kliknij ją.
-    3. Wybierz właściwości **ustawień**>  >  **Properties**.
+    3. Wybierz właściwości **ustawień**>  >  .
     4. W bloku po prawej stronie zaznacz **Identyfikator zasobu** i skopiuj go do Schowka.  Alternatywnie możesz kliknąć przycisk **Kopiuj do schowka** z prawej strony ścieżki **identyfikatora zasobu** .
     5. Wklej identyfikator zasobu do właściwości **DefaultValue** w edytorze **parametrów edycji** otwartym w innym oknie przeglądarki lub karcie:
 
@@ -255,11 +255,11 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
                 },
     ```
 
-9.  Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  **centralus**.
+9.  Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  .
 
 10. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Jednostka SKU** — można zmienić jednostkę SKU wewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w **template.js** w pliku:
+    * **Jednostka SKU** — można zmienić jednostkę SKU wewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >   w **template.js** w pliku:
 
         ```json
         "resources": [
@@ -377,11 +377,11 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 12. Kliknij przycisk **Zapisz** w edytorze online.
 
-13. Kliknij **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy wewnętrzny moduł równoważenia obciążenia.
+13. Kliknij pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy wewnętrzny moduł równoważenia obciążenia.
 
 15. Kliknij pozycję **podstawowe**  >  **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia.  Możesz kliknąć przycisk **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego wewnętrznego modułu równoważenia obciążenia lub wybrać istniejącą grupę zasobów, która została utworzona powyżej dla sieci wirtualnej.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego wewnętrznego modułu równoważenia obciążenia.
 
-16. Sprawdź **BASICS**  >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony wewnętrzny moduł równoważenia obciążenia.
+16. Sprawdź   >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony wewnętrzny moduł równoważenia obciążenia.
 
 17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.  Sprawdź, czy identyfikatory zasobów są wypełnione dla dowolnych sieci wirtualnych w konfiguracji.
 

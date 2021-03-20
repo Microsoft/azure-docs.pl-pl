@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396859"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Utwórz bramę aplikacji i Zapisz ponownie nagłówki HTTP
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Skonfiguruj nowe obiekty wymagane do ponownego zapisania nagłówków http:
 
-- **RequestHeaderConfiguration** : ten obiekt służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
-- **ResponseHeaderConfiguration** : ten obiekt służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
-- **ActionSet** : ten obiekt zawiera konfiguracje żądań i nagłówków odpowiedzi określonych powyżej. 
-- **RewriteRule** : ten obiekt zawiera wszystkie *actionSets* określone powyżej. 
-- **RewriteRuleSet** — ten obiekt zawiera wszystkie *rewriteRules* i będzie musiał zostać dołączony do reguły routingu żądań — podstawowa lub oparta na ścieżce.
+- **RequestHeaderConfiguration**: ten obiekt służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
+- **ResponseHeaderConfiguration**: ten obiekt służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
+- **ActionSet**: ten obiekt zawiera konfiguracje żądań i nagłówków odpowiedzi określonych powyżej. 
+- **RewriteRule**: ten obiekt zawiera wszystkie *actionSets* określone powyżej. 
+- **RewriteRuleSet**— ten obiekt zawiera wszystkie *rewriteRules* i będzie musiał zostać dołączony do reguły routingu żądań — podstawowa lub oparta na ścieżce.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

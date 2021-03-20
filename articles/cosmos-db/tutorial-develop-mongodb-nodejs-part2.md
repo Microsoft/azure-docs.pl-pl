@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097859"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie aplikacji Node.js Express
@@ -82,9 +82,9 @@ Dla tego samouczka wymagane są również następujące elementy:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Tworzenie aplikacji przy użyciu platformy Express
 
-1. W programie Visual Studio Code w okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **src** , kliknij pozycję **Nowy folder** i nadaj nowemu folderowi nazwę *server* .
+1. W programie Visual Studio Code w okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **src**, kliknij pozycję **Nowy folder** i nadaj nowemu folderowi nazwę *server*.
 
-2. W okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **server** , kliknij pozycję **Nowy plik** i nadaj nowemu plikowi nazwę *index.js* .
+2. W okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **server**, kliknij pozycję **Nowy plik** i nadaj nowemu plikowi nazwę *index.js*.
 
 3. Wróć do wiersza polecenia i użyj poniższego polecenia, aby zainstalować analizator treści. Ułatwi to naszej aplikacji analizowanie danych JSON, które są przekazywane za pośrednictwem interfejsów API.
 
@@ -126,9 +126,9 @@ Dla tego samouczka wymagane są również następujące elementy:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. W programie Visual Studio Code w okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **server** , a następnie kliknij pozycję **Nowy plik** . Nadaj nowemu plikowi nazwę *routes.js* . 
+5. W programie Visual Studio Code w okienku **Eksplorator** kliknij prawym przyciskiem myszy folder **server**, a następnie kliknij pozycję **Nowy plik**. Nadaj nowemu plikowi nazwę *routes.js*. 
 
-6. Skopiuj poniższy kod do pliku **routes.js** . Ten kod:
+6. Skopiuj poniższy kod do pliku **routes.js**. Ten kod:
    * Odwołuje się do routera platformy Express
    * Pobiera elementy hero
    * Wysyła z powrotem dane JSON dla zdefiniowanego elementu hero

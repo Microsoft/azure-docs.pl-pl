@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173689"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurowanie domeny niestandardowej w usłudze Azure Static Web Apps (wersja zapoznawcza)
@@ -57,7 +57,7 @@ Rekord CNAME mapuje jedną domenę na inną. Możesz użyć rekordu CNAME do map
 
 2. Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**.
 
-3. Często stronę rekordów DNS można znaleźć, wyświetlając informacje o koncie, a następnie szukając linków takich jak **Moja domena**. Przejdź do tej strony, a następnie poszukaj linku o nazwie podobnej do **pliku strefy**, **rekordy DNS**lub **Konfiguracja zaawansowana**.
+3. Często stronę rekordów DNS można znaleźć, wyświetlając informacje o koncie, a następnie szukając linków takich jak **Moja domena**. Przejdź do tej strony, a następnie poszukaj linku o nazwie podobnej do **pliku strefy**, **rekordy DNS** lub **Konfiguracja zaawansowana**.
 
     Poniższy zrzut ekranu przedstawia przykład strony rekordów DNS:
 
@@ -102,7 +102,7 @@ Czasami chcesz, aby cały ruch wysyłany do domeny podrzędnej był kierowany do
 
 2. Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**.
 
-3. Często stronę rekordów DNS można znaleźć, wyświetlając informacje o koncie, a następnie szukając linków takich jak **Moja domena**. Przejdź do tej strony, a następnie poszukaj linku o nazwie podobnej do **pliku strefy**, **rekordy DNS**lub **Konfiguracja zaawansowana**.
+3. Często stronę rekordów DNS można znaleźć, wyświetlając informacje o koncie, a następnie szukając linków takich jak **Moja domena**. Przejdź do tej strony, a następnie poszukaj linku o nazwie podobnej do **pliku strefy**, **rekordy DNS** lub **Konfiguracja zaawansowana**.
 
     Poniższy zrzut ekranu przedstawia przykład strony rekordów DNS:
 

@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081318"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — dodawanie funkcji CRUD do aplikacji
@@ -39,7 +39,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 1. W Visual Studio Code Otwórz **routes.js** i **hero.service.js** obok siebie, naciskając przycisk **Podziel Edytor** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png"::: .
 
-    Zauważ, że wiersz 7 pliku routes.js wywołuje funkcję `getHeroes` w wierszu 5 pliku **hero.service.js** .  Musimy utworzyć to samo parowanie dla funkcji post, put i delete. 
+    Zauważ, że wiersz 7 pliku routes.js wywołuje funkcję `getHeroes` w wierszu 5 pliku **hero.service.js**.  Musimy utworzyć to samo parowanie dla funkcji post, put i delete. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code":::
     
@@ -77,7 +77,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
     };
     ```
 
-4. W pliku **routes.js** dodaj router dla funkcji `post` po routerze `get`. Ten router publikuje jeden element hero w danym momencie. Taka struktura pliku routera jasno przedstawia wszystkie dostępne punkty końcowe interfejsu API i pozostawia faktyczną pracę do wykonania plikowi **hero.service.js** .
+4. W pliku **routes.js** dodaj router dla funkcji `post` po routerze `get`. Ten router publikuje jeden element hero w danym momencie. Taka struktura pliku routera jasno przedstawia wszystkie dostępne punkty końcowe interfejsu API i pozostawia faktyczną pracę do wykonania plikowi **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -89,11 +89,11 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 6. Teraz wróć do przeglądarki internetowej i otwórz kartę Narzędzia programistyczne > Sieć, naciskając klawisz F12 w przypadku większości komputerów. Przejdź do adresu `http://localhost:3000`, aby obejrzeć wywołania wykonywane w sieci.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Karta Sieć w przeglądarce Chrome z widoczną aktywnością sieci":::
 
 7. Dodaj nowy element hero, wybierając przycisk **Add New Hero** (Dodaj nowy element hero). Wprowadź identyfikator „999”, nazwę „Fred” i powiedzenie „Hello”, a następnie wybierz przycisk **Save** (Zapisz). Na karcie Sieć powinno pojawić się wysłane żądanie POST dotyczące nowego elementu hero. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Karta Sieć w przeglądarce Chrome z aktywnością sieci dla funkcji Get i Post":::
 
     Teraz przejdź wstecz i dodaj funkcje Put i Delete do aplikacji.
 
@@ -178,11 +178,11 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
     Teraz możesz wybrać identyfikator na karcie Sieć w celu wyświetlenia ładunku. W ładunku widać powiedzenie ustawione na „Bye”.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplikacja Heroes i karta Sieć z przedstawionym ładunkiem"::: 
 
     Możesz również usunąć jeden z elementów hero w interfejsie użytkownika i sprawdzić, ile czasu pozostało do ukończenia operacji usuwania. Wypróbuj tę funkcję, wybierz przycisk „Delete” (Usuń) dla elementu hero o nazwie „Fred”.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplikacja Heroes i karta Sieć pokazująca czas potrzebny do ukończenia działania funkcji"::: 
 
     Po odświeżeniu strony na karcie sieci zostanie wyświetlony czas potrzebny do pobrania elementów hero. Czasy te są krótkie, ale wiele zależy od lokalizacji danych na świecie i możliwości ich replikacji geograficznej w obszarze znajdującym się w pobliżu użytkowników. Więcej informacji na temat replikacji geograficznej będzie można znaleźć w następnym samouczku, który udostępnimy wkrótce.
 

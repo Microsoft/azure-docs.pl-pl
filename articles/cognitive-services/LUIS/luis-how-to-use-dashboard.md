@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541411"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Jak ulepszyć aplikację przy użyciu pulpitu nawigacyjnego
@@ -28,7 +28,7 @@ Ta strona nie będzie miała odpowiedniej analizy dla aplikacji, które nie maj�
 
 Trzy problemy rozkierowane na pulpicie nawigacyjnym są następujące:
 
-|Problem|Kolor wykresu|Objaśnienie|
+|Problem|Kolor wykresu|Wyjaśnienie|
 |--|--|--|
 |Nierównoważność danych|-|Dzieje się tak, gdy liczba przykładowych wyrażenia długości znacznie się różni. Wszystkie intencje muszą mieć w _przybliżeniu_ tę samą liczbę przykładowych wyrażenia długości — z wyjątkiem zamiaru none. Powinna ona mieć 10%-15% łącznej liczby wyrażenia długości w aplikacji.<br><br> Jeśli dane są niezrównoważone, ale dokładność przeznaczenie jest wyższa od pewnej wartości progowej, to nierównowaga nie jest raportowana jako problem.<br><br>**Rozpocznij od tego problemu — może to być główna przyczyna innych problemów.**|
 |Niejasne przewidywania|Orange|Dzieje się tak, gdy najlepsze zamierzenie i wyniki następnego celu są wystarczająco zbliżone, że mogą przerzucać kolejne szkolenia, z powodu [próbkowania negatywnego](luis-how-to-train.md#train-with-all-data) lub więcej przykładowych wyrażenia długości dodanych do intencji. |
@@ -152,7 +152,7 @@ Określ procent wartości progowych, z którymi masz doświadczenie dla Twojej f
 
 Filtr umożliwia znalezienie intencji z określonym problemem:
 
-|Filtrowanie|Sugerowana wartość procentowa|Przeznaczenie|
+|Filtr|Sugerowana wartość procentowa|Przeznaczenie|
 |--|--|--|
 |Najbardziej problematyczne intencje|-|**Zacznij tutaj** — naprawianie wyrażenia długości w tym celu poprawi aplikację więcej niż inne poprawki.|
 |Poprawne przewidywania poniżej|60%|Jest to wartość procentowa wyrażenia długości w wybranym zamierzeniu, która jest poprawna, ale ma wynik pewności poniżej wartości progowej. |

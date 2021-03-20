@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000933"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Korzystanie z internetowego interfejsu użytkownika do administrowania wirtualną macierzą StorSimple
@@ -80,7 +80,7 @@ Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mog
 Urządzenie wirtualne można zamknąć lub ponownie uruchomić przy użyciu lokalnego internetowego interfejsu użytkownika. Zaleca się, aby przed ponownym uruchomieniem przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Spowoduje to zminimalizowanie wszelkich możliwości uszkodzenia danych. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Aby zamknąć urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  **Power settings**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  .
 2. W dolnej części strony kliknij przycisk **Zamknij**.
    
     ![Zamykanie urządzenia 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +95,7 @@ Urządzenie wirtualne można zamknąć lub ponownie uruchomić przy użyciu loka
     Urządzenie zostanie teraz zamknięte. Jeśli chcesz uruchomić urządzenie, musisz wykonać te czynności za pomocą Menedżera funkcji Hyper-V.
 
 #### <a name="to-restart-your-virtual-device"></a>Aby ponownie uruchomić urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  **Power settings**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  .
 2. W dolnej części strony kliknij pozycję **Uruchom ponownie**.
    
     ![ponowne uruchomienie urządzenia](./media/storsimple-ova-web-ui-admin/image36.png)

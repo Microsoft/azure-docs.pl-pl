@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: 1e295075a5c1ae8daa6673757770bbef01208c1d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92505747"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-virtual-traffic-manager"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z użyciem pulsu Secure Virtual Traffic Manager
@@ -103,7 +103,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -159,21 +159,21 @@ c. Skonfiguruj następujące ustawienia uwierzytelniania dla serwera wirtualnego
 
     ![ustawienia uwierzytelniania dla serwera wirtualnego](./media/pulse-secure-virtual-traffic-manager-tutorial/authentication-1.png)
 
-    a. W obszarze **Typ uwierzytelniania**wybierz pozycję **Dostawca usługi SAML** . 
+    a. W obszarze **Typ uwierzytelniania** wybierz pozycję **Dostawca usługi SAML** . 
 
-    b. W polu **AUTH! verbose**ustaw wartość "tak", aby rozwiązać problemy z uwierzytelnianiem. w przeciwnym razie pozostaw wartość domyślną "nie" 
+    b. W polu **AUTH! verbose** ustaw wartość "tak", aby rozwiązać problemy z uwierzytelnianiem. w przeciwnym razie pozostaw wartość domyślną "nie" 
 
 2. Zarządzanie sesjami uwierzytelniania —
 
     ![Zarządzanie sesjami uwierzytelniania](./media/pulse-secure-virtual-traffic-manager-tutorial/authentication-session.png)
 
-    a. Dla elementu **AUTH! Session! cookie_name**pozostaw wartość domyślną "VS_SamlSP_Auth" 
+    a. Dla elementu **AUTH! Session! cookie_name** pozostaw wartość domyślną "VS_SamlSP_Auth" 
 
-    b. Dla elementu **AUTH! Session! Timeout**pozostaw wartość domyślną "7200" 
+    b. Dla elementu **AUTH! Session! Timeout** pozostaw wartość domyślną "7200" 
 
-    c. W obszarze **AUTH! Session! log_external_state**ustaw wartość "tak", aby rozwiązać problemy z uwierzytelnianiem. w przeciwnym razie pozostaw wartość domyślną "nie" 
+    c. W obszarze **AUTH! Session! log_external_state** ustaw wartość "tak", aby rozwiązać problemy z uwierzytelnianiem. w przeciwnym razie pozostaw wartość domyślną "nie" 
 
-    d. W obszarze **AUTH! Session! cookie_attributes**Zmień wartość na "HTTPOnly". 
+    d. W obszarze **AUTH! Session! cookie_attributes** Zmień wartość na "HTTPOnly". 
 
 3. Dostawca usługi SAML —
 
@@ -181,9 +181,9 @@ c. Skonfiguruj następujące ustawienia uwierzytelniania dla serwera wirtualnego
 
     a. W polu tekstowym Authentication **! SAML! sp_entity_id** ustaw na ten sam adres URL, który jest używany jako identyfikator konfiguracji logowania jednokrotnego usługi Azure AD (identyfikator jednostki). Lubię to `https://pulseweb.labb.info/saml/metadata` . 
 
-    b. W polu Authentication **! SAML! sp_acs_url**ustaw na ten sam adres URL, który jest używany jako adres URL powtarzania konfiguracji logowania jednokrotnego w usłudze Azure AD (adres URL usługi konsumenckej potwierdzenia). Lubię to `https://pulseweb.labb.info/saml/consume` . 
+    b. W polu Authentication **! SAML! sp_acs_url** ustaw na ten sam adres URL, który jest używany jako adres URL powtarzania konfiguracji logowania jednokrotnego w usłudze Azure AD (adres URL usługi konsumenckej potwierdzenia). Lubię to `https://pulseweb.labb.info/saml/consume` . 
 
-    c. W obszarze **uwierzytelnianie! SAML! dostawcy tożsamości**wybierz **zaufanego dostawcę tożsamości** utworzonego w poprzednim kroku. 
+    c. W obszarze **uwierzytelnianie! SAML! dostawcy tożsamości** wybierz **zaufanego dostawcę tożsamości** utworzonego w poprzednim kroku. 
 
     d. W time_tolerance auth! SAML! pozostaw wartość domyślną "5" s. 
 

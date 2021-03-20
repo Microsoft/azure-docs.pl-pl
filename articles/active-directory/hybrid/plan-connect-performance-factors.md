@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90087013"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Czynniki wpływające na wydajność programu Azure AD Connect
@@ -29,7 +29,7 @@ Azure AD Connect synchronizuje Active Directory z usługą Azure AD. Ten serwer 
 | Topologia| Dystrybucja punktów końcowych i składników Azure AD Connect musi zarządzać w sieci. |
 | Skalowanie| Liczba obiektów, takich jak użytkownicy, grupy i jednostki organizacyjne, które mają być zarządzane przez Azure AD Connect. |
 | Sprzęt| Sprzęt (fizyczny lub wirtualny) dla Azure AD Connect i zależna pojemność wydajności każdego składnika sprzętowego, w tym Konfiguracja procesora CPU, pamięci, sieci i dysku twardego. |
-| Konfiguracja| Jak Azure AD Connect przetwarza katalogi i informacje. |
+| Konfigurowanie| Jak Azure AD Connect przetwarza katalogi i informacje. |
 | Ładowanie| Częstotliwość zmian obiektów. Obciążenia mogą się różnić w ciągu godziny, dnia lub tygodnia. W zależności od składnika może być konieczne zaprojektowanie obciążenia szczytowego lub średniego obciążenia. |
 
 Celem tego dokumentu jest opisywanie czynników wpływających na wydajność aparatu aprowizacji Azure AD Connect. Duże lub złożone organizacje (obsługa administracyjna więcej niż 100 000 obiektów) może korzystać z zaleceń w celu optymalizacji ich implementacji Azure AD Connect, jeśli występują jakiekolwiek problemy z wydajnością opisane tutaj. Inne składniki Azure AD Connect, takie jak [Azure AD Connect kondycja](how-to-connect-health-agent-install.md) i agenci, nie zostały omówione w tym miejscu.

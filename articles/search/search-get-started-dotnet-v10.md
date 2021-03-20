@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94701844"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu starszej biblioteki klienta Microsoft. Azure. Search v10
@@ -106,19 +106,19 @@ W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` paki
 
 Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konsoli programu. Podczas drukowania wyników do okna konsoli, poszczególne pola z obiektu hotelu muszą zostać zwrócone jako ciągi. Ten krok implementuje program [ToString ()](/dotnet/api/system.object.tostring) w celu wykonania tego zadania, które można skopiować do dwóch nowych plików.
 
-1. Dodaj dwie puste definicje klas do projektu: Address.Methods.cs, Hotel.Methods.cs
+1. Dodaj dwie puste definicje klas do projektu: Address. Methods. cs, Hotel. Methods. cs
 
-1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. W polu Address. Methods. cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
+1. W hotelu. Methods. cs, copy [wierszs 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu
 
 Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hotelname" lub "Description", a złożone pola są adresami z podpolami lub kolekcją pokojów. Gdy indeks zawiera typy złożone, Izoluj złożone definicje pól w oddzielnych klasach.
 
-1. Dodaj dwie puste definicje klas do projektu: Address.cs, Hotel.cs
+1. Dodaj dwie puste definicje klas do projektu: Address. cs, Hotel. cs
 
-1. W Address.cs Zastąp domyślną zawartość następującym kodem:
+1. W polu Address. cs Zastąp domyślną zawartość następującym kodem:
 
     ```csharp
     using System;
@@ -148,7 +148,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
     }
     ```
 
-1. W Hotel.cs, Klasa definiuje ogólną strukturę indeksu, łącznie z odwołaniami do klasy Address.
+1. W hotelu. cs Klasa definiuje ogólną strukturę indeksu, łącznie z odwołaniami do klasy Address.
 
     ```csharp
     namespace AzureSearchQuickstart
@@ -205,7 +205,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
 
     W tym indeksie pola Description używają [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer) Właściwości opcjonalne, określonej podczas przesłonięcia domyślnego standardowego analizatora Lucene. W `description_fr` polu jest używany francuski Analizator Luces ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)), ponieważ zawiera on tekst w języku francuskim. `description`Używa opcjonalnego narzędzia Microsoft Language Analyzer ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)).
 
-1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) klasy w celu nawiązania połączenia z usługą przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). 
+1. W programie program. cs Utwórz wystąpienie [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) klasy w celu nawiązania połączenia z usługą przy użyciu wartości przechowywanych w pliku konfiguracyjnym aplikacji (appsettings.json). 
 
    `SearchServiceClient` ma [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
 
@@ -309,7 +309,7 @@ Na platformie Azure Wyszukiwanie poznawcze dokumenty są strukturami danych, kt�
 
 Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch) obiektu. `IndexBatch`Zawiera kolekcję [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction) obiektów, z których każdy zawiera dokument i Właściwość informującą platformę Azure wyszukiwanie poznawcze czynności do wykonania ([przekazywanie, scalanie, usuwanie i mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. W Program.cs Utwórz tablicę dokumentów i akcji indeksu, a następnie Przekaż tablicę do `IndexBatch` . Poniższe dokumenty są zgodne z indeksem hotelu — Szybki Start, zdefiniowanym przez klasy hotelowe i adresowe.
+1. W programie program. cs Utwórz tablicę dokumentów i akcji indeksu, a następnie Przekaż tablicę do `IndexBatch` . Poniższe dokumenty są zgodne z indeksem hotelu — Szybki Start, zdefiniowanym przez klasy hotelowe i adresowe.
 
     ```csharp
     // Upload documents as a batch
@@ -435,7 +435,7 @@ Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/micr
 
     2-sekundowe opóźnienie kompensuje indeksowanie, które jest asynchroniczne, tak aby wszystkie dokumenty mogły być indeksowane przed wykonaniem zapytań. Kodowanie w opóźnieniu jest zwykle wymagane tylko w pokazach, testach i przykładowych aplikacjach.
 
-1. W Program.cs, w obszarze głównym, Usuń komentarz z wierszy dla "2-Ładuj dokumenty". 
+1. W programie program. cs w obszarze głównym usuń znaczniki komentarza z wierszy dla "2-Ładuj dokumenty". 
 
     ```csharp
     // Uncomment next 3 lines in "2 - Load documents"
@@ -458,7 +458,7 @@ W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W 
 [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)Klasa reprezentuje wyniki.
 
 
-1. W Program.cs Utwórz metodę WriteDocuments, która drukuje wyniki wyszukiwania w konsoli programu.
+1. W programie program. cs Utwórz metodę WriteDocuments, która drukuje wyniki wyszukiwania w konsoli.
 
     ```csharp
     private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -540,7 +540,7 @@ W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W 
 
     Zarówno operacja wyszukiwania, jak i filtrowania są wykonywane przy użyciu metody `Documents.Search`. Zapytanie wyszukiwania może zostać przekazane za pośrednictwem parametru `searchText`, natomiast wyrażenie filtrowania może zostać przekazane za pośrednictwem właściwości `Filter` klasy `SearchParameters`. Aby filtrować bez wyszukiwania, po prostu przekaż wartość `"*"` jako parametr `searchText`. Aby wyszukiwać bez filtrowania, pozostaw nieustawioną właściwość `Filter` lub nie przekazuj jej w wystąpieniu obiektu `SearchParameters`.
 
-1. W Program.cs, w obszarze głównym, Usuń komentarz z wierszy dla "3-Search". 
+1. W programie program. cs w obszarze głównym Usuń komentarz z wierszy dla "3-Search". 
 
     ```csharp
     // Uncomment next 2 lines in "3 - Search an index"

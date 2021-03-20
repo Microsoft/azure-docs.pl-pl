@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
 ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098216"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Tworzenie aplikacji przy użyciu środowiska Node.js i interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB 
@@ -36,7 +36,7 @@ Aby użyć tego przykładu, musisz:
 
 ## <a name="create-the-app"></a>Tworzenie aplikacji
 
-1. Utwórz plik *app.js* , a następnie skopiuj i wklej poniższy kod.
+1. Utwórz plik *app.js*, a następnie skopiuj i wklej poniższy kod.
 
     ```javascript
     var MongoClient = require('mongodb').MongoClient;
@@ -118,7 +118,7 @@ Aby użyć tego przykładu, musisz:
     });
     ```
     
-    **Opcjonalnie** : jeśli używasz **sterownika MongoDB Node.js 2.2** , zamień następujący fragment kodu:
+    **Opcjonalnie**: jeśli używasz **sterownika MongoDB Node.js 2.2**, zamień następujący fragment kodu:
 
     Oryginalny kod:
 
@@ -170,7 +170,7 @@ Aby użyć tego przykładu, musisz:
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
-3. Otwórz swój ulubiony terminal, uruchom polecenie **npm install mongodb --save** , następnie uruchom aplikację za pomocą polecenia **node app.js**
+3. Otwórz swój ulubiony terminal, uruchom polecenie **npm install mongodb --save**, następnie uruchom aplikację za pomocą polecenia **node app.js**
 
 ## <a name="next-steps"></a>Następne kroki
 

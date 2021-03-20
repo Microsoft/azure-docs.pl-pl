@@ -5,10 +5,10 @@ services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398049"
 ---
 # <a name="manage-office-365-services"></a>Zarządzanie usługami Office 365
@@ -98,9 +98,9 @@ Możesz użyć skryptu w Azure Automation elemencie Runbook. Na przykład użyje
 2. Z poziomu konta usługi Automation wybierz pozycję **elementy Runbook** w obszarze **Automatyzacja procesów**.
 3. Wybierz nowy element Runbook, a następnie kliknij przycisk **Edytuj**.
 4. Skopiuj skrypt i wklej go do edytora tekstu dla elementu Runbook.
-5. Wybierz pozycję **zasoby** , a następnie rozwiń pozycję **poświadczenia** i sprawdź, czy jest tam poświadczenie pakietu Office 365.
-6. Kliknij przycisk **Zapisz**.
-7. Wybierz pozycję **okienko testowania** , a następnie kliknij przycisk **Rozpocznij** , aby rozpocząć testowanie elementu Runbook. Zobacz [Zarządzanie elementami Runbook w Azure Automation](./manage-runbooks.md).
+5. Wybierz pozycję **zasoby**, a następnie rozwiń pozycję **poświadczenia** i sprawdź, czy jest tam poświadczenie pakietu Office 365.
+6. Kliknij pozycję **Zapisz**.
+7. Wybierz pozycję **okienko testowania**, a następnie kliknij przycisk **Rozpocznij** , aby rozpocząć testowanie elementu Runbook. Zobacz [Zarządzanie elementami Runbook w Azure Automation](./manage-runbooks.md).
 8. Po zakończeniu testowania Wyjdź z okienka testowania.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Publikowanie i planowanie elementu Runbook

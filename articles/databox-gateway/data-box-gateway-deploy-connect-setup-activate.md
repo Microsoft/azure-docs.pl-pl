@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583526"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: Łączenie, konfigurowanie i aktywowanie usługi Azure Data Box Gateway
@@ -89,7 +89,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    Na stronie **serwer proxy sieci Web** wykonaj następujące czynności:
    
    1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://&lt;host-IP address or FQDN&gt;:Port number` . Adresy URL HTTPS nie są obsługiwane.
-   2. W obszarze **uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**.
+   2. W obszarze **Uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**.
    3. Jeśli używasz uwierzytelniania, wprowadź **nazwę użytkownika** i **hasło**.
    4. Aby sprawdzić poprawność skonfigurowanych ustawień serwera proxy sieci Web i zastosować je, wybierz pozycję **Zastosuj**.
 

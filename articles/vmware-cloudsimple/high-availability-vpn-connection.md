@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895703"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurowanie połączenia o wysokiej dostępności z poziomu lokalnego z bramą sieci VPN CloudSimple
@@ -21,7 +21,7 @@ Administratorzy sieci mogą skonfigurować połączenie sieci VPN typu lokacja-l
 
 W tym przewodniku przedstawiono procedurę konfigurowania zapory lokalnej na potrzeby połączenia wysokiej dostępności sieci VPN typu lokacja-lokacja protokołu IPsec. Szczegółowe kroki są specyficzne dla typu zapory lokalnej. Przykładowo w tym przewodniku przedstawiono kroki dla dwóch typów zapór: Cisco ASA i Palo Alto Networks.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed skonfigurowaniem zapory lokalnej należy wykonać poniższe zadania.
 
@@ -272,7 +272,7 @@ Karta identyfikatory serwera proxy: kliknij pozycję **IPv4**  >  **Dodaj** i sk
 
 Powtórz poprzednie kroki, aby utworzyć inny tunel protokołu IPsec do użycia dla równorzędnego CloudSimple sieci VPN.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Konfigurowanie translatora adresów sieciowych w programie Cisco ASA:
 

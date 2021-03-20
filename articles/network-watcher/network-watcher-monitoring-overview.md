@@ -15,10 +15,10 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895890"
 ---
 # <a name="what-is-azure-network-watcher"></a>Co to jest Azure Network Watcher?
@@ -55,7 +55,7 @@ Podczas wdrażania maszyny wirtualnej platforma Azure stosuje wobec niej kilka d
 
 Po utworzeniu sieci wirtualnej platforma Azure tworzy kilka domyślnych tras wychodzącego ruchu sieciowego. Ruch wychodzący ze wszystkich zasobów, takich jak maszyny wirtualne wdrożone w sieci wirtualnej, jest kierowany w oparciu o trasy domyślne platformy Azure. Można zastąpić trasy domyślne platformy Azure lub utworzyć dodatkowe trasy. Może się okazać, że maszyna wirtualna nie może już komunikować się z innymi zasobami ze względu na określoną trasę. Funkcja *następnego przeskoku* umożliwia określenie źródłowego i docelowego adresu IPv4. Funkcja ta przeprowadza wówczas testy komunikacji i informuje o typie następnego przeskoku używanego do kierowania ruchu. Następnie w celu rozwiązania problemu z routingiem można usunąć, zmienić lub dodać trasę. Dowiedz się więcej o funkcji [następnego przeskoku](diagnose-vm-network-routing-problem.md).
 
-### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnozowanie połączeń wychodzących z maszyny wirtualnej
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnozuj połączenia wychodzące z maszyny wirtualnej
 
 Funkcja *rozwiązywania problemów z połączeniami* umożliwia testowanie połączenia między daną maszyną wirtualną a inną maszyną wirtualną, nazwą FQDN, identyfikatorem URI lub adresem IPv4. Test zwraca informacje podobne do zwracanych przez funkcję [monitora połączenia](#connection-monitor), ale testuje połączenie w określonym momencie, zamiast monitorować je w czasie, tak jak robi to monitor połączenia. Dowiedz się więcej na temat rozwiązywania problemów z połączeniami przy użyciu funkcji [rozwiązywania problemów z połączeniem](network-watcher-connectivity-overview.md).
 

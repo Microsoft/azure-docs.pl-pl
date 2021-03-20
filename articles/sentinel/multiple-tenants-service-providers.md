@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578154"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Zarządzanie wieloma dzierżawcami na platformie Azure — wskaźnikiem MSSP
@@ -33,17 +33,17 @@ Jeśli jesteś zarządzanym dostawcą usług zabezpieczeń (MSSP) i korzystasz z
 
     1. Wybierz pozycję **subskrypcje** z Azure Portal, a następnie wybierz odpowiednią subskrypcję z menu.
 
-    1. W menu nawigacji na ekranie subskrypcja w obszarze **Ustawienia**wybierz pozycję **dostawcy zasobów**.
+    1. W menu nawigacji na ekranie subskrypcja w obszarze **Ustawienia** wybierz pozycję **dostawcy zasobów**.
 
-    1. Z ** *nazwy subskrypcji* | Ekranu dostawcy zasobów** , Wyszukaj i wybierz pozycję *Microsoft. OperationalInsights* i *Microsoft. SecurityInsights*i Sprawdź kolumnę **stan** . Jeśli dostawca jest w stanie *NotRegistered*, wybierz pozycję **zarejestruj**.
+    1. Z ***nazwy subskrypcji* | Ekranu dostawcy zasobów** , Wyszukaj i wybierz pozycję *Microsoft. OperationalInsights* i *Microsoft. SecurityInsights* i Sprawdź kolumnę **stan** . Jeśli dostawca jest w stanie *NotRegistered*, wybierz pozycję **zarejestruj**.
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Sprawdź dostawców zasobów":::
 
 ## <a name="how-to-access-azure-sentinel-in-managed-tenants"></a>Jak uzyskać dostęp do platformy Azure ze wskaźnikami zarządzanymi dzierżawcami
 
-1. W obszarze **katalog i subskrypcja**wybierz pozycję katalogi delegowane (katalog = dzierżawca) oraz subskrypcje, w których znajdują się obszary robocze usługi Azure — wskaźnik na klienta.
+1. W obszarze **katalog i subskrypcja** wybierz pozycję katalogi delegowane (katalog = dzierżawca) oraz subskrypcje, w których znajdują się obszary robocze usługi Azure — wskaźnik na klienta.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Sprawdź dostawców zasobów":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Wybieranie dzierżawców i subskrypcji":::
 
 1. Otwórz wskaźnik platformy Azure. Zobaczysz wszystkie obszary robocze w wybranych subskrypcjach i będzie można bezproblemowo współpracować z nimi, podobnie jak w przypadku dowolnego obszaru roboczego w Twojej dzierżawie.
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.openlocfilehash: c7cd1898f27f3b7255009efb40f6bcc8938dbf9e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395654"
 ---
 # <a name="tutorial-run-a-disaster-recovery-drill-for-azure-vms"></a>Samouczek: uruchamianie przechodzenia do odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
@@ -54,10 +54,10 @@ Przed rozpoczęciem tego samouczka musisz włączyć odzyskiwanie awaryjne dla c
 
 2. W obszarze **test pracy w trybie failover** wybierz punkt odzyskiwania. Maszyna wirtualna platformy Azure w regionie docelowym jest tworzona przy użyciu danych z tego punktu odzyskiwania.
   
-   - **Ostatnio przetwarzane** : używa najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, więc zapewnia niski cel czasu odzyskiwania (RTO).
-   -  **Najnowsze** : przetwarza wszystkie dane wysyłane do Site Recovery, aby utworzyć punkt odzyskiwania dla każdej maszyny wirtualnej przed przełączeniem jej w tryb failover. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ wszystkie dane są replikowane do Site Recovery podczas wyzwolenia trybu failover.
-   - **Najnowsza spójna dla aplikacji** : Ta opcja powoduje przełączenie maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją. Wyświetlana jest sygnatura czasowa.
-   - **Niestandardowa** : przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej i nie korzysta z planu odzyskiwania.
+   - **Ostatnio przetwarzane**: używa najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, więc zapewnia niski cel czasu odzyskiwania (RTO).
+   -  **Najnowsze**: przetwarza wszystkie dane wysyłane do Site Recovery, aby utworzyć punkt odzyskiwania dla każdej maszyny wirtualnej przed przełączeniem jej w tryb failover. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ wszystkie dane są replikowane do Site Recovery podczas wyzwolenia trybu failover.
+   - **Najnowsza spójna dla aplikacji**: Ta opcja powoduje przełączenie maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją. Wyświetlana jest sygnatura czasowa.
+   - **Niestandardowa**: przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej i nie korzysta z planu odzyskiwania.
 
 3. W obszarze **Azure Virtual Network** wybierz sieć docelową, w której chcesz umieścić maszyny wirtualne platformy Azure utworzone po przejściu do trybu failover. Wybierz sieć nieprodukcyjną, jeśli jest to możliwe, a nie sieci, która została utworzona podczas włączania replikacji.
 
@@ -77,7 +77,7 @@ Przed rozpoczęciem tego samouczka musisz włączyć odzyskiwanie awaryjne dla c
 
     ![Przycisk umożliwiający rozpoczęcie procesu oczyszczania](./media/azure-to-azure-tutorial-dr-drill/select-cleanup.png)
 
-2. W obszarze notatki dotyczące **oczyszczania w trybie failover**  >  **Notes** należy zarejestrować i zapisać wszelkie obserwacje związane z testem pracy w trybie failover. 
+2. W obszarze notatki dotyczące **oczyszczania w trybie failover**  >  należy zarejestrować i zapisać wszelkie obserwacje związane z testem pracy w trybie failover. 
 3. Wybierz opcję **testowanie zostało zakończone** , aby usunąć maszyny wirtualne utworzone podczas testu pracy w trybie failover.
 
     ![Strona z opcjami czyszczenia](./media/azure-to-azure-tutorial-dr-drill/cleanup-failover.png)

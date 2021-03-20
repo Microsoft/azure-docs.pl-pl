@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98693408"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
@@ -108,7 +108,7 @@ Następujące właściwości kolejki i tematu są niezmienne. To ograniczenie na
 * Wykrywanie duplikatów
 * Jednostka Express
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Ta sekcja zawiera odpowiedzi na kilka często zadawanych pytań dotyczących struktury cenowej Service Bus.
 
 W artykule dotyczącym [cen i rozliczeń Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) opisano liczniki rozliczeń w programie Service Bus. Aby uzyskać szczegółowe informacje na temat opcji cennika Service Bus, zobacz [Service Bus szczegóły cennika](https://azure.microsoft.com/pricing/details/service-bus/).

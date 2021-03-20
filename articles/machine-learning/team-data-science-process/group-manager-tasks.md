@@ -11,10 +11,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740230"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Zadania kierownika ds. przetwarzania danych zespołowych
@@ -213,7 +213,7 @@ git push
 ```
 
 > [!NOTE]
-> Jeśli po raz pierwszy zatwierdzisz repozytorium git, może być konieczne skonfigurowanie parametrów globalnych *User.Name* i *User. email* przed uruchomieniem `git commit` polecenia. Uruchom następujące dwa polecenia:
+> Jeśli po raz pierwszy zatwierdzisz repozytorium git, przed uruchomieniem polecenia może być konieczne skonfigurowanie parametrów globalnych *User.Name* i *User.email* `git commit` . Uruchom następujące dwa polecenia:
 > 
 > `git config --global user.name <your name>`
 > 

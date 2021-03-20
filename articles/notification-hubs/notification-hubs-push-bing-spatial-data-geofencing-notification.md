@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 51ad23e67a77c28d0ad8a147168a0094f5de1796
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578006"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Samouczek: wysyłanie powiadomień wypychanych opartych na lokalizacji z danymi przestrzennymi Notification Hubs i Bing
@@ -50,7 +50,7 @@ W tym samouczku wykonasz następujące kroki:
 2. Wybierz pozycję **Źródła danych** na górnym pasku nawigacyjnym, a następnie wybierz pozycję **Zarządzaj źródłami danych**.
 
     ![Zrzut ekranu przedstawiający Centrum deweloperów map Bing na stronie Zarządzanie źródłami danych za pomocą opcji Przekaż dane jako źródło danych pokreślonym kolorem czerwonym.](./media/notification-hubs-geofence/bing-maps-manage-data.png)
-3. Jeśli nie masz źródła danych, możesz je utworzyć za pomocą widocznego linku. Wybierz pozycję **Upload data as a data source** (Przekaż dane jako źródło danych). Możesz również użyć menu **Data sources**  >  **przekazywanie danych** źródła danych.
+3. Jeśli nie masz źródła danych, możesz je utworzyć za pomocą widocznego linku. Wybierz pozycję **Upload data as a data source** (Przekaż dane jako źródło danych). Możesz również użyć menu   >  **przekazywanie danych** źródła danych.
 
     ![Zrzut ekranu przedstawiający okno dialogowe przekazywanie źródła danych.](./media/notification-hubs-geofence/bing-maps-create-data.png)
 4. Utwórz `NotificationHubsGeofence.pipe` na dysku twardym plik z następującą zawartością: w tym samouczku użyjesz przykładowego pliku z potokiem, który tworzy ramkę obszaru Francisco Waterfront:
@@ -78,7 +78,7 @@ W tym samouczku wykonasz następujące kroki:
 8. Otwórz kartę **Published Data Sources** (Opublikowane źródła danych) i upewnij się, że źródło danych jest widoczne na liście.
 
     ![Zrzut ekranu przedstawiający Centrum deweloperów map Bing na stronie Zarządzanie źródłami danych z wybraną kartą opublikowane źródła danych.](./media/notification-hubs-geofence/bing-maps-published-data.png)
-9. Kliknij pozycję **Edytuj**. Od razu zobaczysz lokalizacje wprowadzone w danych.
+9. Wybierz pozycję **Edytuj**. Od razu zobaczysz lokalizacje wprowadzone w danych.
 
     ![Zrzut ekranu przedstawiający stronę Edytowanie danych jednostki z mapą zachodnich Stanów Zjednoczonych i karmazynową kropką w sieci San Francisco Waterfront.](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
@@ -353,7 +353,7 @@ W tym samouczku wykonasz następujące kroki:
 
     ![Zrzut ekranu z menu dostępnego po kliknięciu prawym przyciskiem myszy z wyróżnionymi opcjami Zapisz i skojarz aplikację ze sklepem.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Po zalogowaniu się do konta dewelopera wybierz istniejącą aplikację lub utwórz nową i skojarz z nią pakiet.
-4. Przejdź do Centrum deweloperów i otwórz utworzoną aplikację. Wybierz pozycję **usługi**  >  **powiadomienia wypychane**w  >  **witrynie usługi Live Services**.
+4. Przejdź do Centrum deweloperów i otwórz utworzoną aplikację. Wybierz pozycję **usługi**  >  **powiadomienia wypychane** w  >  **witrynie usługi Live Services**.
 
     ![Zrzut ekranu Centrum deweloperów systemu Windows przedstawiający stronę powiadomienia wypychane z wyróżnioną lokacją usługi Live Services.](./media/notification-hubs-geofence/ms-live-services.png)
 5. W witrynie zanotuj **Klucz tajny aplikacji** i **Identyfikator SID pakietu**. Musisz mieć oba te elementy w Azure Portal — Otwórz Centrum powiadomień, wybierz pozycję **Ustawienia**  >  **usługi powiadomień**  >  **Windows (WNS)** i wprowadź informacje w wymaganych polach.

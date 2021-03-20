@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542006"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
@@ -54,7 +54,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -94,11 +94,11 @@ Obsługiwane są następujące jednostki:
 
 Obsługiwane są następujące jednostki:
 
-| Wstępnie utworzona jednostka | pl-PL |
+| Wstępnie utworzona jednostka | en-US |
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
@@ -120,7 +120,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -142,7 +142,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -164,7 +164,7 @@ Obsługiwane są następujące jednostki:
 | -------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -254,7 +254,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -276,7 +276,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -298,7 +298,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    -   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    -   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    -   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |

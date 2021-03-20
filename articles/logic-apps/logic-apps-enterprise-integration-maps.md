@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570781"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Przekształć kod XML przy użyciu map w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
@@ -63,7 +63,7 @@ Nie potrzebujesz aplikacji logiki podczas tworzenia i dodawania map. Jednak aby 
 
    ![Wybierz konto integracji](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **zespoły** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **zespoły** .
 
    ![Wybierz pozycję "zestawy"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
@@ -81,7 +81,7 @@ Aby uzyskać limity dotyczące liczby zestawów na kontach integracji, zobacz [l
 
 ### <a name="add-assemblies-up-to-2-mb"></a>Dodaj zestawy do 2 MB
 
-1. W obszarze **Dodawanie zestawu**wpisz nazwę zestawu. Pozostaw wybrany **mały plik** . Obok pola **zestaw** wybierz ikonę folderu. Znajdź i wybierz zestaw, który jest przekazywany, na przykład:
+1. W obszarze **Dodawanie zestawu** wpisz nazwę zestawu. Pozostaw wybrany **mały plik** . Obok pola **zestaw** wybierz ikonę folderu. Znajdź i wybierz zestaw, który jest przekazywany, na przykład:
 
    ![Przekaż mniejszy zestaw](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
@@ -93,7 +93,7 @@ Aby uzyskać limity dotyczące liczby zestawów na kontach integracji, zobacz [l
 
    ![Lista przekazanych zestawów](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
 
-   Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów, na przykład:
+   Na stronie **Przegląd** konta integracji w obszarze **składniki** kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów, na przykład:
 
    ![Przekazane zestawy](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
@@ -138,7 +138,7 @@ Aby dodać większe zestawy, można przekazać zestaw do kontenera obiektów blo
    Zakończ Dodawanie zestawu.
 
 Po zakończeniu przekazywania zestawu schemat pojawia się na liście **zestawy** .
-Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów.
+Na stronie **Przegląd** konta integracji w obszarze **składniki** kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów.
 
 <a name="no-public-access-assemblies"></a>
 
@@ -161,7 +161,7 @@ Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **zes
 
 1. W polu **Identyfikator URI zawartości** wklej wcześniej wygenerowany identyfikator URI SAS. Zakończ Dodawanie zestawu.
 
-Po zakończeniu przekazywania zestawu zostanie on wyświetlony na liście **schematy** . Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów.
+Po zakończeniu przekazywania zestawu zostanie on wyświetlony na liście **schematy** . Na stronie **Przegląd** konta integracji w obszarze **składniki** kafelek **zestawy** są teraz wyświetlane Liczba przekazanych zestawów.
 
 ## <a name="create-maps"></a>Tworzenie map
 
@@ -184,7 +184,7 @@ Po przekazaniu zestawów, do których odwołuje się mapowanie, można teraz prz
 
    ![Wybierz konto integracji](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **mapy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **mapy** .
 
    ![Wybierz pozycję "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
 
@@ -196,9 +196,9 @@ Po przekazaniu zestawów, do których odwołuje się mapowanie, można teraz prz
 
 ### <a name="add-maps-up-to-2-mb"></a>Dodaj mapy do 2 MB
 
-1. W obszarze **Dodaj mapę**wpisz nazwę mapy. 
+1. W obszarze **Dodaj mapę** wpisz nazwę mapy. 
 
-1. W obszarze **typ mapy**wybierz typ, na przykład: **Liquid**, **XSLT**, **XSLT 2,0**lub **XSLT 3,0**.
+1. W obszarze **typ mapy** wybierz typ, na przykład: **Liquid**, **XSLT**, **XSLT 2,0** lub **XSLT 3,0**.
 
 1. Pozostaw wybrany **mały plik** . Obok pola **Mapa** wybierz ikonę folderu. Znajdź i wybierz przekazaną mapę, na przykład:
 
@@ -212,7 +212,7 @@ Po przekazaniu zestawów, do których odwołuje się mapowanie, można teraz prz
 
    ![Lista przekazanych map](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
 
-   Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **mapy** zawiera teraz liczbę przekazanych map, na przykład:
+   Na stronie **Przegląd** konta integracji w obszarze **składniki** kafelek **mapy** zawiera teraz liczbę przekazanych map, na przykład:
 
    ![Przekazane mapy](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
@@ -318,10 +318,10 @@ Aby zaktualizować istniejącą mapę, należy przekazać nowy plik mapy, który
 
 1. Wybierz konto integracji, do którego chcesz zaktualizować mapę.
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **mapy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **mapy** .
 
 1. Po otwarciu strony **Maps** wybierz swoją mapę. 
-   Aby najpierw pobrać i zmodyfikować mapę, wybierz pozycję **Pobierz**i Zapisz mapę.
+   Aby najpierw pobrać i zmodyfikować mapę, wybierz pozycję **Pobierz** i Zapisz mapę.
 
 1. Gdy wszystko będzie gotowe do przekazania zaktualizowanej mapy, na stronie **mapy** Wybierz mapę, którą chcesz zaktualizować, a następnie wybierz pozycję **Aktualizuj**.
 
@@ -338,7 +338,7 @@ Aby zaktualizować istniejącą mapę, należy przekazać nowy plik mapy, który
 
 1. Wybierz konto integracji, dla którego chcesz usunąć mapę.
 
-1. Na stronie **Przegląd** konta integracji w obszarze **składniki**wybierz kafelek **mapy** .
+1. Na stronie **Przegląd** konta integracji w obszarze **składniki** wybierz kafelek **mapy** .
 
 1. Po otwarciu strony **Maps** Wybierz mapę, a następnie wybierz pozycję **Usuń**.
 

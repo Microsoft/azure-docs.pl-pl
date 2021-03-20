@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397862"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Tworzenie niestandardowej sondy dla platformy Azure Application Gateway (klasyczny) przy użyciu programu PowerShell
@@ -200,6 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby skonfigurować usługę Transport Layer Security (TLS), która wcześniej znana jako odciążanie SSL (SSL), zobacz [Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu TLS](./tutorial-ssl-powershell.md).
+Aby skonfigurować usługę Transport Layer Security (TLS), która wcześniej znana jako odciążanie Secure Sockets Layer (SSL), zobacz [Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu TLS](./tutorial-ssl-powershell.md).
 
 Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb-arm.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).

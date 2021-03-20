@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.openlocfilehash: 3e5ab1667ee0cda459785efa624bd7f4fc6818b8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97562960"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Łączenie usługi IoT DevKit AZ3166 z platformą Azure IoT Hub
@@ -165,7 +165,7 @@ Wykonaj następujące kroki, aby przygotować środowisko programistyczne dla De
 
 1. Zainstaluj [środowisko IDE Arduino](https://www.arduino.cc/en/Main/Software). Zapewnia łańcucha narzędzi niezbędne do kompilowania i przekazywania kodu Arduino.
     * **Windows**: Użyj Instalator Windows wersji. Nie instaluj ze sklepu App Store.
-    * **macOS**: Przeciągnij i upuść wyodrębnioną **aplikację Arduino. app** do `/Applications` folderu.
+    * **macOS**: Przeciągnij i upuść wyodrębnione **Arduino.app** do `/Applications` folderu.
     * **Ubuntu**: rozpakuj go do folderu, takiego jak `$HOME/Downloads/arduino-1.8.8`
 
 2. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/), Edytor kodu źródłowego dla wielu platform z zaawansowaną technologią IntelliSense, uzupełniania kodu i obsługi debugowania, a także bogatymi rozszerzeniami można instalować z witryny Marketplace.

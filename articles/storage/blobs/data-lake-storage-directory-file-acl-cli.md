@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3e9afd4617eb7445ba83948d46eef0890832e2be
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100650358"
 ---
 # <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami i plikami w Azure Data Lake Storage Gen2
@@ -223,6 +223,6 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 ## <a name="see-also"></a>Zobacz też
 
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-- [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
+- [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
 - [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Używanie interfejsu wiersza polecenia platformy Azure do zarządzania listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)
