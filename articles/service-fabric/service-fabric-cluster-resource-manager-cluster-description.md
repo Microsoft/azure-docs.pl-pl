@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911770"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
@@ -64,7 +64,7 @@ Jak wyglądają niezrównoważone domeny? Na poniższym diagramie przedstawiono 
 
 Na platformie Azure wybór domeny błędów zawiera węzeł, który jest zarządzany przez Ciebie. Ale w zależności od liczby wdrożonych węzłów można nadal zakończyć z domenami błędów, które mają więcej węzłów niż w innych.
 
-Załóżmy na przykład, że w klastrze znajdują się pięć domen błędów, ale Zainicjowano obsługę siedmiu węzłów dla typu węzła ( **NodeType** ). W takim przypadku pierwsze dwie domeny błędów kończą się wieloma węzłami. W przypadku kontynuowania wdrażania większej liczby wystąpień **NodeType** z tylko kilkoma wystąpieniami ten problem będzie gorszy. Z tego powodu zalecamy, aby liczba węzłów w każdym typie węzła była wielokrotnością liczby domen błędów.
+Załóżmy na przykład, że w klastrze znajdują się pięć domen błędów, ale Zainicjowano obsługę siedmiu węzłów dla typu węzła (**NodeType**). W takim przypadku pierwsze dwie domeny błędów kończą się wieloma węzłami. W przypadku kontynuowania wdrażania większej liczby wystąpień **NodeType** z tylko kilkoma wystąpieniami ten problem będzie gorszy. Z tego powodu zalecamy, aby liczba węzłów w każdym typie węzła była wielokrotnością liczby domen błędów.
 
 ## <a name="upgrade-domains"></a>Uaktualnij domeny
 
@@ -119,7 +119,7 @@ Załóżmy na przykład, że mamy klaster z sześcioma węzłami, który został
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Teraz Załóżmy, że tworzymy usługę z **wartość targetreplicasetsize** (lub w przypadku usługi bezstanowej **InstanceCount** ) równą pięciu. Repliki są naładowywane na N1-N5. W rzeczywistości N6 nigdy nie jest używana bez względu na to, ile usług takie jak to zostało utworzone. Ale dlaczego? Przyjrzyjmy się różnicy między bieżącym układem i co się stanie, jeśli wybrano N6.
+Teraz Załóżmy, że tworzymy usługę z **wartość targetreplicasetsize** (lub w przypadku usługi bezstanowej **InstanceCount**) równą pięciu. Repliki są naładowywane na N1-N5. W rzeczywistości N6 nigdy nie jest używana bez względu na to, ile usług takie jak to zostało utworzone. Ale dlaczego? Przyjrzyjmy się różnicy między bieżącym układem i co się stanie, jeśli wybrano N6.
 
 Oto układ i łączna liczba replik na awarię i domenę uaktualnienia:
 
@@ -179,7 +179,7 @@ Menedżer zasobów klastra obsługuje inną wersję ograniczenia dla domen błę
 > [!NOTE]
 > W przypadku usługi stanowej definiujemy *utratę kworum* w sytuacji, gdy większość replik partycji nie działa w tym samym czasie. Na przykład jeśli **wartość targetreplicasetsize** wynosi pięć, zestaw wszystkich trzech replik reprezentuje kworum. Podobnie, jeśli **wartość targetreplicasetsize** jest sześć, cztery repliki są niezbędne do kworum. W obu przypadkach nie ma więcej niż dwóch replik w tym samym czasie, jeśli partycja chce kontynuować normalne działanie.
 >
-> W przypadku usługi bezstanowej nie jest to równoznaczne z *utratą kworum* . Usługi bezstanowe kontynuują normalne działanie nawet wtedy, gdy większość wystąpień jest w tym samym czasie. Dlatego będziemy skupić się na usługach stanowych w pozostałej części tego artykułu.
+> W przypadku usługi bezstanowej nie jest to równoznaczne z *utratą kworum*. Usługi bezstanowe kontynuują normalne działanie nawet wtedy, gdy większość wystąpień jest w tym samym czasie. Dlatego będziemy skupić się na usługach stanowych w pozostałej części tego artykułu.
 >
 
 Wróćmy do poprzedniego przykładu. W przypadku wersji ograniczenia "bezpieczny dla kworum" wszystkie trzy układy będą prawidłowe. Nawet jeśli FD0 nie powiodło się w drugim układzie lub UD1 nie powiodło się w trzecim układzie, partycja nadal będzie mieć kworum. (Większość replik nadal będzie działać). W przypadku tej wersji ograniczenia N6 można prawie zawsze używać.
@@ -349,13 +349,13 @@ Service Fabric oczekuje, że w niektórych przypadkach może być konieczne uruc
 * Obciążenie musi być uruchamiane na określonym sprzęcie dla powodów związanych z wydajnością, skalą lub izolacją zabezpieczeń.
 * Obciążenie powinno być odizolowane od innych obciążeń związanych z zasadami lub użyciem zasobów.
 
-Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi, które można zastosować do węzłów. Te Tagi są nazywane *właściwościami węzła* . *Ograniczenia umieszczania* to instrukcje dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Ograniczenia umieszczania definiują, gdzie mają być uruchamiane usługi. Zestaw ograniczeń jest rozszerzalny. Wszystkie pary klucz/wartość mogą funkcjonować.
+Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi, które można zastosować do węzłów. Te Tagi są nazywane *właściwościami węzła*. *Ograniczenia umieszczania* to instrukcje dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Ograniczenia umieszczania definiują, gdzie mają być uruchamiane usługi. Zestaw ograniczeń jest rozszerzalny. Wszystkie pary klucz/wartość mogą funkcjonować.
 
 ![Różne obciążenia dla układu klastra][Image5]
 
 ### <a name="built-in-node-properties"></a>Właściwości wbudowanego węzła
 
-Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename** .
+Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename**.
 
 Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"` . **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
 
@@ -465,7 +465,7 @@ Najpierw należy upewnić się, że maszyny nie są przeciążone. Oznacza to, �
 
 Po drugie, istnieje możliwość równoważenia i optymalizacji, co jest niezwykle ważne do wydajnego uruchamiania usług. Oferty usługi ekonomicznej lub dotyczącej wydajności nie mogą zezwalać na gorącą część węzłów, podczas gdy inne są zimne. Hot nodes prowadzi do rywalizacji o zasoby i niskiej wydajności. Zimne węzły przedstawiają zasoby niezajęte i zwiększają koszty.
 
-Service Fabric reprezentuje zasoby jako *metryki* . Metryki to zasoby logiczne lub fizyczne, które mają zostać opisane Service Fabric. Przykłady metryk to "WorkQueueDepth" lub "MemoryInMb". Aby uzyskać informacje o zasobach fizycznych, które Service Fabric mogą zarządzać na węzłach, zobacz temat [Zarządzanie zasobami](service-fabric-resource-governance.md). Aby uzyskać informacje dotyczące metryk domyślnych używanych przez klaster Menedżer zasobów i sposobu konfigurowania metryk niestandardowych, zobacz [ten artykuł](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric reprezentuje zasoby jako *metryki*. Metryki to zasoby logiczne lub fizyczne, które mają zostać opisane Service Fabric. Przykłady metryk to "WorkQueueDepth" lub "MemoryInMb". Aby uzyskać informacje o zasobach fizycznych, które Service Fabric mogą zarządzać na węzłach, zobacz temat [Zarządzanie zasobami](service-fabric-resource-governance.md). Aby uzyskać informacje dotyczące metryk domyślnych używanych przez klaster Menedżer zasobów i sposobu konfigurowania metryk niestandardowych, zobacz [ten artykuł](service-fabric-cluster-resource-manager-metrics.md).
 
 Metryki różnią się od ograniczeń umieszczania i właściwości węzła. Właściwości węzła to statyczne deskryptory węzłów. Metryki opisują zasoby, które znajdują się w węzłach i których usługi używają, gdy są uruchamiane w węźle. Właściwość węzła może być **HasSSD** i może być ustawiona na wartość true lub false. Ilość miejsca dostępnego na tym dysku SSD i ilość zużywanej przez usługi byłyby metryką taką jak "DriveSpaceInMb".
 
@@ -566,7 +566,7 @@ Można również określić nieskończoność nadwyżkową. W takim przypadku Me
 
 Metryka nie może mieć jednocześnie określonego buforu węzła i pojemności.
 
-Poniżej przedstawiono przykład sposobu określania pojemności buforu węzłów lub napełniania rezerwacji w *ClusterManifest.xml* :
+Poniżej przedstawiono przykład sposobu określania pojemności buforu węzłów lub napełniania rezerwacji w *ClusterManifest.xml*:
 
 ```xml
 <Section Name="NodeBufferPercentage">

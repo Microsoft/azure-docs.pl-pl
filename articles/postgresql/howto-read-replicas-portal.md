@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422182"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze z Azure Portal
@@ -39,9 +39,9 @@ Aby skonfigurować odpowiedni poziom rejestrowania, użyj parametru Obsługa rep
 
 1. W Azure Portal wybierz istniejący serwer Azure Database for PostgreSQL, który ma być używany jako główny.
 
-2. Z menu serwer wybierz pozycję **replikacja**. Jeśli Obsługa replikacji platformy Azure została ustawiona na co najmniej **replikę** , można utworzyć repliki odczytu. 
+2. Z menu serwer wybierz pozycję **replikacja**. Jeśli Obsługa replikacji platformy Azure została ustawiona na co najmniej **replikę**, można utworzyć repliki odczytu. 
 
-3. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę** , ustaw ją. Wybierz pozycję **Zapisz**.
+3. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę**, ustaw ją. Wybierz pozycję **Zapisz**.
 
    :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Azure Database for PostgreSQL — replikacja zestawu i zapisywanie":::
 
@@ -73,7 +73,7 @@ Aby utworzyć replikę odczytu, wykonaj następujące kroki:
 
 5. Wybierz lokalizację dla repliki. Lokalizacja domyślna jest taka sama jak na serwerze podstawowym.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Wybierz lokalizację":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Wybieranie lokalizacji":::
 
    > [!NOTE]
    > Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md). 

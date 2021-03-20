@@ -1,6 +1,6 @@
 ---
 title: Przywracanie woluminu z kopii zapasowej na serii StorSimple 8000 | Microsoft Docs
-description: Wyjaśnia, jak używać wykazu kopii zapasowych usługi StorSimple Menedżer urządzeń do przywracania woluminu StorSimple z zestawu kopii zapasowych.
+description: Wyjaśnia, jak używać wykazu kopii zapasowych usługi StorSimple Device Manager do przywracania woluminu StorSimple z zestawu kopii zapasowych.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94950738"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Przywracanie woluminu StorSimple z zestawu kopii zapasowych
@@ -39,7 +39,7 @@ Przed rozpoczęciem przywracania zapoznaj się z następującymi zastrzeżeniami
 
 * **Nie można rozszerzyć woluminu podczas** przywracania — poczekaj na zakończenie operacji przywrócenia przed podjęciem próby rozszerzenia woluminu. Aby uzyskać informacje o rozszerzaniu woluminu, przejdź do obszaru [Modyfikowanie woluminu](storsimple-8000-manage-volumes-u2.md#modify-a-volume).
 
-* **Podczas przywracania woluminu lokalnego można wykonać kopię zapasową** — w przypadku procedur przejdź do [usługi StorSimple Menedżer urządzeń, aby zarządzać zasadami tworzenia kopii zapasowych](storsimple-8000-manage-backup-policies-u2.md).
+* **Podczas przywracania woluminu lokalnego można wykonać kopię zapasową** — w przypadku procedur przejdź do [usługi StorSimple Device Manager, aby zarządzać zasadami tworzenia kopii zapasowych](storsimple-8000-manage-backup-policies-u2.md).
 
 * **Możesz anulować operację przywracania** — w przypadku anulowania zadania przywracania wolumin zostanie przywrócony do stanu, który był w stanie przed zainicjowaniem operacji przywracania. W przypadku procedur przejdź do pozycji [Anuluj zadanie](storsimple-8000-manage-jobs-u2.md#cancel-a-job).
 
@@ -95,7 +95,7 @@ Możesz użyć bloku **wykazu kopii zapasowych** , aby przywrócić wolumin Stor
 
 
 ### <a name="to-restore-your-volume"></a>Aby przywrócić wolumin
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie kliknij pozycję **wykaz kopii zapasowych**.
+1. Przejdź do usługi StorSimple Device Manager, a następnie kliknij pozycję **wykaz kopii zapasowych**.
 
 2. Wybierz zestaw kopii zapasowych w następujący sposób:
    
@@ -136,4 +136,4 @@ Aby ukończyć operację przywracania, przełącz wolumin w tryb offline na hoś
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [zarządzać woluminami StorSimple](storsimple-8000-manage-volumes-u2.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).

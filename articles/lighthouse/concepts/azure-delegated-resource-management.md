@@ -4,10 +4,10 @@ description: Zarządzanie zasobami delegowanymi przez platformę Azure to kluczo
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92203861"
 ---
 # <a name="azure-delegated-resource-management"></a>Zarządzanie zasobami delegowanymi na platformie Azure
@@ -31,7 +31,7 @@ Dzięki funkcji zarządzania zasobami delegowanymi na platformie Azure autoryzow
 
 Na wysokim poziomie poniżej przedstawiono sposób działania zarządzania zasobami delegowanymi przez platformę Azure:
 
-1. Najpierw należy zidentyfikować dostęp (role), których grupy, nazwy główne usług lub użytkownicy będą musieli zarządzać zasobami platformy Azure klienta. Definicja dostępu zawiera identyfikator dzierżawy zarządzania oraz tożsamości **principalId** z dzierżawy zamapowane do [wbudowanych wartości **definicji** ](../../role-based-access-control/built-in-roles.md) (współautor, współautor maszyny wirtualnej, czytelnik itp.).
+1. Najpierw należy zidentyfikować dostęp (role), których grupy, nazwy główne usług lub użytkownicy będą musieli zarządzać zasobami platformy Azure klienta. Definicja dostępu zawiera identyfikator dzierżawy zarządzania oraz tożsamości **principalId** z dzierżawy zamapowane do [wbudowanych wartości **definicji**](../../role-based-access-control/built-in-roles.md) (współautor, współautor maszyny wirtualnej, czytelnik itp.).
 2. Należy określić ten dostęp i dołączyć klienta do usługi Azure Lighthouse na jeden z dwóch sposobów:
    - [Publikowanie oferty usługi zarządzanej w portalu Azure Marketplace](../how-to/publish-managed-services-offers.md) (prywatnej lub publicznej), która zostanie zaakceptowana przez klienta
    - [Wdrażanie szablonu Azure Resource Manager w dzierżawie klienta](../how-to/onboard-customer.md) dla jednej lub wielu określonych subskrypcji lub grup zasobów
@@ -43,7 +43,7 @@ Na wysokim poziomie poniżej przedstawiono sposób działania zarządzania zasob
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Obsługa zarządzania zasobami delegowanymi przez platformę Azure
 
-Jeśli potrzebujesz pomocy związanej z zarządzaniem zasobami delegowanymi przez platformę Azure, możesz otworzyć żądanie pomocy technicznej w Azure Portal. W obszarze **typ problemu**wybierz pozycję **techniczne**. Wybierz subskrypcję, a następnie wybierz pozycję **Lighthouse** (w obszarze **monitorowanie & zarządzanie**).
+Jeśli potrzebujesz pomocy związanej z zarządzaniem zasobami delegowanymi przez platformę Azure, możesz otworzyć żądanie pomocy technicznej w Azure Portal. W obszarze **typ problemu** wybierz pozycję **techniczne**. Wybierz subskrypcję, a następnie wybierz pozycję **Lighthouse** (w obszarze **monitorowanie & zarządzanie**).
 
 ## <a name="next-steps"></a>Następne kroki
 

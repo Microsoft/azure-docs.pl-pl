@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 9887c435c2aa8dc7ba8cab9481cf30195c4b334e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459938"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą IntelligenceBank
@@ -163,7 +163,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny IntelligenceBank jako administrator.
 
-1. Przejdź do pozycji użytkownicy **administracyjni**  ->  **Users** i wybierz **ikonę Dodaj nową użytkownika** , aby dodać **użytkownika**.
+1. Przejdź do pozycji użytkownicy **administracyjni**  ->   i wybierz **ikonę Dodaj nową użytkownika** , aby dodać **użytkownika**.
 
     ![Zrzut ekranu przedstawia ikonę Użytkownicy wybraną na karcie Użytkownicy.](./media/intelligencebank-tutorial/creating-user.PNG)
 

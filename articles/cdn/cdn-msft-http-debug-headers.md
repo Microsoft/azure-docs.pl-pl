@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81260416"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Debuguj nagłówek HTTP dla Azure CDN firmy Microsoft
@@ -26,7 +26,7 @@ Nagłówek odpowiedzi na Debugowanie, `X-Cache` zawiera szczegółowe informacje
 
 ### <a name="response-header-format"></a>Format nagłówka odpowiedzi
 
-Header | Opis
+Nagłówek | Opis
 -------|------------
 X-cache: TCP_HIT | Ten nagłówek jest zwracany, gdy zawartość jest obsługiwana z pamięci podręcznej usługi CDN Edge. 
 X-cache: TCP_REMOTE_HIT | Ten nagłówek jest zwracany, gdy zawartość jest obsługiwana z regionalnej pamięci podręcznej CDN (warstwa osłon pochodzenia)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
 ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202348"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Obwody usługi ExpressRoute i komunikacja równorzędna)
@@ -44,7 +44,7 @@ Obwód usługi ExpressRoute ma skojarzone wiele domen routingu/komunikacji równ
 
 ![Diagram przedstawiający sposób, w jaki usługa Azure Public, Private i Komunikacja równorzędna firmy Microsoft jest konfigurowana w obwodzie usługi ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="azure-private-peering"></a><a name="privatepeering"></a>Prywatna komunikacja równorzędna platformy Azure
+### <a name="azure-private-peering"></a><a name="privatepeering"></a>Prywatna komunikacja równorzędna Azure
 
 Usługi obliczeniowe platformy Azure, a w tym maszyny wirtualne (IaaS) i Cloud Services (PaaS), które są wdrożone w ramach sieci wirtualnej, można połączyć za pomocą domeny prywatnej komunikacji równorzędnej. Prywatna domena komunikacji równorzędnej jest uznawana za zaufane rozszerzenie sieci podstawowej na Microsoft Azure. Można skonfigurować dwukierunkową łączność między siecią podstawową i sieciami wirtualnymi platformy Azure (sieci wirtualnych). Ta Komunikacja równorzędna umożliwia łączenie się z maszynami wirtualnymi i usługami w chmurze bezpośrednio z ich prywatnych adresów IP.  
 

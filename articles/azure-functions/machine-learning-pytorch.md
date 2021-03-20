@@ -7,10 +7,10 @@ ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422845"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Samouczek: Wdrażanie wstępnie nauczonego modelu klasyfikacji obrazów do Azure Functions za pomocą PyTorch
@@ -21,7 +21,7 @@ W tym artykule dowiesz się, jak używać języka Python, PyTorch i Azure Functi
 > * Zainicjuj lokalne środowisko do tworzenia Azure Functions w języku Python.
 > * Zaimportuj wstępnie szkolony model uczenia maszynowego PyTorch do aplikacji funkcji.
 > * Utwórz bezserwerowy interfejs API HTTP do klasyfikowania obrazu jako jedną z 1000 [klas](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a)ImageNet.
-> * Korzystaj z interfejsu API z aplikacji sieci Web.
+> * Używanie interfejsu API z poziomu aplikacji internetowej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -115,7 +115,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func new --name classify --template "HTTP trigger"
     ```
 
-    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: *\_ \_ init \_ \_ . PR* , który zawiera kod funkcji, i *function.json* , który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./create-first-function-cli-python.md#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
+    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: *\_ \_ init \_ \_ . PR*, który zawiera kod funkcji, i *function.json*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./create-first-function-cli-python.md#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
 
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
@@ -144,7 +144,7 @@ Aby zmodyfikować `classify` funkcję do klasyfikowania obrazu na podstawie jego
     cp ../resources/labels.txt classify
     ```
 
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     copy ..\resources\predict.py classify
@@ -172,7 +172,7 @@ Aby zmodyfikować `classify` funkcję do klasyfikowania obrazu na podstawie jego
     torchvision==0.6.0+cpu
     ```
 
-1. Zapisz *requirements.txt* , a następnie uruchom następujące polecenie z folderu *Start* , aby zainstalować zależności.
+1. Zapisz *requirements.txt*, a następnie uruchom następujące polecenie z folderu *Start* , aby zainstalować zależności.
 
 
     ```
@@ -230,7 +230,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     python -m http.server
     ```
 
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server

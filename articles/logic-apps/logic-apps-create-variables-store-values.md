@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333906"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w usłudze Azure Logic Apps
@@ -238,7 +238,7 @@ Zmienne są często używane do zliczania, ile razy działa pętla. Ten przykła
 
 1. W Azure Portal Utwórz pustą aplikację logiki. Dodaj wyzwalacz, który sprawdza, czy są nowe wiadomości e-mail i załączniki.
 
-   W tym przykładzie do **momentu odebrania nowej wiadomości e-mail**zostaje użyty wyzwalacz Office 365 Outlook. Można skonfigurować ten wyzwalacz do uruchamiania tylko wtedy, gdy wiadomość e-mail ma załączniki. Można jednak użyć dowolnego łącznika, który wyszukuje nowe wiadomości e-mail z załącznikami, takich jak łącznik Outlook.com.
+   W tym przykładzie do **momentu odebrania nowej wiadomości e-mail** zostaje użyty wyzwalacz Office 365 Outlook. Można skonfigurować ten wyzwalacz do uruchamiania tylko wtedy, gdy wiadomość e-mail ma załączniki. Można jednak użyć dowolnego łącznika, który wyszukuje nowe wiadomości e-mail z załącznikami, takich jak łącznik Outlook.com.
 
 1. Aby sprawdzić załączniki i przekazać te załączniki do przepływu pracy aplikacji logiki, wybierz pozycję **tak** dla tych właściwości:
 
@@ -247,7 +247,7 @@ Zmienne są często używane do zliczania, ile razy działa pętla. Ten przykła
 
    ![Sprawdź, czy istnieją załączniki i Dołącz do nich](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Dodaj akcję [ **zainicjuj zmienną** ](#create-variable). Utwórz zmienną całkowitą o nazwie o `Count` zerowej wartości początkowej.
+1. Dodaj akcję [ **zainicjuj zmienną**](#create-variable). Utwórz zmienną całkowitą o nazwie o `Count` zerowej wartości początkowej.
 
    ![Dodaj akcję dla "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -255,7 +255,7 @@ Zmienne są często używane do zliczania, ile razy działa pętla. Ten przykła
 
    1. W akcji **Inicjuj zmienną** wybierz pozycję **nowy krok**.
 
-   1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź wartość `for each` jako filtr wyszukiwania, a następnie wybierz pozycję **dla każdej z nich**.
+   1. W obszarze **Wybierz akcję** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź wartość `for each` jako filtr wyszukiwania, a następnie wybierz pozycję **dla każdej z nich**.
 
       ![Dodaj pętlę "for each"](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -370,7 +370,7 @@ Poniżej przedstawiono właściwości dla akcji **Ustaw zmienną** :
 >
 > 1. W prawym górnym rogu pętli wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
 > 
-> 2. W obszarze **Kontrola współbieżności**Zmień ustawienie **domyślne Przesłoń** na **włączone**.
+> 2. W obszarze **Kontrola współbieżności** Zmień ustawienie **domyślne Przesłoń** na **włączone**.
 >
 > 3. Przeciągnij suwak **stopień równoległości** na **1**.
 

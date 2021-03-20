@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100006857"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
@@ -50,7 +50,7 @@ Zalety zgodności rozszerzają się również do narzędzi do zarządzania bazam
 | **Autouzupełnianie zapytań SQL** | X | X |  | X |
 | **Importowanie i eksportowanie danych** | X | X | X | X |
 | **Eksportuj do wielu formatów** | X | X | X | X |
-| **Wykonywanie kopii zapasowych i przywracanie** |  | X |  | X |
+| **Tworzenie kopii zapasowej i przywracanie** |  | X |  | X |
 | **Wyświetl parametry serwera** | X | X | X | X |
 | **Wyświetlanie połączeń klientów** | X | X | X | X |
 

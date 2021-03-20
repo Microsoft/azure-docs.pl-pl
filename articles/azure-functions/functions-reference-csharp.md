@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164843"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Dokumentacja dewelopera Azure Functions skryptu C# (. CSX)
@@ -381,7 +381,7 @@ Informacje o sposobach przekazywania plików do folderu funkcji znajdują się w
 Katalog zawierający plik skryptu funkcji jest automatycznie oglądany pod kątem zmian w zestawach. Aby obejrzeć zmiany zestawu w innych katalogach, Dodaj je do `watchDirectories` listy w [host.jsna](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Korzystanie z pakietów NuGet
-Aby używać pakietów NuGet w 2. x i nowszych funkcjach języka C#, Przekaż plik *. proj* do folderu funkcji w systemie plików aplikacji funkcji. Poniżej znajduje się przykładowy plik *Function. proj* , który dodaje odwołanie do *Microsoft. ProjectOxford.* *1.1.0*w wersji:
+Aby używać pakietów NuGet w 2. x i nowszych funkcjach języka C#, Przekaż plik *. proj* do folderu funkcji w systemie plików aplikacji funkcji. Poniżej znajduje się przykładowy plik *Function. proj* , który dodaje odwołanie do *Microsoft. ProjectOxford.* *1.1.0* w wersji:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

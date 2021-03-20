@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 259e49fbdd6a0eb392ddf6a3cd3c318798cfabd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88005055"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 na pulpicie wirtualnym systemu Windows (klasyczny)
@@ -37,7 +37,7 @@ Aby skonfigurować MASZYNę wirtualną z systemem Windows 7 na pulpicie wirtualn
 5. Przejdź do Windows Update na maszynie wirtualnej.
 6. Zainstaluj wszystkie aktualizacje systemu Windows w ważnej kategorii.
 7. Zainstaluj wszystkie aktualizacje systemu Windows w opcjonalnej kategorii (z wyjątkiem pakietów językowych). Spowoduje to zainstalowanie Remote Desktop Protocol 8,0 Update ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387)), które należy wykonać w celu wykonania tych instrukcji.
-8. Otwórz Edytor lokalnych zasad grupy i przejdź do **konfiguracji komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Remote Desktop Session Host**  >  **środowisku sesji zdalnej**hosta sesji pulpit zdalny.
+8. Otwórz Edytor lokalnych zasad grupy i przejdź do **konfiguracji komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >    >  **środowisku sesji zdalnej** hosta sesji pulpit zdalny.
 9. Włącz zasady Remote Desktop Protocol 8,0.
 10. Dołącz tę maszynę wirtualną do domeny Active Directory.
 11. Uruchom ponownie maszynę wirtualną, uruchamiając następujące polecenie:

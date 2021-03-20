@@ -4,10 +4,10 @@ description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752553"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
@@ -48,7 +48,7 @@ Obsługiwane są następujące jednostki SKU urządzenie Data Box:
 > [!IMPORTANT]
 > Początkowe dane kopii zapasowej z pojedynczego źródła danych muszą być zawarte w obrębie jednego Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak Azure Data Box mogą zawierać początkowe kopie zapasowe z wielu źródeł danych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Agent MARS uruchomiony w programie DPM/serwera usługi MAB powinien zostać uaktualniony do [najnowszej wersji](https://aka.ms/azurebackup_agent) (2.0.9171.0 lub nowszej).
 
@@ -149,7 +149,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
           — Azure. Storage       *4.6.1*<br>
      >  - Aplikacja usługi Azure AD jest zarejestrowana *jako \<object GUID of the user> AzureOfflineBackup_*.
 
-13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz pozycję **Dalej**.
+13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz opcję **Dalej**.
 
     ![Wybierz DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -165,7 +165,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
     > Na przykład jeśli ścieżka dysku to `\\mydomain\myserver\disk1\` i *disk1* zawiera katalog o nazwie *PageBlob*, ścieżka do podanego w Kreatorze serwera DPM/serwera usługi MAB jest `\\mydomain\myserver\disk1\` .
     > W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](./offline-backup-azure-data-box.md#set-up-azure-data-box)należy podać następujące elementy jako ścieżkę sieciową do urządzenia `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
 
-15. Wybierz pozycję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+15. Wybierz opcję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
 
     ![Wykrywanie DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/detect-databox.png)
 
@@ -242,7 +242,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki i spróbuj ponownie wyk
 
 Na serwerze DPM/serwera usługi MAB próbujesz skonfigurować kopię zapasową offline, wykonaj następujące czynności:
 
-1. Otwórz kartę **osobisty zarządzanie certyfikatem komputera**  >  **Personal** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Otwórz kartę **osobisty zarządzanie certyfikatem komputera**  >   i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 2. Wybierz certyfikat powyżej, kliknij prawym przyciskiem myszy **wszystkie zadania** i **Eksportuj** bez klucza prywatnego w formacie CER.
 3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w **punkcie 2**. W polu **Ustawienia**  >  **klucze**  >  **Przekaż klucz publiczny** Przekaż certyfikat wyeksportowany w powyższym kroku.
 

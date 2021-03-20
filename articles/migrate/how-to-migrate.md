@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751788"
 ---
 # <a name="add-migration-tools"></a>Dodawanie narzędzi migracji
@@ -41,7 +41,7 @@ W tym artykule opisano sposób dodawania narzędzi migracji w programie [Azure M
     
          ![Przycisk dodawania dodatkowych narzędzi do migracji](./media/how-to-migrate/add-migration-tools.png)
 
-    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do migracji, w obszarze **Servers**  >  **Narzędzia migracji** serwerów wybierz **pozycję kliknij tutaj**.
+    - Jeśli utworzono projekt przy użyciu innej opcji i nie masz jeszcze żadnych narzędzi do migracji, w obszarze   >  **Narzędzia migracji** serwerów wybierz **pozycję kliknij tutaj**.
 
     ![Przycisk dodawania narzędzi do pierwszego migracji](./media/how-to-migrate/no-migration-tool.png)
 
@@ -54,7 +54,7 @@ W tym artykule opisano sposób dodawania narzędzi migracji w programie [Azure M
 
 Jeśli utworzono projekt Azure Migrate przy użyciu opcji **Oceń i Przeprowadź migrację bazy danych** w portalu, narzędzie do migracji bazy danych jest automatycznie dodawane do projektu. 
 
-1. Jeśli narzędzie do migracji bazy danych nie znajduje się w projekcie **Databases**, w  >  **narzędziu do oceny** baz danych wybierz **pozycję kliknij tutaj**.
+1. Jeśli narzędzie do migracji bazy danych nie znajduje się w projekcie , w  >  **narzędziu do oceny** baz danych wybierz **pozycję kliknij tutaj**.
     
     ![Dodaj narzędzia migracji bazy danych](./media/how-to-migrate/no-database-migration-tool.png)
 
@@ -69,7 +69,7 @@ Jeśli utworzono projekt Azure Migrate przy użyciu opcji **Oceń i Przeprowadź
 
 Jeśli utworzono projekt Azure Migrate przy użyciu opcji **Eksploruj więcej**  >  **aplikacji** sieci Web w portalu, narzędzie do migracji aplikacji internetowych zostanie automatycznie dodane do projektu. 
 
-1. Jeśli narzędzie do migracji aplikacji sieci Web nie znajduje się w projekcie, w narzędziu do oceny **aplikacji sieci Web**  >  **Assessment tools** wybierz **pozycję kliknij tutaj**.
+1. Jeśli narzędzie do migracji aplikacji sieci Web nie znajduje się w projekcie, w narzędziu do oceny **aplikacji sieci Web**  >  wybierz **pozycję kliknij tutaj**.
 
     ![Dodaj narzędzia migracji aplikacji sieci Web](./media/how-to-migrate/no-web-app-migration-tool.png)
  

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420754"
 ---
 # <a name="join-data"></a>Łączenie danych
@@ -47,17 +47,17 @@ Aby wykonać sprzężenie na dwóch zestawach danych, powinny one być powiązan
    
 1. Użyj listy rozwijanej **Typ sprzężenia** , aby określić sposób łączenia zestawów danych.  
   
-    * **Sprzężenie wewnętrzne** : *sprzężenie wewnętrzne* jest najpopularniejszą operacją Join. Zwraca połączone wiersze tylko wtedy, gdy wartości kolumn klucza są zgodne.  
+    * **Sprzężenie wewnętrzne**: *sprzężenie wewnętrzne* jest najpopularniejszą operacją Join. Zwraca połączone wiersze tylko wtedy, gdy wartości kolumn klucza są zgodne.  
   
-    * **Lewe sprzężenie zewnętrzne** : *lewe sprzężenie zewnętrzne* zwraca dołączone wiersze dla wszystkich wierszy z tabeli po lewej. Gdy wiersz w lewej tabeli nie ma pasujących wierszy w prawej tabeli, zwracany wiersz zawiera brakujące wartości dla wszystkich kolumn, które pochodzą z prawej tabeli. Możesz również określić wartość zastępczą dla brakujące wartości.  
+    * **Lewe sprzężenie zewnętrzne**: *lewe sprzężenie zewnętrzne* zwraca dołączone wiersze dla wszystkich wierszy z tabeli po lewej. Gdy wiersz w lewej tabeli nie ma pasujących wierszy w prawej tabeli, zwracany wiersz zawiera brakujące wartości dla wszystkich kolumn, które pochodzą z prawej tabeli. Możesz również określić wartość zastępczą dla brakujące wartości.  
   
-    * **Pełne sprzężenie zewnętrzne** : *pełne sprzężenie zewnętrzne* zwraca wszystkie wiersze z tabeli po lewej ( **Tabela1** ) i z prawej tabeli ( **tabela2** ).  
+    * **Pełne sprzężenie zewnętrzne**: *pełne sprzężenie zewnętrzne* zwraca wszystkie wiersze z tabeli po lewej (**Tabela1**) i z prawej tabeli (**tabela2**).  
   
          W przypadku każdego z wierszy w tabeli, które nie mają pasujących wierszy w drugim, wynik zawiera wiersz zawierający brakujące wartości.  
   
-    * **Lewe odłączenie** : *lewe odłączenie* zwraca tylko wartości z tabeli po lewej, gdy wartości kolumn klucza są zgodne.  
+    * **Lewe odłączenie**: *lewe odłączenie* zwraca tylko wartości z tabeli po lewej, gdy wartości kolumn klucza są zgodne.  
 
-1. Dla opcji **Zachowaj kolumny klucza prawego w połączonej tabeli** :
+1. Dla opcji **Zachowaj kolumny klucza prawego w połączonej tabeli**:
 
     * Wybierz tę opcję, aby wyświetlić klucze z obu tabel wejściowych.
     * Usuń zaznaczenie, aby zwrócić tylko kolumny klucza z lewej strony.

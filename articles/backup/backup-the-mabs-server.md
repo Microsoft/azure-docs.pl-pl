@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera Microsoft Azur
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172118"
 ---
 # <a name="back-up-the-mabs-server"></a>Tworzenie kopii zapasowej serwera MABS
@@ -72,7 +72,7 @@ Bazę danych można odzyskać z platformy Azure przy użyciu dowolnego serwera s
 
 2. Podaj poświadczenia magazynu (Pobierz z magazynu Azure Backup). Weź pod uwagę, że poświadczenia są ważne tylko przez dwa dni.
 
-3. W obszarze **Wybierz zewnętrzne serwera usługi MAB na potrzeby odzyskiwania**wybierz serwer serwera usługi MAB, dla którego chcesz odzyskać bazę danych, wpisz hasło szyfrowania, a następnie wybierz **przycisk OK.**
+3. W obszarze **Wybierz zewnętrzne serwera usługi MAB na potrzeby odzyskiwania** wybierz serwer serwera usługi MAB, dla którego chcesz odzyskać bazę danych, wpisz hasło szyfrowania, a następnie wybierz **przycisk OK.**
 
 4. Wybierz punkt odzyskiwania, którego chcesz używać, z listy dostępnych punktów. Wybierz pozycję **Wyczyść zewnętrzne serwera usługi MAB** , aby powrócić do lokalnego widoku serwera usługi MAB.
 
@@ -226,7 +226,7 @@ Ta opcja tworzenia kopii zapasowej używa natywnego języka SQL do tworzenia kop
 
 1. Jeśli odzyskiwanie samoobsługowe nie zostanie włączone, należy wykonać kilka dodatkowych czynności w celu udostępnienia folderu MABSBACKUP w replice:
 
-    1. W konsoli programu serwera usługi MAB > **Ochrona**Znajdź źródło danych MABSBACKUP i wybierz je. W sekcji szczegółów wybierz **pozycję kliknij, aby wyświetlić szczegóły** dotyczące linku do ścieżki repliki i skopiuj ścieżkę do Notatnika. Usuń ścieżkę źródłową i zachowaj ścieżkę docelową. Ścieżka powinna wyglądać podobnie do następującej: `C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP` .
+    1. W konsoli programu serwera usługi MAB > **Ochrona** Znajdź źródło danych MABSBACKUP i wybierz je. W sekcji szczegółów wybierz **pozycję kliknij, aby wyświetlić szczegóły** dotyczące linku do ścieżki repliki i skopiuj ścieżkę do Notatnika. Usuń ścieżkę źródłową i zachowaj ścieżkę docelową. Ścieżka powinna wyglądać podobnie do następującej: `C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP` .
 
     2. Utwórz udział w tej ścieżce przy użyciu nazwy udziału **MABSSERVERNAME-DPMDB**. Możesz użyć poniższego polecenia Net Share w wierszu polecenia z uprawnieniami administracyjnymi.
 
@@ -287,7 +287,7 @@ Można utworzyć kopię zapasową bazy danych serwera usługi MAB, tak jak w prz
 | Parametr      | Opis    |
 |----------------|-----------------------------|
 | **-RestoreDb**                       | Przywraca bazę danych serwera usługi MAB z określonej lokalizacji.|
-| **-Synchronizuj**                            | Synchronizuje przywrócone bazy danych. Po przywróceniu baz danych należy uruchomić polecenie **DpmSync-Sync** . Po uruchomieniu polecenia **DpmSync-Sync**niektóre repliki mogą nadal być oznaczone jako brakujące. |
+| **-Synchronizuj**                            | Synchronizuje przywrócone bazy danych. Po przywróceniu baz danych należy uruchomić polecenie **DpmSync-Sync** . Po uruchomieniu polecenia **DpmSync-Sync** niektóre repliki mogą nadal być oznaczone jako brakujące. |
 | **-DbLoc** *lokalizacji*                | Określa lokalizację kopii zapasowej bazy danych serwera usługi MAB.|
 | **-InstanceName** <br/>*server\instance*     | Wystąpienie, do którego należy przywrócić DPMDB.|
 | **-ReallocateReplica**         | Ponownie przydziela wszystkie brakujące woluminy repliki bez synchronizacji. |

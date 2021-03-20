@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150907"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Samouczek: Uwierzytelnianie usługi Azure SignalR Service za pomocą usługi Azure Functions
@@ -30,7 +30,7 @@ Samouczek krok po kroku z informacjami dotyczącymi tworzenia pokoju czatu z uwi
 
 Do wykonania instrukcji znajdujących się w tym samouczku wymagane jest następujące oprogramowanie.
 
-* [Git](https://git-scm.com/downloads)
+* [Usługa Git](https://git-scm.com/downloads)
 * [Platforma Node.js](https://nodejs.org/en/download/) (wersja 10.x)
 * [Zestaw SDK .NET](https://www.microsoft.com/net/download) (wersja 2.x, wymagana na potrzeby rozszerzeń usługi Functions)
 * [Podstawowe narzędzia usługi Azure Functions](https://github.com/Azure/azure-functions-core-tools) (wersja 2)
@@ -348,7 +348,7 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
 
 1. Wybierz opcję **włączone** , aby włączyć funkcję statycznej witryny internetowej.
 
-1. W polu **Nazwa dokumentu indeksu**wprowadź *index.html*.
+1. W polu **Nazwa dokumentu indeksu** wprowadź *index.html*.
 
 1. Kliknij pozycję **Zapisz**.
 
@@ -427,7 +427,7 @@ Uwierzytelnianie usługi App Service obsługuje uwierzytelnianie za pomocą kont
 
 1. Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję „Zaloguj się za pomocą wcześniej wybranego dostawcy uwierzytelniania”.
 
-1. W polu**Dozwolone zewnętrzne adresy URL przekierowań** wprowadź zapisany wcześniej adres URL podstawowego internetowego punktu końcowego konta magazynu.
+1. W polu **Dozwolone zewnętrzne adresy URL przekierowań** wprowadź zapisany wcześniej adres URL podstawowego internetowego punktu końcowego konta magazynu.
 
 1. Postępuj zgodnie z dokumentacją wybranego dostawcy logowania, aby ukończyć konfigurację.
 

@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878973"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Uwierzytelnianie wychodzące dla usługi Azure Scheduler
@@ -159,7 +159,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Podstawowy
+## <a name="basic"></a>Podstawowa
 
 ### <a name="request-body---basic"></a>Treść żądania — podstawowa
 
@@ -290,7 +290,7 @@ Podczas dodawania uwierzytelniania przy użyciu `ActiveDirectoryOAuth` modelu na
 | **tenant** | Tak | Identyfikator dzierżawy dzierżawy usługi Azure AD. Aby znaleźć identyfikator dzierżawy dzierżawy usługi Azure AD, uruchom polecenie `Get-AzureAccount` w Azure PowerShell. |
 | **publiczn** | Tak | Ta wartość jest ustawiona na `https://management.core.windows.net/` . | 
 | **clientId** | Tak | Identyfikator klienta aplikacji usługi Azure AD | 
-| **wpisu** | Tak | Wpis tajny klienta żądającego tokenu | 
+| **wpis tajny** | Tak | Wpis tajny klienta żądającego tokenu | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Treść odpowiedzi — Active Directory uwierzytelniania OAuth

@@ -4,17 +4,17 @@ description: Dowiedz się, w jaki sposób używać Azure Portal do przywracania 
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376778"
 ---
 # <a name="restore-azure-file-shares"></a>Przywracanie udziałów plików platformy Azure
 
 W tym artykule wyjaśniono, jak używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez [Azure Backup](./backup-overview.md).
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 * Przywróć pełny udział plików platformy Azure.
 * Przywróć pojedyncze pliki lub foldery.
@@ -32,11 +32,11 @@ Aby wykonać operację przywracania, wykonaj następujące kroki.
 
     ![Wybierz elementy kopii zapasowej](./media/restore-afs/backup-items.png)
 
-1. Po wybraniu **pozycji elementy kopii zapasowej**w okienku Przegląd zostanie otwarte nowe okienko zawierające listę wszystkich typów zarządzania kopiami zapasowymi.
+1. Po wybraniu **pozycji elementy kopii zapasowej** w okienku Przegląd zostanie otwarte nowe okienko zawierające listę wszystkich typów zarządzania kopiami zapasowymi.
 
     ![Typy zarządzania kopiami zapasowymi](./media/restore-afs/backup-management.png)
 
-1. W okienku **elementy kopii zapasowej** w obszarze **Typ zarządzania kopiami zapasowymi**wybierz pozycję **Azure Storage (Azure Files)**. Zostanie wyświetlona lista wszystkich udziałów plików i odpowiednich kont magazynu, których kopię zapasową utworzono przy użyciu tego magazynu.
+1. W okienku **elementy kopii zapasowej** w obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **Azure Storage (Azure Files)**. Zostanie wyświetlona lista wszystkich udziałów plików i odpowiednich kont magazynu, których kopię zapasową utworzono przy użyciu tego magazynu.
 
     ![Lista wszystkich udziałów plików](./media/restore-afs/file-shares.png)
 
@@ -50,7 +50,7 @@ Można użyć tej opcji przywracania, aby przywrócić pełny udział plików w 
 
    ![Wybierz pozycję Przywróć udział](./media/restore-afs/restore-share.png)
 
-1. Po wybraniu opcji **Przywróć udział**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, wybierz **opcję Wybierz** tekst linku poniżej pola tekstowego **punkt przywracania** .
+1. Po wybraniu opcji **Przywróć udział** zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, wybierz **opcję Wybierz** tekst linku poniżej pola tekstowego **punkt przywracania** .
 
     ![Wybierz pozycję punkt przywracania, wybierając pozycję Wybierz.](./media/restore-afs/select-restore-point.png)
 
@@ -93,7 +93,7 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 
     ![Wybierz odzyskiwanie plików](./media/restore-afs/file-recovery.png)
 
-1. Po wybraniu opcji **odzyskiwanie plików**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, zaznacz pole tekstowe **Wybierz** link poniżej pola tekstowego **punkt przywracania** .
+1. Po wybraniu opcji **odzyskiwanie plików** zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, zaznacz pole tekstowe **Wybierz** link poniżej pola tekstowego **punkt przywracania** .
 
     ![Wybierz pozycję punkt przywracania, wybierając link wybierz](./media/restore-afs/select-restore-point.png)
 

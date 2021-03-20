@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Samouczek: integracja Azure Active Directory z usługą ITRP
@@ -225,7 +225,7 @@ Aby utworzyć konto użytkownika, wykonaj następujące czynności:
 
 1. Wybierz znak plus ( **+** ), aby dodać nową osobę:
 
-    ![Wybierz znak plusa](./media/itrp-tutorial/ic775576.png "Wybierz znak plusa")
+    ![Wybierz znak plus](./media/itrp-tutorial/ic775576.png "Wybierz znak plus")
 
 1. W oknie dialogowym **Dodaj nową osobę** wykonaj następujące czynności.
 
@@ -244,7 +244,7 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka ITRP w panelu dostępu należy automatycznie zalogować się do wystąpienia ITRP, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

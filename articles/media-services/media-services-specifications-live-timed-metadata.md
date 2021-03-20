@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336398"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Sygnalizowanie metadanych w czasie przesyłania strumieniowego na żywo 
@@ -144,7 +144,7 @@ Zalecane jest wysyłanie komunikatów o przekroczonym czasie — nie częściej 
 
 Ładunek dla **"onUserDataEvent"** powinien być komunikatem formatu XML [MPEGDASH] EventStream. Dzięki temu można łatwo przekazywać niestandardowe zdefiniowane schematy, które mogą być przenoszone do emsg ' ładunków w paśmie dla zawartości CMAF [MPEGCMAF], która jest dostarczana za pośrednictwem protokołów HLS lub PAUZy. Każdy komunikat strumienia zdarzeń PAUZy zawiera schemeIdUri, który działa jako identyfikator schematu komunikatu URN i definiuje ładunek wiadomości. Niektóre schematy, takie jak " https://aomedia.org/emsg/ID3 " dla [ID3v2] lub **urn: SCTE: scte35:2013: bin** dla [SCTE-35] są standardowe dla konsorcjów branżowych na potrzeby współdziałania. Każdy dostawca aplikacji może zdefiniować własny schemat niestandardowy przy użyciu adresu URL, który kontroluje (domena własnością) i może podać specyfikację w tym adresie URL. Jeśli gracz ma procedurę obsługi dla zdefiniowanego schematu, to jest jedynym składnikiem, który musi zrozumieć ładunek i protokół.
 
-Schemat dla ładunku [MPEG-myślnik] EventStream został zdefiniowany jako (wyciąg z KRESKi ISO-IEC-23009-1-trzecie wydanie). Należy zauważyć, że w tym momencie jest obsługiwane tylko jedno "EventType" na "EventStream". Tylko pierwszy element **zdarzenia** zostanie przetworzony, jeśli w **EventStream**podano wiele zdarzeń.
+Schemat dla ładunku [MPEG-myślnik] EventStream został zdefiniowany jako (wyciąg z KRESKi ISO-IEC-23009-1-trzecie wydanie). Należy zauważyć, że w tym momencie jest obsługiwane tylko jedno "EventType" na "EventStream". Tylko pierwszy element **zdarzenia** zostanie przetworzony, jeśli w **EventStream** podano wiele zdarzeń.
 
 ```xml
   <!-- Event Stream -->
@@ -423,7 +423,7 @@ Aby osiągnąć dokładne wstawianie reklam, koder musi podzielić fragment w cz
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | systemBitrate      | Liczba         | Wymagane      | **Musi** mieć wartość "0", co oznacza, że ścieżka z nieznaną zmienną szybkością transmisji bitów.                                                                                                                                                          |
 | parentTrackName    | Ciąg         | Wymagane      | **Musi** być nazwą ścieżki nadrzędnej, do której są wyrównane Skala czasu ścieżki rozrzedzonej. Ścieżka nadrzędna nie może być ścieżką rozrzedzoną.                                                                             |
-| manifestOutput     | Boolean (wartość logiczna)        | Wymagane      | **Musi** mieć wartość "true", aby wskazać, że ścieżka rozrzedzona zostanie osadzona w niezakłóconym manifeście klienta.                                                                                                                        |
+| manifestOutput     | Wartość logiczna        | Wymagane      | **Musi** mieć wartość "true", aby wskazać, że ścieżka rozrzedzona zostanie osadzona w niezakłóconym manifeście klienta.                                                                                                                        |
 | Podtyp            | Ciąg         | Wymagane      | **Musi** to być czterocyfrowy kod znaku "Data".                                                                                                                                                                                  |
 | Schemat             | Ciąg         | Wymagane      | **Musi** być identyfikatorem urn lub adresem URL identyfikującym schemat komunikatów. W przypadku komunikatów [SCTE-35] **musi** to być "urn: SCTE: scte35:2013: bin", aby komunikaty były wysyłane do programu HLS, gładkie i przerywane klientów zgodne z programem [SCTE-35]. |
 | ścieżka śledzenia          | Ciąg         | Wymagane      | **Musi** to być nazwa ścieżki rozrzedzonej. Wartość trackname może być używana do rozróżniania wielu strumieni zdarzeń z tym samym schematem. Każdy unikatowy strumień zdarzeń **musi** mieć unikatową nazwę ścieżki.                                |
@@ -1053,7 +1053,7 @@ Element EventStream ma następujące atrybuty:
 | **Nazwa atrybutu** | **Typ**                | **Wymagane?** | **Opis**                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | scheme_id_uri      | ciąg                  | Wymagane      | Identyfikuje schemat komunikatu. Schemat jest ustawiony na wartość atrybutu schematu w polu manifestu serwera na żywo. Wartość **powinna** być identyfikatorem urn lub adresem URL identyfikującym schemat komunikatów; Obsługiwane wyjściowe schemeId powinny mieć wartość "urn: SCTE: scte35:2014: XML + bin" na [SCTE-214-1] s 6.7.4 (MPD), ponieważ usługa obsługuje tylko "XML + bin" w tej chwili dla zwięzłości w MPD. |
-| value              | ciąg                  | Opcjonalne      | Dodatkowa wartość ciągu używana przez właścicieli schematu do dostosowywania semantyki wiadomości. Aby można było rozróżnić wiele strumieni zdarzeń z tym samym schematem, wartość **musi** być ustawiona na nazwę strumienia zdarzeń (trackname dla [MS-SSTR-pozyskiwania] lub AMF nazwę komunikatu dla [RTMP] pozyskiwania).                                                                         |
+| wartość              | ciąg                  | Opcjonalne      | Dodatkowa wartość ciągu używana przez właścicieli schematu do dostosowywania semantyki wiadomości. Aby można było rozróżnić wiele strumieni zdarzeń z tym samym schematem, wartość **musi** być ustawiona na nazwę strumienia zdarzeń (trackname dla [MS-SSTR-pozyskiwania] lub AMF nazwę komunikatu dla [RTMP] pozyskiwania).                                                                         |
 | Skala czasu          | 32-bitowa liczba całkowita bez znaku | Wymagane      | Skala czasu w taktach na sekundę.                                                                                                                                                                                                                                                                                                                                                     |
 
 
@@ -1350,7 +1350,7 @@ Podczas testowania implementacji przy użyciu platformy Azure Media Services, na
 
 ## <a name="change-history"></a>Historia zmian
 
-| Date     | Zmiany                                                                                                             |
+| Date (Data)     | Zmiany                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
 | 07/2/19  | Poprawiono obsługę przyjmowania RTMP, dodano "onCuePoint" dla elementów na żywo                                            |
 | 08/22/19 | Zaktualizowano w celu dodania OnUserDataEvent do protokołu RTMP dla metadanych niestandardowych                                                          |
@@ -1362,5 +1362,5 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

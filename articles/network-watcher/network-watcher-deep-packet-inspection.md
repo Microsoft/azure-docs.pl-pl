@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011173"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspekcja pakietów przy użyciu usługi Azure Network Watcher
 
 Korzystając z funkcji przechwytywania pakietów Network Watcher, można inicjować i zarządzać sesjami przechwytywania na maszynach wirtualnych platformy Azure z portalu, programu PowerShell, interfejsu wiersza polecenia i programowo za pośrednictwem zestawu SDK i interfejsu API REST. Przechwytywanie pakietów umożliwia rozwiązanie scenariuszy, które wymagają danych na poziomie pakietu, dostarczając informacje w formacie, który można łatwo użyć. Korzystając z dostępnych bezpłatnie narzędzi do inspekcji danych, możesz sprawdzić, czy komunikacja jest wysyłana do i z maszyn wirtualnych oraz uzyskać wgląd w ruch sieciowy. Oto przykładowe zastosowania danych przechwytywania pakietów: Badanie problemów z siecią lub aplikacją, wykrywanie nieprawidłowego użycia sieci i próby włamania lub zachowanie zgodności z przepisami. W tym artykule pokazano, jak otworzyć plik przechwytywania pakietu dostarczony przez Network Watcher przy użyciu popularnego narzędzia typu open source. Podajemy również przykłady pokazujące, jak obliczyć opóźnienie połączenia, zidentyfikować nietypowy ruch i sprawdzić statystykę sieci.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Ten artykuł przechodzi przez niektóre wstępnie skonfigurowane scenariusze dotyczące funkcji przechwytywania pakietów, która została wcześniej uruchomiona. Te scenariusze ilustrują możliwości, do których można uzyskać dostęp, przeglądając przechwycenie pakietu. W tym scenariuszu program [Wireshark](https://www.wireshark.org/) jest wykorzystywany do inspekcji przechwytywania pakietów.
 

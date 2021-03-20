@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
 ms.openlocfilehash: 7f14f43fa341df40ecd35340b7311e1acd18004c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204711"
 ---
 # <a name="expressroute-qos-requirements"></a>Wymagania dotyczące technologii QoS w usłudze ExpressRoute
@@ -31,7 +31,7 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez usługi Microsof
 | **Połączenia głosowe** |EF (46) |Skype/Microsoft Teams/Lync Voice |
 | **Interaktywne** |AF41 (34) |Wideo, VBSS |
 | |AF21 (18) |Współdzielenie aplikacji | 
-| **Domyślny** |AF11 (10) |Transfer plików |
+| **Wartooć** |AF11 (10) |Transfer plików |
 | |CS0 (0) |Inne |
 
 * Sklasyfikuj obciążenia i zaznacz odpowiednie wartości DSCP. Postępuj zgodnie ze wskazówkami podanymi [tutaj](/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) dotyczącymi ustawiania oznaczeń DSCP w sieci.

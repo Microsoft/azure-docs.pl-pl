@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753862"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
@@ -91,7 +91,7 @@ Opcja ustalania rozmiaru na podstawie wydajności w Azure Migrate oceny pomaga w
 
 - **Wystąpienia zarezerwowane**: z [wystąpieniami zarezerwowanymi (ri)](https://azure.microsoft.com/pricing/reserved-vm-instances/)można znacząco obniżyć koszty w porównaniu z [cennikiem z opcją płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)użyciem.
 - **Korzyść użycia hybrydowego platformy Azure**: za pomocą [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)można przenieść licencje na system Windows Server z aktywnym programem Software Assurance lub z subskrypcją systemu Linux na platformę Azure oraz łączyć z opcjami wystąpień zarezerwowanych.
-- **Umowa Enterprise**: [umowy Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) platformy Azure mogą oferować oszczędności dla subskrypcji i usług platformy Azure.
+- **Enterprise Agreement**: [umowy Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) platformy Azure mogą oferować oszczędności dla subskrypcji i usług platformy Azure.
 - **Oferty**: istnieje wiele [ofert platformy Azure](https://azure.microsoft.com/support/legal/offer-details/). Na przykład [płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/pricing/dev-test/)lub [Enterprise — tworzenie i testowanie oferty](https://azure.microsoft.com/offers/ms-azr-0148p/), aby zapewnić niższe stawki za tworzenie i testowanie maszyn wirtualnych
 - **Czas działania maszyny wirtualnej**: możesz przejrzeć dni miesięcznie i godziny dziennie, w których działają maszyny wirtualne platformy Azure. Wyłączenie maszyn, gdy nie są używane, może obniżyć koszty (nie dotyczy to usług RIs).
 - **Region docelowy**: można tworzyć oceny w różnych regionach, aby ustalić, czy migracja do określonego regionu może być bardziej opłacalna. 
@@ -116,7 +116,7 @@ Kilka zaleceń:
 
 - **Ustalanie priorytetu szybkiego usługi WINS**: Użyj raportów oceny, aby identyfikować niedrogie owoce, w tym serwery i bazy danych, które są w pełni gotowe i wymagają minimalnego wysiłku do migracji na platformę Azure. W tabeli przedstawiono kilka sposobów, aby to zrobić.
 
-    **Państwu** | **Akcja**
+    **Stan** | **Akcja**
     --- | ---
     **Gotowe maszyny wirtualne platformy Azure** | Wyeksportuj raport oceny i przefiltruj wszystkie maszyny z stanem *gotowe na platformę Azure*. Może to być pierwsza grupa maszyn, które zostały podniesione i przesunięte na platformę Azure przy użyciu narzędzia do [migracji Azure Migrate: Server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
     **Końcowe systemy operacyjne** | Wyeksportuj raport oceny i odfiltruj wszystkie maszyny z systemem Windows Server 2008 R2/Windows Server 2008. Te systemy operacyjne mają na celu zakończenie obsługi, a tylko platforma Azure oferuje bezpłatne trzy lata aktualizacji zabezpieczeń podczas migracji na platformę Azure. W przypadku łączenia Korzyść użycia hybrydowego platformy Azure i używania usług RIs oszczędności mogą być znacznie wyższe.
@@ -145,7 +145,7 @@ Plan testowania po migracji powinien obejmować funkcje, integrację, zabezpiecz
 
 Utwórz plan migracji i Zadeklaruj okno obsługi w celu przeprowadzenia migracji aplikacji i baz danych z minimalnym niezerowym przestojem i Ogranicz potencjalny wpływ na działania operacyjne i biznesowe podczas migracji.  
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Zalecamy uruchomienie migracji testowej w Azure Migrate, przed rozpoczęciem migracji w trybie pełnej skali. Migracja testowa ułatwia oszacowanie czasu trwania i dostosowanie planu migracji. Zapewnia możliwość wykrywania potencjalnych problemów i ich usuwania przed pełną migracją.
 

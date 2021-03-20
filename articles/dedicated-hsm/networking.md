@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91359158"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Dedykowana sieć HSM platformy Azure
@@ -66,7 +66,7 @@ Wirtualna sieć prywatna typu lokacja-lokacja umożliwia bezpieczną komunikacj�
 
 Typowa architektura wdrażania dedykowanego modułu HSM rozpocznie się z użyciem pojedynczej sieci wirtualnej i odpowiedniej podsieci, w której są tworzone i inicjowane urządzenia HSM. W tym samym regionie mogły istnieć dodatkowe sieci wirtualne i podsieci dla składników aplikacji, które mogłyby korzystać z dedykowanego modułu HSM. Aby umożliwić komunikację między tymi sieciami, używamy Virtual Network komunikacji równorzędnej.
 
-### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
+### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
 Jeśli istnieje wiele sieci wirtualnych w regionie, który musi uzyskać dostęp do wszystkich zasobów, Virtual Network Komunikacja równorzędna może być używana do tworzenia bezpiecznych kanałów komunikacji między nimi.  Wirtualne sieci równorzędne nie tylko zapewniają bezpieczną komunikację, ale zapewniają również połączenia o małym opóźnieniu i dużej przepustowości między zasobami na platformie Azure.
 

@@ -13,15 +13,15 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152135"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagowanie na zdarzenia IoT Hub przy użyciu Event Grid do wyzwalania akcji
 
-Usługa Azure IoT Hub jest zintegrowana z usługą Azure Event Grid, co umożliwia wysyłanie powiadomień o zdarzeniach do innych usług i wyzwalanie dalszych procesów. Skonfiguruj aplikacje biznesowe do nasłuchiwania zdarzeń usługi IoT Hub, aby móc reagować na zdarzenia o krytycznym znaczeniu w niezawodny, skalowalny i bezpieczny sposób.Możesz na przykład opracować aplikację, która zaktualizuje bazę danych, utworzy bilet pracy i dostarczy wiadomość e-mail z powiadomieniem zawsze, gdy w centrum IoT zostanie zarejestrowane nowe urządzenie IoT.
+Usługa Azure IoT Hub jest zintegrowana z usługą Azure Event Grid, co umożliwia wysyłanie powiadomień o zdarzeniach do innych usług i wyzwalanie dalszych procesów. Skonfiguruj aplikacje biznesowe do nasłuchiwania zdarzeń usługi IoT Hub, aby móc reagować na zdarzenia o krytycznym znaczeniu w niezawodny, skalowalny i bezpieczny sposób. Możesz na przykład opracować aplikację, która zaktualizuje bazę danych, utworzy bilet pracy i dostarczy wiadomość e-mail z powiadomieniem zawsze, gdy w centrum IoT zostanie zarejestrowane nowe urządzenie IoT.
 
 [Azure Event Grid](../event-grid/overview.md) to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](../azure-functions/functions-overview.md) i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), i mogą dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](../event-grid/overview.md).
 

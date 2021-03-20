@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
 ms.openlocfilehash: 83af1c3bc323546534613e6ff99c731010b103d7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352137"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie działania automatycznej aprowizacji użytkowników
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

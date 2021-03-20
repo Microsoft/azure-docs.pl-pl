@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422828"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
@@ -43,7 +43,7 @@ Utwórz projekt funkcji lokalnych w wybranym języku w Visual Studio Code:
 + [C#](create-first-function-vs-code-csharp.md)
 + [Java](create-first-function-vs-code-java.md)
 + [JavaScript](create-first-function-vs-code-node.md)
-+ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Program PowerShell](create-first-function-vs-code-powershell.md)
 + [Python](create-first-function-vs-code-python.md)
 + [TypeScript](create-first-function-vs-code-typescript.md)
 
@@ -58,7 +58,7 @@ Utwórz projekt funkcji lokalnych w wybranym języku z poziomu wiersza polecenia
 + [C#](create-first-function-cli-csharp.md)
 + [Java](create-first-function-cli-java.md)
 + [JavaScript](create-first-function-cli-node.md)
-+ [PowerShell](create-first-function-cli-powershell.md)
++ [Program PowerShell](create-first-function-cli-powershell.md)
 + [Python](create-first-function-cli-python.md)
 + [TypeScript](create-first-function-cli-typescript.md)
 
@@ -79,7 +79,7 @@ Ten szablon tworzy następujące cztery zasoby platformy Azure:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
 + [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli-interactive
@@ -91,7 +91,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri  $
 echo "Press [ENTER] to continue ..." &&
 read
 ```
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
@@ -127,7 +127,7 @@ W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania f
 
     :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Wybierz istniejący element docelowy publikowania":::
 
-1. Wybierz swoją **subskrypcję** , rozwiń grupę zasobów, wybierz aplikację funkcji, a następnie wybierz **przycisk OK**.
+1. Wybierz swoją **subskrypcję**, rozwiń grupę zasobów, wybierz aplikację funkcji, a następnie wybierz **przycisk OK**.
 
 1. Po zakończeniu publikowania Skopiuj **adres URL witryny**.
 

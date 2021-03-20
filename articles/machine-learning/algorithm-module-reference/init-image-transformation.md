@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: fc0eb196ed24e413c35d64f0571ff29dc3725032
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421281"
 ---
 # <a name="init-image-transformation"></a>Inicjowanie transformacji obrazów
@@ -26,7 +26,7 @@ W tym artykule opisano, jak używać modułu **transformacji obrazu init** w pro
 
 2.  W polu **rozmiar Zmień** rozmiar obrazu wejściowego PIL na dany rozmiar. W przypadku wybrania wartości "true" można określić **żądany rozmiar obrazu wyjściowego, domyślnie** 256. 
 
-3.  W przypadku **kadrowania centrum** Określ, czy dany obraz PIL ma zostać przycięty do środka. W przypadku wybrania wartości "true" można określić żądany rozmiar obrazu wyjściowego przycinania w **rozmiarze przycinania** , domyślnie 224.  
+3.  W przypadku **kadrowania centrum** Określ, czy dany obraz PIL ma zostać przycięty do środka. W przypadku wybrania wartości "true" można określić żądany rozmiar obrazu wyjściowego przycinania w **rozmiarze przycinania**, domyślnie 224.  
 
 4.  Dla **konsoli** Określ, czy dany obraz PIL ma być konsolą na wszystkich stronach z wartością pad 0. W przypadku wybrania wartości "true" można określić uzupełnienie (liczbę pikseli do dodania) dla każdego obramowania w **pełni**.
 
@@ -35,17 +35,17 @@ W tym artykule opisano, jak używać modułu **transformacji obrazu init** w pro
 6.  W obszarze **Skala szarości** Określ, czy ma zostać przekonwertowany obraz do skali szarości.
 
 7.  W przypadku **przycinania losowego o zmienionym rozmiarze** Określ, czy przycinanie danego obrazu PIL do wielkości losowej i współczynnika proporcji. Zostanie przycięty rozmiar losowy (zakres od 0,08 do 1,0) oryginalnego rozmiaru i losowy współczynnik proporcji (zakres od 3/4 do 4/3) oryginalnego współczynnika proporcji. To przycinanie jest ostatecznie zmieniane na przyznany rozmiar.
-    Jest to często używane w szkoleniu sieci w trakcie. W przypadku wybrania wartości "true" można określić oczekiwany rozmiar danych wyjściowych każdej krawędzi w **rozmiarze losowym** , domyślnie 256.
+    Jest to często używane w szkoleniu sieci w trakcie. W przypadku wybrania wartości "true" można określić oczekiwany rozmiar danych wyjściowych każdej krawędzi w **rozmiarze losowym**, domyślnie 256.
 
-8.  W przypadku **kadrowania losowego** Określ, czy dany obraz PIL ma zostać przycięty do lokalizacji losowej. W przypadku wybrania wartości "true" można określić żądany rozmiar wyjściowy kadrowania w **rozmiarze losowej uprawy** , domyślnie 224.
+8.  W przypadku **kadrowania losowego** Określ, czy dany obraz PIL ma zostać przycięty do lokalizacji losowej. W przypadku wybrania wartości "true" można określić żądany rozmiar wyjściowy kadrowania w **rozmiarze losowej uprawy**, domyślnie 224.
 
 9.  W przypadku **losowego przerzucania poziomego** należy określić, czy w poziomie należy losowo przerzucić dany obraz PIL z prawdopodobieństwem 0,5.
 
 10.  W przypadku **losowego przerzucania pionowego** Określ, czy w pionie przerzucasz dany obraz PIL z prawdopodobieństwem 0,5.
 
-11.  W celu **przypadkowego obrotu** Określ, czy obraz ma być obracany według kąta. W przypadku wybrania wartości "true" można określić w zakresie stopni, ustawiając **losowe stopnie rotacji** , co oznacza (-stopnie, + stopnie), domyślnie 0.
+11.  W celu **przypadkowego obrotu** Określ, czy obraz ma być obracany według kąta. W przypadku wybrania wartości "true" można określić w zakresie stopni, ustawiając **losowe stopnie rotacji**, co oznacza (-stopnie, + stopnie), domyślnie 0.
 
-12.  W przypadku **losowych afinicznym** Określ, czy losowo przekształcenie afinicznym obrazu ma być niezmienny. W przypadku wybrania wartości "true" można określić zakres stopni, który ma być wybierany **losowo afinicznym stopni** , co oznacza (-stopnie, + stopnie), domyślnie 0.
+12.  W przypadku **losowych afinicznym** Określ, czy losowo przekształcenie afinicznym obrazu ma być niezmienny. W przypadku wybrania wartości "true" można określić zakres stopni, który ma być wybierany **losowo afinicznym stopni**, co oznacza (-stopnie, + stopnie), domyślnie 0.
 
 13.  W przypadku **losowej skali odcieni szarości** Określ, czy losowo skonwertować obraz do skali odcieni szarości z prawdopodobieństwem 0,1.
 
