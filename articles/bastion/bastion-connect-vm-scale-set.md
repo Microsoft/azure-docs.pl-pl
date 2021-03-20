@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
 ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077783"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Nawiązywanie połączenia z zestawem skalowania maszyn wirtualnych przy użyciu usługi Azure bastionu
@@ -30,7 +30,7 @@ Upewnij się, że skonfigurowano hosta usługi Azure bastionu dla sieci wirtualn
 2. Przejdź do wystąpienia zestawu skalowania maszyn wirtualnych, z którym chcesz nawiązać połączenie, a następnie wybierz pozycję **Połącz**. W przypadku korzystania z połączenia RDP zestaw skalowania maszyn wirtualnych powinien być zestawem skalowania maszyn wirtualnych z systemem Windows.
 
    ![zestaw skalowania maszyn wirtualnych](./media/bastion-connect-vm-scale-set/2.png)
-3. Po wybraniu opcji **Połącz**zostanie wyświetlony pasek boczny z trzema kartami — RDP, SSH i bastionu. Na pasku bocznym wybierz kartę **bastionu** . Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, możesz wybrać link do konfiguracji bastionu. Instrukcje dotyczące konfiguracji znajdują się w temacie [Configure bastionu](./tutorial-create-host-portal.md).
+3. Po wybraniu opcji **Połącz** zostanie wyświetlony pasek boczny z trzema kartami — RDP, SSH i bastionu. Na pasku bocznym wybierz kartę **bastionu** . Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, możesz wybrać link do konfiguracji bastionu. Instrukcje dotyczące konfiguracji znajdują się w temacie [Configure bastionu](./tutorial-create-host-portal.md).
 
    ![Karta bastionu](./media/bastion-connect-vm-scale-set/3.png)
 4. Na karcie bastionu wprowadź nazwę użytkownika i hasło do zestawu skalowania maszyn wirtualnych, a następnie wybierz pozycję **Połącz**.

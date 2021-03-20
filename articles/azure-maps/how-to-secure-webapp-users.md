@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: ebdc4b219e0840c18e6bef8ebfe9b8eefa8faf3b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895584"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Zabezpieczanie aplikacji sieci Web przy użyciu logowania użytkownika
@@ -27,21 +27,21 @@ Poniższy przewodnik dotyczy aplikacji hostowanej na serwerach sieci Web, obsłu
 
 Aby użytkownicy mogli się zalogować, musisz utworzyć aplikację sieci Web w usłudze Azure AD. Ta aplikacja sieci Web będzie następnie delegować dostęp użytkowników do Azure Maps interfejsów API REST.
 
-1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** .  
+1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.  
 
     > [!div class="mx-imgBorder"]
     > ![Rejestrowanie aplikacji](./media/how-to-manage-authentication/app-registration.png)
 
-2. Wprowadź **nazwę** , wybierz **Typ konta pomocy technicznej** , podaj identyfikator URI przekierowania, który będzie reprezentować adres URL, który będzie WYSTAWIAŁ token usługi Azure AD, a także adres URL, pod którym jest hostowany formant mapy. Aby uzyskać więcej informacji, zobacz scenariusz usługi Azure AD [: aplikacja sieci Web, która umożliwia użytkownikom logowanie](../active-directory/develop/scenario-web-app-sign-user-overview.md)się. Wykonaj podane kroki w scenariuszu usługi Azure AD.  
+2. Wprowadź **nazwę**, wybierz **Typ konta pomocy technicznej**, podaj identyfikator URI przekierowania, który będzie reprezentować adres URL, który będzie WYSTAWIAŁ token usługi Azure AD, a także adres URL, pod którym jest hostowany formant mapy. Aby uzyskać więcej informacji, zobacz scenariusz usługi Azure AD [: aplikacja sieci Web, która umożliwia użytkownikom logowanie](../active-directory/develop/scenario-web-app-sign-user-overview.md)się. Wykonaj podane kroki w scenariuszu usługi Azure AD.  
 
 3. Po zakończeniu rejestracji aplikacji upewnij się, że zalogowanie aplikacji jest obsługiwane dla użytkowników. Po zalogowaniu aplikacja może otrzymać delegowany dostęp do Azure Maps interfejsów API REST.
     
-4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie** . W obszarze interfejsy API, które są **wykorzystywane przez moją organizację** , Wyszukaj i wybierz **Azure Maps** .
+4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj i wybierz **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Dodawanie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps** , a następnie wybierz pozycję **Dodaj uprawnienia** .
+5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
     > [!div class="mx-imgBorder"]
     > ![Wybieranie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/select-app-permissions.png)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716197"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
@@ -42,9 +42,9 @@ Następujące [metryki](../azure-monitor/essentials/metrics-supported.md#microso
 | BytesDroppedDDoS | Bajty przychodzące opuszczone DDoS | BytesPerSecond | Maksimum | Bajty przychodzące opuszczone DDoS| 
 | BytesForwardedDDoS | Przekazane bajty przychodzące DDoS | BytesPerSecond | Maksimum | Przekazane bajty przychodzące DDoS |
 | BytesInDDoS | Bajty przychodzące DDoS | BytesPerSecond | Maksimum | Bajty przychodzące DDoS |
-| DDoSTriggerSYNPackets | Pakiety przychodzących SYN wyzwalające łagodzenie DDoS | CountPerSecond | Maksimum | Pakiety przychodzących SYN wyzwalające łagodzenie DDoS |
-| DDoSTriggerTCPPackets | Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS | CountPerSecond | Maksimum | Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS |
-| DDoSTriggerUDPPackets | Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS | CountPerSecond | Maksimum | Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS |
+| DDoSTriggerSYNPackets | Pakiety SYN ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS | CountPerSecond | Maksimum | Pakiety SYN ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS |
+| DDoSTriggerTCPPackets | Pakiety TCP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS | CountPerSecond | Maksimum | Pakiety TCP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS |
+| DDoSTriggerUDPPackets | Pakiety UDP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS | CountPerSecond | Maksimum | Pakiety UDP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS |
 | IfUnderDDoSAttack | W obszarze atak DDoS | Liczba | Maksimum | W obszarze atak DDoS |
 | PacketsDroppedDDoS | Odrzucone pakiety przychodzące DDoS | CountPerSecond | Maksimum | Odrzucone pakiety przychodzące DDoS |
 | PacketsForwardedDDoS | Przekazane pakiety przychodzące DDoS | CountPerSecond | Maksimum | Przekazane pakiety przychodzące DDoS |

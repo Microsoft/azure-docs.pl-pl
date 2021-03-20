@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109157"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Szyfrowanie danych w Azure Data Lake Storage Gen1
@@ -48,14 +48,14 @@ Oto dwa tryby zarządzania głównym kluczem szyfrowania:
 *   Klucze zarządzane przez usługę
 *   Klucze zarządzane przez klienta
 
-W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz [Key Vault](https://azure.microsoft.com/services/key-vault).
+W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz temat [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Oto krótkie porównanie możliwości oferowanych przez dwa tryby zarządzania głównymi kluczami szyfrowania.
 
 | Pytanie | Klucze zarządzane przez usługę | Klucze zarządzane przez klienta |
 | -------- | -------------------- | --------------------- |
 |W jaki sposób przechowywane są dane?|Są zawsze szyfrowane przed zapisaniem.|Są zawsze szyfrowane przed zapisaniem.|
-|Gdzie jest przechowywany główny klucz szyfrowania?|Usługa Key Vault|Usługa Key Vault|
+|Gdzie jest przechowywany główny klucz szyfrowania?|Key Vault|Key Vault|
 |Czy jakiekolwiek klucze szyfrowania są przechowywane poza usługą Key Vault? |Nie|Nie|
 |Czy można pobrać główny klucz szyfrowania za pomocą usługi Key Vault?|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|
 |Kto jest właścicielem wystąpienia usługi Key Vault i głównego klucza szyfrowania?|Usługa Data Lake Storage Gen1|Ty jesteś właścicielem wystąpienia usługi Key Vault, które znajduje się w Twojej subskrypcji platformy Azure. Głównym kluczem szyfrowania w usłudze Key Vault można zarządzać programowo lub sprzętowo.|
@@ -76,7 +76,7 @@ W projekcie szyfrowania danych używane są trzy typy kluczy. Poniższa tabela z
 
 | Klucz                   | Skrót | Skojarzony z | Lokalizacja magazynu                             | Typ       | Uwagi                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Główny klucz szyfrowania | GKS          | Konto Data Lake Storage Gen1 | Usługa Key Vault                              | Asymetryczny | Może być zarządzany przez Data Lake Storage Gen1 lub użytkownika.                                                              |
+| Główny klucz szyfrowania | GKS          | Konto Data Lake Storage Gen1 | Key Vault                              | Asymetryczny | Może być zarządzany przez Data Lake Storage Gen1 lub użytkownika.                                                              |
 | Klucz szyfrowania danych   | KSD          | Konto Data Lake Storage Gen1 | Magazyn trwały zarządzany przez usługę Data Lake Storage Gen1 | Symetryczny  | Klucz szyfrowania danych jest szyfrowany przy użyciu głównego klucza szyfrowania. Na nośniku trwałym jest zapisywany zaszyfrowany klucz szyfrowania danych. |
 | Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloku danych.                                                      |
 

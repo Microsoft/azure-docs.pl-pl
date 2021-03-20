@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652993"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
@@ -48,7 +48,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Pisanie kodu w celu wysyłania komunikatów do kolejki
 
-1. W *program.cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
+1. W programie *program. cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
 
     ```csharp
     using System.Text;
@@ -114,7 +114,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
     }
     ```
 
-Oto, jak powinien wyglądać plik *program.cs* .
+Oto, jak powinien wyglądać plik *programu. cs* .
 
 ```csharp
 namespace CoreSenderApp
@@ -194,7 +194,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Pisanie kodu w celu odbierania komunikatów z kolejki
 
-1. W *program.cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
+1. W programie *program. cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
 
     ```csharp
     using System;
@@ -295,7 +295,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
     }
     ```
 
-Oto, jak powinien wyglądać plik *program.cs* :
+Poniżej przedstawiono plik *programu* , który powinien wyglądać następująco:
 
 ```csharp
 namespace CoreReceiverApp

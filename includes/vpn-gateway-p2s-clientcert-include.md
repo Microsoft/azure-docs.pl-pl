@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34986ac80a309bcfd495e5782496ba560f84c5f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041558"
 ---
 Każdy komputer kliencki, który połączysz z siecią wirtualną przy użyciu połączenia punkt-lokacja, musi mieć zainstalowany certyfikat klienta. Należy wygenerować go na podstawie certyfikatu głównego i zainstalować na każdym komputerze klienckim. Jeśli nie zainstalujesz prawidłowego certyfikatu klienta, uwierzytelnianie zakończy się niepowodzeniem, gdy klient spróbuje nawiązać połączenie z siecią wirtualną.
@@ -22,9 +22,9 @@ Certyfikaty klienta można wygenerować, posługując się następującymi metod
 
 * **Certyfikat przedsiębiorstwa:**
 
-  * Jeśli używasz rozwiązania z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu nazwy pospolitej formatu wartości *nazwa \@ yourdomain.com* . Użyj tego formatu zamiast formatu *nazwa domeny\nazwa użytkownika* .
+  * Jeśli używasz rozwiązania z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu nazwy pospolitej formatu wartości *nazwa \@ yourdomain.com*. Użyj tego formatu zamiast formatu *nazwa domeny\nazwa użytkownika*.
 
-  * Upewnij się, że certyfikat klienta jest oparty na szablonie certyfikatu użytkownika, którego pierwszym elementem na liście użytkownika jest *Uwierzytelnienie klienta* . Sprawdź certyfikat, dwukrotnie go klikając i wyświetlając obszar **Ulepszone użycie klucza** na karcie **Szczegóły** .
+  * Upewnij się, że certyfikat klienta jest oparty na szablonie certyfikatu użytkownika, którego pierwszym elementem na liście użytkownika jest *Uwierzytelnienie klienta*. Sprawdź certyfikat, dwukrotnie go klikając i wyświetlając obszar **Ulepszone użycie klucza** na karcie **Szczegóły**.
 
 * **Certyfikat główny z podpisem własnym:** Wykonaj kroki opisane w jednym z następujących artykułów certyfikatów P2S, aby utworzone certyfikaty klienta były zgodne z połączeniami P2S.
 

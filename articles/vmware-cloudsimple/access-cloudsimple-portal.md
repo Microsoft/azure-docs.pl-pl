@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0aa7a9a1f19a9d4fb2c555b08753e0b57c657974
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895159"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Dostęp do rozwiązania VMware przez portal CloudSimple z poziomu Azure Portal
 
 Logowanie jednokrotne jest obsługiwane w przypadku dostępu do portalu CloudSimple. Po zalogowaniu się do Azure Portal można uzyskać dostęp do portalu CloudSimple bez konieczności ponownego logowania. Podczas pierwszego uzyskiwania dostępu do portalu CloudSimple zostanie wyświetlony monit o autoryzację aplikacji [autoryzacji usługi CloudSimple](#consent-to-cloudsimple-service-authorization-application) .  Autoryzacja to jednorazowa akcja.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Użytkownicy z rolami wbudowanego **właściciela** i **współautor** mogą uzyskać dostęp do portalu CloudSimple.  Role należy skonfigurować w grupie zasobów, w której wdrożono usługę CloudSimple.  Role można także skonfigurować w obiekcie usługi CloudSimple.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) . Tylko użytkownicy z wbudowanymi rolami **właściciela** i **współautorów** mogą uzyskać dostęp do portalu CloudSimple.  Role muszą być skonfigurowane w ramach subskrypcji.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) .
 

@@ -9,10 +9,10 @@ ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
 ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527211"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Praktyki dotyczące zabezpieczeń dla producentów urządzeń usługi Azure IoT
@@ -21,7 +21,7 @@ Ponieważ większa producenci wydają urządzenia IoT, warto zidentyfikować wsk
 > [!div class="checklist"]
 > * Wybieranie opcji uwierzytelniania urządzeń
 > * Instalowanie certyfikatów na urządzeniach IoT
-> * Integrowanie moduł TPM (TPM) z procesem produkcyjnym
+> * Integrowanie Trusted Platform Module (TPM) z procesem produkcyjnym
 
 ## <a name="selecting-device-authentication-options"></a>Wybieranie opcji uwierzytelniania urządzeń
 Najważniejszym celem każdej miary zabezpieczeń urządzeń IoT jest utworzenie bezpiecznego rozwiązania IoT. Jednak problemy, takie jak ograniczenia sprzętowe, koszt i poziom wiedzy z zakresu bezpieczeństwa, mają wpływ na wybrane opcje. Ponadto Twoje podejście do zabezpieczeń ma wpływ na połączenie urządzeń IoT z chmurą. Chociaż istnieje [kilka elementów zabezpieczeń IoT](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) , które należy wziąć pod uwagę, najważniejszym elementem, który napotyka każdy klient, jest typ uwierzytelniania, który ma być używany. 

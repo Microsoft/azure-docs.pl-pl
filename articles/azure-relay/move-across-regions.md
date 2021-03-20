@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89463830"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Przenoszenie przestrzeni nazw Azure Relay do innego regionu
@@ -39,48 +39,48 @@ Aby rozpocząć, wyeksportuj szablon Menedżer zasobów. Ten szablon zawiera ust
 1. Wyszukaj `location` i Zastąp wartość właściwości nową nazwą regionu. Aby uzyskać kody lokalizacji, zapoznaj się z tematem [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu bez spacji, na przykład, `West US` jest równa `westus` .
 1. Usuń definicje **dynamicznych zasobów przekaźnika WCF** (typ: `Microsoft.Relay/namespaces/WcfRelays` ). Dynamiczne przekaźniki WCF są tymi, których właściwość **IsDynamic** ma wartość **true** na stronie **przekaźników** . W poniższym przykładzie **EchoService** jest dynamicznym przekaźnikiem WCF, a jego definicja powinna zostać usunięta z szablonu. 
 
-    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Pobierz szablon Menedżer zasobów":::
+    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Przekaźniki dynamiczne":::
 
 ## <a name="move"></a>Move
 Wdróż szablon w celu utworzenia przestrzeni nazw przekaźnika w regionie docelowym. 
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu** dla tekstu wyszukiwania, wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**, a następnie naciśnij klawisz **Enter**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** dla tekstu wyszukiwania, wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**, a następnie naciśnij klawisz **Enter**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Pobierz szablon Menedżer zasobów":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Wdrożenie nowego szablonu":::    
 1. Na stronie **Template Deployment** wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Pobierz szablon Menedżer zasobów":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Wdrażanie nowego szablonu — przycisk Utwórz":::        
 1. Na stronie **wdrożenie niestandardowe** wybierz opcję **Kompiluj własny szablon w edytorze**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Pobierz szablon Menedżer zasobów":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Tworzenie własnego szablonu przy użyciu linku edytora":::            
 1. Na stronie **Edytuj szablon** wybierz pozycję **Załaduj plik** na pasku narzędzi, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** do pliku pobranego w ostatniej sekcji.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Pobierz szablon Menedżer zasobów":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Wybierz szablon":::                
 1. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Pobierz szablon Menedżer zasobów":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Zapisz szablon":::                    
 1. Na stronie **wdrożenie niestandardowe** wykonaj następujące kroki: 
-    1. Wybierz **subskrypcję**platformy Azure. 
+    1. Wybierz **subskrypcję** platformy Azure. 
     2. Wybierz istniejącą **grupę zasobów** lub utwórz ją. 
     3. Wybierz **lokalizację** docelową lub region. W przypadku wybrania istniejącej grupy zasobów to ustawienie jest tylko do odczytu. 
     4. Wprowadź nową **nazwę przestrzeni nazw**.
-    1. Wybierz pozycję **Przeglądanie + tworzenie**. 
+    1. Wybierz pozycję **Przejrzyj i utwórz**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Pobierz szablon Menedżer zasobów":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Wdróż szablon Menedżer zasobów":::
     1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz** w dolnej części strony. 
     
 ## <a name="verify"></a>Weryfikacja
 1. Po pomyślnym wdrożeniu wybierz pozycję **Przejdź do grupy zasobów**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Pobierz szablon Menedżer zasobów":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Łącze przejdź do grupy zasobów":::    
 1. Na stronie **Grupa zasobów** wybierz przestrzeń nazw Azure Relay. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Pobierz szablon Menedżer zasobów":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Wybierz Azure Relay przestrzeń nazw":::    
 1. Na stronie **obszar nazw Azure Relay** wybierz pozycję **połączenia hybrydowe** lub **przekaźniki WCF** w menu po lewej stronie, aby sprawdzić, czy są tworzone połączenia hybrydowe i przekaźniki WCF. Jeśli nie chcesz usunąć definicji dynamicznych przekaźników WCF przed zaimportowaniem szablonu, usuń je na stronie **przekaźniki WCF** . Dynamiczne przekaźniki WCF są tworzone automatycznie, gdy klienci łączą się z przestrzenią nazw usługi Relay. 
 
 ## <a name="discard-or-clean-up"></a>Odrzucanie lub czyszczenie
-Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **docelową przestrzeń nazw Azure Relay**i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
+Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **docelową przestrzeń nazw Azure Relay** i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
 
 Aby zatwierdzić zmiany i zakończyć przenoszenie przestrzeni nazw, Usuń **przestrzeń nazw Azure Relay** w regionie źródłowym. 
 

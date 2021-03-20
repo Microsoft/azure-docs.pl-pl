@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185669"
 ---
 # <a name="deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania
@@ -127,7 +127,7 @@ W skrypcie Zaloguj się przy użyciu `az login --service-principal` , dostarczaj
 
 ### <a name="java"></a>Java
 
-Użyj kudu [zipdeploy/](deploy-zip.md) API do wdrażania aplikacji jar i [Narzędzia WARDEPLOY/](deploy-zip.md#deploy-war-file) for War. Jeśli używasz Jenkins, możesz używać tych interfejsów API bezpośrednio w fazie wdrażania. Aby uzyskać więcej informacji, zobacz [ten artykuł](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Użyj kudu [zipdeploy/](deploy-zip.md) API do wdrażania aplikacji jar i [Narzędzia WARDEPLOY/](deploy-zip.md#deploy-war-file) for War. Jeśli używasz Jenkins, możesz używać tych interfejsów API bezpośrednio w fazie wdrażania. Więcej informacji znajduje się w [tym artykule](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Węzeł
 

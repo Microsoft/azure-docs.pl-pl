@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204643"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Weryfikowanie połączenia usługi ExpressRoute
@@ -36,7 +36,7 @@ Celem tego dokumentu jest ułatwienie użytkownikowi zidentyfikowania, czy wyst�
 
 ## <a name="overview"></a>Omówienie
 Na poniższym diagramie przedstawiono logiczne połączenie sieci klienta z siecią firmy Microsoft przy użyciu ExpressRoute.
-[![1]][1]
+[![jedno]][1]
 
 Na powyższym diagramie liczba wskazuje kluczowe punkty sieciowe. Te punkty sieciowe są przywoływane w tym artykule o ile ich skojarzona liczba. W zależności od modelu łączności ExpressRoute — połączenie z programem Exchange w chmurze, punkt-punkt połączenia Ethernet lub dowolne z nich (IPVPN) — punkty sieciowe 3 i 4 mogą być przełącznikami (urządzeniami warstwy 2) lub routerami (urządzeniami warstwy 3). W modelu łączności bezpośredniej nie ma punktów sieciowych 3 i 4; Zamiast tego (2) są bezpośrednio połączone z MSEE za pośrednictwem ciemnego włókna. Najważniejsze przedstawiane punkty sieci są następujące:
 
@@ -165,7 +165,7 @@ W Azure Portal stan komunikacji równorzędnej obwodu ExpressRoute można sprawd
 W powyższym przykładzie, jako że zanotowano zainicjowanie prywatnej komunikacji równorzędnej platformy Azure, nie zainicjowano obsługi komunikacji równorzędnej usług Azure Public i Microsoft. Pomyślnie zainicjowany kontekst komunikacji równorzędnej również będzie zawierał podstawową i pomocniczą podsieć punkt-punkt. Podsieci/30 są używane dla adresu IP interfejsu MSEE i CE/PE-MSEE. W przypadku obsługi komunikacji równorzędnej ta lista wskazuje również, kto ostatnio zmodyfikował konfigurację. 
 
 > [!NOTE]
-> Jeśli Włączanie komunikacji równorzędnej nie powiedzie się, sprawdź, czy przypisane podsieci podstawowej i pomocniczej są zgodne z konfiguracją w powiązanym elemencie CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId* , *AzureASN* i *PeerASN* są używane w MSEE, i czy te wartości są mapowane na te, które są używane w połączonym ce/PE-MSEE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i PE-MSEE/CE. Wcześniej skonfigurowany klucz współużytkowany nie zostanie wyświetlony ze względów bezpieczeństwa. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].  
+> Jeśli Włączanie komunikacji równorzędnej nie powiedzie się, sprawdź, czy przypisane podsieci podstawowej i pomocniczej są zgodne z konfiguracją w powiązanym elemencie CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId*, *AzureASN* i *PeerASN* są używane w MSEE, i czy te wartości są mapowane na te, które są używane w połączonym ce/PE-MSEE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i PE-MSEE/CE. Wcześniej skonfigurowany klucz współużytkowany nie zostanie wyświetlony ze względów bezpieczeństwa. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Jeśli Włączanie komunikacji równorzędnej nie powiedzie się, sprawdź, czy przypisane podsieci podstawowej i pomocniczej są zgodne z konfiguracją w powiązanym elemencie CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId* , *AzureASN* i *PeerASN* są używane w MSEE, i czy te wartości są mapowane na te, które są używane w połączonym ce/PE-MSEE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i PE-MSEE/CE. Wcześniej skonfigurowany klucz współużytkowany nie zostanie wyświetlony ze względów bezpieczeństwa. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].  
+> Jeśli Włączanie komunikacji równorzędnej nie powiedzie się, sprawdź, czy przypisane podsieci podstawowej i pomocniczej są zgodne z konfiguracją w powiązanym elemencie CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId*, *AzureASN* i *PeerASN* są używane w MSEE, i czy te wartości są mapowane na te, które są używane w połączonym ce/PE-MSEE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i PE-MSEE/CE. Wcześniej skonfigurowany klucz współużytkowany nie zostanie wyświetlony ze względów bezpieczeństwa. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].  
 >
 >
 
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Jeśli stan komunikacji równorzędnej eBGP między MSEE i CE/PE-MSEE jest aktywny lub bezczynny, sprawdź, czy przypisana podstawowa i pomocnicza podsieć równorzędna jest zgodna z konfiguracją w połączonym CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId* , *AzureAsn* i *PeerAsn* są używane w MSEE i czy te wartości są mapowane na te, które są używane w połączonym środowisku PE-MSEE/CE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i CE/PE-MSEE. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
+> Jeśli stan komunikacji równorzędnej eBGP między MSEE i CE/PE-MSEE jest aktywny lub bezczynny, sprawdź, czy przypisana podstawowa i pomocnicza podsieć równorzędna jest zgodna z konfiguracją w połączonym CE/PE-MSEE. Sprawdź również, czy poprawne *VlanId*, *AzureAsn* i *PeerAsn* są używane w MSEE i czy te wartości są mapowane na te, które są używane w połączonym środowisku PE-MSEE/CE. Jeśli zostanie wybrane Mieszanie MD5, klucz współużytkowany powinien być taki sam w parze MSEE i CE/PE-MSEE. Należy zmienić dowolną konfigurację na routerze MSEE, zapoznaj się z tematem [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
 >
 
 
@@ -319,7 +319,7 @@ StatusCode: 400
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji i uzyskać pomoc, Skorzystaj z następujących linków:
 
-- [pomoc techniczna firmy Microsoft][Support]
+- [Pomoc techniczna firmy Microsoft][Support]
 - [Tworzenie i modyfikowanie obwodu usługi ExpressRoute][CreateCircuit]
 - [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering]
 

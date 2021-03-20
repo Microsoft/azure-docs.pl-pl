@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 0650e77b2207c71e9ef8d91b659aba570a6bc702
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455854"
 ---
 # <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Samouczek: Integrowanie sprytne Nelly z Azure Active Directory

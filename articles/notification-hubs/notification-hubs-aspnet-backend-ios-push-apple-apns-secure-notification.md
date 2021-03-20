@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090350"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpieczne wypychanie
@@ -119,7 +119,7 @@ Aby osiągnąć ten cel, należy napisać logikę, aby pobrać bezpieczną zawar
 
     Ta metoda wywołuje zaplecze aplikacji, aby pobrać zawartość powiadomienia przy użyciu poświadczeń przechowywanych w preferencjach udostępnionych.
 
-4. Teraz obsłużmy przychodzące powiadomienie i użyj powyższej metody, aby pobrać zawartość do wyświetlenia. Najpierw włącz uruchamianie aplikacji systemu iOS w tle podczas otrzymywania powiadomień wypychanych. W **Xcode**wybierz projekt aplikacji w panelu po lewej stronie, a następnie kliknij swój główny obiekt docelowy aplikacji w sekcji **obiekty docelowe** w środkowym okienku.
+4. Teraz obsłużmy przychodzące powiadomienie i użyj powyższej metody, aby pobrać zawartość do wyświetlenia. Najpierw włącz uruchamianie aplikacji systemu iOS w tle podczas otrzymywania powiadomień wypychanych. W **Xcode** wybierz projekt aplikacji w panelu po lewej stronie, a następnie kliknij swój główny obiekt docelowy aplikacji w sekcji **obiekty docelowe** w środkowym okienku.
 5. Następnie kliknij kartę **możliwości** w górnej części okienka środkowe i sprawdź pole **powiadomienia zdalne** .
 
     ![Zrzut ekranu przedstawiający XCode z wybranym projektem aplikacji i na karcie możliwości Otwórz. Zaznaczone jest pole wyboru powiadomienia zdalne.][IOS1]

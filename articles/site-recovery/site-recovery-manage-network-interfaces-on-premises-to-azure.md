@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: harshacs
 ms.openlocfilehash: 4dad7f76edf34782131c7c844978763cda53acc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90068119"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Zarządzanie interfejsami sieciowymi maszyny wirtualnej na potrzeby odzyskiwania po awarii ze środowiska lokalnego na platformę Azure
@@ -32,7 +32,7 @@ W przypadku maszyn wirtualnych VMware i fizycznych oraz dla funkcji Hyper-V (bez
 
 2. Wybierz kartę **obliczenia i sieć** , aby uzyskać dostęp do ustawień sieci dla zreplikowanego elementu.
 
-3. W obszarze **właściwości sieci**wybierz sieć wirtualną z listy dostępnych interfejsów sieciowych.
+3. W obszarze **właściwości sieci** wybierz sieć wirtualną z listy dostępnych interfejsów sieciowych.
 
     ![Ustawienia sieciowe](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 

@@ -8,10 +8,10 @@ ms.date: 10/16/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93375f6047fbe4eda2132e024dab0e067e83ccf1
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999071"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Samouczek: reagowanie na zdarzenia Azure Service Bus odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Logic Apps
@@ -28,7 +28,7 @@ W tym kroku utworzysz aplikację logiki platformy Azure, która odbiera zdarzeni
     3. Wybierz swoją **subskrypcję** platformy Azure. 
     4. Wybierz pozycję **Użyj istniejącej** dla **grupy zasobów**, a następnie wybierz grupę zasobów, która została użyta do innych zasobów (takich jak funkcja platformy Azure, Service Bus przestrzeń nazw), która została utworzona wcześniej. 
     5. Wybierz **lokalizację** aplikacji logiki. 
-    6. Wybierz pozycję **Recenzja + Utwórz**. 
+    6. Wybierz pozycję **Przejrzyj i utwórz**. 
     1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz** , aby utworzyć aplikację logiki. 
 1. Na stronie **projektant Logic Apps** wybierz pozycję **pusta aplikacja logiki** w obszarze **Szablony**. 
 1. W projektancie wykonaj następujące czynności:

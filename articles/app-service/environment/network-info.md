@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997345"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
@@ -122,7 +122,7 @@ Jeśli ILB ASE jest nazwą domeny *contoso.appserviceenvironment.NET* , a nazwa 
 
 ## <a name="ase-ip-addresses"></a>Adresy IP ASE ##
 
-Środowisko ASE zawiera kilka adresów IP, z którymi należy się zapoznać. Oto one:
+Środowisko ASE zawiera kilka adresów IP, z którymi należy się zapoznać. Są to:
 
 - **Publiczny adres IP ruchu przychodzącego**: używany dla ruchu aplikacji w zewnętrznym środowisku ASE i ruch związany z zarządzaniem zarówno w zewnętrznym środowisku ASE, jak i w środowisku ILB ASE.
 - **Wychodzący publiczny adres IP**: używany jako adres IP "od" dla połączeń wychodzących z środowiska ASE, które opuszczają sieć wirtualną, która nie jest przekierowywana do sieci VPN.
@@ -180,9 +180,9 @@ W przypadku uwzględnienia wymagań dotyczących ruchu przychodzącego i wychodz
 
 ![Reguły zabezpieczeń dla ruchu przychodzącego][4]
 
-Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** elementu i zakresem portów * *\** _. Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
+Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** i zakresu portów **\*** . Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
 
-Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz _ *App Service Environment** > **adresy IP**.  
+Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz pozycję **App Service Environment**  >  **adresy IP**.  
 
 Wszystkie elementy wyświetlane w następujących regułach wychodzących są zbędne, z wyjątkiem ostatniego elementu. Umożliwiają one dostęp sieciowy do zależności środowiska ASE, które zostały zanotowane we wcześniejszej części tego artykułu. Jeśli zablokujesz dowolne z nich, środowisko ASE przestanie działać. Ostatni element na liście umożliwia firmie ASE komunikowanie się z innymi zasobami w sieci wirtualnej.
 

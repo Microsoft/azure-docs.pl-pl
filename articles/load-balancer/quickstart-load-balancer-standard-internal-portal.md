@@ -16,10 +16,10 @@ ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715466"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
@@ -232,7 +232,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | SELECT **(Europa) Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -476,7 +476,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję **Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz przycisk **OK**. |
-    | Image (Obraz) | **Windows Server 2019 Datacenter** |
+    | Obraz | **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -547,7 +547,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |

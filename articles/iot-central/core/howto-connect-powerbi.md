@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123341"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Wizualizowanie i analizowanie danych IoT Central platformy Azure na pulpicie nawigacyjnym Power BI
@@ -47,7 +47,7 @@ Skonfigurowanie rozwiązania wymaga następujących zasobów:
 
 ## <a name="install"></a>Instalowanie
 
-Aby skonfigurować potok, przejdź do strony [Power BI rozwiązanie dla platformy Azure IoT Central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) w witrynie **Microsoft AppSource** . Wybierz pozycję **Pobierz teraz**i postępuj zgodnie z instrukcjami.
+Aby skonfigurować potok, przejdź do strony [Power BI rozwiązanie dla platformy Azure IoT Central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) w witrynie **Microsoft AppSource** . Wybierz pozycję **Pobierz teraz** i postępuj zgodnie z instrukcjami.
 
 Po otwarciu pliku PBIX upewnij się, że odczytywanie i postępuj zgodnie z instrukcjami na stronie tytułowej. W tych instrukcjach opisano sposób łączenia raportu z bazą danych SQL.
 
@@ -55,13 +55,13 @@ Po otwarciu pliku PBIX upewnij się, że odczytywanie i postępuj zgodnie z inst
 
 Plik PBIX zawiera raport **urządzenia i Telemetria** przedstawia widok historyczny danych telemetrycznych wysłanych przez urządzenia. Zawiera podział różnych typów telemetrii, a także przedstawia najnowsze dane telemetryczne wysyłane przez urządzenia.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Potok rozwiązania Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI urządzeń i raportów telemetrii":::
 
 ## <a name="pipeline-resources"></a>Zasoby potoku
 
 Możesz uzyskać dostęp do wszystkich zasobów platformy Azure, które tworzą potok w Azure Portal. Wszystkie zasoby znajdują się w grupie zasobów utworzonej podczas konfigurowania potoku.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Potok rozwiązania Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Widok Azure Portal grupy zasobów":::
 
 Na poniższej liście opisano role poszczególnych zasobów w potoku:
 

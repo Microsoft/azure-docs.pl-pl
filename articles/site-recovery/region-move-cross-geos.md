@@ -8,10 +8,10 @@ ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425351"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Przenoszenie maszyn wirtualnych platformy Azure między usługą Azure Government i regionami publicznymi 
@@ -78,7 +78,7 @@ Skonfiguruj [konto usługi Azure Storage](../storage/common/storage-account-crea
 Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana usługa mobilności. Site Recovery automatycznie instaluje tę usługę po włączeniu replikacji dla serwera. Aby automatycznie zainstalować program, należy przygotować konto, które będzie używane przez Site Recovery do uzyskiwania dostępu do serwera.
 
 - Możesz użyć domeny lub konta lokalnego
-- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**Dodaj wpis DWORD **LocalAccountTokenFilterPolicy**o wartości 1.
+- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** Dodaj wpis DWORD **LocalAccountTokenFilterPolicy** o wartości 1.
 - Aby dodać wpis rejestru w celu wyłączenia ustawienia z interfejsu wiersza polecenia, wpisz:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - W przypadku systemu Linux konto powinno być kontem głównym na źródłowym serwerze z systemem Linux.
 
@@ -96,7 +96,7 @@ Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana us�
 
      Skorzystaj z poniższych dokumentów, aby utworzyć odpowiednie najczęściej używane zasoby sieciowe, na podstawie konfiguracji źródłowej maszyny wirtualnej.
 
-    - [Sieciowe grupy zabezpieczeń](../virtual-network/manage-network-security-group.md)
+    - [Grupy zabezpieczeń sieci](../virtual-network/manage-network-security-group.md)
     - [Moduły równoważenia obciążenia](../load-balancer/index.yml)
     - [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md)
     
@@ -109,8 +109,8 @@ Poniżej przedstawiono procedurę kopiowania danych do regionu docelowego przy u
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Magazyn można utworzyć w dowolnym regionie, z wyjątkiem regionu źródłowego.
 
-1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com)  >  **Recovery Services**.
-2. Kliknij pozycję **Utwórz zasoby**  >  **Narzędzia do zarządzania**zasobami  >  **i Site Recovery**.
+1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com)  >  .
+2. Kliknij pozycję **Utwórz zasoby**  >  **Narzędzia do zarządzania** zasobami  >  **i Site Recovery**.
 3. W polu **Nazwa** podaj przyjazną nazwę **ContosoVMVault**. Jeśli masz więcej niż jedną subskrypcję, wybierz odpowiednią z nich.
 4. Utwórz grupę zasobów **ContosoRG**.
 5. Określ region platformy Azure. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -122,9 +122,9 @@ Poniżej przedstawiono procedurę kopiowania danych do regionu docelowego przy u
 
 Skonfiguruj serwer konfiguracji, zarejestruj go w magazynie i odnajdź maszyny wirtualne.
 
-1. Kliknij pozycję **Site Recovery**  >  **Przygotuj**  >  **Źródło**infrastruktury.
+1. Kliknij pozycję **Site Recovery**  >  **Przygotuj**  >  **Źródło** infrastruktury.
 2. Jeśli nie masz serwera konfiguracji, kliknij przycisk **+ serwer konfiguracji**.
-3. W obszarze **Dodawanie serwera**Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
+3. W obszarze **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 5. Pobierz klucz rejestracji magazynu. Jest on potrzebny po uruchomieniu ujednoliconej konfiguracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
@@ -159,7 +159,7 @@ Po zakończeniu rejestracji serwer konfiguracji zostanie wyświetlony na stronie
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe** infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ docelowy model wdrażania.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
@@ -172,7 +172,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 2. W obszarze **Tworzenie zasad replikacji** określ nazwę zasad.
 3. W obszarze **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Ta wartość określa, jak często są tworzone punkty odzyskiwania danych. Przekroczenie tego limitu przez replikację ciągłą spowoduje wygenerowanie alertu.
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ (w godzinach), jak długie jest okno przechowywania dla każdego punktu odzyskiwania. Replikowane maszyny wirtualne można odzyskać do dowolnego punktu w tym oknie. Przechowywanie do 24 godzin jest obsługiwane dla maszyn replikowanych do magazynu w warstwie Premium, zaś do 72 godzin dla magazynu w warstwie Standardowa.
-5. W obszarze **częstotliwość tworzenia migawek**na poziomie aplikacji Określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Kliknij przycisk **OK**, aby utworzyć zasady.
+5. W obszarze **częstotliwość tworzenia migawek** na poziomie aplikacji Określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Kliknij przycisk **OK**, aby utworzyć zasady.
 
     ![Zasady replikacji](./media/physical-azure-disaster-recovery/replication-policy.png)
 
@@ -184,21 +184,21 @@ Zasady zostaną automatycznie skojarzone z serwerem konfiguracji. Domyślnie są
 - Site Recovery zainstaluje usługę mobilności po włączeniu replikacji.
 - Po włączeniu replikacji dla serwera może upłynąć 15 minut lub dłużej, aby zmiany zaczęły obowiązywać i pojawiają się w portalu.
 
-1. Kliknij pozycję **Replikuj**  >  **Źródło**aplikacji.
+1. Kliknij pozycję **Replikuj**  >  **Źródło** aplikacji.
 2. W obszarze **Źródło** wybierz serwer konfiguracji.
-3. W obszarze **Typ maszyny**wybierz pozycję **maszyny fizyczne**.
+3. W obszarze **Typ maszyny** wybierz pozycję **maszyny fizyczne**.
 4. Wybierz serwer przetwarzania (serwer konfiguracji). Następnie kliknij przycisk **OK**.
-5. W obszarze **cel**wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne platformy Azure po przejściu do trybu failover. Wybierz model wdrażania, którego chcesz użyć na platformie Azure (wersja klasyczna lub zarządzanie zasobami).
+5. W obszarze **cel** wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne platformy Azure po przejściu do trybu failover. Wybierz model wdrażania, którego chcesz użyć na platformie Azure (wersja klasyczna lub zarządzanie zasobami).
 6. Wybierz konto usługi Azure Storage, którego chcesz użyć na potrzeby replikacji danych. 
 7. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover.
 8. Wybierz pozycję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz pozycję **Konfiguruj później** , aby wybrać sieć platformy Azure na maszynę. 
-9. W obszarze **maszyny fizyczne**i kliknij pozycję **+ maszyna fizyczna**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, którą chcesz replikować. Odnajdywanie i wykrycie serwerów może potrwać kilka minut. 
+9. W obszarze **maszyny fizyczne** i kliknij pozycję **+ maszyna fizyczna**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, którą chcesz replikować. Odnajdywanie i wykrycie serwerów może potrwać kilka minut. 
 
    > [!WARNING]
    > Należy wprowadzić adres IP maszyny wirtualnej platformy Azure, która ma zostać przeniesiona
 
-10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości**wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
-11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji**Sprawdź, czy wybrano odpowiednie zasady replikacji. 
+10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości** wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
+11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji** Sprawdź, czy wybrano odpowiednie zasady replikacji. 
 12. Kliknij pozycję **Włącz replikację**. Postęp zadania **Włącz ochronę** można śledzić w obszarze **Ustawienia**  >  **zadania**  >  **Site Recovery zadania**. Po uruchomieniu zadania **finalizowania ochrony** maszyna jest gotowa do pracy w trybie failover.
 
 
@@ -207,7 +207,7 @@ Aby monitorować dodawane serwery, można sprawdzić czas ostatniego wykrycia dl
 ## <a name="test-the-configuration"></a>Testowanie konfiguracji
 
 
-1. Przejdź do magazynu, w obszarze **Ustawienia**  >  **zreplikowane elementy**kliknij maszynę wirtualną, która ma zostać przeniesiona do regionu docelowego, a następnie kliknij ikonę **test pracy w trybie failover** .
+1. Przejdź do magazynu, w obszarze **Ustawienia**  >  **zreplikowane elementy** kliknij maszynę wirtualną, która ma zostać przeniesiona do regionu docelowego, a następnie kliknij ikonę **test pracy w trybie failover** .
 2. W obszarze **Test pracy w trybie failover** wybierz punkt odzyskiwania, którego chcesz użyć podczas pracy w trybie failover:
 
    - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.

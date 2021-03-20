@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
 ms.openlocfilehash: be63ea7ebf905b825ffe73dfc2b37dcdc3bb88fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92507594"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Moxtra
@@ -130,7 +130,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -154,7 +154,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki Zaloguj się do witryny firmy Moxtra jako administrator.
 
-2. Na pasku narzędzi po lewej stronie kliknij kolejno pozycje **Konsola administracyjna > protokół SAML logowanie**jednokrotne, a następnie kliknij pozycję **Nowy**.
+2. Na pasku narzędzi po lewej stronie kliknij kolejno pozycje **Konsola administracyjna > protokół SAML logowanie** jednokrotne, a następnie kliknij pozycję **Nowy**.
    
     ![Zrzut ekranu przedstawia stronę rejestracji jednokrotnej protokołu SAML z opcją tworzenia nowego logowania jednokrotnego SAML.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
@@ -215,7 +215,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Moxtra w panelu dostępu należy automatycznie zalogować się do Moxtra, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

@@ -11,15 +11,15 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97386871"
 ---
 # <a name="sub-journeys"></a>Podróże podrzędne
 
-Podpodróży mogą służyć do organizowania i uproszczenia przepływu kroków aranżacji w trakcie podróży użytkownika. [Podróże użytkowników](userjourneys.md) określają jawne ścieżki, za pomocą których zasady umożliwiają aplikacji jednostki uzależnionej uzyskanie żądanych oświadczeń dla użytkownika. Użytkownik otrzymuje te ścieżki, aby pobrać oświadczenia, które mają być prezentowane dla jednostki uzależnionej. Innymi słowy, Podróże użytkowników definiują logikę biznesową, przez jaką użytkownik końcowy przechodzi przez użytkownika końcowego, jako że platforma obsługi tożsamości Azure AD B2C przetwarza żądanie. Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Element [ClaimsExchange](userjourneys.md#claimsexchanges) kroku aranżacji jest powiązany z pojedynczym [profilem technicznym](technicalprofiles.md) , który jest wykonywany.
+Podpodróży mogą służyć do organizowania i uproszczenia przepływu kroków aranżacji w trakcie podróży użytkownika. [Podróże użytkownika](userjourneys.md) określają jawne ścieżki, za pośrednictwem których zasady umożliwiają aplikacji jednostki zależnej uzyskanie żądanych oświadczeń dla użytkownika. Użytkownik jest prowadzony przez te ścieżki w celu pobrania oświadczeń, które mają być prezentowane jednostce zależnej. Innymi słowy, Podróże użytkowników definiują logikę biznesową, przez jaką użytkownik końcowy przechodzi przez użytkownika końcowego, jako że platforma obsługi tożsamości Azure AD B2C przetwarza żądanie. Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Element [ClaimsExchange](userjourneys.md#claimsexchanges) kroku aranżacji jest powiązany z pojedynczym [profilem technicznym](technicalprofiles.md) , który jest wykonywany.
 
 Podpodróż jest grupą czynności aranżacji, które mogą być wywoływane w dowolnym momencie w trakcie podróży użytkownika. Za pomocą podpodróży można utworzyć sekwencje kroków wielokrotnego użytku lub wdrożyć rozgałęzienie w celu lepszego reprezentowania logiki biznesowej.
 

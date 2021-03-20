@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109191"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiuj dane między Data Lake Storage Gen1 i Azure SQL Database przy użyciu Sqoop
@@ -99,7 +99,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
    Symbol zastępczy **SQL-Database-Server-Name** reprezentuje nazwę serwera, na którym uruchomiono bazę danych. Symbol zastępczy **SQL-Database-Name** reprezentuje rzeczywistą nazwę bazy danych.
 
-   Przykład:
+   Na przykład
 
     ```console
     sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -131,7 +131,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
     sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-   Przykład:
+   Na przykład
 
     ```console
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","

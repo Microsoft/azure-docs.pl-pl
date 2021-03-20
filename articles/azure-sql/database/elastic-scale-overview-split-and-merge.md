@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793470"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Przenoszenie danych między skalowanymi bazami danych w chmurze
@@ -187,7 +187,7 @@ Usługa Split-Merge działa jako usługa w chmurze w ramach subskrypcji Microsof
 
 Usługa Split-Merge oferuje tabelę **stanem żądania** w bazie danych magazynu metadanych na potrzeby monitorowania ukończonych i bieżących żądań. W tabeli przedstawiono wiersz dla każdego żądania Split-Merge, które zostało przesłane do tego wystąpienia usługi Split-Merge. Podaje następujące informacje dotyczące każdego żądania:
 
-- **Timestamp**
+- **Znacznik czasu**
 
   Godzina i Data rozpoczęcia żądania.
 
@@ -250,7 +250,7 @@ Możesz łatwo uzyskać dostęp do danych diagnostycznych z programu Visual Stud
 
 WADLogsTable wyróżniony na powyższym rysunku zawiera szczegółowe zdarzenia z dziennika aplikacji usługi Split-Merge. Należy pamiętać, że domyślna konfiguracja pobranego pakietu jest ukierunkowana na wdrożenie produkcyjne. W związku z tym Interwał pobierania dzienników i liczników z wystąpień usługi jest duży (5 minut). W celu testowania i opracowywania Obniż interwał przez dostosowanie ustawień diagnostycznych sieci Web lub roli procesu roboczego do Twoich potrzeb. Kliknij prawym przyciskiem myszy rolę w Eksplorator serwera programu Visual Studio (patrz powyżej), a następnie dostosuj okres transferu w oknie dialogowym dla ustawień konfiguracji diagnostyki:
 
-![Konfiguracja][3]
+![Konfigurowanie][3]
 
 ## <a name="performance"></a>Wydajność
 
@@ -260,7 +260,7 @@ Usługa wykonuje również zapytania weryfikacyjne w ramach zwykłych operacji. 
 
 Ponadto Właściwość unikatowości z kluczem fragmentowania jako wiodąca kolumna umożliwi usłudze użycie zoptymalizowanego podejścia, które ogranicza użycie zasobów w odniesieniu do przestrzeni dziennika i pamięci. Ta właściwość unikatowości jest wymagana do przenoszenia dużych rozmiarów danych (zwykle przekracza 1 GB).
 
-## <a name="how-to-upgrade"></a>Jak uaktualnić
+## <a name="how-to-upgrade"></a>Jak przeprowadzić uaktualnianie
 
 1. Wykonaj kroki opisane w temacie [wdrażanie usługi Split-Merge](elastic-scale-configure-deploy-split-and-merge.md).
 2. Zmień plik konfiguracji usługi w chmurze dla wdrożenia Split-Merge, aby odzwierciedlał nowe parametry konfiguracji. Nowy wymagany parametr to informacje o certyfikacie używanym do szyfrowania. W łatwy sposób można porównać nowy plik szablonu konfiguracji z pobrania z istniejącą konfiguracją. Upewnij się, że dodano ustawienia dla elementu "DataEncryptionPrimaryCertificateThumbprint" i "DataEncryptionPrimary" dla roli sieć Web i proces roboczy.

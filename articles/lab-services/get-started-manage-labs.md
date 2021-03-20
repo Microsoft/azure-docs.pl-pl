@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak rozpocząć pracę z Azure Lab Services
 ms.topic: article
 ms.date: 11/18/2020
 ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165046"
 ---
 # <a name="get-started-with-lab-services"></a>Wprowadzenie do usług laboratoryjnych 
@@ -46,7 +46,7 @@ Najważniejszym znaczeniem do zapamiętania, gdy zarządzanie maszynami wirtualn
 
 ## <a name="lab-dashboards"></a>Pulpity nawigacyjne laboratorium
 
-### <a name="overview"></a>Przegląd
+### <a name="overview"></a>Omówienie
 
 Pulpity nawigacyjne dla laboratoriów w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
 

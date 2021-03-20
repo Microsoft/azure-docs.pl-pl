@@ -1,5 +1,5 @@
 ---
-title: Co to jest tożsamość hybrydowa z Azure Active Directory?
+title: Co to jest tożsamość hybrydowa za pomocą usługi Azure Active Directory?
 description: Tożsamość hybrydowa ma wspólną tożsamość użytkownika do uwierzytelniania i autoryzacji zarówno lokalnie, jak i w chmurze.
 keywords: wprowadzenie do programu Azure AD Connect, omówienie programu Azure AD Connect, co to jest program Azure AD Connect, instalowanie usługi Active Directory
 services: active-directory
@@ -14,13 +14,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90016652"
 ---
-# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa z Azure Active Directory?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa za pomocą usługi Azure Active Directory?
 
 Obecnie małe i duże firmy w coraz większym stopniu korzystają zarówno z aplikacji lokalnych, jak i aplikacji w chmurze.  Użytkownicy wymagają dostępu do aplikacji zarówno lokalnie, jak i w chmurze. Zarządzanie użytkownikami zarówno lokalnie, jak i w chmurze stanowi trudne scenariusze. 
 

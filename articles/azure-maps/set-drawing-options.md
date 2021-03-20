@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890636"
 ---
 # <a name="use-the-drawing-tools-module"></a>Korzystanie z modułu narzędzi do rysowania
 
-Zestaw SDK sieci Web Azure Maps udostępnia *moduł narzędzi do rysowania* . Ten moduł ułatwia rysowanie i edytowanie kształtów na mapie przy użyciu urządzenia wejściowego, takiego jak mysz lub ekran dotykowy. Podstawową klasą tego modułu jest [Menedżer rysowania](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Menedżer rysowania udostępnia wszystkie funkcje, które są konieczne do rysowania i edytowania kształtów na mapie. Może być używana bezpośrednio i jest zintegrowana z niestandardowym interfejsem użytkownika paska narzędzi. Można również użyć wbudowanej klasy [paska narzędzi rysunku](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) . 
+Zestaw SDK sieci Web Azure Maps udostępnia *moduł narzędzi do rysowania*. Ten moduł ułatwia rysowanie i edytowanie kształtów na mapie przy użyciu urządzenia wejściowego, takiego jak mysz lub ekran dotykowy. Podstawową klasą tego modułu jest [Menedżer rysowania](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Menedżer rysowania udostępnia wszystkie funkcje, które są konieczne do rysowania i edytowania kształtów na mapie. Może być używana bezpośrednio i jest zintegrowana z niestandardowym interfejsem użytkownika paska narzędzi. Można również użyć wbudowanej klasy [paska narzędzi rysunku](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) . 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Ładowanie modułu narzędzi do rysowania na stronie sieci Web
 
