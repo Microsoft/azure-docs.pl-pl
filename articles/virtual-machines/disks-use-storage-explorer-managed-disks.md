@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88749374"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Zarządzanie usługą Azure Managed disks za pomocą Eksplorator usługi Azure Storage
@@ -121,7 +121,7 @@ Za pomocą Eksplorator usługi Storage można skopiować dysk z zarządzaniem do
 
     ![Tworzenie migawki](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. W obszarze **Utwórz migawkę**Określ nazwę migawki oraz grupę zasobów, w której chcesz ją utworzyć. Następnie wybierz przycisk **Utwórz**.
+1. W obszarze **Utwórz migawkę** Określ nazwę migawki oraz grupę zasobów, w której chcesz ją utworzyć. Następnie wybierz pozycję **Utwórz**.
 
     ![Okno dialogowe Tworzenie migawki](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 

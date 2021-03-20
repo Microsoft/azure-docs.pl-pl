@@ -4,10 +4,10 @@ description: Utwórz punkt końcowy SSL lub TLS dla grupy kontenerów działają
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558083"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Włączanie punktu końcowego TLS w kontenerze przyczepki
@@ -241,5 +241,5 @@ W tym artykule jest używany Nginx w przyczepie, można użyć innego dostawcy T
 Jeśli grupa kontenerów jest wdrażana w [sieci wirtualnej platformy Azure](container-instances-vnet.md), można rozważyć inne opcje, aby włączyć punkt końcowy protokołu TLS dla wystąpienia kontenera zaplecza, w tym:
 
 * [serwery proxy usługi Azure Functions](../azure-functions/functions-proxies.md)
-* [API Management platformy Azure](../api-management/api-management-key-concepts.md)
+* [Usługa Azure API Management](../api-management/api-management-key-concepts.md)
 * [Application Gateway platformy Azure](../application-gateway/overview.md) — Zobacz przykładowy [szablon wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92071493"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Kompilowanie i wdrażanie usługi zarządzania certyfikatami magazynu OPC
@@ -97,7 +97,7 @@ Oto kroki tej procedury:
 2. Przejdź do grupy zasobów, w której została wdrożona usługa.
 3. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 4. Po krótkim czasie wszystkie wdrożone składniki usługi zostaną usunięte.
-5. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
+5. Przejdź do   >  **rejestracje aplikacji** Azure Active Directory.
 6. Dla każdej wdrożonej grupy zasobów powinny być wymienione trzy rejestracje. Rejestracje mają następujące nazwy: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Usuń każdą rejestrację osobno.
 
 Teraz wszystkie wdrożone składniki są usuwane.

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 9592b03f5bd9e9436db5665e040b4afd3b68b764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562739"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Limity przydziału, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)
@@ -49,7 +49,7 @@ Aby uzyskać najnowszą listę, w której można wdrażać i uruchamiać klastry
 
 ## <a name="next-steps"></a>Następne kroki
 
-Niektóre domyślne limity i przydziały mogą zostać zwiększone. Jeśli zasób obsługuje zwiększenie, zażądaj zwiększenia przez [żądanie pomocy technicznej platformy Azure][azure-support] (w polu **typ problemu**wybierz pozycję **przydział**).
+Niektóre domyślne limity i przydziały mogą zostać zwiększone. Jeśli zasób obsługuje zwiększenie, zażądaj zwiększenia przez [żądanie pomocy technicznej platformy Azure][azure-support] (w polu **typ problemu** wybierz pozycję **przydział**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

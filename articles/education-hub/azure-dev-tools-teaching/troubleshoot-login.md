@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87097680"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Rozwiązywanie problemów z logowaniem ucznia
@@ -33,22 +33,22 @@ Jeśli logujesz się przy użyciu osobistego adresu e-mail (np `John.Smith@email
 ## <a name="use-an-existing-microsoft-account"></a>Użyj istniejącego konto Microsoft
 Jeśli student ma istniejący konto Microsoft (na przykład Xbox), może połączyć to konto z kontem narzędzi deweloperskich platformy Azure.
 
-1. Przejdź do adresu https://account.microsoft.com.
+1. Przejdź do witryny https://account.microsoft.com.
 1. Zaloguj się przy użyciu poświadczeń konto Microsoft.
 1. Wybierz **swoje informacje** z górnego menu wstążki.
 
 1. Kliknij pozycję **Zarządzaj sposobem logowania do firmy Microsoft**. Zostanie wyświetlony monit o zweryfikowanie Twojej tożsamości. Zostanie wysłana wiadomość e-mail z kodem zabezpieczeń.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Komunikat o błędzie logowania." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Zarządzaj logowaniem." border="false":::
 
 1. Wprowadź kod zabezpieczeń wiadomości e-mail.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Komunikat o błędzie logowania." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Wprowadź kod logowania." border="false":::
 
 1. Kliknij pozycję **Dodaj wiadomość e-mail** do swojego konta, a następnie wprowadź swój adres e-mail dla University.
 Przy następnym logowaniu możesz użyć swojego adresu e-mail na Uniwersytecie, aby uzyskać dostęp do narzędzi deweloperskich platformy Azure w celu uczenia się.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Komunikat o błędzie logowania." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Zarządzanie sposobem logowania do firmy Microsoft." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 - [Często zadawane pytania](program-faq.md)

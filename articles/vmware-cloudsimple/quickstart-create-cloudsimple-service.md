@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 14df0f131aaef8a4c24e2d1eb242a9b440e7c7b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86507594"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Szybki Start — Tworzenie rozwiązania VMware platformy Azure według usługi CloudSimple
@@ -26,7 +26,7 @@ Usługa CloudSimple umożliwia korzystanie z rozwiązań VMware platformy Azure 
 
 Aby dodać usługę CloudSimple, należy utworzyć podsieć bramy. Podsieć bramy jest używana podczas tworzenia sieci brzegowej i wymaga bloku/28 CIDR. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadnym z lokalnych przestrzeni adresowych sieci ani przestrzenią adresową sieci wirtualnej platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przydziel blok CIDR/28 dla podsieci bramy.  Podsieć bramy jest wymagana dla usługi CloudSimple i jest unikatowa dla regionu, w którym została utworzona. Podsieć bramy jest używana dla rozwiązań VMware platformy Azure przez usługi sieciowe CloudSimple Edge i wymaga bloków CIDR/28. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple.  Sieci, które komunikują się z usługą CloudSimple, obejmują sieci lokalne i sieci wirtualne platformy Azure.
 
@@ -80,7 +80,7 @@ Aby skonfigurować funkcję płatność zgodnie z rzeczywistym użyciem dla śro
 9. Wybierz dedykowaną lokalizację do hostowania zasobów węzła.
 10. Wybierz [Typ węzła](cloudsimple-node.md).
 11. Wybierz liczbę węzłów do aprowizacji.
-12. Wybierz pozycję **Recenzja + Utwórz**.
+12. Wybierz pozycję **Przejrzyj i utwórz**.
 13. Przejrzyj ustawienia. Aby zmodyfikować wszystkie ustawienia, kliknij przycisk **Wstecz**.
 14. Wybierz przycisk **Utwórz**.
 

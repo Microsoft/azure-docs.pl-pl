@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7b75c9dc874a41d4221c55a8b00dd12d943e80fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87542946"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitorowanie infrastruktury platformy Azure   
@@ -32,7 +32,7 @@ Konfiguracje bazowe wymagane dla usług opartych na systemie Azure są analizowa
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 Zarządzanie aktualizacjami zabezpieczeń pomaga chronić systemy przed znanymi lukami w zabezpieczeniach. Platforma Azure używa zintegrowanych systemów wdrażania do zarządzania dystrybucją i instalacją aktualizacji zabezpieczeń oprogramowania firmy Microsoft. Platforma Azure umożliwia również rysowanie zasobów centrum Microsoft Security Response Center (MSRC). Centrum MSRC identyfikuje, monitoruje, reaguje na i rozwiązuje problemy związane z bezpieczeństwem oraz luki w zabezpieczeniach w chmurze dotyczące zegara, każdego dnia roku.
 
-## <a name="vulnerability-scanning"></a>Skanowanie luk w zabezpieczeniach
+## <a name="vulnerability-scanning"></a>Skanowanie pod kątem luk w zabezpieczeniach
 Skanowanie luk w zabezpieczeniach odbywa się w systemach operacyjnych serwera, bazach danych i urządzeniach sieciowych. Skanowanie w poszukiwaniu luk w zabezpieczeniach jest wykonywane co kwartał co najmniej. Kontrakty platformy Azure z niezależnymi ocenami umożliwiają przeprowadzenie testów penetracji granicy platformy Azure. Ćwiczenia z czerwonym zespołem są również wykonywane rutynowo, a wyniki są używane do ulepszania zabezpieczeń.
 
 ## <a name="protective-monitoring"></a>Monitorowanie ochronne

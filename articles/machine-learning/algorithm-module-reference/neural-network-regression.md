@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890353"
 ---
 # <a name="neural-network-regression-module"></a>Moduł regresji sieci neuronowych
@@ -60,7 +60,7 @@ Sieci neuronowych można dostosowywać w szerokim stopniu. W tej sekcji opisano 
 
     -   **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.   
 
-3.  W obszarze **Specyfikacja warstwy ukrytej**wybierz pozycję w **pełni połączony przypadek**. Ta opcja tworzy model przy użyciu domyślnej architektury sieci neuronowych, która dla modelu regresji sieci neuronowych ma następujące atrybuty:  
+3.  W obszarze **Specyfikacja warstwy ukrytej** wybierz pozycję w **pełni połączony przypadek**. Ta opcja tworzy model przy użyciu domyślnej architektury sieci neuronowych, która dla modelu regresji sieci neuronowych ma następujące atrybuty:  
   
     + Sieć ma dokładnie jedną ukrytą warstwę.
     + Warstwa wyjściowa jest w pełni połączona z ukrytą warstwą, a Ukryta warstwa jest w pełni podłączona do warstwy wejściowej.
@@ -68,18 +68,18 @@ Sieci neuronowych można dostosowywać w szerokim stopniu. W tej sekcji opisano 
   
     Ponieważ liczba węzłów w warstwie wejściowej jest określana na podstawie liczby funkcji w danych szkoleniowych, w modelu regresji może istnieć tylko jeden węzeł w warstwie wyjściowej.  
   
-4. Dla **liczby ukrytych węzłów**wpisz liczbę ukrytych węzłów. Wartość domyślna to jedna ukryta warstwa z węzłami 100. (Ta opcja jest niedostępna, jeśli zdefiniujesz architekturę niestandardową przy użyciu programu NET #).
+4. Dla **liczby ukrytych węzłów** wpisz liczbę ukrytych węzłów. Wartość domyślna to jedna ukryta warstwa z węzłami 100. (Ta opcja jest niedostępna, jeśli zdefiniujesz architekturę niestandardową przy użyciu programu NET #).
   
-5.  W polu **stawka szkoleniowa**wpisz wartość określającą krok wykonany dla każdej iteracji przed poprawką. Większa wartość współczynnika uczenia może spowodować szybsze zbieżność modelu, ale może przekroczyć wartości minimalne.
+5.  W polu **stawka szkoleniowa** wpisz wartość określającą krok wykonany dla każdej iteracji przed poprawką. Większa wartość współczynnika uczenia może spowodować szybsze zbieżność modelu, ale może przekroczyć wartości minimalne.
 
-6.  Dla **liczby iteracji uczenia**należy określić maksymalną liczbę przypadków, w których algorytm przetwarza przypadki szkoleniowe.
+6.  Dla **liczby iteracji uczenia** należy określić maksymalną liczbę przypadków, w których algorytm przetwarza przypadki szkoleniowe.
 
 
-8.  Na czas **pędu**wpisz wartość, która ma zostać zastosowana podczas uczenia się jako waga na węzłach z poprzednich iteracji.
+8.  Na czas **pędu** wpisz wartość, która ma zostać zastosowana podczas uczenia się jako waga na węzłach z poprzednich iteracji.
 
 10. Wybierz opcję, **losowo przykłady**, aby zmienić kolejność przypadków między iteracjami. W przypadku zaznaczenia tej opcji przypadki są przetwarzane w dokładnie tym samym porządku przy każdym uruchomieniu potoku.
   
-11. W przypadku **liczby losowej inicjatora**można opcjonalnie wpisać wartość, która ma być używana jako inicjator. Określanie wartości inicjatora jest przydatne, gdy chcesz zapewnić powtarzalność między przebiegami tego samego potoku.
+11. W przypadku **liczby losowej inicjatora** można opcjonalnie wpisać wartość, która ma być używana jako inicjator. Określanie wartości inicjatora jest przydatne, gdy chcesz zapewnić powtarzalność między przebiegami tego samego potoku.
   
 13. Połącz zestaw danych szkoleniowych i Przeszkol model:
 

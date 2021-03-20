@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140840"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Przegląd węzłów CloudSimple
@@ -38,7 +38,7 @@ Następujące typy węzłów są dostępne do aprowizacji lub rezerwacji.
 
 | SKU           | CS28 — węzeł                 | CS36 — węzeł                 | CS36m — węzeł                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Region        | Wschodnie stany USA, zachodnie stany USA            | Wschodnie stany USA, zachodnie stany USA            | West Europe                 |
+| Region (Region)        | Wschodnie stany USA, zachodnie stany USA            | Wschodnie stany USA, zachodnie stany USA            | West Europe                 |
 | Procesor CPU           | 2.2,2 GHz, 28 rdzeni (56 HT) | 2 rdzenie 2,3 GHz, 36 (72 HT) | 2 rdzenie 2,3 GHz, 36 (72 HT) |
 | Pamięć RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Dysk pamięci podręcznej    | 1,6 – TB interfejsu NVMe                 | 3,2 – TB interfejsu NVMe                 | 3,2 – TB interfejsu NVMe                 |

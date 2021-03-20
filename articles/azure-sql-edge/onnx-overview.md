@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
 ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392065"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Uczenie maszynowe i AI z ONNX w usłudze SQL Edge
@@ -28,7 +28,7 @@ Aby wywnioskować modele uczenia maszynowego w usłudze Azure SQL Edge, najpierw
 
 Aby uzyskać model w formacie ONNX:
 
-- **Usługi do kompilowania modeli** : usługi takie jak [Funkcja automatycznego Machine Learning w systemach Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) i [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) obsługują bezpośrednio eksportowanie przeszkolonego modelu w formacie ONNX.
+- **Usługi do kompilowania modeli**: usługi takie jak [Funkcja automatycznego Machine Learning w systemach Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) i [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) obsługują bezpośrednio eksportowanie przeszkolonego modelu w formacie ONNX.
 
 - [**Konwertowanie i/lub eksportowanie istniejących modeli**](https://github.com/onnx/tutorials#converting-to-onnx-format): kilka platform szkoleniowych (np. [PyTorch](https://pytorch.org/docs/stable/onnx.html), łańcucher i Caffe2) obsługuje natywne funkcje eksportu do ONNX, co pozwala na zapisywanie przeszkolonego modelu w określonej wersji formatu ONNX. W przypadku struktur, które nie obsługują eksportu natywnego, istnieją Autonomiczne pakiety instalowalne konwertera ONNX, które umożliwiają konwersję modeli przeszkolonych z różnych platform uczenia maszynowego w formacie ONNX.
 
@@ -43,7 +43,7 @@ Aby uzyskać model w formacie ONNX:
 
 ## <a name="limitations"></a>Ograniczenia
 
-Obecnie nie wszystkie modele ONNX są obsługiwane przez usługę Azure SQL Edge. Obsługa jest ograniczona do modeli o **liczbowych typach danych** :
+Obecnie nie wszystkie modele ONNX są obsługiwane przez usługę Azure SQL Edge. Obsługa jest ograniczona do modeli o **liczbowych typach danych**:
 
 - [int i bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [rzeczywiste i zmiennoprzecinkowe](/sql/t-sql/data-types/float-and-real-transact-sql).

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905213"
 ---
 # <a name="remove-duplicate-rows-module"></a>Usuń moduł zduplikowanych wierszy
@@ -55,7 +55,7 @@ Po uruchomieniu modułu tworzy zestaw danych kandydujących i zwraca zbiór wier
 
 2. Połącz zestaw danych, który ma zostać wyszukany dla zduplikowanych wierszy.
 
-3. W okienku **Właściwości** w obszarze **wyrażenie filtru wyboru kolumny klucza**kliknij pozycję **Uruchom selektor kolumny**, aby wybrać kolumny, które mają być używane do identyfikowania duplikatów.
+3. W okienku **Właściwości** w obszarze **wyrażenie filtru wyboru kolumny klucza** kliknij pozycję **Uruchom selektor kolumny**, aby wybrać kolumny, które mają być używane do identyfikowania duplikatów.
 
     W tym kontekście **klucz** nie oznacza unikatowego identyfikatora. Wszystkie kolumny wybrane za pomocą selektora kolumn są **wykluczane jako kolumny kluczy**. Wszystkie niewybrane kolumny są uznawane za kolumny niebędące kolumnami klucza. Kombinacja kolumn wybranych jako klucze określa unikatowość rekordów. (Należy traktować ją jako instrukcję SQL, która używa wielu dołączeń równości).
 

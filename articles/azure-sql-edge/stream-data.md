@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392116"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Przesyłanie strumieniowe danych w usłudze Azure SQL Edge
@@ -35,15 +35,15 @@ Przesyłanie strumieniowe T-SQL działa w taki sam sposób jak [Azure Stream Ana
 
 Zadanie usługi Stream Analytics składa się z:
 
-- **Wejście strumienia** : definiuje połączenia ze źródłem danych, z którego ma zostać odczytany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wejściowych strumienia:
+- **Wejście strumienia**: definiuje połączenia ze źródłem danych, z którego ma zostać odczytany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wejściowych strumienia:
     - Centrum brzegowe
     - Kafka (obsługa danych wejściowych Kafka jest obecnie dostępna tylko w wersjach Intel/AMD64 usługi Azure SQL Edge).
 
-- **Dane wyjściowe strumienia** : definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wyjściowych strumienia
+- **Dane wyjściowe strumienia**: definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wyjściowych strumienia
     - Centrum brzegowe
     - SQL (dane wyjściowe SQL mogą być lokalną bazą danych w wystąpieniu usługi Azure SQL Edge lub SQL Server zdalnego lub Azure SQL Database). 
 
-- **Zapytanie strumienia** : definiuje transformację, agregacje, filtrowanie, sortowanie i sprzężenia, które mają być zastosowane do strumienia wejściowego, zanim zostanie on zapisany w danych wyjściowych strumienia. Zapytanie strumienia jest oparte na tym samym języku zapytań, jak używany przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference).
+- **Zapytanie strumienia**: definiuje transformację, agregacje, filtrowanie, sortowanie i sprzężenia, które mają być zastosowane do strumienia wejściowego, zanim zostanie on zapisany w danych wyjściowych strumienia. Zapytanie strumienia jest oparte na tym samym języku zapytań, jak używany przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
 > Przesyłanie strumieniowe T-SQL, w przeciwieństwie do Stream Analytics, nie obsługuje obecnie [korzystania z danych referencyjnych dla odnośników](../stream-analytics/stream-analytics-use-reference-data.md) lub [korzystania z funkcji UDF i uda w zadaniu strumienia](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).

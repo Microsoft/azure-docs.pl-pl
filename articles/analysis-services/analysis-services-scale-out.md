@@ -8,10 +8,10 @@ ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019441"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowanie w poziomie usług Azure Analysis Services
@@ -85,9 +85,9 @@ Kolejną dobrą metryką dla oglądania jest średnia QPU przez ServerResourceTy
 **Aby skonfigurować QPU przez ServerResourceType**
 
 1. Na wykresie liniowym metryki kliknij pozycję **Dodaj metrykę**. 
-2. W **obszarze zasób**wybierz swój serwer, a następnie w **obszarze Przestrzeń nazw**wybierz pozycję **Analysis Services metryki standardowe**, a następnie w polu **Metryka**wybierz pozycję **QPU**, a następnie w obszarze **agregacja**wybierz pozycję **średnia**. 
+2. W **obszarze zasób** wybierz swój serwer, a następnie w **obszarze Przestrzeń nazw** wybierz pozycję **Analysis Services metryki standardowe**, a następnie w polu **Metryka** wybierz pozycję **QPU**, a następnie w obszarze **agregacja** wybierz pozycję **średnia**. 
 3. Kliknij przycisk **Zastosuj podział**. 
-4. W polu **wartości**wybierz pozycję **ServerResourceType**.  
+4. W polu **wartości** wybierz pozycję **ServerResourceType**.  
 
 ### <a name="detailed-diagnostic-logging"></a>Szczegółowe rejestrowanie diagnostyczne
 
@@ -100,7 +100,7 @@ Użyj dzienników Azure Monitor, aby uzyskać bardziej szczegółową diagnostyk
 
 1. W portalu kliknij pozycję **skalowanie w poziomie**. Użyj suwaka, aby wybrać liczbę serwerów repliki zapytań. Liczba wybranych replik jest poza istniejącym serwerem.  
 
-2. W **oddzielnym serwerze przetwarzania od puli zapytań**wybierz pozycję tak, aby wykluczyć serwer przetwarzania z serwerów zapytań. [Połączenia](#connections) klienckie korzystające z domyślnych parametrów połączenia (bez `:rw` ) są przekierowywane do replik w puli zapytań. 
+2. W **oddzielnym serwerze przetwarzania od puli zapytań** wybierz pozycję tak, aby wykluczyć serwer przetwarzania z serwerów zapytań. [Połączenia](#connections) klienckie korzystające z domyślnych parametrów połączenia (bez `:rw` ) są przekierowywane do replik w puli zapytań. 
 
    ![Suwak skalowania w poziomie](media/analysis-services-scale-out/aas-scale-out-slider.png)
 

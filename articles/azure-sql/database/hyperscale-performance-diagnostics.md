@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791719"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostyka rozwiązywania problemów z wydajnością w ramach skalowania SQL
@@ -97,7 +97,7 @@ Stosunek liczby odczytów wykonanych na RBPEX do zagregowanych odczytów wykonan
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Operacje we/wy danych w statystyce wykorzystania zasobów
 
-W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](./resource-limits-logical-server.md#resource-governance) są raportowane w [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widokach w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w Azure Portal jako _procent operacji we/wy danych_ .
+W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](./resource-limits-logical-server.md#resource-governance) są raportowane w [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widokach w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w Azure Portal jako _procent operacji we/wy danych_.
 
 W bazie danych w ramach wieloskali ta kolumna zawiera raporty dotyczące użycia operacji we/wy na sekundę w odniesieniu do limitu magazynu lokalnego tylko w przypadku repliki obliczeniowej, a w przypadku RBPEX i `tempdb` . Wartość 100% w tej kolumnie wskazuje, że zarządzanie zasobami ogranicza liczbę operacji wejścia/wyjścia magazynu lokalnego. Jeśli jest to skorelowane z problemem z wydajnością, Dostosuj obciążenie w celu wygenerowania mniejszej wartości we/wy lub Zwiększ cel usługi bazy danych, aby zwiększyć maksymalny [Limit](resource-limits-vcore-single-databases.md)liczby _IOPS danych_ na potrzeby zarządzania zasobami. W przypadku nadzoru zasobów RBPEX odczytuje i zapisuje system liczy pojedyncze 8 KB systemu IOs, a nie do większych systemu IOs, które mogą być wystawiane przez aparat bazy danych SQL Server.
 

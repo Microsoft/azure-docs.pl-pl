@@ -11,10 +11,10 @@ ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 3aedef8452ad3e972f78958fc0765639692d76d6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121060"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperprzestrzeni: podsystem indeksowania dla Apache Spark
@@ -32,7 +32,7 @@ Warto uważnie monitorować obciążenia i określać, czy indeksowanie pomaga w
 
 Ten dokument jest również dostępny w formie notesu dla języków [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)i [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb).
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Aby rozpocząć od, Rozpocznij nową sesję platformy Spark. Ponieważ ten dokument jest samouczkiem tylko do zilustrowania, jakie miejsce może zaoferować, należy wprowadzić zmianę konfiguracji, która pozwala na wyróżnienie tego, jakie miejsce jest wykonywane na małych zestawach danych. 
 

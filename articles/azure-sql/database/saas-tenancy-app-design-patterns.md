@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793232"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wzorce dzierżawy bazy danych SaaS z wieloma dzierżawcami
@@ -82,7 +82,7 @@ Dostawca może uzyskać dostęp do wszystkich baz danych we wszystkich wystąpie
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplikacja wielodostępna z bazą danych na dzierżawcę
 
-Ten następny wzorzec używa aplikacji wielodostępnej z wieloma bazami danych, które są bazami danych o pojedynczej dzierżawie.  Dla każdej nowej dzierżawy jest inicjowana Nowa baza danych.  Warstwa aplikacji jest skalowana w poziomie *up* , dodając więcej zasobów na węzeł.  Lub aplikacja jest skalowana *w poziomie,* dodając więcej węzłów.  Skalowanie bazuje na obciążeniu i jest niezależne od liczby lub skali poszczególnych baz danych.
+Ten następny wzorzec używa aplikacji wielodostępnej z wieloma bazami danych, które są bazami danych o pojedynczej dzierżawie.  Dla każdej nowej dzierżawy jest inicjowana Nowa baza danych.  Warstwa aplikacji jest skalowana w poziomie  , dodając więcej zasobów na węzeł.  Lub aplikacja jest skalowana *w poziomie,* dodając więcej węzłów.  Skalowanie bazuje na obciążeniu i jest niezależne od liczby lub skali poszczególnych baz danych.
 
 ![Projektowanie aplikacji z wieloma dzierżawcami przy użyciu bazy danych na dzierżawcę.][image-mt-app-db-per-tenant-132d]
 
@@ -113,7 +113,7 @@ Inne funkcje zarządzania, które również skalują, obejmują:
 - Szyfrowanie na dysku.
 - Dane telemetryczne wydajności.
 
-#### <a name="automation"></a>Automatyzacja
+#### <a name="automation"></a>Automation
 
 Operacje zarządzania mogą być przetwarzane przy użyciu skryptów i oferowane przez model [DevOps][http-visual-studio-devops-485m] .  Operacje mogą nawet być zautomatyzowane i uwidaczniane w aplikacji.
 
@@ -185,8 +185,8 @@ Poniższa tabela zawiera podsumowanie różnic między głównymi modelami dzier
 
 | Miara | Aplikacja autonomiczna | Baza danych — na dzierżawcę | Podzielonej na fragmenty z wieloma dzierżawcami |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Skalowanie | Średniaa<br />1 – 100s | Bardzo wysoka<br />1 – 100, 000 | Nieograniczona liczba<br />1-1 000, 000 |
-| Izolacja dzierżawy | Bardzo wysoka | Wysoki | Małą z wyjątkiem pojedynczej dzierżawy (to samo w przypadku MT DB). |
+| Skalowanie | Śred.<br />1 – 100s | Bardzo wysoka<br />1 – 100, 000 | Nieograniczona liczba<br />1-1 000, 000 |
+| Izolacja dzierżawy | Bardzo wysoka | Wys. | Małą z wyjątkiem pojedynczej dzierżawy (to samo w przypadku MT DB). |
 | Koszt bazy danych na dzierżawcę | Wysokowydajn ma rozmiar dla wartości szczytowych. | Małą używane pule. | Najniższa dla małych dzierżawców w MT baz danych. |
 | Monitorowanie wydajności i zarządzanie nimi | Tylko dla dzierżawy | Agregowanie i na dzierżawcę | Agreguj Chociaż jest dla dzierżawy tylko dla zmiennoprzecinkowych. |
 | Złożoność programowania | Niski | Niski | Średniookresow ze względu na fragmentowania. |

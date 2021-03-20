@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558865"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
@@ -52,11 +52,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi 8x8 w celu obsłu
 
 1. Zaloguj się do [konsoli administracyjnej](https://admin.8x8.com). Wybierz pozycję **Zarządzanie tożsamościami**.
 
-   ![Administrator](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Administracja](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Kliknij link **Pokaż informacje o aprowizacji użytkowników** , aby wygenerować token.
 
-   ![Show](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Pokaż](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Skopiuj **adresy URL 8x8** i **token API 8x8** . Te wartości zostaną wprowadzone w polach **adres URL dzierżawy** i **klucz tajny tokenu** odpowiednio na karcie aprowizacji aplikacji 8x8 w Azure Portal.
 

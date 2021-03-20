@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 0920bec160874f27c8b1b6f2132951b57719b31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88035284"
 ---
 # <a name="api-considerations"></a>Zagadnienia dotyczące interfejsu API
@@ -37,7 +37,7 @@ Odpowiedź na żądanie z nieznaną lub nieprawidłową wersją interfejsu API t
     }
 ```            
 
-<a name="errors"></a>Errors
+<a name="errors"></a>błędy
 ------
 
 Interfejs API reaguje na błędy przy użyciu odpowiednich kodów stanu HTTP i opcjonalnie dodatkowe informacje w przypadku serializacji odpowiedzi jako dane JSON.

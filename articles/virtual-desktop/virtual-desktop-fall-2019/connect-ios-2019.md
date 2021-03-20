@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c7efedadbba196223db2ad5700035e27d37fb414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008461"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z klientem systemu iOS
@@ -38,8 +38,8 @@ Aby subskrybować źródło danych:
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
 3. Naciśnij opcję **Dalej**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
-   - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
-   - W polu **hasło**Podaj hasło skojarzone z nazwą użytkownika.
+   - W polu **Nazwa użytkownika** Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
+   - W polu **hasło** Podaj hasło skojarzone z nazwą użytkownika.
    - Może być również wyświetlony monit o podanie dodatkowych czynników, jeśli administrator skonfigurował uwierzytelnianie w taki sposób.
 5. Naciśnij pozycję **Zapisz**.
 

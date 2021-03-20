@@ -4,10 +4,10 @@ description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, 
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067587"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
@@ -20,7 +20,7 @@ Ten artykuł zawiera informacje dotyczące tworzenia wieloetapowych plików YAML
 
 Zadania ACR obsługują Wieloetapową deklarację zadań w standardowej składni YAML. Zdefiniuj kroki zadania w pliku YAML. Następnie można uruchomić zadanie ręcznie, przekazując plik do polecenia [AZ ACR Run][az-acr-run] . Lub użyj pliku, aby utworzyć zadanie za pomocą [AZ ACR Task Create][az-acr-task-create] , które jest wyzwalane automatycznie w zatwierdzeniu git, podstawowej aktualizacji obrazu lub harmonogramie. Mimo że ten artykuł odnosi się do `acr-task.yaml` pliku zawierającego kroki, ACR zadania obsługują dowolną prawidłową nazwę pliku z [obsługiwanym rozszerzeniem](#supported-task-filename-extensions).
 
-Elementy podstawowe najwyższego poziomu `acr-task.yaml` to **właściwości zadania**, **typy kroków**i **Właściwości kroków**:
+Elementy podstawowe najwyższego poziomu `acr-task.yaml` to **właściwości zadania**, **typy kroków** i **Właściwości kroków**:
 
 * [Właściwości zadania](#task-properties) dotyczą wszystkich kroków wykonywanych w trakcie wykonywania zadań. Istnieje kilka globalnych właściwości zadań, w tym:
   * `version`
@@ -75,7 +75,7 @@ az configure --defaults acr=myregistry
 
 Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i są właściwościami globalnymi, które są stosowane w całym wykonaniu kroków zadania. Niektóre z tych właściwości globalnych można przesłonić w ramach pojedynczego kroku.
 
-| Właściwość | Type | Opcjonalne | Opis | Przesłonięcie obsługiwane | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Przesłonięcie obsługiwane | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | ciąg | Tak | Wersja `acr-task.yaml` pliku, przeanalizowana przez usługę zadań ACR. Chociaż zadania ACR dążą do zachowania zgodności z poprzednimi wersjami, ta wartość umożliwia ACR zadań w celu zachowania zgodności w ramach zdefiniowanej wersji. Jeśli nie zostanie określony, wartość domyślna to Najnowsza wersja. | Nie | Brak |
 | `stepTimeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać uruchomiony. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `timeout` Właściwość wszystkich kroków. Jeśli `timeout` Właściwość jest określona w kroku, zastępuje właściwość dostarczoną przez zadanie. | Tak | 600 (10 minut) |
@@ -89,7 +89,7 @@ Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i s�
 
 Obiekt tajny ma następujące właściwości.
 
-| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | ciąg | Nie | Identyfikator wpisu tajnego. | Brak |
 | `keyvault` | ciąg | Tak | Azure Key Vault tajny adres URL. | Brak |
@@ -99,7 +99,7 @@ Obiekt tajny ma następujące właściwości.
 
 Obiekt sieciowy ma następujące właściwości.
 
-| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa sieci. | Brak |
 | `driver` | ciąg | Tak | Sterownik do zarządzania siecią. | Brak |
@@ -111,7 +111,7 @@ Obiekt sieciowy ma następujące właściwości.
 
 Obiekt woluminu ma następujące właściwości.
 
-| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Może zawierać tylko znaki alfanumeryczne, "-" i "_". | Brak |
 | `secret` | ciąg [ciąg] mapy | Nie | Każdy klucz mapy jest nazwą pliku, który został utworzony i wypełniony w woluminie. Każda wartość to ciąg wersji klucza tajnego. Wartości tajne muszą być zakodowane w formacie base64. | Brak |
@@ -381,7 +381,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla tego typu. W poniższej tabeli zdefiniowano wszystkie dostępne właściwości kroku. Nie wszystkie typy kroków obsługują wszystkie właściwości. Aby zobaczyć, które z tych właściwości są dostępne dla każdego typu kroku, zapoznaj się z sekcjami odwołania dla kroków [cmd](#cmd), [Build](#build)i [push](#push) .
 
-| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Tak | Określa, czy kontener ma zostać odłączony podczas uruchamiania. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Tak | Określa, czy należy wyłączyć `workingDirectory` funkcję przesłonięcia. Użyj tej usługi w połączeniu z programem, `workingDirectory` Aby mieć pełną kontrolę nad katalogiem roboczym kontenera. | `false` |
@@ -410,7 +410,7 @@ Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla teg
 
 Obiekt volumeMount ma następujące właściwości.
 
-| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Musi być dokładnie zgodna z nazwą z `volumes` właściwości. | Brak |
 | `mountPath`   | ciąg | nie | Ścieżka bezwzględna do instalowania plików w kontenerze.  | Brak |
@@ -576,7 +576,7 @@ steps:
 
 Każdy z następujących aliasów wskazuje stabilny obraz w programie Microsoft Container Registry (MCR). Można odwołać się do każdego z nich w `cmd` sekcji pliku zadania bez używania dyrektywy.
 
-| Alias | Obraz |
+| Alias | Image (Obraz) |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |

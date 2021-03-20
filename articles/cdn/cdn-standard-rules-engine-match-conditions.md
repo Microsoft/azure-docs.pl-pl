@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81259934"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Dopasuj warunki w aparacie reguł standardowych dla Azure CDN
@@ -97,10 +97,10 @@ Identyfikuje żądania na podstawie lokalizacji lub adresu IP osoby żądającej
 
 Operator | Obsługiwane wartości
 ---------|-----------------
-Dowolne | Brak
+Dowolne | Nie dotyczy
 Dopasowanie geograficzne | Numer kierunkowy kraju
 Dopasowanie adresu IP | Adres IP (rozdzielone spacjami)
-Nie wszystkie | Brak
+Nie wszystkie | Nie dotyczy
 Brak dopasowania geograficznego | Numer kierunkowy kraju
 Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
 
@@ -170,7 +170,7 @@ Operator | Adres URL żądania | Przekształcanie wielkości liter
 
 #### <a name="key-information"></a>Informacje o kluczu
 
-- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: * https://www . \<yourdomain\> . Model com*.
+- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: *https://www . \<yourdomain\> . Model com*.
 
 ### <a name="url-file-extension"></a>Rozszerzenie pliku adresu URL
 
