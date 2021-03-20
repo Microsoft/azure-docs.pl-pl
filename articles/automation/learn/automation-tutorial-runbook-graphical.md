@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1b6c02778b0ee790d81c713283e653058c29c153
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92899800"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
@@ -52,7 +52,7 @@ Zacznij od utworzenia prostego elementu Runbook, który wyświetla tekst `Hello 
 
     ![Nowy element Runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)
 
-6. Kliknij pozycję **Utwórz** , aby utworzyć element Runbook i otworzyć edytor graficzny.
+6. Kliknij pozycję **Utwórz**, aby utworzyć element Runbook i otworzyć edytor graficzny.
 
 ## <a name="step-2---add-activities"></a>Krok 2. Dodawanie działań
 
@@ -66,9 +66,9 @@ Kontrolka Biblioteka po lewej stronie edytora umożliwia wybranie działań do d
 
 3. Kliknij pozycję **Write-Output** na kanwie. Ta akcja powoduje otwarcie strony kontrola konfiguracji, która umożliwia skonfigurowanie działania.
 
-4. Nazwa pola **etykieta** jest domyślnie ustawiona na nazwę polecenia cmdlet, ale można ją zmienić na bardziej przyjazną. Zmień ją na `Write Hello World to output` .
+4. Nazwa pola **etykieta** jest domyślnie ustawiona na nazwę polecenia cmdlet, ale można ją zmienić na bardziej przyjazną. Zmień ją na `Write Hello World to output`.
 
-5. Kliknij pozycję **Parametry** , aby podać wartości parametrów polecenia cmdlet.
+5. Kliknij pozycję **Parametry**, aby podać wartości parametrów polecenia cmdlet.
 
    Niektóre polecenia cmdlet mają wiele zestawów parametrów i należy wybrać, który z nich ma być używany. W tym przypadku `Write-Output` ma tylko jeden zestaw parametrów.
 
@@ -88,7 +88,7 @@ Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku pro
 
 1. Wybierz **okienko testowania** , aby otworzyć okienko testowania.
 
-2. Kliknij opcję **Uruchom** , aby rozpocząć test. Powinna to być jedyna włączona opcja.
+2. Kliknij opcję **Uruchom**, aby rozpocząć test. Powinna to być jedyna włączona opcja.
 
 3. Należy pamiętać, że [zadanie elementu Runbook](../automation-runbook-execution.md) jest tworzone i jego stan jest wyświetlany w okienku.
 
@@ -120,7 +120,7 @@ Utworzony element Runbook jest nadal w trybie wersji roboczej. Aby można było 
 
 7. Zamknij stronę wyjściową.
 
-8. Kliknij pozycję **Wszystkie dzienniki** , aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny tylko `Hello World` w strumieniu danych wyjściowych.
+8. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny tylko `Hello World` w strumieniu danych wyjściowych.
 
     Należy pamiętać, że w okienku strumienie mogą być wyświetlane inne strumienie zadania elementu Runbook, takie jak pełne strumienie i błędy, jeśli element Runbook zapisze w nich.
 
@@ -147,7 +147,7 @@ Element Runbook został przetestowany i opublikowany, ale dotąd nie jest to prz
     * **Typ** — Zachowaj wybraną ciąg.
     * **Szyfrowanie** — Użyj wartości domyślnej.
 
-5. Kliknij pozycję **Utwórz** , aby utworzyć zmienną.
+5. Kliknij pozycję **Utwórz**, aby utworzyć zmienną.
 
 ## <a name="step-6---add-authentication"></a>Krok 6. Dodawanie uwierzytelniania
 
@@ -160,7 +160,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
 2. Ten wpis nie jest potrzebny `Write Hello World to output` . Po prostu kliknij wielokropek i wybierz pozycję **Usuń**.
 
-3. W kontrolce Biblioteka rozwiń węzeł **zasoby** , a następnie pozycję **połączenia**. Dodaj `AzureRunAsConnection` do kanwy, wybierając pozycję **Dodaj do kanwy**.
+3. W kontrolce Biblioteka rozwiń węzeł **zasoby**, a następnie pozycję **połączenia**. Dodaj `AzureRunAsConnection` do kanwy, wybierając pozycję **Dodaj do kanwy**.
 
 4. Zmień nazwę `AzureRunAsConnection` na `Get Run As Connection` .
 
@@ -174,7 +174,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
 8. Na kanwie wybierz pozycję `Connect-AzAccount` . W okienku kontrola konfiguracji wpisz **Logowanie do platformy Azure** w polu **etykieta** .
 
-9. Kliknij pozycję **Parametry** , a zostanie wyświetlona strona Konfiguracja parametru działania.
+9. Kliknij pozycję **Parametry**, a zostanie wyświetlona strona Konfiguracja parametru działania.
 
 10. `Connect-AzAccount`Polecenie cmdlet ma wiele zestawów parametrów i należy wybrać jeden przed podaniem wartości parametrów. Kliknij pozycję **zestaw parametrów** , a następnie wybierz pozycję **ServicePrincipalCertificateWithSubscriptionId**.
 
@@ -194,7 +194,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
     * Lista źródeł danych — wybierz pozycję **Pobierz połączenie automatyzacji**.
     * **Ścieżka pola** --wpisz `CertificateThumbprint` .
 
-14. Kliknij pozycję **serviceprincipal** i na stronie wartość parametru wybierz pozycję **ConstantValue** dla pola **Źródło danych** . Kliknij opcję **prawda** , a następnie kliknij przycisk **OK**.
+14. Kliknij pozycję **serviceprincipal** i na stronie wartość parametru wybierz pozycję **ConstantValue** dla pola **Źródło danych** . Kliknij opcję **prawda**, a następnie kliknij przycisk **OK**.
 
 15. Kliknij pozycję **TENANTID** i wprowadź następujące ustawienia na stronie wartości parametru. Po zakończeniu kliknij przycisk **OK** dwa razy.
 
@@ -234,9 +234,9 @@ Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną.
 
 5. Wybierz pozycję **ResourceGroupNameParameterSetName** dla zestawu parametrów. Pola **ResourceGroupName** i **name** mają wykrzykniki obok nich, aby wskazać, że są one wymaganymi parametrami. Należy zauważyć, że oba pola oczekują wartości ciągu.
 
-6. Wybierz pozycję **Nazwa**. Wybierz **wyrażenie programu PowerShell** dla pola **Źródło danych** . W przypadku maszyny wirtualnej, która jest używana do uruchamiania tego elementu Runbook, wpisz nazwę maszyny ujętą w podwójne cudzysłowy. Kliknij pozycję **OK**.
+6. Wybierz pozycję **Nazwa**. Wybierz **wyrażenie programu PowerShell** dla pola **Źródło danych** . W przypadku maszyny wirtualnej, która jest używana do uruchamiania tego elementu Runbook, wpisz nazwę maszyny ujętą w podwójne cudzysłowy. Kliknij przycisk **OK**.
 
-7. Wybierz pozycję **ResourceGroupName**. Użyj **wyrażenia programu PowerShell** wartości dla pola **Źródło danych** i wpisz nazwę grupy zasobów ujętej w podwójne cudzysłowy. Kliknij pozycję **OK**.
+7. Wybierz pozycję **ResourceGroupName**. Użyj **wyrażenia programu PowerShell** wartości dla pola **Źródło danych** i wpisz nazwę grupy zasobów ujętej w podwójne cudzysłowy. Kliknij przycisk **OK**.
 
 8. Kliknij pozycję **okienko testowania** , aby umożliwić przetestowanie elementu Runbook.
 
@@ -273,11 +273,11 @@ Element Runbook aktualnie uruchamia maszynę wirtualną w grupie zasobów okreś
 
 9. Zamknij okienko testowania.
 
-10. Kliknij pozycję **Opublikuj** , aby opublikować nową wersję elementu Runbook.
+10. Kliknij pozycję **Opublikuj**, aby opublikować nową wersję elementu Runbook.
 
 11. Zatrzymaj maszynę wirtualną, która została wcześniej uruchomiona.
 
-12. Kliknij pozycję **Uruchom** , aby uruchomić element Runbook. Wpisz wartości dla `VMName` i `ResourceGroupName` dla maszyny wirtualnej, która ma zostać uruchomiona.
+12. Kliknij pozycję **Uruchom**, aby uruchomić element Runbook. Wpisz wartości dla `VMName` i `ResourceGroupName` dla maszyny wirtualnej, która ma zostać uruchomiona.
 
 13. Po zakończeniu działania elementu Runbook upewnij się, że maszyna wirtualna została uruchomiona.
 
@@ -297,11 +297,11 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 6. Wybierz zestaw parametrów **GetVirtualMachineInResourceGroupNameParamSet**. Pola **ResourceGroupName** i **name** mają wykrzykniki obok nich, wskazując, że określają wymagane parametry. Należy zauważyć, że oba pola oczekują wartości ciągu.
 
-7. W obszarze **Źródło danych** dla pozycji **Nazwa** wybierz pozycję **dane wejściowe elementu Runbook** , a następnie **VMName**. Kliknij pozycję **OK**.
+7. W obszarze **Źródło danych** dla pozycji **Nazwa** wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **VMName**. Kliknij przycisk **OK**.
 
-8. W obszarze **Źródło danych** dla **ResourceGroupName** wybierz pozycję **dane wejściowe elementu Runbook** , a następnie **ResourceGroupName**. Kliknij pozycję **OK**.
+8. W obszarze **Źródło danych** dla **ResourceGroupName** wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **ResourceGroupName**. Kliknij przycisk **OK**.
 
-9. W obszarze **Źródło danych** dla pozycji **stan** wybierz opcję **stała wartość** , a następnie **wartość true**. Kliknij pozycję **OK**.
+9. W obszarze **Źródło danych** dla pozycji **stan** wybierz opcję **stała wartość**, a następnie **wartość true**. Kliknij przycisk **OK**.
 
 10. Utwórz łącze z `Specify Subscription Id` do `Get-AzVM` .
 
@@ -335,7 +335,7 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 18. Dla **wyrażenia warunku** wpisz `$ActivityOutput['Get Status'] -eq "Stopped"` . `Start-AzVM` teraz działa tylko wtedy, gdy maszyna wirtualna jest zatrzymana.
 
-19. W kontrolce Biblioteka rozwiń pozycję **Polecenia cmdlet** , a następnie pozycję **Microsoft.PowerShell.Utility**.
+19. W kontrolce Biblioteka rozwiń pozycję **Polecenia cmdlet**, a następnie pozycję **Microsoft.PowerShell.Utility**.
 
 20. `Write-Output`Dwa razy Dodaj do kanwy.
 

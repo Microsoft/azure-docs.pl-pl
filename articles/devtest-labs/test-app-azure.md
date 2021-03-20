@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć udział plików w laboratorium i zainst
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282249"
 ---
 # <a name="test-your-app-in-azure"></a>Testowanie aplikacji na platformie Azure 
@@ -57,8 +57,8 @@ W tej sekcji opublikowano aplikację z programu Visual Studio do testowej maszyn
 
 1. Utwórz aplikację pulpitu/sieci Web przy użyciu programu Visual Studio 2019.
 2. Skompiluj aplikację.
-3. Aby opublikować aplikację, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**i wybierz polecenie **Publikuj**. 
-4. W **Kreatorze publikacji**wprowadź **dysk** mapowany na udział plików.
+3. Aby opublikować aplikację, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**. 
+4. W **Kreatorze publikacji** wprowadź **dysk** mapowany na udział plików.
 
     **Aplikacja klasyczna:**
 

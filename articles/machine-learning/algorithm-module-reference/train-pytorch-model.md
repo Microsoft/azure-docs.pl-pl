@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420669"
 ---
 # <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
@@ -24,7 +24,7 @@ W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w program
 
 1. Dodaj moduł [DenseNet](densenet.md) lub [ResNet](resnet.md) do wersji roboczej potoku w projektancie.
 
-2. Dodaj moduł **uczenie modelu Pytorch** do potoku. Ten moduł można znaleźć w kategorii **szkolenia modeli** . Rozwiń węzeł **uczenie** , a następnie przeciągnij moduł **uczenie modelu Pytorch** do potoku.
+2. Dodaj moduł **uczenie modelu Pytorch** do potoku. Ten moduł można znaleźć w kategorii **szkolenia modeli** . Rozwiń węzeł **uczenie**, a następnie przeciągnij moduł **uczenie modelu Pytorch** do potoku.
 
    > [!NOTE]
    > Moduł **uczenie Pytorch model** jest lepszym rozwiązaniem w przypadku obliczeń typu **GPU** dla dużego zestawu danych. w przeciwnym razie potok zakończy się niepowodzeniem. Można wybrać opcję obliczenia dla określonego modułu w prawym okienku modułu przez ustawienie opcji **Użyj innego elementu docelowego obliczeń**.
@@ -37,7 +37,7 @@ W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w program
 
     Zestaw danych szkoleniowych i zestaw danych sprawdzania poprawności mają te same kategorie etykiet, w przeciwnym razie zostanie zgłoszone InvalidDatasetError.
 
-4.  W przypadku **epok** , określ, ile epok chcesz szkolić. Cały zestaw danych będzie powtarzany w każdej epoki, domyślnie 5.
+4.  W przypadku **epok**, określ, ile epok chcesz szkolić. Cały zestaw danych będzie powtarzany w każdej epoki, domyślnie 5.
 
 5.  Dla **rozmiaru partii** Określ liczbę wystąpień do uczenia w partii, domyślnie 16.
 

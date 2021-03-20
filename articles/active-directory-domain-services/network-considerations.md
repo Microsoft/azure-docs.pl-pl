@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: justinha
 ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97615822"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
@@ -62,10 +62,10 @@ Jak wspomniano w poprzedniej sekcji, można utworzyć tylko domenę zarządzaną
 
 Możesz połączyć obciążenia aplikacji hostowane w innych sieciach wirtualnych platformy Azure, korzystając z jednej z następujących metod:
 
-* Komunikacja równorzędna sieci wirtualnych
+* Komunikacja równorzędna sieci wirtualnej
 * Wirtualne sieci prywatne (VPN)
 
-### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
+### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
 Komunikacja równorzędna sieci wirtualnych jest mechanizmem, który łączy dwie sieci wirtualne w tym samym regionie za pomocą sieci szkieletowej platformy Azure. Globalne wirtualne sieci równorzędne mogą łączyć się z siecią wirtualną w różnych regionach platformy Azure. Po nawiązaniu połączenia równorzędnego dwie sieci wirtualne zezwalają na zasoby, takie jak maszyny wirtualne, komunikują się ze sobą bezpośrednio przy użyciu prywatnych adresów IP. Używanie komunikacji równorzędnej sieci wirtualnej umożliwia wdrożenie domeny zarządzanej z obciążeniami aplikacji wdrożonymi w innych sieciach wirtualnych.
 

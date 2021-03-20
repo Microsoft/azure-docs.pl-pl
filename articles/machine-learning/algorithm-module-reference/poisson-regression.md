@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420703"
 ---
 # <a name="poisson-regression"></a>Regresja Poissona
@@ -57,13 +57,13 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
 3. W prawym okienku modułu **regresja Poissona** Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    - **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
+    - **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
   
-    - **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, Przeczyść parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Trainer wykonuje iterację wielu określonych wartości, aby znaleźć optymalną konfigurację.
+    - **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, Przeczyść parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Trainer wykonuje iterację wielu określonych wartości, aby znaleźć optymalną konfigurację.
   
-4. **Tolerancja optymalizacji** : wpisz wartość, która definiuje interwał tolerancji podczas optymalizacji. Im niższa wartość, tym wolniejsze i dokładniejsze dopasowanie.
+4. **Tolerancja optymalizacji**: wpisz wartość, która definiuje interwał tolerancji podczas optymalizacji. Im niższa wartość, tym wolniejsze i dokładniejsze dopasowanie.
 
-5. **Waga uregulowania L1** i **waga rozważenia (L2** ): wpisz wartości, które mają być używane dla uregulowania L1 i L2. *Uregulowanie* dodaje ograniczenia do algorytmu dotyczące aspektów modelu, które są niezależne od danych szkoleniowych. Uregulowanie jest często stosowane w celu uniknięcia zamontowania. 
+5. **Waga uregulowania L1** i **waga rozważenia (L2**): wpisz wartości, które mają być używane dla uregulowania L1 i L2. *Uregulowanie* dodaje ograniczenia do algorytmu dotyczące aspektów modelu, które są niezależne od danych szkoleniowych. Uregulowanie jest często stosowane w celu uniknięcia zamontowania. 
 
     - Uregulowanie L1 jest przydatne, jeśli celem jest posiadanie modelu, który jest tak jak to możliwe.
 
@@ -75,7 +75,7 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
     Aby zapoznać się z dobrą dyskusją dotyczącej uregulowania L1 i L2, zobacz temat [uregulowanie L1 i L2 dla Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Rozmiar pamięci dla L-BFGS** : Określ ilość pamięci do zarezerwowania na potrzeby dopasowywania i optymalizacji modelu.
+6. **Rozmiar pamięci dla L-BFGS**: Określ ilość pamięci do zarezerwowania na potrzeby dopasowywania i optymalizacji modelu.
 
      L-BFGS to określona metoda optymalizacji oparta na algorytmie Broyden – Fletcher – Goldfarb – Shanno (BFGS). Metoda używa ograniczonej ilości pamięci (L) do obliczenia następnego etapu.
 

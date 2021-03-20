@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514077"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Zastępowanie modułu kontrolera na urządzeniu StorSimple
@@ -78,7 +78,7 @@ Jeśli jeden z kontrolerów na urządzeniu Microsoft Azure StorSimple nie powied
 
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Aby usunąć jeden z uszkodzonych modułów kontrolera
-1. W Azure Portal przejdź do usługi StorSimple Menedżer urządzeń, kliknij pozycję **urządzenia**, a następnie kliknij nazwę urządzenia, które chcesz monitorować.
+1. W Azure Portal przejdź do usługi StorSimple Device Manager, kliknij pozycję **urządzenia**, a następnie kliknij nazwę urządzenia, które chcesz monitorować.
 2. Przejdź do pozycji **monitoruj > kondycja sprzętu**. Stan kontrolera 0 lub 1 powinien mieć wartość czerwony, co oznacza awarię.
    
    > [!NOTE]
@@ -190,12 +190,12 @@ Aby zainstalować moduł kontrolera dostarczone fabrycznie po usunięciu wadliwe
     ![Zamykanie zamka kontrolera](./media/storsimple-controller-replacement/IC741054.png)
    
     **Rysunek 5** Zamykanie zamka kontrolera
-4. Po dodaniu zamka do miejsca. Teraz **OK** powinna być włączona.
+4. Po dodaniu zamka do miejsca. Teraz  powinna być włączona.
    
    > [!NOTE]
    > Aby można było aktywować kontroler i DIODa, może upłynąć do 5 minut.
   
-5. Aby sprawdzić, czy zastępowanie zakończyło się pomyślnie, w Azure Portal przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj**  >  **kondycję sprzętu**i upewnij się, że zarówno kontroler 0, jak i kontroler 1 są w dobrej kondycji (stan jest zielony).
+5. Aby sprawdzić, czy zastępowanie zakończyło się pomyślnie, w Azure Portal przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj**  >  **kondycję sprzętu** i upewnij się, że zarówno kontroler 0, jak i kontroler 1 są w dobrej kondycji (stan jest zielony).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identyfikowanie aktywnego kontrolera na urządzeniu
 Istnieje wiele sytuacji, takich jak rejestracja urządzeń po raz pierwszy lub zastąpienie kontrolera, które wymagają zlokalizowania aktywnego kontrolera na urządzeniu StorSimple. Aktywny kontroler przetwarza wszystkie operacje sprzętowe i sieciowe na dysku. Można użyć dowolnej z poniższych metod identyfikacji aktywnego kontrolera:
@@ -207,7 +207,7 @@ Istnieje wiele sytuacji, takich jak rejestracja urządzeń po raz pierwszy lub z
 Każda z tych procedur została opisana dalej.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Użyj Azure Portal, aby zidentyfikować aktywnego kontrolera
-W Azure Portal przejdź do urządzenia, a następnie **Monitoruj**  >  **kondycję sprzętu**i przewiń do sekcji **Kontrolery** . W tym miejscu możesz sprawdzić, który kontroler jest aktywny.
+W Azure Portal przejdź do urządzenia, a następnie **Monitoruj**  >  **kondycję sprzętu** i przewiń do sekcji **Kontrolery** . W tym miejscu możesz sprawdzić, który kontroler jest aktywny.
 
 ![Identyfikowanie aktywnego kontrolera w Azure Portal](./media/storsimple-controller-replacement/IC752072.png)
 

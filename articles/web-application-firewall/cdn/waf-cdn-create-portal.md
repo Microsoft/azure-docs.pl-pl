@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
 ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92132775"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Samouczek: Tworzenie zasad WAF na Azure CDN przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do punktu końcowego w usłudze Azure Content Delivery Network (CDN).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF
@@ -64,7 +64,7 @@ Domyślnie zasady WAF są w trybie *wykrywania* podczas tworzenia zasad WAF. W t
 
 Aby wyświetlić WAF w działaniu, można zmienić ustawienia trybu z *wykrywania* na *zapobieganie*. W trybie *zapobiegania* żądania zgodne z regułami zdefiniowanymi w domyślnym zestawie reguł (DRS) są blokowane i rejestrowane w dziennikach WAF.
 
- :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad W języku F z przyciskiem Przejrzyj i Utwórz oraz wartościami wprowadzonymi dla różnych ustawień." border="false":::
+ :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający sekcję ustawień zasad. Przełącznik trybów jest ustawiony na zapobieganie." border="false":::
 
 ### <a name="custom-rules"></a>Reguły niestandardowe
 
@@ -72,17 +72,17 @@ Aby utworzyć regułę niestandardową, wybierz pozycję **Dodaj regułę** nies
 
 Poniższy zrzut ekranu przedstawia niestandardową regułę dopasowania w celu zablokowania żądania, jeśli ciąg zapytania zawiera wartość **blockme**.
 
-:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad W języku F z przyciskiem Przejrzyj i Utwórz oraz wartościami wprowadzonymi dla różnych ustawień." border="false":::
+:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="Zrzut ekranu przedstawiający stronę konfiguracji reguła niestandardowa przedstawiającą ustawienia reguły, która sprawdza, czy zmienna QueryString zawiera wartość blockme." border="false":::
 
 Reguły limitu szybkości wymagają dwóch dodatkowych pól: **Limit szybkości trwania** i **próg limitu szybkości (żądania)** , jak pokazano w następującym przykładzie:
 
-:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad W języku F z przyciskiem Przejrzyj i Utwórz oraz wartościami wprowadzonymi dla różnych ustawień." border="false":::
+:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="Zrzut ekranu przedstawiający stronę konfiguracji reguły limitu szybkości. Pole listy czas trwania limitu szybkości i próg limitu szybkości (żądania) są widoczne." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
 Zestaw reguł domyślnych zarządzanych przez platformę Azure jest domyślnie włączony. Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz pole wyboru przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
 
- :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad W języku F z przyciskiem Przejrzyj i Utwórz oraz wartościami wprowadzonymi dla różnych ustawień." border="false":::
+ :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="Zrzut ekranu strony reguły zarządzane przedstawiający zestaw reguł, grupy reguł, reguły oraz przyciski włączania, wyłączania i zmieniania akcji. Zaznaczono jedną regułę." border="false":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

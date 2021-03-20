@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie zasadami tworzenia kopii zapasowych serii StorSimple 8000 | Microsoft Docs
-description: Wyjaśnia, w jaki sposób można użyć usługi StorSimple Menedżer urządzeń do tworzenia ręcznych kopii zapasowych, harmonogramów kopii zapasowych i przechowywania kopii zapasowych na urządzeniu z serii StorSimple 8000.
+description: Wyjaśnia, w jaki sposób można użyć usługi StorSimple Device Manager do tworzenia ręcznych kopii zapasowych, harmonogramów kopii zapasowych i przechowywania kopii zapasowych na urządzeniu z serii StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,18 +15,18 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515632"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Zarządzanie zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń w Azure Portal
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Zarządzanie zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Device Manager w Azure Portal
 
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak używać bloku **zasad tworzenia kopii zapasowych** usługi StorSimple Menedżer urządzeń do kontrolowania procesów tworzenia kopii zapasowych i przechowywania kopii zapasowych dla woluminów StorSimple. Opisano w nim również, jak wykonać ręczną kopię zapasową.
+W tym samouczku wyjaśniono, jak używać bloku **zasad tworzenia kopii zapasowych** usługi StorSimple Device Manager do kontrolowania procesów tworzenia kopii zapasowych i przechowywania kopii zapasowych dla woluminów StorSimple. Opisano w nim również, jak wykonać ręczną kopię zapasową.
 
 Podczas tworzenia kopii zapasowej woluminu można utworzyć lokalną migawkę lub migawkę w chmurze. W przypadku tworzenia kopii zapasowej woluminu przypiętego lokalnie zalecamy określenie migawki w chmurze. Wykonanie dużej liczby lokalnych migawek woluminu przypiętego lokalnie połączonego z zestawem danych, który ma dużo zmian, spowoduje powstanie sytuacji, w której można szybko wymusić miejsce na dysku lokalnym. Jeśli zdecydujesz się na korzystanie z migawek lokalnych, zalecamy przeprowadzenie mniejszej liczby codziennych migawek, aby utworzyć kopię zapasową najnowszego stanu, zachować je na dzień, a następnie usunąć je.
 
@@ -98,5 +98,5 @@ Wykonaj następujące kroki w Azure Portal, aby utworzyć kopię zapasową na ż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

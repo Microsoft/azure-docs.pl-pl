@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: b1a56c8acf1789690c01f1c16b7c37a237720e39
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417808"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Ograniczenia dotyczące skalowania za pomocą usługi Azure Arc PostgreSQL
@@ -22,7 +22,7 @@ W tym artykule opisano ograniczenia dotyczące skalowania PostgreSQL w systemie 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+## <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
 
 - Przywracanie do punktu w czasie (na przykład Przywracanie do określonej daty i godziny) do tej samej grupy serwerów nie jest obsługiwane. Podczas przywracania do punktu w czasie należy przywrócić w innej grupie serwerów wdrożonej przed przywróceniem. Po przywróceniu do nowej grupy serwerów można usunąć grupę serwerów pochodzenia.
 - Przywrócenie całej zawartości kopii zapasowej (w przeciwieństwie do przywracania do określonego punktu w czasie) do tej samej grupy serwerów jest obsługiwane dla PostgreSQL w wersji 12. Nie jest obsługiwana w przypadku PostgreSQL w wersji 11 z powodu ograniczenia aparatu PostgreSQL z osią czasu. Aby przywrócić całą zawartość kopii zapasowej dla grupy serwerów PostgreSQL w wersji 11, należy przywrócić ją do innej grupy serwerów.

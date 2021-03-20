@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
 ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420771"
 ---
 # <a name="graph-search-query-syntax"></a>Składnia zapytań wyszukiwania w usłudze Graph
@@ -36,7 +36,7 @@ Wyszukiwanie grafów używa prostego zapytania "Lucene" jako składni wyszukiwan
 
  
 - I/LUB
-- Dopasowanie symboli wieloznacznych z **?** Operatory i * *\** _.
+- Dopasowanie symboli wieloznacznych z **?** **\*** Operatory i.
 
 ### <a name="examples"></a>Przykłady
 
@@ -49,7 +49,7 @@ Wyszukiwanie grafów używa prostego zapytania "Lucene" jako składni wyszukiwan
  
 - Dopasowanie symboli wieloznacznych: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Nie można uruchomić zapytania Lucene ze znakiem "*".

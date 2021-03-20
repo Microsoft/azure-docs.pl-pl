@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271964"
 ---
 # <a name="retrieve-offers"></a>Pobieranie oferty
@@ -28,10 +28,10 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 | **Nazwa**         |  **Opis**                         |  **Typ danych** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identyfikator wydawcy, na przykład `contoso` |   Ciąg    |
-|  api-version     | Najnowsza wersja interfejsu API                    |    Date        |
+|  api-version     | Najnowsza wersja interfejsu API                    |    Date (Data)        |
 |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**        |         **Wartość**       |
 |  --------------- |       ----------------  |
@@ -91,7 +91,7 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  NotStarted                  | Oferta jest nowa, ale nie została uruchomiona.                 |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.         |
 |  Uruchomienie                     | Przesyłanie oferty jest przetwarzane.             |
-|  Sukces                   | Przesyłanie oferty zostało zakończone.       |
+|  Powodzenie                   | Przesyłanie oferty zostało zakończone.       |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                   |
 |  Niepowodzenie                      | Nie można przesłać oferty.                         |
 |  |  |

@@ -10,10 +10,10 @@ ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
 ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139396"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Rozpoczynanie pracy z modułem IoT Hub Identity and module (Python)
@@ -187,7 +187,7 @@ W tej sekcji utworzysz aplikację usługi Python, która aktualizuje odpowiednie
 
 W tej sekcji utworzysz aplikację w języku Python, aby uzyskać aktualizację odpowiednich właściwości modułu na urządzeniu.
 
-1. Pobierz parametry połączenia modułu. W [Azure Portal](https://portal.azure.com/)przejdź do IoT Hub i wybierz pozycję **urządzenia IoT** w lewym okienku. Wybierz pozycję **myFirstDevice** z listy urządzeń i otwórz ją. W obszarze **tożsamości modułów**wybierz pozycję **myFirstModule**. Skopiuj parametry połączenia modułu. Jest ona potrzebna w następnym kroku.
+1. Pobierz parametry połączenia modułu. W [Azure Portal](https://portal.azure.com/)przejdź do IoT Hub i wybierz pozycję **urządzenia IoT** w lewym okienku. Wybierz pozycję **myFirstDevice** z listy urządzeń i otwórz ją. W obszarze **tożsamości modułów** wybierz pozycję **myFirstModule**. Skopiuj parametry połączenia modułu. Jest ona potrzebna w następnym kroku.
 
    ![Szczegóły modułu w witrynie Azure Portal](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: ceb6e84b31067f7289b9e003a4fb273ce717de33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079102"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Omówienie wdrażania Menedżera zapory platformy Azure
@@ -25,19 +25,19 @@ Istnieje więcej niż jeden sposób wdrożenia Menedżera zapory platformy Azure
 1.  Tworzenie zasad zapory
 
     - Tworzenie nowych zasad
-<br>*oraz*<br>
+<br>*lub*<br>
     - Tworzenie podstawowych zasad i dostosowywanie zasad lokalnych
-<br>*oraz*<br>
+<br>*lub*<br>
     - Importuj reguły z istniejącej zapory platformy Azure. Pamiętaj o usunięciu reguł translatora adresów sieciowych z zasad, które powinny być stosowane przez wiele zapór
 1. Tworzenie architektury gwiazdy i szprych
    - Tworzenie centrum Virtual Network przy użyciu Menedżera zapory platformy Azure i sieci wirtualnych równorzędnych z siecią wirtualną za pomocą komunikacji równorzędnej sieci wirtualnych
-<br>*oraz*<br>
+<br>*lub*<br>
     - Tworzenie sieci wirtualnej i Dodawanie połączeń sieci wirtualnych i sieci wirtualnych równorzędnych usługi peer Network przy użyciu komunikacji równorzędnej sieci wirtualnej
 
 3. Wybierz pozycję dostawcy zabezpieczeń i skojarz zasady zapory. Obecnie obsługiwane są tylko zapory platformy Azure.
 
    - Jest to wykonywane podczas tworzenia Virtual Network centrum
-<br>*oraz*<br>
+<br>*lub*<br>
     - Przekonwertuj istniejącą sieć wirtualną na Virtual Network centrum. Istnieje również możliwość konwersji wielu sieci wirtualnych.
 
 4. Skonfiguruj trasy definiowane przez użytkownika w celu kierowania ruchu do centrum Virtual Network zapory.
@@ -47,11 +47,11 @@ Istnieje więcej niż jeden sposób wdrożenia Menedżera zapory platformy Azure
 
 1. Tworzenie architektury gwiazdy i szprych
 
-   - Utwórz zabezpieczone centrum wirtualne przy użyciu Menedżera zapory platformy Azure i Dodaj połączenia sieci wirtualnej.<br>*oraz*<br>
+   - Utwórz zabezpieczone centrum wirtualne przy użyciu Menedżera zapory platformy Azure i Dodaj połączenia sieci wirtualnej.<br>*lub*<br>
    - Tworzenie wirtualnego centrum sieci WAN i Dodawanie połączeń sieci wirtualnej.
 2. Wybierz dostawców zabezpieczeń
 
-   - Gotowe podczas tworzenia bezpiecznego koncentratora wirtualnego.<br>*oraz*<br>
+   - Gotowe podczas tworzenia bezpiecznego koncentratora wirtualnego.<br>*lub*<br>
    - Przekonwertuj istniejące wirtualne koncentrator sieci WAN na zabezpieczenie koncentratora wirtualnego.
 3. Tworzenie zasad zapory i kojarzenie ich z centrum
 

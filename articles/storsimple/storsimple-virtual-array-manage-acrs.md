@@ -16,17 +16,17 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85507623"
 ---
-# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Używanie StorSimple Menedżer urządzeń do zarządzania rekordami kontroli dostępu dla StorSimple wirtualnej macierzy
+# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Używanie StorSimple Device Manager do zarządzania rekordami kontroli dostępu dla StorSimple wirtualnej macierzy
 
 ## <a name="overview"></a>Omówienie
 
-Rekordy kontroli dostępu (rekordami ACR) umożliwiają określenie, które hosty mogą łączyć się z woluminem w macierzy wirtualnej StorSimple (znanej również jako StorSimple lokalne urządzenie wirtualne). Rekordami ACR są ustawiane na określony wolumin i zawierają kwalifikowane nazwy iSCSI (IQNs) hostów. Gdy host próbuje nawiązać połączenie z woluminem, urządzenie sprawdzi ACR skojarzone z tym woluminem dla nazwy IQN i jeśli jest zgodne, połączenie zostanie nawiązane. Blok **rekordów kontroli dostępu** w sekcji **Konfiguracja** usługi Menedżer urządzeń wyświetla wszystkie rekordy kontroli dostępu z odpowiednimi IQNsmi hostów.
+Rekordy kontroli dostępu (rekordami ACR) umożliwiają określenie, które hosty mogą łączyć się z woluminem w macierzy wirtualnej StorSimple (znanej również jako StorSimple lokalne urządzenie wirtualne). Rekordami ACR są ustawiane na określony wolumin i zawierają kwalifikowane nazwy iSCSI (IQNs) hostów. Gdy host próbuje nawiązać połączenie z woluminem, urządzenie sprawdzi ACR skojarzone z tym woluminem dla nazwy IQN i jeśli jest zgodne, połączenie zostanie nawiązane. Blok **rekordów kontroli dostępu** w sekcji **Konfiguracja** usługi Device Manager wyświetla wszystkie rekordy kontroli dostępu z odpowiednimi IQNsmi hostów.
 
 ![Zarządzanie rekordami kontroli dostępu](./media/storsimple-virtual-array-manage-acrs/ova-manage-acrs.png)
 
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby uzyskać nazwę IQN hosta z systemem Windows, n
 
 ## <a name="add-an-acr"></a>Dodawanie elementu ACR
 
-Aby dodać rekordami ACR, należy użyć bloku **rekordy kontroli dostępu** w sekcji **konfiguracja** usługi StorSimple Menedżer urządzeń. Zazwyczaj należy skojarzyć jeden ACR z jednym woluminem.
+Aby dodać rekordami ACR, należy użyć bloku **rekordy kontroli dostępu** w sekcji **konfiguracja** usługi StorSimple Device Manager. Zazwyczaj należy skojarzyć jeden ACR z jednym woluminem.
 
 Aby uzyskać informacje dotyczące kojarzenia ACR z woluminem, przejdź do obszaru [Dodawanie woluminu](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby dodać ACR.
    
     1. Wypełnij pole **Nazwa** dla rekordu ACR.
     
-    2. W obszarze **Nazwa inicjatora iSCSI**Podaj nazwę IQN hosta systemu Windows. Aby uzyskać nazwę IQN hosta z systemem Windows Server, wykonaj następujące czynności:
+    2. W obszarze **Nazwa inicjatora iSCSI** Podaj nazwę IQN hosta systemu Windows. Aby uzyskać nazwę IQN hosta z systemem Windows Server, wykonaj następujące czynności:
    
     3. Uruchom inicjator iSCSI firmy Microsoft na hoście z systemem Windows. W oknie Właściwości inicjatora iSCSI na karcie **Konfiguracja** zaznacz i skopiuj ciąg z pola **Nazwa inicjatora**.
     Wklej ten ciąg w polu **IQN** w bloku **Dodawanie ACR** .
@@ -81,7 +81,7 @@ Wykonaj następujące kroki, aby dodać ACR.
 
 ## <a name="edit-an-acr"></a>Edytowanie elementu ACR
 
-Użyj bloku **rekordy kontroli dostępu** w sekcji **Konfiguracja** usługi Menedżer urządzeń w Azure Portal, aby edytować rekordami ACR.
+Użyj bloku **rekordy kontroli dostępu** w sekcji **Konfiguracja** usługi Device Manager w Azure Portal, aby edytować rekordami ACR.
 
 > [!NOTE]
 > Nie należy modyfikować elementu ACR, który jest obecnie używany. Aby edytować ACR skojarzone z aktualnie używanym woluminem, należy najpierw przełączyć wolumin w tryb offline.

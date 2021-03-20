@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94950758"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Bezpieczne Instalowanie i obsługiwanie urządzenia StorSimple
@@ -37,7 +37,7 @@ Poniżej znajdują się ikony, które zostaną znalezione podczas przeglądania 
 | ![Ostrzeżenie ikony ostrzeżenia ](./media/storsimple-safety/IC740879.png) **!** |Wskazuje niebezpieczną sytuację, która w przypadku braku problemów może skutkować drobną lub średnią szkodą. |
 | ![Powiadomienie o ikonie powiadomienia ](./media/storsimple-safety/IC740881.png) **:** |Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. |
 | ![Ikona porażenia elektryczną — ](./media/storsimple-safety/IC740882.png) **zagrożenie elektryczne** |Wysoki poziom napięcia |
-| ![Duże wagi ikony o dużej grubości ](./media/storsimple-safety/IC740883.png) **Heavy Weight** | |
+| ![Duże wagi ikony o dużej grubości ](./media/storsimple-safety/IC740883.png)  | |
 | ![Ikona elementów z obsługą użytkownika ](./media/storsimple-safety/IC740879.png) **nie ma części z obsługą użytkownika** |Nie należy uzyskiwać dostępu, o ile nie jest prawidłowo szkolony. |
 | ![Ikona powiadomienia o bezpieczeństwie Odczytaj](./media/storsimple-safety/IC740885.png)**najpierw wszystkie instrukcje** | |
 | ![](./media/storsimple-safety/IC740886.png) **Niebezpieczeństwo Porada** ikony ostrzegawczej | |
@@ -52,7 +52,7 @@ Aby zmniejszyć ryzyko powstania szkody:
 * Nie należy podłączać obudowy przez uchwyty dla modułów mocy i chłodzenia (PCMs) znajdujących się w tylnej części jednostki. Nie są one przeznaczone do rozważenia.
 
 ## <a name="connection-precautions"></a>Środki ostrożności dotyczące połączenia
-![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png)  .
 
 Aby zmniejszyć prawdopodobieństwo powstania szkody, porażenia energii elektrycznej lub zgonu:
 
@@ -62,7 +62,7 @@ Aby zmniejszyć prawdopodobieństwo powstania szkody, porażenia energii elektry
 * Upewnij się, że połączenie zasilania jest zawsze rozłączone przed usunięciem modułu PCM z obudowy.
 * Mając na względzie, że wtyk odbiornika zasilania jest głównym urządzeniem odłączania, upewnij się, że są one zlokalizowane blisko sprzętu i są łatwo dostępne.
 
-![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png)  .
 
 Aby zmniejszyć prawdopodobieństwo przegrzania lub wygaszenia z połączeń elektrycznych:
 
@@ -90,7 +90,7 @@ Aby zmniejszyć prawdopodobieństwo powstania szkód z pozostałej Porady:
 * Podczas ładowania stojaka Wypełnij stojak od dołu do góry i pustego w dół.
 * Nie przesuwaj więcej niż jeden obudowa poza stojakiem, aby uniknąć niebezpieczeństwa stojaka toppling.
 
-![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png)  .
 
 Aby zmniejszyć prawdopodobieństwo powstania szkody, porażenia energii elektrycznej lub zgonu:
 
@@ -110,7 +110,7 @@ Aby zapewnić prawidłowe chłodzenie systemu stojaka:
 
 Urządzenie zostało zaprojektowane do obsługi dwóch PCMs. Każdy PCMs ma zasilacz i wentylator dwuosiowy. W sytuacji krytycznej system umożliwia nieprzerwanie jednego zasilacza awaryjnego w czasie wykonywania normalnych operacji. Muszą być zawsze zainstalowane dwa PCMs (i w związku z tym zasilacze). Pojedynczy moduł PCM nie zapewnia nadmiarowej mocy. W związku z tym awaria nawet jednego modułu PCM może spowodować przestoje lub utratę danych.
 
-![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-safety/IC740882.png)  .
 
 Aby zmniejszyć prawdopodobieństwo powstania szkody, porażenia energii elektrycznej lub zgonu:
 

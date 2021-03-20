@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912025"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
@@ -35,7 +35,7 @@ W tej sekcji opisano sposób tworzenia podzespołów i szybkiego przypisywania p
 
 ### <a name="create-a-subteam"></a>Tworzenie podzespołu
 
-Przejdź do sekcji **podzespołów** , a następnie kliknij pozycję **Dodaj podzespół** . W oknie dialogowym wprowadź nazwę swojego zespołu, a następnie kliknij przycisk **Zapisz** .
+Przejdź do sekcji **podzespołów** , a następnie kliknij pozycję **Dodaj podzespół**. W oknie dialogowym wprowadź nazwę swojego zespołu, a następnie kliknij przycisk **Zapisz**.
 
 ![Nazwa podzespołu](images/1-Teams-2.PNG)
 
@@ -60,13 +60,13 @@ Aby przypisać zawartość do podzespołu, kliknij wielokropek w prawym górnym 
 
 ### <a name="switch-between-subteams"></a>Przełączanie między podzespołów
 
-Jeśli jesteś członkiem więcej niż jednego podzespołu, możesz przełączać się między nimi, aby zmienić, które przeglądy zawartości są wyświetlane. Na karcie **Recenzja** wybierz menu rozwijane **domyślne** z etykietą i wybierz pozycję **wybierz podzespół** . Możesz przeglądać przeglądy zawartości dla różnych zespołów, ale tylko te, których jesteś członkiem.
+Jeśli jesteś członkiem więcej niż jednego podzespołu, możesz przełączać się między nimi, aby zmienić, które przeglądy zawartości są wyświetlane. Na karcie **Recenzja** wybierz menu rozwijane **domyślne** z etykietą i wybierz pozycję **wybierz podzespół**. Możesz przeglądać przeglądy zawartości dla różnych zespołów, ale tylko te, których jesteś członkiem.
 
 ![Przełączanie między podzespołów](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Tagi
 
-Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch domyślnych tagów moderowania &mdash; **isdorosły** ( **a** ) i **isracy** ( **r** ). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
+Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch domyślnych tagów moderowania &mdash; **isdorosły** (**a**) i **isracy** (**r**). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
 
 ![Widok tagów, w tym pola wyboru "jest widoczne"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania opr�
 
 Aby utworzyć nowy tag, należy wprowadzić krótki kod, nazwę i opis w odpowiednich polach.
 
-- **Krótki kod** : wprowadź dwuliterowy kod dla tagu. Przykład: **CB**
-- **Nazwa** : wprowadź krótką i opisową nazwę tagu małymi literami bez spacji. Przykład: **isbullying** .
-- **Opis** : (opcjonalnie) wprowadź opis rodzaju zawartości, do której odwołuje się tag. Przykład: **sceny lub wystąpienia elementu cybernetycznymi bullying** .
+- **Krótki kod**: wprowadź dwuliterowy kod dla tagu. Przykład: **CB**
+- **Nazwa**: wprowadź krótką i opisową nazwę tagu małymi literami bez spacji. Przykład: **isbullying**.
+- **Opis**: (opcjonalnie) wprowadź opis rodzaju zawartości, do której odwołuje się tag. Przykład: **sceny lub wystąpienia elementu cybernetycznymi bullying**.
 
 Kliknij przycisk **Dodaj** , aby dodać tag, a następnie kliknij przycisk **Zapisz** po zakończeniu tworzenia tagów.
 
@@ -90,7 +90,7 @@ Tagi niestandardowe można usunąć, wybierając ikonę kosza obok pozycji na li
 
 Karta **Łączniki** umożliwia zarządzanie łącznikami, które są wtyczkami specyficznymi dla usług, które mogą przetwarzać zawartość na różne sposoby w ramach [przepływów pracy](../review-api.md#workflows)zawartości.
 
-Domyślnym łącznikiem podczas tworzenia przepływu pracy jest łącznik Content Moderator, który może oznaczać zawartość jako dorosłą lub **erotycznej** , znaleźć **niepełnoletni** itd. Można jednak użyć innych łączników, wymienionych tutaj, jeśli masz poświadczenia dla odpowiednich usług (aby użyć łącznika czołowego, na przykład musisz uzyskać klucz subskrypcji [frontu](../../face/overview.md) ).
+Domyślnym łącznikiem podczas tworzenia przepływu pracy jest łącznik Content Moderator, który może oznaczać zawartość jako dorosłą lub **erotycznej**, znaleźć **niepełnoletni** itd. Można jednak użyć innych łączników, wymienionych tutaj, jeśli masz poświadczenia dla odpowiednich usług (aby użyć łącznika czołowego, na przykład musisz uzyskać klucz subskrypcji [frontu](../../face/overview.md) ).
 
 [Narzędzie do przeglądu](./human-in-the-loop.md) obejmuje następujące łączniki:
 

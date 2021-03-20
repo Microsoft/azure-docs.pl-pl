@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964511"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Rozwiązywanie typowych problemów z udziałem danych platformy Azure 
@@ -50,7 +50,7 @@ Podczas tworzenia nowego udziału, dodawania zestawów danych lub mapowania zest
 * Nie masz odpowiednich uprawnień do x.
 * Nie można dodać uprawnień do zapisu dla konta udziału danych platformy Azure do co najmniej jednego wybranego zasobu.
 
-Jeśli masz niewystarczające uprawnienia do magazynu danych platformy Azure, może zostać wyświetlony jeden z tych błędów. Aby uzyskać więcej informacji, zobacz [role i wymagania](concepts-roles-permissions.md). 
+Jeśli masz niewystarczające uprawnienia do magazynu danych platformy Azure, może zostać wyświetlony jeden z tych błędów. Aby uzyskać więcej informacji, zobacz [Role i wymagania](concepts-roles-permissions.md). 
 
 Potrzebujesz uprawnienia do zapisu w celu udostępniania lub odbierania danych z magazynu danych platformy Azure. To uprawnienie jest zwykle częścią roli współautor. 
 
@@ -65,7 +65,7 @@ Migawka może zakończyć się niepowodzeniem z różnych powodów. Otwórz szcz
 
 Migawki często kończą się niepowodzeniem z następujących powodów:
 
-* Udział danych nie ma uprawnień do odczytu ze źródłowego magazynu danych lub zapisu do docelowego magazynu danych. Aby uzyskać więcej informacji, zobacz [role i wymagania](concepts-roles-permissions.md). Jeśli tworzysz migawkę po raz pierwszy, zasób udział danych może potrzebować kilku minut, aby uzyskać dostęp do magazynu danych platformy Azure. Po kilku minutach spróbuj ponownie.
+* Udział danych nie ma uprawnień do odczytu ze źródłowego magazynu danych lub zapisu do docelowego magazynu danych. Aby uzyskać więcej informacji, zobacz [Role i wymagania](concepts-roles-permissions.md). Jeśli tworzysz migawkę po raz pierwszy, zasób udział danych może potrzebować kilku minut, aby uzyskać dostęp do magazynu danych platformy Azure. Po kilku minutach spróbuj ponownie.
 * Połączenie udostępniania danych z źródłowym magazynem danych lub docelowym magazynem danych jest blokowane przez zaporę.
 * Został usunięty współużytkowany zestaw danych, magazyn z danymi źródłowymi lub docelowy magazyn danych.
 

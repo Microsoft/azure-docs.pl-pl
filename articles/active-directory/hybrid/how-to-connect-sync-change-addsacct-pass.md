@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4077146292db1266d5dbc51cc577f952b2bff191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85357515"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Zmienianie hasła konta usług AD DS
@@ -42,7 +42,7 @@ Aby zaktualizować usługę synchronizacji przy użyciu nowego hasła:
 
 3. Wybierz **Łącznik usługi AD** odpowiadający kontu AD DS, dla którego hasło zostało zmienione.
 
-4. W obszarze **Akcje**wybierz pozycję **Właściwości**.
+4. W obszarze **Akcje** wybierz pozycję **Właściwości**.
 
 5. W podręcznym oknie dialogowym wybierz pozycję **Połącz z lasem Active Directory**:
 
@@ -55,6 +55,6 @@ Aby zaktualizować usługę synchronizacji przy użyciu nowego hasła:
 ## <a name="next-steps"></a>Następne kroki
 **Tematy dotyczące omówienia**
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
 
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

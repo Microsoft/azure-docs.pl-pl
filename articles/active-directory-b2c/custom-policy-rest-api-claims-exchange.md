@@ -11,10 +11,10 @@ ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94949500"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C
@@ -127,7 +127,7 @@ Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` okre
 
 ## <a name="add-an-orchestration-step"></a>Dodaj krok aranżacji
 
-[Podróże użytkowników](userjourneys.md) określają jawne ścieżki, za pomocą których zasady umożliwiają aplikacji jednostki uzależnionej uzyskanie żądanych oświadczeń dla użytkownika. Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Możesz dodawać lub odejmować kroki aranżacji. W takim przypadku dodasz nowy krok aranżacji, który służy do rozszerzania informacji dostarczonych do aplikacji po zarejestrowaniu lub zalogowaniu się użytkownika za pośrednictwem wywołania interfejsu API REST.
+[Podróże użytkownika](userjourneys.md) określają jawne ścieżki, za pośrednictwem których zasady umożliwiają aplikacji jednostki zależnej uzyskanie żądanych oświadczeń dla użytkownika. Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Możesz dodawać lub odejmować kroki aranżacji. W takim przypadku dodasz nowy krok aranżacji, który służy do rozszerzania informacji dostarczonych do aplikacji po zarejestrowaniu lub zalogowaniu się użytkownika za pośrednictwem wywołania interfejsu API REST.
 
 1. Otwórz podstawowy plik zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> .
 1. Wyszukaj `<UserJourneys>` element. Skopiuj cały element, a następnie usuń go.

@@ -4,10 +4,10 @@ description: Rozpocznij pracę z Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85117866"
 ---
 # <a name="get-started-with-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
@@ -21,13 +21,13 @@ Dowiedz się, jak uzyskać dostęp do usługi Advisor za pomocą Azure Portal, u
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W lewym okienku kliknij pozycję **Advisor**.  Jeśli usługa Advisor nie jest widoczna w okienku po lewej stronie, kliknij pozycję **wszystkie usługi**.  W okienku menu usługi w obszarze **monitorowanie i zarządzanie**kliknij pozycję **Advisor**. Zostanie wyświetlony pulpit nawigacyjny usługi Advisor.
+1. W lewym okienku kliknij pozycję **Advisor**.  Jeśli usługa Advisor nie jest widoczna w okienku po lewej stronie, kliknij pozycję **wszystkie usługi**.  W okienku menu usługi w obszarze **monitorowanie i zarządzanie** kliknij pozycję **Advisor**. Zostanie wyświetlony pulpit nawigacyjny usługi Advisor.
 
    ![Azure Advisor dostępu przy użyciu Azure Portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
 1. Na pulpicie nawigacyjnym usługi Advisor zostanie wyświetlone podsumowanie zaleceń dla wszystkich wybranych subskrypcji.  Możesz wybrać subskrypcje, do których mają być wyświetlane zalecenia, przy użyciu listy rozwijanej filtru subskrypcji.
 
-1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **niezawodność**, **zabezpieczenia**, **wydajność**lub **koszt**. 
+1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **niezawodność**, **zabezpieczenia**, **wydajność** lub **koszt**. 
 
    ![Pulpit nawigacyjny Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -93,7 +93,7 @@ Usługa Advisor monitoruje użycie maszyn wirtualnych przez 7 dni, a następnie 
 Jeśli chcesz bardziej agresywnie identyfikować maszyny wirtualne o niskim zużyciu, możesz dostosować średnią regułę użycia procesora CPU dla każdej subskrypcji.  Reguła użycia procesora CPU może być ustawiona na 5%, 10%, 15% lub 20%.
 
 > [!NOTE]
-> Aby dostosować średnią regułę użycia procesora CPU do identyfikowania maszyn wirtualnych o niskim zużyciu, musisz być *właścicielem*subskrypcji.  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja dołączania lub wykluczania zostanie wyłączona w interfejsie użytkownika. 
+> Aby dostosować średnią regułę użycia procesora CPU do identyfikowania maszyn wirtualnych o niskim zużyciu, musisz być *właścicielem* subskrypcji.  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja dołączania lub wykluczania zostanie wyłączona w interfejsie użytkownika. 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 

@@ -7,10 +7,10 @@ ms.date: 6/12/2017
 ms.author: lemai
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c31040ec13084f9e4b08bbc9a347e4ad44975bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89021259"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Zastępowanie węzła początkowego i Zatrzymaj interfejsy API węzła przy użyciu interfejsu API przejścia węzła
@@ -37,12 +37,12 @@ Te problemy zostały opisane powyżej w nowym zestawie interfejsów API.  Nowy i
 Jeśli interfejs API przejścia węzła nie zgłasza wyjątku po wywołaniu, system zaakceptował operację asynchroniczną i wykona ją.  Pomyślne wywołanie nie oznacza, że operacja została jeszcze zakończona.  Aby uzyskać informacje o bieżącym stanie operacji, Wywołaj interfejs API postępu przejścia węzła (zarządzany: [GetNodeTransitionProgressAsync ()][gntp]) z identyfikatorem GUID używanym podczas wywoływania interfejsu API przejścia węzła dla tej operacji.  Interfejs API postępu przejścia węzła zwraca obiekt NodeTransitionProgress.  Właściwość stanu tego obiektu określa bieżący stan operacji.  Jeśli stan to "uruchomiona", wykonywana jest operacja.  Jeśli zostanie ukończona, operacja zakończyła się bez błędu.  Jeśli jest to błąd, wystąpił problem podczas wykonywania operacji.  Właściwość wyjątku właściwości wyniku wskazuje, co to jest problem.  Zobacz https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate , aby uzyskać więcej informacji na temat właściwości State oraz poniższej sekcji "Przykładowe użycie" dla przykładów kodu.
 
 
-**Rozróżnianie między zatrzymanym węzłem a węzłem w dół** Jeśli węzeł zostanie *zatrzymany* przy użyciu interfejsu API przejścia węzła, dane wyjściowe zapytania węzła (zarządzane: [GetNodeListAsync ()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) będą pokazywały, że ten węzeł ma właściwość *iszatrzymania* o wartości true.  Należy zauważyć, że różni się od wartości właściwości *NodeStatus* , która zostanie wyświetlona *.*  Jeśli właściwość *NodeStatus* ma wartość " *Down*", ale *iszatrzymana* jest false, węzeł nie został zatrzymany przy użyciu interfejsu API przejścia węzła i *nie jest z innego powodu.*  Jeśli właściwość *Iszatrzymana* ma wartość true, a właściwość *NodeStatus* nie *działa, to*została zatrzymana przy użyciu interfejsu API przejścia węzła.
+**Rozróżnianie między zatrzymanym węzłem a węzłem w dół** Jeśli węzeł zostanie *zatrzymany* przy użyciu interfejsu API przejścia węzła, dane wyjściowe zapytania węzła (zarządzane: [GetNodeListAsync ()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) będą pokazywały, że ten węzeł ma właściwość *iszatrzymania* o wartości true.  Należy zauważyć, że różni się od wartości właściwości *NodeStatus* , która zostanie wyświetlona *.*  Jeśli właściwość *NodeStatus* ma wartość " *Down*", ale *iszatrzymana* jest false, węzeł nie został zatrzymany przy użyciu interfejsu API przejścia węzła i *nie jest z innego powodu.*  Jeśli właściwość *Iszatrzymana* ma wartość true, a właściwość *NodeStatus* nie *działa, to* została zatrzymana przy użyciu interfejsu API przejścia węzła.
 
 Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węzła zwróci go, aby ponownie działać jako normalny element członkowski klastra.  W danych wyjściowych interfejsu API zapytania węzła zostanie wyświetlony komunikat *Iszatrzymany* jako FAŁSZ i *NodeStatus* jako coś, który nie jest wyłączony (na przykład w górę).
 
 
-**Ograniczony czas trwania** W przypadku korzystania z interfejsu API przejścia węzła do zatrzymania węzła jeden z wymaganych parametrów, *stopNodeDurationInSeconds*, reprezentuje czas (w sekundach) *zatrzymania*węzła.  Ta wartość musi mieścić się w dozwolonym zakresie, który ma wartość minimalną 600 i maksymalnie 14400.  Po upływie tego czasu węzeł zostanie automatycznie uruchomiony ponownie w stanie up.  Przykład użycia można znaleźć w przykładzie 1 poniżej.
+**Ograniczony czas trwania** W przypadku korzystania z interfejsu API przejścia węzła do zatrzymania węzła jeden z wymaganych parametrów, *stopNodeDurationInSeconds*, reprezentuje czas (w sekundach) *zatrzymania* węzła.  Ta wartość musi mieścić się w dozwolonym zakresie, który ma wartość minimalną 600 i maksymalnie 14400.  Po upływie tego czasu węzeł zostanie automatycznie uruchomiony ponownie w stanie up.  Przykład użycia można znaleźć w przykładzie 1 poniżej.
 
 > [!WARNING]
 > Unikaj mieszania interfejsów API przejścia węzła i węzła Zatrzymaj i interfejsów API węzła uruchomieniowego.  Zalecenie polega na użyciu tylko interfejsu API przejścia węzła.  >, jeśli węzeł został już zatrzymany przy użyciu interfejsu API Zatrzymaj węzła, powinien zostać uruchomiony przy użyciu interfejsu API uruchamiania węzła najpierw przed użyciem interfejsów API przejścia węzła >.

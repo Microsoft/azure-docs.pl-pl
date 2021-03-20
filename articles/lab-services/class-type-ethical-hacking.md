@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure La
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 97cdf13f39cc73ee7f35fb402229469195f1456c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97616426"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurowanie laboratorium do uczenia się klasy działanie hakerskie etycznych
@@ -51,11 +51,11 @@ Kali to dystrybucja systemu Linux obejmująca narzędzia do testowania i inspekc
     1. Wyodrębnij plik. 7z.  Jeśli nie masz jeszcze 7 pliku zip, Pobierz go z [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html) . Zapamiętaj lokalizację wyodrębnionego folderu, ponieważ będzie on potrzebny później.
 1. Przekonwertuj wyodrębniony plik VMDK na plik VHDX, aby można było użyć pliku VHDX z funkcją Hyper-V. Istnieje kilka dostępnych narzędzi umożliwiających konwertowanie obrazów programu VMware na obrazy funkcji Hyper-V.  Będziemy używać [konwertera V2V StarWind](https://www.starwindsoftware.com/starwind-v2v-converter).  Aby pobrać, zobacz [stronę pobierania konwertera V2V StarWind](https://www.starwindsoftware.com/starwind-v2v-converter#download).
     1. Uruchom **konwerter STARWIND V2V**.
-    1. Na stronie **Wybierz lokalizację obrazu do przekonwertowania** wybierz pozycję **plik lokalny**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **obraz źródłowy** przejdź do i wybierz plik Kali Linux VMDK wyodrębniony w poprzednim kroku dla ustawienia **Nazwa pliku** .  Plik będzie w formacie Kali-Linux-{version}-VMware-amd64. VMDK.  Wybierz pozycję **Dalej**.
-    1. W obszarze **obraz wybierz lokalizację docelową** wybierz pozycję **plik lokalny**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **Format obrazu docelowego wybierz** pozycję **VHD/VHDX**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **Wybierz opcję formatu obrazu VHD/VHDX** wybierz opcję obraz z możliwością **przerostów VHDX**.  Wybierz pozycję **Dalej**.
+    1. Na stronie **Wybierz lokalizację obrazu do przekonwertowania** wybierz pozycję **plik lokalny**.  Wybierz opcję **Dalej**.
+    1. Na stronie **obraz źródłowy** przejdź do i wybierz plik Kali Linux VMDK wyodrębniony w poprzednim kroku dla ustawienia **Nazwa pliku** .  Plik będzie w formacie Kali-Linux-{version}-VMware-amd64. VMDK.  Wybierz opcję **Dalej**.
+    1. W obszarze **obraz wybierz lokalizację docelową** wybierz pozycję **plik lokalny**.  Wybierz opcję **Dalej**.
+    1. Na stronie **Format obrazu docelowego wybierz** pozycję **VHD/VHDX**.  Wybierz opcję **Dalej**.
+    1. Na stronie **Wybierz opcję formatu obrazu VHD/VHDX** wybierz opcję obraz z możliwością **przerostów VHDX**.  Wybierz opcję **Dalej**.
     1. Na stronie **Wybierz nazwę pliku docelowego** zaakceptuj domyślną nazwę pliku.  Wybierz pozycję **Konwertuj**.
     1. Na stronie **konwertowanie** Zaczekaj na konwersję obrazu.  Może to potrwać kilka minut.  Wybierz przycisk **Zakończ** , gdy konwersja zostanie zakończona.
 1. Utwórz nową maszynę wirtualną funkcji Hyper-V.
@@ -85,11 +85,11 @@ Obraz Rapid7 Metasploitable to obraz skonfigurowany do celów z lukami w zabezpi
     3. Po pobraniu pliku zip Wyodrębnij plik zip i Zapamiętaj lokalizację pliku Metasploitable. VMDK.
 1. Przekonwertuj wyodrębniony plik VMDK na plik VHDX, aby można było użyć pliku VHDX z funkcją Hyper-V. Istnieje kilka dostępnych narzędzi umożliwiających konwertowanie obrazów programu VMware na obrazy funkcji Hyper-V.  Będziemy ponownie używać [konwertera STARWIND V2V](https://www.starwindsoftware.com/starwind-v2v-converter) .  Aby pobrać, zobacz [stronę pobierania konwertera V2V StarWind](https://www.starwindsoftware.com/starwind-v2v-converter#download).
     1. Uruchom **konwerter STARWIND V2V**.
-    1. Na stronie **Wybierz lokalizację obrazu do przekonwertowania** wybierz pozycję **plik lokalny**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **obraz źródłowy** przejdź do i wybierz Metasploitable. vmdk wyodrębnione w poprzednim kroku dla ustawienia **Nazwa pliku** .  Wybierz pozycję **Dalej**.
-    1. W obszarze **obraz wybierz lokalizację docelową** wybierz pozycję **plik lokalny**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **Format obrazu docelowego wybierz** pozycję **VHD/VHDX**.  Wybierz pozycję **Dalej**.
-    1. Na stronie **Wybierz opcję formatu obrazu VHD/VHDX** wybierz opcję obraz z możliwością **przerostów VHDX**.  Wybierz pozycję **Dalej**.
+    1. Na stronie **Wybierz lokalizację obrazu do przekonwertowania** wybierz pozycję **plik lokalny**.  Wybierz opcję **Dalej**.
+    1. Na stronie **obraz źródłowy** przejdź do i wybierz Metasploitable. vmdk wyodrębnione w poprzednim kroku dla ustawienia **Nazwa pliku** .  Wybierz opcję **Dalej**.
+    1. W obszarze **obraz wybierz lokalizację docelową** wybierz pozycję **plik lokalny**.  Wybierz opcję **Dalej**.
+    1. Na stronie **Format obrazu docelowego wybierz** pozycję **VHD/VHDX**.  Wybierz opcję **Dalej**.
+    1. Na stronie **Wybierz opcję formatu obrazu VHD/VHDX** wybierz opcję obraz z możliwością **przerostów VHDX**.  Wybierz opcję **Dalej**.
     1. Na stronie **Wybierz nazwę pliku docelowego** zaakceptuj domyślną nazwę pliku.  Wybierz pozycję **Konwertuj**.
     1. Na stronie **konwertowanie** Zaczekaj na konwersję obrazu.  Może to potrwać kilka minut.  Wybierz przycisk **Zakończ** , gdy konwersja zostanie zakończona.
 1. Utwórz nową maszynę wirtualną funkcji Hyper-V.
@@ -121,7 +121,7 @@ Obraz Rapid7 Metasploitable to obraz skonfigurowany do celów z lukami w zabezpi
 
 Szablon jest teraz aktualizowany i zawiera obrazy potrzebne do testowania działanie hakerskiej penetracji etycznej, obrazu z narzędziami do testowania penetracji i innego obrazu z lukami w zabezpieczeniach do odnalezienia. Obraz szablonu można teraz opublikować w klasie. Wybierz przycisk **Publikuj** na stronie szablon, aby opublikować szablon w laboratorium.
 
-## <a name="cost"></a>Cost (Koszt)  
+## <a name="cost"></a>Koszt  
 
 Jeśli chcesz oszacować koszt tego laboratorium, możesz użyć poniższego przykładu:
 

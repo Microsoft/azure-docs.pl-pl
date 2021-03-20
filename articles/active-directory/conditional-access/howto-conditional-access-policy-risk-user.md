@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049081"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Dostęp warunkowy: dostęp warunkowy oparty na ryzyku
@@ -27,16 +27,16 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 ## <a name="enable-with-conditional-access-policy"></a>Włączanie przy użyciu zasad dostępu warunkowego
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad. Aby uzyskać więcej informacji, [Ustaw standardy nazewnictwa dla zasad](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
-   1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
-   1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
-1. W obszarze **warunki**  >  **ryzyka użytkownika**ustaw opcję **Skonfiguruj** na **wartość tak**. W obszarze **Konfigurowanie poziomów ryzyka użytkownika wymaganych do wymuszania zasad** wybierz pozycję **wysoka**, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Udziel dostępu**, **Wymagaj zmiany hasła**i wybierz pozycję **Wybierz**.
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy użytkownicy**.
+   1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
+   1. Kliknij **Gotowe**.
+1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz** wybierz pozycję **wszystkie aplikacje w chmurze**.
+1. W obszarze **warunki**  >  **ryzyka użytkownika** ustaw opcję **Skonfiguruj** na **wartość tak**. W obszarze **Konfigurowanie poziomów ryzyka użytkownika wymaganych do wymuszania zasad** wybierz pozycję **wysoka**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola dostępu**  >  **Przyznaj** wybierz pozycję **Udziel dostępu**, **Wymagaj zmiany hasła** i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia, a następnie ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 
@@ -45,13 +45,13 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Zaloguj się w witrynie **Azure Portal**.
 1. Wybierz pozycję **wszystkie usługi**, a następnie przejdź do **Azure AD Identity Protection**.
 1. Wybierz pozycję **zasady ryzyka dla użytkowników**.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy**.
-   1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
-   1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **warunki**wybierz pozycję **ryzyko użytkownika**, a następnie wybierz pozycję **wysoki**.
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy**.
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy użytkownicy**.
+   1. W obszarze **Wyklucz** wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
+   1. Kliknij **Gotowe**.
+1. W obszarze **warunki** wybierz pozycję **ryzyko użytkownika**, a następnie wybierz pozycję **wysoki**.
    1. Wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
-1. W obszarze **Kontrola**  >  **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj zmiany hasła**.
+1. W obszarze **Kontrola**  >  **dostępu** wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj zmiany hasła**.
    1. Wybierz pozycję **Wybierz**.
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Wybierz pozycję **Zapisz**.

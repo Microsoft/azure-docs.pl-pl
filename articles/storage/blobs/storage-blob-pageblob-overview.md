@@ -11,10 +11,10 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97629361"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
@@ -39,7 +39,7 @@ Usługi firmy Microsoft w pierwszej kolejności, takie jak Azure Site Recovery, 
 * Migracja na żywo aplikacji i danych z lokalizacji lokalnej do chmury: Skopiuj dane lokalne i Użyj interfejsów API REST, aby pisać bezpośrednio do obiektu BLOB na stronie platformy Azure, gdy na lokalnej maszynie wirtualnej nadal działa. Gdy obiekt docelowy zostanie przechwycony, możesz szybko przełączyć się do trybu failover na maszynie wirtualnej platformy Azure przy użyciu tych danych. W ten sposób można migrować maszyny wirtualne i dyski wirtualne z lokalizacji lokalnych do chmury z minimalnym przestojem, ponieważ migracja danych odbywa się w tle, a czas przestoju wymagany do przejścia w tryb failover będzie krótki (w minutach).
 * Dostęp współdzielony [oparty na SAS](../common/storage-sas-overview.md) , który umożliwia scenariusze, takie jak wiele czytników i pojedynczy moduł zapisu z obsługą kontroli współbieżności.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Oba typy magazynów oferowane przez stronicowe obiekty blob mają własny model cen. Na stronie Premium obiekty blob są zgodne z modelem cen dla dysków zarządzanych, podczas gdy standardowe obiekty blob na stronie standardowej są rozliczane przy użyciu rozmiaru i każdej transakcji. Aby uzyskać więcej informacji, zobacz [stronę cennika obiektów BLOB strony platformy Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
