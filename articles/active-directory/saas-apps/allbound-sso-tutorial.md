@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f6030e209b06dc7ae9acd8a13e6dcdf22b58f8c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Allbound
@@ -189,7 +189,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w aplikacji Allbound SSO. Aplikacja Allbound SSO obsługuje aprowizację użytkowników just-in-time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w aplikacji Allbound SSO, zostanie utworzony po uwierzytelnieniu.
 
 > [!Note]
-> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z  [zespołem pomocy technicznej aplikacji Allbound SSO](mailto:engineering@allbound.com).
+> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem obsługi rejestracji jednokrotnej Allbound](mailto:engineering@allbound.com).
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

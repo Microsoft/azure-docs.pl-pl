@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537195"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange z serwerem tras w Azure Portal
@@ -69,9 +69,9 @@ Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikac
     * Wybierz jednostkę SKU jako **bezpłatnie jako podstawową**. Nie wybieraj opcji Bezpłatna wersja Premium, ponieważ jest zarezerwowana dla aplikacji specjalnych.
     * Wybierz lokalizację **, w której chcesz** skonfigurować komunikację równorzędną.
 
-1. W obszarze **połączenia komunikacji równorzędnej**wybierz pozycję **Utwórz nowy** .
+1. W obszarze **połączenia komunikacji równorzędnej** wybierz pozycję **Utwórz nowy** .
 
-1.  W obszarze **bezpośrednie połączenie komunikacji równorzędnej**wypełnij następujące szczegóły sesji BGP:
+1.  W obszarze **bezpośrednie połączenie komunikacji równorzędnej** wypełnij następujące szczegóły sesji BGP:
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawia okienko bezpośrednie połączenie komunikacji równorzędnej z dodatkowymi informacjami.](./media/setup-exchange-conf-tab-direct-route.png)
@@ -130,6 +130,6 @@ Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikac
 * [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu](howto-direct-portal.md)
 * [Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](howto-legacy-direct-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).

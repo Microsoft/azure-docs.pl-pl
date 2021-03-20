@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377197"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
@@ -25,7 +25,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe                      | Działania                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Klaster usługi Azure HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster HDInsight](#azure-hdinsight-linked-service) | [Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [świnie](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), usługa [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
+| [Usługa Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Działania procedur składowanych](data-factory-stored-proc-activity.md) |
@@ -225,7 +225,7 @@ Istnieje możliwość zarejestrowania istniejącego środowiska obliczeniowego j
 Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczeniowych:
 
 * Azure HDInsight
-* Azure Batch
+* Usługa Azure Batch
 * Azure Machine Learning Studio (klasyczny)
 * Azure Data Lake Analytics
 * Azure SQL Database, usługa Azure Synapse Analytics, SQL Server

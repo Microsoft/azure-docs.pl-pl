@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to, automl
 ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358817"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Tworzenie prognoz z modelem ONNX AutoML w środowisku .NET
@@ -50,7 +50,7 @@ W tym przykładzie użyto interfejs wiersza polecenia platformy .NET Core do sko
 
 ## <a name="add-software-packages"></a>Dodaj pakiety oprogramowania
 
-1. Zainstaluj pakiety NuGet **Microsoft.ml** , **Microsoft. ml. OnnxRuntime** i **Microsoft. ml. OnnxTransformer** przy użyciu interfejs wiersza polecenia platformy .NET Core.
+1. Zainstaluj pakiety NuGet **Microsoft.ml**, **Microsoft. ml. OnnxRuntime** i **Microsoft. ml. OnnxTransformer** przy użyciu interfejs wiersza polecenia platformy .NET Core.
 
     ```dotnetcli
     dotnet add package Microsoft.ML
@@ -60,7 +60,7 @@ W tym przykładzie użyto interfejs wiersza polecenia platformy .NET Core do sko
 
     Te pakiety zawierają zależności wymagane do użycia modelu ONNX w aplikacji .NET. ML.NET udostępnia interfejs API, który używa [środowiska uruchomieniowego ONNX](https://github.com/Microsoft/onnxruntime) do przewidywania.
 
-1. Otwórz plik *program.cs* i Dodaj następujące `using` instrukcje w górnej części strony, aby odwołać się do odpowiednich pakietów.
+1. Otwórz plik *program. cs* i Dodaj następujące `using` instrukcje w górnej części strony, aby odwołać się do odpowiednich pakietów.
 
     ```csharp
     using System.Linq;
@@ -88,7 +88,7 @@ Dodaj odwołanie do pliku modelu ONNX w aplikacji
 
     W takim przypadku nazwą pliku modelu ONNX jest *automl-model. ONNX*.
 
-1. Otwórz plik *program.cs* i Dodaj następujący wiersz w `Program` klasie.
+1. Otwórz plik *program. cs* i Dodaj następujący wiersz w `Program` klasie.
 
     ```csharp
     static string ONNX_MODEL_PATH = "automl-model.onnx";
@@ -130,7 +130,7 @@ Użyj narzędzia, takiego jak Netron, aby sprawdzić dane wejściowe i wyjściow
 
 ### <a name="define-model-input-schema"></a>Zdefiniuj schemat wejściowy modelu
 
-Utwórz nową klasę o nazwie `OnnxInput` z poniższymi właściwościami w pliku *program.cs* .
+Utwórz nową klasę o nazwie `OnnxInput` z poniższymi właściwościami w pliku *program. cs* .
 
 ```csharp
 public class OnnxInput
@@ -165,7 +165,7 @@ Aby dowiedzieć się więcej na temat atrybutów danych, zobacz [Przewodnik po z
 
 ### <a name="define-model-output-schema"></a>Zdefiniuj schemat wyjściowy modelu
 
-Po przetworzeniu danych dane wyjściowe są generowane w określonym formacie. Zdefiniuj schemat danych wyjściowych. Utwórz nową klasę o nazwie `OnnxOutput` z poniższymi właściwościami w pliku *program.cs* .
+Po przetworzeniu danych dane wyjściowe są generowane w określonym formacie. Zdefiniuj schemat danych wyjściowych. Utwórz nową klasę o nazwie `OnnxOutput` z poniższymi właściwościami w pliku *program. cs* .
 
 ```csharp
 public class OnnxOutput

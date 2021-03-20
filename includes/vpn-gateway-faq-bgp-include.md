@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 649c5805c600b6282be6d05fefb59cecaf249f4f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92526130"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Czy protokół BGP jest obsługiwany na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
@@ -45,7 +45,7 @@ Te WPW nie są zarezerwowane przez organizację IANA ani na korzystanie z platfo
 
 ### <a name="what-address-does-vpn-gateway-use-for-bgp-peer-ip"></a>Jakiego adresu VPN Gateway używać dla adresu IP elementu równorzędnego BGP?
 
-Domyślnie program VPN Gateway przydziela pojedynczy adres IP z zakresu *GatewaySubnet* w przypadku bram sieci VPN z aktywnymi Stanami gotowości lub dwóch adresów IP dla bram sieci VPN w usłudze Active-Active. Te adresy są przypisywane automatycznie podczas tworzenia bramy sieci VPN. Możesz uzyskać rzeczywisty adres IP BGP przydzielonego za pomocą programu PowerShell lub przez znalezienie go w Azure Portal. W programie PowerShell Użyj polecenia **Get-AzVirtualNetworkGateway**i Wyszukaj Właściwość **bgpPeeringAddress** . W Azure Portal na stronie **Konfiguracja bramy** poszukaj właściwości konfiguracja **BGP ASN** .
+Domyślnie program VPN Gateway przydziela pojedynczy adres IP z zakresu *GatewaySubnet* w przypadku bram sieci VPN z aktywnymi Stanami gotowości lub dwóch adresów IP dla bram sieci VPN w usłudze Active-Active. Te adresy są przypisywane automatycznie podczas tworzenia bramy sieci VPN. Możesz uzyskać rzeczywisty adres IP BGP przydzielonego za pomocą programu PowerShell lub przez znalezienie go w Azure Portal. W programie PowerShell Użyj polecenia **Get-AzVirtualNetworkGateway** i Wyszukaj Właściwość **bgpPeeringAddress** . W Azure Portal na stronie **Konfiguracja bramy** poszukaj właściwości konfiguracja **BGP ASN** .
 
 Jeśli lokalne routery sieci VPN używają adresów IP **APIPA** (169.254. x. x) jako adresów IP protokołu BGP, należy określić dodatkowy **adres IP funkcji APIPA platformy Azure** w bramie sieci VPN platformy Azure. Usługa Azure VPN Gateway wybiera adres APIPA do użycia z lokalnym elementem równorzędnym protokołu BGP w trybie APIPA określonym w bramie sieci lokalnej lub prywatnym adresem IP dla nieapipa, lokalnego elementu równorzędnego BGP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołu BGP](../articles/vpn-gateway/bgp-howto.md).
 

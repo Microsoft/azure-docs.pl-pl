@@ -8,15 +8,15 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171622"
 ---
 # <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
 
-Event Grid zapewnia trwałe dostarczanie. Próbuje dostarczyć każdy komunikat co najmniej raz dla każdej pasującej subskrypcji. Jeśli punkt końcowy subskrybenta nie potwierdzi odbioru zdarzenia lub jeśli wystąpi błąd, Event Grid ponowienia próby w oparciu o ustalony **harmonogram ponownych prób** i **zasady ponawiania**prób.  Domyślnie moduł Event Grid dostarcza jedno zdarzenie naraz do subskrybenta. Ładunek jest jednak tablicą z pojedynczym zdarzeniem. Moduł może dostarczyć więcej niż jedno zdarzenie naraz, włączając funkcję tworzenia wsadowego danych wyjściowych. Aby uzyskać szczegółowe informacje na temat tej funkcji, zobacz Tworzenie [wsadowe danych wyjściowych](delivery-output-batching.md).  
+Event Grid zapewnia trwałe dostarczanie. Próbuje dostarczyć każdy komunikat co najmniej raz dla każdej pasującej subskrypcji. Jeśli punkt końcowy subskrybenta nie potwierdzi odbioru zdarzenia lub jeśli wystąpi błąd, Event Grid ponowienia próby w oparciu o ustalony **harmonogram ponownych prób** i **zasady ponawiania** prób.  Domyślnie moduł Event Grid dostarcza jedno zdarzenie naraz do subskrybenta. Ładunek jest jednak tablicą z pojedynczym zdarzeniem. Moduł może dostarczyć więcej niż jedno zdarzenie naraz, włączając funkcję tworzenia wsadowego danych wyjściowych. Aby uzyskać szczegółowe informacje na temat tej funkcji, zobacz Tworzenie [wsadowe danych wyjściowych](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >Brak obsługi trwałości dla danych zdarzenia. Oznacza to, że ponowne wdrożenie lub uruchomienie modułu Event Grid spowoduje utratę wszystkich zdarzeń, które nie zostały jeszcze dostarczone.

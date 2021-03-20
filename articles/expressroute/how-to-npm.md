@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571041"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
@@ -34,7 +34,7 @@ Oto co możesz zrobić:
 
 * Zobacz stan systemu ExpressRoute z wcześniejszego punktu w czasie
 
-## <a name="workflow"></a><a name="workflow"></a>Utworzonego
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Agenci monitorowania są zainstalowani na wielu serwerach, zarówno lokalnie, jak i na platformie Azure. Agenci komunikują się ze sobą, ale nie wysyłają danych, wysyłają pakiety uzgadniania protokołu TCP. Komunikacja między agentami umożliwia platformie Azure zamapowanie topologii sieci i ścieżki, które może zająć ruch.
 

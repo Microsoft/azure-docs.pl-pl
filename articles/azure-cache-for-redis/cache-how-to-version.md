@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: d9f48de7ef5d9525a995af4ebbd12c5f14f40189
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93349141"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Ustaw wersję Redis dla usługi Azure cache for Redis (wersja zapoznawcza)
@@ -44,7 +44,7 @@ Aby utworzyć pamięć podręczną, wykonaj następujące kroki:
 
 1. Kliknij pozycję **Utwórz**. 
    
-    Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia.
+    Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia.
 
     > [!NOTE]
     > W tej chwili nie można zmienić wersji Redis po utworzeniu pamięci podręcznej.

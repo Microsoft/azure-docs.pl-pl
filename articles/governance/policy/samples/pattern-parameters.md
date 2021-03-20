@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykład użycia parametrów cią
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89649947"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Wzorzec Azure Policy: parametry
@@ -43,10 +43,10 @@ Ta definicja zasad używa jednego parametru, **listOfBandwidthinMbps**, aby spra
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="6-12":::
 
-W tej części definicji zasad parametr **listOfBandwidthinMbps** jest zdefiniowany jako _Tablica_ i opis jest przeznaczony do użycia. Jako _Tablica_ma wiele wartości do dopasowania.
+W tej części definicji zasad parametr **listOfBandwidthinMbps** jest zdefiniowany jako _Tablica_ i opis jest przeznaczony do użycia. Jako _Tablica_ ma wiele wartości do dopasowania.
 
-Ten parametr jest następnie używany w bloku **Klasa policyrule. if** . Jako parametr _tablicy_ , _array_ 
- należy użyć lub **notIn** [warunku](../concepts/definition-structure.md#conditions)tablicy. **in**
+Ten parametr jest następnie używany w bloku **Klasa policyrule. if** . Jako parametr _tablicy_ ,  
+ należy użyć lub **notIn** [warunku](../concepts/definition-structure.md#conditions)tablicy. 
 W tym miejscu jest używany w odniesieniu do aliasu **. bandwidthInMbps** jako jednej ze zdefiniowanych wartości.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4fdfe26104e4b69212b7bf6870582ef4cbb4de2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Samouczek: integracja Azure Active Directory z usługą AMMS
@@ -168,7 +168,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-amms-test-user"></a>Utwórz użytkownika testowego AMMS
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w AMMS. Aby dodać użytkowników na platformie AMMS, Pracuj z [zespołem pomocy technicznej AMMS](mailto:techsupport@microwestsoftware.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w AMMS. Aby dodać użytkowników na platformie AMMS, Pracuj z [zespołem pomocy technicznej AMMS](mailto:techsupport@microwestsoftware.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

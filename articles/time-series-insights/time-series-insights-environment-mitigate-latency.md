@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531653"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorowanie i ograniczanie ograniczania przepustowości w celu zmniejszenia opóźnień w Azure Time Series Insights Gen1
@@ -59,17 +59,17 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
    W tym miejscu możesz skonfigurować alerty przy użyciu następujących warunków:
 
-   |Metryka  |Opis  |
+   |Metric  |Opis  |
    |---------|---------|
    |**Bajty odebrane z ruchu przychodzącego**     | Liczba nieprzetworzonych bajtów odczytanych ze źródeł zdarzeń. Licznik nieprzetworzony zazwyczaj zawiera nazwę właściwości i wartość.  |  
    |**Odebrano nieprawidłowe komunikaty dotyczące transferu danych przychodzących**     | Liczba nieprawidłowych komunikatów odczytywanych ze wszystkich Event Hubs platformy Azure lub źródeł zdarzeń platformy Azure IoT Hub.      |
    |**Odebrane komunikaty transferu danych przychodzących**   | Liczba komunikatów odczytywanych ze wszystkich Event Hubs lub źródeł zdarzeń usługi IoT Hub.        |
    |**Bajty przechowywane w ruchu przychodzącym**     | Łączny rozmiar zdarzeń przechowywanych i dostępnych dla zapytania. Rozmiar jest obliczany tylko na wartości właściwości.        |
-   |**Zdarzenia związane** z transferem danych przychodzących     |   Liczba zdarzeń spłaszczonych przechowywanych i dostępnych dla kwerendy.      |
-   |**Zwłoka czasu odbierania komunikatu przychodzącego**   |  Różnica w sekundach między upływem czasu, w którym komunikat jest przełączany w źródle zdarzenia i czas przetwarzania w danych wejściowych.      |
-   |**Opóźnienie liczby komunikatów odebranych** przez ruch przychodzący    |  Różnica między numerem sekwencyjnym ostatnio zarejestrowanego komunikatu w partycji źródłowej zdarzenia i numerem sekwencyjnym komunikatu przetwarzanego w ramach ruchu przychodzącego.      |
+   |**Zdarzenia związane z transferem danych przychodzących**     |   Liczba zdarzeń spłaszczonych przechowywanych i dostępnych dla kwerendy.      |
+   |**Zwłoka czasu odbierania komunikatu przychodzącego**    |  Różnica w sekundach między upływem czasu, w którym komunikat jest przełączany w źródle zdarzenia i czas przetwarzania w danych wejściowych.      |
+   |**Opóźnienie liczby komunikatów odebranych przez ruch przychodzący**    |  Różnica między numerem sekwencyjnym ostatnio zarejestrowanego komunikatu w partycji źródłowej zdarzenia i numerem sekwencyjnym komunikatu przetwarzanego w ramach ruchu przychodzącego.      |
 
-   Wybierz pozycję **Gotowe**.
+   Kliknij **Gotowe**.
 
 1. Po skonfigurowaniu żądanej logiki sygnałów Przejrzyj wybraną regułę alertów wizualnie.
 
@@ -87,7 +87,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
   Na przykład jeśli masz trzy jednostki S1 z obsługą administracyjną (lub 2100 zdarzeń na minutę), możesz ustawić alert dotyczący **zdarzeń** związanych z transferem danych przychodzących dla zdarzeń >= 1900 przez 2 godziny. W przypadku ciągłego przekraczania tego progu, w związku z czym wyzwalany jest alert, jest to najkorzystniej obsługiwane.  
 
-- Jeśli podejrzewasz, że masz ograniczenie przepustowości, możesz porównać **odebrane komunikaty przychodzące** z komunikatami egressed źródła zdarzeń.  Jeśli ruch przychodzący do centrum zdarzeń jest większy niż **odebrane komunikaty**transferu danych przychodzących, prawdopodobnie Azure Time Series Insights są ograniczone.
+- Jeśli podejrzewasz, że masz ograniczenie przepustowości, możesz porównać **odebrane komunikaty przychodzące** z komunikatami egressed źródła zdarzeń.  Jeśli ruch przychodzący do centrum zdarzeń jest większy niż **odebrane komunikaty** transferu danych przychodzących, prawdopodobnie Azure Time Series Insights są ograniczone.
 
 ## <a name="improving-performance"></a>Poprawianie wydajności
 

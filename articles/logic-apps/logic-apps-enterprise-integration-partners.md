@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565075"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Dodawanie partnerów handlowych do kont integracji dla usługi Azure Logic Apps
@@ -41,7 +41,7 @@ W umowie należy określić szczegóły dotyczące obsługi komunikatów przycho
 
    ![Wybierz pozycję "konta integracji"](./media/logic-apps-enterprise-integration-partners/find-integration-accounts.png)
 
-1. W obszarze **konta integracji**wybierz konto integracji, do którego chcesz dodać partnerów.
+1. W obszarze **konta integracji** wybierz konto integracji, do którego chcesz dodać partnerów.
 
    ![Wybierz konto integracji](./media/logic-apps-enterprise-integration-partners/select-integration-account.png)
 
@@ -49,7 +49,7 @@ W umowie należy określić szczegóły dotyczące obsługi komunikatów przycho
 
    ![Zrzut ekranu przedstawiający kafelek partnerów.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
-1. W obszarze **partnerzy**wybierz pozycję **Dodaj**. W obszarze **Dodawanie partnera**Podaj szczegóły partnera zgodnie z opisem w poniższej tabeli.
+1. W obszarze **partnerzy** wybierz pozycję **Dodaj**. W obszarze **Dodawanie partnera** Podaj szczegóły partnera zgodnie z opisem w poniższej tabeli.
 
    ![Wybierz pozycję "Dodaj" i podaj szczegóły partnera](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
@@ -78,7 +78,7 @@ Wybierz kafelek **partnerzy** .
 
    ![Wybierz kafelek "partnerzy"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-1. W obszarze **partnerzy**wybierz partnera, który chcesz edytować, a następnie wybierz pozycję **Edytuj**. W obszarze **Edytuj**wprowadź zmiany.
+1. W obszarze **partnerzy** wybierz partnera, który chcesz edytować, a następnie wybierz pozycję **Edytuj**. W obszarze **Edytuj** wprowadź zmiany.
 
    ![Wprowadzanie i zapisywanie zmian](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
 
@@ -102,7 +102,7 @@ Wybierz kafelek **partnerzy** .
 
    ![Zrzut ekranu przedstawiający kafelek partnerzy wybierany podczas usuwania partnera.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
-1. W obszarze **partnerzy**wybierz partnera, który chcesz usunąć. Wybierz przycisk **Usuń**.
+1. W obszarze **partnerzy** wybierz partnera, który chcesz usunąć. Wybierz przycisk **Usuń**.
 
    ![Usuń partnera](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
 

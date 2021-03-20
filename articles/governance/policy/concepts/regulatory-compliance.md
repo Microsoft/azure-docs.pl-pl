@@ -4,10 +4,10 @@ description: Opisuje sposób użycia definicji inicjatywy do grupy zasad według
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645529"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Zgodność z przepisami w Azure Policy
@@ -40,11 +40,11 @@ Wybranie **kontrolki** powoduje otwarcie strony ze szczegółowymi informacjami 
 > [!NOTE]
 > Typ oceny **zarządzanej przez firmę Microsoft** jest przeznaczony dla definicji zasad [statycznych](./definition-structure.md#type) `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Zrzut ekranu przedstawiający przegląd zgodności z przepisami dla programu NIST SP 800-53 R4 — wbudowana definicja pokazująca zgodne i niezgodne kontrolki.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności z przepisami dotyczącymi kontroli ochrony granic w ramach wbudowanej definicji programu NIST SP 800-53 R4.":::
 
 Na tej samej stronie **kontrolnej** zmiana na karcie **zgodność zasobów** powoduje wyświetlenie wszystkich zasobów zawierających definicje zasad tej **kontrolki**. Filtry są dostępne dla nazwy lub identyfikatora, stanu zgodności, typu zasobu i lokalizacji.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Zrzut ekranu przedstawiający przegląd zgodności z przepisami dla programu NIST SP 800-53 R4 — wbudowana definicja pokazująca zgodne i niezgodne kontrolki.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Zrzut ekranu przedstawiający zgodność zasobów z kontrolą ochrony granic w ramach wbudowanej definicji programu NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Zgodność z przepisami w zestawie SDK
 

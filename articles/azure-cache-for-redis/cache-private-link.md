@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007589"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
@@ -103,7 +103,7 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
 1. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
 1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
@@ -200,7 +200,7 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób.
 
-12. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do karty **Recenzja + tworzenie** , w której platforma Azure weryfikuje konfigurację.
+12. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty **Recenzja + tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 13. Po wyświetleniu komunikatu o pomyślnym **sprawdzeniu poprawności** , wybierz pozycję **Utwórz**.
 

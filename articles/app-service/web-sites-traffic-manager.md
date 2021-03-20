@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80437893"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Kontrolowanie ruchu Azure App Service przy użyciu usługi Azure Traffic Manager
@@ -24,10 +24,10 @@ Usługi Azure Traffic Manager możesz użyć do kontrolowania dystrybucji żąda
 ## <a name="routing-methods"></a>Metody routingu
 Na platformie Azure Traffic Manager są stosowane cztery różne metody routingu. Te metody są opisane na poniższej liście, ponieważ odnoszą się do Azure App Service.
 
-* ** [Priorytet](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** Użyj aplikacji głównej dla całego ruchu i podaj kopie zapasowe w przypadku, gdy podstawowy lub aplikacje kopii zapasowej są niedostępne.
-* ** [Ważone](../traffic-manager/traffic-manager-routing-methods.md#weighted):** Dystrybuuj ruch między zestawami aplikacji, a nawet zgodnie z wagami definiowanymi przez użytkownika.
-* ** [Wydajność](../traffic-manager/traffic-manager-routing-methods.md#performance):** gdy aplikacje znajdują się w różnych lokalizacjach geograficznych, użyj aplikacji "najbliższy" w warunkach najmniejszego opóźnienia sieci.
-* ** [Geograficzna](../traffic-manager/traffic-manager-routing-methods.md#geographic):** kierowanie użytkowników do określonych aplikacji na podstawie lokalizacji geograficznej, z której pochodzą zapytanie DNS. 
+* **[Priorytet](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** Użyj aplikacji głównej dla całego ruchu i podaj kopie zapasowe w przypadku, gdy podstawowy lub aplikacje kopii zapasowej są niedostępne.
+* **[Ważone](../traffic-manager/traffic-manager-routing-methods.md#weighted):** Dystrybuuj ruch między zestawami aplikacji, a nawet zgodnie z wagami definiowanymi przez użytkownika.
+* **[Wydajność](../traffic-manager/traffic-manager-routing-methods.md#performance):** gdy aplikacje znajdują się w różnych lokalizacjach geograficznych, użyj aplikacji "najbliższy" w warunkach najmniejszego opóźnienia sieci.
+* **[Geograficzna](../traffic-manager/traffic-manager-routing-methods.md#geographic):** kierowanie użytkowników do określonych aplikacji na podstawie lokalizacji geograficznej, z której pochodzą zapytanie DNS. 
 
 Aby uzyskać więcej informacji, zobacz [Traffic Manager metod routingu](../traffic-manager/traffic-manager-routing-methods.md).
 

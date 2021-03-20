@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943928"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Co to jest usługa ML w usłudze Azure HDInsight
@@ -133,7 +133,7 @@ Węzeł brzegowy systemu Linux klastra usługi HDInsight jest strefą docelową 
 
 Aby uzyskać dostęp do konsoli języka R w węźle brzegowym, wpisz **R** w wierszu polecenia. Korzystając z interfejsu konsoli, wygodnie jest utworzyć skrypt języka R w edytorze tekstu. Następnie należy wyciąć i wkleić sekcje skryptu do konsoli języka R, zgodnie z potrzebami.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Ceny skojarzone z klastrem usługi HDInsight usług w usłudze ML mają strukturę podobną do innych typów klastrów w usłudze HDInsight. Są one oparte na wymiarze rozmiarów bazowych maszyn wirtualnych w obrębie nazwy, danych i węzłów brzegowych. Również przyrosty godzin. Aby uzyskać więcej informacji, zobacz [Cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

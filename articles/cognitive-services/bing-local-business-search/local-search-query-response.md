@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 70a33774ac82312660d887fb86f7e2a482c30a0c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487171"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Wysyłanie zapytań i odpowiedzi interfejsu API wyszukiwania lokalnego usługi Bing oraz korzystanie z nich
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Możesz uzyskać wyniki lokalne z interfejsu API wyszukiwania lokalnego usługi Bing, wysyłając zapytanie wyszukiwania do jego punktu końcowego i uwzględniając `Ocp-Apim-Subscription-Key` nagłówek, który jest wymagany. Oprócz dostępnych [nagłówków](local-search-reference.md#headers) i [parametrów](local-search-reference.md#query-parameters)wyszukiwania można dostosować, określając [granice geograficzne](specify-geographic-search.md) dla obszaru, który ma być przeszukiwany, oraz [Kategorie](local-search-query-response.md) zwracanych miejsc.
 
 ## <a name="creating-a-request"></a>Tworzenie żądania
 
-Aby wysłać żądanie do interfejsu API wyszukiwania lokalnego usługi Bing, Dołącz termin wyszukiwania do `q=` parametru przed dodaniem go do punktu końcowego interfejsu API, a w tym `Ocp-Apim-Subscription-Key` nagłówek. Przykład:
+Aby wysłać żądanie do interfejsu API wyszukiwania lokalnego usługi Bing, Dołącz termin wyszukiwania do `q=` parametru przed dodaniem go do punktu końcowego interfejsu API, a w tym `Ocp-Apim-Subscription-Key` nagłówek. Na przykład:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

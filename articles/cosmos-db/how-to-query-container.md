@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335895"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos
@@ -59,9 +59,9 @@ Zestawy Azure Cosmos DB SDK w wersji 1.9.0 i nowszych obsługują opcje równole
 
 Możesz zarządzać równoległym wykonywaniem zapytań przez dostrojenie następujących parametrów:
 
-- **MaxConcurrency** : ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1` , zestaw SDK zarządza stopień równoległości. Jeśli  `MaxConcurrency` ustawiona na `0` , istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
+- **MaxConcurrency**: ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1` , zestaw SDK zarządza stopień równoległości. Jeśli  `MaxConcurrency` ustawiona na `0` , istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
 
-- **MaxBufferedItemCount** : wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
+- **MaxBufferedItemCount**: wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
 
 Ze względu na Azure Cosmos DB możliwości zrównoleglanie zapytań między partycjami, opóźnienie zapytań będzie ogólnie skalowane, a system dodaje [partycje fizyczne](partitioning-overview.md#physical-partitions). Jednak opłata za RU zostanie znacznie zwiększona w miarę wzrostu całkowitej liczby partycji fizycznych.
 

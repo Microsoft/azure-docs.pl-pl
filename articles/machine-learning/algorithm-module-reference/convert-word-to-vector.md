@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536736"
 ---
 # <a name="convert-word-to-vector-module"></a>Konwertuj słowo na moduł Vector
@@ -51,37 +51,37 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu. Wstępnie prze
 
 2. Jako dane wejściowe dla modułu Podaj zestaw danych, który zawiera jedną lub więcej kolumn tekstowych.
 
-3. Dla **kolumny Target**wybierz tylko jedną kolumnę zawierającą tekst do przetworzenia.
+3. Dla **kolumny Target** wybierz tylko jedną kolumnę zawierającą tekst do przetworzenia.
 
     Ponieważ ten moduł tworzy słownictwo z tekstu, zawartość kolumn różni się, co prowadzi do różnych zawartości słownika. Dlatego moduł akceptuje tylko jedną kolumnę docelową.
 
-4. W przypadku  **strategii Word2Vec**wybierz pozycję z **dokładne premieszczonego w języku angielskim**, **Gensim Word2Vec**i **Gensim FastText**.
+4. W przypadku  **strategii Word2Vec** wybierz pozycję z **dokładne premieszczonego w języku angielskim**, **Gensim Word2Vec** i **Gensim FastText**.
 
 5. Jeśli **strategia Word2Vec** jest **Gensim Word2Vec** lub **Gensim FastText**:
 
-    + Dla **algorytmu szkolenia Word2Vec**wybierz spośród **Skip_gram** i **CBOW**. Różnica jest wprowadzana w [oryginalnym papierze (PDF)](https://arxiv.org/pdf/1301.3781.pdf).
+    + Dla **algorytmu szkolenia Word2Vec** wybierz spośród **Skip_gram** i **CBOW**. Różnica jest wprowadzana w [oryginalnym papierze (PDF)](https://arxiv.org/pdf/1301.3781.pdf).
 
         Domyślna metoda to **Skip_gram**.
 
-    + W przypadku **długości osadzania wyrazów**należy określić wymiary wektorów wyrazów. To ustawienie odpowiada `size` parametrowi w Gensim.
+    + W przypadku **długości osadzania wyrazów** należy określić wymiary wektorów wyrazów. To ustawienie odpowiada `size` parametrowi w Gensim.
 
         Domyślny rozmiar osadzania to 100.
 
-    + Dla **rozmiaru okna kontekstu**należy określić maksymalną odległość między przewidywanym słowem a bieżącym słowem. To ustawienie odpowiada `window` parametrowi w Gensim.
+    + Dla **rozmiaru okna kontekstu** należy określić maksymalną odległość między przewidywanym słowem a bieżącym słowem. To ustawienie odpowiada `window` parametrowi w Gensim.
 
         Domyślny rozmiar okna to 5.
 
-    + W przypadku **liczby epok**należy określić liczbę epok (iteracji) w korpus. Odpowiada `iter` parametrowi w Gensim.
+    + W przypadku **liczby epok** należy określić liczbę epok (iteracji) w korpus. Odpowiada `iter` parametrowi w Gensim.
 
         Domyślny numer epoki to 5.
 
-6. W polu **Maksymalny rozmiar słownika**Określ maksymalną liczbę słów w wygenerowanym słownictwie.
+6. W polu **Maksymalny rozmiar słownika** Określ maksymalną liczbę słów w wygenerowanym słownictwie.
 
     Jeśli jest więcej unikatowych słów niż maksymalny rozmiar, Oczyść rzadko używane.
 
     Domyślny rozmiar słownika to 10 000.
 
-7. Dla **minimalnej liczby słów**Podaj minimalną liczbę wyrazów. Moduł zignoruje wszystkie wyrazy mające częstotliwość mniejszą niż ta wartość.
+7. Dla **minimalnej liczby słów** Podaj minimalną liczbę wyrazów. Moduł zignoruje wszystkie wyrazy mające częstotliwość mniejszą niż ta wartość.
 
     Wartość domyślna to 5.
 

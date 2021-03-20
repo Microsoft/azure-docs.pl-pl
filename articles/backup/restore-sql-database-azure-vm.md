@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób przywracania SQL Server baz danych, 
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734406"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
@@ -130,7 +130,7 @@ Aby przywrócić dane kopii zapasowej jako pliki. bak zamiast bazy danych, wybie
     >- Rozpoczęcie przywracania jako plików z magazynu kopii zapasowych `\\<storageacct>.file.core.windows.net\<filesharename>` jako ścieżki<BR>
     PsExec można pobrać ze strony [Sysinternals](/sysinternals/downloads/psexec) .
 
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Wybierz pozycję Przywróć jako pliki](./media/backup-azure-sql-database/restore-as-files.png)
 

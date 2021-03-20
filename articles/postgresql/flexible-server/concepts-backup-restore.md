@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92532649"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-elastycznym serwerze
@@ -71,9 +71,9 @@ Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Na przykł
 
 Można wybrać między najwcześniejszym punktem przywracania i niestandardowym punktem przywracania.
 
--   Najwcześniejszy **punkt przywracania** : w zależności od okresu przechowywania będzie to Najwcześniejszy czas, który można przywrócić. Najstarsza godzina tworzenia kopii zapasowej zostanie wybrana i będzie wyświetlana w portalu. Jest to przydatne, jeśli chcesz zbadać lub wykonać niektóre testy od momentu rozpoczęcia tego punktu w czasie.
+-   Najwcześniejszy **punkt przywracania**: w zależności od okresu przechowywania będzie to Najwcześniejszy czas, który można przywrócić. Najstarsza godzina tworzenia kopii zapasowej zostanie wybrana i będzie wyświetlana w portalu. Jest to przydatne, jeśli chcesz zbadać lub wykonać niektóre testy od momentu rozpoczęcia tego punktu w czasie.
 
--   **Niestandardowy punkt przywracania** : Ta opcja umożliwia wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego elastycznego serwera. Domyślnie Najnowsza godzina w formacie UTC jest zaznaczona i jest przydatna, jeśli chcesz przywrócić ostatnią zatwierdzoną transakcję do celów testowych. Opcjonalnie możesz wybrać inne dni i godziny. 
+-   **Niestandardowy punkt przywracania**: Ta opcja umożliwia wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego elastycznego serwera. Domyślnie Najnowsza godzina w formacie UTC jest zaznaczona i jest przydatna, jeśli chcesz przywrócić ostatnią zatwierdzoną transakcję do celów testowych. Opcjonalnie możesz wybrać inne dni i godziny. 
 
 Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiar bazy danych, ilość dzienników transakcji do przetworzenia, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Ogólny czas odzyskiwania zazwyczaj trwa od kilku minut do kilku godzin.
 

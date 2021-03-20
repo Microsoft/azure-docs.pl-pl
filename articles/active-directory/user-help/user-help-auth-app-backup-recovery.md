@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530905"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Tworzenie kopii zapasowej i odzyskiwanie poświadczeń konta przy użyciu aplikacji Microsoft Authenticator
@@ -87,17 +87,17 @@ W przypadku osobistych kont Microsoft można potwierdzić swoją tożsamość, w
 
 1. Naciśnij kafelek dla konta, które chcesz odzyskać, a następnie naciśnij opcję, aby zalogować się w celu odzyskania. Wprowadź hasło, a następnie potwierdź swój adres e-mail lub numer telefonu jako dodatkową weryfikację.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Zrzut ekranu przedstawiający aplikację Microsoft Authenticator z kafelkami dostępne konta." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Zrzut ekranu, który pokazuje Microsoft Authenticator kod hasła jednorazowego." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Aby zapewnić większą weryfikację kont służbowych
 
 1. Na ekranie **konta** aplikacji Microsoft Authenticator wybierz konto, które chcesz odzyskać, aby otworzyć widok pełny ekran konta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Zrzut ekranu przedstawiający aplikację Microsoft Authenticator z kafelkami dostępne konta." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Aplikacja Microsoft Authenticator, pokazująca dostępne kafelki konta" border="true":::
 
 1. W widoku pełny ekran naciśnij opcję, aby zeskanować kod QR w celu pełnego odzyskania.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Zrzut ekranu przedstawiający aplikację Microsoft Authenticator z kafelkami dostępne konta." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Wystawca uwierzytelnienia przedstawia hasło jednorazowe jako kod weryfikacyjny" border="true":::
 
 >[!NOTE]
 >Aby uzyskać więcej informacji na temat kodów QR i sposobu ich uzyskania, zobacz [Rozpoczynanie pracy z aplikacją Microsoft Authenticator](./user-help-auth-app-download-install.md) lub [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji Authenticator](./security-info-setup-auth-app.md)w zależności od tego, czy administrator włączył informacje zabezpieczające.

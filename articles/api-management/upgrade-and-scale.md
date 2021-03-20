@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127791"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
@@ -67,7 +67,7 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 2. Wybierz opcję **lokalizacje** z menu.
 3. Kliknij wiersz z lokalizacją, która ma zostać przeskalowana.
 4. Określ nową liczbę **jednostek** — Użyj suwaka lub wpisz liczbę.
-5. Kliknij przycisk **Zastosuj**.
+5. Kliknij pozycję **Zastosuj**.
 
 ## <a name="change-your-api-management-service-tier"></a>Zmień warstwę usługi API Management
 

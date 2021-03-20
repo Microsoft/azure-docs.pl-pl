@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231065"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latencies (Opóźnienia raportowania w usłudze Azure Active Directory)
@@ -54,8 +54,8 @@ Jeśli masz już dane dotyczące działań z bezpłatną licencją, zobaczysz j�
 
 Istnieją dwa typy raportów dotyczących zabezpieczeń:
 
-- [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
-- [Użytkownicy oflagowani w związku z ryzykiem](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
+- [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika. 
+- [Użytkownicy oflagowani do ryzyka](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, które mogło zostać naruszone. 
 
 W poniższej tabeli wymieniono informacje o opóźnieniu dla raportów zabezpieczeń.
 

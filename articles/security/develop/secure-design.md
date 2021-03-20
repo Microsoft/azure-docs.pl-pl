@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487681"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
@@ -158,7 +158,7 @@ Modelowanie projektu aplikacji i wyliczanie [zagrożeń dotyczących](https://do
 | Wypieranie się            | Weryfikacja tożsamości       | Włącz [monitorowanie i diagnostykę](/azure/architecture/best-practices/monitoring)platformy Azure.|
 | Ujawnienie informacji | Poufność       | Szyfruj [poufne dane przechowywane](../fundamentals/encryption-atrest.md) [i przesyłane](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Odmowa usługi      | Dostępność          | Monitoruj metryki wydajności pod kątem potencjalnych odmowy warunków usługi. Implementuj filtry połączeń. [Usługa Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md#next-steps), w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji, zapewnia ochronę przed atakami na DDoS.|
-| Podnoszenie uprawnień | Autoryzacja         | Użyj <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)Azure Active Directory.|
+| Podnoszenie uprawnień | Autoryzacja         | Użyj <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)Azure Active Directory.|
 
 ### <a name="reduce-your-attack-surface"></a>Zmniejszenie podatności na ataki
 
