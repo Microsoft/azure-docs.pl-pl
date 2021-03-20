@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659934"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -26,7 +26,7 @@ W tym artykule opisano sposób tworzenia Centrum IoT Hub przy użyciu interfejsu
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
-Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobów, a następnie dodać Centrum IoT Hub.
+Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobów, a następnie dodać centrum IoT.
 
 1. Podczas tworzenia Centrum IoT należy je utworzyć w grupie zasobów. Użyj istniejącej grupy zasobów lub uruchom następujące [polecenie, aby utworzyć grupę zasobów](/cli/azure/resource):
     
@@ -42,7 +42,7 @@ Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobó
    > ```
    >
 
-2. Uruchom następujące [polecenie, aby utworzyć Centrum IoT](/cli/azure/iot/hub#az-iot-hub-create) w grupie zasobów przy użyciu unikatowej nazwy globalnej dla Centrum IoT Hub:
+2. Uruchom następujące [polecenie, aby utworzyć centrum IoT](/cli/azure/iot/hub#az-iot-hub-create) w grupie zasobów, używając globalnie unikatowej nazwy dla centrum IoT:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \

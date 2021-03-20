@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 6f1f1e6416c2d47f626e68c6effe51047a7a35be
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458884"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-korn-ferry-360"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z promem Korn 360

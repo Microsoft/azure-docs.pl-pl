@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192489"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Rozwiązywanie problemów Azure CDN punkty końcowe zwracające kod stanu 404
@@ -90,7 +90,7 @@ Zostanie wyświetlona strona **Konfiguracja** punktu końcowego usługi CDN.
 ![Konfiguruj stronę](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
 #### <a name="protocols"></a>Protokoły
-W przypadku **protokołów**Sprawdź, czy jest wybrany protokół używany przez klientów. Ponieważ ten sam protokół używany przez klienta jest używany do uzyskiwania dostępu do źródła, ważne jest, aby porty pochodzenia zostały prawidłowo skonfigurowane w poprzedniej sekcji. Punkt końcowy usługi CDN nasłuchuje tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od portów pochodzenia.
+W przypadku **protokołów** Sprawdź, czy jest wybrany protokół używany przez klientów. Ponieważ ten sam protokół używany przez klienta jest używany do uzyskiwania dostępu do źródła, ważne jest, aby porty pochodzenia zostały prawidłowo skonfigurowane w poprzedniej sekcji. Punkt końcowy usługi CDN nasłuchuje tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od portów pochodzenia.
 
 Wróćmy do naszego hipotetycznego przykładu przy użyciu protokołu http: \/ /www.contoso.com:8080/file.txt.  Jak pamiętasz, firma Contoso określiła *8080* jako swój port HTTP, ale przypuśćmy również, że określono *44300* jako swój port HTTPS.  Jeśli utworzono punkt końcowy o nazwie *contoso*, nazwa hosta punktu końcowego usługi CDN byłaby *contoso.azureedge.NET*.  Żądanie http: \/ /contoso.azureedge.net/file.txt jest żądaniem http, więc punkt końcowy użyje protokołu HTTP na porcie 8080, aby pobrać go ze źródła.  Bezpieczne żądanie za pośrednictwem protokołu HTTPS, https: \/ /contoso.azureedge.net/file.txt, spowoduje, że punkt końcowy użyje protokołu HTTPS na porcie 44300 podczas pobierania pliku z lokalizacji źródłowej.
 
@@ -102,5 +102,5 @@ Na koniec należy zweryfikować **ścieżkę pochodzenia**.  Domyślnie to pole 
 
 W przykładowym punkcie końcowym chcemy, aby wszystkie zasoby na koncie magazynu były dostępne, a **ścieżka pierwotna** została pozostawiona puste.  Oznacza to, że żądanie do protokołu https: \/ /cdndocdemo.azureedge.net/publicblob/lorem.txt skutkuje połączeniem z punktu końcowego do cdndocdemo.Core.Windows.NET, który żąda */publicblob/lorem.txt*.  Podobnie żądanie dotyczące protokołu https: \/ /cdndocdemo.azureedge.net/donotcache/status.png powoduje, że punkt końcowy żąda */donotcache/status.png* od źródła.
 
-Ale co zrobić, jeśli nie chcesz używać sieci CDN dla każdej ścieżki w Twoim źródle?  Załóżmy, że chcesz uwidocznić ścieżkę *publicblob* .  Jeśli wprowadzimy */publicblob* w polu **ścieżka pierwotna** , spowoduje to, że punkt końcowy wstawy */publicblob* przed każdym żądaniem do źródła.  Oznacza to, że żądanie dotyczące protokołu https: \/ /cdndocdemo.azureedge.net/publicblob/lorem.txt teraz przyjmuje część żądania adresu URL, */publicblob/lorem.txt*i Dołącz */publicblob* do początku. Powoduje to żądanie */publicblob/publicblob/lorem.txt* ze źródła.  Jeśli ta ścieżka nie jest rozpoznawana jako rzeczywisty plik, Źródło zwróci stan 404.  Prawidłowy adres URL do pobrania lorem.txt w tym przykładzie rzeczywiście to https: \/ /cdndocdemo.azureedge.net/lorem.txt.  Należy zauważyć, że ścieżka */publicblob* nie jest używana w ogóle, ponieważ część żądania adresu URL jest */lorem.txt* a punkt końcowy dodaje */publicblob*, co spowodowało */publicblob/lorem.txt* żądania przesłanego do źródła.
+Ale co zrobić, jeśli nie chcesz używać sieci CDN dla każdej ścieżki w Twoim źródle?  Załóżmy, że chcesz uwidocznić ścieżkę *publicblob* .  Jeśli wprowadzimy */publicblob* w polu **ścieżka pierwotna** , spowoduje to, że punkt końcowy wstawy */publicblob* przed każdym żądaniem do źródła.  Oznacza to, że żądanie dotyczące protokołu https: \/ /cdndocdemo.azureedge.net/publicblob/lorem.txt teraz przyjmuje część żądania adresu URL, */publicblob/lorem.txt* i Dołącz */publicblob* do początku. Powoduje to żądanie */publicblob/publicblob/lorem.txt* ze źródła.  Jeśli ta ścieżka nie jest rozpoznawana jako rzeczywisty plik, Źródło zwróci stan 404.  Prawidłowy adres URL do pobrania lorem.txt w tym przykładzie rzeczywiście to https: \/ /cdndocdemo.azureedge.net/lorem.txt.  Należy zauważyć, że ścieżka */publicblob* nie jest używana w ogóle, ponieważ część żądania adresu URL jest */lorem.txt* a punkt końcowy dodaje */publicblob*, co spowodowało */publicblob/lorem.txt* żądania przesłanego do źródła.
 

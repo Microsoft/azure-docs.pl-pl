@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e10ca98e0c9257187288d02483ed81915a7b321d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92894746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Samouczek: integracja Azure Active Directory z usługą Ziflow
@@ -49,11 +49,11 @@ Aby skonfigurować integrację programu Ziflow z usługą Azure AD, musisz doda�
 
 **Aby dodać Ziflow z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Aby skonfigurować integrację programu Ziflow z usługą Azure AD, musisz doda�
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Ziflow** , wybierz pozycję **Ziflow** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Ziflow**, wybierz pozycję **Ziflow** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Ziflow na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Ziflow na podstawie użytkownika testowego o nazwie **Britta Simon** .
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Ziflow na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Ziflow.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Ziflow, należy wykonać następujące bloki konstrukcyjne:
@@ -85,15 +85,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Ziflow, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Ziflow** wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Ziflow** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Ziflow, wyk
     > [!NOTE]
     > Podane wyżej wartości nie są rzeczywiste. Wartość unikatowego identyfikatora w polu Identyfikator i adres URL logowania należy zaktualizować za pomocą wartości rzeczywistej, która została omówiona w dalszej części tego samouczka.
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -126,25 +126,25 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Ziflow, wyk
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się, aby Ziflow jako administrator zabezpieczeń.
 
-2. Kliknij awatar w prawym górnym rogu, a następnie kliknij pozycję **Zarządzaj kontem** .
+2. Kliknij awatar w prawym górnym rogu, a następnie kliknij pozycję **Zarządzaj kontem**.
 
     ![Zarządzanie konfiguracją Ziflow](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-3. W lewym górnym rogu kliknij pozycję **Logowanie jednokrotne** .
+3. W lewym górnym rogu kliknij pozycję **Logowanie jednokrotne**.
 
     ![Ziflow — znak konfiguracji](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-4. Na stronie **Single Sign-On** (Logowanie jednokrotne) wykonaj następujące czynności:
+4. Na stronie **Single Sign-On**(Logowanie jednokrotne) wykonaj następujące czynności:
 
     ![Ziflow Konfiguracja pojedynczego](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-    a. Wybierz **Typ** jako **SAML 2.0** .
+    a. Wybierz **Typ** jako **SAML 2.0**.
 
-    b. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania** , który został skopiowany z Azure Portal.
+    b. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
 
-    c. Przekaż certyfikat zakodowany Base-64 pobrany z Azure Portal do **certyfikatu podpisywania x509** .
+    c. Przekaż certyfikat zakodowany Base-64 pobrany z Azure Portal do **certyfikatu podpisywania x509**.
 
-    d. W polu tekstowym **Wyloguj adres URL** wklej wartość **adresu URL wylogowania** , która została skopiowana z Azure Portal.
+    d. W polu tekstowym **Wyloguj adres URL** wklej wartość **adresu URL wylogowania**, która została skopiowana z Azure Portal.
 
     e. W sekcji **Ustawienia konfiguracji dla dostawcy identyfikatora** Skopiuj wyróżnioną unikatową wartość identyfikatora i Dołącz ją z identyfikatorem i adresem URL logowania w **podstawowej konfiguracji SAML** na Azure Portal.
 
@@ -152,7 +152,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Ziflow, wyk
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -164,31 +164,31 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
+    a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz** .
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Ziflow.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **Ziflow** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Ziflow**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Ziflow** .
+2. Na liście Aplikacje wybierz pozycję **Ziflow**.
 
     ![Link Ziflow na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -196,7 +196,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-ziflow-test-user"></a>Utwórz użytkownika testowego Ziflow
 
@@ -210,7 +210,7 @@ Aby aprowizować konto użytkownika, wykonaj następujące czynności:
 
     ![Ziflow osoby konfiguracji](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
-3. Kliknij przycisk **Dodaj** , a następnie kliknij przycisk **Dodaj użytkownika** .
+3. Kliknij przycisk **Dodaj** , a następnie kliknij przycisk **Dodaj użytkownika**.
 
     ![Zrzut ekranu przedstawia wybraną opcję Dodaj użytkownika.](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
@@ -226,7 +226,7 @@ Aby aprowizować konto użytkownika, wykonaj następujące czynności:
 
     d. Wybierz rolę Ziflow.
 
-    e. Kliknij pozycję **Dodaj 1 użytkownika** .
+    e. Kliknij pozycję **Dodaj 1 użytkownika**.
 
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891333"
 ---
 # <a name="read-and-write-spatial-data"></a>Odczytywanie i zapisywanie danych przestrzennych
@@ -160,7 +160,7 @@ GML jest przestrzenną specyfikacją pliku XML, która jest często używana jak
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 prawdopodobnie z małym marginesem błędu.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 

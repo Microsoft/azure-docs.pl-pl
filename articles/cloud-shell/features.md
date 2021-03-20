@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89470157"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla Azure Cloud Shell
@@ -67,7 +67,7 @@ Program PowerShell w Cloud Shell zawiera prywatną kompilację modułu usługi E
 
 Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typu "open source", takich jak Terraform, rozwiązania ansible i Chef. Wypróbuj ją z przykładowych przewodników.
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 
 |Kategoria   |Nazwa   |
 |---|---|
@@ -76,7 +76,7 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Edytory tekstu           |kod (Edytor Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Kontrola źródła         |git                    |
 |Narzędzia kompilacji            |make<br> maven<br> npm<br> graczy         |
-|Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
+|Kontenery             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bazy danych              |Klient MySQL<br> Klient PostgreSql<br> [Narzędzie sqlcmd](/sql/tools/sqlcmd-utility)<br> [MSSQL-Scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Inne                  |Klient iPython<br> [Interfejs wiersza polecenia Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef — Specyfikacja](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Interfejs wiersza polecenia pakietu Office 365](https://pnp.github.io/office365-cli/)|
 
@@ -85,10 +85,10 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Język   |Wersja   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
-|Przejdź         |1,9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
-|Program PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2,7 i 3,5 (wartość domyślna)|
 
 ## <a name="next-steps"></a>Następne kroki

@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 84bf0ddd194cd59a7e728c0c50dbe3cbad2afa4a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555644"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Samouczek: udzielanie dostępu do interfejsu API sieci Web ASP.NET przy użyciu Azure Active Directory B2C
 
 W tym samouczku przedstawiono sposób wywoływania chronionego zasobu internetowego interfejsu API w programie Azure Active Directory B2C (Azure AD B2C) z aplikacji sieci Web ASP.NET.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie aplikacji internetowego interfejsu API

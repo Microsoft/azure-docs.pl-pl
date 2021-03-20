@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
 ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182354"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SonarQube
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -156,7 +156,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     i. W polu tekstowym **atrybut e-mail użytkownika SAML** wprowadź wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` .
 
-    j. Kliknij przycisk **Zapisz**.
+    j. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-sonarqube-test-user"></a>Utwórz użytkownika testowego SonarQube
 

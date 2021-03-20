@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205966"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Przykład wyzwalacza i powiązania usługi Azure Functions
@@ -19,7 +19,7 @@ W tym artykule pokazano, jak skonfigurować [wyzwalacz i powiązania](./function
 
 Załóżmy, że chcesz napisać nowy wiersz do usługi Azure Table Storage za każdym razem, gdy w usłudze Azure queue storage zostanie wyświetlony nowy komunikat. Taki scenariusz można zaimplementować przy użyciu wyzwalacza usługi Azure Queue Storage i powiązania danych wyjściowych usługi Azure Table Storage. 
 
-Otofunction.jspliku * w* tym scenariuszu. 
+Otofunction.jspliku *w* tym scenariuszu. 
 
 ```json
 {

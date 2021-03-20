@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368430"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów

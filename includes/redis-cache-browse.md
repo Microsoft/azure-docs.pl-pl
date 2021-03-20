@@ -9,17 +9,17 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67183801"
 ---
-Jeśli nie pamięć podręczna nie została przypięta do pulpitu nawigacyjnego, znajdź ją w witrynie [Azure Portal](https://portal.azure.com) przy użyciu pozycji **Wszystkie usługi** .
+Jeśli nie pamięć podręczna nie została przypięta do pulpitu nawigacyjnego, znajdź ją w witrynie [Azure Portal](https://portal.azure.com) przy użyciu pozycji **Wszystkie usługi**.
 
 ![Blok przeglądania usługi Azure cache for Redis](media/redis-cache-browse/redis-cache-browse.png)
 
-Aby wyświetlić pamięć podręczną, kliknij pozycję **wszystkie usługi** i Wyszukaj **usługę Azure cache for Redis** . 
+Aby wyświetlić pamięć podręczną, kliknij pozycję **wszystkie usługi** i Wyszukaj **usługę Azure cache for Redis**. 
 
 Wybierz odpowiednią pamięć podręczną, aby wyświetlić i skonfigurować ustawienia dla tej pamięci.
 

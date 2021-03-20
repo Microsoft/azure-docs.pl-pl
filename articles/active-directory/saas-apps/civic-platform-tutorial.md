@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 26109d4b8875dd0b442521513dbd219dc0de06e0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455973"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Samouczek: integracja platformy projektowi Civic Innovation z usługą Azure Active Directory
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Zrzut ekranu przedstawia witrynę Atlassian w chmurze z opcjami standardowymi określonymi w obszarze Narzędzia administratora.](media/civic-platform-tutorial/standard-choices.png)
 
-1. Utwórz standardową **ssoconfig**wyboru.
+1. Utwórz standardową **ssoconfig** wyboru.
 
 1. Wyszukaj **ssoconfig**  i Prześlij.
 
@@ -136,7 +136,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Zrzut ekranu przedstawia standardowe elementy opcji Edycja dla konfiguracji S S O.](media/civic-platform-tutorial/sso-config02.png)
 
-    1. W polu **applicationid** **Identyfikator aplikacji** wprowadź wartość identyfikatora, która została skopiowana z Azure Portal.
+    1. W polu  **Identyfikator aplikacji** wprowadź wartość identyfikatora, która została skopiowana z Azure Portal.
 
     1. W polu **clientSecret** wprowadź wartość **klucza tajnego** , która została skopiowana z Azure Portal.
 

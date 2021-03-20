@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 087e2d7f2db8f27378b54675095e97256d6aae9b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Samouczek: integracja z usługą Azure Active Directory
@@ -50,11 +50,11 @@ Aby skonfigurować integrację z laboratorium sosów — testowaniem urządzeń 
 
 **Aby dodać do laboratoriów sosów — testy mobilne i internetowe z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -62,13 +62,13 @@ Aby skonfigurować integrację z laboratorium sosów — testowaniem urządzeń 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz polecenie **sosy Labs — testy mobilne i sieci Web** , wybierz pozycję **sosy Labs — testy mobilne i sieci Web** z panelu wyników, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz polecenie **sosy Labs — testy mobilne i sieci Web**, wybierz pozycję **sosy Labs — testy mobilne i sieci Web** z panelu wyników, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Sosy Labs — testy mobilne i sieci Web na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego w usłudze Azure AD za pomocą laboratoriów sosy — mobilnych i sieci Web na podstawie użytkownika testowego o nazwie **Britta Simon** .
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego w usłudze Azure AD za pomocą laboratoriów sosy — mobilnych i sieci Web na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, relacja linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w ramach programu sosy Labs — należy ustanowić testy mobilne i sieci Web.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu programu sosy Labs — testowania mobilnego i sieci Web, należy wykonać następujące bloki konstrukcyjne:
@@ -86,15 +86,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu sosy Labs — testowania mobilnego i sieci Web, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **niezgodność aplikacji do testowania — urządzenia przenośne i testy sieci Web** wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)na stronie **niezgodność aplikacji do testowania — urządzenia przenośne i testy sieci Web** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -102,7 +102,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu so
 
     ![Sosy Labs — w przypadku domen i adresów URL testowania aplikacji mobilnych i sieci Web](common/preintegrated.png)
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -140,13 +140,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu so
 
     b. Zaznacz pole wyboru **Zezwalaj na inicjowanie obsługi just-in-Time** .
 
-    c. Kliknij pozycję **Zapisz** .
+    c. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -158,32 +158,32 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
+    a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
     Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz** .
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do laboratorium sosów — testowania mobilnego i sieci Web.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **sosy Labs — urządzenia przenośne i testy sieci Web** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **sosy Labs — urządzenia przenośne i testy sieci Web**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **sosy Labs — testy mobilne i sieci Web** .
+2. Na liście Aplikacje wybierz pozycję **sosy Labs — testy mobilne i sieci Web**.
 
     ![Link do programu sosy Labs — urządzenia przenośne i testy sieci Web na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -191,7 +191,7 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-sauce-labs---mobile-and-web-testing-test-user"></a>Tworzenie laboratoriów sosów — użytkownika testowego testowania mobilnego i sieci Web
 

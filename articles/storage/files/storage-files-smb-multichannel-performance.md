@@ -8,10 +8,10 @@ ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374987"
 ---
 # <a name="smb-multichannel-performance"></a>Wydajność funkcji SMB Multichannel
@@ -36,7 +36,7 @@ Ta funkcja zapewnia większe korzyści z wydajności dla aplikacji wielowątkowy
 
 [!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]
 
-### <a name="regional-availability"></a>Dostępność regionalna
+### <a name="regional-availability"></a>Dostępność w regionach
 
 [!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
 

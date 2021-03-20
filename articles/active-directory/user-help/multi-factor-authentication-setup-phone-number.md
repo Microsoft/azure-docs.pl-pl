@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530259"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Konfigurowanie urządzenia przenośnego jako metody weryfikacji dwuskładnikowej
@@ -43,7 +43,7 @@ Można skonfigurować urządzenie przenośne do działania jako metoda weryfikac
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-5. Wybierz pozycję **Gotowe**.
+5. Kliknij **Gotowe**.
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Konfigurowanie urządzenia przenośnego do odbierania połączenia telefonicznego
 
@@ -64,7 +64,7 @@ Można skonfigurować urządzenie przenośne do działania jako metoda weryfikac
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-5. Wybierz pozycję **Gotowe**.
+5. Kliknij **Gotowe**.
 
 ## <a name="next-steps"></a>Następne kroki
 

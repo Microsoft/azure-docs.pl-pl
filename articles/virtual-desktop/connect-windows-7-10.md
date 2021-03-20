@@ -7,10 +7,10 @@ ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368719"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Łączenie się z klientem klasycznym systemu Windows
@@ -62,7 +62,7 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
      - Pulpit wirtualny systemu Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
      - Pulpit wirtualny systemu Windows (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Jeśli zamiast tego używasz pola **e-mail** , wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował [odnajdywanie poczty e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
-3. Wybierz pozycję **Dalej**.
+3. Wybierz opcję **Dalej**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 5. Zasoby powinny być wyświetlane w centrum połączeń pogrupowane według obszaru roboczego.
 

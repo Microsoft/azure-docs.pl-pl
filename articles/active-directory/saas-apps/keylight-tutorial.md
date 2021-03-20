@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 81949736603d22cac779d08d14bd6db65065d730
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Samouczek: integracja Azure Active Directory z programem LockPath
@@ -41,7 +41,7 @@ Aby skonfigurować integrację usługi Azure AD z programem LockPath, potrzebne 
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* LockPath Lampa **SP**
+* LockPath Lampa 
 * LockPath — Lampa czasowa obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
 ## <a name="adding-lockpath-keylight-from-the-gallery"></a>Dodawanie sygnalizatora LockPath z galerii
@@ -163,7 +163,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu programu 
 
     h. Ustaw **Typ konta autozastrzeganie** na **pełny użytkownik**.
 
-    i. Ustaw **rolę zabezpieczeń autoudostępnianie**wybierz opcję **użytkownik standardowy z SAML**.
+    i. Ustaw **rolę zabezpieczeń autoudostępnianie** wybierz opcję **użytkownik standardowy z SAML**.
 
     j. Skonfiguruj konfigurację **zabezpieczeń automatycznej obsługi**, wybierz pozycję **Standardowa konfiguracja użytkownika**.
 

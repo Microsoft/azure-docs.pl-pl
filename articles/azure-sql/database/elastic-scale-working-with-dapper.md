@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793368"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Korzystanie z biblioteki klienta Elastic Database z Dapper
@@ -23,7 +23,7 @@ ms.locfileid: "92793368"
 
 Ten dokument jest przeznaczony dla deweloperów, którzy korzystają z usługi Dapper do kompilowania aplikacji, ale również chcą korzystać z [narzędzi elastycznych baz danych](elastic-scale-introduction.md) w celu tworzenia aplikacji, które implementują fragmentowania w celu skalowania w poziomie warstwy danych.  W tym dokumencie przedstawiono zmiany w aplikacjach opartych na Dapper, które są niezbędne do integracji z narzędziami Elastic Database. Naszym fokusem jest tworzenie Elastic Database fragmentu Management i Routing zależny od danych za pomocą Dapper. 
 
-**Przykładowy kod** : [Narzędzia Elastic Database tools dla integracji Azure SQL Database-Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Przykładowy kod**: [Narzędzia Elastic Database tools dla integracji Azure SQL Database-Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 Integracja programów **Dapper** i **DapperExtensions** z biblioteką klienta Elastic Database dla Azure SQL Database jest łatwa. Aplikacje mogą używać routingu zależnego od danych przez zmianę sposobu tworzenia i otwierania nowych obiektów [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) , aby użyć wywołania [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) z [biblioteki klienta](/previous-versions/azure/dn765902(v=azure.100)). To ogranicza zmiany w aplikacji tylko wtedy, gdy nowe połączenia są tworzone i otwierane. 
 
@@ -39,7 +39,7 @@ Kolejną zaletą usługi Dapper, a także DapperExtensions jest to, że aplikacj
 Aby uzyskać zestawy Dapper, zobacz [Dapper dot net](https://www.nuget.org/packages/Dapper/). Aby zapoznać się z rozszerzeniami Dapper, zobacz [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Szybki przegląd biblioteki klienta Elastic Database
-Za pomocą biblioteki klienta Elastic Database definiuje się partycje danych aplikacji o nazwie *podfragmentów* , mapują je do baz danych i identyfikują je przez *klucze fragmentowania* . Możesz mieć dowolną liczbę baz danych, ile potrzebujesz, i rozpowszechnić podfragmentów w tych bazach danych. Mapowanie wartości klucza fragmentowania do baz danych jest przechowywane przez mapę fragmentu dostarczoną przez interfejsy API biblioteki. Ta funkcja jest nazywana **fragmentu zarządzaniem** . Mapa fragmentu służy również jako Broker połączeń bazy danych dla żądań, które zawierają klucz fragmentowania. Ta funkcja jest określana jako **Routing zależny od danych** .
+Za pomocą biblioteki klienta Elastic Database definiuje się partycje danych aplikacji o nazwie *podfragmentów*, mapują je do baz danych i identyfikują je przez *klucze fragmentowania*. Możesz mieć dowolną liczbę baz danych, ile potrzebujesz, i rozpowszechnić podfragmentów w tych bazach danych. Mapowanie wartości klucza fragmentowania do baz danych jest przechowywane przez mapę fragmentu dostarczoną przez interfejsy API biblioteki. Ta funkcja jest nazywana **fragmentu zarządzaniem**. Mapa fragmentu służy również jako Broker połączeń bazy danych dla żądań, które zawierają klucz fragmentowania. Ta funkcja jest określana jako **Routing zależny od danych**.
 
 ![Mapy fragmentu i Routing zależny od danych][1]
 
@@ -50,11 +50,11 @@ Zamiast używać tradycyjnego sposobu tworzenia połączeń dla Dapper, należy 
 ### <a name="requirements-for-dapper-integration"></a>Wymagania dotyczące integracji usługi Dapper
 Podczas pracy z biblioteką klienta Elastic Database i interfejsami API Dapper należy zachować następujące właściwości:
 
-* **Skalowanie w poziomie** : chcemy dodawać i usuwać bazy danych z warstwy dane aplikacji podzielonej na fragmenty w zależności od potrzeb aplikacji. 
-* **Spójność** : ponieważ aplikacja jest skalowana w poziomie przy użyciu fragmentowania, należy wykonać Routing zależny od danych. Chcemy to zrobić przy użyciu funkcji routingu zależnych od danych w bibliotece. W szczególności chcesz zachować gwarancje weryfikacji i spójności podane przez połączenia, które są obsługiwane przez brokera w Menedżerze mapy fragmentu, aby uniknąć uszkodzenia lub nieprawidłowych wyników zapytania. Zapewnia to, że połączenia z danym podfragmentu są odrzucane lub zatrzymywane, jeśli (na przykład) podfragmentu jest aktualnie przenoszony do innego fragmentu za pomocą interfejsów API z podziałem/scalaniem.
-* **Mapowanie obiektu** : chcemy zachować wygodę mapowań dostarczonych przez Dapper do translacji między klasami w aplikacji i strukturami źródłowej bazy danych. 
+* **Skalowanie w poziomie**: chcemy dodawać i usuwać bazy danych z warstwy dane aplikacji podzielonej na fragmenty w zależności od potrzeb aplikacji. 
+* **Spójność**: ponieważ aplikacja jest skalowana w poziomie przy użyciu fragmentowania, należy wykonać Routing zależny od danych. Chcemy to zrobić przy użyciu funkcji routingu zależnych od danych w bibliotece. W szczególności chcesz zachować gwarancje weryfikacji i spójności podane przez połączenia, które są obsługiwane przez brokera w Menedżerze mapy fragmentu, aby uniknąć uszkodzenia lub nieprawidłowych wyników zapytania. Zapewnia to, że połączenia z danym podfragmentu są odrzucane lub zatrzymywane, jeśli (na przykład) podfragmentu jest aktualnie przenoszony do innego fragmentu za pomocą interfejsów API z podziałem/scalaniem.
+* **Mapowanie obiektu**: chcemy zachować wygodę mapowań dostarczonych przez Dapper do translacji między klasami w aplikacji i strukturami źródłowej bazy danych. 
 
-W poniższej sekcji znajdują się wskazówki dotyczące tych wymagań dla aplikacji opartych na **Dapper** i **DapperExtensions** .
+W poniższej sekcji znajdują się wskazówki dotyczące tych wymagań dla aplikacji opartych na **Dapper** i **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Wskazówki techniczne
 ### <a name="data-dependent-routing-with-dapper"></a>Routing zależny od danych za pomocą Dapper

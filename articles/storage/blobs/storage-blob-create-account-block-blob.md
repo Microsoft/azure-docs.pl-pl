@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997090"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Utwórz konto BlockBlobStorage
@@ -57,7 +57,7 @@ Interfejs wiersza polecenia platformy Azure możesz również zainstalować i u�
 
 ---
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -120,7 +120,7 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
 8. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

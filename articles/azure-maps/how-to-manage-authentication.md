@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895770"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
@@ -24,7 +24,7 @@ Po utworzeniu konta Azure Maps, identyfikator klienta i klucze są tworzone w ce
 
 Po utworzeniu konta Azure Maps są generowane klucze podstawowe i pomocnicze. Zalecamy używanie klucza podstawowego jako klucza subskrypcji podczas [korzystania z uwierzytelniania za pomocą klucza współużytkowanego do wywoływania Azure Maps](./azure-maps-authentication.md#shared-key-authentication). Klucza pomocniczego można używać w scenariuszach, takich jak stopniowe zmiany klawiszy. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie w Azure Maps](./azure-maps-authentication.md).
 
-Szczegóły uwierzytelniania można wyświetlić w Azure Portal. Na Twoim koncie w menu **Ustawienia** wybierz pozycję **uwierzytelnianie** .
+Szczegóły uwierzytelniania można wyświetlić w Azure Portal. Na Twoim koncie w menu **Ustawienia** wybierz pozycję **uwierzytelnianie**.
 
 > [!div class="mx-imgBorder"]
 > ![Szczegóły uwierzytelniania](./media/how-to-manage-authentication/how-to-view-auth.png)
@@ -45,25 +45,25 @@ W poniższej tabeli przedstawiono typowe scenariusze uwierzytelniania i autoryza
 
 | Scenariusz                                                                                    | Authentication | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Nie dotyczy           | Średniaa             | Wysoki               |
-| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wys.          | Nis.                | Średniaa             |
+| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Nie dotyczy           | Śred.             | Wys.               |
+| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wys.          | Nis.                | Śred.             |
 | [Aplikacja jednostronicowa sieci Web z interaktywnym logowaniem jednokrotnym](./how-to-secure-spa-users.md) | Azure AD       | Wys.          | Śred.             | Średnia             |
 | [Aplikacja jednostronicowa sieci Web z logowaniem nieinterakcyjnym](./how-to-secure-spa-app.md)      | Azure AD       | Wys.          | Śred.             | Średnia             |
-| [Aplikacja sieci Web z interaktywnym logowaniem jednokrotnym](./how-to-secure-webapp-users.md)          | Azure AD       | Wysoki          | Wys.               | Śred.             |
+| [Aplikacja sieci Web z interaktywnym logowaniem jednokrotnym](./how-to-secure-webapp-users.md)          | Azure AD       | Wys.          | Wys.               | Śred.             |
 | [Urządzenie IoT/dane wejściowe z ograniczeniami](./how-to-secure-device-code.md)                     | Azure AD       | Wys.          | Śred.             | Średnia             |
 
 Linki w tabeli prowadzą do szczegółowych informacji o konfiguracji dla każdego scenariusza.
 
 ## <a name="view-role-definitions"></a>Wyświetlanie definicji ról
 
-Aby wyświetlić role platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)** . Wybierz pozycję **role** , a następnie wyszukaj role zaczynające się od *Azure Maps* . Te role Azure Maps są rolami, do których można udzielić dostępu.
+Aby wyświetlić role platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl dostępne role](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Wyświetlanie przypisań ról
 
-Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu do Azure Maps, przejdź do pozycji **Access Control (IAM)** . W tym miejscu wybierz pozycję **przypisania ról** , a następnie Przefiltruj według **Azure Maps** .
+Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu do Azure Maps, przejdź do pozycji **Access Control (IAM)**. W tym miejscu wybierz pozycję **przypisania ról**, a następnie Przefiltruj według **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetlanie użytkowników i aplikacji, którym udzielono dostępu](./media/how-to-manage-authentication/how-to-view-amrbac.png)

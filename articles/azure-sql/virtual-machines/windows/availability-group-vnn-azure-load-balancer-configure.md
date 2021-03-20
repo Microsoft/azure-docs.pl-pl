@@ -16,10 +16,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359884"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Skonfiguruj moduł równoważenia obciążenia dla odbiornika usługi AG VNN
@@ -50,7 +50,7 @@ Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć moduł równoważ
 
 1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer** w witrynie Azure Marketplace. Wybierz **Load Balancer**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Skonfiguruj moduł równoważenia obciążenia przy użyciu następujących wartości:
 
@@ -139,8 +139,8 @@ W poniższej tabeli opisano wartości, które należy zaktualizować:
 
 |**Wartość**|**Opis**|
 |---------|---------|
-|`Cluster Network Name`| Nazwa klastra trybu failover systemu Windows Server dla sieci. W **Menedżer klastra trybu failover**  >  **sieci**, kliknij prawym przyciskiem myszy sieć i wybierz pozycję **Właściwości**. Poprawna wartość jest pod **nazwą** na karcie **Ogólne** .|
-|`AG listener IP Address Resource Name`|Nazwa zasobu dla adresu IP odbiornika SQL Server FCI lub AG. W **Menedżer klastra trybu failover**  >  **role** w obszarze SQL Server rolę FCI w obszarze **Nazwa serwera** kliknij prawym przyciskiem myszy zasób adres IP i wybierz pozycję **Właściwości**. Poprawna wartość jest pod **nazwą** na karcie **Ogólne** .|
+|`Cluster Network Name`| Nazwa klastra trybu failover systemu Windows Server dla sieci. W **Menedżer klastra trybu failover**  >  **sieci**, kliknij prawym przyciskiem myszy sieć i wybierz pozycję **Właściwości**. Poprawna wartość znajduje się w obszarze **Nazwa** na karcie **Ogólne**.|
+|`AG listener IP Address Resource Name`|Nazwa zasobu dla adresu IP odbiornika SQL Server FCI lub AG. W **Menedżer klastra trybu failover**  >  **role** w obszarze SQL Server rolę FCI w obszarze **Nazwa serwera** kliknij prawym przyciskiem myszy zasób adres IP i wybierz pozycję **Właściwości**. Poprawna wartość znajduje się w obszarze **Nazwa** na karcie **Ogólne**.|
 |`ILBIP`|Adres IP wewnętrznego modułu równoważenia obciążenia (ILB). Ten adres jest skonfigurowany w Azure Portal jako adres frontonu ILB. Jest to również adres IP SQL Server FCI. Można go znaleźć w **Menedżer klastra trybu failover** na tej samej stronie właściwości, na której został umieszczony `<AG listener IP Address Resource Name>` .|
 |`nnnnn`|Port sondy, który został skonfigurowany w sondie kondycji modułu równoważenia obciążenia. Dowolny nieużywany port TCP jest prawidłowy.|
 |"Maska_podsieci"| Maska podsieci parametru Cluster. Musi to być adres emisji IP protokołu TCP: `255.255.255.255` .| 
@@ -159,7 +159,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 Przetestuj tryb failover zasobu klastra, aby sprawdzić poprawność funkcjonalności klastra. 
 
 
-Wykonaj następujące kroki:
+Wykonaj następujące czynności:
 
 1. Otwórz [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) i Połącz się z odbiornikiem grupy dostępności. 
 1. Rozwiń opcję **zawsze włączone grupy dostępności** w **Eksplorator obiektów**. 
