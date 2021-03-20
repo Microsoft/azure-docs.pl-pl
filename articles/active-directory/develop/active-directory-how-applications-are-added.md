@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861123"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Jak i dlaczego aplikacje są dodawane do usługi Azure AD
@@ -105,7 +105,7 @@ Aplikacje dodawane samodzielnie (reprezentowane jako **aplikacja (własne)** na 
   * Mapowania atrybutów (Inicjowanie obsługi użytkownika)
 * Aby uzyskać szczegółowe informacje na temat obiektów głównych i aplikacji usługi, zobacz dokumentację dotyczącą interfejsu API Microsoft Graph:
   * [Aplikacja](/graph/api/resources/application)
-  * [Nazwa główna usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Jednostka usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Dlaczego aplikacje integrują się z usługą Azure AD?
 

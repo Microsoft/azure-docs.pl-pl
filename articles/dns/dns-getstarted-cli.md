@@ -10,10 +10,10 @@ ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1929cd512d18d7fd234aff1f55814c423455e63b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94561373"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Szybki start: tworzenie strefy i rekordu usługi Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -42,7 +42,7 @@ az group create --name MyResourceGroup --location "East US"
 
 Do tworzenia strefy DNS służy polecenie `az network dns zone create`. Aby wyświetlić pomoc dla tego polecenia, wpisz `az network dns zone create -h`.
 
-Poniższy przykład tworzy strefę DNS o nazwie *contoso. xyz* *w grupie zasobów*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
+Poniższy przykład tworzy strefę DNS o nazwie *contoso.xyz* *w grupie zasobów*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -52,7 +52,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Aby utworzyć rekord DNS, użyj polecenia `az network dns record-set [record type] add-record`. Aby uzyskać pomoc dotyczącą rekordów A, zobacz `azure network dns record-set A add-record -h`.
 
-W poniższym przykładzie jest tworzony rekord o nazwie względnej "www" w strefie DNS "contoso. xyz" w grupie zasobów "zasób". W pełni kwalifikowana nazwa zestawu rekordów to "www. contoso. xyz". Typ rekordu to "A" z adresem IP "10.10.10.10" i domyślny czas wygaśnięcia wynoszący 3600 sekund (1 godzina).
+W poniższym przykładzie jest tworzony rekord o nazwie względnej "www" w strefie DNS "contoso.xyz" w grupie zasobów "zasób". W pełni kwalifikowana nazwa zestawu rekordów to "www.contoso.xyz". Typ rekordu to "A" z adresem IP "10.10.10.10" i domyślny czas wygaśnięcia wynoszący 3600 sekund (1 godzina).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -96,7 +96,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    ![Zrzut ekranu przedstawia okno wiersza polecenia z n s poleceniem wyszukiwania i wartości dla opcji serwer, adres, nazwa i adres.](media/dns-getstarted-portal/nslookup.PNG)
 
-Nazwa hosta **www \. contoso. xyz** jest rozpoznawana jako **10.10.10.10** , tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
+Nazwa hosta **www \. contoso.xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

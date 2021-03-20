@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370835"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Wyświetlanie historii inspekcji dla ról usługi Azure AD w Privileged Identity Management
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla ról usłu
     | Rozsądkiem | Tekst wprowadzony w polu przyczyna podczas aktywacji. |
     | Wygaśnięcie | Po wygaśnięciu aktywowanej roli. Dotyczy tylko kwalifikujących się przypisań ról. |
 
-1. Aby posortować historię inspekcji, kliknij przycisk **godziny**, **akcję**i **rola** .
+1. Aby posortować historię inspekcji, kliknij przycisk **godziny**, **akcję** i **rola** .
 
 ## <a name="filter-audit-history"></a>Filtruj historię inspekcji
 
@@ -106,9 +106,9 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla ról usłu
 
     Zostanie wyświetlone okienko **Aktualizuj parametry wykresu** .
 
-1. W obszarze **zakres czasu**wybierz zakres czasu.
+1. W obszarze **zakres czasu** wybierz zakres czasu.
 
-1. W obszarze **role**zaznacz pola wyboru, aby wskazać role, które chcesz wyświetlić.
+1. W obszarze **role** zaznacz pola wyboru, aby wskazać role, które chcesz wyświetlić.
 
     ![Okienko aktualizowanie parametrów wykresu](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 

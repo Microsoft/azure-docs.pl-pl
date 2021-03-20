@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95531376"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Zarządzanie połączeniem z prywatnym punktem końcowym
@@ -47,7 +47,7 @@ Portal jest preferowaną metodą zarządzania połączeniami prywatnego punktu k
 
 Azure PowerShell i interfejs wiersza polecenia platformy Azure są preferowanymi metodami zarządzania połączeniami prywatnego punktu końcowego w usługach partnerskich firmy Microsoft lub w usługach należących do klienta. Obecnie nie mamy pomocy technicznej portalu do zarządzania połączeniami w usłudze linku prywatnego.  
  
-### <a name="powershell"></a>Program PowerShell 
+### <a name="powershell"></a>PowerShell 
   
 Aby zarządzać połączeniami prywatnych punktów końcowych, użyj następujących poleceń programu PowerShell.  
 #### <a name="get-private-link-connection-states"></a>Pobierz Stany połączeń linków prywatnych 

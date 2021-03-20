@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy u
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518232"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Uwierzytelnianie i Autoryzowanie aplikacji przy użyciu Azure Active Directory dostępu do Azure Service Bus jednostek
@@ -43,7 +43,7 @@ Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy okreś
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów Service Bus, rozpoczynając od najwęższego zakresu:
 
-- **Kolejka**, **temat**lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. 
+- **Kolejka**, **temat** lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. 
 - **Przestrzeń nazw Service Bus**: przypisanie roli obejmuje całą topologię Service Bus w przestrzeni nazw oraz do skojarzonej z nią grupy odbiorców.
 - **Grupa zasobów**: przypisanie roli dotyczy wszystkich zasobów Service Bus w grupie zasobów.
 - **Subskrypcja**: przypisanie roli dotyczy wszystkich zasobów Service Bus we wszystkich grupach zasobów w subskrypcji.
@@ -112,7 +112,7 @@ Aplikacja wymaga klucza tajnego klienta, aby potwierdzić swoją tożsamość po
 
 1. Przejdź do swojej rejestracji aplikacji w Azure Portal, jeśli nie jesteś jeszcze na stronie.
 1. W menu po lewej stronie wybierz pozycję **certyfikaty & wpisy tajne** .
-1. W obszarze wpisy **tajne klienta**wybierz pozycję **Nowy wpis tajny klienta** , aby utworzyć nowy wpis tajny.
+1. W obszarze wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta** , aby utworzyć nowy wpis tajny.
 
     ![Nowy wpis tajny klienta — przycisk](./media/authenticate-application/new-client-secret-button.png)
 1. Podaj opis wpisu tajnego i wybierz żądany interwał wygaśnięcia, a następnie wybierz pozycję **Dodaj**.

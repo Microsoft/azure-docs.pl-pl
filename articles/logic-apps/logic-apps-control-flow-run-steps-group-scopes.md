@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314839"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
 
 Aby uruchamiać akcje dopiero po pomyślnym lub niepowodzeniu innej grupy akcji, należy zgrupować te akcje w *zakresie*. Ta struktura jest przydatna, gdy chcesz organizować akcje jako grupę logiczną, oszacować stan grupy i wykonywać akcje, które są oparte na stanie zakresu. Gdy wszystkie akcje w zakresie zakończą działanie, zakres pobiera również własny stan. Można na przykład użyć zakresów, gdy chcesz zaimplementować [obsługę wyjątków i błędów](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Aby sprawdzić stan zakresu, można użyć tych samych kryteriów, które są używane do określania stanu uruchomienia aplikacji logiki, **takich jak powodzenie**, **Niepowodzenie**, **Anulowanie**i tak dalej. Domyślnie, gdy wszystkie akcje tego zakresu zakończyły się powodzeniem, stan zakresu jest oznaczony jako **zakończony powodzeniem**. Ale jeśli jakakolwiek akcja w zakresie nie powiedzie się lub zostanie anulowana, stan zakresu jest oznaczony jako **Niepowodzenie**. Aby uzyskać ograniczenia dotyczące zakresów, zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
+Aby sprawdzić stan zakresu, można użyć tych samych kryteriów, które są używane do określania stanu uruchomienia aplikacji logiki, **takich jak powodzenie**, **Niepowodzenie**, **Anulowanie** i tak dalej. Domyślnie, gdy wszystkie akcje tego zakresu zakończyły się powodzeniem, stan zakresu jest oznaczony jako **zakończony powodzeniem**. Ale jeśli jakakolwiek akcja w zakresie nie powiedzie się lub zostanie anulowana, stan zakresu jest oznaczony jako **Niepowodzenie**. Aby uzyskać ograniczenia dotyczące zakresów, zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
 
 Na przykład poniżej znajduje się aplikacja logiki wysokiego poziomu, która używa zakresu do uruchamiania określonych akcji i warunku do sprawdzenia stanu zakresu. Jeśli jakiekolwiek akcje w zakresie zakończą się niepowodzeniem lub kończą się nieoczekiwanie, zakres jest oznaczony jako **Niepowodzenie** lub **przerwane** odpowiednio, a aplikacja logiki wysyła komunikat "zakres nie powiódł się". Jeśli wszystkie akcje w zakresie zostały wykonane pomyślnie, aplikacja logiki wyśle komunikat "zakres został pomyślnie".
 
@@ -209,7 +209,7 @@ Następnie Dodaj zakres, aby można było grupować określone akcje i oszacowa�
 
       ![Skonfiguruj Właściwość "runAfter"](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
 
-   1. Wybierz wszystkie te Stany zakresu: **powodzenie**, zakończone **niepowodzeniem**, **pominięto**i przekroczono **limit czasu**
+   1. Wybierz wszystkie te Stany zakresu: **powodzenie**, zakończone **niepowodzeniem**, **pominięto** i przekroczono **limit czasu**
 
       ![Wybierz Stany zakresu](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 

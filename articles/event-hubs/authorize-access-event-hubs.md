@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332386"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoryzacja dostępu do usługi Azure Event Hubs
@@ -16,13 +16,13 @@ Za każdym razem, gdy publikujesz lub zużywasz zdarzenia/dane z centrum zdarze�
 
 Usługa Azure Event Hubs oferuje następujące opcje autoryzacji dostępu do bezpiecznych zasobów:
 
-- Usługa Azure Active Directory
+- Azure Active Directory
 - Sygnatura dostępu współdzielonego
 
 > [!NOTE]
 > Ten artykuł dotyczy scenariuszy Event Hubs i [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) . 
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 Integracja z usługą Azure Active Directory (Azure AD) dla zasobów Event Hubs zapewnia kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby precyzyjnej kontroli dostępu klientów do zasobów. Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia podmiotowi zabezpieczeń, które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD w celu zwrócenia tokenu OAuth 2,0. Token może służyć do autoryzowania żądania dostępu do zasobu Event Hubs.
 
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:

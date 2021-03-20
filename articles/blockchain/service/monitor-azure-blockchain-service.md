@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 05147f48c4cde4cc97bf6cc9cae5c8220a389ebd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594928"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  

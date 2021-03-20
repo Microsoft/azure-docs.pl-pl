@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370699"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Securing data stored in Azure Data Lake Storage Gen1 (Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Storage Gen1)
@@ -68,7 +68,7 @@ Podczas przypisywania użytkowników lub grup zabezpieczeń do kont Data Lake St
     W przypadku operacji na danych poszczególne uprawnienia systemu plików definiują elementy, które mogą wykonywać użytkownicy. W związku z tym użytkownik mający rolę czytnika może wyświetlać tylko ustawienia administracyjne skojarzone z tym kontem, ale mogą być w stanie odczytywać i zapisywać dane na podstawie przypisanych im uprawnień systemu plików. Uprawnienia systemu plików Data Lake Storage Gen1 są opisane w [przypisywaniu grupy zabezpieczeń jako listy ACL do systemu plików Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Tylko rola **właściciela** automatycznie włącza dostęp do systemu plików. **Współautor**, **czytelnik**i wszystkie inne role wymagają list ACL, aby umożliwić dostęp do folderów i plików na dowolnym poziomie.  Rola **właściciela** zapewnia uprawnienia do plików i folderów administratora, których nie można zastąpić za pomocą list kontroli dostępu. Aby uzyskać więcej informacji na temat mapowania zasad RBAC platformy Azure na dostęp do danych, zobacz [Azure RBAC na potrzeby zarządzania kontami](data-lake-store-security-overview.md#azure-rbac-for-account-management).
+    > Tylko rola **właściciela** automatycznie włącza dostęp do systemu plików. **Współautor**, **czytelnik** i wszystkie inne role wymagają list ACL, aby umożliwić dostęp do folderów i plików na dowolnym poziomie.  Rola **właściciela** zapewnia uprawnienia do plików i folderów administratora, których nie można zastąpić za pomocą list kontroli dostępu. Aby uzyskać więcej informacji na temat mapowania zasad RBAC platformy Azure na dostęp do danych, zobacz [Azure RBAC na potrzeby zarządzania kontami](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. Jeśli chcesz dodać grupę/użytkownika, którego nie ma na liście w bloku **Dodawanie uprawnień** , możesz zaprosić je, wpisując ich adresy e-mail w polu tekstowym **Wybierz** , a następnie wybierając je z listy.
    

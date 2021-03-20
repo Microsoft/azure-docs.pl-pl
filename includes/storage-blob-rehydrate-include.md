@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: a369eb7000fb8622a69f4205ffcc232ae9c9d242
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95545938"
 ---
 Aby odczytać dane w magazynie archiwalnym, należy najpierw zmienić warstwę obiektu blob na gorącą lub chłodną. Ten proces jest nazywany odpełnieniem i może trwać kilka godzin. Zalecamy duże rozmiary obiektów BLOB w celu uzyskania optymalnej wydajności. Ponowne wypełnianie kilku małych obiektów blob równocześnie może spowodować dalsze przedłużenie czasu. Istnieją obecnie dwa priorytety odnoszące się do warstwy "High i standard", które można ustawić za pośrednictwem opcjonalnej właściwości " *x-MS-dehydratacji-Priority" na poziomie* [zestawu](/rest/api/storageservices/set-blob-tier) lub operacji [kopiowania obiektu](/rest/api/storageservices/copy-blob) BLOB.

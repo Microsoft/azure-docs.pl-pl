@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147083"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Integracja z partnerem pogody z usługą FarmBeats
@@ -75,7 +75,7 @@ Usługa API serializować ten DICT i zapisuje je w [magazynie kluczy](../../key-
 
 [Azure Data Factory](../../data-factory/introduction.md) służy do organizowania zadań pogodowych. Powoduje to przekazanie zasobów w celu uruchomienia kodu platformy Docker. Data Factory udostępnia również mechanizm do bezpiecznego wypychania danych do maszyny wirtualnej, na której działa zadanie platformy Docker. Poświadczenia interfejsu API są następnie bezpiecznie przechowywane w magazynie kluczy. 
 
-Poświadczenia są odczytywane jako bezpieczne ciągi z magazynu kluczy. Są one dostarczane jako właściwości rozszerzone w katalogu roboczym kontenera Docker. Ścieżka pliku jest */mnt/working_dir/activity.jswłączona* . 
+Poświadczenia są odczytywane jako bezpieczne ciągi z magazynu kluczy. Są one dostarczane jako właściwości rozszerzone w katalogu roboczym kontenera Docker. Ścieżka pliku jest */mnt/working_dir/activity.jswłączona*. 
 
 Kod platformy Docker może odczytać poświadczenia z *activity.jsw* czasie wykonywania w celu uzyskania dostępu do interfejsów API po stronie partnera dla klienta. W pliku JSON poświadczenia wyglądają podobnie jak w tym przykładzie kodu:
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji o tym, jak działają potoki i działania Data F
 
 W poniższej tabeli przedstawiono najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats.
 
-Header | Opis i przykład
+Nagłówek | Opis i przykład
 --- | ---
 Content-Type | Format żądania. Przykład: `Content-Type: application/<format>` <br/>W przypadku interfejsów API FarmBeats Datahub format jest JSON. Przykład: ` Content-Type: application/json`
 Autoryzacja | Token dostępu wymagany do wywołania interfejsu API. Przykład: `Authorization: Bearer <Access-Token>`
@@ -117,8 +117,8 @@ Program platformy Docker wymaga dwóch składników: ładowania początkowego i 
 
 Składnik ładowania początkowego powinien działać, gdy klient uruchamia rejestrację platformy Docker w systemie FarmBeats. Następujące argumenty ( `arg1` i `arg2` ) są przekazane do programu:
 
-- **Punkt końcowy interfejsu API FarmBeats** : punkt końcowy interfejsu API FarmBeats dla żądań interfejsu API. Ten punkt końcowy wykonuje wywołania interfejsu API do wdrożenia FarmBeats.
-- **Adres URL Azure Functions** : własny punkt końcowy. Ten adres URL zawiera token dostępu dla interfejsów API FarmBeats. Możesz wywołać `GET` ten adres URL, aby pobrać token dostępu.
+- **Punkt końcowy interfejsu API FarmBeats**: punkt końcowy interfejsu API FarmBeats dla żądań interfejsu API. Ten punkt końcowy wykonuje wywołania interfejsu API do wdrożenia FarmBeats.
+- **Adres URL Azure Functions**: własny punkt końcowy. Ten adres URL zawiera token dostępu dla interfejsów API FarmBeats. Możesz wywołać `GET` ten adres URL, aby pobrać token dostępu.
 
 Ten Bootstrap tworzy metadane, których użytkownicy potrzebują do uruchamiania zadań, aby uzyskać dane pogodowe. Aby uzyskać więcej informacji, zobacz [implementację referencyjną](https://github.com/azurefarmbeats/noaa_docker). 
 
@@ -127,8 +127,8 @@ W przypadku dostosowania *bootstrap_manifest.jsw* pliku, program ładowania refe
  > [!NOTE]
  > W przypadku aktualizacji *bootstrap_manifest.jsw* pliku zgodnie z opisem [implementacji referencyjnej](https://github.com/azurefarmbeats/noaa_docker) nie trzeba tworzyć następujących metadanych. Program ładowania początkowego użyje pliku manifestu do utworzenia niezbędnych metadanych.
 
-- /**WeatherDataModel** : metadane WeatherDataModel reprezentują dane o pogodzie. Odnosi się do zestawów danych dostarczanych przez źródło. Na przykład DailyForecastSimpleModel może zapewnić średnią temperaturę, wilgotność i informacje o opadach raz dziennie. Z kolei DailyForecastAdvancedModel może zapewnić znacznie więcej informacji na poziomie szczegółowości godzinowej. Można utworzyć dowolną liczbę modeli danych pogody.
-- /**Typu zadania** : FarmBeats ma rozszerzalny system zarządzania zadaniami. Jako dostawca danych pogody będziesz mieć różne zbiory i interfejsy API (na przykład GetDailyForecasts). Te zestawy danych i interfejsy API można włączyć w programie FarmBeats przy użyciu typu zadania. Po utworzeniu typu zadania klient może wyzwolić zadania tego typu, aby uzyskać dane pogodowe dla ich lokalizacji lub ich udziału w swojej organizacji. Aby uzyskać więcej informacji, zobacz typu zadania i interfejsy API zadań w [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel**: metadane WeatherDataModel reprezentują dane o pogodzie. Odnosi się do zestawów danych dostarczanych przez źródło. Na przykład DailyForecastSimpleModel może zapewnić średnią temperaturę, wilgotność i informacje o opadach raz dziennie. Z kolei DailyForecastAdvancedModel może zapewnić znacznie więcej informacji na poziomie szczegółowości godzinowej. Można utworzyć dowolną liczbę modeli danych pogody.
+- /**Typu zadania**: FarmBeats ma rozszerzalny system zarządzania zadaniami. Jako dostawca danych pogody będziesz mieć różne zbiory i interfejsy API (na przykład GetDailyForecasts). Te zestawy danych i interfejsy API można włączyć w programie FarmBeats przy użyciu typu zadania. Po utworzeniu typu zadania klient może wyzwolić zadania tego typu, aby uzyskać dane pogodowe dla ich lokalizacji lub ich udziału w swojej organizacji. Aby uzyskać więcej informacji, zobacz typu zadania i interfejsy API zadań w [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Stanowiska
 

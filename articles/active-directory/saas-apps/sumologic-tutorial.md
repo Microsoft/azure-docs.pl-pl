@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 2dcc52688cabebaa6eb813e3240150ea8774e716
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SumoLogic
@@ -134,7 +134,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -184,7 +184,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej cały certyfikat do pola tekstowego **certyfikatu X. 509** .
 
-    f. Jako **atrybut poczty e-mail**wybierz opcję **Użyj podmiotu SAML**.  
+    f. Jako **atrybut poczty e-mail** wybierz opcję **Użyj podmiotu SAML**.  
 
     przykład Wybierz pozycję **Konfiguracja logowania zainicjowana przez program SP**.
 
@@ -210,11 +210,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze SumoLog
 
     ![Nowy użytkownik](./media/sumologic-tutorial/ic778563.png "Nowy użytkownik")
 
-    a. Wpisz powiązane informacje o koncie usługi Azure **AD, które**chcesz udostępnić w polach tekstowych **imię**, nazwisko i **adres e-mail** .
+    a. Wpisz powiązane informacje o koncie usługi Azure **AD, które** chcesz udostępnić w polach tekstowych **imię**, nazwisko i **adres e-mail** .
   
     b. Wybierz rolę.
   
-    c. Jako **stan**wybierz pozycję **aktywny**.
+    c. Jako **stan** wybierz pozycję **aktywny**.
   
     d. Kliknij pozycję **Zapisz**.
 
@@ -227,7 +227,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SumoLogic w panelu dostępu należy automatycznie zalogować się do SumoLogic, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

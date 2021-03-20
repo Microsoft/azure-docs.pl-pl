@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: a693b22c609829f3bf6e76637eac5793d73703e6
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96862313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
@@ -176,13 +176,13 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która pojawia się w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     1. Możesz teraz udostępnić witrynę TestUser@contoso.com i zezwolić temu użytkownikowi na dostęp do niego.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal
 
-1. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory.
+1. Wybierz   >  **grupy** Azure Active Directory.
 
 1. Wybierz pozycję **Nowa grupa**.
 

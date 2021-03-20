@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 1fdcef7e3b4a4246c3e093874fbb775f4811e59f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Samouczek: integracja Azure Active Directory z usługą Stormboard
@@ -156,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

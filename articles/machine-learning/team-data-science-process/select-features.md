@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 940d4c465acb5e8478d2b204ab5b9b18c79254f0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321319"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Wybór funkcji w zespołowym przetwarzaniu danych dla celów naukowych
@@ -23,8 +23,8 @@ W tym artykule wyjaśniono cele wyboru funkcji i przedstawiono przykłady jej ro
 
 Inżynieria i wybór funkcji to jedna część procesu nauki o danych zespołowych (przetwarzania TDSP), którą opisano w artykule [co to jest proces nauki o danych zespołowych?](overview.md) Inżynieria funkcji i wybór są częścią kroku **opracowywania funkcji** przetwarzania TDSP.
 
-* **Inżynieria funkcji** : ten proces podejmuje próbę utworzenia dodatkowych odpowiednich funkcji z istniejących pierwotnych funkcji w danych i zwiększenia mocy predykcyjnej do algorytmu uczenia.
-* **wybór funkcji** : ten proces wybiera podzestaw kluczy oryginalnych funkcji danych w próbie zmniejszenia liczby problemów szkoleniowych.
+* **Inżynieria funkcji**: ten proces podejmuje próbę utworzenia dodatkowych odpowiednich funkcji z istniejących pierwotnych funkcji w danych i zwiększenia mocy predykcyjnej do algorytmu uczenia.
+* **wybór funkcji**: ten proces wybiera podzestaw kluczy oryginalnych funkcji danych w próbie zmniejszenia liczby problemów szkoleniowych.
 
 Zwykle **Funkcja inżynierii funkcji** jest stosowana najpierw w celu wygenerowania dodatkowych funkcji, a następnie krok **wyboru funkcji** jest wykonywany w celu wyeliminowania nieistotnych, nadmiarowych lub wysoce skorelowanych funkcji.
 

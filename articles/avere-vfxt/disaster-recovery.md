@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342250"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Wskazówki dotyczące odzyskiwania po awarii dla avere vFXT dla platformy Azure
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby utworzyć kopię zapasową danych na innym konc
 
    Zanotuj nazwę podstawowego pliku i informacje o rozgałęzieniu (wymienione na stronie **przestrzeni nazw** w panelu sterowania), aby można było je replikować po ponownym dodaniu kontenera po utworzeniu kopii zapasowej.
 
-   Użyj panelu sterowania klastra, aby usunąć podstawowy plik. [Otwórz Panel sterowania klastra](avere-vfxt-cluster-gui.md) i wybierz **podstawowy**plik  >  **zarządzający**plików. Znajdź system magazynu, którego kopię zapasową chcesz utworzyć, a następnie usuń go z klastra przy użyciu przycisku **Usuń** .
+   Użyj panelu sterowania klastra, aby usunąć podstawowy plik. [Otwórz Panel sterowania klastra](avere-vfxt-cluster-gui.md) i wybierz **podstawowy** plik  >  **zarządzający** plików. Znajdź system magazynu, którego kopię zapasową chcesz utworzyć, a następnie usuń go z klastra przy użyciu przycisku **Usuń** .
 
 1. Utwórz nowy, pusty kontener magazynu obiektów BLOB na innym koncie magazynu w innym regionie.
 

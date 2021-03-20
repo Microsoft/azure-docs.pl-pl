@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242861"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Prywatny link do Azure Database for MySQL
@@ -99,7 +99,7 @@ Aby nawiązać połączenie ze środowiskiem lokalnym z Azure Database for MySQL
 
 * [Połączenie punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Połączenie sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Obwód usługi ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+* [Obwód ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link prywatny połączony z regułami zapory
 
@@ -115,7 +115,7 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 Jeśli chcesz używać tylko prywatnych punktów końcowych do uzyskiwania dostępu do swoich Azure Database for MySQL, możesz wyłączyć ustawienie wszystkie publiczne punkty końcowe (tj. [reguły zapory](concepts-firewall-rules.md) i [punkty końcowe usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md)), ustawiając opcję **Odmów dostępu** do poczty publicznej na serwerze bazy danych. 
 
-Jeśli to ustawienie ma wartość *tak* , do Azure Database for MySQL mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie* , klienci mogą łączyć się z Azure Database for MySQL na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
+Jeśli to ustawienie ma wartość *tak*, do Azure Database for MySQL mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MySQL na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
 
 > [!Note]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL — jeden serwer obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 07d3d24dc66cf8293d073709db3e064277a8b177
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Samouczek: integracja Azure Active Directory z usługą Workfront
@@ -126,13 +126,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Workfront, 
 
 1. Zaloguj się do witryny firmowej Workfront jako administrator.
 
-2. Przejdź do **konfiguracji rejestracji**jednokrotnej.
+2. Przejdź do **konfiguracji rejestracji** jednokrotnej.
 
 3. W oknie dialogowym **Logowanie** jednokrotne wykonaj następujące czynności:
     
     ![Konfigurowanie logowania jednokrotnego][23]
    
-    a. Jako **Typ**wybierz pozycję **SAML 2,0**.
+    a. Jako **Typ** wybierz pozycję **SAML 2,0**.
    
     b. Wybierz pozycję **Identyfikator dostawcy usług**.
    
@@ -166,7 +166,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

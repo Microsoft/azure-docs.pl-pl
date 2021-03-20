@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 06c0b25bcf64cfce01b4144550ef69da8c96ee0e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785857"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować Autouzupełnianie (zapytania typeahead i sugerowane wyniki), gdy użytkownik zacznie pisać w polu wyszukiwania. W tym samouczku pokazywane są zapytania AutoComplete i sugerowane wyniki oddzielnie, a następnie razem. Użytkownik może tylko wpisać dwa lub trzy znaki, aby znaleźć wszystkie dostępne wyniki.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Dodawanie sugestii
 > * Dodawanie wyróżniania do sugestii

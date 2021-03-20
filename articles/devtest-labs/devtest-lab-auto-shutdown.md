@@ -4,10 +4,10 @@ description: Dowiedz się, jak ustawić zasady Autozamykania dla laboratorium, a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318970"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurowanie automatycznego zamykania dla maszyn wirtualnych w środowisku laboratoryjnym i obliczeniowym w Azure DevTest Labs
@@ -42,7 +42,7 @@ Aby wyświetlić lub zmienić zasady dla laboratorium, wykonaj następujące kro
 3. Wybierz **opcję Włącz,** aby włączyć tę zasadę i **wyłączyć** ją.
      ![Szczegóły automatycznego zamykania](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 4. Jeśli włączysz tę zasadę, określ czas (i strefę czasową), aby zamknąć wszystkie maszyny wirtualne w bieżącym laboratorium.
-5. Wybierz opcję **tak** lub **nie** , aby można było wysłać powiadomienie 30 minut przed upływem określonego czasu automatycznego zamknięcia. Jeśli wybierzesz opcję **tak** , wprowadź punkt końcowy URL elementu webhook lub adres e-mail określający, gdzie ma być ogłaszane lub wysyłane. Użytkownik otrzymuje powiadomienie i otrzymuje opcję opóźnienia zamknięcia. Aby uzyskać więcej informacji, zobacz sekcję [powiadomienia](#notifications) .
+5. Wybierz opcję **tak** lub **nie** , aby można było wysłać powiadomienie 30 minut przed upływem określonego czasu automatycznego zamknięcia. Jeśli wybierzesz opcję **tak**, wprowadź punkt końcowy URL elementu webhook lub adres e-mail określający, gdzie ma być ogłaszane lub wysyłane. Użytkownik otrzymuje powiadomienie i otrzymuje opcję opóźnienia zamknięcia. Aby uzyskać więcej informacji, zobacz sekcję [powiadomienia](#notifications) .
 6. Wybierz pozycję **Zapisz**.
 
     Domyślnie po włączeniu te zasady mają zastosowanie do wszystkich maszyn wirtualnych w bieżącym laboratorium. Aby usunąć to ustawienie z określonej maszyny wirtualnej, Otwórz okienko zarządzania maszyną wirtualną i zmień jego ustawienie **automatycznego zamykania** .
@@ -72,8 +72,8 @@ Jeśli ustawisz laboratorium na te zasady, użytkownicy laboratorium nie mogą p
 
 1. Na stronie **maszyna wirtualna** wybierz pozycję **automatyczne zamykanie** w menu po lewej stronie w sekcji **operacje** .
 2. Na stronie **automatyczne zamykanie** **Wybierz opcję włączone,** aby włączyć tę zasadę i **wyłączyć** ją.
-3. Jeśli włączysz tę zasadę, określ **czas** (i **strefę czasową** ), o której należy wyłączyć maszynę wirtualną.
-4. Wybierz opcję **tak** lub **nie** , aby wysłać powiadomienie 30 minut przed upływem określonego czasu automatycznego zamknięcia. Jeśli wybierzesz opcję **tak** , wprowadź punkt końcowy URL elementu webhook lub adres e-mail określający, gdzie ma być ogłaszane lub wysyłane. Użytkownik otrzymuje powiadomienie i otrzymuje opcję opóźnienia zamknięcia. Aby uzyskać więcej informacji, zobacz sekcję [powiadomienia](#notifications) .
+3. Jeśli włączysz tę zasadę, określ **czas** (i **strefę czasową**), o której należy wyłączyć maszynę wirtualną.
+4. Wybierz opcję **tak** lub **nie** , aby wysłać powiadomienie 30 minut przed upływem określonego czasu automatycznego zamknięcia. Jeśli wybierzesz opcję **tak**, wprowadź punkt końcowy URL elementu webhook lub adres e-mail określający, gdzie ma być ogłaszane lub wysyłane. Użytkownik otrzymuje powiadomienie i otrzymuje opcję opóźnienia zamknięcia. Aby uzyskać więcej informacji, zobacz sekcję [powiadomienia](#notifications) .
 5. Wybierz pozycję **Zapisz**.
 
     ![Konfigurowanie automatycznego zamykania maszyny wirtualnej obliczeniowej](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)

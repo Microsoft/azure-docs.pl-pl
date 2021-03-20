@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 314c9d6629c74aa7b593d24d503d195b3401f4e7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Samouczek: integracja Azure Active Directory z usługą Showpad
@@ -141,7 +141,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Showpad, wy
 
     a. W polu tekstowym **Nazwa** wpisz nazwę dostawcy identyfikatora (na przykład: Nazwa firmy).
 
-    b. Jako **Źródło metadanych**wybierz pozycję **XML**.
+    b. Jako **Źródło metadanych** wybierz pozycję **XML**.
 
     c. Skopiuj zawartość pliku XML metadanych pobranego z Azure Portal, a następnie wklej ją do pola tekstowego **XML metadanych** .
 
@@ -172,7 +172,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 40ed33021a892e140dfff47417137046557c0aef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522363"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Onit
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -146,7 +146,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Logowanie jednokrotne](./media/onit-tutorial/IC791177.png "Logowanie jednokrotne")
 
-    a. Jako **strategię uwierzytelniania**wybierz pozycję Logowanie jednokrotne **i hasło**.
+    a. Jako **strategię uwierzytelniania** wybierz pozycję Logowanie jednokrotne **i hasło**.
     
     b. W polu tekstowym **docelowy adres URL dostawcy tożsamości** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
@@ -172,7 +172,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Onit, m
 
     a. Wpisz **nazwę** i **adres e-mail** prawidłowego konta usługi Azure AD, które chcesz udostępnić do powiązanych pól tekstowych.
 
-    b. Kliknij przycisk **Utwórz**.
+    b. Kliknij pozycję **Utwórz**.
 
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.
@@ -183,7 +183,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Onit w panelu dostępu należy automatycznie zalogować się do Onit, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

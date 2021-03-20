@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: integracja Azure Active Directory z usługą Uberflip
@@ -50,7 +50,7 @@ Program Uberflip obsługuje następujące funkcje:
 
 Aby skonfigurować integrację programu Uberflip z usługą Azure AD, musisz dodać Uberflip z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
    ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -149,7 +149,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
     1. W polu **Nazwa** wprowadź **BSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BSimon \@ contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BSimon \@ \<yourcompanydomain> . \<extension>**. Na przykład **BSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
@@ -167,7 +167,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Uberflip na liście aplikacji](common/all-applications.png)
 
-1. W lewym okienku w obszarze **Zarządzaj**wybierz pozycję **Użytkownicy i grupy**.
+1. W lewym okienku w obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Opcja "Użytkownicy i grupy"](common/users-groups-blade.png)
 
@@ -194,7 +194,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu opcji **Uberflip** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi Uberflip, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 

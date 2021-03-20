@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518980"
 ---
 # <a name="azure-role-based-access-control-for-storsimple"></a>Kontrola dostępu oparta na rolach na platformie Azure dla StorSimple
@@ -37,7 +37,7 @@ Usługę Azure RBAC można przypisać na podstawie ról. Role zapewniają pewne 
 
 * **Role niestandardowe** — jeśli wbudowane role nie odpowiadają Twoim potrzebom, możesz utworzyć role niestandardowe platformy Azure dla StorSimple. Aby utworzyć rolę niestandardową platformy Azure, Zacznij od wbudowanej roli, Edytuj ją, a następnie zaimportuj ją z powrotem w środowisku. Pobieranie i przekazywanie roli jest zarządzane przy użyciu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie ról niestandardowych dla Access Control opartej na rolach](../role-based-access-control/custom-roles.md).
 
-Aby wyświetlić różne role dostępne dla użytkownika urządzenia StorSimple w Azure Portal, przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji **Kontrola dostępu (IAM) > role**.
+Aby wyświetlić różne role dostępne dla użytkownika urządzenia StorSimple w Azure Portal, przejdź do usługi StorSimple Device Manager, a następnie przejdź do pozycji **Kontrola dostępu (IAM) > role**.
 
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Utwórz rolę niestandardową dla administratora infrastruktury StorSimple
@@ -58,7 +58,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Otwórz plik JSON w programie Visual Studio. Zobaczysz, że typowa rola platformy Azure obejmuje trzy główne sekcje, akcje **,** **noactions**i **AssignableScopes**.
+4. Otwórz plik JSON w programie Visual Studio. Zobaczysz, że typowa rola platformy Azure obejmuje trzy główne sekcje, akcje **,** **noactions** i **AssignableScopes**.
 
     W sekcji **Akcja** zostaną wyświetlone wszystkie dozwolone operacje dla tej roli. Każda akcja jest przypisana z dostawcy zasobów. W przypadku administratora infrastruktury StorSimple Użyj `Microsoft.StorSimple` dostawcy zasobów.
 
@@ -70,7 +70,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
 
     W **sekcjach** noactions są wyświetlane wszystkie akcje ograniczone dla określonej roli platformy Azure. W tym przykładzie żadne akcje nie są ograniczone.
     
-    W obszarze **AssignableScopes**są wyświetlane identyfikatory subskrypcji. Upewnij się, że rola platformy Azure zawiera jawny Identyfikator subskrypcji, w której jest używany. Jeśli nie określono prawidłowego identyfikatora subskrypcji, nie będzie można zaimportować roli w ramach subskrypcji.
+    W obszarze **AssignableScopes** są wyświetlane identyfikatory subskrypcji. Upewnij się, że rola platformy Azure zawiera jawny Identyfikator subskrypcji, w której jest używany. Jeśli nie określono prawidłowego identyfikatora subskrypcji, nie będzie można zaimportować roli w ramach subskrypcji.
 
     Edytuj plik, pamiętając o powyższych kwestiach.
 

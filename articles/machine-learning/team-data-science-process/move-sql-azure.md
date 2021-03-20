@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 42bac2df7abe00be8c0e6ffddcc9bef7ef28ba9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309522"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Przenoszenie danych do usługi Azure SQL Database dla usługi Azure Machine Learning
@@ -39,7 +39,7 @@ Procedury opisane w tym miejscu wymagają:
 * Dostęp do **Azure SQL Database**. Jeśli konieczne jest skonfigurowanie Azure SQL Database, [wprowadzenie z Microsoft Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) zawiera informacje na temat udostępniania nowego wystąpienia Azure SQL Database.
 * Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/).
 
-**Dane** : procesy migracji są przedstawiane za pomocą [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych NYC taksówki zawiera informacje na temat danych o podróży i ich Targi i jest dostępny w usłudze Azure Blob Storage: [NYCe dane z taksówką](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
+**Dane**: procesy migracji są przedstawiane za pomocą [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych NYC taksówki zawiera informacje na temat danych o podróży i ich Targi i jest dostępny w usłudze Azure Blob Storage: [NYCe dane z taksówką](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
 Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub postępować zgodnie z instrukcjami opisanymi przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 

@@ -8,10 +8,10 @@ ms.date: 11/10/2020
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: 1b98948100c06868cd14f636f2049ca515fec18d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94564813"
 ---
 # <a name="commercial-marketplace-analytics-common-questions"></a>Często zadawane pytania dotyczące analizy portalu Marketplace
@@ -30,7 +30,7 @@ Dlaczego widzisz ten komunikat:
 
 - Obecnie nie istnieją żadne pozyskiwania dla opublikowanych ofert w portalu komercyjnym. Może to oznaczać, że oferty znajdują się na żywo w komercyjnej witrynie Marketplace, a klienci wyświetlają strony z listą produktów, ale klienci nie brali jeszcze działania w celu zakupu i wdrażania.
 - Twoja oferta może być w trakcie publikowania, ale nie jest jeszcze dostępna na żywo. Klienci mogą uzyskać tylko oferty na żywo. Aby sprawdzić stan ofert, zobacz stronę **Podsumowanie** na [pulpicie nawigacyjnym analizy](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](summary-dashboard.md).
-- Oferty mogą być wyświetlane jako **kontakt ze mną** , które są ofertami tylko do wyświetlania i nie mogą zostać zakupione przez klientów w portalu komercyjnym. Chociaż te oferty generują potencjalnych klientów i są Ci udostępniane, nie są tworzone zamówienia dla tych ofert, ponieważ nie można ich zakupić. Aby sprawdzić typ aukcji oferty, przejdź na stronę instalatora oferty.
+- Oferty mogą być wyświetlane jako **kontakt ze mną**, które są ofertami tylko do wyświetlania i nie mogą zostać zakupione przez klientów w portalu komercyjnym. Chociaż te oferty generują potencjalnych klientów i są Ci udostępniane, nie są tworzone zamówienia dla tych ofert, ponieważ nie można ich zakupić. Aby sprawdzić typ aukcji oferty, przejdź na stronę instalatora oferty.
 
 ### <a name="i-know-i-have-analytics-data-so-why-does-the-no-analytics-available-message-appear"></a>Wiem, że mam dane analityczne, dlatego nie pojawia się komunikat o braku dostępności analizy?
 

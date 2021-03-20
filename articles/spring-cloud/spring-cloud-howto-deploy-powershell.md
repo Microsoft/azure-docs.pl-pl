@@ -9,13 +9,13 @@ ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3cb320a37818084f2fbcad22a3cc992655b19c3d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95550013"
 ---
-# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Wdróż chmurę z platformą Azure z usługą Azure PowerShell
+# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Wdrażanie usługi Azure Spring Cloud za pomocą usługi Azure PowerShell
 
 W tym artykule opisano, jak utworzyć wystąpienie chmury wiosennej platformy Azure przy użyciu modułu [AZ. SpringCloud](/powershell/module/Az.SpringCloud) PowerShell.
 
@@ -26,7 +26,7 @@ W tym artykule opisano, jak utworzyć wystąpienie chmury wiosennej platformy Az
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
-  > Mimo że moduł **AZ. SpringCloud** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne domyślnie z poziomu Azure Cloud Shell.
+  > Mimo że moduł **AZ. SpringCloud** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Gdy ten moduł programu PowerShell stanie się ogólnie dostępny, będzie częścią przyszłych wydań modułu Az programu PowerShell i będzie domyślnie dostępny z poziomu usługi Azure Cloud Shell.
 
   ```azurepowershell-interactive
   Install-Module -Name Az.SpringCloud

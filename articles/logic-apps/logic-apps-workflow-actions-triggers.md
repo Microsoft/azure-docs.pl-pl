@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784312"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
@@ -821,16 +821,16 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 |-------------|-------------| 
 | [**Redaguj**](#compose-action) | Tworzy pojedyncze dane wyjściowe z danych wejściowych, które mogą mieć różne typy. | 
 | [**Wykonaj kod JavaScript**](#run-javascript-code) | Uruchom fragmenty kodu JavaScript zgodne z określonymi kryteriami. Aby uzyskać wymagania dotyczące kodu i uzyskać więcej informacji, zobacz [Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu wbudowanego](../logic-apps/logic-apps-add-run-inline-code.md). |
-| [**Funkcja**](#function-action) | Wywołuje funkcję platformy Azure. | 
+| [**Funkcyjn**](#function-action) | Wywołuje funkcję platformy Azure. | 
 | [**HTTP**](#http-action) | Wywołuje punkt końcowy HTTP. | 
-| [**Dołącz**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
+| [**Dołączanie**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
 | [**Zapytanie**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
 | [**Odpowiedź**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
 | [**Wybierz pozycję**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
 | [**Tabela**](#table-action) | Tworzy tabelę CSV lub HTML z tablicy. | 
 | [**Zakończ**](#terminate-action) | Powoduje zatrzymanie aktywnie działającego przepływu pracy. | 
-| [**Czekaj**](#wait-action) | Wstrzymuje przepływ pracy przez określony czas lub do określonej daty i godziny. | 
+| [**Oczekiwanie**](#wait-action) | Wstrzymuje przepływ pracy przez określony czas lub do określonej daty i godziny. | 
 | [**Przepływ pracy**](#workflow-action) | Zagnieżdża przepływ pracy w innym przepływie pracy. | 
 ||| 
 

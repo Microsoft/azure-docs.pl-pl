@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323650"
 ---
 # <a name="linear-regression-module"></a>Moduł regresji liniowej
@@ -63,7 +63,7 @@ Ten moduł obsługuje dwie metody dostosowania modelu regresji z różnymi opcja
 
 1. Dodaj moduł **modelu regresji liniowej** do potoku w projektancie.
 
-    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model** , rozwiń pozycję **regresja** , a następnie przeciągnij moduł **model regresji liniowej** do potoku.
+    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model**, rozwiń pozycję **regresja**, a następnie przeciągnij moduł **model regresji liniowej** do potoku.
 
 2. W okienku **Właściwości** na liście rozwijanej **Metoda rozwiązania** wybierz pozycję zwykłe, **najmniejsze kwadraty**. Ta opcja określa metodę obliczeń używaną do znajdowania linii regresji.
 
@@ -71,7 +71,7 @@ Ten moduł obsługuje dwie metody dostosowania modelu regresji z różnymi opcja
 
      Aby dowiedzieć się więcej o tym, jak uregulowanie wpływa na dopasowanie modelu, zobacz ten artykuł: [uregulowanie L1 i L2 dla Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
-4. Wybierz opcję, **Dołącz termin przechwycenia** , jeśli chcesz wyświetlić termin przechwycenia.
+4. Wybierz opcję, **Dołącz termin przechwycenia**, jeśli chcesz wyświetlić termin przechwycenia.
 
     Usuń zaznaczenie tej opcji, jeśli nie musisz przeglądać formuły regresji.
 
@@ -96,22 +96,22 @@ Po zakończeniu szkolenia:
 
 1. Dodaj moduł **modelu regresji liniowej** do potoku w projektancie.
 
-    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model** , rozwiń **regresję** i przeciągnij moduł **modelu regresji liniowej** do potoku
+    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model**, rozwiń **regresję** i przeciągnij moduł **modelu regresji liniowej** do potoku
 
 2. W okienku **Właściwości** na liście rozwijanej **Metoda rozwiązania** wybierz **gradient online** , który jest używany do znajdowania linii regresji.
 
 3. W przypadku **tworzenia trybu Trainer** wskaż, czy chcesz nauczyć model ze wstępnie zdefiniowanym zestawem parametrów, czy chcesz zoptymalizować model przy użyciu odchylenia parametrów.
 
-    + **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować sieć regresji liniowej, możesz podać określony zestaw wartości jako argumenty.
+    + **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować sieć regresji liniowej, możesz podać określony zestaw wartości jako argumenty.
     
-    + **Zakres parametrów** : Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
+    + **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
 
    
 4. W polu **stawka szkoleniowa** określ początkową stawkę szkoleniową dla stochastycznegoego gradientu.
 
 5. W przypadku **liczby epoki szkoleniowej** wpisz wartość wskazującą, ile razy algorytm ma wykonać iterację za pomocą przykładów. W przypadku zestawów danych z niewielką liczbą przykładów ten numer powinien być duży, aby osiągnąć zbieżność.
 
-6. **Normalizing Features** : Jeśli zostały już znormalizowane dane liczbowe używane do uczenia modelu, możesz usunąć zaznaczenie tej opcji. Domyślnie moduł normalizuje wszystkie dane wejściowe liczbowe do zakresu od 0 do 1.
+6. **Normalizing Features**: Jeśli zostały już znormalizowane dane liczbowe używane do uczenia modelu, możesz usunąć zaznaczenie tej opcji. Domyślnie moduł normalizuje wszystkie dane wejściowe liczbowe do zakresu od 0 do 1.
 
     > [!NOTE]
     > 
@@ -129,9 +129,9 @@ Po zakończeniu szkolenia:
 
 12. Uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

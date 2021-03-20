@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342403"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planowanie systemu Avere vFXT
@@ -86,7 +86,7 @@ Klaster avere vFXT używa następujących adresów IP:
 
 * Jeden adres IP zarządzania klastrem. Ten adres może przechodzić z węzła do węzła w klastrze w miarę potrzeby, aby był on zawsze dostępny. Użyj tego adresu, aby nawiązać połączenie z narzędziem konfiguracji panelu sterowania avere.
 * Dla każdego węzła klastra:
-  * Co najmniej jeden adres IP skierowany na klienta. (Wszystkie adresy związane z klientem są zarządzane przez *vserver*klastra, co może przenosić adresy IP między węzłami w razie konieczności).
+  * Co najmniej jeden adres IP skierowany na klienta. (Wszystkie adresy związane z klientem są zarządzane przez *vserver* klastra, co może przenosić adresy IP między węzłami w razie konieczności).
   * Jeden adres IP do komunikacji z klastrem
   * Jeden adres IP wystąpienia (przypisany do maszyny wirtualnej)
 

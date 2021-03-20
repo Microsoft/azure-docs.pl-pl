@@ -9,10 +9,10 @@ ms.date: 02/19/2021
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101741960"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
@@ -35,7 +35,7 @@ W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](/azure/arc
 
 ![Infrastruktura sieci samouczka](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie testowego środowiska sieciowego
@@ -111,7 +111,7 @@ Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obci�
    |Grupa zasobów     |**Test-PD-RG**|
    |Nazwa maszyny wirtualnej     |**SRV — Work**|
    |Region (Region)     |Taki sam jak poprzedni|
-   |Image (Obraz)|Windows Server 2019 Datacenter|
+   |Obraz|Windows Server 2019 Datacenter|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 

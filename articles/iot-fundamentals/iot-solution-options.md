@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 7ff8193e87d138878d95e783d144d445436e7a08
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453008"
 ---
 # <a name="what-is-the-right-iot-solution-for-your-business"></a>Jakie jest odpowiednie rozwiązanie IoT dla Twojej firmy?
@@ -47,7 +47,7 @@ Jakie elementy rozwiązania chcesz dostosować?
 
 - Wybierz podejście do platformy zarządzanej aplikacji, aby dostosować znakowanie, pulpity nawigacyjne, role użytkowników, urządzenia i dane telemetryczne. Nie ma jednak potrzeby obsługi bazowego obciążenia związanego z zarządzaniem systemem IoT.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Jakiej struktury cenowej najlepiej pasuje do Twoich potrzeb?
 

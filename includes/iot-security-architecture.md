@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95561234"
 ---
 Podczas projektowania systemu ważne jest, aby zrozumieć potencjalne zagrożenia dla tego systemu i odpowiednio dodać odpowiednie zabezpieczenia, gdy system został zaprojektowany i opracowany. Ważne jest, aby zaprojektować produkt od samego początku z myślą o bezpieczeństwie, ponieważ zrozumienie, jak osoba atakująca może naruszyć bezpieczeństwo systemu, pozwala upewnić się, że na początku są stosowane odpowiednie środki zaradcze.
@@ -177,7 +177,7 @@ W przypadku każdej kategorii podanej w architekturze usługi Azure IoT ten przy
 
 **Podniesienie uprawnień (E)**: urządzenie, które ma konkretną funkcję, może być wymuszane w inny sposób. Na przykład, zawór, który jest zaprogramowany do otwarcia pół drogi, może zostać zawarty do otwarcia w sposób otwarty.
 
-| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | Urządzenie |S |Przypisywanie tożsamości do urządzenia i uwierzytelnianie urządzenia |Zastępowanie urządzenia lub części urządzenia innym urządzeniem. Jak wiesz, że rozmawiasz z właściwym urządzeniem? |Uwierzytelnianie urządzenia przy użyciu Transport Layer Security (TLS) lub IPSec. Infrastruktura powinna obsługiwać korzystanie z klucza wstępnego (PSK) na tych urządzeniach, które nie mogą obsługiwać pełnego asymetrycznego kryptografii. Korzystanie z usługi Azure AD i [uwierzytelniania OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Zastosowanie mechanizmów Tamperproof na urządzeniu, na przykład przez zwiększenie możliwości wyodrębnienia kluczy i innych materiałów kryptograficznych z urządzenia. |Ryzyko polega na tym, że ktoś narusza urządzenie (zakłócenia fizyczne). Na pewno to urządzenie nie zostało naruszone. |Najbardziej skutecznym środkiem ograniczającym jest funkcja TPM (Trusted Platform Module), która umożliwia przechowywanie kluczy w specjalnym obwodzie obwodowym, z którego klucze nie mogą być odczytywane, ale mogą być używane tylko w przypadku operacji kryptograficznych, które używają klucza, ale nigdy nie ujawniają klucza. Szyfrowanie pamięci urządzenia. Zarządzanie kluczami dla urządzenia. Podpisywanie kodu. |
@@ -220,7 +220,7 @@ Poniżej przedstawiono kilka przykładów zagrożeń w tej kategorii:
 
 Zagrożenia dotyczące ścieżki komunikacji między urządzeniami, urządzeniami i bramami pól oraz bramą urządzenia i chmury. W poniższej tabeli przedstawiono wskazówki dotyczące otwartych gniazd na urządzeniu/w sieci VPN:
 
-| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | IoT Hub urządzenia |TID |Wykres TLS (PSK/RSA) do szyfrowania ruchu |Podsłuchiwanie lub zakłócanie komunikacji między urządzeniem i bramą |Zabezpieczenia na poziomie protokołu. W przypadku protokołów niestandardowych należy ustalić sposób ich ochrony. W większości przypadków komunikacja odbywa się z urządzenia do IoT Hub (urządzenie inicjuje połączenie). |
 | Urządzenie do urządzenia |TID |Wykres TLS (PSK/RSA) do szyfrowania ruchu sieciowego. |Odczytywanie danych podczas przesyłania między urządzeniami. Manipulowanie danymi. Przeciążanie urządzenia nowymi połączeniami |Zabezpieczenia na poziomie protokołu (MQTT/AMQP/HTTP/CoAP. W przypadku protokołów niestandardowych należy ustalić sposób ich ochrony. Środki zaradcze dla zagrożeń systemu DoS polegają na urządzeniach równorzędnych za pomocą chmury lub bramy polowej i mogą działać tylko jako klienci w sieci. Komunikacja równorzędna może spowodować bezpośrednie połączenie między elementami równorzędnymi po przeprowadzeniu przez niego brokera |
@@ -244,11 +244,11 @@ Poniżej przedstawiono kilka przykładów zagrożeń w tej kategorii:
 
 Każde urządzenie i Brama pola mają pewną postać magazynu (tymczasową dla kolejkowania danych, magazynu obrazów systemu operacyjnego).
 
-| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | Magazyn urządzeń |TRID |Szyfrowanie magazynu, podpisywanie dzienników |Odczytywanie danych z magazynu (dane OSOBowe), manipulowanie danymi telemetrycznymi. Manipulowanie danymi kontroli poleceń umieszczonymi w kolejce lub w pamięci podręcznej. Manipulowanie pakietami aktualizacji konfiguracji lub oprogramowania układowego w pamięci podręcznej lub w kolejce lokalnie może prowadzić do naruszenia zabezpieczeń systemów operacyjnych i/lub |Szyfrowanie, kod uwierzytelniania wiadomości (MAC) lub podpis cyfrowy. Gdy jest to możliwe, silna kontrola dostępu za poorednictwem list kontroli dostępu do zasobów (ACL) lub uprawnień. |
 | Obraz systemu operacyjnego urządzenia |TRID | |Manipulowanie systemem operacyjnym/Replacing składników systemu operacyjnego |Partycja systemu operacyjnego tylko do odczytu, obraz podpisanego systemu operacyjnego, szyfrowanie |
-| Magazyn bramy pól (Kolejkowanie danych) |TRID |Szyfrowanie magazynu, podpisywanie dzienników |Odczytywanie danych z magazynu (dane OSOBowe), manipulowanie danymi telemetrycznymi, manipulowanie w kolejce lub buforowane dane kontroli poleceń. Manipulowanie pakietami aktualizacji konfiguracji lub oprogramowania układowego (przeznaczonych dla urządzeń lub bramą pól) w pamięci podręcznej lub w kolejce lokalnie może prowadzić do naruszenia zabezpieczeń systemów operacyjnych i/lub |Funkcja BitLocker |
+| Magazyn bramy pól (Kolejkowanie danych) |TRID |Szyfrowanie magazynu, podpisywanie dzienników |Odczytywanie danych z magazynu (dane OSOBowe), manipulowanie danymi telemetrycznymi, manipulowanie w kolejce lub buforowane dane kontroli poleceń. Manipulowanie pakietami aktualizacji konfiguracji lub oprogramowania układowego (przeznaczonych dla urządzeń lub bramą pól) w pamięci podręcznej lub w kolejce lokalnie może prowadzić do naruszenia zabezpieczeń systemów operacyjnych i/lub |BitLocker |
 | Obraz systemu operacyjnego bramy pola |TRID | |Manipulowanie systemem operacyjnym/Replacing składników systemu operacyjnego |Partycja systemu operacyjnego tylko do odczytu, obraz podpisanego systemu operacyjnego, szyfrowanie |
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Przetwarzanie urządzeń i zdarzeń/strefa bramy w chmurze

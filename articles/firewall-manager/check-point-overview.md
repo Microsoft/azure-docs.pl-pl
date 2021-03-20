@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3c61dc689d19e1a7d6f9b6dbefae846e9458d750
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146862"
 ---
-# <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Zabezpieczanie koncentratorów wirtualnych przy użyciu usługi Check Point CloudGuard Connect
+# <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Zabezpieczanie koncentratorów wirtualnych przy użyciu usługi Check Point Cloudguard Connect
 
 Check Point CloudGuard Connect to zaufany partner zabezpieczeń w Menedżerze zapory platformy Azure. Chroni globalnie rozproszone rozgałęzienie do Internetu (B2I) lub połączenia sieci wirtualnej z Internetem (V2I) z zaawansowanymi zagrożeniami. 
 
