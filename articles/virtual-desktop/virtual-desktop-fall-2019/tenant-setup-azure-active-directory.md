@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542040"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie dzierżawy w systemie Windows Virtual Desktop (klasyczny)
@@ -79,7 +79,7 @@ Aby przypisać rolę aplikacji TenantCreator:
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający wyszukiwanie aplikacji dla przedsiębiorstw w Azure Portal](../media/azure-portal-enterprise-applications.png)
 
-2. W obszarze **aplikacje dla przedsiębiorstw**Wyszukaj pozycję **pulpit wirtualny systemu Windows**. Zobaczysz dwie aplikacje, które podano w poprzedniej sekcji. Z tych dwóch aplikacji wybierz pozycję **pulpit wirtualny systemu Windows**.
+2. W obszarze **aplikacje dla przedsiębiorstw** Wyszukaj pozycję **pulpit wirtualny systemu Windows**. Zobaczysz dwie aplikacje, które podano w poprzedniej sekcji. Z tych dwóch aplikacji wybierz pozycję **pulpit wirtualny systemu Windows**.
 
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający wyniki wyszukiwania podczas wyszukiwania "pulpit wirtualny systemu Windows" w "aplikacje dla przedsiębiorstw". Aplikacja o nazwie "pulpit wirtualny systemu Windows" jest wyróżniona.](../media/tenant-enterprise-app.png)

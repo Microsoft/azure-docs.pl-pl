@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: e76386c8c276c6c8c07751474b3718f98af18f4b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Samouczek: integracja Azure Active Directory z zraszaczem
@@ -158,7 +158,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
     h. Jako **Typ identyfikatora użytkownika SAML**, wybierz pozycję **potwierdzenie zawiera nazwę użytkownika Sprinklr.com**.
 
-    i. Jako **lokalizację identyfikatora użytkownika SAML**wybierz pozycję **Identyfikator użytkownika w elemencie identyfikator nazwy w instrukcji subject**.
+    i. Jako **lokalizację identyfikatora użytkownika SAML** wybierz pozycję **Identyfikator użytkownika w elemencie identyfikator nazwy w instrukcji subject**.
 
     j. Kliknij pozycję **Zapisz**.
 
@@ -187,7 +187,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90528423"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie symulowanego urządzenia TPM za pomocą zestawu SDK języka C# dla IoT Hub Device Provisioning Service
@@ -49,7 +49,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
 ## <a name="provision-the-simulated-device"></a>Aprowizowanie urządzenia symulowanego
 
-1. Zaloguj się do Portalu Azure. Wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę Device Provisioning. W bloku **Przegląd** Zwróć uwagę na wartość **_Identyfikator zakresu_** .
+1. Zaloguj się w witrynie Azure Portal. Wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę Device Provisioning. W bloku **Przegląd** Zwróć uwagę na wartość **_Identyfikator zakresu_** .
 
     ![Skopiuj identyfikator zakresu usługi aprowizacji z bloku portalu](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 

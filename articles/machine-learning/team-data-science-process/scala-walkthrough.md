@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321367"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analiza danych przy użyciu języka Scala i platformy Spark na platformie Azure
@@ -52,7 +52,7 @@ Kroki instalacji i kod w tym artykule dotyczą usługi Azure HDInsight 3,4 Spark
 Opis danych o wykorzystaniu z NYCych taksówki i instrukcje dotyczące wykonywania kodu z notesu programu Jupyter w klastrze Spark znajdują się w odpowiednich sekcjach [Omówienie informacji o nauce danych przy użyciu platformy Spark w usłudze Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Wykonywanie kodu Scala z notesu Jupyter w klastrze Spark
-Notes Jupyter można uruchomić z poziomu Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym, a następnie kliknij go, aby przejść do strony zarządzania klastra. Następnie kliknij pozycję **pulpity nawigacyjne klastra** , a następnie kliknij przycisk **Jupyter Notebook** , aby otworzyć Notes skojarzony z klastrem Spark.
+Notes Jupyter można uruchomić z poziomu Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym, a następnie kliknij go, aby przejść do strony zarządzania klastra. Następnie kliknij pozycję **pulpity nawigacyjne klastra**, a następnie kliknij przycisk **Jupyter Notebook** , aby otworzyć Notes skojarzony z klastrem Spark.
 
 ![Pulpit nawigacyjny klastra i notesy Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -258,8 +258,8 @@ sqlResultsDF.show(3)
 | fare_amount | passenger_count | tip_amount | Przechylony |
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2.9 |1.0 |
-|        16,0 |2,0 |3.4 |1.0 |
-|        10.5 |2,0 |1.0 |1.0 |
+|        16,0 |2.0 |3.4 |1.0 |
+|        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Eksploracja i Wizualizacja danych
 Po przeniesieniu danych do platformy Spark następnym krokiem w procesie analizy danych jest dokładniejsze zrozumienie danych za pomocą eksploracji i wizualizacji. W tej sekcji przeanalizuje dane dotyczące taksówki przy użyciu zapytań SQL. Następnie zaimportuj wyniki do ramki danych, aby wykreślić zmienne docelowe i funkcje potencjalnej kontroli wzrokowej przy użyciu funkcji automatycznej wizualizacji Jupyter.
@@ -353,7 +353,7 @@ W przypadku funkcji modelowania opartych na drzewie z platformy Spark ML i MLlib
 1. Utwórz nową funkcję przez **pakowania** godziny w przedziałach czasowych.
 2. Zastosuj **indeksowanie i jednostronicowe kodowanie** do funkcji kategorii.
 3. **Próbki i podzielić dane** na części szkoleń i testowych.
-4. **Określ zmienne i funkcje szkoleniowe** , a następnie utwórz indeksowane lub jednokodowane, zakodowane szkolenie i testowanie danych wejściowych z rozproszonym punktem z etykietami (odporne) lub ramkami danych.
+4. **Określ zmienne i funkcje szkoleniowe**, a następnie utwórz indeksowane lub jednokodowane, zakodowane szkolenie i testowanie danych wejściowych z rozproszonym punktem z etykietami (odporne) lub ramkami danych.
 5. Automatycznie **Kategoryzuj i vectorize funkcje i elementy docelowe** , które mają być używane jako dane wejściowe dla modeli uczenia maszynowego.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Utwórz nową funkcję przez pakowania godziny w przedziałach czasowych
@@ -922,7 +922,7 @@ W tej sekcji użyjesz narzędzi uczenia maszynowego, których deweloperzy częst
 * Optymalizowanie modelu przy użyciu funkcji CrossValidator z walidacją i parametrów funkcji Hyper-Parameter
 * Optymalizuj model przy użyciu niestandardowego kodu do sprawdzania krzyżowego i czyszczenia parametrów, aby użyć dowolnej funkcji uczenia maszynowego i zestawu parametrów (regresja liniowa)
 
-**Wzajemne sprawdzanie poprawności** jest techniką, która ocenia, jak dobrze jest przeszkolony model na znanym zestawie danych, aby przewidzieć funkcje zestawów danych, na których nie zostały przeszkolone. Ogólnym dobrym pomysłem jest to, że model jest szkolony na zestawie danych znanych danych, a następnie dokładność jego prognoz jest testowana względem niezależnego zestawu danych. Typowa implementacja polega na podzieleniu zestawu danych na składowe *k* , a następnie nauczenie modelu w sposób okrężny na wszystkich, ale jednym ze zgięciów.
+**Wzajemne sprawdzanie poprawności** jest techniką, która ocenia, jak dobrze jest przeszkolony model na znanym zestawie danych, aby przewidzieć funkcje zestawów danych, na których nie zostały przeszkolone. Ogólnym dobrym pomysłem jest to, że model jest szkolony na zestawie danych znanych danych, a następnie dokładność jego prognoz jest testowana względem niezależnego zestawu danych. Typowa implementacja polega na podzieleniu zestawu danych na składowe *k*, a następnie nauczenie modelu w sposób okrężny na wszystkich, ale jednym ze zgięciów.
 
 **Optymalizacja parametrów funkcji Hyper-Parameter** to problem polegający na wyborze zestawu funkcji Hyper-Parameters dla algorytmu uczenia, zazwyczaj z celem optymalizacji miary wydajności algorytmu w niezależnym zestawie danych. Parametr Hyper-Parameter jest wartością, która musi być określona poza procedurą szkolenia modelu. Założenia dotyczące wartości parametrów funkcji Hyper-Parameter mogą mieć wpływ na elastyczność i dokładność modelu. Drzewa decyzyjne mają parametry funkcji Hyper-Parameters, na przykład na żądaną głębokość i liczbę liści w drzewie. Należy ustawić nieprawidłową klasyfikację dla maszyny wektorowej pomocy technicznej (SVM).
 

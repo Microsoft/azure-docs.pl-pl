@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 11bd79a1bc88d2605a20744f5a6b6536d754c100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576646"
 ---
 # <a name="override-materials-during-model-conversion"></a>Zastępowanie materiałów podczas konwersji modelu
@@ -109,7 +109,7 @@ W przeciwnym razie jest wybierany pierwszy wpis wyrażenia regularnego w pliku, 
 
 ## <a name="json-schema"></a>Schemat JSON
 
-Pełny schemat JSON dla plików materiałów jest podawany w tym miejscu. Z wyjątkiem `unlit` i `ignoreTextureMaps` , dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiałach kolorów](../../overview/features/color-materials.md) i w modelu. [PBR material](../../overview/features/pbr-materials.md)
+Pełny schemat JSON dla plików materiałów jest podawany w tym miejscu. Z wyjątkiem `unlit` i `ignoreTextureMaps` , dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiałach kolorów](../../overview/features/color-materials.md) i w modelu. [](../../overview/features/pbr-materials.md)
 
 ```json
 {

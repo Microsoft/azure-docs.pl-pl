@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565109"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Komunikaty programu Exchange RosettaNet dla integracji z usługą B2B Enterprise w Azure Logic Apps
@@ -75,7 +75,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Wybierz kafelek RosettaNet](media/logic-apps-enterprise-integration-rosettanet/select-rosettanet-tile.png)
 
-1. W obszarze **ROSETTANET PIP**wybierz pozycję **Dodaj**. Podaj szczegóły dotyczące PIP.
+1. W obszarze **ROSETTANET PIP** wybierz pozycję **Dodaj**. Podaj szczegóły dotyczące PIP.
 
    ![Dodaj szczegóły RosettaNet PIP](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
@@ -106,7 +106,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Wybierz kafelek umowy](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
 
-1. W obszarze **umowy**wybierz pozycję **Dodaj**. Podaj szczegóły umowy.
+1. W obszarze **umowy** wybierz pozycję **Dodaj**. Podaj szczegóły umowy.
 
    ![Dodaj szczegóły umowy](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
@@ -127,7 +127,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Ustawienia odbierania](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
 
-   1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości przychodzących, w obszarze **komunikaty**wybierz opcję **komunikat powinien być podpisany** lub **komunikat powinien być szyfrowany** odpowiednio.
+   1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości przychodzących, w obszarze **komunikaty** wybierz opcję **komunikat powinien być podpisany** lub **komunikat powinien być szyfrowany** odpowiednio.
 
       | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
@@ -143,7 +143,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Ustawienia wysyłania](media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png)
 
-   1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości wychodzących, w obszarze **komunikaty**wybierz opcję **Włącz podpisywanie wiadomości** lub **Włącz szyfrowanie wiadomości** odpowiednio. W każdym z wybranych opcji wybierz odpowiedni algorytm i [certyfikat](./logic-apps-enterprise-integration-certificates.md), które zostały wcześniej dodane do konta integracji, aby użyć do podpisywania lub szyfrowania.
+   1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości wychodzących, w obszarze **komunikaty** wybierz opcję **Włącz podpisywanie wiadomości** lub **Włącz szyfrowanie wiadomości** odpowiednio. W każdym z wybranych opcji wybierz odpowiedni algorytm i [certyfikat](./logic-apps-enterprise-integration-certificates.md), które zostały wcześniej dodane do konta integracji, aby użyć do podpisywania lub szyfrowania.
 
       | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
@@ -155,7 +155,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
       | **Certyfikat** | Tak, jeśli szyfrowanie jest włączone | Certyfikat do użycia na potrzeby szyfrowania |
       ||||
 
-   1. W obszarze **punkty końcowe**Określ wymagane adresy URL, które mają być używane do wysyłania komunikatów akcji i potwierdzeń.
+   1. W obszarze **punkty końcowe** Określ wymagane adresy URL, które mają być używane do wysyłania komunikatów akcji i potwierdzeń.
 
       | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
@@ -163,7 +163,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
       | **Adres URL potwierdzenia** | Tak | Adres URL służący do wysyłania wiadomości potwierdzających. Adres URL jest polem wymaganym dla komunikatów asynchronicznych. |
       ||||
 
-1. Aby skonfigurować umowę za pomocą RosettaNet PIP References for Partners, wybierz pozycję **ROSETTANET PIP References**. W obszarze **Nazwa PIP**wybierz nazwę utworzonego wcześniej PIP.
+1. Aby skonfigurować umowę za pomocą RosettaNet PIP References for Partners, wybierz pozycję **ROSETTANET PIP References**. W obszarze **Nazwa PIP** wybierz nazwę utworzonego wcześniej PIP.
 
    ![Odwołania PIP](media/logic-apps-enterprise-integration-rosettanet/add-agreement-pip-details.png)
 

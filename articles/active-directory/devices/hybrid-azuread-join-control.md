@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860936"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrolowana walidacja przyłączenia do hybrydowej usługi Azure AD
@@ -55,7 +55,7 @@ Użyj poniższego przykładu, aby utworzyć obiekt zasady grupy (GPO) w celu wdr
 
 1. Otwórz konsolę zarządzania zasady grupy i Utwórz nowy obiekt zasady grupy w domenie.
    1. Podaj nazwę nowo utworzonego obiektu zasad grupy (na przykład ClientSideSCP).
-1. Edytuj obiekt zasad grupy i znajdź następującą ścieżkę: **Preferencje konfiguracji komputera**  >  **Preferences**  >  **rejestr ustawień systemu Windows**  >  **Registry**
+1. Edytuj obiekt zasad grupy i znajdź następującą ścieżkę: **Preferencje konfiguracji komputera**  >    >  **rejestr ustawień systemu Windows**  >  
 1. Kliknij prawym przyciskiem myszy rejestr i wybierz pozycję **Nowy**  >  **element rejestru**
    1. Na karcie **Ogólne** skonfiguruj następujące ustawienia:
       1. Akcja: **Aktualizacja**

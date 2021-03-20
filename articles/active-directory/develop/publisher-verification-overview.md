@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308769"
 ---
 # <a name="publisher-verification"></a>Weryfikacja wydawcy
@@ -33,17 +33,17 @@ Ta funkcja jest przeznaczony głównie dla deweloperów tworzących aplikacje z 
 
 ## <a name="benefits"></a>Korzyści
 Weryfikacja wydawcy zapewnia następujące korzyści:
-- **Zwiększone przejrzystości i zmniejszanie ryzyka dla klientów** — ta funkcja pomaga klientom zrozumieć, które aplikacje są używane w organizacjach, są publikowane przez deweloperów, którym ufają. 
+- **Zwiększone przejrzystości i zmniejszanie ryzyka dla klientów**— ta funkcja pomaga klientom zrozumieć, które aplikacje są używane w organizacjach, są publikowane przez deweloperów, którym ufają. 
 
-- **Ulepszona znakowanie** — wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
+- **Ulepszona znakowanie**— wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
 
-- **Bezproblemowe wdrażanie w przedsiębiorstwie** — Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad.
+- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad.
 
 > [!NOTE]
 > Począwszy od listopada 2020, użytkownicy końcowi nie będą już mogli przyznawać zgody na większość nowo zarejestrowanych aplikacji wielodostępnych bez zweryfikowanych wydawców. Dotyczy to aplikacji, które są zarejestrowane po 8 listopada 2020, za pomocą protokołu OAuth 2.0 można zażądać uprawnień poza podstawową rejestracją i odczytać profil użytkownika, a następnie poprosić o zgodę użytkowników w różnych dzierżawców niż ta, w której jest zarejestrowana aplikacja. Na ekranie zgody zostanie wyświetlone ostrzeżenie z informacją o tym, że te aplikacje są ryzykowne i pochodzą z niezweryfikowanych wydawców.    
 
 ## <a name="requirements"></a>Wymagania
-Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Oto one: 
+Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Są to: 
 
 -  IDENTYFIKATOR MPN dla prawidłowego konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) . To konto MPN musi być [kontem globalnym partnera (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) dla Twojej organizacji. 
 

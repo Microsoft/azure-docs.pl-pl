@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242212"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
@@ -20,7 +20,7 @@ W [aparacie reguł standardowych](cdn-standard-rules-engine.md) dla platformy Az
 
 Aparat reguł został zaprojektowany z myślą o sposobie przetwarzania określonych typów żądań przez standardową Azure CDN.
 
-**Typowe zastosowania reguł** :
+**Typowe zastosowania reguł**:
 
 - Przesłoń lub Zdefiniuj niestandardowe zasady pamięci podręcznej.
 - Przekieruj żądania.
@@ -34,7 +34,7 @@ Aby zdefiniować regułę w aparacie reguł, ustaw odpowiednie [warunki](cdn-sta
 
 Każda reguła może mieć do dziesięciu warunków dopasowania i pięć akcji. Każdy punkt końcowy Azure CDN może mieć do 25 reguł. 
 
-Uwzględniony w tym limicie jest domyślną *regułą globalną* . Reguła globalna nie ma pasujących warunków; akcje, które są zdefiniowane w regule globalnej, są zawsze wyzwalane.
+Uwzględniony w tym limicie jest domyślną *regułą globalną*. Reguła globalna nie ma pasujących warunków; akcje, które są zdefiniowane w regule globalnej, są zawsze wyzwalane.
 
    > [!IMPORTANT]
    > Kolejność, w której są wyświetlane wiele reguł, ma wpływ na sposób obsługi reguł. Akcje określone w regule mogą zostać zastąpione przez kolejną regułę.

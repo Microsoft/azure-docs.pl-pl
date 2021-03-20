@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bd7d6ae1af85bd483c96c8425c55c3c92a1b8ec2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Samouczek: integracja Azure Active Directory z usługą Skilljar
@@ -125,7 +125,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Skilljar, w
 
 ### <a name="configure-skilljar-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Skilljar
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Skilljar** , musisz wysłać pobrany **XML metadanych Federacji**i **Identyfikator identyfikatora nazwy wartość-urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: EmailAddress** do [Skilljar Support Team](https://support.skilljar.com/hc/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Skilljar** , musisz wysłać pobrany **XML metadanych Federacji** i **Identyfikator identyfikatora nazwy wartość-urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: EmailAddress** do [Skilljar Support Team](https://support.skilljar.com/hc/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -150,7 +150,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

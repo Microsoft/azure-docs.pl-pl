@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100732"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
@@ -22,7 +22,7 @@ ms.locfileid: "93100732"
 > [!NOTE]
 > Nazwy główne usługi należy dodać bezpośrednio do roli administratora serwera. Dodanie nazwy głównej usługi do grupy zabezpieczeń, a następnie dodanie tej grupy zabezpieczeń do roli administratora serwera nie jest obsługiwane. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestrowaną w Azure Active Directory.
 
 [Tworzenie jednostki usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
@@ -33,12 +33,12 @@ Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestro
 Administratorów serwera można skonfigurować przy użyciu SQL Server Management Studio (SSMS). Aby wykonać to zadanie, musisz mieć uprawnienia [administratora serwera](analysis-services-server-admins.md) na platformie Azure jako serwer. 
 
 1. W programie SSMS Połącz się z platformą Azure jako serwerem.
-2. W obszarze **Właściwości serwera**  >  **zabezpieczenia** kliknij przycisk **Dodaj** .
-3. W obszarze **Wybierz użytkownika lub grupę** Wyszukaj zarejestrowaną aplikację według nazwy, wybierz pozycję, a następnie kliknij przycisk **Dodaj** .
+2. W obszarze **Właściwości serwera**  >  **zabezpieczenia** kliknij przycisk **Dodaj**.
+3. W obszarze **Wybierz użytkownika lub grupę** Wyszukaj zarejestrowaną aplikację według nazwy, wybierz pozycję, a następnie kliknij przycisk **Dodaj**.
 
     ![Wyszukaj konto jednostki usługi](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Sprawdź identyfikator konta nazwy głównej usługi, a następnie kliknij przycisk **OK** .
+4. Sprawdź identyfikator konta nazwy głównej usługi, a następnie kliknij przycisk **OK**.
     
     ![Zrzut ekranu pokazujący identyfikator konta jednostki usługi i wyróżniony przycisk OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578584"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal
@@ -56,7 +56,7 @@ Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mi
 
         Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Kliknij przycisk **Utwórz**. Jeśli wybrano opcję przypięcia konta do pulpitu nawigacyjnego, nastąpi powrót do pulpitu nawigacyjnego i zobaczysz postęp aprowizacji Data Lake Storage Gen1 konta. Po zainicjowaniu obsługi konta Data Lake Storage Gen1 zostanie wyświetlony blok konta.
+4. Kliknij pozycję **Utwórz**. Jeśli wybrano opcję przypięcia konta do pulpitu nawigacyjnego, nastąpi powrót do pulpitu nawigacyjnego i zobaczysz postęp aprowizacji Data Lake Storage Gen1 konta. Po zainicjowaniu obsługi konta Data Lake Storage Gen1 zostanie wyświetlony blok konta.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Przypisywanie uprawnień do usługi Azure Key Vault
 

@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101582"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejs API tabel
@@ -31,11 +31,11 @@ W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB int
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-table-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela** . Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela**. Następnie podaj następujące szczegóły:
 
    * Wprowadź identyfikator tabeli.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz pozycję **OK** .
+   * Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Zrzut ekranu interfejsu API tabel, okno dialogowe Dodawanie tabeli":::
 

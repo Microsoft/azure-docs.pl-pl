@@ -4,17 +4,17 @@ description: W tym artykule opisano sposób określania obrazów z portalu Marke
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434740"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Określanie obrazów w portalu Marketplace dostępnych dla twórców laboratorium
 Jako właściciel konta laboratorium możesz określić obrazy witryny Marketplace, których twórcy laboratorium mogą używać do tworzenia laboratoriów na koncie laboratorium. 
 
 ## <a name="select-images-available-for-labs"></a>Wybierz obrazy dostępne dla laboratoriów
-W menu po lewej stronie wybierz pozycję **Obrazy w portalu Marketplace**. Domyślnie zobaczysz pełną listę obrazów (włączonych i wyłączonych). Można filtrować listę, aby wyświetlić tylko obrazy włączone/wyłączone, wybierając opcję tylko **Enabled only** / **wyłączone** z listy rozwijanej w górnej części strony. 
+W menu po lewej stronie wybierz pozycję **Obrazy w portalu Marketplace**. Domyślnie zobaczysz pełną listę obrazów (włączonych i wyłączonych). Można filtrować listę, aby wyświetlić tylko obrazy włączone/wyłączone, wybierając opcję tylko  / **wyłączone** z listy rozwijanej w górnej części strony. 
     
 ![Strona Obrazy w portalu Marketplace](./media/tutorial-setup-lab-account/marketplace-images-page.png)
 

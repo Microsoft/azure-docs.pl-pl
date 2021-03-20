@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240770"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
@@ -18,7 +18,7 @@ ms.locfileid: "93240770"
 > [!IMPORTANT] 
 > Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
 
-Azure Database for MySQL elastyczny serwer, program automatycznie tworzy kopie zapasowe serwera i bezpiecznie zapisuje je w lokalnym nadmiarowym magazynie w regionie. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości działania, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
+Azure Database for MySQL elastyczny serwer, program automatycznie tworzy kopie zapasowe serwera i bezpiecznie zapisuje je w lokalnym nadmiarowym magazynie w regionie. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości biznesowej, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
 
 ## <a name="backup-overview"></a>Omówienie usługi Backup
 
@@ -68,8 +68,8 @@ Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Niektóre 
 
 Można wybrać między najnowszym punktem przywracania i niestandardowym punktem przywracania za pośrednictwem [Azure Portal](how-to-restore-server-portal.md).
 
--   **Najnowszy punkt przywracania** : najnowszy punkt przywracania ułatwia przywrócenie serwera do ostatniej kopii zapasowej wykonanej na serwerze źródłowym. Sygnatura czasowa dla przywracania zostanie również wyświetlona w portalu. Ta opcja jest przydatna, aby szybko przywrócić serwer do najbardziej zaktualizowanego stanu.
--   **Niestandardowy punkt przywracania** : umożliwi to wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego serwera elastycznego. Ta opcja przydaje się do przywrócenia serwera w precyzyjnym punkcie w czasie w celu odzyskania sprawności po błędzie użytkownika.
+-   **Najnowszy punkt przywracania**: najnowszy punkt przywracania ułatwia przywrócenie serwera do ostatniej kopii zapasowej wykonanej na serwerze źródłowym. Sygnatura czasowa dla przywracania zostanie również wyświetlona w portalu. Ta opcja jest przydatna, aby szybko przywrócić serwer do najbardziej zaktualizowanego stanu.
+-   **Niestandardowy punkt przywracania**: umożliwi to wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego serwera elastycznego. Ta opcja przydaje się do przywrócenia serwera w precyzyjnym punkcie w czasie w celu odzyskania sprawności po błędzie użytkownika.
 
 Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary baz danych, rozmiar kopii zapasowej dziennika transakcji, rozmiar obliczeń jednostki SKU i czas przywracania. Odzyskiwanie dziennika transakcji jest najbardziej czasochłonną częścią procesu przywracania. Jeśli czas przywracania jest wybierany bliżej harmonogramu tworzenia kopii zapasowej pełnej lub różnicowej, przywracanie jest szybsze, ponieważ aplikacja dziennika transakcji jest minimalna. Aby oszacować dokładny czas odzyskiwania dla serwera, zdecydowanie zalecamy przetestowanie go w środowisku, ponieważ zawiera zbyt wiele zmiennych specyficznych dla środowiska.
 

@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146641"
 ---
 # <a name="content-moderator-review-tool"></a>Narzędzie do przeglądu Content Moderator
@@ -28,7 +28,7 @@ Usługa Azure Content Moderator zapewnia usługi do łączenia moderowania zawar
 - Użyj jednego zestawu narzędzi do umiarkowanej zawartości w wielu formatach (tekst, obraz i wideo).
 - Automatyzuj tworzenie [przeglądów](../review-api.md#reviews) ludzkich, gdy są dostępne wyniki interfejsu API moderowania.
 - Przypisywać lub eskalować przeglądy zawartości do wielu zespołów przeglądów zorganizowanych według kategorii zawartości lub poziomu doświadczenia.
-- Użyj domyślnych lub niestandardowych filtrów logiki,[workflows](../review-api.md#workflows)aby sortować i śledzić zawartość, bez konieczności pisania kodu.
+- Użyj domyślnych lub niestandardowych filtrów logiki,[](../review-api.md#workflows)aby sortować i śledzić zawartość, bez konieczności pisania kodu.
 - Korzystając z [łączników](./configure.md#connectors) , można przetwarzać zawartość przy użyciu usług Microsoft PhotoDNA, analiza tekstu i twarz, a także interfejsów API Content Moderator.
 - Pobierz kluczowe metryki wydajności procesów moderowania zawartości.
 
@@ -47,7 +47,7 @@ Kliknięcie tekstu w prawym górnym rogu pulpitu nawigacyjnego powoduje wyświet
 
 ## <a name="review-tool-credentials"></a>Zapoznaj się z poświadczeniami narzędzia
 
-Po zarejestrowaniu się za pomocą [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)zostanie wyświetlony monit o wybranie regionu platformy Azure dla konta. Wynika to z faktu, że [Narzędzie do przeglądu](https://contentmoderator.cognitive.microsoft.com) generuje bezpłatny klucz wersji próbnej dla usług Azure Content moderator Services. Ten klucz będzie potrzebny do uzyskiwania dostępu do dowolnych usług z poziomu usługi REST lub zestawu SDK klienta. Możesz wyświetlić klucz i adres URL punktu końcowego interfejsu API, **Admin** wybierając pozycję  >  **poświadczenia** administratora.
+Po zarejestrowaniu się za pomocą [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)zostanie wyświetlony monit o wybranie regionu platformy Azure dla konta. Wynika to z faktu, że [Narzędzie do przeglądu](https://contentmoderator.cognitive.microsoft.com) generuje bezpłatny klucz wersji próbnej dla usług Azure Content moderator Services. Ten klucz będzie potrzebny do uzyskiwania dostępu do dowolnych usług z poziomu usługi REST lub zestawu SDK klienta. Możesz wyświetlić klucz i adres URL punktu końcowego interfejsu API, wybierając pozycję  >  **poświadczenia** administratora.
 
 > [!div class="mx-imgBorder"]
 > ![Poświadczenia Content Moderator](images/settings-6-credentials.png)

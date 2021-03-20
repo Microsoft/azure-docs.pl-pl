@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241739"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Zarządzanie strefą nadmiarową wysoką dostępność w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
@@ -32,18 +32,18 @@ Na tej stronie przedstawiono wskazówki dotyczące włączania lub wyłączania 
 
 Ta sekcja zawiera szczegółowe informacje dotyczące pól związanych z HA. Poniższe kroki umożliwiają wdrożenie wysokiej dostępności podczas tworzenia elastycznego serwera.
 
-1.  W [Azure Portal](https://portal.azure.com/)wybierz opcję elastyczny serwer i kliknij pozycję **Utwórz** .  Aby uzyskać szczegółowe informacje na temat wypełniania szczegółów, takich jak **subskrypcja** , **Grupa zasobów** , **Nazwa serwera** , **region** i inne pola, zobacz dokumentację dotyczącą tworzenia serwera.
+1.  W [Azure Portal](https://portal.azure.com/)wybierz opcję elastyczny serwer i kliknij pozycję **Utwórz**.  Aby uzyskać szczegółowe informacje na temat wypełniania szczegółów, takich jak **subskrypcja**, **Grupa zasobów**, **Nazwa serwera**, **region** i inne pola, zobacz dokumentację dotyczącą tworzenia serwera.
 
 2.  Kliknij pole wyboru dla **strefy nadmiarowa wysoka dostępność** w opcji dostępność.
 
-3.  Jeśli chcesz zmienić domyślne obliczenia i magazyn, kliknij pozycję  **Konfiguruj serwer** .
+3.  Jeśli chcesz zmienić domyślne obliczenia i magazyn, kliknij pozycję  **Konfiguruj serwer**.
 
 4.  Jeśli opcja wysoka dostępność jest zaznaczona, warstwa do przetworzenia nie będzie dostępna do wybrania. Można wybrać warstwy obliczeń **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci** .
 
     > [!IMPORTANT]
-    > Firma Microsoft obsługuje tylko nadmiarowe wysokiej dostępności dla warstwy cenowej * *_ogólnego przeznaczenia_* _ i _*_zoptymalizowanej pod kątem pamięci_*_ .
+    > Firma Microsoft obsługuje tylko nadmiarową wysoką dostępność dla * warstwy cenowej ***ogólnego przeznaczenia** _ i _ *_zoptymalizowanej pod kątem pamięci_*.
 
-5.  Wybierz z listy rozwijanej wartość _ *obliczony rozmiar* *.
+5.  Wybierz wybrany **rozmiar obliczeń** z listy rozwijanej.
 
 6.  Wybierz pozycję **Rozmiar magazynu** w GIB przy użyciu paska przesuwania i wybierz **okres przechowywania kopii zapasowych** w ciągu 7 dni i 35 dni.   
 

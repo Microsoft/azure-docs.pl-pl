@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 03/04/2019
 ms.openlocfilehash: 46a7fff86d3a8c4539b77a0f271179d68e7a26d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541683"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Typowe kody odpowiedzi interfejsu API i ich znaczenie
@@ -23,7 +23,7 @@ Interfejsy API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) i [p
 ## <a name="common-status-codes"></a>Typowe kody stanu
 W poniższej tabeli wymieniono najbardziej typowe kody stanu odpowiedzi HTTP dla interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) i [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) :
 
-|Kod|Interfejs API|Objaśnienie|
+|Kod|Interfejs API|Wyjaśnienie|
 |:--|--|--|
 |400|Tworzenie, punkt końcowy|parametry żądania są niepoprawne, co oznacza, że brakuje wymaganych parametrów, są źle sformułowane lub zbyt duże|
 |400|Tworzenie, punkt końcowy|treść żądania jest niepoprawna, co oznacza, że brakuje pliku JSON, został źle sformułowany lub jest zbyt duży|

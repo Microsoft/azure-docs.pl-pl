@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92311135"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Konfigurowanie niestandardowej nazwy domeny dla wystąpienia usługi Azure API Management
@@ -64,8 +64,8 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 1. Wybierz punkt końcowy, który chcesz zaktualizować.
 1. W oknie po prawej stronie kliknij pozycję **niestandardowy**.
 
-    - W polu **nazwa domeny niestandardowej**Określ nazwę, której chcesz użyć. Na przykład `api.contoso.com`.
-    - W obszarze **certyfikat**wybierz certyfikat z Key Vault. Można również przekazać prawidłowy. Plik PFX i podaj jego **hasło**, jeśli certyfikat jest chroniony hasłem.
+    - W polu **nazwa domeny niestandardowej** Określ nazwę, której chcesz użyć. Na przykład `api.contoso.com`.
+    - W obszarze **certyfikat** wybierz certyfikat z Key Vault. Można również przekazać prawidłowy. Plik PFX i podaj jego **hasło**, jeśli certyfikat jest chroniony hasłem.
 
     > [!NOTE]
     > Nazwy domen wieloznacznych, np., `*.contoso.com` są obsługiwane we wszystkich warstwach poza warstwą zużycia.

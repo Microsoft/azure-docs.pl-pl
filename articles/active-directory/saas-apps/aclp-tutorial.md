@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Samouczek: integracja Azure Active Directory z usługą ACLP
@@ -166,7 +166,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-aclp-test-user"></a>Utwórz użytkownika testowego ACLP
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ACLP. Aby dodać użytkowników na platformie ACLP, Pracuj z [zespołem pomocy technicznej ACLP](mailto:mrichards@sans.org) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ACLP. Aby dodać użytkowników na platformie ACLP, Pracuj z [zespołem pomocy technicznej ACLP](mailto:mrichards@sans.org) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

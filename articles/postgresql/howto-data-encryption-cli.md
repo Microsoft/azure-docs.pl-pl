@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240617"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for PostgreSQL jednego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -49,7 +49,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Dat
 * Klucz musi mieć następujące atrybuty do użycia jako klucz zarządzany przez klienta:
   * Brak daty wygaśnięcia
   * Niewyłączone
-  * Wykonywanie operacji **Get** , **zawijania** i **odpakowania**
+  * Wykonywanie operacji **Get**, **zawijania** i **odpakowania**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ustaw odpowiednie uprawnienia dla operacji Key
 
@@ -67,7 +67,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Dat
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Ustaw **uprawnienia klucza** ( **pobieranie** , **Zawijanie** , **odpakowywanie) dla** **podmiotu zabezpieczeń** , który jest nazwą serwera PostgreSQL jednego serwera.
+2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera PostgreSQL jednego serwera.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

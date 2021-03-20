@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055303"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP dla Azure App Service
@@ -332,7 +332,7 @@ php_value upload_max_filesize 10M
 
 Ponownie Wdróż aplikację ze zmianami, a następnie uruchom ją. Jeśli zostanie wdrożony za pomocą kudu (na przykład przy użyciu usługi [git](deploy-local-git.md)), zostanie on automatycznie uruchomiony ponownie po wdrożeniu.
 
-Jako alternatywę dla korzystania z *. htaccess*można użyć [ini_set ()](https://www.php.net/manual/function.ini-set.php) w aplikacji, aby dostosować te dyrektywy niePHP_INI_SYSTEMowe.
+Jako alternatywę dla korzystania z *. htaccess* można użyć [ini_set ()](https://www.php.net/manual/function.ini-set.php) w aplikacji, aby dostosować te dyrektywy niePHP_INI_SYSTEMowe.
 
 ::: zone-end
 
@@ -470,7 +470,7 @@ Gdy działająca aplikacja PHP działa inaczej w App Service lub zawiera błędy
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
 - Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikację w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Na przykład:
-    - W zależności od *composer.jsw systemie*można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
+    - W zależności od *composer.jsw systemie* można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.
 - Uruchom aplikację w App Service w trybie debugowania. Na przykład w [platformy laravel](https://meanjs.org/)można skonfigurować aplikację do wyprowadzania komunikatów debugowania w środowisku produkcyjnym, [ustawiając `APP_DEBUG` ustawienie aplikacji na `true` ](configure-common.md#configure-app-settings).

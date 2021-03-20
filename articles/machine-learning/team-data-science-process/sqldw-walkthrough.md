@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316006"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
@@ -63,8 +63,8 @@ Dane dotyczące podróży z taksówką NYC obejmują około 20 GB skompresowanyc
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Adresowanie trzech typów zadań przewidywania
 Opracowujemy trzy problemy z przewidywaniami na podstawie *\_ kwoty* pozostałej do zilustrowania trzech rodzajów zadań modelowania:
 
-1. **Klasyfikacja binarna** : w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że \_ Kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy *\_ Kwota* pozostała do $0 jest ujemna.
-2. **Klasyfikacja wieloklasowa** : przewidywanie zakresu porady dla podróży. Podziel *\_ kwotę* na pięć przedziałów lub klas:
+1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że \_ Kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy *\_ Kwota* pozostała do $0 jest ujemna.
+2. **Klasyfikacja wieloklasowa**: przewidywanie zakresu porady dla podróży. Podziel *\_ kwotę* na pięć przedziałów lub klas:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,14 +76,14 @@ Opracowujemy trzy problemy z przewidywaniami na podstawie *\_ kwoty* pozostałej
 
 `Class 4 : tip_amount > $20`
 
-3. **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.
+3. **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Konfigurowanie środowiska nauki o danych Azure na potrzeby zaawansowanej analizy
 Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następujące kroki.
 
 **Tworzenie własnego konta usługi Azure Blob Storage**
 
-* Podczas aprowizacji własnego magazynu obiektów blob platformy Azure wybierz lokalizację geograficzną magazynu obiektów blob platformy Azure w lub jak najbliżej **Południowo-środkowe stany USA** , czyli miejsce, w którym są przechowywane dane z NYC. Dane zostaną skopiowane za pomocą AzCopy z publicznego kontenera magazynu obiektów BLOB do kontenera na własnym koncie magazynu. Bliżej magazynu obiektów blob platformy Azure to Południowo-środkowe stany USA, tym szybciej to zadanie (krok 4) zostanie zakończone.
+* Podczas aprowizacji własnego magazynu obiektów blob platformy Azure wybierz lokalizację geograficzną magazynu obiektów blob platformy Azure w lub jak najbliżej **Południowo-środkowe stany USA**, czyli miejsce, w którym są przechowywane dane z NYC. Dane zostaną skopiowane za pomocą AzCopy z publicznego kontenera magazynu obiektów BLOB do kontenera na własnym koncie magazynu. Bliżej magazynu obiektów blob platformy Azure to Południowo-środkowe stany USA, tym szybciej to zadanie (krok 4) zostanie zakończone.
 * Aby utworzyć własne konto usługi Azure Storage, wykonaj czynności opisane w sekcji [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md). Pamiętaj, aby tworzyć notatki dotyczące następujących poświadczeń konta magazynu, ponieważ będą one potrzebne w dalszej części tego instruktażu.
 
   * **Nazwa konta magazynu**
@@ -93,10 +93,10 @@ Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następują
 **Inicjowanie obsługi administracyjnej wystąpienia usługi Azure Synapse Analytics.**
 Postępuj zgodnie z dokumentacją w temacie [Tworzenie i wykonywanie zapytań dotyczących usługi Azure Synapse Analytics w Azure Portal,](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) aby udostępnić wystąpienie usługi Azure Synapse Analytics. Upewnij się, że wprowadzono notację na następujących poświadczeniach usługi Azure Synapse Analytics, które będą używane w dalszych krokach.
 
-* **Nazwa serwera** : \<server Name> . Database.Windows.NET
+* **Nazwa serwera**: \<server Name> . Database.Windows.NET
 * **Nazwa SQLDW (baza danych)**
 * **Nazwa użytkownika**
-* **Hasło**
+* **Password** (Hasło)
 
 **Zainstaluj program Visual Studio i narzędzia danych SQL Server.** Aby uzyskać instrukcje, zobacz [Rozpoczynanie pracy z programem Visual Studio 2019 for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
@@ -139,7 +139,7 @@ Po pomyślnym wykonaniu bieżący katalog roboczy zmieni się na *-DESTDIR*. Pow
 
 ![Bieżące zmiany w katalogu roboczym][19]
 
-W *DESTDIR* , wykonaj następujący skrypt programu PowerShell w trybie administratora:
+W *DESTDIR*, wykonaj następujący skrypt programu PowerShell w trybie administratora:
 
 ```azurepowershell
 ./SQLDW_Data_Import.ps1
@@ -154,7 +154,7 @@ Gdy skrypt programu PowerShell jest uruchamiany po raz pierwszy, zostanie wyświ
 
 Ten plik **skryptu programu PowerShell** wykonuje następujące zadania:
 
-* **Pobiera i instaluje AzCopy** , jeśli AzCopy nie jest jeszcze zainstalowany
+* **Pobiera i instaluje AzCopy**, jeśli AzCopy nie jest jeszcze zainstalowany
 
   ```azurepowershell
   $AzCopy_path = SearchAzCopy
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40,761456 |-73,999886 |40,766544 |-73,988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
-Następujące zapytanie sprzęga **nyctaxie \_** i **nyctaxi \_ taryfy** czasowe, generuje tablicę klasyfikacji **tipped** danych binarnych, **\_ klasę** etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
+Następujące zapytanie sprzęga **nyctaxie \_** i **nyctaxi \_ taryfy** czasowe, generuje tablicę klasyfikacji danych binarnych, **\_ klasę** etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Tworzenie modeli w Azure Machine Learning
 Teraz możemy przystąpić do tworzenia modeli i wdrażania modeli w [Azure Machine Learning](https://studio.azureml.net). Dane są gotowe do użycia w każdym z wymienionych wcześniej problemów przewidywania, mianowicie:
 
-1. **Klasyfikacja binarna** : w celu przewidywania, czy Porada została zapłacona za podróż.
-2. **Klasyfikacja wieloklasowa** : aby przewidzieć zakres płatnej porady zgodnie z wcześniej zdefiniowanymi klasami.
-3. **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.
+1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona za podróż.
+2. **Klasyfikacja wieloklasowa**: aby przewidzieć zakres płatnej porady zgodnie z wcześniej zdefiniowanymi klasami.
+3. **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
 
 Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego **Azure Machine Learning (klasycznego)** . Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning Studio (klasycznego)](../classic/create-workspace.md).
 

@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 0b79fa22d3203504e63161aba03b32830d74d016
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131279"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
@@ -30,7 +30,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. W Azure Portal przejdź do **obszaru log Analytics obszary robocze** . Z listy wybierz swój obszar roboczy.
+3. W Azure Portal przejdź do **obszaru log Analytics obszary robocze**. Z listy wybierz swój obszar roboczy.
 
 4. W obszarze roboczym Log Analytics wybierz pozycję **dzienniki** , a następnie wybierz pozycję **Eksplorator zapytań** z menu najważniejsze akcje.
 

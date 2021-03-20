@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145773"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dla deweloperów
@@ -45,7 +45,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
 
 ## <a name="customize-the-developer-portal"></a>Dostosowywanie portalu dla deweloperów
 
-1. Wybierz pozycję **Omówienie** .
+1. Wybierz pozycję **Omówienie**.
 2. Kliknij przycisk **Portal dla deweloperów (starsza wersja)** w górnej części okna **Przegląd** .
 3. W lewej górnej części ekranu będzie widoczna ikona składająca się z dwóch pędzli. Zatrzymaj wskaźnik myszy nad tą ikoną, aby otworzyć menu dostosowywania portalu.
 
@@ -68,7 +68,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
     > Dla wszystkich zmian wyświetlany jest podgląd w czasie rzeczywistym. W górnej części okienka dostosowywania widoczny jest wskaźnik postępu. Po kilku sekundach tekst nagłówka zmieni kolor na nowo wybrany.
 
 8. Wybierz pozycję **Publikuj** w lewym dolnym rogu menu okienka dostosowywania.
-9. Wybierz pozycję **Publikuj dostosowania** , aby udostępnić zmiany publicznie.
+9. Wybierz pozycję **Publikuj dostosowania**, aby udostępnić zmiany publicznie.
 
 ## <a name="view-your-change"></a>Wyświetlanie zmiany
 

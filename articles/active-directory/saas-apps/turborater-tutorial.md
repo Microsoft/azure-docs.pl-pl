@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Samouczek: integracja Azure Active Directory z usługą TurboRater
@@ -47,7 +47,7 @@ Usługa TurboRater obsługuje logowanie jednokrotne inicjowane przez dostawcy to
 
 Aby skonfigurować integrację programu TurboRater z usługą Azure AD, musisz dodać TurboRater z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com?azure-portal=true).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com?azure-portal=true).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -147,7 +147,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wprowadź **BSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BSimon \@ contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BSimon \@ \<yourcompanydomain> . \<extension>**. Na przykład **BSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
@@ -165,7 +165,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![TurboRater na liście aplikacji](common/all-applications.png)
 
-1. W lewym okienku w obszarze **Zarządzaj**wybierz pozycję **Użytkownicy i grupy**.
+1. W lewym okienku w obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Opcja "Użytkownicy i grupy"](common/users-groups-blade.png)
 
@@ -189,7 +189,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu opcji **TurboRater** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi TurboRater, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 

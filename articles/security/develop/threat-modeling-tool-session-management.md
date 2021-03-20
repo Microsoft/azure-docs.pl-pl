@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518105"
 ---
 # <a name="security-frame-session-management"></a>Ramka zabezpieczeń: zarządzanie sesjami
@@ -222,7 +222,7 @@ Wszystkie aplikacje oparte na protokole HTTP, które używają plików cookie, p
 | **Odpowiednie technologie** | Formularze sieci Web |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [FormsAuthentication. RequireSSL — Właściwość](/dotnet/api/system.web.security.formsauthentication.requiressl) |
-| **Kroki** | Wartość właściwości RequireSSL jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu requireSSL elementu Configuration. Można określić w pliku Web.config dla aplikacji ASP.NET, czy Transport Layer Security (TLS), wcześniej znana jako SSL (SSL), musi zwrócić plik cookie uwierzytelniania formularzy do serwera przez ustawienie atrybutu requireSSL.|
+| **Kroki** | Wartość właściwości RequireSSL jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu requireSSL elementu Configuration. Można określić w pliku Web.config dla aplikacji ASP.NET, czy Transport Layer Security (TLS), wcześniej znana jako SSL (Secure Sockets Layer), musi zwrócić plik cookie uwierzytelniania formularzy do serwera przez ustawienie atrybutu requireSSL.|
 
 ### <a name="example"></a>Przykład 
 Poniższy przykład kodu ustawia atrybut requireSSL w pliku Web.config.
@@ -292,7 +292,7 @@ Poniższa konfiguracja przedstawia poprawną konfigurację:
 ```
 
 ### <a name="example"></a>Przykład
-W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Przykład:
+W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Na przykład:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -536,7 +536,7 @@ W powyższym przykładzie przedstawiono dane wyjściowe podobne do następujący
 ```
 
 ### <a name="example"></a>Przykład
-W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Przykład:
+W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Na przykład:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

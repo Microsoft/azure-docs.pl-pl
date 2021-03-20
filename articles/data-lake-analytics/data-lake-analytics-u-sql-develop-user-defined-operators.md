@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: 11efdb727bacadb674fb49374ef1c70fcc788ecc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219993"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL (udo)
@@ -21,7 +21,7 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
 
 1. W programie Visual Studio wybierz kolejno pozycje **plik > nowy > projekt > projekt U-SQL**.
 2. Kliknij przycisk **OK**. Program Visual Studio tworzy rozwiązanie przy użyciu pliku Script. usql.
-3. W **Eksplorator rozwiązań**rozwiń węzeł Script. usql, a następnie kliknij dwukrotnie pozycję **Script.usql.cs**.
+3. W **Eksplorator rozwiązań** rozwiń węzeł Script. usql, a następnie kliknij dwukrotnie pozycję **Script. usql. cs**.
 4. Wklej poniższy kod do pliku:
 
    ```usql
@@ -77,7 +77,7 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
    }
    ```
 
-5. Otwórz **skrypt. usql**i wklej następujący skrypt U-SQL:
+5. Otwórz **skrypt. usql** i wklej następujący skrypt U-SQL:
 
    ```usql
    @drivers =
@@ -118,7 +118,7 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
 
 ### <a name="to-see-the-output"></a>Aby wyświetlić dane wyjściowe
 
-1. W **Eksplorator serwera**rozwiń węzeł **Azure**, rozwiń pozycję **Data Lake Analytics**, rozwiń konto Data Lake Analytics, rozwiń węzeł **konta magazynu**, kliknij prawym przyciskiem myszy magazyn domyślny, a następnie kliknij pozycję **Eksplorator**.
+1. W **Eksplorator serwera** rozwiń węzeł **Azure**, rozwiń pozycję **Data Lake Analytics**, rozwiń konto Data Lake Analytics, rozwiń węzeł **konta magazynu**, kliknij prawym przyciskiem myszy magazyn domyślny, a następnie kliknij pozycję **Eksplorator**.
 
 2. Rozwiń pozycję przykłady, rozwiń węzeł dane wyjściowe, a następnie kliknij dwukrotnie przycisk **Drivers.csv**.
 

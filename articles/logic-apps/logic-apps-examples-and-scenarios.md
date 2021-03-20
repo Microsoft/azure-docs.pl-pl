@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317375"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady, samouczki i przewodniki dotyczące Azure Logic Apps
@@ -31,7 +31,7 @@ Oto przykłady opisujące często używane wyzwalacze:
 
 * Wyzwalacze *sondowania* :
 
-  * [Wyzwalacz **cyklu** ](../connectors/connectors-native-recurrence.md) pozwala ustawić datę i godzinę rozpoczęcia oraz cykl uruchamiania aplikacji logiki. Na przykład możesz wybrać dni tygodnia i godziny, w których ma być wyzwalana aplikacja logiki. Więcej informacji można znaleźć w następujących tematach:<p>
+  * [Wyzwalacz **cyklu**](../connectors/connectors-native-recurrence.md) pozwala ustawić datę i godzinę rozpoczęcia oraz cykl uruchamiania aplikacji logiki. Na przykład możesz wybrać dni tygodnia i godziny, w których ma być wyzwalana aplikacja logiki. Więcej informacji można znaleźć w następujących tematach:<p>
 
     * [Planowanie i uruchamianie cyklicznych automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Samouczek: Tworzenie zautomatyzowanych, cyklicznych przepływów pracy opartych na harmonogramie przy użyciu Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
@@ -46,13 +46,13 @@ Oto przykłady opisujące często używane wyzwalacze:
     * [Samouczek: tworzenie automatycznych przepływów pracy opartych na zatwierdzaniu przy użyciu Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * Wyzwalacz [ **http** ](../connectors/connectors-native-http.md) może wywoływać punkt końcowy usługi za pośrednictwem protokołu HTTP lub https. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych http](../logic-apps/logic-apps-http-endpoint.md).
+  * Wyzwalacz [ **http**](../connectors/connectors-native-http.md) może wywoływać punkt końcowy usługi za pośrednictwem protokołu HTTP lub https. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych http](../logic-apps/logic-apps-http-endpoint.md).
 
 * Wyzwalacze *wypychania* :
 
-  * Wyzwalacz [ **żądania** ](../connectors/connectors-native-reqres.md) może odbierać przychodzące żądania HTTPS.
+  * Wyzwalacz [ **żądania**](../connectors/connectors-native-reqres.md) może odbierać przychodzące żądania HTTPS.
 
-  * Wyzwalacz [ **elementu webhook protokołu HTTP** ](../connectors/connectors-native-webhook.md) subskrybuje punkt końcowy usługi przez zarejestrowanie *adresu URL wywołania zwrotnego* przy użyciu tej usługi. Dzięki temu usługa może po prostu powiadomić wyzwalacz, gdy wystąpi określone zdarzenie, aby wyzwalacz nie musiał sondować usługi.
+  * Wyzwalacz [ **elementu webhook protokołu HTTP**](../connectors/connectors-native-webhook.md) subskrybuje punkt końcowy usługi przez zarejestrowanie *adresu URL wywołania zwrotnego* przy użyciu tej usługi. Dzięki temu usługa może po prostu powiadomić wyzwalacz, gdy wystąpi określone zdarzenie, aby wyzwalacz nie musiał sondować usługi.
 
 Po wystąpieniu określonego zdarzenia wyzwalany jest wyzwalacz, który tworzy nowe wystąpienie przepływu pracy aplikacji logiki i uruchamia akcje w przepływie pracy. Możesz uzyskać dostęp do dowolnych danych z wyzwalacza w przepływie pracy. Na przykład, serwis Twitter **na nowym** wyzwoleniu przekaże zawartość tweetu do przebiegu aplikacji logiki. Aby rozpocząć pracę z Azure Logic Apps, wypróbuj następujące tematy szybkiego startu:
 
@@ -99,7 +99,7 @@ Czasami Aplikacje logiki i konta integracji muszą mieć dostęp do zabezpieczon
 
 Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu Visual Studio, platformy Azure DevOps lub dowolnej innej kontroli źródła i zautomatyzowanych narzędzi kompilacji. Aby obsługiwać wdrożenie dla przepływów pracy i połączeń zależnych w szablonie zasobu, Aplikacje logiki używają szablonów wdrażania zasobów platformy Azure. Narzędzia Visual Studio Tools automatycznie generują te szablony, które można zaewidencjonować do kontroli źródła w celu przechowywania wersji. W przypadku dzienników powiadomień i diagnostyki dla stanu przebiegu przepływu pracy Azure Logic Apps udostępnia również monitorowanie i alerty.
 
-### <a name="deploy"></a>Wdrażanie
+### <a name="deploy"></a>Wdróż
 
 * [Szybki Start: Tworzenie zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps — Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Przegląd: Automatyzowanie wdrażania aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -117,7 +117,7 @@ Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu V
 * [Tworzenie kont integracji dla integracji z przedsiębiorstwem B2B i zarządzanie nimi](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Zarządzanie środowiskiem usługi integracji (ISE) w Azure Logic Apps](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitorowanie
+### <a name="monitor"></a>Monitor
 
 * [Monitoruj stan przebiegu, przeglądaj historię wyzwalaczy i konfiguruj alerty w usłudze Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)

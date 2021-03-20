@@ -12,10 +12,10 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: 3b6bc972f5c26c78ffff81f5bab8c2812cf2cb11
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98622916"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Samouczek: Wykonywanie ręcznego przełączania do trybu failover dla Centrum IoT Hub

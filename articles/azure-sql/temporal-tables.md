@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618662"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do tabel danych czasowych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
@@ -27,7 +27,7 @@ Tabele danych czasowych to funkcja programowalności Azure SQL Database i wystą
 
 W tym artykule przedstawiono kroki umożliwiające korzystanie z tabel danych czasowych w scenariuszu aplikacji. Załóżmy, że chcesz śledzić aktywność użytkowników w nowej witrynie sieci Web, która jest opracowywana od podstaw lub w istniejącej witrynie sieci Web, która ma zostać rozszerzona za pomocą analizy aktywności użytkownika. W tym uproszczonym przykładzie zakładamy, że liczba odwiedzonych stron sieci Web w danym okresie jest wskaźnikiem, który musi być przechwytywany i monitorowany w bazie danych witryny sieci Web hostowanej na Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL. Celem analitycznej analizy aktywności użytkownika jest uzyskanie danych wejściowych w celu przeprojektowania witryny sieci Web i zapewnienia lepszej funkcjonalności dla odwiedzających.
 
-Model bazy danych dla tego scenariusza to bardzo prosta Metryka aktywności użytkownika, która jest reprezentowana przy użyciu pojedynczego pola liczb całkowitych, **PageVisited**i jest przechwytywana wraz z podstawowymi informacjami w profilu użytkownika. Ponadto w przypadku analizy opartej na czasie można przechowywać serię wierszy dla każdego użytkownika, gdzie każdy wiersz reprezentuje liczbę stron, które użytkownik odwiedzał w określonym czasie.
+Model bazy danych dla tego scenariusza to bardzo prosta Metryka aktywności użytkownika, która jest reprezentowana przy użyciu pojedynczego pola liczb całkowitych, **PageVisited** i jest przechwytywana wraz z podstawowymi informacjami w profilu użytkownika. Ponadto w przypadku analizy opartej na czasie można przechowywać serię wierszy dla każdego użytkownika, gdzie każdy wiersz reprezentuje liczbę stron, które użytkownik odwiedzał w określonym czasie.
 
 ![Schemat](./media/temporal-tables/AzureTemporal1.png)
 

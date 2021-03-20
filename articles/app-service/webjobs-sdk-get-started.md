@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91652044"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
@@ -52,7 +52,7 @@ W tym artykule opisano sposób wdrażania zadań WebJob jako aplikacji konsolowe
 
 Host jest kontenerem środowiska uruchomieniowego dla funkcji, które nasłuchują dla wyzwalaczy i wywołań funkcji. Poniższe kroki tworzą hosta, który implementuje [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost) , który jest hostem ogólnym w ASP.NET Core.
 
-1. W *program.cs*, Dodaj następujące `using` instrukcje:
+1. W programie *program. cs* Dodaj następujące `using` instrukcje:
 
     ```cs
     using System.Threading.Tasks;
@@ -92,7 +92,7 @@ W tej sekcji skonfigurujesz Rejestrowanie konsoli, która używa [struktury reje
    ```
    W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją 3. x pakietu.
 
-1. W *program.cs*Dodaj `using` instrukcję:
+1. W programie *program. cs* Dodaj `using` instrukcję:
 
    ```cs
    using Microsoft.Extensions.Logging;
@@ -162,9 +162,9 @@ Począwszy od wersji 3. x, należy jawnie zainstalować rozszerzenie powiązania
 
 ## <a name="create-a-function"></a>Tworzenie funkcji
 
-1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**  >  **nowy element...**, wybierz **klasę**, nazwij nowy plik klasy C# *Functions.cs*i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**  >  **nowy element...**, wybierz **klasę**, nazwij nowy plik klasy C# *Functions. cs* i wybierz pozycję **Dodaj**.
 
-1. W Functions.cs Zastąp wygenerowany szablon następującym kodem:
+1. W usłudze Functions. cs Zastąp wygenerowany szablon następującym kodem:
     
     ```cs
     using Microsoft.Azure.WebJobs;
@@ -194,7 +194,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
    ![Logowanie do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
-1. W węźle **platformy Azure** w **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Magazyn**, a następnie wybierz pozycję **Utwórz konto magazynu**.
+1. W węźle **platformy Azure** w **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Magazyn**, a następnie wybierz pozycję **Utwórz konto magazynu**.
 
    ![Menu Tworzenie konta magazynu](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
@@ -206,7 +206,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
    ![Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. W węźle **Magazyn** w obszarze **Eksplorator serwera**wybierz nowe konto magazynu. W oknie **Właściwości** wybierz wielokropek (**...**) z prawej strony pola wartość **parametrów połączenia** .
+1. W węźle **Magazyn** w obszarze **Eksplorator serwera** wybierz nowe konto magazynu. W oknie **Właściwości** wybierz wielokropek (**...**) z prawej strony pola wartość **parametrów połączenia** .
 
    ![Wielokropek parametrów połączenia](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -313,7 +313,7 @@ W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie App
 
 1. Jeśli nie masz jeszcze aplikacji App Service, której możesz użyć, [Utwórz ją](quickstart-dotnet-framework.md). Podczas tworzenia aplikacji można również utworzyć połączony zasób Application Insights. Gdy to zrobisz, `APPINSIGHTS_INSTRUMENTATIONKEY` zostanie ustawione dla Ciebie w aplikacji.
 
-1. Jeśli nie masz jeszcze zasobu Application Insights, którego możesz użyć, [Utwórz go](../azure-monitor/app/create-new-resource.md ). W polu **Typ aplikacji** ustaw wartość **Ogólne**i Pomiń następujące sekcje, które obserwują **kopię klucza Instrumentacji**.
+1. Jeśli nie masz jeszcze zasobu Application Insights, którego możesz użyć, [Utwórz go](../azure-monitor/app/create-new-resource.md ). W polu **Typ aplikacji** ustaw wartość **Ogólne** i Pomiń następujące sekcje, które obserwują **kopię klucza Instrumentacji**.
 
 1. Jeśli masz już zasób Application Insights, którego chcesz użyć, [skopiuj klucz Instrumentacji](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
@@ -370,7 +370,7 @@ Aby skorzystać z funkcji rejestrowania [Application Insights](../azure-monitor/
    ```
     W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją pakietu.
 
-1. Otwórz *program.cs* i Zastąp kod w `Main` metodzie następującym kodem:
+1. Otwórz *program programy. cs* i Zastąp kod w `Main` metodzie następującym kodem:
 
     ```cs
     static async Task Main()
@@ -429,7 +429,7 @@ W tej sekcji należy ponownie uruchomić lokalnie, aby sprawdzić, czy dane reje
 
 1. Zamknij okno konsoli.
 
-## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdróż na platformie Azure
 
 Podczas wdrażania należy utworzyć wystąpienie usługi App Service, w której będą uruchamiane funkcje. Po opublikowaniu aplikacji konsolowej .NET Core w celu App Service na platformie Azure jest ona automatycznie uruchamiana jako zadanie WebJob. Aby dowiedzieć się więcej o publikowaniu, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio](webjobs-dotnet-deploy-vs.md).
 
@@ -460,7 +460,7 @@ Podczas wdrażania należy utworzyć wystąpienie usługi App Service, w której
 
 Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładzie komunikat kolejki będzie nazwą obiektu BLOB i zostanie użyta nazwa obiektu BLOB do znajdowania i odczytywania obiektu BLOB w usłudze Azure Storage.
 
-1. W *Functions.cs*Zastąp `ProcessQueueMessage` metodę następującym kodem:
+1. W usłudze *Functions. cs* Zastąp `ProcessQueueMessage` metodę następującym kodem:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -486,19 +486,19 @@ Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładz
 
    b. W oknie dialogowym **Tworzenie kontenera obiektów BLOB** wprowadź *kontener* jako nazwę kontenera, a następnie kliknij przycisk **OK**.
 
-1. Przekaż plik *program.cs* do kontenera obiektów BLOB. (Ten plik jest używany tutaj jako przykład; można przekazać dowolny plik tekstowy i utworzyć komunikat kolejki z nazwą pliku).
+1. Przekaż plik *program. cs* do kontenera obiektów BLOB. (Ten plik jest używany tutaj jako przykład; można przekazać dowolny plik tekstowy i utworzyć komunikat kolejki z nazwą pliku).
 
-   a. W **Eksplorator serwera**kliknij dwukrotnie węzeł utworzonego kontenera.
+   a. W **Eksplorator serwera** kliknij dwukrotnie węzeł utworzonego kontenera.
 
    b. W oknie **kontenera** wybierz przycisk **Przekaż** .
 
    ![Przycisk przekazywania obiektów BLOB](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   c. Znajdź i wybierz pozycję *program.cs*, a następnie wybierz przycisk **OK**.
+   c. Znajdź i wybierz pozycję *program. cs*, a następnie wybierz przycisk **OK**.
 
-1. Utwórz wiadomość w kolejce w kolejce utworzonej wcześniej przy użyciu *program.cs* jako tekst komunikatu.
+1. Utwórz komunikat w kolejce w kolejce utworzonej wcześniej przy użyciu *programu program. cs* jako tekst komunikatu.
 
-   ![Program.cs komunikatu kolejki](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+   ![Queue Message program. cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
 1. Uruchom projekt lokalnie.
 
@@ -532,11 +532,11 @@ Powiązania wyjściowe upraszczają kod, który zapisuje dane. Ten przykład mod
    }
    ```
 
-1. Utwórz kolejny komunikat kolejki z *program.cs* jako tekst komunikatu.
+1. Utwórz kolejny komunikat w kolejce z *programem. cs* jako tekst wiadomości.
 
 1. Uruchom projekt lokalnie.
 
-   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt BLOB, rejestruje jego długość i tworzy nowy obiekt BLOB. Dane wyjściowe konsoli są takie same, ale po przejściu do okna kontenera obiektów blob i wybraniu opcji **Odśwież**zobaczysz nowy obiekt BLOB o nazwie *copy-program.cs.*
+   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt BLOB, rejestruje jego długość i tworzy nowy obiekt BLOB. Dane wyjściowe konsoli są takie same, ale po przejściu do okna kontenera obiektów blob i wybraniu opcji **Odśwież** zostanie wyświetlony nowy obiekt BLOB o nazwie *copy-program. cs.*
 
 ## <a name="republish-the-updates-to-azure"></a>Opublikuj ponownie aktualizacje na platformie Azure
 

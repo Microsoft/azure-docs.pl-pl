@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531976"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Samouczek: konfigurowanie środowiska Jenkins w celu włączenia ciągłej integracji/ciągłego wdrażania dla aplikacji Java w usłudze Service Fabric
@@ -113,7 +113,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
     > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
     >
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="update-your-existing-application"></a>Aktualizowanie istniejącej aplikacji
 
