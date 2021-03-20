@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906961"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Tworzenie schematów śledzenia komunikatów AS2 w Azure Logic Apps
@@ -63,15 +63,15 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | Identyfikatora | Nie | Ciąg | Identyfikator komunikatu AS2 z nagłówków wiadomości AS2 |
 | rozmieśćtype | Nie | Ciąg | Wartość typu dyspozycji powiadomienia o dyspozycji komunikatu (powiadomienia MDN) |
 | fileName | Nie | Ciąg | Nazwa pliku z nagłówka komunikatu AS2 |
-| isMessageFailed | Tak | Boolean | Czy komunikat AS2 nie powiódł się |
-| isMessageSigned | Tak | Boolean | Czy wiadomość AS2 została podpisana |
-| isMessageEncrypted | Tak | Boolean | Czy komunikat AS2 został zaszyfrowany |
-| isMessageCompressed | Tak | Boolean | Czy komunikat AS2 został skompresowany |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat AS2 nie powiódł się |
+| isMessageSigned | Tak | Wartość logiczna | Czy wiadomość AS2 została podpisana |
+| isMessageEncrypted | Tak | Wartość logiczna | Czy komunikat AS2 został zaszyfrowany |
+| isMessageCompressed | Tak | Wartość logiczna | Czy komunikat AS2 został skompresowany |
 | correlationMessageId | Nie | Ciąg | Identyfikator komunikatu AS2 w celu skorelowania komunikatów z usługą MDNs |
 | incomingHeaders | Nie | Słownik JToken | Szczegóły przychodzącego nagłówka komunikatu AS2 |
 | outgoingHeaders | Nie | Słownik JToken | Szczegóły wychodzącego nagłówka komunikatu AS2 |
-| isNrrEnabled | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
-| isMdnExpected | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
+| isNrrEnabled | Tak | Wartość logiczna | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
+| isMdnExpected | Tak | Wartość logiczna | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
 | mdnType | Tak | Wyliczenie | Dozwolone wartości: `NotConfigured` , `Sync` , i `Async` |
 |||||
 
@@ -116,9 +116,9 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | Identyfikatora | Nie | Ciąg | Identyfikator komunikatu AS2 |
 | originalMessageId | Nie | Ciąg | Identyfikator oryginalnego komunikatu AS2 |
 | rozmieśćtype | Nie | Ciąg | Wartość typu dyspozycji powiadomienia MDN |
-| isMessageFailed | Tak | Boolean | Czy komunikat AS2 nie powiódł się |
-| isMessageSigned | Tak | Boolean | Czy wiadomość AS2 została podpisana |
-| isNrrEnabled | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
+| isMessageFailed | Tak | Wartość logiczna | Czy komunikat AS2 nie powiódł się |
+| isMessageSigned | Tak | Wartość logiczna | Czy wiadomość AS2 została podpisana |
+| isNrrEnabled | Tak | Wartość logiczna | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
 | statusCode | Tak | Wyliczenie | Dozwolone wartości: `Accepted` , `Rejected` , i `AcceptedWithErrors` |
 | micVerificationStatus | Tak | Wyliczenie | Dozwolone wartości: `NotApplicable` , `Succeeded` , i `Failed` |
 | correlationMessageId | Nie | Ciąg | Identyfikator korelacji, który jest IDENTYFIKATORem oryginalnej wiadomości, dla której skonfigurowano powiadomienia MDN |

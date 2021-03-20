@@ -9,10 +9,10 @@ ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 03c899307b00010ca87b279ed720b92946d3673c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340091"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-service-unavailable-exceptions"></a>Diagnozowanie i rozwiązywanie problemów w przypadku niedostępności usługi SDK w programie Java v4 Azure Cosmos DB
@@ -26,7 +26,7 @@ Poniższa lista zawiera znane przyczyny i rozwiązania niedostępnych wyjątków
 Sprawdź, czy wszystkie [wymagane porty](sql-sdk-connection-modes.md#service-port-ranges) są włączone.
 
 ### <a name="client-side-transient-connectivity-issues"></a>Przejściowe problemy z łącznością po stronie klienta
-Wyjątki niedostępne dla usługi mogą być widoczne w przypadku przejściowych problemów z łącznością, które powodują przekroczenie limitu czasu. Zwykle ślad stosu związany z tym scenariuszem będzie zawierać `ServiceUnavailableException` błąd z danymi diagnostycznymi. Przykład:
+Wyjątki niedostępne dla usługi mogą być widoczne w przypadku przejściowych problemów z łącznością, które powodują przekroczenie limitu czasu. Zwykle ślad stosu związany z tym scenariuszem będzie zawierać `ServiceUnavailableException` błąd z danymi diagnostycznymi. Na przykład:
 
 ```java
 Exception in thread "main" ServiceUnavailableException{userAgent=azsdk-java-cosmos/4.6.0 Linux/4.15.0-1096-azure JRE/11.0.8, error=null, resourceAddress='null', requestUri='null', statusCode=503, message=Service is currently unavailable, please retry after a while. If this problem persists please contact support.: Message: "" {"diagnostics"}

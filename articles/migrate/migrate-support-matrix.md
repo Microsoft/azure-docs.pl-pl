@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 0e1cb33ca0a5fb9a1c7ddb2c4625dfef4acd3a1e
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627402"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
@@ -23,7 +23,7 @@ W tabeli zestawiono obsługiwane scenariusze odnajdywania, oceny i migracji.
 
 **Wdrożenie** | **Szczegóły** 
 --- | --- 
-**Odnajdowa** | Można odnajdywać metadane maszyn i dynamiczne dane dotyczące wydajności.
+**Odnajdywanie** | Można odnajdywać metadane maszyn i dynamiczne dane dotyczące wydajności.
 **Odnajdywanie aplikacji** | Możesz wykrywać aplikacje, role i funkcje działające na maszynach wirtualnych VMware. Obecnie ta funkcja jest ograniczona tylko do odnajdowania. Ocena jest obecnie na poziomie komputera. Nie oferujemy jeszcze ocen dotyczących aplikacji, roli lub funkcji. 
 **Ocena** | Oceniaj obciążenia lokalne i dane uruchomione na maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V i serwerach fizycznych. Oceń przy użyciu Azure Migrate: Ocena serwera, Microsoft Data Migration Assistant (DMA), a także inne narzędzia i oferty niezależnych dostawców oprogramowania.
 **Migracja** | Migrowanie obciążeń i danych działających na serwerach fizycznych, maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V, serwerach fizycznych i maszynach wirtualnych opartych na chmurze na platformie Azure. Migruj przy użyciu Azure Migrate: Ocena serwera i Azure Database Migration Service (DMS), a także inne narzędzia i oferty niezależnych dostawców oprogramowania.

@@ -9,14 +9,14 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87021481"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w oprogramowaniu VMware
-![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej.Druga część drugiego kroku ma etykietę udostępnianie w oprogramowaniu VMware i jest wyróżniona.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej. Druga część drugiego kroku ma etykietę udostępnianie w oprogramowaniu VMware i jest wyróżniona.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Omówienie
 
@@ -83,7 +83,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 3. W kliencie vSphere w sekcji spis w okienku po lewej stronie wybierz serwer ESXi.
 
    ![Zrzut ekranu przedstawiający stronę główną klienta vSphere. W sekcji spis zostanie wyróżniony serwer ESXi.](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
-4. Przekaż dysk VMDK na serwer ESXi. Przejdź do karty **Konfiguracja** w okienku po prawej stronie. W obszarze **sprzęt**wybierz pozycję **Magazyn**.
+4. Przekaż dysk VMDK na serwer ESXi. Przejdź do karty **Konfiguracja** w okienku po prawej stronie. W obszarze **sprzęt** wybierz pozycję **Magazyn**.
 
    ![Zrzut ekranu przedstawiający kartę Konfiguracja klienta vSphere. W sekcji sprzęt zostanie wyróżniony magazyn.](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
 5. W okienku po prawej stronie, w obszarze **Datastores** (Magazyny danych), wybierz magazyn danych, do którego chcesz przekazać dysk VMDK. Magazyn danych musi mieć wystarczającą ilość wolnego miejsca dla systemu operacyjnego i dysków z danymi.
@@ -145,7 +145,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 24. Na stronie **Wybierz dysk** wybierz opcję **Użyj istniejącego dysku wirtualnego**. Kliknij przycisk **Dalej**.
 
     ![Zrzut ekranu przedstawiający stronę Wybieranie dysku z wybraną opcją Użyj istniejącego dysku wirtualnego i podświetloną przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. Na stronie **Wybierz istniejący dysk** w obszarze **ścieżka pliku dysku**kliknij przycisk **Przeglądaj**. Spowoduje to otwarcie okna dialogowego **Przeglądaj magazyny** danych. Przejdź do lokalizacji, w której został przekazany dysk VMDK. W magazynie danych jest teraz widoczny tylko jeden plik, w ramach którego zostały scalone dwa pliki, które zostały wcześniej przekazane. Wybierz plik, a następnie kliknij przycisk **OK**. Kliknij przycisk **Dalej**.
+25. Na stronie **Wybierz istniejący dysk** w obszarze **ścieżka pliku dysku** kliknij przycisk **Przeglądaj**. Spowoduje to otwarcie okna dialogowego **Przeglądaj magazyny** danych. Przejdź do lokalizacji, w której został przekazany dysk VMDK. W magazynie danych jest teraz widoczny tylko jeden plik, w ramach którego zostały scalone dwa pliki, które zostały wcześniej przekazane. Wybierz plik, a następnie kliknij przycisk **OK**. Kliknij przycisk **Dalej**.
 
     ![Zrzut ekranu przedstawiający stronę Wybieranie istniejącego dysku. Przycisk przeglądania jest wyróżniony, a okno dialogowe zawiera jeden plik i wyróżniony przycisk OK.](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. Na stronie **Opcje zaawansowane** Zaakceptuj ustawienie domyślne i kliknij przycisk **dalej**.
@@ -157,13 +157,13 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 28. Na stronie **właściwości Virtual Machines** na karcie **sprzęt** zlokalizuj sprzęt urządzenia. Wybierz pozycję **nowy dysk twardy**. Kliknij pozycję **Dodaj**.
 
     ![Zrzut ekranu karty sprzęt na stronie właściwości Virtual Machines. Na liście sprzęt jest wybrany nowy dysk twardy. Przycisk Dodaj zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. Zobaczysz okno **Dodaj sprzęt** . Na stronie **Typ urządzenia** w obszarze **Wybierz typ urządzenia, które chcesz dodać**wybierz pozycję **dysk twardy**, a następnie kliknij przycisk **dalej**.
+29. Zobaczysz okno **Dodaj sprzęt** . Na stronie **Typ urządzenia** w obszarze **Wybierz typ urządzenia, które chcesz dodać** wybierz pozycję **dysk twardy**, a następnie kliknij przycisk **dalej**.
 
     ![Zrzut ekranu przedstawiający stronę typ urządzenia w oknie Dodawanie sprzętu. Wybrano urządzenie dysk twardy, a przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. Na stronie **Wybierz dysk** wybierz opcję **Utwórz nowy dysk wirtualny**. Kliknij przycisk **Dalej**.
 
     ![Zrzut ekranu przedstawiający stronę Wybieranie dysku. Zaznaczona jest opcja Utwórz nowy dysk wirtualny, a przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Na stronie **Tworzenie dysku** Zmień **rozmiar dysku** na 500 GB (lub więcej). Chociaż 500 GB jest minimalnym wymaganiem, zawsze można zainicjować obsługę większą liczbę dysków. Należy pamiętać, że nie można rozbudować lub zmniejszyć dysku po zainicjowaniu obsługi administracyjnej. Aby uzyskać więcej informacji na temat rozmiaru dysku do aprowizacji, zapoznaj się z sekcją ustalanie rozmiaru w [dokumencie Best Practices](storsimple-ova-best-practices.md). W obszarze **Inicjowanie obsługi dysku**wybierz pozycję **alokowanie elastyczne**. Kliknij przycisk **Dalej**.
+31. Na stronie **Tworzenie dysku** Zmień **rozmiar dysku** na 500 GB (lub więcej). Chociaż 500 GB jest minimalnym wymaganiem, zawsze można zainicjować obsługę większą liczbę dysków. Należy pamiętać, że nie można rozbudować lub zmniejszyć dysku po zainicjowaniu obsługi administracyjnej. Aby uzyskać więcej informacji na temat rozmiaru dysku do aprowizacji, zapoznaj się z sekcją ustalanie rozmiaru w [dokumencie Best Practices](storsimple-ova-best-practices.md). W obszarze **Inicjowanie obsługi dysku** wybierz pozycję **alokowanie elastyczne**. Kliknij przycisk **Dalej**.
 
     ![Zrzut ekranu przedstawiający stronę Tworzenie dysku. Rozmiar dysku wynosi 500 GB, opcja alokowania elastycznego jest zaznaczona, a przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Na stronie **Opcje zaawansowane** Zaakceptuj wartość domyślną.

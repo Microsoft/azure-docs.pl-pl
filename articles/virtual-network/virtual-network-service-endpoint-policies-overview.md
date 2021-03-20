@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216652"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage
@@ -58,7 +58,7 @@ Przyjrzyjmy się szybkiemu wyszukiwaniu obiektu zasad punktu końcowego usługi.
 ]
 ```
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 -   Zasady punktu końcowego można skonfigurować w taki sposób, aby ograniczyć ruch sieciowy sieci wirtualnej do określonych kont usługi Azure Storage.
 -   Zasady punktu końcowego są konfigurowane w podsieci sieci wirtualnej. Punkty końcowe usługi Azure Storage powinny być włączone w podsieci, aby zastosować zasady.

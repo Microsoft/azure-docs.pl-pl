@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,10 +11,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91257077"
 ---
 Jeśli dopiero zaczynasz korzystać z funkcji zarządzania tożsamościami i dostępem (IAM) z uwierzytelnianiem OAuth 2,0 i OpenID Connect, a nawet dopiero zaczynasz od razu na platformie Microsoft Identity platform, poniższy zestaw artykułów powinien być wysoki na liście do czytania.

@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879919"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -192,11 +192,11 @@ Wyszukiwanie zawartości jest zdefiniowane w następujący sposób:
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Jakie są typowe błędy podczas korzystania z zadania analizatorów Roslyn?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Projekt został przywrócony przy użyciu nieprawidłowej wersji programu Microsoft. WebCore. App
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Projekt został przywrócony przy użyciu nieprawidłowej wersji Microsoft.NETCore.App
 
 Pełny komunikat o błędzie:
 
-"Błąd: projekt został przywrócony przy użyciu programu Microsoft. servicecore. App w wersji *x. x. x*, ale z bieżącymi ustawieniami w zamian zostanie użyta wersja *y. y. y* . Aby rozwiązać ten problem, upewnij się, że te same ustawienia są używane do przywracania i dla kolejnych operacji, takich jak Kompilowanie lub publikowanie. Zazwyczaj ten problem może wystąpić, jeśli właściwość RuntimeIdentifier jest ustawiona podczas kompilowania lub publikowania, ale nie podczas przywracania.
+"Błąd: projekt został przywrócony przy użyciu Microsoft.NETCore.App wersja *x. x. x*, ale z bieżącymi ustawieniami w zamian zostanie użyta wersja *y. y. y* . Aby rozwiązać ten problem, upewnij się, że te same ustawienia są używane do przywracania i dla kolejnych operacji, takich jak Kompilowanie lub publikowanie. Zazwyczaj ten problem może wystąpić, jeśli właściwość RuntimeIdentifier jest ustawiona podczas kompilowania lub publikowania, ale nie podczas przywracania.
 
 Ponieważ zadania analizatorów Roslyn są uruchamiane jako część kompilacji, drzewo źródłowe na maszynie kompilacji musi być w stanie możliwego do skompilowania.
 

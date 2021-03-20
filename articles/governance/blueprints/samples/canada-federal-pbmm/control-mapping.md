@@ -4,10 +4,10 @@ description: Sterowanie mapowaniem przykładowych planów PBMMów federalnych Ka
 ms.date: 02/05/2021
 ms.topic: sample
 ms.openlocfilehash: 440b07db514d8af0cf7f4177a6bac497eead2b37
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627217"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Sterowanie mapowaniem przykładu Federal PBMM Canada

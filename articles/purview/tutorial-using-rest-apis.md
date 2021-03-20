@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98951246"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Samouczek: korzystanie z interfejsów API REST
 
 W tym samouczku dowiesz się, jak używać interfejsów API REST usługi Azure kontrolą. Każda osoba, która chce przesłać dane do wykazu usługi Azure kontrolą, może uwzględnić wykaz w ramach zautomatyzowanego procesu lub utworzyć własne środowisko użytkownika w wykazie, korzystając z interfejsów API REST.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4d877468e87edb11b606668739d8d539ef0cc1dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180856"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie IDEO na potrzeby automatycznego aprowizacji użytkowników
@@ -90,7 +90,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź odpowiednie wartości w **polach adres** **URL i token dostępu usługi Standard scim 2,0** , pobrane wcześniej z zespołu pomocy technicznej ideo. **Secret Token** Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą ideo. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi IDEO ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź odpowiednie wartości w **polach adres** **URL i token dostępu usługi Standard scim 2,0** , pobrane wcześniej z zespołu pomocy technicznej ideo.  Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą ideo. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi IDEO ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -98,7 +98,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do ideo**.
 

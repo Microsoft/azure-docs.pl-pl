@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 1/13/2021
 ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209767"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
@@ -105,7 +105,7 @@ Usługa log przyjmuje rekordy dziennika z podstawowej repliki obliczeniowej, utr
 
 Usługa Azure Storage zawiera wszystkie pliki danych w bazie danych. Serwery stron zachowują aktualne pliki danych w usłudze Azure Storage. Ten magazyn jest używany na potrzeby tworzenia kopii zapasowych, a także do replikacji między regionami platformy Azure. Kopie zapasowe są implementowane przy użyciu migawek magazynu plików danych. Operacje przywracania przy użyciu migawek są szybkie, niezależnie od rozmiaru danych. Dane można przywrócić do dowolnego punktu w czasie w ramach okresu przechowywania kopii zapasowej bazy danych.
 
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+## <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
 
 Kopie zapasowe są tworzone na podstawie migawek plików, a tym samym prawie chwilowo. Rozdzielenie magazynu i obliczeń umożliwia wypychanie operacji tworzenia kopii zapasowej/przywracania do warstwy magazynowania w celu zmniejszenia obciążenia związanego z przetwarzaniem w podstawowej replice obliczeniowej. W związku z tym kopia zapasowa bazy danych nie wpływa na wydajność podstawowego węzła obliczeniowego. Podobnie odzyskiwanie do punktu w czasie (kopie) jest wykonywane przez przywrócenie migawek plików, a w związku z tym nie jest to rozmiar operacji danych. Przywracanie bazy danych w ramach skalowania w tym samym regionie platformy Azure jest operacją o stałej godzinie, a nawet kilka baz danych z wieloma terabajtami można przywrócić w ciągu kilku minut, a nie godzin lub dni. Tworzenie nowych baz danych przez przywrócenie istniejącej kopii zapasowej obejmuje również korzystanie z tej funkcji: Tworzenie kopii bazy danych do celów deweloperskich i testowych, nawet z wieloterabajtowymi bazami danych, jest doable w ciągu kilku minut.
 
@@ -182,7 +182,7 @@ Włączone regiony:
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
 - Australia Środkowa
-- Brazil South
+- Brazylia Południowa
 - Kanada Środkowa
 - Central US
 - Chiny Wschodnie 2

@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96176124"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Samouczek: Integrowanie pojedynczego lasu usługi AD przy użyciu funkcji synchronizacji skrótów haseł (PHS)
@@ -185,7 +185,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
 ![Zrzut ekranu pokazujący sposób tworzenia dzierżawy usługi Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
-5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
+5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Tworzenie administratora globalnego w usłudze Azure AD

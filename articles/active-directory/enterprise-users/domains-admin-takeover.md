@@ -14,10 +14,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547104"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie katalogu niezarządzanego jako administrator w usłudze Azure Active Directory
@@ -45,7 +45,7 @@ Niektóre produkty, które obejmują programy SharePoint i OneDrive, takie jak M
   
    ![pierwszy zrzut ekranu, który ma być administratorem](./media/domains-admin-takeover/become-admin-first.png)
   
-5. Dodaj rekord TXT, aby udowodnić, że jesteś posiadaczem nazwy domeny **fourthcoffee. xyz** w rejestratorze nazw domen. W tym przykładzie jest to GoDaddy.com.
+5. Dodaj rekord TXT, aby udowodnić, że jesteś posiadaczem nazwy domeny **fourthcoffee.xyz** w rejestratorze nazw domen. W tym przykładzie jest to GoDaddy.com.
   
    ![Dodawanie rekordu TXT dla nazwy domeny](./media/domains-admin-takeover/become-admin-txt-record.png)
 
@@ -71,7 +71,7 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
    ![domena została zweryfikowana jako dodana do usługi Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają przypisane licencje w organizacji Microsoft 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *user \@ fourthcoffeexyz.onmicrosoft.com* zamiast *User \@ fourthcoffee. xyz*.
+> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają przypisane licencje w organizacji Microsoft 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *user \@ fourthcoffeexyz.onmicrosoft.com* , a nie *użytkownika \@ fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Przejęcie przez administratora zewnętrznego
 

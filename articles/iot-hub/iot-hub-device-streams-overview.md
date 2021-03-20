@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Technical Support'
 ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97825185"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Strumienie urządzeń IoT Hub (wersja zapoznawcza)
@@ -142,7 +142,7 @@ Wykonaj poniższe kroki, aby utworzyć ustawienie diagnostyki umożliwiające wy
 
 Aby dowiedzieć się więcej o korzystaniu z Azure Monitor z IoT Hub, zobacz [Monitor IoT Hub](monitor-iot-hub.md). Informacje o wszystkich dziennikach zasobów, metrykach i tabelach dostępnych dla IoT Hub można znaleźć w temacie [monitoring Azure IoT Hub Data Reference](monitor-iot-hub-reference.md).
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 W publicznej wersji zapoznawczej IoT Hub strumienie urządzeń są dostępne w regionach Środkowe stany USA, środkowe stany USA — EUAP, Europa Północna i Azja Południowo-Wschodnia. Upewnij się, że tworzysz centrum w jednym z tych regionów.
 

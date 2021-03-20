@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97814469"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
@@ -138,5 +138,5 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 | [MapReduce w usłudze HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

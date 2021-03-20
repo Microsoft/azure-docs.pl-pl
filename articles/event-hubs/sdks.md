@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące zestawów SDK klienta dl
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f4eec603245f1e4ea6fa4d97b843ca6a770f2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930880"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs — zestawy SDK klienta
@@ -20,7 +20,7 @@ Ten artykuł zawiera następujące informacje dotyczące zestawów SDK obsługiw
 ## <a name="client-sdks"></a>Zestawy SDK klienta
 W poniższej tabeli opisano wszystkie aktualnie dostępne klientów środowiska uruchomieniowego platformy Azure Event Hubs. Niektóre z tych bibliotek zawierają również ograniczoną funkcjonalność zarządzania, ale istnieją również pewne biblioteki przeznaczone do operacji zarządzania. Podstawowym fokusem tych bibliotek jest **wysyłanie i odbieranie komunikatów** z centrum zdarzeń.
 
-| Język | Pakiet | Dokumentacja | 
+| Język | Pakiet | Odwołanie | 
 | -------- | ------- | --------------- | 
 | . NET Standard (**Najnowsza** i obsługa platformy .NET Core i .NET Framework) | [Azure. Messaging. EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |<ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs)</li><li>[Samouczek](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
 |       | [Azure. Messaging. EventHubs. Processor](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor)</li><li>[Samouczek](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
@@ -33,13 +33,13 @@ W poniższej tabeli opisano wszystkie aktualnie dostępne klientów środowiska 
 |        | [Azure-eventhub-checkpointstoreblob-AIO](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio)</li><li>[Samouczek](event-hubs-python-get-started-send.md)</li></ul> |
 | JavaScript | [Azure/Event-Hubs](https://www.npmjs.com/package/@azure/event-hubs) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs)</li><li>[Samouczek](event-hubs-node-get-started-send.md)</li></ul> |
 |            | [Azure/eventhubs — checkpointstore — obiekt BLOB](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/eventhubs-checkpointstore-blob)</li><li>[Samouczek](event-hubs-node-get-started-send.md)</li></ul> |
-| Przejdź | [Azure-Event-Hubs — przejdź](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Samouczek](event-hubs-go-get-started-send.md)</li></ul> |
+| Go | [Azure-Event-Hubs — przejdź](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Samouczek](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [Azure-Event-Hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-c)</li><li>[Samouczek](event-hubs-c-getstarted-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>Zestawy SDK zarządzania
 W poniższej tabeli wymieniono wszystkie aktualnie dostępne biblioteki specyficzne dla zarządzania. Żadna z tych bibliotek nie zawiera operacji środowiska uruchomieniowego i służy wyłącznie do **zarządzania jednostkami Event Hubs**.
 
-| Język | Pakiet | Dokumentacja | 
+| Język | Pakiet | Odwołanie | 
 | -------- | ------- | --------------- | 
 | .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Samouczek](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
 

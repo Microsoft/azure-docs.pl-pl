@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76939248"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Samouczek: tworzenie rekordu aliasu do odwoływania do rekordu zasobów w strefie DNS
@@ -58,7 +58,7 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 ## <a name="test-the-alias-record"></a>Testowanie rekordu aliasu
 
 1. Uruchom ulubione narzędzie nslookup. Jedną z opcji jest przechodzenie do [https://network-tools.com/nslook](https://network-tools.com/nslook) .
-2. Ustaw typ zapytania dla rekordów i Wyszukaj **test. \<your domain name\> **. W odpowiedzi otrzymasz **10.10.10.10**.
+2. Ustaw typ zapytania dla rekordów i Wyszukaj **test. \<your domain name\>**. W odpowiedzi otrzymasz **10.10.10.10**.
 3. W witrynie Azure Portal zmień rekord A **serwer** na **10.11.11.11**.
 4. Poczekaj kilka minut, a następnie użyj ponownie narzędzia nslookup dla rekordu **test**. W odpowiedzi otrzymasz **10.11.11.11**.
 

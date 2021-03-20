@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677062"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
@@ -95,7 +95,7 @@ Program PowerShell używa konfiguracji w pliku machine.config do kontaktowania s
 
 Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![ zrzut ekranu przedstawiający stan powodzenia, gdy serwer proxy jest prawidłowo skonfigurowany.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z serwerem zdalnym** , program PowerShell próbuje wykonać bezpośrednie wywołanie bez użycia serwera proxy lub usługa DNS nie jest poprawnie skonfigurowana. Upewnij się, że plik **machine.config** jest prawidłowo skonfigurowany.
+Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z serwerem zdalnym**, program PowerShell próbuje wykonać bezpośrednie wywołanie bez użycia serwera proxy lub usługa DNS nie jest poprawnie skonfigurowana. Upewnij się, że plik **machine.config** jest prawidłowo skonfigurowany.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Jeśli serwer proxy nie został prawidłowo skonfigurowany, zostanie wyświetlony komunikat o błędzie: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -117,34 +117,34 @@ Jeśli wykonano wszystkie powyższe kroki i nadal nie można nawiązać połącz
 * Punkty końcowe adminwebservice i provisioningapi są punktami końcowymi odnajdywania i służą do znajdowania rzeczywistego punktu końcowego do użycia. Te punkty końcowe są różne w zależności od regionu.
 
 ### <a name="reference-proxy-logs"></a>Informacje o dziennikach serwera proxy
-Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z której został pobrany (zduplikowane wpisy do tego samego punktu końcowego zostały usunięte). Ta sekcja może służyć jako odwołanie do własnego serwera proxy i dzienników sieciowych. Rzeczywiste punkty końcowe mogą być inne w danym środowisku (w szczególności te adresy URL są *kursywą* ).
+Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z której został pobrany (zduplikowane wpisy do tego samego punktu końcowego zostały usunięte). Ta sekcja może służyć jako odwołanie do własnego serwera proxy i dzienników sieciowych. Rzeczywiste punkty końcowe mogą być inne w danym środowisku (w szczególności te adresy URL są *kursywą*).
 
-**Łączenie z usługą Azure AD**
+**Nawiązywanie połączenia z usługą Azure AD**
 
 | Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect:// *bba800 — zakotwiczenie* . microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect:// *bwsc02-Relay* . microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
 **Ustaw opcję**
 
 | Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect:// *bba800 — zakotwiczenie* . microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect:// *bba900 — zakotwiczenie* . microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900 — zakotwiczenie*. microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect:// *bba800 — zakotwiczenie* . microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect:// *bwsc02-Relay* . microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
 **Synchronizacja początkowa**
 
@@ -152,8 +152,8 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect:// *bba900 — zakotwiczenie* . microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect:// *bba800 — zakotwiczenie* . microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900 — zakotwiczenie*. microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Błędy uwierzytelniania
 W tej sekcji omówiono błędy, które można zwrócić z biblioteki ADAL (Biblioteka uwierzytelniania używana przez Azure AD Connect) i program PowerShell. Wyjaśniony błąd powinien ułatwić zapoznanie się z następnymi krokami.
@@ -227,7 +227,7 @@ Uwierzytelnianie zakończyło się pomyślnie. Nie można pobrać informacji o f
 Uwierzytelnianie zakończyło się pomyślnie. Nie można pobrać informacji o domenie z usługi Azure AD.
 
 ### <a name="unspecified-authentication-failure"></a>Nieokreślony błąd uwierzytelniania
-Wyświetlany jako nieoczekiwany błąd w Kreatorze instalacji. Może się zdarzyć, jeśli spróbujesz użyć **konta Microsoft** , a nie **konta w organizacji** .
+Wyświetlany jako nieoczekiwany błąd w Kreatorze instalacji. Może się zdarzyć, jeśli spróbujesz użyć **konta Microsoft** , a nie **konta w organizacji**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Kroki rozwiązywania problemów z poprzednimi wersjami.
 W przypadku wersji zaczynających się od numeru kompilacji 1.1.105.0 (wydanie z lutego 2016) Asystent logowania został wycofany. Ta sekcja i konfiguracja nie powinna już być wymagana, ale jest przechowywana jako odwołanie.

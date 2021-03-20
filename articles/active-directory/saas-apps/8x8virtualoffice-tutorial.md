@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 81a7efea268600e661981b35f79149fe814ef084
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180680"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą 8x8
@@ -103,7 +103,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -161,7 +161,7 @@ Kolejna część tego samouczka zależy od rodzaju subskrypcji z 8x8.
 
     d. Pobierz **certyfikat (base64)** i przekaż go do **certyfikatu**.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-8x8-account-manager"></a>Konfigurowanie Menedżera kont 8x8
 

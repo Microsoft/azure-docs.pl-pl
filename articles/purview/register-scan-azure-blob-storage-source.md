@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880645"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Rejestrowanie i skanowanie usługi Azure Blob Storage
 
 W tym artykule opisano sposób rejestrowania konta usługi Azure Blob Storage w programie kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Usługa Azure Blob Storage obsługuje pełne i przyrostowe skanowania w celu przechwytywania metadanych i schematu. Automatycznie klasyfikuje dane w oparciu o system i niestandardowe reguły klasyfikacji.
 

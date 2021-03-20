@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566099"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Wyślij działanie poleceń niestandardowych do aplikacji klienckiej
@@ -57,7 +57,7 @@ Wykonaj następujące zadania:
 
 W temacie [How to: Setup Application Client with Speech SDK (wersja zapoznawcza)](./how-to-custom-commands-setup-speech-sdk.md)utworzono aplikację kliencką platformy UWP z użyciem zestawu Speech SDK, który obsłużył polecenia takie jak `turn on the tv` , `turn off the fan` . Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
 
-Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać** , Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
+Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -85,8 +85,8 @@ Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać** , Dod
 Ze względu na to, że utworzono ładunek JSON, musisz dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
 
 1. Klient z odpowiednim rozwiązaniem.
-1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , a następnie wybierz pozycję **Przeglądaj** . 
-1. Jeśli masz już zainstalowaną **Newtonsoft.jsna** , upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje** , Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
+1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Przeglądaj** . 
+1. Jeśli masz już zainstalowaną **Newtonsoft.jsna**, upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje**, Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Wyślij ładunek aktywności](media/custom-commands/send-activity-to-client-json-nuget.png)

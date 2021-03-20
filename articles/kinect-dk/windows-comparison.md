@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Urządzenia Kinect, Windows, v2, Azure urządzenia Kinect, porównanie, zestaw SDK, różnice, sprzęt, oprogramowanie
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87031579"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Porównanie usług Azure urządzenia Kinect i urządzenia Kinect systemu Windows v2
@@ -22,7 +22,7 @@ Zestawy SDK sprzętu i oprogramowania platformy Azure urządzenia Kinect w wersj
 
 W poniższej tabeli wymieniono ogólne różnice między zestawem Azure urządzenia Kinect Development Kit a urządzenia Kinect dla systemu Windows v2.
 
-| Cecha | Type | Azure Kinect DK | Urządzenia Kinect dla systemu Windows w wersji 2 |
+| Cecha | Typ | Azure Kinect DK | Urządzenia Kinect dla systemu Windows w wersji 2 |
 | ------- | ---- | --------------- | --------------------- |
 | **Dźwięk** | Szczegóły  | 7 — macierz cykliczna z użyciem mikrofonu | 4-MIC liniowy — macierz fazowy |
 | **Czujnik ruchu** | Szczegóły | 3-osiowy przyspieszeniomierz 3-osiowy Gyro | przyspieszeniomierz 3-osiowy |
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono ogólne różnice między zestawem Azure urządze
 |                   | Rozwiązanie | 640 x 576 piks. @30 fps | 512 x 424 piks. 30 fps |
 |                   |            | 512 x 512 piks. @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
-| **Łączność** | Dane | USB 3.1 Gen 1 i Type USB-C  | USB 3,1 Gen 1|
+| **Połączenia** | Dane | USB 3.1 Gen 1 i Type USB-C  | USB 3,1 Gen 1|
 |  | Zasilanie | Zewnętrzna PSU lub USB-C | Zewnętrzna PSU |
 |  | Synchronizacja | Tryb RGB & wewnętrzne, zewnętrzne urządzenie do urządzenia| Tylko & RGB głębokości |
 | **Układ** | Wymiary | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
@@ -44,7 +44,7 @@ Dodatkowe szczegóły znajdziesz w dokumencie dotyczącym [sprzętu platformy Az
 
 W poniższej tabeli przedstawiono porównanie możliwości dostępu czujnika urządzenia niskiego poziomu.
 
-| **Funkcja**| **Azure Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
+| **Funkcjonalność**| **Azure Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
 |---------|---------|------------|---------|
 | **Ścisł** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |

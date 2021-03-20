@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880139"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
@@ -43,7 +43,7 @@ Najpierw Dodaj zmienne środowiskowe na poziomie projektu. Znajdź projekt **Ana
 * `FORMS_RECOGNIZER_RETRY_DELAY` wartość ustawiona na 1000. Ta wartość to czas (w milisekundach) oczekiwania programu przed ponowieniem próby wykonania zapytania.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS` wartość ustawiona na 100. Ta wartość jest tym, ile razy program wyśle zapytanie do usługi podczas próby uzyskania pomyślnej odpowiedzi.
 
-Następnie otwórz _AnalyzeForm.cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się *field-mappings.js* pliku. Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. Na przykład wartość `{ "Address:", "address" }, { "Invoice For:", "recipient" }` oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"address"` i `"recipient"` .
+Następnie otwórz _AnalyzeForm. cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się *field-mappings.js* pliku. Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. Na przykład wartość `{ "Address:", "address" }, { "Invoice For:", "recipient" }` oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"address"` i `"recipient"` .
 
 Na koniec Zwróć uwagę na `contentType` zmienną. Ten skrypt uruchamia dany model aparatu rozpoznawania formularzy w dokumentach zdalnych, do których odwołuje się adres URL, więc typ zawartości to `application/json` . Jeśli chcesz analizować pliki lokalne przez uwzględnienie ich strumieni bajtów w żądaniach HTTP, należy zmienić na `contentType` odpowiedni [Typ MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) dla pliku.
 

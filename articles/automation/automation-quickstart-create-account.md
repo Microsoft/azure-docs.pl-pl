@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83836706"
 ---
 # <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
@@ -21,7 +21,7 @@ Ten przewodnik Szybki Start przedstawia sposób tworzenia konta usługi Automati
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-[Zaloguj się do platformy Azure](https://portal.azure.com).
+[Zaloguj się na platformie Azure](https://portal.azure.com).
 
 ## <a name="create-automation-account"></a>Tworzenie konta usługi Automation
 

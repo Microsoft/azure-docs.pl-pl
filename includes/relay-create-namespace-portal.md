@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76021183"
 ---
 1. Zaloguj się do [Azure portal][Azure portal].
@@ -27,7 +27,7 @@ ms.locfileid: "76021183"
 1. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz nowo utworzoną nazwę przestrzeni nazw.
 1. Wybierz pozycję **zasady dostępu współdzielonego**.  
 1. W obszarze **Zasady dostępu współdzielonego** wybierz pozycję **RootManageSharedAccessKey**.
-1. W obszarze **zasady sygnatury dostępu współdzielonego: RootManageSharedAccessKey**wybierz przycisk **Kopiuj** obok pozycji **podstawowe parametry połączenia**. Ta akcja powoduje skopiowanie parametrów połączenia do Schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
+1. W obszarze **zasady sygnatury dostępu współdzielonego: RootManageSharedAccessKey** wybierz przycisk **Kopiuj** obok pozycji **podstawowe parametry połączenia**. Ta akcja powoduje skopiowanie parametrów połączenia do Schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
 1. Powtórz poprzedni krok w celu skopiowania i wklejenia wartości pozycji **Klucz podstawowy** w lokalizacji tymczasowej do późniejszego użycia.  
 
     ![połączenie — parametry][connection-string]

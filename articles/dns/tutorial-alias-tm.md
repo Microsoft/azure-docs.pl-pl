@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149953"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Samouczek: konfigurowanie rekordu aliasu w celu obsługi nazw domen wierzchołkowych przy użyciu usługi Traffic Manager 
@@ -69,7 +69,7 @@ Powtórz tę procedurę dla publicznego adresu IP **Web-02-ip**, używając cią
 
 Zainstaluj usługi IIS na maszynach **Web-01** i **Web-02**.
 
-1. Połącz się z **siecią Web-01**i zaloguj się.
+1. Połącz się z **siecią Web-01** i zaloguj się.
 2. Na pulpicie nawigacyjnym **Menedżer serwera** wybierz pozycję **Dodaj role i funkcje**.
 3. Trzykrotnie wybierz pozycję **Dalej**. Na stronie **Role serwera** wybierz pozycję **Serwer sieci Web (IIS)**.
 4. Wybierz pozycję **Dodaj funkcje**, a następnie wybierz pozycję **Dalej**.
@@ -83,7 +83,7 @@ Powtórz tę procedurę, aby zainstalować usługi IIS na maszynie wirtualnej **
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
 1. Otwórz grupę zasobów **RG-DNS-Alias-TM**, a następnie wybierz publiczny adres IP **Web-01-ip**. Zanotuj adres IP do późniejszego użycia. Powtórz ten krok dla publicznego adresu IP **Web-02-ip**.
-1. Wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Traffic Manager profilu**.
+1. Wybierz pozycję **Utwórz zasób zasobów**  >    >  **Traffic Manager profilu**.
 2. Jako nazwę wprowadź ciąg **TM-alias-test**. Umieść ją w grupie zasobów **RG-DNS-Alias-TM**.
 3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**.

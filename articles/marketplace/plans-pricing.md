@@ -8,10 +8,10 @@ author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91858176"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Plany i Cennik dla ofert komercyjnych Marketplace
@@ -115,12 +115,12 @@ Uważnie Przejrzyj ceny przed opublikowaniem, ponieważ istnieją pewne ogranicz
 Ceny ustawione w Stany Zjednoczone dolarach (USD) są konwertowane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany przy zapisywaniu. Sprawdź te ceny przed opublikowaniem przez wyeksportowanie arkusza cen i zapoznaj się z ceną w każdym wybranym rynku.
 
 1. Najpierw musisz zapisać zmiany cen, aby włączyć eksportowanie danych cen. W dolnej części karty **Cennik i dostępność** wybierz pozycję **Zapisz wersję roboczą**.
-1. W obszarze **Cennik**wybierz łącze **Eksportuj dane cennika** .
+1. W obszarze **Cennik** wybierz łącze **Eksportuj dane cennika** .
 1. Otwórz plik exportedPrice.xlsx w programie Microsoft Excel.
 1. W arkuszu kalkulacyjnym wprowadź aktualizacje, aby uzyskać informacje o cenach, a następnie Zapisz. Plik CSV.
     > [!NOTE]
     > Aby można było zaktualizować plik, może być konieczne włączenie edycji w programie Excel.
-1. Na karcie **Cennik i dostępność** w obszarze **Cennik**wybierz łącze **Importuj dane cennika** .
+1. Na karcie **Cennik i dostępność** w obszarze **Cennik** wybierz łącze **Importuj dane cennika** .
 1. W wyświetlonym oknie dialogowym wybierz pozycję **tak**.
 1. Wybierz zaktualizowany plik exportedPrice.xlsx a następnie wybierz pozycję **Otwórz**.
 

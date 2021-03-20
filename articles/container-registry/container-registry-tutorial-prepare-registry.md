@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97826078"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
@@ -25,7 +25,7 @@ Ten samouczek jest pierwszą częścią trzyczęściowej serii:
 
 W kolejnych samouczkach kontener zostanie wdrożony z prywatnego rejestru do aplikacji internetowej uruchomionej w dwóch regionach platformy Azure. Następnie zostanie zaktualizowany kod w aplikacji, a oba wystąpienia aplikacji internetowej zostaną zaktualizowane za pomocą pojedynczego polecenia `docker push` uruchomionego względem rejestru.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Dla tego samouczka wymagana jest lokalna instalacja interfejsu wiersza polecenia platformy Azure (w wersji 2.0.31 lub nowszej). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 

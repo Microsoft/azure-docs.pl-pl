@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 75d95ff77b48e7b1102900bc103e6930282e21e3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98726271"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z rozwiązania Zscaler trzy
@@ -142,7 +142,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Setup rozwiązania Zscaler trzy** , aby skierować Cię do rozwiązania zscalerej aplikacji trzeciej. W tym miejscu podaj poświadczenia administratora, aby zalogować się do rozwiązania Zscaler trzech. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
 
-    ![Konfigurowanie](common/setup-sso.png)
+    ![Konfiguracja](common/setup-sso.png)
 
 3. Jeśli chcesz skonfigurować rozwiązania Zscaler trzy ręcznie, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do swojej witryny internetowej rozwiązania Zscaler jako administrator i wykonaj następujące czynności:
 

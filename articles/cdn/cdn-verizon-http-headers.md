@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343221"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon nagłówki HTTP dla aparatu reguł Azure CDN
@@ -42,7 +42,7 @@ X-Host | Wskazuje nazwę hosta żądania. | cdn.mydomain.com
 X-Midgress | Wskazuje, czy żądanie zostało przekazane przy użyciu dodatkowego serwera sieci CDN. Na przykład serwer podręczny serwer osłony lub serwer z systemem POP do serwera bramy wdrożenie. <br />Ten nagłówek jest dodawany do żądania tylko wtedy, gdy odbywa się ruch midgress. W takim przypadku nagłówek jest ustawiony na 1, aby wskazać, że żądanie zostało przekazane za pomocą dodatkowego serwera sieci CDN.| 1
 [Host](#host-request-header) | Identyfikuje hosta i port, w którym można znaleźć żądaną zawartość. | marketing.mydomain.com:80
 [Lista X-Gateway](#x-gateway-list-request-header) | Wdrożenie: identyfikuje listę trybu failover serwerów bramy wdrożenie przypisanej do źródła klienta. <br />Tarcza źródła: wskazuje zestaw serwerów osłony pochodzenia przypisanych do źródła klienta. | `icn1,hhp1,hnd1`
-X-we-_ &lt; name &gt; _ | Nagłówki żądań, które zaczynają się od *X-we* (na przykład x-we-tag, [x-we-Debug](cdn-http-debug-headers.md)), są zarezerwowane do użytku przez sieć CDN.| WAF — produkcja
+X-we-_&lt; name &gt;_ | Nagłówki żądań, które zaczynają się od *X-we* (na przykład x-we-tag, [x-we-Debug](cdn-http-debug-headers.md)), są zarezerwowane do użytku przez sieć CDN.| WAF — produkcja
 
 ## <a name="via-request-header"></a>Za pomocą nagłówka żądania
 Format, za pomocą którego `Via` nagłówek żądania identyfikuje serwer pop, jest określany przez następującą składnię:

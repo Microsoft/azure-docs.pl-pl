@@ -9,10 +9,10 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: d19d30c03412ba7212211b30646acb50c3f55ece
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340030"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Diagnozowanie i rozwiązywanie problemów z niedostępnymi wyjątkami usługi Azure Cosmos DB
@@ -27,7 +27,7 @@ Poniższa lista zawiera znane przyczyny i rozwiązania niedostępnych wyjątków
 Sprawdź, czy wszystkie [wymagane porty](sql-sdk-connection-modes.md#service-port-ranges) są włączone.
 
 ### <a name="client-side-transient-connectivity-issues"></a>Przejściowe problemy z łącznością po stronie klienta
-Wyjątki niedostępne dla usługi mogą być widoczne w przypadku przejściowych problemów z łącznością, które powodują przekroczenie limitu czasu. Zwykle ślad stosu związany z tym scenariuszem będzie zawierać `TransportException` błąd. Przykład:
+Wyjątki niedostępne dla usługi mogą być widoczne w przypadku przejściowych problemów z łącznością, które powodują przekroczenie limitu czasu. Zwykle ślad stosu związany z tym scenariuszem będzie zawierać `TransportException` błąd. Na przykład:
 
 ```C#
 TransportException: A client transport error occurred: The request timed out while waiting for a server response. 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77471556"
 ---
 Dostęp warunkowy umożliwia uzyskanie szczegółowej kontroli dostępu dla poszczególnych aplikacji. Aby można było korzystać z dostępu warunkowego, należy mieć Azure AD — wersja Premium 1 lub większą licencję dla użytkowników, którzy będą objęci regułami dostępu warunkowego.
@@ -26,7 +26,7 @@ Dostęp warunkowy umożliwia uzyskanie szczegółowej kontroli dostępu dla posz
    - Kliknij pozycję **Wybierz użytkowników i grupy**.
    - Sprawdź **użytkowników i grupy**.
    - Kliknij przycisk **Wybierz** , aby wybrać grupę lub zbiór użytkowników, których ma dotyczyć uwierzytelnianie wieloskładnikowe.
-   - Kliknij pozycję **Gotowe**.
+   - Kliknij przycisk **Gotowe**.
 
    ![Przypisania](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
 3. W okienku **Nowy** przejdź do okienka **kontrola dostępu — > Grant** :
@@ -40,6 +40,6 @@ Dostęp warunkowy umożliwia uzyskanie szczegółowej kontroli dostępu dla posz
 4. W sekcji **Włączanie zasad** :
 
    - Wybierz pozycję **włączone**.
-   - Kliknij przycisk **Utwórz**.
+   - Kliknij pozycję **Utwórz**.
 
    ![Włącz zasady](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
