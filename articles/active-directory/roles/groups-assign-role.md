@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742951"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Przypisywanie roli do grupy w chmurze w Azure Active Directory
@@ -32,7 +32,7 @@ Przypisywanie grupy do roli usługi Azure AD jest podobne do przypisywania użyt
 
 1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**, a następnie wybierz rolę, którą chcesz przypisać.
 
-1. Na stronie **_Nazwa roli_*_ wybierz pozycję > _* Dodaj przypisanie**.
+1. Na stronie ***Nazwa roli** _ wybierz pozycję > _ * Dodaj przypisanie * *.
 
    ![Dodaj nowe przypisanie roli](./media/groups-assign-role/add-assignment.png)
 

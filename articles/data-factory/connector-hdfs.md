@@ -4,14 +4,14 @@ description: Informacje o kopiowaniu danych z chmury lub lokalnego źródła sys
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588906"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera HDFS przy użyciu Azure Data Factory
 
@@ -23,7 +23,7 @@ ms.locfileid: "100367088"
 
 W tym artykule opisano sposób kopiowania danych z serwera usługi Hadoop rozproszony system plików (HDFS). Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Łącznik HDFS jest obsługiwany dla następujących działań:
 
@@ -172,7 +172,7 @@ Następujące właściwości są obsługiwane dla systemu plików HDFS w obszarz
 | modifiedDatetimeEnd      | Jak wyżej.  
 | enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
-| maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie                                            |
 | ***Ustawienia pomocą distcp*** |  | |
 | distcpSettings | Grupa właściwości, która ma być używana podczas korzystania z systemu HDFS pomocą distcp. | Nie |
 | resourceManagerEndpoint | Nowy punkt końcowy PRZĘDZy | Tak, jeśli używasz pomocą distcp |
@@ -533,7 +533,7 @@ Informacje o usuwaniu właściwości działania znajdują się [w temacie Usuwan
 | resourceManagerEndpoint | Punkt końcowy Menedżer zasobów PRZĘDZy | Tak, jeśli używasz pomocą distcp |
 | tempScriptPath | Ścieżka folderu, która jest używana do przechowywania tymczasowego skryptu poleceń pomocą distcp. Plik skryptu jest generowany przez Data Factory i zostanie usunięty po zakończeniu zadania kopiowania. | Tak, jeśli używasz pomocą distcp |
 | distcpOptions | Dodatkowe opcje są dostępne dla polecenia pomocą distcp. | Nie |
-| maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład: Źródło HDFS w działaniu kopiowania przy użyciu pomocą distcp**
 

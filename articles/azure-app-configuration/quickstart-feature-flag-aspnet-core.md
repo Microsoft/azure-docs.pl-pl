@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99806074"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Uzyskaj dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji platformy .NET Core. Dwukropek ( `:` ) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Aby uzyskać więcej informacji, zobacz [klucze konfiguracji i wartości](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. W programie *program.cs* zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `AddAzureAppConfiguration` metody.
+1. W programie *program. cs* zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `AddAzureAppConfiguration` metody.
 
     > [!IMPORTANT]
     > `CreateHostBuilder` zastępuje program `CreateWebHostBuilder` .NET Core 3. x. Wybierz poprawną składnię opartą na Twoim środowisku.
@@ -123,7 +123,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
 
-1. W *Startup.cs*, Dodaj odwołanie do programu .NET Core Feature Manager:
+1. W programie *Start. cs* Dodaj odwołanie do programu .NET Core Feature Manager:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -163,7 +163,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-1. Dodaj plik *MyFeatureFlags.cs* do głównego katalogu projektu przy użyciu następującego kodu:
+1. Dodaj plik *MyFeatureFlags. cs* do głównego katalogu projektu przy użyciu następującego kodu:
 
     ```csharp
     namespace TestFeatureFlags
@@ -175,7 +175,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. Dodaj plik *BetaController.cs* do katalogu *controllers* przy użyciu następującego kodu:
+1. Dodaj plik *BetaController. cs* do katalogu *controllers* o następującym kodzie:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;

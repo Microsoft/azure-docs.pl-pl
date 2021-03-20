@@ -4,10 +4,10 @@ description: Dowiedz się, jak opublikować wewnętrzną instrukcję obsługi w 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480477"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Dodaj wewnętrzną instrukcję obsługi do laboratorium w Azure DevTest Labs
@@ -27,7 +27,7 @@ Możesz łatwo wyłączyć lub edytować instrukcję pomocy technicznej, gdy nie
 
     ![Przycisk konfiguracji i zasad](./media/devtest-lab-internal-support-message/devtestlab-config-and-policies.png)
 
-1. W obszarze **Ustawienia**wybierz pozycję **Obsługa wewnętrzna**.
+1. W obszarze **Ustawienia** wybierz pozycję **Obsługa wewnętrzna**.
 
     ![Przycisk obsługi wewnętrznej](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
 

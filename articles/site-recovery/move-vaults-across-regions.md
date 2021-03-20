@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87422644"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Przenoszenie magazynu Recovery Services i konfiguracji Azure Site Recovery do innego regionu platformy Azure
@@ -47,7 +47,7 @@ Zalecamy wykonanie tego kroku przed przejściem do kolejnego. Podczas replikowan
 
 Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozycji elementy chronione**  >  **zreplikowane**  >  **Właściwości** elementów i zidentyfikuj następujące zasoby:
 
-- Docelowa Grupa zasobów
+- Docelowa grupa zasobów
 - Konto magazynu pamięci podręcznej
 - Docelowe konto magazynu (w przypadku niezarządzanej maszyny wirtualnej platformy Azure opartej na dyskach) 
 - Sieć docelowa
@@ -56,7 +56,7 @@ Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozyc
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>Wyłącz istniejącą konfigurację odzyskiwania po awarii
 
 1. Przejdź do magazynu Recovery Services.
-2. W obszarze **chronione elementy**  >  **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę i wybierz pozycję **Wyłącz replikację**.
+2. W obszarze **chronione elementy**  >  **zreplikowane elementy** kliknij prawym przyciskiem myszy maszynę i wybierz pozycję **Wyłącz replikację**.
 3. Powtórz ten krok dla wszystkich maszyn wirtualnych, które chcesz przenieść.
 
 > [!NOTE]

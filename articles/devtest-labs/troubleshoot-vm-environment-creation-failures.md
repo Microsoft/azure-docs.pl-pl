@@ -4,10 +4,10 @@ description: Dowiedz się, jak rozwiązywać problemy dotyczące maszyn wirtualn
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476482"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Rozwiązywanie problemów dotyczących maszyn wirtualnych i błędów tworzenia środowiska w Azure DevTest Labs

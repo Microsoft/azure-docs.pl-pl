@@ -4,10 +4,10 @@ description: Porównaj Azure DevTest Labs i Azure Lab Services.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480086"
 ---
 # <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Porównaj Azure DevTest Labs i Azure Lab Services
@@ -66,9 +66,9 @@ Poniższe sekcje zawierają więcej szczegółowych informacji o tych laboratori
 ## <a name="managed-lab-types"></a>Typy laboratoriów zarządzanych
 Usługa Azure Lab Services umożliwia tworzenie laboratoriów, których infrastruktura jest zarządzana przez platformę Azure. Ten artykuł mówi o nich jako o typach laboratoriów zarządzanych. Typy laboratoriów zarządzanych to różnego rodzaju laboratoria, które spełniają Twoje specyficzne wymagania. Obecnie jedynym obsługiwanym typem laboratorium zarządzanego jest **laboratorium na potrzeby zajęć**. 
 
-Typy laboratoriów zarządzanych pozwalają od razu rozpocząć działanie przy minimalnej konfiguracji. Sama usługa obsługuje całe zarządzanie infrastrukturą w laboratorium, od inicjowania maszyn wirtualnych do obsługi błędów i skalowania infrastruktury.Aby utworzyć typ laboratorium zarządzanego, taki jak laboratorium na potrzeby zajęć, musisz najpierw utworzyć konto laboratorium dla Twojej organizacji. Konto laboratorium służy jako centralne konto, w ramach którego są zarządzane wszystkie laboratoria w organizacji. 
+Typy laboratoriów zarządzanych pozwalają od razu rozpocząć działanie przy minimalnej konfiguracji. Sama usługa obsługuje całe zarządzanie infrastrukturą w laboratorium, od inicjowania maszyn wirtualnych do obsługi błędów i skalowania infrastruktury. Aby utworzyć typ laboratorium zarządzanego, taki jak laboratorium na potrzeby zajęć, musisz najpierw utworzyć konto laboratorium dla Twojej organizacji. Konto laboratorium służy jako centralne konto, w ramach którego są zarządzane wszystkie laboratoria w organizacji. 
 
-Podczas tworzenia i korzystania z zasobów platformy Azure w tych typach laboratoriów zarządzanych usługa tworzy zasoby i zarządza nimi w wewnętrznych subskrypcjach firmy Microsoft. Nie są one tworzone w ramach Twojej własnej subskrypcji platformy Azure. Usługa przechowuje informacje o użyciu tych zasobów w wewnętrznych subskrypcjach firmy Microsoft. To użycie jest rozliczane w ramach Twojej subskrypcji platformy Azure, która zawiera konto laboratorium.   
+Podczas tworzenia i korzystania z zasobów platformy Azure w tych typach laboratoriów zarządzanych usługa tworzy zasoby i zarządza nimi w wewnętrznych subskrypcjach firmy Microsoft. Nie są one tworzone w ramach Twojej własnej subskrypcji platformy Azure. Usługa przechowuje informacje o użyciu tych zasobów w wewnętrznych subskrypcjach firmy Microsoft. To użycie jest rozliczane w ramach Twojej subskrypcji platformy Azure, która zawiera konto laboratorium.   
 
 Poniżej przedstawiono niektóre **przypadki użycia typów laboratoriów zarządzanych**: 
 
@@ -79,7 +79,7 @@ Poniżej przedstawiono niektóre **przypadki użycia typów laboratoriów zarzą
 
 
 ## <a name="devtest-labs"></a>DevTest Labs
-W przypadku niektórych scenariuszy możesz chcieć samodzielnie zarządzać całą infrastrukturą i konfiguracją w ramach własnej subskrypcji. Aby to zrobić, możesz utworzyć laboratorium za pomocą usługi Azure DevTest Labs w witrynie Azure Portal.Dla tych laboratoriów nie jest konieczne tworzenie konta laboratorium. Te laboratoria nie są wyświetlane na koncie laboratorium (które istnieje dla typów laboratoriów zarządzanych).  
+W przypadku niektórych scenariuszy możesz chcieć samodzielnie zarządzać całą infrastrukturą i konfiguracją w ramach własnej subskrypcji. Aby to zrobić, możesz utworzyć laboratorium za pomocą usługi Azure DevTest Labs w witrynie Azure Portal. Dla tych laboratoriów nie jest konieczne tworzenie konta laboratorium. Te laboratoria nie są wyświetlane na koncie laboratorium (które istnieje dla typów laboratoriów zarządzanych).  
 
 Poniżej przedstawiono niektóre **przypadki użycia dotyczące korzystania z DevTest Labs**: 
 
@@ -96,10 +96,10 @@ W poniższej tabeli porównano dwa rodzaje laboratoriów, które są obsługiwan
 
 | Funkcje | Typy laboratoriów zarządzanych | DevTest Labs |
 | -------- | ----------------- | ---------- |
-| Zarządzanie infrastrukturą platformy Azure w laboratorium. |  Automatycznie zarządzane przez usługę | Zarządzane samodzielnie  |
-| Wbudowana odporność na problemy z infrastrukturą | Automatycznie obsługiwane przez usługę | Zarządzane samodzielnie  |
+| Zarządzanie infrastrukturą platformy Azure w laboratorium. |  Automatycznie zarządzane przez usługę | Zarządzane samodzielnie  |
+| Wbudowana odporność na problemy z infrastrukturą | Automatycznie obsługiwane przez usługę | Zarządzane samodzielnie  |
 | Zarządzanie subskrypcjami | Usługa obsługuje alokację zasobów w ramach subskrypcji firmy Microsoft wspierających usługę. Skalowanie jest obsługiwane automatycznie przez usługę. | Samodzielnie zarządzasz w ramach własnej subskrypcji platformy Azure. Brak automatycznego skalowania subskrypcji. |
-| Wdrożenie usługi Azure Resource Manager w laboratorium | Niedostępne | Dostępne |
+| Wdrożenie usługi Azure Resource Manager w laboratorium | Niedostępne | Dostępne |
 
 ## <a name="next-steps"></a>Następne kroki
 

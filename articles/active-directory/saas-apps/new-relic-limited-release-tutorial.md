@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 29e19eea51b5ee55831bf1d694a9a6473a62d471
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504053"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z nowymi Relic
@@ -106,7 +106,7 @@ Poniżej przedstawiono sposób tworzenia użytkownika testowego w Azure Portal o
    1. W polu **Nazwa użytkownika** wprowadź wartość `username@companydomain.extension` . Na przykład `b.simon@contoso.com`. Ta wartość powinna być zgodna z adresem e-mail, który będzie używany na nowej stronie Relic.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

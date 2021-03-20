@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92735970"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Szybki Start: tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu ARM
@@ -20,14 +20,14 @@ Dowiedz się, jak utworzyć szablon Azure Resource Manager (szablon ARM), który
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Konto magazynu** : aby je utworzyć, zobacz [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal). Konto magazynu jest używane na potrzeby danych diagnostycznych.
+* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Konto magazynu**: aby je utworzyć, zobacz [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal). Konto magazynu jest używane na potrzeby danych diagnostycznych.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -46,27 +46,27 @@ Dostępne są również szablony Menedżer zasobów dla nowej [warstwy Premium](
 * [Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis z trwałością danych](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Utwórz Redis Cache w warstwie Premium wdrożone w Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i wyszukiwanie w _usłudze Azure cache for Redis_ .
+Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i wyszukiwanie w _usłudze Azure cache for Redis_.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon.
 
     [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Wybierz lub wprowadź następujące wartości:
 
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure używaną do tworzenia udziału danych i innych zasobów.
-    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów, lub wybierz istniejącą grupę zasobów.
-    * **Lokalizacja** : wybierz lokalizację grupy zasobów. Konto magazynu i pamięć podręczna Redis muszą znajdować się w tym samym regionie. Domyślnie pamięć podręczna Redis używa tej samej lokalizacji co grupa zasobów. Należy więc określić tę samą lokalizację, w której znajduje się konto magazynu.
-    * **Nazwa Redis Cache** : Wprowadź nazwę pamięci podręcznej Redis.
-    * **Istniejące konto magazynu diagnostyki** : Wprowadź identyfikator zasobu konta magazynu. Składnia jest następująca: `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure używaną do tworzenia udziału danych i innych zasobów.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów, lub wybierz istniejącą grupę zasobów.
+    * **Lokalizacja**: wybierz lokalizację grupy zasobów. Konto magazynu i pamięć podręczna Redis muszą znajdować się w tym samym regionie. Domyślnie pamięć podręczna Redis używa tej samej lokalizacji co grupa zasobów. Należy więc określić tę samą lokalizację, w której znajduje się konto magazynu.
+    * **Nazwa Redis Cache**: Wprowadź nazwę pamięci podręcznej Redis.
+    * **Istniejące konto magazynu diagnostyki**: Wprowadź identyfikator zasobu konta magazynu. Składnia jest następująca: `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`
 
     Użyj wartości domyślnej dla pozostałej części ustawień.
-1. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej** , a następnie wybierz pozycję **Kup** .
+1. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**, a następnie wybierz pozycję **Kup**.
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Otwórz utworzoną pamięć podręczną Redis.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

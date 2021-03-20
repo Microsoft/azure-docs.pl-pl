@@ -4,10 +4,10 @@ description: W tym artykule opisano wszystkie przygotowania, które są konieczn
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476142"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Uruchamianie fabryki obrazów z usługi Azure DevOps
@@ -78,7 +78,7 @@ Aby uprościć parametry wiersza polecenia, należy hermetyzować wartości kluc
 | MachineUserName | ImageFactoryUser | Nazwa użytkownika wbudowanego konta administratora dla maszyn wirtualnych. Jest to konto przejściowe. |
 | StandardTimeoutMinutes | 30 | Limit czasu oczekiwania na regularne operacje na platformie Azure. |
 | SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | Identyfikator subskrypcji, w której istnieje laboratorium i że punkt końcowy usługi ma dostęp do programu. |
-| VMSize | Standardowa_A3 | Rozmiar maszyny wirtualnej, która ma zostać użyta na potrzeby kroku **tworzenia** . Utworzone maszyny wirtualne są przejściowe. Rozmiar musi być tym, który jest [włączony dla laboratorium](devtest-lab-set-lab-policy.md). Upewnij się, że osiągnięto [limit przydziału rdzeni dla subskrypcji](../azure-resource-manager/management/azure-subscription-service-limits.md).
+| maszyny wirtualnej (VMSize | Standardowa_A3 | Rozmiar maszyny wirtualnej, która ma zostać użyta na potrzeby kroku **tworzenia** . Utworzone maszyny wirtualne są przejściowe. Rozmiar musi być tym, który jest [włączony dla laboratorium](devtest-lab-set-lab-policy.md). Upewnij się, że osiągnięto [limit przydziału rdzeni dla subskrypcji](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ![Zmienne kompilacji](./media/set-up-devops-lab/configure-build-variables.png)
 
@@ -94,7 +94,7 @@ Następnym krokiem jest skonfigurowanie nazwy głównej usługi. Jest to tożsam
 Najszybszą metodą skonfigurowania jednostki usługi jest umożliwienie usłudze Azure DevOps jej dla nas.
 
 1. Wybierz właśnie dodane **zadanie** .
-2. W obszarze **Typ połączenia platformy Azure**wybierz pozycję **Azure Resource Manager**.
+2. W obszarze **Typ połączenia platformy Azure** wybierz pozycję **Azure Resource Manager**.
 3. Wybierz link **Zarządzaj** , aby skonfigurować nazwę główną usługi.
 
 Aby uzyskać więcej informacji, zobacz ten [wpis w blogu](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Po wybraniu linku **Zarządzanie** zostanie wystawione odpowiednie miejsce w DevOps (drugi zrzut ekranu w wpisie w blogu), aby skonfigurować połączenie z platformą Azure. Pamiętaj o wybraniu **Azure Resource Manager punktu końcowego usługi** podczas konfigurowania tego ustawienia.
@@ -105,7 +105,7 @@ W przypadku wybrania zadania kompilacji w okienku po prawej stronie zostaną wy�
 1. Najpierw Nazwij zadanie kompilacji: **utwórz Virtual Machines**.
 2. Wybierz jednostkę **usługi** utworzoną przez wybranie **Azure Resource Manager**
 3. Wybierz **punkt końcowy usługi**.
-4. W obszarze **ścieżka skryptu**wybierz pozycję **... (wielokropek)** po prawej stronie.
+4. W obszarze **ścieżka skryptu** wybierz pozycję **... (wielokropek)** po prawej stronie.
 5. Przejdź do **MakeGoldenImageVMs.ps1** skryptu.
 6. Parametry skryptu powinny wyglądać następująco: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 

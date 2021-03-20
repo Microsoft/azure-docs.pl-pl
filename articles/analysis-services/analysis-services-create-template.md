@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions
 ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230793"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Szybki Start: Tworzenie szablonu serwera ARM
@@ -106,4 +106,4 @@ Write-Host "Press [ENTER] to continue..."
 W tym przewodniku szybki start użyto szablonu ARM do utworzenia nowej grupy zasobów i zasobu serwera Azure Analysis Services. Po utworzeniu zasobu serwera przy użyciu szablonu należy wziąć pod uwagę następujące kwestie:
 
 > [!div class="nextstepaction"]
-> [Szybki start: konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   
+> [Szybki start: Konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   

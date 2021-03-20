@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykład sposobu grupowania defin
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: aa09cafe636a4665dba6a2e746c13b95ff304895
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072921"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Wzorzec Azure Policy: definicje zasad grupy
@@ -21,7 +21,7 @@ Te parametry inicjatywy są dostarczane do poszczególnych grup definicji zasad.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json":::
 
-### <a name="explanation"></a>Objaśnienie
+### <a name="explanation"></a>Wyjaśnienie
 
 #### <a name="initiative-parameters"></a>Parametry inicjatywy
 

@@ -5,10 +5,10 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87170857"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Zarządzanie usługą Azure łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -197,7 +197,7 @@ az blockchain member delete \
 | **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
 | **Nazwij** | Nazwa członka usługi Azure łańcucha bloków Service łańcucha bloków do usunięcia. |
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 
 ### <a name="grant-access-for-azure-ad-user"></a>Udzielanie dostępu użytkownikowi usługi Azure AD
 
@@ -227,7 +227,7 @@ az role assignment create \
 
 **Przykład:**
 
-Przyznaj dostęp do węzła dla użytkownika usługi Azure AD do **węzła transakcji**łańcucha bloków:
+Przyznaj dostęp do węzła dla użytkownika usługi Azure AD do **węzła transakcji** łańcucha bloków:
 
 ```azurecli
 az role assignment create \

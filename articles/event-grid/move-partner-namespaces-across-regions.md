@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89086211"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Przenoszenie przestrzeni nazw partnerów Azure Event Grid do innego regionu
@@ -31,7 +31,7 @@ Poniżej przedstawiono ogólne kroki opisane w tym artykule:
 Aby rozpocząć, wyeksportuj szablon Menedżer zasobów dla przestrzeni nazw partnera. 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Na pasku wyszukiwania u góry wpisz **Event Grid przestrzenie nazw partnerów**i wybierz **Event Grid przestrzenie nazw partnerów** z listy wyników. 
+2. Na pasku wyszukiwania u góry wpisz **Event Grid przestrzenie nazw partnerów** i wybierz **Event Grid przestrzenie nazw partnerów** z listy wyników. 
 3. Wybierz **przestrzeń nazw partnera** , która ma zostać wyeksportowana do szablonu Menedżer zasobów. 
 4. Na stronie **przestrzeń nazw partnera Event Grid** wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia** w menu po lewej stronie, a następnie wybierz pozycję **Pobierz** na pasku narzędzi. 
 
@@ -57,17 +57,17 @@ Aby rozpocząć, wyeksportuj szablon Menedżer zasobów dla przestrzeni nazw par
 Wdróż szablon, aby utworzyć przestrzeń nazw partnera w regionie docelowym. 
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 3. Wybierz **Template Deployment**.
 4. Wybierz przycisk **Utwórz**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 7. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 8. Na stronie **wdrożenie niestandardowe** wykonaj następujące kroki: 
-    1. Wybierz **subskrypcję**platformy Azure. 
+    1. Wybierz **subskrypcję** platformy Azure. 
     1. Wybierz istniejącą **grupę zasobów** w regionie docelowym lub utwórz ją. 
-    1. W polu **Lokalizacja**wybierz region docelowy. W przypadku wybrania istniejącej grupy zasobów to ustawienie jest tylko do odczytu. 
-    1. W polu **nazwa przestrzeni nazw partnera**wprowadź nazwę nowej przestrzeni nazw partnera. 
+    1. W polu **Lokalizacja** wybierz region docelowy. W przypadku wybrania istniejącej grupy zasobów to ustawienie jest tylko do odczytu. 
+    1. W polu **nazwa przestrzeni nazw partnera** wprowadź nazwę nowej przestrzeni nazw partnera. 
     1. W polu Identyfikator zewnętrzny rejestracji partnera wprowadź identyfikator zasobu rejestracji partnera w następującym formacie: `/subscriptions/<Azure subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/partnerRegistrations/<Partner registration name>` .
     1. Zaznacz pole wyboru **Wyrażam zgodę na powyższe warunki i postanowienia** .     
     1. Wybierz pozycję **Przegląd + Utwórz** , aby rozpocząć proces wdrażania. 

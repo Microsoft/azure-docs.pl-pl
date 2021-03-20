@@ -4,10 +4,10 @@ description: Dowiedz się, jak korzystać z usług typu "platforma jako usługa"
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478743"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Korzystanie z usług typu "platforma jako usługa" (PaaS) w Azure DevTest Labs
@@ -62,7 +62,7 @@ Funkcja śledzenia kosztów obejmuje zasoby platformy Azure w różnych środowi
 ### <a name="security"></a>Zabezpieczenia
 Prawidłowo skonfigurowana subskrypcja platformy Azure z DevTest Labs może [ograniczyć dostęp do zasobów platformy Azure tylko za pomocą laboratorium](devtest-lab-add-devtest-user.md). Dzięki środowiskom właściciel laboratorium może pozwolić użytkownikom na dostęp do zasobów PaaS z zatwierdzonymi konfiguracjami bez zezwalania na dostęp do innych zasobów platformy Azure. W scenariuszu, w którym użytkownicy laboratorium dostosowują środowiska, właściciel laboratorium może zezwolić na dostęp współautora. Dostęp współautora umożliwia użytkownikowi laboratorium Dodawanie lub usuwanie zasobów platformy Azure tylko w ramach zarządzanej grupy zasobów. Pozwala to na łatwiejsze śledzenie i zarządzanie, a następnie umożliwienie użytkownikom dostępu do subskrypcji.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 Automatyzacja to kluczowy składnik dla dużej skali, obowiązujący ekosystem. Automatyzacja jest niezbędna do obsługi zarządzania lub śledzenia wielu środowisk w ramach subskrypcji i laboratoriów.
 
 ### <a name="cicd-pipeline"></a>Potok ciągłej integracji/ciągłego wdrażania

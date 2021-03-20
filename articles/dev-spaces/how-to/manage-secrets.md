@@ -7,10 +7,10 @@ description: Dowiedz się, jak używać wpisów tajnych Kubernetes w czasie uruc
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.custom: devx-track-js
 ms.openlocfilehash: 8791480f420dfd76d5291ce82e8ebf7412a41326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91972972"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Zarządzanie wpisami tajnymi podczas pracy z obszarem dev platformy Azure
@@ -143,7 +143,7 @@ configurations:
 W powyższym przykładzie *mynugetsecret* jest istniejącym wpisem tajnym, a *pattoken* jest istniejącym kluczem.
 
 >[!NOTE]
-> Nazwy i klucze tajne mogą zawierać `.` znak. Użyj `\` do ucieczki `.` podczas przekazywania wpisów tajnych jako argumentów kompilacji. Na przykład, aby przekazać wpis tajny o nazwie *foo. bar* z kluczem *tokenu*: `MYTOKEN: ${secret.foo\.bar.token}` . Ponadto wpisy tajne można ocenić przy użyciu prefiksu i przyrostka tekstu. Na przykład `MYURL: eus-${secret.foo\.bar.token}-version1`. Ponadto klucze tajne dostępne w obszarze nadrzędnym i nadrzędnym mogą być przekazane jako argumenty kompilacji.
+> Nazwy i klucze tajne mogą zawierać `.` znak. Użyj `\` do ucieczki `.` podczas przekazywania wpisów tajnych jako argumentów kompilacji. Na przykład, aby przekazać wpis tajny o nazwie *foo.bar* z kluczem *tokenu*: `MYTOKEN: ${secret.foo\.bar.token}` . Ponadto wpisy tajne można ocenić przy użyciu prefiksu i przyrostka tekstu. Na przykład `MYURL: eus-${secret.foo\.bar.token}-version1`. Ponadto klucze tajne dostępne w obszarze nadrzędnym i nadrzędnym mogą być przekazane jako argumenty kompilacji.
 
 W pliku dockerfile Użyj dyrektywy *ARG* , aby użyć klucza tajnego, a następnie użyj tej samej zmiennej w dalszej części pliku dockerfile. Na przykład:
 

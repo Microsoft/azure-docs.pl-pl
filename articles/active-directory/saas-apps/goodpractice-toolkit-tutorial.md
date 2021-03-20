@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92448439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Samouczek: integracja Azure Active Directory z zestawem narzędzi do obsługi myśli
@@ -90,7 +90,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
     > [!NOTE]
     > Wartość **adresu URL logowania** nie jest prawdziwa. Zaktualizuj wartość przy użyciu rzeczywistego adresu URL logowania. Aby uzyskać wartość, skontaktuj się z [zespołem obsługi klienta zestawu narzędzi](mailto:support@goodpractice.com) .
 
-1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** przejdź do sekcji **certyfikat podpisywania SAML** . Z prawej strony **XML metadanych Federacji**wybierz pozycję **Pobierz** , aby pobrać tekst XML i zapisać go na komputerze. Zawartość XML zależy od wybranych opcji.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** przejdź do sekcji **certyfikat podpisywania SAML** . Z prawej strony **XML metadanych Federacji** wybierz pozycję **Pobierz** , aby pobrać tekst XML i zapisać go na komputerze. Zawartość XML zależy od wybranych opcji.
 
     ![Sekcja certyfikat podpisywania SAML z wyróżnioną pozycją Pobierz obok pliku XML metadanych Federacji](common/metadataxml.png)
 
@@ -114,7 +114,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
    1. W polu **Nazwa** wpisz **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź **B.Simon@**_formacie_**.** _rozszerzenie_. Na przykład B.Simon@contoso.com.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 5e78ca99d3f339e6b4e9c8bc00fd9e2c68c50777
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454575"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-drift"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z dryfem
@@ -149,7 +149,7 @@ W tej sekcji włączysz funkcję B. Simon do korzystania z logowania jednokrotne
 
 3. Jeśli chcesz ręcznie skonfigurować dryf, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do firmowej witryny z przedziału jako administrator i wykonaj następujące czynności:
 
-4. W lewej części paska menu kliknij pozycję **Ustawienia**ustawienia  >  **aplikacji**  >  **uwierzytelnianie** i wykonaj następujące czynności:
+4. W lewej części paska menu kliknij pozycję **Ustawienia** ustawienia  >  **aplikacji**  >  **uwierzytelnianie** i wykonaj następujące czynności:
 
     ![Link administratora](./media/drift-tutorial/tutorial_drift_admin.png)
 

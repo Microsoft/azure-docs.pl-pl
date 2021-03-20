@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 198abf70ae4350a3b410c11d8360e44a37555d8e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 002f900f03f7bd08753313cde0e6bd46b097a858
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564375"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581154"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizowanie plików wideo i audio przy użyciu Azure Media Services
 
@@ -41,10 +41,10 @@ Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów doty
 
 Media Services obecnie obsługuje następujące wbudowane ustawienia wstępne analizatora:  
 
-|**Nazwa ustawienia wstępnego**|**Scenariusz**|**Szczegóły**|
+|**Nazwa ustawienia wstępnego**|**Scenariusz/tryb**|**Szczegóły**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analizowanie standardu audio|Ustawienie wstępne stosuje wstępnie zdefiniowany zestaw operacji analitycznych opartych na formacie AI, w tym transkrypcję mowy. Obecnie ustawienie wstępne obsługuje przetwarzanie zawartości przy użyciu jednej ścieżki audio zawierającej mowę w jednym języku. Możesz określić język dla ładunku audio w danych wejściowych przy użyciu formatu BCP-47 "Language tag-region". Obsługiwane języki to angielski ("en-US", "pl-GB" i "en-AU"), hiszpański ("es-ES" i "es-MX"), francuski ("fr-FR" i "fr-CA"), włoski ("it-IT"), japoński ("ja-JP"), portugalski ("pt-BR"), chiński ("zh-CN"), niemiecki ("de-DE"), arabski ("AR-BH", "AR-EG", "AR-IQ", "AR-JO", "AR-KW", "AR-LB", "AR-OM", "AR-pytań", "ar-SA" i "AR-SY"), rosyjski ("ru-RU"), hindi ("Hi-IN"), koreański ("ko-KR"), duński ("da-DK"), norweski ("NB-NO"), szwedzki ("SV-SE"), fiński ("fi-FI"), tajski ("th-TH") i turecki ("TR-TR").<br/><br/> Jeśli język nie jest określony lub ma wartość null, funkcja automatycznego wykrywania języka wybiera pierwszy wykryty język i kontynuuje w wybranym języku dla czasu trwania pliku. Funkcja automatycznego wykrywania języka jest obecnie obsługiwana w języku angielskim, chińskim, francuskim, niemieckim, włoskim, japońskim, hiszpańskim, rosyjskim i portugalskim. Nie obsługuje on dynamicznego przełączania między językami po wykryciu pierwszego języka. Funkcja automatycznego wykrywania języka działa najlepiej z nagraniami dźwiękowymi z wyraźnie dostrzegalną mową. Jeśli automatyczne wykrywanie języka nie odnajdzie języka, transkrypcja powróci do języka angielskiego.|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analizowanie języka audio Basic|Ten tryb wykonuje transkrypcję zamiany mowy na tekst i generowanie pliku napisów VTT. Dane wyjściowe tego trybu obejmują plik JSON usługi Insights, w tym informacje o słowach kluczowych, transkrypcji i chronometrażu. Funkcja automatycznego wykrywania języka i diarization prelegenta nie są uwzględnione w tym trybie. Lista obsługiwanych języków jest dostępna [tutaj](#built-in-presets)|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analizowanie standardowego trybu audio|Ustawienie wstępne stosuje wstępnie zdefiniowany zestaw operacji analitycznych opartych na formacie AI, w tym transkrypcję mowy. Obecnie ustawienie wstępne obsługuje przetwarzanie zawartości przy użyciu jednej ścieżki audio zawierającej mowę w jednym języku. Możesz określić język dla ładunku audio w danych wejściowych przy użyciu formatu BCP-47 "Language tag-region". Obsługiwane języki to angielski ("en-US", "pl-GB" i "en-AU"), hiszpański ("es-ES" i "es-MX"), francuski ("fr-FR" i "fr-CA"), włoski ("it-IT"), japoński ("ja-JP"), portugalski ("pt-BR"), chiński ("zh-CN"), niemiecki ("de-DE"), arabski ("AR-BH", "AR-EG", "AR-IQ", "AR-JO", "AR-KW", "AR-LB", "AR-OM", "AR-pytań", "ar-SA" i "AR-SY"), rosyjski ("ru-RU"), hindi ("Hi-IN"), koreański ("ko-KR"), duński ("da-DK"), norweski ("NB-NO"), szwedzki ("SV-SE"), fiński ("fi-FI"), tajski ("th-TH") i turecki ("TR-TR").<br/><br/> Jeśli język nie jest określony lub ma wartość null, funkcja automatycznego wykrywania języka wybiera pierwszy wykryty język i kontynuuje w wybranym języku dla czasu trwania pliku. Funkcja automatycznego wykrywania języka jest obecnie obsługiwana w języku angielskim, chińskim, francuskim, niemieckim, włoskim, japońskim, hiszpańskim, rosyjskim i portugalskim. Nie obsługuje on dynamicznego przełączania między językami po wykryciu pierwszego języka. Funkcja automatycznego wykrywania języka działa najlepiej z nagraniami dźwiękowymi z wyraźnie dostrzegalną mową. Jeśli automatyczne wykrywanie języka nie odnajdzie języka, transkrypcja powróci do języka angielskiego.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analizowanie trybu Basic audio|Ten tryb predefiniowany służy do tworzenia transkrypcji zamiany mowy na tekst i generowania pliku napisów VTT. Dane wyjściowe tego trybu obejmują plik JSON usługi Insights, w tym informacje o słowach kluczowych, transkrypcji i chronometrażu. Funkcja automatycznego wykrywania języka i diarization prelegenta nie są uwzględnione w tym trybie. Lista obsługiwanych języków jest taka sama jak w przypadku standardowego trybu powyżej.|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analizowanie audio i wideo|Wyodrębnia szczegółowe informacje (bogate metadane) zarówno z audio, jak i wideo, a następnie wyprowadza plik w formacie JSON. Możesz określić, czy podczas przetwarzania pliku wideo chcesz wyodrębnić szczegółowe informacje o usłudze audio. Aby uzyskać więcej informacji, zobacz [Analizowanie wideo](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Wykrywanie twarzy znajdujących się w wideo|Opisuje ustawienia, które mają być używane podczas analizowania wideo w celu wykrycia wszystkich obecnych twarzy.|
 

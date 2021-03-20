@@ -4,10 +4,10 @@ description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91254299"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
@@ -25,7 +25,7 @@ Azure Backup teraz zapewnia nietrwałe usuwanie programu SQL Server na maszynie 
 
    ![Zatrzymaj kopię zapasową](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
-2. W poniższym oknie zostanie wybrana opcja usuwania lub zachowywania danych kopii zapasowej. W przypadku wybrania opcji **Usuń dane kopii zapasowej**kopia zapasowa bazy danych nie zostanie trwale usunięta. Zamiast tego dane kopii zapasowej będą przechowywane przez 14 dni w stanie nietrwałego usunięcia. Usuwanie jest odroczone do piętnastego dnia ze zwykłymi wiadomościami e-mail z alertami w dniu pierwszego, dwunastu i piętnastego dnia informującego o stanie kopii zapasowej bazy danych dla użytkownika.
+2. W poniższym oknie zostanie wybrana opcja usuwania lub zachowywania danych kopii zapasowej. W przypadku wybrania opcji **Usuń dane kopii zapasowej** kopia zapasowa bazy danych nie zostanie trwale usunięta. Zamiast tego dane kopii zapasowej będą przechowywane przez 14 dni w stanie nietrwałego usunięcia. Usuwanie jest odroczone do piętnastego dnia ze zwykłymi wiadomościami e-mail z alertami w dniu pierwszego, dwunastu i piętnastego dnia informującego o stanie kopii zapasowej bazy danych dla użytkownika.
 
    ![Usuwanie danych kopii zapasowej](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 

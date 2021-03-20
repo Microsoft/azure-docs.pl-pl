@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320548"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Dane telemetryczne śledzenia: Application Insights model danych
 
 Dane telemetryczne śledzenia (w [Application Insights](./app-insights-overview.md)) reprezentują `printf` instrukcje śledzenia stylów, które są przeszukiwane przez tekst. `Log4Net`, `NLog` i inne wpisy pliku dziennika na podstawie tekstu są tłumaczone na wystąpienia tego typu. Ślad nie ma pomiarów jako rozszerzalności.
 
-## <a name="message"></a>Wiadomość
+## <a name="message"></a>Komunikat
 
 Komunikat śledzenia.
 

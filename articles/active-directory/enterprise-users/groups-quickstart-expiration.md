@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bc76214ca2bedfc66ad3165cafe904584d42db
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546322"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Szybki Start: Ustawianie Microsoft 365ych grup do wygaśnięcia w Azure Active Directory
@@ -74,12 +74,12 @@ Gotowe. W tym przewodniku szybki start pomyślnie ustawiono zasady wygasania dla
 ### <a name="to-remove-the-expiration-policy"></a>Aby usunąć zasady wygasania
 
 1. Upewnij się, że zalogowano się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym organizacji usługi Azure AD.
-2. Wybierz **Azure Active Directory** pozycję  >  **Groups**  >  **wygaśnięcie** grup Azure Active Directory.
+2. Wybierz pozycję  >    >  **wygaśnięcie** grup Azure Active Directory.
 3. Ustaw opcję **Włącz wygasanie dla tych grup Microsoft 365** na **none**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Aby wyłączyć tworzenie grup przez użytkowników
 
-1. Wybierz **Azure Active Directory** pozycję  >  **grupy** Azure Active Directory  >  **Ogólne**. 
+1. Wybierz pozycję  >  **grupy** Azure Active Directory  >  **Ogólne**. 
 2. Ustawienie **Użytkownicy mogą tworzyć grupy Microsoft 365 w portalach platformy Azure** do **nie**.
 
 ## <a name="next-steps"></a>Następne kroki

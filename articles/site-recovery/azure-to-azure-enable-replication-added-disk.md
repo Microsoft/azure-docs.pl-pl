@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
 ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75973788"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Włącz replikację dla dysku dodanego do maszyny wirtualnej platformy Azure
@@ -37,9 +37,9 @@ W tym artykule przyjęto założenie, że już skonfigurowano odzyskiwanie po aw
 
 Aby włączyć replikację dla dodanego dysku, wykonaj następujące czynności:
 
-1. W magazynie > **zreplikowane elementy**kliknij maszynę wirtualną, do której dodano dysk.
+1. W magazynie > **zreplikowane elementy** kliknij maszynę wirtualną, do której dodano dysk.
 2. Kliknij pozycję **dyski**, a następnie wybierz dysk danych, dla którego chcesz włączyć replikację (te dyski mają stan **niechroniony** ).
-3.  W obszarze **szczegóły dysku**kliknij pozycję **Włącz replikację**.
+3.  W obszarze **szczegóły dysku** kliknij pozycję **Włącz replikację**.
 
     ![Włącz replikację dla dodanego dysku](./media/azure-to-azure-enable-replication-added-disk/enabled-added.png)
 

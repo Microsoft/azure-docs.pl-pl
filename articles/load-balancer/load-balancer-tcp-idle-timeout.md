@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747206"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Skonfiguruj limit czasu resetowania i bezczynności protokołu TCP dla Azure Load Balancer
@@ -37,27 +37,27 @@ W poniższych sekcjach opisano, jak zmienić limit czasu bezczynności i ustawie
 
 Aby ustawić limit czasu bezczynności i Resetowanie protokołu TCP dla modułu równoważenia obciążenia, Edytuj regułę równoważenia obciążenia. 
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W menu po lewej stronie wybierz pozycję **grupy zasobów** .
+2. W menu po lewej stronie wybierz pozycję **grupy zasobów**.
 
 3. Wybierz grupę zasobów dla modułu równoważenia obciążenia. W tym przykładzie grupa zasobów jest nazywana grupą **zasobów.**
 
-4. Wybierz swój moduł równoważenia obciążenia. W tym przykładzie moduł równoważenia obciążenia nosi nazwę **myLoadBalancer** .
+4. Wybierz swój moduł równoważenia obciążenia. W tym przykładzie moduł równoważenia obciążenia nosi nazwę **myLoadBalancer**.
 
-5. W obszarze **Ustawienia** wybierz pozycję **reguły równoważenia obciążenia** .
+5. W obszarze **Ustawienia** wybierz pozycję **reguły równoważenia obciążenia**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edytuj reguły modułu równoważenia obciążenia." border="true":::
 
-6. Wybierz regułę równoważenia obciążenia. W tym przykładzie reguła równoważenia obciążenia ma nazwę **myLBrule** .
+6. Wybierz regułę równoważenia obciążenia. W tym przykładzie reguła równoważenia obciążenia ma nazwę **myLBrule**.
 
 7. W regule równoważenia obciążenia przesuń suwak w polu **limit czasu bezczynności (minuty)** do wartości limitu czasu.  
 
-8. W obszarze **Resetowanie protokołu TCP** wybierz pozycję **włączone** .
+8. W obszarze **Resetowanie protokołu TCP** wybierz pozycję **włączone**.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Edytuj reguły modułu równoważenia obciążenia." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Ustaw limit czasu bezczynności i Resetowanie protokołu TCP." border="true":::
 
-9. Wybierz pozycję **Zapisz** .
+9. Wybierz pozycję **Zapisz**.
 
 # <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
 

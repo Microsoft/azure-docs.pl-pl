@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019515"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services pofragmentowana Specyfikacja pozyskiwania na żywo w formacie MP4 
@@ -44,7 +44,7 @@ Format sieci na potrzeby pozyskiwania strumieniowego na żywo omówiony w niniej
 ### <a name="live-ingest-format-definitions"></a>Definicje formatu pozyskiwania na żywo
 Na poniższej liście opisano specjalne definicje formatu, które mają zastosowanie do pozyskiwania na żywo w Azure Media Services:
 
-1. Pola **ftyp**, **manifestu serwera Live**i **Moov** muszą być wysyłane przy użyciu każdego żądania (post protokołu HTTP). Te pola muszą być wysyłane na początku strumienia i za każdym razem, gdy koder musi ponownie nawiązać połączenie, aby wznowić pozyskiwanie strumienia. Aby uzyskać więcej informacji, zobacz sekcję 6 w [1].
+1. Pola **ftyp**, **manifestu serwera Live** i **Moov** muszą być wysyłane przy użyciu każdego żądania (post protokołu HTTP). Te pola muszą być wysyłane na początku strumienia i za każdym razem, gdy koder musi ponownie nawiązać połączenie, aby wznowić pozyskiwanie strumienia. Aby uzyskać więcej informacji, zobacz sekcję 6 w [1].
 1. Sekcja 3.3.2 w [1] definiuje opcjonalne pole o nazwie **StreamManifestBox** for Live pozyskiwania. Ze względu na logikę routingu modułu równoważenia obciążenia platformy Azure, korzystanie z tego pola jest przestarzałe. Pole nie powinno być obecne podczas pozyskiwania do Media Services. Jeśli to pole jest obecne, Media Services dyskretnie zignoruje je.
 1. Pole **TrackFragmentExtendedHeaderBox** zdefiniowane w 3.2.3.2 w [1] musi być obecne dla każdego fragmentu.
 1. W celu wygenerowania segmentów multimediów, które mają identyczne adresy URL w wielu centrach danych, należy użyć wersji 2 pola **TrackFragmentExtendedHeaderBox** . Pole indeks fragmentu jest wymagane w przypadku międzycentrowego przełączania do trybu failover opartych na indeksach formatów przesyłania strumieniowego, takich jak Apple HLS i MPEG-KRESKa. Aby włączyć tryb failover między centrami danych, indeks fragmentu musi być synchronizowany w wielu koderach i zwiększony o 1 dla każdego kolejnego fragmentu nośnika, nawet w przypadku ponownego uruchomienia lub awarii kodera.
@@ -54,7 +54,7 @@ Na poniższej liście opisano specjalne definicje formatu, które mają zastosow
 1. Sygnatury czasowe fragmentarycznego fragmentu i indeksy (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` i `fragment_index` ) powinny dotrzeć do rosnącej kolejności. Chociaż Media Services jest odporny na zduplikowane fragmenty, ma ograniczoną możliwość zmiany kolejności fragmentów w zależności od osi czasu nośnika.
 
 ## <a name="4-protocol-format--http"></a>4. format protokołu — HTTP
-Pakiet ISO pozyskiwania na żywo pozyskiwania na podstawie plików MP4 dla Media Services używa standardowego długotrwałego żądania HTTP POST do przesyłania danych zakodowanych w postaci pofragmentowanej do usługi. Każde polecenie HTTP POST wysyła kompletny pofragmentowany plik MP4 Bitstream ("Stream"), zaczynając od początku z polami nagłówka (**ftyp**, **Live Server manifest**i **Moov** Box) i kontynuując sekwencję fragmentów (pola**moof** i **MDAT** ). Aby poznać składnię adresu URL żądania HTTP POST, zobacz sekcję 9,2 w [1]. Przykładem adresu URL wpisu jest: 
+Pakiet ISO pozyskiwania na żywo pozyskiwania na podstawie plików MP4 dla Media Services używa standardowego długotrwałego żądania HTTP POST do przesyłania danych zakodowanych w postaci pofragmentowanej do usługi. Każde polecenie HTTP POST wysyła kompletny pofragmentowany plik MP4 Bitstream ("Stream"), zaczynając od początku z polami nagłówka (**ftyp**, **Live Server manifest** i **Moov** Box) i kontynuując sekwencję fragmentów (pola **moof** i **MDAT** ). Aby poznać składnię adresu URL żądania HTTP POST, zobacz sekcję 9,2 w [1]. Przykładem adresu URL wpisu jest: 
 
 `http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
@@ -116,7 +116,7 @@ W tej sekcji omówiono scenariusze pracy awaryjnej usługi. W takim przypadku aw
 
     b. Nowy adres URL POST protokołu HTTP musi być taki sam jak początkowy adres URL.
   
-    c. Nowy wpis HTTP musi zawierać nagłówki strumienia (**ftyp**, **pole manifestu serwera Live**i **Moov** ), które są identyczne z NAGŁÓWKAmi strumienia w początkowym wpisie.
+    c. Nowy wpis HTTP musi zawierać nagłówki strumienia (**ftyp**, **pole manifestu serwera Live** i **Moov** ), które są identyczne z NAGŁÓWKAmi strumienia w początkowym wpisie.
   
     d. Ostatnie dwa fragmenty wysyłane dla każdej ścieżki muszą zostać wysłane ponownie, a przesyłanie strumieniowe musi zostać wznowione bez przedstawiania ciągłości na osi czasu multimediów. Sygnatury czasowe fragmentów MP4 muszą stale wzrastać, nawet w przypadku żądań POST protokołu HTTP.
 1. Koder powinien kończyć żądanie HTTP POST, jeśli dane nie są wysyłane z szybkością proporcjonalną do czasu trwania fragmentu MP4.  Żądanie HTTP POST, które nie wysyła danych, może uniemożliwić Media Services szybkie odłączenie od kodera w przypadku aktualizacji usługi. Z tego powodu ścieżki HTTP POST for rozrzedzone (AD Signal) powinny być krótkie, kończące się zaraz po wysłaniu fragmentu rozrzedzenia.
@@ -193,7 +193,7 @@ W przypadku nadmiarowych ścieżek audio zalecana jest następująca implementac
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
 ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89145488"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
@@ -167,13 +167,13 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 | Credativ | Debian | 8| :heavy_check_mark: | y | :heavy_check_mark: | :heavy_check_mark: |
 | Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft — ads | Linux — dane-nauka — maszyna wirtualna | linuxdsvm | :heavy_check_mark: <br>Uwaga: zgodne z CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Microsoft-Azure-Batch | CentOS — kontener | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Microsoft-Azure-Batch | CentOS — kontener | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft-Azure-Batch | CentOS — kontener — RDMA | 7,4 | :heavy_check_mark: <br>Uwaga: obsługuje magazyn A_8 lub 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft-Azure-Batch | Ubuntu — serwer-kontener | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft-dsvm | Linux-Data-nauka-VM-Ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS — HPC | 7,4, 7,3, 7,1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7,6 | y | y | y | y |
+| Oracle | Oracle-Linux | 7.6 | y | y | y | y |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | y | y | y |
 
 ## <a name="next-steps"></a>Następne kroki

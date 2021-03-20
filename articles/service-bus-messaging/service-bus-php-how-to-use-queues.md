@@ -6,10 +6,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341113"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Szybki Start: jak używać kolejek Service Bus przy użyciu języka PHP
@@ -20,8 +20,8 @@ W ramach tego samouczka nauczysz się tworzyć aplikacje PHP do wysyłania komun
 ## <a name="prerequisites"></a>Wymagania wstępne
 1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Jeśli nie masz kolejki do współpracy z programem, postępuj zgodnie z instrukcjami w temacie [Use Azure Portal, aby utworzyć](service-bus-quickstart-portal.md) kolejkę Service Bus w celu utworzenia kolejki.
-    1. Zapoznaj się **overview** z krótkim omówieniem **kolejek**Service Bus. 
-    2. Utwórz **przestrzeń nazw**Service Bus. 
+    1. Zapoznaj się  z krótkim omówieniem **kolejek** Service Bus. 
+    2. Utwórz **przestrzeń nazw** Service Bus. 
     3. Pobierz **Parametry połączenia**. 
 
         > [!NOTE]

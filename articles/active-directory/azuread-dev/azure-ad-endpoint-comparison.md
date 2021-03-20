@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92055294"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
@@ -56,7 +56,7 @@ Zgoda administratora w imieniu organizacji nadal wymaga uprawnień statycznych z
 
 ## <a name="scopes-not-resources"></a>Zakresy, a nie zasoby
 
-W przypadku aplikacji korzystających z punktu końcowego v 1.0 Aplikacja może zachowywać się jako **zasób**lub odbiorca tokenów. Zasób może definiować wiele **zakresów** lub **oAuth2Permissions** , które rozumie, dzięki czemu aplikacje klienckie mogą żądać tokenów z tego zasobu dla określonego zestawu zakresów. Rozważmy Microsoft Graph API jako przykładu zasobu:
+W przypadku aplikacji korzystających z punktu końcowego v 1.0 Aplikacja może zachowywać się jako **zasób** lub odbiorca tokenów. Zasób może definiować wiele **zakresów** lub **oAuth2Permissions** , które rozumie, dzięki czemu aplikacje klienckie mogą żądać tokenów z tego zasobu dla określonego zestawu zakresów. Rozważmy Microsoft Graph API jako przykładu zasobu:
 
 * Identyfikator zasobu lub `AppID URI` : `https://graph.microsoft.com/`
 * Zakresy lub `oAuth2Permissions` : `Directory.Read` , `Directory.Write` i tak dalej.
@@ -128,7 +128,7 @@ Punkt końcowy platformy tożsamości firmy Microsoft zostanie rozmieszczony, ab
 
 ### <a name="restrictions-on-app-registrations"></a>Ograniczenia dotyczące rejestracji aplikacji
 
-Dla każdej aplikacji, którą chcesz zintegrować z punktem końcowym platformy tożsamości firmy Microsoft, możesz utworzyć rejestrację aplikacji w nowym [środowisku **Rejestracje aplikacji** ](https://aka.ms/appregistrations) w Azure Portal. Istniejące konto Microsoft aplikacje nie są zgodne z portalem, ale wszystkie aplikacje usługi Azure AD są, niezależnie od lokalizacji lub czasu ich rejestracji.
+Dla każdej aplikacji, którą chcesz zintegrować z punktem końcowym platformy tożsamości firmy Microsoft, możesz utworzyć rejestrację aplikacji w nowym [środowisku **Rejestracje aplikacji**](https://aka.ms/appregistrations) w Azure Portal. Istniejące konto Microsoft aplikacje nie są zgodne z portalem, ale wszystkie aplikacje usługi Azure AD są, niezależnie od lokalizacji lub czasu ich rejestracji.
 
 Rejestracje aplikacji, które obsługują konta służbowe i konta osobiste, mają następujące zastrzeżenia:
 

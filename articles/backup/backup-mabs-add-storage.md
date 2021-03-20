@@ -4,10 +4,10 @@ description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W ty
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292901"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
@@ -36,7 +36,7 @@ Serwer kopii zapasowej w wersji 2 lub nowszej akceptuje woluminy magazynu. Po do
 
 Użycie serwera zapasowego w wersji 2 lub nowszej z woluminami jako magazyn dyskowy może ułatwić zachowanie kontroli nad magazynem. Wolumin może być pojedynczym dyskiem. Jeśli jednak chcesz w przyszłości zwiększyć magazyn, Utwórz wolumin poza dyskiem utworzonym przy użyciu funkcji miejsca do magazynowania. Może to pomóc w rozwinięciu woluminu dla magazynu kopii zapasowych. Ta sekcja zawiera najlepsze rozwiązania dotyczące tworzenia woluminów przy użyciu tej konfiguracji.
 
-1. W Menedżer serwera wybierz pozycję **usługi plików i magazynowania**  >  **woluminy**  >  **Pule magazynów**. W obszarze **dyski fizyczne**wybierz pozycję **Nowa pula magazynu**.
+1. W Menedżer serwera wybierz pozycję **usługi plików i magazynowania**  >  **woluminy**  >  **Pule magazynów**. W obszarze **dyski fizyczne** wybierz pozycję **Nowa pula magazynu**.
 
     ![Utwórz nową pulę magazynów](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -132,5 +132,5 @@ Aby dodać magazyn dyskowy:
 Po zainstalowaniu serwera kopii zapasowej należy dowiedzieć się, jak przygotować serwer lub rozpocząć ochronę obciążeń.
 
 - [Przygotowywanie obciążeń serwera kopii zapasowej](backup-azure-microsoft-azure-backup.md)
-- [Tworzenie kopii zapasowej serwera VMware przy użyciu serwera kopii zapasowej](backup-azure-backup-server-vmware.md)
-- [Użyj serwera kopii zapasowej, aby utworzyć kopię zapasową SQL Server](backup-azure-sql-mabs.md)
+- [Wykonywanie kopii zapasowej serwera VMware przy użyciu usługi Backup Server](backup-azure-backup-server-vmware.md)
+- [Używanie usługi Backup Server do tworzenia kopii zapasowej programu SQL Server](backup-azure-sql-mabs.md)

@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91320051"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Naprawianie zmodyfikowanych reguł domyślnych w Azure AD Connect
@@ -81,9 +81,9 @@ Postępuj zgodnie z własną konwencją nazewnictwa, aby nazwać regułę. W tym
 
 Podaj własny opis reguły, aby umożliwić łatwą konserwację zasady. Na przykład opis może opierać się na tym, jaki jest cel reguły, i dlaczego jest to potrzebne.
 
-Wybierz odpowiednie opcje dla **połączonego systemu**, **Typ połączonego obiektu systemu**i pola **typu obiektu metaverse** .
+Wybierz odpowiednie opcje dla **połączonego systemu**, **Typ połączonego obiektu systemu** i pola **typu obiektu metaverse** .
 
-Określ wartość priorytetu od 0 do 99 (niższy numer, wyższy priorytet). Dla **tagów**, **Włącz synchronizację haseł**i **wyłączone** pola, użyj domyślnych ustawień.
+Określ wartość priorytetu od 0 do 99 (niższy numer, wyższy priorytet). Dla **tagów**, **Włącz synchronizację haseł** i **wyłączone** pola, użyj domyślnych ustawień.
 
 Pozostaw pusty **Filtr zakresu** . Oznacza to, że reguła ma zastosowanie do wszystkich obiektów przyłączonych między Active Directory połączonym i Metaverse.
 
@@ -162,11 +162,11 @@ Można sprawdzić poprawność nowo dodanej reguły synchronizacji przy użyciu 
 
 ![Azure AD Connect, z wyróżnioną usługą synchronizacji](media/how-to-connect-fix-default-rules/default10.png)
 
-Wybieranie **wyszukiwania Metaverse**. Wybierz obiekt zakresu jako **osobę**, wybierz pozycję **Dodaj klauzulę**i podaj kryteria wyszukiwania. Następnie wybierz pozycję **Wyszukaj**, a następnie kliknij dwukrotnie obiekt w wynikach wyszukiwania. Upewnij się, że dane w Azure AD Connect są aktualne dla tego obiektu, przez uruchomienie importowania i synchronizowania w lesie przed uruchomieniem tego kroku.
+Wybieranie **wyszukiwania Metaverse**. Wybierz obiekt zakresu jako **osobę**, wybierz pozycję **Dodaj klauzulę** i podaj kryteria wyszukiwania. Następnie wybierz pozycję **Wyszukaj**, a następnie kliknij dwukrotnie obiekt w wynikach wyszukiwania. Upewnij się, że dane w Azure AD Connect są aktualne dla tego obiektu, przez uruchomienie importowania i synchronizowania w lesie przed uruchomieniem tego kroku.
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
-We **właściwościach obiektu metaverse**wybierz pozycję **Łączniki**, wybierz obiekt w odpowiednim łączniku (Las), a następnie wybierz pozycję **właściwości.**
+We **właściwościach obiektu metaverse** wybierz pozycję **Łączniki**, wybierz obiekt w odpowiednim łączniku (Las), a następnie wybierz pozycję **właściwości.**
 
 ![Właściwości obiektu metaverse](media/how-to-connect-fix-default-rules/default12.png)
 

@@ -4,13 +4,13 @@ description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciąż
 ms.topic: overview
 ms.date: 07/30/2020
 ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743104"
 ---
-# <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
+# <a name="what-is-azure-batch"></a>Co to jest usługa Azure Batch?
 
 Usługa Azure Batch umożliwia wydajne uruchamianie równoległych zadań wsadowych oraz zadań wsadowych obliczeń o wysokiej wydajności na platformie Azure. Usługa Azure Batch tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) i zarządza nią, instaluje aplikacje, które chcesz uruchamiać, i tworzy harmonogram zadań do uruchomienia na węzłach. Nie istnieje klaster ani oprogramowanie harmonogramu zadań do zainstalowania, zarządzania i skalowania. Zamiast tego korzysta się z [interfejsu API usługi Batch i narzędzi](batch-apis-tools.md), skryptów wiersza polecenia lub witryny Azure Portal, aby konfigurować i monitorować zadania oraz zarządzać nimi.
 

@@ -5,10 +5,10 @@ services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76024708"
 ---
 # <a name="service-fabric-architecture"></a>Architektura usługi Service Fabric
@@ -36,7 +36,7 @@ Aby przyczynić się do określenia zestawu węzłów w systemie rozproszonym, m
 
 ## <a name="reliability-subsystem"></a>Podsystem niezawodności
 
-Podsystem niezawodności zapewnia mechanizm, aby zapewnić wysoką dostępność stanu usługi Service Fabric za pomocą *replikatora*, *Menedżer trybu failover*i *modułu zasobów*.
+Podsystem niezawodności zapewnia mechanizm, aby zapewnić wysoką dostępność stanu usługi Service Fabric za pomocą *replikatora*, *Menedżer trybu failover* i *modułu zasobów*.
 
 * Replikator gwarantuje, że zmiany stanu w podstawowej replice usługi zostaną automatycznie zreplikowane do replik pomocniczych, zachowując spójność między podstawową i pomocniczą repliką w zestawie replik usługi. Replikator jest odpowiedzialny za zarządzanie kworum między replikami w zestawie replik. Współdziała z jednostką trybu failover, aby uzyskać listę operacji do replikacji, a agent rekonfiguracji udostępnia go konfiguracji zestawu replik. Ta konfiguracja wskazuje, które repliki muszą zostać zreplikowane. Service Fabric zapewnia domyślny Replikator o nazwie Replikator sieci szkieletowej, który może być używany przez interfejs API modelu programowania, aby zapewnić wysoką dostępność i niezawodność stanu usługi.
 * Menedżer trybu failover zapewnia, że po dodaniu węzłów do klastra lub usunięciu z niego, obciążenie zostanie automatycznie rozdystrybuowane między dostępnymi węzłami. Jeśli węzeł w klastrze ulegnie awarii, klaster automatycznie skonfiguruje repliki usługi, aby zachować dostępność.

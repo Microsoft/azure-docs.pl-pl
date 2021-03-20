@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057624"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
@@ -51,7 +51,7 @@ Widok **Wykres umiejętności** zawiera hierarchiczną, wizualną reprezentację
 
 Wybranie umiejętności na grafie spowoduje wyróżnienie związanych z nim umiejętności, węzłów, które tworzą dane wejściowe i węzły, które akceptują swoje wyjście. Każdy węzeł umiejętności wyświetla jego typ, błędy lub ostrzeżenia oraz liczby wykonań. Na **wykresie umiejętności** można wybrać umiejętność debugowania lub udoskonalania. Po wybraniu kwalifikacji jego szczegóły będą wyświetlane w okienku Szczegóły umiejętności po prawej stronie wykresu.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Tworzenie sesji debugowania":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Wykres umiejętności":::
 
 ## <a name="skill-details"></a>Szczegóły kwalifikacji
 
@@ -73,7 +73,7 @@ Podczas kompilowania niestandardowej umiejętności lub debugowania błędu z ni
 
 Okienko **ulepszona struktura danych** pokazuje wzbogacenia dokumentu za pomocą zestawu umiejętności, szczegółowo kontekst dla każdego wzbogacania i źródłową umiejętność. **Ewaluatora wyrażeń** można także użyć do wyświetlania zawartości dla każdego wzbogacania.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Tworzenie sesji debugowania":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Ulepszona struktura danych":::
 
 ## <a name="expression-evaluator"></a>Ewaluatora wyrażeń
 

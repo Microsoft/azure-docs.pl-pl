@@ -4,10 +4,10 @@ description: Dowiedz się, jak określić obowiązkowe artefakty, które muszą 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480307"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Określ obowiązkowe artefakty dla laboratorium w Azure DevTest Labs
@@ -48,7 +48,7 @@ Obowiązkowe artefakty dla maszyn z systemem Windows i Linux można wybrać osob
 ## <a name="delete-a-mandatory-artifact"></a>Usuwanie obowiązkowego artefaktu
 Aby usunąć obowiązkowy artefakt z laboratorium, wykonaj następujące czynności: 
 
-1. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja i zasady** . 
+1. W obszarze **Ustawienia** wybierz pozycję **Konfiguracja i zasady** . 
 2. Wybierz **obowiązkowe artefakty** w obszarze **Zasoby zewnętrzne**. 
 3. Wybierz pozycję **Edytuj** w sekcji **system Windows** lub **Linux** . W tym przykładzie została użyta opcja **systemu Windows** . 
 4. Wybierz komunikat z liczbą obowiązkowych artefaktów u góry. 

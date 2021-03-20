@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072411"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak rejestrować zdarzenia w usłudze Azure Event Hubs na platformie Azure API Management
@@ -46,7 +46,7 @@ Po skonfigurowaniu rejestratora w API Management można skonfigurować zasady lo
 6. W oknie przetwarzanie przychodzące lub wychodzące kliknij trójkąt (obok ołówka).
 7. Wybierz Edytor kodu. Aby uzyskać więcej informacji, zobacz [jak ustawić lub edytować zasady](set-edit-policies.md).
 8. Umieść kursor w `inbound` `outbound` sekcji lub zasad.
-9. W oknie po prawej stronie wybierz pozycję dziennik **zasad zaawansowanych**w  >  **centrum EventHub**. Spowoduje to wstawienie `log-to-eventhub` szablonu instrukcji zasad.
+9. W oknie po prawej stronie wybierz pozycję dziennik **zasad zaawansowanych** w  >  **centrum EventHub**. Spowoduje to wstawienie `log-to-eventhub` szablonu instrukcji zasad.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">
@@ -75,7 +75,7 @@ Kliknij przycisk **Zapisz** , aby zapisać zaktualizowaną konfigurację zasad. 
 Możesz wyświetlić podgląd dziennika w Event Hubs przy użyciu [zapytań Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. W Azure Portal przejdź do centrum zdarzeń, do którego Rejestrator wysyła zdarzenia. 
-2. W obszarze **funkcje**wybierz kartę **dane procesu** .
+2. W obszarze **funkcje** wybierz kartę **dane procesu** .
 3. Na karcie **Włącz szczegółowe informacje w czasie rzeczywistym na podstawie zdarzeń** wybierz pozycję **Eksploruj**.
 4. Powinien być w stanie wyświetlić podgląd dziennika na karcie **Podgląd danych wejściowych** . Jeśli wyświetlane dane nie są bieżące, wybierz pozycję **Odśwież** , aby wyświetlić najnowsze zdarzenia.
 

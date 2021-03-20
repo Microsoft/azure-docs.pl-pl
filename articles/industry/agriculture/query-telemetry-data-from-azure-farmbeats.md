@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677479"
 ---
 # <a name="query-ingested-telemetry-data"></a>Dane telemetryczne pozyskiwane z zapytań
@@ -18,13 +18,13 @@ W tym artykule opisano sposób wykonywania zapytań dotyczących pozyskiwanych d
 
 Pozyskiwanie danych z zasobów Internet rzeczy (IoT), takich jak urządzenia i czujniki, jest typowym scenariuszem w FarmBeats. Tworzysz metadane dla urządzeń i czujników, a następnie pozyskasz dane historyczne do FarmBeats w postaci kanonicznej. Gdy dane czujnika są dostępne w FarmBeats Datahub, możemy wysyłać zapytania do tego samego, aby generować szczegółowe dane lub modele kompilacji z możliwością działania.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i dane telemetryczne czujnika z urządzeń IoT w FarmBeats.
 
 Aby pozyskać dane telemetryczne czujnika, odwiedź stronę pozyskiwania [danych telemetrycznych](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Przed kontynuowaniem musisz upewnić się, że znasz interfejsy API REST FarmBeats, ponieważ będziesz wykonywać zapytania dotyczące pozyskanych danych telemetrycznych za pomocą interfejsów API. Aby uzyskać więcej informacji na temat interfejsów API FarmBeats, zobacz [FarmBeats API REST](rest-api-in-azure-farmbeats.md). **Upewnij się, że możesz wykonywać żądania interfejsu API w punkcie końcowym usługi FarmBeats Datahub** .
+Przed kontynuowaniem musisz upewnić się, że znasz interfejsy API REST FarmBeats, ponieważ będziesz wykonywać zapytania dotyczące pozyskanych danych telemetrycznych za pomocą interfejsów API. Aby uzyskać więcej informacji na temat interfejsów API FarmBeats, zobacz [FarmBeats API REST](rest-api-in-azure-farmbeats.md). **Upewnij się, że możesz wykonywać żądania interfejsu API w punkcie końcowym usługi FarmBeats Datahub**.
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Kwerenda pozyskiwania danych telemetrycznych czujnika
 
@@ -42,7 +42,7 @@ Postępuj zgodnie z instrukcjami, aby wykonać zapytanie o dane telemetryczne cz
 > [!NOTE]
 > **Identyfikator** i **sensorModelId** zainteresowanego obiektu czujnika.
 
-2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Przykład:
+2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Na przykład
 
   ```json
   {
@@ -115,8 +115,8 @@ Dane telemetryczne są odbierane w centrum EventHub, a następnie przetwarzane i
 
 Postępuj zgodnie z instrukcjami, aby wizualizować dane w ramach TSI:
 
-1. Przejdź do **Azure Portal**  >  **grupy zasobów FarmBeats DataHub** w witrynie Azure Portal, > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych** . Dodaj użytkownika z dostępem czytelnika lub współautorem.
-2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights** . Teraz będzie można wizualizować pozyskiwaną telemetrię.
+1. Przejdź do   >  **grupy zasobów FarmBeats DataHub** w witrynie Azure Portal, > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
+2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights**. Teraz będzie można wizualizować pozyskiwaną telemetrię.
 
 Oprócz przechowywania, wykonywania zapytań i wizualizacji danych telemetrycznych, TSI również umożliwia integrację z pulpitem nawigacyjnym Power BI. Aby uzyskać więcej informacji, zobacz [tutaj]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

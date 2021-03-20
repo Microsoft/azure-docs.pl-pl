@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043215"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Instrukcje: Dołączanie danych metryki do klasyfikatora metryk
@@ -75,14 +75,14 @@ Jeśli sygnatura czasowa punktu danych zostanie pominięta, Doradca metryk będz
 |Zaznaczenie  |Opis  |Uwagi  |
 |---------|---------|---------|
 | **Nazwa wyświetlana** | Nazwa, która ma być wyświetlana w obszarze roboczym, a nie oryginalna nazwa kolumny. | |
-|**Timestamp**     | Sygnatura czasowa punktu danych. W przypadku pominięcia klasyfikator metryk będzie używać sygnatury czasowej, gdy zostanie wprowadzony punkt danych. Dla każdego źródła danych można określić maksymalnie jedną kolumnę jako sygnaturę czasową.        | Opcjonalny. Należy określić z co najwyżej jedną kolumną. Jeśli **nie można określić kolumny jako błąd znacznika czasu** , sprawdź zapytanie lub źródło danych dla zduplikowanych sygnatur czasowych.      |
+|**Znacznik czasu**     | Sygnatura czasowa punktu danych. W przypadku pominięcia klasyfikator metryk będzie używać sygnatury czasowej, gdy zostanie wprowadzony punkt danych. Dla każdego źródła danych można określić maksymalnie jedną kolumnę jako sygnaturę czasową.        | Opcjonalny. Należy określić z co najwyżej jedną kolumną. Jeśli **nie można określić kolumny jako błąd znacznika czasu** , sprawdź zapytanie lub źródło danych dla zduplikowanych sygnatur czasowych.      |
 |**Measure**     |  Wartości liczbowe w strumieniowym źródle danych. Dla każdego źródła danych można określić wiele miar, ale do miary należy wybrać co najmniej jedną kolumnę.        | Należy określić z co najmniej jedną kolumną.        |
 |**Wymiar**     | Kategorii wartości. Kombinacja różnych wartości identyfikuje konkretną serię czasową pojedynczego wymiaru, na przykład: Country, language, dzierżawca. Możesz wybrać zero lub więcej kolumn jako wymiary. Uwaga: należy zachować ostrożność podczas wybierania kolumny niebędącej ciągiem jako wymiaru. | Opcjonalny.        |
 |**Ignoruj**     | Ignoruj wybraną kolumnę.        | Opcjonalny. Zobacz poniższy tekst.       |
 
 Jeśli chcesz zignorować kolumny, Zalecamy zaktualizowanie zapytania lub źródła danych w celu wykluczenia tych kolumn. Możesz również zignorować kolumny, używając opcji **Ignoruj kolumny** , a następnie **ignorując** je w określonych kolumnach. Jeśli kolumna powinna być wymiarem i jest traktowana jako *ignorowana*, klasyfikator metryk może zakończyć pozyskiwanie danych częściowych. Załóżmy na przykład, że dane z zapytania są następujące:
 
-| Identyfikator wiersza | Timestamp | Kraj | Język | Income |
+| Identyfikator wiersza | Znacznik czasu | Kraj | Język | Income |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | Chiny | ZH-CN | 10 000 |
 | 2 | 2019/11/10 | Chiny | PL-US | 1000 |
@@ -99,7 +99,7 @@ Jeśli *kraj* jest wymiarem, a *Język* jest ustawiony jako *ignorowany*, pierws
 
 Usługa Advisor Metrics może automatycznie wykonywać agregację (na przykład SUM, MAX, MIN) w każdym wymiarze podczas pozyskiwania, a następnie tworzy hierarchię, która będzie używana w głównej analizie przypadku i w innych funkcjach diagnostycznych. 
 
-Poniżej przedstawiono przykładowe scenariusze:
+Rozważ następujące scenariusze:
 
 * *Nie muszę dołączać analizy zbiorczej danych.*
 
@@ -123,7 +123,7 @@ Poniżej przedstawiono przykładowe scenariusze:
     Załóżmy na przykład, że masz zestaw szeregów czasowych, który oznacza metryki sprzedaży z wymiarem (kraj, region). Dla danego znacznika czasu może wyglądać następująco:
 
 
-    | Country (Kraj)       | Region           | Sales (Sprzedaż) |
+    | Country (Kraj)       | Region (Region)           | Sales (Sprzedaż) |
     |---------------|------------------|-------|
     | Kanada        | Alberta          | 100   |
     | Kanada        | Kolumbia Brytyjska | 500   |
@@ -132,7 +132,7 @@ Poniżej przedstawiono przykładowe scenariusze:
 
     Po włączeniu autouzupełniania z *sumą*, Doradca metryk oblicza kombinacje wymiarów i sumuje metryki podczas pozyskiwania danych. Wynik może być:
 
-    | Country (Kraj)       | Region           | Sales (Sprzedaż) |
+    | Country (Kraj)       | Region (Region)           | Sales (Sprzedaż) |
     | ------------ | --------------- | ---- |
     | Kanada        | Alberta          | 100   |
     | NULL          | Alberta          | 100   |
@@ -188,7 +188,7 @@ Aby sprawdzić szczegóły niepowodzenia pozyskiwania:
 2. Kliknij pozycję **stan** , a następnie wybierz polecenie **Niepowodzenie** lub **błąd**.
 3. Umieść kursor nad pomyślnym pozyskaniem, a następnie Wyświetl wyświetlony komunikat szczegóły.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Pasek postępu pozyskiwania":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Sprawdź, czy pobieranie nie powiodło się":::
 
 Stan *niepowodzenia* wskazuje, że pozyskanie dla tego źródła danych zostanie ponowione później.
 Stan *błędu* oznacza, że Doradca metryk nie ponowi próby dla źródła danych. Aby ponownie załadować dane, należy wyzwolić ręczne wypełnianie lub ponowne załadowanie.

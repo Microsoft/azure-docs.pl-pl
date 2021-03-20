@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202555"
 ---
 # <a name="date-claims-transformations"></a>Przekształceń oświadczeń dat
@@ -91,7 +91,7 @@ Konwertuje **datę oświadczenia daty** na element ClaimType **DateTime** . Tran
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim | Oświadczenie inputclaim | date | Wartość oświadczenia do przekonwertowania. |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | data | Wartość oświadczenia do przekonwertowania. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | Data i godzina | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Poniższy przykład ilustruje konwersję `dateOfBirth` (typ danych daty) żądania na inne zastrzeżenie `dateOfBirthWithTime` (typ danych DateTime).
@@ -121,7 +121,7 @@ Konwertuje element ClaimType **DateTime** na **datę** ClaimType. Transformacja 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | Oświadczenie inputclaim | Data i godzina | Wartość oświadczenia do przekonwertowania. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | date | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | data | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Poniższy przykład ilustruje konwersję żądania `systemDateTime` (typ danych DateTime) na inne zastrzeżenie `systemDate` (Data typ danych).
 

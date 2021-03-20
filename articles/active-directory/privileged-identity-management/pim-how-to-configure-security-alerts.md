@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180493"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról usługi Azure AD w Privileged Identity Management
@@ -82,7 +82,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Średniaa |
+| **Ważność** | Śred. |
 | **Dlaczego otrzymuję ten alert?** | Konta w roli uprzywilejowanej nie zmieniły swojego hasła w ciągu ostatnich 90 dni. Te konta mogą być kontami usług lub udostępnionymi, które nie są utrzymywane i są narażone na ataki. |
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
@@ -93,7 +93,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Wysoki |
+| **Ważność** | Wys. |
 | **Dlaczego otrzymuję ten alert?** | Przypisania ról uprzywilejowanych wprowadzone poza Privileged Identity Management nie są prawidłowo monitorowane i mogą wskazywać na aktywny atak. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról przypisanych poza Privileged Identity Management. |
 | **Zapobieganie** | Sprawdź, gdzie użytkownicy są przypisani do ról uprzywilejowanych spoza Privileged Identity Management i Zabroń w przyszłości. |
@@ -181,7 +181,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Średniaa |
+| **Ważność** | Śred. |
 | **Dlaczego otrzymuję ten alert?** | Konta w roli uprzywilejowanej nie zmieniły swojego hasła w ciągu ostatnich 90 dni. Te konta mogą być kontami usług lub udostępnionymi, które nie są utrzymywane i są narażone na ataki. |
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
@@ -192,7 +192,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Wysoki |
+| **Ważność** | Wys. |
 | **Dlaczego otrzymuję ten alert?** | Przypisania ról uprzywilejowanych wprowadzone poza Privileged Identity Management nie są prawidłowo monitorowane i mogą wskazywać na aktywny atak. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról przypisanych poza Privileged Identity Management. |
 | **Zapobieganie** | Sprawdź, gdzie użytkownicy są przypisani do ról uprzywilejowanych spoza Privileged Identity Management i Zabroń w przyszłości. |

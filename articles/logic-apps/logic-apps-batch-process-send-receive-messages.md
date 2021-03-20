@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87458251"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Wysyłanie, odbieranie i przetwarzanie wsadowe komunikatów w Azure Logic Apps
@@ -153,7 +153,7 @@ Teraz należy utworzyć co najmniej jedną aplikację logiki nadawcy partii, kt�
       > [!IMPORTANT]
       > Jeśli używasz programu Visual Studio i nie widzisz żadnych odbiorników usługi Batch do wybrania, sprawdź, czy wcześniej utworzono i wdrożono odbiorcę usługi Batch na platformie Azure. Jeśli nie, Dowiedz się, [jak wdrożyć aplikację logiki odbiorcy usługi Batch na platformie Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure).
 
-   1. Z listy Akcje wybierz tę akcję: **Batch_messages-<*Twojej-Logic-App-Name* > **
+   1. Z listy Akcje wybierz tę akcję: **Batch_messages-<*Twojej-Logic-App-Name* >**
 
       ![Wybierz tę akcję: "Batch_messages-<> aplikacji logiki](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 

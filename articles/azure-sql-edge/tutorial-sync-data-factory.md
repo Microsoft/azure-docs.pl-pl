@@ -10,17 +10,17 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97507612"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
 
 W tym samouczku użyjesz Azure Data Factory do przyrostowej synchronizacji danych z magazynem obiektów blob platformy Azure z tabeli w wystąpieniu usługi Azure SQL Edge.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli baza danych lub tabela nie została jeszcze utworzona w ramach wdrożenia usługi Azure SQL Edge, użyj jednej z następujących metod, aby ją utworzyć:
 
@@ -106,7 +106,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     5. Aby przetestować połączenie z wystąpieniem programu SQL Edge, wybierz pozycję **Test connection**.
 
-    6. Wybierz pozycję **Utwórz**.
+    6. Wybierz przycisk **Utwórz**.
 
     ![Tworzenie usługi połączonej](media/tutorial-sync-data-factory/create-linked-service.png)
 
@@ -200,7 +200,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     |Nazwa|Typ|Wartość|
     |-----|----|-----|
-    |LastModifiedtime|Data/godzina|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
+    |LastModifiedtime|DateTime|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
     |TableName|Ciąg|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
 
 33. Aby sprawdzić poprawność ustawień potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **raport weryfikacji potoku** , wybierz opcję **>>** .

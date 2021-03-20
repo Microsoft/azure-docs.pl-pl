@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak administrator konta laboratorium może 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444203"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Zezwól twórcy laboratorium na wybranie lokalizacji dla laboratorium w Azure Lab Services
@@ -16,7 +16,7 @@ W Azure Lab Services właściciel konta laboratorium może zezwolić twórcom la
 Jako właściciel konta laboratorium można wybrać opcję **Zezwalaj na twórcę laboratorium do wybierania lokalizacji laboratorium** podczas tworzenia konta laboratorium i po utworzeniu konta laboratorium (lub istniejącego konta laboratorium). 
 
 ## <a name="at-the-time-of-lab-account-creation"></a>W momencie tworzenia konta laboratorium
-Podczas tworzenia konta laboratorium ta opcja jest wyświetlana na pierwszym ekranie (na karcie**podstawowe** ). 
+Podczas tworzenia konta laboratorium ta opcja jest wyświetlana na pierwszym ekranie (na karcie **podstawowe** ). 
 
 ![Włącz opcję podczas tworzenia laboratorium](./media/allow-lab-creator-pick-lab-location/create-lab-account.png)
 
@@ -57,7 +57,7 @@ Jeśli lokalizacja jest ograniczona, domyślnie nie jest wyświetlana na liście
 
 ![Pokaż niedostępne lokalizacje](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszt
 Wcześniej cena była oparta na wybranym przez Ciebie rozmiarze maszyny wirtualnej w laboratorium. Cena jest teraz oparta na kombinacji systemu operacyjnego, rozmiaru i lokalizacji. 
 
 ## <a name="next-steps"></a>Następne kroki
