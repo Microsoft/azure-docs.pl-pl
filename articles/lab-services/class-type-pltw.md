@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratoria do uczenia się projek
 ms.topic: article
 ms.date: 10/28/2020
 ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024623"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Konfigurowanie laboratoriów dla liderów projektu — klasy metod
@@ -130,7 +130,7 @@ Studenci mogą łączyć się z maszynami wirtualnymi laboratorium z komputerów
 - [Połącz z komputera Mac](./connect-virtual-machine-mac-remote-desktop.md)
 - [Łączenie z Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszt
 Poszukaj przykładowego oszacowania kosztów dla klas PLTW.  To oszacowanie nie obejmuje kosztu korzystania z serwera licencji lub udostępnionej galerii obrazów. Załóżmy, że masz klasę 25 studentów, z których każdy ma 20 godzin zaplanowanych godzin.  Każdy student ma także dodatkowe 10 godzin przydziału dla prac domowych lub przydziałów poza zaplanowanym czasem klasy.  Poniżej przedstawiono szacowane koszty:
 
 - **Duża maszyna wirtualna**

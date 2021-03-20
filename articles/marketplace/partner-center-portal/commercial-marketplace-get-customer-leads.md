@@ -8,13 +8,13 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/01/2020
 ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489339"
 ---
-# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty na platformie handlowej
 
 Potencjalni klienci są zainteresowani lub wdrażają oferty w witrynie [Microsoft AppSource](https://appsource.microsoft.com) i [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com). Potencjalni klienci mogą otrzymywać dostęp do klientów po opublikowaniu oferty na komercyjnym rynku. W tym artykule wyjaśniono następujące pojęcia związane z zarządzaniem potencjalnym liderem:
 
@@ -48,21 +48,21 @@ Poniżej znajdują się miejsca, w których generowany jest potencjalny klient:
 
 ## <a name="understand-lead-data"></a>Informacje o potencjalnych klientach
 
-Każdy potencjalny klient, który otrzymasz w procesie pozyskiwania klientów, ma dane w określonych polach. Pierwsze pole, dla którego ma zostać wyszukane `LeadSource` , to pole, które jest zgodne z następującym formatem: Oferta **akcji źródłowej**  |  **Offer**.
+Każdy potencjalny klient, który otrzymasz w procesie pozyskiwania klientów, ma dane w określonych polach. Pierwsze pole, dla którego ma zostać wyszukane `LeadSource` , to pole, które jest zgodne z następującym formatem: Oferta **akcji źródłowej**  |  .
 
-**Źródła** : wartość tego pola jest wypełniana na podstawie rynku, który wygenerował potencjalnego klienta. Możliwe wartości to `"AzureMarketplace"` , `"AzurePortal"` , i `"AppSource (SPZA)"` .
+**Źródła**: wartość tego pola jest wypełniana na podstawie rynku, który wygenerował potencjalnego klienta. Możliwe wartości to `"AzureMarketplace"` , `"AzurePortal"` , i `"AppSource (SPZA)"` .
 
-**Akcje** : wartość dla tego pola jest wypełniana na podstawie akcji wykonywanej przez klienta w witrynie Marketplace, która wygenerowała potencjalnego klienta.
+**Akcje**: wartość dla tego pola jest wypełniana na podstawie akcji wykonywanej przez klienta w witrynie Marketplace, która wygenerowała potencjalnego klienta.
 
 Możliwe wartości:
 
-- **"Ins"** : oznacza *instalację*. Ta akcja znajduje się w witrynie Azure Marketplace lub AppSource, gdy klient uzyskuje produkt.
-- **"PLT"** : oznacza *wersję próbną dla partnera*. Ta akcja jest w AppSource, gdy klient wybierze opcję **kontakt ze mną** .
-- **"DNC"** : oznacza *nie kontakt*. Ta akcja jest w AppSource, gdy Partner, który został krzyżowo wymieniony na stronie Twojej aplikacji, otrzymuje prośbę o kontakt. Udostępnimy powiadomienie, że ten klient został wystawiony w aplikacji, ale nie musisz się z nimi skontaktować.
-- **"Utwórz"** : Ta akcja jest dostępna tylko wewnątrz Azure Portal i jest generowana, gdy klient kupi ofertę na swoje konto.
-- **"StartTestDrive"** : Ta akcja dotyczy tylko opcji **dysku testowego** i jest generowana, gdy klient uruchamia ich dysk testowy.
+- **"Ins"**: oznacza *instalację*. Ta akcja znajduje się w witrynie Azure Marketplace lub AppSource, gdy klient uzyskuje produkt.
+- **"PLT"**: oznacza *wersję próbną dla partnera*. Ta akcja jest w AppSource, gdy klient wybierze opcję **kontakt ze mną** .
+- **"DNC"**: oznacza *nie kontakt*. Ta akcja jest w AppSource, gdy Partner, który został krzyżowo wymieniony na stronie Twojej aplikacji, otrzymuje prośbę o kontakt. Udostępnimy powiadomienie, że ten klient został wystawiony w aplikacji, ale nie musisz się z nimi skontaktować.
+- **"Utwórz"**: Ta akcja jest dostępna tylko wewnątrz Azure Portal i jest generowana, gdy klient kupi ofertę na swoje konto.
+- **"StartTestDrive"**: Ta akcja dotyczy tylko opcji **dysku testowego** i jest generowana, gdy klient uruchamia ich dysk testowy.
 
-**Oferty** : w komercyjnej witrynie Marketplace może być wiele ofert. Wartość tego pola jest wypełniana na podstawie oferty, która wygenerowała potencjalny klient. IDENTYFIKATOR wydawcy i identyfikator oferty są wysyłane w tym polu i są wartościami podanymi podczas opublikowania oferty w portalu Marketplace.
+**Oferty**: w komercyjnej witrynie Marketplace może być wiele ofert. Wartość tego pola jest wypełniana na podstawie oferty, która wygenerowała potencjalny klient. IDENTYFIKATOR wydawcy i identyfikator oferty są wysyłane w tym polu i są wartościami podanymi podczas opublikowania oferty w portalu Marketplace.
 
 W poniższych przykładach przedstawiono wartości w oczekiwanym formacie `publisherid.offerid` : 
 
@@ -89,10 +89,10 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 Poniżej przedstawiono kilka zaleceń dotyczących prowadzenia potencjalnych klientów w ramach cyklu sprzedaży:
 
-- **Proces** : Zdefiniuj czysty proces sprzedaży z punktami kontrolnymi, analizą i jasno własnością zespołu.
-- **Kwalifikacja** : Zdefiniuj wymagania wstępne, które wskazują, czy potencjalny klient został w pełni kwalifikowany. Upewnij się, że przedstawiciele ds. sprzedaży i marketingu kwalifikują się dokładnie do wzięcia pod uwagę przed przeprowadzeniem przez cały proces sprzedaży
-- **Zaobserwuj** : nie zapomnij wykonać czynności w ciągu 24 godzin. Potencjalny klient zostanie wyświetlony w wybranym programie CRM natychmiast po wdrożeniu przez klienta dysku testowego; Wyślij je pocztą e-mail w czasie, gdy są one nadal dostępne. Żądaj zaplanowania rozmowy telefonicznej, aby lepiej zrozumieć, czy produkt jest dobrym rozwiązaniem dla swojego problemu. Należy oczekiwać, że typowa transakcja wymaga wielu kolejnych wywołań.
-- **Informacyjna** : informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków. Zaewidencjonuj, ale nie Bombard. Zalecamy, aby wysłać wiadomość e-mail co najmniej kilka razy przed ich zamknięciem. Nie dodawaj po pierwszej próbie. Pamiętaj, że Ci klienci bezpośrednio zaangażowani w produkt i spędzają czas w bezpłatnej wersji próbnej. są to wspaniałe potencjalni klienci.
+- **Proces**: Zdefiniuj czysty proces sprzedaży z punktami kontrolnymi, analizą i jasno własnością zespołu.
+- **Kwalifikacja**: Zdefiniuj wymagania wstępne, które wskazują, czy potencjalny klient został w pełni kwalifikowany. Upewnij się, że przedstawiciele ds. sprzedaży i marketingu kwalifikują się dokładnie do wzięcia pod uwagę przed przeprowadzeniem przez cały proces sprzedaży
+- **Zaobserwuj**: nie zapomnij wykonać czynności w ciągu 24 godzin. Potencjalny klient zostanie wyświetlony w wybranym programie CRM natychmiast po wdrożeniu przez klienta dysku testowego; Wyślij je pocztą e-mail w czasie, gdy są one nadal dostępne. Żądaj zaplanowania rozmowy telefonicznej, aby lepiej zrozumieć, czy produkt jest dobrym rozwiązaniem dla swojego problemu. Należy oczekiwać, że typowa transakcja wymaga wielu kolejnych wywołań.
+- **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków. Zaewidencjonuj, ale nie Bombard. Zalecamy, aby wysłać wiadomość e-mail co najmniej kilka razy przed ich zamknięciem. Nie dodawaj po pierwszej próbie. Pamiętaj, że Ci klienci bezpośrednio zaangażowani w produkt i spędzają czas w bezpłatnej wersji próbnej. są to wspaniałe potencjalni klienci.
 
 Po zakończeniu instalacji technicznej należy uwzględnić te potencjalni klienci w bieżącej strategii sprzedaży i marketingu oraz procesach operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z nim w celu zapewnienia wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię [przekazywanie opinii](mailto:AzureMarketOnboard@microsoft.com) i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z komercyjnymi klientami portalu Marketplace.
 

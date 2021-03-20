@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 4682eee93b5ff9f01e65611e8d5e0920930776a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257237"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
@@ -22,8 +22,8 @@ Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi.
 | [kod-pakiet-log](service-fabric-sfctl-mesh-code-package-log.md) | Pobierz dzienniki dla kontenera określonego pakietu kodu dla danej repliki usługi. |
 | [mieszczeniu](service-fabric-sfctl-mesh-deployment.md) | Utwórz zasoby siatki Service Fabric. |
 | [punkt](service-fabric-sfctl-mesh-gateway.md) | Pobierz i Usuń zasoby bramy siatki. |
-| [NFS](service-fabric-sfctl-mesh-network.md) | Pobierz i Usuń zasoby sieci siatki. |
-| [wpisu](service-fabric-sfctl-mesh-secret.md) | Pobierz i Usuń zasoby z siatką kluczy tajnych. |
+| [network](service-fabric-sfctl-mesh-network.md) | Pobierz i Usuń zasoby sieci siatki. |
+| [wpis tajny](service-fabric-sfctl-mesh-secret.md) | Pobierz i Usuń zasoby z siatką kluczy tajnych. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Pobieranie i usuwanie zasobów secretvalue siatki. |
 | [usługi](service-fabric-sfctl-mesh-service.md) | Pobierz szczegóły usługi i Wyświetl listę usług dla zasobu aplikacji. |
 | [Usługa — replika](service-fabric-sfctl-mesh-service-replica.md) | Pobierz szczegóły repliki i Wyświetl listę replik danej usługi w zasobie aplikacji. |

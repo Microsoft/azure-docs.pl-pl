@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 89d086ce136885e203e300f04bdbf3ade0affeb3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: integracja Azure Active Directory z pakietem Life SilkRoad
@@ -179,7 +179,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     ![Zrzut ekranu przedstawia przycisk Dodaj źródło uwierzytelniania z opcją Utwórz dostawcę tożsamości przy użyciu danych plików.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
-    a. W obszarze **Opcja 2 — plik metadanych**kliknij przycisk **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
+    a. W obszarze **Opcja 2 — plik metadanych** kliknij przycisk **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
   
     b. Kliknij pozycję **Utwórz dostawcę tożsamości przy użyciu danych pliku**.
 
@@ -191,7 +191,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     ![Zrzut ekranu przedstawia okno dialogowe Edytowanie źródła uwierzytelniania, w którym można wprowadzić podane wartości.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
-    a. Jako **włączone**wybierz pozycję **tak**.
+    a. Jako **włączone** wybierz pozycję **tak**.
 
     b. W polu tekstowym **EntityId** wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
 
@@ -234,7 +234,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

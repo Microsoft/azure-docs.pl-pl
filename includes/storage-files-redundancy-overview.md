@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011724"
 ---
 Aby chronić dane w udziałach plików platformy Azure przed utratą lub uszkodzeniem danych, wszystkie udziały plików platformy Azure przechowują wiele kopii każdego pliku podczas ich pisania. W zależności od wymagań obciążenia można wybrać dodatkowe stopnie nadmiarowości. Azure Files obecnie obsługuje następujące opcje nadmiarowości danych:

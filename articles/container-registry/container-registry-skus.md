@@ -4,10 +4,10 @@ description: Dowiedz się więcej o funkcjach i limitach (przydziały) w warstwa
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015672"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry warstw usług
@@ -48,7 +48,7 @@ W obszarze **Przegląd** rejestru kontenerów w Azure Portal wybierz pozycję **
 
 ![Aktualizowanie jednostki SKU rejestru kontenerów w Azure Portal][update-registry-sku]
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać informacje o cenach poszczególnych Azure Container Registry warstw usług, zobacz [Container Registry Cennik][container-registry-pricing].
 

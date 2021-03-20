@@ -1,7 +1,7 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 titleSuffix: Azure
-description: plik dołączany
+description: Plik dyrektywy include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: c84cd8b1d7850576eb608d88ba91c3079edb0d68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81680797"
 ---
 Aby uzyskać listę komunikacji równorzędnych, uruchom polecenie **Get-AzPeering** .

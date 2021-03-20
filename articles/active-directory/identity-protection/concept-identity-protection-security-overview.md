@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098471"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection — omówienie zabezpieczeń
@@ -45,7 +45,7 @@ Ten wykres pokazuje liczbę ryzykownych logowań wykrytych w wybranym okresie. W
 
 Kafelek "Użytkownicy o wysokim ryzyku" pokazuje najnowszą liczbę użytkowników z wysokim prawdopodobieństwem naruszenia tożsamości. Powinien to być najwyższy priorytet badania. Kliknięcie kafelka "Użytkownicy o wysokim ryzyku" spowoduje przekierowanie do widoku filtrowanego raportu "ryzykownych użytkowników" pokazującego tylko użytkowników z poziomem ryzyka wysoki. Korzystając z tego raportu, można dowiedzieć się więcej i skorygować tych użytkowników przy użyciu resetowania hasła.
 
-:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Zrzut ekranu przedstawiający Omówienie zabezpieczeń Azure Portal. Wykresy słupkowe pokazują liczbę zagrożeń w czasie. Kafelki podsumowują informacje o użytkownikach i logowaniach." border="false":::
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Zrzut ekranu przedstawiający Omówienie zabezpieczeń Azure Portal z kafelkami widocznymi dla użytkowników o wysokim ryzyku i średnim ryzyku oraz innych czynników ryzyka." border="false":::
 
 ### <a name="medium-risk-users"></a>Użytkownicy średniego ryzyka
 Kafelek "średnio narażony użytkownicy" pokazuje najnowszą liczbę użytkowników z średnim prawdopodobieństwem naruszenia tożsamości. Kliknięcie kafelka "Użytkownicy średniego ryzyka" spowoduje przekierowanie do widoku filtrowanego raportu "ryzykowne użytkownicy" pokazującego tylko użytkowników z poziomem ryzyka średniego. Korzystając z tego raportu, można dokładniej zbadać i skorygować tych użytkowników.

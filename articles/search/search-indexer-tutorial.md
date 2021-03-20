@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e2ca5f42120661b887d07e697596f41cb7a7fce4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98745770"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
@@ -125,8 +125,8 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 Indeksatory wymagają obiektu źródła danych i indeksu. Odpowiedni kod znajduje się w dwóch plikach:
 
-  + **Hotel.cs** zawierający schemat definiujący indeks
-  + **Program.cs** zawierające funkcje tworzenia struktur w usłudze i zarządzania nimi
+  + **Hotel. cs** zawierający schemat definiujący indeks
+  + **Program Service. cs** zawierający funkcje do tworzenia struktur w usłudze i zarządzania nimi
 
 ### <a name="in-hotelcs"></a>W pliku hotel.cs
 

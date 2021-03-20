@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: codemillmatt
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 11/23/2019
 ms.author: masoucou
 ms.custom: include file
 ms.openlocfilehash: 02586d38903c60ba8982753ca0bd3e15192d5deb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83006237"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Kopiowanie poświadczeń z witryny Azure Portal
@@ -28,7 +28,7 @@ Gdy aplikacja Przykładowa wysyła żądanie do usługi Azure Storage, musi mie�
 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
 
-Po skopiowaniu parametrów połączenia Ustaw dla niego zmienną poziom klasy w pliku *MainPage.XAML.cs* . Otwórz *MainPaage.XAML.cs* i Znajdź `storageConnectionString` zmienną. Zamień `<yourconnectionstring>` na rzeczywiste parametry połączenia.
+Po skopiowaniu parametrów połączenia Ustaw dla niego zmienną poziom klasy w pliku *MainPage. XAML. cs* . Otwórz *MainPaage. XAML. cs* i Znajdź `storageConnectionString` zmienną. Zamień `<yourconnectionstring>` na rzeczywiste parametry połączenia.
 
 Oto kod:
 

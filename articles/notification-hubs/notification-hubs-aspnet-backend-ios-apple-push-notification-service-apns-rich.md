@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090367"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs rozbudowane wypychanie
@@ -142,7 +142,7 @@ Na wysokim poziomie:
 Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* powiadomienia Zmień aplikację dla systemu iOS, aby obsługiwała ten identyfikator, i Pobierz rozbudowany komunikat z zaplecza:
 
 1. Otwórz projekt systemu iOS i Włącz zdalne powiadomienia, przechodząc do głównego obiektu docelowego aplikacji w sekcji **targets** .
-2. Wybierz pozycję **funkcje**, Włącz **tryb tła**i zaznacz pole wyboru **powiadomienia zdalne** .
+2. Wybierz pozycję **funkcje**, Włącz **tryb tła** i zaznacz pole wyboru **powiadomienia zdalne** .
 
     ![Zrzut ekranu przedstawiający projekt systemu iOS z ekranem możliwości. Tryby tła są włączone, a pole wyboru powiadomienia zdalne jest zaznaczone.][IOS3]
 3. Otwórz `Main.storyboard` i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadom użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
@@ -153,7 +153,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 6. Kliknij **kontroler widoku głównego** w scenorysie i upewnij się, że **HomeViewController** jako jego **Klasa niestandardowa** i **Identyfikator scenorysu** w Inspektorze tożsamości.
 7. Wykonaj te same czynności dla kontrolera widoku obrazu jako **imageViewController**.
 8. Następnie utwórz nową klasę kontrolera widoku o nazwie **imageViewController** , aby obsługiwać interfejs użytkownika, który właśnie został utworzony.
-9. W **imageViewController. h**Dodaj następujący kod do deklaracji interfejsu kontrolera. Upewnij się, że kontrolka przeciągnie się z widoku obrazu scenorysu do tych właściwości, aby połączyć dwa:
+9. W **imageViewController. h** Dodaj następujący kod do deklaracji interfejsu kontrolera. Upewnij się, że kontrolka przeciągnie się z widoku obrazu scenorysu do tych właściwości, aby połączyć dwa:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;

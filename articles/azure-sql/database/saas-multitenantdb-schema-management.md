@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011862"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Zarządzanie schematem w aplikacji SaaS, która używa baz danych z wieloma dzierżawcami podzielonej na fragmenty
@@ -89,7 +89,7 @@ Baza danych każdej dzierżawy zawiera zestaw typów miejsc w tabeli **VenueType
 Najpierw przejrzyj typy miejsc zawarte w każdej bazie danych dzierżawcy. Połącz się z jedną z baz danych dzierżaw w SQL Server Management Studio (SSMS) i sprawdź tabelę VenueTypes.  Możesz również zbadać tę tabelę w edytorze zapytań w Azure Portal dostępnym ze strony baza danych.
 
 1. Otwórz narzędzie SSMS i Połącz się z serwerem dzierżawy: *tenants1-DPT- &lt; user &gt; . Database.Windows.NET*
-1. Aby upewnić się, że *Swimming Club* **nie są** obecnie uwzględniane wyścigi i klubu z *motocykla* , przejdź do bazy danych *contosoconcerthall* na serwerze *Tenants1-DPT- &lt; User &gt;* i zbadaj tabelę *VenueTypes* .
+1. Aby upewnić się, że  **nie są** obecnie uwzględniane wyścigi i klubu z *motocykla* , przejdź do bazy danych *contosoconcerthall* na serwerze *Tenants1-DPT- &lt; User &gt;* i zbadaj tabelę *VenueTypes* .
 
 
 

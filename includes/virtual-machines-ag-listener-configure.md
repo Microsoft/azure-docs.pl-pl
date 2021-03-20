@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91401020"
 ---
 Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuchuje SQL Server grupy dostępności. Aby utworzyć odbiornik grupy dostępności, wykonaj następujące czynności:
@@ -37,7 +37,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     d. Aby zakończyć tworzenie odbiornika, kliknij przycisk **dalej** dwa razy, a następnie kliknij przycisk **Zakończ**. W tym momencie nie należy przenosić odbiornika ani zasobu do trybu online.
 
-1. Przełącz rolę klastra grupy dostępności w tryb offline. W **Menedżer klastra trybu failover** w obszarze **role**kliknij prawym przyciskiem myszy rolę, a następnie wybierz pozycję **Zatrzymaj rolę**.
+1. Przełącz rolę klastra grupy dostępności w tryb offline. W **Menedżer klastra trybu failover** w obszarze **role** kliknij prawym przyciskiem myszy rolę, a następnie wybierz pozycję **Zatrzymaj rolę**.
 
 1. <a name="congroup"></a>Skonfiguruj zasób IP dla grupy dostępności.
 
@@ -48,7 +48,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     b. Kliknij prawym przyciskiem myszy zasób IP, a następnie kliknij polecenie Właściwości. Zanotuj nazwę adresu IP i użyj go w `$IPResourceName` zmiennej w skrypcie programu PowerShell.
 
-    c. W obszarze **adres IP**kliknij pozycję **statyczny adres IP**. Ustaw adres IP jako ten sam adres, który był używany podczas ustawiania adresu usługi równoważenia obciążenia na Azure Portal.
+    c. W obszarze **adres IP** kliknij pozycję **statyczny adres IP**. Ustaw adres IP jako ten sam adres, który był używany podczas ustawiania adresu usługi równoważenia obciążenia na Azure Portal.
 
    ![Zrzut ekranu pokazujący miejsce ustawienia adresu IP.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -60,7 +60,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     a. W Menedżer klastra trybu failover kliknij pozycję **role**, a następnie kliknij swoją grupę dostępności.
 
-    b. Na karcie **zasoby** w obszarze **inne zasoby**kliknij prawym przyciskiem myszy grupę zasobów dostępność, a następnie kliknij polecenie **Właściwości**. 
+    b. Na karcie **zasoby** w obszarze **inne zasoby** kliknij prawym przyciskiem myszy grupę zasobów dostępność, a następnie kliknij polecenie **Właściwości**. 
 
     c. Na karcie zależności Dodaj nazwę zasobu punktu dostępu klienta (odbiornika).
 
@@ -108,11 +108,11 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
    > [!NOTE]
    > Jeśli wystąpienia SQL Server znajdują się w osobnych regionach, należy dwukrotnie uruchomić skrypt programu PowerShell. Po raz pierwszy Użyj `$ListenerILBIP` i `$ListenerProbePort` z pierwszego regionu. Drugi raz, użyj `$ListenerILBIP` i `$ListenerProbePort` z drugiego regionu. Nazwa sieci klastra i nazwa zasobu adresu IP klastra są również różne dla każdego regionu.
 
-1. Przełącz rolę klastra grupy dostępności do trybu online. W **Menedżer klastra trybu failover** w obszarze **role**kliknij prawym przyciskiem myszy rolę, a następnie wybierz pozycję **Uruchom rolę**.
+1. Przełącz rolę klastra grupy dostępności do trybu online. W **Menedżer klastra trybu failover** w obszarze **role** kliknij prawym przyciskiem myszy rolę, a następnie wybierz pozycję **Uruchom rolę**.
 
 W razie potrzeby powtórz powyższe kroki, aby ustawić parametry klastra dla adresu IP klastra usługi WSFC.
 
-1. Pobierz nazwę adresu IP klastra usługi WSFC. W **Menedżer klastra trybu failover** w obszarze **zasoby podstawowe klastra**Zlokalizuj **nazwę serwera**.
+1. Pobierz nazwę adresu IP klastra usługi WSFC. W **Menedżer klastra trybu failover** w obszarze **zasoby podstawowe klastra** Zlokalizuj **nazwę serwera**.
 
 1. Kliknij prawym przyciskiem myszy pozycję **adres IP**, a następnie wybierz polecenie **Właściwości**.
 

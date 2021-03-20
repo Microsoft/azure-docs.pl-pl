@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96435845"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Storage z poziomu aplikacji sieci Web
@@ -88,7 +88,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w Azure Portal, 
 
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Aby utworzyć kontener Blob Storage w usłudze Azure Storage, wykonaj następujące kroki.
 
@@ -232,7 +232,7 @@ dotnet add package Azure.Identity
 
 # <a name="package-manager"></a>[Menedżer pakietów](#tab/package-manager)
 
-Otwórz projekt lub rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer **Tools**  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
+Otwórz projekt lub rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer   >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 
 Uruchom polecenia instalacji.
 ```powershell

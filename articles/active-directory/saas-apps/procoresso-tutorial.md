@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 13f8f1067ce7c9fe55160400d20ec0b20788c17b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Samouczek: integracja z usługą Azure Active Directory przy użyciu podstawowego logowania jednokrotnego
@@ -85,7 +85,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu podstawowego logowania jednokrotnego, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **prordzeniowa** integracja aplikacji SSO wybierz pozycję **Logowanie**jednokrotne.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **prordzeniowa** integracja aplikacji SSO wybierz pozycję **Logowanie** jednokrotne.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -159,7 +159,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -209,7 +209,7 @@ Wykonaj poniższe czynności, aby utworzyć użytkownika testowego na potrzeby p
 
     d. Wybierz **szablon uprawnień** jako **Zastosuj szablon uprawnień później**.
 
-    e. Kliknij przycisk **Utwórz**.
+    e. Kliknij pozycję **Utwórz**.
 
 4. Sprawdź i Zaktualizuj szczegóły nowo dodanego kontaktu.
 

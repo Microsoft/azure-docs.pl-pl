@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/11/2019
 ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217681"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics jest uaktualniana do .NET Framework v 4.7.2
@@ -61,7 +61,7 @@ Najbardziej typowe niezgodności z poprzednimi wersjami, które mogą identyfiko
   - Sugerowana akcja: Upewnij się, że TaskFactory. wywołaniach metody FromAsync zwraca wartość PRAWDA prawidłowo
 
 - Obiekt DataObject. GetData teraz pobiera dane jako UTF-8
-  - W przypadku aplikacji przeznaczonych dla .NET Framework 4 lub uruchomionych w .NET Framework 4.5.1 lub wcześniejszych wersjach element DataObject. GetData pobiera dane sformatowane w formacie HTML jako ciąg ASCII. W związku z tym znaki inne niż ASCII (znaki, których kody ASCII są większe niż 0x7F) są reprezentowane przez dwa losowe znaki. #N # #N # dla aplikacji przeznaczonych dla .NET Framework 4,5 lub nowszych i wykonywanych w .NET Framework 4.5.2, `DataObject.GetData` Pobiera dane sformatowane w formacie HTML jako UTF-8, co oznacza, że znaki większe niż 0x7F są poprawne.
+  - W przypadku aplikacji przeznaczonych dla .NET Framework 4 lub uruchomionych w .NET Framework 4.5.1 lub wcześniejszych wersjach element DataObject. GetData pobiera dane sformatowane w formacie HTML jako ciąg ASCII. W związku z tym znaki inne niż ASCII (znaki, których kody ASCII są większe niż 0x7F) są reprezentowane przez dwa losowe znaki. #N # #N#For aplikacji przeznaczonych dla .NET Framework 4,5 lub nowszych i wykonywanych w .NET Framework 4.5.2, `DataObject.GetData` Pobiera dane sformatowane w formacie HTML jako UTF-8, co oznacza, że znaki większe niż 0x7F są poprawne.
   - Biblioteki, których dotyczy problem: GLO
   - Sugerowana akcja: Upewnij się, że pobrane dane są w żądanym formacie
 

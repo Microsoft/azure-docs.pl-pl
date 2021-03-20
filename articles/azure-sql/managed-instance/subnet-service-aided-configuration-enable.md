@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618033"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Włączanie konfiguracji podsieci wspomaganej przez usługę dla wystąpienia zarządzanego Azure SQL
@@ -22,7 +22,7 @@ ms.locfileid: "91618033"
 
 Konfiguracja podsieci wspomagana przez usługę zapewnia zautomatyzowane zarządzanie konfiguracjami sieci dla podsieci obsługujących wystąpienia zarządzane. Przy użyciu przystawki Zarządzanie podsieciami z obsługą administracyjną usługa jest w stanie Pełna kontrola dostępu do danych (przepływy ruchu TDS), podczas gdy zarządzane wystąpienie jest odpowiedzialne za zapewnienie nieprzerwanego przepływu ruchu zarządzania w celu spełnienia warunków umowy SLA.
 
-Automatycznie skonfigurowane sieciowe grupy zabezpieczeń i reguły tabeli tras są widoczne dla klienta i z adnotacjami z prefiksem _Microsoft. SQL-managedInstances_UseOnly__.
+Automatycznie skonfigurowane sieciowe grupy zabezpieczeń i reguły tabeli tras są widoczne dla klienta i z adnotacjami z prefiksem _Microsoft. SQL-managedInstances_UseOnly_ _.
 
 Konfiguracja wspomagana usługi jest włączana automatycznie po włączeniu [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) dla `Microsoft.Sql/managedInstances` dostawcy zasobów.
 

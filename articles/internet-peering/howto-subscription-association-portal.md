@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540272"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu
@@ -23,7 +23,7 @@ Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu programu [PowerShe
 
 ## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Utwórz PeerAsn, aby skojarzyć swój numer ASN z subskrypcją platformy Azure
 
-### <a name="sign-in-to-the-portal"></a>Zaloguj się do portalu
+### <a name="sign-in-to-the-portal"></a>Logowanie się do portalu
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name="register-for-peering-resource-provider"></a>Zarejestruj dla dostawcy zasobów komunikacji równorzędnej
@@ -39,7 +39,7 @@ Zarejestruj się w celu uzyskania dostawcy zasobów komunikacji równorzędnej w
     > [!div class="mx-imgBorder"]
     > ![Uruchom subskrypcję](./media/rp-subscriptions-launch.png)
 
-1. Po otwarciu subskrypcji po lewej stronie kliknij pozycję **dostawcy zasobów**. Następnie w okienku po prawej stronie Wyszukaj *komunikację równorzędną* w oknie wyszukiwania lub Użyj paska przewijania, aby znaleźć pozycję **Microsoft. peering** i sprawdzić **stan**. Jeśli stan jest ***zarejestrowany***, Pomiń poniższe kroki i przejdź do sekcji **Tworzenie PeerAsn**. Jeśli stan to ***NotRegistered***, wybierz pozycję **Microsoft. Komunikacja równorzędna** i kliknij pozycję **zarejestruj**.
+1. Po otwarciu subskrypcji po lewej stronie kliknij pozycję **dostawcy zasobów**. Następnie w okienku po prawej stronie Wyszukaj *komunikację równorzędną* w oknie wyszukiwania lub Użyj paska przewijania, aby znaleźć pozycję **Microsoft. peering** i sprawdzić **stan**. Jeśli stan jest **_zarejestrowany_*_, Pomiń poniższe kroki i przejdź do sekcji _* Utwórz PeerAsn**. Jeśli stan to **_NotRegistered_*_, wybierz _* Microsoft. Komunikacja równorzędna** i kliknij pozycję **zarejestruj**.
 
     > [!div class="mx-imgBorder"]
     > ![Rozpoczęcie rejestracji](./media/rp-register-start.png)
@@ -49,7 +49,7 @@ Zarejestruj się w celu uzyskania dostawcy zasobów komunikacji równorzędnej w
     > [!div class="mx-imgBorder"]
     > ![Rejestracja w toku](./media/rp-register-progress.png)
 
-1. Poczekaj chwilę lub na ukończenie rejestracji. Następnie kliknij przycisk **Odśwież** i sprawdź, czy stan jest ***zarejestrowany***.
+1. Poczekaj chwilę lub na ukończenie rejestracji. Następnie kliknij przycisk **Odśwież** i sprawdź, czy stan jest **_zarejestrowany_**.
 
     > [!div class="mx-imgBorder"]
     > ![Zakończono rejestrację](./media/rp-register-completed.png)
@@ -101,6 +101,6 @@ Usuwanie elementu PeerAsn nie jest obecnie obsługiwane. Jeśli musisz usunąć 
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](howto-exchange-portal.md)
 * [Konwertowanie starszej komunikacji równorzędnej z punktem wymiany na zasób platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md)

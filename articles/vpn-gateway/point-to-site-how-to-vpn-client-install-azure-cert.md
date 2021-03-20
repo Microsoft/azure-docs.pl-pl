@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8c4d37f67d89ad1b7973a85fb6c2a9f7e818a028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89421666"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalowanie certyfikatów klienta dla połączeń uwierzytelniania certyfikatu P2S
@@ -26,7 +26,7 @@ Niezależnie od systemu operacyjnego klienta, z którego chcesz się połączyć
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="mac"></a><a name="installmac"></a>Mac
+## <a name="mac"></a><a name="installmac"></a>Komputery
 
 >[!NOTE]
 >Klienci sieci VPN Mac są obsługiwani tylko w ramach modelu wdrażania Menedżer zasobów. Nie są one obsługiwane dla klasycznego modelu wdrażania.
