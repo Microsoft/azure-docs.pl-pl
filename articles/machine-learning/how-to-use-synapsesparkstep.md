@@ -10,16 +10,18 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 2a9f0a8c943f539166f18a1e41a36136fbb63a6f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455063"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584303"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Jak używać Apache Spark (obsługiwane przez usługę Azure Synapse Analytics) w potoku uczenia maszynowego (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak używać pul Apache Spark obsługiwanych przez usługę Azure Synapse Analytics jako element docelowy obliczeń dla kroku przygotowywania danych w potoku Azure Machine Learning. Dowiesz się, w jaki sposób pojedynczy potok może korzystać z zasobów obliczeniowych, które są odpowiednie dla określonego kroku, takiego jak przygotowanie danych lub szkolenie. Zobaczysz, jak dane są przygotowywane do kroku Spark i jak jest on przenoszona do następnego kroku. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

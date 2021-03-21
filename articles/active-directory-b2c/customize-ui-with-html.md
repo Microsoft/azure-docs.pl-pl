@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050553"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675829"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Dostosuj interfejs użytkownika przy użyciu szablonów HTML w Azure Active Directory B2C
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 Przykładowe szablony do dostosowywania interfejsu użytkownika można znaleźć tutaj:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 Ten projekt zawiera następujące szablony:
-- [Ocean niebieski](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Szare](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Ocean niebieski](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Szare](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Motyw](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Zasoby szablonu](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Aby użyć przykładu:
 
-1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu `/ocean_blue` lub `/slate_gray` .
-1. Przekaż wszystkie pliki z folderu Template i `/assets` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
-1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Na przykład:
+1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu, `/AzureBlue` `/MSA` lub `/classic` .
+1. Przekaż wszystkie pliki z folderu Template i `/src` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
+1. Następnie otwórz każdy `\*.html` plik w folderze Template. Następnie Zastąp wszystkie wystąpienia `https://login.microsoftonline.com` adresów URL adresem URL, który został przekazany w kroku 2. Na przykład:
+    
+    Od:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    Działanie
+    Do:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Zapisz `\*.html` pliki i przekaż je do magazynu obiektów BLOB.
 1. Teraz zmodyfikuj zasady, wskazując na plik HTML, jak wspomniano wcześniej.
 1. Jeśli widzisz brakujące czcionki, obrazy lub CSS, Sprawdź odwołania w zasadach rozszerzeń i \* plikach. html.

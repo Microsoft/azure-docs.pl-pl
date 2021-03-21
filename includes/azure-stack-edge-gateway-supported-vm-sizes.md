@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
 ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99475048"
 ---
 Rozmiar maszyny wirtualnej określa ilość zasobów obliczeniowych (takich jak procesor CPU, procesor GPU i pamięć), które są dostępne dla maszyny wirtualnej. Maszyny wirtualne należy tworzyć przy użyciu odpowiedniego rozmiaru maszyny wirtualnej dla obciążenia. Mimo że wszystkie maszyny będą uruchomione na tym samym sprzęcie, rozmiary maszyn mają różne limity dostępu do dysku. Może to ułatwić zarządzanie ogólnym dostępem do dysku na maszynach wirtualnych. W przypadku zwiększenia obciążenia można również zmienić rozmiar istniejącej maszyny wirtualnej.

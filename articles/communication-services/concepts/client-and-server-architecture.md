@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 74a48b05e7e3b00d331da4fcf66092490ae70374
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490674"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
@@ -69,7 +69,7 @@ Usługi komunikacyjne platformy Azure obsługują komunikację między ludźmi, 
 
 :::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram przedstawiający architekturę bot usług komunikacyjnych.":::
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Możesz chcieć zamieścić dowolne dane między użytkownikami, aby na przykład zsynchronizować udostępnioną rzeczywistość mieszana lub środowisko gier. Płaszczyzna danych w czasie rzeczywistym używana do komunikacji tekstu, głosu i wideo jest dostępna bezpośrednio na dwa sposoby:
 

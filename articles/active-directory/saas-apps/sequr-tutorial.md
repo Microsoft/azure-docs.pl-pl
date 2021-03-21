@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą Sequr | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Sequr.
+title: 'Samouczek: Azure Active Directory integrację z usługą genu Access Control | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i genu Access Control.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,137 +9,129 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: d1993f89f8b1da4789541006c15380d2145d3d81
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 82c05f77781abdaea3b2c84aa1071656c206439a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674488"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669867"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Samouczek: integracja Azure Active Directory z usługą Sequr
+# <a name="tutorial-azure-active-directory-integration-with-genea-access-control"></a>Samouczek: Azure Active Directory integrację z usługą Genual Access Control
 
-W tym samouczku dowiesz się, jak zintegrować usługę Sequr z usługą Azure Active Directory (Azure AD).
-Integracja Sequr z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować Access Control genus z usługą Azure Active Directory (Azure AD). Po zintegrowaniu Access Control genu z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Sequr.
-* Możesz pozwolić użytkownikom na automatyczne logowanie do Sequr (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontrolka w usłudze Azure AD, która ma dostęp do Access Control genu.
+* Zezwól użytkownikom na automatyczne logowanie do usługi Genual Access Control przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą Sequr, potrzebne są następujące elementy:
+Aby skonfigurować integrację z usługą Azure AD za pomocą Access Control genu, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w Sequr
+* Subskrypcja usługi genu Access Control z włączoną obsługą logowania jednokrotnego
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Sequr obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Genu Access Control obsługuje usługę **SP i dostawcy tożsamości,** która zainicjowała Logowanie jednokrotne.
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-sequr-from-the-gallery"></a>Dodawanie Sequr z galerii
 
-Aby skonfigurować integrację programu Sequr z usługą Azure AD, musisz dodać Sequr z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-genea-access-control-from-the-gallery"></a>Dodawanie Access Control genus z galerii
 
-**Aby dodać Sequr z galerii, wykonaj następujące czynności:**
+Aby skonfigurować integrację Access Control genu z usługą Azure AD, należy dodać Access Control genus z galerii do listy zarządzanych aplikacji SaaS.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **genu Access Control** w polu wyszukiwania.
+1. Wybierz pozycję **genual Access Control** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-genea-access-control"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla genu Access Control
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Access Control genów przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Access Control genów.
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu Access Control genu, wykonaj następujące czynności:
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj konfigurację genu Access Control Logowanie jednokrotne](#configure-genea-access-control-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz usługę genual Access Control użytkownika testowego](#create-genea-access-control-test-user)** , aby dysponować odpowiednikiem B. Simon w genu Access Control, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-4. W polu wyszukiwania wpisz **Sequr** , wybierz pozycję **Sequr** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-    ![Sequr na liście wyników](common/search-new-app.png)
+1. W Azure Portal na stronie integracja z aplikacją **Access Control genu** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Sequr na podstawie użytkownika testowego o nazwie **Britta Simon** .
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Sequr.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Sequr, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-sequr-single-sign-on)** jednokrotne w usłudze Sequr, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Sequr](#create-sequr-test-user)** , aby uzyskać odpowiednik Britta Simon w Sequr, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Sequr** wybierz pozycję **Logowanie jednokrotne** .
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
-
-    ![Sequr domenę i adresy URL Logowanie jednokrotne](common/idp-identifier.png)
 
     W polu tekstowym **Identyfikator** wpisz adres URL: `https://login.sequr.io`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![image (obraz)](common/both-advanced-urls.png)
-
     a. W polu tekstowym **adres URL logowania** wpisz adres URL: `https://login.sequr.io`
 
     b. W polu tekstowym **Stan przekazywania** otrzymasz tę wartość, która została omówiona w dalszej części samouczka.
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-7. W sekcji **Konfigurowanie Sequr** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji **Skonfiguruj konfigurację genu Access Control** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-    c. Adres URL wylogowywania
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-sequr-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Sequr
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Sequr jako administrator.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Access Control genu.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **genual Access Control**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+## <a name="configure-genea-access-control-sso"></a>Konfigurowanie genu Access Control rejestracji jednokrotnej
+
+1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej sieci firmowej Access Control jako administrator.
 
 1. Kliknij pozycję **integracje** w lewym panelu nawigacyjnym.
 
-    ![Zrzut ekranu przedstawia integrację wybraną z panelu nawigacji.](./media/sequr-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia integrację wybraną z panelu nawigacji.](./media/sequr-tutorial/configure-1.png)
 
-1. Przewiń w dół do sekcji **Logowanie** jednokrotne i kliknij pozycję **Zarządzaj** .
+1. Przewiń w dół do sekcji **Logowanie** jednokrotne i kliknij pozycję **Zarządzaj**.
 
-    ![Zrzut ekranu przedstawia sekcję Logowanie jednokrotne z wybranym przyciskiem Zarządzaj.](./media/sequr-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia sekcję Logowanie jednokrotne z wybranym przyciskiem Zarządzaj.](./media/sequr-tutorial/configure-2.png)
 
 1. W sekcji **Zarządzanie logowaniem jednokrotnym** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawia sekcję Zarządzaj pojedynczym Sign-On, w której można wprowadzić podane wartości.](./media/sequr-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia sekcję Zarządzaj pojedynczym Sign-On, w której można wprowadzić podane wartości.](./media/sequr-tutorial/configure-3.png)
 
     a. W polu tekstowym **adres URL pojedynczego Sign-On dostawcy tożsamości** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -147,72 +139,28 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wyko
 
     c. Po zapisaniu konfiguracji zostanie wygenerowana wartość stanu przekaźnika. Skopiuj wartość **stan przekaźnika** i wklej ją w polu tekstowym **Stan przekazywania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    d. Kliknij pozycję **Zapisz** .
+    d. Kliknij pozycję **Zapisz**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+### <a name="create-genea-access-control-test-user"></a>Utwórz użytkownika testowego Access Control genu
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w genu Access Control. Aby dodać użytkowników na platformie Access Control genu, Pracuj z [zespołem pomocy technicznej dotyczącej genu Access Control](mailto:support@sequr.io) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-    ![Przycisk Nowy użytkownik](common/new-user.png)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie na adres URL rejestracji genu Access Control, w którym można zainicjować przepływ logowania.  
 
-3. We właściwościach użytkownika wykonaj następujące kroki.
+* Przejdź bezpośrednio do adresu URL rejestracji genu Access Control i zainicjuj tam przepływ logowania.
 
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
-  
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do Access Control genu, dla którego skonfigurowano Logowanie jednokrotne 
 
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Access Control genu w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do Access Control genu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-    d. Kliknij pozycję **Utwórz** .
+## <a name="next-steps"></a>Następne kroki
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Sequr.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **Sequr** .
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **Sequr** .
-
-    ![Link Sequr na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
-
-### <a name="create-sequr-test-user"></a>Utwórz użytkownika testowego Sequr
-
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Sequr. Współpracuj z [zespołem obsługi klienta Sequr](mailto:support@sequr.io) , aby dodać użytkowników z platformy Sequr. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
-
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
-
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
-
-Po kliknięciu kafelka Sequr w panelu dostępu należy automatycznie zalogować się do Sequr, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu Access Control genu można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

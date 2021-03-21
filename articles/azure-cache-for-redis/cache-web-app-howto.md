@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 342125da35868b2b0f71609c4114cc561821eb1a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 88cfddb12de0949d56e4b8f9c3e363e4c8f75676
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121137"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657771"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją internetową ASP.NET 
 
@@ -29,29 +29,29 @@ Jeśli chcesz pominąć prosty kod, zobacz [Przewodnik Szybki start ASP.NET](htt
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik**  > **Nowy**  >  **projekt**.
+1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-2. W oknie dialogowym **Nowy projekt** wykonaj następujące kroki:
+2. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności:
 
     ![Tworzenie projektu](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Na liście **Szablony** rozwiń węzeł **Visual C#**.
+    a. W polu wyszukiwania wprowadź _aplikację sieci Web w języku C# ASP.NET_.
 
-    b. Wybierz pozycję **Chmura**.
+    b. Wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)**.
 
-    c. Wybierz pozycję **Aplikacja internetowa platformy ASP.NET**.
+    c. Wybierz pozycję **Next** (Dalej).
 
-    d. Upewnij się, że został wybrany program **.NET Framework 4.5.2** lub nowszy.
+3. W polu **Nazwa projektu** Nadaj projektowi nazwę. W tym przykładzie użyliśmy nazwy **ContosoTeamStats**.
 
-    e. W polu **Nazwa** podaj nazwę projektu. W tym przykładzie użyliśmy nazwy **ContosoTeamStats**.
+4. Sprawdź, czy wybrano **.NET Framework 4.6.1** lub wyższą.
 
-    f. Wybierz przycisk **OK**.
+5. Wybierz przycisk **Utwórz**.
    
-3. Wybierz **MVC** jako typ projektu.
+6. Wybierz **MVC** jako typ projektu.
 
-4. Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Domyślne ustawienie **Uwierzytelnianie** może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, wybierz pozycję **Zmień uwierzytelnianie**, a następnie pozycję **Bez uwierzytelniania**.
+7. Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Domyślne ustawienie **Uwierzytelnianie** może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, wybierz pozycję **Zmień uwierzytelnianie**, a następnie pozycję **Bez uwierzytelniania**.
 
-5. Wybierz przycisk **OK**, aby utworzyć projekt.
+8. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 
@@ -125,10 +125,11 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
 1. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery**, a następnie otwórz plik *HomeController.cs*.
 
-2. Dodaj następujące dwie instrukcje `using` w górnej części pliku, aby obsłużyć klienta pamięci podręcznej i ustawienia aplikacji.
+2. Dodaj następujące `using` instrukcje w górnej części pliku, aby obsłużyć klienta pamięci podręcznej, ustawienia aplikacji i konstruktora ciągów.
 
     ```csharp
     using System.Configuration;
+    using System.Text;
     using StackExchange.Redis;
     ```
 

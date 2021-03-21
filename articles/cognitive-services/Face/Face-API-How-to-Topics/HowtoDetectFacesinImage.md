@@ -12,10 +12,10 @@ ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713069"
 ---
 # <a name="get-face-detection-data"></a>Pobieranie danych wykrywania kroju
@@ -28,7 +28,7 @@ W tym przewodniku pokazano, jak:
 - Zapoznaj się z lokalizacjami różnych punktów orientacyjnych, na przykład uczniów, nos i jamy ustnej.
 - Odgadnięcie płci, wieku, rozpoznawania emocji i innych atrybutów wykrytej czołowej.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 W tym przewodniku przyjęto założenie, że został już skonstruowany obiekt [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) o nazwie `faceClient` z kluczem subskrypcji i adresem URL punktu końcowego. W tym miejscu możesz użyć funkcji wykrywania kroju przez wywołanie [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), która jest używana w tym przewodniku, lub [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Aby uzyskać instrukcje dotyczące sposobu konfigurowania tej funkcji, wykonaj jedną z przewodników Szybki Start.
 

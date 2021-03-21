@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259608"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Aplikacja w chmurze — widoczność i kontrola
@@ -34,7 +34,7 @@ Użyj funkcji odnajdywania aplikacji Microsoft Cloud (funkcja Azure Active Direc
 - Zaawansowane raporty wykrywania IT w tle
 - Kontrola zaakceptowanych aplikacji
  
-### <a name="learn-more"></a>Więcej tutaj
+### <a name="learn-more"></a>Dowiedz się więcej
 
 - [Odkryj i Zarządzaj w tle w sieci ](/cloud-app-security/tutorial-shadow-it)
 - [Aplikacje odnalezione za pomocą Cloud App Security ](/cloud-app-security/discovered-apps)
@@ -51,7 +51,7 @@ Za pomocą tego formantu można:
 - Kontrolowanie dostępu do plików  
 - Ochrona dokumentów przy pobieraniu  
  
-### <a name="learn-more"></a>Więcej tutaj
+### <a name="learn-more"></a>Dowiedz się więcej
 
 - [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](/cloud-app-security/proxy-intro-aad)
  
@@ -59,7 +59,7 @@ Za pomocą tego formantu można:
 
 Łączniki aplikacji korzystają z interfejsów API dostawców aplikacji w celu zapewnienia lepszej widoczności i kontroli przez Microsoft Cloud App Security za pośrednictwem aplikacji, z którymi nawiązywane jest połączenie. Cloud App Security korzysta z interfejsów API dostarczonych przez dostawcę chmury. Każda usługa ma własne ograniczenia dotyczące struktury i interfejsu API, takie jak ograniczanie przepustowości, limity interfejsu API, dynamiczne przesunięcia czasowe okien interfejsu API i inne. Zespół produktu Cloud App Security pracował z tymi usługami w celu zoptymalizowania użycia interfejsów API i zapewnienia najlepszej wydajności. Biorąc pod uwagę różne ograniczenia usług nakładających się na interfejsy API, aparaty Cloud App Security używają ich maksymalnej dozwolonej pojemności. Niektóre operacje, takie jak skanowanie wszystkich plików w dzierżawie, wymagają wielu wywołań interfejsu API, dzięki czemu są rozłożone w dłuższym okresie. Niektóre zasady mogą działać przez kilka godzin lub dni. 
  
-### <a name="learn-more"></a>Więcej tutaj  
+### <a name="learn-more"></a>Dowiedz się więcej  
 
 - [Łączenie aplikacji w Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 

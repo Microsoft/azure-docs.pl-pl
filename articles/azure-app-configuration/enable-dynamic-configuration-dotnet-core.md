@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979865"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Core
@@ -32,7 +32,7 @@ W tym samouczku pokazano, jak zaimplementować dynamiczne aktualizacje konfigura
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. [Visual Studio Code](https://code.visualstudio.com/) jest doskonałym rozwiązaniem dostępnym na platformach Windows, MacOS i Linux.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj aplikację platformy .NET Core w celu zaktualizowania jej konfiguracji w odpowiedzi na zmiany w magazynie konfiguracji aplikacji.
@@ -46,7 +46,7 @@ Aby wykonać ten samouczek, zainstaluj [zestaw .NET Core SDK](https://dotnet.mic
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
-Otwórz *program.cs* i zaktualizuj plik, aby dodać odwołanie do `System.Threading.Tasks` przestrzeni nazw, aby określić konfigurację odświeżania w `AddAzureAppConfiguration` metodzie i wyzwalać ręczne odświeżanie przy użyciu `TryRefreshAsync` metody.
+Otwórz *program programy. cs* i zaktualizuj plik, aby dodać odwołanie do `System.Threading.Tasks` przestrzeni nazw, aby określić konfigurację odświeżania w `AddAzureAppConfiguration` metodzie i wyzwalać ręczne odświeżanie przy użyciu `TryRefreshAsync` metody.
 
 ```csharp
 using System;

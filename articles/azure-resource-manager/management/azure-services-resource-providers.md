@@ -2,17 +2,17 @@
 title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008709"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592165"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
-W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na usługi platformy Azure.
+W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na usługi platformy Azure. Jeśli nie znasz dostawcy zasobów, zobacz [Znajdowanie dostawcy zasobów](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Dopasuj dostawcę zasobów do usługi
 
@@ -192,6 +192,42 @@ Dostawcy zasobów powyżej oznaczona jako **zarejestrowani** są zarejestrowani 
 
 > [!IMPORTANT]
 > Zarejestruj dostawcę zasobów tylko wtedy, gdy wszystko jest gotowe do użycia. Krok rejestracji umożliwia zachowanie najniższych uprawnień w ramach subskrypcji. Złośliwy użytkownik nie może używać dostawców zasobów, którzy nie są zarejestrowani.
+
+## <a name="find-resource-provider"></a>Znajdowanie dostawcy zasobów
+
+Jeśli masz istniejącą infrastrukturę na platformie Azure, ale nie masz pewności, który dostawca zasobów jest używany, możesz znaleźć dostawcę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Określ nazwę grupy zasobów, która zawiera zasoby, które mają zostać odnalezione.
+
+W poniższym przykładzie pokazano użycie interfejsu wiersza polecenia platformy Azure:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Wyniki obejmują typ zasobu. Przestrzeń nazw dostawcy zasobów jest pierwszą częścią typu zasobu. Poniższy przykład pokazuje dostawcę zasobów **Microsoft.**
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+Poniższy przykład używa programu PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Wyniki obejmują typ zasobu. Przestrzeń nazw dostawcy zasobów jest pierwszą częścią typu zasobu. Poniższy przykład pokazuje dostawcę zasobów **Microsoft.**
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

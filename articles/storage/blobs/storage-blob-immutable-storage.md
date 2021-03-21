@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102430942"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie danych obiektów blob kluczowych dla działalności za pomocą magazynu niezmiennego
@@ -122,7 +122,7 @@ W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które 
 > [!IMPORTANT]
 > Niektóre obciążenia, takie jak [kopia zapasowa SQL do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), tworzą obiekt BLOB, a następnie Dodaj do niego. Jeśli kontener ma aktywne zasady przechowywania oparte na czasie lub blokadę prawną, ten wzorzec nie powiedzie się.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Za korzystanie z tej funkcji nie są naliczane dodatkowe opłaty. Zmienne dane są wyceniane w taki sam sposób jak dane modyfikowalne. Aby uzyskać szczegółowe informacje o cenach usługi Azure Blob Storage, zobacz [stronę z cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
