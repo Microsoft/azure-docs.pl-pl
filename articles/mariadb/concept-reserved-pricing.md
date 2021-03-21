@@ -3,14 +3,14 @@ title: Przedpłata za obliczenia z zarezerwowaną pojemnością — Azure Databa
 description: Przedpłata za Azure Database for MariaDB zasoby obliczeniowe z zarezerwowaną pojemnością
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 0acdf09da081ee179fb4edc8f2608068fc081dee
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661767"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Przedpłata za Azure Database for MariaDB zasoby obliczeniowe z zarezerwowaną pojemnością

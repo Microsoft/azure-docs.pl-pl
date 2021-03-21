@@ -10,10 +10,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ms.openlocfilehash: d691ee60f624f75c89e44e905e5343bf9c71fd4d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701419"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
@@ -40,7 +40,7 @@ Program Visual Studio tworzy projekt i klasę, która zawiera kod standardowy dl
 
 `FunctionName`Atrybut metody ustawia nazwę funkcji, która domyślnie jest generowana jako `Function1` . Ponieważ narzędzia nie umożliwiają przesłaniania domyślnej nazwy funkcji podczas tworzenia projektu, poświęć minutę, aby utworzyć lepszą nazwę klasy, pliku i metadanych funkcji.
 
-1. W **Eksploratorze plików** kliknij prawym przyciskiem myszy plik Function1.cs i zmień jego nazwę na `HttpExample.cs` .
+1. W **Eksploratorze plików** kliknij prawym przyciskiem myszy plik Function1. cs i zmień jego nazwę na `HttpExample.cs` .
 
 1. W kodzie zmień nazwę klasy Function1 na "HttpExample".
 

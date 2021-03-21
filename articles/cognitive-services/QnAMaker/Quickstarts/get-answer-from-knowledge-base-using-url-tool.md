@@ -1,22 +1,22 @@
 ---
-title: 'Szybki Start: korzystanie z narzędzia URL w celu uzyskania odpowiedzi z bazy wiedzy QnA Maker'
+title: Korzystanie z narzędzia URL w celu uzyskania odpowiedzi z bazy wiedzy QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki Start przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia testowego adresu URL, takiego jak zwinięcie lub program.
+description: Ten artykuł przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia testowego adresu URL, takiego jak zwinięcie lub program.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: eddae69c0946ab135540b77d3cc89937079e6293
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016257"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583075"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Szybki Start: uzyskiwanie odpowiedzi z bazy wiedzy
+# <a name="get-an-answer-from-a-knowledge-base"></a>Uzyskaj odpowiedź z bazy wiedzy
 
 
 ::: zone pivot="url-test-tool-curl"

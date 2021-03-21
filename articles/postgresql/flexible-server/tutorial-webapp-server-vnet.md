@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff9af90ca0b6b80ffece5ccd7d919c1d93e210c4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546572"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657590"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Samouczek: Tworzenie serwera Azure Database for PostgreSQL-elastyczny przy użyciu aplikacji internetowej App Services w sieci wirtualnej
 
@@ -22,9 +22,10 @@ ms.locfileid: "92546572"
 
 W tym samouczku pokazano, jak utworzyć aplikację internetową Azure App Service za pomocą serwera Azure Database for PostgreSQL-elastyczną (wersja zapoznawcza) w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md).
 
-W tym samouczku zostanie
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 >[!div class="checklist"]
 > * Tworzenie elastycznego serwera PostgreSQL w sieci wirtualnej
+> * Utwórz podsieć do delegowania do App Service
 > * Tworzenie aplikacji internetowej
 > * Dodawanie aplikacji sieci Web do sieci wirtualnej
 > * Nawiązywanie połączenia z usługą Postgres z poziomu aplikacji sieci Web 
@@ -44,7 +45,7 @@ az login
 Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account). Zastąp wartość właściwości **Identyfikator subskrypcji** w polu **AZ login** Output for the Subscription do symbolu zastępczego identyfikatora subskrypcji.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-a-postgresql-flexible-server-in-a-new-virtual-network"></a>Utwórz serwer elastyczny PostgreSQL w nowej sieci wirtualnej
@@ -68,14 +69,21 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
 
+## <a name="create-subnet-for-app-service-endpoint"></a>Utwórz podsieć dla punktu końcowego App Service
+Teraz musimy mieć podsieć delegowaną do punktu końcowego App Service aplikacji sieci Web. Uruchom następujące polecenie, aby utworzyć nową podsieć w tej samej sieci wirtualnej, w której został utworzony serwer bazy danych. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Zanotuj nazwę sieci wirtualnej i nazwę podsieci po tym poleceniu, aby było konieczne dodanie reguły integracji sieci wirtualnej po jej utworzeniu. 
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
-W tej sekcji utworzysz hosta aplikacji w aplikacji App Service, Połącz tę aplikację z bazą danych Postgres, a następnie wdróż swój kod na tym hoście. Upewnij się, że jesteś w katalogu głównym repozytorium kodu aplikacji w terminalu.
+W tej sekcji utworzysz hosta aplikacji w aplikacji App Service, Połącz tę aplikację z bazą danych Postgres, a następnie wdróż swój kod na tym hoście. Upewnij się, że jesteś w katalogu głównym repozytorium kodu aplikacji w terminalu. Uwaga podstawowa plan nie obsługuje integracji z siecią wirtualną. Użyj standardu lub Premium. 
 
 Tworzenie aplikacji App Service (proces hosta) za pomocą polecenia AZ webapp up
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
@@ -85,7 +93,6 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 
 - Utwórz grupę zasobów, jeśli jeszcze nie istnieje. (W tym poleceniu zostanie użyta ta sama Grupa zasobów, w której wcześniej została utworzona baza danych).
-- Utwórz plan App Service ```testappserviceplan``` w warstwie cenowej Basic (B1), jeśli nie istnieje. --jednostki SKU są opcjonalne.
 - Utwórz aplikację App Service, jeśli nie istnieje.
 - Włącz domyślne rejestrowanie dla aplikacji, jeśli nie została jeszcze włączona.
 - Przekaż repozytorium przy użyciu wdrożenia ZIP z włączonym automatyzacją kompilacji.
@@ -94,7 +101,7 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 Użyj polecenia **AZ webapp VNET-Integration** , aby dodać integrację regionalnej sieci wirtualnej do WEBAPP. Zastąp <nazwę sieci wirtualnej> i <nazwę podsieci> z siecią wirtualną i nazwą podsieci, z której korzysta serwer elastyczny.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## <a name="configure-environment-variables-to-connect-the-database"></a>Konfigurowanie zmiennych środowiskowych w celu nawiązania połączenia z bazą danych

@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 70d0fc456b3697e3c74a5ec45cc936a02b77e591
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210209"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657658"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Trenowanie modelu Vowpal Wabbit
 W tym artykule opisano sposób używania modułu **uczenie Vowpal Wabbit** w programie Azure Machine Learning Designer do tworzenia modelu uczenia maszynowego przy użyciu Vowpal Wabbit.  
@@ -91,6 +91,13 @@ Vowpal Wabbit obsługuje szkolenia przyrostowe przez dodanie nowych danych do is
 
 6. Prześlij potok.  
 7. Wybierz moduł i wybierz kolejno pozycje **zarejestruj zestaw danych** na karcie dane **wyjściowe + dzienniki** w okienku po prawej stronie, aby zachować zaktualizowany model w obszarze roboczym Azure Machine Learning.  Jeśli nie określisz nowej nazwy, zaktualizowany model zastąpi istniejący zapisany model.
+
+## <a name="results"></a>Wyniki
+
++ Aby wygenerować wyniki z modelu, użyj [Vowpal oceny Wabbit model](score-vowpal-wabbit-model.md).
+
+> [!NOTE]
+> Jeśli musisz wdrożyć szkolony model w projektancie, upewnij się, że [model oceny Vowpal Wabbit](score-vowpal-wabbit-model.md) zamiast **modelu oceny** jest połączony z danymi wejściowymi [modułu danych wyjściowych usługi sieci Web](web-service-input-output.md) w potoku wnioskowania.
 
 ## <a name="technical-notes"></a>Uwagi techniczne
 

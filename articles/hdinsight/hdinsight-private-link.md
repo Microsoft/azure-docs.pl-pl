@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939359"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)

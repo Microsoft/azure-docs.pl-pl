@@ -1,5 +1,5 @@
 ---
-title: Omówienie autonomicznej Micro Agent
+title: Omówienie autonomicznej Micro Agent (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Agenci zabezpieczeń usługi Azure Defender for IoT mogą tworzyć zabezpieczenia bezpośrednio na nowych urządzeniach IoT i projektach usługi Azure IoT.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/19/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a3f71860801c7f611a10acd4ec4e8f8ed03ab20a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 84afa4205b57481efc3ed9df805cfa7a3657a6c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120083"
 ---
-# <a name="standalone-micro-agent-overview"></a>Omówienie autonomicznej Micro Agent 
+# <a name="standalone-micro-agent-overview-preview"></a>Omówienie autonomicznej Micro Agent (wersja zapoznawcza)
 
 Bezpieczeństwo jest niemal uniwersalnym zagadnieniem dla realizatorów IoT. Urządzenia IoT mają unikatowe potrzeby w zakresie monitorowania punktów końcowych, zarządzania stan zabezpieczeń i wykrywania zagrożeń — wszystko to w przypadku wysoce konkretnych wymagań dotyczących wydajności. 
 
@@ -47,4 +47,4 @@ Usługa Azure Defender dla programu IoT Micro jest łatwa do wdrożenia i ma min
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sprawdź [metody uwierzytelniania Micro Agent ](concept-security-agent-authentication.md).
+Sprawdź [metody uwierzytelniania Micro Agent (wersja zapoznawcza)](concept-security-agent-authentication.md).

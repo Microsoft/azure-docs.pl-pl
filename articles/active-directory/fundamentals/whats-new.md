@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633431"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592969"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -79,7 +79,7 @@ Przekazywanie dostępu tymczasowego to ograniczone przez czas kod dostępu, któ
 **Kategoria usługi:** B2C — Zarządzanie tożsamościami konsumentów  
 **Możliwość produktu:** B2B/B2C
 
-Kolejna generacja przepływów użytkowników usługi B2C obsługuje teraz funkcję [Keep ja in (KMSI)](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) , która umożliwia klientom zwiększenie okresu istnienia sesji dla użytkowników aplikacji internetowych i natywnych przy użyciu trwałego pliku cookie.  Funkcja utrzymuje aktywną sesję nawet wtedy, gdy użytkownik zamknie i ponownie otworzy przeglądarkę i zostanie odwołany, gdy użytkownik wyloguje się.
+Kolejna generacja przepływów użytkowników usługi B2C obsługuje teraz funkcję [Keep ja in (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) , która umożliwia klientom zwiększenie okresu istnienia sesji dla użytkowników aplikacji internetowych i natywnych przy użyciu trwałego pliku cookie.  Funkcja utrzymuje aktywną sesję nawet wtedy, gdy użytkownik zamknie i ponownie otworzy przeglądarkę i zostanie odwołany, gdy użytkownik wyloguje się.
 
 ---
 
@@ -109,7 +109,7 @@ Klienci mogą teraz ponownie zapraszać istniejących użytkowników zewnętrzny
 **Kategoria usługi:** Inicjowanie obsługi aplikacji  
 **Możliwość produktu:** Zarządzanie cyklem życia tożsamości
  
-Klienci mogą teraz używać aplikacji Application. ReadWrite. ownedby jako uprawnienia aplikacji do wywoływania interfejsów API synchronizacji. Należy pamiętać, że jest to obsługiwane tylko w przypadku inicjowania obsługi administracyjnej z usługi Azure AD do aplikacji innych firm (na przykład AWS, kostki danych itp.). Nie jest to obecnie obsługiwane w przypadku udostępniania HR (Workday/SuccessFactors) ani synchronizacji z chmurą (AD do usługi Azure AD). [Dowiedz się więcej](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Klienci mogą teraz używać aplikacji Application. ReadWrite. ownedby jako uprawnienia aplikacji do wywoływania interfejsów API synchronizacji. Należy pamiętać, że jest to obsługiwane tylko w przypadku inicjowania obsługi administracyjnej z usługi Azure AD do aplikacji innych firm (na przykład AWS, kostki danych itp.). Nie jest to obecnie obsługiwane w przypadku udostępniania HR (Workday/SuccessFactors) ani synchronizacji z chmurą (AD do usługi Azure AD). [Dowiedz się więcej](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
 ---
 
@@ -199,7 +199,7 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 - [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
 - [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
 
-Aby uzyskać więcej informacji, zapoznaj się [z automatyzacją aprowizacji użytkowników, aby SaaS aplikacje za pomocą usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Aby uzyskać więcej informacji, zapoznaj się [z automatyzacją aprowizacji użytkowników, aby SaaS aplikacje za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -209,7 +209,7 @@ Aby uzyskać więcej informacji, zapoznaj się [z automatyzacją aprowizacji uż
 **Kategoria usługi:** RBAC  
 **Możliwość produktu:** Access Control
  
-10 wbudowanych ról usługi Azure AD zmieniono nazwy, aby były wyrównane do [Centrum administracyjnego Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [portalu usługi Azure AD](https://portal.azure.com/)i [Microsoft Graph](https://developer.microsoft.com/graph/). Aby dowiedzieć się więcej o nowych rolach, zapoznaj się z [uprawnieniami roli administrator w Azure Active Directory](../roles/permissions-reference.md#all-roles).
+10 wbudowanych ról usługi Azure AD zmieniono nazwy, aby były wyrównane do [Centrum administracyjnego Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), [portalu usługi Azure AD](https://portal.azure.com/)i [Microsoft Graph](https://developer.microsoft.com/graph/). Aby dowiedzieć się więcej o nowych rolach, zapoznaj się z [uprawnieniami roli administrator w Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
 ![Tabela przedstawiająca nazwy ról w usłudze MS interfejs API programu Graph i Azure Portal oraz proponowaną nazwę ostateczną w interfejsach API, Azure Portal i Mac.](media/whats-new/roles-table-rbac.png)
 
@@ -270,20 +270,20 @@ Klienci mogą obejść ten wymóg na potrzeby testowania przy użyciu flagi funk
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>Publiczna wersja zapoznawcza — Dostosowywanie i Konfigurowanie urządzeń udostępnionych z systemem Android dla procesów roboczych Firstline na dużą skalę
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Publiczna wersja zapoznawcza — Dostosowywanie i Konfigurowanie urządzeń udostępnionych z systemem Android dla procesów roboczych teraźniejszości na dużą skalę
 
 **Typ:** Nowa funkcja  
 **Kategoria usługi:** Rejestrowanie urządzeń i zarządzanie nimi  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
  
-Zespoły usługi Azure AD i Microsoft Endpoint Manager łączą się z możliwością dostosowywania, skalowania i zabezpieczania urządzeń roboczych Firstline.
+Zespoły usługi Azure AD i Microsoft Endpoint Manager łączą się z możliwością dostosowywania, skalowania i zabezpieczania urządzeń roboczych teraźniejszości.
 
 Poniższe funkcje w wersji zapoznawczej umożliwią:
 - Udostępnianie udostępnionych urządzeń z systemem Android na dużą skalę przy użyciu programu Microsoft Endpoint Manager
 - Zabezpiecz swój dostęp dla pracowników przenoszonych przy użyciu dostępu warunkowego opartego na urządzeniach
 - Dostosuj środowisko logowania dla pracowników przesunięć z zarządzanym ekranem głównym
 
-Aby dowiedzieć się więcej, zapoznaj się z tematem [Dostosowywanie i Konfigurowanie udostępnionych urządzeń dla Firstlineych procesów roboczych na dużą skalę](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+Aby dowiedzieć się więcej, zapoznaj się z tematem [Dostosowywanie i Konfigurowanie udostępnionych urządzeń dla teraźniejszościych procesów roboczych na dużą skalę](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 

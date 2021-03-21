@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
 ms.openlocfilehash: 353a934842fd872d48d091f1df1b6d94ac4599ff
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663438"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
@@ -76,7 +76,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     Uzyskaj dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji platformy .NET Core. Dwukropek ( `:` ) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Aby uzyskać więcej informacji, zobacz [klucze konfiguracji i wartości](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. W *program.cs* Dodaj odwołanie do przestrzeni nazw interfejsu API konfiguracji platformy .NET Core:
+1. W programie *program. cs* Dodaj odwołanie do przestrzeni nazw interfejsu API konfiguracji platformy .NET Core:
 
     ```csharp
     using Microsoft.Extensions.Configuration;

@@ -9,10 +9,10 @@ ms.date: 03/15/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 6a85bfe7b3390b32fc220000b0c710b5a4e35067
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496494"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
@@ -59,7 +59,7 @@ Na Azure Monitor można uzyskać dostęp do następujących informacji:
     - Dane przetwarzane przez usługę linku prywatnego (WE/wychodzącym)
     - Dostępność portów NAT  
  
-## <a name="pricing"></a>Cennik   
+## <a name="pricing"></a>Ceny   
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
  
 ## <a name="faqs"></a>Często zadawane pytania  
