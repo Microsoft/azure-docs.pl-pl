@@ -4,12 +4,12 @@ description: Dowiedz się, jak instrumentować Azure Batch aplikację .NET przy 
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933566"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605787"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorowanie i debugowanie Azure Batch aplikacji .NET z Application Insights
 
@@ -30,9 +30,9 @@ Przykładowe rozwiązanie w języku C# z kodem, który jest dołączony do tego 
 
 * [Zasób usługi Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Użyj Azure Portal, aby utworzyć *zasób*Application Insights. Wybierz **Typ aplikacji** *Ogólne* .
+   * Użyj Azure Portal, aby utworzyć *zasób* Application Insights. Wybierz **Typ aplikacji** *Ogólne* .
 
-   * Skopiuj [klucz Instrumentacji](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) z portalu. Jest to wymagane w dalszej części tego artykułu.
+   * Skopiuj [klucz Instrumentacji](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) z portalu. Jest to wymagane w dalszej części tego artykułu.
   
   > [!NOTE]
   > Za dane przechowywane w Application Insights mogą być [naliczone opłaty](https://azure.microsoft.com/pricing/details/application-insights/) . Obejmuje to dane diagnostyczne i monitorowania omówione w tym artykule.
@@ -54,9 +54,9 @@ Aby instrumentować kod, Twoje rozwiązanie musi utworzyć Application Insights 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
-Dodaj również klucz Instrumentacji w pliku TopNWords.cs.
+Dodaj również klucz Instrumentacji w pliku przykładzie topnwords. cs.
 
-W przykładzie w TopNWords.cs są wykorzystywane następujące [wywołania Instrumentacji](../azure-monitor/app/api-custom-events-metrics.md) z interfejsu API Application Insights:
+W przykładzie w przykładzie topnwords. cs są stosowane następujące [wywołania Instrumentacji](../azure-monitor/app/api-custom-events-metrics.md) z interfejsu API Application Insights:
 * `TrackMetric()` -Śledzi, jak długo i średnio, węzeł obliczeniowy pobiera wymagany plik tekstowy.
 * `TrackTrace()` — Dodaje wywołania debugowania do kodu.
 * `TrackEvent()` — Śledzi interesujące zdarzenia do przechwycenia.
@@ -177,7 +177,7 @@ Aby włączyć inicjatora telemetrii, plik ApplicationInsights.config w projekci
 
 ## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Aktualizowanie zadania i zadań w celu uwzględnienia Application Insights plików binarnych
 
-Aby Application Insights działały prawidłowo w węzłach obliczeniowych, upewnij się, że pliki binarne są poprawnie umieszczone. Dodaj wymagane pliki binarne do kolekcji plików zasobów zadania, aby były pobierane podczas wykonywania zadania. Poniższe fragmenty kodu przypominają kod w Job.cs.
+Aby Application Insights działały prawidłowo w węzłach obliczeniowych, upewnij się, że pliki binarne są poprawnie umieszczone. Dodaj wymagane pliki binarne do kolekcji plików zasobów zadania, aby były pobierane podczas wykonywania zadania. Poniższe wstawki są podobne do kodu w Job. cs.
 
 Najpierw utwórz statyczną listę plików Application Insights do przekazania.
 
@@ -287,7 +287,7 @@ Aby utworzyć przykładowy wykres:
    * Ustaw **Typ wykresu** na **siatkę**.
    * Ustaw **agregację** na wartość **średnia**.
    * Ustaw wartość **Group by** na **NodeId**.
-   * W obszarze **metryki**wybierz pozycję **niestandardowa**  >  **pobieranie obiektów BLOB w sekundach**.
+   * W obszarze **metryki** wybierz pozycję **niestandardowa**  >  **pobieranie obiektów BLOB w sekundach**.
    * Dostosuj wyświetlaną **paletę kolorów** do wybranej opcji. 
 
 ![Czas pobierania obiektów BLOB na węzeł](./media/monitor-application-insights/blobdownloadtime.png)

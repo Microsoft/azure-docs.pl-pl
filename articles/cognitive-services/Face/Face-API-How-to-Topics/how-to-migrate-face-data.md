@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c8d3c5b10c670e7aa4f1fd00f47ef47e772416cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706864"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrowanie danych własnych do innej subskrypcji programu Marketo
@@ -42,7 +42,7 @@ W tym przewodniku zastosowano prostą aplikację konsolową do uruchomienia migr
 
 ## <a name="create-face-clients"></a>Tworzenie klientów z czołową
 
-W metodzie **Main** w programie *program.cs* Utwórz dwa wystąpienia [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) dla subskrypcji źródłowej i docelowej. W tym przykładzie w regionie Azja Wschodnia jako źródło i zachodnie stany USA jako element docelowy jest stosowana subskrypcja czołowa. W tym przykładzie pokazano, jak migrować dane z jednego regionu świadczenia usługi Azure do innego. 
+W metodzie **Main** w *programie program. cs* Utwórz dwa wystąpienia [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) dla subskrypcji źródłowej i docelowej. W tym przykładzie w regionie Azja Wschodnia jako źródło i zachodnie stany USA jako element docelowy jest stosowana subskrypcja czołowa. W tym przykładzie pokazano, jak migrować dane z jednego regionu świadczenia usługi Azure do innego. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

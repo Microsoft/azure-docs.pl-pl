@@ -78,7 +78,7 @@ Przewodniki z poradnikami zawierają przykłady kodu, które pokazują, jak wyko
 * [Tworzenie konta — interfejs wiersza polecenia](./create-account-howto.md)
 * [Dostęp do interfejsów API — interfejs wiersza polecenia](./access-api-howto.md)
 * [Koduj przy użyciu protokołu HTTPS jako dane wejściowe zadania — .NET](job-input-from-http-how-to.md)  
-* [Monitorowanie zdarzeń — portal](monitor-events-portal-how-to.md)
+* [Monitorowanie zdarzeń — portal](monitoring/monitor-events-portal-how-to.md)
 * [Szyfrowanie dynamiczne za pomocą technologii wielowątkowości platformy .NET](protect-with-drm.md) 
 * [Jak kodować przy użyciu niestandardowego przekształcenia interfejsu wiersza polecenia](custom-preset-cli-howto.md)
 

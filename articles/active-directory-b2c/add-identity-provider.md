@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: dbb2aeefc22fae4a3c83956dd7681b49fc435500
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034000"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Dodawanie dostawcy tożsamości do dzierżawy Azure Active Directory B2C
@@ -44,7 +44,7 @@ W aplikacjach zwykle używany jest tylko jeden dostawca tożsamości, ale można
 * [GitHub](identity-provider-github.md)
 * [ID.me](identity-provider-id-me.md)
 * [Google](identity-provider-google.md)
-* [Usługą](identity-provider-linkedin.md)
+* [LinkedIn](identity-provider-linkedin.md)
 * [Konto Microsoft](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)

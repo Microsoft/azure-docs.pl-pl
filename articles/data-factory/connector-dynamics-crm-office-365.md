@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/08/2021
-ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/17/2021
+ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447439"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597389"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z i do usługi Dynamics 365 (Common Data Service/Microsoft datavers) lub Dynamics CRM przy użyciu Azure Data Factory
 
@@ -323,6 +323,7 @@ Aby skopiować dane do dynamiki, sekcja **ujścia** działania kopiowania obsłu
 | alternateKeyName | Alternatywna nazwa klucza zdefiniowana w jednostce do wykonania upsert. | Nie. |
 | writeBatchSize | Liczba wierszy danych zapisywana w Dynamics w każdej partii. | Nie. Wartość domyślna to 10. |
 | ignoreNullValues | Czy ignorować wartości null z danych wejściowych innych niż pola klucza podczas operacji zapisu.<br/><br/>Prawidłowe wartości to **true** i **false**:<ul><li>**True**: pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.</li><li>**Fałsz**: zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość null po wykonaniu operacji wstawiania.</li></ul> | Nie. Wartość domyślna to **false**. |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 >[!NOTE]
 >Wartość domyślna zarówno dla **writeBatchSize** ujścia, jak i działania copy **[ParallelCopies](copy-activity-performance-features.md#parallel-copy)** dla usługi Dynamics sink to 10. W związku z tym rekordy 100 są jednocześnie przesyłane domyślnie do programu Dynamics.

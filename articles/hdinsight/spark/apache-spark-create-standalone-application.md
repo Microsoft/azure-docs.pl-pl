@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
 ms.openlocfilehash: d2c7c4feca32544a0e15e876c7207c49dee39341
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940517"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ
@@ -22,7 +22,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację Apache Spark napisaną w 
 * Generowanie pliku jar, który można przesłać do klastrów HDInsight Spark.
 * Uruchamianie aplikacji w klastrze Spark przy użyciu usługi Livy.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Instalowanie wtyczki Scala dla środowiska IntelliJ IDEA
 > * Tworzenie aplikacji Scala Maven przy użyciu środowiska IntelliJ

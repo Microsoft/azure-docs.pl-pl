@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 120bec65c92e2a13022682265b83bfe0f69d8ed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692270"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592092"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +33,10 @@ Podczas planowania konfigurowania wieloregionowego konta Azure Cosmos DB z obsł
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Czy mogę włączyć link usługi Azure Synapse tylko dla pewnego regionu, a nie wszystkich regionów w konfiguracji konta wieloregionowego?
 
 Po włączeniu linku Azure Synapse dla konta wieloregionowego magazyn analityczny jest tworzony we wszystkich regionach. Dane podstawowe są zoptymalizowane pod kątem przepływności i spójności transakcyjnej w magazynie transakcyjnym.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>Czy magazyn analityczny jest obsługiwany przez wszystkie Azure Cosmos DBe regiony?
+
+Tak.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Czy funkcja tworzenia kopii zapasowych i przywracania jest obsługiwana dla kont usługi Azure Synapse link?
 
@@ -165,6 +169,10 @@ Obecnie ta funkcja jest niedostępna.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>Czy można wykonać transmisję strukturalną platformy Spark z magazynu analitycznego?
 
 Obecnie obsługa przesyłania strumieniowego platformy Spark dla Azure Cosmos DB jest implementowana przy użyciu funkcji źródła zmian w magazynie transakcyjnym i nie jest jeszcze obsługiwana w przypadku magazynu analitycznego.
+
+### <a name="is-streaming-supported"></a>Czy przesyłanie strumieniowe jest obsługiwane?
+
+Nie obsługujemy przesyłania strumieniowego danych z magazynu analitycznego.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

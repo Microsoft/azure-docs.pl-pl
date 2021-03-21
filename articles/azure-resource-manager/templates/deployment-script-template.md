@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/18/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175655"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594246"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -162,11 +162,11 @@ Szczegóły wartości właściwości:
   > [!NOTE]
   > Azure Portal nie może przeanalizować skryptu wdrożenia z wieloma wierszami. Aby wdrożyć szablon ze skryptem wdrażania z Azure Portal, można połączyć polecenia programu PowerShell za pomocą średników w jeden wiersz lub użyć `primaryScriptUri` właściwości z zewnętrznym plikiem skryptu.
 
-- `primaryScriptUri`: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrożenia z obsługiwanymi rozszerzeniami plików.
-- `supportingScriptUris`: Określ tablicę dostępnych publicznie adresów URL do obsługi plików, które są wywoływane w `scriptContent` lub `primaryScriptUri` .
+- `primaryScriptUri`: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrożenia z obsługiwanymi rozszerzeniami plików. Aby uzyskać więcej informacji, zobacz [Korzystanie ze skryptów zewnętrznych](#use-external-scripts).
+- `supportingScriptUris`: Określ tablicę dostępnych publicznie adresów URL do obsługi plików, które są wywoływane w `scriptContent` lub `primaryScriptUri` . Aby uzyskać więcej informacji, zobacz [Korzystanie ze skryptów zewnętrznych](#use-external-scripts).
 - `timeout`: Określ maksymalny dozwolony czas wykonywania skryptu określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość domyślna to **P1D**.
 - `cleanupPreference`. Określ preferencję oczyszczania zasobów wdrożenia, gdy wykonywanie skryptu jest odbierane w stanie terminalu. Ustawieniem domyślnym jest **zawsze**, co oznacza usunięcie zasobów pomimo stanu terminalu (zakończone powodzeniem, zakończone niepowodzeniem, anulowane). Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
-- `retentionInterval`: Określ interwał przechowywania zasobów skryptu wdrożenia przez usługę po osiągnięciu przez wykonanie skryptu wdrożenia stanu terminalu. Zasoby skryptu wdrażania zostaną usunięte po upływie tego czasu trwania. Czas trwania zależy od [wzorca ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Interwał przechowywania jest z przedziału od 1 do 26 godzin (PT26H). Ta właściwość jest używana `cleanupPreference` , gdy jest ustawiona na **onwygaśnięcia**. Właściwość **onwygaśnięcia** nie jest obecnie włączona. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
+- `retentionInterval`: Określ interwał przechowywania zasobów skryptu wdrożenia przez usługę po osiągnięciu przez wykonanie skryptu wdrożenia stanu terminalu. Zasoby skryptu wdrażania zostaną usunięte po upływie tego czasu trwania. Czas trwania zależy od [wzorca ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Interwał przechowywania jest z przedziału od 1 do 26 godzin (PT26H). Ta właściwość jest używana `cleanupPreference` , gdy jest ustawiona na **onwygaśnięcia**. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Dodatkowe przykłady
 
@@ -212,7 +212,7 @@ Oprócz skryptów wbudowanych można również używać zewnętrznych plików sk
 
 Aby uzyskać więcej informacji, zobacz [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Pliki skryptów zewnętrznych muszą być dostępne. Aby zabezpieczyć pliki skryptów, które są przechowywane na kontach usługi Azure Storage, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](./secure-template-with-sas-token.md).
+Pliki skryptów zewnętrznych muszą być dostępne. Aby zabezpieczyć pliki skryptów, które są przechowywane na kontach usługi Azure Storage, wygeneruj token sygnatury dostępu współdzielonego i umieść go w identyfikatorze URI dla szablonu. Ustaw czas wygaśnięcia, aby zapewnić wystarczającą ilość czasu na ukończenie wdrożenia. Aby uzyskać więcej informacji, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](./secure-template-with-sas-token.md).
 
 Użytkownik jest odpowiedzialny za zapewnienie integralności skryptów, do których odwołuje się skrypt wdrażania, `primaryScriptUri` lub `supportingScriptUris` . Odwołuj się tylko do skryptów zaufanych.
 
@@ -313,7 +313,7 @@ Usługa skryptów ustawia stan aprowizacji zasobów na **Niepowodzenie** , gdy s
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Przekaż zabezpieczone ciągi do skryptu wdrażania
 
-Ustawienie zmiennych środowiskowych (zmiennych środowiskowych) w wystąpieniach kontenera pozwala na zapewnienie dynamicznej konfiguracji aplikacji lub skryptu uruchamianego przez kontener. Skrypt wdrażania obsługuje niezabezpieczone i zabezpieczone zmienne środowiskowe w taki sam sposób, jak wystąpienie kontenera platformy Azure. Aby uzyskać więcej informacji, zobacz [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](../../container-instances/container-instances-environment-variables.md#secure-values).
+Ustawienie zmiennych środowiskowych (zmiennych środowiskowych) w wystąpieniach kontenera pozwala na zapewnienie dynamicznej konfiguracji aplikacji lub skryptu uruchamianego przez kontener. Skrypt wdrażania obsługuje niezabezpieczone i zabezpieczone zmienne środowiskowe w taki sam sposób, jak wystąpienie kontenera platformy Azure. Aby uzyskać więcej informacji, zobacz [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](../../container-instances/container-instances-environment-variables.md#secure-values). Aby zapoznać się z przykładem, zobacz [przykładowe szablony](#sample-templates).
 
 Maksymalny dozwolony rozmiar zmiennych środowiskowych to 64 KB.
 

@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564224"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593207"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -247,7 +247,7 @@ W przypadku Azure File Sync nie należy używać innych rozwiązań modułu HSM.
 
 Ponieważ agent Azure File Sync działa na komputerze z systemem Windows Server, który nawiązuje połączenie z udziałami plików platformy Azure, efektywna wydajność synchronizacji zależy od wielu czynników w infrastrukturze: system Windows Server i podstawowa Konfiguracja dysku, przepustowość sieci między serwerem a magazynem platformy Azure, rozmiar pliku, całkowity rozmiar zestawu danych i działanie w zestawie danych. Ponieważ Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na Azure File Sync jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetworzonych na sekundę.
 
-Zmiany wprowadzone w udziale plików platformy Azure przy użyciu Azure Portal lub protokołu SMB nie są natychmiast wykrywane i replikowane, podobnie jak zmiany w punkcie końcowym serwera. Azure Files nie ma jeszcze powiadomień o zmianach ani rejestrowania, dlatego nie ma możliwości automatycznego inicjowania sesji synchronizacji w przypadku zmiany plików. W systemie Windows Server Azure File Sync używa [rejestrowania numerów USN systemu Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) , aby automatycznie inicjować sesję synchronizacji po zmianie plików
+Zmiany wprowadzone w udziale plików platformy Azure przy użyciu Azure Portal lub protokołu SMB nie są natychmiast wykrywane i replikowane, podobnie jak zmiany w punkcie końcowym serwera. Azure Files nie ma jeszcze powiadomień o zmianach ani rejestrowania, dlatego nie ma możliwości automatycznego inicjowania sesji synchronizacji w przypadku zmiany plików. W systemie Windows Server Azure File Sync używa [rejestrowania numerów USN systemu Windows](/windows/win32/fileio/change-journals) , aby automatycznie inicjować sesję synchronizacji po zmianie plików
 
 Aby wykryć zmiany w udziale plików platformy Azure, Azure File Sync ma zaplanowane zadanie o nazwie zadanie wykrywania zmian. Zadanie wykrywania zmian wylicza każdy plik w udziale plików, a następnie porównuje go z wersją synchronizacji dla tego pliku. Gdy zadanie wykrywania zmian określi, że pliki uległy zmianie, Azure File Sync inicjuje sesję synchronizacji. Zadanie wykrywania zmian jest inicjowane co 24 godziny. Ponieważ zadanie wykrywania zmian działa przez wyliczenie wszystkich plików w udziale plików platformy Azure, wykrywanie zmian trwa dłużej w większych przestrzeniach nazw niż w mniejszych przestrzeniach nazw. W przypadku dużych przestrzeni nazw może upłynąć więcej niż co 24 godziny, aby określić, które pliki uległy zmianie.
 
@@ -261,7 +261,7 @@ Mimo że zmiany wprowadzone bezpośrednio do udziału plików platformy Azure pr
 > [!Important]  
 > Do pomyślnego wdrożenia Azure File Sync domeny dołączenia do konta magazynu Active Directory nie jest wymagane. Jest to ściśle opcjonalny krok umożliwiający udział plików platformy Azure wymuszanie lokalnych list ACL, gdy użytkownicy instalują udział plików platformy Azure bezpośrednio.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Agent Azure File Sync komunikuje się z usługą synchronizacji magazynu i udziałem plików platformy Azure przy użyciu protokołu REST Azure File Sync i protokołu FileREST, z których korzystają zawsze protokół HTTPS przez port 443. Protokół SMB nie jest nigdy używany do przekazywania ani pobierania danych między serwerem Windows i udziałem plików platformy Azure. Ponieważ większość organizacji zezwala na ruch HTTPS na porcie 443, ponieważ wymaga to odwiedzania większości witryn sieci Web, specjalna konfiguracja sieci zwykle nie jest wymagana do wdrażania Azure File Sync.
 
 Zgodnie z zasadami organizacji lub unikatowymi wymaganiami prawnymi może być wymagana bardziej restrykcyjna komunikacja z platformą Azure, dlatego Azure File Sync udostępnia kilka mechanizmów konfigurowania sieci. Na podstawie Twoich wymagań można:

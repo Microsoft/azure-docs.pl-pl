@@ -9,10 +9,10 @@ ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99820232"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Samouczek: przenoszenie zasobów Azure SQL Database do innego regionu
@@ -22,7 +22,7 @@ W tym samouczku dowiesz się, jak przenieść bazy danych SQL Azure i pule elast
 > [!NOTE]
 > Usługa przenoszenia zasobów platformy Azure jest obecnie dostępna w wersji zapoznawczej.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne i wymagania.

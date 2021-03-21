@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/17/2021
 ms.author: banders
-ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c666602f764e8274cb2a30df204e97479c85ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050345"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583058"
 ---
 # <a name="view-azure-reservations"></a>Wyświetlanie rezerwacji platformy Azure
 
@@ -39,7 +39,7 @@ Jeśli chcesz umożliwić innym osobom zarządzanie rezerwacjami, masz dwie moż
     1. Wybierz użytkownika, a następnie wybierz polecenie **Zapisz**.
 
 - Dodaj użytkownika jako administratora rozliczeń do umowy Enterprise Agreement lub umowy klienta firmy Microsoft:
-    - W przypadku umowy Enterprise Agreement dodaj użytkowników z rolą _Administrator przedsiębiorstwa_, aby wyświetlać wszystkie zamówienia rezerwacji dotyczące umowy Enterprise Agreement i zarządzać nimi. Użytkownicy z rolą _Administrator przedsiębiorstwa (tylko do odczytu_) mogą jedynie wyświetlać rezerwację. Administratorzy działu i właściciele kont nie mogą wyświetlać rezerwacji, _o ile_ nie zostali do nich jawnie dodani przy użyciu funkcji kontroli dostępu (IAM). Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami w usłudze Azure Enterprise](../manage/understand-ea-roles.md).
+    - W przypadku umowy Enterprise Agreement dodaj użytkowników z rolą _Administrator przedsiębiorstwa_, aby wyświetlać wszystkie zamówienia rezerwacji dotyczące umowy Enterprise Agreement i zarządzać nimi. Administratorzy przedsiębiorstwa wyświetlają rezerwacje i zarządzają nimi w ramach **Cost Management i rozliczeń**, a nie **rezerwacji**. Użytkownicy z rolą _Administrator przedsiębiorstwa (tylko do odczytu_) mogą jedynie wyświetlać rezerwację. Administratorzy działu i właściciele kont nie mogą wyświetlać rezerwacji, _o ile_ nie zostali do nich jawnie dodani przy użyciu funkcji kontroli dostępu (IAM). Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami w usłudze Azure Enterprise](../manage/understand-ea-roles.md).
 
         _Administratorzy przedsiębiorstwa mogą przejąć na własność zamówienie rezerwacji i dodać do rezerwacji innych użytkowników przy użyciu funkcji kontroli dostępu (IAM)._
     - W przypadku umowy klienta firmy Microsoft użytkownicy z rolą właściciela profilu rozliczeniowego lub współautora profilu rozliczeniowego mogą zarządzać wszystkimi zakupami rezerwacji dokonanymi przy użyciu profilu rozliczeniowego. Czytelnicy profilów rozliczeniowych i menedżerowie faktur mogą wyświetlać wszystkie rezerwacje opłacane za pomocą profilu rozliczeniowego. Jednak nie mogą wprowadzać zmian w rezerwacjach.

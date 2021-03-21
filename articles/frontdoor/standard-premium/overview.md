@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030549"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
@@ -73,7 +73,7 @@ Najważniejsze funkcje dostępne w przypadku platformy Azure Front-Standard/Prem
 
 - Natywna obsługa łączności z kompleksowym protokołem IPv6 i protokołu HTTP/2.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Platforma Azure Front-Standard/Premium ma dwie jednostki SKU, standard i Premium. Zobacz [porównanie warstw](tier-comparison.md). Aby uzyskać informacje o cenach, zobacz [cennik usługi Front Door](https://azure.microsoft.com/pricing/details/frontdoor/). 
 

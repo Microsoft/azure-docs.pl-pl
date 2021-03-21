@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/12/2021
-ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 3/17/2021
+ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225068"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593394"
 ---
 # <a name="co-sell-requirements"></a>Wymagania dotyczące wspólnych transakcji
 
-Ten artykuł zawiera wymagania dotyczące różnych poziomów współsprzedażowych. Aby uzyskać najnowszą listę typów ofert, które obsługują wspólną sprzedaż, zobacz  [Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace](commercial-marketplace-co-sell.md). Aby zapoznać się z omówieniem współpracy, zobacz artykuł [współpraca z zespołami sprzedaży firmy Microsoft i partnerami](marketplace-co-sell.md).
+Ten artykuł zawiera wymagania dotyczące różnych poziomów współsprzedażowych. Aby uzyskać najnowszą listę typów ofert, które obsługują wspólną sprzedaż, zobacz  [Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace](co-sell-configure.md). Aby zapoznać się z omówieniem współpracy, zobacz artykuł [współpraca z zespołami sprzedaży firmy Microsoft i partnerami](co-sell-overview.md).
 
 W tej tabeli przedstawiono wszystkie możliwe stany współsprzedażowe:
 
@@ -25,7 +26,7 @@ W tej tabeli przedstawiono wszystkie możliwe stany współsprzedażowe:
 | Nie Współpracuj gotowy | Nie spełniono minimalnych [wymagań dotyczących stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) . |
 | Gotowe do rozłożenia | Wszystkie [wymagania dotyczące stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) zostały spełnione. |
 | Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](#requirements-for-azure-ip-co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
-| BIZ Apps ISV Connect Premium  | Ten stan ma zastosowanie do oferty Dynamics 365 i usługi dla aplikacji zaawansowanych i wskazuje, że spełniono wszystkie [wymagania dotyczące tego stanu](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
+| Business Applications współsprzedaż zachęcani | Ten stan dotyczy ofert Dynamics 365 i usługi dla aplikacji zaawansowanych w programie [Microsoft Business Applications ISV Connect](business-applications-isv-program.md) i wskazuje, że zostały spełnione wszystkie [wymagania dotyczące tego stanu](#requirements-for-business-applications-co-sell-incentivized-status) . |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Wymagania w zakresie przygotowania do współdziałania
@@ -37,15 +38,15 @@ Aby uzyskać ofertę osiągnięcia stanu gotowości do sprzedaży, musisz spełn
 - Mieć identyfikator MPN i aktywne [komercyjne konto portalu Marketplace w centrum partnerskim](./partner-center-portal/create-account.md).
 - Upewnij się, że masz pełny [profil biznesowy](/partner-center/create-a-marketing-profile) w centrum partnerskim. Jako uprawniony partner firmy Microsoft Twój profil biznesowy pomaga klientom, którzy poszukują Twoich unikatowych rozwiązań i wiedzą, w zakresie zaspokajania potrzeb firmy, co wynika z [odwołań](/partner-center/referrals).
 - Ukończ **sprzedawanie z kartami firmy Microsoft** i Opublikuj ofertę na komercyjnym rynku.
-- Podaj kontakt sprzedaży dla każdej sprzedawanej lokalizacji geograficznej i wymaganego zestawienia materiałów)
+- Podaj kontakt dotyczący sprzedaży dla każdej sprzedawanej lokalizacji geograficznej i wymaganego BOM.
 
 **Partnerzy usług**:
 
 - W przypadku ofert typu _rozwiązanie usługi_ należy mieć aktywną kompetencję Gold w dowolnym obszarze kompetencji.
- 
+
 **Business Applications niezależnych dostawców oprogramowania**:
 
-- Dynamics 365 Customer Engagement & PowerApps i Dynamics 365 finanse & Ops (z wyjątkiem Dynamics 365 Business Central), a rozwiązania PowerApps wymagają rejestracji niezależnego dostawcy oprogramowania.
+- Rozwiązania Dynamics 365 & PowerApps (z wyjątkiem rozwiązań Dynamics 365 Business Central) wymagają rejestracji niezależnego dostawcy oprogramowania.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Ukończ sprzedawanie z kartami firmy Microsoft
 
@@ -82,13 +83,9 @@ Wymaganie 2 — Przekaż weryfikację techniczną firmy Microsoft do rozwiązani
 Wymaganie 3 — udostępnianie diagramu architektury referencyjnej:
 - Zapoznaj się z diagramem architektury referencyjnej zawierającym dokumenty towarzyszące w centrum partnerskim do przeglądu. Aby uzyskać wskazówki dotyczące tworzenia tego diagramu, zobacz [diagram architektury referencyjnej](reference-architecture-diagram.md). Aby uzyskać informacje o przekazywaniu diagramu, zobacz sekcję [Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace](commercial-marketplace-co-sell.md).
 
-## <a name="requirements-for-biz-apps-isv-connect-premium-incentive-status"></a>Wymagania dotyczące usługi BIZ Apps ISV Połącz stan zachęty Premium
+## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Wymagania dotyczące Business Applications zachęcani współsprzedażu
 
-Ten stan dotyczy rozwiązań opartych na protokole IP, aplikacji i usług wbudowanych w Dynamics 365 lub aplikacjach zaawansowanych.
-
-Nie musisz osiągać stanu gotowości do zakupu (wymienionego powyżej), aby uzyskać BIZ aplikacje dostawcy niezależnego oprogramowania do nawiązywania połączenia. Jednak po osiągnięciu przez aplikację stanu gotowości do realizacji należy wziąć pod uwagę, że aplikacje BIZ Apps ISV łączą się ze stanem oferty Premium w oparciu o ubiegłe 12 miesięcy udział w udziale i wyniki współsprzedażowych/progów.
-
-Wymaganie — wymagana jest aktywna Rejestracja w warstwie Premium programu [ISV Connect](business-applications-isv-program.md) .
+Ten stan dotyczy rozwiązań opartych na protokole IP, które są oparte na usłudze Dynamics 365 lub aplikacjach zaawansowanych (z wyjątkiem programu Dynamics 365 Business Central), które są rejestrowane w programie do łączenia ISV. Jednak w ofertach musi być również wymagane spełnienie stanu gotowego do sprzedaży (opisanego powyżej) w celu umożliwienia sprzedawcy firmy Microsoft współsprzedaży oferty.
 
 ## <a name="next-steps"></a>Następne kroki
 

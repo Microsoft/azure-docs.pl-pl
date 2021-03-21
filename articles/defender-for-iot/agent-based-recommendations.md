@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/16/2021
 ms.author: shhazam
 ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491269"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Zalecenia dotyczące zabezpieczeń urządzeń IoT

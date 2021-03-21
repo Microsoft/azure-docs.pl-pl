@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: 935d0149a4a6b33c5272e57aab5f1cc9c3bb2924
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100519851"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w Azure AI Gallery
@@ -124,7 +124,7 @@ Możesz zmienić dowolne z poniższych informacji dla eksperymentu bezpośrednio
 * Nazwa eksperymentu
 * Podsumowanie lub opis
 * Tagi
-* Image (Obraz)
+* Obraz
 * Ustawienie widoczności (**publiczne** lub **nieznajdujące** się na liście)
 
 Możesz również usunąć eksperyment z galerii.

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
 ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047183"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
@@ -47,7 +47,7 @@ Gdy zakres zapytania jest obszarem roboczym Log Analytics lub aplikacją Applica
 Nie można użyć następujących poleceń w zapytaniu w zakresie zasobu, ponieważ zakres zapytania obejmuje już wszystkie obszary robocze zawierające dane dla tego zasobu lub zestawu zasobów:
 
 - [aplikacje](../logs/app-expression.md)
-- [obszar roboczy](../logs/workspace-expression.md)
+- [obszary](../logs/workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>Limity zakresu zapytania

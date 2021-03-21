@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718832"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Samouczek: Ocena maszyn wirtualnych VMware pod kątem migracji do wersji zaautomatycznej
@@ -20,7 +20,7 @@ W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, 
 
 W tym artykule opisano sposób oceny odnalezionych maszyn wirtualnych VMware na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja) za pomocą narzędzia do oceny serwera, Azure Migrate:. Automatyczna synchronizacja to usługa zarządzana, która umożliwia uruchamianie platformy VMware na platformie Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 - Uruchom ocenę na podstawie metadanych maszyn i informacji o konfiguracji.
 - Uruchom ocenę na podstawie danych wydajności.

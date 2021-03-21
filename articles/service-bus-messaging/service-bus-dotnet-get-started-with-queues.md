@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631644"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (.NET)
@@ -38,7 +38,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Dodawanie kodu w celu wysyłania komunikatów do kolejki
 
-1. W *program.cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
+1. W programie *program. cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
 
     ```csharp
     using System;
@@ -271,5 +271,5 @@ Ponownie sprawdź Portal.
 Zapoznaj się z poniższą dokumentacją i przykładami:
 
 - [Azure Service Busa Biblioteka kliencka dla platformy .NET — plik Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
-- [Przykłady w serwisie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [Przykłady w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [Dokumentacja interfejsów API platformy .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

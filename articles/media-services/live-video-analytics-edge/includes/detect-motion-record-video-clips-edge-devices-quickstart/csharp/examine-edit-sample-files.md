@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 426c735dfd0d015cdc1a734edde9d336fb88cfbc
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97486681"
 ---
 W ramach wymagań wstępnych dotyczących tego przewodnika Szybki Start pobrano przykładowy kod do folderu. Wykonaj następujące kroki, aby przeanalizować i edytować przykładowy kod.
@@ -12,11 +12,11 @@ W ramach wymagań wstępnych dotyczących tego przewodnika Szybki Start pobrano 
 
     Szablon wdrożenia odwołuje się do manifestu wdrożenia urządzenia brzegowego, gdzie zmienne są używane dla niektórych właściwości. Plik *ENV* zawiera wartości dla tych zmiennych.
 1. Przejdź do folderu *src/Cloud-to-Device-Console-App* . Tutaj zobaczysz *appsettings.js* pliku i kilku innych plików:
-    * ***C2D-Console-App. csproj** _-plik projektu dla Visual Studio Code.
-    _ ***operations.jsna** _-listę operacji, które program ma uruchomić.
-    _ ***Program.cs** _ — przykładowy kod programu. Ten kod:
+    * ***C2D-Console-App. csproj*** — plik projektu dla Visual Studio Code.
+    * ***operations.jsna*** liście operacji, które program ma uruchomić.
+    * ***Program. cs*** — przykładowy kod programu. Ten kod:
 
-        Powoduje załadowanie ustawień aplikacji.
+        * Ładuje ustawienia aplikacji.
         * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](../../../direct-methods.md). 
         * Wstrzymuje działanie, aby można było przeanalizować dane wyjściowe programu w oknie **terminalu** i przeanalizować zdarzenia wygenerowane przez moduł w oknie **danych wyjściowych** .
         * Wywołuje bezpośrednie metody czyszczenia zasobów.

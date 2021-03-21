@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595264"
+ms.locfileid: "104656995"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -87,7 +87,7 @@ Na przykład można użyć symulowanego urządzenia do 200 wysyłania komunikat�
 
 Operacje rejestru tożsamości urządzeń są przeznaczone do użycia w czasie wykonywania w scenariuszach zarządzania urządzeniami i aprowizacji. Odczytywanie lub aktualizowanie dużej liczby tożsamości urządzeń jest obsługiwane za pomocą [zadań importu i eksportu](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-W przypadku inicjowania operacji tożsamości za pomocą [zbiorczych operacji na urządzeniach](iot-hub-bulk-identity-mgmt.md)należy zastosować te same limity ograniczania przepustowości. Na przykład jeśli chcesz przesłać operację zbiorczą do tworzenia 50 urządzeń i masz IoT Hub S1 z 1 jednostką, tylko dwa z tych żądań zbiorczych są akceptowane na minutę. Jest to spowodowane tym, że ograniczenie operacji tożsamości dla dla IoT Hub S1 z 1 jednostką wynosi 100/min/jednostkę. W takim przypadku trzecie żądanie (i więcej) w tej samej minucie zostałyby odrzucone, ponieważ limit został już osiągnięty. 
+Podczas inicjowania operacji tożsamości za pomocą [zbiorczych operacji aktualizacji rejestru](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*nie* zbiorczych zadań importu i eksportu) obowiązują te same limity ograniczania przepustowości. Na przykład jeśli chcesz przesłać operację zbiorczą do tworzenia 50 urządzeń i masz IoT Hub S1 z 1 jednostką, tylko dwa z tych żądań zbiorczych są akceptowane na minutę. Jest to spowodowane tym, że ograniczenie operacji tożsamości dla dla IoT Hub S1 z 1 jednostką wynosi 100/min/jednostkę. W takim przypadku trzecie żądanie (i więcej) w tej samej minucie zostałyby odrzucone, ponieważ limit został już osiągnięty. 
 
 ### <a name="device-connections-throttle"></a>Ograniczenie połączeń urządzeń
 

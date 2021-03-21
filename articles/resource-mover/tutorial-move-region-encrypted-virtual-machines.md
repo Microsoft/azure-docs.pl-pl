@@ -9,10 +9,10 @@ ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361013"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Samouczek: przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure między regionami
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak przenosić zaszyfrowane maszyny wirtualne platf
 - Lub maszyny wirtualne korzystające z kluczy zarządzanych przez klienta (CMKs) do szyfrowania w czasie spoczynku (szyfrowanie po stronie serwera). [Dowiedz się więcej](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne. 

@@ -6,16 +6,21 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713018"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656009"
 ---
 # <a name="what-is-document-translation-preview"></a>Co to jest tłumaczenie dokumentu (wersja zapoznawcza)?
 
 Tłumaczenie dokumentu to oparta na chmurze funkcja usługi [Azure translator](../translator-info-overview.md) , która jest częścią rodziny usługi Azure poznawczej w ramach interfejsów API REST. Interfejs API tłumaczenia dokumentów tłumaczy dokumenty na i z 90 języków i dialektów przy zachowaniu struktury dokumentu i formatu danych.
+
+Ta dokumentacja zawiera następujące typy artykułów:  
+
+* Przewodniki [**Szybki Start**](get-started-with-document-translation.md) to instrukcje umożliwiające wykonywanie żądań do usługi.
+* [**Przewodniki z**](create-sas-tokens.md) instrukcjami zawierają instrukcje dotyczące korzystania z funkcji w bardziej specyficzny lub dostosowany sposób.  
 
 ## <a name="document-translation-key-features"></a>Funkcje klucza tłumaczenia dokumentu
 
@@ -64,5 +69,3 @@ Następujące typy plików słownika są obsługiwane przez tłumaczenie dokumen
 
 > [!div class="nextstepaction"]
 > [Wprowadzenie do tłumaczenia dokumentu](get-started-with-document-translation.md)
->
->
