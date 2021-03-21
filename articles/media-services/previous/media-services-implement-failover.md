@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011939"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
@@ -68,7 +68,7 @@ W tej sekcji utworzysz i skonfigurujesz projekt aplikacji konsolowej C#.
 2. Utwórz folder **SupportFiles** na tym samym poziomie co plik projektu **HandleRedundancyForOnDemandStreaming. csproj** . W folderze **SupportFiles** Utwórz foldery **OutputFiles** i **MP4Files** . Skopiuj plik MP4 do folderu **MP4Files** . (W tym przykładzie używany jest plik **ignite.mp4** ). 
 3. Użyj narzędzia **NuGet** , aby dodać odwołania do bibliotek DLL związanych z Media Services. W **menu głównym programu Visual Studio** wybierz kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **konsola Menedżera pakietów**. W oknie konsoli wpisz **install-package windowsazure. MediaServices**, a następnie naciśnij klawisz ENTER.
 4. Dodaj inne odwołania, które są wymagane dla tego projektu: System. Runtime. Serialization i system. Web.
-5. Zastąp instrukcje **using** , które zostały dodane do pliku **Programs.cs** domyślnie przy użyciu następujących elementów:
+5. Zastąp instrukcje **using** , które zostały dodane do pliku **Programs. cs** domyślnie przy użyciu następujących elementów:
 
 ```csharp
 using System;

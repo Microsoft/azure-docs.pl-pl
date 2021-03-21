@@ -4,10 +4,10 @@ description: Zawiera przegląd, w jaki sposób można dołączyć jako partnera 
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081199"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Przegląd dołączania partnera (Azure Event Grid)
@@ -102,7 +102,7 @@ Publikuj zdarzenia do Azure Event Grid przy użyciu schematu CloudEvents 1,0. Ev
 1.  Usługa publikowania wykonuje wpis HTTP do `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 1.  W żądaniu Dołącz wartość nagłówka o nazwie AEG-SAS-Key, która zawiera klucz do uwierzytelniania. Ten klucz jest inicjowany podczas tworzenia przestrzeni nazw partnera. Na przykład prawidłowa wartość nagłówka to AEG-SAS-Key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
 1.  Ustaw nagłówek Content-Type na wartość "Application/cloudevents-Batch + JSON; charset = UTF-8a.
-1.  Uruchom zapytanie HTTP POST do adresu URL publikowania, używając partii zdarzeń odpowiadających temu regionowi. Przykład:
+1.  Uruchom zapytanie HTTP POST do adresu URL publikowania, używając partii zdarzeń odpowiadających temu regionowi. Na przykład:
 
 ``` json
 [

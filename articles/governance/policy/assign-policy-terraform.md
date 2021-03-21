@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start użyto składni Terraform i HCL do u
 ms.date: 10/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93106397"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu Terraform
@@ -58,7 +58,7 @@ Najpierw skonfiguruj Terraform konfigurację, zmienną i pliki wyjściowe. Zasob
 
    Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może ona przedziały od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jednym z następujących wzorców:
 
-   - Ramach `/subscriptions/{subscriptionId}`
+   - Subskrypcje: `/subscriptions/{subscriptionId}`
    - Grupa zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
    - Zasoby `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 
@@ -94,7 +94,7 @@ Następnie zainicjuj Terraform do pobrania wymaganych dostawców, a następnie u
    terraform plan -out assignment.tfplan
    ```
 
-   :::image type="content" source="./media/assign-policy-terraform/terraform-plan-out.png" alt-text="Zrzut ekranu przedstawiający uruchamianie polecenia init Terraform, które pokazuje Pobieranie modułu azurerm i komunikat o powodzeniu.":::
+   :::image type="content" source="./media/assign-policy-terraform/terraform-plan-out.png" alt-text="Zrzut ekranu przedstawiający uruchamianie polecenia i parametru out planu Terraform w celu wyświetlenia zasobu platformy Azure, który ma zostać utworzony.":::
 
    > [!NOTE]
    > Aby uzyskać informacje na temat utrwalania planów wykonywania i zabezpieczeń, zobacz [Terraform plan: Ostrzeżenie o zabezpieczeniach](https://www.terraform.io/docs/commands/plan.html#security-warning).
@@ -109,7 +109,9 @@ Uruchom polecenie [Terraform Apply](https://www.terraform.io/docs/commands/apply
 terraform apply assignment.tfplan
 ```
 
-:::image type="content" source="./media/assign-policy-terraform/terraform-apply.png" alt-text="Zrzut ekranu przedstawiający uruchamianie polecenia init Terraform, które pokazuje Pobieranie modułu azurerm i komunikat o powodzeniu." zostanie utworzone przypisanie zasad. Ponieważ `outputs.tf` plik został zdefiniowany, zwracany jest _również \_ identyfikator przypisania_ .
+:::image type="content" source="./media/assign-policy-terraform/terraform-apply.png" alt-text="Zrzut ekranu przedstawiający uruchamianie polecenia Terraform Apply i powstającego tworzenia zasobów.":::
+
+Z opcją "Zastosuj wszystko! Zasoby: 1 dodano, 0 zmieniono, 0 zniszczono. " zostanie utworzone przypisanie zasad. Ponieważ `outputs.tf` plik został zdefiniowany, zwracany jest _również \_ identyfikator przypisania_ .
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 

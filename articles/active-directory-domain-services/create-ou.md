@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: fbdfcc23553a27aaa4d7bbd4bff9c4f33cb8fd19
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620022"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Tworzenie jednostki organizacyjnej (OU) w Azure Active Directory Domain Services domenie zarządzanej
@@ -33,7 +33,7 @@ W środowisku hybrydowym jednostki organizacyjne utworzone w środowisku lokalny
 
 W tym artykule opisano sposób tworzenia jednostki organizacyjnej w domenie zarządzanej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

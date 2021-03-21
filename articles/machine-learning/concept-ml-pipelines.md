@@ -11,10 +11,10 @@ author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
 ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503525"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?

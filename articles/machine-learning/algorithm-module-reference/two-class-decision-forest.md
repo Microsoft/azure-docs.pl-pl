@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375943"
 ---
 # <a name="two-class-decision-forest-module"></a>Moduł Las decyzyjny Two-Class
@@ -51,23 +51,23 @@ Aby uzyskać więcej informacji, zobacz [lasy decyzyjne](https://go.microsoft.co
   
 1.  Dodaj moduł **Las decyzyjny z dwoma klasami** do potoku w Azure Machine Learning i Otwórz okienko **Właściwości** modułu. 
 
-    Moduł można znaleźć w obszarze **Machine Learning**. Rozwiń węzeł **Inicjalizacja** , a następnie pozycję **Klasyfikacja**.  
+    Moduł można znaleźć w obszarze **Machine Learning**. Rozwiń węzeł **Inicjalizacja**, a następnie pozycję **Klasyfikacja**.  
   
 2.  Dla **metody ponowne próbkowanie** wybierz metodę używaną do tworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji **Working** lub **replikacja**.  
   
-    -   **Working** : w workach jest również wywoływana *agregacja Bootstrap*. W tej metodzie Każde drzewo jest uprawiane na nowym przykładzie, utworzonym losowo próbkowanie oryginalnego zestawu danych z zastępowaniem do momentu, gdy zestaw danych ma rozmiar oryginalny.  
+    -   **Working**: w workach jest również wywoływana *agregacja Bootstrap*. W tej metodzie Każde drzewo jest uprawiane na nowym przykładzie, utworzonym losowo próbkowanie oryginalnego zestawu danych z zastępowaniem do momentu, gdy zestaw danych ma rozmiar oryginalny.  
   
-         Dane wyjściowe modeli są łączone przez *głosowanie* , który jest formą agregacji. Każde drzewo w lesie decyzyjnym klasyfikacji wyprowadza nieznormalizowane histogramy częstotliwości etykiet. Agregacją jest sumowanie tych histogramów i normalizowanie w celu uzyskania "prawdopodobieństwa" dla każdej etykiety. W ten sposób drzewa, które mają wysoki poziom zaufania, będą mieć większą wagę w ostatecznej decyzji dotyczącej tego elementu.  
+         Dane wyjściowe modeli są łączone przez *głosowanie*, który jest formą agregacji. Każde drzewo w lesie decyzyjnym klasyfikacji wyprowadza nieznormalizowane histogramy częstotliwości etykiet. Agregacją jest sumowanie tych histogramów i normalizowanie w celu uzyskania "prawdopodobieństwa" dla każdej etykiety. W ten sposób drzewa, które mają wysoki poziom zaufania, będą mieć większą wagę w ostatecznej decyzji dotyczącej tego elementu.  
   
          Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby agregowania Bootstrap.  
   
-    -   **Replikacja** : w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.   
+    -   **Replikacja**: w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.   
   
 3.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
+    -   **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
 
-    -   **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
+    -   **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
   
 4.  W przypadku **liczby drzew decyzyjnych** wpisz maksymalną liczbę drzew decyzyjnych, które można utworzyć w części. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale wydłużyć czas uczenia.  
   
@@ -87,9 +87,9 @@ Aby uzyskać więcej informacji, zobacz [lasy decyzyjne](https://go.microsoft.co
   
 9. Dołącz zestaw danych z etykietą i Przeszkol model:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

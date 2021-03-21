@@ -11,10 +11,10 @@ ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788740"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Samouczek: łączenie Key Vault z aplikacją sieci Web platformy Azure w programie .NET przy użyciu tożsamości zarządzanej
@@ -277,7 +277,7 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 #### <a name="update-the-code"></a>Aktualizacja kodu
 
-Znajdź i Otwórz plik Startup.cs w projekcie akvwebapp. 
+Znajdź i Otwórz plik Start. cs w projekcie akvwebapp. 
 
 Dodaj te wiersze do nagłówka:
 

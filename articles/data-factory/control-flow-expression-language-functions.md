@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: 829afda7ba49d60e51f3a074d38e5a1d0ca924a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050056"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
@@ -220,7 +220,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [wcześniejsz](control-flow-expression-language-functions.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](control-flow-expression-language-functions.md#not) | Sprawdź, czy wyrażenie ma wartość false. |
-| [oraz](control-flow-expression-language-functions.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
+| [lub](control-flow-expression-language-functions.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
   
 ## <a name="conversion-functions"></a>Funkcje konwersji  
 

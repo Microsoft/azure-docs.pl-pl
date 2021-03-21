@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 48335e577ed248a42914bdaa1b1e662daf2d26cc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090173"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API tabel Azure Cosmos DB
@@ -158,7 +158,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia** . 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
    :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="Wyświetlanie informacji o parametrach połączenia w okienku parametrów połączenia":::
 

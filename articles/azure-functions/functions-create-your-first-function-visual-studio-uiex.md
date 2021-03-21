@@ -7,10 +7,10 @@ ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050124"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
@@ -57,7 +57,7 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
 `FunctionName`Atrybut metody ustawia nazwę funkcji, która domyślnie jest generowana jako `Function1` . Ponieważ narzędzia nie umożliwiają przesłaniania domyślnej nazwy funkcji podczas tworzenia projektu, poświęć minutę, aby utworzyć lepszą nazwę klasy, pliku i metadanych funkcji.
 
-1. W **Eksploratorze plików** kliknij prawym przyciskiem myszy plik Function1.cs i zmień jego nazwę na *HttpExample.cs*.
+1. W **Eksploratorze plików** kliknij prawym przyciskiem myszy plik Function1. cs i zmień jego nazwę na *HttpExample. cs*.
 
 1. W kodzie zmień nazwę klasy Function1 na "HttpExample".
 

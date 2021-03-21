@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/05/2020
 ms.author: russellcooks
 ms.openlocfilehash: 359c5f93516ea6f0561865bd86e4f51dedb4c3a5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358287"
 ---
 1. W Visual Studio Code przejdź do węzła src/Edge. Zobaczysz plik ENV, który został utworzony wraz z kilkoma plikami szablonu wdrożenia.
@@ -18,7 +18,7 @@ ms.locfileid: "94358287"
 
     * C2D-Console-App. csproj: jest to plik projektu dla Visual Studio Code.
     * operations.js: ten plik zawiera listę różnych operacji, które program ma uruchomić.
-    * Program.cs: Ten przykładowy kod programu:
+    * Program. cs: Ten przykładowy kod programu:
 
         * Ładuje ustawienia aplikacji.
         * Wywołuje funkcję analizy filmów wideo na żywo na IoT Edge metod bezpośrednich modułu w celu utworzenia topologii, utworzenia wystąpienia grafu i aktywowania grafu.

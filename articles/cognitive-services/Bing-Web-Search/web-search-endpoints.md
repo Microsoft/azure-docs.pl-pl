@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94381256"
 ---
 # <a name="web-search-endpoint"></a>wyszukiwanie w sieci Web punkt końcowy
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 **Interfejs API wyszukiwanie w sieci Web** zwraca strony sieci Web, wiadomości, obrazy, wideo i [jednostki](../bing-entities-search/overview.md). Jednostki zawierają informacje podsumowujące dotyczące osoby, miejsca lub tematu.
@@ -30,7 +30,7 @@ ms.locfileid: "94381256"
 
 Aby uzyskać wyniki wyszukiwania w sieci Web przy użyciu interfejsu API Bing, Wyślij `GET` żądanie do poniższego punktu końcowego. Nagłówki i parametry URL definiują dalsze specyfikacje.
 
-**Punkt końcowy** : zwraca wyniki sieci Web, które są istotne dla zapytania wyszukiwania użytkownika zdefiniowanego przez `?q=""` .
+**Punkt końcowy**: zwraca wyniki sieci Web, które są istotne dla zapytania wyszukiwania użytkownika zdefiniowanego przez `?q=""` .
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search

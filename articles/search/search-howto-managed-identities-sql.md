@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358426"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej
@@ -103,7 +103,7 @@ Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](/rest/api/
 * **uwierzytelniające**
     * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana zarządzana tożsamość. Tutaj utworzysz katalog początkowy lub nazwę bazy danych oraz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji Azure SQL Database, grupę zasobów SQL Database i nazwę bazy danych SQL. 
     * Format parametrów połączenia tożsamości zarządzanej:
-        * *Katalog początkowy | Baza danych = **Nazwa bazy** danych; ResourceId =/subscriptions/ **Identyfikator subskrypcji** /resourceGroups/ **nazwę grupy zasobów** /Providers/Microsoft.SQL/Servers/ **swoją nazwę SQL Server** /; Limit czasu połączenia = **Długość limitu czasu połączenia** ;*
+        * *Katalog początkowy | Baza danych =**Nazwa bazy** danych; ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.SQL/Servers/**swoją nazwę SQL Server**/; Limit czasu połączenia =**Długość limitu czasu połączenia**;*
 * **kontener** określa nazwę tabeli lub widoku, który ma być indeksowany.
 
 Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):

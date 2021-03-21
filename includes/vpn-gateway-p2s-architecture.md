@@ -9,10 +9,10 @@ ms.date: 10/30/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e3ad8fcb6cd5cf68b02ac522d0e5ef5a18ba8a3c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145003"
 ---
 Natywne połączenia z uwierzytelnianiem certyfikatu platformy Azure między lokacjami używają następujących elementów, które można skonfigurować w tym ćwiczeniu:

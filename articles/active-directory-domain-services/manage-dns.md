@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619355"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrowanie systemem DNS i tworzenie usług przesyłania dalej warunkowego w Azure Active Directory Domain Services domenie zarządzanej
@@ -27,7 +27,7 @@ W środowisku hybrydowym strefy i rekordy DNS skonfigurowane w innych przestrzen
 
 W tym artykule opisano sposób instalowania narzędzi serwera DNS, a następnie używania konsoli DNS do zarządzania rekordami i tworzenia usług przesyłania dalej warunkowego w usłudze Azure AD DS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

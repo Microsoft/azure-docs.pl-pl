@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686584"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: Konfiguracja kodu
@@ -88,7 +88,7 @@ Microsoft. Identity. Web oferuje kilka sposobów opisywania certyfikatów, zaró
 
 ## <a name="startupcs"></a>Startup.cs
 
-Interfejs API sieci Web będzie musiał uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, która może być używana w akcjach kontrolera/stron. Jednak jak widać w następnych dwóch punktach punktorów, można to jeszcze prostsze. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
+Interfejs API sieci Web będzie musiał uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, która może być używana w akcjach kontrolera/stron. Jednak jak widać w następnych dwóch punktach punktorów, można to jeszcze prostsze. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup. cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -116,7 +116,7 @@ Jeśli nie chcesz samodzielnie uzyskać tokenu, *firma Microsoft. Identity. Web*
 Jeśli chcesz wywołać Microsoft Graph, Microsoft. Identity. Web umożliwia bezpośrednio korzystanie z programu `GraphServiceClient` (dostępnego w Microsoft Graph SDK) w akcjach interfejsu API. Aby uwidocznić Microsoft Graph:
 
 1. Dodaj pakiet NuGet [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) do projektu.
-1. Dodaj `.AddMicrosoftGraph()` po `.EnableTokenAcquisitionToCallDownstreamApi()` pliku *Startup.cs* . `.AddMicrosoftGraph()` ma kilka zastąpień. Użycie przesłonięcia, które przyjmuje sekcję konfiguracyjną jako parametr, staje się następujące:
+1. Dodaj `.AddMicrosoftGraph()` po `.EnableTokenAcquisitionToCallDownstreamApi()` pliku *Start. cs* . `.AddMicrosoftGraph()` ma kilka zastąpień. Użycie przesłonięcia, które przyjmuje sekcję konfiguracyjną jako parametr, staje się następujące:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -164,7 +164,7 @@ public class Startup
 
 Podobnie jak w przypadku aplikacji sieci Web, można wybrać różne implementacje pamięci podręcznej tokenów. Aby uzyskać szczegółowe informacje, zobacz [serializacji pamięci podręcznej Microsoft Identity Web-token](https://aka.ms/ms-id-web/token-cache-serialization) w witrynie GitHub.
 
-Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Startup.cs* :
+Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Start. cs* :
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagram blokowy przedstawiający opcje konfiguracji usługi w kropce startowej C S na potrzeby wywoływania internetowego interfejsu API i określania implementacji pamięci podręcznej token":::
 

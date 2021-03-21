@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305694"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Interfejs API wykrywania anomalii Machine Learning
@@ -28,9 +28,9 @@ ms.locfileid: "93305694"
 
 Ten interfejs API może wykrywać następujące typy nietypowych wzorców w danych szeregów czasowych:
 
-* **Trendy pozytywne i negatywne** : na przykład podczas monitorowania użycia pamięci podczas obliczania trendu w górę może być istotne, ponieważ może to stanowić wskazówkę przecieku pamięci.
-* **Zmiany w dynamicznym zakresie wartości** : na przykład podczas monitorowania wyjątków zgłoszonych przez usługę w chmurze wszelkie zmiany w dynamicznym zakresie wartości mogą wskazywać na niestabilność kondycji usługi i
-* Liczby **i wartości DIP** : na przykład podczas monitorowania liczby niepowodzeń logowania w usłudze lub liczby wyewidencjonowania w witrynie handlu elektronicznego, skoki lub DIP mogą wskazywać nietypowe zachowanie.
+* **Trendy pozytywne i negatywne**: na przykład podczas monitorowania użycia pamięci podczas obliczania trendu w górę może być istotne, ponieważ może to stanowić wskazówkę przecieku pamięci.
+* **Zmiany w dynamicznym zakresie wartości**: na przykład podczas monitorowania wyjątków zgłoszonych przez usługę w chmurze wszelkie zmiany w dynamicznym zakresie wartości mogą wskazywać na niestabilność kondycji usługi i
+* Liczby **i wartości DIP**: na przykład podczas monitorowania liczby niepowodzeń logowania w usłudze lub liczby wyewidencjonowania w witrynie handlu elektronicznego, skoki lub DIP mogą wskazywać nietypowe zachowanie.
 
 Te detektory uczenia maszynowego śledzą takie zmiany w wartościach w czasie i raportują bieżące zmiany wartości jako wyniki anomalii. Nie wymagają strojenia progu AdHoc, a ich wyniki mogą służyć do kontrolowania fałszywej dodatniej stawki. Interfejs API wykrywania anomalii jest przydatny w kilku scenariuszach, takich jak monitorowanie usługi przez śledzenie kluczowych wskaźników wydajności w czasie, monitorowanie użycia za pomocą metryk, takich jak liczba wyszukiwań, liczba kliknięć, monitorowanie wydajności za pomocą liczników, takich jak pamięć, procesor, odczyty plików itp.
 
@@ -133,14 +133,14 @@ Więcej szczegółowych informacji na temat tych parametrów wejściowych przeds
 | trenddetector. czułość |Czułość pozytywnego detektora trendu. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | tspikedetector. czułość |Czułość czujnika TSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
 | zspikedetector. czułość |Czułość czujnika ZSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
-| postprocess.tailRows |Liczba najnowszych punktów danych, które mają być przechowywane w wynikach wyjściowych |0 |liczba całkowita |0 (Zachowaj wszystkie punkty danych) lub określ liczbę punktów, które mają być zachowane w wynikach |Brak |
+| postprocess.tailRows |Liczba najnowszych punktów danych, które mają być przechowywane w wynikach wyjściowych |0 |liczba całkowita |0 (Zachowaj wszystkie punkty danych) lub określ liczbę punktów, które mają być zachowane w wynikach |Nie dotyczy |
 
 ### <a name="output"></a>Dane wyjściowe
 Interfejs API uruchamia wszystkie detektory danych szeregów czasowych i zwraca wyniki anomalii oraz wskaźniki wartości binarnych dla każdego punktu w czasie. W poniższej tabeli przedstawiono dane wyjściowe z interfejsu API.
 
 | Dane wyjściowe | Opis |
 | --- | --- |
-| Czas |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
+| Godzina |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
 | Dane |Wartości z danych pierwotnych lub agregowane (i/lub) dane kalkulacyjne w przypadku agregacji (i/lub) braku przypisywania danych |
 | TSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor TSpike |
 | ZSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor ZSpike |
@@ -164,8 +164,8 @@ Więcej szczegółowych informacji na temat tych parametrów wejściowych przeds
 | Parametry wejściowe | Opis | Ustawienie domyślne | Typ | Prawidłowy zakres | Sugerowany zakres |
 | --- | --- | --- | --- | --- | --- |
 | Przetwarzanie wstępne. aggregationInterval |Interwał agregacji w sekundach dla agregacji wejściowej serii czasowej |0 (nie wykonano agregacji) |liczba całkowita |0: Pomiń agregację, > 0 w przeciwnym razie |od 5 minut do 1 dnia, zależne od serii czasu |
-| Przetwarzanie wstępne. aggregationFunc |Funkcja używana do agregowania danych w określonym AggregationInterval |średnia |wyliczany |Średnia, suma, Długość |Brak |
-| Przetwarzanie wstępne. replaceMissing |Wartości używane do przerzucania brakujących danych |LKV (Ostatnia znana wartość) |wyliczany |zero, LKV, średnia |Brak |
+| Przetwarzanie wstępne. aggregationFunc |Funkcja używana do agregowania danych w określonym AggregationInterval |średnia |wyliczany |Średnia, suma, Długość |Nie dotyczy |
+| Przetwarzanie wstępne. replaceMissing |Wartości używane do przerzucania brakujących danych |LKV (Ostatnia znana wartość) |wyliczany |zero, LKV, średnia |Nie dotyczy |
 | detektory. historywindow |Historia (w liczbie punktów danych) używana do obliczania wyniku anomalii |500 |liczba całkowita |10-2000 |Zależne od serii czasu |
 | detektory. spikesdips | Określa, czy mają być wykrywane tylko wartości graniczne, tylko wartości DIP czy oba |Oba |wyliczany |Oba, skoki, DIP |Oba |
 | bileveldetector. czułość |Czułość wykrywania zmian poziomu dwukierunkowego. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
@@ -175,15 +175,15 @@ Więcej szczegółowych informacji na temat tych parametrów wejściowych przeds
 | zspikedetector. czułość |Czułość czujnika ZSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
 | sezonowości. Enable |Czy analiza sezonowości ma być wykonywana |true |boolean |wartość true, false |Zależne od serii czasu |
 | sezonowości. numSeasonality |Maksymalna liczba okresowych cykli do wykrycia |1 |liczba całkowita |1, 2 |1-2 |
-| sezonowości. Transform |Czy składniki trendów sezonowych (i) zostaną usunięte przed zastosowaniem wykrywania anomalii |w okresie |wyliczany |Brak, depora, deseasontrend |Brak |
-| postprocess.tailRows |Liczba najnowszych punktów danych, które mają być przechowywane w wynikach wyjściowych |0 |liczba całkowita |0 (Zachowaj wszystkie punkty danych) lub określ liczbę punktów, które mają być zachowane w wynikach |Brak |
+| sezonowości. Transform |Czy składniki trendów sezonowych (i) zostaną usunięte przed zastosowaniem wykrywania anomalii |w okresie |wyliczany |Brak, depora, deseasontrend |Nie dotyczy |
+| postprocess.tailRows |Liczba najnowszych punktów danych, które mają być przechowywane w wynikach wyjściowych |0 |liczba całkowita |0 (Zachowaj wszystkie punkty danych) lub określ liczbę punktów, które mają być zachowane w wynikach |Nie dotyczy |
 
 ### <a name="output"></a>Dane wyjściowe
 Interfejs API uruchamia wszystkie detektory danych szeregów czasowych i zwraca wyniki anomalii oraz wskaźniki wartości binarnych dla każdego punktu w czasie. W poniższej tabeli przedstawiono dane wyjściowe z interfejsu API.
 
 | Dane wyjściowe | Opis |
 | --- | --- |
-| Czas |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
+| Godzina |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
 | OriginalData |Wartości z danych pierwotnych lub agregowane (i/lub) dane kalkulacyjne w przypadku agregacji (i/lub) braku przypisywania danych |
 | ProcessedData |Jedną z następujących opcji: <ul><li>Okresowe dostosowanie szeregów czasowych w przypadku wykrycia znaczących sezonowości i wybrania opcji Rozpory.</li><li>szeregowo skorygowane i nietrendy czasowe w przypadku wykrycia znaczącej sezonowości i wybrania opcji deseasontrend</li><li>w przeciwnym razie ta opcja jest taka sama jak OriginalData</li> |
 | TSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor TSpike |

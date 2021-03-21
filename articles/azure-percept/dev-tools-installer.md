@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 66498fabadc0784a4a4ab1c3762daaaa9a5738c4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503219"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Omówienie Instalatora pakietu narzędzi deweloperskich
@@ -99,13 +99,13 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
         
     1. Dla komputerów Mac:
     
-        1. Po pobraniu Przenieś plik Dev-Tools-Pack-Installer. app do folderu Applications.
+        1. Po pobraniu Przenieś plik Dev-Tools-Pack-Installer.app do folderu Applications.
         
-        1. Kliknij pozycję **dev-Tools-Pack-Installer. app** , aby otworzyć Kreatora instalacji.
+        1. Kliknij pozycję **dev-Tools-Pack-Installer.app** , aby otworzyć Kreatora instalacji.
         
         1. Jeśli zostanie wyświetlone okno dialogowe zabezpieczeń "niezidentyfikowane deweloperem":
         
-            1. Przejdź do pozycji Preferencje systemu — > zabezpieczenia & prywatność — > ogólne, a następnie kliknij przycisk "Otwórz mimo wszystko" obok pozycji "Dev-Tools-Pack-Installer. app"
+            1. Przejdź do pozycji Preferencje systemu — > zabezpieczenia & prywatność — > ogólne, a następnie kliknij przycisk "Otwórz mimo wszystko" obok pozycji "Dev-Tools-Pack-Installer.app"
         
             1. Kliknij ikonę elektronu ponownie w Docku
         

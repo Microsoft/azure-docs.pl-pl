@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
 ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363718"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurowanie kontenerów narzędzia do wykrywania anomalii
@@ -97,7 +97,7 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 
 W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](anomaly-detector-container-howto.md#stop-the-container) .
 
-* **Znak kontynuacji wiersza** : polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza dla powłoki bash. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. Na przykład znak kontynuacji wiersza dla systemu Windows jest karetką `^` . Zastąp ukośnik odwrotny. 
+* **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza dla powłoki bash. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. Na przykład znak kontynuacji wiersza dla systemu Windows jest karetką `^` . Zastąp ukośnik odwrotny. 
 * **Kolejność** argumentów: nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
 
 Zastąp wartość w nawiasach, `{}` z własnymi wartościami:

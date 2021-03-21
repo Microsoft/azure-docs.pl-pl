@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: 88f6da7e43e269816c7e4ae2fd7bbc3f5e26522b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453097"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Fivetran
@@ -137,9 +137,9 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne na stronie **Fivetran** .
 
    ![Zrzut ekranu, który pokazuje okienko konfiguracji SAML z wyróżnionymi opcjami konfiguracji.](media/fivetran-tutorial/fivetran-2.png)
 
-   1. W obszarze **Włącz uwierzytelnianie SAML**wybierz pozycję **włączone**.
-   1. W polu **adres URL logowania**wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
-   1. W obszarze **wystawcy**wklej wartość **identyfikatora usługi Azure AD**, która została skopiowana z Azure Portal.
+   1. W obszarze **Włącz uwierzytelnianie SAML** wybierz pozycję **włączone**.
+   1. W polu **adres URL logowania** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
+   1. W obszarze **wystawcy** wklej wartość **identyfikatora usługi Azure AD**, która została skopiowana z Azure Portal.
    1. Otwórz pobrany plik certyfikatu w edytorze tekstów, Skopiuj certyfikat do schowka, a następnie wklej go do pola tekstowego **certyfikat publiczny** .
    1. Wybierz pozycję **Zapisz konfigurację**.
 

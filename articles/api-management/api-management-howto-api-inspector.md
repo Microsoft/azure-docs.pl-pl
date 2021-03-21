@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542318"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Samouczek: debugowanie interfejsów API za pomocą funkcji śledzenia żądań
@@ -53,12 +53,12 @@ Ustawienie **Zezwalaj na śledzenie** dla subskrypcji używanej przez interfejs 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Konfigurowanie śledzenia interfejsu API":::
 
 > [!TIP]
-> Jeśli wartość **OCP-APIM-Subscription-Key** nie zostanie automatycznie wypełniona w żądaniu HTTP, możesz ją pobrać w portalu. Wybierz pozycję **subskrypcje** i otwórz menu kontekstowe ( **...** ) dla subskrypcji. Wybierz pozycję **Pokaż/Ukryj klucze**. W razie konieczności można także ponownie wygenerować klucze. Następnie Dodaj klucz do nagłówka.
+> Jeśli wartość **OCP-APIM-Subscription-Key** nie zostanie automatycznie wypełniona w żądaniu HTTP, możesz ją pobrać w portalu. Wybierz pozycję **subskrypcje** i otwórz menu kontekstowe (**...**) dla subskrypcji. Wybierz pozycję **Pokaż/Ukryj klucze**. W razie konieczności można także ponownie wygenerować klucze. Następnie Dodaj klucz do nagłówka.
 
 ## <a name="review-trace-information"></a>Przejrzyj informacje o śledzeniu
 
 1. Po zakończeniu wywołania przejdź do karty **śledzenie** w **odpowiedzi HTTP**.
-1. Wybierz dowolne z poniższych linków, aby przejść do szczegółów szczegółowych informacji śledzenia: **przychodzące** , **zaplecze** , **wychodzące**.
+1. Wybierz dowolne z poniższych linków, aby przejść do szczegółów szczegółowych informacji śledzenia: **przychodzące**, **zaplecze**, **wychodzące**.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Przegląd śledzenia odpowiedzi":::
 

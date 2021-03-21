@@ -14,10 +14,10 @@ ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
 ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98894987"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło)
@@ -198,7 +198,7 @@ Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany p
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Kody błędów kodowania](/rest/api/media/jobs/get#joberrorcode)
 - [Koncepcje Azure Media Services](concepts-overview.md)

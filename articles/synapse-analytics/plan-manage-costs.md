@@ -8,10 +8,10 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
 ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561249"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planowanie i zarządzanie kosztami usługi Azure Synapse Analytics
@@ -76,7 +76,7 @@ Korzystając z analizy kosztów, można wyświetlać koszty usługi Azure Synaps
 
 Aby wyświetlić koszty usługi Azure Synapse w analizie kosztów:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Otwórz zakres, subskrypcję lub grupę zasobów w Azure Portal i wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów.
 3. Domyślnie koszt usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą Azure Synapse.
 

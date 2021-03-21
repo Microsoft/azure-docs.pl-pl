@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: 4ca7286676c441b2fa96883e0c187497f59d6222
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93082631"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie konta usługi Cosmos
@@ -67,9 +67,9 @@ Po utworzeniu konta usługi Azure Cosmos DB:
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Zrzut ekranu przedstawia przegląd konta usługi Azure Cosmos D B.":::
 
-4. Przewiń w dół w lewym obszarze nawigacji i kliknij kartę **Replikuj dane globalnie** . Spowoduje to wyświetlenie mapy, na której można zobaczyć różne potencjalne docelowe obszary replikacji. Można na przykład kliknąć region Australia Południowo-Wschodnia lub Australia Wschodnia i replikować dane do klientów w Australii. Więcej informacji o replikacji globalnej można znaleźć w temacie [How to distribute data globally with Azure Cosmos DB (Jak dystrybuować dane globalnie przy użyciu usługi Azure Cosmos DB)](distribute-data-globally.md). Na razie zajmijmy się jednym wystąpieniem, które w razie potrzeby możemy zreplikować, ponieważ już znamy sposób.
+4. Przewiń w dół w lewym obszarze nawigacji i kliknij kartę **Replikuj dane globalnie**. Spowoduje to wyświetlenie mapy, na której można zobaczyć różne potencjalne docelowe obszary replikacji. Można na przykład kliknąć region Australia Południowo-Wschodnia lub Australia Wschodnia i replikować dane do klientów w Australii. Więcej informacji o replikacji globalnej można znaleźć w temacie [How to distribute data globally with Azure Cosmos DB (Jak dystrybuować dane globalnie przy użyciu usługi Azure Cosmos DB)](distribute-data-globally.md). Na razie zajmijmy się jednym wystąpieniem, które w razie potrzeby możemy zreplikować, ponieważ już znamy sposób.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Zrzut ekranu przedstawia przegląd konta usługi Azure Cosmos D B.":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Zrzut ekranu przedstawia konto usługi Azure Cosmos D B z wybranym globalnie replikowanymi danymi.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

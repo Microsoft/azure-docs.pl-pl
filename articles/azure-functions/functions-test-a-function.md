@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674154"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
@@ -32,7 +32,7 @@ W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C#
 
 ![Testowanie Azure Functions przy użyciu języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Konfigurowanie
+### <a name="setup"></a>Konfiguracja
 
 Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższe kroki ułatwiają tworzenie aplikacji i funkcji wymaganych do obsługi testów:
 
@@ -51,7 +51,7 @@ Każda funkcja przyjmuje wystąpienie [ILogger](/dotnet/api/microsoft.extensions
 
 Utworzysz nową klasę o nazwie `ListLogger` , która zawiera wewnętrzną listę komunikatów do oceny podczas testowania. Do zaimplementowania wymaganego `ILogger` interfejsu Klasa musi mieć zakres. W poniższej klasie przedstawiono zakres dla przypadków testowych do przekazania do `ListLogger` klasy.
 
-Utwórz nową klasę w *Functions. Tests* projektu o nazwie **NullScope.cs** i wprowadź następujący kod:
+Utwórz nową klasę w usłudze *Functions. Tests* projektu o nazwie **NullScope. cs** i wprowadź następujący kod:
 
 ```csharp
 using System;
@@ -69,7 +69,7 @@ namespace Functions.Tests
 }
 ```
 
-Następnie utwórz nową klasę w *Functions. Tests* projektu o nazwie **ListLogger.cs** i wprowadź następujący kod:
+Następnie utwórz nową klasę w *funkcji Functions. Tests* projektu o nazwie **ListLogger. cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -115,7 +115,7 @@ namespace Functions.Tests
 
 `Logs`Kolekcja jest wystąpieniem `List<string>` i jest inicjowana w konstruktorze.
 
-Następnie utwórz nowy plik w usłudze *Functions. Tests* o nazwie **LoggerTypes.cs** i wprowadź następujący kod:
+Następnie utwórz nowy plik w usłudze *Functions. Tests* projektu o nazwie **LoggerTypes. cs** i wprowadź następujący kod:
 
 ```csharp
 namespace Functions.Tests
@@ -130,7 +130,7 @@ namespace Functions.Tests
 
 To Wyliczenie określa typ rejestratora używany przez testy.
 
-Teraz Utwórz nową klasę w *funkcji Functions. Tests* projektu o nazwie **TestFactory.cs** i wprowadź następujący kod:
+Teraz Utwórz nową klasę w programie *Functions. Tests* projektu o nazwie **TestFactory. cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -201,7 +201,7 @@ namespace Functions.Tests
 
 - **Wyrejestrowania**: na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. `ListLogger`Śledzi zarejestrowane komunikaty dostępne do oceny w testach.
 
-Na koniec Utwórz nową klasę w *Functions. Tests* projektu o nazwie **FunctionsTests.cs** i wprowadź następujący kod:
+Na koniec Utwórz nową klasę w *funkcji Functions. Tests* projektu o nazwie **FunctionsTests. cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -269,7 +269,7 @@ W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji JavaScript
 
 ![Testowanie Azure Functions przy użyciu języka JavaScript w programie VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Konfigurowanie
+### <a name="setup"></a>Konfiguracja
 
 Aby skonfigurować środowisko, zainicjuj nową aplikację Node.js w pustym folderze, uruchamiając polecenie `npm init` .
 

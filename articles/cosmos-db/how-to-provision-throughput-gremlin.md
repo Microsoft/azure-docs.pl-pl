@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086163"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Inicjowanie obsługi administracyjnej bazy danych, kontenera lub automatycznego skalowania na Azure Cosmos DB zasobów interfejsu API Gremlin
@@ -28,13 +28,13 @@ Jeśli używasz innego interfejsu API, zobacz [SQL API](how-to-provision-contain
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)lub Wybierz istniejące konto usługi Azure Cosmos.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowy graf** . Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowy graf**. Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową bazę danych, czy używasz istniejącej. Wybierz opcję **zainicjuj przepływność bazy danych** , jeśli chcesz udostępnić przepływność na poziomie bazy danych.
    * Wprowadź identyfikator grafu.
    * Wprowadź wartość klucza partycji (na przykład `/ItemID`).
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz pozycję **OK** .
+   * Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Zrzut ekranu przedstawiający Eksplorator danych, podczas tworzenia nowego wykresu z przepływności na poziomie bazy danych":::
 

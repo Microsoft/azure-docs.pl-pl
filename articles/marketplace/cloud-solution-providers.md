@@ -8,13 +8,13 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131177"
 ---
-# <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
+# <a name="cloud-solution-provider-program"></a>Program Dostawca rozwiązań w chmurze
 
 W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert przy użyciu [komercyjnych sklepów online Marketplace](overview.md#commercial-marketplace-online-stores)można także sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
 
@@ -50,7 +50,7 @@ Wybieraj spośród trzech opcji:
 
 #### <a name="option-1-any-partner-in-the-csp-program"></a>Opcja 1: każdy partner w programie CSP
 
-![Każdy partner w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
+![Dowolnemu partnerowi w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Po wybraniu tej opcji Wszyscy partnerzy w programie CSP mogą sprzedawać swoją ofertę klientom.
 
@@ -64,11 +64,11 @@ Aby autoryzować partnerów, wybierz pozycję **Wybierz partnerów CSP** i wyśw
 
 ![Wybieranie menu CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Możesz zastosować filtry wyszukiwania, takie jak **kraj** , **kompetencje** lub **umiejętności** .
+Możesz zastosować filtry wyszukiwania, takie jak **kraj**, **kompetencje** lub **umiejętności**.
 
 ![Filtry kraju/regionu, kompetencji i umiejętności wyszukiwania partnerów](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-Po wybraniu listy partnerów wybierz pozycję **Dodaj** .
+Po wybraniu listy partnerów wybierz pozycję **Dodaj**.
 
 ![Przykładowa lista autoryzowanych partnerów w programie CSP](media/marketplace-publishers-guide/csp-add-resellers-details.png)
 
@@ -83,13 +83,13 @@ Jeśli ta oferta zostanie cofnięta, należy opublikować ofertę w celu udostę
 >[!NOTE]
 >Jeśli Użytkownik autoryzuje partnera w programie CSP w danym regionie, może sprzedać ofertę do dowolnego klienta, który należy do tego konkretnego regionu. Aby uzyskać więcej informacji o tym, jak oferty CSP są klasyfikowane w regionach, zobacz [regionalne rynki i waluty programu Cloud Solution Provider](/partner-center/regional-authorization-overview).
 
-Jeśli aktualizujesz listę programu CSP dla już opublikowanej oferty, Dodaj dodatkowych partnerów i wybierz pozycję **Synchronizuj odbiorców CSP** .
+Jeśli aktualizujesz listę programu CSP dla już opublikowanej oferty, Dodaj dodatkowych partnerów i wybierz pozycję **Synchronizuj odbiorców CSP**.
 
-Jeśli masz ofertę, która ma już listę autoryzowanych partnerów i chcesz używać tej samej listy dla innej oferty, Użyj usługi **Import/Export** . Przejdź do oferty z listą CSP i wybierz pozycję **Eksportuj dostawców CSP** . Funkcja opracowuje plik CSV, który można zaimportować do innej oferty.
+Jeśli masz ofertę, która ma już listę autoryzowanych partnerów i chcesz używać tej samej listy dla innej oferty, Użyj usługi **Import/Export**. Przejdź do oferty z listą CSP i wybierz pozycję **Eksportuj dostawców CSP**. Funkcja opracowuje plik CSV, który można zaimportować do innej oferty.
 
 #### <a name="option-3-no-partners-in-the-csp-program"></a>Opcja 3: brak partnerów w programie CSP
 
-![Brak partnerów w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
+![Żadnym partnerom w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Wybranie tej opcji spowoduje rezygnację z korzystania z programu CSP. Ten wybór można zmienić w dowolnym momencie.
 
@@ -104,9 +104,9 @@ Jeśli partner w programie CSP nie sprzedał Twojego produktu klientom i chcesz 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
 
-2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo** .
-3. Wybierz **kategorię, która najlepiej opisuje problem** , wybierz kategorię odwołującą się do oferty.
-4. W przypadku **wybrania problemu, który najlepiej opisuje problem** , wybierz pozycję **Aktualizuj istniejącą ofertę** .
+2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo**.
+3. Wybierz **kategorię, która najlepiej opisuje problem**, wybierz kategorię odwołującą się do oferty.
+4. W przypadku **wybrania problemu, który najlepiej opisuje problem**, wybierz pozycję **Aktualizuj istniejącą ofertę**.
 5. Wybierz pozycję **dalej** , aby skierować do **strony szczegółów problemu** , aby wprowadzić więcej szczegółów dotyczących problemu.
 6. Użyj elementu **unautoryzuj dostawcę CSP** jako tytułu problemu i wypełnij pozostałe sekcje wymagane.
 
@@ -123,9 +123,9 @@ Jeśli oferta jest obecnie **opcją 1: każdy partner w programie CSP** i chcesz
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
 
-2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo** .
-3. Wybierz **kategorię, która najlepiej opisuje problem** , wybierz kategorię odwołującą się do oferty.
-4. W przypadku **wybrania problemu, który najlepiej opisuje problem** , wybierz pozycję **Aktualizuj istniejącą ofertę** .
+2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo**.
+3. Wybierz **kategorię, która najlepiej opisuje problem**, wybierz kategorię odwołującą się do oferty.
+4. W przypadku **wybrania problemu, który najlepiej opisuje problem**, wybierz pozycję **Aktualizuj istniejącą ofertę**.
 5. Wybierz pozycję **dalej** , aby skierować do **strony szczegółów problemu** , aby wprowadzić więcej szczegółów dotyczących problemu.
 6. Użyj elementu **unautoryzuj dostawcę CSP** jako tytułu problemu i wypełnij pozostałe sekcje wymagane.
 
@@ -134,35 +134,35 @@ Jeśli oferta jest obecnie **opcją 1: każdy partner w programie CSP** i chcesz
 
 ### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Nawiguj od opcji dwa: określeni partnerzy w wybranym programie CSP
 
-Jeśli oferta zawiera obecnie **opcję 2: określeni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji jeden: dowolny partner w programie CSP** , użyj następujących instrukcji, aby utworzyć żądanie:
+Jeśli oferta zawiera obecnie **opcję 2: określeni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji jeden: dowolny partner w programie CSP**, użyj następujących instrukcji, aby utworzyć żądanie:
 
 1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
 
-2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo** .
-3. Wybierz **kategorię, która najlepiej opisuje problem** , wybierz kategorię odwołującą się do oferty.
-4. W przypadku **wybrania problemu, który najlepiej opisuje problem** , wybierz pozycję **Aktualizuj istniejącą ofertę** .
+2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo**.
+3. Wybierz **kategorię, która najlepiej opisuje problem**, wybierz kategorię odwołującą się do oferty.
+4. W przypadku **wybrania problemu, który najlepiej opisuje problem**, wybierz pozycję **Aktualizuj istniejącą ofertę**.
 5. Wybierz pozycję **dalej** , aby skierować do **strony szczegółów problemu** , aby wprowadzić więcej szczegółów dotyczących problemu.
 6. Użyj elementu **unautoryzuj dostawcę CSP** jako tytułu problemu i wypełnij pozostałe sekcje wymagane.
 
- Jeśli oferta jest obecnie **opcją 2: konkretni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji 3: brak partnerów w programie CSP** , będziesz mieć możliwość przechodzenia do tej opcji tylko wtedy, gdy partnerzy w programie CSP, który wcześniej został autoryzowany, nie odsprzedali oferty klientom końcowym. Aby utworzyć żądanie, wykonaj następujące instrukcje:
+ Jeśli oferta jest obecnie **opcją 2: konkretni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji 3: brak partnerów w programie CSP**, będziesz mieć możliwość przechodzenia do tej opcji tylko wtedy, gdy partnerzy w programie CSP, który wcześniej został autoryzowany, nie odsprzedali oferty klientom końcowym. Aby utworzyć żądanie, wykonaj następujące instrukcje:
 
 1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
 
-2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo** .
-3. Wybierz **kategorię, która najlepiej opisuje problem** , wybierz kategorię odwołującą się do oferty.
-4. W przypadku **wybrania problemu, który najlepiej opisuje problem** , wybierz pozycję **Aktualizuj istniejącą ofertę** .
+2. W **obszarze Wybierz wersję produktu** wybierz pozycję **zarządzanie ofertami na żywo**.
+3. Wybierz **kategorię, która najlepiej opisuje problem**, wybierz kategorię odwołującą się do oferty.
+4. W przypadku **wybrania problemu, który najlepiej opisuje problem**, wybierz pozycję **Aktualizuj istniejącą ofertę**.
 5. Wybierz pozycję **dalej** , aby skierować do **strony szczegółów problemu** , aby wprowadzić więcej szczegółów dotyczących problemu.
 6. Użyj elementu **unautoryzuj dostawcę CSP** jako tytułu problemu i wypełnij pozostałe sekcje wymagane.
 
 ### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Nawiguj od opcji 3: brak partnerów w programie CSP
 
-Jeśli oferta jest obecnie **Opcja 3: brak partnerów w programie CSP** , możesz w dowolnym momencie przejść do jednej z dwóch innych opcji.
+Jeśli oferta jest obecnie **Opcja 3: brak partnerów w programie CSP**, możesz w dowolnym momencie przejść do jednej z dwóch innych opcji.
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Udostępnianie materiałów sprzedażowych i pomocy technicznej partnerom w programie CSP
 

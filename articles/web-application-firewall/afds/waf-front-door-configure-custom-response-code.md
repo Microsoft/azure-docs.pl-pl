@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94563685"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurowanie niestandardowej odpowiedzi dla zapory aplikacji sieci Web platformy Azure (WAF)
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ### <a name="create-a-new-waf-policy-with-custom-response"></a>Utwórz nowe zasady WAF z odpowiedzią niestandardową 
 
-Poniżej znajduje się przykład tworzenia nowych zasad WAF z niestandardowym kodem stanu odpowiedzi ustawionym na 405, a komunikat **jest zablokowany.** , za pomocą polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
+Poniżej znajduje się przykład tworzenia nowych zasad WAF z niestandardowym kodem stanu odpowiedzi ustawionym na 405, a komunikat **jest zablokowany.**, za pomocą polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
 
 ```azurepowershell
 # WAF policy setting

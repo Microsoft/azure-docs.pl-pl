@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93234051"
 ---
 # <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Pobieranie dzienników w celu rozwiązywania problemów z usługami danych z obsługą usługi Azure Arc
@@ -43,7 +43,7 @@ Dzienniki usług można pobrać ze wszystkich zasobników lub określonych zasob
    azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 
-   Przykład:
+   Na przykład:
 
    ```console
    #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
@@ -67,7 +67,7 @@ Za pomocą tych parametrów można zastąpić `<parameters>` w następującym pr
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc

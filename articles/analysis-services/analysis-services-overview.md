@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 9f8de6ed4f0312a342526fb2ba5d100dfd9ec91f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100582612"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
@@ -136,7 +136,7 @@ Można utworzyć pulę zapytania z nawet siedmioma dodatkowymi replikami zapytan
 
 Podobnie jak w przypadku zmiany warstw można skalować repliki zapytania w poziomie zgodnie z potrzebami. Konfiguracja skalowania w poziomie jest możliwa w portalu lub przy użyciu interfejsów API REST. Aby dowiedzieć się więcej, zobacz [Azure Analysis Services scale-out (Skalowanie usługi Azure Analysis Services w poziomie)](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Łączny koszt zależy od wielu czynników. Na przykład wybrany region, warstwa, repliki zapytań i wstrzymywanie/wznawianie. Do określenia typowych cen dla danego regionu można użyć kalkulatora [cen usługi Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). To narzędzie oblicza ceny dla wystąpienia jednego serwera w pojedynczym regionie. Pamiętaj, że opłaty za repliki zapytania są naliczane przy użyciu tej samej stawki, co w przypadku serwera. 
 
