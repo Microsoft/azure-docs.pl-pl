@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
 ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223435"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
@@ -115,7 +115,7 @@ Użyj narzędzi, takich jak następujące, aby sprawdzić poprawność łączno�
 | Linux | NC (ogólny test połączenia) | zwinięcie (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
 | Windows | [PsPing](/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
 
-#### <a name="configuration"></a>Konfiguracja
+#### <a name="configuration"></a>Konfigurowanie
 
 Sprawdź konfigurację:
 1. Czy zasób bramy translatora adresów sieciowych ma co najmniej jeden zasób publicznego adresu IP lub jeden zasób prefiksu publicznego adresu IP? Aby zapewnić łączność wychodzącą, musisz mieć co najmniej jeden adres IP skojarzony z bramą translatora adresów sieciowych.

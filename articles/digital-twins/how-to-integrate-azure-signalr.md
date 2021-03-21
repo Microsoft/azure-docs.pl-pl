@@ -8,10 +8,10 @@ ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203899"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
@@ -65,7 +65,7 @@ W tej sekcji zostaną skonfigurowane dwie usługi Azure Functions:
 
 Uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Digital-bliźniaczych reprezentacji-Samples-master > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
 
-1. W projekcie *SampleFunctionsApp* Utwórz nową klasę języka C# o nazwie **SignalRFunctions.cs**.
+1. W projekcie *SampleFunctionsApp* Utwórz nową klasę języka C# o nazwie **SignalRFunctions. cs**.
 
 1. Zastąp zawartość pliku klasy następującym kodem:
     

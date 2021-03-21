@@ -8,10 +8,10 @@ ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99593133"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
@@ -43,7 +43,7 @@ Inne niż zauważone wyjątki, można używać razem ze wszystkimi tymi funkcjam
 
 W przypadku dowolnego danego przypadku użycia może istnieć kilka sposobów rozwiązania problemu. Wybór najlepszej funkcji czasami wykracza poza sam przypadek użycia. Następujące przypadki użycia ruchu przychodzącego zasugerują sposób użycia App Service funkcje sieciowe do rozwiązywania problemów z kontrolowaniem ruchu kierowanego do aplikacji:
  
-| Przypadek użycia dla ruchu przychodzącego | Cechy |
+| Przypadek użycia dla ruchu przychodzącego | Cecha |
 |---------------------|-------------------|
 | Obsługa protokołu SSL opartego na protokole IP dla aplikacji | Adres przypisany do aplikacji |
 | Obsługa nieudostępnianego dedykowanego adresu przychodzącego dla aplikacji | Adres przypisany do aplikacji |
@@ -56,7 +56,7 @@ W przypadku dowolnego danego przypadku użycia może istnieć kilka sposobów ro
 
 Następujące wychodzące przypadki użycia sugerują, jak używać funkcji sieciowych App Service do rozwiązywania potrzeby dostępu wychodzącego dla aplikacji:
 
-| Wychodzący przypadek użycia | Cechy |
+| Wychodzący przypadek użycia | Cecha |
 |---------------------|-------------------|
 | Dostęp do zasobów w sieci wirtualnej platformy Azure w tym samym regionie | Integracja z siecią wirtualną </br> ASE |
 | Dostęp do zasobów w sieci wirtualnej platformy Azure w innym regionie | Integracja z siecią wirtualną wymagana przez bramę </br> Środowisko ASE i Komunikacja równorzędna sieci wirtualnych |

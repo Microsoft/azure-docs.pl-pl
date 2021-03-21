@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021018"
 ---
 # <a name="securing-azure-sql-edge"></a>Zabezpieczanie usługi Azure SQL Edge
@@ -71,8 +71,8 @@ Szyfrowanie nie rozwiązuje problemów z kontrolą dostępu. Jednak zwiększa to
 |---------------------------|---------|  
 |Implementowanie bezpiecznych połączeń|[Szyfrowanie połączeń](/sql/linux/sql-server-linux-encrypted-connections)|  
 |Funkcje szyfrowania|[Funkcje kryptograficzne &#40;Transact-SQL&#41;](/sql/t-sql/functions/cryptographic-functions-transact-sql)|
-|Szyfrowanie danych magazynowanych|[Niewidoczne szyfrowanie danych](/sql/relational-databases/security/encryption/transparent-data-encryption)|
-|Zawsze szyfrowane|[Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
+|Szyfrowanie danych magazynowanych|[Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)|
+|Funkcja Always Encrypted|[Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
 | &nbsp; | &nbsp; |
 
 > [!NOTE]

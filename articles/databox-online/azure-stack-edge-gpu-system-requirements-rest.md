@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99575859"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Azure Stack Edge — wymagania dotyczące magazynu obiektów BLOB
@@ -23,7 +23,7 @@ Zalecamy dokładne zapoznanie się z informacjami przed nawiązaniem połączeni
 
 ## <a name="storage-differences"></a>Różnice w magazynie
 
-|     Cechy                                             |     Azure Storage                                     |     Azure Stack Edge — magazyn obiektów BLOB |
+|     Cecha                                             |     Azure Storage                                     |     Azure Stack Edge — magazyn obiektów BLOB |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Azure File Storage                                   |    Obsługiwane udziały plików SMB oparte na chmurze              |    Nieobsługiwane      |
 |    Typ konta magazynu                                 |    Konta ogólnego przeznaczenia i usługi Azure Blob Storage    |    Tylko do celu ogólnego przeznaczenia|

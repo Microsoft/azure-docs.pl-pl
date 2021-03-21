@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048084"
 ---
 # <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Odkryj zainstalowane aplikacje, role i funkcje (Spis oprogramowania) oraz SQL Server wystąpienia i bazy danych
@@ -20,7 +20,7 @@ W tym artykule opisano, jak odnajdywać zainstalowane aplikacje, role i funkcje 
 Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki migracji do platformy Azure dla obciążeń. Spis oprogramowania korzysta z urządzenia Azure Migrate, aby przeprowadzić odnajdywanie przy użyciu poświadczeń serwera. Jest całkowicie niezależny od agenta — na serwerach nie są zainstalowane żadne agenci, aby zebrać te dane.
 
 > [!NOTE]
-> Spis oprogramowania jest obecnie w wersji zapoznawczej tylko w przypadku serwerów działających w środowisku VMware i jest ograniczony tylko do odnajdywania. Obecnie firma Microsoft nie oferuje oceny opartej na aplikacjach.<br/> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Spis oprogramowania jest obecnie w wersji zapoznawczej tylko w przypadku serwerów działających w środowisku VMware i jest ograniczony tylko do odnajdywania. Obecnie firma Microsoft nie oferuje oceny opartej na aplikacjach.<br/> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

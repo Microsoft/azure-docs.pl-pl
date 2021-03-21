@@ -8,10 +8,10 @@ ms.date: 11/16/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732556"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Włączanie wielokanałowości SMB na koncie FileStorage (wersja zapoznawcza) 
@@ -22,7 +22,7 @@ Konta usługi Azure FileStorage obsługują Wielokanałowość SMB (wersja zapoz
 
 [!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]
 
-### <a name="regional-availability"></a>Dostępność regionalna
+### <a name="regional-availability"></a>Dostępność w regionach
 
 [!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
 

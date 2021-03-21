@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020082"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Zarządzanie danymi referencyjnymi dla środowiska Azure Time Series Insights Gen 1 przy użyciu języka C Sharp
@@ -61,10 +61,10 @@ Przed skompilowaniem i uruchomieniem przykładowego kodu wykonaj następujące c
 
 ## <a name="project-dependencies"></a>Zależności projektu
 
-Zaleca się użycie najnowszej wersji programu Visual Studio i **aplikacji Core. app**:
+Zaleca się użycie najnowszej wersji programu Visual Studio i **NETCore.app**:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) — wersja 16.4.2 +
-* [Rdzeń. app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) -Version 2.2.8
+* [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) — wersja 2.2.8
 
 Przykładowy kod ma dwie wymagane zależności:
 

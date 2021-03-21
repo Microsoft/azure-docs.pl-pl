@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
 ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791531"
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
@@ -47,7 +47,7 @@ Twoje rozwiązanie zawiera teraz dwa projekty:
 
 ## <a name="implement-the-service"></a>Implementowanie usługi
 
-Otwórz plik **HelloWorldStateless.cs** w projekcie usługi. W Service Fabric usługa może uruchamiać dowolną logikę biznesową. Interfejs API usługi udostępnia dwa punkty wejścia dla kodu:
+Otwórz plik **HelloWorldStateless. cs** w projekcie usługi. W Service Fabric usługa może uruchamiać dowolną logikę biznesową. Interfejs API usługi udostępnia dwa punkty wejścia dla kodu:
 
 * Metoda otwartego punktu wejścia o nazwie *RunAsync*, która umożliwia rozpoczęcie wykonywania obciążeń, w tym długotrwałych obciążeń obliczeniowych.
 
@@ -127,7 +127,7 @@ Aplikacja powinna mieć teraz dwie usługi: *HelloWorldStateless* usługi bezsta
 
 Usługa stanowa ma te same punkty wejścia co usługa bezstanowa. Główną różnicą jest dostępność *dostawcy stanu* , który może niezawodnie przechowywać stan. Service Fabric zawiera implementację dostawcy stanu o nazwie [niezawodne kolekcje](service-fabric-reliable-services-reliable-collections.md), które umożliwiają tworzenie replikowanych struktur danych za pomocą Menedżera niezawodnego stanu. Usługa bezstanowa domyślnie używa tego dostawcy stanu.
 
-Otwórz **HelloWorldStateful.cs** w *HelloWorldStateful*, który zawiera następującą metodę RunAsync:
+Otwórz **HelloWorldStateful. cs** w *HelloWorldStateful*, który zawiera następującą metodę RunAsync:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)

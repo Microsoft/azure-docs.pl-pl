@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak używać Azure Backup Server do tw
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002957"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
@@ -143,7 +143,7 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
     ![Administracja](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. W **Administration** obszarze  >  **role** administracyjne wybierz ikonę Dodaj rolę (symbol +).
+3. W obszarze  >  **role** administracyjne wybierz ikonę Dodaj rolę (symbol +).
 
     ![Dodaj rolę](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
@@ -213,7 +213,7 @@ W poniższej tabeli przedstawiono uprawnienia, które należy przypisać do twor
 | Global. Zarządzaj atrybutami niestandardowymi | Magazyn danych. AllocateSpace |
 | Global. Set — atrybut niestandardowy | VirtualMachine.Config. Śledzenia zmian |
 | Operacje hosta. local. Utwórz maszynę wirtualną | VirtualMachine. State. RemoveSnapshot |
-| NFS. Przypisywanie sieci | VirtualMachine. State. issnapshot |
+| Sieć. Przypisywanie sieci | VirtualMachine. State. issnapshot |
 | Zasoby. Przypisz maszynę wirtualną do puli zasobów | VirtualMachine. Provisioning. DiskRandomRead |
 | Wersja Virtual machine.Config. Dodaj nowy dysk | VirtualMachine. współdziała. wyłączenie |
 | Wersja Virtual machine.Config. Doświadczonych | VirtualMachine. Inventory. Create |
@@ -517,7 +517,7 @@ Przejdź do serwera serwera usługi MAB, na którym maszyna wirtualna VMware zos
       ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
       ```
 
-     **Przykład**:
+     **Przykład:**
 
      Aby dodać wykluczenie dysku dla TestVM4, uruchom następujące polecenie:
 
