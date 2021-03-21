@@ -49,8 +49,6 @@
           href: ./linux/tutorial-load-balancer.md
         - name: 8 — Zarządzanie siecią
           href: ./linux/tutorial-virtual-network.md
-        - name: 9 — zarządzanie zasobami
-          href: ./linux/tutorial-govern-resources.md
     - name: Windows
       items:
         - name: 1 — Tworzenie maszyny wirtualnej/zarządzanie nią
@@ -69,8 +67,6 @@
           href: ./windows/tutorial-load-balancer.md
         - name: 8 — Zarządzanie siecią
           href: ./windows/tutorial-virtual-network.md
-        - name: 9 — zarządzanie zasobami
-          href: ./windows/tutorial-govern-resources.md
 - name: Obciążenia
   items:
     - name: Red Hat
@@ -119,8 +115,8 @@
         - name: Zmienianie rozmiaru maszyny wirtualnej
           items:
             - name: Interfejs wiersza polecenia
-              href: ./linux/change-vm-size.md
               displayName: 'Change, resize, update size'
+              href: ./linux/change-vm-size.md
             - name: Portal lub program PowerShell
               displayName: 'Change, resize, update size'
               href: ./windows/resize-vm.md
@@ -188,8 +184,8 @@
             - name: Optymalizowanie wydajności
               items:
                 - name: Linux
-                  href: ./linux/storage-performance.md
                   displayName: 'performance, Linux, storage performance'
+                  href: ./linux/storage-performance.md
                 - name: Windows
                   displayName: 'performance, Windows, storage performance'
                   href: ./windows/storage-performance.md
@@ -560,7 +556,7 @@
         - name: Problemy z systemami Linux obsługującymi język Python 3
           href: ./extensions/issues-using-vm-extensions-python-3.md
     - name: Zagnieżdżone wirtualizacji
-      href: ./windows/nested-virtualization.md
+      href: 'https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization'
     - name: Migruj do Azure Resource Manager
       items:
         - name: "Wycofywanie rozpocznie się 1 marca 2023\_r."
@@ -653,26 +649,26 @@
             - name: Omówienie pakietu cloud-init
               href: ./linux/using-cloud-init.md
             - name: Szczegółowe omówienie
-              displayname: cloud-init
               href: ./linux/cloud-init-deep-dive.md
+              displayname: cloud-init
             - name: Rozwiązywanie problemów
-              displayname: cloud-init
               href: ./linux/cloud-init-troubleshooting.md
+              displayname: cloud-init
             - name: Konfigurowanie nazwy hosta maszyny wirtualnej
-              displayname: cloud-init
               href: ./linux/cloudinit-update-vm-hostname.md
+              displayname: cloud-init
             - name: Aktualizowanie pakietów na maszynie wirtualnej
-              displayname: cloud-init
               href: ./linux/cloudinit-update-vm.md
+              displayname: cloud-init
             - name: Dodawanie użytkownika do maszyny wirtualnej
-              displayname: cloud-init
               href: ./linux/cloudinit-add-user.md
+              displayname: cloud-init
             - name: Konfigurowanie pliku wymiany
-              displayname: cloud-init
               href: ./linux/cloudinit-configure-swapfile.md
-            - name: Uruchamianie istniejącego skryptu powłoki systemowej
               displayname: cloud-init
+            - name: Uruchamianie istniejącego skryptu powłoki systemowej
               href: ./linux/cloudinit-bash-script.md
+              displayname: cloud-init
         - name: Tworzenie obrazów systemu Linux bez agenta aprowizacji
           href: ./linux/no-agent.md
         - name: Wyłączanie aprowizacji agenta systemu Linux
@@ -962,64 +958,64 @@
         - name: Szyfrowanie po stronie serwera
           items:
             - name: Omówienie szyfrowania po stronie serwera
-              displayname: 'Server side encryption, encryption, ADE'
               href: disk-encryption.md
+              displayname: 'Server side encryption, encryption, ADE'
             - name: Włącz klucze zarządzane przez klienta
               items:
                 - name: Portal
-                  displayname: 'Server side encryption, encryption, ADE'
                   href: disks-enable-customer-managed-keys-portal.md
+                  displayname: 'Server side encryption, encryption, ADE'
                 - name: PowerShell
-                  displayname: 'Server side encryption, encryption, ADE'
                   href: windows/disks-enable-customer-managed-keys-powershell.md
-                - name: Interfejs wiersza polecenia
                   displayname: 'Server side encryption, encryption, ADE'
+                - name: Interfejs wiersza polecenia
                   href: linux/disks-enable-customer-managed-keys-cli.md
+                  displayname: 'Server side encryption, encryption, ADE'
             - name: Włącz szyfrowanie na hoście
               items:
                 - name: Portal
-                  displayname: 'Encryption at host, encryption, ADE'
                   href: disks-enable-host-based-encryption-portal.md
+                  displayname: 'Encryption at host, encryption, ADE'
                 - name: PowerShell
-                  displayname: 'Encryption at host, encryption, ADE'
                   href: windows/disks-enable-host-based-encryption-powershell.md
-                - name: Interfejs wiersza polecenia
                   displayname: 'Encryption at host, encryption, ADE'
+                - name: Interfejs wiersza polecenia
                   href: linux/disks-enable-host-based-encryption-cli.md
+                  displayname: 'Encryption at host, encryption, ADE'
             - name: Włączanie podwójnego szyfrowania danych magazynowanych
               items:
                 - name: Portal
-                  displayname: 'double encryption at rest, encryption, ADE'
                   href: disks-enable-double-encryption-at-rest-portal.md
+                  displayname: 'double encryption at rest, encryption, ADE'
                 - name: PowerShell
-                  displayname: 'double encryption at rest, encryption, ADE'
                   href: windows/disks-enable-double-encryption-at-rest-powershell.md
-                - name: Interfejs wiersza polecenia
                   displayname: 'double encryption at rest, encryption, ADE'
+                - name: Interfejs wiersza polecenia
                   href: linux/disks-enable-double-encryption-at-rest-cli.md
+                  displayname: 'double encryption at rest, encryption, ADE'
         - name: Usługa Azure Disk Encryption
           items:
             - name: Linux
               items:
                 - name: Omówienie
-                  displayname: 'Azure disk encryption, encryption, ADE'
                   href: ./linux/disk-encryption-overview.md
+                  displayname: 'Azure disk encryption, encryption, ADE'
                 - name: Przewodniki Szybki start
                   items:
                     - name: Interfejs wiersza polecenia platformy Azure
-                      displayname: 'Azure disk encryption, encryption, ADE'
                       href: ./linux/disk-encryption-cli-quickstart.md
+                      displayname: 'Azure disk encryption, encryption, ADE'
                     - name: Azure PowerShell
-                      displayname: 'Azure disk encryption, encryption, ADE'
                       href: ./linux/disk-encryption-powershell-quickstart.md
-                    - name: Azure Portal
                       displayname: 'Azure disk encryption, encryption, ADE'
+                    - name: Azure Portal
                       href: ./linux/disk-encryption-portal-quickstart.md
+                      displayname: 'Azure disk encryption, encryption, ADE'
                 - name: Scenariusze szyfrowania dysków dla systemu Linux
                   href: ./linux/disk-encryption-linux.md
                 - name: Magazyn kluczy dla usługi Azure Disk Encryption
-                  displayname: 'Azure disk encryption, encryption, ADE, Key vault'
                   href: ./linux/disk-encryption-key-vault.md
+                  displayname: 'Azure disk encryption, encryption, ADE, Key vault'
                 - name: Przykładowe skrypty szyfrowania dysków
                   href: ./linux/disk-encryption-sample-scripts.md
                 - name: Szyfrowanie dysków w sieci izolowanej
@@ -1076,40 +1072,40 @@
     - name: Optymalizacja wydajności i kosztów
       items:
         - name: Dyski w warstwie Ultra
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disks-enable-ultra-ssd.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Wydajność maszyny wirtualnej i dysku
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disks-performance.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Rezerwacje usługi Disk Storage
-          displayname: 'Performance, cost, perf, disks, disk'
           href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Rezerwowanie usługi Disk Storage
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disks-reserved-capacity.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Projektowanie pod kątem wysokiej wydajności
-          displayname: 'Performance, cost, perf, disks, disk'
           href: premium-storage-performance.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Metryki dotyczące dysku
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disks-metrics.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Modele serii dysków
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disk-bursting.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Włącz nadużyenie na żądanie
-          displayname: 'Performance, cost, perf, disks, disk'
           href: disks-enable-bursting.md
-        - name: Warstwy wydajności dysków
           displayname: 'Performance, cost, perf, disks, disk'
+        - name: Warstwy wydajności dysków
           href: disks-change-performance.md
+          displayname: 'Performance, cost, perf, disks, disk'
         - name: Zmień warstwę wydajności dysku
           items:
             - name: Interfejs wiersza polecenia i program PowerShell
-              displayname: 'Performance, cost, perf, disks, disk, change disk performance tier'
               href: disks-performance-tiers.md
-            - name: Portal
               displayname: 'Performance, cost, perf, disks, disk, change disk performance tier'
+            - name: Portal
               href: disks-performance-tiers-portal.md
+              displayname: 'Performance, cost, perf, disks, disk, change disk performance tier'
         - name: Włączanie akceleratora zapisu
           href: how-to-enable-write-accelerator.md
         - name: Test porównawczy dysku
@@ -1167,8 +1163,6 @@
             - name: PowerShell
               displayName: Unmanaged VM to Managed Disks
               href: ./windows/convert-unmanaged-to-managed-disks.md
-        - name: Kopiowanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
-          href: ./linux/copy-vm.md
     - name: Dodawanie dysku z danymi
       items:
         - name: Linux
@@ -1240,8 +1234,6 @@
           href: ./windows/azure-to-guest-disk-mapping.md
         - name: File Storage
           items:
-            - name: Instalacja systemu Linux przy użyciu protokołu SMB
-              href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
             - name: Kopiowanie plików do maszyny wirtualnej z systemem Linux
               href: ./linux/copy-files-to-linux-vm-using-scp.md
         - name: Znajdowanie niedołączonych dysków
@@ -1287,7 +1279,7 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
             - name: Tworzenie migawki z dysku VHD
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
-- name: Networking
+- name: Sieć
   items:
     - name: Omówienie
       displayName: Networking Overview
@@ -1335,8 +1327,8 @@
     - name: Linie bazowe zabezpieczeń
       items:
         - name: Linux
-          displayname: Security baselines
           href: ./linux/security-baseline.md
+          displayname: Security baselines
         - name: Windows
           displayName: Security baselines
           href: ./windows/security-baseline.md
@@ -1345,8 +1337,8 @@
     - name: Zaufane uruchomienie
       items:
         - name: Omówienie
-          DisplayName: 'Trusted Launch, shielded VM'
           href: trusted-launch.md
+          DisplayName: 'Trusted Launch, shielded VM'
         - name: Wdrażanie przy użyciu portalu
           href: trusted-launch-portal.md
     - name: Dostęp just in time
@@ -1503,8 +1495,8 @@
         - name: Zaplanowane zdarzenia
           items:
             - name: Linux
-              displayname: Scheduled events
               href: ./linux/scheduled-events.md
+              displayname: Scheduled events
             - name: Windows
               displayName: Scheduled events
               href: ./windows/scheduled-events.md
@@ -1649,17 +1641,17 @@
     - name: Tagowanie maszyny wirtualnej
       items:
         - name: Interfejs wiersza polecenia
-          displayname: 'tag, tagging, tag a vm'
           href: tag-cli.md
+          displayname: 'tag, tagging, tag a vm'
         - name: Portal
-          displayname: 'tag, tagging, tag a vm'
           href: tag-portal.md
+          displayname: 'tag, tagging, tag a vm'
         - name: PowerShell
-          displayname: 'tag, tagging, tag a vm'
           href: tag-powershell.md
-        - name: Template
           displayname: 'tag, tagging, tag a vm'
+        - name: Template
           href: tag-template.md
+          displayname: 'tag, tagging, tag a vm'
     - name: Monitorowanie metadanych
       items:
         - name: Interfejs wiersza polecenia
@@ -1682,35 +1674,35 @@
     - name: Tworzenie kopii zapasowej maszyn wirtualnych
       items:
         - name: Omówienie
-          dispayName: 'backup VMs, Azure Backup, recovery'
           href: ../backup/backup-azure-vms-introduction.md
+          dispayName: 'backup VMs, Azure Backup, recovery'
         - name: Przewodniki Szybki start
           items:
             - name: Interfejs wiersza polecenia
-              dispayName: 'backup VMs, Azure Backup, recovery'
               href: ../backup/quick-backup-vm-cli.md
+              dispayName: 'backup VMs, Azure Backup, recovery'
             - name: PowerShell
-              dispayName: 'backup VMs, Azure Backup, recovery'
               href: ../backup/quick-backup-vm-powershell.md
+              dispayName: 'backup VMs, Azure Backup, recovery'
             - name: Portal
-              dispayName: 'backup VMs, Azure Backup, recovery'
               href: ../backup/quick-backup-vm-portal.md
-            - name: Template
               dispayName: 'backup VMs, Azure Backup, recovery'
+            - name: Template
               href: ../backup/quick-backup-vm-template.md
+              dispayName: 'backup VMs, Azure Backup, recovery'
         - name: Tworzenie kopii zapasowej wielu maszyn wirtualnych
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opcje przywracania
           href: ../backup/backup-azure-arm-restore-vms.md
         - name: Tabela obsługi
-          dispayName: 'backup VMs, Azure Backup, recovery'
           href: ../backup/backup-support-matrix-iaas.md
+          dispayName: 'backup VMs, Azure Backup, recovery'
         - name: Cennik
-          dispayName: 'backup VMs, Azure Backup, recovery'
           href: ../backup/azure-backup-pricing.md
-        - name: Często zadawane pytania
           dispayName: 'backup VMs, Azure Backup, recovery'
+        - name: Często zadawane pytania
           href: ../backup/backup-azure-vm-backup-faq.yml
+          dispayName: 'backup VMs, Azure Backup, recovery'
     - name: Odzyskiwanie po awarii
       items:
         - name: Omówienie
@@ -1757,8 +1749,8 @@
             - name: Migrowanie z usług Amazon Web Services (AWS) na platformę Azure
               href: ./windows/aws-to-azure.md
             - name: Przekazywanie lokalnej maszyny wirtualnej
-              displayname: Migrate from Amazon Web Services (AWS) to Azure
               href: ./linux/upload-vhd.md
+              displayname: Migrate from Amazon Web Services (AWS) to Azure
             - name: Korzystanie z usługi Azure Site Recovery
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatyzacja infrastruktury

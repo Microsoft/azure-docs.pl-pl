@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f17d851e517e1ea0297bf8169c42496068e57533
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371264"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Dokumentacja skryptów Azure Data Factory-JSON
@@ -4819,7 +4819,7 @@ W poniższej tabeli wymieniono środowiska obliczeniowe obsługiwane przez Data 
 | Środowisko obliczeniowe | Działania |
 | --- | --- |
 | [Klaster HDInsight na żądanie](#on-demand-azure-hdinsight-cluster) lub [własny klaster usługi HDInsight](#existing-azure-hdinsight-cluster) |[Działanie niestandardowe platformy .NET](#net-custom-activity), [działanie Hive](#hdinsight-hive-activity), aktywność [świń](#hdinsight-pig-activity), działanie [MapReduce](#hdinsight-mapreduce-activity), działanie usługi Hadoop streaming, [działanie Spark](#hdinsight-spark-activity) |
-| [Azure Batch](#azure-batch) |[Niestandardowe działanie platformy .NET](#net-custom-activity) |
+| [Usługa Azure Batch](#azure-batch) |[Niestandardowe działanie platformy .NET](#net-custom-activity) |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (klasyczny) działanie wykonywania wsadowego](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (klasyczne) aktualizowanie zasobów](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [usługa Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Procedura składowana](#stored-procedure-activity) |
@@ -4895,7 +4895,7 @@ Aby uzyskać listę obsługiwanych wersji klastrów usługi HDInsight, zobacz [o
 }
 ```
 
-## <a name="azure-batch"></a>Azure Batch
+## <a name="azure-batch"></a>Usługa Azure Batch
 Można utworzyć połączoną usługę Azure Batch, aby zarejestrować pulę usługi Batch maszyn wirtualnych z fabryką danych. Działania niestandardowe platformy .NET można uruchamiać przy użyciu Azure Batch lub usługi Azure HDInsight. Dla tej połączonej usługi można uruchomić [działanie niestandardowe platformy .NET](#net-custom-activity) .
 
 ### <a name="linked-service"></a>Połączona usługa

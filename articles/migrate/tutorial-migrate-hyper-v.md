@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878176"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604580"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -25,7 +25,7 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > [!NOTE]
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
- Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+ Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodaj Azure Migrate: Narzędzia migracji serwera.
@@ -135,12 +135,7 @@ Po ukończeniu odnajdywania można rozpocząć replikację maszyn wirtualnych fu
 ## <a name="provision-for-the-first-time"></a>Udostępnianie po raz pierwszy
 
 Jeśli jest to pierwsza maszyna wirtualna, która jest replikowana w projekcie Azure Migrate, Azure Migrate: Migracja serwera automatycznie udostępnia te zasoby w tej samej grupie zasobów co projekt.
-
-- **Service Bus**: Azure Migrate: Migracja serwera używa Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
-- **Konto magazynu bramy**: Azure Migrate: Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie dotyczących replikowanych maszyn wirtualnych.
-- **Konto magazynu dzienników**: urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
-- **Magazyn kluczy**: urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji. Należy skonfigurować uprawnienia wymagane przez Magazyn kluczy do uzyskiwania dostępu do konta magazynu podczas [przygotowywania usługi Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) do oceny i migracji maszyn wirtualnych funkcji Hyper-V. 
-
+- **Konto magazynu pamięci podręcznej**: oprogramowanie dostawcy Azure Site Recovery zainstalowane na hoście funkcji Hyper-V przekazuje dane replikacji dla maszyn wirtualnych skonfigurowanych do replikacji na konto magazynu (znane jako konto magazynu pamięci podręcznej lub konto magazynu dziennika) w ramach subskrypcji. Następnie usługa Azure Migrate kopiuje przekazane dane replikacji z konta magazynu na dyski zarządzane przez repliki odpowiadające maszynie wirtualnej. Konto magazynu pamięci podręcznej należy określić podczas konfigurowania replikacji dla maszyny wirtualnej, a Portal Azure Migrate automatycznie tworzy jeden dla projektu Azure Migrate, gdy replikacja jest konfigurowana po raz pierwszy w projekcie.
 
 ## <a name="track-and-monitor"></a>Śledzenie i monitorowanie
 

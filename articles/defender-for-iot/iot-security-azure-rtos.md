@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/14/2021
 ms.author: shhazam
 ms.openlocfilehash: ae1ae941dcb1af73286a4865089b1be227c484fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496052"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos-preview"></a>Przegląd: Defender for IoT Defender-IoT-Micro-Agent for Azure RTO (wersja zapoznawcza)

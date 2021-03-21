@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono sposób wyświetlania istniejącego te
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115115"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Twórz, Wyświetlaj i Zarządzaj Event Grid tematy systemowe w Azure Portal
@@ -35,7 +35,7 @@ Można utworzyć temat systemowy dla zasobu platformy Azure (konto magazynu, Eve
     
         > [!NOTE]
         > Ta nazwa tematu systemu służy do wyszukiwania metryk i dzienników diagnostycznych.
-    6. Wybierz pozycję **Przeglądanie + tworzenie**.
+    6. Wybierz pozycję **Przejrzyj i utwórz**.
 
         ![Tworzenie tematu systemu](./media/create-view-manage-system-topics/create-event-grid-system-topic-page.png)
     5. Przejrzyj ustawienia i wybierz pozycję **Utwórz**. 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby wyświetlić wszystkie istniejące Event Grid t
 2. Na stronie **temat systemu Event Grid** wybierz pozycję **+ subskrypcja zdarzeń** z paska narzędzi. 
 
     ![Temat systemu — przycisk Dodaj subskrypcję zdarzenia](./media/create-view-manage-system-topics/add-event-subscription-button.png)
-3. Upewnij się, że **Typ tematu**, **zasób źródłowy**i **nazwa tematu** są wypełniane automatycznie. Wprowadź nazwę, wybierz **Typ punktu końcowego**i określ **punkt końcowy**. Następnie wybierz pozycję **Utwórz** , aby utworzyć subskrypcję zdarzeń. 
+3. Upewnij się, że **Typ tematu**, **zasób źródłowy** i **nazwa tematu** są wypełniane automatycznie. Wprowadź nazwę, wybierz **Typ punktu końcowego** i określ **punkt końcowy**. Następnie wybierz pozycję **Utwórz** , aby utworzyć subskrypcję zdarzeń. 
 
     ![Temat systemu — Tworzenie subskrypcji zdarzeń](./media/create-view-manage-system-topics/create-event-subscription.png)
 

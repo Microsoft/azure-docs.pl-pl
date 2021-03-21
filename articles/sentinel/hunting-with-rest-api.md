@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795698"
 ---
-# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Zarządzanie wytransmisję strumieniowąami i zapytaniami na platformie Azure przy użyciu interfejsu API REST
+# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Zarządzanie zapytaniami dotyczącymi wyszukiwania zagrożeń i transmisji strumieniowej na żywo w usłudze Azure Sentinel przy użyciu interfejsu API REST
 
 Punkty kontrolne platformy Azure, które są wbudowane w składniku Azure Monitor Log Analytics, umożliwiają korzystanie z interfejsu API REST Log Analytics w celu zarządzania wytransmisję strumieniowąmi i zapytaniami. W tym dokumencie przedstawiono sposób tworzenia zapytań polowania i zarządzania nimi za pomocą interfejsu API REST.  Zapytania utworzone w ten sposób będą wyświetlane w interfejsie użytkownika usługi Azure wskaźnikowej.
 

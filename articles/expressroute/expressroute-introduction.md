@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
 ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206955"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
-Usługa ExpressRoute umożliwia poszerzanie sieci lokalnych w chmurze firmy Microsoft przez połączenie prywatne z pomocą dostawcy łączności. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Microsoft 365.
+Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, takimi jak Microsoft Azure i Microsoft 365.
 
-Łączność może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach funkcji wspólnej lokalizacji. Połączenia ExpressRoute nie przechodzą przez publiczny Internet. Dzięki temu połączenia ExpressRoute zapewniają większą niezawodność, większe szybkości, spójne opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez Internet. Informacje dotyczące łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute można znaleźć w temacie [Modele połączeń usługi ExpressRoute](expressroute-connectivity-models.md).
+Łączność może być nawiązywana z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach obiektu kolokacji. Połączenia usługi ExpressRoute nie korzystają z publicznego Internetu. Dzięki temu połączenia usługi ExpressRoute zapewniają większą niezawodność, większe szybkości, spójne opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez Internet. Aby uzyskać informacje na temat sposobu łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute, zobacz [ExpressRouteing models](expressroute-connectivity-models.md).
 
 ![Omówienie połączeń ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -28,7 +28,7 @@ Usługa ExpressRoute umożliwia poszerzanie sieci lokalnych w chmurze firmy Micr
 * Łączność globalna z usługami Microsoft we wszystkich regionach dzięki dodatkowi ExpressRoute Premium.
 * Routing dynamiczny między Twoją siecią i siecią firmy Microsoft za pośrednictwem protokołu BGP.
 * Wbudowana nadmiarowość w każdej lokalizacji komunikacji równorzędnej w celu uzyskania większej niezawodności.
-* Czas sprawnego działania połączenia zgodnie z umową [SLA](https://azure.microsoft.com/support/legal/sla/).
+* [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)dotycząca czasu przestoju połączenia.
 * Obsługa QoS dla programu Skype dla firm.
 
 Więcej informacji znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).

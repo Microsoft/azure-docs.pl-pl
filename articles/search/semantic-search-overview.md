@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604274"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720495"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Wyszukiwanie semantyczne na platformie Azure Wyszukiwanie poznawcze
 
@@ -50,7 +50,9 @@ Składniki wyszukiwania semantycznego poszerzają istniejący potok wykonywania 
 
 Wykonywanie zapytań jest wykonywane w zwykły sposób, z analizowaniem, analizą i skanowaniem w odniesieniu do odwróconych indeksów. Aparat pobiera dokumenty przy użyciu dopasowania tokenu i ocenia wyniki przy użyciu [domyślnego algorytmu określania podobieństwa](index-similarity-and-scoring.md#similarity-ranking-algorithms). Wyniki są obliczane na podstawie stopnia podobieństwa do języka między terminami zapytania i pasujących terminów w indeksie. Jeśli zostały zdefiniowane, na tym etapie są również stosowane profile oceniania. Wyniki są następnie przenoszone do podsystemu wyszukiwania semantycznego.
 
-W kroku przygotowania dokument korpus zwrócony z początkowego zestawu wyników jest analizowany na poziomie zdania i akapitu, aby znaleźć fragmenty, które podsumowują każdy dokument. W przeciwieństwie do wyszukiwania słów kluczowych ten krok polega na tym, że w celu oszacowania zawartości jest wykorzystywany odczyt i zrozumienie maszyn. W ramach kompozycji wyniku zapytanie semantyczne zwraca napisy i odpowiedzi. Aby je sformułować, wyszukiwanie semantyczne używa reprezentacji języka do wyodrębniania i wyróżniania kluczowych fragmentów, które najlepiej podsumowują wynik. Jeśli zapytanie wyszukiwania jest pytaniem, a odpowiedzi są wymagane — odpowiedź będzie zawierać również fragment tekstu, który najlepiej odpowiada na pytanie, zgodnie z opisem w zapytaniu wyszukiwania. W przypadku obu napisów i odpowiedzi istniejący tekst jest używany w składzie. Modele semantyczne nie tworzą nowych zdań lub fraz z dostępnej zawartości ani nie stosują logiki, aby dotrzeć do nowych wniosków. W krótkim przypadku system nigdy nie będzie zwracać zawartości, która jeszcze nie istnieje.
+W kroku przygotowania dokument korpus zwrócony z początkowego zestawu wyników jest analizowany na poziomie zdania i akapitu, aby znaleźć fragmenty, które podsumowują każdy dokument. W przeciwieństwie do wyszukiwania słów kluczowych ten krok polega na tym, że w celu oszacowania zawartości jest wykorzystywany odczyt i zrozumienie maszyn. W tym etapie przetwarzania zawartości zapytanie semantyczne zwraca [napisy](semantic-how-to-query-request.md) i [odpowiedzi](semantic-answers.md). Aby je sformułować, wyszukiwanie semantyczne używa reprezentacji języka do wyodrębniania i wyróżniania kluczowych fragmentów, które najlepiej podsumowują wynik. Jeśli zapytanie wyszukiwania jest pytaniem, a odpowiedzi są wymagane — odpowiedź będzie zawierać również fragment tekstu, który najlepiej odpowiada na pytanie, zgodnie z opisem w zapytaniu wyszukiwania. 
+
+W przypadku obu napisów i odpowiedzi istniejący tekst jest używany w składzie. Modele semantyczne nie tworzą nowych zdań lub fraz z dostępnej zawartości ani nie stosują logiki, aby dotrzeć do nowych wniosków. W krótkim przypadku system nigdy nie będzie zwracać zawartości, która jeszcze nie istnieje.
 
 Wyniki są następnie ponownie oceniane w oparciu o [podobieństwo pojęć związanych](semantic-ranking.md) z terminami zapytań.
 

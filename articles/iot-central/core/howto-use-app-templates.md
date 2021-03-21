@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91651840"
 ---
 # <a name="export-your-application"></a>Eksportowanie aplikacji
@@ -57,7 +57,7 @@ Podczas tworzenia szablonu aplikacji zawiera on następujące elementy z istniej
 
 Podczas tworzenia szablonu aplikacji nie zawiera on następujących elementów:
 
-- Devices
+- Urządzenia
 - Użytkownicy
 - Definicje eksportu danych ciągłych
 
@@ -74,7 +74,7 @@ Aby utworzyć szablon aplikacji na podstawie istniejącej aplikacji IoT Central:
 
 ### <a name="use-an-application-template"></a>Korzystanie z szablonu aplikacji
 
-Aby użyć szablonu aplikacji do utworzenia nowej aplikacji IoT Central, potrzebujesz wcześniej utworzonego **linku**umożliwiającego udostępnianie. Wklej link umożliwiający **udostępnianie** na pasku adresu przeglądarki. Zostanie wyświetlona strona **Tworzenie aplikacji** z wybranym szablonem aplikacji niestandardowej:
+Aby użyć szablonu aplikacji do utworzenia nowej aplikacji IoT Central, potrzebujesz wcześniej utworzonego **linku** umożliwiającego udostępnianie. Wklej link umożliwiający **udostępnianie** na pasku adresu przeglądarki. Zostanie wyświetlona strona **Tworzenie aplikacji** z wybranym szablonem aplikacji niestandardowej:
 
 ![Tworzenie aplikacji na podstawie szablonu](media/howto-use-app-templates/create-app.png)
 

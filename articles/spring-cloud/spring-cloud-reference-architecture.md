@@ -6,12 +6,12 @@ title: Architektura referencyjna chmury ze sprężyną Azure
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Ta architektura referencyjna jest podstawą przy użyciu typowego projektu centrum przedsiębiorstwa i satelity do korzystania z chmury wiosennej platformy Azure.
-ms.openlocfilehash: c87462c8d6ab86299b6202acaa23f93d19240e0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74183ca2decf8487e5c41cf36d5784538021077f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735492"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604172"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Architektura referencyjna chmury ze sprężyną Azure
 
@@ -265,5 +265,5 @@ Zapoznaj się z tą architekturą referencyjną za pomocą wdrożeń ARM, Terraf
 [17]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [18]: https://cloudsecurityalliance.org/
 [19]: https://cloudsecurityalliance.org/research/working-groups/cloud-controls-matrix
-[20]: https://azure.microsoft.com/resources/cis-microsoft-azure-foundations-security-benchmark/
+[20]: /azure/security/benchmarks/v2-cis-benchmark
 [21]: https://www.cisecurity.org/

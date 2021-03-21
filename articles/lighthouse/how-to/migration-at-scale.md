@@ -4,10 +4,10 @@ description: Dowiedz się, jak efektywnie korzystać z Azure Migrate na delegowa
 ms.date: 01/29/2021
 ms.topic: how-to
 ms.openlocfilehash: ed2fc8ae1a3b87a3b2501c3a390fe7a1822003e4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393585"
 ---
 # <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Zarządzanie projektami Azure Migrate na dużą skalę za pomocą usługi Azure Lighthouse

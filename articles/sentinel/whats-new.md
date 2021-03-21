@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/11/2021
+ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503128"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604257"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,10 +32,54 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="march-2021"></a>Marzec 2021
 
-- [Integracja zdarzeń Microsoft 365 Defender](#microsoft-365-defender-incident-integration) (publiczna wersja zapoznawcza)
+- [Reguły automatyzacji i elementy PlayBook wyzwalane incydenty](#automation-rules-and-incident-triggered-playbooks) (w tym cała dokumentacja element PlayBook)
+- [Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Drukuj skoroszyty ze wskaźnikiem na platformie Azure lub Zapisz jako plik PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+ 
+### <a name="automation-rules-and-incident-triggered-playbooks"></a>Reguły automatyzacji i wyzwalane przez zdarzenia elementy PlayBook
 
-### <a name="microsoft-365-defender-incident-integration"></a>Integracja zdarzeń Microsoft 365 Defender
+Reguły automatyzacji to nowe koncepcje na platformie Azure, które umożliwiają centralne zarządzanie automatyzacją obsługi zdarzeń. Oprócz tego, że przypiszesz elementy PlayBook do zdarzeń (nie tylko dla alertów, jak poprzednio), reguły automatyzacji umożliwiają również Automatyzowanie odpowiedzi dla wielu reguł analizy jednocześnie, automatyczne oznaczanie tagów, przypisywanie lub zamykanie incydentów bez potrzeby elementy playbook i sterowanie kolejnością wykonywanych akcji. Reguły automatyzacji usprawnią korzystanie z usługi Automation na platformie Azure i umożliwią uproszczenie złożonych przepływów pracy dla procesów aranżacji zdarzeń.
+
+Dowiedz się więcej, korzystając z tego [kompletnego wyjaśnienia reguł automatyzacji](automate-incident-handling-with-automation-rules.md).
+
+Jak wspomniano powyżej, elementy PlayBook można teraz aktywować przy użyciu wyzwalacza zdarzenia oprócz wyzwalacza alertu. Wyzwalacz zdarzenia zapewnia elementy PlayBook większy zestaw danych wejściowych do pracy z (ponieważ zdarzenie obejmuje również wszystkie dane alertu i jednostki), co zapewnia jeszcze większą moc i elastyczność w przepływach pracy odpowiedzi. Wyzwalane przez zdarzenie elementy PlayBook są aktywowane przez wywoływanie z reguł automatyzacji.
+
+Dowiedz się więcej o [ulepszonych możliwościach elementy PlayBook](automate-responses-with-playbooks.md)i sposobach tworzenia [przepływu pracy odpowiedzi](tutorial-respond-threats-playbook.md) przy użyciu elementy PlayBook wraz z regułami automatyzacji.
+
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe
+
+Wzbogacaj alerty na dwa nowe sposoby, aby zwiększyć ich użyteczność i więcej informacji.
+
+Zacznij od przełączenia mapowania jednostki na następny poziom. Teraz można mapować niemal 20 rodzajów jednostek, od użytkowników, hostów i adresów IP, do plików i procesów, skrzynek pocztowych, zasobów platformy Azure i urządzeń IoT. Można również użyć wielu identyfikatorów dla każdej jednostki, aby wzmocnić ich unikatową identyfikację. Zapewnia to znacznie bogatszy zestaw danych w zdarzeniach, zapewniając szersze korelację i bardziej zaawansowane badanie. [Zapoznaj się z nowym sposobem mapowania jednostek](map-data-fields-to-entities.md) w alertach.
+
+[Przeczytaj więcej na temat jednostek](entities-in-azure-sentinel.md) i zobacz [pełną listę dostępnych jednostek i ich identyfikatorów](entities-reference.md).
+
+Zwiększ możliwości dochodzeniowe i reagowanie jeszcze bardziej zwiększające się, dostosowując alerty do szczegółów powierzchni ze zdarzeń pierwotnych. Zapewnij wgląd w zawartość zdarzeń do zdarzeń, co zapewnia większą moc i elastyczność w reagowaniu na zagrożenia bezpieczeństwa i badanie zagrożeń. [Dowiedz się, jak przedstawić niestandardowe szczegóły](surface-custom-details-in-alerts.md) w alertach.
+
+
+
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Drukuj skoroszyty ze wskaźnikiem na platformie Azure lub Zapisz jako plik PDF
+
+Teraz można drukować skoroszyty ze wskaźnikiem na platformie Azure, które umożliwiają również eksportować do plików PDF i zapisywać lokalnie lub w udziale.
+
+W skoroszycie wybierz menu Opcje > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Drukuj zawartość**. Następnie wybierz drukarkę lub w razie konieczności wybierz pozycję **Zapisz jako plik PDF** .
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Wydrukuj skoroszyt lub Zapisz jako plik PDF.":::
+
+Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizowanie i monitorowanie danych](tutorial-monitor-your-data.md).
+
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)
+
+Teraz Twoje filtry i sortowanie zdarzeń są zapisywane w całej sesji wskaźnikowej platformy Azure, nawet podczas przechodzenia do innych obszarów produktu.
+Tak długo, jak nadal trwa ta sama sesja, przechodzenie z powrotem do obszaru [zdarzenia](tutorial-investigate-cases.md) na platformie Azure — pokazuje filtry i sortuje się tak samo jak w pozostałej postaci.
+
+> [!NOTE]
+> Filtry i sortowanie zdarzeń nie są zapisywane po opuszczeniu wskaźnikowej platformy Azure ani odświeżeniu przeglądarki.
+
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)
 
 Integracja zdarzeń Microsoft 365 usługi Azure wskaźnikowej [(M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) to usługa, która umożliwia przesyłanie strumieniowe wszystkich zdarzeń M365D do usługi Azure wskaźnikowej i utrzymywanie synchronizacji między obydwoma portalami. Zdarzenia z usługi M365D (dawniej znany jako Microsoft Threat Protection lub MTP) obejmują wszystkie skojarzone alerty, jednostki i istotne informacje, dzięki czemu można wykonać Klasyfikacja i wstępną badanie na platformie Azure. Gdy dane są wskazywane przez program, Zdarzenia nadal będą dwukierunkowe zsynchronizowane z usługą M365D, co pozwala korzystać z zalet obu portali w badaniu zdarzeń.
 
@@ -60,8 +104,8 @@ Klienci nadal będą mogli ręcznie wysyłać dzienniki dla określonych wystąp
 
 - [Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Łączniki danych innych firm](#third-party-data-connectors)
-- [UEBA szczegółowych informacji na stronie jednostki](#ueba-insights-in-the-entity-page)
-- [Ulepszone wyszukiwanie zdarzeń](#improved-incident-search)
+- [UEBA wgląd w szczegółowe dane na stronie jednostki (publiczna wersja zapoznawcza)](#ueba-insights-in-the-entity-page-public-preview)
+- [Ulepszone wyszukiwanie zdarzeń (publiczna wersja zapoznawcza)](#improved-incident-search-public-preview)
 
 ### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności
 
@@ -117,7 +161,7 @@ Nasza kolekcja integracji innych firm nadal rośnie, a w ciągu ostatnich dwóch
 - [Trend Micro XDR](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### <a name="ueba-insights-in-the-entity-page"></a>UEBA szczegółowych informacji na stronie jednostki
+### <a name="ueba-insights-in-the-entity-page-public-preview"></a>UEBA wgląd w szczegółowe dane na stronie jednostki (publiczna wersja zapoznawcza)
 
 Strony szczegółów jednostki wskaźnikowej platformy Azure udostępniają [okienko Insights](identify-threats-with-entity-behavior-analytics.md#entity-insights), w którym są wyświetlane szczegółowe informacje o działaniu jednostki i pomoc w szybkim wykrywaniu anomalii i zagrożeń bezpieczeństwa.
 
@@ -131,7 +175,7 @@ Jeśli masz [UEBA włączony](ueba-enrichments.md)i wybrałeś okres z przedzia�
 |**Wskaźniki zagrożeń powiązane z użytkownikiem**     |  Wyświetla listę znanych zagrożeń odnoszących się do adresów IP reprezentowanych w działaniach użytkownika. Zagrożenia są wymienione według typu i rodziny zagrożeń i są wzbogacane przez usługę analizy zagrożeń firmy Microsoft.       |
 |     |         |
 
-### <a name="improved-incident-search"></a>Ulepszone wyszukiwanie zdarzeń
+### <a name="improved-incident-search-public-preview"></a>Ulepszone wyszukiwanie zdarzeń (publiczna wersja zapoznawcza)
 
 Ulepszono środowisko wyszukiwania zdarzeń na platformie Azure, co pozwala na szybsze nawigowanie po zdarzeniach podczas badania określonego zagrożenia.
 
@@ -148,7 +192,7 @@ Podczas wyszukiwania zdarzeń na platformie Azure wskaźnikowej jest teraz możl
 - [Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)](#azsecurityinsights-powershell-module-public-preview)
 - [Łącznik bazy danych SQL](#sql-database-connector)
-- [Łącznik systemu Dynamics 365](#dynamics-365-connector)
+- [Łącznik systemu Dynamics 365 (publiczna wersja zapoznawcza)](#dynamics-365-connector-public-preview)
 - [Ulepszone komentarze dotyczące zdarzeń](#improved-incident-comments)
 - [Dedykowane klastry Log Analytics](#dedicated-log-analytics-clusters)
 - [Tożsamości zarządzane przez aplikacje logiki](#logic-apps-managed-identities)
@@ -183,7 +227,7 @@ Azure SQL to w pełni zarządzany aparat bazy danych platformy jako usługi (Paa
 
 Aby uzyskać więcej informacji, zobacz [łączenie dzienników diagnostyki i inspekcji usługi Azure SQL Database](connect-azure-sql-logs.md).
 
-### <a name="dynamics-365-connector"></a>Łącznik systemu Dynamics 365
+### <a name="dynamics-365-connector-public-preview"></a>Łącznik systemu Dynamics 365 (publiczna wersja zapoznawcza)
 
 Centrum danych platformy Azure udostępnia teraz łącznik dla systemu Microsoft Dynamics 365, który umożliwia gromadzenie dzienników aktywności użytkowników, administratorów i pomocy technicznej usługi Dynamics 365 na platformie Azure. Za pomocą tych danych można przeprowadzić inspekcję całości operacji przetwarzania danych i analizować ją pod kątem potencjalnych naruszeń zabezpieczeń.
 

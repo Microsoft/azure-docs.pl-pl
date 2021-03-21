@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Ser
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88891661"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Tworzenie kopii zapasowej SQL Server z okienka maszyny wirtualnej
@@ -40,13 +40,13 @@ Tworzenie kopii zapasowych na maszynie wirtualnej SQL Server można włączyć z
 2. Wprowadź nazwę magazynu Recovery Services. Magazyn jest jednostką logiczną do przechowywania wszystkich kopii zapasowych i zarządzania nimi. W przypadku tworzenia nowego magazynu:
 
     - Zostanie ona utworzona w tej samej subskrypcji i regionie co SQL Serverą maszynę wirtualną, która jest używana do ochrony.
-    - Zostanie on utworzony przy użyciu ustawienia magazynu geograficznie nadmiarowego (GRS) dla wszystkich kopii zapasowych. Jeśli chcesz zmienić typ nadmiarowości, należy to zrobić przed włączeniem ochrony maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [ten artykuł](backup-create-rs-vault.md#set-storage-redundancy).
+    - Zostanie on utworzony przy użyciu ustawienia magazynu geograficznie nadmiarowego (GRS) dla wszystkich kopii zapasowych. Jeśli chcesz zmienić typ nadmiarowości, należy to zrobić przed włączeniem ochrony maszyny wirtualnej. Więcej informacji znajduje się w [tym artykule](backup-create-rs-vault.md#set-storage-redundancy).
 
 3. Wybierz **zasady tworzenia kopii zapasowych**. Można wybrać jedną z domyślnych zasad lub innych istniejących zasad utworzonych w magazynie. Jeśli chcesz utworzyć nowe zasady, możesz zapoznać się z [tym artykułem](backup-sql-server-database-azure-vms.md#create-a-backup-policy) , aby zapoznać się z przewodnikiem krok po kroku.
 
     ![Wybieranie zasad kopii zapasowych](./media/backup-sql-server-vm-from-vm-pane/backup-policy.png)
 
-4. Wybierz pozycję **Włącz wykonywanie kopii zapasowej**. Wykonanie operacji może potrwać kilka minut.
+4. Wybierz pozycję **Włącz kopię zapasową**. Wykonanie operacji może potrwać kilka minut.
 
     ![Wybierz pozycję Włącz kopię zapasową](./media/backup-sql-server-vm-from-vm-pane/enable-backup.png)
 

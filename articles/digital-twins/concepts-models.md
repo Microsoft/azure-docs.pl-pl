@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034765"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590538"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Opis modeli cyfrowej reprezentacji bliźniaczej w usłudze Azure Digital Twins
 
@@ -24,9 +24,13 @@ Modele bliźniaczych reprezentacji cyfrowych platformy Azure są reprezentowane 
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital bliźniaczy Definition Language (DTDL) for models
 
-Modele dla usługi Azure Digital Twins są zdefiniowane przy użyciu języka Digital Twins Definition Language (DTDL). Język DTDL jest oparty na formacie JSON-LD i nie jest zależny od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL). 
 
-Usługa Azure Digital bliźniaczych reprezentacji używa **DTDL w _wersji 2_**. Aby uzyskać więcej informacji na temat tej wersji programu DTDL, zapoznaj się z dokumentacją dotyczącą specyfikacji w witrynie GitHub: [*Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Korzystanie z DTDL w _wersji 1_ z usługą Azure Digital bliźniaczych reprezentacji jest obecnie przestarzałe.
+Możesz wyświetlić pełne specyfikacje języka dla DTDL w usłudze GitHub: [**Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+
+Język DTDL jest oparty na formacie JSON-LD i nie jest zależny od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Usługa Azure Digital bliźniaczych reprezentacji korzysta z usługi DTDL w **wersji 2** (użycie DTDL w wersji 1 z usługą Azure Digital bliźniaczych reprezentacji jest już przestarzałe). 
+
+Pozostała część tego artykułu zawiera podsumowanie sposobu używania języka w usłudze Azure Digital bliźniaczych reprezentacji.
 
 > [!NOTE] 
 > Nie wszystkie usługi korzystające z DTDL implementują dokładnie te same funkcje programu DTDL. Na przykład usługa IoT Plug and Play nie korzysta z funkcji DTDL, które są dostępne w przypadku wykresów, podczas gdy program Azure Digital bliźniaczych reprezentacji nie implementuje obecnie poleceń DTDL.

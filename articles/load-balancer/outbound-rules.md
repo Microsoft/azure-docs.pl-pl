@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033157"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590215"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reguły wychodzące Azure Load Balancer
 
@@ -36,11 +36,11 @@ Korzystając z reguł ruchu **wychodzącego** , można jawnie zdefiniować zacho
 Reguły ruchu wychodzącego umożliwiają sterowanie:
 
 * **Które maszyny wirtualne są tłumaczone na które publiczne adresy IP.**
-     * Dwie reguły stanowiły pulę zaplecza A i korzystają z adresów IP a i B, a w puli zaplecza B są stosowane adresy IP C i D.
+     * Dwie reguły wykorzystały z niebieskiego adresu IP 1 i 2, ponieważ pula zaplecza 2 używa żółtego prefiksu IP.
 * **Sposób przydzielenia portów wychodzącego ruchu źródłowego.**
-     * Pula zaplecza B jest jedyną pulą służącą do nawiązywania połączeń wychodzących, nadając jej wszystkie porty i brak do puli zaplecza A.
+     * Jeśli pula zaplecza 2 jest jedyną pulą tworzącą połączenia wychodzące, należy nadać wszystkim portom przyłączonej do puli zaplecza 2 i brak do puli zaplecza 1.
 * **Protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.**
-     * Pula zaplecza B potrzebuje portów UDP dla ruchu wychodzącego. Pula zaplecza A wymaga protokołu TCP. Nadaj portom TCP portów i UDP do B.
+     * Jeśli pula zaplecza 2 wymaga portów UDP dla ruchu wychodzącego, a pula zaplecza 1 wymaga protokołu TCP, nadawanie portów TCP do 1 i portów UDP do 2.
 * **Czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).**
      * W przypadku długotrwałych połączeń z utrzymywaniem aktywności należy zarezerwować bezczynne porty dla długotrwałych połączeń przez maksymalnie 120 minut. Przyjęto założenie, że stare połączenia są porzucane i zwalniane w ciągu 4 minut na potrzeby nowych połączeń 
 * **Czy należy wysyłać Resetowanie protokołu TCP przy użyciu limitu czasu bezczynności.**

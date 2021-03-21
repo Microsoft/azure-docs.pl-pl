@@ -3,12 +3,12 @@ title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98220749"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721617"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -448,7 +448,8 @@ Fakt, że `where` wyrażenie jest oceniane względem **całej** zawartości żą
       "field": "tags.env",
       "equals": "prod"
     }
-  }
+  },
+  "equals": 0
 }
 ```
 
@@ -457,40 +458,60 @@ Fakt, że `where` wyrażenie jest oceniane względem **całej** zawartości żą
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-Zagnieżdżone wyrażenia Count są również dozwolone:
+Zagnieżdżone wyrażenia Count mogą służyć do stosowania warunków do pól tablic zagnieżdżonych. Na przykład poniższy warunek sprawdza, czy `objectArray[*]` Tablica ma dokładnie 2 elementy członkowskie `nestedArray[*]` , które zawierają co najmniej jeden element członkowski:
 
 ```json
 {
   "count": {
     "field": "Microsoft.Test/resourceType/objectArray[*]",
     "where": {
-      "allOf": [
-        {
-          "field": "Microsoft.Test/resourceType/objectArray[*].property",
-          "equals": "value2"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-            "where": {
-              "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-              "equals": 3
-            },
-            "greater": 0
-          }
-        }
-      ]
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]"
+      },
+      "greaterOrEquals": 1
     }
-  }
+  },
+  "equals": 2
 }
 ```
- 
-| Iteracja pętli zewnętrznej | Wybrane wartości | Iteracja pętli wewnętrznej | Wybrane wartości |
-|:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
+
+| Iteracja | Wybrane wartości | Wynik oceny liczby zagnieżdżonej |
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` ma 2 składowe => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` ma 2 składowe => `true` |
+
+Ponieważ oba elementy członkowskie `objectArray[*]` mają tablicę podrzędną `nestedArray[*]` z 2 elementami członkowskimi, zwracane jest wyrażenie liczby zewnętrznej `2` .
+
+Bardziej skomplikowany przykład: Sprawdź, czy `objectArray[*]` Tablica zawiera dokładnie 2 elementy członkowskie z `nestedArray[*]` członkami równymi `2` lub `3` :
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+        "where": {
+            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+            "in": [ 2, 3 ]
+        }
+      },
+      "greaterOrEquals": 1
+    }
+  },
+  "equals": 2
+}
+```
+
+| Iteracja | Wybrane wartości | Wynik oceny liczby zagnieżdżonej
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` wyświetlana `2` => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` wyświetlana `3` => `true` |
+
+Ponieważ oba elementy członkowskie `objectArray[*]` mają tablicę podrzędną `nestedArray[*]` , która zawiera albo `2` lub `3` , zwraca wyrażenie Count `2` .
+
+> [!NOTE]
+> Wyrażenia liczby pól zagnieżdżonych mogą odwoływać się tylko do tablic zagnieżdżonych. Na przykład wyrażenie Count odwołujące się do `Microsoft.Test/resourceType/objectArray[*]` może mieć zagnieżdżoną liczbę przeznaczoną dla zagnieżdżonej tablicy `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` , ale nie może mieć wartości docelowej wyrażenia liczby zagnieżdżonej `Microsoft.Test/resourceType/stringArray[*]` .
 
 #### <a name="accessing-current-array-member-with-template-functions"></a>Uzyskiwanie dostępu do bieżącego elementu członkowskiego tablicy przy użyciu funkcji szablonu
 

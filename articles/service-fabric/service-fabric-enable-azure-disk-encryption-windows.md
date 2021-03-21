@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób włączania szyfrowania dysków dla 
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78251815"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Włączanie szyfrowania dysków dla węzłów klastra usługi Azure Service Fabric w systemie Windows 
@@ -37,7 +37,7 @@ Wersja zapoznawcza szyfrowania dysków dla zestawu skalowania maszyn wirtualnych
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Odczekaj około 10 minut do momentu *zarejestrowania*stanu. Stan można sprawdzić, uruchamiając następujące polecenie: 
+2. Odczekaj około 10 minut do momentu *zarejestrowania* stanu. Stan można sprawdzić, uruchamiając następujące polecenie: 
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -51,7 +51,7 @@ Wersja zapoznawcza szyfrowania dysków dla zestawu skalowania maszyn wirtualnych
 2. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), który zawiera nowe polecenia szyfrowania.
 3. Zainstaluj najnowszą wersję [zestawu Azure SDK z wersji Azure PowerShell](https://github.com/Azure/azure-powershell/releases) . Poniżej znajduje się zestaw skalowania maszyn wirtualnych Azure Disk Encryption polecenia cmdlet umożliwiające włączenie ([ustawienie](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) szyfrowania, pobranie ([pobranie](/powershell/module/az.compute/get-azvmssvmdiskencryption)) stanu szyfrowania i usunięcie ([wyłączenie](/powershell/module/az.compute/disable-azvmssdiskencryption)) szyfrowania w wystąpieniu zestawu skalowania.
 
-| Polecenie | Wersja |  Źródło  |
+| Polecenie | Wersja |  Element źródłowy  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 lub nowszy | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 lub nowszy | Az.Compute |
