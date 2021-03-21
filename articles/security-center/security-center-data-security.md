@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
 ms.openlocfilehash: 0c21c916d152188031212b47704dfb41d3f64a82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596274"
 ---
 # <a name="azure-security-center-data-security"></a>Zabezpieczenia danych Azure Security Center
@@ -80,7 +80,7 @@ Można określić obszar roboczy i region, w którym są przechowywane dane zbie
 Klienci mogą uzyskać dostęp do Security Center powiązanych danych z następujących strumieni danych:
 
 
-| Strumień                                                                                | Typy danych                                                                                                                                                                                                          |
+| Stream                                                                                | Typy danych                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Dziennik aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)                       | Wszystkie alerty zabezpieczeń, zatwierdzone Security Center żądania dostępu [just in Time](security-center-just-in-time.md) i wszystkie alerty wygenerowane przez [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md).|
 | [Dzienniki usługi Azure Monitor](../azure-monitor/data-platform.md)                      | Wszystkie alerty zabezpieczeń.                                                                                                                                                                                                |

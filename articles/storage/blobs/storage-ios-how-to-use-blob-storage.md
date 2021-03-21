@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996823"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Jak korzystać z usługi BLOB Storage z systemu iOS
@@ -62,7 +62,7 @@ Aby można było korzystać z tej biblioteki, potrzebne są następujące elemen
 Innym sposobem korzystania z biblioteki jest ręczne skompilowanie struktury:
 
 1. Najpierw pobierz lub Sklonuj [repozytorium Azure-Storage-iOS](https://github.com/azure/azure-storage-ios).
-2. Przejdź do biblioteki klienta usługi Azure Storage dla *systemu iOS*  ->  *Lib*  ->  *Azure Storage Client Library* i otwórz ją `AZSClient.xcodeproj` w Xcode.
+2. Przejdź do biblioteki klienta usługi Azure Storage dla *systemu iOS*  ->    ->  i otwórz ją `AZSClient.xcodeproj` w Xcode.
 3. W lewym górnym rogu Xcode Zmień aktywny schemat z "Biblioteka klienta usługi Azure Storage" na "Framework".
 4. Kompiluj projekt (⌘ + B). Spowoduje to utworzenie `AZSClient.framework` pliku na pulpicie.
 

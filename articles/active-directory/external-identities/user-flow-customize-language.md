@@ -12,10 +12,10 @@ ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653494"
 ---
 # <a name="language-customization-in-azure-active-directory"></a>Dostosowanie języka w Azure Active Directory
@@ -182,7 +182,7 @@ Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływ
 | Niderlandzki                 | nl            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Norweski             | nie            | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Pendżabski               | biur            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) |
-| Polski                | zysków            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
+| polski                | zysków            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Portugalski (Brazylia)   | pt-br         | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Portugalski (Portugalia) | pt-pt         | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Rumuński              | ro            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |

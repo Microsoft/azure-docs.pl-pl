@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321956"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Dostęp do zestawów danych z językiem Python za pomocą biblioteki klienta Python usługi Azure Machine Learning
@@ -73,7 +73,7 @@ Ze względów bezpieczeństwa funkcja fragmentu kodu jest dostępna tylko dla u�
 
 ![Zrzut ekranu przedstawia ustawienia na stronie użytkownicy Azure Machine Learning Studio.][security]
 
-Jeśli rola nie jest ustawiona jako **właściciel** , możesz wysłać żądanie do osoby, która ma zostać zaproszona jako właściciel, lub poprosić właściciela obszaru roboczego o udostępnienie fragmentu kodu.
+Jeśli rola nie jest ustawiona jako **właściciel**, możesz wysłać żądanie do osoby, która ma zostać zaproszona jako właściciel, lub poprosić właściciela obszaru roboczego o udostępnienie fragmentu kodu.
 
 Aby uzyskać Token autoryzacji, można wybrać jedną z następujących opcji:
 

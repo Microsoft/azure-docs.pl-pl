@@ -7,10 +7,10 @@ ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092384"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Włączanie uwierzytelniania wieloskładnikowego platformy Azure dla pulpitu wirtualnego systemu Windows
@@ -45,7 +45,7 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
 4. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 5. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
 6. W obszarze **dołączanie** wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie [wymagania wstępne](#prerequisites) .
-7. Wybierz pozycję **Gotowe**.
+7. Kliknij **Gotowe**.
 8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz** wybierz pozycję **Wybierz aplikacje**.
 9. Wybierz jedną z następujących aplikacji, w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
    

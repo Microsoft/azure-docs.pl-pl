@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322011"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Przenoszenie danych do i z usługi Azure Blob Storage przy użyciu łączników usług SSIS
@@ -37,13 +37,13 @@ Omówienie scenariuszy kanonicznych, które używają usług SSIS do realizacji 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby wykonać zadania opisane w tym artykule, musisz mieć skonfigurowaną subskrypcję platformy Azure i konto usługi Azure Storage. Aby przekazać lub pobrać dane, potrzebna jest nazwa konta i klucz konta usługi Azure Storage.
 
-* Aby skonfigurować **subskrypcję platformy Azure** , zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
+* Aby skonfigurować **subskrypcję platformy Azure**, zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 * Instrukcje dotyczące tworzenia **konta magazynu** i uzyskiwania informacji o kontach i kluczach znajdują się w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
 
-Aby korzystać z **łączników usług SSIS** , należy pobrać następujące polecenie:
+Aby korzystać z **łączników usług SSIS**, należy pobrać następujące polecenie:
 
-* **SQL Server 2014 lub 2016 Standard (lub nowszy)** : instalacja zawiera SQL Server Integration Services.
-* **Microsoft SQL Server 2014 lub 2016 Integration Services Feature Pack for Azure** : te łączniki można odpowiednio pobrać z witryny [SQL Server 2014 integration services](https://www.microsoft.com/download/details.aspx?id=47366) i [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
+* **SQL Server 2014 lub 2016 Standard (lub nowszy)**: instalacja zawiera SQL Server Integration Services.
+* **Microsoft SQL Server 2014 lub 2016 Integration Services Feature Pack for Azure**: te łączniki można odpowiednio pobrać z witryny [SQL Server 2014 integration services](https://www.microsoft.com/download/details.aspx?id=47366) i [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
 
 > [!NOTE]
 > Program SSIS jest instalowany z SQL Server, ale nie jest uwzględniony w wersji Express. Aby uzyskać informacje o aplikacjach uwzględnionych w różnych wersjach SQL Server, zobacz [wersje SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392082"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Wdrażanie usługi Azure SQL Edge przy użyciu platformy Docker
@@ -83,7 +83,7 @@ Poprzednie polecenie pobiera najnowsze obrazy kontenerów usługi Azure SQL Edge
     sudo docker ps -a
    ```
 
-4. Jeśli w kolumnie **stan** zostanie wyświetlony stan **up** , usługa Azure SQL Edge jest uruchomiona w kontenerze i nasłuchuje na porcie określonym w kolumnie **porty** . Jeśli kolumna **stan** dla kontenera usługi Azure SQL Edge została **zakończona** , zapoznaj się z sekcją Rozwiązywanie problemów w dokumentacji usługi Azure SQL Edge.
+4. Jeśli w kolumnie **stan** zostanie wyświetlony stan **up**, usługa Azure SQL Edge jest uruchomiona w kontenerze i nasłuchuje na porcie określonym w kolumnie **porty** . Jeśli kolumna **stan** dla kontenera usługi Azure SQL Edge została **zakończona**, zapoznaj się z sekcją Rozwiązywanie problemów w dokumentacji usługi Azure SQL Edge.
 
     `-h`Parametr (nazwa hosta) jest również przydatny, ale nie jest używany w tym samouczku dla uproszczenia. Spowoduje to zmianę wewnętrznej nazwy kontenera na wartość niestandardową. Jest to nazwa, która zostanie zwrócona w następującej kwerendzie języka Transact-SQL:
 

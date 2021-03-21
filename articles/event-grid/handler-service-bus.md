@@ -4,10 +4,10 @@ description: Opisuje, w jaki sposób można używać kolejek Service Bus i temat
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97399863"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
@@ -58,7 +58,7 @@ Wewnętrzny identyfikator systemu dla wiadomości będzie utrzymywany przez pono
 
 ## <a name="rest-examples-for-put"></a>Przykłady REST (na potrzeby PUT)
 
-### <a name="service-bus-queue"></a>Kolejka usługi Service Bus
+### <a name="service-bus-queue"></a>Kolejka Service Bus
 
 ```json
 {
@@ -102,7 +102,7 @@ Wewnętrzny identyfikator systemu dla wiadomości będzie utrzymywany przez pono
 }
 ```
 
-### <a name="service-bus-topic"></a>Temat usługi Service Bus
+### <a name="service-bus-topic"></a>Temat Service Bus
 
 ```json
 {

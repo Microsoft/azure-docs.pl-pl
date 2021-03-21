@@ -13,10 +13,10 @@ ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: 5816bc542ff550accedd33ba9a7fd9d98583b3d1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653766"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
@@ -178,15 +178,15 @@ Odpowiedni kod dla tego przykładu znajduje się w następujących plikach:
    - Microsoft.Owin.Security.OpenIdConnect
    - Microsoft. Identity. Client
 1. W folderze **App_Start** :
-   1. Utwórz klasę o nazwie **Startup.auth.cs**.
+   1. Utwórz klasę o nazwie **Startup. auth. cs**.
    1. Usuń **. App_Start** z nazwy przestrzeni nazw.
    1. Zastąp kod klasy **uruchomieniowej** kodem z tego samego pliku przykładowej aplikacji.
    Upewnij się, że cała definicja klasy została uwzględniona. Definicja zostanie zmieniona z **uruchamiania klasy publicznej** na **Uruchamianie publicznej klasy częściowej.**
-1. W **Startup.auth.cs**, Rozwiąż brakujące odwołania przez dodanie instrukcji **using** zgodnie z sugestią w programie Visual Studio IntelliSense.
+1. W oknie **Startup. auth. cs** Rozwiąż brakujące odwołania przez dodanie instrukcji **using** zgodnie z sugestią w programie Visual Studio IntelliSense.
 1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**, a następnie wybierz pozycję **Klasa**.
-1. W polu wyszukiwania wprowadź **Owin**. **Klasa uruchomieniowa Owin** jest wyświetlana jako zaznaczenie. Zaznacz ją i nadaj jej nazwę **Startup.cs**.
-1. W **Startup.cs** Zastąp kod klasy **uruchomieniowej** kodem z tego samego pliku przykładowej aplikacji. Należy pamiętać, że definicja zmiany z **klasy publicznej rozpoczyna** się na **publiczne uruchamianie częściowej klasy**.
-1. W folderze **modele** Dodaj nową klasę o nazwie **MsGraphUser.cs**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
+1. W polu wyszukiwania wprowadź **Owin**. **Klasa uruchomieniowa Owin** jest wyświetlana jako zaznaczenie. Wybierz ją i nadaj jej nazwę **Startup. cs**.
+1. W programie **Startup. cs** Zastąp kod klasy **uruchomieniowej** kodem z tego samego pliku przykładowej aplikacji. Należy pamiętać, że definicja zmiany z **klasy publicznej rozpoczyna** się na **publiczne uruchamianie częściowej klasy**.
+1. W folderze **modele** Dodaj nową klasę o nazwie **MsGraphUser. cs**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler MVC 5 — puste** wystąpienie o nazwie **elementu AccountController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler MVC 5 — puste** wystąpienie o nazwie **UserController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler Web API 2 — puste** wystąpienie o nazwie **SyncController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420924"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Instrukcje: Konfigurowanie alertów i otrzymywanie powiadomień przy użyciu punktu zaczepienia
@@ -59,7 +59,7 @@ Aby utworzyć element webhook, należy dodać następujące informacje:
 |---------|---------|
 |Punkt końcowy     | Adres interfejsu API, który ma zostać wywołany w przypadku wyzwolenia alertu.        |
 |Nazwa użytkownika/hasło | Do uwierzytelniania na adres API. Pozostaw ten kolor czarny, jeśli uwierzytelnianie nie jest wymagane.         |
-|Header     | Niestandardowe nagłówki w wywołaniu interfejsu API.        |
+|Nagłówek     | Niestandardowe nagłówki w wywołaniu interfejsu API.        |
 
 :::image type="content" source="../media/alerts/create-web-hook.png" alt-text="okno tworzenia elementu webhook.":::
 
@@ -86,7 +86,7 @@ Aby utworzyć punkt zaczepienia usługi Azure DevOps, należy dodać następują
 ## <a name="add-or-edit-alert-settings"></a>Dodawanie lub edytowanie ustawień alertów
 
 Przejdź do strony szczegółów metryk, aby znaleźć sekcję **Ustawienia alertu** w lewym dolnym rogu strony szczegółów metryk. Zawiera listę wszystkich ustawień alertów, które mają zastosowanie do wybranej konfiguracji wykrywania. Po utworzeniu nowej konfiguracji wykrywania nie ma żadnego ustawienia alertu i alerty nie będą wysyłane.  
-Aby zmodyfikować ustawienia alertów, można użyć ikon **Dodaj** , **Edytuj** i **Usuń** .
+Aby zmodyfikować ustawienia alertów, można użyć ikon **Dodaj**, **Edytuj** i **Usuń** .
 
 :::image type="content" source="../media/alerts/alert-setting.png" alt-text="Element menu Ustawienia alertu.":::
 
@@ -94,9 +94,9 @@ Kliknij przycisk **Dodaj** lub **Edytuj** , aby wyświetlić okno umożliwiając
 
 :::image type="content" source="../media/alerts/edit-alert.png" alt-text="Dodawanie lub edytowanie ustawień alertów":::
 
-**Nazwa ustawienia alertu** : Nazwa tego ustawienia alertu. Zostanie ona wyświetlona w tytule wiadomości e-mail z alertami.
+**Nazwa ustawienia alertu**: Nazwa tego ustawienia alertu. Zostanie ona wyświetlona w tytule wiadomości e-mail z alertami.
 
-**Punkty zaczepienia** : lista punktów zaczepienia, do których mają być wysyłane alerty.
+**Punkty zaczepienia**: lista punktów zaczepienia, do których mają być wysyłane alerty.
 
 Sekcja zaznaczona na poniższym zrzucie ekranu to ustawienia dla jednej konfiguracji wykrywania. Można ustawić różne ustawienia alertów dla różnych konfiguracji wykrywania. Wybierz konfigurację docelową przy użyciu trzeciej listy rozwijanej w tym oknie. 
 
@@ -106,10 +106,10 @@ Poniżej przedstawiono ustawienia filtru dla jednej konfiguracji wykrywania.
 
 **Alert dla programu** ma 4 opcje filtrowania anomalii:
 
-* **Anomalie we wszystkich seriach** : wszystkie anomalie zostaną uwzględnione w alercie.         
-* **Anomalie w grupie serii** : Filtruj Serie według wartości wymiarów. Ustaw określone wartości dla niektórych wymiarów. Anomalie zostaną uwzględnione w alercie tylko wtedy, gdy seria pasuje do określonej wartości.       
-* **Anomalie w ulubionych seriach** : tylko seria oznaczona jako ulubiona zostanie uwzględniona w alercie.        |
-* **Anomalie w pierwszych N wszystkich seriach** : filtr jest przeznaczony dla przypadku, w którym należy zwrócić uwagę na serię, której wartość znajduje się w pierwszych N. Będziemy szukać niektórych sygnatur czasowych i sprawdzić, czy wartość serii w tych sygnaturach czasowych jest w pierwszych N. Jeśli liczba "w pierwszych n" jest większa niż określona liczba, anomalia zostanie uwzględniona w alercie.        |
+* **Anomalie we wszystkich seriach**: wszystkie anomalie zostaną uwzględnione w alercie.         
+* **Anomalie w grupie serii**: Filtruj Serie według wartości wymiarów. Ustaw określone wartości dla niektórych wymiarów. Anomalie zostaną uwzględnione w alercie tylko wtedy, gdy seria pasuje do określonej wartości.       
+* **Anomalie w ulubionych seriach**: tylko seria oznaczona jako ulubiona zostanie uwzględniona w alercie.        |
+* **Anomalie w pierwszych N wszystkich seriach**: filtr jest przeznaczony dla przypadku, w którym należy zwrócić uwagę na serię, której wartość znajduje się w pierwszych N. Będziemy szukać niektórych sygnatur czasowych i sprawdzić, czy wartość serii w tych sygnaturach czasowych jest w pierwszych N. Jeśli liczba "w pierwszych n" jest większa niż określona liczba, anomalia zostanie uwzględniona w alercie.        |
 
 **Filtrowanie opcji anomalii** jest dodatkowym filtrem z następującymi opcjami:
 

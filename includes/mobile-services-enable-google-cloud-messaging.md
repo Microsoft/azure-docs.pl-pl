@@ -9,17 +9,17 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376027"
 ---
 1. Przejdź do konsoli [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager) i zaloguj się przy użyciu poświadczeń konta Google. 
 2. Wybierz opcję **Create Project** (Utwórz projekt) na pasku narzędzi. 
    
     ![Tworzenie nowego projektu](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
-3. Aby uzyskać **nazwę projektu** , wprowadź nazwę swojego projektu i kliknij przycisk **Utwórz**.
+3. Aby uzyskać **nazwę projektu**, wprowadź nazwę swojego projektu i kliknij przycisk **Utwórz**.
 4. Naciśnij przycisk **alerty** na pasku narzędzi i wybierz swój projekt z listy. Zostanie wyświetlony pulpit nawigacyjny projektu. Możesz też przejść bezpośrednio do pulpitu nawigacyjnego, korzystając z adresu URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Wybieranie projektu w alertach](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
@@ -44,7 +44,7 @@ ms.locfileid: "93376027"
 11. Na stronie **Dodawanie poświadczeń do projektu** wybierz link **Klucz interfejsu API**. 
 
     ![Dodawanie poświadczeń](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
-12. Na stronie **Klucz interfejsu API** wybierz pozycję **Utwórz/Zapisz**. W poniższym przykładzie jest wybrana opcja **Adresy IP** , a **0.0.0.0/0** jest wprowadzone dla dozwolonych adresów IP. Należy odpowiednio ograniczyć klucz interfejsu API. 
+12. Na stronie **Klucz interfejsu API** wybierz pozycję **Utwórz/Zapisz**. W poniższym przykładzie jest wybrana opcja **Adresy IP**, a **0.0.0.0/0** jest wprowadzone dla dozwolonych adresów IP. Należy odpowiednio ograniczyć klucz interfejsu API. 
 
     ![Klucz interfejsu API — przycisk Utwórz](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)
 13. Skopiuj **Klucz interfejsu API** do Schowka, a następnie zapisz go gdzieś. 

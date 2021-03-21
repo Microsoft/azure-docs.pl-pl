@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452381"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
@@ -52,7 +52,7 @@ Jak pokazano na poprzedniej ilustracji, ta opcja jest domyślnie włączona, co 
 - Po wybraniu rozmiaru graficznej *wizualizacji* maszyny wirtualne laboratorium są obsługiwane przez technologię [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i [sieci](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  W takim przypadku instalowane są najnowsze sterowniki siatki, które umożliwiają korzystanie z aplikacji intensywnie korzystających z grafiki.
 
 ### <a name="install-the-drivers-manually"></a>Ręczne instalowanie sterowników
-Może być konieczne zainstalowanie wersji sterownika innej niż Najnowsza wersja.  W tej sekcji pokazano, jak ręcznie zainstalować odpowiednie sterowniki, w zależności od tego, czy *używasz procesora GPU czy procesora* GPU *visualization* .
+Może być konieczne zainstalowanie wersji sterownika innej niż Najnowsza wersja.  W tej sekcji pokazano, jak ręcznie zainstalować odpowiednie sterowniki, w zależności od tego, czy *używasz procesora GPU czy procesora* GPU  .
 
 #### <a name="install-the-compute-gpu-drivers"></a>Instalowanie sterowników procesora GPU
 

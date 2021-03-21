@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: ad2a27d1e41ba8e589aa98542c4a0cb3d92afbea
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99430869"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Zastosuj rozszerzenie diagnostyki systemu Windows Azure w Cloud Services (obsługa rozszerzona) 

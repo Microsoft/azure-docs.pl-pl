@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337512"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówień eksportu
@@ -252,7 +252,7 @@ Jeśli przewiniesz historię kolejności, zobaczysz:
 
 - Informacje o śledzeniu nośnika dla Twojego urządzenia.
 - Zdarzenia z działaniem *SecureErase* . Te zdarzenia odpowiadają za wymazywanie danych na dysku.
-- Urządzenie Data Box linki dzienników. Wyświetlane są ścieżki *dzienników inspekcji* , *kopii dzienników* i plików *BOM* .
+- Urządzenie Data Box linki dzienników. Wyświetlane są ścieżki *dzienników inspekcji*, *kopii dzienników* i plików *BOM* .
 
 Oto przykład dziennika historii kolejności z Azure Portal:
 

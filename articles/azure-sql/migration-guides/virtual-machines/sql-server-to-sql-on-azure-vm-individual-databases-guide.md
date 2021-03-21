@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
 ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563219"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Przewodnik migracji: SQL Server SQL Server na maszynach wirtualnych platformy Azure 
@@ -117,7 +117,7 @@ Po ukończeniu kroków poprzedzających migrację można przystąpić do migracj
 
 Poniżej przedstawiono procedurę przeprowadzania migracji przy użyciu funkcji tworzenia kopii zapasowych i przywracania albo minimalnej czasu przestoju przy użyciu funkcji tworzenia kopii zapasowych i przywracania oraz wysyłania dzienników. 
 
-### <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+### <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
 
 Aby przeprowadzić migrację standardową przy użyciu funkcji tworzenia kopii zapasowych i przywracania, wykonaj następujące kroki: 
 
@@ -220,7 +220,7 @@ Aby uzyskać więcej informacji na temat tych problemów i konkretnych kroków, 
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Aby uzyskać informacje o licencjonowaniu, zobacz

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487137"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Dokumentacja wersji 7 interfejsu API wyszukiwania lokalnego usługi Bing
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Lokalny interfejs API wyszukiwania biznesowego wysyła zapytanie wyszukiwania do usługi Bing w celu uzyskania wyników obejmujących Restauracje, Hotele lub inne lokalne firmy. W przypadku miejsc zapytanie może określać nazwę lokalnej firmy lub kategorię (na przykład Restauracje blisko mnie). Wyniki dotyczące jednostek to między innymi osoby, miejsca i rzeczy. Miejsce w tym kontekście to jednostki biznesowe, Stany, kraje/regiony itd.  
@@ -78,10 +78,10 @@ Poniżej znajdują się nagłówki, których może dotyczyć żądanie i odpowie
   
 |Nazwa|Wartość|Typ|Wymagane|  
 |----------|-----------|----------|--------------|
-|<a name="count"></a>liczbą|Liczba wyników do zwrócenia, rozpoczynając od indeksu określonego przez `offset` parametr.|Ciąg|Nie|   
+|<a name="count"></a>count|Liczba wyników do zwrócenia, rozpoczynając od indeksu określonego przez `offset` parametr.|Ciąg|Nie|   
 |<a name="localCategories"></a>localCategories|Lista opcji definiujących wyszukiwanie według kategorii biznesowej.  Zobacz [Wyszukiwanie lokalnych kategorii firmowych](local-categories.md)|Ciąg|Nie|  
 |<a name="mkt"></a>mkt|Rynek, z którego pochodzą wyniki. <br /><br />Aby uzyskać listę możliwych wartości rynkowych, zobacz Kody rynku.<br /><br /> **Uwaga:** Lokalny interfejs API wyszukiwania biznesowego obecnie obsługuje tylko rynek en-us i język.<br /><br />|Ciąg|Tak|
-|<a name="offset"></a>Przesunięcie|Indeks do uruchamiania wyników określonego przez `count` parametr.|Liczba całkowita|Nie|  
+|<a name="offset"></a>przesunięcie|Indeks do uruchamiania wyników określonego przez `count` parametr.|Liczba całkowita|Nie|  
 |<a name="query"></a>pytania|Termin wyszukiwania użytkownika.|Ciąg|Nie|  
 |<a name="responseformat"></a>responseFormat|Typ nośnika, który ma być używany na potrzeby odpowiedzi. Poniżej przedstawiono możliwe wartości bez uwzględniania wielkości liter.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Wartość domyślna to JSON. Aby uzyskać informacje na temat obiektów JSON zawartych w odpowiedzi, zobacz temat [obiekty odpowiedzi](#response-objects).<br /><br />  Jeśli określisz JsonLd, treść odpowiedzi zawiera obiekty JSON-LD, które zawierają wyniki wyszukiwania. Aby uzyskać informacje na temat JSON-LD, zobacz [JSON-LD](https://json-ld.org/).|Ciąg|Nie|  
 |<a name="safesearch"></a>safeSearch|Filtr używany do odfiltrowania zawartości dla dorosłych. Poniżej przedstawiono możliwe wartości filtru bez uwzględniania wielkości liter.<br /><ul><li>Wyłącz &mdash; zwracanie stron sieci Web z tekstem dla dorosłych, obrazami lub klipami wideo.<br /><br/></li><li>Umiarkowanie &mdash; zwracaj strony sieci Web z tekstem dla dorosłych, ale nie z obrazami lub wideo dla dorosłych.<br /><br/></li><li>Ścisłe &mdash; nie zwracają stron internetowych z tekstem dla dorosłych, obrazami lub klipami wideo.</li></ul><br /> Wartość domyślna to Moderate.<br /><br /> **Uwaga:** Jeśli żądanie pochodzi ze rynku, że zasady dla dorosłych usługi Bing wymagają `safeSearch` Ustawienia Strict, Bing ignoruje `safeSearch` wartość i używa rygorystyczne.<br/><br/>**UWAGA:** Jeśli używasz operatora zapytania `site:`, istnieje ryzyko, że odpowiedź będzie zawierać zawartość dla dorosłych niezależnie od ustawienia parametru zapytania `safeSearch`. Operatora `site:` używaj tylko wtedy, gdy znasz zawartość witryny i w swoim scenariuszu uwzględniasz możliwość pojawienia się zawartości dla dorosłych. |Ciąg|Nie|  
@@ -103,7 +103,7 @@ Określa błąd, który wystąpił.
 |Element|Opis|Typ|  
 |-------------|-----------------|----------|  
 |<a name="error-code"></a>kodu|Kod błędu, który identyfikuje kategorię błędu. Listę możliwych kodów można znaleźć w temacie [kody błędów](#error-codes).|Ciąg|  
-|<a name="error-message"></a>Komunikat|Opis błędu.|Ciąg|  
+|<a name="error-message"></a>message|Opis błędu.|Ciąg|  
 |<a name="error-moredetails"></a>moreDetails|Opis, który zawiera dodatkowe informacje o błędzie.|Ciąg|  
 |<a name="error-parameter"></a>konstruktora|Parametr zapytania w żądaniu, który spowodował błąd.|Ciąg|  
 |<a name="error-subcode"></a>podkod|Kod błędu, który identyfikuje błąd. Na przykład jeśli `code` jest InvalidRequest, `subCode` może to być ParameterInvalid lub ParameterInvalidValue. |Ciąg|  
@@ -129,7 +129,7 @@ Definiuje licencję, pod którą można używać tekstu lub fotografii.
 |url|Adres URL witryny sieci Web, w której użytkownik może uzyskać więcej informacji na temat licencji.<br /><br /> Użyj nazwy i adresu URL, aby utworzyć hiperłącze.|Ciąg|  
 
 
-### <a name="link"></a>Łącze  
+### <a name="link"></a>Link  
 Definiuje składniki hiperłącza.  
   
 |Nazwa|Wartość|Typ|  
@@ -172,10 +172,10 @@ Definiuje kontekst zapytania, który jest używany przez usługę Bing dla żąd
   
 |Element|Opis|Typ|  
 |-------------|-----------------|----------|  
-|adultIntent|Wartość logiczna wskazująca, czy określone zapytanie ma zamiar dla dorosłych. Wartość jest **równa true** , jeśli zapytanie ma dla dorosłych cel; w przeciwnym razie **false**.|Boolean (wartość logiczna)|  
+|adultIntent|Wartość logiczna wskazująca, czy określone zapytanie ma zamiar dla dorosłych. Wartość jest **równa true** , jeśli zapytanie ma dla dorosłych cel; w przeciwnym razie **false**.|Wartość logiczna|  
 |alterationOverrideQuery|Ciąg zapytania, który ma zostać użyty w celu wymuszenia użycia oryginalnego ciągu przez usługę Bing. Na przykład jeśli ciąg zapytania to *Saling downwind*, przesłonięcie ciągu zapytania będzie *+ Saling downwind*. Pamiętaj, aby zakodować ciąg zapytania, którego wynikiem jest *% 2Bsaling + downwind*.<br /><br /> To pole jest dostępne tylko wtedy, gdy pierwotny ciąg zapytania zawiera błąd pisowni.|Ciąg|  
 |alteredQuery|Ciąg zapytania używany przez usługę Bing do wykonania zapytania. Bing używa zmienionego ciągu zapytania, jeśli oryginalny ciąg zapytania zawiera błędy pisowni. Na przykład jeśli ciąg zapytania to `saling downwind` , zmieniony ciąg zapytania będzie `sailing downwind` .<br /><br /> To pole jest dostępne tylko wtedy, gdy pierwotny ciąg zapytania zawiera błąd pisowni.|Ciąg|  
-|askUserForLocation|Wartość logiczna wskazująca, czy Bing wymaga lokalizacji użytkownika, aby zapewnić dokładne wyniki. Jeśli określono lokalizację użytkownika przy użyciu nagłówków [x-MSEdge-ClientIP](#clientip) i [X-Search-Location](#location) , można zignorować to pole.<br /><br /> W przypadku zapytań dotyczących lokalizacji, takich jak "Pogoda dzisiaj" lub "Restauracje w pobliżu", które potrzebują lokalizacji użytkownika, aby zapewnić dokładne wyniki, to pole jest ustawione na **wartość true**.<br /><br /> W przypadku zapytań dotyczących lokalizacji, które zawierają lokalizację (na przykład "Pogoda pogodowa"), to pole jest ustawione na **wartość false**. To pole jest również ustawiane na **wartość false** dla zapytań, które nie obsługują lokalizacji, takich jak "Najlepsza sprzedaż".|Boolean (wartość logiczna)|  
+|askUserForLocation|Wartość logiczna wskazująca, czy Bing wymaga lokalizacji użytkownika, aby zapewnić dokładne wyniki. Jeśli określono lokalizację użytkownika przy użyciu nagłówków [x-MSEdge-ClientIP](#clientip) i [X-Search-Location](#location) , można zignorować to pole.<br /><br /> W przypadku zapytań dotyczących lokalizacji, takich jak "Pogoda dzisiaj" lub "Restauracje w pobliżu", które potrzebują lokalizacji użytkownika, aby zapewnić dokładne wyniki, to pole jest ustawione na **wartość true**.<br /><br /> W przypadku zapytań dotyczących lokalizacji, które zawierają lokalizację (na przykład "Pogoda pogodowa"), to pole jest ustawione na **wartość false**. To pole jest również ustawiane na **wartość false** dla zapytań, które nie obsługują lokalizacji, takich jak "Najlepsza sprzedaż".|Wartość logiczna|  
 |originalQuery|Ciąg zapytania określony w żądaniu.|Ciąg|  
 
 ### <a name="identifiable"></a>Identyfikowan
@@ -199,7 +199,7 @@ Definiuje element wyników wyszukiwania do wyświetlenia.
 |resultIndex|Indeks (liczony od zera) elementu w odpowiedzi, który ma być wyświetlany. Jeśli element nie zawiera tego pola, Wyświetl wszystkie elementy w odpowiedzi. Na przykład Wyświetl wszystkie artykuły z wiadomościami w odpowiedzi na wiadomości.|Liczba całkowita|
 |odpowiedź|Odpowiedź zawierająca element do wyświetlenia. Na przykład wiadomości.<br /><br />Użyj typu, aby znaleźć odpowiedź w obiekcie SearchResponse. Typ jest nazwą pola SearchResponse.<br /><br /> Należy jednak użyć typu odpowiedzi tylko wtedy, gdy ten obiekt zawiera pole Value; w przeciwnym razie zignoruj ją.|Ciąg|
 |textualIndex|Indeks odpowiedzi w textualAnswers do wyświetlenia.| Liczba całkowita bez znaku|
-|value|Identyfikator identyfikujący odpowiedź do wyświetlenia lub element odpowiedzi do wyświetlenia. Jeśli identyfikator identyfikuje odpowiedź, Wyświetl wszystkie elementy odpowiedzi.|Identyfikowan|
+|wartość|Identyfikator identyfikujący odpowiedź do wyświetlenia lub element odpowiedzi do wyświetlenia. Jeśli identyfikator identyfikuje odpowiedź, Wyświetl wszystkie elementy odpowiedzi.|Identyfikowan|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definiuje, gdzie powinna zostać umieszczona zawartość strony wyników wyszukiwania i w jakiej kolejności.  

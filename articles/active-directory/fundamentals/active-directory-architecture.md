@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996716"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Co to jest architektura Azure Active Directory?
@@ -79,7 +79,7 @@ Operacje odczytu (których liczba jest wiele rzędów wielkości większa od ope
 
 Zapis jest trwale zatwierdzany do co najmniej dwóch centrów danych przed potwierdzeniem. Jest to wykonywane przez pierwsze zatwierdzenie zapisu na serwerze podstawowym, a następnie natychmiastowe replikowanie zapisu do co najmniej jednego innego centrum danych. Ta akcja zapisu zapewnia, że potencjalna strata centrum danych, w którym znajduje się podstawowy, nie powoduje utraty.
 
-Usługa Azure AD utrzymuje zerowy [cel czasu odzyskiwania (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) , aby nie utracić danych w trybie failover. Możliwości obejmują:
+Usługa Azure AD utrzymuje zerowy [cel czasu odzyskiwania (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) , aby nie utracić danych w trybie failover. Obejmuje to następujące działania:
 
 * Wystawianie tokenów i odczyty katalogów
 * Zezwalanie na zapisywanie w katalogu tylko około 5 minut RTO

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185578"
 ---
 Jeśli używasz Eksploratora usługi Storage po raz pierwszy, wykonaj poniższe czynności.
@@ -37,7 +37,7 @@ Wykonaj poniższe czynności, aby nawiązać i zweryfikować połączenie z kont
     3. Wklej klucz dostępu uzyskany od lokalnych interfejsów API urządzenia za pośrednictwem Azure Resource Manager.
     4. Wybierz opcję domena magazynu jako **inna (wprowadź poniżej)** , a następnie podaj sufiks punktu końcowego usługi BLOB w formacie: `<appliance name>.<DNSdomain>` . 
     5. Zaznacz opcję **Użyj protokołu HTTP** , ponieważ transfer jest przesyłany za pośrednictwem *protokołu HTTP*. 
-    6. Wybierz pozycję **Dalej**.
+    6. Wybierz opcję **Dalej**.
 
     ![Konfigurowanie Eksplorator usługi Storage 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby załadować dane do konta magazynu brzegowego n
 
     ![Weryfikuj transfer danych](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-1.png)
 
-2. W oknie dialogowym **przekazywanie plików** przejdź do i wybierz pliki, które chcesz przekazać. Wybierz pozycję **Dalej**.
+2. W oknie dialogowym **przekazywanie plików** przejdź do i wybierz pliki, które chcesz przekazać. Wybierz opcję **Dalej**.
 
     ![Weryfikowanie transferu danych 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
 ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341242"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
@@ -197,7 +197,7 @@ Tak, Azure Cosmos DB interfejs API tabel zapewnia automatyczne indeksowanie wszy
 
 Tak, zasady indeksowania można zmienić, podając definicję indeksu. Należy prawidłowo zakodować i wyjść z ustawień.
 
-W przypadku zestawów SDK non-.NET zasady indeksowania można ustawić tylko w portalu w **Eksplorator danych** , przejdź do konkretnej tabeli, którą chcesz zmienić, a następnie przejdź do pozycji **skalowanie & ustawienia** ->zasad indeksowania, wprowadź żądaną zmianę, a następnie **Zapisz**.
+W przypadku zestawów SDK non-.NET zasady indeksowania można ustawić tylko w portalu w **Eksplorator danych**, przejdź do konkretnej tabeli, którą chcesz zmienić, a następnie przejdź do pozycji **skalowanie & ustawienia**->zasad indeksowania, wprowadź żądaną zmianę, a następnie **Zapisz**.
 
 Z zestawu SDK platformy .NET można przesłać plik app.config:
 

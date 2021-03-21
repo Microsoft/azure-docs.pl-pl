@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98673370"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statystyka tabeli dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
@@ -220,7 +220,7 @@ Ta składnia używa wszystkich opcji domyślnych. Domyślnie **20%** tabeli jest
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -236,7 +236,7 @@ Aby pobrać pełną tabelę, użyj następującej składni:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -437,7 +437,7 @@ Aby zaktualizować konkretny obiekt Statystyczny, należy użyć następującej 
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -453,7 +453,7 @@ Prostą metodą aktualizowania wszystkich obiektów statystyk w tabeli jest:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -556,7 +556,7 @@ Ten prosty przykład przedstawia wszystkie trzy części obiektu statystyki:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -570,7 +570,7 @@ Jeśli interesuje Cię tylko wyświetlanie określonych części, użyj `WITH` k
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

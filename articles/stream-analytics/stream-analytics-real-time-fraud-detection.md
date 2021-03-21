@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
 ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018874"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Samouczek: analizowanie fałszywych danych wywołań za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
@@ -75,7 +75,7 @@ Aby aplikacja mogła wysyłać dane do usługi Azure Event Hubs, centrum zdarze�
 
 1. Przejdź do centrum zdarzeń utworzonego w poprzednim kroku *MyEventHub*. Wybierz pozycję **Zasady dostępu współużytkowanego** w obszarze **Ustawienia**, a następnie wybierz pozycję **+ Dodaj**.
 
-2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj**. Następnie wybierz przycisk **Utwórz**.
+2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj**. Następnie wybierz pozycję **Utwórz**.
 
    ![Tworzenie zasad dostępu współdzielonego centrum zdarzeń](media/stream-analytics-real-time-fraud-detection/create-event-hub-access-policy.png)
 

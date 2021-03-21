@@ -4,10 +4,10 @@ description: Dowiedz się, jak Agent MARS obsługuje scenariusze tworzenia kopii
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562603"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informacje o agencie Microsoft Azure Recovery Services (MARS)
@@ -26,7 +26,7 @@ Agent MARS obsługuje następujące scenariusze tworzenia kopii zapasowych:
 
 ### <a name="additional-scenarios"></a>Dodatkowe scenariusze
 
-- **Tworzenie kopii zapasowych określonych plików i folderów w usłudze Azure Virtual**Machines: podstawowa metoda tworzenia kopii zapasowych maszyn wirtualnych platformy Azure polega na użyciu rozszerzenia Azure Backup na maszynie wirtualnej. Rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej. Jeśli chcesz utworzyć kopię zapasową określonych plików i folderów w ramach maszyny wirtualnej, możesz zainstalować agenta MARS na maszynach wirtualnych platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure](./backup-architecture.md#architecture-built-in-azure-vm-backup).
+- **Tworzenie kopii zapasowych określonych plików i folderów w usłudze Azure Virtual** Machines: podstawowa metoda tworzenia kopii zapasowych maszyn wirtualnych platformy Azure polega na użyciu rozszerzenia Azure Backup na maszynie wirtualnej. Rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej. Jeśli chcesz utworzyć kopię zapasową określonych plików i folderów w ramach maszyny wirtualnej, możesz zainstalować agenta MARS na maszynach wirtualnych platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Rozmieszczanie w trybie offline**: wstępne pełne kopie zapasowe danych na platformie Azure zazwyczaj przesyłają duże ilości danych i wymagają większej przepustowości sieci. Kolejne kopie zapasowe przesyłają tylko dane różnicowe lub przyrostowe. Azure Backup kompresuje początkowe kopie zapasowe. W procesie umieszczania w *trybie offline*, Azure Backup mogą używać dysków do przekazywania skompresowanych danych początkowej kopii zapasowej w trybie offline do platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Backup w trybie offline — tworzenie kopii zapasowej przy użyciu Azure Data Box](offline-backup-azure-data-box.md).
 

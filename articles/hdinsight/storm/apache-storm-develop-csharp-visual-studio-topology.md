@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929163"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
@@ -132,11 +132,11 @@ Aby utworzyć projekt topologii języka C# w programie Visual Studio:
 
 Po utworzeniu projektu należy mieć następujące pliki:
 
-* *Program.cs*: definicja topologii dla projektu. Domyślna topologia składająca się z jednego elementu spoutu i jednego pioruna jest tworzona domyślnie.
+* *Program. cs*: definicja topologii dla projektu. Domyślna topologia składająca się z jednego elementu spoutu i jednego pioruna jest tworzona domyślnie.
 
-* *Spout.cs*: przykład elementu Spout, który emituje liczby losowe.
+* *Elementu Spout. cs*: przykład elementu Spout, który emituje liczby losowe.
 
-* *Bolt.cs*: przykładowy piorun, który przechowuje liczbę liczb emitowanych przez elementu Spout.
+* *Piorun. cs*: przykładowy obiekt, który przechowuje liczbę liczb emitowanych przez elementu Spout.
 
 Podczas tworzenia projektu NuGet pobiera najnowszy [pakiet SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
@@ -144,7 +144,7 @@ Podczas tworzenia projektu NuGet pobiera najnowszy [pakiet SCP.NET](https://www.
 
 Następnie Dodaj kod dla elementu Spout, który jest używany do odczytywania danych w topologii ze źródła zewnętrznego. Ta elementu Spout losowo emituje zdanie do topologii.
 
-1. Otwórz *Spout.cs*. Główne składniki elementu Spout są następujące:
+1. Otwórz *elementu Spout. cs*. Główne składniki elementu Spout są następujące:
 
    * `NextTuple`: Wywoływane przez burzę, gdy elementu Spout może emitować nowe krotki.
 
@@ -216,18 +216,18 @@ Następnie Dodaj kod dla elementu Spout, który jest używany do odczytywania da
 
 Teraz Utwórz dwa piorunów burzy w tym przykładzie:
 
-1. Usuń istniejący plik *Bolt.cs* z projektu.
+1. Usuń istniejący plik *piorun. cs* z projektu.
 
-2. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj**  >  **nowy element**. Z listy wybierz pozycję **piorun** i wprowadź *Splitter.cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount` . Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter.cs*.
+2. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj**  >  **nowy element**. Z listy wybierz pozycję **piorun** i wpisz *rozdzielacz. cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount` . Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter. cs*.
 
-   * *Splitter.cs*: implementuje obiekt, który dzieli zdania na poszczególne słowa i emituje nowy strumień słów.
+   * *Rozdzielacz. cs*: implementuje obiekt, który dzieli zdania na poszczególne słowa i emituje nowy strumień wyrazów.
 
-   * *Counter.cs*: implementuje obiekt piorun, który zlicza każdy wyraz, i emituje nowy strumień słów oraz liczbę dla każdego wyrazu.
+   * *Counter. cs*: implementuje obiekt piorun, który zlicza każdy wyraz, i emituje nowy strumień słów oraz liczbę dla każdego wyrazu.
 
      > [!NOTE]  
      > Te pioruny odczytują i zapisują strumienie, ale można również używać pioruna do komunikowania się ze źródłami, takimi jak baza danych lub usługa.
 
-3. Otwórz *Splitter.cs*. Domyślnie ma tylko jedną metodę: `Execute` . `Execute`Metoda jest wywoływana, gdy piorun odbiera krotkę do przetwarzania. Tutaj można odczytywać i przetwarzać kolekcje przychodzące oraz emitować kolekcje wychodzące.
+3. Otwórz *rozdzielacz. cs*. Domyślnie ma tylko jedną metodę: `Execute` . `Execute`Metoda jest wywoływana, gdy piorun odbiera krotkę do przetwarzania. Tutaj można odczytywać i przetwarzać kolekcje przychodzące oraz emitować kolekcje wychodzące.
 
 4. Zastąp zawartość `Splitter` klasy następującym kodem:
 
@@ -275,7 +275,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
     }
     ```
 
-5. Otwórz *Counter.cs* i Zastąp zawartość klasy następującym kodem:
+5. Otwórz *licznik Counter. cs* i Zastąp zawartość klasy następującym kodem:
 
     ```csharp
     private Context ctx;
@@ -572,9 +572,9 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
    > [!NOTE]
    > Pamiętaj, aby zmienić **Typ danych wyjściowych** z powrotem na **bibliotekę klas** przed wdrożeniem topologii w klastrze.
 
-1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **nowy element**. Wybierz **klasę** i wprowadź *LocalTest.cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **nowy element**. Wybierz **klasę** i wprowadź *LocalTest. cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
 
-1. Otwórz *LocalTest.cs* i Dodaj następującą `using` instrukcję w górnej części:
+1. Otwórz *LocalTest. cs* i Dodaj następującą `using` instrukcję w górnej części:
 
     ```csharp
     using Microsoft.SCP;
@@ -661,7 +661,7 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
 
     Poświęć chwilę na odczytanie komentarzy do kodu. Ten kod używa `LocalContext` do uruchamiania składników w środowisku programistycznym. Zachowuje strumień danych między składnikami do plików tekstowych na dysku lokalnym.
 
-1. Otwórz *program.cs* i Dodaj następujący kod do `Main` metody:
+1. Otwórz *program programu*, a następnie Dodaj następujący kod do `Main` metody:
 
     ```csharp
     Console.WriteLine("Starting tests");
