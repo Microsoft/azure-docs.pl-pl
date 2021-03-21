@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.openlocfilehash: f33c5f0fdf69737df0d8bd83499ded1e0e0f4f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898117"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Rozwiązywanie problemów z usługą Azure Network Watcher przy użyciu Azure Portal
@@ -29,7 +29,7 @@ ms.locfileid: "97898117"
 
 Dowiedz się, jak używać rozwiązywania problemów z połączeniami, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule założono, że masz następujące zasoby:
 
@@ -49,7 +49,7 @@ Po kliknięciu przycisku **Sprawdź**, zostanie sprawdzona łączność między 
 
 ![Sprawdź wyniki łączności dla maszyny wirtualnej][1]
 
-## <a name="check-remote-endpoint-connectivity"></a>Sprawdź łączność zdalnego punktu końcowego
+## <a name="check-remote-endpoint-connectivity"></a>Sprawdzanie łączności zdalnego punktu końcowego
 
 Aby sprawdzić łączność i opóźnienie do zdalnego punktu końcowego, wybierz przycisk **Określ ręcznie** radio w sekcji **miejsce docelowe** , wprowadź adres URL i port, a następnie kliknij przycisk **Sprawdź**.  Jest on używany do zdalnych punktów końcowych, takich jak witryny sieci Web i punkty końcowe magazynu.
 

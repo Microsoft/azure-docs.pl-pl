@@ -12,10 +12,10 @@ ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797785"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach

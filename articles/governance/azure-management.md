@@ -4,10 +4,10 @@ description: Przegląd obszarów zarządzania dla aplikacji i zasobów platformy
 ms.date: 02/05/2021
 ms.topic: overview
 ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99593929"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Co to są obszary zarządzania platformy Azure?
@@ -42,7 +42,7 @@ Automatyzacja tych zadań pozwala wyeliminować nadmiarowość, zminimalizować 
 Ta funkcja zapewnia zgodność tych zasobów ze standardami firmowymi.
 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) umożliwia śledzenie użycia i wydatków w chmurze dla zasobów platformy Azure i innych dostawców chmury.
 
-## <a name="secure"></a>Bezpieczeństwo
+## <a name="secure"></a>Zabezpieczenia
 
 Zarządzanie zabezpieczeniami zasobów i danych. Program zabezpieczeń obejmuje ocenianie zagrożeń, zbieranie i analizowanie danych oraz zgodność aplikacji i zasobów. Monitorowanie zabezpieczeń i analiza zagrożeń są udostępniane przez [Azure Security Center](../security-center/security-center-introduction.md), w tym ujednolicone Zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami w ramach obciążeń chmury hybrydowej. Aby uzyskać wyczerpujące informacje i wskazówki dotyczące zabezpieczania zasobów platformy Azure, zobacz [wprowadzenie do zabezpieczeń platformy Azure](../security/fundamentals/overview.md) .
 

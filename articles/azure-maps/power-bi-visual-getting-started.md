@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904707"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Wprowadzenie do Azure Maps Power BI wizualizacji
 
-<Token>**dotyczy:** ![ Zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla **_konsumentów_* _ ![ zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla projektantów & ![ zielony znacznik wyboru dla deweloperów. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X wskazująca nie. ](media/power-bi-visual/no.png) Wymaga licencji Pro lub Premium</Token>
+<Token>**dotyczy:** ![ Zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla **_odbiorców_** ![ zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla projektantów & ![ zielony znacznik wyboru dla deweloperów. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X wskazująca nie. ](media/power-bi-visual/no.png) Wymaga licencji Pro lub Premium</Token>
 
 W tym artykule pokazano, jak używać wizualizacji Microsoft Azure Maps Power BI.
 
@@ -47,7 +47,7 @@ Aby dowiedzieć się więcej, informacje o ochronie prywatności i warunkach uż
 
 ## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Zachowanie i wymagania Azure Maps wizualizacji (wersja zapoznawcza)
 
-Istnieje kilka kwestii i wymagań dla programu _ *Azure Maps** Wizualizacja. :
+Istnieje kilka zagadnień i wymagań dotyczących wizualizacji **Azure Maps** . :
 
 -   Wizualizacja **Azure Maps** (wersja zapoznawcza) musi być włączona w programie Power BI Desktop. Aby włączyć wizualizację **Azure Maps** , wybierz opcje **plików** &gt; **i ustawienia** &gt; **Opcje** &gt; w **wersji zapoznawczej**, a następnie zaznacz pole wyboru **Wizualizacja Azure Maps** . Jeśli po wykonaniu tego działania Wizualizacja Azure Maps jest niedostępna, prawdopodobnie należy włączyć przełącznik administratora dzierżawy w portalu administracyjnym.
 -   Zestaw danych musi zawierać pola zawierające informacje o **szerokości geograficznej** i **długości geograficznej** . Geokodowanie pól lokalizacji zostanie dodane w przyszłej aktualizacji.

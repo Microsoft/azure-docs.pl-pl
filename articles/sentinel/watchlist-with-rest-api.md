@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798463"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Zarządzanie watchlists na platformie Azure — za pomocą interfejsu API REST

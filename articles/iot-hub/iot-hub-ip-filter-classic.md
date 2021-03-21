@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: jlian
 ms.openlocfilehash: 6f326bafb311acedc48c5a349c78f1cd6bcebc87
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101661158"
 ---
 # <a name="iot-hub-classic-ip-filter-and-how-to-upgrade"></a>IoT Hub klasyczny filtr IP i sposób uaktualniania 
@@ -20,7 +20,7 @@ Uaktualniony filtr IP dla IoT Hub chroni wbudowany punkt końcowy i jest zabezpi
 
 Aby uniknąć przerw w działaniu usługi, należy przeprowadzić uaktualnienie z przewodnikiem przed upływem ostatecznego terminu migracji. w tym momencie uaktualnienie zostanie wykonane automatycznie. Aby dowiedzieć się więcej o osi czasu migracji, zobacz [Azure Update](https://aka.ms/ipfilterv2azupdate).
 
-## <a name="how-to-upgrade"></a>Jak uaktualnić
+## <a name="how-to-upgrade"></a>Jak przeprowadzić uaktualnianie
 
 1.  Odwiedź witrynę Azure Portal
 2.  Przejdź do centrum IoT Hub.

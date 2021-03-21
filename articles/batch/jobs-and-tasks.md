@@ -4,10 +4,10 @@ description: Dowiedz się więcej o zadaniach i zadaniach oraz sposobie ich uży
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95808588"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Zadania i zadania w Azure Batch

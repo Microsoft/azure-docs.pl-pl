@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805295"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
@@ -57,8 +57,8 @@ Aby przypisać rolę do Event Hubs zasobów, przejdź do tego zasobu w Azure Por
 1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i Wyświetl **Przegląd** dla przestrzeni nazw. 
 1. Wybierz pozycję **Access Control (IAM)** w menu po lewej stronie, aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń.
 1.  Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
-3.  Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Dodaj przypisanie roli** _.
-4.  Na stronie _ *Dodaj przypisanie roli** wykonaj następujące czynności:
+3.  Wybierz pozycję **Dodaj**, a następnie wybierz pozycję * * Dodaj przypisanie roli * * *.
+4.  Na stronie **Dodawanie przypisania roli** wykonaj następujące kroki:
     1. W polu **rola** wybierz rolę Event Hubs, którą chcesz przypisać. W tym przykładzie jest to **właściciel danych Event Hubs platformy Azure**.
     1. W polu **Przypisz dostęp do** wybierz pozycję **App Service** w obszarze **przypisana przez system tożsamość zarządzana**. 
     1. Wybierz **subskrypcję** , w ramach której utworzono zarządzaną tożsamość aplikacji sieci Web.

@@ -8,10 +8,10 @@ ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348657"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Zarządzanie zasobami Azure Cosmos DB przy użyciu Eksplorator usługi Azure Storage

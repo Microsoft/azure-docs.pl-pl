@@ -10,10 +10,10 @@ ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 75db62b4f8a5c6512ca5fc84d149513fe81f6019
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658235"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji Xamarin. Forms przy użyciu zestawu .NET SDK i interfejsu API Azure Cosmos DB dla MongoDB
@@ -189,7 +189,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 6. Kliknij prawym przyciskiem myszy projekt **TaskList.iOS** i wybierz polecenie **Ustaw jako projekt startowy**.
 7. Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio dla komputerów Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
 1. Na liście rozwijanej platform wybierz pozycję TaskList.iOS lub TaskList.Android, w zależności od platformy, na której chcesz uruchamiać aplikację.
 2. Naciśnij klawisze Cmd + Enter, aby rozpocząć debugowanie aplikacji.

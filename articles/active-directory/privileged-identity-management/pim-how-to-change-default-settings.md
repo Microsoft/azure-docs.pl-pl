@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97708487"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
@@ -163,7 +163,7 @@ Aby uzyskać więcej informacji, zobacz [powiadomienia e-mail w Privileged Ident
 
 Użyj przełącznika **bilet zdarzeń/żądania** , aby wymagać od uprawnionych administratorów dołączenia numeru biletu podczas aktywowania ich roli. To rozwiązanie może zwiększyć efektywność inspekcji dostępu do roli.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
 
 Użyj przełącznika **Multi-Factor Authentication** , aby określić, czy użytkownicy muszą weryfikować swoją tożsamość za pomocą usługi MFA, zanim będą mogli aktywować swoje role. Muszą oni tylko weryfikować swoją tożsamość tylko raz na sesję, a nie za każdym razem, gdy aktywują rolę. Po włączeniu usługi MFA należy wziąć pod uwagę dwie wskazówki:
 

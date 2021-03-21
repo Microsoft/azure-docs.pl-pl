@@ -7,10 +7,10 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895921"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
@@ -176,7 +176,7 @@ Współautor monitorowania może odczytać wszystkie dane monitorowania i zaktua
 |Microsoft. AlertsManagement/alertsSummary/*|Zarządzaj pulpitem nawigacyjnym alertów.|
 |Microsoft. Insights/AlertRules/*|Zarządzaj regułami alertów.|
 |Microsoft. Insights/Components/*|Zarządzanie składnikami Application Insights.|
-|Microsoft. Insights/DiagnosticSettings/*|Zarządzaj ustawieniami diagnostycznymi.|
+|Microsoft.Insights/DiagnosticSettings/*|Zarządzaj ustawieniami diagnostycznymi.|
 |Microsoft. Insights/EventType|Wyświetl listę zdarzeń dziennika aktywności (zdarzenia zarządzania) w subskrypcji. To uprawnienie dotyczy zarówno dostępu programowego, jak i portalu do dziennika aktywności.|
 |Microsoft. Insights/LogDefinitions/*|To uprawnienie jest niezbędne dla użytkowników, którzy potrzebują dostępu do dzienników aktywności za pośrednictwem portalu. Wyświetl listę kategorii dziennika w dzienniku aktywności.|
 |Microsoft. Insights/MetricDefinitions/*|Odczytaj definicje metryk (lista dostępnych typów metryk dla zasobu).|

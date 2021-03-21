@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 1be66bdd8a1cf25a32ad3102d770078c904c4b6c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94376829"
 ---
 # <a name="multiclass-decision-forest-module"></a>Wieloklasowy moduł lasu decyzyjnego
@@ -39,33 +39,33 @@ Klasyfikator lasu decyzyjnego w Azure Machine Learning składa się z części d
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Jak skonfigurować Las decyzyjny wieloklasowej
 
-1. Dodaj moduł **lasu decyzyjnej klasy** do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning** , **zainicjuj model** i **klasyfikację**.
+1. Dodaj moduł **lasu decyzyjnej klasy** do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning**, **zainicjuj model** i **klasyfikację**.
 
 2. Kliknij dwukrotnie moduł, aby otworzyć okienko **Właściwości** .
 
 3. Dla **metody ponowne próbkowanie** wybierz metodę używaną do tworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji Working lub Replication (replikacja).
 
-    + **Working** : w workach jest również wywoływana *agregacja Bootstrap*. W tej metodzie Każde drzewo jest uprawiane na nowym przykładzie, utworzonym losowo próbkowanie oryginalnego zestawu danych z zastępowaniem do momentu, gdy zestaw danych ma rozmiar oryginalny. Dane wyjściowe modeli są łączone przez *głosowanie* , który jest formą agregacji. Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby agregowania Bootstrap.
+    + **Working**: w workach jest również wywoływana *agregacja Bootstrap*. W tej metodzie Każde drzewo jest uprawiane na nowym przykładzie, utworzonym losowo próbkowanie oryginalnego zestawu danych z zastępowaniem do momentu, gdy zestaw danych ma rozmiar oryginalny. Dane wyjściowe modeli są łączone przez *głosowanie*, który jest formą agregacji. Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby agregowania Bootstrap.
 
-    + **Replikacja** : w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, tworząc różne drzewa.
+    + **Replikacja**: w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, tworząc różne drzewa.
 
    
 
 4. Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .
 
-    + **Pojedynczy parametr** : zaznacz tę opcję, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić zestaw wartości jako argumenty.
+    + **Pojedynczy parametr**: zaznacz tę opcję, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić zestaw wartości jako argumenty.
 
-    + **Zakres parametrów** : Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.   
+    + **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.   
 
-5. **Liczba drzew decyzyjnych** : wpisz maksymalną liczbę drzew decyzyjnych, które można utworzyć w części. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale może to zwiększyć czas uczenia.
+5. **Liczba drzew decyzyjnych**: wpisz maksymalną liczbę drzew decyzyjnych, które można utworzyć w części. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale może to zwiększyć czas uczenia.
 
     Jeśli wartość jest ustawiona na 1; oznacza to jednak, że można utworzyć tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie są wykonywane żadne dalsze iteracje.
 
-6. **Maksymalna głębokość drzew decyzyjnych** : wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
+6. **Maksymalna głębokość drzew decyzyjnych**: wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
 
-7. **Liczba losowych podziałów na węzeł** : wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
+7. **Liczba losowych podziałów na węzeł**: wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
 
-8. **Minimalna liczba próbek na węzeł liścia** : wskazuje minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie. Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł.
+8. **Minimalna liczba próbek na węzeł liścia**: wskazuje minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie. Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł.
 
     Na przykład, z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. W przypadku zwiększenia wartości do 5 dane szkoleniowe muszą zawierać co najmniej pięć przypadków, które spełniają te same warunki.
 
@@ -73,9 +73,9 @@ Klasyfikator lasu decyzyjnego w Azure Machine Learning składa się z części d
 
 10. Połącz zestaw danych z etykietą i Przeszkol model:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

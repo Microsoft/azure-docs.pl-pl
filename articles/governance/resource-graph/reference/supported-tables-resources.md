@@ -5,10 +5,10 @@ ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633771"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
@@ -91,7 +91,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Hive. Streaming/Services (przesyłanie strumieniowe Hive)
 - incapsula. WAF/konta
 - LiveArena. Broadcast/Services (emisja LiveArena)
-- Mailjet. email/Services (usługa poczty E-mail Mailjet)
+- Mailjet.Email/services (usługa poczty E-mail Mailjet)
 - Microsoft. AAD/domainServices (Azure AD Domain Services)
 - Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privateLinkForAzureAD (prywatny link do usługi Azure AD)
@@ -639,7 +639,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - dostawcy. test/statelessresources
 - RavenHq. DB/bazy danych (RavenHQ)
 - Rozwiązanie Raygun. CrashReporting/Apps (Rozwiązanie Raygun)
-- SendGrid. email/accounts (konta SendGrid)
+- Sendgrid.Email/accounts (SendGrid kont)
 - Sparkpost. Basic/Services (SparkPost)
 - rozwiązania Stackify. retrace/Services (rozwiązania Stackify)
 - Test. Shoebox/testresources

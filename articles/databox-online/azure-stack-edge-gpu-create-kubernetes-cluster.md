@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631964"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pomocą polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU

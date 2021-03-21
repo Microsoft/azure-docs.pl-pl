@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: d8bcc4b68082fdf0d1f86dc341c3313f9d8788c4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050685"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Zbieranie liczników wydajności dla aplikacji systemu Linux w Azure Monitor 
@@ -115,7 +115,7 @@ Po skonfigurowaniu agenta Log Analytics dla systemu Linux w celu wysyłania dany
 | Nazwa obiektu | Nazwa licznika |
 |:--|:--|
 | Baza danych MySQL | Miejsce na dysku w bajtach |
-| Baza danych MySQL | Tabele |
+| Baza danych MySQL | tabelami |
 | Serwer MySQL | Przerwano połączenie z PCT |
 | Serwer MySQL | Użycie połączenia PCT |
 | Serwer MySQL | Użycie miejsca na dysku w bajtach |

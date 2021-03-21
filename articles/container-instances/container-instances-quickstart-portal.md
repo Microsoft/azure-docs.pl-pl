@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004810"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure Portal
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="create-a-container-instance"></a>Tworzenie wystąpienia kontenera
 
-Wybierz Container Instances **tworzenia**  >  **kontenerów** zasobów  >  **Container Instances**.
+Wybierz Container Instances **tworzenia**  >  **kontenerów** zasobów  >  .
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Rozpoczynanie tworzenia nowego wystąpienia kontenera w witrynie Azure Portal":::
 
@@ -54,7 +54,7 @@ Po zakończeniu weryfikacji zostanie wyświetlone podsumowanie ustawień kontene
 
 Po rozpoczęciu wdrażania zostanie wyświetlone powiadomienie informujące o tym, że wdrożenie jest w toku. Kolejne powiadomienie zostanie wyświetlone, gdy grupa kontenerów zostanie wdrożona.
 
-Otwórz przegląd dla grupy kontenerów, przechodząc do sekcji **grupy zasobów** moje  >  **zasoby**  >  **mycontainer**. Zwróć uwagę na wartość **FQDN** (w pełni kwalifikowana nazwa domeny) wystąpienia kontenera, a także na jego **Stan**.
+Otwórz przegląd dla grupy kontenerów, przechodząc do sekcji **grupy zasobów** moje  >  **zasoby**  >  . Zwróć uwagę na wartość **FQDN** (w pełni kwalifikowana nazwa domeny) wystąpienia kontenera, a także na jego **Stan**.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Przegląd grupy kontenerów w witrynie Azure Portal":::
 

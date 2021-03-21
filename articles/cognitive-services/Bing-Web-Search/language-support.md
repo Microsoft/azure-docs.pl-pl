@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96340275"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania w sieci Web Bing
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania w sieci Web Bing obsługuje ponad trzy dziesiątki krajów lub regionów, wiele z więcej niż jednym językiem. Określenie kraju lub regionu z zapytaniem ułatwia dokładne wyniki wyszukiwania w zależności od danego kraju lub regionu zainteresowania. Wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing w zależności od określonego kraju/regionu lub języka.
@@ -47,7 +47,7 @@ Alternatywnie można określić rynek z `mkt` parametrem zapytania i kodem z tab
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID|
+|Indonezja|ID (Identyfikator)|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -100,7 +100,7 @@ Alternatywnie można określić rynek z `mkt` parametrem zapytania i kodem z tab
 |Nowa Zelandia|Angielski|EN-NZ|
 |Norwegia|Norweski|nie — nie|
 |Chiny|Chiński|zh-CN|
-|Polska|Polski|pl-PL|
+|Polska|polski|pl-PL|
 |Portugalia|Portugalski|pt-PT|
 |Filipiny|Angielski|EN-PH|
 |Rosja|Rosyjski|ru-RU|

@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896116"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Rejestrowanie i skanowanie Eksplorator danych platformy Azure
 
 W tym artykule opisano sposób rejestrowania konta usługi Azure Eksplorator danych w usłudze Azure kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Usługa Azure Eksplorator danych obsługuje pełne i przyrostowe skanowania w celu przechwytywania metadanych i schematu. Skanowanie umożliwia również automatyczne klasyfikowanie danych w oparciu o system i niestandardowe reguły klasyfikacji.
 

@@ -9,10 +9,10 @@ ms.date: 12/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 7d8ae2c58979c66ebbbab366d172179bdeee4253
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97561583"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Pobieranie tabel ARP w modelu wdrażania Menedżer zasobów
@@ -163,7 +163,7 @@ Age InterfaceProperty IpAddress  MacAddress
   0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
 
-### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela ARP, gdy po stronie dostawcy usług lokalnych/łączności występuje problem
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela ARP, gdy występuje problem po stronie lokalnej/dostawcy łączności
 Jeśli wystąpi problem z dostawcą lokalnym lub połączeniem, w tabeli ARP zostanie wyświetlona jedna z dwóch rzeczy. Zobaczysz, że lokalny adres MAC Pokaż niekompletne lub widzisz tylko wpis Microsoft w tabeli ARP.
   
 ```output

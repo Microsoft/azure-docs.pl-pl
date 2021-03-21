@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/08/2021
 ms.author: sngun
 ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98045669"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
@@ -36,7 +36,7 @@ Aplikacje korzystające z usługi Azure Table Storage mogą być migrowane do us
 ## <a name="table-offerings"></a>Oferty dotyczące tabel
 Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania z interfejsu API tabel usługi Azure Cosmos DB uzyskasz następujące korzyści:
 
-| Cechy | Usługa Azure Table Storage | Interfejs API tabel usługi Azure Cosmos DB |
+| Cecha | Usługa Azure Table Storage | Interfejs API tabel usługi Azure Cosmos DB |
 | --- | --- | --- |
 | Opóźnienie | Niewielkie, ale brak górnych granic opóźnienia. | Opóźnienie jednocyfrowej milisekundy dla operacji odczytu i zapisu, których kopia zapasowa ma <10 ms (opóźnienie) do odczytu i zapisu w 99 percentylu, w dowolnej skali, w dowolnym miejscu na świecie. |
 | Przepływność | Zmienny model przepływności. Tabele mają limit skalowalności 20 000 operacji/s. | Wysoka skalowalność dzięki [dedykowanej zarezerwowanej przepływności na tabelę](request-units.md), gwarantowanej umowami SLA. Konta nie mają górnego limitu przepływności i obsługują >10 milionów operacji/s na tabelę. |
@@ -44,7 +44,7 @@ Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania
 | Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów. | Automatyczne i kompletne indeksowanie wszystkich właściwości, bez zarządzania indeksem. |
 | Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. |
 | Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md) , aby zapewnić dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji. |
-| Cennik | Na podstawie użycia. | Dostępne zarówno w trybie dyspozycyjności, jak [i z](serverless.md) [obsługą administracyjną](set-throughput.md) . |
+| Ceny | Na podstawie użycia. | Dostępne zarówno w trybie dyspozycyjności, jak [i z](serverless.md) [obsługą administracyjną](set-throughput.md) . |
 | Umowy SLA | 99,9% do 99,99% dostępności, w zależności od strategii replikacji. | 99,999% dostępności odczytu, 99,99% dostępności zapisu na koncie w jednym regionie i 99,999% o dostępności na kontach wieloregionowych. [Kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) obejmujące dostępność, opóźnienia, przepływność i spójność. |
 
 ## <a name="get-started"></a>Rozpoczęcie pracy

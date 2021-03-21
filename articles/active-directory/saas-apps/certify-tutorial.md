@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: de558c73f1ca1721dfa3380e296617661ff4e859
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97670121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Samouczek: integracja Azure Active Directory z certyfikatem
@@ -186,7 +186,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Certify w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Certify, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

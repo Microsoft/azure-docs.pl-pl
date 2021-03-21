@@ -1,6 +1,6 @@
 ---
 title: Zmień hasła StorSimple | Microsoft Docs
-description: Opisuje sposób używania usługi StorSimple Menedżer urządzeń do zmiany hasła Snapshot Manager i administratora urządzenia.
+description: Opisuje sposób używania usługi StorSimple Device Manager do zmiany hasła Snapshot Manager i administratora urządzenia.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023758"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Zmienianie haseł StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
+# <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Zmienianie haseł StorSimple przy użyciu usługi StorSimple Device Manager
 
 ## <a name="overview"></a>Omówienie
-Opcja **Ustawienia urządzenia** Azure Portal zawiera wszystkie parametry urządzeń, które można ponownie skonfigurować na urządzeniu StorSimple zarządzanym przez usługę StorSimple Menedżer urządzeń. W tym samouczku wyjaśniono, jak można użyć opcji **zabezpieczenia** w obszarze **Ustawienia urządzenia** , aby zmienić hasło administratora urządzenia lub StorSimple Snapshot Manager.
+Opcja **Ustawienia urządzenia** Azure Portal zawiera wszystkie parametry urządzeń, które można ponownie skonfigurować na urządzeniu StorSimple zarządzanym przez usługę StorSimple Device Manager. W tym samouczku wyjaśniono, jak można użyć opcji **zabezpieczenia** w obszarze **Ustawienia urządzenia** , aby zmienić hasło administratora urządzenia lub StorSimple Snapshot Manager.
 
 ## <a name="change-the-device-administrator-password"></a>Zmiana hasła administratora urządzenia
 W przypadku korzystania z interfejsu programu Windows PowerShell w celu uzyskania dostępu do urządzenia StorSimple wymagane jest wprowadzenie hasła administratora urządzenia. Gdy pierwsze urządzenie StorSimple jest zarejestrowane w usłudze, domyślne hasło dla tego interfejsu to *Password1*. W celu zapewnienia bezpieczeństwa danych należy zmienić to hasło na końcu procesu rejestracji. Nie można wyjść z procesu rejestracji bez zmiany tego hasła. Aby uzyskać więcej informacji, zobacz [krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą program Windows PowerShell dla usługi StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
@@ -36,11 +36,11 @@ Hasło, które zostało najpierw ustawione za pośrednictwem interfejsu programu
 
 2. Na tabelarycznej liście urządzeń wybierz i kliknij urządzenie, którego hasło ma zostać zmienione.
 
-    ![Zrzut ekranu przedstawiający usługę StorSimple Menedżer urządzeń. W obszarze Zarządzanie wybrane są urządzenia. Na liście urządzeń jest zaznaczone jedno urządzenie.](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Zrzut ekranu przedstawiający usługę StorSimple Device Manager. W obszarze Zarządzanie wybrane są urządzenia. Na liście urządzeń jest zaznaczone jedno urządzenie.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. W bloku **Ustawienia** przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**.
 
-    ![Zrzut ekranu przedstawiający blok ustawienia usługi Menedżer urządzeń. W obszarze Ustawienia urządzenia wybrano opcję Zabezpieczenia.](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Zrzut ekranu przedstawiający blok ustawienia usługi Device Manager. W obszarze Ustawienia urządzenia wybrano opcję Zabezpieczenia.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **hasło** , aby zmienić hasło administratora urządzenia.
 
@@ -70,11 +70,11 @@ Możesz ustawić lub zmienić hasło dla StorSimple Snapshot Manager za pośredn
 
 2. Na tabelarycznej liście urządzeń wybierz i kliknij urządzenie, którego StorSimple Snapshot Manager hasło, które chcesz ustawić lub zmienić.
 
-     ![Zrzut ekranu przedstawiający usługę StorSimple Menedżer urządzeń. W obszarze Zarządzanie wybrane są urządzenia. Na liście urządzeń jest zaznaczone jedno urządzenie.](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Zrzut ekranu przedstawiający usługę StorSimple Device Manager. W obszarze Zarządzanie wybrane są urządzenia. Na liście urządzeń jest zaznaczone jedno urządzenie.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. W bloku **Ustawienia** przejdź do pozycji **Ustawienia urządzenia > zabezpieczenia**.
 
-     ![Zrzut ekranu przedstawiający blok ustawienia usługi Menedżer urządzeń. W obszarze Ustawienia urządzenia wybrano opcję Zabezpieczenia.](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Zrzut ekranu przedstawiający blok ustawienia usługi Device Manager. W obszarze Ustawienia urządzenia wybrano opcję Zabezpieczenia.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. W bloku **Ustawienia zabezpieczeń** kliknij pozycję **hasło** , aby ustawić lub zmienić hasło Snapshot Manager StorSimple.
 
@@ -95,5 +95,5 @@ Należy teraz zaktualizować hasło Snapshot Manager StorSimple.
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zabezpieczeniach StorSimple](storsimple-8000-security.md).
 * Dowiedz się więcej o [modyfikowaniu konfiguracji urządzenia](storsimple-8000-modify-device-config.md).
-* Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

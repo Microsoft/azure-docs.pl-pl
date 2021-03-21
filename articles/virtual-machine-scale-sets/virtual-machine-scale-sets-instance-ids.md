@@ -10,10 +10,10 @@ ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: a62c9bbde0726c8dec8fba1f69e221bd4e4b63bc
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102209853"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Opis identyfikatorów wystąpień maszyn wirtualnych zestawu skalowania maszyn wirtualnych platformy Azure
