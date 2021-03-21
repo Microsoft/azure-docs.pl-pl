@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573051"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578298"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenariusz: aplikacja sieci Web, która loguje użytkowników
 
@@ -43,6 +43,12 @@ Jeśli jesteś deweloperem języka Java, spróbuj wykonać następujące czynno�
 
 [Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Jeśli jesteś deweloperem Node.js, spróbuj wykonać następujące czynności:
+
+[Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej Node.js](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Jeśli tworzysz przy użyciu języka Python, wypróbuj następujący Przewodnik Szybki Start:
@@ -62,7 +68,7 @@ Aplikacje sieci Web uwierzytelniają użytkownika w przeglądarce internetowej. 
 W drugiej fazie można umożliwić aplikacji wywoływanie interfejsów API sieci Web w imieniu zalogowanego użytkownika. Ta kolejna faza jest innym scenariuszem, który można znaleźć w [aplikacji sieci Web, która wywołuje interfejsy API sieci Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Dodawanie logowania do aplikacji sieci Web polega na tym, jak chronić aplikację sieci Web i sprawdzać token użytkownika, który jest biblioteką  **oprogramowania pośredniczącego** . W przypadku platformy .NET ten scenariusz nie wymaga jeszcze biblioteki uwierzytelniania firmy Microsoft (MSAL), która ma na celu uzyskanie tokenu do wywołania chronionych interfejsów API. Biblioteki uwierzytelniania zostaną wprowadzone w scenariuszu kontynuacji, gdy aplikacja sieci Web wymaga wywołania interfejsów API sieci Web.
+> Dodawanie logowania do aplikacji sieci Web polega na tym, jak chronić aplikację sieci Web i sprawdzać token użytkownika, który jest biblioteką  **oprogramowania pośredniczącego** . W przypadku platformy .NET ten scenariusz nie wymaga jeszcze biblioteki uwierzytelniania firmy Microsoft (MSAL), która ma na celu uzyskanie tokenu do wywołania chronionych interfejsów API. Biblioteki uwierzytelniania dla platformy .NET zostaną wprowadzone w scenariuszu monitowania, gdy aplikacja sieci Web wymaga wywołania interfejsów API sieci Web.
 
 ## <a name="specifics"></a>Szczegółowych informacji
 
@@ -87,6 +93,10 @@ Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](
 # <a name="java"></a>[Java](#tab/java)
 
 Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

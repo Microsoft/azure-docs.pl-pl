@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4b038f4a41ee02960a02c4445b65eb2360a75761
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98792035"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
@@ -56,7 +56,7 @@ Teraz można użyć Service Fabric Explorer, [Aby wyświetlić klaster i aplikac
 ## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2. Aktualizacja przykładu obiektów wizualnych
 Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie są obracane. Uaktualnimy tę aplikację do jednego miejsca, w którym obiekty wizualne również są obracane.
 
-Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik StatefulVisualObjectActor.cs. W tym pliku przejdź do metody `MoveObject` , Skomentuj `this.State.Move()` i Usuń komentarz `this.State.Move(true)` . Ta zmiana powoduje obrócenie obiektów po uaktualnieniu usługi.
+Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik StatefulVisualObjectActor. cs. W tym pliku przejdź do metody `MoveObject` , Skomentuj `this.State.Move()` i Usuń komentarz `this.State.Move(true)` . Ta zmiana powoduje obrócenie obiektów po uaktualnieniu usługi.
 
 Należy również zaktualizować plik *ServiceManifest.xml* (w obszarze PackageRoot) projektu **VisualObjects. ActorService**. Zaktualizuj *CodePackage* i wersję usługi do 2,0 oraz odpowiadające im wiersze w pliku *ServiceManifest.xml* .
 Możesz użyć opcji *Edytuj pliki manifestu* programu Visual Studio po kliknięciu prawym przyciskiem myszy rozwiązania, aby zmienić plik manifestu.

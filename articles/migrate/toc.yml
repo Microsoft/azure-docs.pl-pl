@@ -73,7 +73,7 @@
     - name: Konteneryzowanie
       items:
         - name: Konteneryzowanie ASP.NET aplikacje i Migruj do AKS
-          href: tutorial-containerize-aspnet-kubernetes.md
+          href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Konteneryzowanie aplikacje sieci Web Java i Migruj do AKS
           href: tutorial-containerize-java-kubernetes.md
 - name: Pojęcia

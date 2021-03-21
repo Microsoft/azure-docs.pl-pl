@@ -105,7 +105,8 @@
     - name: Dane i operacje
       items:
         - name: Zdarzenia usługi (EventGrid)
-          href: concepts/event-handling.md
+          href: ../event-grid/event-schema-communication-services.md
+          maintainContext: true
         - name: Rejestrowanie i diagnostyka
           href: concepts/logging-and-diagnostics.md
         - name: Metryki

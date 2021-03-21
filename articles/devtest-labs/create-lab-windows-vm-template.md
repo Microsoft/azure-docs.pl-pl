@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91461193"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Szybki Start: Konfigurowanie laboratorium przy użyciu szablonu Azure DevTest Labs ARM
@@ -65,16 +65,16 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 1. Wybierz pozycję **powiadomienia** u góry, aby wyświetlić stan wdrożenia, a następnie kliknij link **wdrażanie w toku** .
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Powiadomienie dotyczące wdrożenia":::
 2. Na stronie **wdrażanie — przegląd** poczekaj na zakończenie wdrożenia. Wykonanie tej operacji (szczególnie w przypadku tworzenia maszyny wirtualnej) zajmuje trochę czasu. Następnie wybierz pozycję **Przejdź do grupy zasobów** lub **nazwę grupy zasobów** , jak pokazano na poniższej ilustracji: 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Przejdź do grupy zasobów":::
 3. Na stronie **Grupa zasobów** zostanie wyświetlona lista zasobów w grupie zasobów. Upewnij się, że w obszarze zasoby widzisz laboratorium typu: `DevTest Lab` . Widoczne są również zasoby zależne, takie jak sieć wirtualna i maszyna wirtualna w grupie zasobów. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Strona główna grupy zasobów":::
 4. Wybierz swoje laboratorium z listy zasobów, aby wyświetlić stronę główną dla laboratorium. Upewnij się, że maszyna wirtualna z systemem Windows Server 2019 Datacenter znajduje się na liście **moje maszyny wirtualne** . Na poniższej ilustracji sekcja **podstawowe** informacje jest zminimalizowana. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Strona główna laboratorium":::
 
     > [!IMPORTANT] 
     > Pozostaw Tę stronę otwartą i postępuj zgodnie z instrukcjami w następnej sekcji, aby wyczyścić zasoby, aby uniknąć ponoszenia kosztów związanych z uruchamianiem laboratorium i maszyną wirtualną na platformie Azure. Jeśli chcesz przejść do następnego samouczka, aby przetestować dostęp do maszyny wirtualnej w laboratorium, Oczyść zasoby po przejściu przez ten samouczek. 
@@ -83,14 +83,14 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
 
 1. Najpierw usuń laboratorium, aby można było usunąć grupę zasobów. Nie będzie można usunąć grupy zasobów z laboratorium. Aby usunąć laboratorium, wybierz pozycję **Usuń** na pasku narzędzi. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Strona wdrażania szablonu":::
- 2. Na stronie Potwierdzenie wpisz **nazwę laboratorium**i wybierz pozycję **Usuń**. 
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Usuń przycisk laboratorium":::
+ 2. Na stronie Potwierdzenie wpisz **nazwę laboratorium** i wybierz pozycję **Usuń**. 
  3. Poczekaj na usunięcie laboratorium. Wybierz ikonę **dzwonka** , aby wyświetlić powiadomienie z operacji usuwania. Ten proces zajmuje trochę czasu. Potwierdź usunięcie laboratorium, a następnie wybierz **grupę zasobów** w menu stron nadrzędnych. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Potwierdź usunięcie maszyny wirtualnej w powiadomieniach":::
  1. Na stronie **Grupa zasobów** wybierz pozycję **Usuń grupę zasobów** z paska narzędzi. Na stronie Potwierdzenie wpisz **nazwę grupy zasobów**, a następnie wybierz pozycję **Usuń**. Sprawdź powiadomienia, aby upewnić się, że grupa zasobów została usunięta.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Strona wdrażania szablonu":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Przycisk usuwania grupy zasobów":::
 
 ## <a name="next-steps"></a>Następne kroki
 W tym przewodniku szybki start utworzono laboratorium z maszyną wirtualną. Aby dowiedzieć się, jak uzyskać dostęp do laboratorium, przejdź do następnego samouczka:

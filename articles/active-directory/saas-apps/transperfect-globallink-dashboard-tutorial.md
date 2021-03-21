@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: jeedes
 ms.openlocfilehash: 226570a3c752f10ceb21ca624bd428c55ff21e96
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103422472"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-transperfect-globallink-dashboard"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą GlobalLinkego pulpitu nawigacyjnego

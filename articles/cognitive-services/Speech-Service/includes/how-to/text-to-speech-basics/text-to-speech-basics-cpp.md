@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: 78639386c9d836055d80566f4b84565c2c3b8e80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41cf1646d75080bc5b5996504ce8711edfae89fa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104613054"
+ms.locfileid: "104719809"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -115,7 +115,7 @@ Uruchom program, a plik z syntezą `.wav` jest zapisywana w określonej lokaliza
 
 ## <a name="synthesize-to-speaker-output"></a>Synteza danych wyjściowych prezentera
 
-W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu wystarczy pominąć `AudioConfig` parametr podczas tworzenia `SpeechSynthesizer` w powyższym przykładzie. To wyjście do bieżącego aktywnego urządzenia wyjściowego.
+W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu należy pominąć `AudioConfig` parametr podczas tworzenia `SpeechSynthesizer` w powyższym przykładzie. Powoduje to wypróbowanie bieżącego aktywnego urządzenia wyjściowego.
 
 ```cpp
 void synthesizeSpeech()
@@ -255,10 +255,10 @@ Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji g�
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
 
-Funkcja mowy jest zwykle traktowana jako dobry sposób na przełożenie animacji wyrażeń twarzy.
-Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych pozycji w zaobserwowanej mowę (tj. pozycji pakietów lip, szczęki i języka podczas tworzenia określonego fonem).
-Możesz subskrybować zdarzenie viseme w zestawie mowy SDK, aby generować dane animacji twarzy.
-Następnie można zastosować takie dane do znaku w celu zapoznania się z animacją twarzy.
-Dowiedz się [, jak uzyskać dane wyjściowe viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+Funkcja mowy może być dobrym sposobem na przetwarzanie animacji wyrażeń twarzy.
+Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych elementów w zaobserwowanej mowę, takich jak pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem.
+Możesz subskrybować zdarzenie viseme w zestawie mowy SDK.
+Następnie można zastosować zdarzenia viseme w celu animowania kroju znaku jako odtwarzania dźwięku mowy.
+Dowiedz się [, jak uzyskać zdarzenia viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
 ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102562014"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
@@ -252,7 +252,7 @@ Aby rozpocząć migrację SQL Server do wystąpienia zarządzanego usługi Azure
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 

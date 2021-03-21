@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393466"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592034"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Skopiuj dane z i do serwera SFTP przy użyciu Azure Data Factory
 
@@ -23,7 +23,7 @@ ms.locfileid: "100393466"
 
 W tym artykule opisano sposób kopiowania danych z i do serwera Secure FTP (SFTP). Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Łącznik SFTP jest obsługiwany dla następujących działań:
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób kopiowania danych z i do serwera Secure FTP (SFTP
 
 W przypadku łącznika SFTP obsługiwane są następujące:
 
-- Kopiowanie plików z i do serwera SFTP przy użyciu uwierzytelniania *podstawowego* lub *SshPublicKey* .
+- Kopiowanie plików z i do serwera SFTP przy użyciu **podstawowego**, **publicznego klucza SSH** lub uwierzytelniania **wieloskładnikowego** .
 - Kopiowanie plików w postaci lub przez analizowanie lub generowanie plików z [obsługiwanymi formatami plików i kodekami kompresji](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -58,7 +58,7 @@ Dla połączonej usługi SFTP są obsługiwane następujące właściwości:
 | port | Port, na którym nasłuchuje serwer SFTP.<br/>Dozwolona wartość jest liczbą całkowitą, a wartość domyślna to *22*. |Nie |
 | skipHostKeyValidation | Określ, czy pominąć sprawdzanie poprawności klucza hosta.<br/>Dozwolone wartości to *true* i *false* (wartość domyślna).  | Nie |
 | hostKeyFingerprint | Określ odcisk palca klucza hosta. | Tak, jeśli wartość "skipHostKeyValidation" jest ustawiona na wartość false.  |
-| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to *Basic* i *SshPublicKey*. Aby uzyskać więcej właściwości, zobacz sekcję [Korzystanie z uwierzytelniania podstawowego](#use-basic-authentication) . Aby zapoznać się z przykładami JSON, zobacz sekcję [używanie uwierzytelniania publicznego klucza SSH](#use-ssh-public-key-authentication) . |Tak |
+| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to *Basic*, *SshPublicKey* i *wieloskładnikowe*. Aby uzyskać więcej właściwości, zobacz sekcję [Korzystanie z uwierzytelniania podstawowego](#use-basic-authentication) . Aby zapoznać się z przykładami JSON, zobacz sekcję [używanie uwierzytelniania publicznego klucza SSH](#use-ssh-public-key-authentication) . |Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Aby dowiedzieć się więcej, zobacz sekcję [wymagania wstępne](#prerequisites) . Jeśli środowisko Integration Runtime nie jest określone, usługa używa Azure Integration Runtime domyślnego. |Nie |
 
 ### <a name="use-basic-authentication"></a>Użyj uwierzytelniania podstawowego
@@ -75,7 +75,6 @@ Aby użyć uwierzytelniania podstawowego, należy ustawić właściwość *Authe
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Aby użyć uwierzytelniania klucza publicznego SSH, ustaw właściwość "Authen
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Aby użyć uwierzytelniania klucza publicznego SSH, ustaw właściwość "Authen
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego
+
+Aby korzystać z uwierzytelniania wieloskładnikowego, który jest kombinacją uwierzytelniania klucza publicznego Basic i SSH, określ nazwę użytkownika, hasło i informacje o kluczu prywatnym opisane w powyższych sekcjach.
+
+**Przykład: uwierzytelnianie wieloskładnikowe**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -236,7 +271,7 @@ Następujące właściwości są obsługiwane w przypadku protokołu SFTP w `sto
 | modifiedDatetimeEnd      | Jak wyżej.                                               | Nie                                            |
 | enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
-| maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie                                            |
 
 **Przykład:**
 
@@ -289,7 +324,7 @@ Następujące właściwości są obsługiwane w przypadku protokołu SFTP w obsz
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | typ                     | Właściwość *Type* w obszarze `storeSettings` musi być ustawiona na wartość *SftpWriteSettings*. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
-| maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
+| maxConcurrentConnections | Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne. | Nie       |
 | useTempFileRename | Wskaż, czy przekazywać do plików tymczasowych i zmieniać ich nazwy, czy bezpośrednio zapisywać do folderu docelowego lub lokalizacji plików. Domyślnie Azure Data Factory pierwsze zapis do plików tymczasowych, a następnie zmienia nazwy po zakończeniu przekazywania. Ta sekwencja pomaga (1) uniknąć konfliktów, które mogą spowodować uszkodzenie pliku, jeśli istnieją inne procesy zapisujące do tego samego pliku, a (2) Upewnij się, że w trakcie transferu istnieje oryginalna wersja pliku. Jeśli serwer SFTP nie obsługuje operacji zmiany nazwy, wyłącz tę opcję i upewnij się, że nie masz współbieżnego zapisu w pliku docelowym. Aby uzyskać więcej informacji, zobacz Wskazówki dotyczące rozwiązywania problemów na końcu tej tabeli. | Nie. Wartość domyślna to *true*. |
 | operationTimeout | Czas oczekiwania przed upływem limitu czasu dla każdego żądania zapisu na serwer SFTP. Wartość domyślna to 60 min (01:00:00).|Nie |
 
@@ -422,7 +457,7 @@ Informacje o usuwaniu właściwości działania znajdują się [w temacie Usuwan
 |:--- |:--- |:--- |
 | typ | Właściwość *Type* źródła działania Copy musi być ustawiona na wartość *FileSystemSource* |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na *wartość true* , a ujścia jest magazynem opartym na plikach, puste foldery i podfoldery nie będą kopiowane ani tworzone w ujściach.<br/>Dozwolone wartości to *true* (wartość domyślna) i *Fałsz* | Nie |
-| maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu jednocześnie. Określ liczbę tylko wtedy, gdy chcesz ograniczyć współbieżne połączenia z magazynem danych. | Nie |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

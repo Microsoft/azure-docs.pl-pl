@@ -4,10 +4,10 @@ description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plan
 ms.date: 03/08/2021
 ms.topic: tutorial
 ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102485745"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans

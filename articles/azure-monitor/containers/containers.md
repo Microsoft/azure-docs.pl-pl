@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/06/2020
 ms.openlocfilehash: 59f81103e72be6c0f1b629981fdb53c8467000a9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037425"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Rozwiązanie do monitorowania kontenerów w Azure Monitor
@@ -44,7 +44,7 @@ Przed rozpoczęciem zapoznaj się z poniższymi szczegółami, aby upewnić się
 
 W poniższej tabeli przedstawiono wsparcie w zakresie organizowania i monitorowania systemu operacyjnego platformy Docker, a następnie obsługę spisu kontenerów, wydajności i dzienników przy użyciu Azure Monitor.   
 
-|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Image (Obraz)<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Zdarzenie | Zdarzenie<br>Dziennik | Kontener<br>Dziennik |
+|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Zdarzenie | Zdarzenie<br>Dziennik | Kontener<br>Dziennik |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |

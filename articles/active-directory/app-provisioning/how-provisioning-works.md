@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988969"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579454"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -138,7 +138,7 @@ Po początkowym cyklu wszystkie pozostałe cykle będą:
 Usługa aprowizacji nadal uruchamia cykliczne cykle przyrostowe, w odstępach czasu zdefiniowanych w [samouczku specyficznym dla każdej aplikacji](../saas-apps/tutorial-list.md). Cykle przyrostowe są kontynuowane do momentu wystąpienia jednego z następujących zdarzeń:
 
 - Usługa została zatrzymana ręcznie przy użyciu Azure Portal lub przy użyciu odpowiedniego polecenia API Microsoft Graph.
-- Nowy cykl początkowy jest wyzwalany przy użyciu opcji **Wyczyść stan i uruchom ponownie** w Azure Portal lub przy użyciu odpowiedniego polecenia API Microsoft Graph. Ta akcja Czyści wszystkie przechowywane znaki wodne i powoduje ponowną ocenę wszystkich obiektów źródłowych.
+- Nowy cykl początkowy jest wyzwalany przy użyciu opcji **ponownego inicjowania obsługi administracyjnej** w Azure Portal lub przy użyciu odpowiedniego polecenia API Microsoft Graph. Ta akcja Czyści wszystkie przechowywane znaki wodne i powoduje ponowną ocenę wszystkich obiektów źródłowych.
 - Nowy początkowy cykl jest wyzwalany ze względu na zmianę mapowań atrybutów lub filtrów określania zakresu. Ta akcja Czyści również wszystkie przechowywane znaki wodne i powoduje ponowne obliczenie wszystkich obiektów źródłowych.
 - Proces aprowizacji jest kierowany do kwarantanny (patrz poniżej) z powodu wysokiego współczynnika błędów i pozostaje w kwarantannie przez ponad cztery tygodnie. W tym zdarzeniu usługa zostanie automatycznie wyłączona.
 

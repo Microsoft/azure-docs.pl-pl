@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: tchladek
 ms.openlocfilehash: a0f8744061853e8bd81d3435c1f007e96a7d5783
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495331"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -27,7 +27,7 @@ ms.locfileid: "103495331"
 
 ### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `AccessTokensQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `AccessTokensQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program. cs**.
 
 ```console
 dotnet new console -o AccessTokensQuickstart
@@ -52,7 +52,7 @@ dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 
 Z katalogu projektu:
 
-1. Otwórz plik **program.cs** w edytorze tekstu
+1. Otwórz plik **program. cs** w edytorze tekstu
 1. Dodaj `using` dyrektywę, aby uwzględnić `Azure.Communication.Identity` przestrzeń nazw
 1. Aktualizowanie `Main` deklaracji metody do obsługi kodu asynchronicznego
 

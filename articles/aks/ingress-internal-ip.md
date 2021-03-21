@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy kontroler dla wewnętrznej, prywatnej sieci w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 976c5581ad217064da37b0b092d2d634d30cb7e5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: 3201f510db9970b7db548ee6a3348fa68d278248
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601469"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -232,7 +232,7 @@ ingress.extensions/hello-world-ingress created
 Aby przetestować trasy dla kontrolera transferu danych przychodzących, przejdź do dwóch aplikacji za pomocą klienta sieci Web. W razie konieczności można szybko przetestować te funkcje wyłącznie wewnętrznie z poziomu klastra AKS. Utwórz test pod i Dołącz do niego sesję terminalu:
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
 ```
 
 Zainstaluj `curl` w temacie using `apt-get` :

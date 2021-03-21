@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5c096b26f31bdf92bb5ab91c8dad7876f228ff14
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462800"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
@@ -183,7 +183,7 @@ Moduł routera jest ważnym elementem rozwiązania, które zapewnia, że komunik
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-1. Zaakceptuj monit, aby zastąpić plik program.cs.
+1. Zaakceptuj monit, aby zastąpić plik program. cs.
 
 ### <a name="build-router-module"></a>Moduł tworzenia routera
 
@@ -230,7 +230,7 @@ Jak wspomniano powyżej, środowisko uruchomieniowe IoT Edge używa tras skonfig
 
 #### <a name="inputs"></a>Dane wejściowe
 
-1. W metodzie init () Program.cs rejestrujemy dwa wywołania zwrotne dla modułu:
+1. W metodzie init () programu. cs rejestrujemy dwa wywołania zwrotne dla modułu:
 
    ```csharp
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromLeafDevice, LeafDeviceInputMessageHandler, ioTHubModuleClient);
@@ -253,7 +253,7 @@ Jak wspomniano powyżej, środowisko uruchomieniowe IoT Edge używa tras skonfig
 
 Dodaj cztery dodatkowe trasy do $edgeHub parametru trasy, aby obsłużyć dane wyjściowe modułu routera.
 
-1. Program.cs definiuje metodę SendMessageToClassifier (), która używa klienta modułu do wysyłania komunikatu do klasyfikatora pozostałego czasu eksploatacji przy użyciu trasy:
+1. Program. cs definiuje metodę SendMessageToClassifier (), która używa klienta modułu do wysyłania komunikatu do klasyfikatora pozostałego czasu eksploatacji przy użyciu trasy:
 
    ```json
    "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"

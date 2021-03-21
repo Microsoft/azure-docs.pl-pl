@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630270"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590623"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
 
@@ -48,7 +48,7 @@ Wybierz typ aplikacji funkcji *Event Grid wyzwalacza* , a następnie wybierz poz
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe umożliwiające utworzenie nowej aplikacji Azure Functions. Opcja wyzwalacza Event Grid jest wyróżniona.":::
 
-Po utworzeniu aplikacji funkcji program Visual Studio wygeneruje przykład kodu w pliku **Function1.cs** w folderze projektu. Ta krótka funkcja jest używana do rejestrowania zdarzeń.
+Po utworzeniu aplikacji funkcji program Visual Studio wygeneruje przykład kodu w pliku **Function1. cs** w folderze projektu. Ta krótka funkcja jest używana do rejestrowania zdarzeń.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Zrzut ekranu programu Visual Studio w oknie projektu dla nowego projektu, który został utworzony. Istnieje kod dla przykładowej funkcji o nazwie Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
@@ -63,13 +63,13 @@ Aby można było korzystać z zestawu SDK, należy dołączyć następujące pak
 * [System .NET. http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure. Core](https://www.nuget.org/packages/Azure.Core/)
 
-Następnie w Eksplorator rozwiązań programu Visual Studio Otwórz plik _Function1.cs_ , w którym znajduje się przykładowy kod, i Dodaj następujące `using` instrukcje dla tych pakietów do funkcji.
+Następnie w Eksplorator rozwiązań programu Visual Studio Otwórz plik _Function1. cs_ z przykładowym kodem i Dodaj następujące `using` instrukcje dla tych pakietów do funkcji.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Dodawanie kodu uwierzytelniania do funkcji
 
-Teraz deklarujesz zmienne na poziomie klasy i dodajesz kod uwierzytelniania, który umożliwi funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji. Do funkcji w pliku _Function1.cs_ zostanie dodana następująca wartość.
+Teraz deklarujesz zmienne na poziomie klasy i dodajesz kod uwierzytelniania, który umożliwi funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji. Do funkcji w pliku _Function1. cs_ zostanie dodana następująca wartość:
 
 * Kod odczytywania adresu URL usługi Digital bliźniaczych reprezentacji platformy Azure jako **zmiennej środowiskowej**. Dobrym sposobem jest odczytanie adresu URL usługi ze zmiennej środowiskowej, a nie kodowanie twarde w funkcji. Wartość tej zmiennej środowiskowej zostanie ustawiona [w dalszej części tego artykułu](#set-up-security-access-for-the-function-app). Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [*Zarządzanie aplikacją funkcji*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
@@ -118,12 +118,14 @@ Dostęp zabezpieczeń do aplikacji funkcji można skonfigurować przy użyciu in
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
 Te polecenia można uruchomić w [Azure Cloud Shell](https://shell.azure.com) lub w [lokalnej instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Można użyć tożsamości zarządzanej przez system aplikacji funkcji, aby nadać jej rolę _**właściciela danych Digital bliźniaczych reprezentacji**_ na platformie Azure dla Twojego wystąpienia bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
 
 ### <a name="assign-access-role"></a>Przypisywanie roli dostępu
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 Funkcja szkieletu z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelniać za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować uprawnienia [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji, aby uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
 
-Można użyć tożsamości zarządzanej przez system aplikacji funkcji, aby nadać jej rolę _**właściciela danych Digital bliźniaczych reprezentacji**_ na platformie Azure dla Twojego wystąpienia bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
 
 1. Użyj poniższego polecenia, aby wyświetlić szczegóły dotyczące tożsamości zarządzanej przez system dla funkcji. Zwróć uwagę na pole _principalId_ w danych wyjściowych.
 
@@ -162,6 +164,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/).
 
 ### <a name="assign-access-role"></a>Przypisywanie roli dostępu
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Azure uwierzytelnianie w usługach w chmurze (na przykład Azure Key Vault) bez zapisywania poświadczeń w kodzie. Po włączeniu wszystkich wymaganych uprawnień można udzielić za pośrednictwem kontroli dostępu opartej na rolach platformy Azure. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia tego zasobu. Ponadto każdy zasób może mieć tylko jedną tożsamość zarządzaną przypisaną przez system.
 

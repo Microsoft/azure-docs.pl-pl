@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548520"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>Sprawdzanie kondycji usługi IoT Hub i zasobów
@@ -33,7 +33,7 @@ Aby wyświetlić historię stanu i stanu Centrum IoT Hub przy użyciu portalu, w
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT hub w Azure Portal.
 
-1. W okienku po lewej stronie w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **Resource Health** .
+1. W okienku po lewej stronie w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **Resource Health**.
 
     :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="Strona kondycji zasobów dla Centrum IoT":::
 
@@ -49,7 +49,7 @@ Aby sprawdzić kondycję centrów IoT, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **Service Health**  >  **kondycji zasobów** .
+2. Przejdź do **Service Health**  >  **kondycji zasobów**.
 
 3. Z listy rozwijanej wybierz subskrypcję, a następnie wybierz **IoT Hub** jako typ zasobu.
 

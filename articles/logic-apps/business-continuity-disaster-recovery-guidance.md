@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89658201"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Ciągłość działania i odzyskiwanie po awarii dla Azure Logic Apps
@@ -103,7 +103,7 @@ Można skonfigurować lokalizacje podstawowe i dodatkowe, aby wystąpienia aplik
 | Rola podstawowa — pomocnicza | Opis |
 |------------------------|-------------|
 | *Aktywne-aktywne* | Główne i pomocnicze wystąpienia aplikacji logiki w obu lokalizacjach aktywnie obsługują żądania, wykonując jeden z następujących wzorców: <p><p>- *Równoważenie obciążenia*: możliwe, że oba wystąpienia nasłuchują punktu końcowego i równoważenia obciążenia ruchem do każdego wystąpienia, w razie potrzeby. <p>- *Konkurujący konsumenci*: można mieć oba wystąpienia jako konkurujących odbiorców, aby wystąpienia konkurują o komunikaty z kolejki. Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienie przejmuje obciążenie. |
-| *Aktywne/pasywne* | Główne wystąpienie aplikacji logiki aktywnie obsługuje całe obciążenie, podczas gdy wystąpienie pomocnicze jest pasywne (wyłączone lub nieaktywne). Pomocniczy czeka na sygnał, że podstawowy jest niedostępny lub nie działa z powodu przerwy lub awarii i przejmuje obciążenie jako aktywne wystąpienie. |
+| *Aktywne — pasywne* | Główne wystąpienie aplikacji logiki aktywnie obsługuje całe obciążenie, podczas gdy wystąpienie pomocnicze jest pasywne (wyłączone lub nieaktywne). Pomocniczy czeka na sygnał, że podstawowy jest niedostępny lub nie działa z powodu przerwy lub awarii i przejmuje obciążenie jako aktywne wystąpienie. |
 | Kombinacja | Niektóre aplikacje logiki odgrywają rolę Active-Active, podczas gdy inne aplikacje logiki odgrywają rolę Active-pasywną. |
 |||
 
@@ -249,7 +249,7 @@ W perspektywie odzyskiwania po awarii, podczas konfigurowania wystąpień głów
   Na przykład odczytywanie z kolejki komunikatów, takiej jak Kolejka Azure Service Bus, używa stanu po stronie serwera, ponieważ usługa kolejkowania zachowuje blokady komunikatów, aby uniemożliwić innym klientom odczytywanie tych samych komunikatów.
 
   > [!NOTE]
-  > Jeśli aplikacja logiki musi odczytywać wiadomości w określonej kolejności, na przykład z kolejki Service Bus, można użyć konkurencyjnego wzorca klienta, ale tylko w połączeniu z sesjami Service Bus, który jest również znany jako [ *sekwencyjny wzorzec konwoju* ](/azure/architecture/patterns/sequential-convoy). W przeciwnym razie należy skonfigurować wystąpienia aplikacji logiki przy użyciu ról aktywnych-pasywnych.
+  > Jeśli aplikacja logiki musi odczytywać wiadomości w określonej kolejności, na przykład z kolejki Service Bus, można użyć konkurencyjnego wzorca klienta, ale tylko w połączeniu z sesjami Service Bus, który jest również znany jako [ *sekwencyjny wzorzec konwoju*](/azure/architecture/patterns/sequential-convoy). W przeciwnym razie należy skonfigurować wystąpienia aplikacji logiki przy użyciu ról aktywnych-pasywnych.
 
 <a name="request-trigger"></a>
 

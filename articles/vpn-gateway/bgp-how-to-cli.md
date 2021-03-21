@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393602"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Jak skonfigurować protokół BGP na bramie sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia
@@ -70,13 +70,13 @@ Poniższy przykład umożliwia utworzenie sieci wirtualnej o nazwie sieci testvn
 Pierwsze polecenie tworzy przestrzeń adresową frontonu i podsieć frontonu. Drugie polecenie tworzy dodatkową przestrzeń adresową dla podsieci zaplecza. Trzecie i czwarte polecenia tworzą podsieć zaplecza i GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
- 
-az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
+az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
+ 
+az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
 ### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Krok 2. Tworzenie bramy sieci VPN dla usługi sieci testvnet1 przy użyciu parametrów protokołu BGP
@@ -86,7 +86,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPR
 Prześlij żądanie dotyczące publicznego adresu IP. Publiczny adres IP zostanie przydzielony do bramy sieci VPN utworzonej dla sieci wirtualnej.
 
 ```azurecli
-az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
+az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Utwórz bramę sieci VPN przy użyciu numeru AS
@@ -106,14 +106,14 @@ Po utworzeniu bramy należy uzyskać adres IP elementu równorzędnego BGP w bra
 Uruchom następujące polecenie i zapoznaj się z `bgpSettings` sekcją w górnej części danych wyjściowych:
 
 ```azurecli
-az network vnet-gateway list -g TestBGPRG1 
- 
-  
-"bgpSettings": { 
-      "asn": 65010, 
-      "bgpPeeringAddress": "10.12.255.30", 
-      "peerWeight": 0 
-    }
+az network vnet-gateway list -g TestBGPRG1 
+ 
+  
+"bgpSettings": { 
+      "asn": 65010, 
+      "bgpPeeringAddress": "10.12.255.30", 
+      "peerWeight": 0 
+    }
 ```
 
 Po utworzeniu bramy można użyć tej bramy do ustanowienia połączenia między lokalizacjami lub połączenia między sieciami wirtualnymi przy użyciu protokołu BGP.
@@ -136,8 +136,8 @@ To ćwiczenie kontynuuje kompilację konfiguracji pokazanej na diagramie. Należ
 Przed kontynuowaniem upewnij się, że została ukończona sekcja [Włączanie protokołu BGP dla bramy sieci VPN](#enablebgp) w tym ćwiczeniu i że nadal masz połączenie z subskrypcją 1. Zwróć uwagę, że w tym przykładzie utworzysz nową grupę zasobów. Zwróć również uwagę na dwa dodatkowe parametry bramy sieci lokalnej: `Asn` i `BgpPeerAddress` .
 
 ```azurecli
-az group create -n TestBGPRG5 -l eastus2 
- 
+az group create -n TestBGPRG5 -l eastus2 
+ 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
@@ -160,18 +160,18 @@ Znajdź wiersz w danych wyjściowych `"id":` . Potrzebujesz wartości w cudzysł
 Przykładowe dane wyjściowe:
 
 ```
-{ 
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65010, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-  }, 
-  "enableBgp": true, 
-  "etag": "W/\"<your etag number>\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+{ 
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65010, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+  }, 
+  "enableBgp": true, 
+  "etag": "W/\"<your etag number>\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
 Skopiuj wartości `"id":` z edytora tekstu, takiego jak Notatnik, aby można je było łatwo wkleić podczas tworzenia połączenia. 
@@ -235,12 +235,12 @@ az group create -n TestBGPRG2 -l westus
 Pierwsze polecenie tworzy przestrzeń adresową frontonu i podsieć frontonu. Drugie polecenie tworzy dodatkową przestrzeń adresową dla podsieci zaplecza. Trzecie i czwarte polecenia tworzą podsieć zaplecza i GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
- 
-az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
- 
-az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
- 
+az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
+ 
+az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
+ 
+az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
+ 
 az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPRG2 --address-prefix 10.22.255.0/27
 ```
 
@@ -255,7 +255,7 @@ az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynami
 #### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. Utwórz bramę sieci VPN przy użyciu numeru AS
 
 Utwórz bramę sieci wirtualnej dla usługi TestVNet2. Należy zastąpić domyślny numer ASN na bramach sieci VPN platformy Azure. Numery ASN dla połączonych sieci wirtualnych muszą być inne, aby można było włączyć routing BGP i transport.
- 
+ 
 ```azurecli
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
@@ -264,7 +264,7 @@ az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2
 
 W tym kroku utworzysz połączenie od sieci testvnet1 do site5. Aby włączyć protokół BGP dla tego połączenia, należy określić `--enable-bgp` parametr.
 
-W poniższym przykładzie Brama sieci wirtualnej i Brama sieci lokalnej znajdują się w różnych grupach zasobów. Gdy bramy znajdują się w różnych grupach zasobów, należy określić cały identyfikator zasobu dwóch bram, aby skonfigurować połączenie między sieciami wirtualnymi. 
+W poniższym przykładzie Brama sieci wirtualnej i Brama sieci lokalnej znajdują się w różnych grupach zasobów. Gdy bramy znajdują się w różnych grupach zasobów, należy określić cały identyfikator zasobu dwóch bram, aby skonfigurować połączenie między sieciami wirtualnymi. 
 
 #### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. Pobierz identyfikator zasobu VNet1GW 
 

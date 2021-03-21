@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659628"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: Udostępnianie danych przy użyciu usługi Azure Data Share  
@@ -61,7 +61,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
-    1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
@@ -82,7 +82,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
-    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij  pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
@@ -126,7 +126,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure.
 
-Zacznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
+Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -174,7 +174,7 @@ Użyj następujących poleceń, aby utworzyć zasób:
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz pozycję **Utwórz**.   
+1. Wybierz przycisk **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
@@ -208,7 +208,7 @@ Użyj następujących poleceń, aby utworzyć zasób:
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

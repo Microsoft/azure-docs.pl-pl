@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
+title: Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL
 description: Ten artykuł zawiera omówienie lub Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,26 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 06/03/2020
-ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: 94495144c64b3770995a5f67e9129b3ba86e741e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599565"
 ---
-# <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
+# <a name="machine-learning-services-in-azure-sql-managed-instance"></a>Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL
 
-Machine Learning Services to funkcja wystąpienia zarządzanego usługi Azure SQL (wersja zapoznawcza) zapewniająca Uczenie maszynowe w bazie danych, obsługujące skrypty Python i R. Ta funkcja obejmuje pakiety Microsoft Python i języka R dla wysokiej wydajności analizy predykcyjnej i uczenia maszynowego. Dane relacyjne mogą być używane w skryptach za pomocą procedur składowanych, skryptu T-SQL zawierającego instrukcje języka Python lub języka R lub kodu Python lub R zawierającego język T-SQL.
-
-> [!IMPORTANT]
-> Usługi Machine Learning Services to funkcja usługi Azure SQL Managed Instance, która jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta funkcja w wersji zapoznawczej jest początkowo dostępna w ograniczonej liczbie regionów w Stanach Zjednoczonych, Europie Azja i Australii z dodatkowymi regionami dodawanymi później.
->
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> [Utwórz konto w wersji zapoznawczej](#signup) poniżej.
+Machine Learning Services to funkcja wystąpienia zarządzanego usługi Azure SQL, która zapewnia Uczenie maszynowe w bazie danych, obsługujące skrypty Python i R. Ta funkcja obejmuje pakiety Microsoft Python i języka R dla wysokiej wydajności analizy predykcyjnej i uczenia maszynowego. Dane relacyjne mogą być używane w skryptach za pomocą procedur składowanych, skryptu T-SQL zawierającego instrukcje języka Python lub języka R lub kodu Python lub R zawierającego język T-SQL.
 
 ## <a name="what-is-machine-learning-services"></a>Co to jest Machine Learning Services?
 
@@ -44,47 +35,32 @@ Użyj Machine Learning Services z obsługą języka R/Python w wystąpieniu zarz
 
 - **Wdrażaj modele i skrypty w środowisku produkcyjnym w procedurach składowanych** — skrypty i modele przeszkolone mogą być inicjowane po prostu przez osadzenie ich w procedurach składowanych T-SQL. Aplikacje łączące się z wystąpieniem zarządzanym usługi Azure SQL mogą korzystać z prognoz i analiz w tych modelach przez wywołanie procedury składowanej. Można również użyć natywnej funkcji przewidywania T-SQL do operacjonalizować modeli szybkiego oceniania w wysoce współbieżnych scenariuszach w czasie rzeczywistym.
 
-Podstawowe dystrybucje języków Python i R są zawarte w Machine Learning Services. Możesz zainstalować i używać pakietów i struktur typu open source, takich jak PyTorch, TensorFlow i scikit — Dowiedz się, oprócz pakietów firmy Microsoft [biblioteki revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) i [Microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) dla języka Python oraz [kolekcję funkcji revoscaler](/sql/advanced-analytics/r/ref-r-revoscaler), [Microsoftml](/sql/advanced-analytics/r/ref-r-microsoftml), [OLAP](/sql/advanced-analytics/r/ref-r-olapr)i [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) w języku R.
+Podstawowe dystrybucje języków Python i R są zawarte w Machine Learning Services. Możesz zainstalować i używać pakietów i struktur typu open source, takich jak PyTorch, TensorFlow i scikit — Dowiedz się, oprócz pakietów firmy Microsoft [biblioteki revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) i [Microsoftml](/sql/machine-learning/python/ref-py-microsoftml) dla języka Python oraz [kolekcję funkcji revoscaler](/sql/machine-learning/r/ref-r-revoscaler), [Microsoftml](/sql/machine-learning/r/ref-r-microsoftml), [OLAP](/sql/machine-learning/r/ref-r-olapr)i [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) w języku R.
 
-<a name="signup"></a>
+## <a name="how-to-enable-machine-learning-services"></a>Jak włączyć Machine Learning Services
 
-## <a name="sign-up-for-the-preview"></a>Tworzenie konta na potrzeby korzystania z wersji zapoznawczej
+Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL można włączyć, włączając rozszerzalność za pomocą następujących poleceń SQL (wystąpienie zarządzane SQL zostanie uruchomione ponownie i będzie niedostępne przez kilka sekund):
 
-Ta ograniczona publiczna wersja zapoznawcza podlega [postanowieniom dotyczącym wersji zapoznawczej platformy Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
 
-Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+Aby uzyskać szczegółowe informacje na temat tego, jak to polecenie ma wpływ na zasoby wystąpienia zarządzanego SQL, zobacz temat [Zarządzanie zasobami](machine-learning-services-differences.md#resource-governance).
 
-1. Na stronie **Tworzenie biletu pomocy technicznej** kliknij pozycję **Utwórz zdarzenie**.
+### <a name="enable-machine-learning-services-in-a-failover-group"></a>Włączanie Machine Learning Services w grupie trybu failover
 
-1. Na stronie **Pomoc i obsługa techniczna** kliknij pozycję **nowe żądanie obsługi** , aby utworzyć nowy bilet.
+W [grupie trybu failover](failover-group-add-instance-tutorial.md)systemowe bazy danych nie są replikowane do wystąpienia pomocniczego (zobacz [ograniczenia grup trybu failover](../database/auto-failover-group-overview.md#limitations-of-failover-groups) , aby uzyskać więcej informacji).
 
-1. Wybierz następujące opcje:
-   - Typ problemu — **techniczne**
-   - Subskrypcja — *Wybierz subskrypcję*
-   - Usługa — **wystąpienie zarządzane SQL**
-   - Zasób — *wybierz wystąpienie zarządzane*
-   - Podsumowanie — *wprowadź krótki opis żądania*
-   - Typ problemu — **Machine Learning Services dla wystąpienia zarządzanego SQL (wersja zapoznawcza)**
-   - Problem z podtypem — **inny problem lub "jak to zrobić"**
+Jeśli używane wystąpienie zarządzane jest częścią grupy trybu failover, wykonaj następujące czynności:
 
-1. Kliknij przycisk **Dalej: rozwiązania**.
+- Uruchom `sp_configure` polecenia i `RECONFIGURE` w każdym wystąpieniu grupy trybu failover, aby włączyć Machine Learning Services.
 
-1. Przeczytaj informacje o wersji zapoznawczej, a następnie kliknij przycisk **Dalej: szczegóły**.
-
-1. Na tej stronie:
-   - Czy w przypadku pytania **próbujesz zarejestrować się w celu skorzystania z wersji zapoznawczej?** wybierz pozycję **tak**. 
-   - W polu **Opis** wprowadź szczegóły żądania, w tym nazwę serwera logicznego, region i Identyfikator subskrypcji, które chcesz zarejestrować w wersji zapoznawczej. Wprowadź inne szczegóły stosownie do potrzeb.
-   - Wybierz preferowaną metodę kontaktu. 
-
-1. Po zakończeniu kliknij przycisk **Dalej: przegląd i tworzenie**, a następnie kliknij przycisk **Utwórz**.
-
-Gdy zarejestrujesz się w programie, firma Microsoft dołączy Cię do publicznej wersji zapoznawczej i włączy usługi Machine Learning Services dla Twojej istniejącej lub nowej bazy danych.
-
-W czasie korzystania z publicznej wersji zapoznawczej nie zaleca się używania usług Machine Learning Services w usłudze SQL Managed Instance na potrzeby obciążeń produkcyjnych.
+- Zainstaluj biblioteki języka R/Python w bazie danych użytkownika, a nie w bazie danych Master.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się [z kluczowymi różnicami w Machine Learning Services SQL Server](machine-learning-services-differences.md).
-- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Aby uzyskać więcej informacji na temat uczenia maszynowego na innych platformach SQL, zobacz [dokumentację usługi SQL Machine Learning](/sql/machine-learning/).
+- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Aby uzyskać więcej informacji na temat uczenia maszynowego na innych platformach SQL, zobacz [dokumentację usługi SQL Machine Learning](/sql/machine-learning/index).

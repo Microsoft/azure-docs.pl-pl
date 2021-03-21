@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f5865646200a783e7139bb5e22576ea404f58203
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216653"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596403"
 ---
 # <a name="enable-on-demand-bursting"></a>Włącz nadużyenie na żądanie
 
@@ -61,7 +61,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Polecenia cmdlet dotyczące szeregowania na żądanie są dostępne w wersji 2.19.0 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Alternatywnie możesz użyć [Azure Cloud Shell](https://shell.azure.com/).
+Polecenia cmdlet dotyczące szeregowania na żądanie są dostępne w wersji 2.19.0 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Alternatywnie możesz użyć [Azure Cloud Shell](https://shell.azure.com/).
 
 ### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>Tworzenie i dołączanie dysku z danymi na żądanie
 
