@@ -1,5 +1,5 @@
 ---
-title: Omówienie usługi Azure Application Gateway Resource Health
+title: Omówienie usługi Resource Health w usłudze Azure Application Gateway
 description: Ten artykuł zawiera omówienie funkcji kondycji zasobów dla usługi Azure Application Gateway
 services: application-gateway
 author: vhorne
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397176"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Omówienie usługi Azure Application Gateway Resource Health
+# <a name="azure-application-gateway-resource-health-overview"></a>Omówienie usługi Resource Health w usłudze Azure Application Gateway
 
 Usługa [Azure Resource Health](../service-health/resource-health-overview.md) pomaga diagnozować i uzyskać pomoc techniczną, gdy problem z usługą platformy Azure wpłynie na Twoje zasoby. Informuje ona o bieżącej i wcześniejszej kondycji zasobów. Zapewnia pomoc techniczną, która pomaga ograniczyć problemy.
 
@@ -43,7 +43,7 @@ Resource Health zawiera dodatkowe szczegóły dotyczące zdarzenia i procesu odz
 
 ![Stan niedostępny](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Nieznany
+## <a name="unknown"></a>Nieznane
 
 **Nieznany** stan kondycji oznacza, Resource Health nie otrzymał informacji o bramie dłużej niż 10 minut. Ten stan nie jest ostatecznym oznaczeniem stanu bramy. Jest to ważny punkt danych w procesie rozwiązywania problemów.
 

@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak używać sesji, aby umożliwić wsp
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680757"
 ---
 # <a name="message-sessions"></a>Sesje komunikatów
@@ -34,9 +34,9 @@ W portalu Ustaw flagę przy użyciu następującego pola wyboru:
 ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie kolejki z wybraną opcją Włącz sesje i wyróżnioną kolorem czerwonym.][2]
 
 > [!NOTE]
-> Gdy sesje są włączane w ramach kolejki lub subskrypcji, aplikacje klienckie mogą ***nie być dłuższe** niż wysyłanie i odbieranie zwykłych komunikatów. Wszystkie komunikaty muszą być wysyłane w ramach sesji (przez ustawienie identyfikatora sesji) i odebrane przez odebranie sesji.
+> Po włączeniu sesji dla kolejki lub subskrypcji aplikacje klienckie ***nie mogą już*** wysyłać/odbierać zwykłych komunikatów. Wszystkie komunikaty muszą być wysyłane w ramach sesji (przez ustawienie identyfikatora sesji) i odebrane przez odebranie sesji.
 
-Interfejsy API dla sesji znajdują się na klientach w kolejkach i subskrypcjach. Istnieje model, który kontroluje czas odbierania sesji i komunikatów oraz model oparty na programie obsługi, podobny do _OnMessage *, który ukrywa złożoność zarządzania pętlą odbierania.
+Interfejsy API dla sesji znajdują się na klientach w kolejkach i subskrypcjach. Istnieje model, który kontroluje czas odbierania sesji i komunikatów oraz model oparty na programie obsługi, podobny do *OnMessage*, który ukrywa złożoność zarządzania pętlą odbierania.
 
 ### <a name="session-features"></a>Funkcje sesji
 

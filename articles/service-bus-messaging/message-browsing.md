@@ -4,10 +4,10 @@ description: Przeglądanie i wgląd Service Bus komunikaty umożliwiają kliento
 ms.topic: article
 ms.date: 11/11/2020
 ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553645"
 ---
 # <a name="message-browsing"></a>Przeglądanie komunikatów
@@ -22,7 +22,7 @@ Funkcja wgląd zwraca również komunikaty, które zostały zablokowane i są ak
 
 ## <a name="peek-apis"></a>Wgląd do interfejsów API
 
-Metody [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) i [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) istnieją w bibliotekach klienckich platformy .NET i Java oraz w obiektach odbiornika: **MessageReceiver** , **MessageSession**. Wgląd w kolejki, subskrypcje i odpowiadające im kolejki utraconych wiadomości.
+Metody [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) i [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) istnieją w bibliotekach klienckich platformy .NET i Java oraz w obiektach odbiornika: **MessageReceiver**, **MessageSession**. Wgląd w kolejki, subskrypcje i odpowiadające im kolejki utraconych wiadomości.
 
 Gdy jest wywoływana wielokrotnie, program **Peek** wylicza wszystkie komunikaty w kolejce lub dzienniku subskrypcji, w kolejności od najniższego dostępnego numeru sekwencji do najwyższego. Jest to kolejność, w której wiadomości zostały dodane do kolejki, a nie kolejność, w jakiej komunikaty mogą być ostatecznie pobrane.
 

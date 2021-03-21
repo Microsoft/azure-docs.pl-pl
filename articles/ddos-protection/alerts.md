@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575304"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Wyświetlanie i konfigurowanie alertów ochrony przed atakami DDoS
 
-Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
+Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk usługi Azure Monitor ujawnionych przez usługę DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> * Konfigurowanie alertów za Azure Monitor
-> * Konfigurowanie alertów za poorednictwem portalu
-> * Wyświetlanie alertów w Azure Security Center
+> * Konfigurowanie alertów w usłudze Azure Monitor
+> * Konfigurowanie alertów w portalu
+> * Wyświetlanie alertów w usłudze Azure Security Center
 > * Weryfikowanie i testowanie alertów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -36,7 +36,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 - Przed wykonaniem kroków opisanych w tym samouczku należy najpierw utworzyć [Plan ochrony usługi Azure DDoS Standard](manage-ddos-protection.md) , a w sieci wirtualnej musi być włączona funkcja DDoS Protection Standard.
 - DDoS monitoruje publiczne adresy IP przypisane do zasobów w ramach sieci wirtualnej. Jeśli nie masz żadnych zasobów z publicznymi adresami IP w sieci wirtualnej, musisz najpierw utworzyć zasób z publicznym adresem IP. Możesz monitorować publiczny adres IP wszystkich zasobów wdrożonych za pomocą Menedżer zasobów (nieklasyczny) wymieniony w [sieci wirtualnej dla usług platformy Azure (w](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) tym modułów równoważenia obciążenia platformy Azure, w których znajdują się maszyny wirtualne zaplecza w sieci wirtualnej), z wyjątkiem środowisk Azure App Service. Aby kontynuować pracę z tym samouczkiem, możesz szybko utworzyć maszynę wirtualną z [systemem Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .     
 
-## <a name="configure-alerts-through-azure-monitor"></a>Konfigurowanie alertów za Azure Monitor
+## <a name="configure-alerts-through-azure-monitor"></a>Konfigurowanie alertów w usłudze Azure Monitor
 
 Za pomocą tych szablonów można skonfigurować alerty dla wszystkich publicznych adresów IP, na których włączono logowanie diagnostyczne. W związku z tym aby można było używać tych szablonów alertów, najpierw musisz mieć Log Analytics obszar roboczy z włączonymi ustawieniami diagnostycznymi. Zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md).
 
@@ -52,7 +52,7 @@ Ten [szablon](https://aka.ms/ddosalert) służy do wdrażania niezbędnych skła
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
-## <a name="configure-alerts-through-portal"></a>Konfigurowanie alertów za poorednictwem portalu
+## <a name="configure-alerts-through-portal"></a>Konfigurowanie alertów w portalu
 
 Można wybrać dowolną z dostępnych metryk ochrony DDoS, aby poinformować użytkownika o aktywnym ograniczeniu podczas ataku przy użyciu konfiguracji alertu Azure Monitor. 
 
@@ -74,7 +74,7 @@ W ciągu kilku minut od wykrycia ataku należy otrzymać wiadomość e-mail z Az
 
 Możesz również dowiedzieć się więcej o [konfigurowaniu elementów webhook](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) na potrzeby tworzenia alertów.
 
-## <a name="view-alerts-in-azure-security-center"></a>Wyświetlanie alertów w Azure Security Center
+## <a name="view-alerts-in-azure-security-center"></a>Wyświetlanie alertów w usłudze Azure Security Center
 
 Azure Security Center zawiera listę [alertów zabezpieczeń](../security-center/security-center-managing-and-responding-alerts.md)z informacjami ułatwiającymi badanie i korygowanie problemów. Dzięki tej funkcji można uzyskać ujednolicony widok alertów, w tym alerty związane z atakiem DDoS oraz działania podejmowane w celu ograniczenia ataków w czasie prawie czasu.
 Istnieją dwa konkretne alerty, które będą widoczne w przypadku wykrywania ataków DDoS i łagodzenia rozwiązań:
@@ -95,9 +95,9 @@ Aby zasymulować atak DDoS w celu zweryfikowania alertów, zobacz temat [Validat
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
-- Konfigurowanie alertów za Azure Monitor
-- Konfigurowanie alertów za poorednictwem portalu
-- Wyświetlanie alertów w Azure Security Center
+- Konfigurowanie alertów w usłudze Azure Monitor
+- Konfigurowanie alertów w portalu
+- Wyświetlanie alertów w usłudze Azure Security Center
 - Weryfikowanie i testowanie alertów
 
 Aby dowiedzieć się, jak testować i symulować atak DDoS, zobacz Przewodnik dotyczący testowania symulacji:

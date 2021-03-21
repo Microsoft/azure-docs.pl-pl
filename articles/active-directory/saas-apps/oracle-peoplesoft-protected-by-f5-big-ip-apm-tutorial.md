@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522295"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z programem Oracle PeopleSoft — chroniona przez F5
@@ -126,7 +126,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -240,11 +240,11 @@ Przejdź do **Peopletools > Security > profile użytkowników > profile użytkow
 
     ![PeopleSoft użytkownika](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/user-profile.png)
 
-1. Uzyskaj dostęp do profilu sieci Web i wprowadź **OAMPSFT** jako **Identyfikator użytkownika**dostępu publicznego.
+1. Uzyskaj dostęp do profilu sieci Web i wprowadź **OAMPSFT** jako **Identyfikator użytkownika** dostępu publicznego.
 
     ![Profile użytkowników](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 
-1. W **Projektant aplikacji PeopleTools**otwórz rekord **FUNCLIB_LDAP** .
+1. W **Projektant aplikacji PeopleTools** otwórz rekord **FUNCLIB_LDAP** .
 
     ![Konfiguracja profilu sieci Web](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/funclib.png)
 

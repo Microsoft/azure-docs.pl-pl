@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321887"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Przykładowe dane w tabelach usługi Azure HDInsight Hive
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 W tym miejscu `<sample rate, 0-1>` określa proporcje rekordów, które użytkownicy chcą próbkować.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Losowe próbkowanie według grup
-Podczas próbkowania kategorii dane można uwzględnić lub wykluczyć wszystkie wystąpienia dla pewnej wartości zmiennej kategorii. Ten rodzaj próbkowania jest nazywany "próbkowanie przez grupę". Na przykład jeśli masz zmienną kategorii " *State* ", która ma wartości, takich jak NY, ma, CA, NJ i PA, chcesz, aby rekordy z każdego stanu były razem, niezależnie od tego, czy są one próbkowane.
+Podczas próbkowania kategorii dane można uwzględnić lub wykluczyć wszystkie wystąpienia dla pewnej wartości zmiennej kategorii. Ten rodzaj próbkowania jest nazywany "próbkowanie przez grupę". Na przykład jeśli masz zmienną kategorii "*State*", która ma wartości, takich jak NY, ma, CA, NJ i PA, chcesz, aby rekordy z każdego stanu były razem, niezależnie od tego, czy są one próbkowane.
 
 Oto przykładowe zapytanie zawierające próbki według grupy:
 

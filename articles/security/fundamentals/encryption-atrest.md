@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920786"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych platformy Azure w spoczynku
@@ -60,11 +60,11 @@ Jak opisano wcześniej, celem szyfrowania w czasie spoczynku jest to, że dane u
 
 ![Składniki](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 Lokalizacją przechowywania kluczy szyfrowania i kontroli dostępu do tych kluczy jest centralne szyfrowanie w modelu Rest. Klucze muszą być wysoce zabezpieczone, ale mogą być zarządzane przez określonych użytkowników i dostępne dla określonych usług. W przypadku usług Azure Azure Key Vault jest zalecanym rozwiązaniem magazynu kluczy i oferuje wspólne środowisko zarządzania w ramach usług. Klucze są przechowywane i zarządzane w magazynach kluczy, a dostęp do magazynu kluczy można udzielić użytkownikom lub usługom. Azure Key Vault obsługuje tworzenie kluczy lub importowanie kluczy klienta do użytku w scenariuszach z kluczami szyfrowania zarządzanymi przez klienta.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Uprawnienia do korzystania z kluczy przechowywanych w Azure Key Vault w celu zarządzania nimi lub uzyskiwania do nich dostępu w celu szyfrowania podczas szyfrowania i odszyfrowywania w czasie spoczynku można nadać Azure Active Directory kontom.
 
@@ -132,7 +132,7 @@ Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o
 
 Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za pomocą funkcji [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted używa klucza utworzonego i przechowywanego przez klienta. Klienci mogą przechowywać klucz główny w magazynie certyfikatów systemu Windows, Azure Key Vault lub lokalnych sprzętowych modułach zabezpieczeń. Za pomocą SQL Server Management Studio użytkownicy SQL wybierają klucz, którego chcesz użyć do zaszyfrowania kolumny.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Ochrona danych klienta przechowywanych w ramach usług platformy Azure ma najważniejsze znaczenie dla firmy Microsoft. Wszystkie usługi hostowane na platformie Azure są zobowiązane do zapewniania szyfrowania w opcjach Rest. Usługi platformy Azure obsługują klucze zarządzane przez usługę, klucze zarządzane przez klienta lub szyfrowanie po stronie klienta. Usługi platformy Azure w szerokim zakresie rozszerzają szyfrowanie w stanie spoczynku i w nadchodzących miesiącach są planowane nowe opcje dotyczące wersji zapoznawczej i ogólnej dostępności.
 

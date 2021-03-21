@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88761648"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Zarządzanie zasobami baz danych programu IBM Informix przy użyciu Azure Logic Apps
@@ -83,7 +83,7 @@ W tym temacie pokazano, jak za pomocą łącznika w aplikacji logiki przetwarza�
    | Nazwa połączenia | `name` | Tak | `informix-demo-connection` | Nazwa, która ma być używana w połączeniu z bazą danych programu Informix |
    | Serwer | `server` | Tak | Chmury `informixdemo.cloudapp.net:9089` <br>-On-premises: `informixdemo:9089` | Adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP |
    | baza danych | `database` | Tak | `nwind` | Nazwa relacyjnej bazy danych DRDA (RDBNAM) lub nazwa bazy danych programu Informix (dbname). Informix akceptuje 128-bajtowy ciąg. |
-   | Uwierzytelnianie | `authentication` | Tylko lokalne | **Basic** lub **Windows** (Kerberos) | Typ uwierzytelniania, który jest wymagany przez bazę danych programu Informix. Ta właściwość jest dostępna tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
+   | Authentication | `authentication` | Tylko lokalne | **Basic** lub **Windows** (Kerberos) | Typ uwierzytelniania, który jest wymagany przez bazę danych programu Informix. Ta właściwość jest dostępna tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
    | Nazwa użytkownika | `username` | Nie | <*Baza danych — nazwa użytkownika*> | Nazwa użytkownika bazy danych |
    | Hasło | `password` | Nie | <*Baza danych — hasło*> | Hasło do bazy danych |
    | Brama | `gateway` | Tylko lokalne | -<*platformy Azure — subskrypcja*> <br>-<*Azure-on-premises-Data-Gateway-Resource*> | Subskrypcja platformy Azure i nazwa zasobu platformy Azure dla lokalnej bramy danych utworzonej w Azure Portal. Właściwość **Gateway** i właściwości podrzędne są wyświetlane tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
@@ -107,15 +107,15 @@ W tym temacie pokazano, jak za pomocą łącznika w aplikacji logiki przetwarza�
 
 1. Na pasku narzędzi projektanta aplikacji logiki wybierz pozycję **Uruchom**. Po uruchomieniu aplikacji logiki można wyświetlić dane wyjściowe z tego przebiegu.
 
-1. Z menu aplikacji logiki wybierz pozycję **Przegląd**. W okienku Przegląd w obszarze **Summary**  >  **historia uruchamiania**podsumowania wybierz ostatnie uruchomienie.
+1. Z menu aplikacji logiki wybierz pozycję **Przegląd**. W okienku Przegląd w obszarze   >  **historia uruchamiania** podsumowania wybierz ostatnie uruchomienie.
 
-1. W obszarze **Uruchom aplikację logiki**wybierz pozycję **Uruchom szczegóły**.
+1. W obszarze **Uruchom aplikację logiki** wybierz pozycję **Uruchom szczegóły**.
 
 1. Z listy Akcje wybierz akcję z wynikami, które chcesz wyświetlić, na przykład **Get_tables**.
 
    Jeśli akcja zakończyła się pomyślnie, jej właściwość **status** jest oznaczona jako **zakończona powodzeniem**.
 
-1. Aby wyświetlić dane wejściowe, w obszarze **link danych wejściowych**wybierz link adresu URL. Aby wyświetlić dane wyjściowe, w obszarze link do danych **wyjściowych** wybierz link adresu URL. Oto kilka przykładowych danych wyjściowych:
+1. Aby wyświetlić dane wejściowe, w obszarze **link danych wejściowych** wybierz link adresu URL. Aby wyświetlić dane wyjściowe, w obszarze link do danych **wyjściowych** wybierz link adresu URL. Oto kilka przykładowych danych wyjściowych:
 
    * **Get_tables** wyświetla listę tabel:
 

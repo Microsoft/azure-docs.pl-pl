@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780839"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wdróż i Eksploruj wielodostępną aplikację SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Jak wdrożyć aplikację Wingtip SaaS.
 > - Gdzie można uzyskać kod źródłowy aplikacji i skrypty zarządzania.
 > - Informacje o serwerach, pulach i bazach danych, które tworzą aplikację.
-> - Jak dzierżawcy są zamapowane na dane przy użyciu *wykazu* .
+> - Jak dzierżawcy są zamapowane na dane przy użyciu *wykazu*.
 > - Jak udostępnić nową dzierżawę.
 > - Jak monitorować aktywność dzierżawy w aplikacji.
 
@@ -48,14 +48,14 @@ Aby wykonać kroki tego samouczka, upewnij się, że zainstalowano Azure PowerSh
 
 W krokach tej sekcji podajesz wartość użytkownika, która jest używana do upewnienia się, że nazwy zasobów są unikatowe globalnie. Należy również podać nazwę grupy zasobów, która zawiera wszystkie zasoby utworzone przez wdrożenie aplikacji. W przypadku fikcyjnej osoby o nazwie Ann Finley sugerujemy:
 
-- **Użytkownik** : *AF1* składa się z inicjałów Ann Finley i cyfr. Jeśli aplikacja zostanie wdrożona po raz drugi, użyj innej wartości. Przykładem jest AF2.
-- **Grupa zasobów** : *Wingtip-DPT-AF1* wskazuje, że jest to aplikacja dla dzierżawców w bazie danych. Dołącz nazwę użytkownika AF1 do skorelowania nazwy grupy zasobów z nazwami zasobów, które zawiera.
+- **Użytkownik**: *AF1* składa się z inicjałów Ann Finley i cyfr. Jeśli aplikacja zostanie wdrożona po raz drugi, użyj innej wartości. Przykładem jest AF2.
+- **Grupa zasobów**: *Wingtip-DPT-AF1* wskazuje, że jest to aplikacja dla dzierżawców w bazie danych. Dołącz nazwę użytkownika AF1 do skorelowania nazwy grupy zasobów z nazwami zasobów, które zawiera.
 
 Wybierz swoje nazwy teraz i Zapisz je w dół.
 
 ### <a name="steps"></a>Kroki
 
-1. Aby otworzyć szablon wdrożenia Wingtip bilety SaaS bazy danych dla dzierżawy w Azure Portal, wybierz pozycję **Wdróż na platformie Azure** .
+1. Aby otworzyć szablon wdrożenia Wingtip bilety SaaS bazy danych dla dzierżawy w Azure Portal, wybierz pozycję **Wdróż na platformie Azure**.
 
    [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
@@ -64,15 +64,15 @@ Wybierz swoje nazwy teraz i Zapisz je w dół.
     > [!IMPORTANT]
     > Pewne uwierzytelnianie i zapory serwera są celowo niezabezpieczone w celach demonstracyjnych. Zalecamy utworzenie nowej grupy zasobów. Nie używaj istniejących grup zasobów, serwerów ani pul. Nie używaj tej aplikacji, skryptów ani żadnych wdrożonych zasobów dla środowiska produkcyjnego. Usuń tę grupę zasobów po zakończeniu pracy z aplikacją, aby zatrzymać powiązane rozliczenia.
 
-    - **Grupa zasobów** : wybierz pozycję **Utwórz nową** i podaj unikatową nazwę wybraną wcześniej dla grupy zasobów.
-    - **Lokalizacja** : Wybierz lokalizację z listy rozwijanej.
-    - **Użytkownik** : Użyj wybranej wcześniej wartości nazwy użytkownika.
+    - **Grupa zasobów**: wybierz pozycję **Utwórz nową** i podaj unikatową nazwę wybraną wcześniej dla grupy zasobów.
+    - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej.
+    - **Użytkownik**: Użyj wybranej wcześniej wartości nazwy użytkownika.
 
 1. Wdrażanie aplikacji.
 
     a. Wybierz, aby wyrazić zgodę na warunki i postanowienia.
 
-    b. Wybierz pozycję **Kup** .
+    b. Wybierz pozycję **Kup**.
 
 1. Aby monitorować stan wdrożenia, wybierz pozycję **powiadomienia** (ikona dzwonka z prawej strony pola wyszukiwania). Wdrażanie biletów Wingtip SaaS aplikacji trwa około 5 minut.
 
@@ -87,10 +87,10 @@ Podczas wdrażania aplikacji należy pobrać kod źródłowy i skrypty zarządza
 
 1. Przejdź do [repozytorium GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 1. Wybierz przycisk **Clone or download** (Sklonuj lub pobierz).
-1. Wybierz pozycję **Pobierz kod pocztowy** , a następnie Zapisz plik.
-1. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-DbPerTenant-master.zip** , a następnie wybierz polecenie **Właściwości** .
-1. Na karcie **Ogólne** wybierz pozycję **Odblokuj**  >  **Zastosuj** .
-1. Wybierz **przycisk OK** , a następnie Wyodrębnij pliki
+1. Wybierz pozycję **Pobierz kod pocztowy**, a następnie Zapisz plik.
+1. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-DbPerTenant-master.zip** , a następnie wybierz polecenie **Właściwości**.
+1. Na karcie **Ogólne** wybierz pozycję **Odblokuj**  >  **Zastosuj**.
+1. Wybierz **przycisk OK**, a następnie Wyodrębnij pliki
 
 Skrypty znajdują się w... \\ WingtipTicketsSaaS-DbPerTenant-Master \\ Learning modules folder.
 
@@ -130,7 +130,7 @@ Aplikacja Wingtip używa [*platformy Azure Traffic Manager*](../../traffic-manag
 
     | Część adresu URL        | Opis       |
     | :-------------- | :---------------- |
-    | Events. Wingtip — DPT | Części zdarzeń aplikacji Wingtip.<br /><br /> *-DPT* *rozróżnia implementacje biletów Wingtip na podstawie* innych implementacji. Przykładami są implementacje *jednej* dzierżawy ( *-sa* ) lub wielodostępnej *bazy danych* ( *-MT* ). |
+    | Events. Wingtip — DPT | Części zdarzeń aplikacji Wingtip.<br /><br /> *-DPT* *rozróżnia implementacje biletów Wingtip na podstawie* innych implementacji. Przykładami są implementacje *jednej* dzierżawy (*-sa*) lub wielodostępnej *bazy danych* (*-MT*). |
     | . *&lt; użytkownik &gt;* | *AF1* w przykładzie. |
     | . trafficmanager.net/ | Traffic Manager, podstawowy adres URL. |
     | fabrikamjazzclub | Identyfikuje dzierżawcę o nazwie Fabrikam Jazz trefl. |
@@ -139,7 +139,7 @@ Aplikacja Wingtip używa [*platformy Azure Traffic Manager*](../../traffic-manag
 - Nazwa dzierżawy jest analizowana na podstawie adresu URL przez aplikację Events.
 - Nazwa dzierżawy jest używana do tworzenia klucza.
 - Ten klucz służy do uzyskiwania dostępu do katalogu w celu uzyskania lokalizacji bazy danych dzierżawy.
-  - Katalog jest implementowany przy użyciu funkcji *zarządzania mapami fragmentu* .
+  - Katalog jest implementowany przy użyciu funkcji *zarządzania mapami fragmentu*.
 - Centrum zdarzeń używa rozszerzonych metadanych w wykazie do konstruowania adresów URL stron listy zdarzeń dla każdej dzierżawy.
 
 W środowisku produkcyjnym zazwyczaj należy utworzyć rekord DNS CNAME, aby [*wskazywał domenę internetową firmy*](../../traffic-manager/traffic-manager-point-internet-domain.md) na Traffic Manager nazwę DNS.
@@ -181,9 +181,9 @@ Jeśli chcesz kontrolować i monitorować zadania w tle, użyj następujących p
 3. *LoadGenerator.ps1* uruchamia zadanie programu PowerShell w tle dla każdej bazy danych dzierżawcy:
 
     - Domyślnie zadania w tle są uruchamiane przez 120 minut.
-    - Każde zadanie powoduje obciążenie oparte na PROCESORAch w jednej bazie danych dzierżawy przez wykonanie *sp_CpuLoadGenerator* . Intensywność i czas trwania obciążenia różnią się w zależności od `$DemoScenario` .
+    - Każde zadanie powoduje obciążenie oparte na PROCESORAch w jednej bazie danych dzierżawy przez wykonanie *sp_CpuLoadGenerator*. Intensywność i czas trwania obciążenia różnią się w zależności od `$DemoScenario` .
     - *sp_CpuLoadGenerator* pętle wokół instrukcji SELECT języka SQL, która powoduje duże obciążenie procesora CPU. Przedział czasu między problemami wybierz różni się w zależności od wartości parametrów w celu utworzenia kontrolowanego obciążenia procesora CPU. Poziomy obciążenia i interwały są losowe w celu symulowania bardziej realistycznych obciążeń.
-    - Ten plik SQL jest przechowywany w obszarze *WingtipTenantDB \\ dbo \\ StoredProcedures \\* .
+    - Ten plik SQL jest przechowywany w obszarze *WingtipTenantDB \\ dbo \\ StoredProcedures \\*.
 
 4. Jeśli `$OneTime = $false` , generator obciążenia uruchamia zadania w tle, a następnie kontynuuje działanie. Co 10 sekund monitoruje je pod kątem wszystkich nowych dzierżawców, których obsługa administracyjna została zainicjowana. Jeśli ustawisz `$OneTime = $true` , LoadGenerator uruchamia zadania w tle, a następnie przestaje działać na pierwszym planie. Na potrzeby tego samouczka pozostaw `$OneTime = $false` .
 
@@ -200,7 +200,7 @@ Przed przejściem do następnej sekcji Pozostaw Generator obciążenia uruchomio
 Początkowe wdrożenie tworzy trzy przykładowe dzierżawy. Teraz utworzysz kolejną dzierżawcę, aby zobaczyć wpływ wdrożenia aplikacji. W aplikacji Wingtip przepływ pracy do aprowizacji nowych dzierżawców znajduje się w [samouczku dotyczącym udostępniania i katalogowania](saas-dbpertenant-provision-and-catalog.md). W tej fazie utworzysz nową dzierżawę, która zajmie mniej niż minutę.
 
 1. Otwórz nowy ISE programu PowerShell.
-2. Otwórz... \\ Uczenie Modules\Provision i katalogu \\ *Demo-ProvisionAndCatalog.ps1* .
+2. Otwórz... \\ Uczenie Modules\Provision i katalogu \\ *Demo-ProvisionAndCatalog.ps1*.
 3. Aby uruchomić skrypt, naciśnij klawisz F5. Pozostaw wartości domyślne teraz.
 
    > [!NOTE]
@@ -246,7 +246,7 @@ Przejdź do serwera **tenants1-DPT- &lt; User &gt;** i wybierz pozycję **Pool1*
 
    ![Monitorowanie puli](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-- Pierwszy wykres, z etykietą **użycie zasobów** , pokazuje użycie jednostek eDTU puli.
+- Pierwszy wykres, z etykietą **użycie zasobów**, pokazuje użycie jednostek eDTU puli.
 - Drugi wykres pokazuje użycie jednostek eDTU z pięciu najbardziej aktywnych baz danych w puli.
 
 Dwa wykresy ilustrują, że elastyczne pule i SQL Database są dobrze dopasowane do nieprzewidywalnych obciążeń aplikacji SaaS. Wykresy pokazują, że cztery bazy danych są poszczególnymi seriami do 40 jednostek eDTU, a jeszcze wszystkie bazy danych są wygodnie obsługiwane przez pulę 50-eDTU. Pula jednostek eDTU 50 może obsługiwać nawet większe obciążenia. Jeśli bazy danych są obsługiwane jako pojedyncze bazy danych, każdy z nich musi być S2 (50 jednostek DTU) do obsługi serii. Koszt czterech pojedynczych baz danych S2 jest niemal trzykrotnie większy niż cena puli. W rzeczywistych sytuacjach SQL Database klienci mają do 500 baz danych w pulach 200 jednostek eDTU. Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący monitorowania wydajności](saas-dbpertenant-performance-monitoring.md).
@@ -265,7 +265,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > - Jak wdrożyć aplikację Wingtip bilety SaaS.
 > - Informacje o serwerach, pulach i bazach danych, które tworzą aplikację.
-> - Jak dzierżawcy są zamapowane na dane przy użyciu *wykazu* .
+> - Jak dzierżawcy są zamapowane na dane przy użyciu *wykazu*.
 > - Jak zainicjować obsługę nowych dzierżawców.
 > - Jak wyświetlić użycie puli do monitorowania aktywności dzierżawy.
 > - Jak usunąć przykładowe zasoby, aby zatrzymać powiązane rozliczenia.

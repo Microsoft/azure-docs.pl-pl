@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221013"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
@@ -27,7 +27,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
     ![Zrzut ekranu pokazujący wybraną akcję "dzienniki diagnostyczne" i "Włącz diagnostykę, aby zebrać następujące dzienniki".](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. W obszarze __Ustawienia diagnostyki__wprowadź __nazwę__ tej konfiguracji rejestrowania, a następnie wybierz pozycję Opcje rejestrowania.
+3. W obszarze __Ustawienia diagnostyki__ wprowadź __nazwę__ tej konfiguracji rejestrowania, a następnie wybierz pozycję Opcje rejestrowania.
 
     ![Włącz diagnostykę, aby zbierać dzienniki inspekcji i żądań](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Włączanie dzienników diagnostycznych")
 
@@ -40,7 +40,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
      * Wybierz pozycję __Wyślij do log Analytics__ , aby wysłać dane do usługi Azure monitor. Użyj tej opcji, jeśli chcesz użyć dzienników Azure Monitor do zbierania i analizowania dzienników.
    * Określ, czy chcesz pobrać dzienniki inspekcji, czy Dzienniki żądań czy oba te elementy.  Dziennik żądania przechwytuje każde żądanie interfejsu API. Dziennik inspekcji rejestruje wszystkie operacje wyzwalane przez to żądanie interfejsu API.
 
-   * Dla __Archiwum na konto magazynu__Określ liczbę dni, przez które mają zostać zachowane dane.
+   * Dla __Archiwum na konto magazynu__ Określ liczbę dni, przez które mają zostać zachowane dane.
 
    * Kliknij pozycję __Zapisz__.
 
@@ -204,7 +204,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 | Równoległości |Ciąg |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **Endtime**i **Parallel** zapewniają informacje dotyczące operacji. Te wpisy zawierają wartość tylko wtedy, gdy ta operacja została rozpoczęta lub ukończona. Na przykład **SubmitTime** zawiera tylko wartość po **operacji** , która ma wartość **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **Endtime** i **Parallel** zapewniają informacje dotyczące operacji. Te wpisy zawierają wartość tylko wtedy, gdy ta operacja została rozpoczęta lub ukończona. Na przykład **SubmitTime** zawiera tylko wartość po **operacji** , która ma wartość **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Przetwarzanie danych dziennika
 

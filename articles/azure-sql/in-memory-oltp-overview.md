@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779955"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optymalizowanie wydajności przy użyciu technologii znajdujących się w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
@@ -101,7 +101,7 @@ Istnieje programistyczny sposób, aby zrozumieć, czy dana baza danych obsługuj
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Jeśli zapytanie zwróci wartość **1** , In-Memory OLTP jest obsługiwane w tej bazie danych. Następujące zapytania identyfikują wszystkie obiekty, które należy usunąć przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic:
+Jeśli zapytanie zwróci wartość **1**, In-Memory OLTP jest obsługiwane w tej bazie danych. Następujące zapytania identyfikują wszystkie obiekty, które należy usunąć przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Rozmiar danych i limit pamięci dla In-Memory OLTP
 
-In-Memory OLTP obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci* .
+In-Memory OLTP obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
 
 Każda obsługiwana warstwa cenowa pojedynczej bazy danych i każda warstwa cenowa puli elastycznej zawiera pewną ilość In-Memory magazynu OLTP.
 
@@ -149,7 +149,7 @@ Jednak obniżenie warstwy może mieć negatywny wpływ na bazę danych. Ten wpł
 
 Przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkie natywnie skompilowane moduły T-SQL.
 
-*Skalowanie zasobów w warstwie krytyczne dla działania firmy* : dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w In-Memory magazynie OLTP, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. Próba skalowania w dół warstwy lub przeniesienie bazy danych do puli, która nie ma wystarczającej ilości dostępnego In-Memory magazynie OLTP, operacja kończy się niepowodzeniem.
+*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w In-Memory magazynie OLTP, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. Próba skalowania w dół warstwy lub przeniesienie bazy danych do puli, która nie ma wystarczającej ilości dostępnego In-Memory magazynie OLTP, operacja kończy się niepowodzeniem.
 
 ## <a name="in-memory-columnstore"></a>Magazyn kolumn w pamięci
 

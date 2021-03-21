@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462021"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal
@@ -64,8 +64,8 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ![dedykowany przepływ tworzenia puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
-6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz pozycję **Utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
+6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz przycisk **Utwórz**.
 ![dedykowana Pula SQL CREATE Flow — przegląd ustawień.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. W tym momencie przepływ aprowizacji zasobów zostanie uruchomiony.

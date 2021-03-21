@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920484"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funkcje logiczne dla szablonów ARM
@@ -19,7 +19,7 @@ Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablon
 * [false](#false)
 * [if](#if)
 * [niemożliwe](#not)
-* [oraz](#or)
+* [lub](#or)
 * [oznacza](#true)
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
