@@ -4,10 +4,10 @@ description: Ten model danych znajduje się w odniesieniu do trybu specyficznego
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499598"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup

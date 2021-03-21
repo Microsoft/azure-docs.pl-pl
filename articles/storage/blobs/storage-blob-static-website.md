@@ -10,10 +10,10 @@ ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
 ms.openlocfilehash: bbb996362df1f99a8702de310bc11f6828cc303a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008454"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
@@ -109,7 +109,7 @@ Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kont
 Jeśli planujesz hostowanie witryny sieci Web w wielu lokalizacje geograficzne, zalecamy użycie [Content Delivery Network](../../cdn/index.yml) do buforowania regionalnego. Skorzystaj z [platformy Azure](../../frontdoor/index.yml) , jeśli chcesz udostępniać inną zawartość w poszczególnych regionach. Udostępnia również możliwości pracy w trybie failover. Nie zaleca się korzystania z [platformy Azure Traffic Manager](../../traffic-manager/index.yml) , jeśli planujesz używanie domeny niestandardowej. Problemy mogą wynikać z tego, jak usługa Azure Storage weryfikuje niestandardowe nazwy domen.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Bezpłatnie możesz włączyć hosting statycznej witryny sieci Web. Opłaty są naliczane tylko za magazyn obiektów BLOB wykorzystywany przez lokację i koszty operacji. Aby uzyskać więcej informacji na temat cen usługi Azure Blob Storage, zapoznaj się z [cennikiem usługi azure BLOB Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
