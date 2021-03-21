@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 93812cf2b0db7fc3557e31c8d9e8053831c7b90f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011004"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608150"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Rozwiązywanie problemów z platformą Azure Percept DK (dev Kit)
 
@@ -29,6 +29,12 @@ Aby przekierować wszystkie dane wyjściowe do pliku. txt w celu dalszej analizy
 
 ```console
 sudo [command] > [file name].txt
+```
+
+Zmień uprawnienia pliku txt, aby można było go skopiować:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Po przekierowaniu danych wyjściowych do pliku txt Skopiuj plik na komputer hosta za pośrednictwem punktu połączenia usługi:

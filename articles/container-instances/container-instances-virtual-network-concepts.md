@@ -3,18 +3,21 @@ title: Scenariusze korzystania z sieci wirtualnej
 description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup kontenerów w sieci wirtualnej platformy Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033833"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606892"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
 [Usługa azure Virtual Network](../virtual-network/virtual-networks-overview.md) zapewnia bezpieczną i prywatną sieć dla zasobów platformy Azure i lokalnych. Wdrażając grupy kontenerów w sieci wirtualnej platformy Azure, kontenery mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej. 
 
 Ten artykuł zawiera informacje o scenariuszach, ograniczeniach i zasobach sieci wirtualnej. Przykłady wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure znajdują się [w temacie Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure](container-instances-vnet.md).
+
+> [!IMPORTANT]
+> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, w których Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [regiony i dostępność zasobów](container-instances-region-availability.md). 
 
 ## <a name="scenarios"></a>Scenariusze
 
@@ -45,12 +48,6 @@ Grupy kontenerów wdrożone w usłudze Azure Virtual Network umożliwiają włą
 * Jeśli łączysz grupę kontenerów z kontem usługi Azure Storage, musisz dodać [punkt końcowy usługi](../virtual-network/virtual-network-service-endpoints-overview.md) do tego zasobu.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>Miejsce wdrożenia
-
-Poniższe regiony i maksymalne zasoby są dostępne do wdrożenia grupy kontenerów w sieci wirtualnej platformy Azure.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>Wymagane zasoby sieciowe
 

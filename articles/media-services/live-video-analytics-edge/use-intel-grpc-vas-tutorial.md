@@ -7,10 +7,10 @@ ms.service: media-services
 ms.author: faneerde
 author: fvneerden
 ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465763"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Samouczek: analizowanie wideo na żywo przy użyciu rozwiązania Intel OpenVINO™ DL — rozszerzenie AI 
@@ -98,7 +98,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
     * ***C2D-Console-App. csproj*** — plik projektu dla Visual Studio Code.
     * ***operations.js*** listę operacji, które program ma uruchomić.
-    * ***Program.cs*** — przykładowy kod programu. Ten kod:
+    * ***Program. cs*** — przykładowy kod programu. Ten kod:
 
         * Ładuje ustawienia aplikacji.
         * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).

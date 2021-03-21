@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608201"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Tworzenie rozwiązania "bez obsługi kodu" w usłudze Azure Percept Studio
 
@@ -161,6 +161,16 @@ Jeśli utworzono nowy zasób platformy Azure dla tego samouczka i nie chcesz ju�
 1. Kliknij pozycję **wszystkie zasoby**.
 1. Kliknij pole wyboru obok zasobu utworzonego w ramach tego samouczka. Typ zasobu zostanie wyświetlony jako **Cognitive Services**.
 1. Kliknij ikonę **Usuń** znajdującą się w górnej części ekranu.
+
+## <a name="video-walkthrough"></a>Przewodnik wideo
+
+Aby zapoznać się z przewodnikiem opisanym powyżej, zobacz następujące wideo:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>Następne kroki
 

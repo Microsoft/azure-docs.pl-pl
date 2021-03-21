@@ -10,18 +10,26 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75e187369eccefb255ae2bbd88de79afbc4fd4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669478"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720393"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
 W tym artykule znajdziesz zbiór najlepszych rozwiązań dotyczących używania puli SQL bezserwerowej. Pula SQL bezserwerowa jest zasobem w usłudze Azure Synapse Analytics.
 
 Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma ona lokalnego magazynu ani możliwości pozyskiwania. Dlatego wszystkie pliki docelowe zapytań są spoza puli SQL bezserwerowej. Wszystkie elementy związane z odczytem plików z magazynu mogą mieć wpływ na wydajność zapytań.
+
+## <a name="client-applications-and-network-connections"></a>Aplikacje klienckie i połączenia sieciowe
+
+Upewnij się, że aplikacja kliencka jest połączona z najbliższym możliwym obszarem roboczym Synapse z optymalnym połączeniem.
+- Zlokalizuj aplikację kliencką z obszarem roboczym Synapse. Jeśli używasz aplikacji, takich jak Power BI lub usługa Azure Analysis Service, upewnij się, że znajdują się one w tym samym regionie, w którym znajduje się obszar roboczy Synapse. W razie konieczności Utwórz oddzielne obszary robocze, które są sparowane z aplikacjami klienckimi. Umieszczenie aplikacji klienckiej i obszaru roboczego Synapse w innym regionie może spowodować większe opóźnienia i wolniejsze przesyłanie strumieniowe wyników.
+- W przypadku odczytywania danych z aplikacji lokalnej upewnij się, że obszar roboczy Synapse znajduje się w regionie zbliżonym do lokalizacji.
+- Upewnij się, że nie występują problemy z przepustowością sieci podczas czytania dużej ilości danych.
+- Nie należy używać programu Synapse Studio do zwracania dużej ilości danych. Synapse Studio to narzędzie sieci Web, które przesyła dane przy użyciu protokołu HTTPS. Użyj Azure Data Studio lub SQL Server Management Studio do odczytu dużej ilości danych.
 
 ## <a name="storage-and-content-layout"></a>Magazyn i układ zawartości
 
@@ -55,6 +63,10 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 - Spróbuj zachować rozmiar pliku CSV z zakresu od 100 MB do 10 GB.
 - Lepiej jest mieć pliki o równym rozmiarze dla jednej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
 - Podziel dane przez przechowywanie partycji w różnych folderach lub nazwach plików. Aby dowiedzieć [się więcej na temat, zobacz use filename i FilePath Functions](#use-filename-and-filepath-functions-to-target-specific-partitions).
+
+### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Lokalizowanie magazynu analitycznego CosmosDB i puli SQL bezserwerowej
+
+Upewnij się, że magazyn analityczny CosmosDB jest umieszczony w tym samym regionie co obszar roboczy Synapse. Zapytania obejmujące wiele regionów mogą powodować ogromne opóźnienia.
 
 ## <a name="csv-optimizations"></a>Optymalizacje CSV
 

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461423"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Samouczek: Programowanie modułów IoT Edge przy użyciu kontenerów systemu Linux
@@ -26,7 +26,7 @@ W ramach przewodnika Szybki Start utworzono urządzenie IoT Edge i wdrożono mod
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Linux**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz dla deweloperów rozwiązań IoT Edge. Nawet jeśli planujesz użycie innego języka lub wdrożenie usługi platformy Azure, ten samouczek jest nadal przydatny do poznania się z narzędziami i pojęciami programistycznymi. Wypełnij to wprowadzenie do procesu tworzenia, a następnie wybierz preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -183,9 +183,9 @@ Każdy moduł może mieć wiele kolejek *wejściowych* i *wyjściowych* zadeklar
 
 Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, używa [klasy ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) z zestawu SDK IoT Hub dla platformy .NET.
 
-1. Otwórz plik **program.cs** , który znajduje się w **module/SampleModule/** folder.
+1. Otwórz plik **program. cs** , który znajduje się w **module/SampleModule/** folderze.
 
-2. W program.cs Znajdź metodę **SetInputMessageHandlerAsync** .
+2. W programie program. cs Znajdź metodę **SetInputMessageHandlerAsync** .
 
 3. Metoda [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) konfiguruje kolejkę wejściową do odbierania wiadomości przychodzących. Przejrzyj tę metodę i zobacz, jak inicjuje kolejkę wejściową o nazwie **INPUT1**.
 

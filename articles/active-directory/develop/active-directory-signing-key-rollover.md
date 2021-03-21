@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035088"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Przerzucanie klucza podpisywania na platformie tożsamości firmy Microsoft
@@ -68,7 +68,7 @@ Funkcja uwierzytelniania/autoryzacji App Services platformy Azure ma już niezb�
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET OWIN OpenID Connect Connect, WS-Fed lub WindowsAzureActiveDirectoryBearerAuthentication
 Jeśli aplikacja korzysta z oprogramowania .NET OWIN OpenID Connect Connect, WS-Fed lub WindowsAzureActiveDirectoryBearerAuthentication, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
 
-Można potwierdzić, że aplikacja korzysta z dowolnego z poniższych fragmentów kodu w plikach Startup.cs lub Startup.Auth.cs aplikacji.
+Można potwierdzić, że aplikacja korzysta z dowolnego z poniższych fragmentów kodu w plikach Start. cs lub Startup. cs aplikacji.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(
@@ -97,7 +97,7 @@ app.UseWindowsAzureActiveDirectoryBearerAuthentication(
 ### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET Core OpenID Connect Connect lub JwtBearerAuthentication
 Jeśli aplikacja korzysta z programu .NET Core OWIN OpenID Connect Connect lub JwtBearerAuthentication, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
 
-Możesz potwierdzić, że aplikacja korzysta z dowolnego z poniższych fragmentów kodu w Startup.cs lub Startup.Auth.cs aplikacji
+Można potwierdzić, że aplikacja korzysta z dowolnego z poniższych fragmentów kodu w aplikacji Startup. cs lub Startup. auth.
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -248,12 +248,12 @@ Jeśli aplikacja została skompilowana w programie Visual Studio 2012, prawdopod
 Jeśli aplikacja została utworzona przy użyciu którejkolwiek z przykładów kodu lub dokumentacji instruktażowej dostarczonej przez firmę Microsoft, kluczowa logika przerzucania jest już dołączona do projektu. Zobaczysz, że Poniższy kod już istnieje w projekcie. Jeśli aplikacja nie ma jeszcze tej logiki, wykonaj poniższe czynności, aby je dodać, i sprawdź, czy działa poprawnie.
 
 1. W **Eksplorator rozwiązań** Dodaj odwołanie do zestawu **System. IdentityModel** dla odpowiedniego projektu.
-2. Otwórz plik **Global.asax.cs** i Dodaj następujące dyrektywy using:
+2. Otwórz plik **Global. asax. cs** i Dodaj następujące dyrektywy using:
    ```
    using System.Configuration;
    using System.IdentityModel.Tokens;
    ```
-3. Dodaj następującą metodę do pliku **Global.asax.cs** :
+3. Dodaj następującą metodę do pliku **Global. asax. cs** :
    ```
    protected void RefreshValidationSettings()
    {
@@ -263,7 +263,7 @@ Jeśli aplikacja została utworzona przy użyciu którejkolwiek z przykładów k
     ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
    }
    ```
-4. Wywołaj metodę **RefreshValidationSettings ()** w metodzie **Application_Start ()** w **Global.asax.cs** , jak pokazano poniżej:
+4. Wywołaj metodę **RefreshValidationSettings ()** w metodzie **Application_Start ()** w **Global. asax. cs** , jak pokazano:
    ```
    protected void Application_Start()
    {
@@ -297,7 +297,7 @@ Jeśli aplikacja została utworzona w systemie WIF v 1.0, nie ma żadnego mechan
 
 Instrukcje dotyczące aktualizowania konfiguracji przy użyciu FedUtil:
 
-1. Sprawdź, czy na komputerze deweloperskim jest zainstalowany zestaw SDK WIF v1.0 dla programu Visual Studio 2008 lub 2010. Możesz [pobrać go z tego miejsca](https://www.microsoft.com/download/details.aspx?id=17331) , jeśli jeszcze go nie zainstalowano.
+1. Sprawdź, czy na komputerze deweloperskim jest zainstalowany zestaw SDK WIF v 1.0 dla programu Visual Studio 2008 lub 2010. Możesz [pobrać go z tego miejsca](https://www.microsoft.com/download/details.aspx?id=17331) , jeśli jeszcze go nie zainstalowano.
 2. W programie Visual Studio Otwórz rozwiązanie, a następnie kliknij prawym przyciskiem myszy odpowiedni projekt i wybierz polecenie **Aktualizuj metadane federacji**. Jeśli ta opcja jest niedostępna, FedUtil i/lub zestaw SDK WIF v 1.0 nie został zainstalowany.
 3. W wierszu polecenia wybierz pozycję **Aktualizuj** , aby rozpocząć aktualizowanie metadanych Federacji. Jeśli masz dostęp do środowiska serwera, w którym jest hostowana aplikacja, możesz opcjonalnie użyć [automatycznego harmonogramu aktualizacji metadanych](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))FedUtil.
 4. Kliknij przycisk **Zakończ** , aby ukończyć proces aktualizacji.

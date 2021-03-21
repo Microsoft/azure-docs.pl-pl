@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418066"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
@@ -199,7 +199,7 @@ Limity adresów IP są wymienione w pełnym zestawie [limitów dla sieci](../azu
 
 Ograniczenia są podzielone według regionu i subskrypcji. [Skontaktuj się z pomocą techniczną](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby zwiększyć domyślne limity do maksymalnych limitów w zależności od potrzeb firmy.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Publiczne adresy IP mogą być związane z nominalnymi opłatami. Aby dowiedzieć się więcej o cenach adresów IP na platformie Azure, przejrzyj stronę [Cennik adresów IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 

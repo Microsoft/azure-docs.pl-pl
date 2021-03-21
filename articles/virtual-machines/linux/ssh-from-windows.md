@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aeecdcddaeba385c6dc0773356bcd0e36231e1e4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607470"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak używać kluczy SSH w systemie Windows na platformie Azure
 
@@ -97,4 +97,4 @@ Jeśli maszyna wirtualna korzysta z zasad dostępu just in Time, przed nawiązan
 
 - Możesz również użyć programu PowerShell w Azure Cloud Shell, aby generować klucze SSH i nawiązać połączenia SSH z maszynami wirtualnymi z systemem Linux. Zobacz [Przewodnik Szybki Start dla programu PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-- Jeśli masz problemy z używaniem protokołu SSH do łączenia się z maszynami wirtualnymi z systemem Linux, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
+- Jeśli masz problemy z używaniem protokołu SSH do łączenia się z maszynami wirtualnymi z systemem Linux, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

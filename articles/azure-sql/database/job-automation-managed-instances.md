@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691896"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608082"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatyzowanie zadań zarządzania przy użyciu zadań programu SQL Agent w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -81,7 +81,7 @@ Kroki zadania agenta SQL to sekwencje akcji, które mają być wykonywane przez 
 Program SQL Agent umożliwia tworzenie różnych typów kroków zadań, takich jak czynności zadania Transact-SQL, które wykonują pojedyncze dane wsadowe języka Transact-SQL względem bazy danych, lub polecenia systemu operacyjnego/programu PowerShell, które mogą wykonywać niestandardowe skrypty systemu operacyjnego, [kroki dotyczące zadania SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) , które umożliwiają ładowanie danych przy użyciu środowiska uruchomieniowego usług SSIS, lub kroki [replikacji](../managed-instance/replication-transactional-overview.md) , które mogą publikować zmiany z bazy danych w innych bazach
 
 > [!Note]
-> Aby uzyskać więcej informacji na temat korzystania z usługi Azure SSIS Integration Runtime z usługą SSISDB hostowaną przez wystąpienie zarządzane usługi Azure SQL, zobacz temat [Używanie wystąpienia zarządzanego Azure SQL z usługą SQL Server Integration Services (SSIS) w Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).
+> Aby uzyskać więcej informacji na temat korzystania z usługi Azure SSIS Integration Runtime z usługą SSISDB hostowaną przez wystąpienie zarządzane usługi Azure SQL, zobacz temat [Używanie wystąpienia zarządzanego Azure SQL z usługą SQL Server Integration Services (SSIS) w Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
 [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) może replikować zmiany z tabel do innych baz danych w wystąpieniu zarządzanym usługi Azure SQL, Azure SQL Database lub SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji w wystąpieniu zarządzanym usługi Azure SQL](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
 
@@ -200,7 +200,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
 GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 - [Co to jest wystąpienie zarządzane Azure SQL?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)

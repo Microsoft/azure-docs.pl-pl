@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 345ccb68ebb31460f4a75b31a7d3a946160da6e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8382dd10536a8c0475444d0cdff30340ad124e9c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657972"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722807"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-a-public-load-balancer-using-the-azure-portal"></a>Samouczek: Integrowanie bramy NAT z publicznym modułem równoważenia obciążenia przy użyciu Azure Portal
 
@@ -48,15 +48,18 @@ W tej sekcji utworzysz Azure Load Balancer standardowego.
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
+    | **Szczegóły projektu** |   |
     | Subskrypcja               | Wybierz subskrypcję.    |    
-    | Grupa zasobów         | W polu tekstowym wybierz pozycję **Utwórz nową** i wprowadź **TutorPubLBNAT-RG** .|
+    | Grupa zasobów         | W polu tekstowym wybierz pozycję **Utwórz nową** i wprowadź **TutorPubLBNAT-RG** . </br> Wybierz przycisk **OK**.|
+    | **Szczegóły wystąpienia** |   |
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region (Region)         | Wybierz pozycję **(US) Wschodnie stany USA**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Pozostaw wartość domyślną **Standardowa**. |
     | Warstwa          | Pozostaw domyślne ustawienie **regionalne**. |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
-    | Nazwa publicznego adresu IP | W polu tekstowym wpisz **myPublicIP-lb** .|
+    | **Publiczny adres IP** |   |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
+    | Nazwa publicznego adresu IP | W polu tekstowym wprowadź **myPublicIP-lb** .|
     | Strefa dostępności | Wybierz opcję **strefa nadmiarowa** , aby utworzyć odporny moduł równoważenia obciążenia. Aby utworzyć strefowy moduł równoważenia obciążenia, wybierz określoną strefę z 1, 2 lub 3 |
     | Dodaj publiczny adres IPv6 | Wybierz pozycję **Nie**. </br> Aby uzyskać więcej informacji na temat adresów IPv6 i modułu równoważenia obciążenia, zobacz [co to jest protokół IPv6 dla platformy Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
     | Preferencja routingu | Pozostaw wartość domyślną **sieci Microsoft**. </br> Aby uzyskać więcej informacji o preferencjach routingu, zobacz [co to jest preferencja routingu (wersja zapoznawcza)?](../virtual-network/routing-preference-overview.md). |
@@ -135,7 +138,7 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
-    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15** minut. |
+    | Limit czasu bezczynności (minuty) | Wprowadź **15** minut. |
     | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**. |
     | Translacja adresów sieciowych dla ruchu wychodzącego (Resources) | Wybierz **(zalecane) Użyj reguł ruchu wychodzącego, aby zapewnić członkom puli zaplecza dostęp do Internetu.** |
 
@@ -214,7 +217,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Pozostaw wartość domyślną |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -237,7 +240,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Grupa zabezpieczeń sieci karty sieciowej | Wybierz pozycję **Zaawansowane**|
     | Konfigurowanie sieciowej grupy zabezpieczeń | Wybierz pozycję **Utwórz nowy**. </br> W **grupie Tworzenie zabezpieczeń sieci** wprowadź **MyNSG** w polu **Nazwa**. </br> W obszarze **reguły ruchu przychodzącego** wybierz pozycję **+ Dodaj regułę ruchu przychodzącego**. </br> W obszarze  **zakresy portów docelowych** wprowadź **80**. </br> W obszarze **priorytet** wprowadź **100**. </br> W polu **Nazwa** wprowadź **myHTTPRule** </br> Wybierz pozycję **Dodaj**. </br> Wybierz przycisk **OK**. |
     | **Równoważenie obciążenia**  |
-    | Umieścić tę maszynę wirtualną za istniejącym rozwiązaniem równoważenia obciążenia? | Wybierz pozycję **Tak** |
+    | Umieścić tę maszynę wirtualną za istniejącym rozwiązaniem równoważenia obciążenia? | zaznacz pole wyboru.|
     | **Ustawienia równoważenia obciążenia** |
     | Opcje równoważenia obciążenia | Wybieranie **modułu równoważenia obciążenia platformy Azure** |
     | Wybierz moduł równoważenia obciążenia | Wybierz **myLoadBalancer**  |
@@ -302,7 +305,7 @@ W tej sekcji przetestujemy bramę translatora adresów sieciowych. Najpierw odna
 
 2. Zanotuj publiczny adres IP:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Odnajdź publiczny adres IP bramy translatora adresów sieciowych" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Zrzut ekranu Odnajdź publiczny adres IP bramy translatora adresów sieciowych." border="true":::
 
 3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów **TutorPubLBNAT-RG** .
 
@@ -318,7 +321,7 @@ W tej sekcji przetestujemy bramę translatora adresów sieciowych. Najpierw odna
 
 9. Sprawdź, czy adres IP wyświetlany jest zgodny z adresem bramy NAT zanotowanym w poprzednim kroku:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Internet Explorer pokazujący zewnętrzny adres IP dla ruchu wychodzącego" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Zrzut ekranu programu Internet Explorer pokazujący zewnętrzny adres IP wychodzący." border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

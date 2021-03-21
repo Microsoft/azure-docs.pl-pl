@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d4840dcbe67a0bd94c74b43164c24e0c45e9daf
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: feb77339c9c7f36eb17b43dfe2c220dfb54efa25
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720529"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aktualizowanie demona zabezpieczeń i środowiska uruchomieniowego usługi IoT Edge
 
@@ -150,9 +150,9 @@ Sprawdź wersję agenta IoT Edge i IoT Edge modułów centrów dostępnych obecn
 
 Obraz IoT Edge i centrum IoT Edge są oznaczone za pomocą IoT Edge wersji, z którą są skojarzone. Istnieją dwa różne sposoby używania tagów z obrazami środowiska uruchomieniowego:
 
-* **Tagi walcowe** — Użyj tylko dwóch pierwszych wartości numeru wersji, aby uzyskać najnowszy obraz, który jest zgodny z tymi cyframi. Na przykład aktualizacja 1,0 jest aktualizowana za każdym razem, gdy istnieje nowe wydanie wskazujące najnowszą wersję 1.0. x. Jeśli środowisko uruchomieniowe kontenera na urządzeniu IoT Edge ponownie pobierze obraz, moduły środowiska uruchomieniowego zostaną zaktualizowane do najnowszej wersji. To podejście jest sugerowane w celach deweloperskich. Wdrożenia z Azure Portal domyślne do stopniowego znacznika.
+* **Tagi walcowe** — Użyj tylko dwóch pierwszych wartości numeru wersji, aby uzyskać najnowszy obraz, który jest zgodny z tymi cyframi. Na przykład aktualizacja 1,1 jest aktualizowana za każdym razem, gdy istnieje nowe wydanie wskazujące najnowszą wersję 1.1. x. Jeśli środowisko uruchomieniowe kontenera na urządzeniu IoT Edge ponownie pobierze obraz, moduły środowiska uruchomieniowego zostaną zaktualizowane do najnowszej wersji. Wdrożenia z Azure Portal domyślne do stopniowego znacznika. *To podejście jest sugerowane w celach deweloperskich.*
 
-* **Określone Tagi** — Użyj wszystkich trzech wartości numeru wersji, aby jawnie ustawić wersję obrazu. Na przykład 1.0.7 nie zmieni się po początkowej wersji. W manifeście wdrożenia można zadeklarować nowy numer wersji, gdy wszystko jest gotowe do aktualizacji. To podejście jest sugerowane w celach produkcyjnych.
+* **Określone Tagi** — Użyj wszystkich trzech wartości numeru wersji, aby jawnie ustawić wersję obrazu. Na przykład 1.1.0 nie zmieni się po początkowej wersji. W manifeście wdrożenia można zadeklarować nowy numer wersji, gdy wszystko jest gotowe do aktualizacji. *To podejście jest sugerowane w celach produkcyjnych.*
 
 ### <a name="update-a-rolling-tag-image"></a>Aktualizowanie obrazu tagu walcowego
 

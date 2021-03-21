@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596420"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722569"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Virtual Machines platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -23,7 +23,7 @@ Korzystanie z usługi Azure Spot Virtual Machines w ramach zestawów skalowania 
 Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania wystąpień maszyn wirtualnych platformy Azure w zestawach skalowania platforma Azure przydzieli to wystąpienie tylko wtedy, gdy jest dostępna pojemność, ale dla tych wystąpień nie ma umowy SLA. Zestaw skalowania maszyn wirtualnych platformy Azure jest wdrażany w jednej domenie błędów i nie oferuje gwarancji wysokiej dostępności.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Cennik wystąpień maszyn wirtualnych platformy Azure to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik dla systemów [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
@@ -44,8 +44,8 @@ Maszynę wirtualną platformy Azure można wdrożyć w dowolnym regionie, z wyj�
 Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-details/) są obecnie obsługiwane:
 
 -   Enterprise Agreement
--   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
--   Sponsorowan
+-   Kod oferty z płatność zgodnie z rzeczywistym użyciem (003P)
+-   Sponsorowane (0036P i 0136P)
 - W przypadku dostawcy usług w chmurze (CSP) zobacz [Centrum partnerskie](/partner-center/azure-plan-get-started) lub bezpośrednio skontaktuj się z partnerem.
 
 ## <a name="eviction-policy"></a>Zasady eksmisji
@@ -168,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## <a name="resource-manager-templates"></a>Szablony usługi Resource Manager

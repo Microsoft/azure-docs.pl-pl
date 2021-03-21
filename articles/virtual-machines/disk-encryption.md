@@ -2,26 +2,26 @@
 title: Szyfrowanie po stronie serwera dla usługi Azure Managed disks
 description: Usługa Azure Storage chroni dane, szyfrując je w stanie spoczynku przed utrwalaniem ich w klastrach magazynu. Za pomocą kluczy zarządzanych przez klienta można zarządzać szyfrowaniem przy użyciu własnych kluczy lub można polegać na kluczach zarządzanych przez firmę Microsoft w celu szyfrowania dysków zarządzanych.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014387"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721855"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
-Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych przez platformę Azure (dyski systemu operacyjnego i danych) domyślnie, gdy są utrwalane w chmurze. 
+Większość dysków zarządzanych przez platformę Azure jest zaszyfrowana przy użyciu funkcji szyfrowania usługi Azure Storage, która korzysta z szyfrowania po stronie serwera (SSE) do ochrony danych i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Szyfrowanie usługi Azure Storage automatycznie szyfruje dane przechowywane na dyskach zarządzanych przez platformę Azure (dyski systemu operacyjnego i danych) domyślnie, gdy są utrwalane w chmurze. Dyski z szyfrowaniem włączone na hoście nie są jednak szyfrowane za pomocą usługi Azure Storage. W przypadku dysków z włączonym szyfrowaniem na hoście serwer obsługujący maszynę wirtualną zapewnia szyfrowanie danych i zaszyfrowane dane są przesyłane do usługi Azure Storage.
 
 Dane w usłudze Azure Managed disks są szyfrowane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal)
 
-Szyfrowanie po stronie serwera nie ma wpływu na wydajność dysków zarządzanych i nie ma dodatkowych kosztów. 
+Szyfrowanie usługi Azure Storage nie ma wpływu na wydajność dysków zarządzanych i nie ma dodatkowych kosztów. Aby uzyskać więcej informacji na temat szyfrowania usługi Azure Storage, zobacz [szyfrowanie usługi Azure Storage](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > Dyski tymczasowe nie są dyskami zarządzanymi i nie są szyfrowane przez funkcję SSE, o ile nie zostanie włączone szyfrowanie na hoście.

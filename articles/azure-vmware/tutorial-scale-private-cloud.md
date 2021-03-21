@@ -4,10 +4,10 @@ description: W tym samouczku użyjesz Azure Portal, aby skalować chmurę prywat
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463626"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Samouczek: skalowanie chmury prywatnej rozwiązania Azure VMware

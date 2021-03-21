@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735078"
+ms.locfileid: "104721634"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Samouczek: Tworzenie i Konfigurowanie bramy aplikacji na potrzeby hostowania wielu witryn sieci Web przy użyciu Azure Portal
 
@@ -27,7 +27,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie pul zaplecza z serwerami zaplecza
 > * Tworzenie odbiorników zaplecza
 > * Tworzenie reguł routingu
-> * Tworzenie rekordu CNAME w domenie
+> * Edytowanie pliku Hosts na potrzeby rozpoznawania nazw
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Application Gateway wiele lokacji":::
 
@@ -212,9 +212,9 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 
 Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
-## <a name="edit-your-hosts-file"></a>Edytuj plik hostów
+## <a name="edit-your-hosts-file-for-name-resolution"></a>Edytuj plik hosts pod kątem rozpoznawania nazw
 
-Po utworzeniu bramy aplikacji przy użyciu publicznego adresu IP można uzyskać adres IP i użyć go do edytowania pliku hosts w celu rozpoznania `www.contoso.com` i `www.fabrikam.com` 
+Po utworzeniu bramy aplikacji przy użyciu publicznego adresu IP można uzyskać adres IP i użyć go do edytowania pliku hosts w celu rozpoznania `www.contoso.com` i `www.fabrikam.com` . W środowisku produkcyjnym można utworzyć `CNAME` System DNS w celu rozpoznawania nazw.
 
 1. Kliknij pozycję **wszystkie zasoby**, a następnie kliknij pozycję **myAGPublicIPAddress**.
 

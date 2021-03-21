@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0805537fe0791a622eb1814cc233c04d914dbecd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495474"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612976"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -66,6 +66,27 @@ Ten przewodnik Szybki Start używa pakietu WebPack do łączenia zasobów aplika
 npm install webpack webpack-cli webpack-dev-server --save-dev
 ```
 
+Utwórz `webpack.config.js` plik w katalogu głównym. Skopiuj następującą konfigurację do tego pliku:
+
+```
+module.exports = {
+  entry: "./client.js",
+  output: {
+    filename: "bundle.js"
+  },
+  devtool: "inline-source-map",
+  mode: "development"
+}
+```
+
+Dodaj `start` skrypt do programu `package.json` , który będzie używany do uruchamiania aplikacji. W `scripts` sekcji `package.json` Dodaj następujące elementy:
+
+```
+"scripts": {
+  "start": "webpack serve --config ./webpack.config.js"
+}
+```
+
 Utwórz plik **index.html** w katalogu głównym projektu. Użyjemy tego pliku jako szablonu, aby dodać możliwość rozmowy przy użyciu biblioteki klienckiej rozmowy komunikacyjnej platformy Azure dla języka JavaScript.
 
 ```html
@@ -111,9 +132,9 @@ console.log('Azure Communication Chat client created!');
 
 ### <a name="run-the-code"></a>Uruchamianie kodu
 
-Użyj, `webpack-dev-server` Aby skompilować i uruchomić aplikację. Uruchom następujące polecenie, aby powiązać hosta aplikacji w lokalnym serwerze WebServer:
+Uruchom następujące polecenie, aby powiązać hosta aplikacji w lokalnym serwerze WebServer:
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npm run start
 ```
 Otwórz przeglądarkę i przejdź do http://localhost:8080/ .
 W konsoli narzędzia deweloperskie w przeglądarce powinny zostać wyświetlone następujące elementy:

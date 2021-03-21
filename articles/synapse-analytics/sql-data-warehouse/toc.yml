@@ -13,7 +13,7 @@
     - name: Ściągawka
       href: cheat-sheet.md
     - name: Najlepsze rozwiązania
-      href: sql-data-warehouse-best-practices.md
+      href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Limity pojemności
       href: sql-data-warehouse-service-capacity-limits.md
     - name: Często zadawane pytania

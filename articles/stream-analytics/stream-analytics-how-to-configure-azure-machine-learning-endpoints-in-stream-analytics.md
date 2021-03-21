@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dc85cb10a9e4300c57ad03900d8c8924988c6d5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012529"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588124"
 ---
-# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integracja Azure Machine Learning Studio (klasyczny) w Stream Analytics (wersja zapoznawcza)
+# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics"></a>Integracja Azure Machine Learning Studio (klasyczny) w programie Stream Analytics
 Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które wywołują Azure Machine Learning Studio (klasyczne) punkty końcowe. Obsługa interfejsu API REST dla tej funkcji jest szczegółowa w [bibliotece interfejsu API rest Stream Analytics](/rest/api/streamanalytics/). Ten artykuł zawiera dodatkowe informacje, które są odpowiednie do pomyślnej implementacji tej możliwości w Stream Analytics. Samouczek został również ogłoszony i jest dostępny w [tym miejscu](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Przegląd: Azure Machine Learning Studio (klasyczny) terminologia

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563340"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721566"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
@@ -97,8 +97,8 @@ Aby zarejestrować aplikację, wykonaj następujące czynności:
     |-|-|
     |Identyfikator klienta| Użyj **identyfikatora aplikacji (klienta)** rejestracji aplikacji. |
     |Adres URL wystawcy| Użyj `<authentication-endpoint>/<tenant-id>/v2.0` i Zamień na *\<authentication-endpoint>* [punkt końcowy uwierzytelniania dla środowiska chmury](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (np. " https://login.microsoftonline.com " dla globalnej platformy Azure), zastępując *\<tenant-id>* go **identyfikatorem katalogu (dzierżawy)** , w którym została utworzona Rejestracja aplikacji. Ta wartość jest używana do przekierowywania użytkowników do poprawnej dzierżawy usługi Azure AD, a także do pobierania odpowiednich metadanych w celu określenia odpowiednich kluczy podpisywania tokenu i wartości na przykład przez wystawcę tokenów. W przypadku aplikacji korzystających z usługi Azure AD w wersji 1 i dla aplikacji Azure Functions Pomiń `/v2.0` adres URL.|
-    |Klucz tajny klienta (opcjonalnie)| Użyj klucza tajnego klienta wygenerowanego podczas rejestracji aplikacji.|
-    |Dozwolone odbiorcy tokenu| Jeśli jest to aplikacja w chmurze lub na serwerze i chcesz zezwolić na tokeny uwierzytelniania z aplikacji sieci Web, w tym miejscu Dodaj **Identyfikator URI aplikacji** sieci Web. Skonfigurowany **Identyfikator klienta** jest *zawsze* niejawnie uznawany za dozwolonych odbiorców. |
+    |Klucz tajny klienta (opcjonalnie)| Użyj klucza tajnego klienta wygenerowanego podczas rejestracji aplikacji. Przy użyciu klucza tajnego klienta używany jest przepływ hybrydowy, a App Service będzie zwracać tokeny dostępu i odświeżania. Gdy wpis tajny klienta nie jest ustawiony, używany jest niejawny przepływ i zwracany jest tylko token identyfikatora. Te tokeny są wysyłane przez dostawcę i przechowywane w magazynie tokenów EasyAuth.|
+    |Dozwolone odbiorcy tokenu| Jeśli jest to aplikacja w chmurze lub na serwerze i chcesz zezwolić na tokeny uwierzytelniania z aplikacji sieci Web, w tym miejscu Dodaj **Identyfikator URI aplikacji** sieci Web. Skonfigurowany **Identyfikator klienta** jest *zawsze* niejawnie uznawany za dozwolonych odbiorców.|
 
 2. Wybierz przycisk **OK**, a następnie wybierz pozycję **Zapisz**.
 

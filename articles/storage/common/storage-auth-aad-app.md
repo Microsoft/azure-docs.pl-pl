@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574632"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
@@ -151,7 +151,7 @@ Install-Package Azure.Storage.Blobs
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
-Następnie Dodaj następujące instrukcje using do pliku HomeController.cs:
+Następnie Dodaj następujące instrukcje using do pliku HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
@@ -165,7 +165,7 @@ Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
-Następnie Dodaj następujące instrukcje using do pliku HomeController.cs:
+Następnie Dodaj następujące instrukcje using do pliku HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
@@ -284,7 +284,7 @@ Zaktualizuj *appsettings.jsw* pliku przy użyciu własnych wartości w następuj
 
 ### <a name="update-the-storage-account-and-container-name"></a>Aktualizowanie konta magazynu i nazwy kontenera
 
-W pliku *HomeController.cs* zaktualizuj identyfikator URI, który odwołuje się do blokowego obiektu BLOB, aby użyć nazwy konta magazynu i kontenera, zastępując wartości w nawiasach ostrych własnymi wartościami:
+W pliku *HomeController. cs* zaktualizuj identyfikator URI, który odwołuje się do bloku obiektu BLOB, aby użyć nazwy konta magazynu i kontenera, zastępując wartości w nawiasach ostrych własnymi wartościami:
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt

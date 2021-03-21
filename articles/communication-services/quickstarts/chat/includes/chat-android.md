@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 02b47d7797eaebf6049099729ea51554a61a765e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 4a281e547691b7dee2f1a6d3e57b1c0030dbbd57
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495442"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612858"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -39,8 +39,8 @@ Przed rozpoczęciem upewnij się, że:
 Będziemy używać Gradle, aby zainstalować wymagane zależności usług komunikacyjnych. W wierszu polecenia przejdź do katalogu głównego `ChatQuickstart` projektu. Otwórz plik Build. Gradle aplikacji i Dodaj następujące zależności do `ChatQuickstart` obiektu docelowego:
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
 ```
 
 #### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>Wyklucz meta pliki w opcjach pakowania w katalogu głównym Build. Gradle

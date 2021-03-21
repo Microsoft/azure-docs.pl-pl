@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5c668783232533098822cca982f1af9008f13640
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 5e220759a46ad9098f81a9534fa64145adade2b5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761726"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613128"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro R
 
@@ -22,7 +22,7 @@ Ten samouczek jest pierwszą częścią serii samouczków wdrażania, które są
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -87,6 +87,8 @@ Przed rozpoczęciem upewnij się, że:
 
 Jeśli masz istniejący zasób Azure Stack Edge do zarządzania urządzeniem fizycznym, Pomiń ten krok i przejdź do pozycji [Pobierz klucz aktywacji](#get-the-activation-key).
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure Portal.
 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
@@ -128,7 +130,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
         ![Tworzenie zasobu 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
-    - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
+    - Jeśli to urządzenie jest nowe urządzenie, które ma być używane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
 
         ![Tworzenie zasobu 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
@@ -148,7 +150,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Przejdź do zasobu Azure Stack EDGE Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
-Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
+Po złożeniu zamówienia firma Microsoft przegląda zamówienie i kontaktuje się z nim za pośrednictwem poczty e-mail z informacjami dotyczącymi wysyłki.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
@@ -156,6 +158,51 @@ Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Cie
 > Jeśli chcesz utworzyć wiele zamówień w tym samym czasie lub sklonować istniejące zamówienie, możesz użyć [skryptów w przykładach platformy Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Aby uzyskać więcej informacji, zobacz plik Readme.
 
 W przypadku wystąpienia problemów występujących w procesie zamówienia zobacz [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+W razie potrzeby Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Aby utworzyć zasób Azure Stack Edge, uruchom następujące polecenia w interfejsie wiersza polecenia platformy Azure.
+
+1. Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group#az_group_create) lub Użyj istniejącej grupy zasobów:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Aby utworzyć urządzenie, użyj polecenia [AZ databoxedge Device Create](/cli/azure/databoxedge/device#az_databoxedge_device_create) :
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgePR_Base
+   ```
+
+   Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. Region przechowuje tylko metadane dotyczące zarządzania urządzeniami. Rzeczywiste dane mogą być przechowywane na dowolnym koncie magazynu.
+
+   Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. Aby utworzyć zamówienie, uruchom polecenie [AZ databoxedge Order Create](/cli/azure/databoxedge/order#az_databoxedge_order_create) :
+
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+Tworzenie zasobu trwa kilka minut. Uruchom polecenie [AZ databoxedge Order Show](/cli/azure/databoxedge/order#az_databoxedge_order_show) , aby zobaczyć kolejność:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Po umieszczeniu zamówienia firma Microsoft przegląda zamówienie i kontaktuje się z nim za pośrednictwem poczty e-mail z informacjami dotyczącymi wysyłki.
+
+---
 
 ## <a name="get-the-activation-key"></a>Uzyskiwanie klucza aktywacji
 

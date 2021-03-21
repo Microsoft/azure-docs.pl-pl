@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 80384662789e9dad979566715672c15a8648ea9a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dd84b8f2f0834a03b41179531245ebdff35b7ff
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612900"
+ms.locfileid: "104719841"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -255,9 +255,9 @@ Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji g�
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
 
-Funkcja mowy jest zwykle traktowana jako dobry sposób na przełożenie animacji wyrażeń twarzy.
-Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych pozycji w zaobserwowanej mowę (tj. pozycji pakietów lip, szczęki i języka podczas tworzenia określonego fonem).
-Możesz subskrybować zdarzenie viseme w zestawie mowy SDK, aby generować dane animacji twarzy. Następnie można zastosować takie dane do znaku w celu zapoznania się z animacją twarzy.
-Dowiedz się [, jak uzyskać dane wyjściowe viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+Funkcja mowy może być dobrym sposobem na przetwarzanie animacji wyrażeń twarzy.
+Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych elementów w zaobserwowanej mowę, takich jak pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem.
+Możesz subskrybować zdarzenia viseme w zestawie mowy SDK, aby uzyskać dane animacji twarzy, a następnie zastosować dane do znaku podczas animacji twarzy.
+Dowiedz się [, jak uzyskać zdarzenia viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59873ad230514851cc256b84c45982aab5d06b20
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: f830877f47a8f7b6e61877cd1a3d898fd39dd802
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242764"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612365"
 ---
 <!--Feature availability in region-->
 ## <a name="australia"></a>Australia
 
-| Cechy| Australia Środkowa | Australia Środkowa 2 | Australia Wschodnia | Australia Południowo-Wschodnia |
+| Cecha| Australia Środkowa | Australia Środkowa 2 | Australia Wschodnia | Australia Południowo-Wschodnia |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | | |![ Ogólna dostępność usługi Azure EventGrid Australia Wschodnia](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Australia Południowo-Wschodnia ogólnie dostępna](../media/azure-clouds-regions/ga.svg) |
+| [Azure Event Grid](../monitoring/reacting-to-media-services-events.md) | | |![ Ogólna dostępność usługi Azure EventGrid Australia Wschodnia](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Australia Południowo-Wschodnia ogólnie dostępna](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![Ogólnie dostępna VideoAnalyzerPreset Australia Wschodnia](../media/azure-clouds-regions/ga.svg) |![VideoAnalyzerPreset Australia Południowo-Wschodnia ogólnie dostępna](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![Ogólnie dostępna AudioAnalyzerPreset Australia Wschodnia](../media/azure-clouds-regions/ga.svg) |![AudioAnalyzerPreset Australia Południowo-Wschodnia ogólnie dostępna](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | | |![Ogólnie dostępna StandardEncoderPreset Australia Wschodnia](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Australia Południowo-Wschodnia ogólnie dostępna](../media/azure-clouds-regions/ga.svg) |

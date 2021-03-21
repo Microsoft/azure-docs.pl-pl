@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: e92d509cdbeba142ec1c740277b45aa3eb5fd21e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565063"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720087"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Zasady API Management do weryfikowania żądań i odpowiedzi
 
@@ -95,7 +95,7 @@ W poniższym przykładzie ładunek JSON w żądaniach i odpowiedzi jest zweryfik
 | Nazwa                       | Opis                                                                                                                                                            | Wymagane | Domyślne |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | nieokreślony typ zawartości — akcja | [Akcja](#actions) do wykonania dla żądań lub odpowiedzi z typem zawartości, który nie jest określony w schemacie interfejsu API. |  Tak     | Nie dotyczy   |
-| maks. rozmiar | Maksymalna długość treści żądania lub odpowiedzi sprawdzana w `Content-Length` nagłówku. Jeśli treść żądania lub treść odpowiedzi jest skompresowana, ta wartość jest długością skompresowaną. Maksymalna dopuszczalna wartość: 102 400 bajtów (100 KB).  | Tak       | Nie dotyczy   |
+| maks. rozmiar | Maksymalna długość treści żądania lub odpowiedzi (w bajtach), która została sprawdzona względem `Content-Length` nagłówka. Jeśli treść żądania lub treść odpowiedzi jest skompresowana, ta wartość jest długością skompresowaną. Maksymalna dopuszczalna wartość: 102 400 bajtów (100 KB).  | Tak       | Nie dotyczy   |
 | rozmiar — przekroczono — akcja | [Akcja](#actions) do wykonania dla żądań lub odpowiedzi, których treść przekracza rozmiar określony w `max-size` . |  Tak     | Nie dotyczy   |
 | Błędy — zmienna-nazwa | Nazwa zmiennej w programie, `context.Variables` Aby rejestrować błędy walidacji.  |   Tak    | Nie dotyczy   |
 | typ | Typ zawartości, dla której ma zostać wykonane Walidacja treści, sprawdzona względem `Content-Type` nagłówka. W tej wartości wielkość liter nie jest uwzględniana. Jeśli wartość jest pusta, ma zastosowanie do każdego typu zawartości określonego w schemacie interfejsu API. |   Nie    |  Nie dotyczy  |

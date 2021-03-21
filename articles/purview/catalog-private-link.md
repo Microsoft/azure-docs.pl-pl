@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: d9088e5c6302c41c64f2a2e9034e7c3d659e37eb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 09fa10e7f7751321601c5c4871b2cf36ccf6f01f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615639"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720894"
 ---
 # <a name="use-private-endpoints-for-your-purview-account"></a>Używanie prywatnych punktów końcowych dla konta usługi kontrolą
 
@@ -24,13 +24,16 @@ Możesz użyć prywatnych punktów końcowych dla kont usługi kontrolą, aby um
 
 1. Wypełnij podstawowe informacje i ustaw metodę połączenia na prywatny punkt końcowy na karcie **Sieć** . Skonfiguruj prywatne punkty końcowe pozyskiwania, podając szczegóły dotyczące **subskrypcji, sieci wirtualnej i podsieci** , które chcesz sparować z prywatnym punktem końcowym.
 
+    > [!NOTE]
+    > Utwórz prywatny punkt końcowy pozyskiwania tylko wtedy, gdy zamierzasz włączyć izolację sieci na potrzeby kompleksowych scenariuszy skanowania zarówno dla źródła platformy Azure, jak i źródeł lokalnych. Obecnie nie obsługujemy prywatnych punktów końcowych pozyskiwania pracy z źródłami AWS.
+
     :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Tworzenie prywatnego punktu końcowego w Azure Portal":::
 
 1. Opcjonalnie możesz również skonfigurować **strefę prywatna strefa DNS** dla każdego prywatnego punktu końcowego pozyskiwania.
 
 1. Kliknij przycisk Dodaj, aby dodać prywatny punkt końcowy dla konta usługi kontrolą.
 
-1. Na stronie Tworzenie prywatnego punktu końcowego Ustaw kontrolą zasobów podrzędnych na **konto**, wybierz sieć wirtualną i podsieć, a następnie wybierz strefę prywatna strefa DNS, w której zostanie zarejestrowany system DNS (można również użyć wykorzystanych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych).
+1. Na stronie Tworzenie prywatnego punktu końcowego Ustaw kontrolą zasobów podrzędnych na **konto**, wybierz sieć wirtualną i podsieć, a następnie wybierz strefę prywatna strefa DNS, w której zostanie zarejestrowany system DNS (można również użyć własnych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych).
 
     :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Opcje tworzenia prywatnych punktów końcowych":::
 
@@ -89,6 +92,20 @@ Poniższe instrukcje dotyczą bezpiecznego uzyskiwania dostępu do kontrolą z m
 6. Po utworzeniu nowej reguły Wróć do maszyny wirtualnej i spróbuj ponownie wykonać logowanie przy użyciu poświadczeń usługi AAD. Jeśli logowanie powiedzie się, Portal kontrolą jest gotowy do użycia. Jednak w niektórych przypadkach usługi AAD przekierują się do innych domen w celu zalogowania się na podstawie typu konta klienta. Na przykład w przypadku konta live.com usługa AAD przekierowuje do usługi live.com w celu zalogowania, a następnie te żądania byłyby blokowane ponownie. W przypadku kont pracowników firmy Microsoft usługi AAD będą uzyskiwać dostęp do usługi msft.sts.microsoft.com na potrzeby informacji logowania. Sprawdź pozycję żądania sieci na karcie Sieć przeglądarki, aby sprawdzić, które żądania są blokowane, Powtórz poprzedni krok, aby uzyskać adres IP i dodać reguły portów wychodzących w sieciowej grupie zabezpieczeń, aby zezwolić na żądania dla tego adresu IP (jeśli to możliwe, Dodaj adres URL i IP do pliku hosta maszyny wirtualnej w celu rozwiązania rozpoznawania nazw DNS). Jeśli znasz dokładnie zakresy adresów IP domeny logowania, możesz je również bezpośrednio dodać do reguł sieci.
 
 7. Teraz Zaloguj się do usługi AAD. Portal kontrolą zostanie załadowany pomyślnie, ale zostanie wyświetlona lista wszystkich kont kontrolą, ponieważ będzie ona mogła uzyskać dostęp tylko do określonego konta kontrolą. Wprowadź wartość *Web. kontrolą. Azure. com/Resource/{PurviewAccountName}* , aby bezpośrednio odwiedzać konto kontrolą, dla którego pomyślnie skonfigurowano prywatny punkt końcowy.
+ 
+## <a name="ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints"></a>Prywatne punkty końcowe pozyskiwania i skanowania źródeł w sieciach prywatnych, sieci wirtualnych i za prywatne punkty końcowe
+
+Aby zapewnić izolację sieci dla metadanych przepływających ze źródła, które jest skanowane do kontrolą DataMap, należy wykonać następujące czynności:
+1. Włącz **prywatny punkt końcowy** pozyskiwania, wykonując kroki opisane w [tej](#creating-an-ingestion-private-endpoint) sekcji
+1. Skanuj Źródło przy użyciu samodzielnego środowiska **IR**.
+ 
+    1. Wszystkie lokalne typy źródeł, takie jak SQL Server, Oracle, SAP i inne, są obecnie obsługiwane tylko za pośrednictwem samodzielnych skanów opartych na środowisku IR. Własne środowisko IR musi działać w sieci prywatnej, a następnie być połączone za pomocą komunikacji równorzędnej z siecią wirtualną na platformie Azure. Sieć wirtualna platformy Azure musi być następnie włączona w prywatnym punkcie końcowym pozyskiwania, [wykonując następujące czynności:](#creating-an-ingestion-private-endpoint) 
+    1. W przypadku wszystkich typów źródeł **platformy Azure** , takich jak Azure Blob storage, Azure SQL Database i innych, należy jawnie wybrać Uruchamianie skanowania przy użyciu samodzielnego środowiska IR, aby zapewnić izolację sieci. Wykonaj kroki opisane [tutaj](manage-integration-runtimes.md) , aby skonfigurować samoobsługowe środowisko IR. Następnie należy skonfigurować skanowanie w źródle platformy Azure, wybierając środowisko IR w obszarze **Połącz za pośrednictwem środowiska Integration Runtime** , aby zapewnić izolację sieci. 
+    
+    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Uruchamianie skanowania platformy Azure przy użyciu samodzielnego środowiska IR":::
+
+> [!NOTE]
+> Obecnie nie obsługujemy metody poświadczeń MSI podczas skanowania źródeł platformy Azure przy użyciu samodzielnego środowiska IR. Musisz użyć jednej z innych obsługiwanych metod Credential dla tego źródła platformy Azure.
 
 ## <a name="enable-private-endpoint-on-existing-purview-accounts"></a>Włącz prywatny punkt końcowy na istniejących kontach kontrolą
 
@@ -101,7 +118,7 @@ Istnieją dwa sposoby dodawania prywatnych punktów końcowych kontrolą po utwo
 
 1. Przejdź do konta kontrolą z Azure Portal, wybierz połączenia prywatnego punktu końcowego w sekcji **Sieć** **ustawień**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Utwórz prywatny punkt końcowy portalu":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Utwórz prywatny punkt końcowy konta":::
 
 1. Kliknij pozycję + prywatny punkt końcowy, aby utworzyć nowy prywatny punkt końcowy.
 
@@ -115,6 +132,20 @@ Istnieją dwa sposoby dodawania prywatnych punktów końcowych kontrolą po utwo
 
 > [!NOTE]
 > Należy wykonać te same czynności jak powyżej dla docelowego zasobu podrzędnego wybranego jako **Portal** .
+
+#### <a name="creating-an-ingestion-private-endpoint"></a>Tworzenie prywatnego punktu końcowego pozyskiwania
+
+1. Przejdź do konta kontrolą z Azure Portal, wybierz połączenia prywatnego punktu końcowego w sekcji **Sieć** **ustawień**.
+1. Przejdź do karty **połączenia prywatnego punktu końcowego** pozyskiwania, a następnie kliknij pozycję **+ Nowy** , aby utworzyć nowy prywatny punkt końcowy pozyskiwania.
+
+1. Wypełnij podstawowe informacje i szczegóły sieci wirtualnej.
+ 
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Wypełnij szczegóły prywatnego punktu końcowego":::
+
+1. Kliknij przycisk **Utwórz** , aby zakończyć konfigurację.
+
+> [!NOTE]
+> Prywatne punkty końcowe pozyskiwania można tworzyć tylko za pomocą opisanego powyżej środowiska kontrolą Azure Portal. Nie można go utworzyć z poziomu prywatnego centrum linków.
 
 ### <a name="using-the-private-link-center"></a>Korzystanie z prywatnego centrum linków
 
@@ -132,6 +163,15 @@ Istnieją dwa sposoby dodawania prywatnych punktów końcowych kontrolą po utwo
 
 > [!NOTE]
 > Należy wykonać te same czynności jak powyżej dla docelowego zasobu podrzędnego wybranego jako **Portal** .
+
+## <a name="firewalls-to-restrict-public-access"></a>Zapory ograniczające dostęp publiczny
+
+Aby całkowicie wyciąć dostęp do konta kontrolą z publicznej sieci Internet, wykonaj poniższe czynności. To ustawienie będzie stosowane do prywatnych punktów końcowych i prywatnych połączeń punktów końcowych.
+
+1. Przejdź do konta kontrolą z Azure Portal, wybierz połączenia prywatnego punktu końcowego w sekcji **Sieć** **ustawień**.
+1. Przejdź do karty Zapora i upewnij się, że przełącznik jest ustawiony na **Odmów**.
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Ustawienia zapory prywatnego punktu końcowego":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049189"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722858"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności jest to [dziennik platformy](./platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](../logs/data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
@@ -27,6 +27,11 @@ Dostęp do dziennika aktywności można uzyskać z poziomu większości menu w w
 ![Wyświetl dziennik aktywności](./media/activity-log/view-activity-log.png)
 
 Aby uzyskać opis kategorii dzienników aktywności, zobacz [schemat zdarzeń dziennika aktywności platformy Azure](activity-log-schema.md#categories).
+
+## <a name="download-the-activity-log"></a>Pobierz dziennik aktywności
+Wybierz pozycję **Pobierz jako plik CSV** , aby pobrać zdarzenia z bieżącego widoku.
+
+![Pobierz dziennik aktywności](media/activity-log/download-activity-log.png)
 
 ### <a name="view-change-history"></a>Wyświetl historię zmian
 

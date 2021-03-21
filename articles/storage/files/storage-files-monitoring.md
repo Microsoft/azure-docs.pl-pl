@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418168"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files monitorowania
@@ -71,7 +71,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 ### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Przejdź do konta magazynu.
 

@@ -11,10 +11,10 @@ ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: 40067815ad582191606ad5a53cf06c9584d83350
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618019"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
@@ -53,7 +53,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Jeśli sygnatura dostępu współdzielonego usługi nie jest skojarzona z przechowywanymi zasadami, ustaw czas wygaśnięcia na jedną godzinę lub mniejszą | Nie można odwołać skojarzenia zabezpieczeń usługi, która nie jest skojarzona z przechowywanymi zasadami dostępu. Z tego powodu ograniczenie czasu wygaśnięcia w taki sposób, aby sygnatura dostępu współdzielonego była ważna przez jedną godzinę lub mniej. | - |
 | Wyłącz anonimowy publiczny dostęp do odczytu do kontenerów i obiektów BLOB | Anonimowy publiczny dostęp do odczytu do kontenera i jego obiektów BLOB umożliwia dostęp tylko do odczytu do tych zasobów do dowolnego klienta. Unikaj włączania publicznego dostępu do odczytu, chyba że jest to wymagane przez ten scenariusz. Aby dowiedzieć się, jak wyłączyć anonimowy dostęp publiczny dla konta magazynu, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).  | - |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|

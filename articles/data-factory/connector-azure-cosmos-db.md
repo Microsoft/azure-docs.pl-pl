@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 2a084683d99117697657ba8900fcd6534b4a3e95
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: d42f30ebd72dca81255ddc02a9440db19979536d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379951"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608072"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiowanie i przekształcanie danych w usłudze Azure Cosmos DB (interfejs API SQL) za pomocą usługi Azure Data Factory
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób używania działania kopiowania w usłudze Azure 
 >[!NOTE]
 >Ten łącznik obsługuje tylko Cosmos DB interfejsu API SQL. W przypadku interfejsu API MongoDB zapoznaj się z [łącznikiem dla interfejsu api Azure Cosmos DB MongoDB](connector-azure-cosmos-db-mongodb-api.md). Inne typy interfejsów API nie są obecnie obsługiwane.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik Azure Cosmos DB (SQL API) jest obsługiwany dla następujących działań:
 
@@ -209,6 +209,8 @@ W sekcji **ujścia** działania kopiowania są obsługiwane następujące właś
 | writeBehavior |Opisuje sposób zapisywania danych w Azure Cosmos DB. Dozwolone wartości: **INSERT** i **upsert**.<br/><br/>Zachowanie **upsert** polega na zastępowaniu dokumentu, jeśli dokument o takim samym identyfikatorze już istnieje; w przeciwnym razie Wstaw dokument.<br /><br />**Uwaga**: Data Factory automatycznie generuje identyfikator dla dokumentu, jeśli nie określono identyfikatora w oryginalnym dokumencie lub w mapowaniu kolumn. Oznacza to, że aby program **upsert** działał zgodnie z oczekiwaniami, dokument ma identyfikator. |Nie<br />(wartość domyślna to **INSERT**) |
 | writeBatchSize | Data Factory używa [Azure Cosmos DB zbiorczej biblioteki](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) do zapisywania danych w Azure Cosmos DB. Właściwość **writeBatchSize** kontroluje rozmiar dokumentów dostarczanych przez ADF do biblioteki. Możesz spróbować zwiększyć wartość **writeBatchSize** , aby zwiększyć wydajność i zmniejszyć wartość w przypadku dużego rozmiaru dokumentu — Zobacz poniżej porady. |Nie<br />(wartość domyślna to **10 000**) |
 | disableMetricsCollection | Data Factory zbiera metryki, takie jak Cosmos DB jednostek ru na potrzeby optymalizacji wydajności kopiowania i zaleceń. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
+
 
 >[!TIP]
 >Aby zaimportować dokumenty JSON, należy zapoznać się z sekcją [Importowanie lub eksportowanie dokumentów JSON](#import-and-export-json-documents) . Aby skopiować dane w formie tabelarycznej, zapoznaj się z tematem [Migrowanie z relacyjnej bazy danych do Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
