@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c4e838afa867a7fb1e7fa8f582bc8879c24056a9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92506126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Samouczek: integracja Azure Active Directory z usługą RFPIO
@@ -163,7 +163,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą RFPIO, wyko
 
     b. Kliknij przycisk **Weryfikuj**.
 
-    c. Po kliknięciu pozycji **Sprawdź poprawność**Przerzuć element **SAML (Enabled)** na włączony.
+    c. Po kliknięciu pozycji **Sprawdź poprawność** Przerzuć element **SAML (Enabled)** na włączony.
 
     d. Kliknij przycisk **Prześlij**.
 
@@ -189,7 +189,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

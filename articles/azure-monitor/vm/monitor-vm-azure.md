@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047047"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
@@ -160,7 +160,7 @@ Usługi Azure Virtual Machines będą zbierać następujące dane do dzienników
 
 Szczegółowe informacje o maszynie wirtualnej umożliwiają zbieranie wstępnie określonego zestawu liczników wydajności, które są zapisywane w tabeli *InsightsMetrics* . Jest to ta sama tabela, która jest używana przez usługi [Container Insights](../containers/container-insights-overview.md). 
 
-| Źródło danych | Wymagania | Tabele |
+| Źródło danych | Wymagania | tabelami |
 |:---|:---|:---|
 | Szczegółowe informacje o maszynie wirtualnej | Włącz na każdej maszynie wirtualnej. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>Aby uzyskać szczegółowe informacje [, zobacz jak wykonywać zapytania dotyczące dzienników z usługi VM Insights](../vm/vminsights-log-search.md) . |
 | Dziennik aktywności | Ustawienie diagnostyczne dla subskrypcji. | AzureActivity |

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: df4722a4232686b0d981c190bdc154f0d1bec62e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94960208"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>StorSimple Virtual Array Update 1,1 — informacje o wersji
@@ -48,7 +48,7 @@ Ta aktualizacja zawiera następujące poprawki dotyczące ulepszeń i błędów:
 
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Obiekt feature | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
 | 1 |Tworzenie kopii zapasowych| Ta wersja zawiera zmiany, które poprawiły błędy kopii zapasowej przez zwiększenie odporności na awarie chmury i duże użycie procesora CPU.|
 | 2 |Rejestrowanie| Ta wersja zawiera zmiany w rejestrowaniu, gdy urządzenie jest w trybie pełnej obsługi.|
@@ -58,7 +58,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji.
 
-| Nie. | Obiekt feature | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować macierzy wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej ogólnej wersji dostępności. |Te tablice wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku danych o określonym określonym rozmiarze i utworzeniu odpowiedniej macierzy wirtualnej StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
@@ -72,7 +72,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 | **dziesięć.** |Azure PowerShell |Nie można zarządzać macierzami wirtualnymi StorSimple za pomocą Azure PowerShell w tej wersji. |Wszystkie zarządzanie urządzeniami wirtualnymi powinno odbywać się za pomocą Azure Portal i lokalnego interfejsu użytkownika sieci Web. |
 | **11.** |Zmiana hasła |Konsola urządzenia macierzy wirtualnej akceptuje tylko dane wejściowe w formacie klawiatury en-us. | |
 | **dwunastomiesięcznych.** |CHAP |Nie można usunąć poświadczeń protokołu CHAP po utworzeniu. Ponadto w przypadku modyfikacji poświadczeń protokołu CHAP należy przełączyć woluminy do trybu offline, a następnie przełączyć je w tryb online, aby zmiany zaczęły obowiązywać. |Ten problem został rozwiązany w nowszej wersji. |
-| **trzynast.** |serwer iSCSI |"Użyty magazyn" wyświetlany dla woluminu iSCSI może się różnić w StorSimple usługi Menedżer urządzeń i hoście iSCSI. |Host iSCSI zawiera widok systemu plików.<br></br>Urządzenie widzi bloki przydzieloną, gdy wolumin był w maksymalnym rozmiarze. |
+| **trzynast.** |serwer iSCSI |"Użyty magazyn" wyświetlany dla woluminu iSCSI może się różnić w StorSimple usługi Device Manager i hoście iSCSI. |Host iSCSI zawiera widok systemu plików.<br></br>Urządzenie widzi bloki przydzieloną, gdy wolumin był w maksymalnym rozmiarze. |
 | **14,5.** |Serwer plików |Jeśli do pliku w folderze są skojarzone alternatywne strumienie danych (ADS), nie są one tworzone ani przywracane w ramach odzyskiwania po awarii, klonowania i odzyskiwania na poziomie elementu. | |
 | **15000.** |Serwer plików |Linki symboliczne nie są obsługiwane. | |
 | **16.** |Serwer plików |Pliki chronione przez system Windows system szyfrowania plików (EFS) kopiowane lub przechowywane na serwerze plików macierzy wirtualnej StorSimple powodują nieobsługiwaną konfigurację.  | |
@@ -83,7 +83,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 ## <a name="next-steps"></a>Następne kroki
 [Zainstaluj aktualizację 1,1](storsimple-virtual-array-install-update-11.md) na wirtualnej macierzy StorSimple.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 Szukasz starszej wersji uwagi? Przejdź do strony:
 * [StorSimple Virtual Array Update 1,0 — informacje o wersji](storsimple-virtual-array-update-1-release-notes.md)
 * [StorSimple Virtual Array Update 0,6 — informacje o wersji](storsimple-virtual-array-update-06-release-notes.md)

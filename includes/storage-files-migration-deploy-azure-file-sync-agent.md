@@ -8,15 +8,15 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: f038392f03b94aa2c2450531c9da4a11d9900295
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93043138"
 ---
 W tej sekcji instalujesz agenta Azure File Sync w wystąpieniu systemu Windows Server.
 
-[Przewodnik wdrażania](../articles/storage/files/storage-sync-files-deployment-guide.md) pokazuje, że należy wyłączyć **konfigurację zwiększonych zabezpieczeń programu Internet Explorer** . Ta miara zabezpieczeń nie ma zastosowania do Azure File Sync. Wyłączenie tej opcji umożliwia uwierzytelnianie na platformie Azure bez żadnych problemów.
+[Przewodnik wdrażania](../articles/storage/files/storage-sync-files-deployment-guide.md) pokazuje, że należy wyłączyć **konfigurację zwiększonych zabezpieczeń programu Internet Explorer**. Ta miara zabezpieczeń nie ma zastosowania do Azure File Sync. Wyłączenie tej opcji umożliwia uwierzytelnianie na platformie Azure bez żadnych problemów.
 
 Otwórz program PowerShell i zainstaluj wymagane moduły programu PowerShell, używając następujących poleceń. Po wyświetleniu monitu upewnij się, że zainstalowano pełen moduł i dostawcę NuGet.
 
@@ -37,4 +37,4 @@ Te kroki są opisane bardziej szczegółowo w przewodniku wdrażania, który obe
 
 Użyj najnowszego agenta. Można go pobrać z centrum pobierania Microsoft: [Agent Azure File Sync](https://aka.ms/AFS/agent "Pobieranie agenta Azure File Sync").
 
-Po pomyślnej instalacji i rejestracji serwera można sprawdzić, czy ten krok został pomyślnie ukończony. Przejdź do zasobu usługi synchronizacji magazynu w Azure Portal. W menu po lewej stronie przejdź do pozycji **zarejestrowane serwery** . Zobaczysz serwer w tym miejscu.
+Po pomyślnej instalacji i rejestracji serwera można sprawdzić, czy ten krok został pomyślnie ukończony. Przejdź do zasobu usługi synchronizacji magazynu w Azure Portal. W menu po lewej stronie przejdź do pozycji **zarejestrowane serwery**. Zobaczysz serwer w tym miejscu.

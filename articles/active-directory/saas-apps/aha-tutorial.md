@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
 ms.openlocfilehash: a39371e7a22334b11be1d1a0a9d28557efe177c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101654446"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Samouczek: integracja z usługą z Azure Active Directory
@@ -136,7 +136,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5. Kliknij pozycję **Account** (Konto).
 
-    ![Profil](./media/aha-tutorial/account.png "Profil")
+    ![Profilu](./media/aha-tutorial/account.png "Profil")
 
 6. Kliknij pozycję **Security and single sign-on** (Zabezpieczenia i logowanie jednokrotne).
 

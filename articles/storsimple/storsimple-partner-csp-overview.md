@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964919"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Co to jest StorSimple dla programu Providers Cloud Solutions?
@@ -36,7 +36,7 @@ Aby uzyskać więcej informacji na temat rozliczeń, cen, zachęt i uzyskiwania 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Wdrażanie StorSimple dla dostawcy CSP i zarządzanie nim
 
-StorSimple dla dostawcy usług kryptograficznych jest dostępny jako usługa oparta na użyciu na wszystkich rynkach, na których StorSimple jest dostępny dzisiaj. StorSimple dla dostawcy usług kryptograficznych używa Azure Portal i usługi StorSimple Menedżer urządzeń. Partner programu CSP może utworzyć StorSimple Menedżer urządzeń do zarządzania macierzami wirtualnymi StorSimple, udziałami, woluminami i kopiami zapasowymi. Można administrować wszystkimi tablicami wirtualnymi zarejestrowanymi w usłudze StorSimple Menedżer urządzeń za pośrednictwem Azure Portal.
+StorSimple dla dostawcy usług kryptograficznych jest dostępny jako usługa oparta na użyciu na wszystkich rynkach, na których StorSimple jest dostępny dzisiaj. StorSimple dla dostawcy usług kryptograficznych używa Azure Portal i usługi StorSimple Device Manager. Partner programu CSP może utworzyć StorSimple Device Manager do zarządzania macierzami wirtualnymi StorSimple, udziałami, woluminami i kopiami zapasowymi. Można administrować wszystkimi tablicami wirtualnymi zarejestrowanymi w usłudze StorSimple Device Manager za pośrednictwem Azure Portal.
 
 Aby uzyskać więcej informacji, przejdź do pozycji [Wdróż i Zarządzaj wirtualną tablicą StorSimple dla dostawcy usług kryptograficznych](storsimple-partner-csp-deploy.md).
 

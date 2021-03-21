@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686414"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Dostosowanie języka w Azure Active Directory B2C
@@ -508,7 +508,7 @@ Azure AD B2C obejmuje obsługę następujących języków. Języki przepływu u�
 | Niderlandzki                 | nl            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Norweski             | nie            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Pendżabski               | biur            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
-| Polski                | zysków            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| polski                | zysków            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Portugalski (Brazylia)   | pt-br         | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Portugalski (Portugalia) | pt-pt         | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Rumuński              | ro            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |

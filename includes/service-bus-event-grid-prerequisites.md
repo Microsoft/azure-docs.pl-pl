@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d12df7197945a514ed8d3d0dca77271fb4bd0903
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96509448"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -31,7 +31,7 @@ W tym kroku użyjesz przykładowej aplikacji do wysyłania komunikatów do Servi
 
 1. Sklonuj [repozytorium GitHub Azure-Service-Bus](https://github.com/Azure/azure-service-bus/).
 2. W programie Visual Studio przejdź do folderu *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegration* , a następnie otwórz plik *SBEventGridIntegration. sln* .
-3. W oknie Eksplorator rozwiązań rozwiń projekt **MessageSender** i wybierz pozycję **program.cs**.
+3. W oknie Eksplorator rozwiązań rozwiń projekt **MessageSender** i wybierz pozycję **program. cs**.
 4. Zamień na `<SERVICE BUS NAMESPACE - CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus i `<TOPIC NAME>` nazwą tematu. 
 
     ```csharp

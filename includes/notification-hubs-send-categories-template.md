@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96027322"
 ---
 W tej sekcji wyślesz najważniejsze wiadomości w formie oznaczonych tagami powiadomień szablonu z aplikacji konsoli .NET.
@@ -31,7 +31,7 @@ W tej sekcji wyślesz najważniejsze wiadomości w formie oznaczonych tagami pow
 
    Ta akcja dodaje odwołanie do zestawu Azure Notification Hubs SDK przy użyciu pakietu [Microsoft. Azure. NotificationHubs] .
 
-1. Otwórz plik *program.cs* i Dodaj następującą `using` instrukcję:
+1. Otwórz plik *program. cs* i Dodaj następującą `using` instrukcję:
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;

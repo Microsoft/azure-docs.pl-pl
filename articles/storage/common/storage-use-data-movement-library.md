@@ -12,10 +12,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023418"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Przenoszenie danych za pomocą biblioteki przenoszenia danych
@@ -38,7 +38,7 @@ W tym dokumencie przedstawiono sposób tworzenia aplikacji konsolowej .NET Core,
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Konto usługi Azure Storage](storage-account-create.md)
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 1. Zapoznaj się z [przewodnikiem instalacji programu .NET Core](https://www.microsoft.com/net/core) , aby zainstalować program .NET Core. Podczas wybierania środowiska wybierz opcję wiersza polecenia.
 2. W wierszu polecenia Utwórz katalog dla projektu. Przejdź do tego katalogu, a następnie wpisz polecenie, `dotnet new console -o <sample-project-name>` Aby utworzyć projekt konsoli języka C#.

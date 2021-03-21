@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: a6c560cf4ec11197183711656d69024591e7008c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512698"
 ---
-# <a name="use-user-defined-combiner"></a>Używanie łączenia zdefiniowanego przez użytkownika
+# <a name="use-user-defined-combiner"></a>Korzystanie z funkcji łączenia zdefiniowanej przez użytkownika
 
 ## <a name="u-sql-udo-user-defined-combiner"></a>UDO U-SQL: zdefiniowane przez użytkownika łączenie
 Zdefiniowany przez użytkownika element łączenia lub UDC umożliwia łączenie wierszy z wierszy z lewej i po prawej stronie, na podstawie logiki niestandardowej. Program łączący zdefiniowany przez użytkownika jest używany z wyrażeniem łączenia.

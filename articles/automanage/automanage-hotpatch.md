@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687570"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch dla nowych maszyn wirtualnych (wersja zapoznawcza)
@@ -34,7 +34,7 @@ Istnieją dwa typy linii bazowych: **planowane punkty odniesienia** i **nieplano
 * **Nieplanowane linie bazowe** są uwalniane, gdy jest wydawana ważna aktualizacja (na przykład Naprawiono zero dni), a dana aktualizacja nie może zostać wydana jako hotpatch.  Po zwolnieniu nieplanowanych linii bazowych hotpatch wersja zostanie zamieniona na nieplanowaną linię bazową w danym miesiącu.  Nieplanowane linie bazowe obejmują również wszystkie aktualizacje w porównywalnej _najnowszej aktualizacji zbiorczej_ dla tego miesiąca, a także wymagają ponownego uruchomienia.
     * Powyższy przykładowy harmonogram ilustruje dwie nieplanowane linie bazowe, które zastąpią hotpatch wydania w tych miesiącach (rzeczywista liczba nieplanowanych linii bazowych w roku nie jest znana z góry).
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 Hotpatch jest dostępny we wszystkich globalnych regionach platformy Azure w wersji zapoznawczej. Regiony Azure Government nie są obsługiwane w wersji zapoznawczej.
 
 ## <a name="how-to-get-started"></a>Jak zacząć
