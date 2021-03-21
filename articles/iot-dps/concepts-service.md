@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019450"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologia dotycząca IoT Hub Device Provisioning Service (DPS)
@@ -82,7 +82,7 @@ Mechanizm zaświadczania jest metodą służącą do potwierdzania tożsamości 
 
 Usługa Device Provisioning obsługuje następujące formy zaświadczania:
 * **Certyfikaty x. 509** oparte na standardowym przepływie uwierzytelniania certyfikatu x. 509. Aby uzyskać więcej informacji, zobacz [zaświadczanie X. 509](concepts-x509-attestation.md).
-* **Moduł TPM (TPM)** na podstawie wyzwania nonce przy użyciu standardu TPM dla kluczy do prezentowania podpisanego tokenu sygnatury dostępu współdzielonego (SAS). Nie wymaga to fizycznego modułu TPM na urządzeniu, ale usługa oczekuje na zaświadczenie przy użyciu klucza poręczenia zgodnie z [specyfikacją modułu TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). Aby uzyskać więcej informacji, zobacz [zaświadczanie modułu TPM](concepts-tpm-attestation.md).
+* **Trusted Platform Module (TPM)** na podstawie wyzwania nonce przy użyciu standardu TPM dla kluczy do prezentowania podpisanego tokenu sygnatury dostępu współdzielonego (SAS). Nie wymaga to fizycznego modułu TPM na urządzeniu, ale usługa oczekuje na zaświadczenie przy użyciu klucza poręczenia zgodnie z [specyfikacją modułu TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). Aby uzyskać więcej informacji, zobacz [zaświadczanie modułu TPM](concepts-tpm-attestation.md).
 * **Klucz symetryczny** oparty na [tokenach zabezpieczających](../iot-hub/iot-hub-devguide-security.md#security-tokens)sygnatury dostępu współdzielonego (SAS), które obejmują sygnaturę skrótu i osadzoną datę wygaśnięcia. Aby uzyskać więcej informacji, zobacz [zaświadczenie klucza symetrycznego](concepts-symmetric-key-attestation.md).
 
 

@@ -1,23 +1,23 @@
 ---
 title: Wyświetlanie alertów dla urządzenia z serii StorSimple 8000 i zarządzanie nimi
-description: Opisuje warunki i ważność alertów StorSimple, sposób konfigurowania powiadomień o alertach oraz sposób używania usługi StorSimple Menedżer urządzeń do zarządzania alertami.
+description: Opisuje warunki i ważność alertów StorSimple, sposób konfigurowania powiadomień o alertach oraz sposób używania usługi StorSimple Device Manager do zarządzania alertami.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016849"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Menedżer urządzeń do wyświetlania alertów StorSimple i zarządzania nimi
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Device Manager do wyświetlania alertów StorSimple i zarządzania nimi
 
 ## <a name="overview"></a>Omówienie
 
-Blok **alertów** w usłudze StorSimple Menedżer urządzeń umożliwia przeglądanie i czyszczenie alertów związanych z urządzeniem StorSimple w czasie rzeczywistym. Z tego bloku można centralnie monitorować problemy z kondycją urządzeń StorSimple i ogólne rozwiązanie Microsoft Azure StorSimple.
+Blok **alertów** w usłudze StorSimple Device Manager umożliwia przeglądanie i czyszczenie alertów związanych z urządzeniem StorSimple w czasie rzeczywistym. Z tego bloku można centralnie monitorować problemy z kondycją urządzeń StorSimple i ogólne rozwiązanie Microsoft Azure StorSimple.
 
 W tym samouczku opisano typowe warunki alertu, poziomy ważności alertu i sposób konfigurowania powiadomień o alertach. Oprócz tego zawiera tabele szybkich odwołań alertów, które umożliwiają szybkie lokalizowanie określonego alertu i odpowiednie reagowanie.
 
@@ -28,7 +28,7 @@ W tym samouczku opisano typowe warunki alertu, poziomy ważności alertu i spos�
 Urządzenie StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęściej spotykane typy warunków alertów:
 
 * **Problemy ze sprzętem** — te alerty informują o kondycji sprzętu. Umożliwiają one sprawdzenie, czy są potrzebne uaktualnienia oprogramowania układowego, jeśli wystąpią problemy z interfejsem sieciowym lub występuje problem z jednym z dysków danych.
-* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami a usługą StorSimple Menedżer urządzeń. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](storsimple-8000-troubleshoot-deployment.md).
+* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami a usługą StorSimple Device Manager. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](storsimple-8000-troubleshoot-deployment.md).
 * **Problemy z wydajnością** — te alerty są generowane, gdy system nie działa optymalnie, na przykład gdy jest w dużym obciążeniu.
 
 Ponadto mogą pojawić się alerty związane z zabezpieczeniami, aktualizacjami lub niepowodzeńmi zadań.
@@ -62,7 +62,7 @@ Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomie
    2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **tak** , aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
    3. W polu **inni adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś \@ Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie. 
       
-3. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
+3. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Device Manager będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
 
     ![Ustawienia alertu](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
@@ -71,7 +71,7 @@ Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomie
     ![Wysłane wiadomości e-mail z powiadomieniem testowym o alertach](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, Usługa StorSimple Menedżer urządzeń będzie wyświetlała odpowiedni komunikat o błędzie. Poczekaj kilka minut, a następnie spróbuj ponownie wysłać testowy test powiadomienia. 
+   > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, Usługa StorSimple Device Manager będzie wyświetlała odpowiedni komunikat o błędzie. Poczekaj kilka minut, a następnie spróbuj ponownie wysłać testowy test powiadomienia. 
 
 5. Po zakończeniu konfiguracji kliknij przycisk **Zapisz**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
 
@@ -79,7 +79,7 @@ Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomie
 
 ## <a name="view-and-track-alerts"></a>Wyświetlanie i śledzenie alertów
 
-Blok podsumowania usługi StorSimple Menedżer urządzeń zapewnia szybki wgląd w liczbę alertów na urządzeniach według poziomu ważności.
+Blok podsumowania usługi StorSimple Device Manager zapewnia szybki wgląd w liczbę alertów na urządzeniach według poziomu ważności.
 
 ![Pulpit nawigacyjny alertów](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
@@ -159,7 +159,7 @@ W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym Sto
 
 | Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Operacje odzyskiwania nie mogą przywrócić wszystkich ustawień dla tej usługi. Dane konfiguracji urządzenia są w niespójnym stanie dla niektórych urządzeń. |Wykryto niespójność danych po odzyskiwaniu po awarii. |Zaszyfrowane dane w usłudze nie są zsynchronizowane z programem na urządzeniu. Autoryzuj urządzenie <*nazwę urządzenia*> z StorSimple Menedżer urządzeń, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla StorSimple, aby uruchomić `Restore-HcsmEncryptedServiceData` *nazwę urządzenia* <> polecenie cmdlet, dostarczając stare hasło jako dane wejściowe tego polecenia cmdlet w celu przywrócenia profilu zabezpieczeń. Następnie uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| Operacje odzyskiwania nie mogą przywrócić wszystkich ustawień dla tej usługi. Dane konfiguracji urządzenia są w niespójnym stanie dla niektórych urządzeń. |Wykryto niespójność danych po odzyskiwaniu po awarii. |Zaszyfrowane dane w usłudze nie są zsynchronizowane z programem na urządzeniu. Autoryzuj urządzenie <*nazwę urządzenia*> z StorSimple Device Manager, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla StorSimple, aby uruchomić `Restore-HcsmEncryptedServiceData` *nazwę urządzenia* <> polecenie cmdlet, dostarczając stare hasło jako dane wejściowe tego polecenia cmdlet w celu przywrócenia profilu zabezpieczeń. Następnie uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
 
 ### <a name="hardware-alerts"></a>Alerty sprzętu
 

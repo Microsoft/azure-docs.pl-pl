@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
 ms.openlocfilehash: 2a23fc0b769727cab5a28d3d313a7791bcfa6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91617710"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Tworzenie sieci wirtualnej dla usługi Azure SQL Managed Instance
@@ -43,7 +43,7 @@ Wystąpienie zarządzane Azure SQL należy wdrożyć w ramach [sieci wirtualnej]
 
 Najprostszym sposobem tworzenia i konfigurowania sieci wirtualnej jest użycie szablonu wdrażania Azure Resource Manager.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wybierz przycisk **Wdróż na platformie Azure** :
 
@@ -52,7 +52,7 @@ Najprostszym sposobem tworzenia i konfigurowania sieci wirtualnej jest użycie s
    Ten przycisk otwiera formularz, którego można użyć do skonfigurowania środowiska sieciowego, w którym można wdrożyć wystąpienie zarządzane SQL.
 
    > [!Note]
-   > Ten szablon Azure Resource Manager spowoduje wdrożenie sieci wirtualnej z dwiema podsieciami. Jedna podsieć o nazwie **ManagedInstances**jest zarezerwowana dla wystąpienia zarządzanego SQL i ma wstępnie skonfigurowaną tabelę tras. Druga podsieć o nazwie **default**jest używana w przypadku innych zasobów, które powinny mieć dostęp do wystąpienia zarządzanego SQL (na przykład Azure Virtual Machines).
+   > Ten szablon Azure Resource Manager spowoduje wdrożenie sieci wirtualnej z dwiema podsieciami. Jedna podsieć o nazwie **ManagedInstances** jest zarezerwowana dla wystąpienia zarządzanego SQL i ma wstępnie skonfigurowaną tabelę tras. Druga podsieć o nazwie **default** jest używana w przypadku innych zasobów, które powinny mieć dostęp do wystąpienia zarządzanego SQL (na przykład Azure Virtual Machines).
 
 3. Skonfiguruj środowisko sieciowe. W poniższej postaci można skonfigurować parametry środowiska sieciowego:
 

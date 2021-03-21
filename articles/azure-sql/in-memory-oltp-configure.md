@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91619750"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Użyj In-Memory OLTP, aby zwiększyć wydajność aplikacji w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
@@ -43,7 +43,7 @@ Program SSMS zawiera raport z **omówieniem analizy wydajności transakcji** , k
 
 W programie SSMS w celu wygenerowania raportu:
 
-* W **Eksplorator obiektów**kliknij prawym przyciskiem myszy węzeł bazy danych.
+* W **Eksplorator obiektów** kliknij prawym przyciskiem myszy węzeł bazy danych.
 * Kliknij kolejno pozycje **raporty**  >  **standardowe raporty**  >  **Analiza wydajności — Omówienie**.
 
 Aby uzyskać więcej informacji, zobacz [ustalanie, czy tabela lub procedura składowana powinna być przypisana do In-Memory OLTP](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp).
@@ -77,7 +77,7 @@ Należy utworzyć i wypełnić kopię zoptymalizowaną pod kątem pamięci tabel
 Aby użyć tej opcji migracji:
 
 1. Połącz się z testową bazą danych za pomocą programu SSMS.
-2. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy tabelę, a następnie kliknij pozycję **Doradca optymalizacji pamięci**.
+2. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy tabelę, a następnie kliknij pozycję **Doradca optymalizacji pamięci**.
 
    Zostanie wyświetlony Kreator **doradcy pamięci tabeli** .
 3. W Kreatorze kliknij pozycję **Walidacja migracji** (lub przycisk **dalej** ), aby sprawdzić, czy tabela zawiera jakiekolwiek Nieobsługiwane funkcje, które nie są obsługiwane w tabelach zoptymalizowanych pod kątem pamięci. Aby uzyskać więcej informacji, zobacz:
