@@ -10,10 +10,10 @@ services: azure-maps
 ms.custom: references_regions
 manager: philmea
 ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905489"
 ---
 # <a name="azure-maps-weather-services-preview-coverage"></a>Pokrycie Azure Maps usług pogodowych (wersja zapoznawcza)
@@ -84,15 +84,15 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Saint Kitts i Nevis                    | ✓ |   | |✓| 
 | Saint Lucia                              | ✓ |   | |✓| 
 | Saint-Martin                             | ✓ |   | |✓| 
-| Saint-Pierre i Miquelon                | ✓ |   | |✓| 
+| Saint Pierre i Miquelon                | ✓ |   | |✓| 
 | Saint Vincent i Grenadyny         | ✓ |   | |✓| 
 | Sint Eustatius                           | ✓ |   | |✓|  
 | Sint Maarten                             | ✓ |   | |✓| 
-| Wyspy Georgia Południowa i Sandwich Południowy | ✓ |   | |✓| 
+| Georgia Południowa i Sandwich Południowy | ✓ |   | |✓| 
 | Surinam                                 | ✓ |   | |✓| 
 | Trinidad i Tobago                      | ✓ |   | |✓| 
 | Wyspy Turks i Caicos                 | ✓ |   | |✓| 
-| Stany Zjednoczone — Dalekie Wyspy Mniejsze                    | ✓ |   | |✓| 
+| Odległe wyspy Stanów Zjednoczonych                    | ✓ |   | |✓| 
 | Wyspy Dziewicze Stanów Zjednoczonych                      | ✓ |   | ✓|✓| 
 | Stany Zjednoczone                            | ✓ | ✓ | ✓| ✓| 
 | Urugwaj                                  | ✓ |   | |✓| 
@@ -196,7 +196,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Fidżi                              | ✓ |   | | ✓| 
 | Polinezja Francuska                  | ✓ |   | | ✓| 
 | Guam                              | ✓ |   |  ✓| ✓| 
-| Wyspy Heard i McDonald | ✓ |   | | ✓| 
+| Wyspy Heard i McDonalda | ✓ |   | | ✓| 
 | SRA Hongkong                     | ✓ |   | | ✓| 
 | Indie                             | ✓ |   | | ✓| 
 | Indonezja                         | ✓ |   | | ✓| 

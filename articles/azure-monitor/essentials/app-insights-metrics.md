@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae7980137c1da5e1755450863af4f9029d6ed62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049138"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583466"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
 
@@ -95,6 +95,8 @@ Metryki przeglądarki są zbierane przez zestaw Application Insights JavaScript 
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Czas ładowania strony w przeglądarce (browserTimings/totalDuration)
 
+Czas od żądania użytkownika do załadowania modelu DOM, arkuszy stylów, skryptów i obrazów.
+
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|
 |---|---|---|
 |)|Średnia, minimum, maksimum|Brak|
@@ -110,6 +112,8 @@ browserTimings
 ```
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Czas przetwarzania klienta (browserTiming/processingDuration)
+
+Czas między odebraniem ostatniego bajtu dokumentu do momentu załadowania modelu DOM. Żądania asynchroniczne nadal mogą być przetwarzane.
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|
 |---|---|---|
@@ -127,6 +131,8 @@ browserTimings
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Czas połączenia sieciowego ładowania strony (browserTimings/networkDuration)
 
+Czas między żądaniem użytkownika a połączeniem sieciowym. Obejmuje wyszukiwanie DNS i połączenie transportowe.
+
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|
 |---|---|---|
 |)|Średnia, minimum, maksimum|Brak|
@@ -143,6 +149,8 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Czas odpowiedzi na odebranie (browserTimings/receiveDuration)
 
+Czas między pierwszym i ostatnim bajtem lub do momentu odłączenia.
+
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|
 |---|---|---|
 |)|Średnia, minimum, maksimum|Brak|
@@ -158,6 +166,8 @@ browserTimings
 ```
 
 ### <a name="send-request-time-browsertimingssendduration"></a>Czas żądania wysłania (browserTimings/sendDuration)
+
+Czas między połączeniem sieciowym i odebraniem pierwszego bajtu.
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|
 |---|---|---|

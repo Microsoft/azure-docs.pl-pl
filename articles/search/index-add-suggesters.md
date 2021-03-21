@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030785"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604410"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -66,7 +66,7 @@ Wybór analizatora decyduje o tym, w jaki sposób pola są tokenami, a następni
 
 Podczas oceniania analizatorów należy rozważyć użycie [interfejsu API analizy tekstu](/rest/api/searchservice/test-analyzer) do wglądu w sposób przetwarzania warunków. Po skompilowaniu indeksu można wypróbować różne analizatory w ciągu, aby wyświetlić dane wyjściowe tokenu.
 
-Pola używające [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wstępnie zdefiniowanych analizatorów](index-add-custom-analyzers.md#predefined-analyzers-reference) (z wyjątkiem standardowych Lucene) są jawnie niedozwolone, aby zapobiec słabym rezultatom.
+Pola używające [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wbudowanych analizatorów](index-add-custom-analyzers.md#built-in-analyzers) (z wyjątkiem standardowych Lucene) są jawnie niedozwolone, aby zapobiec słabym rezultatom.
 
 > [!NOTE]
 > Jeśli musisz obejść ograniczenie analizatora, na przykład jeśli potrzebujesz słowa kluczowego lub analizatora ngram dla niektórych scenariuszy zapytań, należy użyć dwóch oddzielnych pól dla tej samej zawartości. Pozwoli to jednemu z pól na posiadanie sugestii, podczas gdy drugi można skonfigurować przy użyciu konfiguracji analizatora niestandardowego.

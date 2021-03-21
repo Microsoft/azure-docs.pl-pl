@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517875"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Rozwiązywanie problemów z synchronizacją w chmurze
@@ -43,7 +43,7 @@ Te elementy można zweryfikować w Azure Portal i na serwerze lokalnym, na któr
 
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej kondycji, wykonaj następujące kroki.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W środkowym obszarze Wybierz pozycję **Zarządzaj synchronizacją**.
 1. Na ekranie **Azure AD Connect synchronizacji w chmurze** wybierz pozycję **Przejrzyj wszystkich agentów**.
 

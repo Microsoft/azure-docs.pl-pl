@@ -4,17 +4,17 @@ description: Dowiedz się, jak utworzyć segment sieci NSX-T do użycia dla masz
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462131"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Samouczek: Dodawanie segmentu sieci w rozwiązaniu VMware platformy Azure 
 
 Maszyny wirtualne utworzone w programie vCenter są umieszczane na segmentach sieci utworzonych w NSX-T i są widoczne w programie vCenter.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Nawigowanie w Menedżerze NSX-T w celu dodania segmentów sieci

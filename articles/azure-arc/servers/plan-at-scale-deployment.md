@@ -1,18 +1,18 @@
 ---
-title: Planowanie wdrożenia serwerów z obsługą usługi Azure Arc na skalę
+title: Planowanie i wdrażanie serwerów z obsługą usługi Azure Arc
 description: Dowiedz się, jak włączyć wiele maszyn na serwerach z obsługą usługi Azure ARC, aby uprościć konfigurację najważniejszych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461304"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591184"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planowanie i wdrażanie serwerów z obsługą łuku na dużą skalę
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planowanie i wdrażanie serwerów z obsługą łuku
 
-Wdrożenie usługi infrastruktury IT lub aplikacji biznesowej jest wyzwaniem dla każdej firmy. Aby zapewnić jego zgodność i uniknąć wszelkich niezwiązanych z nią niedowolnych powitań i nieplanowanych kosztów, należy dokładnie zaplanować, aby upewnić się, że wszystko jest gotowe do użycia. Aby zaplanować wdrożenie serwerów z obsługą usługi Azure Arc na skalę, należy uwzględnić kryteria projektowania i wdrażania, które muszą zostać spełnione, aby pomyślnie wykonać zadania w celu zapewnienia obsługi wdrożenia w skali.
+Wdrożenie usługi infrastruktury IT lub aplikacji biznesowej jest wyzwaniem dla każdej firmy. Aby zapewnić jego zgodność i uniknąć wszelkich niezwiązanych z nią niedowolnych powitań i nieplanowanych kosztów, należy dokładnie zaplanować, aby upewnić się, że wszystko jest gotowe do użycia. Aby zaplanować wdrożenie serwerów z obsługą usługi Azure Arc w dowolnej skali, należy uwzględnić kryteria projektowania i wdrażania, które muszą zostać spełnione w celu pomyślnego wykonania zadań.
 
 Aby wdrożenie przebiegać bezproblemowo, plan powinien stworzyć jasne zrozumienie:
 
@@ -71,7 +71,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie do i wdro�
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
-| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykładowe zasoby dołączania w skali:<br><br> <ul><li> [Podstawowy skrypt wdrażania w skali](onboard-service-principal.md)</ul></li> <ul><li>[Dołączanie w skali VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Dołączanie do VMware vSphere maszyn wirtualnych z systemem Linux w skali](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[AWSe wystąpienia EC2 w skali przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
+| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykład w zasobach dołączania do skali:<br><br> <ul><li> [Skrypt wdrażania w warstwie Podstawowa](onboard-service-principal.md)</ul></li> <ul><li>[W przypadku dołączania VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[W przypadku dołączania VMware vSphere maszyn wirtualnych z systemem Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[W przypadku dołączania wystąpień AWS EC2 przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
 | [Tworzenie jednostki usługi](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Utwórz nazwę główną usługi, aby połączyć maszyny w sposób nieinteraktywny przy użyciu Azure PowerShell lub z portalu.| Jedna godzina |
 | Wdróż agenta połączonej maszyny na serwerze docelowym i na maszynach docelowych |Użyj narzędzia Automation, aby wdrożyć skrypty na serwerach i połączyć je z platformą Azure.| Co najmniej jeden dzień w zależności od planu wydania i po wdrożeniu etapowym. |
 

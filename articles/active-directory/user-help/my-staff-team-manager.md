@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie hasłami i numerami telefonów z moim personelem (wersja zapoznawcza) — Azure AD | Microsoft Docs
+title: Zarządzanie hasłami i numerami telefonów w obszarze Moi pracownicy — Azure AD | Microsoft Docs
 description: Zarządzanie hasłami i numerami telefonów użytkowników z moim personelem
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583602"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegowanie zarządzania użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
+# <a name="delegate-user-management-with-my-staff"></a>Delegowanie zarządzania użytkownikami za pomocą mojego personelu
 
 Organizacja może używać **mojego personelu** do delegowania zadań związanych z zarządzaniem użytkownikami do danych o urzędach, takich jak kierownik sklepu lub lider zespołu, aby pomóc swoim członkom personelu uzyskiwać dostęp do aplikacji, których potrzebują. Jeśli członek zespołu nie może uzyskać dostępu do aplikacji, ponieważ zapomina hasła, produktywność zostanie utracona. Umożliwia to także zmniejszenie kosztów pomocy technicznej i powoduje wąskie gardło w procesach administracyjnych.  W przypadku mojego personelu członek zespołu, który nie może uzyskać dostępu do swojego konta, może odzyskać dostęp w zaledwie kilka kliknięć, bez konieczności pomocy administratora.
 

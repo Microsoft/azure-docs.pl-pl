@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599888"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -82,7 +82,8 @@ W tej sekcji znajdziesz dokumenty o integracji z firmą Microsoft Power BI ze ź
 
 
 ## <a name="change-log"></a>Dziennik zmian
-
+- 03/17/2021: Zmień [ha dla SAP HANA na maszynach wirtualnych platformy Azure w systemie SLES](./sap-hana-high-availability.md), [ha dla SAP HANA na maszynach wirtualnych platformy Azure na RHEL](./sap-hana-high-availability-rhel.md) i [ha na potrzeby SAP HANA skalowanie z użyciem ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , aby dodać instrukcje dotyczące replikacji systemu Hana Active/Read-Enabled w klastrze Pacemaker
+- 03/15/2021: zmiana [wystąpienia SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-high-availability-guide-wsfc-file-share.md),[zainstalowanie wystąpienia SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-high-availability-installation-wsfc-file-share.md) oraz [SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-ascs-ha-multi-sid-wsfc-file-share.md) , aby wyjaśnić, że wystąpienia SAP ASCS/SCS i udział SOFS muszą zostać wdrożone w oddzielnych klastrach
 - 03/03/2021: Przejdź do [przewodnika ha dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) , aby dodać oświadczenie ostrzegawcze o podwyższonym poziomie uprawnień dla użytkownika z systemem SWPM, podczas instalacji systemu SAP
 - 02/11/2021: zmiany [wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na serwerze Red Hat Enterprise Linux](./high-availability-guide-rhel-ibm-db2-luw.md) , aby zmienić Pacemaker polecenia klastra dla RHEL 8. x
 - 02/03/2021: zmiana [konfiguracji Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu zaktualizowania pcmk_host_map w poleceniu stonith Create

@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: martinek
 ms.custom: references_regions
 ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511233"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działania i odzyskiwanie po awarii — BCDR: Regiony sparowane platformy Azure
@@ -52,7 +52,7 @@ Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odpor
 | Asia-Pacific |Azja Wschodnia (Hongkong SAR) | Azja Południowo-Wschodnia (Singapur) |
 | Australia |Australia Wschodnia |Australia Południowo-Wschodnia |
 | Australia |Australia Środkowa |Australia Środkowa 2 |
-| Brazylia |Brazil South |South Central US |
+| Brazylia |Brazylia Południowa |South Central US |
 | Kanada |Kanada Środkowa |Kanada Wschodnia |
 | Chiny |Chiny Północne |Chiny Wschodnie|
 | Chiny |Chiny Północne 2 |Chiny Wschodnie 2|

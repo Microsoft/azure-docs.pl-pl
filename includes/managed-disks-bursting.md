@@ -9,10 +9,10 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 0f85f2770b98507618d5cbfdec1b55f397c7f514
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101749989"
 ---
 Platforma Azure oferuje możliwość zwiększenia wydajności operacji we/wy na sekundę i MB/s, nazywana także rozbiciem maszyn wirtualnych i dysków. Możesz efektywnie wykorzystać możliwości maszyn wirtualnych i dysków, aby osiągnąć lepszą wydajność na maszynach wirtualnych i na dysku.

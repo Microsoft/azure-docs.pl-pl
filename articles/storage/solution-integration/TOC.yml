@@ -1,5 +1,5 @@
 - name: Sprawdzone rozwiązania partnerskie usługi Azure Storage
-  href: /azure/storage/solution-integration
+  href: ./index.yml
 - name: Analiza i partnerzy danych Big Data
   items:
     - name: Przegląd sprawdzonych partnerów

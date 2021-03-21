@@ -14,10 +14,10 @@ ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726431"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Samouczek: używanie flag funkcji w aplikacji ASP.NET Core
@@ -99,7 +99,7 @@ Zamiast tworzyć twarde flagi funkcji w aplikacji, zalecamy zachowanie flag funk
 
 Najprostszym sposobem łączenia aplikacji ASP.NET Core z konfiguracją aplikacji jest użycie dostawcy konfiguracji zawartego w `Microsoft.Azure.AppConfiguration.AspNetCore` pakiecie NuGet. Po dołączeniu odwołania do pakietu wykonaj następujące kroki, aby użyć tego pakietu NuGet.
 
-1. Otwórz plik *program.cs* i Dodaj następujący kod.
+1. Otwórz plik *program. cs* i Dodaj następujący kod.
     > [!IMPORTANT]
     > `CreateHostBuilder` zastępuje program `CreateWebHostBuilder` .NET Core 3. x. Wybierz poprawną składnię opartą na Twoim środowisku.
 
@@ -151,7 +151,7 @@ Najprostszym sposobem łączenia aplikacji ASP.NET Core z konfiguracją aplikacj
     ```
     ---
 
-2. Otwórz *Startup.cs* i zaktualizuj `Configure` metodę i, `ConfigureServices` Aby dodać wbudowane oprogramowanie pośredniczące o nazwie `UseAzureAppConfiguration` . To oprogramowanie pośredniczące umożliwia odświeżanie wartości flag funkcji w cyklicznym interwale, podczas gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
+2. Otwórz *Start. cs* i zaktualizuj `Configure` metodę i, `ConfigureServices` Aby dodać wbudowane oprogramowanie pośredniczące o nazwie `UseAzureAppConfiguration` . To oprogramowanie pośredniczące umożliwia odświeżanie wartości flag funkcji w cyklicznym interwale, podczas gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 
 
 

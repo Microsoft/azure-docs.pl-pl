@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6bda6c9e5f6e23e9e15c12fd507645fc72159302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052215"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583449"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Konfigurowanie monitorowania w usłudze VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano sposób modyfikowania domyślnego monitorowania przy użyciu Azure Portal. Opisano w nim również podstawowe pojęcia dotyczące monitorów, które są wymagane do [skonfigurowania monitorowania przy użyciu reguły zbierania danych](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Otwórz konfigurację monitora
-Otwórz pozycję Monitoruj konfigurację bin Azure Portal, wybierając monitor, a następnie kartę **Konfiguracja** .
+Otwórz konfigurację monitora w Azure Portal, wybierając monitor, a następnie kartę **Konfiguracja** .
 
 [![Konfiguracja szczegółów monitora](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 

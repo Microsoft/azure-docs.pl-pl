@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503917"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604630"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Jak włączyć rejestrowanie Key Vault
 
 Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Aby uzyskać szczegółowe informacje na temat tej funkcji, zobacz [rejestrowanie Key Vault](logging.md).
+
+Co to jest rejestrowane:
+
+* Wszystkie uwierzytelnione żądania interfejsu API REST, w tym żądania zakończone niepowodzeniem w wyniku uprawnień dostępu, błędów systemu lub nieudanych żądań.
+* Operacje związane z magazynem kluczy, w tym tworzenie, usuwanie, Ustawianie zasad dostępu magazynu kluczy i aktualizowanie atrybutów magazynu kluczy, takich jak Tagi.
+* Operacje dotyczące kluczy i wpisów tajnych w magazynie kluczy, w tym:
+  * Tworzenie, modyfikowanie lub usuwanie tych kluczy lub wpisów tajnych.
+  * Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i depakowanie kluczy, pobieranie wpisów tajnych i wyświetlanie listy kluczy i wpisów tajnych (oraz ich wersji).
+* Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Przykłady to żądania, które nie mają tokenu okaziciela, które są źle sformułowane lub wygasłe lub które mają nieprawidłowy token.  
+* Event Grid zdarzenia powiadomień o zbliżającym się wygaśnięciu, wygaśnięciu i zmianie zasad dostępu do magazynu (nowe zdarzenie wersji nie jest rejestrowane). Zdarzenia są rejestrowane niezależnie od tego, czy utworzono subskrypcję zdarzeń w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Event Grid dla Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,7 +68,7 @@ Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która 
 
 Należy również podać nazwę konta magazynu. Nazwy kont magazynu muszą mieć unikatową długość od 3 do 24 znaków i używać tylko cyfr i małych liter.  Na koniec utworzymy konto magazynu dla jednostki SKU "Standard_LRS".
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) .
+Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) . 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,15 +110,31 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 Identyfikator zasobu dla magazynu kluczy będzie miał format "/subscriptions/<IDENTYFIKATORem subskrypcji,>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<identyfikatora magazynu unikatowych nazw>". Zwróć uwagę na następny krok.
 
-## <a name="enable-logging-using-azure-powershell"></a>Włącz rejestrowanie przy użyciu Azure PowerShell
+## <a name="enable-logging"></a>Włącz rejestrowanie
 
-Aby włączyć rejestrowanie Key Vault, użyjemy interfejsu wiersza polecenia platformy Azure [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings) lub polecenia cmdlet [Set-AZDIAGNOSTICSETTING](/powershell/module/az.monitor/set-azdiagnosticsetting) wraz z identyfikatorem konta magazynu i identyfikatorem zasobu magazynu kluczy.
+Możesz włączyć rejestrowanie dla Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Użyj interfejsu wiersza polecenia platformy Azure [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings) wraz z identyfikatorem konta magazynu i identyfikatorem zasobu magazynu kluczy.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Za pomocą Azure PowerShell użyjemy polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) z flagą **-Enabled** ustawionym na **$true** i kategorię ustawioną na `AuditEvent` (jedyną kategorię dla rejestrowania Key Vault):
+Opcjonalnie możesz ustawić zasady przechowywania dla dzienników, aby starsze dzienniki były automatycznie usuwane po upływie określonego czasu. Można na przykład ustawić zasady przechowywania, które automatycznie usuwają dzienniki starsze niż 90 dni.
+
+Za pomocą interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) . 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Użyj polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) z ustawioną flagą **-Enabled** na **$true** i kategorię ustawioną na `AuditEvent` (jedyną kategorię dla Key Vault rejestrowania):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
@@ -116,28 +142,35 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Opcjonalnie możesz ustawić zasady przechowywania dla dzienników, aby starsze dzienniki były automatycznie usuwane po upływie określonego czasu. Można na przykład ustawić zasady przechowywania, które automatycznie usuwają dzienniki starsze niż 90 dni.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Za pomocą Azure PowerShell Użyj polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) . 
+Za pomocą Azure PowerShell Użyj polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) .
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Co to jest rejestrowane:
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-* Wszystkie uwierzytelnione żądania interfejsu API REST, w tym żądania zakończone niepowodzeniem w wyniku uprawnień dostępu, błędów systemu lub nieudanych żądań.
-* Operacje związane z magazynem kluczy, w tym tworzenie, usuwanie, Ustawianie zasad dostępu magazynu kluczy i aktualizowanie atrybutów magazynu kluczy, takich jak Tagi.
-* Operacje dotyczące kluczy i wpisów tajnych w magazynie kluczy, w tym:
-  * Tworzenie, modyfikowanie lub usuwanie tych kluczy lub wpisów tajnych.
-  * Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i depakowanie kluczy, pobieranie wpisów tajnych i wyświetlanie listy kluczy i wpisów tajnych (oraz ich wersji).
-* Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Przykłady to żądania, które nie mają tokenu okaziciela, które są źle sformułowane lub wygasłe lub które mają nieprawidłowy token.  
-* Event Grid zdarzenia powiadomień o zbliżającym się wygaśnięciu, wygaśnięciu i zmianie zasad dostępu do magazynu (nowe zdarzenie wersji nie jest rejestrowane). Zdarzenia są rejestrowane niezależnie od tego, czy utworzono subskrypcję zdarzeń w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Event Grid dla Key Vault](../../event-grid/event-schema-key-vault.md)
+Aby skonfigurować ustawienia diagnostyczne w portalu, wykonaj następujące kroki.
+
+1. Wybierz ustawienia diagnostyczne z menu blok zasobów.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Portal diagnostyczny 1":::
+
+1. Kliknij "+ Dodaj ustawienie diagnostyczne"
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Portal diagnostyczny 2":::
+ 
+1. Wybierz nazwę, aby wywołać ustawienie diagnostyczne. Aby skonfigurować rejestrowanie Azure Monitor dla Key Vault, wybierz opcję "AuditEvent" i "Wyślij do Log Analytics obszaru roboczego". Następnie wybierz obszar roboczy subskrypcja i Log Analytics, do którego chcesz wysłać dzienniki.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Portal diagnostyczny 3":::
+
+    W przeciwnym razie wybierz opcje, które odnoszą się do dzienników, które chcesz wybrać.
+
+1. Po wybraniu żądanych opcji wybierz pozycję Zapisz.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Portal diagnostyczny 4":::
+
+---
 
 ## <a name="access-your-logs"></a>Uzyskiwanie dostępu do dzienników
 

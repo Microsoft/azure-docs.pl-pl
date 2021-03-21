@@ -12,10 +12,10 @@ ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
 ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563678"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Rozwiązywanie problemów dotyczących zautomatyzowanych eksperymentów ML w języku Python
@@ -58,7 +58,7 @@ Rozwiązania zależą od `AutoML` wersji szkoleniowej dotyczącej zestawu SDK:
       pip install --upgrade scikit-learn==0.20.3
     ```
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 `AutoML` zmiany pakietu od momentu, gdy wersja 1.0.76 wymaga odinstalowania poprzedniej wersji przed zaktualizowaniem do nowej wersji.
 

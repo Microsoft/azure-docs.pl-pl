@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
 ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935822"
 ---
 # <a name="develop-custom-commands-applications"></a>Opracowywanie aplikacji poleceń niestandardowych
@@ -221,7 +221,7 @@ Zacznij od edycji istniejącego `TurnOn` polecenia, aby włączyć i wyłączyć
 
 #### <a name="modify-example-sentences"></a>Modyfikuj przykładowe zdania
 
-W przypadku poleceń korzystających z parametrów warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
+W przypadku poleceń korzystających z parametrów warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Na przykład:
 
 * Pełne informacje o parametrach: `turn {OnOff} the {SubjectDevice}`
 * Informacje o części parametru: `turn it {OnOff}`
@@ -365,7 +365,7 @@ Aby przenieść zawartość, Zacznij od dodania nowego internetowego punktu koń
 |----|----|
 | **Nazwa** | `getDevices` |
 | **Adres URL** | `https://aka.ms/speech/cc-sampledevices` |
-| **Metoda** | **GET** |
+| **Metoda** | **Pobierz** |
 
 
 Jeśli Sugerowana wartość dla tego adresu URL nie będzie działać, należy skonfigurować i hostować punkt końcowy sieci Web, który zwraca plik JSON zawierający listę urządzeń, które mogą być kontrolowane. Punkt końcowy sieci Web powinien zwrócić plik JSON sformatowany w następujący sposób:
@@ -396,7 +396,7 @@ Następnie przejdź do strony ustawień parametrów **SubjectDevice** . Skonfigu
 | ----| ---- |
 | **Konfiguracja** | **Zaakceptuj wstępnie zdefiniowane dane wejściowe z wykazu zewnętrznego** |                               
 | **Punkt końcowy katalogu** | `getDevices` |
-| **Metoda** | **GET** |
+| **Metoda** | **Pobierz** |
 
 Następnie wybierz pozycję **Zapisz**.
 
@@ -422,7 +422,7 @@ Sprawdzanie poprawności przy użyciu `SetTemperature` polecenia. Wykonaj poniż
 1. W okienku po lewej stronie wybierz polecenie **Settemperaturę** .
 1. W środkowym okienku wybierz pozycję **temperatura**.
 1. W okienku po prawej stronie wybierz pozycję **Dodaj weryfikację**.
-1. W oknie **Nowa Walidacja** Skonfiguruj sprawdzanie poprawności, jak pokazano w poniższej tabeli. Następnie wybierz przycisk **Utwórz**.
+1. W oknie **Nowa Walidacja** Skonfiguruj sprawdzanie poprawności, jak pokazano w poniższej tabeli. Następnie wybierz pozycję **Utwórz**.
 
 
     | Konfiguracja parametrów | Sugerowana wartość | Opis |

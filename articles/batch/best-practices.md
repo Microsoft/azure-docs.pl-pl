@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561842"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583279"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -23,35 +23,29 @@ W tym artykule omówiono zbiór najlepszych rozwiązań i przydatne porady dotyc
 
 ### <a name="pool-configuration-and-naming"></a>Konfiguracja puli i nazewnictwo
 
-- **Tryb alokacji puli** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika**. W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Tryb alokacji puli:** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika**. W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **"virtualMachineConfiguration" lub "cloudServiceConfiguration".**
-    Obecnie można tworzyć pule przy użyciu jednej z konfiguracji, nowe pule należy konfigurować przy użyciu "virtualMachineConfiguration", a nie "cloudServiceConfiguration". Wszystkie bieżące i nowe funkcje wsadowe będą obsługiwane przez pule konfiguracji maszyny wirtualnej. Pule konfiguracji Cloud Services nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości. Nie będzie można tworzyć nowych pul "cloudServiceConfiguration" ani dodawać nowych węzłów do istniejących pul [po 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Aby uzyskać więcej informacji, zobacz [Migrowanie konfiguracji puli partii z Cloud Services do maszyny wirtualnej](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+- **"virtualMachineConfiguration" lub "cloudServiceConfiguration":** Obecnie można tworzyć pule przy użyciu jednej z konfiguracji, nowe pule należy konfigurować przy użyciu "virtualMachineConfiguration", a nie "cloudServiceConfiguration". Wszystkie bieżące i nowe funkcje wsadowe będą obsługiwane przez pule konfiguracji maszyny wirtualnej. Pule konfiguracji Cloud Services nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości. Nie będzie można tworzyć nowych pul "cloudServiceConfiguration" ani dodawać nowych węzłów do istniejących pul [po 29 lutego 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Aby uzyskać więcej informacji, zobacz [Migrowanie konfiguracji puli partii z Cloud Services do maszyny wirtualnej](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
-- **Podczas określania zadania do mapowania puli należy wziąć pod uwagę czas wykonywania zadania i zadania.**
-    Jeśli zadania składają się głównie z zadań wykonywanych przed chwilą, a oczekiwana całkowita liczba zadań jest mała, w związku z czym ogólna oczekiwany czas wykonywania zadania nie jest długa, nie należy przydzielać nowej puli dla każdego zadania. Czas wykonywania tego zadania będzie zmniejszać czas ich alokacji.
+- **Podczas określania zadania do mapowania puli należy wziąć pod uwagę czas wykonywania zadania i zadania:** Jeśli zadania składają się głównie z zadań wykonywanych przed chwilą, a oczekiwana całkowita liczba zadań jest mała, w związku z czym ogólna oczekiwany czas wykonywania zadania nie jest długa, nie należy przydzielać nowej puli dla każdego zadania. Czas wykonywania tego zadania będzie zmniejszać czas ich alokacji.
 
-- **Pule powinny mieć więcej niż jeden węzeł obliczeniowy.**
-    Nie ma gwarancji, że poszczególne węzły są zawsze dostępne. Nietypowe błędy sprzętowe, aktualizacje systemu operacyjnego i hosta innych problemów mogą spowodować, że poszczególne węzły przestaną być w trybie offline. Jeśli obciążenie wsadowe wymaga deterministycznego, gwarantowanego postępu, należy przydzielić pule z wieloma węzłami.
+- **Pule powinny mieć więcej niż jeden węzeł obliczeniowy:** Nie ma gwarancji, że poszczególne węzły są zawsze dostępne. Nietypowe błędy sprzętowe, aktualizacje systemu operacyjnego i hosta innych problemów mogą spowodować, że poszczególne węzły przestaną być w trybie offline. Jeśli obciążenie wsadowe wymaga deterministycznego, gwarantowanego postępu, należy przydzielić pule z wieloma węzłami.
 
-- **Nie należy ponownie używać nazw zasobów.**
-    Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
+- **Nie używaj ponownie nazw zasobów:** Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
 
-- **Ciągłość podczas konserwacji i niepowodzenia puli.**
-    Najlepszym rozwiązaniem jest dynamiczne korzystanie z pul przez zadania. Jeśli zadania korzystają z tej samej puli dla wszystkich elementów, istnieje możliwość, że zadania nie będą działać, jeśli coś się nie dzieje z pulą. Jest to szczególnie ważne w przypadku obciążeń zależnych od czasu. Aby rozwiązać ten problem, wybierz lub Utwórz pulę dynamicznie przy zaplanowaniu każdego zadania lub aby zastąpić nazwę puli, aby można było ominąć pulę w złej kondycji.
+- **Ciągłość podczas konserwacji i niepowodzenia puli:** Najlepszym rozwiązaniem jest dynamiczne korzystanie z pul przez zadania. Jeśli zadania korzystają z tej samej puli dla wszystkich elementów, istnieje możliwość, że zadania nie będą działać, jeśli coś się nie dzieje z pulą. Jest to szczególnie ważne w przypadku obciążeń zależnych od czasu. Aby rozwiązać ten problem, wybierz lub Utwórz pulę dynamicznie przy zaplanowaniu każdego zadania lub aby zastąpić nazwę puli, aby można było ominąć pulę w złej kondycji.
 
-- **Ciągłość działania podczas konserwacji i niepowodzenia puli** Istnieje wiele możliwych przyczyn, które mogą uniemożliwić zwiększenie ilości puli do wymaganego rozmiaru, takiego jak błędy wewnętrzne, ograniczenia pojemności itd. Z tego powodu należy być gotowy do przekierowania zadań w innej puli (prawdopodobnie z innym rozmiarem maszyny wirtualnej — partia ta obsługuje tę funkcję za pośrednictwem [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), w razie potrzeby. Należy unikać używania identyfikatora puli statycznej z oczekiwaniami, który nigdy nie zostanie usunięty, i nigdy nie ulegnie zmianie.
+- **Ciągłość działania podczas konserwacji i niepowodzenia puli:** Istnieje wiele powodów, dla których Pula może nie zwiększyć się do żądanego rozmiaru, takich jak błędy wewnętrzne, ograniczenia pojemności itd. Z tego powodu należy być gotowy do przekierowania zadań w innej puli (prawdopodobnie z innym rozmiarem maszyny wirtualnej — partia ta obsługuje tę funkcję za pośrednictwem [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), w razie potrzeby. Należy unikać używania identyfikatora puli statycznej z oczekiwaniami, który nigdy nie zostanie usunięty, i nigdy nie ulegnie zmianie.
 
 ### <a name="pool-lifetime-and-billing"></a>Okres istnienia puli i rozliczenia
 
 Okres istnienia puli może się różnić w zależności od metody alokacji i opcji stosowanych do konfiguracji puli. Pule mogą mieć dowolny okres istnienia i różną liczbę węzłów obliczeniowych w puli w dowolnym momencie. Odpowiedzialność za zarządzanie węzłami obliczeniowymi w puli w sposób jawny lub za pomocą funkcji udostępnianych przez usługę ([Automatyczne skalowanie](nodes-and-pools.md#automatic-scaling-policy) lub [autopule](nodes-and-pools.md#autopools)).
 
-- **Przechowuj pule jako świeże.**
-    Zmień rozmiar pul na zero co kilka miesięcy, aby upewnić się, że są używane [najnowsze aktualizacje agenta węzła i poprawki błędów](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). W puli nie będą odbierane aktualizacje agentów węzła, chyba że zostanie on ponownie utworzony lub zmieniono rozmiar do 0 węzłów obliczeniowych. Przed ponownym utworzeniem lub zmianą puli zaleca się pobranie wszelkich dzienników agentów węzłów na potrzeby debugowania, zgodnie z opisem w sekcji [węzły](#nodes) .
+- **Przechowuj pule jako świeże:** Zmień rozmiar pul na zero co kilka miesięcy, aby upewnić się, że są używane [najnowsze aktualizacje agenta węzła i poprawki błędów](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). W puli nie będą odbierane aktualizacje agentów węzła, chyba że zostanie on ponownie utworzony lub zmieniono rozmiar do 0 węzłów obliczeniowych. Przed ponownym utworzeniem lub zmianą puli zaleca się pobranie wszelkich dzienników agentów węzłów na potrzeby debugowania, zgodnie z opisem w sekcji [węzły](#nodes) .
 
-- **Ponowne tworzenie puli** Na podobnej uwadze nie zaleca się usuwania i ponownego tworzenia pul. Zamiast tego Utwórz nową pulę, zaktualizuj istniejące zadania, aby wskazywały nową pulę. Po przeniesieniu wszystkich zadań do nowej puli Usuń starą pulę.
+- **Ponowne tworzenie puli:** Na podobnej uwadze nie zaleca się usuwania i ponownego tworzenia pul. Zamiast tego Utwórz nową pulę, zaktualizuj istniejące zadania, aby wskazywały nową pulę. Po przeniesieniu wszystkich zadań do nowej puli Usuń starą pulę.
 
-- **Wydajność i rozliczenia puli** Sama partia nie wiąże się z dodatkowymi opłatami, ale opłaty są naliczane za użyte zasoby obliczeniowe. Opłaty są naliczane za każdy węzeł obliczeniowy w puli, bez względu na stan, w którym się znajduje. Obejmuje to opłaty wymagane do uruchomienia węzła, takie jak koszty magazynu i sieci. Aby dowiedzieć się więcej o najlepszych rozwiązaniach, zobacz [Analiza kosztów i budżety dla Azure Batch](budget.md).
+- **Wydajność i rozliczenia puli:** Sama partia nie wiąże się z dodatkowymi opłatami, ale opłaty są naliczane za użyte zasoby obliczeniowe. Opłaty są naliczane za każdy węzeł obliczeniowy w puli, bez względu na stan, w którym się znajduje. Obejmuje to opłaty wymagane do uruchomienia węzła, takie jak koszty magazynu i sieci. Aby dowiedzieć się więcej o najlepszych rozwiązaniach, zobacz [Analiza kosztów i budżety dla Azure Batch](budget.md).
 
 ### <a name="pool-allocation-failures"></a>Błędy alokacji puli
 
@@ -73,7 +67,7 @@ Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu 
 
 ### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
 
-Zaleca się, aby nie zależeć od jednego regionu świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia*. W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
+Nie należy polegać na pojedynczym regionie świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia*. W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Stanowiska
 
@@ -133,7 +127,7 @@ Typowym przykładem jest zadanie kopiowania plików do węzła obliczeniowego. P
 
 ### <a name="avoid-short-execution-time"></a>Unikaj krótkiego czasu wykonywania
 
-Zadania, które są uruchamiane tylko przez jeden do dwóch sekund, nie są idealnym rozwiązaniem. Należy podjąć próbę wykonania znacznej nakładu pracy w pojedynczym zadaniu (10 sekund minimum, przechodząc do kilku godzin lub dni). Jeśli każde zadanie jest wykonywane przez jedną minutę (lub więcej), obciążenie planowania jako ułamek całkowitego czasu obliczeniowego jest małe.
+Zadania, które są uruchamiane tylko przez jeden do dwóch sekund, nie są idealnym rozwiązaniem. Spróbuj wykonać znaczną ilość pracy w pojedynczym zadaniu (10 sekund minimum, przechodząc do kilku godzin lub dni). Jeśli każde zadanie jest wykonywane przez jedną minutę (lub więcej), obciążenie planowania jako ułamek całkowitego czasu obliczeniowego jest małe.
 
 ### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Używanie zakresu puli dla krótkich zadań w węzłach systemu Windows
 

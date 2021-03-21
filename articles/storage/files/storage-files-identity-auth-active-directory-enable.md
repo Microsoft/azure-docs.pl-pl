@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
 ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472138"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
@@ -64,7 +64,7 @@ Przed włączeniem AD DS uwierzytelniania dla udziałów plików platformy Azure
 
 - Przed włączeniem i skonfigurowaniem uwierzytelniania AD DS w udziałach plików platformy Azure wprowadź odpowiednią konfigurację sieci. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md) .
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Azure Files uwierzytelnianie z AD DS jest dostępne we [wszystkich regionach usług Azure Public, Chiny i gov](https://azure.microsoft.com/global-infrastructure/locations/).
 

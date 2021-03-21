@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a56e5a4cae7c5a8e931b074f08a7152e53a8eb31
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151995"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674737"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Szybki Start: Tworzenie Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Azure Data Catalog to w pełni zarządzana usługa w chmurze służąca jako system rejestracji i odnajdywania zasobów danych przedsiębiorstwa. Szczegółowe omówienie tej usługi można znaleźć w artykule [Co to jest usługa Azure Data Catalog?](overview.md).
 
@@ -41,7 +43,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
 
     ![Przycisk tworzenia Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
-2. Określ **nazwę** wykazu danych, **subskrypcję** , której chcesz użyć, **lokalizację** katalogu i **warstwę cenową**. Następnie wybierz przycisk **Utwórz**.
+2. Określ **nazwę** wykazu danych, **subskrypcję** , której chcesz użyć, **lokalizację** katalogu i **warstwę cenową**. Następnie wybierz pozycję **Utwórz**.
 
 3. Przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
 
