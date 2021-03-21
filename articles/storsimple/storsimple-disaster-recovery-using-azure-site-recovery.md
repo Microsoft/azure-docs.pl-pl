@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6152d4b9ee28554efcb5b08b7a2d161a0723852
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301945"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670908"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatyczne rozwiązanie do odzyskiwania po awarii wykorzystujące Azure Site Recovery dla udziałów plików hostowanych w usłudze StorSimple
 
@@ -44,7 +44,7 @@ Wdrożenie jednego kliknięcia rozwiązania do odzyskiwania po awarii, które u�
    - Lokalne urządzenie magazynujące StorSimple zarejestrowane w usłudze Azure StorSimple Manager
    - Urządzenie w chmurze StorSimple utworzone w usłudze Azure StorSimple Manager. Urządzenie może być utrzymywane w stanie zamknięcia.
    - Udziały plików hostowane na woluminach skonfigurowanych na urządzeniu magazynującym StorSimple
-   - [Magazyn usług Azure Site Recovery Services](/azure/site-recovery/hyper-v-vmm-azure-tutorial) utworzony w ramach subskrypcji Microsoft Azure
+   - [Magazyn usług Azure Site Recovery Services](../site-recovery/hyper-v-vmm-azure-tutorial.md) utworzony w ramach subskrypcji Microsoft Azure
 
 Ponadto jeśli platforma Azure jest witryną odzyskiwania, uruchom narzędzie do [oceny gotowości maszyn wirtualnych platformy Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) na maszynach wirtualnych, aby upewnić się, że są one zgodne z maszynami wirtualnymi platformy Azure i usługami Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Ten krok wymaga przygotowania lokalnego środowiska serwera plików, utworzenia 
    1. Użyj roli usługi plików i magazynowania, aby utworzyć udziały plików na tych woluminach.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Aby utworzyć i przygotować Magazyn Azure Site Recovery
-Zapoznaj się z [dokumentacją Azure Site Recovery](/azure/site-recovery/) , aby rozpocząć pracę z usługą Azure Site Recovery przed ochroną maszyny wirtualnej serwera plików.
+Zapoznaj się z [dokumentacją Azure Site Recovery](../site-recovery/index.yml) , aby rozpocząć pracę z usługą Azure Site Recovery przed ochroną maszyny wirtualnej serwera plików.
 
 #### <a name="to-enable-protection"></a>Aby włączyć ochronę
 1. Odłącz obiekty docelowe iSCSI od lokalnych maszyn wirtualnych, które mają być chronione za pośrednictwem Azure Site Recovery:
@@ -124,7 +124,7 @@ Zapoznaj się z [dokumentacją Azure Site Recovery](/azure/site-recovery/) , aby
    > [!NOTE]
    > Spowoduje to, że udziały plików będą tymczasowo niedostępne.
    
-1. [Włącz ochronę maszyny wirtualnej](/azure/site-recovery/hyper-v-azure-tutorial) serwera plików z poziomu portalu Azure Site Recovery.
+1. [Włącz ochronę maszyny wirtualnej](../site-recovery/hyper-v-azure-tutorial.md) serwera plików z poziomu portalu Azure Site Recovery.
 1. Po rozpoczęciu początkowej synchronizacji można ponownie połączyć się z miejscem docelowym. Przejdź do inicjatora iSCSI, wybierz urządzenie StorSimple, a następnie kliknij przycisk **Połącz**.
 1. Gdy synchronizacja zostanie zakończona, a stan maszyny wirtualnej jest **chroniony**, wybierz maszynę wirtualną, wybierz kartę **Konfiguracja** i odpowiednio zaktualizuj sieć maszyny wirtualnej (jest to sieć, do której będzie częścią maszyn wirtualnych w trybie failover). Jeśli sieć nie zostanie wyświetlona, oznacza to, że synchronizacja nadal trwa.
 
@@ -174,13 +174,13 @@ Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces t
    - _RecoveryPlanName_**-ResourceGroupName**: Grupa Menedżer zasobów, która ma zasób StorSimple.
    - _RecoveryPlanName_**-ManagerName**: zasób StorSimple z urządzeniem StorSimple.
    - _RecoveryPlanName_**-DeviceName**: Urządzenie StorSimple, które musi zostać przełączone w tryb failover.
-   - _RecoveryPlanName_**-DeviceIpAddress**: adres IP urządzenia (można go znaleźć na karcie **urządzenia** w obszarze StorSimple Menedżer urządzeń sekcji &gt; **Ustawienia** &gt; **sieciowej** &gt; grupy **ustawień DNS** ).
+   - _RecoveryPlanName_**-DeviceIpAddress**: adres IP urządzenia (można go znaleźć na karcie **urządzenia** w obszarze StorSimple Device Manager sekcji &gt; **Ustawienia** &gt; **sieciowej** &gt; grupy **ustawień DNS** ).
    - _RecoveryPlanName_**-VolumeContainers**: rozdzielany przecinkami ciąg kontenerów woluminów znajdujących się na urządzeniu, które wymagają przełączenia w tryb failover; na przykład: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: urządzenie w chmurze StorSimple, na którym znajdują się przełączenia w tryb failover.
-   - _RecoveryPlanName_**-TARGETDEVICEIPADDRESS**: adres IP urządzenia docelowego (można go znaleźć na karcie sieci grupy ustawień sekcji **maszyny wirtualnej** &gt; **Settings** &gt; **Networking** ).
+   - _RecoveryPlanName_**-TARGETDEVICEIPADDRESS**: adres IP urządzenia docelowego (można go znaleźć na karcie sieci grupy ustawień sekcji **maszyny wirtualnej** &gt;  &gt;  ).
    - _RecoveryPlanName_**-StorageAccountName**: nazwa konta magazynu, w którym będzie przechowywany skrypt (który musi działać na maszynie wirtualnej w trybie failover). Może to być dowolne konto magazynu z ilością miejsca do tymczasowego przechowywania skryptu.
    - _RecoveryPlanName_**-StorageAccountKey**: klucz dostępu dla powyższego konta magazynu.
-   - _RecoveryPlanName_**-VMGUIDS**: w przypadku ochrony maszyny wirtualnej Azure Site Recovery przypisuje każdej maszynie wirtualnej unikatowy identyfikator, który zawiera szczegółowe informacje dotyczące maszyny wirtualnej przełączonej w tryb failover. Aby uzyskać VMGUID, wybierz kartę **Recovery Services** , a następnie kliknij pozycję **chronione** &gt; **grupy ochrony** elementów &gt; **Machines** &gt; **Właściwości** maszyny. Jeśli masz wiele maszyn wirtualnych, Dodaj identyfikatory GUID jako ciąg rozdzielony przecinkami.
+   - _RecoveryPlanName_**-VMGUIDS**: w przypadku ochrony maszyny wirtualnej Azure Site Recovery przypisuje każdej maszynie wirtualnej unikatowy identyfikator, który zawiera szczegółowe informacje dotyczące maszyny wirtualnej przełączonej w tryb failover. Aby uzyskać VMGUID, wybierz kartę **Recovery Services** , a następnie kliknij pozycję **chronione** &gt; **grupy ochrony** elementów &gt;  &gt; **Właściwości** maszyny. Jeśli masz wiele maszyn wirtualnych, Dodaj identyfikatory GUID jako ciąg rozdzielony przecinkami.
 
      Na przykład jeśli nazwa planu odzyskiwania to fileServerpredayRP, wówczas **zmienne**, **połączenia** i **Certyfikaty** powinny być wyświetlane w następujący sposób po dodaniu wszystkich zasobów.
 
@@ -282,7 +282,7 @@ Zapoznaj się z przewodnikiem uzupełniania [rozwiązania Active Directory Dr](.
    
    ![Uruchom tryb failover](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Postęp można śledzić, klikając maszynę wirtualną, aby otworzyć jej właściwości, lub w **zadaniu testowego trybu failover** w obszarze zadania nazwy magazynu &gt; **Jobs** &gt; **Site Recovery zadania**.
+1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Postęp można śledzić, klikając maszynę wirtualną, aby otworzyć jej właściwości, lub w **zadaniu testowego trybu failover** w obszarze zadania nazwy magazynu &gt;  &gt; **Site Recovery zadania**.
 1. Po zakończeniu pracy w trybie failover należy również sprawdzić, czy replika maszyny Azure jest wyświetlana w &gt; **Virtual Machines** Azure Portal. Możesz wykonywać walidację.
 1. Po zakończeniu walidacji kliknij pozycję **walidacje ukończone**. Spowoduje to usunięcie woluminów StorSimple i zamknięcie urządzenia w chmurze StorSimple.
 1. Gdy skończysz, kliknij przycisk **Oczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze Uwagi zarejestruj i zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Spowoduje to usunięcie maszyny wirtualnej, która została utworzona podczas testu pracy w trybie failover.

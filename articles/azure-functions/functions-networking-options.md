@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463038"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606994"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -81,34 +81,15 @@ Aby dowiedzieć się, jak skonfigurować integrację sieci wirtualnej, zobacz [I
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>Łączenie z zabezpieczonymi zasobami punktu końcowego usługi
 
-Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług platformy Azure do sieci wirtualnej za pomocą punktów końcowych usługi. Następnie należy zintegrować aplikację funkcji z tą siecią wirtualną, aby uzyskać dostęp do zasobu. Ta konfiguracja jest obsługiwana we wszystkich planach, które obsługują integrację z siecią wirtualną.
+Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług platformy Azure do sieci wirtualnej za pomocą punktów końcowych usługi. Następnie należy zintegrować aplikację funkcji z tą siecią wirtualną, aby uzyskać dostęp do zasobu. Ta konfiguracja jest obsługiwana we wszystkich [planach](functions-scale.md#networking-features) , które obsługują integrację z siecią wirtualną.
 
 Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego. Ta funkcja jest obecnie dostępna dla wszystkich obsługiwanych jednostek SKU sieci wirtualnej systemu Windows, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieci wirtualne są dostępne tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego. 
 
-1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
-1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.
-1. Utwórz lub skonfiguruj inne konto magazynu.  To konto magazynu jest zabezpieczane za pomocą punktów końcowych usługi i łącz naszą funkcję.
-1. [Utwórz udział plików](../storage/files/storage-how-to-create-file-share.md#create-file-share) na koncie bezpiecznego magazynu.
-1. Włącz punkty końcowe usługi lub prywatny punkt końcowy dla konta magazynu.  
-    * W przypadku korzystania z połączeń prywatnych punktów końcowych konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` `blob` zasobów i.  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również konieczne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
-    * W przypadku korzystania z punktów końcowych usługi należy włączyć podsieć dedykowaną aplikacjom funkcji dla kont magazynu.
-1. Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
-1. Skopiuj parametry połączenia dla tego konta magazynu.
-1. Zaktualizuj **Ustawienia aplikacji** w obszarze **Konfiguracja** dla aplikacji funkcji w następujący sposób:
-    - `AzureWebJobsStorage` do parametrów połączenia dla zabezpieczonego konta magazynu.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` do parametrów połączenia dla zabezpieczonego konta magazynu.
-    - `WEBSITE_CONTENTSHARE` Nazwa udziału plików utworzonego na koncie bezpiecznego magazynu.
-    - Utwórz nowe ustawienie o nazwie `WEBSITE_CONTENTOVERVNET` i wartości `1` .
-    - Jeśli konto magazynu korzysta z połączeń prywatnych punktów końcowych, należy sprawdzić lub dodać następujące ustawienia
-        - `WEBSITE_VNET_ROUTE_ALL` o wartości `1` .
-        - `WEBSITE_DNS_SERVER` o wartości `168.63.129.16` 
-1. Zapisz ustawienia aplikacji.  
-
-Aplikacja funkcji zostanie uruchomiona ponownie i zostanie teraz połączona z bezpiecznym kontem magazynu.
+Ta funkcja aktualnie działa dla wszystkich jednostek SKU obsługiwanych przez sieć wirtualną systemu Windows w ramach dedykowanego planu (App Service) i planu Premium. Plan zużycia nie jest obsługiwany. Aby dowiedzieć się, jak skonfigurować funkcję przy użyciu konta magazynu ograniczonego do sieci prywatnej, zobacz [ograniczanie konta magazynu do sieci wirtualnej](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Używanie odwołań do usługi Key Vault
 
@@ -173,6 +154,8 @@ Aby dowiedzieć się więcej, zapoznaj się z dokumentacją dotyczącą [App Ser
 Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App Service lub App Service Environment. Można skonfigurować ograniczenia ruchu wychodzącego dla sieci wirtualnej, w której wdrożono App Service Environment.
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
+
+Aby dowiedzieć się, jak kontrolować wychodzący adres IP przy użyciu sieci wirtualnej, zobacz [Samouczek: kontrola Azure Functions wychodzący adres IP z bramą NAT sieci wirtualnej platformy Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="automation"></a>Automation
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:

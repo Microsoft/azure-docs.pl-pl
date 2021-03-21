@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
 ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182166"
 ---
 # <a name="what-is-traffic-manager"></a>Co to jest Traffic Manager?
@@ -54,7 +54,7 @@ Usługa Traffic Manager obsługuje zewnętrzne punkty końcowe poza platformą A
 
 Dzięki użyciu [zagnieżdżonych profilów usługi Traffic Manager](traffic-manager-nested-profiles.md) można łączyć wiele metod routingu w celu tworzenia zaawansowanych i elastycznych reguł, które pozwalają na skalowanie pod kątem potrzeb większych i bardziej złożonych wdrożeń.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

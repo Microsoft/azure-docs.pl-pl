@@ -8,10 +8,10 @@ author: emuench
 ms.author: navits
 ms.date: 07/17/2020
 ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102613633"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 — Walidacja funkcjonalna i działania operacji
@@ -56,7 +56,7 @@ Aby zaplanować ostateczne wywołanie przeglądu, należy skontaktować się [ap
 
       2. Przejdź do   >    >  **pakietu rozwiązania testowego** zarządzania rozwiązaniami LCS. Wykonaj zrzuty ekranu zawierające Omówienie pakietu i treść pokazaną w poniższych przykładach:
 
-    | Pole | Image (Obraz) |
+    | Pole | Obraz |
     | --- | --- |
     | Przegląd pakietu | [![Zrzut ekranu przedstawiający okno "przegląd pakietu".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Osoby zatwierdzające rozwiązanie</li></ul> | [![Ekran przegląd pakietu](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: cb066ecc1dc11985c0ccb0fa687a15d6b038b9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8cc4bc6907f83ce062fed82dde17815fc4debd67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321614"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719771"
 ---
 Zobacz listę jednostek SKU i informacje o cenach poniżej. 
 
@@ -32,9 +32,8 @@ Zobacz listę jednostek SKU i informacje o cenach poniżej.
 | Custom Vision — szkolenie   | `CustomVision.Training`   |
 | Rozpoznawanie twarzy                       | `Face`                    |
 | Rozpoznawanie formularzy            | `FormRecognizer`          |
-| Rozpoznawanie pisma odręcznego             | `InkRecognizer`           |
 
-#### <a name="search"></a>Wyszukiwanie
+#### <a name="search"></a>Wyszukaj
 
 | Usługa            | Rodzaj                  |
 |--------------------|-----------------------|
@@ -55,7 +54,6 @@ Zobacz listę jednostek SKU i informacje o cenach poniżej.
 
 | Usługa            | Rodzaj                |
 |--------------------|---------------------|
-| Zrozumienie formularza | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Analiza tekstu     | `TextAnalytics`     |

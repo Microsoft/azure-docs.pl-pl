@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3bd36d9e0654225b7678b7cd7a3b8ebdb381d1b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "69014449"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674601"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Skróty klawiaturowe usługi Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Skróty klawiaturowe narzędzia rejestracji Data Catalog źródła danych
 

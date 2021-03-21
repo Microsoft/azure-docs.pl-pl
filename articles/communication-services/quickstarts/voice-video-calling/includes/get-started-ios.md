@@ -1,17 +1,17 @@
 ---
 title: Szybki Start — Dodawanie wywołania do aplikacji systemu iOS przy użyciu usług Azure Communications Services
 description: W tym przewodniku szybki start dowiesz się, jak korzystać z biblioteki klienta wywołującego usługę Azure Communications Services dla systemu iOS.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 36ec27f3a0e69126a91b52bed26dc645ec89e46e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656651"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719702"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu iOS.
 
@@ -37,7 +37,8 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalowanie pakietu i zależności za pomocą CocoaPods
 
-1. Utwórz plik podfile dla aplikacji, tak jak to:
+1. Aby utworzyć plik podfile dla aplikacji, Otwórz Terminal i przejdź do folderu projektu i uruchom ```pod init```
+3. Dodaj następujący kod do plik podfile i Zapisz:
 
    ```
    platform :ios, '13.0'
@@ -50,7 +51,7 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
    end
    ```
 
-2. Uruchom polecenie `pod install`.
+3. Uruchom polecenie `pod install`.
 3. Otwórz `.xcworkspace` program with Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Zażądaj dostępu do mikrofonu

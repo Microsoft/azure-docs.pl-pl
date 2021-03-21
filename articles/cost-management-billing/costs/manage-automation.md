@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a54b8243b5a680168b2e5806dd58c0fa4109728f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499683"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670277"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -182,9 +182,9 @@ Języki obsługiwane przez kod kultury:
 | pl-pl | Polski (Polska) |
 | tr-tr | Turecki (Turcja) |
 | da-dk | Duński (Dania) |
-| en-gb | Angielski (Zjednoczone Królestwo) |
+| pl GB | Angielski (Zjednoczone Królestwo) |
 | hu-hu | Węgierski (Węgry) |
-| nb-bo | Norweski, Bokmal (Norwegia) |
+| nb-no | Norweski, Bokmal (Norwegia) |
 | nl-nl | Niderlandzki (Holandia) |
 | pt-pt | Portugalski (Portugalia) |
 | sv-se | Szwedzki (Szwecja) |

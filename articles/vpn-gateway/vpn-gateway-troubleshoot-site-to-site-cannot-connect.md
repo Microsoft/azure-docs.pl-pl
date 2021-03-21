@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658353"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670891"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Rozwiązywanie problemów: połączenie sieci VPN typu lokacja-lokacja platformy Azure nie może nawiązać połączenia i przestanie działać
 
@@ -110,5 +110,5 @@ Funkcja doskonałe utajnienie przekazywania dalej może spowodować problemy z p
 
 ## <a name="next-steps"></a>Następne kroki
 
--   [Konfigurowanie połączenia typu lokacja-lokacja z siecią wirtualną](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Konfigurowanie połączenia typu lokacja-lokacja z siecią wirtualną](./tutorial-site-to-site-portal.md)
 -   [Konfigurowanie zasad protokołu IPsec/IKE dla połączeń sieci VPN typu lokacja-lokacja](vpn-gateway-ipsecikepolicy-rm-powershell.md)

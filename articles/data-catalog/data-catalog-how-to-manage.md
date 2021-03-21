@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 9d035417b613c81487c493bde90cdcc461f04412
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0182f744e038bc8080b9fb96bfdb1eeda16b86c0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017291"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674856"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Zarządzanie zasobami danych w Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Wprowadzenie
 Azure Data Catalog jest przeznaczony do odnajdowania źródeł danych, dzięki czemu można łatwo odnajdywać i zrozumieć źródła danych potrzebne do przeprowadzenia analizy i podejmowania decyzji. Te funkcje odnajdywania zapewniają największy wpływ, gdy ty i inni użytkownicy będą mogli znaleźć i zrozumieć największy zakres dostępnych źródeł danych. Z tymi elementami należy pamiętać, że domyślne zachowanie Data Catalog dotyczy wszystkich zarejestrowanych źródeł danych, które mają być widoczne i wykrywalne przez wszystkich użytkowników wykazu.
 
