@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574462"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587283"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -204,7 +204,7 @@ Jeśli dostawca usług oferuje ExpressRoute w obu lokacjach, możesz współprac
 
 Tak. Można mieć wiele obwodów usługi ExpressRoute z tymi samymi lub różnymi dostawcami usług. Jeśli Metro ma wiele lokalizacji komunikacji równorzędnej ExpressRoute, a obwody są tworzone w różnych lokalizacjach komunikacji równorzędnej, można połączyć je z tą samą siecią wirtualną. Jeśli obwody są tworzone w tej samej lokalizacji komunikacji równorzędnej, można połączyć maksymalnie cztery obwody z tą samą siecią wirtualną.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Jak mogę połączyć moje sieci wirtualne z obwodem ExpressRoute
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Jak mogę połączyć moje sieci wirtualne z obwodem ExpressRoute?
 
 Podstawowe kroki są następujące:
 
@@ -298,6 +298,15 @@ Należy również wykonać monit z dostawcą połączenia, aby upewnić się, ż
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Jak mogę zmienić przepustowości obwodu ExpressRoute?
 
 Przepustowość obwodu usługi ExpressRoute można zaktualizować za pomocą interfejsu API REST lub polecenia cmdlet programu PowerShell.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>Otrzymuję powiadomienie o konserwacji w ramach obwodu ExpressRoute. Jaki jest techniczny wpływ tej konserwacji?
+
+W przypadku korzystania z obwodu w [trybie aktywny-aktywny](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections)należy mieć minimalny wpływ na czas konserwacji. Przeprowadzamy konserwację na głównych i pomocniczych połączeniach obwodu osobno. Zaplanowana konserwacja zwykle będzie wykonywana poza godzinami pracy w strefie czasowej lokalizacji komunikacji równorzędnej i nie można wybrać czasu konserwacji.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>Otrzymałem powiadomienie o uaktualnieniu oprogramowania lub obsłudze w mojej bramie ExpressRoute. Jaki jest techniczny wpływ tej konserwacji?
+
+Podczas uaktualniania oprogramowania lub konserwacji w ramach bramy należy mieć minimalne znaczenie. Brama ExpressRoute składa się z wielu wystąpień i podczas uaktualnień, wystąpienia są przełączane do trybu offline po jednym naraz. Chociaż może to spowodować, że brama tymczasowo obsłuży niższą przepływność sieci do sieci wirtualnej, sama Brama nie będzie powodować żadnych przestojów.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 

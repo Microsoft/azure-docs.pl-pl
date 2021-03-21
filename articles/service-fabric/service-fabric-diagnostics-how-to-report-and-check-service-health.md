@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998247"
 ---
 # <a name="report-and-check-service-health"></a>Tworzenie raportów i sprawdzanie kondycji usług
@@ -57,10 +57,10 @@ Musisz mieć zainstalowane następujące elementy:
 Szablony projektów Service Fabric w programie Visual Studio zawierają przykładowy kod. Poniższe kroki pokazują, jak można raportować niestandardowe zdarzenia dotyczące kondycji z kodu usługi. Takie raporty są automatycznie wyświetlane w standardowych narzędziach do monitorowania kondycji, które zapewnia Service Fabric, takich jak Service Fabric Explorer, Azure Portal Health View i PowerShell.
 
 1. Otwórz ponownie aplikację utworzoną wcześniej w programie Visual Studio lub Utwórz nową aplikację przy użyciu szablonu **usługi stanowej** programu Visual Studio.
-1. Otwórz plik Stateful1.cs i Znajdź `myDictionary.TryGetValueAsync` wywołanie w `RunAsync` metodzie. Można zobaczyć, że ta metoda zwraca `result` , który przechowuje bieżącą wartość licznika, ponieważ logika klucza w tej aplikacji ma mieć uruchomioną liczbę. Jeśli ta aplikacja była aplikacją rzeczywistą, a w przypadku braku wyniku nie można oflagować tego zdarzenia.
+1. Otwórz plik Stateful1. cs i Znajdź `myDictionary.TryGetValueAsync` wywołanie w `RunAsync` metodzie. Można zobaczyć, że ta metoda zwraca `result` , który przechowuje bieżącą wartość licznika, ponieważ logika klucza w tej aplikacji ma mieć uruchomioną liczbę. Jeśli ta aplikacja była aplikacją rzeczywistą, a w przypadku braku wyniku nie można oflagować tego zdarzenia.
 1. Aby zgłosić zdarzenie kondycji, gdy brak wyniku reprezentuje błąd, należy dodać następujące kroki.
    
-    a. Dodaj `System.Fabric.Health` przestrzeń nazw do pliku Stateful1.cs.
+    a. Dodaj `System.Fabric.Health` przestrzeń nazw do pliku Stateful1. cs.
    
     ```csharp
     using System.Fabric.Health;

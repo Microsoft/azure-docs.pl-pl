@@ -47,7 +47,7 @@ Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu 
 | Francuski (Francja) | fr-FR |
 | Włoski (Włochy) | it-IT |
 | Niderlandzki (Holandia) | nl-NL |
-| Portugalski (Brazylia) | pt-BR |
+| portugalski (Brazylia) | pt-BR |
 | Portugalski (Portugalia) | pt-PT |
 | Szwedzki (Szwecja) | sv-SE |
 

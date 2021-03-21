@@ -9,11 +9,11 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 37ba4f10365fca4292171c3bd2d9a3e7d00045bb
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98985873"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Konfiguruj wystąpienie zarządzane SQL z obsługą usługi Azure Arc
@@ -60,13 +60,13 @@ Aby zmienić dowolne z tych ustawień, wykonaj następujące kroki:
    traceflag0 = 1204
    ```
 
-1. Kopiuj `mssql-custom.conf` plik do `/var/opt/mssql` w `arc-sqlmi` kontenerze w obszarze `master-0` . Zamień na `<namespaceName>` przestrzeń nazw, w której jest wdrożone to wystąpienie.
+1. Kopiuj `mssql-custom.conf` plik do `/var/opt/mssql` w `mssql-miaa` kontenerze w obszarze `master-0` . Zamień `<namespaceName>` na nazwę klastra danych Big Data.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. Uruchom ponownie wystąpienie zarządzane SQL.  Zamień na `<namespaceName>` przestrzeń nazw, w której jest wdrożone to wystąpienie.
+1. Uruchom ponownie wystąpienie SQL Server.  Zamień `<namespaceName>` na nazwę klastra danych Big Data.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

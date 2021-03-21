@@ -17,10 +17,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5c84e7c753e6d1eb1d357320857e4c159cc13cfc
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013758"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą zestawu .NET SDK
@@ -57,7 +57,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Dodaj kod zarządzający punktami końcowymi przesyłania strumieniowego
     
-Zastąp kod w Program.cs następującym kodem:
+Zastąp kod w programie. cs następującym kodem:
 
 ```csharp
 using System;

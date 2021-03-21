@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181858"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Samouczek: Integrowanie konsoli infrastruktury chmurowej Oracle z Azure Active Directory
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy**.
  
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
       ![image2](./media/oracle-cloud-tutorial/config07.png)
     
@@ -124,7 +124,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz polecenie `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
       ![image4](./media/oracle-cloud-tutorial/config08.png)
 
@@ -142,7 +142,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B. Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -198,7 +198,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Po wybraniu kafelka konsola infrastruktury w chmurze Oracle w panelu dostępu nastąpi przekierowanie do strony logowania do konsoli infrastruktury w chmurze firmy Oracle. Wybierz **dostawcę tożsamości** z menu rozwijanego, a następnie kliknij pozycję **Kontynuuj** , jak pokazano poniżej, aby się zalogować. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-![Konfiguracja](./media/oracle-cloud-tutorial/config10.png)
+![Konfigurowanie](./media/oracle-cloud-tutorial/config10.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

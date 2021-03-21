@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997634"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrukcje: Konfigurowanie i Włączanie zasad ryzyka
@@ -54,7 +54,7 @@ Skonfigurowane lokalizacje zaufanej [sieci](../conditional-access/location-condi
 Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z logowaniem, wykonaj następujące czynności.
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Overview**.
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  .
 1. Wybierz pozycję **zasady ryzyka dla użytkowników**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.

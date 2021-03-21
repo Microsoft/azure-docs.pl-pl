@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
 ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797846"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Przegląd migracji: SQL Server do SQL Server na maszynach wirtualnych platformy Azure
@@ -119,9 +119,9 @@ Podczas migrowania SQL Server usług analizy biznesowej poza zakresem migracji b
 
 Te usługi to na przykład:
 
-- [**Usługi SQL Server Integration Services (SSIS)**](/sql/integration-services/install-windows/upgrade-integration-services)
+- [**SQL Server Integration Services (SSIS)**](/sql/integration-services/install-windows/upgrade-integration-services)
 - [**SQL Server Reporting Services (SSRS)**](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
-- [**Usługi SQL Server Analysis Services (SSAS)**](/sql/database-engine/install-windows/upgrade-analysis-services)
+- [**SQL Server Analysis Services (SSAS)**](/sql/database-engine/install-windows/upgrade-analysis-services)
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 
@@ -155,7 +155,7 @@ Aby rozpocząć migrację baz danych SQL Server do SQL Server na maszynach wirtu
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Aby uzyskać informacje o licencjonowaniu, zobacz

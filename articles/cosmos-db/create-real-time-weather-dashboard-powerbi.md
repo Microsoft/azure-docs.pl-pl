@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101657540"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
@@ -25,7 +25,7 @@ W tym artykule opisano kroki wymagane do utworzenia pulpitu nawigacyjnego pogody
 Istnieje wiele sposobów konfigurowania pulpitów nawigacyjnych raportowania dla danych przechowywanych w Azure Cosmos DB. W zależności od wymagań dotyczących nieodświeżoności i wielkości danych w poniższej tabeli opisano konfigurację raportowania dla każdego scenariusza:
 
 
-|Scenariusz |Konfigurowanie |
+|Scenariusz |Konfiguracja |
 |---------|---------|
 |1. generowanie raportów ad hoc (bez odświeżania)    |  [Power BI łącznik Azure Cosmos DB z trybem importu](powerbi-visualize.md)       |
 |2. generowanie raportów ad hoc przy użyciu okresowego odświeżania   |  [Power BI łącznik Azure Cosmos DB z trybem importu (zaplanowane okresowo odświeżanie)](powerbi-visualize.md)       |

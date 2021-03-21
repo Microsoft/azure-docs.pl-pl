@@ -1,6 +1,6 @@
 ---
 title: Dezaktywowanie i usuwanie urządzenia z serii StorSimple 8000 | Microsoft Docs
-description: Dowiedz się, jak dezaktywować i usuwać Urządzenie StorSimple połączone z usługą StorSimple Menedżer urządzeń.
+description: Dowiedz się, jak dezaktywować i usuwać Urządzenie StorSimple połączone z usługą StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,24 +14,24 @@ ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017189"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Dezaktywacja i usuwanie urządzenia StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule opisano sposób dezaktywowania i usuwania urządzenia StorSimple, które jest połączone z usługą StorSimple Menedżer urządzeń. Wskazówki zawarte w tym artykule dotyczą tylko urządzeń z serii StorSimple 8000, włącznie z urządzeniami w chmurze StorSimple. Jeśli używasz macierzy wirtualnej StorSimple, przejdź do pozycji [Dezaktywuj i Usuń tablicę wirtualną StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
+W tym artykule opisano sposób dezaktywowania i usuwania urządzenia StorSimple, które jest połączone z usługą StorSimple Device Manager. Wskazówki zawarte w tym artykule dotyczą tylko urządzeń z serii StorSimple 8000, włącznie z urządzeniami w chmurze StorSimple. Jeśli używasz macierzy wirtualnej StorSimple, przejdź do pozycji [Dezaktywuj i Usuń tablicę wirtualną StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
 
-Dezaktywacja łączy połączenie między urządzeniem a odpowiadającą Menedżer urządzeń usługą StorSimple. Możesz zastanowić się, że urządzenie StorSimple jest poza usługą (na przykład w przypadku zastąpienia lub uaktualnienia urządzenia lub jeśli już nie używasz usługi StorSimple). Jeśli tak, należy dezaktywować urządzenie przed jego usunięciem.
+Dezaktywacja łączy połączenie między urządzeniem a odpowiadającą Device Manager usługą StorSimple. Możesz zastanowić się, że urządzenie StorSimple jest poza usługą (na przykład w przypadku zastąpienia lub uaktualnienia urządzenia lub jeśli już nie używasz usługi StorSimple). Jeśli tak, należy dezaktywować urządzenie przed jego usunięciem.
 
 W przypadku dezaktywowania urządzenia żadne dane przechowywane lokalnie na urządzeniu nie są już dostępne. Można odzyskać tylko dane skojarzone z urządzeniem, które było przechowywane w chmurze.
 
 > [!WARNING]
-> Dezaktywacja jest operacją TRWAŁą i nie można jej cofnąć. Dezaktywowanego urządzenia nie można zarejestrować w usłudze StorSimple Menedżer urządzeń, chyba że zostanie zresetowana do domyślnych ustawień fabrycznych.
+> Dezaktywacja jest operacją TRWAŁą i nie można jej cofnąć. Dezaktywowanego urządzenia nie można zarejestrować w usłudze StorSimple Device Manager, chyba że zostanie zresetowana do domyślnych ustawień fabrycznych.
 >
 > Proces resetowania do ustawień fabrycznych usuwa wszystkie dane przechowywane lokalnie na urządzeniu. W związku z tym przed dezaktywacją urządzenia musisz wykonać migawkę w chmurze dla wszystkich danych. Ta migawka w chmurze umożliwia odzyskanie wszystkich danych na późniejszym etapie.
 
@@ -120,5 +120,5 @@ Gdy urządzenie w chmurze zostanie zdezaktywowane, można je usunąć z listy ur
 
 * Aby przywrócić domyślne ustawienia fabryczne urządzenia, przejdź do pozycji [Zresetuj urządzenie do domyślnych ustawień fabrycznych](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Aby uzyskać pomoc techniczną, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
-* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Device Manager, przejdź do [korzystania z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

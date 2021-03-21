@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: lajanuar
 ms.openlocfilehash: 2bc2c1361c7d2f73ff8a67e906a6db725f669d52
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895411"
 ---
 # <a name="request-limits-for-translator"></a>Limity żądań dla translatora
@@ -80,5 +80,5 @@ W przypadku korzystania z funkcji [BreakSentence](./reference/v3-0-break-sentenc
 ## <a name="next-steps"></a>Następne kroki
 
 * [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-* [Dostępność regionalna](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+* [Dostępność w regionach](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 * [Dokumentacja usługi Translator w wersji 3](./reference/v3-0-reference.md)

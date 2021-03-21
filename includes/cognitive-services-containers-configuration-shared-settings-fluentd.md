@@ -5,13 +5,13 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001196"
 ---
-Źródłem jest moduł zbierający dane Open Source służący do rejestrowania ujednoliconego. `Fluentd`Ustawienia zarządzają połączeniem kontenera z serwerem pośrednim. [Fluentd](https://www.fluentd.org) Kontener obejmuje pozostały dostawca rejestrowania, który umożliwia kontenerowi zapisywanie dzienników i, opcjonalnie, danych metryk na serwerze pośrednim.
+Źródłem jest moduł zbierający dane Open Source służący do rejestrowania ujednoliconego. `Fluentd`Ustawienia zarządzają połączeniem kontenera z serwerem pośrednim. [](https://www.fluentd.org) Kontener obejmuje pozostały dostawca rejestrowania, który umożliwia kontenerowi zapisywanie dzienników i, opcjonalnie, danych metryk na serwerze pośrednim.
 
 W poniższej tabeli opisano ustawienia konfiguracji obsługiwane w `Fluentd` sekcji.
 

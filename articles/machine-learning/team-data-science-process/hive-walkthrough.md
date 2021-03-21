@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002225"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: Użyj klastrów Azure HDInsight Hadoop
@@ -117,23 +117,23 @@ Tutaj opisano, jak używać AzCopy do przenoszenia plików zawierających dane. 
 
 W następujących poleceniach AzCopy Zastąp następujące parametry wartościami, które zostały określone podczas tworzenia klastra usługi Hadoop i rozpakowywanie plików danych.
 
-* ***\<path_to_data_folder>** _ Katalog (wraz ze ścieżką) na komputerze, który zawiera niespakowane pliki danych.  
-_ * **\<storage account name of Hadoop cluster>** _ Konto magazynu skojarzone z klastrem usługi HDInsight.
-_ * **\<default container of Hadoop cluster>** _ Domyślny kontener używany przez klaster. Nazwa domyślnego kontenera jest zwykle taka sama jak nazwa klastra. Na przykład jeśli klaster ma nazwę "abc123.azurehdinsight.net", domyślnym kontenerem jest abc123.
-_ * **\<storage account key>** _ Klucz dla konta magazynu używanego przez klaster.
+* ***\<path_to_data_folder>*** Katalog (wraz ze ścieżką) na komputerze, który zawiera niespakowane pliki danych.  
+* ***\<storage account name of Hadoop cluster>*** Konto magazynu skojarzone z klastrem usługi HDInsight.
+* ***\<default container of Hadoop cluster>*** Domyślny kontener używany przez klaster. Nazwa domyślnego kontenera jest zwykle taka sama jak nazwa klastra. Na przykład jeśli klaster ma nazwę "abc123.azurehdinsight.net", domyślnym kontenerem jest abc123.
+* ***\<storage account key>*** Klucz dla konta magazynu używanego przez klaster.
 
 W wierszu polecenia lub w oknie programu Windows PowerShell uruchom następujące dwa polecenia AzCopy.
 
-To polecenie przekazuje dane podróży do katalogu _*_nyctaxitripraw_*_ w domyślnym kontenerze klastra Hadoop.
+To polecenie przekazuje dane podróży do katalogu ***nyctaxitripraw*** w domyślnym kontenerze klastra Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 ```
 
-To polecenie przekazuje dane dotyczące taryfy do katalogu ***nyctaxifareraw** _ w domyślnym kontenerze klastra Hadoop.
+To polecenie przekazuje dane dotyczące taryfy do katalogu ***nyctaxifareraw*** w domyślnym kontenerze klastra Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 ```
 
 Dane powinny teraz znajdować się w magazynie obiektów blob i być gotowe do użycia w ramach klastra usługi HDInsight.
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Te dwa polecenia pobierają wszystkie pliki ". HQL", które są konieczne w tym instruktażu, do katalogu lokalnego ***C:\temp&#92;** _ w węźle głównym.
+Te dwa polecenia pobierają wszystkie pliki ". HQL", które są konieczne w tym instruktażu do katalogu lokalnego ***C:\temp&#92;*** w węźle głównym.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Tworzenie bazy danych i tabel programu Hive partycjonowane według miesiąca
 > [!NOTE]
@@ -182,7 +182,7 @@ W wierszu polecenia usługi Hive, uruchom następujące polecenie w wierszu pole
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Poniżej przedstawiono zawartość pliku _ *C:\temp\sample \_ Hive \_ create \_ DB and Tables \_ \_ . HQL**, który tworzy bazę danych Hive **nyctaxidb** oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
+Poniżej znajduje się zawartość pliku **C:\temp\sample \_ Hive \_ Create DB i Tables \_ \_ \_ . HQL** , który tworzy bazę danych Hive **nyctaxidb** oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -862,7 +862,7 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   **Używany przez Ciebie opis:** Regresja logistyczna dla dwóch klas
 
-  a. W przypadku tego problemu, etykieta docelowa (lub klasy **tipped**) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, **\_ Klasa etykietki**, **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu, etykieta docelowa (lub klasy ) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, **\_ Klasa etykietki**, **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono doświadczenia umożliwiające prognozowanie, czy Porada została zapłacona za daną podróż:
 

@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
 ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101691250"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
@@ -170,7 +170,7 @@ Aby monitorować stan bazy danych i włączyć alert o utracie dostępu do funkc
 
 Po zaszyfrowaniu bazy danych za pomocą usługi TDE przy użyciu klucza z Key Vault wszystkie nowo wygenerowane kopie zapasowe są również szyfrowane za pomocą tej samej funkcji ochrony TDE. Po zmianie funkcji ochrony TDE stare kopie zapasowe bazy danych **nie są aktualizowane** , aby można było używać najnowszej funkcji ochrony TDE.
 
-Aby przywrócić kopię zapasową zaszyfrowaną przy użyciu funkcji ochrony TDE z Key Vault, upewnij się, że materiał klucza jest dostępny dla serwera docelowego. Dlatego zalecamy zachowanie wszystkich starych wersji funkcji ochrony TDE w magazynie kluczy, aby można było przywrócić kopie zapasowe bazy danych.
+Aby przywrócić kopię zapasową zaszyfrowaną przy użyciu funkcji ochrony TDE z Key Vault, upewnij się, że materiał klucza jest dostępny dla serwera docelowego. Dlatego zalecamy zachowywanie wszystkich starych wersji funkcji ochrony TDE w magazynie kluczy, aby można było przywracać kopie zapasowe bazy danych.
 
 > [!IMPORTANT]
 > W każdej chwili dla serwera nie może być więcej niż jeden zestaw funkcji ochrony TDE. Jest to klucz oznaczony przy użyciu funkcji "Ustaw klucz jako domyślną ochronę TDE" w bloku Azure Portal. Jednak wiele dodatkowych kluczy można połączyć z serwerem bez oznaczania ich jako funkcji ochrony TDE. Te klucze nie są używane do ochrony klucza szyfrowania danych, ale mogą być używane podczas przywracania z kopii zapasowej, jeśli plik kopii zapasowej jest szyfrowany przy użyciu klucza o odpowiednim odcisku palca.

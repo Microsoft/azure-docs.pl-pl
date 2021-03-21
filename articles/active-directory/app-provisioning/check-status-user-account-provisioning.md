@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256681"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579488"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Samouczek: Raportowanie dotyczące automatycznego aprowizacji kont użytkowników
 
@@ -48,7 +48,7 @@ W tym miejscu możesz uzyskać dostęp do paska postępu aprowizacji i dziennik�
 
 ## <a name="provisioning-progress-bar"></a>Pasek postępu aprowizacji
 
-[Pasek postępu aprowizacji](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) jest widoczny na karcie **aprowizacji** dla danej aplikacji. Znajduje się w sekcji **Current status** poniżej **ustawień** i pokazuje stan bieżącego początkowego lub przyrostowego cyklu. Ta sekcja zawiera również następujące:
+[Pasek postępu aprowizacji](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) jest widoczny na karcie **aprowizacji** dla danej aplikacji. Znajduje się w sekcji **Current status** i pokazuje stan bieżącego początkowego lub przyrostowego cyklu. Ta sekcja zawiera również następujące:
 
 * Łączna liczba użytkowników i/grup, które zostały zsynchronizowane i są obecnie w zakresie aprowizacji między systemem źródłowym a systemem docelowym.
 * Ostatnia synchronizacja została uruchomiona. Synchronizacje zwykle odbywają się co 20-40 minut po zakończeniu [cyklu początkowego](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) .

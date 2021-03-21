@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895715"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
@@ -130,7 +130,7 @@ Jeśli chcesz uzyskać bardziej szczegółowy raport migracji o projektach, szko
 
 Ta tabela zawiera porównanie funkcji usługi Microsoft Translator Hub i translatora niestandardowego.
 
-| Cechy | Koncentrator | Custom Translator |
+| Cecha | Koncentrator | Custom Translator |
 | ------- | :-: | :---------------: |
 | Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
 | Wersja interfejsu API tekstu    | Wersja 2     | Czytanie  |

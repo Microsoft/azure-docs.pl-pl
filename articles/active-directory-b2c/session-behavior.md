@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579743"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w usłudze Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Można skonfigurować zachowanie sesji Azure AD B2C, w tym:
   - **Dzierżawca** — to ustawienie jest domyślne. Użycie tego ustawienia umożliwia wielu aplikacjom i przepływom użytkowników w dzierżawie B2C współużytkowanie tej samej sesji użytkownika. Na przykład, gdy użytkownik loguje się do aplikacji, użytkownik może również bezproblemowo zalogować się do innego, aby uzyskać do niego dostęp.
   - **Aplikacja** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla aplikacji, niezależnie od innych aplikacji. Można na przykład użyć tego ustawienia, jeśli chcesz, aby użytkownik zalogował się do usługi contoso apteki, niezależnie od tego, czy użytkownik jest już zalogowany do artykułów spożywczych firmy Contoso.
   - **Zasady** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla przepływu użytkownika niezależnie od aplikacji, z których korzysta. Na przykład jeśli użytkownik został już zalogowany i ukończył krok uwierzytelniania wieloskładnikowego (MFA), użytkownik może uzyskać dostęp do części o wyższym poziomie zabezpieczeń wielu aplikacji, o ile sesja związana z przepływem użytkownika nie wygasa.
-  - **Wyłączone** — to ustawienie wymusza uruchomienie użytkownika przez cały przepływ użytkownika przy każdym wykonaniu zasad.
+  - **Pominięte** — to ustawienie wymusza, aby użytkownik był uruchamiany przez cały przepływ użytkownika przy każdym wykonaniu zasad.
 - Nie **wylogowuj mnie (KMSI)** — rozszerza okres istnienia sesji przy użyciu trwałego pliku cookie. Jeśli ta funkcja jest włączona, a użytkownik wybierze ją, sesja pozostaje aktywna nawet po zamknięciu i ponownym otwarciu przeglądarki przez użytkownika. Sesja jest odwołana tylko wtedy, gdy użytkownik się wyloguje. Funkcja KMSI ma zastosowanie tylko do logowania z kontami lokalnymi. Funkcja KMSI ma pierwszeństwo przed okresem istnienia sesji.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ W przypadku żądania wylogowania Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Próbuje wylogować się z dostawców tożsamości federacyjnych:
-   - OpenID Connect Connect — Jeśli dostawca tożsamości dobrze znanego punktu końcowego konfiguracji określa `end_session_endpoint` lokalizację.
+   - OpenID Connect Connect — Jeśli dostawca tożsamości dobrze znanego punktu końcowego konfiguracji określa `end_session_endpoint` lokalizację. Żądanie wylogowania nie przeszedł do `id_token_hint` parametru. Jeśli federacyjny dostawca tożsamości wymaga tego parametru, żądanie wylogowania zakończy się niepowodzeniem.
    - OAuth2 — Jeśli [metadane dostawcy tożsamości](oauth2-technical-profile.md#metadata) zawierają `end_session_endpoint` lokalizację.
    - SAML — Jeśli [metadane dostawcy tożsamości](identity-provider-generic-saml.md) zawierają `SingleLogoutService` lokalizację.
 4. Opcjonalnie możesz wylogować się z innych aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [Logowanie](#single-sign-out) jednokrotne.

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690927"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
@@ -96,7 +96,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z dyskam
 - Obsługuje pamięć podręczną usługi Azure Blob, więc odczyty mogą być obsługiwane lokalnie z pamięci podręcznej. (Aktualizacje są replikowane jednocześnie do obu węzłów). 
 - Obsługuje funkcję FileStream. 
 
-**Ograniczenia:**
+**Limity**
 - Dostępne tylko dla systemu Windows Server 2016 i nowszych. 
 - Strefy dostępności nie są obsługiwane.
 - Wymaga tej samej pojemności dysku podłączonej do obu maszyn wirtualnych. 
@@ -116,7 +116,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpo�
 - Tylko udostępnione rozwiązanie magazynu dla maszyn wirtualnych rozprzestrzenia się w wielu strefach dostępności. 
 - W pełni zarządzany system plików z opóźnieniami jednocyfrowymi i wydajnością operacji we/wy. 
 
-**Ograniczenia:**
+**Limity**
 - Dostępne tylko dla systemu Windows Server 2012 i nowszych. 
 - FileStream nie jest obsługiwany. 
 

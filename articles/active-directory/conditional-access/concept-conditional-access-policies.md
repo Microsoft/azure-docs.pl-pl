@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169685"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579097"
 ---
 # <a name="building-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -106,6 +106,8 @@ Formant Grant może wyzwalać wymuszanie jednej lub więcej kontrolek.
 - Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD
 - Wymaganie zatwierdzonej aplikacji klienckiej
 - Wymaganie zasad ochrony aplikacji
+- Wymagaj zmiany hasła
+- Wymaganie warunków użytkowania
 
 Administratorzy mogą wybrać, aby wymagać jednej z powyższych kontrolek lub wszystkich wybranych kontrolek przy użyciu poniższych opcji. Wartością domyślną dla wielu kontrolek jest wymaganie wszystkie.
 

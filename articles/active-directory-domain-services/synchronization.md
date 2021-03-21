@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618811"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Jak obiekty i poświadczenia są synchronizowane w Azure Active Directory Domain Servicesej domenie zarządzanej
@@ -44,7 +44,7 @@ W poniższej tabeli wymieniono niektóre typowe atrybuty i sposób ich synchroni
 
 | Atrybut w usłudze Azure AD DS | Element źródłowy | Uwagi |
 |:--- |:--- |:--- |
-| UPN | Atrybut *nazwy UPN* użytkownika w dzierżawie usługi Azure AD | Atrybut nazwy UPN dzierżawy usługi Azure AD jest zsynchronizowany z usługą Azure AD DS. Najbardziej niezawodnym sposobem zalogowania się do domeny zarządzanej jest użycie nazwy UPN. |
+| UPN (Nazwa UPN) | Atrybut *nazwy UPN* użytkownika w dzierżawie usługi Azure AD | Atrybut nazwy UPN dzierżawy usługi Azure AD jest zsynchronizowany z usługą Azure AD DS. Najbardziej niezawodnym sposobem zalogowania się do domeny zarządzanej jest użycie nazwy UPN. |
 | Nazwy | Atrybut *mailNickname* użytkownika w dzierżawie usługi Azure AD lub wygenerowany automatycznie | Atrybut *sAMAccountName* jest źródłem z atrybutu *mailNickname* w dzierżawie usługi Azure AD. Jeśli wiele kont użytkowników ma ten sam atrybut *mailNickname* , nazwa *sAMAccountName* jest generowana automatycznie. Jeśli długość prefiksu *mailNickname* lub *nazwy UPN* użytkownika jest dłuższa niż 20 znaków, nazwa *sAMAccountName* jest generowana automatycznie, aby spełnić limit 20 znaków dla atrybutów *sAMAccountName* . |
 | Hasła | Hasło użytkownika z dzierżawy usługi Azure AD | Starsze skróty haseł wymagane do uwierzytelniania NTLM lub Kerberos są synchronizowane z dzierżawy usługi Azure AD. Jeśli dzierżawa usługi Azure AD jest skonfigurowana pod kątem synchronizacji hybrydowej przy użyciu Azure AD Connect, te skróty haseł pochodzą z lokalnego środowiska AD DS. |
 | Podstawowy identyfikator SID użytkownika/grupy | Automatycznie generowanych | Podstawowy identyfikator SID kont użytkowników/grup jest generowany automatycznie na platformie Azure AD DS. Ten atrybut nie jest zgodny z identyfikatorem SID podstawowego użytkownika/grupy obiektu w środowisku lokalnym AD DS. Ta niezgodność wynika z faktu, że domena zarządzana ma inną przestrzeń nazw identyfikatora SID niż domena lokalna AD DS. |
@@ -69,7 +69,7 @@ W poniższej tabeli przedstawiono, w jaki sposób konkretne atrybuty obiektów u
 | employeedId |IDPracownika |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
-| Stanowiska |tytuł |
+| jobTitle |tytuł |
 | mail (poczta) |mail (poczta) |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (czasami może być generowane automatycznie) |
@@ -79,7 +79,7 @@ W poniższej tabeli przedstawiono, w jaki sposób konkretne atrybuty obiektów u
 | onPremiseSecurityIdentifier |Skopiowano element SIDHistory |
 | passwordPolicies |kontroli konta użytkownika (ustawia lub czyści bit DONT_EXPIRE_PASSWORD) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
-| Pocztowy |Pocztowy |
+| postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
 | proxyAddresses | proxyAddresses |
 | stan |st |

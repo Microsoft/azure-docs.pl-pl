@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998774"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Samouczek: łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu portalu
@@ -27,7 +27,7 @@ ms.locfileid: "95998774"
 
 Ten samouczek pomaga utworzyć połączenie w celu połączenia sieci wirtualnej z obwodem usługi Azure ExpressRoute przy użyciu Azure Portal. Sieci wirtualne, które można połączyć ze obwodem usługi Azure ExpressRoute, mogą znajdować się w tej samej subskrypcji lub być częścią innej subskrypcji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Podłącz sieć wirtualną do obwodu w tej samej subskrypcji.
 > - Połącz sieć wirtualną z obwodem w innej subskrypcji.
@@ -142,7 +142,7 @@ Użytkownik obwodu potrzebuje identyfikatora zasobu i klucza autoryzacji od wła
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Strona Podstawy":::
 
-1. Na stronie **Ustawienia** wybierz *bramę sieci wirtualnej* i zaznacz pole wyboru Wykorzystaj **autoryzację** . Wprowadź *klucz autoryzacji* i *Identyfikator URI obwodu równorzędnego* i nadaj nazwę połączenie. Wybierz pozycję **OK**. 
+1. Na stronie **Ustawienia** wybierz *bramę sieci wirtualnej* i zaznacz pole wyboru Wykorzystaj **autoryzację** . Wprowadź *klucz autoryzacji* i *Identyfikator URI obwodu równorzędnego* i nadaj nazwę połączenie. Wybierz przycisk **OK**. 
  
     > [!NOTE]
     > *URI obwodu równorzędnego* jest identyfikatorem zasobu obwodu ExpressRoute (który można znaleźć w okienku ustawienia właściwości obwodu ExpressRoute).
@@ -157,7 +157,7 @@ Użytkownik obwodu potrzebuje identyfikatora zasobu i klucza autoryzacji od wła
 
 Możesz usunąć połączenie i odłączyć sieć wirtualną do obwodu usługi ExpressRoute, wybierając ikonę **usuwania** na stronie połączenia.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Usuwanie połączenia":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Usuń połączenie":::
 
 ## <a name="next-steps"></a>Następne kroki
 
