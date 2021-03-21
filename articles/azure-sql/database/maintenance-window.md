@@ -11,10 +11,10 @@ ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/11/2021
 ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149753"
 ---
 # <a name="maintenance-window-preview"></a>Okno obsługi (wersja zapoznawcza)
@@ -131,7 +131,7 @@ Skonfigurowanie i zmiana okna obsługi powoduje zmianę adresu IP wystąpienia w
 * [Powiadomienia z wyprzedzeniem](advance-notifications.md)
 * [Konfiguruj okno obsługi](maintenance-window-configure.md)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Okno obsługi — często zadawane pytania](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 

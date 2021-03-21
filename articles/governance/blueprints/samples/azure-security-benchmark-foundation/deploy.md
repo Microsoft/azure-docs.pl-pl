@@ -4,10 +4,10 @@ description: Kroki wdrażania przykładowego planu usługi Azure Security test F
 ms.date: 03/12/2021
 ms.topic: sample
 ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232617"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Wdróż przykład planu usługi Azure Security test Foundation

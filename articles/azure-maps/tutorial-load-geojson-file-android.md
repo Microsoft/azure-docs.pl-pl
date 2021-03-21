@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 8300a7c120ce816c8068a88fa69f4f978fa664ca
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034510"
 ---
 # <a name="tutorial-load-geojson-data-into-azure-maps-android-sdk"></a>Samouczek: ładowanie danych GEOJSON do Azure Maps Android SDK
 
-Ten samouczek przeprowadzi Cię przez proces importowania pliku GEOJSON danych lokalizacji do Android SDK Azure Maps. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek przeprowadzi Cię przez proces importowania pliku GEOJSON danych lokalizacji do Android SDK Azure Maps. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodaj Azure Maps do aplikacji systemu Android.

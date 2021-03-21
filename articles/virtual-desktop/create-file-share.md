@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746808"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
@@ -33,18 +33,18 @@ Aby skonfigurować konto magazynu:
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
-3. Wybierz pozycję **+Dodaj** .
+3. Wybierz pozycję **+Dodaj**.
 
 4. Wprowadź następujące informacje na stronie  **Tworzenie konta magazynu** :
 
     - Tworzenie nowej grupy zasobów
     - Wprowadź unikatową nazwę konta magazynu.
     - W przypadku **lokalizacji** zalecamy wybranie tej samej lokalizacji co Pula hostów pulpitów wirtualnych systemu Windows.
-    - W obszarze **Wydajność** wybierz opcję **Standardowa** . (W zależności od wymagań IOPS. Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla kontenerów profilów FSLogix na pulpicie wirtualnym systemu Windows](store-fslogix-profile.md).
+    - W obszarze **Wydajność** wybierz opcję **Standardowa**. (W zależności od wymagań IOPS. Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla kontenerów profilów FSLogix na pulpicie wirtualnym systemu Windows](store-fslogix-profile.md).
     - W obszarze **Typ konta** wybierz pozycję **StorageV2** lub **FileStorage** (dostępne tylko wtedy, gdy warstwa wydajności to Premium).
-    - W obszarze **replikacja** wybierz pozycję **Magazyn lokalnie nadmiarowy (LRS)** .
+    - W obszarze **replikacja** wybierz pozycję **Magazyn lokalnie nadmiarowy (LRS)**.
 
-5. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz** , a następnie wybierz pozycję **Utwórz** .
+5. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**, a następnie wybierz pozycję **Utwórz**.
 
 Jeśli potrzebujesz bardziej szczegółowych instrukcji konfiguracyjnych, zobacz [dostępność regionalna](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
@@ -54,13 +54,13 @@ Następnie musisz utworzyć udział plików platformy Azure.
 
 Aby utworzyć udział plików:
 
-1. Wybierz pozycję **Przejdź do zasobu** .
+1. Wybierz pozycję **Przejdź do zasobu**.
 
-2. Na stronie Przegląd wybierz pozycję **Udziały plików** .
+2. Na stronie Przegląd wybierz pozycję **Udziały plików**.
 
-3. Wybierz pozycję **+ udziały plików** , Utwórz nowy udział plików o nazwie **Profile** , a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
+3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
-4. Wybierz pozycję **Utwórz** .
+4. Wybierz przycisk **Utwórz**.
 
 ## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
@@ -70,7 +70,7 @@ Następnie należy włączyć uwierzytelnianie Active Directory (AD). Aby włąc
 
 2. Postępuj zgodnie z instrukcjami w temacie [Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure](../storage/files/storage-files-identity-ad-ds-enable.md) , aby zainstalować moduł AzFilesHybrid i włączyć uwierzytelnianie.
 
-3.  Otwórz Azure Portal, Otwórz konto magazynu, wybierz pozycję **Konfiguracja** , a następnie potwierdź, że **Active Directory (AD)** jest ustawiona na wartość **włączone** .
+3.  Otwórz Azure Portal, Otwórz konto magazynu, wybierz pozycję **Konfiguracja**, a następnie potwierdź, że **Active Directory (AD)** jest ustawiona na wartość **włączone**.
 
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający stronę konfiguracji z włączonym Azure Active Directory (AD).](media/active-directory-enabled.png)
@@ -92,17 +92,17 @@ Aby przypisać uprawnienia kontroli dostępu opartej na rolach (Azure RBAC):
 
 2. Otwórz konto magazynu utworzone w obszarze [Skonfiguruj konto magazynu](#set-up-a-storage-account).
 
-3. Wybierz pozycję **udziały plików** , a następnie wybierz nazwę udziału plików, którego planujesz użyć.
+3. Wybierz pozycję **udziały plików**, a następnie wybierz nazwę udziału plików, którego planujesz użyć.
 
-4. Wybierz pozycję **Access Control (IAM)** .
+4. Wybierz pozycję **Access Control (IAM)**.
 
-5. Wybierz pozycję **Dodaj przypisanie roli** .
+5. Wybierz pozycję **Dodaj przypisanie roli**.
 
 6. Na karcie **Dodaj przypisanie roli** wybierz pozycję **plik magazynu dane współautora udziału SMB** dla konta administratora.
 
      Aby przypisać użytkownikom uprawnienia do ich profilów FSLogix, wykonaj te same instrukcje. Jednak po przekroczeniu kroku 5 Wybierz opcję **plik magazynu dane współautor udział SMB** .
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Przypisywanie uprawnień użytkowników w udziale plików platformy Azure
 
@@ -121,7 +121,7 @@ Poniżej przedstawiono sposób pobierania ścieżki UNC:
 
 2. Otwórz konto magazynu utworzone w obszarze [Skonfiguruj konto magazynu](#set-up-a-storage-account).
 
-3. Wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Właściwości** .
+3. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Właściwości**.
 
 4. Skopiuj identyfikator URI **punktu końcowego usługi plików podstawowego** do wybranego edytora tekstu.
 
@@ -141,7 +141,7 @@ Aby uzyskać klucz konta magazynu:
 
 2. Otwórz konto magazynu utworzone w obszarze [Skonfiguruj konto magazynu](#set-up-a-storage-account).
 
-3. Na karcie **konto magazynu** wybierz pozycję **klucze dostępu** .
+3. Na karcie **konto magazynu** wybierz pozycję **klucze dostępu**.
 
 4. Skopiuj **Klucz1** lub **klucz2** do pliku na komputerze lokalnym.
 
@@ -200,13 +200,13 @@ Aby skonfigurować produkt FSLogix na maszynie wirtualnej hosta sesji:
 
 5. Wykonaj instrukcje podane w temacie [Konfigurowanie ustawień rejestru kontenera profilów](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    - Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >  **oprogramowania**  >  **FSLogix** .
+    - Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >  **oprogramowania**  >  **FSLogix**.
 
     - Utwórz klucz **profilów** .
 
     - Utwórz wartość **Enabled, DWORD** z wartością 1.
 
-    - Utwórz **VHDLocations, Multi_SZ** .
+    - Utwórz **VHDLocations, Multi_SZ**.
 
     - Ustaw wartość **VHDLocations** na ścieżkę UNC wygenerowaną w polu [Pobierz ścieżkę UNC](#get-the-unc-path).
 

@@ -1,5 +1,5 @@
 ---
-title: Używanie przepływu danych do przetwarzania danych z modeli zautomatyzowanych uczenia maszynowego (AutoML)
+title: Przetwarzanie danych z modeli zautomatyzowanych uczenia maszynowego (AutoML) przy użyciu przepływów danych
 description: Dowiedz się, jak używać przepływów danych Azure Data Factory do przetwarzania danych z modeli zautomatyzowanych uczenia maszynowego (AutoML).
 services: data-factory
 author: amberz
@@ -10,40 +10,41 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: e8352b687a3cdfac7ea2a819e1217906598a6837
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 45cd44cc0678b7f3a006a88bf66be2bca091af76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103563270"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595383"
 ---
-# <a name="process-data-from-automated-machine-learningautoml-models-using-data-flow"></a>Przetwarzanie danych z modeli zautomatyzowanych uczenia maszynowego (AutoML) przy użyciu przepływu danych
+# <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>Przetwarzanie danych z automatycznych modeli uczenia maszynowego przy użyciu przepływów danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Automatyczne Uczenie maszynowe (AutoML) jest wdrażane przez projekty uczenia maszynowego do uczenia, dostrajania i uzyskiwania najlepszych modeli przy użyciu metryki docelowej określonej dla klasyfikacji, regresji i prognozowania szeregów czasowych. 
+Automatyczne Uczenie maszynowe (AutoML) jest przyjęte przez projekty uczenia maszynowego do uczenia, dostrajania i uzyskiwania najlepszych modeli automatycznie przy użyciu metryk docelowych określonych dla klasyfikacji, regresji i prognozowania szeregów czasowych.
 
-Jednym wyzwaniem jest niepierwotne dane z magazynu danych lub transakcyjnej bazy danych, na przykład: 10GB, duży zestaw danych wymaga dłuższego czasu do uczenia modeli, więc optymalizacja przetwarzania danych jest zalecana przed szkoleniem Azure Machine Learning modeli. W tym samouczku przedstawiono sposób użycia narzędzia ADF do partycjonowania zestawu danych do Parquet plików dla zestawu danych Azure Machine Learning. 
+Jednym z wyzwań dla AutoML jest to, że pierwotne dane z magazynu danych lub transakcyjnej bazy danych byłyby ogromnym zestawem danych, prawdopodobnie 10 GB. Duży zestaw danych wymaga dłuższego czasu do uczenia modeli, dlatego zalecamy zoptymalizowanie przetwarzania danych przed przeszkoleniem Azure Machine Learning modeli. W tym samouczku przedstawiono sposób użycia Azure Data Factory do partycjonowania zestawu danych w plikach AutoML dla Machine Learning zestawu danych.
 
-W programie zautomatyzowany projekt uczenia maszynowego (AutoML) stosuje się następujące trzy scenariusze przetwarzania danych:
+Projekt AutoML zawiera następujące trzy scenariusze przetwarzania danych:
 
-* Podziel duże ilości danych na pliki Parquet przed modelami szkoleniowymi. 
+* Podziel duże ilości danych na pliki AutoML przed przeszkoleniem modeli.
 
-     [Ramka danych Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) jest często używana do przetwarzania danych przed modelami szkoleniowymi. Ramka danych Pandas dobrze sprawdza się w przypadku rozmiarów danych mniejszych niż 1 GB, ale jeśli dane są duże niż 1 GB, to Pandasa ramka danych spowalnia przetwarzanie danych, nawet jeśli zostanie wyświetlony komunikat o błędzie braku pamięci. Formaty [plików Parquet](https://parquet.apache.org/) są zalecane dla uczenia maszynowego, ponieważ jest to format binarny kolumnowy.
+     [Ramka danych Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) jest często używana do przetwarzania danych przed przeszkoleniem modeli. Ramka danych Pandas działa prawidłowo w przypadku rozmiarów danych mniejszych niż 1 GB, ale jeśli dane są większe niż 1 GB, ramka danych Pandas spowalnia się w celu przetwarzania danych. Czasami możesz nawet otrzymać komunikat o błędzie braku pamięci. Zalecamy używanie formatu [pliku Parquet](https://parquet.apache.org/) na potrzeby uczenia maszynowego, ponieważ jest to format binarny kolumnowy.
     
-    Usługa Azure Data Factors mapuje przepływy danych, które są wizualnie zaprojektowane z użyciem kodu do inżynierów danych. Przetwarzanie dużych ilości danych jest wydajne, ponieważ potok używa skalowanych klastrów Spark w poziomie.
+     Data Factory mapowanie przepływów danych to wizualnie zaprojektowane przekształcenia danych, które uwalniają inżynierów danych od pisania kodu. Mapowanie przepływów danych to zaawansowany sposób przetwarzania dużych ilości danych, ponieważ potok używa skalowanych klastrów Spark.
 
-* Podziel zestaw danych szkolenia i zestaw danych testowych.
+* Podziel zestaw danych szkoleniowych i zestaw danych testowych.
     
-    Zestaw danych szkoleniowych zostanie użyty dla modelu szkoleniowego. testowy zestaw danych zostanie użyty do oszacowania modeli w projekcie uczenia maszynowego. Mapowanie operacji podziału warunkowego dla przepływów danych spowoduje rozdzielenie danych szkoleniowych i danych testowych. 
+    Zestaw danych szkoleniowych zostanie użyty dla modelu szkoleniowego. Testowy zestaw danych zostanie użyty do oszacowania modeli w projekcie uczenia maszynowego. Działanie podziału warunkowego na potrzeby mapowania przepływów danych będzie dzielić dane szkoleniowe i dane testowe.
 
 * Usuń niekwalifikowane dane.
 
-    Może być konieczne usunięcie niekwalifikowanych danych, takich jak plik Parquet z zerowym wierszem. W tym samouczku użyjemy zagregowanego działania, aby pobrać liczbę wierszy, a liczba wierszy będzie warunkiem usunięcia niekwalifikowanych danych. 
-
+    Możesz chcieć usunąć niekwalifikowane dane, takie jak plik Parquet z zerowymi wierszami. W tym samouczku użyjemy zagregowanego działania, aby uzyskać liczbę wierszy. Liczba wierszy będzie warunkiem usunięcia niekwalifikowanych danych.
 
 ## <a name="preparation"></a>Przygotowanie
-Skorzystaj z poniższej tabeli Azure SQL Database. 
+
+Skorzystaj z poniższej tabeli Azure SQL Database.
+
 ```
 CREATE TABLE [dbo].[MyProducts](
     [ID] [int] NULL,
@@ -58,56 +59,57 @@ CREATE TABLE [dbo].[MyProducts](
 
 ## <a name="convert-data-format-to-parquet"></a>Konwertuj format danych na Parquet
 
-Przepływ danych spowoduje przekonwertowanie tabeli Azure SQL Database na format pliku Parquet. 
+Następujący przepływ danych spowoduje przekonwertowanie tabeli SQL Database na format pliku Parquet:
 
-**Źródłowy zestaw danych**: tabela transakcji Azure SQL Database
-
-**Zestaw danych ujścia**: Magazyn obiektów BLOB w formacie Parquet
-
+- **Źródłowy zestaw danych**: tabela transakcji SQL Database.
+- **Zestaw danych ujścia**: Magazyn obiektów BLOB w formacie Parquet.
 
 ## <a name="remove-unqualified-data-based-on-row-count"></a>Usuń niekwalifikowane dane na podstawie liczby wierszy
 
-Przypuśćmy do usunięcia liczby wierszy mniejszej niż 2. 
+Załóżmy, że musimy usunąć liczbę wierszy mniejszą niż dwa.
 
-1. Użyj działania agregacji, aby pobrać liczbę wierszy: **Grupuj według** na podstawie Col2 i **agregacji** z liczbą (1) dla liczby wierszy. 
+1. Użyj zagregowanego działania, aby uzyskać liczbę wierszy. Użyj **grupowania według** Col2 i **agregacji** z `count(1)` dla liczby wierszy.
 
-    ![Skonfiguruj działanie agregujące, aby uzyskać liczbę wierszy](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    ![Zrzut ekranu pokazujący Konfigurowanie działania zagregowanego w celu uzyskania liczby wierszy.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
 
-1. Użyj działania ujścia, wybierz pozycję **Typ ujścia** jako pamięć podręczna na karcie **ujścia** , a następnie wybierz żądaną kolumnę z listy rozwijanej **kolumny kluczy** na karcie **Ustawienia** . 
+1. Za pomocą działania ujścia wybierz **Typ ujścia** jako **pamięć podręczna** na karcie **sink** . Następnie wybierz żądaną kolumnę z listy rozwijanej **kolumny kluczy** na karcie **Ustawienia** .
 
-    ![Konfigurowanie działania CacheSink w celu pobrania liczby wierszy w buforowanym ujścia](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    ![Zrzut ekranu pokazujący Konfigurowanie działania CacheSink w celu uzyskania liczby wierszy w buforze pamięci podręcznej.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
 
-1. Użyj działania kolumna pochodna, aby dodać kolumnę liczba wierszy w strumieniu źródłowym. Na karcie **Ustawienia kolumny pochodnej** Użyj wyrażenia wyszukiwania CacheSink # pobierającego liczbę wierszy z SinkCache.
-    ![Skonfiguruj działanie kolumny pochodnej, aby dodać liczbę wierszy w źródle 1](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
+1. Użyj działania kolumna pochodna, aby dodać kolumnę liczba wierszy w strumieniu źródłowym. Na karcie **Ustawienia kolumny pochodnej** Użyj `CacheSink#lookup` wyrażenia, aby uzyskać liczbę wierszy z CacheSink.
 
-1. Użyj działania podziału warunkowego, aby usunąć niekwalifikowane dane. W tym przykładzie liczba wierszy oparta na kolumnie Col2, a warunek polega na usunięciu liczby wierszy mniejszej niż 2, więc zostaną usunięte dwa wiersze (ID = 2 i ID = 7). Dane niekwalifikowane można zapisać do magazynu obiektów BLOB w celu zarządzania danymi. 
+    ![Zrzut ekranu pokazujący Konfigurowanie działania kolumny pochodnej w celu dodania liczby wierszy w Source1.](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
 
-    ![Konfigurowanie działania podziału warunkowego w celu pobierania danych o wartości większej lub równej 2](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+1. Użyj działania podziału warunkowego, aby usunąć niekwalifikowane dane. W tym przykładzie liczba wierszy jest określana na podstawie kolumny Col2. Warunek polega na usunięciu liczby wierszy mniejszych niż dwa, więc zostaną usunięte dwa wiersze (ID = 2 i ID = 7). Dane niekwalifikowane można zapisać do magazynu obiektów BLOB w celu zarządzania danymi.
+
+    ![Zrzut ekranu pokazujący Konfigurowanie działania podziału warunkowego w celu pobrania danych, które są większe lub równe dwóm.](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
 
 > [!NOTE]
->    *    Utwórz nowe źródło do pobierania liczby wierszy, które będą używane w oryginalnym źródle w dalszych krokach. 
->    *    Użyj CacheSink z punktu widzenia wydajności. 
+>    * Utwórz nowe źródło do pobierania liczby wierszy, które będą używane w oryginalnym źródle w dalszych krokach.
+>    * Użyj CacheSink z punktu widzenia wydajności.
 
-## <a name="split-training-data-and-test-data"></a>Podziel dane szkoleniowe i dane testowe 
+## <a name="split-training-data-and-test-data"></a>Podziel dane szkoleniowe i dane testowe
 
-1. Chcemy podzielić dane szkoleniowe i dane testowe dla każdej partycji. W tym przykładzie dla tej samej wartości Col2 Pobierz 2 pierwszych wierszy jako dane testowe i wiersze REST jako dane szkoleniowe. 
+Chcemy podzielić dane szkoleniowe i dane testowe dla każdej partycji. W tym przykładzie dla tej samej wartości Col2 Pobierz pierwsze dwa wiersze jako dane testowe i resztę wierszy jako dane szkoleniowe.
 
-    Użyj działania okna, aby dodać jeden wiersz dla każdej partycji. W obszarze **za pośrednictwem** karty wybierz pozycję kolumna dla partycji (w tym samouczku zostanie utworzona partycja dla Col2), nadawanie kolejności na karcie **Sortowanie** (w tym samouczku na podstawie identyfikatora do zamówienia) i na karcie **kolumny okna** do dodania jednej kolumny jako numeru wiersza dla każdej partycji. 
-    ![Konfigurowanie działania okna w celu dodania jednej nowej kolumny z numerem wiersza](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+1. Użyj działania okna, aby dodać jeden wiersz dla każdej partycji. Na karcie **ponad** wybierz kolumnę partycji. W tym samouczku zajmiemy się partycją for Col2. Nadaj kolejności na karcie **Sortuj** , która w tym samouczku będzie oparta na identyfikatorze. Nadaj kolejności na karcie **kolumny okna** , aby dodać jedną kolumnę jako numer wiersza dla każdej partycji.
 
-1. Użyj działania podziału warunkowego, aby podzielić każdą z pierwszych 2 wierszy partycji na zestaw danych testowych, a następnie wiersze REST do szkolenia zestawu danych. Na karcie **Ustawienia podziału warunkowego** Użyj wyrażenia LesserOrEqual (rownum, 2) jako warunek. 
+    ![Zrzut ekranu pokazujący Konfigurowanie działania okna do dodawania jednej nowej kolumny z numerem wiersza.](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
 
-    ![Skonfiguruj działanie podziału warunkowego, aby podzielić bieżący zestaw danych na zestaw danych szkoleniowych i zestaw danych testów](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+1. Użyj działania podziału warunkowego, aby podzielić dwa pierwsze wiersze partycji na zestaw danych testowych i resztę wierszy w zestawie danych szkoleniowych. Na karcie **Ustawienia podziału warunkowego** Użyj wyrażenia `lesserOrEqual(RowNum,2)` jako warunku.
 
-## <a name="partition-training-dataset-and-test-dataset-with-parquet-format"></a>Zestaw danych szkolenia partycji i zestaw danych testowych z formatem Parquet
+    ![Zrzut ekranu pokazujący Konfigurowanie działania podziału warunkowego w celu podzielenia bieżącego zestawu danych z zestawem danych szkoleniowych i zestawem danych testowych.](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
 
-1. Użyj działania ujścia na karcie **Optymalizacja** przy użyciu **unikatowej wartości na partycję** , aby ustawić kolumnę jako klucz kolumny dla partycji. 
-    ![Konfigurowanie działania ujścia w celu ustawienia partycji zestawu danych szkoleniowych](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+## <a name="partition-the-training-and-test-datasets-with-parquet-format"></a>Partycjonowanie szkoleń i testów zestawów danych przy użyciu formatu Parquet
 
-    Poszukajmy całej logiki potoku.
-    ![Logika całego potoku](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+Za pomocą działania ujścia na karcie **Optymalizacja** Użyj **unikatowej wartości na partycję** , aby ustawić kolumnę jako klucz kolumny dla partycji.
 
+![Zrzut ekranu pokazujący Konfigurowanie działania ujścia w celu ustawienia partycji zestawu danych szkoleniowych.](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+
+Przyjrzyjmy się całej logice potoku.
+
+![Zrzut ekranu pokazujący logikę całego potoku.](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Utwórz resztę logiki przepływu danych, korzystając z mapowania [przekształceń](concepts-data-flow-overview.md)przepływów danych.
+Kompiluj resztę logiki przepływu danych przy użyciu mapowania [przekształceń](concepts-data-flow-overview.md)przepływu danych.

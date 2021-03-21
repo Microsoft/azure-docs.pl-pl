@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: b72538c61d1a68bca655b0d9529f654068727f86
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101696169"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>Rejestrowanie i skanowanie źródła SAP ECC (wersja zapoznawcza)
 
 W tym artykule opisano sposób rejestrowania źródła SAP ECC w programie kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Źródło SAP ECC obsługuje **pełne skanowanie** w celu wyodrębnienia metadanych z wystąpienia SAP ECC i Pobiera elementy **powiązane między zasobami** danych.
 

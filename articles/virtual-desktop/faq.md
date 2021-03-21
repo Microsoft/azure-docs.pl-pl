@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582140"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -110,7 +110,7 @@ Po utworzeniu puli hostów nie można zmienić jej typu. Można jednak przenieś
 
 Ograniczenia lub limity przydziału w programie FSLogix zależą od sieci szkieletowej magazynu używanej do przechowywania plików wirtualnego dysku twardego (X) profilu użytkownika.
 
-W poniższej tabeli przedstawiono przykład sposobu, w jaki wszystkie zasoby muszą być obsługiwane przez profil FSLogix dla każdego użytkownika. Wymagania mogą się różnić w zależności od użytkownika, aplikacji i aktywności w każdym profilu.
+W poniższej tabeli przedstawiono przykład liczby operacji we/wy, jaką musi obsługiwać profil FSLogix. Wymagania mogą się różnić w zależności od użytkownika, aplikacji i aktywności w każdym profilu.
 
 | Zasób | Wymaganie |
 |---|---|

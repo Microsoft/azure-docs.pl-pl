@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 25320fb8cde0cc5a38f1edf4019a2f0e07cefe14
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461100"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
@@ -51,7 +51,7 @@ Spójrz na kod, aby zobaczyć, jak te dwa elementy są implementowane.
 
 1. Użyj   >  **folderu Otwórz folder...** , aby otworzyć plik C: \\ Source \\ IoTEdgeAndMlSample \\ DeviceHarness.
 
-1. Spójrz na metodę InstallCertificate () w Program.cs.
+1. Przyjrzyj się metodzie InstallCertificate () w programie program. cs.
 
 1. Należy pamiętać, że jeśli kod odnajdzie ścieżkę certyfikatu, wywołuje metodę CertificateManager. InstallCACert, aby zainstalować certyfikat na komputerze.
 

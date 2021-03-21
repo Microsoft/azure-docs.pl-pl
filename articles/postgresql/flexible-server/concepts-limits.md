@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 9039bbf006d5e5a677247771346a3a6b43781da2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451901"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594941"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -68,12 +68,12 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 ### <a name="storage"></a>Storage
 
-- Po skonfigurowaniu nie można zmniejszyć rozmiaru magazynu. Należy utworzyć nowy serwer o żądanym rozmiarze magazynu i wykonać ręczny proces zrzutu i przywracania, aby przeprowadzić migrację baz danych.
+- Po skonfigurowaniu nie można zmniejszyć rozmiaru magazynu. Należy utworzyć nowy serwer o żądanym rozmiarze magazynu, przeprowadzić [zrzut ręczny i przywrócić](../howto-migrate-using-dump-and-restore.md) i przeprowadzić migrację baz danych do nowego serwera.
 - Obecnie funkcja autozwiększania magazynu jest niedostępna. Monitoruj użycie i Zwiększ rozmiar magazynu w większym rozmiarze. 
 - Gdy użycie magazynu osiągnie 95% lub dostępna pojemność jest mniejsza niż 5 GiB, serwer jest automatycznie przełączany do **trybu tylko do odczytu** , aby uniknąć błędów skojarzonych z założeniami dysków. 
 - Zalecamy ustawienie reguł alertów dla `storage used` lub `storage percent` czasu przekroczenia określonych progów, aby można było aktywnie podejmować działania, takie jak zwiększenie rozmiaru magazynu. Na przykład można ustawić alert, jeśli procent miejsca do magazynowania przekracza 80% użycia.
   
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 - Przechodzenie do i z sieci wirtualnej nie jest obecnie obsługiwane.
 - Łączenie publicznego dostępu przy użyciu wdrożenia w sieci wirtualnej nie jest obecnie obsługiwane.

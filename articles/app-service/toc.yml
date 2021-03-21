@@ -318,6 +318,8 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Usługa kudu
+      href: resources-kudu.md
     - name: Przewodniki dotyczące asystenta migracji
       href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: Najlepsze rozwiązania

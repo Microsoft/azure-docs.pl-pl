@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
 ms.openlocfilehash: 72c344c0a5c9cca278fe8c633309b1195a0454b0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91941417"
 ---
-Biblioteka kliencka     |Obsługiwana wersja     | Łącze   |     Specyfikacja punktu końcowego      |
+Biblioteka kliencka     |Obsługiwana wersja     | Link   |     Specyfikacja punktu końcowego      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |     11.0.0                                           |    Pakiet NuGet:  <br>Wspólna   https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br> Tworzenia   https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>Niej   https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>Wersja usługi GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0                          |    Plik app.config                 |
 |    Java                |    12.0.0 — wersja zapoznawcza. 3                                           |   Pakiet Maven:   https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3   <br>Wersja usługi GitHub:   https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage                                                                                                                                                                              |    Konfiguracja parametrów połączenia         |

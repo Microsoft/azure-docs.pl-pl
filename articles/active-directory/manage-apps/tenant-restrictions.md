@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123024"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589331"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -197,13 +197,13 @@ Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją serwera pro
 
 ## <a name="blocking-consumer-applications-public-preview"></a>Blokowanie aplikacji konsumenckich (publiczna wersja zapoznawcza)
 
-Aplikacje firmy Microsoft, które obsługują konta użytkowników i konta organizacji, takie jak [OneDrive](https://onedrive.live.com/) lub [Microsoft Learn](https://docs.microsoft.com/learn/), mogą być czasami hostowane na tym samym adresie URL.  Oznacza to, że użytkownicy, którzy muszą uzyskać dostęp do tego adresu URL do celów służbowych, mają również dostęp do niego do użytku osobistego, co może nie być dozwolone zgodnie z wytycznymi dotyczącymi obsługi.
+Aplikacje firmy Microsoft, które obsługują konta użytkowników i konta organizacji, takie jak [OneDrive](https://onedrive.live.com/) lub [Microsoft Learn](/learn/), mogą być czasami hostowane na tym samym adresie URL.  Oznacza to, że użytkownicy, którzy muszą uzyskać dostęp do tego adresu URL do celów służbowych, mają również dostęp do niego do użytku osobistego, co może nie być dozwolone zgodnie z wytycznymi dotyczącymi obsługi.
 
 Niektóre organizacje próbują rozwiązać ten problem przez zablokowanie `login.live.com` w celu zablokowania uwierzytelniania kont osobistych.  Jest to kilka downsides:
 
 1. Blokowanie `login.live.com` uniemożliwia korzystanie z kont osobistych w scenariuszach gościa B2B, które mogą intruzom przed osobami odwiedzającymi i współpracownikami.
-1. [Funkcja autopilotażu wymaga użycia `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) w celu wdrożenia programu. Po zablokowaniu scenariusze usługi Intune i autopilotaży mogą zakończyć się niepowodzeniem `login.live.com` .
-1. Dane telemetryczne organizacji i aktualizacje systemu Windows, które są zależne od usługi login.live.com dla identyfikatorów urządzeń, [przestaną obowiązywać](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Funkcja autopilotażu wymaga użycia `login.live.com` ](/mem/autopilot/networking-requirements) w celu wdrożenia programu. Po zablokowaniu scenariusze usługi Intune i autopilotaży mogą zakończyć się niepowodzeniem `login.live.com` .
+1. Dane telemetryczne organizacji i aktualizacje systemu Windows, które są zależne od usługi login.live.com dla identyfikatorów urządzeń, [przestaną obowiązywać](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Konfiguracja aplikacji dla klientów
 
@@ -216,7 +216,7 @@ W tej chwili uwierzytelnianie w aplikacjach konsumenckich nie pojawia się w [dz
 `restrict-msa`Zasady blokują korzystanie z aplikacji konsumenckich, ale umożliwiają użycie kilku innych typów ruchu i uwierzytelniania:
 
 1. Ruch bez użytkowników dla urządzeń.  Obejmuje to ruch dla autopilotażu, Windows Update i telemetrii organizacyjnej.
-1. Uwierzytelnianie B2B kont klientów. Użytkownicy z kontami Microsoft, którzy są [zapraszani do współpracy z dzierżawą](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) , są uwierzytelniani w Login.Live.com w celu uzyskania dostępu do dzierżawy zasobów.
+1. Uwierzytelnianie B2B kont klientów. Użytkownicy z kontami Microsoft, którzy są [zapraszani do współpracy z dzierżawą](../external-identities/redemption-experience.md#invitation-redemption-flow) , są uwierzytelniani w Login.Live.com w celu uzyskania dostępu do dzierżawy zasobów.
     1. Ten dostęp jest kontrolowany przy użyciu `Restrict-Access-To-Tenants` nagłówka, aby zezwalać na dostęp do tej dzierżawy zasobów lub go odmawiać.
 1. Uwierzytelnianie "przekazywanie" używane przez wiele aplikacji platformy Azure, a także Office.com, w których aplikacje używają usługi Azure AD do logowania użytkowników w kontekście konsumenta.
     1. Ten dostęp jest również kontrolowany przy użyciu `Restrict-Access-To-Tenants` nagłówka, aby zezwalać na dostęp do specjalnej dzierżawy "przekazującej" () lub go odmawiać `f8cdef31-a31e-4b4a-93e4-5f571e91255a` .  Jeśli dzierżawa nie znajduje się na `Restrict-Access-To-Tenants` liście dozwolonych domen, konta konsumentów nie będą mogły się zalogować do tych aplikacji.

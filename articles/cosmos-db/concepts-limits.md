@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611036"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
@@ -62,15 +62,15 @@ Przykład: Załóżmy, że masz kontener z obsługą 400 RU/s i 0 GB magazynu. M
 
 **Uwaga:** minimalny przepływność 10 jednostek ru/s na GB magazynu można obniżyć, jeśli Twoje konto kwalifikuje się do korzystania z naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 
-#### <a name="minimum-throughput-on-shared-throughput-database"></a>Minimalna przepływność dla udostępnionej bazy danych przepływności 
-Aby oszacować minimalną przepływność wymaganą przez udostępnioną bazę danych przepływności z ręczną przepływność, Znajdź maksymalnie:
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Minimalna przepływność dla bazy danych z udostępnioną przepływnością 
+Aby oszacować minimalną przepływność wymaganą przez bazę danych udostępnionej przepływności z ręczną przepływnością, znajdź następujące maksymalnie wartości:
 
 * 400 RU/s 
 * Bieżący magazyn w GB * 10 RU/s
 * Najwyższy poziom RU/s zainicjowany w bazie danych/100
 * 400 + MAX (liczba kontenerów-25, 0) * 100 RU/s
 
-Przykład: Załóżmy, że masz bazę danych z obsługą 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
+Przykład: Załóżmy, że masz bazę danych aprowizowaną na poziomie 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
 
 **Uwaga:** minimalny przepływność 10 jednostek ru/s na GB magazynu można obniżyć, jeśli Twoje konto kwalifikuje się do korzystania z naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 

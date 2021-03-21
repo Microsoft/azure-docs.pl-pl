@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 339ae9a0a799a0a03f1fcf37dadf2e1ffa724243
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cca47269e632e1fcba1f8f9eb1c835f27e63059
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582841"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Przewodnik dla deweloperów urządzeń Plug and Play IoT
 
@@ -26,7 +26,7 @@ W tym przewodniku opisano podstawowe kroki wymagane do utworzenia modułu urząd
 Aby skompilować moduł Plug and Play IoT, module lub IoT Edge, wykonaj następujące kroki:
 
 1. Upewnij się, że urządzenie korzysta z protokołu MQTT lub MQTT over WebSockets, aby nawiązać połączenie z usługą Azure IoT Hub.
-1. Utwórz model [języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) , aby opisać urządzenie. Aby dowiedzieć się więcej, zobacz temat [Omówienie składników w modelach Plug and Play IoT](concepts-components.md).
+1. Utwórz model [języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) , aby opisać urządzenie. Aby dowiedzieć się więcej, zobacz temat [Omówienie składników w modelach Plug and Play IoT](concepts-modeling-guide.md).
 1. Zaktualizuj urządzenie lub moduł, aby ogłosić w `model-id` ramach połączenia urządzenia.
 1. Implementowanie danych telemetrycznych, właściwości i poleceń przy użyciu [konwencji Plug and Play IoT](concepts-convention.md)
 
@@ -66,9 +66,9 @@ Gdy wdrożenie urządzenia lub modułu jest gotowe, użyj programu [Azure IoT Ex
 
 Teraz, gdy wiesz już, jak często opracowano urządzenia Plug and Play IoT, Oto kilka dodatkowych zasobów:
 
-- [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Język definicji cyfrowych reprezentacji bliźniaczych (DTLD, Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [C (zestaw SDK urządzenia)](/azure/iot-hub/iot-c-sdk-ref/)
 - [Interfejs API REST usługi IoT](/rest/api/iothub/device)
-- [Składniki modelu](concepts-components.md)
+- [Informacje o składnikach modeli Plug and Play IoT](concepts-modeling-guide.md)
 - [Instalowanie narzędzi autorskich DTDL i korzystanie z nich](howto-use-dtdl-authoring-tools.md)
 - [Przewodnik dewelopera usługi IoT Plug and Play](concepts-developer-guide-service.md)

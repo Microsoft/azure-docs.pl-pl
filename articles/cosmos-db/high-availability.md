@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656554"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584503"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,12 +69,14 @@ W rzadkich przypadkach regionalnych awarii Azure Cosmos DB gwarantuje, że baza 
 
 * Podczas przestoju w regionie zapisu konto usługi Azure Cosmos automatycznie promuje region pomocniczy jako nowy podstawowy region zapisu, gdy w ramach konta usługi Azure Cosmos zostanie skonfigurowane **Automatyczne przełączanie do trybu failover** . Po włączeniu tryb failover nastąpi w innym regionie w podanej kolejności regionu.
 
+* Należy zauważyć, że ręczna praca awaryjna nie powinna być wyzwalana i nie powiedzie się w przypadku wystąpienia awarii regionu źródłowego lub docelowego. Jest to spowodowane sprawdzaniem spójności wymaganym przez procedurę trybu failover, która wymaga łączności między regionami.
+
 * Gdy wcześniej zmieniony region jest w trybie online, wszelkie dane zapisu, które nie zostały zreplikowane w przypadku niepowodzenia regionu, są udostępniane za pomocą [źródła konfliktów](how-to-manage-conflicts.md#read-from-conflict-feed). Aplikacje mogą odczytywać źródła konfliktów, rozwiązywać konflikty na podstawie logiki specyficznej dla aplikacji, a następnie zapisywać zaktualizowane dane z powrotem do kontenera platformy Azure Cosmos zgodnie z potrzebami.
 
 * Po odzyskaniu wcześniej zmienionego regionu zapisu zostanie on automatycznie udostępniony jako region odczytu. Można wrócić do odzyskanego regionu jako region zapisu. Regiony można przełączyć przy użyciu [programu PowerShell, interfejsu wiersza polecenia platformy Azure lub Azure Portal](how-to-manage-database-account.md#manual-failover). Przed, w trakcie lub po przełączeniu regionu zapisu **nie ma utraty danych ani dostępności** , a aplikacja nadal będzie o wysokiej dostępności.
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się skonfigurowanie kont usługi Azure Cosmos używanych na potrzeby obciążeń produkcyjnych, aby **umożliwić automatyczne przełączanie do trybu failover**. Ręczne przełączenie w tryb failover wymaga łączności między dodatkowym i podstawowym regionem zapisu, aby ukończyć sprawdzanie spójności, aby upewnić się, że podczas pracy w trybie failover nie ma utraty Jeśli region podstawowy jest niedostępny, to sprawdzanie spójności nie będzie możliwe, a ręczne przełączenie w tryb failover nie powiedzie się, co spowodowało utratę dostępności zapisu na czas trwania regionalnej awarii.
+> Zdecydowanie zaleca się skonfigurowanie kont usługi Azure Cosmos używanych na potrzeby obciążeń produkcyjnych, aby **umożliwić automatyczne przełączanie do trybu failover**. Dzięki temu Cosmos DB przełączenia w tryb failover baz danych kont w celu automatycznego availabile regionów. W przypadku braku tej konfiguracji konto spowoduje utratę dostępności zapisu przez cały czas przestoju regionu zapisu, ponieważ ręczne przełączenie w tryb failover nie powiedzie się z powodu braku połączenia z regionem.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Konta wieloregionowe z regionem jednokrotnego zapisu (awaria regionu odczytu)
 
@@ -138,7 +140,22 @@ Strefy dostępności można włączyć za pośrednictwem:
 
 * Nawet jeśli Twoje konto usługi Azure Cosmos ma wysoką dostępność, aplikacja może nie być prawidłowo zaprojektowana tak, aby pozostawała wysoce dostępna. Aby przetestować kompleksową wysoką dostępność aplikacji, w ramach przechodzenia do testowania aplikacji lub odzyskiwania po awarii (DR), tymczasowo wyłącz automatyczne przełączanie do trybu failover dla konta, wywołaj [ręczną pracę awaryjną przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure lub Azure Portal](how-to-manage-database-account.md#manual-failover), a następnie Monitoruj tryb failover aplikacji. Po zakończeniu można przeprowadzić powrót po awarii do regionu podstawowego i przywrócić automatyczne przejście w tryb failover dla konta.
 
+> [!IMPORTANT]
+> Nie wywołuj ręcznego trybu failover podczas Cosmos DB przestoju w regionach źródłowym lub docelowym, ponieważ wymaga łączności regionów w celu zachowania spójności danych i nie powiedzie się.
+
 * W całym globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja między poziomem spójności a trwałością danych w przypadku awarii całego regionu. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po zdarzeniu zakłócania. Czas wymagany do pełnego odzyskania aplikacji jest znany jako cel czasu odzyskiwania (RTO). Należy również zrozumieć maksymalny okres ostatnich aktualizacji danych, które aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia. Okres aktualizacji, którego utrata może być tolerowana, jest określany jako cel punktu odzyskiwania (RPO, recovery point objective). Aby zobaczyć cel punktu odzyskiwania i RTO dla Azure Cosmos DB, zobacz [poziomy spójności i trwałość danych](./consistency-levels.md#rto)
+
+## <a name="what-to-expect-during-a-region-outage"></a>Czego można oczekiwać podczas przestoju regionu
+
+W przypadku kont z jednym regionem klienci będą mogli uzyskać dostęp do odczytu i zapisu.
+
+Konta w wielu regionach będą mieć różne zachowania, w zależności od powyższej tabeli.
+
+| Regiony zapisu | Automatyczne przełączanie w tryb failover | Czego oczekiwać | Co należy zrobić |
+| -- | -- | -- | -- |
+| Pojedynczy region zapisu | Niewłączone | W przypadku awarii w regionie odczytu wszyscy klienci będą przekierowywani do innych regionów. Brak utraty dostępności odczytu lub zapisu. Brak utraty danych. <p/> W przypadku awarii w regionie zapisu klienci będą mieć nieprzerwaną dostępność zapisu. Utrata danych będzie zależna od wybranego poziomu constistency. <p/> Cosmos DB automatycznie przywraca dostępność zapisu po zakończeniu przestojów. | Podczas przestoju upewnij się, że w pozostałych regionach jest dostępna wystarczająca pojemność do obsługi ruchu w trybie odczytu. <p/> Nie *Wyzwalaj* ręcznego przełączania do trybu failover w trakcie awarii, ponieważ nie powiedzie się. <p/> Gdy awaria jest w trybie failover, Dostosuj odpowiednio zainicjowaną pojemność. |
+| Pojedynczy region zapisu | Enabled (Włączony) | W przypadku awarii w regionie odczytu wszyscy klienci będą przekierowywani do innych regionów. Brak utraty dostępności odczytu lub zapisu. Brak utraty danych. <p/> W przypadku awarii w regionie zapisu klienci będą mieć nieprzerwaną dostępność zapisu do momentu Cosmos DB automatycznie wybiera nowy region jako nowy region zapisu zgodnie z preferencjami. Utrata danych będzie zależna od wybranego poziomu constistency. | Podczas przestoju upewnij się, że w pozostałych regionach jest dostępna wystarczająca pojemność do obsługi ruchu w trybie odczytu. <p/> Nie *Wyzwalaj* ręcznego przełączania do trybu failover w trakcie awarii, ponieważ nie powiedzie się. <p/> Gdy awaria jest w trybie failover, można odzyskać niezreplikowane dane w regionie uszkodzonym ze [źródła konfliktów](how-to-manage-conflicts.md#read-from-conflict-feed), przenieść region zapisu z powrotem do oryginalnego regionu i ponownie dostosować zainicjowaną pojemność zgodnie z potrzebami. |
+| Wiele regionów zapisu | Nie dotyczy | Brak utraty dostępności odczytu lub zapisu. <p/> Wybrano utratę danych na poziom spójności. | Podczas przestoju upewnij się, że w pozostałych regionach jest wystarczająca pojemność, która obsługuje dodatkowy ruch. <p/> Gdy awaria jest w trybie failover, można odzyskać niezreplikowane dane w regionie uszkodzonym ze [źródła konfliktów](how-to-manage-conflicts.md#read-from-conflict-feed) i zmienić odpowiednio zainicjowaną pojemność. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,13 +9,13 @@ ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
 ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942265"
 ---
-# <a name="analyze-data-with-apache-spark"></a>Analizowanie danych za pomocą Apache Spark
+# <a name="analyze-data-with-apache-spark"></a>Analizowanie danych za pomocą platformy Apache Spark
 
 W tym samouczku dowiesz się, jak przeprowadzać analizę danych w trakcie nauki, korzystając z usługi Azure Open DataSets i Apache Spark. Następnie można wizualizować wyniki w notesie programu Synapse Studio w usłudze Azure Synapse Analytics.
 
@@ -169,7 +169,7 @@ Oprócz wbudowanych opcji wykresów notesu można używać popularnych bibliotek
 
 Po zakończeniu działania aplikacji Zamknij Notes, aby zwolnić zasoby. Zamknij kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 - [Tworzenie modelu uczenia maszynowego za pomocą platformy Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)

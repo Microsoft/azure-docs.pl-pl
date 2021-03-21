@@ -10,21 +10,21 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747816"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Praca z dużymi zestawami skalowania maszyn wirtualnych
-Możliwe jest teraz tworzenie [zestawów skalowania maszyn wirtualnych platformy Azure](./index.yml) o pojemności do 1000 maszyn wirtualnych. W tym dokumencie _duży zestaw skalowania maszyn wirtualnych_ jest zdefiniowany jako zestaw skalowania umożliwiający skalowanie do ponad 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania ( _singlePlacementGroup=False_ ). 
+Możliwe jest teraz tworzenie [zestawów skalowania maszyn wirtualnych platformy Azure](./index.yml) o pojemności do 1000 maszyn wirtualnych. W tym dokumencie _duży zestaw skalowania maszyn wirtualnych_ jest zdefiniowany jako zestaw skalowania umożliwiający skalowanie do ponad 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania (_singlePlacementGroup=False_). 
 
 Niektóre aspekty dużych zestawów skalowania, na przykład równoważenie obciążenia i domeny błędów, działają inaczej niż w przypadku standardowych zestawów skalowania. Ten dokument zawiera wyjaśnienie charakterystyk dużych zestawów skalowania oraz informacje potrzebne, aby pomyślnie używać ich w ramach aplikacji. 
 
-Powszechnym podejściem do wdrażania infrastruktury chmury na dużą skalę jest tworzenie zestawu _jednostek skalowania_ , na przykład przez utworzenie wielu zestawów skalowania maszyn wirtualnych w obrębie wielu sieci wirtualnych i kont magazynu. Metoda ta umożliwia łatwiejsze zarządzanie w porównaniu do pojedynczej maszyny wirtualnej, a posiadanie wielu jednostek skalowania jest przydatne w przypadku wielu aplikacji, zwłaszcza tych, które wymagają innych składników możliwych do umieszczenia na stosie, takich jak wiele sieci wirtualnych i punktów końcowych. Jeśli jednak aplikacja wymaga pojedynczego dużego klastra, prostsze może okazać się wdrożenie pojedynczego zestawu skalowania zawierającego maksymalnie 1000 maszyn wirtualnych. Przykładowe scenariusze obejmują scentralizowane wdrożenia danych big data lub sieci obliczeniowe wymagające prostego zarządzania dużą pulą węzłów procesu roboczego. Duże zestawy skalowania połączone z [dołączonymi dyskami danych](virtual-machine-scale-sets-attached-disks.md) zestawu skalowania maszyn wirtualnych umożliwiają wdrażanie w ramach jednej operacji skalowalnej infrastruktury składającej się z tysięcy procesorów wirtualnych i petabajtów magazynu.
+Powszechnym podejściem do wdrażania infrastruktury chmury na dużą skalę jest tworzenie zestawu _jednostek skalowania_, na przykład przez utworzenie wielu zestawów skalowania maszyn wirtualnych w obrębie wielu sieci wirtualnych i kont magazynu. Metoda ta umożliwia łatwiejsze zarządzanie w porównaniu do pojedynczej maszyny wirtualnej, a posiadanie wielu jednostek skalowania jest przydatne w przypadku wielu aplikacji, zwłaszcza tych, które wymagają innych składników możliwych do umieszczenia na stosie, takich jak wiele sieci wirtualnych i punktów końcowych. Jeśli jednak aplikacja wymaga pojedynczego dużego klastra, prostsze może okazać się wdrożenie pojedynczego zestawu skalowania zawierającego maksymalnie 1000 maszyn wirtualnych. Przykładowe scenariusze obejmują scentralizowane wdrożenia danych big data lub sieci obliczeniowe wymagające prostego zarządzania dużą pulą węzłów procesu roboczego. Duże zestawy skalowania połączone z [dołączonymi dyskami danych](virtual-machine-scale-sets-attached-disks.md) zestawu skalowania maszyn wirtualnych umożliwiają wdrażanie w ramach jednej operacji skalowalnej infrastruktury składającej się z tysięcy procesorów wirtualnych i petabajtów magazynu.
 
 ## <a name="placement-groups"></a>Grupy umieszczania 
-To, co sprawia, że _duże_ zestawy skalowania są wyjątkowe, to nie liczba maszyn wirtualnych, ale liczba _grup umieszczania_ , które się w nich znajdują. Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azure, która zawiera własne domeny błędów i domeny uaktualnień. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli właściwość zestawu skalowania o nazwie _singlePlacementGroup_ jest ustawiona na wartość _false_ , zestaw skalowania może składać się z wielu grup umieszczania i ma zakres od 0 do 1000 maszyn wirtualnych. Jeśli właściwość jest ustawiona na domyślną wartość _true_ , zestaw skalowania składa się z pojedynczej grupy umieszczania i ma zakres od 0 do 100 maszyn wirtualnych.
+To, co sprawia, że _duże_ zestawy skalowania są wyjątkowe, to nie liczba maszyn wirtualnych, ale liczba _grup umieszczania_, które się w nich znajdują. Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azure, która zawiera własne domeny błędów i domeny uaktualnień. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli właściwość zestawu skalowania o nazwie _singlePlacementGroup_ jest ustawiona na wartość _false_, zestaw skalowania może składać się z wielu grup umieszczania i ma zakres od 0 do 1000 maszyn wirtualnych. Jeśli właściwość jest ustawiona na domyślną wartość _true_, zestaw skalowania składa się z pojedynczej grupy umieszczania i ma zakres od 0 do 100 maszyn wirtualnych.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>Lista kontrolna na potrzeby używania dużych zestawów skalowania
 Aby zdecydować, czy aplikacja może w sposób efektywny używać dużych zestawów skalowania, należy wziąć pod uwagę następujące wymagania:
@@ -41,11 +41,11 @@ Aby zdecydować, czy aplikacja może w sposób efektywny używać dużych zestaw
 - Identyfikatory domeny błędów i grupy umieszczania są wyświetlane w _widoku wystąpienia_ maszyny wirtualnej zestawu skalowania. Widok wystąpienia maszyny wirtualnej zestawu skalowania można otworzyć w [Eksploratorze zasobów Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Tworzenie dużego zestawu skalowania
-Podczas tworzenia zestawu skalowania w witrynie Azure Portal wystarczy określić wartość *Liczba wystąpień* nie większą niż 1000. Jeśli jest więcej niż 100 wystąpień, pozycja *Włącz skalowanie powyżej 100 wystąpień* zostanie ustawiona na *Tak* , co pozwoli na jej skalowanie do wielu grup umieszczania. 
+Podczas tworzenia zestawu skalowania w witrynie Azure Portal wystarczy określić wartość *Liczba wystąpień* nie większą niż 1000. Jeśli jest więcej niż 100 wystąpień, pozycja *Włącz skalowanie powyżej 100 wystąpień* zostanie ustawiona na *Tak*, co pozwoli na jej skalowanie do wielu grup umieszczania. 
 
 ![Ten obraz przedstawia blok wystąpienia w witrynie Azure Portal. Dostępne są opcje wybierania liczby wystąpień i rozmiaru wystąpienia.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Duży zestaw skalowania maszyn wirtualnych można utworzyć za pomocą polecenia [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli) _az vmss create_ . To polecenie ustawia inteligentne wartości domyślne, takie jak rozmiar podsieci, na podstawie argumentu _instance-count_ :
+Duży zestaw skalowania maszyn wirtualnych można utworzyć za pomocą polecenia [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli) _az vmss create_. To polecenie ustawia inteligentne wartości domyślne, takie jak rozmiar podsieci, na podstawie argumentu _instance-count_:
 
 ```azurecli
 az group create -l southcentralus -n biginfra
@@ -58,7 +58,7 @@ Polecenie _vmss create_ powoduje ustawienie pewnych domyślnych wartości konfig
 az vmss create --help
 ```
 
-Jeśli tworzysz duży zestaw skalowania za pośrednictwem usługi Azure Resource Manager, upewnij się, że szablon tworzy zestaw skalowania na podstawie funkcji Dyski zarządzane platformy Azure. Właściwość _singlePlacementGroup_ można ustawić na wartość _false_ w sekcji _properties_ zasobu _Microsoft.Compute/virtualMachineScaleSets_ . Poniższy fragment kodu JSON zawiera początek szablonu zestawu skalowania, w tym pojemność wynoszącą 1000 maszyn wirtualnych i ustawienie _"singlePlacementGroup" : false_ :
+Jeśli tworzysz duży zestaw skalowania za pośrednictwem usługi Azure Resource Manager, upewnij się, że szablon tworzy zestaw skalowania na podstawie funkcji Dyski zarządzane platformy Azure. Właściwość _singlePlacementGroup_ można ustawić na wartość _false_ w sekcji _properties_ zasobu _Microsoft.Compute/virtualMachineScaleSets_. Poniższy fragment kodu JSON zawiera początek szablonu zestawu skalowania, w tym pojemność wynoszącą 1000 maszyn wirtualnych i ustawienie _"singlePlacementGroup" : false_:
 
 ```json
 {
@@ -80,7 +80,7 @@ Jeśli tworzysz duży zestaw skalowania za pośrednictwem usługi Azure Resource
 Aby zapoznać się z kompletnym przykładem szablonu dużego zestawu skalowania, zapoznaj się z tematem [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json) .
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Konwertowanie istniejącego zestawu skalowania, aby uwzględniał wiele grup umieszczania
-Aby możliwe było skalowanie istniejącego zestawu skalowania maszyn wirtualnych do ponad 100 maszyn wirtualnych, w modelu zestawu skalowania należy zmienić właściwość _singlePlacementGroup_ na wartość _false_ . Zmianę tej właściwości można przetestować za pomocą [Eksploratora zasobów Azure](https://resources.azure.com/). Znajdź istniejący zestaw skalowania, wybierz pozycję _Edytuj_ i zmień wartość właściwości _singlePlacementGroup_ . Jeśli ta właściwość nie jest widoczna, być może zestaw skalowania jest wyświetlany za pomocą starszej wersji interfejsu API Microsoft.Compute.
+Aby możliwe było skalowanie istniejącego zestawu skalowania maszyn wirtualnych do ponad 100 maszyn wirtualnych, w modelu zestawu skalowania należy zmienić właściwość _singlePlacementGroup_ na wartość _false_. Zmianę tej właściwości można przetestować za pomocą [Eksploratora zasobów Azure](https://resources.azure.com/). Znajdź istniejący zestaw skalowania, wybierz pozycję _Edytuj_ i zmień wartość właściwości _singlePlacementGroup_. Jeśli ta właściwość nie jest widoczna, być może zestaw skalowania jest wyświetlany za pomocą starszej wersji interfejsu API Microsoft.Compute.
 
 > [!NOTE]
 > Zestaw skalowania można zmienić z obsługującego tylko pojedynczą grupę umieszczania (domyślne zachowanie) na obsługujący wiele grup umieszczania, ale nie odwrotnie. W związku z tym przed przeprowadzeniem konwersji zapoznaj się z właściwościami dużych zestawów skalowania.

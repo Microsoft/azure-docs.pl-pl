@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/08/2021
 ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102557016"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
@@ -103,7 +103,7 @@ Aby lokalnie skompilować i uruchomić projekt aplikacji logiki w Visual Studio 
    > [!IMPORTANT]
    > Jeśli planujesz wdrożenie do kontenera Docker, musisz również dodać te parametry połączenia do pliku platformy Docker, który ma być używany do wdrożenia.
 
-### <a name="tools"></a>narzędzia
+### <a name="tools"></a>Narzędzia
 
 * [Visual Studio Code 1.30.1 (styczeń 2019) lub nowszy](https://code.visualstudio.com/), który jest bezpłatny. Należy również pobrać i zainstalować te narzędzia dla Visual Studio Code, jeśli nie są jeszcze:
 

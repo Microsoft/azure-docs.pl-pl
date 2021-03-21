@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
 ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576366"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
 
 Usługa Azure Logic Apps pomaga automatyzować przepływy pracy i integrować dane w usługach platformy Azure, usługach firmy Microsoft, innych aplikacjach typu oprogramowanie jako usługa (SaaS) oraz systemach lokalnych. Ten samouczek pokazuje sposób tworzenia [aplikacji logiki](../logic-apps/logic-apps-overview.md), która obsługuje przychodzące wiadomości e-mail i wszelkie załączniki. Ta aplikacja logiki analizuje zawartość wiadomości e-mail, zapisuje ją w usłudze Azure Storage oraz wysyła powiadomienia dotyczące przeglądania zawartości.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowania [magazynu platformy Azure](../storage/common/storage-introduction.md) i Eksploratora usługi Storage na potrzeby sprawdzania zapisanych wiadomości e-mail i załączników.

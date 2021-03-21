@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873271"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Harmonogram instalacji usług Azure AD Connect i Azure AD Connect Health.
@@ -40,7 +40,7 @@ Program Azure AD Connect można pobrać z [Centrum pobierania Microsoft](https:/
 [Po instalacji](how-to-connect-post-installation.md) należy sprawdzić, czy wszystko działa zgodnie z oczekiwaniami, i przydzielić licencje do użytkowników.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Następne kroki instalowania programu Azure AD Connect
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](./how-to-connect-install-express.md)|
@@ -51,7 +51,7 @@ Program Azure AD Connect można pobrać z [Centrum pobierania Microsoft](https:/
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Więcej informacji o instalowaniu programu Azure AD Connect
 Warto również przygotować się na kwestie związane z [działaniem](./how-to-connect-sync-staging-server.md). Może być wskazane zastosowanie serwera zapasowego umożliwiającego łatwe przełączenie w przypadku [awarii](how-to-connect-sync-staging-server.md#disaster-recovery). Jeśli planujesz częste wprowadzanie zmian konfiguracji, należy zaplanować serwer [trybu przejściowego](how-to-connect-sync-staging-server.md).
 
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Obsługiwane topologie | [Topologie obsługiwane w programie Azure AD Connect](plan-connect-topologies.md)|
 |Zagadnienia dotyczące projektowania | [Zagadnienia dotyczące projektowania przy korzystaniu z programu Azure AD Connect](plan-connect-design-concepts.md)|
@@ -75,7 +75,7 @@ Funkcja [zapobiegania przypadkowemu usuwaniu](how-to-connect-sync-feature-preven
 [Automatyczne uaktualnianie](how-to-connect-install-automatic-upgrade.md) jest domyślnie włączone w przypadku instalacji z ustawieniami ekspresowymi i zapewnia korzystanie z najnowszej wersji programu Azure AD Connect.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Następne kroki konfigurowania funkcji synchronizacji
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Konfigurowanie filtrowania | [Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania](how-to-connect-sync-configure-filtering.md)|
 |Synchronizacja skrótów haseł | [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md)|
@@ -95,7 +95,7 @@ Jeśli nie masz doświadczenia z topologią synchronizacji, warto zapoznać się
 Model konfiguracji synchronizacji jest nazywany [aprowizacją deklaratywną](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md). Zaawansowane przepływy atrybutów używają [funkcji](reference-connect-sync-functions-reference.md) do wyrażania przekształceń atrybutów. Całą konfigurację można wyświetlić i sprawdzić za pomocą narzędzi dostarczanych wraz z programem Azure AD Connect. Jeśli konieczne jest wprowadzenie zmian w konfiguracji, pamiętaj o postępowaniu zgodnie z [najlepszymi rozwiązaniami](how-to-connect-sync-best-practices-changing-default-configuration.md), co ułatwi przyjmowanie nowych wersji.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Następne kroki dostosowywania synchronizacji w programie Azure AD Connect
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Wszystkie artykuły dotyczące synchronizacji programu Azure AD Connect | [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)|
 |Zagadnienia techniczne | [Azure AD Connect Sync: koncepcje techniczne](how-to-connect-sync-technical-concepts.md)|
@@ -119,7 +119,7 @@ Usługi AD FS można skonfigurować pod kątem obsługi [wielu domen](how-to-con
 Jeśli serwer usług AD FS nie został skonfigurowany tak, aby automatycznie aktualizował certyfikaty z usługi Azure AD, lub jeśli korzystasz z rozwiązania innego niż AD FS, otrzymasz powiadomienie o konieczności [zaktualizowania certyfikatów](how-to-connect-fed-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Następne kroki konfigurowania funkcji federacyjnych
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Wszystkie artykuły dotyczące usług AD FS | [Azure AD Connect i Federacja](how-to-connect-fed-whatis.md)|
 |Konfigurowanie usług AD FS z poddomenami | [Obsługa wielu domen do federowania w usłudze Azure AD](how-to-connect-install-multiple-domains.md)|

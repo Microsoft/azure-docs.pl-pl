@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84708683"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie użytkowników i grup systemu Windows w wystąpieniu SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL
@@ -317,7 +317,7 @@ Przetestuj uwierzytelnianie w wystąpieniu zarządzanym SQL, używając wcześni
 1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji wystąpienia zarządzanego usługi Azure SQL jako `aadsqlmi\testUser1`
 1. Korzystając z SQL Server Management Studio (SSMS), zaloguj się do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania **zintegrowanego Active Directory** , łącząc się z bazą danych `migration` .
     1. Możesz również zalogować się przy użyciu testUser1@aadsqlmi.net poświadczeń z opcją SSMS **Active Directory — uniwersalna z obsługą usługi MFA**. Jednak w tym przypadku nie można używać mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie trzeba używać federacyjnej maszyny wirtualnej do logowania się do wystąpienia zarządzanego SQL.
-1. W ramach **wyboru**elementu członkowskiego roli można wybrać jedną z tabeli. `test`
+1. W ramach **wyboru** elementu członkowskiego roli można wybrać jedną z tabeli. `test`
 
     ```sql
     Select * from test  --  and see one row (1,10)

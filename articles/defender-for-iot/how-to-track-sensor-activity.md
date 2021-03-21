@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523604"
 ---
 # <a name="track-sensor-activity"></a>Śledzenie działania czujnika
@@ -89,6 +89,6 @@ Aby odfiltrować oś czasu:
     
       Plik PCAP zawiera informacje techniczne, które mogą pomóc inżynierom sieci ustalić dokładne parametry zdarzenia. Plik PCAP można analizować za pomocą analizatora protokołów sieciowych, takiego jak Wireshark, aplikacji typu open source.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Wyświetlanie alertów](how-to-view-alerts.md)

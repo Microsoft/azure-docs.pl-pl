@@ -8,15 +8,15 @@ ms.date: 03/12/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 241a47ccf9021c6065fea907b4d9914744a64972
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461695"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uwierzytelnianie przy użyciu kont usług Batch i Storage

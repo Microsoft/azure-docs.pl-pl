@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
 ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91945706"
 ---
 # <a name="filter-based-feature-selection"></a>Wybór funkcji oparty na filtrze
@@ -66,7 +66,7 @@ Wybierasz standardową metrykę statystyczną. Moduł oblicza korelację między
     > Upewnij się, że kolumny, które są udostępniane jako dane wejściowe, są potencjalnymi funkcjami. Na przykład kolumna, która zawiera pojedynczą wartość nie ma wartości informacji.
     >
     > Jeśli wiesz, że niektóre kolumny spowodują nieprawidłowe funkcje, możesz je usunąć z zaznaczenia kolumny. Możesz również użyć modułu [Edytowanie metadanych](edit-metadata.md) , aby oznaczyć je jako **kategorii**. 
-3.  W przypadku **metody oceny funkcji**należy wybrać jedną z następujących ustalonych metod statystycznych do użycia podczas obliczania wyników.  
+3.  W przypadku **metody oceny funkcji** należy wybrać jedną z następujących ustalonych metod statystycznych do użycia podczas obliczania wyników.  
 
     | Metoda              | Wymagania                             |
     | ------------------- | ---------------------------------------- |
@@ -79,10 +79,10 @@ Wybierasz standardową metrykę statystyczną. Moduł oblicza korelację między
 
     Jeśli wyczyścisz tę opcję, moduł utworzy ocenę dla każdej kolumny, która w przeciwnym razie spełnia kryteria, do liczby kolumn określonych w polu **Liczba żądanych funkcji**.  
 
-5.  Dla **kolumny Target**wybierz pozycję **Uruchom selektor kolumny** , aby wybrać kolumnę etykieta według nazwy lub indeksu. (Indeksy są oparte na jednym z nich).  
+5.  Dla **kolumny Target** wybierz pozycję **Uruchom selektor kolumny** , aby wybrać kolumnę etykieta według nazwy lub indeksu. (Indeksy są oparte na jednym z nich).  
     Kolumna etykieta jest wymagana dla wszystkich metod, które obejmują korelację statystyczną. Moduł zwraca błąd czasu projektowania, jeśli nie wybrano kolumny etykiety ani kolumn z wieloma etykietami. 
 
-6.  W polu **Liczba żądanych funkcji**wprowadź liczbę kolumn funkcji, które mają zostać zwrócone w wyniku:  
+6.  W polu **Liczba żądanych funkcji** wprowadź liczbę kolumn funkcji, które mają zostać zwrócone w wyniku:  
 
     - Minimalna liczba funkcji, które można określić, to jeden, ale zalecamy zwiększenie tej wartości.  
 

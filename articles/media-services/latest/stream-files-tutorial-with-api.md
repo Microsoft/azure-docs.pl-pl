@@ -2,7 +2,7 @@
 title: przekazywanie, kodowanie i przesyłanie strumieniowe z Media Services v3: Azure Media Services Description: samouczek pokazujący, jak przekazać plik, zakodować wideo i przesyłać strumieniowo zawartość z Azure Media Services v3.
 usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
 
-MS. Service: Media-Services MS. obciążenie: MS. temat: samouczek MS. Custom: MVC MS. Date: 08/31/2020 MS. Author: inhenkel
+MS. Service: Media-Services MS. obciążenie: MS. temat: samouczek MS. Custom: MVC MS. Date: 03/17/2021 MS. Author: inhenkel
 ---
 
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3
@@ -113,7 +113,7 @@ W tym przykładzie wejściowy plik wideo został przekazany z maszyny lokalnej. 
 
 Ukończenie zadania zajmuje trochę czasu, a Ty chcesz otrzymać powiadomienie o tym fakcie. Poniższy przykład kodu pokazuje, jak sondować usługę pod kątem stanu [zadania](/rest/api/media/jobs). Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid.
 
-Usługę Event Grid zaprojektowano pod kątem wysokiej dostępności, stałego poziomu wydajności i dynamicznej skalowalności. Dzięki usłudze Event Grid Twoje aplikacje mogą nasłuchiwać zdarzeń pochodzących z praktycznie wszystkich usług platformy Azure i ze źródeł niestandardowych oraz reagować na nie. Prosta, reaktywna obsługa zdarzeń oparta na protokole HTTP pomaga w tworzeniu wydajnych rozwiązań za pośrednictwem inteligentnego filtrowania i routingu zdarzeń.  Zobacz [Kierowanie zdarzeń do niestandardowego internetowego punktu końcowego](job-state-events-cli-how-to.md).
+Usługę Event Grid zaprojektowano pod kątem wysokiej dostępności, stałego poziomu wydajności i dynamicznej skalowalności. Dzięki usłudze Event Grid Twoje aplikacje mogą nasłuchiwać zdarzeń pochodzących z praktycznie wszystkich usług platformy Azure i ze źródeł niestandardowych oraz reagować na nie. Prosta, reaktywna obsługa zdarzeń oparta na protokole HTTP pomaga w tworzeniu wydajnych rozwiązań za pośrednictwem inteligentnego filtrowania i routingu zdarzeń.  Zobacz [Kierowanie zdarzeń do niestandardowego internetowego punktu końcowego](monitoring/job-state-events-cli-how-to.md).
 
 **Zadanie** zwykle przechodzi przez następujące stany: **Scheduled (Zaplanowane)**, **Queued (W kolejce)**, **Processing (Przetwarzane)**, **Finished (Zakończone)** (stan końcowy). Jeśli zadanie napotka błąd, może być w stanie **Error (Błąd)**. Jeśli zadanie jest w trakcie jego anulowania, po zakończeniu zostanie **anulowane** i **usunięte** .
 
