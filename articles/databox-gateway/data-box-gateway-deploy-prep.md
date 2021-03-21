@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706099"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: przygotowanie do wdrożenia Azure Data Box Gateway
@@ -21,7 +21,7 @@ To jest pierwszy samouczek z serii samouczków dotyczących wdrażania opisując
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

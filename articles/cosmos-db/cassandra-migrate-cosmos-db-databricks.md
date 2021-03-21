@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
 ms.openlocfilehash: caf9cbb0ca017ee00c5061d94e0d37703194943d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573380"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrowanie danych z Cassandra do konta interfejs API Cassandra Azure Cosmos DB przy użyciu Azure Databricks

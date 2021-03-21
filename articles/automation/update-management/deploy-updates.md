@@ -3,14 +3,14 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575900"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669682"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -21,6 +21,9 @@ W każdym scenariuszu tworzone jest wdrożenie, które zostało wybrane dla wybr
 * System operacyjny jest automatycznie wybierany w oparciu o system operacyjny komputera
 * Maszyna docelowa do zaktualizowania jest ustawiona na wartość docelową automatycznie
 * Podczas konfigurowania harmonogramu można określić **aktualizację teraz**, występuje raz lub korzysta z harmonogramu cyklicznego.
+
+> [!IMPORTANT]
+> Utworzenie wdrożenia aktualizacji polega na zaakceptowaniu warunków postanowień licencyjnych dotyczących oprogramowania (EULA) dostarczonych przez firmę, które oferują aktualizacje dla ich systemu operacyjnego.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

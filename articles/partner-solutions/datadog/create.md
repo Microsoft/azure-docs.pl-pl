@@ -8,10 +8,10 @@ author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
 ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101748636"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>Szybki Start: Rozpoczynanie pracy z usługą usługi Datadog
@@ -83,7 +83,7 @@ Podaj następujące wartości.
 
 Jeśli łączysz się z istniejącą organizacją usługi Datadog, zobacz następną sekcję. W przeciwnym razie wybierz kolejno pozycje **Dalej: metryki i dzienniki** , a następnie przejdź do następnej sekcji.
 
-## <a name="link-to-existing-datadog-organization"></a>Link do istniejącej organizacji usługi Datadog
+## <a name="link-to-existing-datadog-organization"></a>Połączenie z istniejącą organizacją usługi Datadog
 
 Nowy zasób usługi Datadog można połączyć z platformą Azure do istniejącej organizacji usługi Datadog.
 

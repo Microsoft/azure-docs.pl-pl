@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103224598"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
@@ -134,7 +134,7 @@ Następujący klienci systemu plików NFS 3,0 nie są jeszcze obsługiwani.
 
 - Klient systemu Windows dla systemu plików NFS
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 W trakcie okresu zapoznawczego dane przechowywane na koncie magazynu są rozliczane według tej samej stawki wydajności, która obciąża magazyn obiektów BLOB za GB miesięcznie. 
 

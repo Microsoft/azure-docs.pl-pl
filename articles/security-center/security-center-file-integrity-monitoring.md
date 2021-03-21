@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176539"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
@@ -56,7 +56,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 Porównując bieżący stan tych elementów ze stanem podczas poprzedniego skanowania, program FIM ostrzega o tym, czy zostały wprowadzone podejrzane modyfikacje.
 
-Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Po włączeniu monitorowania integralności plików istnieje zasób **Change Tracking** typu **rozwiązanie**. Aby uzyskać szczegółowe informacje o częstotliwości zbierania danych, zobacz [Change Tracking szczegóły zbierania danych](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+Monitor integralności plików (FIM) używa rozwiązania Azure Change Tracking do śledzenia i identyfikowania zmian w środowisku. Po włączeniu monitorowania integralności plików istnieje zasób **Change Tracking** typu **rozwiązanie**. Aby uzyskać szczegółowe informacje o częstotliwości zbierania danych, zobacz [Change Tracking szczegóły zbierania danych](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > W przypadku usunięcia zasobu **Change Tracking** należy również wyłączyć funkcję monitorowania integralności plików w programie Security Center.
@@ -247,7 +247,7 @@ Użyj symboli wieloznacznych, aby uprościć śledzenie między katalogami. Podc
 -   Podczas ustawiania ścieżki należy unikać ogólnych ścieżek, takich jak c: \* . *, co spowoduje, że przechodzą zbyt wiele folderów.
 
 ## <a name="disable-fim"></a>Wyłącz FIM
-Możesz wyłączyć funkcję FIM. Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Wyłączenie programu FIM powoduje usunięcie rozwiązania Change Tracking z wybranego obszaru roboczego.
+Możesz wyłączyć funkcję FIM. Monitor integralności plików (FIM) używa rozwiązania Azure Change Tracking do śledzenia i identyfikowania zmian w środowisku. Wyłączenie programu FIM powoduje usunięcie rozwiązania Change Tracking z wybranego obszaru roboczego.
 
 1. Aby wyłączyć program FIM, Wróć do pulpitu nawigacyjnego **monitorowania integralności plików** .
 2. Wybierz obszar roboczy.

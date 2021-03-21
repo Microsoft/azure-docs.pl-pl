@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563168"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Używanie interfejsu wiersza polecenia platformy Azure do zarządzania listami ACL w Azure Data Lake Storage Gen2
@@ -257,7 +257,7 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 ## <a name="see-also"></a>Zobacz też
 
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-- [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
+- [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
 - [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

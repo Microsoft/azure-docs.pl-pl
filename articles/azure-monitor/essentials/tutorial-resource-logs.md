@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032878"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure
 
 Dzienniki zasobów zapewniają wgląd w szczegółowe operacje związane z zasobem platformy Azure i są przydatne do monitorowania ich kondycji i dostępności. Zasoby platformy Azure automatycznie generują dzienniki zasobów, ale należy skonfigurować lokalizacje, w których mają być zbierane. Ten samouczek przeprowadzi Cię przez proces tworzenia ustawień diagnostycznych w celu zbierania dzienników zasobów dla zasobu w ramach subskrypcji platformy Azure i analizowania go za pomocą zapytania dziennika.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz obszar roboczy Log Analytics w Azure Monitor

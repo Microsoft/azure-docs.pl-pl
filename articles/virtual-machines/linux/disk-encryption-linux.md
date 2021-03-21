@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: bf5da120072f49421b6f2194626178048b044f6a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 6ebec78d5a9e82cc8a2f6ceb020a8b9552d6311e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564700"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604019"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
 
@@ -262,7 +262,7 @@ Zalecamy instalację LVM-on-Crypt. We wszystkich poniższych przykładach Zastą
 
 1. Sformatuj, zainstaluj i Dodaj te dyski do pliku fstab.
 
-1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](../troubleshooting/troubleshoot-device-names-problems.md) .
+1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems) .
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt

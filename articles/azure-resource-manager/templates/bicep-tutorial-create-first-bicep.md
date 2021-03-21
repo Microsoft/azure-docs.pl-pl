@@ -2,16 +2,16 @@
 title: Samouczek — Tworzenie & wdrażanie Azure Resource Manager plików Bicep
 description: Utwórz pierwszy plik Bicep do wdrażania zasobów platformy Azure. Samouczek zawiera informacje na temat składni pliku Bicep oraz sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632581"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594278"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Samouczek: Tworzenie i wdrażanie pierwszego Azure Resource Manager pliku Bicep
 
@@ -31,11 +31,11 @@ Zacznijmy od upewnienia się, że masz narzędzia potrzebne do tworzenia i wdra�
 
 ### <a name="editor"></a>Edytor
 
-Do tworzenia plików Bicep potrzebny jest dobry edytor. Zalecamy Visual Studio Code z rozszerzeniem Bicep. Jeśli musisz zainstalować te narzędzia, zobacz [Szybki Start: Tworzenie plików Bicep z Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+Do tworzenia plików Bicep potrzebny jest dobry edytor. Zalecamy Visual Studio Code z rozszerzeniem Bicep. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Konfigurowanie środowiska deweloperskiego Bicep](./bicep-install.md#development-environment).
 
 ### <a name="command-line-deployment"></a>Wdrożenie wiersza polecenia
 
-Wymagany jest również najnowszy Azure PowerShell lub najnowszy interfejs wiersza polecenia platformy Azure, aby wdrożyć plik Bicep. Instrukcje instalacji znajdują się w temacie:
+Pliki Bicep można wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. W przypadku interfejsu wiersza polecenia platformy Azure potrzebna jest wersja 2.20.0 lub nowsza; w przypadku Azure PowerShell wymagana jest wersja 5.6.0 lub nowsza. Instrukcje instalacji znajdują się w temacie:
 
 - [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)

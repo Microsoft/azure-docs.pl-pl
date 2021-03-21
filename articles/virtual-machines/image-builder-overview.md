@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604070"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Wersja zapoznawcza: Omówienie usługi Azure Image Builder
 
@@ -70,7 +70,7 @@ Konstruktor obrazów maszyn wirtualnych platformy Azure to w pełni zarządzana 
 
 Konfiguracje szablonów można przekazać przy użyciu programu PowerShell, AZ CLI, szablonów ARM i przy użyciu zadania DevOps konstruktora obrazów maszyn wirtualnych platformy Azure, po przesłaniu go do usługi utworzymy zasób szablonu obrazu. Po utworzeniu zasobu szablon obrazu zobaczysz tymczasową grupę zasobów utworzoną w ramach subskrypcji, w formacie: IT_ \<DestinationResourceGroup> _\<TemplateName>_ \( GUID). Tymczasowa Grupa zasobów zawiera pliki i skrypty, do których odwołuje się plik, powłoka, dostosowanie programu PowerShell we właściwości ScriptURI.
 
-Aby uruchomić kompilację, zostanie ona wywołana `Run` dla zasobu szablon obrazu, a następnie zostanie wdrożona dodatkowa zasobów dla kompilacji, na przykład maszyna wirtualna, Sieć, dysk, karta sieciowa itd. Jeśli tworzysz obraz bez używania istniejącego konstruktora obrazów sieci wirtualnej, zostanie również wdrożony publiczny adres IP i sieciowej grupy zabezpieczeń, usługa nawiąże połączenie z maszyną wirtualną kompilacji przy użyciu protokołu SSH lub WinRM. W przypadku wybrania istniejącej sieci wirtualnej usługa zostanie wdrożona przy użyciu linku prywatnego platformy Azure, a publiczny adres IP nie jest wymagany, aby uzyskać więcej szczegółowych informacji na temat sieci konstruktora obrazów. Przejrzyj [szczegóły](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Aby uruchomić kompilację, zostanie ona wywołana `Run` dla zasobu szablon obrazu, a następnie zostanie wdrożona dodatkowa zasobów dla kompilacji, na przykład maszyna wirtualna, Sieć, dysk, karta sieciowa itd. Jeśli tworzysz obraz bez używania istniejącego konstruktora obrazów sieci wirtualnej, zostanie również wdrożony publiczny adres IP i sieciowej grupy zabezpieczeń, usługa nawiąże połączenie z maszyną wirtualną kompilacji przy użyciu protokołu SSH lub WinRM. W przypadku wybrania istniejącej sieci wirtualnej usługa zostanie wdrożona przy użyciu linku prywatnego platformy Azure, a publiczny adres IP nie jest wymagany, aby uzyskać więcej szczegółowych informacji na temat sieci konstruktora obrazów. Przejrzyj [szczegóły](./linux/image-builder-networking.md).
 
 Gdy kompilacja zakończy się, wszystkie zasoby zostaną usunięte, z wyjątkiem grupy zasobów tymczasowych i konta magazynu, aby je usunąć, zostanie usunięty zasób szablonu obrazu lub można pozostawić je w tym miejscu, aby ponownie uruchomić kompilację.
 
@@ -84,7 +84,7 @@ Gdy zarejestrujesz się w usłudze (AIB), spowoduje to przyznanie usługi AIB up
 
 Aby umożliwić programowi Azure VM Image Builder dystrybuowanie obrazów do obrazów zarządzanych lub do galerii obrazów udostępnionych, należy utworzyć tożsamość przypisaną przez użytkownika platformy Azure, która ma uprawnienia do odczytu i zapisu obrazów. W przypadku uzyskiwania dostępu do usługi Azure Storage wymagane są uprawnienia do odczytu kontenerów prywatnych i publicznych.
 
-Uprawnienia są wyjaśnione bardziej szczegółowo dla [programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)i [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+Uprawnienia są wyjaśnione bardziej szczegółowo dla [programu PowerShell](./linux/image-builder-permissions-powershell.md)i [AZ CLI](./linux/image-builder-permissions-cli.md).
 
 ## <a name="costs"></a>Koszty
 Podczas tworzenia, kompilowania i przechowywania obrazów przy użyciu usługi Azure Image Builder naliczane są koszty obliczeń, sieci i magazynu. Koszty te są podobne do kosztów ponoszonych w ramach ręcznego tworzenia obrazów niestandardowych. W przypadku zasobów opłata zostanie naliczona zgodnie z stawką za platformę Azure. 
@@ -101,4 +101,3 @@ Konstruktor obrazów obecnie obsługuje tylko natywnie tworzenie obrazów genera
 ## <a name="next-steps"></a>Następne kroki 
  
 Aby wypróbować Konstruktor obrazów platformy Azure, zapoznaj się z artykułami dotyczącymi tworzenia obrazów systemu [Linux](./linux/image-builder.md) lub [Windows](./windows/image-builder.md) .
-

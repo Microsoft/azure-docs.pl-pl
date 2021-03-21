@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703511"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services (klasyczny)
@@ -37,7 +37,7 @@ W tym artykule przyjęto założenie, że masz subskrypcję platformy Azure i ko
 6. Skompiluj rozwiązanie, aby sprawdzić, czy nie ma żadnych błędów.
 
 ### <a name="step-2-instrument-your-code"></a>Krok 2. Instrumentacja kodu
-Zastąp zawartość WorkerRole.cs następującym kodem. Klasa SampleEventSourceWriter, dziedziczona z [klasy EventSource][EventSource Class], implementuje cztery metody rejestrowania: **SendEnums**, **MessageMethod**, **setother** i **HighFreq**. Pierwszy parametr metody **metody WriteEvent** definiuje identyfikator dla odpowiedniego zdarzenia. Metoda run implementuje nieskończoną pętlę, która wywołuje każdą metodę rejestrowania zaimplementowaną w klasie **SampleEventSourceWriter** co 10 sekund.
+Zastąp zawartość rola procesu roboczego. cs poniższym kodem. Klasa SampleEventSourceWriter, dziedziczona z [klasy EventSource][EventSource Class], implementuje cztery metody rejestrowania: **SendEnums**, **MessageMethod**, **setother** i **HighFreq**. Pierwszy parametr metody **metody WriteEvent** definiuje identyfikator dla odpowiedniego zdarzenia. Metoda run implementuje nieskończoną pętlę, która wywołuje każdą metodę rejestrowania zaimplementowaną w klasie **SampleEventSourceWriter** co 10 sekund.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;

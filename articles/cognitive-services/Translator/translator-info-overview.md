@@ -8,20 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 02/15/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, tłumaczenie tekstu, tłumaczenie maszynowe, usługa tłumaczenia
-ms.openlocfilehash: 72df700d38cad3ee31ef438d7df1c890acde9e6b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec76aa7554110b7440eb825f2d5e86ae2da6baa2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727978"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657726"
 ---
 # <a name="what-is-the-translator-service"></a>Co to jest usługa translator?
 
-Translator to oparta na chmurze usługa tłumaczenia maszynowego, która jest częścią usługi [Azure Cognitive Services platformą](../../index.yml?panel=ai&pivot=products) interfejsów API poznawczej służącej do kompilowania inteligentnych aplikacji. Usługi translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Pozwala to na dodawanie środowisk użytkownika w wielu językach w przypadku [języków i dialektów 90](./language-support.md). Można go także używać na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstu.
+Translator to oparta na chmurze usługa tłumaczenia maszynowego, która jest częścią usługi [Azure Cognitive Services platformą](../../index.yml?panel=ai&pivot=products) interfejsów API poznawczej służącej do kompilowania inteligentnych aplikacji. Usługi translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Pozwala to na dodawanie środowisk użytkownika w języku [90 i dialektów](./language-support.md) , które mogą być używane do tłumaczenia tekstu w dowolnym systemie operacyjnym.
+
+Ta dokumentacja zawiera następujące typy artykułów:  
+
+* Przewodniki [**Szybki Start**](quickstart-translator.md) to instrukcje umożliwiające wykonywanie żądań do usługi.  
+* [**Przewodniki z**](translator-how-to-signup.md) instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.  
+* [**Koncepcje**](character-counts.md) zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.  
+* [**Samouczki**](tutorial-wpf-translation-csharp.md) są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.  
+
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator — informacje
 
@@ -45,11 +53,9 @@ Dowiedz się więcej o tym, [jak działa NMT](https://www.microsoft.com/en-us/tr
 
 ## <a name="improve-translations-with-custom-translator"></a>Ulepszanie tłumaczeń przy użyciu translatora niestandardowego
 
- Translatorem niestandardowym, rozszerzeniem usługi translatora, można użyć w połączeniu z tłumaczeniem, aby dostosować system tłumaczenia neuronowych i poprawić tłumaczenie dla konkretnej terminologii i stylu.
+ [Translatorem niestandardowym](customization.md), rozszerzeniem usługi translatora, można użyć do dostosowania systemu tłumaczenia neuronowych i podniesienia poziomu tłumaczenia określonej terminologii i stylu.
 
 Dzięki usłudze translator niestandardowy można budować systemy tłumaczenia, aby obsługiwały terminologię używaną we własnej firmie lub branży. Dostosowany system tłumaczenia można łatwo zintegrować z istniejącymi aplikacjami, przepływami pracy, witrynami sieci Web i urządzeniami za pośrednictwem zwykłego translatora przy użyciu parametru Category.
-
-Dowiedz się więcej na temat funkcji [Custom Translator](customization.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

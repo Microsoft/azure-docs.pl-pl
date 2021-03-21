@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 57024d6cb23ab273aa69bf59f4ec436a6f873a05
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193498"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593649"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Odwołuje się do metadanych wyzwalacza w uruchomieniach potoków
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób, w jaki metadane wyzwalacza, takie jak godzina ur
 
 Potok czasami musi zrozumieć i odczytuje metadane z wyzwalacza, który go wywołuje. Na przykład w przypadku uruchomienia wyzwalacza okna wirowania na podstawie czasu rozpoczęcia i zakończenia okna potok przetworzy różne wycinki danych lub foldery. W Azure Data Factory używany jest parametryzacja i [zmienna systemowa](control-flow-system-variables.md) do przekazywania metadanych z wyzwalacza do potoku.
 
-Ten wzorzec jest szczególnie przydatny dla [wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md), gdzie wyzwalacz zawiera czas rozpoczęcia i zakończenia okna.
+Ten wzorzec jest szczególnie przydatny dla [wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md), gdzie wyzwalacz udostępnia czas rozpoczęcia i zakończenia okna oraz [wyzwalacz zdarzenia niestandardowego](how-to-create-custom-event-trigger.md), gdzie wyzwalacz analizuje i przetwarza wartości w [polu _dane_ niestandardowe zdefiniowane](../event-grid/event-schema.md).
 
 > [!NOTE]
 > Inny typ wyzwalacza zawiera różne informacje meta data. Aby uzyskać więcej informacji, zobacz [zmienna systemowa](control-flow-system-variables.md)

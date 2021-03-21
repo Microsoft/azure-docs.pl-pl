@@ -4,10 +4,10 @@ description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych d
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103224711"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup

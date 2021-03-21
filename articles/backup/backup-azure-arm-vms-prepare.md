@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "92172754"
+ms.locfileid: "104670430"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -117,6 +117,8 @@ Jeśli wybrano opcję utworzenia nowych zasad tworzenia kopii zapasowych, Wypeł
 4. W obszarze **Zakres przechowywania** Określ, jak długo mają być przechowywane codziennie lub cotygodniowe punkty kopii zapasowych.
 5. W obszarze **przechowywanie miesięcznego punktu kopii** zapasowej i **przechowywanie rocznego punktu kopii zapasowej** Określ, czy chcesz przechowywać kopię zapasową codziennie, czy cotygodniowe kopie zapasowe.
 6. Wybierz **przycisk OK** , aby zapisać zasady.
+    > [!NOTE]
+    > Do przechowywania kolekcji punktów przywracania (RPC) usługa Backup tworzy oddzielną grupę zasobów (RG). Ta RG różni się od RG maszyny wirtualnej. [Dowiedz się więcej](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Nowe zasady tworzenia kopii zapasowych](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

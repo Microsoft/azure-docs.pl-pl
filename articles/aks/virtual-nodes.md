@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.custom: references_regions
 ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634451"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do korzystania z węzłów wirtualnych
@@ -21,7 +21,7 @@ Dodatek Virtual nodes dla AKS jest oparty na [wirtualnej Kubelet][virtual-kubele
 
 Ten artykuł zawiera omówienie wymagań dotyczących dostępności regionów i sieci dla węzłów wirtualnych, a także znane ograniczenia.
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Wszystkie regiony, gdzie ACI obsługuje jednostki SKU sieci wirtualnej, są obsługiwane dla wdrożeń węzłów wirtualnych.
 

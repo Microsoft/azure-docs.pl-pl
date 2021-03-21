@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485677"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670617"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -76,8 +76,8 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Standard, w tym Server Core)<br><br>Windows Server 2016 (Datacenter/Standard z wyłączeniem Server Core)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (wersja RTM i SP1 standard)| Update Management obsługuje oceny i poprawki dla tego systemu operacyjnego. [Hybrydowy proces roboczy elementu Runbook](../automation-windows-hrw-install.md) jest obsługiwany w przypadku systemu Windows Server 2008 R2. |
-|CentOS 6 i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
+|CentOS 6, 7 i 8 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7 i 8 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
 |SUSE Linux Enterprise Server 12, 15 i 15,1 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Dla komputera SUSE 15. x jest wymagany język Python 3.      |
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 LTS (x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
 
@@ -207,7 +207,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.
