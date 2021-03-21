@@ -4,10 +4,10 @@ description: Omówienie obsługi OpenAPI w Azure Functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000213"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Obsługa metadanych OpenAPI 2,0 w Azure Functions (wersja zapoznawcza)
@@ -62,7 +62,7 @@ Poniższa tabela przedstawia ustawienia Azure Portal i odpowiadające im dane w 
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Używanie ciągłej integracji/ciągłego ustawiania definicji interfejsu API
 
- Należy włączyć hosting definicji interfejsu API w portalu przed włączeniem kontroli źródła w celu zmodyfikowania definicji interfejsu API z kontroli źródła. Wykonaj następujące instrukcje:
+ Należy włączyć hosting definicji interfejsu API w portalu przed włączeniem kontroli źródła w celu zmodyfikowania definicji interfejsu API z kontroli źródła. Postępuj zgodnie z tymi instrukcjami:
 
 1. Przejdź do **definicji interfejsu API (wersja zapoznawcza)** w ustawieniach aplikacji funkcji.
    1. Ustaw **źródło definicji interfejsu API** do **działania**.

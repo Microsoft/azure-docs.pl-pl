@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć kopię zapasową i przywrócić Active 
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733557"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Tworzenie kopii zapasowych i przywracanie Active Directory kontrolerów domeny

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743728"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Wymagania dotyczące licencjonowania Azure Active Directory samoobsługowego resetowania hasła
@@ -30,7 +30,7 @@ SSPR jest licencjonowany na użytkownika. Aby zapewnić zgodność, organizacje 
 
 W poniższej tabeli opisano różne scenariusze SSPR dotyczące zmiany haseł, resetowania lub lokalnego zapisywania zwrotnego, a także jednostki SKU, które udostępniają funkcję.
 
-| Cechy | Usługa Azure AD — warstwa Bezpłatna | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Usługa Azure AD — wersja Premium P1 lub P2 |
+| Cecha | Usługa Azure AD — warstwa Bezpłatna | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Usługa Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | **Zmiana hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD wie swoje hasło i chce zmienić go na nowy. | ● | ● | ● | ● |
 | **Resetowanie hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD zapomniał hasło i musi je zresetować. | | ● | ● | ● |
@@ -51,7 +51,7 @@ Dodatkowe informacje o licencjonowaniu, w tym koszty, można znaleźć na nastę
 
 Usługa Azure AD obsługuje Licencjonowanie oparte na grupach. Administratorzy mogą przypisywać licencje zbiorczo do grupy użytkowników, a nie przypisywać ich pojedynczo. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. Przypisanie licencji można wykonać w **User**  >  **Profile**  >  sekcji **ustawień** profilu użytkownika w Azure Portal. *W przypadku korzystania z przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu.*
+Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. Przypisanie licencji można wykonać w   >    >  sekcji **ustawień** profilu użytkownika w Azure Portal. *W przypadku korzystania z przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu.*
 
 ## <a name="next-steps"></a>Następne kroki
 

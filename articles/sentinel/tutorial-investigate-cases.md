@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
 ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790990"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
@@ -37,7 +37,7 @@ W tym artykule omówiono następujące zagadnienia:
 Zdarzenie może zawierać wiele alertów. Jest to agregacja wszystkich istotnych dowodów dla konkretnego badania. Zdarzenie jest tworzone na podstawie reguł analizy utworzonych na stronie **analizy** . Właściwości związane z alertami, takie jak ważność i stan, są ustawiane na poziomie incydentu. Gdy zezwolisz na platformę Azure, wiadomo, jakiego rodzaju zagrożeń szukasz, i jak je znaleźć, możesz monitorować wykryte zagrożenia, badając zdarzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+- W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Graf badania wymaga, aby oryginalny incydent zawierał jednostki.
 
 - Jeśli masz użytkownika-gościa, który musi przypisać incydenty, użytkownik musi mieć przypisaną rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers) w dzierżawie usługi Azure AD. Użytkownicy standardowi (nie będący gościem) domyślnie przypisani do tej roli.
 
@@ -80,7 +80,7 @@ Aby użyć grafu badania:
 1. Wybierz zdarzenie, a następnie wybierz pozycję **Zbadaj**. Spowoduje to przejście do grafu badania. Wykres przedstawia mapę ilustracyjnyą jednostek, które są bezpośrednio połączone z alertem, a każdy zasób jest podłączany w dalszej części.
 
    > [!IMPORTANT] 
-   > - W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+   > - W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Graf badania wymaga, aby oryginalny incydent zawierał jednostki.
    >
    > - Wskaźnik na platformie Azure obecnie obsługuje badanie **zdarzeń do 30 dni**.
 

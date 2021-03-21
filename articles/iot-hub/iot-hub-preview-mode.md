@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
 ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96621709"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Włącz tryb podglądu dla IoT Hub, aby spróbować wybrać nowe funkcje
@@ -46,7 +46,7 @@ Te funkcje są ulepszeniami protokołu IoT Hub i warstwy uwierzytelniania, dlate
 
 1. Na karcie **podstawowe** Wypełnij pola, które [zwykle](iot-hub-create-through-portal.md) z wyjątkiem **regionu**. Wybierz jeden z następujących regionów:
     
-    - Środkowe stany USA
+    - Central US
     - West Europe
     - Azja Południowo-Wschodnia
 
@@ -77,4 +77,4 @@ Po utworzeniu IoT Hub w trybie podglądu zawsze będzie wyświetlany ten transpa
 
 - Aby uzyskać więcej informacji na temat obsługi programu MQTT 5, zobacz temat [Omówienie usługi IoT Hub MQTT 5 (wersja zapoznawcza)](iot-hub-mqtt-5.md)
 - Aby wyświetlić podgląd certyfikatu serwera ECC, zobacz [certyfikat TLS serwera kryptografii krzywej eliptycznej (ECC) (wersja zapoznawcza)](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate-preview)
-- Aby wyświetlić wersję zapoznawczą negocjowania [TLS maximum fragment length negotiation (preview)](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation-preview) rozmiaru FRAGMENTu TLS
+- Aby wyświetlić wersję zapoznawczą negocjowania [](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation-preview) rozmiaru FRAGMENTu TLS

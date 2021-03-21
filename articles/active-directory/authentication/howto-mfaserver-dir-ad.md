@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b3778ea68edf1fbbb41efb899749e6f35b39bae
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742293"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
@@ -39,7 +39,7 @@ Domyślnie serwer usługi Azure Multi-Factor Authentication (MFA) jest skonfigur
 > [!NOTE]
 > Integracja katalogów nie gwarantuje pracy z katalogami innymi niż Active Directory Domain Services.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Użyj usługi Active Directory |Wybierz opcję Użyj usługi Active Directory, aby użyć tej usługi do importowania i synchronizacji.  Jest to ustawienie domyślne. <br>Uwaga: aby integracja z usługą Active Directory działała prawidłowo, przyłącz komputer do domeny i zaloguj się przy użyciu konta domeny. |
 | Uwzględnij domeny zaufane |Zaznacz pole wyboru **Uwzględnij domeny zaufane**, jeśli chcesz, aby agent podejmował próbę nawiązania połączenia z domenami ustawionymi jako zaufane dla bieżącej domeny lub innej domeny w lesie albo domenami zaufanymi lasu.  Jeśli nie zachodzi importowanie ani synchronizowanie użytkowników z żadnej z zaufanych domen, usuń zaznaczenie pola wyboru, aby poprawić wydajność.  Pole jest domyślnie zaznaczone. |
@@ -49,7 +49,7 @@ Domyślnie serwer usługi Azure Multi-Factor Authentication (MFA) jest skonfigur
 
 W poniższej tabeli opisano ustawienia konfiguracji LDAP.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Serwer |Wprowadź nazwę hosta lub adres IP serwera z uruchomionym katalogiem LDAP.  Serwer zapasowy można także określić osobno, oddzielając go średnikiem. <br>Uwaga: Jeśli typ powiązania to SSL (TLS), wymagana jest w pełni kwalifikowana nazwa hosta. |
 | Podstawowa nazwa wyróżniająca |Wprowadź nazwę wyróżniającą obiektu podstawowego katalogu, z którego będą uruchamiane wszystkie zapytania katalogu.  Na przykład: dc=abc,dc=com. |
@@ -80,7 +80,7 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 
 ![Dostosowywanie atrybutów integracji katalogów na serwerze MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Unikatowy identyfikator |Wprowadź nazwę atrybutu, która pełni rolę unikatowego identyfikatora rekordów kontenera, grupy zabezpieczeń i użytkowników.  W katalogu Active Directory jest to zazwyczaj wartość elementu objectGUID. Inne implementacje katalogu LDAP mogą używać wartości entryUUID lub podobnej.  Wartość domyślna to objectGUID. |
 | Typ unikatowego identyfikatora |Wybierz typ atrybutu unikatowego identyfikatora.  W katalogu Active Directory atrybut objectGUID ma typ GUID. Inne implementacje katalogu LDAP mogą używać typu tablicy bajtowej znaków ASCII lub ciągu.  Wartość domyślna to GUID. <br><br>Poprawne ustawienie tego typu jest istotne, ponieważ elementy synchronizacji są przywoływane przy użyciu ich unikatowych identyfikatorów. Typ unikatowego identyfikatora jest używany do bezpośredniego odnajdywania obiektu w katalogu.  Ustawienie typu ciągu w przypadku, gdy wartość jest przechowywana w katalogu jako tablica bajtowa znaków ASCII, uniemożliwia prawidłową synchronizację. |
@@ -104,7 +104,7 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 | Faks |Wprowadź nazwę atrybutu, który zawiera numer faksu w rekordzie użytkownika.  Wartość domyślna to facsimileTelephoneNumber. |
 | Telefon VoIP |Wprowadź nazwę atrybutu, który zawiera numer telefonu VoIP w rekordzie użytkownika.  Wartość domyślna to ipPhone. |
 | Niestandardowy |Wprowadź nazwę atrybutu, który zawiera niestandardowy numer telefonu w rekordzie użytkownika.  Pole jest domyślnie puste. |
-| Rozszerzenie |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
+| Wewnętrzny |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
 | Przycisk Przywróć domyślne |Kliknij przycisk **Przywróć domyślne**, aby przywrócić wartości domyślne wszystkich atrybutów.  Ustawienia domyślne powinny działać prawidłowo z normalnym schematem usługi Active Directory lub ADAM. |
 
 Aby edytować atrybuty, kliknij przycisk **Edytuj** na karcie Atrybuty.  Spowoduje to wyświetlenie okna, w którym można edytować atrybuty. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia.
@@ -125,7 +125,7 @@ Jeśli katalog LDAP obsługuje narzędzie DirSync i jest skonfigurowany do jego 
 
 Poniższa tabela zawiera dodatkowe informacje na temat każdego ustawienia na karcie Synchronizacja.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Włącz synchronizację z usługą Active Directory |W przypadku zaznaczenia tej opcji usługa serwera Multi-Factor Authentication okresowo sonduje pod kątem zmian w katalogu Active Directory. <br><br>Uwaga: zanim usługa Multi-Factor Auth Server zacznie przetwarzać zmiany, należy dodać co najmniej jeden element synchronizacji i wybrać opcję Synchronizuj teraz. |
 | Synchronizuj co |Określ interwał czasu oczekiwania usługi Multi-Factor Auth Server między sondowaniem pod kątem zmian oraz przetwarzaniem zmian. <br><br> Uwaga: wskazany interwał to czas, jaki mija przed rozpoczęciem każdego kolejnego cyklu.  Jeśli czas przetwarzania zmian przekracza interwał, nastąpi natychmiastowe rozpoczęcie kolejnego sondowania. |

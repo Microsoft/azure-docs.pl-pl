@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005065"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Samouczek: reagowanie na zdarzenia Blob Storage w IoT Edge (wersja zapoznawcza)
@@ -75,7 +75,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
         }
     ```    
 
- 1. Kliknij pozycję **Zapisz**
+ 1. Kliknij pozycję **Zapisz**.
  1. Przejdź do następnej sekcji, aby dodać moduł subskrybenta Azure Event Grid przed ich wdrożeniem.
 
     >[!IMPORTANT]
@@ -95,7 +95,7 @@ W tej sekcji przedstawiono sposób wdrażania innego modułu IoT, który będzie
    * **Nazwa**: subskrybent
    * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opcje tworzenia kontenera**: brak
-1. Kliknij pozycję **Zapisz**
+1. Kliknij pozycję **Zapisz**.
 1. Przejdź do następnej sekcji, aby dodać moduł Blob Storage platformy Azure
 
 ## <a name="deploy-azure-blob-storage-module"></a>Wdróż moduł Blob Storage platformy Azure
@@ -146,7 +146,7 @@ W tej sekcji pokazano, jak wdrożyć moduł Blob Storage platformy Azure, który
      - W przypadku kontenerów **systemu Linux woluminy my-Volume:/blobroot**
      - W przypadku kontenerów systemu Windows **mój wolumin: C:/BlobRoot**
 
-5. Kliknij pozycję **Zapisz**
+5. Kliknij pozycję **Zapisz**.
 6. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
     > [!NOTE]

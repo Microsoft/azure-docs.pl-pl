@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d880146a0b068a5d097c452c14b28db4907098
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743959"
 ---
 # <a name="features-and-licenses-for-azure-ad-multi-factor-authentication"></a>Funkcje i licencje dla usługi Azure AD Multi-Factor Authentication
@@ -41,7 +41,7 @@ Usługi Azure AD Multi-Factor Authentication mogą być używane i licencjonowan
 
 Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersjach usługi Azure AD Multi-Factor Authentication. Zaplanuj potrzeby zabezpieczania uwierzytelniania użytkowników, a następnie ustal, które podejście spełnia te wymagania. Na przykład, chociaż Azure AD — wersja Bezpłatna zapewnia domyślne ustawienia zabezpieczeń, które udostępniają usługę Azure AD Multi-Factor Authentication, do monitu uwierzytelniania można używać tylko aplikacji do zarządzania urządzeniami przenośnymi, a nie połączeń telefonicznych ani wiadomości SMS. Takie podejście może być ograniczeniem, jeśli nie można zagwarantować, że aplikacja do uwierzytelniania mobilnego jest zainstalowana na urządzeniu osobistym użytkownika.
 
-| Cechy | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Aplikacje Microsoft 365 | Usługa Azure AD — wersja Premium P1 lub P2 |
+| Cecha | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Aplikacje Microsoft 365 | Usługa Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Ochrona kont administratorów dzierżawy usługi Azure AD za pomocą uwierzytelniania wieloskładnikowego | ● | ● (Tylko konta *administratora globalnego usługi Azure AD* ) | ● | ● |
 | Aplikacja mobilna jako drugi składnik | ● | ● | ● | ● |

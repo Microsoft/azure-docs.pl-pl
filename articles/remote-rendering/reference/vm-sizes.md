@@ -7,10 +7,10 @@ ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594404"
 ---
 # <a name="server-sizes"></a>Rozmiary serwerów
@@ -88,7 +88,7 @@ Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które p
 * Na stronie Konwersja modelu Pobierz [wyjściowy plik JSON konwersji](../how-tos/conversion/get-information.md)i sprawdź `numFaces` wpis w [sekcji *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section)
 * Jeśli aplikacja dotyczy zawartości dynamicznej, liczba renderowanych wielokątów może być dynamicznie przetwarzana w czasie wykonywania. Użyj [zapytania oceny wydajności](../overview/features/performance-queries.md#performance-assessment-queries) i sprawdź, czy `polygonsRendered` element członkowski znajduje się w `FrameStatistics` strukturze. `PolygonsRendered`Pole zostanie ustawione na, `bad` gdy moduł renderowania trafi na ograniczenie wielokąta. Tło z szachownicą jest zawsze wyblakłe z pewnym opóźnieniem, aby można było wykonać akcję użytkownika po wykonaniu tej kwerendy asynchronicznej. Akcja użytkownika może na przykład ukryć lub usunąć wystąpienia modelu.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Szczegółowy podział cen dla każdego typu konfiguracji można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
 

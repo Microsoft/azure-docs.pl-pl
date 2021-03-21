@@ -7,10 +7,10 @@ ms.date: 12/21/2020
 ms.topic: conceptual
 ms.service: cache
 ms.openlocfilehash: 0a0809076367356739dfeadcf8dd63f88866a987
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99056306"
 ---
 # <a name="azure-cache-for-redis-event-grid-overview"></a>Usługa Azure cache for Redis — Omówienie Event Grid 
@@ -23,7 +23,7 @@ Jeśli chcesz wypróbować usługę Azure cache dla zdarzeń Redis, zobacz dowol
 
 |Jeśli chcesz użyć tego narzędzia:    |Zobacz ten przewodnik Szybki Start: |
 |--|-|
-|Witryna Azure Portal    |[Szybki Start: kierowanie pamięci podręcznej platformy Azure dla zdarzeń Redis do punktu końcowego sieci Web przy użyciu Azure Portal](cache-event-grid-quickstart-portal.md)|
+|Azure Portal    |[Szybki Start: kierowanie pamięci podręcznej platformy Azure dla zdarzeń Redis do punktu końcowego sieci Web przy użyciu Azure Portal](cache-event-grid-quickstart-portal.md)|
 |PowerShell    |[Szybki Start: kierowanie pamięci podręcznej Azure dla zdarzeń Redis do punktu końcowego sieci Web przy użyciu programu PowerShell](cache-event-grid-quickstart-powershell.md)|
 |Interfejs wiersza polecenia platformy Azure    |[Szybki Start: kierowanie pamięci podręcznej Azure dla zdarzeń Redis do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia](cache-event-grid-quickstart-cli.md)|
 

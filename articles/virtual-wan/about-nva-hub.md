@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028084"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
@@ -79,10 +79,10 @@ URZĄDZENIE WUS w koncentratorze wirtualnym jest dostępny w wersji zapoznawczej
 |Region geopolityczny | Regiony świadczenia usługi Azure|
 |---|---|
 | Ameryka Północna| Zachodnie stany USA, Południowo-środkowe stany USA, Wschodnie stany USA 2   |
-| Ameryka Południowa | Brazil South |
+| Ameryka Południowa | Brazylia Południowa |
 | Europa | Europa Zachodnia, Południowe Zjednoczone Królestwo|
 |  Bliski Wschód | Północne Zjednoczone Emiraty Arabskie |
-| Azja | Japan East |
+| Azja | Japonia Wschodnia |
 | Australia | Australia Wschodnia |
 
 ## <a name="faq"></a>Często zadawane pytania

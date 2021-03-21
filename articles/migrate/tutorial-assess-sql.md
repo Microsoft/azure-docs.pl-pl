@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
 ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055533"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Samouczek: ocenianie wystąpień SQL na potrzeby migracji do usługi Azure SQL
@@ -18,9 +18,9 @@ W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, 
 W tym artykule opisano sposób oceny odnalezionych baz danych wystąpień SQL Server w przygotowaniu do migracji do usługi Azure SQL przy użyciu narzędzia Azure Migrate do odnajdywania i oceny.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uruchom ocenę na podstawie konfiguracji serwera i danych wydajności.

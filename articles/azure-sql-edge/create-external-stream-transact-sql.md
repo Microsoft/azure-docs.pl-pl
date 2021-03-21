@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101659226"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
@@ -27,7 +27,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
-| Baza danych SQL | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| SQL Database | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | Y | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Obsługa Kafka jest niedostępna dla wersji ARM64 usługi Azure SQL Edge.|
 
 

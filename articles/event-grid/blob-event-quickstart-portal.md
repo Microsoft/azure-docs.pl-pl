@@ -4,10 +4,10 @@ description: 'Szybki Start: używanie Azure Event Grid i Azure Portal do tworzen
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005694"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
@@ -36,7 +36,7 @@ Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikac
     1. Wybierz swoją subskrypcję platformy Azure. 
     2. W obszarze **Grupa zasobów** Utwórz nową grupę zasobów lub wybierz istniejącą. 
     3. Wprowadź nazwę konta magazynu. 
-    4. Wybierz pozycję **Przeglądanie + tworzenie**. 
+    4. Wybierz pozycję **Przejrzyj i utwórz**. 
 
        ![Kroki początkowe](./media/blob-event-quickstart-portal/provide-blob-values.png)    
     5. Na stronie **Recenzja i tworzenie** Sprawdź ustawienia, a następnie wybierz pozycję **Utwórz**. 

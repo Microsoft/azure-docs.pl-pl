@@ -12,10 +12,10 @@ ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
 ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470238"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
@@ -99,7 +99,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Marathi (Indie)                    | `mr-IN` | Tekst                                   |                           |
 | Norweski (Bokmål, Norwegia)         | `nb-NO` | Tekst                                   |     Tak                      |
 | Polski (Polska)                    | `pl-PL` | Tekst                                   |       Tak                    |
-| Portugalski (Brazylia)                | `pt-BR` | Audio (20190620, 20201015)<br>Tekst<br>Fonetyczn|          Tak                 |
+| portugalski (Brazylia)                | `pt-BR` | Audio (20190620, 20201015)<br>Tekst<br>Fonetyczn|          Tak                 |
 | Portugalski (Portugalia)              | `pt-PT` | Tekst                                   |             Tak              |
 | Rumuński (Rumunia)                 | `ro-RO` | Tekst                                   |                           |
 | Rosyjski (Rosja)                   | `ru-RU` | Audio (20200907)<br>Tekst                 |                Tak           |
@@ -237,8 +237,8 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 | Polski (Polska) | `pl-PL` | Kobiety | `pl-PL-AgnieszkaNeural` <sup>Nowy</sup> | Ogólne |
 | Polski (Polska) | `pl-PL` | Kobiety | `pl-PL-ZofiaNeural` | Ogólne |
 | Polski (Polska) | `pl-PL` | Mężczyźni | `pl-PL-MarekNeural` <sup>Nowy</sup> | Ogólne |
-| Portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-FranciscaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-AntonioNeural` | Ogólne |
+| portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-FranciscaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-AntonioNeural` | Ogólne |
 | Portugalski (Portugalia) | `pt-PT` | Kobiety | `pt-PT-FernandaNeural` | Ogólne |
 | Portugalski (Portugalia) | `pt-PT` | Kobiety | `pt-PT-RaquelNeural` <sup>Nowy</sup> | Ogólne |
 | Portugalski (Portugalia) | `pt-PT` | Mężczyźni | `pt-PT-DuarteNeural` <sup>Nowy</sup> | Ogólne |
@@ -373,8 +373,8 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 | Malajski (Malezja) | `ms-MY` | Mężczyźni | `ms-MY-Rizwan`|
 | Norweski (Bokmål, Norwegia) | `nb-NO` | Kobiety | `nb-NO-HuldaRUS`|
 | Polski (Polska) | `pl-PL` | Kobiety | `pl-PL-PaulinaRUS`|
-| Portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-Daniel`|
-| Portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-HeloisaRUS`|
+| portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-Daniel`|
+| portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-HeloisaRUS`|
 | Portugalski (Portugalia) | `pt-PT` | Kobiety | `pt-PT-HeliaRUS`|
 | Rumuński (Rumunia) | `ro-RO` | Mężczyźni | `ro-RO-Andrei`|
 | Rosyjski (Rosja) | `ru-RU` | Kobiety | `ru-RU-EkaterinaRUS`|
@@ -418,7 +418,7 @@ Niestandardowy głos jest dostępny w warstwach Standardowa i neuronowych. Obsł
 | Włoski (Włochy) | `it-IT` | Tak | Tak |
 | Japoński (Japonia) | `ja-JP` | Nie | Tak |
 | Koreański (Korea) | `ko-KR` | Nie | Tak |
-| Portugalski (Brazylia) | `pt-BR` | Tak | Tak |
+| portugalski (Brazylia) | `pt-BR` | Tak | Tak |
 | Hiszpański (Meksyk) | `es-MX` | Tak | Tak |
 | hiszpański (Hiszpania) | `es-ES` | Nie | Tak |
 
@@ -523,7 +523,7 @@ Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych ro
 |Niemiecki (Niemcy)     | de-DE     | nie dotyczy     | tak     | tak|
 |Włoski | it-IT     |     nie dotyczy     | tak |     tak|
 |japoński     | ja-JP | nie dotyczy     | tak     | tak|
-|Portugalski (Brazylia) | pt-BR |     nie dotyczy |     tak |     tak|
+|portugalski (Brazylia) | pt-BR |     nie dotyczy |     tak |     tak|
 |Hiszpański (Meksyk)     | es — MX     | nie dotyczy |     tak |     tak|
 |hiszpański (Hiszpania)     | es-ES | nie dotyczy     | tak |     tak|
 

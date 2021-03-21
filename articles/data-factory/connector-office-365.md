@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393007"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Skopiuj dane z pakietu Office 365 do platformy Azure przy użyciu Azure Data Factory
@@ -20,7 +20,7 @@ Azure Data Factory integruje się z usługą [Microsoft Graph Data Connect](/gra
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z pakietu Office 365. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 Funkcja połączenia ADF z pakietem Office 365 łącznika i Microsoft Graph danych umożliwiają rozzyskanie różnych typów zestawów danych z skrzynek pocztowych z obsługą poczty E-mail programu Exchange, w tym kontaktów książki adresowej, zdarzeń kalendarza, wiadomości e-mail, informacji o użytkowniku, ustawień skrzynek pocztowych itd.  Zapoznaj się [tutaj](/graph/data-connect-datasets) , aby wyświetlić pełną listę dostępnych zestawów danych.
 
 Na razie w ramach jednego działania kopiowania można **kopiować dane z pakietu Office 365 do [platformy Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) w formacie JSON** (typ setOfObjects). Jeśli chcesz załadować pakiet Office 365 do innych typów magazynów danych lub w innych formatach, można utworzyć łańcuch pierwszego działania kopiowania z kolejnym działaniem kopiowania, aby dodatkowo załadować dane do dowolnego z [obsługiwanych magazynów docelowych ADF](copy-activity-overview.md#supported-data-stores-and-formats) (w tabeli "obsługiwane magazyny danych i formaty").

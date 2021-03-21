@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 7c65cf6b36af3057fb06c6a6584fa458b1030c72
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704139"
 ---
 # <a name="overview-of-offline-backup"></a>Przegląd kopii zapasowej offline
@@ -76,7 +76,7 @@ Poniższa tabela zawiera porównanie dwóch dostępnych opcji, dzięki czemu mo�
 | Obsługiwane regiony                                           | [Azure Data Box regionów dysków](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box regiony](../databox/data-box-disk-overview.md#region-availability) | [Regiony usługi Azure Import/Export](../import-export/storage-import-export-service.md#region-availability) |
 | Wysyłka między krajami                                     | Nieobsługiwane  <br>    Adres źródłowy i docelowy centrum danych platformy Azure muszą znajdować się w tym samym kraju/regionie * | Obsługiwane                                                    |
 | Przenoszenie logistyki (dostarczanie, transport, odbiór)           | W pełni zarządzane firmy Microsoft                                     | Zarządzane przez klienta                                            |
-| Cennik                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
+| Ceny                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
 * Jeśli kraj/region nie ma centrum danych platformy Azure, musisz dostarczyć dyski do centrum danych platformy Azure w innym kraju/regionie.
 

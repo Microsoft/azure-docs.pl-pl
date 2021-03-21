@@ -6,10 +6,10 @@ author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
 ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052283"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
@@ -130,7 +130,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Microsoft Social Engagement | Nie | Nie | Nie |  |
 |Usługa Microsoft Stream | Tak | Tak | Nie |  |
 |Migrate | Nie | Nie | Nie |  |
-|Multi-Factor Authentication | Nie | Tak | Nie |  |
+|Uwierzytelnianie wieloskładnikowe | Nie | Tak | Nie |  |
 |Network Watcher | Tak | Tak | Nie |  |
 |Notification Hubs | Tak | Nie | Nie |  |
 |Open Datasets | Nie | Nie | Nie |  |
@@ -151,7 +151,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Site Recovery | Nie | Tak | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |Azure Synapse Analytics | Tak | Tak | Nie |  |
-|Baza danych SQL | Tak | Tak | Nie |  |
+|SQL Database | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
 |Storage | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |

@@ -1,6 +1,6 @@
 ---
-title: Rejestrowanie biletu pomocy technicznej za pośrednictwem StorSimple Menedżer urządzeń | Microsoft Docs
-description: W tym artykule opisano możliwości diagnostyki Menedżer urządzeń StorSimple i wyjaśniono, jak używać jej do rozwiązywania problemów z wirtualną tablicą StorSimple.
+title: Rejestrowanie biletu pomocy technicznej za pośrednictwem StorSimple Device Manager | Microsoft Docs
+description: W tym artykule opisano możliwości diagnostyki Device Manager StorSimple i wyjaśniono, jak używać jej do rozwiązywania problemów z wirtualną tablicą StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005779"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do rejestrowania Support request dla macierzy wirtualnej StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Device Manager do rejestrowania Support request dla macierzy wirtualnej StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-StorSimple Menedżer urządzeń zapewnia możliwość **rejestrowania nowego żądania obsługi** w bloku podsumowania usługi. W tym artykule wyjaśniono, jak można rejestrować nowe żądanie pomocy technicznej i zarządzać jego cyklem życia z poziomu portalu.
+StorSimple Device Manager zapewnia możliwość **rejestrowania nowego żądania obsługi** w bloku podsumowania usługi. W tym artykule wyjaśniono, jak można rejestrować nowe żądanie pomocy technicznej i zarządzać jego cyklem życia z poziomu portalu.
 
 ## <a name="new-support-request"></a>Nowy wniosek o pomoc techniczną
 
-W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej możesz utworzyć bilety dla problemu w macierzy wirtualnej StorSimple bezpośrednio z bloku podsumowania usługi StorSimple Menedżer urządzeń.
+W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej możesz utworzyć bilety dla problemu w macierzy wirtualnej StorSimple bezpośrednio z bloku podsumowania usługi StorSimple Device Manager.
 
 #### <a name="to-log-a-new-request"></a>Aby zarejestrować nowe żądanie
 
@@ -41,13 +41,13 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
     1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**. 
     
-    2. Automatycznie wybierana jest bieżąca **subskrypcja**, typ **usługi** i **zasób** (Usługa StorSimple Menedżer urządzeń). 
+    2. Automatycznie wybierana jest bieżąca **subskrypcja**, typ **usługi** i **zasób** (Usługa StorSimple Device Manager). 
 
     3. Określ co najmniej jedno urządzenie zarejestrowane w usłudze, które ma problemy.
 
     4. Wybierz odpowiedni **Plan pomocy technicznej** , jeśli masz wiele planów skojarzonych z Twoją subskrypcją. Potrzebujesz płatnego planu pomocy technicznej, aby umożliwić pomoc techniczną.
 
-3. W **kroku 2** wybierz **ważność** i określ, czy problem jest związany z tablicą lub usługą StorSimple Menedżer urządzeń. Ponadto wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
+3. W **kroku 2** wybierz **ważność** i określ, czy problem jest związany z tablicą lub usługą StorSimple Device Manager. Ponadto wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
    
     ![Zrzut ekranu przedstawia okienko problemu, w którym można wprowadzić typ problemu, kategorię oraz szczegóły żądania pomocy technicznej.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 

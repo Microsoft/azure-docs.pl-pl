@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349541"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Co to jest interfejsy API wyszukiwania Bing?
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejsy API wyszukiwania Bing pozwalają tworzyć aplikacje i usługi połączone z Internetem, które znajdują strony internetowe, obrazy, wiadomości, lokalizacje i inne dane bez reklam. Wysyłając żądania wyszukiwania przy użyciu Wyszukiwanie Bing interfejsów API REST lub zestawów SDK, możesz uzyskać odpowiednie informacje i zawartość dla wyszukiwania w sieci Web. Skorzystaj z tego artykułu, aby dowiedzieć się więcej na temat różnych interfejsów API wyszukiwania Bing i sposobu integrowania funkcji wyszukiwania poznawczego z aplikacjami i usługami. Limity cen i szybkości mogą się różnić w zależności od interfejsów API.
