@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 73eb1225ffc5fd01f9a27ca99ad2b059d45a36cf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015294"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Urządzenie: roobo Smart audio dev Kit
@@ -67,7 +67,7 @@ Ten artykuł zawiera informacje dotyczące urządzeń dla zestawu roobo Smart au
 
 Aby uzyskać więcej informacji na temat programowania, zobacz [Przewodnik programowania w roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
-## <a name="audio"></a>Urządzenia audio
+## <a name="audio"></a>Dźwięk
 
 Roobo zapewnia narzędzie, które przechwytuje cały dźwięk do pamięci flash. Może pomóc w rozwiązywaniu problemów z dźwiękiem. Dostępna jest wersja narzędzia dla każdej konfiguracji zestawu deweloperskiego. W  [witrynie roobo](http://ddk.roobo.com/)wybierz urządzenie, a następnie wybierz łącze **Narzędzia roobo** w dolnej części strony.
 

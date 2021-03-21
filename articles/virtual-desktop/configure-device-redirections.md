@@ -7,10 +7,10 @@ ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018379"
 ---
 # <a name="configure-device-redirections"></a>Konfigurowanie przekierowań urządzeń
@@ -78,7 +78,7 @@ Najpierw Ustaw następującą Właściwość RDP, aby włączyć przekierowywani
 
 Następnie ustaw następujące zasady grupy na urządzeniu lokalnym użytkownika:
 
-- Przejdź do **Computer Configuration** węzła  >  **zasady** konfiguracji >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Podłączanie pulpitu zdalnego**  >  **przekierowania urządzenia USB RemoteFX**.
+- Przejdź do węzła  >  **zasady** konfiguracji >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Podłączanie pulpitu zdalnego**  >  **przekierowania urządzenia USB RemoteFX**.
 - Wybierz opcję **Zezwalaj na przekierowywanie protokołu RDP innych obsługiwanych urządzeń USB z funkcją RemoteFX z tego komputera**.
 - Wybierz opcję **włączone** , a następnie wybierz opcję **Administratorzy i użytkownicy w polu prawa dostępu przekierowania USB RemoteFX** .
 - Wybierz przycisk **OK**.

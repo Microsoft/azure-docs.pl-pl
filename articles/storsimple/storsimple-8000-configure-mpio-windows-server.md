@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968812"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple
@@ -86,7 +86,7 @@ Funkcja MPIO musi być skonfigurowana do identyfikowania woluminów StorSimple. 
 4. Po wyświetleniu monitu uruchom ponownie serwer.
 5. W oknie dialogowym **Właściwości MPIO** kliknij kartę **urządzenia MPIO** . kliknij przycisk **Dodaj**.
     </br>![Właściwości MPIO — urządzenia z funkcją MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. W oknie dialogowym **Dodawanie obsługi MPIO** , w obszarze **Identyfikator sprzętu urządzenia** wprowadź numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, uzyskaj dostęp do usługi StorSimple Menedżer urządzeń. Przejdź do **urządzeń > pulpicie nawigacyjnym**. Numer seryjny urządzenia jest wyświetlany **w okienku po** prawej stronie pulpitu nawigacyjnego urządzenia.
+6. W oknie dialogowym **Dodawanie obsługi MPIO** , w obszarze **Identyfikator sprzętu urządzenia** wprowadź numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, uzyskaj dostęp do usługi StorSimple Device Manager. Przejdź do **urządzeń > pulpicie nawigacyjnym**. Numer seryjny urządzenia jest wyświetlany **w okienku po** prawej stronie pulpitu nawigacyjnego urządzenia.
     </br>
     ![Dodawanie obsługi MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Po wyświetleniu monitu uruchom ponownie serwer.
@@ -190,4 +190,4 @@ Poniższa procedura opisuje sposób dodawania sesji, gdy urządzenie StorSimple 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń, aby zmodyfikować konfigurację urządzenia StorSimple](storsimple-8000-modify-device-config.md).
+Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager, aby zmodyfikować konfigurację urządzenia StorSimple](storsimple-8000-modify-device-config.md).

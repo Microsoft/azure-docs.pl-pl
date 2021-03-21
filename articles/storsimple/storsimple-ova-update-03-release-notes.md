@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
 ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966109"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>StorSimple Virtual Array Update 0,3 — informacje o wersji
@@ -40,7 +40,7 @@ Aktualizacja 0,3 jest przede wszystkim błędem kompilacją poprawki. W tej wers
 ## <a name="issues-fixed-in-the-update-03"></a>Problemy rozwiązane w aktualizacji 0,3
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Obiekt feature | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
 | 1 |Tworzenie kopii zapasowych |Wystąpił problem w starszej wersji, w której wykonywanie kopii zapasowych dla udziału plików nie powiedzie się. W przypadku wystąpienia tego problemu zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem, a w usłudze StorSimple Manager zgłoszono alert krytyczny, aby powiadomić użytkownika. Ten problem nie miał wpływu na dane w udziałach ani na dostęp do danych. Główna przyczyna została zidentyfikowana i naprawiona w tej wersji. <br></br> Poprawka nie jest stosowana z mocą wsteczną do udziałów, które już widzą ten problem. Klienci, którzy widzą ten problem, powinni najpierw zastosować aktualizację 0,3, a następnie skontaktować się z pomoc techniczna firmy Microsoft w celu wykonania pełnej kopii zapasowej systemu w celu rozwiązania problemu. Zamiast kontaktowania się z pomoc techniczna firmy Microsoft klienci mogą również przywrócić nowe udziały z dobrej kopii zapasowej dla udziałów, których to dotyczy. |
 | 2 |iSCSI |Pojawił się problem w starszej wersji, w której woluminy znikną podczas kopiowania danych do woluminu w macierzy wirtualnej StorSimple. Ten problem został rozwiązany w tej wersji. <br></br> Poprawki zaczną obowiązywać tylko na nowo utworzonych woluminach. Poprawki nie są stosowane z mocą wsteczną do woluminów, które już widzą ten problem. Aby klienci mogli przenieść te woluminy w tryb online za pośrednictwem klasycznego portalu Azure, należy wykonać kopię zapasową tych woluminów, a następnie przywrócić te woluminy na nowe woluminy. |
@@ -48,7 +48,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 ## <a name="known-issues-in-the-update-03"></a>Znane problemy z aktualizacją 0,3
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji. 
 
-| Nie. | Obiekt feature | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku z danymi określonego rozmiaru i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
@@ -68,7 +68,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 ## <a name="next-step"></a>Następny krok
 [Zainstaluj aktualizację 0,3](./storsimple-virtual-array-install-update-06.md) na wirtualnej macierzy StorSimple.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 Szukasz starszej wersji uwagi? Przejdź do strony: 
 
 * [StorSimple Virtual Array Update 0,1 i 0,2 — informacje o wersji](storsimple-ova-update-01-release-notes.md)

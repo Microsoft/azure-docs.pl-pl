@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 571314009b6f58e5c2ab6aac02cfebc82c53f42f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351865"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrowanie odpowiedzi uwzględnionych w odpowiedzi wyszukiwania  
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Podczas wykonywania zapytania w sieci Web, Bing zwraca całą zawartość znalezioną dla wyszukiwania. Na przykład, jeśli zapytanie wyszukiwania ma wartość "dinghies +", odpowiedź może zawierać następujące odpowiedzi:
@@ -58,7 +58,7 @@ Aby odfiltrować odpowiedzi zwrócone przez usługę Bing, Użyj poniższych par
 
 Można filtrować typy odpowiedzi, które obejmują usługi Bing w odpowiedzi (na przykład obrazy, filmy wideo i wiadomości) przy użyciu parametru zapytania [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , który jest rozdzielaną przecinkami listą odpowiedzi. Odpowiedź zostanie uwzględniona w odpowiedzi, jeśli Bing znajdzie odpowiednią zawartość. 
 
-Aby wykluczyć określone odpowiedzi z odpowiedzi, takie jak obrazy, poprzedź `-` znak do typu odpowiedzi. Przykład:
+Aby wykluczyć określone odpowiedzi z odpowiedzi, takie jak obrazy, poprzedź `-` znak do typu odpowiedzi. Na przykład:
 
 ```
 &responseFilter=-images,-videos

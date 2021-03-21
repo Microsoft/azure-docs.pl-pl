@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020047"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testowanie zadania Azure Stream Analytics w portalu
@@ -22,7 +22,7 @@ W Azure Stream Analytics można testować zapytanie bez uruchamiania lub zatrzym
 
 Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych przesyłania strumieniowego. Można uruchamiać zapytania na domyślnym przykładzie lub ustawić określony przedział czasu dla przykładu.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Znajdź i wybierz istniejące zadanie Stream Analytics.
 
@@ -70,7 +70,7 @@ Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych prz
 
 Zamiast korzystać z danych na żywo, można użyć przykładowych danych z pliku lokalnego do testowania kwerendy Azure Stream Analytics.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
    
 2. Znajdź istniejące zadanie Stream Analytics i wybierz je.
 

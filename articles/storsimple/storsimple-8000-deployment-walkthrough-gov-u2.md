@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963185"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Wdrażanie lokalnego urządzenia StorSimple w portalu dla instytucji rządowych
@@ -99,7 +99,7 @@ Przed rozpoczęciem upewnij się, że:
 Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
 
 ## <a name="step-1-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
-Usługa Menedżer urządzeń StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi StorSimple Menedżer urządzeń.
+Usługa Menedżer urządzeń StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi StorSimple Device Manager.
 
 [!INCLUDE [storsimple-8000-create-new-service-gov](../../includes/storsimple-8000-create-new-service-gov.md)]
 
@@ -144,7 +144,7 @@ Aby utworzyć kontener woluminów, wykonaj następujące kroki w portalu dla ins
 Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magazynu w urządzeniu StorSimple dla serwerów. Wykonaj następujące kroki w portalu dla instytucji rządowych, aby utworzyć wolumin.
 
 > [!IMPORTANT]
-> StorSimple Menedżer urządzeń może tworzyć tylko woluminy alokowane elastycznie.  Nie można jednak tworzyć woluminów inicjowanych częściowo.
+> StorSimple Device Manager może tworzyć tylko woluminy alokowane elastycznie.  Nie można jednak tworzyć woluminów inicjowanych częściowo.
 
 [!INCLUDE [storsimple-8000-create-volume](../../includes/storsimple-8000-create-volume-u2.md)]
 
@@ -174,7 +174,7 @@ Jest to krok opcjonalny, który należy wykonać tylko, jeśli nie włączono au
 
 Instrukcje krok po kroku dotyczące tworzenia konta usługi Azure Storage w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/common/storage-account-create.md) (Informacje o kontach usługi Azure Storage).
 
-Wykonaj następujące kroki w portalu dla instytucji rządowych na stronie **usługi StorSimple Menedżer urządzeń** .
+Wykonaj następujące kroki w portalu dla instytucji rządowych na stronie **usługi StorSimple Device Manager** .
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]
 

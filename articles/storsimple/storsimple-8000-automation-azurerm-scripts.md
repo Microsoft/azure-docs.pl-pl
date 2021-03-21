@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968778"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Używanie Azure Resource Manager skryptów opartych na zestawie SDK do zarządzania urządzeniami StorSimple
@@ -30,16 +30,16 @@ Następujące przykładowe skrypty są dostępne do automatyzowania różnych za
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Ten skrypt umożliwia autoryzowanie urządzenia StorSimple do zmiany klucza szyfrowania danych usługi.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Ten skrypt tworzy urządzenie w chmurze 8010 lub 8020 StorSimple. Urządzenie w chmurze można następnie skonfigurować i zarejestrować w usłudze StorSimple Data Manager.                                                       |
 | [CreateOrUpdate-Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Ten skrypt tworzy lub modyfikuje woluminy StorSimple.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Ten skrypt zawiera listę wszystkich kopii zapasowych urządzenia zarejestrowanego w usłudze StorSimple Menedżer urządzeń.                                                                                                          |
+| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Ten skrypt zawiera listę wszystkich kopii zapasowych urządzenia zarejestrowanego w usłudze StorSimple Device Manager.                                                                                                          |
 | [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Ten skrypt wszystkie zasady tworzenia kopii zapasowej urządzenia StorSimple.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Ten skrypt pobiera wszystkie zadania StorSimple uruchomione w usłudze StorSimple Menedżer urządzeń.                                                                                                                     |
+| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Ten skrypt pobiera wszystkie zadania StorSimple uruchomione w usłudze StorSimple Device Manager.                                                                                                                     |
 | [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Ten skrypt skanuje serwer aktualizacji i informuje o tym, czy aktualizacje są dostępne do zainstalowania na urządzeniu StorSimple.                                                                                          |
 | [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Ten skrypt instaluje dostępne aktualizacje na urządzeniu StorSimple.                                                                                                                                           |
 | [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Ten skrypt uruchamia ręczną migawkę w chmurze i usuwa migawki w chmurze starsze niż określone dni przechowywania.                                                                                                   |
 | [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | Ten skrypt Azure Automation Runbook PowerShell zgłasza stan wszystkich zadań tworzenia kopii zapasowej.                                                                                                              |
 | [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Ten skrypt usuwa pojedynczy obiekt kopii zapasowej.                                                                                                                                                           |
 | [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Ten skrypt uruchamia ręczne tworzenie kopii zapasowej na urządzeniu StorSimple.                                                                                                                                       |
-| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Ten skrypt aktualizuje klucz szyfrowania danych usługi dla wszystkich urządzeń w chmurze 8010/8020 StorSimple zarejestrowanych w usłudze StorSimple Menedżer urządzeń.                                     |
+| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Ten skrypt aktualizuje klucz szyfrowania danych usługi dla wszystkich urządzeń w chmurze 8010/8020 StorSimple zarejestrowanych w usłudze StorSimple Device Manager.                                     |
 | [Verify-BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Ten skrypt wyróżnia brakujące kopie zapasowe po przeanalizowaniu wszystkich harmonogramów skojarzonych z zasadami tworzenia kopii zapasowych. Sprawdza również wykaz kopii zapasowych z listą dostępnych kopii zapasowych.             |
 
 
@@ -168,4 +168,4 @@ PS C:\Scripts\StorSimpleSDKTools>
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+[Zarządzanie urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).

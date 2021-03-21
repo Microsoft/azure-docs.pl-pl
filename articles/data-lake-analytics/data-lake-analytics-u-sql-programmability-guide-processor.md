@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 6ff45c577e94a8c63bd7cb1e6603e4d5519af5c6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512689"
 ---
-# <a name="use-user-defined-processor"></a>Użyj procesora zdefiniowanego przez użytkownika
+# <a name="use-user-defined-processor"></a>Korzystanie z procesora zdefiniowanego przez użytkownika
 
 ## <a name="u-sql-udo-user-defined-processor"></a>UDO U-SQL: zdefiniowany przez użytkownika procesor
 Procesor zdefiniowany przez użytkownika lub UDP jest typem UDO języka U-SQL, który umożliwia przetwarzanie wierszy przychodzących przez zastosowanie funkcji programowalności. Protokół UDP umożliwia łączenie kolumn, modyfikowanie wartości i dodawanie nowych kolumn w razie potrzeby. W zasadzie ułatwia przetwarzanie zestawu wierszy w celu utworzenia wymaganych elementów danych.

@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
 ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498289"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Samouczek: Używanie kluczy zarządzanych przez klienta lub BYOK za pomocą interfejsu API REST Media Services
@@ -20,7 +20,7 @@ Za pomocą interfejsu API 2020-05-01 można użyć klucza RSA zarządzanego prze
 - Rejestracja aplikacji Azure Active Directory (Azure AD) dla programu Poster
 - Microsoft Graph API
 - Azure Storage
-- W usłudze Azure Key Vault
+- Azure Key Vault
 - Azure Media Services
 
 W ramach tego samouczka nauczysz się używać programu Poster do:
@@ -66,7 +66,7 @@ Pobierz kolekcję programu Poster dla tego samouczka na [platformie Azure przyk�
 ## <a name="install-the-postman-collection-and-environment"></a>Instalowanie kolekcji i środowiska programu Poster
 
 1. Uruchom notkę.
-1. Wybierz pozycję **Import** (Importuj).
+1. Wybierz pozycję **Importuj**.
 1. Wybierz pozycję **Przekaż pliki**.
 1. Przejdź do lokalizacji, w której zapisano pliki kolekcji i środowiska.
 1. Wybierz pliki kolekcji i środowiska.

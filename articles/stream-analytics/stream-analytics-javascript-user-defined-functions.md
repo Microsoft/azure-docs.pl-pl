@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
 ms.openlocfilehash: 70015ef24039694789ce96a6c4853221fe2377c3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020387"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
@@ -88,14 +88,14 @@ double | Liczba
 nvarchar(MAX) | Ciąg
 Rekord | Obiekt
 Tablica | Tablica
-NULL | Null
+NULL | Zero
 
 W tym miejscu przedstawiono konwersje typów języka JavaScript na typy usługi Stream Analytics:
 
 JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
-Data | DateTime
+Date (Data) | DateTime
 Ciąg | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica

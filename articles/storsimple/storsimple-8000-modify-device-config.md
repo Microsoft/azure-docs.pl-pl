@@ -1,6 +1,6 @@
 ---
 title: Modyfikowanie konfiguracji urządzenia z serii StorSimple 8000 | Microsoft Docs
-description: Opisuje sposób korzystania z usługi StorSimple Menedżer urządzeń w celu ponownego skonfigurowania już wdrożonego urządzenia StorSimple.
+description: Opisuje sposób korzystania z usługi StorSimple Device Manager w celu ponownego skonfigurowania już wdrożonego urządzenia StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94961179"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Modyfikowanie konfiguracji urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
+# <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Modyfikowanie konfiguracji urządzenia StorSimple przy użyciu usługi StorSimple Device Manager
 
 ## <a name="overview"></a>Omówienie
 
-Sekcja **Ustawienia urządzenia** Azure Portal w bloku **Ustawienia** zawiera wszystkie parametry urządzeń, które można ponownie skonfigurować na urządzeniu StorSimple zarządzanym przez usługę StorSimple Menedżer urządzeń. W tym samouczku wyjaśniono, jak można użyć bloku **Ustawienia** do wykonywania następujących zadań na poziomie urządzenia:
+Sekcja **Ustawienia urządzenia** Azure Portal w bloku **Ustawienia** zawiera wszystkie parametry urządzeń, które można ponownie skonfigurować na urządzeniu StorSimple zarządzanym przez usługę StorSimple Device Manager. W tym samouczku wyjaśniono, jak można użyć bloku **Ustawienia** do wykonywania następujących zadań na poziomie urządzenia:
 
 * Modyfikuj przyjazną nazwę urządzenia
 * Modyfikowanie ustawień czasu urządzenia
@@ -42,7 +42,7 @@ Aby zmienić nazwę urządzenia i przypisać mu unikatową przyjazną nazwę, mo
 
 ![Nazwa urządzenia w ustawieniach ogólnych](./media/storsimple-8000-modify-device-config/modify-general-settings3.png)
 
-Do urządzenia StorSimple połączonego z usługą StorSimple Menedżer urządzeń jest przypisana nazwa domyślna. Nazwa domyślna zazwyczaj odzwierciedla numer seryjny urządzenia. Na przykład domyślna nazwa urządzenia o długości 15 znaków, taka jak 8600-SHX0991003G44HT, wskazuje następujące elementy:
+Do urządzenia StorSimple połączonego z usługą StorSimple Device Manager jest przypisana nazwa domyślna. Nazwa domyślna zazwyczaj odzwierciedla numer seryjny urządzenia. Na przykład domyślna nazwa urządzenia o długości 15 znaków, taka jak 8600-SHX0991003G44HT, wskazuje następujące elementy:
 
 * **8600**  — wskazuje model urządzenia.
 * **SHX** — wskazuje lokację produkcyjną.
@@ -168,4 +168,4 @@ Wykonaj następujące kroki, aby zamienić lub ponownie przypisać wirtualne adr
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [skonfigurować wielościeżkowe wejście/wyjście dla urządzenia z StorSimple](storsimple-8000-configure-mpio-windows-server.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).

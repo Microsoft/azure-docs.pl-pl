@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966296"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalowanie i Konfigurowanie adaptera StorSimple dla programu SharePoint
@@ -208,7 +208,7 @@ W poniższych procedurach opisano sposób przenoszenia obiektów blob z powrotem
 > Przed odinstalowaniem oprogramowania karty obiekty blob należy przenieść z powrotem do baz danych zawartości.
 
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 Przed przeniesieniem danych z powrotem do baz danych zawartości SQL Server należy zebrać następujące informacje i rozpocząć proces usuwania karty:
 
 * Nazwy wszystkich baz danych, dla których jest włączona funkcja SPZ

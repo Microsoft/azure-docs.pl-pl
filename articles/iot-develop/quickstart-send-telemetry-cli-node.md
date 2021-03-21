@@ -8,10 +8,10 @@ ms.devlang: node
 ms.topic: quickstart
 ms.date: 01/11/2021
 ms.openlocfilehash: 97fcff4706d6da968c93426f85569fed9af95aac
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102197813"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub (Node.js)

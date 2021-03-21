@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730868"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
@@ -965,7 +965,7 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
   * [Wprowadzenie do Data Factory](data-factory-build-your-first-pipeline.md)
   * [Korzystanie z działań niestandardowych w potoku Data Factory](data-factory-use-custom-activities.md)
-* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Usługa Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
   * [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)

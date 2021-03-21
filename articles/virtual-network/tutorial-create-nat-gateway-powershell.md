@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 884697cee84c05916fe19fb8f9435de86bda291e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102620238"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure PowerShell
 
 W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną.

@@ -7,10 +7,10 @@ ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486662"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
@@ -91,8 +91,8 @@ Należy  [**utworzyć kontenery**](../../../storage/blobs/storage-quickstart-blo
 ### <a name="c"></a>[C#](#tab/csharp)
 
 * Tworzenie nowego projektu.
-* Zamień Program.cs na kod w języku C# przedstawiony poniżej.
-* Ustaw punkt końcowy. klucz subskrypcji i wartości adresu URL kontenera w Program.cs.
+* Zamień program. cs na kod w języku C# przedstawiony poniżej.
+* Ustaw punkt końcowy. klucz subskrypcji i wartości adresu URL kontenera w programie program. cs.
 * Aby przetworzyć dane JSON, Dodaj [Newtonsoft.Jsw pakiecie przy użyciu interfejsu wiersza polecenia platformy .NET](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Uruchom program z katalogu projektu.
 
@@ -1259,7 +1259,7 @@ W poniższej tabeli wymieniono limity danych wysyłanych do tłumaczenia dokumen
 > [!NOTE]
 > Powyższe limity zawartości mogą ulec zmianie przed wydaniem publicznym.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Dokumentacja interfejsu API usługi Translator v3](../reference/v3-0-reference.md)
 * [Obsługa języków](../language-support.md)

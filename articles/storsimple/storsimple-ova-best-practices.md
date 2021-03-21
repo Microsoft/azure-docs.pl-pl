@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964987"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
@@ -121,7 +121,7 @@ W związku z tym zalecamy:
 * Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory.
 * Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 Konfiguracja sieci dla macierzy wirtualnej odbywa się za pomocą lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączany za pomocą funkcji hypervisor, w której zainicjowano obsługę macierzy wirtualnej. Na stronie [Ustawienia sieci](storsimple-virtual-array-deploy3-fs-setup.md) można skonfigurować adres IP, podsieć i bramę interfejsu sieci wirtualnej.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu oraz opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci to jednorazowa konfiguracja. Przed wdrożeniem macierzy wirtualnej zapoznaj się z [wymaganiami dotyczącymi sieci StorSimple](storsimple-ova-system-requirements.md#networking-requirements) .
 
 Podczas wdrażania macierzy wirtualnej zalecamy przestrzeganie następujących najlepszych rozwiązań:
@@ -287,5 +287,5 @@ Może być konieczne wdrożenie wielu tablic wirtualnych na potrzeby rosnącego 
 * W przypadku wdrażania wielu tablic wirtualnych zaleca się, aby z perspektywy równoważenia obciążenia rozesłać tablicę między różnymi hostami funkcji hypervisor.
 * Wiele macierzy wirtualnych (w przypadku skonfigurowania serwera plików lub serwera iSCSI) można wdrożyć w przestrzeni nazw rozproszony system plików. Aby uzyskać szczegółowe instrukcje, przejdź do [rozwiązania rozproszony system plików przestrzeń nazw z przewodnikiem wdrażania hybrydowego magazynu w chmurze](https://www.microsoft.com/download/details.aspx?id=45507). Replikacja rozproszony system plików nie jest obecnie zalecana do użycia z wirtualną macierzą. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Dowiedz się, jak [administrować macierzą wirtualną StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi StorSimple Manager.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Samouczek: integracja Azure Active Directory z usługą Bime
@@ -132,7 +132,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Bime, wyk
 
 2. Na pasku narzędzi kliknij pozycję **Admin (Administrator)**, a następnie pozycję **Account (Konto)**.
 
-    ![Zrzut ekranu przedstawia wybrany element administratora i wybrane konto.](./media/bime-tutorial/ic775558.png "Administrator")
+    ![Zrzut ekranu przedstawia wybrany element administratora i wybrane konto.](./media/bime-tutorial/ic775558.png "Administracja")
 
 3. Na stronie konfiguracji konta wykonaj następujące kroki:
 
@@ -207,7 +207,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Bime,
 
 2. Na pasku narzędzi kliknij pozycję **Admin (Administrator)**, a następnie **Users (Użytkownicy)**.
 
-    ![Zrzut ekranu przedstawia wybrany element administratora i wybranych użytkowników.](./media/bime-tutorial/ic775561.png "Administrator")
+    ![Zrzut ekranu przedstawia wybrany element administratora i wybranych użytkowników.](./media/bime-tutorial/ic775561.png "Administracja")
 
 3. Na **liście użytkowników** kliknij pozycję **Add New User (Dodaj nowego użytkownika)** („+”).
 

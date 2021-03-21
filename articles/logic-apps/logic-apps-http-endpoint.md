@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 11/19/2020
 ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94981208"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
@@ -24,7 +24,7 @@ Aby umożliwić aplikacji logiki wywoływanie przy użyciu adresu URL i odbiera�
 W tym artykule pokazano, jak utworzyć możliwy do wywołania punkt końcowy w aplikacji logiki przy użyciu wyzwalacza żądania i wywołać ten punkt końcowy z innej aplikacji logiki. Wszystkie zasady są stosowane identycznie z innymi typami wyzwalaczy, których można użyć do odbierania żądań przychodzących.
 
 
-Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako Secure SOCKETS Layer (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -392,7 +392,7 @@ Odp **.: usługa** Azure bezpiecznie generuje adresy URL wywołania zwrotnego ap
 > * Klucz dostępu współdzielonego zostanie wyświetlony w adresie URL.
 > * Nie można zarządzać zasadami zawartości zabezpieczeń ze względu na domeny udostępnione w ramach klientów Azure Logic Apps.
 
-Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako Secure SOCKETS Layer (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Czy można kontynuować konfigurowanie wywoływanych punktów końcowych?
 

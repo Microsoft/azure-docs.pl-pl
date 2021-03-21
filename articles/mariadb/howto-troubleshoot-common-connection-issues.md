@@ -3,14 +3,14 @@ title: Rozwiązywanie problemów z połączeniami — Azure Database for MariaDB
 description: Dowiedz się, jak rozwiązywać problemy z połączeniem do Azure Database for MariaDB, w tym błędy przejściowe wymagające ponownych prób, problemy z zaporą i przestoje.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 50bb6fc008e381855923da801b65198bf712f826
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664736"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Rozwiązywanie problemów z połączeniem z usługą Azure Database for MariaDB
@@ -30,7 +30,7 @@ Ogólnie rzecz biorąc problemy z połączeniem do Azure Database for MariaDB mo
 * Błędy przejściowe (krótko-lub sporadyczne)
 * Błędy trwałe lub nieprzejściowe (błędy, które regularnie powtarzają się)
 
-## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów z błędami przejściowymi
+## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów dotyczących błędów przejściowych
 
 Błędy przejściowe występują, gdy konserwacja jest przeprowadzana, system napotyka błąd z sprzętem lub oprogramowaniem lub zmienia rdzeni wirtualnych lub warstwę usług serwera. Usługa Azure Database for MariaDB ma wbudowaną wysoką dostępność i została zaprojektowana z myślą o ograniczeniu tego rodzaju problemów automatycznie. Jednak aplikacja traci połączenie z serwerem przez krótki okres zwykle krótszy niż 60 sekund. Niektóre zdarzenia mogą sporadycznie podejmować środki zaradcze, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie.
 

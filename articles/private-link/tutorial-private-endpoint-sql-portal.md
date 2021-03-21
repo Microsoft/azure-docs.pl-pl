@@ -9,17 +9,17 @@ ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554976"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure Portal
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -106,7 +106,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |

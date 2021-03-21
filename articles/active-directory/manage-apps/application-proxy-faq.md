@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102487750"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania

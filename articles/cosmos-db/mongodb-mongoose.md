@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442416"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Łączenie Node.js aplikacji Mongoose do Azure Cosmos DB
@@ -39,11 +39,11 @@ Utwórzmy konto Cosmos. Jeśli masz już konto, którego chcesz użyć, możesz 
 
 ### <a name="create-a-database"></a>Tworzenie bazy danych 
 W tej aplikacji omówiono dwa sposoby tworzenia kolekcji w Azure Cosmos DB: 
-- **Przechowywanie każdego modelu obiektów w oddzielnej kolekcji** : zalecamy [utworzenie bazy danych z dedykowaną przepływność](set-throughput.md#set-throughput-on-a-database). Korzystanie z tego modelu wydajności zapewnia lepszą wydajność.
+- **Przechowywanie każdego modelu obiektów w oddzielnej kolekcji**: zalecamy [utworzenie bazy danych z dedykowaną przepływność](set-throughput.md#set-throughput-on-a-database). Korzystanie z tego modelu wydajności zapewnia lepszą wydajność.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text=" SamouczekNode.js — zrzut ekranu przedstawiający Azure Portal, pokazujący sposób tworzenia bazy danych w Eksplorator danych dla konta Azure Cosmos DB, do użycia z modułem węzła Mongoose":::
 
-- **Przechowywanie wszystkich modeli obiektów w pojedynczej kolekcji Cosmos DB** : Jeśli wolisz przechowywać wszystkie modele w pojedynczej kolekcji, możesz po prostu utworzyć nową bazę danych bez wybierania opcji udostępniania przepływności. Użycie tego modelu wydajności spowoduje utworzenie każdej kolekcji z własną przepustowością dla każdego modelu obiektów.
+- **Przechowywanie wszystkich modeli obiektów w pojedynczej kolekcji Cosmos DB**: Jeśli wolisz przechowywać wszystkie modele w pojedynczej kolekcji, możesz po prostu utworzyć nową bazę danych bez wybierania opcji udostępniania przepływności. Użycie tego modelu wydajności spowoduje utworzenie każdej kolekcji z własną przepustowością dla każdego modelu obiektów.
 
 Po utworzeniu bazy danych użyjesz nazwy w `COSMOSDB_DBNAME` zmiennej środowiskowej poniżej.
 

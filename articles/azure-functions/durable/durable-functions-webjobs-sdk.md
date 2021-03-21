@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009504"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Jak uruchamiać Durable Functions jako zadania WebJob
@@ -27,7 +27,7 @@ W tym artykule założono, że znasz podstawowe informacje o zestawie SDK zadań
 
 * [Wprowadzenie do zestawu SDK zadań WebJob](../../app-service/webjobs-sdk-get-started.md)
 * [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Trwałe funkcje](durable-functions-sequence.md)
+* [Durable Functions](durable-functions-sequence.md)
 
 Aby wykonać kroki opisane w tym artykule:
 
