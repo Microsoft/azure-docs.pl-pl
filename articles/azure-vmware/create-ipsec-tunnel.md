@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć wirtualny koncentrator sieci WAN, aby n
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 21df674862b65ef6573a8a3fcfd7538b1053f04e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491854"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Tworzenie tunelu IPSec w rozwiązaniu VMware platformy Azure

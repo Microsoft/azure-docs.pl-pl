@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582326"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104669308"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -28,15 +28,11 @@ Jak pokazano w [aplikacji sieci Web, która loguje się w](scenario-web-app-sign
 
 [Aplikacja sieci Web, która loguje się do scenariuszy użytkowników,](scenario-web-app-sign-user-overview.md) dotyczyła tylko pierwszego kroku. Tutaj dowiesz się, jak zmodyfikować aplikację sieci Web tak, aby nie tylko oznakować użytkowników w programie, ale również teraz wywołuje interfejsy API sieci Web.
 
-## <a name="libraries-that-support-web-app-scenarios"></a>Biblioteki obsługujące scenariusze aplikacji sieci Web
+## <a name="microsoft-libraries-supporting-web-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje sieci Web
 
-Następujące biblioteki w bibliotece Microsoft Authentication Library (MSAL) obsługują przepływ kodu autoryzacji dla aplikacji sieci Web:
+Następujące biblioteki firmy Microsoft obsługują aplikacje sieci Web:
 
-| Biblioteka MSAL | Opis |
-|--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługa platform .NET Framework i .NET Core. Nieobsługiwane są platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich. <br/><br/>W przypadku ASP.NET Core aplikacji sieci Web i interfejsów API sieci Web MSAL.NET jest hermetyzowana w bibliotece wyższego poziomu o nazwie [Microsoft. Identity. Web](https://aka.ms/ms-identity-web). |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Biblioteka MSAL dla języka Python | Obsługa aplikacji sieci Web w języku Python. |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Biblioteka MSAL dla języka Java | Obsługa aplikacji sieci Web w języku Java. |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Wybierz kartę dla interesującej platformy:
 
@@ -99,7 +95,7 @@ Zamiast klucza tajnego klienta można podać certyfikat klienta. Poniższy fragm
 
 ## <a name="startupcs"></a>Startup.cs
 
-Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
+Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup. cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -129,7 +125,7 @@ Jeśli nie chcesz samodzielnie uzyskać tokenu, *firma Microsoft. Identity. Web*
 Jeśli chcesz wywołać Microsoft Graph, *Microsoft. Identity. Web* umożliwia bezpośrednio korzystanie z programu `GraphServiceClient` (dostępnego w Microsoft Graph SDK) w akcjach interfejsu API. Aby uwidocznić Microsoft Graph:
 
 1. Dodaj pakiet NuGet [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) do projektu.
-1. Dodaj `.AddMicrosoftGraph()` po `.EnableTokenAcquisitionToCallDownstreamApi()` pliku *Startup.cs* . `.AddMicrosoftGraph()` ma kilka zastąpień. Użycie przesłonięcia, które przyjmuje sekcję konfiguracyjną jako parametr, staje się następujące:
+1. Dodaj `.AddMicrosoftGraph()` po `.EnableTokenAcquisitionToCallDownstreamApi()` pliku *Start. cs* . `.AddMicrosoftGraph()` ma kilka zastąpień. Użycie przesłonięcia, które przyjmuje sekcję konfiguracyjną jako parametr, staje się następujące:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -179,7 +175,7 @@ Aby wywołać internetowy interfejs API inny niż Microsoft Graph, *Microsoft. I
 
 Podobnie jak w przypadku interfejsów API sieci Web, można wybrać różne implementacje pamięci podręcznej tokenów. Aby uzyskać szczegółowe informacje, zobacz [Microsoft. Identity. Web-Serialization](https://aka.ms/ms-id-web/token-cache-serialization) Detailing w serwisie GitHub.
 
-Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Startup.cs* :
+Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Start. cs* :
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagram blokowy przedstawiający opcje konfiguracji usługi w kropce startowej C S na potrzeby wywoływania internetowego interfejsu API i określania implementacji pamięci podręcznej token":::
 
@@ -218,9 +214,9 @@ Microsoft. Identity. Web upraszcza kod przez ustawienie poprawnych ustawień po�
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET obsługuje elementy podobnie jak ASP.NET Core, z tą różnicą, że konfiguracja OpenID Connect Connect i subskrypcję `OnAuthorizationCodeReceived` zdarzenia wystąpi w pliku [App_Start \Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Pojęcia są również podobne do tych w ASP.NET Core, z wyjątkiem tego, że w ASP.NET należy określić `RedirectUri` w [Web.config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Ta konfiguracja jest nieco mniej niezawodna niż ta w ASP.NET Core, ponieważ należy ją zmienić podczas wdrażania aplikacji.
+ASP.NET obsługuje elementy podobnie jak ASP.NET Core, z tą różnicą, że konfiguracja OpenID Connect Connect i subskrypcję `OnAuthorizationCodeReceived` zdarzenia wystąpi w pliku [App_Start \Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Pojęcia są również podobne do tych w ASP.NET Core, z wyjątkiem tego, że w ASP.NET należy określić `RedirectUri` [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Ta konfiguracja jest nieco mniej niezawodna niż ta w ASP.NET Core, ponieważ należy ją zmienić podczas wdrażania aplikacji.
 
-Oto kod dla Startup.Auth.cs:
+Oto kod uruchamiania. auth. cs:
 
 ```csharp
 public partial class Startup
@@ -391,7 +387,7 @@ Użycie potwierdzeń klientów jest zaawansowanym scenariuszem, szczegółowym w
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Startup.cs dla aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Start. cs aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463361"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Samouczek: opracowywanie modułów IoT Edge przy użyciu kontenerów systemu Windows
@@ -29,7 +29,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania własnego ko
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Windows**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz programistyczny. Jeśli interesuje Cię programowanie w innym języku lub Zaplanowanie wdrożenia usług platformy Azure jako modułów, ten samouczek nadal będzie przydatny do poznania narzędzi programistycznych. Po zrozumieniu koncepcji związanych z programowaniem możesz wybrać preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółowymi informacjami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -153,7 +153,7 @@ Po załadowaniu nowego projektu w oknie programu Visual Studio Poświęć chwil�
     > [!TIP]
     > W sekcji poświadczenia rejestru adres jest wypełniany na podstawie informacji podanych podczas tworzenia rozwiązania. Jednak zmienne odwołania nazwy użytkownika i hasła przechowywane w pliku ENV. Jest to związane z bezpieczeństwem, ponieważ plik ENV został zignorowany przez Git, ale szablon wdrożenia nie jest.
 * Projekt modułu IoT Edge o nazwie **IotEdgeModule1**.
-  * Plik **program.cs** zawiera domyślny kod modułu C#, który jest dostarczany z szablonem projektu. Moduł domyślny pobiera dane wejściowe ze źródła i przekazuje je do IoT Hub.
+  * Plik **program. cs** zawiera domyślny kod modułu C#, który jest dostarczany z szablonem projektu. Moduł domyślny pobiera dane wejściowe ze źródła i przekazuje je do IoT Hub.
   * **module.jsw** pliku zawiera szczegółowe informacje o module, w tym pełne repozytorium obrazów, wersję obrazu i pliku dockerfile do użycia dla każdej z obsługiwanych platform.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Podaj poświadczenia rejestru dla agenta IoT Edge
@@ -188,7 +188,7 @@ Każdy moduł może mieć wiele kolejek *wejściowych* i *wyjściowych* zadeklar
 
 Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, używa [klasy ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) z zestawu SDK IoT Hub dla platformy .NET.
 
-1. W pliku **program.cs** Znajdź metodę **SetInputMessageHandlerAsync** .
+1. W pliku **program. cs** Znajdź metodę **SetInputMessageHandlerAsync** .
 
 2. Metoda [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) konfiguruje kolejkę wejściową do odbierania wiadomości przychodzących. Przejrzyj tę metodę i zobacz, jak inicjuje kolejkę wejściową o nazwie **INPUT1**.
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600160"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
@@ -35,7 +35,7 @@ W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi
 
 > [!NOTE]
 > Po utworzeniu obszaru roboczego usługi Azure Synapse nie będzie można przenieść obszaru roboczego do innej dzierżawy Azure Active Directory. Jeśli to zrobisz w ramach migracji subskrypcji lub innych działań, możesz utracić dostęp do artefaktów w obszarze roboczym.
-> Ponadto nie można obecnie utworzyć obszaru roboczego analizy Synapse w ramach subskrypcji [dostawcy rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/csp-overview) .
+> Ponadto nie można obecnie utworzyć obszaru roboczego analizy Synapse w ramach subskrypcji [dostawcy rozwiązań w chmurze (CSP)](/partner-center/csp-overview) .
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 

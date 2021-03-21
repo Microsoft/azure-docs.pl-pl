@@ -7,10 +7,10 @@ author: dcstwh
 ms.author: weetok
 ms.date: 03/15/2021
 ms.openlocfilehash: 3110ce8cb97379fd4690903ec769cc1dfc7f1326
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492766"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametry globalne w Azure Data Factory

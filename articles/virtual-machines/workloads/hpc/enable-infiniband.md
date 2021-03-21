@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cd4d928217ceba80fa5ea0252a6ed20803a812d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666957"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721248"
 ---
 # <a name="enable-infiniband"></a>Włączanie standardu InfiniBand
 
@@ -22,9 +22,9 @@ Maszyny wirtualne z serii [H](../../sizes-hpc.md) [obsługujące funkcję RDMA](
 Istnieją różne sposoby włączania InfiniBand w przypadku rozmiarów maszyn wirtualnych.
 
 ## <a name="vm-images-with-infiniband-drivers"></a>Obrazy maszyn wirtualnych ze sterownikami InfiniBand
-Zobacz [obrazy maszyn wirtualnych](configure.md#vm-images) , aby zapoznać się z listą obsługiwanych obrazów maszyn wirtualnych w portalu Marketplace, które są wstępnie załadowane za pomocą sterowników InfiniBand (dla maszyn wirtualnych SR-IOV lub innych niż SR-IOV) lub można je skonfigurować przy użyciu odpowiednich sterowników.
-W przypadku [maszyn wirtualnych](../../sizes-hpc.md#rdma-capable-instances)obsługujących funkcję SR-IOV z obsługą funkcji RDMA, [CentOS-HPC wersja 7,6 lub nowsza](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) wersja obrazów maszyn wirtualnych w portalu Marketplace to najprostszy sposób na rozpoczęcie pracy.
-Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników dla maszyn wirtualnych z obsługą wirtualizacji SR-IOV i innych niż SR-IOV przy użyciu instrukcji znajdujących się [tutaj](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
+Zobacz [obrazy maszyn wirtualnych](configure.md#vm-images) , aby zapoznać się z listą obsługiwanych obrazów maszyn wirtualnych w portalu Marketplace, które są wstępnie załadowane za pomocą sterowników InfiniBand (dla maszyn wirtualnych SR-IOV lub innych niż SR-IOV) lub można je skonfigurować za pomocą odpowiednich sterowników dla [maszyn wirtualnych obsługujących funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances).
+- Obrazy maszyn wirtualnych [CentOS-HPC](configure.md#centos-hpc-vm-images) w portalu Marketplace są najprostszym sposobem na rozpoczęcie pracy.
+- Obrazy maszyn wirtualnych [Ubuntu](configure.md#ubuntu-vm-images) można skonfigurować przy użyciu odpowiednich sterowników IB.
 
 ## <a name="infiniband-driver-vm-extensions"></a>Rozszerzenia maszyny wirtualnej sterownika InfiniBand
 W systemie Linux [rozszerzenie maszyny wirtualnej InfiniBandDriverLinux](../../extensions/hpc-compute-infiniband-linux.md) może służyć do instalowania sterowników Mellanox OFED i włączania InfiniBand na maszynach wirtualnych z serii H i l z obsługą wirtualizacji SR-IOV.
@@ -68,6 +68,6 @@ sudo systemctl restart waagent
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o instalowaniu różnych [obsługiwanych BIBLIOTEK MPI](setup-mpi.md) i ich optymalną konfigurację na maszynach wirtualnych.
-- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
-- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Zapoznaj się z [omówieniem HBv3](hbv3-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md).
+- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

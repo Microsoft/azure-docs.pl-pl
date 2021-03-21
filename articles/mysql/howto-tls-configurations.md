@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 5ecf2992fa9ea56f73748a9f1f98c75f9076c68f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240634"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656893"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Konfigurowanie ustawień protokołu TLS w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -37,11 +37,11 @@ Wykonaj następujące kroki, aby ustawić minimalną wersję protokołu TLS dla 
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Konfiguracja protokołu TLS Azure Database for MySQL":::
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany. 
 
-1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
+1. Powiadomienie potwierdzi, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone i obowiązuje od razu. Nie jest wymagane **ponowne uruchomienie** serwera. Po zapisaniu zmian wszystkie nowe połączenia z serwerem są akceptowane tylko wtedy, gdy wersja TLS jest nowsza lub równa minimalnej wersji protokołu TLS ustawionej w portalu.
 
-    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Konfiguracja protokołu TLS Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Pomyślna Konfiguracja protokołu TLS Azure Database for MySQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 

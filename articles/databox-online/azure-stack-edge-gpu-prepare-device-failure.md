@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442982"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Przygotowanie do niepowodzenia urządzenia GPU w Azure Stack Edge
@@ -78,7 +78,7 @@ Poniższe rozwiązania do ochrony danych innych firm mogą udostępniać rozwią
 Azure Stack Edge współpracuje z Azure Backup i innymi rozwiązaniami do ochrony danych innych firm, aby udostępnić rozwiązanie do tworzenia kopii zapasowych w celu ochrony danych zawartych w maszynach wirtualnych wdrożonych na urządzeniu. Poniższa tabela zawiera odwołania do dostępnych rozwiązań, spośród których można dokonać wyboru.
 
 
-| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwany system operacyjny   | Odwołanie                                                                |
+| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwany system operacyjny   | Dokumentacja                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Integracja Microsoft Azure, Krótki opis rozwiązania Backup & Recovery](https://www.cohesity.com/solution/cloud/azure) <br>Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.                          |

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: e890ff1cb64961c7747b8865b68504ff0a266a3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599701"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720732"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z logowaniem jednokrotnym w usłudze AWS
 
@@ -37,7 +37,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Logowanie jednokrotne w AWS obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Logowanie jednokrotne w usłudze AWS obsługuje zainicjowanie logowania jednokrotnego przez usługę **SP i dostawcy tożsamości** .
 
 * Logowanie jednokrotne w usłudze AWS obsługuje [**Automatyczne Inicjowanie obsługi użytkowników**](./aws-single-sign-on-provisioning-tutorial.md).
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **logowania** jednokrotnego AWS Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -80,9 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
 
-    ![image1](common/upload-metadata.png)
-
-    b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
+    b. Kliknij pozycję **logo folderu** , aby wybrać plik metadanych, który został pobrany z sekcji Konfigurowanie logowania jednokrotnego **rejestracji AWS** (punkt 8), a następnie kliknij przycisk **Dodaj**.
 
     ![image2](common/browse-upload-metadata.png)
 
@@ -148,15 +146,45 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-aws-single-sign-on-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze AWS
 
-1. Otwórz **konsolę rejestracji jednokrotnej AWS** . 
+1. Aby zautomatyzować konfigurację w ramach logowania jednokrotnego AWS, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj logowanie** jednokrotne, aby przekierować użytkownika do aplikacji logowania jednokrotnego (AWS). Z tego miejsca podaj poświadczenia administratora, aby zalogować się do AWS logowania jednokrotnego. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-10.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować AWS Logowanie jednokrotne, w innym oknie przeglądarki sieci Web Zaloguj się do swojej witryny firmowej logowania jednokrotnego (AWS) jako administrator.
+
+1. Przejdź do **usług — > zabezpieczenia, tożsamość & zgodność — > rejestracji jednokrotnej**.
 2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**.
-3. Na stronie **Ustawienia** Znajdź **Źródło tożsamości** i wybierz pozycję **Zmień**.
-4. Na stronie Zmienianie katalogu wybierz pozycję **zewnętrzny dostawca tożsamości**.
-5. W sekcji **metadane dostawcy usług** Znajdź **metadane SAML AWS logowania jednokrotnego** i wybierz pozycję **Pobierz plik metadanych** , aby pobrać plik metadanych i zapisać go na komputerze.
-6. W sekcji **metadane dostawcy tożsamości** wybierz pozycję **Przeglądaj** , aby przekazać plik metadanych pobrany z Azure Portal.
-7. Wybierz kolejno pozycje **Dalej: przegląd**.
-8. W polu tekstowym wpisz **Potwierdź** , aby potwierdzić zmianę katalogu.
-9. Wybierz pozycję **Zakończ**.
+3. Na stronie **Ustawienia** Znajdź **Źródło tożsamości** i kliknij pozycję **Zmień**.
+
+    ![Zrzut ekranu przedstawiający usługę zmiany źródła tożsamości](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. W polu Źródło zmiany tożsamości wybierz pozycję **zewnętrzny dostawca tożsamości**.
+
+    
+    ![Zrzut ekranu przedstawiający sekcję Wybieranie zewnętrznego dostawcy tożsamości](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Wykonaj poniższe czynności w sekcji **Konfigurowanie dostawcy tożsamości zewnętrznej** :
+
+    ![Zrzut ekranu przedstawiający sekcję Pobieranie i przekazywanie metadanych](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. W sekcji **metadane dostawcy usług** Znajdź **metadane SAML AWS logowania jednokrotnego** i wybierz pozycję **Pobierz plik metadanych** , aby pobrać plik metadanych, i Zapisz go na komputerze i Użyj tego pliku metadanych do przekazywania danych na Azure Portal.
+
+    b. Skopiuj wartość **adresu URL logowania JEDNOkrotnego AWS** , wklej tę wartość do pola tekstowego **adres URL logowania** w **sekcji Podstawowa konfiguracja SAML** w Azure Portal.
+
+    c. W sekcji **metadane dostawcy tożsamości** wybierz pozycję **Przeglądaj** , aby przekazać plik metadanych pobrany z Azure Portal.
+
+    d. Wybierz kolejno pozycje **Dalej: przegląd**.
+
+8. W polu tekstowym wpisz **Zaakceptuj** , aby zmienić źródło tożsamości.
+
+    ![Zrzut ekranu przedstawiający potwierdzenie konfiguracji](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Kliknij pozycję **Zmień źródło tożsamości**.
 
 ### <a name="create-aws-single-sign-on-test-user"></a>Utwórz użytkownika testowego logowania jednokrotnego AWS
 

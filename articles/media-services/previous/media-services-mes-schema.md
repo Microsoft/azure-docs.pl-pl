@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103015662"
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat usługi Media Encoder Standard
@@ -94,7 +94,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** |Może być jedną z następujących wartości **typu xs: String** : **Auto,** **Baseline**, **Main**, **High**. |
+| **Profilu**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** |Może być jedną z następujących wartości **typu xs: String** : **Auto,** **Baseline**, **Main**, **High**. |
 | **Poziomie**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** | |
 | **Multimedia**<br/><br/> minOccurs = "0" |**XS: int** |Szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Maksymalna szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
@@ -117,7 +117,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1** lub **HEAACV2**. |
+| **Profilu**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1** lub **HEAACV2**. |
 
 ### <a name="attributes"></a>Atrybuty
 

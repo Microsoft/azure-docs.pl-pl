@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 94e4590c66cdee74555611302f4f9228a755c76a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472899"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721174"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HBv3 
 
@@ -63,13 +63,16 @@ W przypadku sparowania w macierzy warstwowej dysk SSD interfejsu NVMe zapewnia d
 |--------------------------------|-----------------------------------------------------------|
 | Maksymalny rozmiar zadania MPI               | 36 000 rdzeni (300 maszyny wirtualne w jednym zestawie skalowania maszyn wirtualnych z singlePlacementGroup = true) |
 | Obsługa MPI                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
-| Dodatkowe struktury          | Ujednolicona komunikacja X, libfabric, PGAS                  |
+| Dodatkowe struktury          | UCX, libfabric, PGAS                  |
 | Obsługa usługi Azure Storage          | Dyski w warstwie Standardowa i Premium (maksymalnie 32 dysków)              |
-| Obsługa systemu operacyjnego dla sterownik RDMA      | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +           |
+| Obsługa systemu operacyjnego dla sterownik RDMA      | CentOS/RHEL 7.6 +, Ubuntu 18.04 +, SLES 12 SP4 +, WinServer 2016 +           |
 | Zalecany system operacyjny dla wydajności | CentOS 8,1, Windows Server 2019 +
-| Wsparcie dla programu Orchestrator           | Azure CycleCloud, Azure Batch, Azure Kubernetes Service                      | 
+| Wsparcie dla programu Orchestrator           | Azure CycleCloud, Azure Batch, AKS; [Opcje konfiguracji klastra](../../sizes-hpc.md#cluster-configuration-options)                      | 
+
+> [!NOTE] 
+> System Windows Server 2012 R2 nie jest obsługiwany na HBv3 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC na [blogach społecznościowych obliczeń na platformie Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

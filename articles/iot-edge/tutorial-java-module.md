@@ -13,17 +13,17 @@ ms.custom:
 - mqtt
 - devx-track-java
 ms.openlocfilehash: 3f24f38db7704557894d866b789890763f9e1316
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463259"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Samouczek: opracowywanie modułu IoT Edge Java przy użyciu kontenerów systemu Linux
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyj symulowanego urządzenia IoT Edge utworzonego w obszarze Wdróż Azure IoT Edge na symulowanym urządzeniu w artykułach szybkiego startu. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyj symulowanego urządzenia IoT Edge utworzonego w obszarze Wdróż Azure IoT Edge na symulowanym urządzeniu w artykułach szybkiego startu. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

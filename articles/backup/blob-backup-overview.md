@@ -4,10 +4,10 @@ description: Informacje o operacyjnej kopii zapasowej obiektów blob platformy A
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745100"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Przegląd operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)
@@ -59,7 +59,7 @@ Dane można przywrócić z dowolnego punktu w czasie, dla którego istnieje punk
 
 Operacyjna kopia zapasowa umożliwia przywrócenie wszystkich blokowych obiektów BLOB na koncie magazynu, przeglądanie i przywracanie określonych kontenerów albo używanie dopasowań prefiksów do przywracania podzbioru obiektów BLOB. Wszystkie operacje przywracania można wykonać tylko na koncie magazynu źródłowego.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 W przypadku używania operacyjnej kopii zapasowej dla obiektów BLOB nie są naliczane żadne opłaty za zarządzanie ani opłaty za wystąpienie. Zostaną jednak naliczone następujące opłaty:
 

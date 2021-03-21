@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
 ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464069"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Samouczek: opracowywanie modułów IoT Edge C# przy użyciu kontenerów systemu Windows
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak za pomocą programu Visual Studio opracowywać kod 
 
 Za pomocą modułów Azure IoT Edge można wdrażać kod, który implementuje logikę biznesową bezpośrednio na urządzeniach IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -129,7 +129,7 @@ Manifest wdrożenia udostępnia poświadczenia dla rejestru kontenerów za pomoc
 
 Kod modułu domyślnego odbiera komunikaty w kolejce wejściowej i przekazuje je za pomocą kolejki wyjściowej. Dodajmy dodatkowy kod, aby moduł przetworzył komunikaty na brzegu przed przekazaniem ich do centrum IoT. Zaktualizuj moduł, aby przeanalizować dane temperatury w każdym komunikacie i wysłać komunikat do centrum IoT tylko wtedy, gdy temperatura przekroczy określony próg.
 
-1. W programie Visual Studio wybierz pozycję **CSharpModule**  >  **program.cs**.
+1. W programie Visual Studio wybierz pozycję **CSharpModule**  >  **program. cs**.
 
 1. Na początku przestrzeni nazw **CSharpModule** dodaj trzy instrukcje **using** dla typów, które będą używane później:
 

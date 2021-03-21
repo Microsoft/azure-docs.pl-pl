@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562573"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596743"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -84,7 +84,7 @@ Wersja 3 oferuje następujące informacje:
  
 - Obsługa zdarzeń na żywo usługi 24x7
 - Interfejsy API REST usługi ARM, zestawy SDK klienta dla platformy .NET Core, Node.js, Python, Java, go i Ruby.
-- Klucze zarządzane przez klienta, integracja z zaufaną magazynem, obsługa linków prywatnych i [inne](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Klucze zarządzane przez klienta, integracja z zaufaną magazynem, obsługa linków prywatnych i [inne](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>Wymagana akcja
 
@@ -123,7 +123,6 @@ Zaktualizuj najnowsze zestawy SDK klienta w bazach kodu przy użyciu Menedżera 
 - **[Zaufany magazyn](concept-trusted-storage.md)**: Media Services można skonfigurować w taki sposób, aby uzyskiwać dostęp do usługi Azure Storage przy użyciu tożsamości zarządzanej skojarzonej z kontem Media Services. Po uzyskaniu dostępu do kont magazynu przy użyciu tożsamości zarządzanej klienci mogą konfigurować bardziej restrykcyjne listy ACL sieci na koncie magazynu bez blokowania Media Services scenariuszy.
 
 - **[Zarządzane tożsamości](concept-managed-identities.md)**: klienci mogą włączyć tożsamość zarządzaną przez system dla konta Media Services, aby zapewnić dostęp do magazynów kluczy (dla kluczy zarządzanych przez klienta) i kont magazynu (dla zaufanego magazynu).
-
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Zaktualizowano przykłady Node.js TypeScript przy użyciu zestawu SDK isomorphic dla języka JavaScript
 
@@ -373,7 +372,7 @@ Teraz można określić listę filtrów zasobów lub kont, które mają zastosow
 
 Media Services wersja 3 jest teraz obsługiwana w chmurach narodowych platformy Azure. Nie wszystkie funkcje są jeszcze dostępne we wszystkich chmurach. Aby uzyskać szczegółowe informacje, zobacz [chmury i regiony, w których istnieje Azure Media Services v3](azure-clouds-regions.md).
 
-Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) .
+Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) .
 
 ## <a name="january-2019"></a>Styczeń 2019 r.
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pulpit nawigacyjny w Azure Portal przy 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 1b001c8f1ab73d23441697c93202cf1f6ea65687
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745744"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613328"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Szybki Start: tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu programu PowerShell
 
@@ -23,7 +23,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Gdy moduł programu PowerShell **AZ. Portal** jest w wersji zapoznawczej, należy go zainstalować oddzielnie z poziomu polecenia AZ PowerShell module przy użyciu narzędzia `Install-Module` . Po ogólnym udostępnieniu tego modułu programu PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i będzie dostępny natywnie z poziomu Azure Cloud Shell.
+> Gdy moduł programu PowerShell **AZ. Portal** jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i będzie dostępny natywnie z poziomu Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Portal
@@ -146,19 +146,7 @@ Sprawdź, czy pulpit nawigacyjny został utworzony pomyślnie.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Sprawdź, czy w Azure Portal są widoczne dane dotyczące maszyny wirtualnej.
-
-1. W witrynie Azure Portal wybierz pozycję **Pulpit nawigacyjny**.
-
-   ![Azure Portal nawigację do pulpitu nawigacyjnego](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Na stronie Pulpit nawigacyjny wybierz pozycję **prosty pulpit nawigacyjny maszyny wirtualnej**.
-
-   ![Przejdź do prostego pulpitu nawigacyjnego maszyny wirtualnej](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Przejrzyj pulpit nawigacyjny. Można zobaczyć, że część zawartości jest statyczna, ale istnieją także wykresy pokazujące wydajność maszyny wirtualnej.
-
-   ![Przejrzyj prosty pulpit nawigacyjny maszyny wirtualnej](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

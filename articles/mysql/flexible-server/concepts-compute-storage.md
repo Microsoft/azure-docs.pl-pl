@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
 ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720940"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opcje obliczeń i magazynowania w Azure Database for MySQL-elastycznym serwerze (wersja zapoznawcza)
@@ -156,7 +156,7 @@ W przypadku zmiany warstwy obliczeniowej lub rozmiaru obliczenia serwer zostanie
 
 Skalowanie magazynu i zmiana okresu przechowywania kopii zapasowych są operacjami online i nie wymaga ponownego uruchomienia serwera.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/MySQL/)usługi. Aby wyświetlić koszt dla wybranej konfiguracji, [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) przedstawia miesięczny koszt na karcie **obliczenia + magazyn** na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z kalkulatora cen platformy Azure, aby uzyskać szacowaną cenę. W witrynie sieci Web [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) wybierz pozycję **Dodaj elementy**, rozwiń kategorię **bazy danych** , wybierz **Azure Database for MySQL** i **elastyczny serwer** jako typ wdrożenia, aby dostosować opcje.
 

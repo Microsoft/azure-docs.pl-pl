@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666066"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721379"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HC
 
@@ -51,13 +51,13 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 |-----------------------------|-----------------------|
 | Maksymalny rozmiar zadania MPI            | 13200 rdzeni (300 maszyny wirtualne w jednym zestawie skalowania maszyn wirtualnych z singlePlacementGroup = true)  |
 | Obsługa MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, platform MPI  |
-| Dodatkowe struktury       | Ujednolicona komunikacja X, libfabric, PGAS |
+| Dodatkowe struktury       | UCX, libfabric, PGAS |
 | Obsługa usługi Azure Storage       | Dyski w warstwie Standardowa i Premium (maksymalnie 4 dyski) |
-| Obsługa systemu operacyjnego dla sterownik RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Wsparcie dla programu Orchestrator        | CycleCloud, Partia zadań  |
+| Obsługa systemu operacyjnego dla sterownik RDMA   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Wsparcie dla programu Orchestrator        | CycleCloud, Batch, AKS; [Opcje konfiguracji klastra](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [architekturze Intel Xeon Sp](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
-- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
