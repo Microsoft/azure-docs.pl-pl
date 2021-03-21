@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: tworzenie dedykowanego modułu HSM platformy Azure przy użyciu Azure PowerShell'
-description: Tworzenie dedykowanego modułu HSM platformy Azure przy użyciu Azure PowerShell
+description: Tworzenie modułu Azure Dedicated HSM przy użyciu programu Azure PowerShell
 services: dedicated-hsm
 author: msmbaldwin
 ms.author: mbaldwin
@@ -10,10 +10,10 @@ ms.devlang: azurepowershell
 ms.date: 11/13/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: eebfb257d0324cf2771bd3af979ddbebb8429fb7
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94905625"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-with-azure-powershell"></a>Szybki Start: tworzenie dedykowanego modułu HSM platformy Azure przy użyciu Azure PowerShell
@@ -27,7 +27,7 @@ W tym artykule opisano sposób tworzenia dedykowanego modułu HSM platformy Azur
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
-  > Mimo że moduł **AZ. dedykowanego modułu HSM** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne domyślnie z poziomu Azure Cloud Shell.
+  > Mimo że moduł **AZ. dedykowanego modułu HSM** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Gdy ten moduł programu PowerShell stanie się ogólnie dostępny, będzie częścią przyszłych wydań modułu Az programu PowerShell i będzie domyślnie dostępny z poziomu usługi Azure Cloud Shell.
 
   ```azurepowershell-interactive
   Install-Module -Name Az.DedicatedHsm

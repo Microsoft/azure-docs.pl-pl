@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358630"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
@@ -327,8 +327,8 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
 | smalldatetime, DateTime, datetime2, Date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geograficzne |Edm.GeographyPoint |Obsługiwane są tylko wystąpienia typu Geografia z SRID 4326 (co jest ustawieniem domyślnym) |
-| rowversion |Brak |Kolumny wiersza — wersja nie mogą być przechowywane w indeksie wyszukiwania, ale mogą być używane do śledzenia zmian |
-| Time, TimeSpan, Binary, varbinary, Image, XML, geometria, typy CLR |Brak |Nieobsługiwane |
+| rowversion |Nie dotyczy |Kolumny wiersza — wersja nie mogą być przechowywane w indeksie wyszukiwania, ale mogą być używane do śledzenia zmian |
+| Time, TimeSpan, Binary, varbinary, Image, XML, geometria, typy CLR |Nie dotyczy |Nieobsługiwane |
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 Program SQL indeksator uwidacznia kilka ustawień konfiguracji:

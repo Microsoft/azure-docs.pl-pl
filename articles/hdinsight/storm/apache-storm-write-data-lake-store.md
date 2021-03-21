@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932562"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Samouczek: zapisywanie do Apache Hadoop HDFS z Apache Storm w usłudze Azure HDInsight
@@ -18,7 +18,7 @@ W tym samouczku pokazano, jak za pomocą Apache Storm zapisywać dane do magazyn
 
 Przykładowa topologia używana w tym dokumencie opiera się na składnikach, które są dołączone do burzy w usłudze HDInsight. Może wymagać modyfikacji do pracy z Azure Data Lake Storage, gdy jest używany z innymi klastrami Apache Storm.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie klastra z akcją skryptu

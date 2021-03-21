@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: efbb8a9ca0d475939d7713fa6a6a4a8245aead90
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92457065"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Bizagi na potrzeby automatyzacji procesów cyfrowych
@@ -94,7 +94,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     
     Ten adres URL metadanych musi być zarejestrowany w opcjach uwierzytelniania projektu Bizagi.
     
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML**kliknij ikonę Edytuj/pióra, aby uzyskać **atrybuty użytkownika & oświadczeniami** , aby edytować unikatowy identyfikator użytkownika.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby uzyskać **atrybuty użytkownika & oświadczeniami** , aby edytować unikatowy identyfikator użytkownika.
     
     Ustaw unikatowy identyfikator użytkownika jako User. mail.
 

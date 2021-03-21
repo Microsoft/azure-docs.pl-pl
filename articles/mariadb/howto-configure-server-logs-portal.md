@@ -3,14 +3,14 @@ title: Dostęp do dzienników wolnych zapytań — Azure Portal-Azure Database f
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do dzienników wolnych zapytań w Azure Database for MariaDB z Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: f3a01d3e80be35d10ef5c163c9ad8956f37283c1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662512"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Skonfiguruj i uzyskaj dostęp do dzienników wolnych zapytań usługi Azure Database for Maria DB z poziomu Azure Portal

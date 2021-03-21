@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć i dostosowywać plany odzyskiwania na po
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009725"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Tworzenie i dostosowywanie planów odzyskiwania
@@ -20,7 +20,7 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
 2. W obszarze **Utwórz plan odzyskiwania** Określ nazwę planu.
 3. Wybierz źródło i cel na podstawie maszyn w planie, a następnie wybierz **Menedżer zasobów** dla modelu wdrażania. Lokalizacja źródłowa musi mieć maszyny, na których włączono tryb failover i odzyskiwanie. 
 
-    **Tryb failover** | **Element źródłowy** | **Obiektów** 
+    **Tryb failover** | **Element źródłowy** | **Cel** 
    --- | --- | ---
    Azure–Azure | Wybierz region platformy Azure | Wybierz region platformy Azure
    Oprogramowanie VMware do platformy Azure | Wybierz serwer konfiguracji | Wybierz platformę Azure
@@ -63,9 +63,9 @@ Możesz dostosować plan odzyskiwania, dodając skrypt lub akcję ręczną. Nale
     **Scenariusz** | **Tryb failover** | **Awarii**
     --- | --- | --- 
     Azure–Azure  | Element Runbook | Element Runbook
-    Z programu VMware do platformy Azure | Element Runbook | Nie dotyczy 
+    Z programu VMware do platformy Azure | Element Runbook | NA 
     Funkcja Hyper-V z programem VMM na platformie Azure | Element Runbook | Skrypt
-    Z lokacji funkcji Hyper-V na platformę Azure | Element Runbook | Nie dotyczy
+    Z lokacji funkcji Hyper-V na platformę Azure | Element Runbook | NA
     Program VMM do pomocniczego programu VMM | Skrypt | Skrypt
 
 1. W planie odzyskiwania kliknij krok, do którego powinna zostać dodana akcja, a następnie określ, kiedy powinna wystąpić akcja:

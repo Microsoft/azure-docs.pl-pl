@@ -9,10 +9,10 @@ ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94411290"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB wyjątków limitu czasu żądania zestawu SDK Java v4
@@ -26,7 +26,7 @@ Poniższa lista zawiera znane przyczyny i rozwiązania dla wyjątków limitu cza
 ### <a name="existing-issues"></a>Istniejące problemy
 Jeśli widzisz żądania, które mają być zablokowane przez dłuższy czas lub przekroczenia limitu czasu, Uaktualnij zestaw SDK dla języka Java v4 do najnowszej wersji. Uwaga: zdecydowanie zalecamy użycie wersji 4.7.0 i nowszych. Aby uzyskać więcej informacji, zapoznaj się z [informacjami o wersji zestawu SDK Java v4](sql-api-sdk-java-v4.md) .
 
-### <a name="high-cpu-utilization"></a>Wysokie wykorzystanie procesora CPU
+### <a name="high-cpu-utilization"></a>Wysoki poziom wykorzystania procesora
 Wysokie wykorzystanie procesora CPU jest najpopularniejszym przypadkiem. W celu uzyskania optymalnego opóźnienia użycie procesora CPU powinno wynosić około 40 procent. Użyj 10 sekund jako interwału do monitorowania maksymalnego (nieśredniego) użycia procesora. Większe obciążenia procesora są bardziej typowe w przypadku zapytań między partycjami, w których może istnieć wiele połączeń dla jednego zapytania.
 
 #### <a name="solution"></a>Rozwiązanie:

@@ -13,10 +13,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: 83896b2599f03961b2dcaf34ea9b55fe16c13b9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98756448"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplikacja jednostronicowa: uzyskiwanie tokenu do wywoływania interfejsu API

@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019428"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych z usługi Azure Notification Hubs
@@ -56,13 +56,13 @@ W tym samouczku pokazano, jak bezpiecznie wysyłać powiadomienia wypychane. Sam
 
 ## <a name="modify-the-windows-phone-project"></a>Modyfikuj projekt Windows Phone
 
-1. W projekcie **NotifyUserWindowsPhone** Dodaj następujący kod do App.XAML.cs, aby zarejestrować zadanie wypychania w tle. Dodaj poniższy wiersz kodu na końcu metody `OnLaunched()`:
+1. W projekcie **NotifyUserWindowsPhone** Dodaj następujący kod do pliku App. XAML. cs, aby zarejestrować zadanie wypychania w tle. Dodaj poniższy wiersz kodu na końcu metody `OnLaunched()`:
 
     ```csharp
     RegisterBackgroundTask();
     ```
 
-2. Nadal w App.xaml.cs, Dodaj następujący kod bezpośrednio po `OnLaunched()` metodzie:
+2. Nadal w pliku App. XAML. cs Dodaj następujący kod bezpośrednio po `OnLaunched()` metodzie:
 
     ```csharp
     private async void RegisterBackgroundTask()
@@ -80,7 +80,7 @@ W tym samouczku pokazano, jak bezpiecznie wysyłać powiadomienia wypychane. Sam
     }
     ```
 
-3. Dodaj następujące `using` instrukcje w górnej części pliku App.XAML.cs:
+3. Dodaj następujące `using` instrukcje w górnej części pliku App. XAML. cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;

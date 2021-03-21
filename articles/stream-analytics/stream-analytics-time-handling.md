@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019945"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Opis obsługi czasu w Azure Stream Analytics
@@ -129,7 +129,7 @@ Stream Analytics zadania mają kilka opcji **określania kolejności zdarzeń** 
 
 Można obserwować liczbę efektów tolerancji czasu porządkowania zdarzeń za pomocą [metryk zadania Stream Analytics](stream-analytics-monitoring.md). Następujące metryki są istotne:
 
-|Metryka  | Opis  |
+|Metric  | Opis  |
 |---------|---------|
 | **Zdarzenia poza kolejnością** | Wskazuje liczbę zdarzeń odebranych poza kolejnością, które zostały porzucone lub miały skorygowaną sygnaturę czasową. Ta Metryka jest bezpośrednio objęta konfiguracją ustawienia **zdarzenia poza kolejnością** na stronie **porządkowania zdarzeń** w zadaniu w Azure Portal. |
 | **Opóźnione zdarzenia wejściowe** | Wskazuje liczbę zdarzeń opóźnionych ze źródła. Ta Metryka obejmuje zdarzenia, które zostały usunięte lub miały sygnaturę czasową. Ta Metryka ma bezpośredni wpływ na konfigurację **zdarzeń, które docierają do późnego** ustawienia na stronie **porządkowanie zdarzeń** w zadaniu w Azure Portal. |

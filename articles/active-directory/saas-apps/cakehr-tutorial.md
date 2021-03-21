@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 08e028ba057ad57f3d600bc59bf7595c0b1d354c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456579"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą CakeHR
@@ -144,7 +144,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawia profil z wybranymi ustawieniami.](./media/cakehr-tutorial/config01.png)
 
-1. Na pasku menu po lewej stronie kliknij pozycję **Integrations**protokołu  >  **SAML SSO** i wykonaj następujące czynności:
+1. Na pasku menu po lewej stronie kliknij pozycję **Integrations** protokołu  >  **SAML SSO** i wykonaj następujące czynności:
 
     ![Zrzut ekranu przedstawia okienko ustawień, w którym wykonujesz te kroki.](./media/cakehr-tutorial/config02.png)
 
@@ -166,7 +166,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze CakeHR,
 
 1. Zaloguj się do CakeHR jako administrator zabezpieczeń.
 
-2. Z lewej strony paska menu kliknij pozycję **COMPANY**  >  **Dodaj**firmę.
+2. Z lewej strony paska menu kliknij pozycję   >  **Dodaj** firmę.
 
     ![Zrzut ekranu przedstawia CakeHR z firmą i Dodaj wybrane.](./media/cakehr-tutorial/config03.png)
 

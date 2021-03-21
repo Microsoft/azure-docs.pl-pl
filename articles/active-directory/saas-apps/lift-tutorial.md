@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: jeedes
 ms.openlocfilehash: f007332f710bf4baddd5c55438922208b6b9ff2c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lift"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory przy użyciu DŹWIGu

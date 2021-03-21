@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931627"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronizowanie użytkowników usługi Azure Active Directory z klastrem usługi HDInsight
@@ -144,7 +144,7 @@ Otwórz [interfejs użytkownika programu Apache Ambari Web](hdinsight-hadoop-man
 Gdy nowy użytkownik (lub inny użytkownik domeny) zaloguje się do usługi Ambari, użyje pełnej nazwy użytkownika i domeny usługi Azure AD.  Ambari wyświetla alias użytkownika, który jest nazwą wyświetlaną użytkownika w usłudze Azure AD.
 Nowy przykładowy użytkownik ma nazwę użytkownika `hiveuser3@contoso.com` . W programie Ambari ten nowy użytkownik jest wyświetlany, gdy `hiveuser3` użytkownik zaloguje się do Ambari jako `hiveuser3@contoso.com` .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Konfigurowanie zasad Apache Hive w usłudze HDInsight przy użyciu protokołu ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](./domain-joined/apache-domain-joined-manage.md)

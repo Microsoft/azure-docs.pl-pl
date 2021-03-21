@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780329"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Ogólne wskazówki dotyczące pracy z Wingtip bilety przykładowe aplikacje SaaS
@@ -25,17 +25,17 @@ Ten artykuł zawiera ogólne wskazówki dotyczące uruchamiania Wingtip biletów
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Pobieranie i odblokowywanie Wingtip biletów SaaS
 
-Zawartość wykonywalna (skrypty, biblioteki dll) może być blokowana przez system Windows, gdy pliki zip są pobierane ze źródła zewnętrznego i wyodrębniane. Podczas wyodrębniania skryptów z pliku zip **wykonaj poniższe kroki, aby odblokować plik. zip przed wyodrębnieniem** . Zapewnia to możliwość uruchamiania skryptów.
+Zawartość wykonywalna (skrypty, biblioteki dll) może być blokowana przez system Windows, gdy pliki zip są pobierane ze źródła zewnętrznego i wyodrębniane. Podczas wyodrębniania skryptów z pliku zip **wykonaj poniższe kroki, aby odblokować plik. zip przed wyodrębnieniem**. Zapewnia to możliwość uruchamiania skryptów.
 
 1. Przejdź do repozytorium Wingtip SaaS w witrynie GitHub, aby uzyskać wzorzec dzierżawy bazy danych, który chcesz eksplorować:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
-2. Kliknij pozycję **Klonuj lub Pobierz** .
+2. Kliknij pozycję **Klonuj lub Pobierz**.
 3. Kliknij pozycję **Pobierz kod pocztowy** i Zapisz plik.
-4. Kliknij prawym przyciskiem myszy plik zip, a następnie wybierz polecenie **Właściwości** . Nazwa pliku zip będzie odpowiadać nazwie repozytorium. uprzedni. _WingtipTicketsSaaS-DbPerTenant-master.zip_ )
-5. Na karcie **Ogólne** wybierz opcję **Odblokuj** .
-6. Kliknij pozycję **OK** .
+4. Kliknij prawym przyciskiem myszy plik zip, a następnie wybierz polecenie **Właściwości**. Nazwa pliku zip będzie odpowiadać nazwie repozytorium. uprzedni. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+5. Na karcie **Ogólne** wybierz opcję **Odblokuj**.
+6. Kliknij przycisk **OK**.
 7. Wyodrębnij pliki.
 
 Skrypty znajdują się w *... \\ Folder modułów szkoleniowych* .
@@ -57,7 +57,7 @@ Ustawienie tych wartości w tym miejscu po prostu pozwala uniknąć koniecznośc
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Wykonaj skrypty, naciskając klawisz F5
 
-Kilka skryptów używa *$PSScriptRoot* do nawigowania po folderach, a *$PSScriptRoot* jest obliczana tylko wtedy, gdy skrypty są wykonywane przez naciśnięcie klawisza **F5** .  Wyróżnianie i uruchamianie zaznaczenia ( **F8** ) może powodować błędy, dlatego należy nacisnąć klawisz **F5** w przypadku uruchamiania skryptów.
+Kilka skryptów używa *$PSScriptRoot* do nawigowania po folderach, a *$PSScriptRoot* jest obliczana tylko wtedy, gdy skrypty są wykonywane przez naciśnięcie klawisza **F5**.  Wyróżnianie i uruchamianie zaznaczenia (**F8**) może powodować błędy, dlatego należy nacisnąć klawisz **F5** w przypadku uruchamiania skryptów.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Przechodzenie przez skrypty w celu zapoznania się z implementacją
 
@@ -67,10 +67,10 @@ Porady dotyczące eksplorowania i przechodzenia za pośrednictwem skryptów prog
 
 - Otwórz **Pokaz —** skrypty w programie PowerShell ISE.
 - Wykonaj lub Kontynuuj z **F5** (użycie **klawisza F8** nie jest zalecane, ponieważ *$PSScriptRoot* nie jest oceniane podczas uruchamiania wybranych skryptów).
-- Umieść punkty przerwania, klikając lub zaznaczając wiersz i naciskając klawisz **F9** .
-- Pomiń wywołanie funkcji lub skryptu, używając klawisza **F10** .
-- Wejdź do wywoływanej funkcji lub skryptu, używając klawisza **F11** .
-- Wyjdź z bieżącego wywołania funkcji lub skryptu, używając kombinacji klawiszy **Shift + F11** .
+- Umieść punkty przerwania, klikając lub zaznaczając wiersz i naciskając klawisz **F9**.
+- Pomiń wywołanie funkcji lub skryptu, używając klawisza **F10**.
+- Wejdź do wywoływanej funkcji lub skryptu, używając klawisza **F11**.
+- Wyjdź z bieżącego wywołania funkcji lub skryptu, używając kombinacji klawiszy **Shift + F11**.
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Badanie schematu bazy danych i wykonywanie zapytań SQL za pomocą aplikacji SSMS
@@ -87,14 +87,14 @@ Aby zapewnić pomyślne połączenie demonstracyjne, wszystkie serwery mają [re
 
 
 1. Otwórz narzędzie *SSMS* i Połącz się z dzierżawcami. Nazwa serwera zależy od wybranego wzorca dzierżawy bazy danych (patrz poniżej w przypadku określonych):
-    - **Aplikacja autonomiczna:** serwery indywidualnych dzierżawców (np. *contosoconcerthall — &lt; User &gt; . Database.Windows.NET* )
+    - **Aplikacja autonomiczna:** serwery indywidualnych dzierżawców (np. *contosoconcerthall — &lt; User &gt; . Database.Windows.NET*)
     - **Baza danych na dzierżawcę:** *tenants1-DPT- &lt; User &gt; . Database.Windows.NET*
     - **Baza danych z wieloma dzierżawcami:** *tenants1-MT- &lt; User &gt; . Database.Windows.NET*
-2. Kliknij pozycję **Połącz**  >  **aparat bazy danych..** .:
+2. Kliknij pozycję **Połącz**  >  **aparat bazy danych..**.:
 
    ![serwer wykazu](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Poświadczenia demonstracyjne: login = *Developer* , Password = *P \@ ssword1*
+3. Poświadczenia demonstracyjne: login = *Developer*, Password = *P \@ ssword1*
 
     Na poniższej ilustracji przedstawiono dane logowania dla wzorca *dzierżawy* .
     ![połączenia](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

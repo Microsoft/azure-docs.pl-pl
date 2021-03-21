@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962556"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
@@ -276,11 +276,11 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam i podświetl opcję Dodaj repozytorium kopii zapasowych.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
+2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz opcję **Dalej**.
 
     ![Strona Veeam Management Console, nazwa i opis](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz pozycję **Dalej**.
+3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz opcję **Dalej**.
 
     ![Veeam Management Console, wybierz typ repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Veeam Management Console, ustawienia zgodności magazynu](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
+6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz opcję **Dalej**.
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam, w której można dodać nowe repozytorium kopii zapasowej.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -319,8 +319,8 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Monday-Friday |
-| Miesięczne  | Sobota  |   |
-| Roczne | Sobota  |   |
+| Miesięcznie  | Sobota  |   |
+| Rocznie | Sobota  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej Veeam
@@ -399,8 +399,8 @@ GFS rotacja co tydzień, co miesiąc i co rok
 | Tydzień 2 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
-| Miesięczne | StorSimple miesięcznie |   |   |   |   |   |
-| Roczne | StorSimple rocznie  |   |   |   |   |   |
+| Miesięcznie | StorSimple miesięcznie |   |   |   |   |   |
+| Rocznie | StorSimple rocznie  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Przypisywanie woluminów StorSimple do zadania kopiowania Veeam
 
@@ -507,7 +507,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 

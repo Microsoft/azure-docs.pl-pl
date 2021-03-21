@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778666"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizowanie wydajności węzła brzegowego w usłudze Microsoft Azure CDN
@@ -55,7 +55,7 @@ Ten pulpit nawigacyjny składa się z:
     ![Przycisk zarządzania bloku profilu usługi CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Zostanie otwarty portal zarządzania sieci CDN.
-2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij pozycję **pulpit nawigacyjny** .
+2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij pozycję **pulpit nawigacyjny**.
    
     Zostanie wyświetlony pulpit nawigacyjny analizy węzłów brzegowych.
 
@@ -143,7 +143,7 @@ Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepu
     ![Przycisk zarządzania bloku profilu usługi CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Zostanie otwarty portal zarządzania sieci CDN.
-2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij opcję **duży obiekt http** .
+2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij opcję **duży obiekt http**.
    
     Zostanie wyświetlony ekran Raporty analizy węzłów brzegowych.
 
@@ -183,7 +183,7 @@ Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepu
 | Błędy 502 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały niewłaściwy kod odpowiedzi bramy 502. 502 nieprawidłowy kod odpowiedzi bramy występuje, gdy wystąpi awaria protokołu HTTP między serwerem i serwerem proxy HTTP. W przypadku naszej sieci CDN niewłaściwy kod odpowiedzi bramy 502 zwykle występuje, gdy serwer pochodzenia klienta zwróci nieprawidłową odpowiedź na serwer graniczny. Odpowiedź jest nieprawidłowa, jeśli nie można jej przeanalizować lub jeśli jest niepełna. |
 | Błędy 5xx |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 500.  Wykluczone z tego raportu to 502 niewłaściwe kody odpowiedzi bramy i bramy 504. |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](./cdn-verizon-premium-rules-engine.md)

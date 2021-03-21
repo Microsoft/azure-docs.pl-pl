@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337682"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Samouczek: Używanie urządzenie Data Box do importowania danych jako dysków zarządzanych na platformie Azure
@@ -78,11 +78,11 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
     ![Łączenie i kopiowanie, uzyskiwanie poświadczeń udziału](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. W oknie dialogowym **udostępnianie i kopiowanie danych** Skopiuj **nazwę użytkownika** i **hasło** dla udziału. Kliknij pozycję **OK**.
+2. W oknie dialogowym **udostępnianie i kopiowanie danych** Skopiuj **nazwę użytkownika** i **hasło** dla udziału. Kliknij przycisk **OK**.
     
     ![Łączenie i kopiowanie, kopiowanie poświadczeń udziału](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
-3. Aby uzyskać dostęp do udziałów skojarzonych z zasobem ( *mydbmdrg1* w poniższym przykładzie) z komputera hosta, Otwórz okno wiersza polecenia. W wierszu polecenia wpisz polecenie:
+3. Aby uzyskać dostęp do udziałów skojarzonych z zasobem (*mydbmdrg1* w poniższym przykładzie) z komputera hosta, Otwórz okno wiersza polecenia. W wierszu polecenia wpisz polecenie:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -100,7 +100,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     C: \>
     ```
 
-5. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>\<ShareName>`. Kliknij przycisk **OK** , aby otworzyć Eksploratora plików.
+5. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>\<ShareName>`. Kliknij przycisk **OK**, aby otworzyć Eksploratora plików.
     
     ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
@@ -117,7 +117,7 @@ Jeśli używasz komputera-hosta z systemem Linux, wykonaj następujące czynnoś
 
     ![Konfigurowanie dostępu klienta NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij pozycję **OK**.
+2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
 
     ![Konfigurowanie adresu IP klienta NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 

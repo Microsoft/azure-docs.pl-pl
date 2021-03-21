@@ -10,17 +10,17 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008569"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
 Skorzystaj z szybkiego środowiska tworzenia aplikacji dla aplikacji zaawansowanych, aby utworzyć niestandardową aplikację do przeszukiwanej zawartości w usłudze Azure Wyszukiwanie poznawcze.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Nawiązywanie połączenia z usługą Azure Wyszukiwanie poznawcze
@@ -43,7 +43,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. [Zaloguj](https://make.powerapps.com) się do aplikacji zaawansowanych.
 
-1. Po lewej stronie rozwiń węzeł **Data**  >  **Łączniki niestandardowe** danych.
+1. Po lewej stronie rozwiń węzeł   >  **Łączniki niestandardowe** danych.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
 
@@ -86,7 +86,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importuj z przykładowego dialogu" border="true":::
 
-1. Dla *wyszukiwania*: Ustaw `*` **wartość domyślną**, Ustaw jako *Fałsz* i ustaw **widoczność** na *none*. **required** 
+1. Dla *wyszukiwania*: Ustaw `*` **wartość domyślną**, Ustaw jako *Fałsz* i ustaw **widoczność** na *none*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadane parametrów wyszukiwania" border="true":::
 

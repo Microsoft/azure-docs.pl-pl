@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020674"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Bezpieczne Instalowanie i obsługiwanie Azure Data Box
@@ -31,7 +31,7 @@ Poniżej znajdują się ikony, które będą znajdować się podczas przeglądan
 | ![Ostrzeżenie ikony ostrzeżenia ](./media/data-box-safety/warning_icon.png) **!** |Wskazuje niebezpieczną sytuację, która w przypadku braku problemów może skutkować drobną lub średnią szkodą. |
 | ![Powiadomienie o ikonie powiadomienia ](./media/data-box-safety/notice_icon.png) **:** |Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. |
 | ![Ikona porażenia elektryczną — ](./media/data-box-safety/electrical_shock_hazard_icon.png) **zagrożenie elektryczne** |Wysokie napięcie. |
-| ![Duże wagi ikony o dużej grubości ](./media/data-box-safety/heavy_weight_hazard_icon.png) **Heavy Weight** | |
+| ![Duże wagi ikony o dużej grubości ](./media/data-box-safety/heavy_weight_hazard_icon.png)  | |
 | ![Ikona elementów z obsługą użytkownika ](./media/data-box-safety/no_user_serviceable_parts_icon.png) **nie ma części z obsługą użytkownika** |Nie należy uzyskiwać dostępu, o ile nie jest prawidłowo szkolony. |
 | ![Ikona powiadomienia o bezpieczeństwie Odczytaj ](./media/data-box-safety/read_safety_and_health_information_icon.png) **najpierw wszystkie instrukcje** | |
 | ![](./media/data-box-safety/tip_hazard_icon.png) **Niebezpieczeństwo Porada** ikony ostrzegawczej | |
@@ -63,7 +63,7 @@ Poniżej znajdują się ikony, które będą znajdować się podczas przeglądan
 
 ## <a name="electrical-precautions"></a>Środki bezpieczeństwa elektrycznego
 
-![Ikona ostrzeżenia ](./media/data-box-safety/warning_icon.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/data-box-safety/electrical_shock_hazard_icon.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/data-box-safety/warning_icon.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/data-box-safety/electrical_shock_hazard_icon.png)  .
 
 * Zapewnienie bezpiecznego połączenia elektrycznego z przedłużaczem zasilacza. Kabel AC ma trójwymiarowy wtyk naziemny (wtyk, który ma numer PIN). Ten wtyk pasuje tylko do uziemionego gniazda zasilania. Nie obniżaj poziomu numeru PIN.
 * Mając na względzie, że wtyk odbiornika zasilania jest głównym urządzeniem odłączania, upewnij się, że są one zlokalizowane blisko urządzenia i są łatwo dostępne.

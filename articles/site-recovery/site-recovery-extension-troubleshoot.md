@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009708"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Rozwiązywanie problemów z rozszerzeniem maszyny wirtualnej platformy Azure
@@ -45,7 +45,7 @@ Kod błędu: "151099"
 
 Ten błąd może wystąpić, jeśli Agent gościa platformy Azure w maszynie wirtualnej nie jest w stanie gotowości.
 
-Stan agenta gościa platformy Azure można sprawdzić w [Azure Portal](https://portal.azure.com/). Przejdź do maszyny wirtualnej, którą próbujesz chronić, i sprawdź stan w obszarze właściwości ustawień **maszyny wirtualnej**  >  **Settings**  >  **Properties**  >  **stan agenta**. W większości przypadków stan agenta jest gotowy po ponownym uruchomieniu maszyny wirtualnej. Jeśli jednak nie możesz ponownie uruchomić komputera lub problem nadal występuje, wykonaj następujące kroki rozwiązywania problemów:
+Stan agenta gościa platformy Azure można sprawdzić w [Azure Portal](https://portal.azure.com/). Przejdź do maszyny wirtualnej, którą próbujesz chronić, i sprawdź stan w obszarze właściwości ustawień **maszyny wirtualnej**  >    >    >  **stan agenta**. W większości przypadków stan agenta jest gotowy po ponownym uruchomieniu maszyny wirtualnej. Jeśli jednak nie możesz ponownie uruchomić komputera lub problem nadal występuje, wykonaj następujące kroki rozwiązywania problemów:
 
 - [Agent jest zainstalowany na maszynie wirtualnej, ale nie odpowiada (dla maszyn wirtualnych z systemem Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [Agent zainstalowany na maszynie wirtualnej jest nieaktualny (dla maszyn wirtualnych z systemem Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

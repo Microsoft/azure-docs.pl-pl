@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94365571"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Wyniki nagrody wskazują na pomyślne personalizację
@@ -26,7 +26,7 @@ Nagrody są wysyłane do programu Personalizacja przez [interfejs API nagradzani
 
 Nagrody są wysyłane po zakończeniu działania użytkownika, co może potrwać kilka dni później. Maksymalny czas, przez który personalizowa, będzie oczekiwać do momentu, gdy zdarzenie zostanie uznane za niepłatne lub domyślne wynagrodzenie zostanie skonfigurowane z [wynagrodzeniem czas oczekiwania](#reward-wait-time) w Azure Portal.
 
-Jeśli wynik nagrody dla zdarzenia nie został odebrany w **czasie oczekiwania na wynagrodzenie** , zostanie zastosowane **domyślne wynagrodzenie** . Zazwyczaj **[domyślne wynagrodzenie](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** jest skonfigurowane jako zero.
+Jeśli wynik nagrody dla zdarzenia nie został odebrany w **czasie oczekiwania na wynagrodzenie**, zostanie zastosowane **domyślne wynagrodzenie** . Zazwyczaj **[domyślne wynagrodzenie](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** jest skonfigurowane jako zero.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Zachowania i dane, które należy wziąć pod uwagę za nagrody
@@ -72,24 +72,24 @@ Możesz również wywołać interfejs API nagradzania przy użyciu tego samego i
 
 Wartości agregacji:
 
-*  **Pierwszy** : Pobiera wynik pierwszej nagrody dla zdarzenia i odrzuca resztę.
-* **Sum** : Pobiera wszystkie wyniki zarobkowe zebrane dla EventId i dodaje je razem.
+*  **Pierwszy**: Pobiera wynik pierwszej nagrody dla zdarzenia i odrzuca resztę.
+* **Sum**: Pobiera wszystkie wyniki zarobkowe zebrane dla EventId i dodaje je razem.
 
-Wszystkie nagrody dla zdarzenia, które są odbierane po upływie **czasu oczekiwania** , są odrzucane i nie mają wpływu na szkolenia modeli.
+Wszystkie nagrody dla zdarzenia, które są odbierane po upływie **czasu oczekiwania**, są odrzucane i nie mają wpływu na szkolenia modeli.
 
 Po dodaniu uzyskanych wyników ostateczne wynagrodzenie może być poza oczekiwanym zakresem wyników. Nie spowoduje to błędu usługi.
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Najlepsze rozwiązania dotyczące obliczania wyniku nagrody
 
-* **Weź pod uwagę prawdziwe wskaźniki pomyślnej personalizacji** : łatwo jest myśleć o kliknięciach, ale dobre wynagrodzenie opiera się na tym, co użytkownicy chcą *osiągnąć* , a nie na tym, co chcesz *robić*.  Na przykład nagradzanie kliknięć może prowadzić do wyboru zawartości, która jest podatna na clickbait.
+* **Weź pod uwagę prawdziwe wskaźniki pomyślnej personalizacji**: łatwo jest myśleć o kliknięciach, ale dobre wynagrodzenie opiera się na tym, co użytkownicy chcą *osiągnąć* , a nie na tym, co chcesz *robić*.  Na przykład nagradzanie kliknięć może prowadzić do wyboru zawartości, która jest podatna na clickbait.
 
-* **Skorzystaj z nagrody dotyczącej poprawnego działania personalizacji** : Personalizowanie sugestii filmu miejmy nadzieję wyniki oglądania filmu i nadając mu wysoką ocenę. Ponieważ klasyfikacja filmu prawdopodobnie zależy od wielu rzeczy (jakości działania, nastrój użytkownika), nie jest to dobry sygnał na to, jak dobrze działa *Personalizacja* . Użytkownik oglądał pierwsze kilka minut filmu, jednak może być lepszym sygnałem skuteczności personalizacji i wysłaniem nagrody 1 po 5 minutach będzie lepszym sygnałem.
+* **Skorzystaj z nagrody dotyczącej poprawnego działania personalizacji**: Personalizowanie sugestii filmu miejmy nadzieję wyniki oglądania filmu i nadając mu wysoką ocenę. Ponieważ klasyfikacja filmu prawdopodobnie zależy od wielu rzeczy (jakości działania, nastrój użytkownika), nie jest to dobry sygnał na to, jak dobrze działa *Personalizacja* . Użytkownik oglądał pierwsze kilka minut filmu, jednak może być lepszym sygnałem skuteczności personalizacji i wysłaniem nagrody 1 po 5 minutach będzie lepszym sygnałem.
 
-* **Wynagrodzenie dotyczy tylko RewardActionID** : personalizujer stosuje nagrody, aby zrozumieć skuteczność działania określonego w RewardActionID. Jeśli zdecydujesz się wyświetlić inne akcje, a użytkownik kliknie je, wynagrodzenie powinno mieć wartość zero.
+* **Wynagrodzenie dotyczy tylko RewardActionID**: personalizujer stosuje nagrody, aby zrozumieć skuteczność działania określonego w RewardActionID. Jeśli zdecydujesz się wyświetlić inne akcje, a użytkownik kliknie je, wynagrodzenie powinno mieć wartość zero.
 
-* **Rozważ niezamierzone konsekwencje** : Utwórz funkcje nagradzania, które prowadzą do odpowiedzialnych wyników z [etyką i właściwymi do użycia](ethics-responsible-use.md).
+* **Rozważ niezamierzone konsekwencje**: Utwórz funkcje nagradzania, które prowadzą do odpowiedzialnych wyników z [etyką i właściwymi do użycia](ethics-responsible-use.md).
 
-* **Korzystaj z korzyści przyrostowych** : dodanie częściowego nagrody dla mniejszych zachowań użytkownika ułatwia personalizację w celu osiągnięcia lepszych korzyści. Ten Przyrostowy wzrost umożliwia algorytmowi uzyskanie bliższego zaangażowania użytkownika w końcowe żądane zachowanie.
+* **Korzystaj z korzyści przyrostowych**: dodanie częściowego nagrody dla mniejszych zachowań użytkownika ułatwia personalizację w celu osiągnięcia lepszych korzyści. Ten Przyrostowy wzrost umożliwia algorytmowi uzyskanie bliższego zaangażowania użytkownika w końcowe żądane zachowanie.
     * Jeśli zostanie wyświetlona lista filmów, jeśli użytkownik umieści wskaźnik myszy nad pierwszym przez jakiś czas, aby wyświetlić więcej informacji, można określić, że wystąpił pewne zaangażowanie użytkownika. Zachowanie może być liczone z wynikiem nagrody wynoszącym 0,1.
     * Jeśli użytkownik otworzył stronę, a następnie zakończył działanie, wynik nagrody może być 0,2.
 

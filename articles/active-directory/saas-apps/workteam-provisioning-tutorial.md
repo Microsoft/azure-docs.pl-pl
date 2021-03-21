@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354232"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Workteam na potrzeby automatycznego aprowizacji użytkowników
@@ -52,7 +52,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem usługi Workteam na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na Workteam.
 
-1. Zaloguj się do [Workteam](https://app.workte.am/account/signin). Kliknij pozycję Ustawienia **organizacji**  >  **SETTINGS**.
+1. Zaloguj się do [Workteam](https://app.workte.am/account/signin). Kliknij pozycję Ustawienia **organizacji**  >  .
 
     ![Zrzut ekranu przedstawiający Workteam U I z opcjami ustawienia i ustawienia organizacji, które zostały wywołane.](media/workteam-provisioning-tutorial/settings.png)
 
@@ -75,7 +75,7 @@ Aby skonfigurować Workteam automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Aby skonfigurować Workteam automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **Workteam** , wybierz pozycję **Workteam** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Workteam**, wybierz pozycję **Workteam** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Workteam na liście wyników](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Workteam w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -120,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Workteam**.
 

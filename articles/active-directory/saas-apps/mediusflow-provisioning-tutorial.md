@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662004"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
@@ -165,7 +165,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg|
    |Nazwa. sformatowana|Ciąg|
    |externalId|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: configurationFilter|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: identityProvider|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: nameIdentifier|Ciąg|

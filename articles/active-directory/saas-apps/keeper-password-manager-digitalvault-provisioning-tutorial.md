@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358987"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Menedżera haseł programu opiekuna & magazynem cyfrowym dla automatycznej aprowizacji użytkowników
@@ -45,7 +45,7 @@ Przed skonfigurowaniem usługi Menedżer haseł programu opiekuna & magazynem cy
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem usługi Menedżer haseł programu opiekuna & magazynem cy
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość **Menedżer haseł programu opiekuna & magazynie cyfrowym** , wybierz pozycję **Menedżer haseł opiekuna & magazyn cyfrowy** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **Menedżer haseł programu opiekuna & magazynie cyfrowym**, wybierz pozycję **Menedżer haseł opiekuna & magazyn cyfrowy** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Usługa Keeper Password Manager & Digital Vault na liście wyników](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Menedżera haseł programu opiekuna & magazynie cyfrowym w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -122,7 +122,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do programu opiekuna Password Manager & magazynu cyfrowego**.
 

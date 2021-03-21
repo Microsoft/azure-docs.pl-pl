@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743109"
 ---
-# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure AD Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie usługi Azure AD Multi-Factor Authentication i używanie jej w starszych aplikacjach za pomocą haseł aplikacji
 
 Niektóre starsze aplikacje nie korzystające z przeglądarki, takie jak Office 2010 lub starsze i Apple mail przed systemem iOS 11, nie rozumieją przerw lub przerw w procesie uwierzytelniania. Jeśli użytkownik jest włączony w usłudze Azure AD Multi-Factor Authentication i spróbuje użyć jednej z tych starszych aplikacji niekorzystających z przeglądarki, nie może się uwierzytelnić. Aby korzystać z tych aplikacji w bezpieczny sposób za pomocą usługi Azure AD Multi-Factor Authentication włączonej dla kont użytkowników, można użyć haseł aplikacji. Te hasła aplikacji zastąpiły tradycyjne hasło, aby umożliwić aplikacji ominięcie uwierzytelniania wieloskładnikowego i poprawne działanie.
 

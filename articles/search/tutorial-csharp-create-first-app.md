@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 02/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101695128"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
@@ -130,7 +130,7 @@ Zestaw grup **hotelowych**, **adresów** i **pokojów** jest nazywany [*typami z
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję **modele**  >  **Dodaj**  >  **nowy element**.
 
-1. Wybierz **klasę** i nazwij element Hotel.cs. Zastąp całą zawartość Hotel.cs następującym kodem. Zwróć uwagę na **adres** i członków **pokoju** klasy, te pola są klasami, więc potrzebne są również modele.
+1. Wybierz **klasę** i nazwij element Hotel. cs. Zamień całą zawartość hotelu. cs na następujący kod. Zwróć uwagę na **adres** i członków **pokoju** klasy, te pola są klasami, więc potrzebne są również modele.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -181,7 +181,7 @@ Zestaw grup **hotelowych**, **adresów** i **pokojów** jest nazywany [*typami z
     }
     ```
 
-1. Powtórz ten sam proces tworzenia modelu dla klasy **Address** , nadając nazwę Address.cs pliku. Zastąp zawartość poniższymi.
+1. Powtórz ten sam proces tworzenia modelu dla klasy **Address** , nadając nazwę plikowi Address. cs. Zastąp zawartość poniższymi.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -208,7 +208,7 @@ Zestaw grup **hotelowych**, **adresów** i **pokojów** jest nazywany [*typami z
     }
     ```
 
-1. I ponownie wykonaj ten sam proces, aby utworzyć klasę **pokojową** , nadając jej nazwę Room.cs.
+1. I ponownie wykonaj ten sam proces, aby utworzyć klasę **pokojową** , nadając nazwę pokoju plików. cs.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -418,7 +418,7 @@ To kończy nasz widok. W tym momencie zarówno modele, jak i widoki zostaną wyk
 
 W tym kroku zmodyfikuj zawartość **kontrolera macierzystego**.
 
-1. Otwórz plik HomeController.cs i Zastąp instrukcje **using** poniższymi instrukcjami.
+1. Otwórz plik HomeController. cs i Zastąp instrukcje **using** poniższymi instrukcjami.
 
     ```csharp
     using Azure;
