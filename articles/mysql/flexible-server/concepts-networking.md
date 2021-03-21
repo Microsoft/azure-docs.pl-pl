@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
 ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906152"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Pojęcia dotyczące łączności i sieci dla Azure Database for MySQL-elastyczny serwer (wersja zapoznawcza)
@@ -93,7 +93,7 @@ Jeśli stały wychodzący adres IP nie jest dostępny dla usługi platformy Azur
 > [!IMPORTANT]
 > Opcja **Zezwalaj na publiczny dostęp z usług i zasobów platformy Azure w ramach platformy Azure** umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
 
-Dowiedz się, jak włączyć publiczny dostęp (dozwolone adresy IP) i zarządzać [Azure portal](how-to-manage-firewall-portal.md) nim przy użyciu [interfejsu wiersza polecenia Azure Portal lub platformy Azure](how-to-manage-firewall-cli.md).
+Dowiedz się, jak włączyć publiczny dostęp (dozwolone adresy IP) i zarządzać [](how-to-manage-firewall-portal.md) nim przy użyciu [interfejsu wiersza polecenia Azure Portal lub platformy Azure](how-to-manage-firewall-cli.md).
 
 
 ### <a name="troubleshooting-public-access-issues"></a>Rozwiązywanie problemów z dostępem publicznym
@@ -121,7 +121,7 @@ Przykład
 
 
 ## <a name="tls-and-ssl"></a>TLS i SSL
-Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą MySQL przy użyciu protokołu Transport Layer Security (TLS). TLS to standardowy protokół, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi. Protokół TLS jest zaktualizowanym protokołem SSL (SSL).
+Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą MySQL przy użyciu protokołu Transport Layer Security (TLS). TLS to standardowy protokół, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi. Protokół TLS jest zaktualizowanym protokołem Secure Sockets Layer (SSL).
 
 Azure Database for MySQL elastyczny serwer obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2). Wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone. Nie można wyłączyć ani zmienić wersji protokołu TLS w celu nawiązania połączenia z serwerem elastycznym Azure Database for MySQL.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017223"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurowanie serwera proxy sieci Web dla urządzenia StorSimple
@@ -34,7 +34,7 @@ Serwer proxy sieci Web jest _opcjonalną_ konfiguracją urządzenia StorSimple. 
 1. Najpierw skonfiguruj ustawienia serwera proxy sieci Web za pomocą Kreatora instalacji lub poleceń cmdlet program Windows PowerShell dla usługi StorSimple.
 2. Następnie należy włączyć skonfigurowane ustawienia serwera proxy sieci Web za pomocą poleceń cmdlet program Windows PowerShell dla usługi StorSimple.
 
-Po zakończeniu konfiguracji serwera proxy sieci Web można wyświetlić skonfigurowane ustawienia serwera proxy sieci Web w usłudze Microsoft Azure StorSimple Menedżer urządzeń i program Windows PowerShell dla usługi StorSimple.
+Po zakończeniu konfiguracji serwera proxy sieci Web można wyświetlić skonfigurowane ustawienia serwera proxy sieci Web w usłudze Microsoft Azure StorSimple Device Manager i program Windows PowerShell dla usługi StorSimple.
 
 Po przeczytaniu tego samouczka będziesz mieć możliwość:
 
@@ -71,7 +71,7 @@ Kreator instalacji zawiera instrukcje dotyczące konfiguracji serwera proxy siec
 4. Wybierz typ uwierzytelniania jako **NTLM**, **podstawowy** lub **Brak**. Podstawowa jest najmniej bezpiecznym uwierzytelnianiem dla konfiguracji serwera proxy. NT LAN Manager (NTLM) to wysoce bezpieczny i skomplikowany protokół uwierzytelniania, który korzysta z trójstanowego systemu obsługi komunikatów (czasami cztery Jeśli wymagana jest dodatkowa integralność) w celu uwierzytelnienia użytkownika. Domyślnym uwierzytelnianiem jest NTLM. Aby uzyskać więcej informacji, zobacz Uwierzytelnianie [podstawowe](https://hc.apache.org/httpclient-3.x/authentication.html) i [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **W usłudze StorSimple Menedżer urządzeń wykresy monitorowania urządzeń nie działają w przypadku włączenia uwierzytelniania podstawowego lub NTLM w konfiguracji serwera proxy dla urządzenia. Aby wykresy monitorowania działały, należy się upewnić, że uwierzytelnianie jest ustawione na NONE.**
+   > **W usłudze StorSimple Device Manager wykresy monitorowania urządzeń nie działają w przypadku włączenia uwierzytelniania podstawowego lub NTLM w konfiguracji serwera proxy dla urządzenia. Aby wykresy monitorowania działały, należy się upewnić, że uwierzytelnianie jest ustawione na NONE.**
   
 5. W przypadku włączenia uwierzytelniania należy podać **nazwę użytkownika serwera proxy sieci Web** i **hasło serwera proxy sieci Web**. Należy również potwierdzić hasło.
    
@@ -122,7 +122,7 @@ Wykonaj następujące kroki w program Windows PowerShell dla usługi StorSimple,
 Ustawienia serwera proxy sieci Web są konfigurowane za pomocą interfejsu programu Windows PowerShell i nie można ich zmienić z poziomu portalu. Można jednak wyświetlić te skonfigurowane ustawienia w portalu. Wykonaj następujące kroki, aby wyświetlić serwer proxy sieci Web.
 
 #### <a name="to-view-web-proxy-settings"></a>Aby wyświetlić ustawienia serwera proxy sieci Web
-1. Przejdź do **usługi StorSimple Menedżer urządzeń > urządzeń**. Wybierz i kliknij urządzenie, a następnie przejdź do pozycji **Ustawienia urządzenia > sieć**.
+1. Przejdź do **usługi StorSimple Device Manager > urządzeń**. Wybierz i kliknij urządzenie, a następnie przejdź do pozycji **Ustawienia urządzenia > sieć**.
 
     ![Kliknij pozycję Sieć](./media/storsimple-8000-configure-web-proxy/view-web-proxy-1.png)
 
@@ -151,8 +151,8 @@ Jeśli ustawienia serwera proxy sieci Web są nieprawidłowo skonfigurowane, kom
 
 > [!NOTE]
 > * Powyższa lista komunikatów o błędach nie jest wyczerpująca.
-> * Błędy związane z ustawieniami serwera proxy sieci Web nie będą wyświetlane w Azure Portal w usłudze Menedżer urządzeń usługi StorSimple. Jeśli wystąpi problem z serwerem proxy sieci Web po zakończeniu konfiguracji, stan urządzenia zmieni się na **offline** w portalu klasycznym. |
+> * Błędy związane z ustawieniami serwera proxy sieci Web nie będą wyświetlane w Azure Portal w usłudze Device Manager usługi StorSimple. Jeśli wystąpi problem z serwerem proxy sieci Web po zakończeniu konfiguracji, stan urządzenia zmieni się na **offline** w portalu klasycznym. |
 
 ## <a name="next-steps"></a>Następne kroki
 * W przypadku napotkania problemów podczas wdrażania urządzenia lub konfigurowania ustawień serwera proxy sieci Web zapoznaj się z tematem [Rozwiązywanie problemów z wdrożeniem urządzenia StorSimple](./storsimple-8000-troubleshoot-deployment.md).
-* Aby dowiedzieć się, jak korzystać z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Aby dowiedzieć się, jak korzystać z usługi StorSimple Device Manager, przejdź do [korzystania z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

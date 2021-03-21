@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033667"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
@@ -37,7 +37,7 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 * **Tryb połączenia: Użyj trybu bezpośredniego**
     
@@ -64,7 +64,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
 ```
 
-* **Kolokacja klientów w tym samym regionie świadczenia usługi Azure na potrzeby wydajności**
+* **Umieść klientów w tym samym regionie platformy Azure, aby zapewnić lepszą wydajność**
 
   Jeśli to możliwe, należy umieścić dowolne aplikacje wywołujące Azure Cosmos DB w tym samym regionie, w którym znajduje się baza danych usługi Azure Cosmos. Dla przybliżonego porównania, wywołania do Azure Cosmos DB w tym samym regionie, kompletne w ciągu 1-2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem Stanów Zjednoczonych to >50 ms. To opóźnienie może się różnić od żądania żądania w zależności od trasy wykonywanej przez żądanie, gdy przechodzi od klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie jest realizowane przez zagwarantowanie, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
@@ -86,20 +86,20 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
   W Azure Cosmos DB asynchronicznego zestawu Java SDK V2 tryb bezpośredni jest najlepszym wyborem, aby zwiększyć wydajność bazy danych przy użyciu większości obciążeń. 
 
-  * ***Przegląd trybu bezpośredniego** _
+  * ***Przegląd trybu bezpośredniego***
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja architektury trybu bezpośredniego" border="false":::
   
-  Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 _ *kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi** repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
+  Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 **kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi** repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 
-  * ***Opcje konfiguracji ConnectionPolicy dla trybu bezpośredniego** _
+  * ***Opcje konfiguracji ConnectionPolicy dla trybu bezpośredniego***
 
     Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
-    Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (to oznacza, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować ustawienie _idleEndpointTimeout * na 0 (czyli bez limitu czasu).
+    Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (oznacza to, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować wartość *idleEndpointTimeout* na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślny    |
+    | Opcja konfiguracji       | Domyślne    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |
@@ -115,13 +115,13 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Wskazówki dotyczące programowania w trybie bezpośrednim** _
+* ***Wskazówki dotyczące programowania trybu bezpośredniego***
 
   Zapoznaj się z artykułem dotyczącym [rozwiązywania](troubleshoot-java-async-sdk.md) problemów z zestawem SDK Azure Cosmos DB Async SDK V2.
   
   Niektóre ważne porady dotyczące programowania w trybie bezpośrednim:
   
-  _ **Użyj wielowątkowości w aplikacji w celu wydajnego transferu danych TCP** — po wysłaniu żądania aplikacja powinna subskrybować dane w innym wątku. Nie robi to wymusza niezamierzonej operacji "Half-duplex", a kolejne żądania są blokowane podczas oczekiwania na odpowiedź poprzedniego żądania.
+  * **Używanie wielowątkowości w aplikacji w celu wydajnego transferu danych TCP** — po wysłaniu żądania aplikacja powinna subskrybować dane w innym wątku. Nie robi to wymusza niezamierzonej operacji "Half-duplex", a kolejne żądania są blokowane podczas oczekiwania na odpowiedź poprzedniego żądania.
   
   * **Przeprowadzenie obciążeń intensywnie korzystających z obliczeń w dedykowanym wątku** — w przypadku podobnych przyczyn do poprzedniej porady, operacje, takie jak złożone przetwarzanie danych, najlepiej znajdują się w osobnym wątku. Żądanie ściągania danych z innego magazynu danych (na przykład jeśli wątek wykorzystuje jednocześnie Azure Cosmos DB i magazyny danych Spark) może powodować zwiększone opóźnienia i zalecamy duplikowanie dodatkowego wątku, który czeka na odpowiedź z innego magazynu danych.
   
@@ -133,19 +133,19 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
   Azure Cosmos DB Async Java SDK V2 obsługuje zapytania równoległe, które umożliwiają równoległe wykonywanie zapytań do kolekcji partycjonowanej. Aby uzyskać więcej informacji, zobacz [przykłady kodu](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) związane z pracą z zestawami SDK. Zapytania równoległe są przeznaczone do poprawiania opóźnienia zapytań i przepływności w porównaniu z ich odpowiednikami seryjnymi.
 
-  * ***Dostrajanie \: setMaxDegreeOfParallelism** _
+  * ***Dostrajanie setMaxDegreeOfParallelism\:***
     
     Zapytania równoległe działają przez wykonywanie zapytań na wielu partycjach równolegle. Jednak dane z pojedynczej kolekcji partycjonowanej są pobierane sekwencyjnie w odniesieniu do zapytania. W tym celu należy użyć setMaxDegreeOfParallelism, aby ustawić liczbę partycji, które mają maksymalną szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz użyć setMaxDegreeOfParallelism, aby ustawić dużą liczbę, a system wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako maksymalny stopień równoległości.
 
     Należy pamiętać, że zapytania równoległe generują najlepsze korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest partycjonowana w taki sposób, że wszystkie lub większość danych zwróconych przez zapytanie jest skoncentrowana na kilku partycjach (jedna partycja w najgorszym przypadku), wydajność zapytania zostałaby przekazana przez te partycje.
 
-  _ ***Strojenie setMaxBufferedItemCount \:** _
+  * ***Dostrajanie setMaxBufferedItemCount\:***
     
     Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. Wstępne pobieranie pomaga w ogólnym ulepszaniu opóźnienia zapytania. setMaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Ustawienie setMaxBufferedItemCount na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę) powoduje, że zapytanie otrzymuje maksymalną korzyść przed pobraniem.
 
     Przed pobraniem działa w taki sam sposób, niezależnie od MaxDegreeOfParallelism, i istnieje jeden bufor dla danych ze wszystkich partycji.
 
-_ **Implementuj wycofywania w interwałach getRetryAfterInMilliseconds**
+* **Implementowanie wycofywania w interwałach getRetryAfterInMilliseconds**
 
   Podczas testowania wydajności należy zwiększyć obciążenie, dopóki nie zostanie ograniczona niewielka liczba żądań. W przypadku ograniczenia przepustowości aplikacja kliencka powinna wycofywania dla interwału ponawiania określonych przez serwer. Poszanowanie wycofywania gwarantuje, że spędzasz minimalny czas oczekiwania między ponownymi próbami.
 
@@ -300,7 +300,7 @@ _ **Implementuj wycofywania w interwałach getRetryAfterInMilliseconds**
 
     Mimo że automatyczne zachowanie ponowienia próby pozwala zwiększyć odporność i użyteczność dla większości aplikacji, może się to zdarzyć szanse podczas wykonywania testów wydajnościowych, szczególnie podczas mierzenia opóźnień. Opóźnienie obserwowane przez klienta zostanie wykonane, jeśli eksperyment trafi na ograniczenia serwera i spowoduje, że zestaw SDK klienta zostanie ponownie powtórzony. Aby uniknąć opóźnień opóźnienia podczas eksperymentów w wydajności, należy zmierzyć opłaty zwrócone przez poszczególne operacje i upewnić się, że żądania działają poniżej zarezerwowanej stawki żądania. Aby uzyskać więcej informacji, zobacz [jednostki żądania](request-units.md).
 
-* **Projektowanie dla mniejszych dokumentów w celu zwiększenia przepływności**
+* **Projektuj mniejsze dokumenty, aby zapewnić większą przepływność**
 
     Opłata za żądanie (koszt przetwarzania żądania) danej operacji jest bezpośrednio skorelowana z rozmiarem dokumentu. Operacje na dużych dokumentach są droższe niż operacje w przypadku małych dokumentów.
 

@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99063386"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako użytkownik
@@ -26,7 +26,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 Chcesz dodać dostęp do Microsoft Graph z aplikacji sieci Web i wykonać jakąś akcję jako zalogowany użytkownik. W tej sekcji opisano sposób udzielania delegowanych uprawnień aplikacji sieci Web i uzyskiwania informacji o profilu zalogowanego użytkownika z Azure Active Directory (Azure AD).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -114,7 +114,7 @@ Install-Package Microsoft.Identity.Web
 
 ### <a name="startupcs"></a>Startup.cs
 
-W pliku *Startup.cs* ```AddMicrosoftIdentityWebApp``` Metoda dodaje aplikację Microsoft. Identity. Web do aplikacji sieci Web. ```AddMicrosoftGraph```Metoda dodaje obsługę Microsoft Graph.
+W pliku *Startup. cs* ```AddMicrosoftIdentityWebApp``` Metoda dodaje aplikację Microsoft. Identity. Web do aplikacji sieci Web. ```AddMicrosoftGraph```Metoda dodaje obsługę Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Builder;

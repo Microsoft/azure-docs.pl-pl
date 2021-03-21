@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014370"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
@@ -32,7 +32,7 @@ Rozwiązanie do tworzenia i monitorowania stanu jest opracowywane w trzech czę�
 * Dostosuj pulpit nawigacyjny, aby umożliwić operatorom monitorowanie urządzeń i zarządzanie nimi
 * Konfigurowanie eksportu danych w celu umożliwienia menedżerom sklepu uruchamiania analiz i wizualizacji szczegółowych informacji
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu usługi Azure IoT Central **in-Store Analytics — wyewidencjonowywanie**
 > * Dostosowywanie ustawień aplikacji

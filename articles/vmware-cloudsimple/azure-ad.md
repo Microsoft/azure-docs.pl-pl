@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898610"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Użyj usługi Azure AD jako dostawcy tożsamości dla programu vCenter w chmurze prywatnej CloudSimple
@@ -32,7 +32,7 @@ W tym przewodniku wyjaśniono zadania wymagane do skonfigurowania usługi Azure 
 
 Azure AD to usługa firmy Microsoft do obsługi wielu dzierżawców, katalogów opartych na chmurze i zarządzania tożsamościami.  Usługa Azure AD zapewnia skalowalny, spójny i niezawodny mechanizm uwierzytelniania służący do uwierzytelniania użytkowników i uzyskiwania dostępu do różnych usług na platformie Azure.  Zapewnia także bezpieczne usługi LDAP dla wszystkich usług innych firm, aby używać usługi Azure AD jako źródła uwierzytelniania/tożsamości.  Usługa Azure AD łączy podstawowe usługi katalogowe, zaawansowane funkcje zarządzania tożsamościami i zarządzanie dostępem do aplikacji, które mogą być używane do udzielania dostępu do chmury prywatnej użytkownikom, którzy administrują chmurą prywatną.
 
-Aby używać usługi Azure AD jako źródła tożsamości z programem vCenter, musisz skonfigurować usługi Azure AD i Azure AD Domain Services. Wykonaj następujące instrukcje:
+Aby używać usługi Azure AD jako źródła tożsamości z programem vCenter, musisz skonfigurować usługi Azure AD i Azure AD Domain Services. Postępuj zgodnie z tymi instrukcjami:
 
 1. [Jak skonfigurować usługi Azure AD i Azure AD Domain Services](#set-up-azure-ad-and-azure-ad-domain-services)
 2. [Jak skonfigurować źródło tożsamości w chmurze prywatnej vCenter](#set-up-an-identity-source-on-your-private-cloud-vcenter)

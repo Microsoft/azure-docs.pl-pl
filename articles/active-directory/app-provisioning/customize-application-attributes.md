@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579471"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -113,13 +113,13 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 - ServiceNow
 - Dzień roboczy do Active Directory/Workday do Azure Active Directory
 - SuccessFactors do Azure Active Directory Active Directory/SuccessFactors
-- Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
+- Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu). Dowiedz się więcej o [tworzeniu rozszerzeń](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) i [znanych ograniczeniach](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
 - Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643)
 - W przypadku Azure Active Directory zapisywania zwrotnego w dniach Workday lub SuccessFactors jest obsługiwane aktualizowanie odpowiednich metadanych dla obsługiwanych atrybutów (XPATH i wykryto), ale nie jest to obsługiwane w przypadku dodawania nowych atrybutów Workday lub SuccessFactors poza tymi zawartymi w schemacie domyślnym
 
 
 > [!NOTE]
-> Edytowanie listy obsługiwanych atrybutów jest zalecane tylko dla administratorów, którzy dostosowali schemat aplikacji i systemów, i posiadają pierwszą wiedzę o sposobie definiowania ich atrybutów niestandardowych. Czasami wymaga to znajomości interfejsów API i narzędzi programistycznych udostępnianych przez aplikację lub system. Możliwość edycji listy obsługiwanych atrybutów jest domyślnie zablokowana, ale klienci mogą włączyć tę funkcję, przechodząc do następującego adresu URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Następnie możesz przejść do swojej aplikacji, aby wyświetlić listę atrybutów zgodnie z [powyższym](#editing-the-list-of-supported-attributes)opisem. 
+> Edytowanie listy obsługiwanych atrybutów jest zalecane tylko dla administratorów, którzy dostosowali schemat aplikacji i systemów, i posiadają pierwszą wiedzę o sposobie definiowania atrybutów niestandardowych lub jeśli atrybut źródłowy nie jest automatycznie wyświetlany w interfejsie użytkownika witryny Azure Portal. Czasami wymaga to znajomości interfejsów API i narzędzi programistycznych udostępnianych przez aplikację lub system. Możliwość edycji listy obsługiwanych atrybutów jest domyślnie zablokowana, ale klienci mogą włączyć tę funkcję, przechodząc do następującego adresu URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Następnie możesz przejść do swojej aplikacji, aby wyświetlić listę atrybutów zgodnie z [powyższym](#editing-the-list-of-supported-attributes)opisem. 
 
 Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące właściwości:
 

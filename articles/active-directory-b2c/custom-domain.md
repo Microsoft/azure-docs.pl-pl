@@ -8,20 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869bd7b02186873f490d324cec863c7f26ee8469
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 2de419885938b27ebce4a934db5ef966965b3dbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555450"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580168"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Włącz domeny niestandardowe dla Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 W tym artykule opisano sposób włączania domen niestandardowych w adresach URL przekierowania dla Azure Active Directory B2C (Azure AD B2C). Używanie domeny niestandardowej z aplikacją zapewnia bezproblemowe środowisko użytkownika. Z punktu widzenia użytkownika pozostają w domenie podczas procesu logowania, a nie przekierowywanie do Azure AD B2C domyślnej domeny *<dzierżawcy>. b2clogin.com*.
 
@@ -48,7 +50,7 @@ W przypadku korzystania z domen niestandardowych należy wziąć pod uwagę nast
 
 - Można skonfigurować wiele domen niestandardowych. Maksymalna liczba obsługiwanych domen niestandardowych znajduje się w temacie [limity i ograniczenia usługi Azure AD](../active-directory/enterprise-users/directory-service-limits-restrictions.md) dotyczące Azure AD B2C oraz [limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) dotyczących drzwi platformy Azure.
 - Drzwi frontonu platformy Azure to oddzielna usługa platformy Azure, dzięki czemu będą naliczane dodatkowe opłaty. Aby uzyskać więcej informacji, zobacz [Cennik przed drzwiami](https://azure.microsoft.com/pricing/details/frontdoor).
-- Obecnie funkcja [zapory aplikacji sieci Web](../web-application-firewall/afds/afds-overview.md) platformy Azure z przodu nie jest obsługiwana.
+- Aby korzystać z [zapory aplikacji sieci Web](../web-application-firewall/afds/afds-overview.md)platformy Azure, należy potwierdzić, że konfiguracja zapory i reguły działają poprawnie z Azure AD B2C przepływów użytkownika.
 - Po skonfigurowaniu domen niestandardowych użytkownicy nadal będą mogli uzyskiwać dostęp do Azure AD B2C domyślnej nazwy domeny *<dzierżawcy>. b2clogin.com* (chyba że używasz zasad niestandardowych i [blokujesz dostęp](#block-access-to-the-default-domain-name).
 - Jeśli masz wiele aplikacji, Przeprowadź migrację ich wszystkich do domeny niestandardowej, ponieważ w przeglądarce jest przechowywana sesja Azure AD B2C w ramach aktualnie używanej nazwy domeny.
 
@@ -193,7 +195,7 @@ Zastąp:
 - **Nazwa zasad** z nazwą zasad. [Dowiedz się więcej na temat zasad Azure AD B2C](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-Metadane [dostawcy usługi SAML](connect-with-saml-service-providers.md) mogą wyglądać następująco: 
+Metadane [dostawcy usługi SAML](./saml-service-provider.md) mogą wyglądać następująco: 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -258,12 +260,10 @@ Skopiuj adres URL, Zmień nazwę domeny ręcznie, a następnie wklej ją z powro
 
 Drzwi frontonu platformy Azure przechodzą oryginalny adres IP użytkownika. Jest to adres IP, który będzie widoczny w raportach inspekcji lub w zasadach niestandardowych.
 
-### <a name="can-i-use-a-third-party-wab-application-firewall-waf-with-b2c"></a>Czy mogę użyć zapory aplikacji WAB innej firmy (WAF) z B2C?
+### <a name="can-i-use-a-third-party-web-application-firewall-waf-with-b2c"></a>Czy mogę użyć zapory aplikacji sieci Web innej firmy (WAF) z B2C?
 
-Obecnie Azure AD B2C obsługuje domenę niestandardową tylko za pomocą usług frontonu platformy Azure. Nie dodawaj kolejnej WAF przed drzwiami frontonu platformy Azure.
-
+Aby korzystać z własnej zapory aplikacji sieci Web przed drzwiami platformy Azure, musisz skonfigurować i sprawdzić, czy wszystko działa prawidłowo w ramach przepływów pracy użytkownika Azure AD B2C.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Informacje o [żądaniach autoryzacji OAuth](protocols-overview.md).
-

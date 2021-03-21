@@ -4,10 +4,10 @@ description: Użyj Azure Backup Server, aby utworzyć kopię zapasową stanu sys
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021626"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Tworzenie kopii zapasowej stanu systemu i przywracanie na komputerach bez systemu operacyjnego przy użyciu Azure Backup Server
@@ -25,21 +25,21 @@ Poniższa tabela zawiera podsumowanie informacji o tym, co można utworzyć i od
 
 |Backup|Problem|Odzyskaj z kopii zapasowej Azure Backup Server|Odzyskiwane z kopii zapasowej stanu systemu|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Dane pliku**<br /><br />Regularne tworzenie kopii zapasowej danych<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane pliku|T|N|N|
-|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|T|
-|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nienaruszone woluminy danych)|N|N|T|
-|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone woluminy danych)|T|N|T<br /><br />BMR, a następnie regularne odzyskiwanie kopii zapasowej danych plików|
-|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracona witryna, listy, elementy listy, dokumenty|T|N|N|
-|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|T|
+|**Dane pliku**<br /><br />Regularne tworzenie kopii zapasowej danych<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane pliku|Y|N|N|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|Y|Y|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nienaruszone woluminy danych)|N|N|Y|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone woluminy danych)|Y|N|Y<br /><br />BMR, a następnie regularne odzyskiwanie kopii zapasowej danych plików|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracona witryna, listy, elementy listy, dokumenty|Y|N|N|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|Y|Y|
 |**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Odzyskiwanie po awarii|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracona maszyna wirtualna|T|N|N|
-|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|N|T|T|
-|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|N|N|T|
-|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|N|N|T<br /><br />BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane aplikacji|T|N|N|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|T|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nieuszkodzone dzienniki transakcji i baz danych)|N|N|T|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone dzienniki transakcji i baz danych)|N|N|T<br /><br />Odzyskiwanie BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
+|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracona maszyna wirtualna|Y|N|N|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|N|Y|Y|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|N|N|Y|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|N|N|Y<br /><br />BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane aplikacji|Y|N|N|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|Y|Y|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nieuszkodzone dzienniki transakcji i baz danych)|N|N|Y|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone dzienniki transakcji i baz danych)|N|N|Y<br /><br />Odzyskiwanie BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
 
 ## <a name="how-system-state-backup-works"></a>Jak działa tworzenie kopii zapasowej stanu systemu
 
@@ -109,7 +109,7 @@ Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera ser
 
 Aby utworzyć kopię zapasową stanu systemu i bez systemu operacyjnego:
 
-1. Aby otworzyć Kreator nowej grupy ochrony tworzenia, w Konsola administratora serwer zapasowy wybierz pozycję akcje **ochrony**  >  **Actions**  >  **Utwórz grupę ochrony**.
+1. Aby otworzyć Kreator nowej grupy ochrony tworzenia, w Konsola administratora serwer zapasowy wybierz pozycję akcje **ochrony**  >    >  **Utwórz grupę ochrony**.
 
 1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **serwery**, a następnie wybierz przycisk **dalej**.
 

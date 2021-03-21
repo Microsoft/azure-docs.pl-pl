@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093264"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Informacje o wersji dla elementu Microsoft. ApplicationInsights. SnapshotCollector
@@ -70,7 +70,7 @@ Wersja punktowa, która umożliwia rozwiązanie kilku problemów o dużym wpływ
 - Łatwiejsze Dodawanie modułu zbierającego migawki przy użyciu AddSnapshotCollector (). Więcej informacji można znaleźć [tutaj](./snapshot-debugger-appservice.md).
 - Użyj ustawienia FISMA MD5 na potrzeby weryfikowania bloków obiektów BLOB. Pozwala to uniknąć domyślnego algorytmu kryptograficznego .NET MD5, który jest niedostępny, gdy system operacyjny jest ustawiony na tryb zgodny ze standardem FIPS.
 - Ignoruj ramki .NET Framework podczas deoptymalizacji wywołań funkcji. Takie zachowanie może być kontrolowane przez ustawienie konfiguracji DeoptimizeIgnoredModules.
-- Dodanie `DeoptimizeMethodCount` Ustawienia konfiguracji, które pozwala na deoptymalizację więcej niż jednego wywołania funkcji. Więcej informacji można znaleźć tutaj
+- Dodanie `DeoptimizeMethodCount` Ustawienia konfiguracji, które pozwala na deoptymalizację więcej niż jednego wywołania funkcji. Więcej informacji znajdziesz tutaj
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Zezwalaj na używanie kluczy Instrumentacji strukturalnej.

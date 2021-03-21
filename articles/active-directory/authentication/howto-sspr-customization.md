@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96741630"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Dostosuj środowisko użytkownika Azure Active Directory samoobsługowego resetowania hasła
@@ -56,8 +56,8 @@ Aby dowiedzieć się więcej o różnych rolach administratorów i sposobach ich
 
 Jeśli organizacja nie chce powiadamiać administratorów o żądaniach resetowania haseł, można użyć następujących opcji konfiguracji:
 
-* Dostosuj link do pomocy technicznej, aby podać internetowy adres URL lub mailto: adres, za pomocą którego użytkownicy mogą uzyskać pomoc. Ta opcja jest w obszarze Dostosowywanie **resetowania hasła**  >  **Customization**  >  **adres e-mail lub adres URL**.
-* Włącz Samoobsługowe resetowanie haseł dla wszystkich użytkowników. Ta opcja jest w obszarze właściwości **resetowania hasła**  >  **Properties**. Jeśli nie chcesz, aby użytkownicy zresetują swoje hasła, możesz ograniczyć dostęp do pustej grupy. *Nie zalecamy tej opcji.*
+* Dostosuj link do pomocy technicznej, aby podać internetowy adres URL lub mailto: adres, za pomocą którego użytkownicy mogą uzyskać pomoc. Ta opcja jest w obszarze Dostosowywanie **resetowania hasła**  >    >  **adres e-mail lub adres URL**.
+* Włącz Samoobsługowe resetowanie haseł dla wszystkich użytkowników. Ta opcja jest w obszarze właściwości **resetowania hasła**  >  . Jeśli nie chcesz, aby użytkownicy zresetują swoje hasła, możesz ograniczyć dostęp do pustej grupy. *Nie zalecamy tej opcji.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Dostosowywanie strony logowania i panelu dostępu
 

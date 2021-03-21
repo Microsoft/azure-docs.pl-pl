@@ -5,10 +5,10 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.customer: generated
 ms.openlocfilehash: 019541f034ce8f0c3728c38d2ae4425308b4e2a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350283"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Zalecane zasady dla usług platformy Azure
@@ -17,7 +17,7 @@ Klienci, którzy są nowym programem do Azure Policy często szukają typowych d
 
 Aby uzyskać dodatkowe Azure Policy wbudowane, zobacz [Azure Policy wbudowane definicje](../samples/built-in-policies.md).
 
-## <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
+## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 **Zalecane zasady** dotyczące [usługi Azure Virtual Machines](../../../virtual-machines/index.yml) znajdują się na stronie **Przegląd** dla maszyn wirtualnych i na karcie **możliwości** . Na karcie _Azure Policy_ wybierz tekst "nieskonfigurowane" lub "# przypisany", aby otworzyć okienko boczne z zalecanymi zasadami. Każda definicja zasad już przypisana do zakresu, do którego należy maszyna wirtualna, jest wyszarzona. Wybierz zalecane zasady, które mają zostać zastosowane do tej maszyny wirtualnej, a następnie wybierz pozycję **Przypisz zasady** , aby utworzyć przypisanie dla każdego z nich.
 
