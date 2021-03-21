@@ -6,18 +6,21 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddeab4838feb07d1101993cab4ebc86581b4d8b1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799251"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674703"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog koncepcje dla deweloperów
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 Microsoft **Azure Data Catalog** to w pełni zarządzana usługa w chmurze, która zapewnia możliwości odnajdowania źródeł danych i crowdsourcing metadanych źródła danych. Deweloperzy mogą korzystać z usługi za pośrednictwem interfejsów API REST. Zrozumienie koncepcji zaimplementowanych w usłudze jest ważne, aby deweloperzy mogli pomyślnie zintegrować się z **Azure Data Catalog**.
 
 ## <a name="key-concepts"></a>Kluczowe pojęcia 
-Model koncepcyjny **Azure Data Catalog** jest oparty na czterech najważniejszych założeniach: **katalogu**, **użytkowników**, **zasobów**i **adnotacjach**.
+Model koncepcyjny **Azure Data Catalog** jest oparty na czterech najważniejszych założeniach: **katalogu**, **użytkowników**, **zasobów** i **adnotacjach**.
 
 ![Ilustracja przedstawiająca model koncepcyjny Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
 
@@ -81,7 +84,7 @@ Te właściwości mają zastosowanie do wszystkich typów zasobów głównych i 
 
 <table>
 <tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Boolean (wartość logiczna)</td><td>Wskazuje, czy dane elementu są wyprowadzane z systemu źródłowego (na przykład SQL Server Database, Oracle Database) lub utworzone przez użytkownika.</td></tr>
+<tr><td>fromSourceSystem</td><td>Wartość logiczna</td><td>Wskazuje, czy dane elementu są wyprowadzane z systemu źródłowego (na przykład SQL Server Database, Oracle Database) lub utworzone przez użytkownika.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Wspólne właściwości główne
@@ -101,7 +104,7 @@ Te właściwości mają zastosowanie do wszystkich typów adnotacji niepojedyncz
 ### <a name="root-asset-types"></a>Typy zasobów głównych
 Typy zasobów głównych to typy reprezentujące różne typy zasobów danych, które mogą być rejestrowane w wykazie. Dla każdego typu głównego istnieje widok, który zawiera opis elementów zawartości i adnotacji zawartych w tym widoku. Nazwa widoku powinna być używana w odpowiadającym segmencie {view_name} URL podczas publikowania elementu zawartości przy użyciu interfejsu API REST.
 
-<table><tr><td><b>Typ zasobu (nazwa widoku)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Dozwolone adnotacje</b></td><td><b>Komentarze</b></td></tr><tr><td>Tabela ("tabele")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Schemat<p>ColumnDescription<p>ColumnTag<p> Ekspert<p>Wersja zapoznawcza<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentacja<p></td><td>Tabela reprezentuje wszystkie dane tabelaryczne.  Na przykład: tabela SQL, Widok SQL, Analysis Services tabeli tabelarycznej, Analysis Services wymiar wielowymiarowych, tabela Oracle itd.   </td></tr><tr><td>Miara ("miary")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ reprezentuje miarę Analysis Services.</td></tr><tr><td></td><td>mierzyć</td><td>Kolumna</td><td></td><td>Metadane opisujące miarę</td></tr><tr><td></td><td>isobliczeniowe </td><td>Boolean (wartość logiczna)</td><td></td><td>Określa, czy miara jest obliczana, czy nie.</td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Kontener fizyczny dla miary</td></tr><td>KWW ("KPI")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Kontener fizyczny dla miary</td></tr><tr><td></td><td>goalExpression</td><td>Ciąg</td><td></td><td>Wyrażenie liczbowe MDX lub obliczenie zwracające wartość docelową wskaźnika KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Ciąg</td><td></td><td>Wyrażenie liczbowe MDX zwracające rzeczywistą wartość wskaźnika KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, które reprezentuje stan wskaźnika KPI w określonym momencie.</td></tr><tr><td></td><td>trendExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, które oblicza wartość wskaźnika KPI w czasie. Trend może być dowolnym kryterium opartym na czasie, który jest przydatny w określonym kontekście biznesowym.</td>
+<table><tr><td><b>Typ zasobu (nazwa widoku)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Dozwolone adnotacje</b></td><td><b>Komentarze</b></td></tr><tr><td>Tabela ("tabele")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Schemat<p>ColumnDescription<p>ColumnTag<p> Ekspert<p>Wersja zapoznawcza<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentacja<p></td><td>Tabela reprezentuje wszystkie dane tabelaryczne.  Na przykład: tabela SQL, Widok SQL, Analysis Services tabeli tabelarycznej, Analysis Services wymiar wielowymiarowych, tabela Oracle itd.   </td></tr><tr><td>Miara ("miary")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ reprezentuje miarę Analysis Services.</td></tr><tr><td></td><td>mierzyć</td><td>Kolumna</td><td></td><td>Metadane opisujące miarę</td></tr><tr><td></td><td>isobliczeniowe </td><td>Wartość logiczna</td><td></td><td>Określa, czy miara jest obliczana, czy nie.</td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Kontener fizyczny dla miary</td></tr><td>KWW ("KPI")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Kontener fizyczny dla miary</td></tr><tr><td></td><td>goalExpression</td><td>Ciąg</td><td></td><td>Wyrażenie liczbowe MDX lub obliczenie zwracające wartość docelową wskaźnika KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Ciąg</td><td></td><td>Wyrażenie liczbowe MDX zwracające rzeczywistą wartość wskaźnika KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, które reprezentuje stan wskaźnika KPI w określonym momencie.</td></tr><tr><td></td><td>trendExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, które oblicza wartość wskaźnika KPI w czasie. Trend może być dowolnym kryterium opartym na czasie, który jest przydatny w określonym kontekście biznesowym.</td>
 <tr><td>Raport ("Raporty")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ reprezentuje raport SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Ciąg</td><td></td><td></td></tr><tr><td>Kontener ("kontenery")</td><td></td><td></td><td>Opis<p>FriendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ reprezentuje kontener innych zasobów, takich jak baza danych SQL, kontener obiektów blob platformy Azure lub model Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Typy adnotacji
@@ -111,7 +114,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 <tr><td><b>Typ adnotacji (nazwa widoku zagnieżdżonego)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
 
 <tr><td>Opis ("opisy")</td><td></td><td></td><td>Ta właściwość zawiera opis elementu zawartości. Każdy użytkownik systemu może dodać własny opis.  Tylko ten użytkownik może edytować obiekt Description.  (Administratorzy i właściciele zasobów mogą usunąć obiekt opisu, ale go nie edytować). System obsługuje opisy użytkowników osobno.  W ten sposób istnieje tablica opisów dla każdego elementu zawartości (po jednym dla każdego użytkownika, który pobrał swoją wiedzę na temat zasobu, oprócz możliwego, który zawiera informacje pochodzące ze źródła danych).</td></tr>
-<tr><td></td><td>description</td><td>ciąg</td><td>Krótki opis (2-3 wierszy) elementu zawartości</td></tr>
+<tr><td></td><td>description (opis)</td><td>ciąg</td><td>Krótki opis (2-3 wierszy) elementu zawartości</td></tr>
 
 <tr><td>Tag ("Tagi")</td><td></td><td></td><td>Ta właściwość definiuje tag dla elementu zawartości. Każdy użytkownik systemu może dodać wiele tagów dla elementu zawartości.  Tylko użytkownik, który utworzył obiekty tagów, może je edytować.  (Administratorzy i właściciele zasobów mogą usunąć obiekt tagów, ale nie edytować go). System obsługuje znaczniki użytkowników osobno.  W ten sposób istnieje tablica obiektów tagów dla każdego elementu zawartości.</td></tr>
 <tr><td></td><td>tag</td><td>ciąg</td><td>Tag opisujący element zawartości.</td></tr>
@@ -124,7 +127,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Ta właściwość zawiera opis kolumny.  Każdy użytkownik systemu może dodać własne opisy dla wielu kolumn (najwyżej jednej na kolumnę). Tylko użytkownik, który utworzył obiekty ColumnDescription, może je edytować.  (Administratorzy i właściciele zasobów mogą usunąć obiekt ColumnDescription, ale go nie edytować). System zachowuje opisy kolumn tego użytkownika osobno.  W ten sposób istnieje tablica obiektów ColumnDescription dla każdego elementu zawartości (po jednej dla każdego użytkownika, który utworzył swoją wiedzę o kolumnie, a nie może być taka, która zawiera informacje pochodzące ze źródła danych).  ColumnDescription jest luźno powiązany ze schematem, dzięki czemu może nie być zsynchronizowany. ColumnDescription może opisywać kolumnę, która już nie istnieje w schemacie.  Aby zachować opis i schemat w synchronizacji, należy do składnika zapisywania.  Źródło danych może również zawierać informacje o opisach kolumn i są dodatkowymi obiektami ColumnDescription, które zostaną utworzone podczas uruchamiania narzędzia.</td></tr>
 <tr><td></td><td>nazwa_kolumny</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten opis.</td></tr>
-<tr><td></td><td>description</td><td>Ciąg</td><td>Krótki opis (2-3 wierszy) kolumny.</td></tr>
+<tr><td></td><td>description (opis)</td><td>Ciąg</td><td>Krótki opis (2-3 wierszy) kolumny.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Ta właściwość zawiera tag dla kolumny. Każdy użytkownik systemu może dodać wiele tagów dla danej kolumny i może dodać Tagi dla wielu kolumn. Tylko użytkownik, który utworzył obiekty ColumnTag, może je edytować. (Administratorzy i właściciele zasobów mogą usunąć obiekt ColumnTag, ale go nie edytować). System przechowuje znaczniki kolumn użytkowników osobno.  W ten sposób istnieje tablica obiektów ColumnTag dla każdego elementu zawartości.  ColumnTag jest luźno powiązany ze schematem, dzięki czemu może nie być zsynchronizowany. ColumnTag może opisywać kolumnę, która już nie istnieje w schemacie.  Jest on do składnika zapisywania, aby zachować synchronizację tagów i schematu kolumn.</td></tr>
 <tr><td></td><td>nazwa_kolumny</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten tag.</td></tr>
@@ -176,7 +179,7 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Zaplecze nie wykonuje żadnej weryfikacji podanych właściwości dla Azure Active Directory podczas publikowania.</td></tr>
 <tr><td></td><td>głównej</td><td>ciąg</td><td>Unikatowy adres e-mail użytkownika. Musi być określony, jeśli objectId nie został podany lub w kontekście właściwości "lastRegisteredBy", w przeciwnym razie opcjonalny.</td></tr>
-<tr><td></td><td>Obiektu</td><td>Guid (identyfikator GUID)</td><td>Użytkownik lub grupa zabezpieczeń Azure Active Directory tożsamość. Opcjonalny. Należy określić, jeśli nie podano nazwy UPN, w przeciwnym razie opcjonalnie.</td></tr>
+<tr><td></td><td>objectId</td><td>Guid (identyfikator GUID)</td><td>Użytkownik lub grupa zabezpieczeń Azure Active Directory tożsamość. Opcjonalny. Należy określić, jeśli nie podano nazwy UPN, w przeciwnym razie opcjonalnie.</td></tr>
 <tr><td></td><td>firstName</td><td>ciąg</td><td>Imię użytkownika (na potrzeby wyświetlania). Opcjonalny. Prawidłowy tylko w kontekście właściwości "lastRegisteredBy". Nie można określić w przypadku podawania podmiotu zabezpieczeń dla "ról", "uprawnień" i "ekspertów".</td></tr>
 <tr><td></td><td>lastName</td><td>ciąg</td><td>Nazwisko użytkownika (na potrzeby wyświetlania). Opcjonalny. Prawidłowy tylko w kontekście właściwości "lastRegisteredBy". Nie można określić w przypadku podawania podmiotu zabezpieczeń dla "ról", "uprawnień" i "ekspertów".</td></tr>
 
@@ -185,7 +188,7 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 <tr><td></td><td>typ</td><td>ciąg</td><td>Typ danych kolumny lub atrybutu. Dozwolone typy zależą od sourceType danych elementu zawartości.  Obsługiwany jest tylko podzbiór typów.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>Maksymalna dozwolona długość kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>Precyzja dla kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
-<tr><td></td><td>isNullable</td><td>Boolean (wartość logiczna)</td><td>Określa, czy kolumna może mieć wartość null, czy nie. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
+<tr><td></td><td>isNullable</td><td>Wartość logiczna</td><td>Określa, czy kolumna może mieć wartość null, czy nie. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 <tr><td></td><td>expression</td><td>ciąg</td><td>Jeśli wartość jest kolumną obliczeniową, to pole zawiera wyrażenie, które wyraża wartość. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
@@ -236,7 +239,7 @@ Azure Data Catalog używa dwóch mechanizmów autoryzacji:
 * Autoryzacja oparta na uprawnieniach
 
 ### <a name="roles"></a>Role
-Istnieją trzy role: **administrator**, **właściciel**i **współautor**.  Każda rola ma swój zakres i prawa, które zostały podsumowane w poniższej tabeli.
+Istnieją trzy role: **administrator**, **właściciel** i **współautor**.  Każda rola ma swój zakres i prawa, które zostały podsumowane w poniższej tabeli.
 
 <table><tr><td><b>Role</b></td><td><b>Zakres</b></td><td><b>Rights</b></td></tr><tr><td>Administrator</td><td>Katalog (wszystkie elementy zawartości/adnotacje w wykazie)</td><td>Odczytaj Delete ViewRoles
 

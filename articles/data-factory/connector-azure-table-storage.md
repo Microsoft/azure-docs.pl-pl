@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/20/2020
-ms.openlocfilehash: 1448bb3ebf541af047759bc886b2c174d89c1c50
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5674d656385d356f596f96cd7851d2cc05839761
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383776"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597413"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Table Storage za pomocą usługi Azure Data Factory
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób używania działania kopiowania w usłudze Azure 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik usługi Azure Table Storage jest obsługiwany dla następujących działań:
 
@@ -267,6 +267,7 @@ Aby skopiować dane do tabeli platformy Azure, ustaw typ ujścia w działaniu Co
 | azureTableInsertType |Tryb wstawiania danych do tabeli platformy Azure. Ta właściwość określa, czy istniejące wiersze w tabeli wyjściowej ze zgodnymi partycjami i kluczami wierszy mają zamienione lub scalone wartości. <br/><br/>Dozwolone wartości to **merge** (wartość domyślna) i **Zamień**. <br/><br> To ustawienie jest stosowane na poziomie wiersza, a nie na poziomie tabeli. Żadna z tych opcji nie powoduje usunięcia wierszy w tabeli wyjściowej, które nie istnieją w danych wejściowych. Aby dowiedzieć się, jak działają ustawienia scalania i zamieniania, zobacz [Wstawianie lub scalanie](/rest/api/storageservices/Insert-Or-Merge-Entity) jednostki oraz [Wstawianie lub zamienianie jednostki](/rest/api/storageservices/Insert-Or-Replace-Entity). |Nie |
 | writeBatchSize |Wstawia dane do tabeli platformy Azure, gdy trafi writeBatchSize lub writeBatchTimeout.<br/>Dozwolone wartości to liczba całkowita (liczba wierszy). |Nie (domyślnie 10 000) |
 | writeBatchTimeout |Wstawia dane do tabeli platformy Azure, gdy trafi writeBatchSize lub writeBatchTimeout.<br/>Dozwolone wartości to TimeSpan. Przykładem jest "00:20:00" (20 minut). |Nie (wartość domyślna to 90 sekund, domyślny limit czasu klienta magazynu) |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

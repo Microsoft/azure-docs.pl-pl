@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
 ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019350"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
@@ -31,7 +31,7 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 |[Azure Event Hubs](event-hubs-output.md)|Tak, należy ustawić kolumnę klucza partycji w konfiguracji wyjściowej.|Klucz dostępu, </br> Tożsamość zarządzana (wersja zapoznawcza)|
 |[Power BI](power-bi-output.md)|Nie|Azure Active Directory użytkownika, </br> Tożsamość zarządzana|
 |[Azure Table storage](table-storage-output.md)|Tak|Klucz konta|
-|[Kolejki Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
+|[Kolejki usługi Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
 |[Tematy Azure Service Bus](service-bus-topics-output.md)|Tak|Klucz dostępu|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Tak|Klucz dostępu|
 |[Azure Functions](azure-functions-output.md)|Tak|Klucz dostępu|

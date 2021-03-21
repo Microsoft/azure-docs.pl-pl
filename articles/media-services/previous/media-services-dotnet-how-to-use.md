@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a2a9ecbcafa89b4981fe403d116ac0288e60b6b6
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013894"
 ---
 # <a name="media-services-development-with-net"></a>Programowanie Media Services przy użyciu platformy .NET
@@ -83,7 +83,7 @@ Alternatywnie możesz uzyskać najnowsze Media Services .NET SDK z usługi GitHu
     ```
 
 7. Dodaj **System.Configodwołanie wersja** do projektu.
-8. Zastąp istniejące instrukcje **using** na początku pliku program.cs następującym kodem:
+8. Zastąp istniejące instrukcje **using** na początku pliku program. cs następującym kodem:
 
     ```csharp      
     using System;

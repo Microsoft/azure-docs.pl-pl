@@ -4,17 +4,17 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
-ms.openlocfilehash: 61576de4a57d55ea9d1ea209c52df556f0069617
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca8963ed8928745a6d5918c86021199432339c83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750644"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612723"
 ---
 | Właściwość | Opis |
 |:--- |:---|
 |**tożsamość/typ** | Typ uwierzytelniania, który został użyty do wysłania żądania. Na przykład: `OAuth` , `Kerberos` , `SAS Key` , `Account Key` lub `Anonymous` |
-|**tożsamość/tokenHash**|To pole jest zarezerwowane wyłącznie do użytku wewnętrznego. |
+|**tożsamość/tokenHash**|Skrót SHA-256 tokenu uwierzytelniania używanego w żądaniu. <br>Gdy typem uwierzytelniania jest `Account Key` , format jest "Klucz1 \| KLUCZ2 (SHA256 hash klucza)". Na przykład: `key1(5RTE343A6FEB12342672AFD40072B70D4A91BGH5CDF797EC56BF82B2C3635CE)`. <br>Gdy typem uwierzytelniania jest `SAS Key` , format jest "Klucz1 \| klucz2 (skrót SHA 256 klucza), SasSignature (skrót SHA 256 tokenu sygnatury dostępu współdzielonego)". Na przykład: `key1(0A0XE8AADA354H19722ED12342443F0DC8FAF3E6GF8C8AD805DE6D563E0E5F8A),SasSignature(04D64C2B3A704145C9F1664F201123467A74D72DA72751A9137DDAA732FA03CF)`. Gdy typem uwierzytelniania jest `OAuth` , format jest "skrót SHA 256 tokenu OAuth". Na przykład: `B3CC9D5C64B3351573D806751312317FE4E910877E7CBAFA9D95E0BE923DW25C`<br> W przypadku innych typów uwierzytelniania nie ma pola tokenHash. |
 |**Autoryzacja/akcja** | Akcja, która jest przypisana do żądania. |
 |**Autoryzacja/roleAssignmentId** | Identyfikator przypisania roli. Na przykład: `4e2521b7-13be-4363-aeda-111111111111`.|
 |**Autoryzacja/zduplikowanych** | Identyfikator definicji roli. Na przykład: `ba92f5b4-2d11-453d-a403-111111111111"`.|

@@ -4,14 +4,14 @@ description: Informacje o kopiowaniu danych z chmury lub lokalnego źródła HTT
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 247bec30e9933dfd75b7c31cbce15ff043959243
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573204"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588889"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu Azure Data Factory
 
@@ -66,7 +66,8 @@ Dla połączonej usługi HTTP są obsługiwane następujące właściwości:
 | typ | Właściwość **Type** musi być ustawiona na wartość **HttpServer**. | Tak |
 | url | Podstawowy adres URL serwera sieci Web. | Tak |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikację certyfikatu protokołu TLS/SSL serwera podczas łączenia się z punktem końcowym HTTP. Jeśli serwer HTTPS używa certyfikatu z podpisem własnym, ustaw dla tej właściwości **wartość false**. | Nie<br /> (wartość domyślna to **true**) |
-| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** i **ClientCertificate**. <br><br> Zapoznaj się z sekcjami w poniższej tabeli, aby uzyskać więcej właściwości i przykładów JSON dla tych typów uwierzytelniania. | Tak |
+| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** i **ClientCertificate**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. Dodatkowo można skonfigurować nagłówki uwierzytelniania we `authHeader` właściwości. Zapoznaj się z sekcjami w poniższej tabeli, aby uzyskać więcej właściwości i przykładów JSON dla tych typów uwierzytelniania. | Tak |
+| authHeaders | Dodatkowe nagłówki żądań HTTP na potrzeby uwierzytelniania.<br/> Na przykład, aby użyć uwierzytelniania przy użyciu klucza interfejsu API, można wybrać typ uwierzytelniania jako anonimowy i określić klucz interfejsu API w nagłówku. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Korzystanie z uwierzytelniania podstawowego, szyfrowanego lub systemu Windows
@@ -163,6 +164,35 @@ Jeśli używasz **certThumbprint** do uwierzytelniania, a certyfikat jest instal
 }
 ```
 
+### <a name="using-authentication-headers"></a>Korzystanie z nagłówków uwierzytelniania
+
+Ponadto można skonfigurować nagłówki żądań uwierzytelniania oraz wbudowane typy uwierzytelniania.
+
+**Przykład: używanie uwierzytelniania za pomocą klucza interfejsu API**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
 Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . 
@@ -224,7 +254,7 @@ Następujące właściwości są obsługiwane w przypadku protokołu HTTP w obsz
 | additionalHeaders         | Dodatkowe nagłówki żądań HTTP.                             | Nie       |
 | Elemencie requestbody              | Treść żądania HTTP.                               | Nie       |
 | httpRequestTimeout           | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Wartość domyślna to **00:01:40**. | Nie       |
-| maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie       |
 
 **Przykład:**
 

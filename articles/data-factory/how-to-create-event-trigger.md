@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 6474cb10cdb516bae0386b92e40ecd6f17250691
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593802"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie magazynu
 
@@ -49,7 +49,7 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
    > Wyzwalacz zdarzenia magazynu obsługuje obecnie tylko konta magazynu Azure Data Lake Storage Gen2 i ogólnego przeznaczenia w wersji 2. Ze względu na ograniczenie Azure Event Grid Azure Data Factory obsługuje maksymalnie 500 wyzwalaczy zdarzeń magazynu na konto magazynu.
 
    > [!NOTE]
-   > Aby utworzyć i zmodyfikować nowy wyzwalacz zdarzeń magazynu, konto platformy Azure używane do logowania się do Data Factory i publikowania wyzwalacza zdarzenia magazynu musi mieć odpowiednią rolę kontroli dostępu opartej na rolach (RBAC na platformie Azure) na koncie magazynu. Nie są wymagane żadne dodatkowe uprawnienia: Nazwa główna usługi dla Azure Data Factory _nie wymaga specjalnego_ uprawnienia do konta magazynu lub Event Grid. Aby uzyskać więcej informacji na temat kontroli dostępu, zobacz sekcję [Kontrola dostępu oparta na rolach](#role-based-access-control) .
+   > Aby utworzyć nowy lub zmodyfikować istniejący wyzwalacz zdarzeń magazynu, konto platformy Azure używane do logowania się do Data Factory i publikowania wyzwalacza zdarzenia magazynu musi mieć odpowiednie uprawnienie kontroli dostępu opartej na rolach (RBAC na platformie Azure) na koncie magazynu. Nie są wymagane żadne dodatkowe uprawnienia: Nazwa główna usługi dla Azure Data Factory _nie wymaga specjalnego_ uprawnienia do konta magazynu lub Event Grid. Aby uzyskać więcej informacji na temat kontroli dostępu, zobacz sekcję [Kontrola dostępu oparta na rolach](#role-based-access-control) .
 
 1. **Ścieżka obiektu BLOB rozpoczyna się od** , a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, co pozwala na określenie kontenerów, folderów i nazw obiektów blob, dla których mają być odbierane zdarzenia. Wyzwalacz zdarzenia magazynu wymaga zdefiniowania co najmniej jednej z tych właściwości. Można użyć różnych wzorców dla **ścieżki obiektu BLOB zaczyna** się od, a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, jak pokazano w przykładach w dalszej części tego artykułu.
 
@@ -67,12 +67,12 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Zrzut ekranu przedstawiający stronę podglądu wyzwalacza zdarzeń magazynu.":::
 
-1. Aby dołączyć potok do tego wyzwalacza, przejdź do kanwy potoku, a następnie kliknij pozycję **Dodaj wyzwalacz** i wybierz pozycję **Nowy/Edytuj**. Gdy zostanie wyświetlona strona nawigacji bocznej, kliknij pozycję **Wybierz wyzwalacz...** listy rozwijanej i wybierz utworzony wyzwalacz. Kliknij przycisk **Dalej: Podgląd danych** , aby potwierdzić, że konfiguracja jest poprawna, **a następnie sprawdź** , czy wersja zapoznawcza danych jest poprawna.
+1. Aby dołączyć potok do tego wyzwalacza, przejdź do kanwy potoku, a następnie kliknij pozycję **Wyzwól** i wybierz pozycję **Nowy/Edytuj**. Gdy zostanie wyświetlona strona nawigacji bocznej, kliknij pozycję **Wybierz wyzwalacz...** listy rozwijanej i wybierz utworzony wyzwalacz. Kliknij przycisk **Dalej: Podgląd danych** , aby potwierdzić, że konfiguracja jest poprawna, **a następnie sprawdź** , czy wersja zapoznawcza danych jest poprawna.
 
 1. Jeśli potok zawiera parametry, można je określić dla wyzwalacza uruchamia po stronie parametru. Wyzwalacz zdarzenia magazynu przechwytuje ścieżkę folderu i nazwę pliku obiektu BLOB do właściwości `@triggerBody().folderPath` i `@triggerBody().fileName` . Aby użyć wartości tych właściwości w potoku, należy zmapować właściwości na parametry potoku. Po zamapowaniu właściwości na parametry można uzyskać dostęp do wartości przechwytywanych przez wyzwalacz za pomocą `@pipeline().parameters.parameterName` wyrażenia w ramach potoku. Aby uzyskać szczegółowe wyjaśnienie, zobacz [odwołania do metadanych wyzwalacza w potokach](how-to-use-trigger-parameterization.md)
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Zrzut ekranu przedstawiający właściwości mapowania wyzwalacza zdarzeń magazynu na parametry potoku.":::
-    
+
     W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu BLOB kończąca się w. csv zostanie utworzona w folderze _Event-Tests_ w kontenerze _przykład — dane_. Właściwości **folderPath** i **filename** przechwytują lokalizację nowego obiektu BLOB. Na przykład po dodaniu MoviesDB.csv do przykładowej ścieżki-dane/testowanie zdarzeń `@triggerBody().folderPath` ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość `moviesDB.csv` . Te wartości są mapowane, w przykładzie, do parametrów potoku `sourceFolder` i `sourceFile` , które mogą być używane w całym potoku odpowiednio w zależności od siebie `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` .
 
 1. Po zakończeniu kliknij przycisk **Zakończ** .

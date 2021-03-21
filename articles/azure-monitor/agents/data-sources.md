@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
 ms.openlocfilehash: 537163b4a78954443eeb7799dc624837ba03e2bd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036626"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Źródła danych monitorowania dla Azure Monitor
@@ -51,7 +51,7 @@ Dane telemetryczne związane z dzierżawą platformy Azure są zbierane z usług
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory dzienników inspekcji
 [Raportowanie Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) zawiera historię działań związanych z logowaniem i rejestrowaniem śladu zmian wprowadzonych w ramach określonej dzierżawy. 
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Skonfiguruj dzienniki usługi Azure AD, które mają być zbierane w Azure Monitor, aby przeanalizować je z innymi danymi monitorowania. | [Integrowanie dzienników usługi Azure AD z dziennikami Azure Monitor (wersja zapoznawcza)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure Storage | Eksportowanie dzienników usługi Azure AD do usługi Azure Storage w celu archiwizacji. | [Samouczek: archiwizowanie dzienników usługi Azure AD na koncie usługi Azure Storage (wersja zapoznawcza)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
@@ -67,7 +67,7 @@ Dane telemetryczne związane z kondycją i działaniem subskrypcji platformy Azu
 ### <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure 
 [Dziennik aktywności platformy Azure](../essentials/platform-logs-overview.md) zawiera rekordy kondycji usługi wraz z rekordami dotyczącymi wszelkich zmian konfiguracji wprowadzonych w zasobach w ramach subskrypcji platformy Azure. Dziennik aktywności jest dostępny dla wszystkich zasobów platformy Azure i reprezentuje widok _zewnętrzny_ .
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|
 | Dziennik aktywności | Dziennik aktywności jest zbierany do własnego magazynu danych, który można wyświetlić z menu Azure Monitor lub użyć do tworzenia alertów dziennika aktywności. | [Wykonaj zapytanie dotyczące dziennika aktywności w Azure Portal](../essentials/activity-log.md#view-the-activity-log) |
 | Dzienniki usługi Azure Monitor | Skonfiguruj dzienniki Azure Monitor w celu zebrania dziennika aktywności w celu przeanalizowania go przy użyciu innych danych monitorowania. | [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../essentials/activity-log.md) |
@@ -77,7 +77,7 @@ Dane telemetryczne związane z kondycją i działaniem subskrypcji platformy Azu
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) zawiera informacje o kondycji usług platformy Azure w ramach subskrypcji, na których zależą Twoje aplikacje i zasoby.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dziennik aktywności<br>Dzienniki usługi Azure Monitor | Rekordy Service Health są przechowywane w dzienniku aktywności platformy Azure, dzięki czemu można je przeglądać w Azure Portal lub wykonywać inne czynności, które można wykonać przy użyciu dziennika aktywności. | [Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal](../../service-health/service-notifications.md) |
 
@@ -91,7 +91,7 @@ Metryki i dzienniki zasobów zawierają informacje o _wewnętrznej_ operacji zas
 ### <a name="platform-metrics"></a>Metryki platformy 
 Większość usług platformy Azure wyśle [metryki platformy](../essentials/data-platform-metrics.md) , które odzwierciedlają ich wydajność i działanie bezpośrednio do bazy danych metryk. Określone [metryki różnią się w zależności od typu zasobu](../essentials/metrics-supported.md). 
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Metryki usługi Azure Monitor | Metryki platformy będą zapisywać w bazie danych metryk Azure Monitor bez konfiguracji. Uzyskaj dostęp do metryk platformy z Eksplorator metryk.  | [Wprowadzenie do Eksploratora metryk platformy Azure](../essentials/metrics-getting-started.md)<br>[Obsługiwane metryki z Azure Monitor](../essentials/metrics-supported.md) |
 | Dzienniki usługi Azure Monitor | Kopiuj metryki platformy do dzienników dla trendów i innych analiz przy użyciu Log Analytics. | [Diagnostyka Azure bezpośrednio do Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
@@ -102,7 +102,7 @@ Większość usług platformy Azure wyśle [metryki platformy](../essentials/dat
 
 Wymagania dotyczące konfiguracji i zawartość dzienników zasobów różnią się w zależności od typu zasobu, a nie wszystkie usługi jeszcze nie zostały utworzone. Zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure,](../essentials/resource-logs-schema.md) Aby uzyskać szczegółowe informacje na temat każdej usługi i linki do szczegółowych procedur konfiguracyjnych. Jeśli usługa nie jest wymieniona w tym artykule, ta usługa nie tworzy obecnie dzienników zasobów.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Wyślij dzienniki zasobów, aby Azure Monitor dzienniki analizy z innymi zebranymi danymi dzienników. | [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../essentials/resource-logs.md#send-to-azure-storage) |
 | Storage | Wyślij dzienniki zasobów do usługi Azure Storage w celu archiwizacji. | [Archiwizowanie dzienników zasobów platformy Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
@@ -116,7 +116,7 @@ Zasoby obliczeniowe na platformie Azure, w innych chmurach i lokalnie, mają sys
 ### <a name="azure-diagnostic-extension"></a>Rozszerzenie diagnostyki platformy Azure
 Włączenie rozszerzenia Diagnostyka Azure dla usługi Azure Virtual Machines umożliwia zbieranie dzienników i metryk z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym ról sieci Web i procesów roboczych usługi Azure Cloud Service (klasycznych), Virtual Machines, zestawów skalowania maszyn wirtualnych i Service Fabric.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Storage | Rozszerzenie Diagnostyka Azure zawsze zapisuje dane na koncie usługi Azure Storage. | [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](./diagnostics-extension-windows-install.md)<br>[Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Metryki usługi Azure Monitor | Podczas konfigurowania rozszerzenia diagnostyki do zbierania liczników wydajności są one zapisywane w bazie danych metryk Azure Monitor. | [Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Menedżer zasobów dla maszyny wirtualnej z systemem Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
@@ -127,7 +127,7 @@ Włączenie rozszerzenia Diagnostyka Azure dla usługi Azure Virtual Machines um
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics 
 Zainstaluj agenta Log Analytics, aby uzyskać kompleksowe monitorowanie i zarządzanie maszynami wirtualnymi z systemem Windows lub Linux. Maszyna wirtualna może działać na platformie Azure, w innej chmurze lub lokalnie.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Agent Log Analytics nawiązuje połączenie Azure Monitor bezpośrednio lub za pośrednictwem System Center Operations Manager i umożliwia zbieranie danych ze źródeł danych skonfigurowanych lub z rozwiązań monitorowania, które udostępniają dodatkowe informacje o aplikacjach działających na maszynie wirtualnej. | [Źródła danych agentów w Azure Monitor](../agents/agent-data-sources.md)<br>[Połącz Operations Manager z Azure Monitor](./om-agents.md) |
 | Magazyn maszyny wirtualnej | Usługi VM Insights używają agenta Log Analytics do przechowywania informacji o stanie kondycji w niestandardowej lokalizacji. Aby uzyskać więcej informacji, zobacz następną sekcję.  |
@@ -136,7 +136,7 @@ Zainstaluj agenta Log Analytics, aby uzyskać kompleksowe monitorowanie i zarzą
 ### <a name="vm-insights"></a>Szczegółowe informacje o maszynie wirtualnej 
 [Szczegółowe informacje o maszynie](../vm/vminsights-overview.md) wirtualnej zapewniają dostosowane środowisko monitorowania dla maszyn wirtualnych, które udostępniają funkcje wykraczające poza podstawowe funkcje Azure monitor. Wymaga Agent zależności na maszynach wirtualnych z systemem Windows i Linux, które integrują się z agentem Log Analytics w celu zbierania odnalezionych danych dotyczących procesów uruchomionych na maszynie wirtualnej i zewnętrznych zależności procesów.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Przechowuje dane dotyczące procesów i zależności w agencie. | [Korzystanie z mapy usługi VM Insights (wersja zapoznawcza) w celu zrozumienia składników aplikacji](../vm/vminsights-maps.md) |
 
@@ -151,7 +151,7 @@ Szczegółowe monitorowanie aplikacji w Azure Monitor jest realizowane przy uży
 ### <a name="application-data"></a>Dane aplikacji
 Po włączeniu Application Insights aplikacji przez zainstalowanie pakietu Instrumentacji program zbiera metryki i dzienniki związane z wydajnością i działaniem aplikacji. Application Insights przechowuje dane zbierane w tej samej Azure Monitorj platformie danych używanej przez inne źródła danych. Zawiera ona rozbudowane narzędzia do analizowania tych danych, ale można je również analizować przy użyciu danych z innych źródeł za pomocą narzędzi takich jak Eksplorator metryk i Log Analytics.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Dane operacyjne dotyczące aplikacji, w tym widoki stron, żądania aplikacji, wyjątki i ślady. | [Analizowanie danych dziennika w Azure Monitor](../logs/log-query-overview.md) |
 |                    | Informacje o zależnościach między składnikami aplikacji w celu obsługi mapy aplikacji i korelacji telemetrii. | [Korelacja telemetrii w Application Insights](../app/correlation.md) <br> [Mapa aplikacji](../app/app-map.md) |
@@ -167,7 +167,7 @@ Po włączeniu Application Insights aplikacji przez zainstalowanie pakietu Instr
 
 ### <a name="monitoring-solutions"></a>Rozwiązania do monitorowania
 
-| Element docelowy | Opis | Odwołanie
+| Element docelowy | Opis | Dokumentacja
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Monitorowanie rozwiązań zbiera dane do dzienników Azure Monitor, które mogą być analizowane przy użyciu języka zapytań lub [widoków](../visualize/view-designer.md) , które są zwykle dołączone do rozwiązania. | [Szczegóły zbierania danych na potrzeby monitorowania rozwiązań na platformie Azure](../monitor-reference.md) |
 
@@ -175,7 +175,7 @@ Po włączeniu Application Insights aplikacji przez zainstalowanie pakietu Instr
 ### <a name="container-insights"></a>Szczegółowe informacje o kontenerze
 Usługa [Container Insights](../containers/container-insights-overview.md) udostępnia dostosowane środowisko monitorowania dla [usługi Azure KUBERNETES Service (AKS)](../../aks/index.yml). Zbiera ona dodatkowe dane dotyczące tych zasobów opisanych w poniższej tabeli.
 
-| Element docelowy | Opis | Odwołanie |
+| Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Przechowuje dane monitorowania dla AKS, w tym spis, dzienniki i zdarzenia. Dane metryk są również przechowywane w dziennikach, aby można było korzystać z funkcji analizy w portalu. | [Zrozumienie wydajności klastra AKS za pomocą usługi Container Insights](../containers/container-insights-analyze.md) |
 | Metryki usługi Azure Monitor | Dane metryk są przechowywane w bazie danych metryk w celu utworzenia wizualizacji i alertów. | [Wyświetlanie metryk kontenera w Eksploratorze metryk](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
@@ -189,7 +189,7 @@ Oprócz standardowych warstw aplikacji może być konieczne monitorowanie innych
 
 ![Kolekcja niestandardowa](media/data-sources/custom.png)
 
-| Element docelowy | Metoda | Opis | Odwołanie |
+| Element docelowy | Metoda | Opis | Dokumentacja |
 |:---|:---|:---|:---|
 | Dzienniki usługi Azure Monitor | Interfejs API modułu zbierającego dane | Zbieranie danych dziennika z dowolnego klienta REST i przechowywanie w Log Analytics obszarze roboczym. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](../logs/data-collector-api.md) |
 | Metryki usługi Azure Monitor | Interfejs API metryk niestandardowych | Zbieraj dane metryk z dowolnego klienta REST i przechowuj je w bazie danych metryk Azure Monitor. | [Wysyłanie metryk niestandardowych dla zasobu platformy Azure do magazynu metryk Azure Monitor przy użyciu interfejsu API REST](../essentials/metrics-store-custom-rest-api.md) |
@@ -198,7 +198,7 @@ Oprócz standardowych warstw aplikacji może być konieczne monitorowanie innych
 ## <a name="other-services"></a>Inne usługi
 Inne usługi na platformie Azure zapisują dane na platformie danych Azure Monitor. Dzięki temu można analizować dane zbierane przez te usługi przy użyciu danych zbieranych przez Azure Monitor i korzystać z tych samych narzędzi do analizy i wizualizacji.
 
-| Usługa | Element docelowy | Opis | Odwołanie |
+| Usługa | Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|:---|
 | [Azure Security Center](../../security-center/index.yml) | Dzienniki usługi Azure Monitor | Azure Security Center przechowuje dane dotyczące zabezpieczeń zbierane w Log Analytics obszarze roboczym, co umożliwia przeanalizowanie ich przy użyciu innych danych dziennika zebranych przez Azure Monitor.  | [Zbieranie danych w usłudze Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../../sentinel/index.yml) | Dzienniki usługi Azure Monitor | Na platformie Azure wskaźnikowe dane są przechowywane z różnych źródeł danych w obszarze roboczym Log Analytics, co umożliwia ich analizowanie z innymi danymi dziennika zbieranymi przez Azure Monitor.  | [Łączenie ze źródłami danych](../../sentinel/quickstart-onboard.md) |

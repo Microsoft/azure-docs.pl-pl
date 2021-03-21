@@ -4,15 +4,15 @@ description: Często zadawane pytania występujące podczas tworzenia maszyny wi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: a74170af61c05d07a189b5ceb61dc0c9b7e14298
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200420"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593428"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Często zadawane pytania dotyczące maszyn wirtualnych w portalu Azure Marketplace
 
@@ -56,7 +56,7 @@ Ten problem zwykle występuje, gdy utworzono maszynę wirtualną z dysku VHD, kt
 
 W tej sekcji opisano sposób tworzenia i wdrażania obrazu maszyny wirtualnej (VM) dostarczonej przez użytkownika. Można to zrobić przez udostępnienie obrazów dysków VHD systemu operacyjnego i danych z wirtualnego dysku twardego wdrożonego na platformie Azure. W tych krokach wdrożono maszynę wirtualną przy użyciu uogólnionego wirtualnego dysku twardego.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przekaż uogólniony wirtualny dysk twardy systemu operacyjnego i dyski danych do konta usługi Azure Storage.
 3. Na stronie głównej wybierz pozycję Utwórz zasób, Wyszukaj pozycję "wdrożenie szablonu" i wybierz pozycję Utwórz.
 4. Wybierz opcję Kompiluj własny szablon w edytorze.
@@ -470,6 +470,17 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 # deploying VM with existing VHD
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Jak mogę przetestować ukrytego obrazu podglądu?
+
+Możesz wdrażać ukryte obrazy w wersji zapoznawczej przy użyciu szablonów szybkiego startu.
+Aby wdrożyć obraz podglądu, 
+1. Przejdź do odpowiedniego szablonu szybkiego startu dla systemu [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) lub [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), a następnie wybierz pozycję "wdróż na platformie Azure". Powinno to potrwać Azure Portal.
+2. W Azure Portal wybierz pozycję "Edytuj szablon".
+3. W szablonie JSON Wyszukaj pozycję elementu imagereference i zaktualizuj publisherID, OfferId, identyfikatora skuId i wersję obrazu. Aby przetestować obraz podglądu, Dołącz "-PREVIEW" do OfferId.
+ ![obraz](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Klikanie pozycji Zapisz.
+5. Wypełnij pozostałe szczegóły. Przejrzyj i Utwórz
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
 ms.openlocfilehash: 746e44c85d4dd9a662556a73f1e4ab0701d31400
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102435928"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Samouczek: filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu Azure Portal
@@ -22,7 +22,7 @@ Za pomocą grupy zabezpieczeń sieci można filtrować ruch sieciowy przychodzą
 
 Sieciowe grupy zabezpieczeń zawierają reguły zabezpieczeń, które filtrują ruch sieciowy według adresów IP, portów i protokołów. Reguły zabezpieczeń są stosowane do zasobów wdrożonych w podsieci. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieciowej grupy zabezpieczeń i reguł zabezpieczeń
@@ -216,7 +216,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne.
     | Nazwa maszyny wirtualnej | Wprowadź **myVMWeb**. |
     | Region (Region) | Wybierz pozycję **(US) Wschodnie stany USA**. |
     | Opcje dostępności | Pozostaw wartość domyślną nie wymaga nadmiarowości. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1**. |
     | Wystąpienie usługi Azure Spot | Pozostaw domyślnie niezaznaczone. |
     | Rozmiar | Wybierz **Standard_D2s_V3**. |
     | **Konto administratora** |   |

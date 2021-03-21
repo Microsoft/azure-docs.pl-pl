@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 79ff404192de481965f3971f00328c49a591dd41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467633"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583381"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -72,6 +72,13 @@ Tak. Aby przenieść subskrypcję (zawierającą magazyn) do innej Azure Active 
 
 >[!IMPORTANT]
 >Po przeniesieniu subskrypcji upewnij się, że wykonano następujące czynności:<ul><li>Uprawnienia kontroli dostępu opartej na rolach i role niestandardowe nie są przełożone. Musisz ponownie utworzyć uprawnienia i role w nowej usłudze Azure AD.</li><li>Musisz ponownie utworzyć zarządzaną tożsamość (MI) magazynu, wyłączając ją i włączając ją. Ponadto należy oszacować i ponownie utworzyć uprawnienia MI.</li><li>Jeśli magazyn korzysta z funkcji, które wykorzystują MI, takie jak [prywatne punkty końcowe](private-endpoints.md#before-you-start) i [klucze zarządzane przez klienta](encryption-at-rest-with-cmk.md#before-you-start), należy ponownie skonfigurować funkcje.</li></ul>
+
+### <a name="can-i-move-a-subscription-that-contains-a-recovery-services-vault-to-a-different-tenant"></a>Czy mogę przenieść subskrypcję zawierającą magazyn Recovery Services do innej dzierżawy?
+
+Tak. Upewnij się, że wykonano następujące czynności: 
+
+>[!IMPORTANT]
+>Po przeniesieniu subskrypcji upewnij się, że wykonano następujące czynności:<ul><li>Jeśli magazyn używa CMK (klucze zarządzane przez klienta), należy zaktualizować magazyn. Dzięki temu magazyn może odtworzyć i ponownie skonfigurować tożsamość zarządzaną przez magazyn i CMK (które będą znajdować się w nowej dzierżawie). w przeciwnym razie operacja tworzenia kopii zapasowej/przywracania zakończy się niepowodzeniem.</li><li>Należy ponownie skonfigurować uprawnienia RBAC w ramach subskrypcji, ponieważ nie można przenieść istniejących uprawnień.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

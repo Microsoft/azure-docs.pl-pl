@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1f8100dd6340383eadec5d10b7f23db59ba0ebdf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786388"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
 W tej serii samouczków wyniki zostały zwrócone i wyświetlone w [domyślnej kolejności](index-add-scoring-profiles.md#what-is-default-scoring). W tym samouczku dodasz podstawowe i pomocnicze kryteria sortowania. Zamiast określania kolejności na podstawie wartości liczbowych, ostatni przykład pokazuje, jak ustalić rangę wyników na podstawie niestandardowego profilu oceniania. Dodatkowo przejdziemy do wyświetlania _typów złożonych_.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Kolejność wyników na podstawie jednej właściwości
 > * Kolejność wyników na podstawie wielu właściwości
@@ -50,7 +50,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>Dodaj właściwość OrderBy do parametrów wyszukiwania
 
-1. W HomeController.cs Dodaj opcję **OrderBy** i Uwzględnij Właściwość Rating z malejącą kolejnością sortowania. W metodzie **index (SearchData model)** Dodaj następujący wiersz do parametrów wyszukiwania.
+1. W HomeController. cs Dodaj opcję **OrderBy** i Uwzględnij Właściwość Rating z malejącą kolejnością sortowania. W metodzie **index (SearchData model)** Dodaj następujący wiersz do parametrów wyszukiwania.
 
     ```cs
     options.OrderBy.Add("Rating desc");
@@ -213,7 +213,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
 
 ### <a name="add-the-range-of-room-rates-to-the-view"></a>Dodaj zakres stawek pomieszczeń do widoku
 
-1. Dodaj właściwości zawierające najtańszą i najbardziej kosztowną szybkość pokojową do modelu Hotel.cs.
+1. Dodaj właściwości zawierające najtańszą i najbardziej kosztowną szybkość pokoju do modelu Hotel. cs.
 
     ```cs
     // Room rate range
@@ -631,7 +631,7 @@ Profile oceniania są definiowane w indeksie wyszukiwania w czasie projektowania
     </body>
     ```
 
-1. Otwórz plik SearchData.cs i Zastąp klasę **SearchData** następującym kodem.
+1. Otwórz plik SearchData. cs i Zastąp klasę **SearchData** następującym kodem.
 
     ```cs
     public class SearchData

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933979"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
@@ -54,7 +54,7 @@ Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących
 * Interfejs wiersza polecenia platformy Azure
 * Plik konfiguracji sieci (netcfg-tylko klasyczny sieci wirtualnych). Zapoznaj się z artykułem [Konfigurowanie sieci wirtualnej przy użyciu pliku konfiguracji sieciowej](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) .
 
-### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Jakie zakresy adresów mogę użyć w mojej sieci wirtualnych?
+### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Jakich zakresów adresów mogę używać w moich sieciach wirtualnych?
 Zalecamy używanie zakresów adresów wyliczonych w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918), które zostały odłożone przez grupę IETF dla prywatnych przestrzeni adresowych bez obsługi routingu:
 * 10.0.0.0-10.255.255.255 (10/8 prefiks)
 * 172.16.0.0-172.31.255.255 (prefiks 172.16/12)
@@ -262,7 +262,7 @@ Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obcią
 - Usługa domena usługi Active Directory (dodaje)
 - Logic Apps
 - HDInsight
--   Azure Batch
+-   Usługa Azure Batch
 - Środowisko usługi App Service
 
 Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.

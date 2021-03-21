@@ -4,14 +4,14 @@ description: Informacje o kopiowaniu danych z chmury lub lokalnego źródła RES
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369887"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608133"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ Różnica między tym łącznikiem REST, [łącznikiem http](connector-http.md)i
 - **Łącznik http** jest ogólny do pobierania danych z dowolnego punktu końcowego http, na przykład do pobierania pliku. Przed tym łącznikiem REST można używać łącznika HTTP do kopiowania danych z interfejsu API RESTful, który jest obsługiwany, ale mniej funkcjonalny do porównywania łącznika REST.
 - **Łącznik tabeli sieci Web** wyodrębnia zawartość tabeli z strony html.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Dane można kopiować ze źródła REST do dowolnego obsługiwanego magazynu danych ujścia. Możesz również skopiować dane z dowolnego obsługiwanego źródłowego magazynu danych do ujścia REST. Aby uzyskać listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i ujścia, zobacz [obsługiwane magazyny i formaty danych](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -57,7 +57,8 @@ Dla połączonej usługi REST są obsługiwane następujące właściwości:
 | typ | Właściwość **Type** musi być ustawiona na wartość **RestService**. | Tak |
 | url | Podstawowy adres URL usługi REST. | Tak |
 | enableServerCertificateValidation | Czy sprawdzać poprawność certyfikatu protokołu TLS/SSL po stronie serwera podczas nawiązywania połączenia z punktem końcowym. | Nie<br /> (wartość domyślna to **true**) |
-| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z usługą REST. Dozwolone wartości to **Anonymous**, **Basic**, **AadServicePrincipal** i **ManagedServiceIdentity**. Zapoznaj się z odpowiednimi sekcjami poniżej, aby uzyskać więcej właściwości i przykładów. | Tak |
+| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z usługą REST. Dozwolone wartości to **Anonymous**, **Basic**, **AadServicePrincipal** i **ManagedServiceIdentity**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. Dodatkowo można skonfigurować nagłówki uwierzytelniania we `authHeader` właściwości. Zapoznaj się z odpowiednimi sekcjami poniżej, aby uzyskać więcej właściwości i przykładów.| Tak |
+| authHeaders | Dodatkowe nagłówki żądań HTTP na potrzeby uwierzytelniania.<br/> Na przykład, aby użyć uwierzytelniania przy użyciu klucza interfejsu API, można wybrać typ uwierzytelniania jako anonimowy i określić klucz interfejsu API w nagłówku. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, ta właściwość używa Azure Integration Runtime domyślnego. |Nie |
 
 ### <a name="use-basic-authentication"></a>Użyj uwierzytelniania podstawowego
@@ -150,6 +151,35 @@ Ustaw właściwość **AuthenticationType** na wartość **ManagedServiceIdentit
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-authentication-headers"></a>Korzystanie z nagłówków uwierzytelniania
+
+Ponadto można skonfigurować nagłówki żądań uwierzytelniania oraz wbudowane typy uwierzytelniania.
+
+**Przykład: używanie uwierzytelniania za pomocą klucza interfejsu API**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
