@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101673938"
+ms.locfileid: "104721396"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Użyj Virtual Machines na platformie Azure 
 
@@ -58,9 +58,9 @@ Virtual Machines usługi Azure Spot można wdrożyć w dowolnym regionie, z wyj�
 
 Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-details/) są obecnie obsługiwane:
 
--   Enterprise Agreement
--   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
--   Sponsorowan
+-   Enterprise Agreement 
+-   Kod oferty z płatność zgodnie z rzeczywistym użyciem (003P)
+-   Sponsorowane (0036P i 0136P)
 - W przypadku dostawcy usług w chmurze (CSP) skontaktuj się z partnerem
 
 

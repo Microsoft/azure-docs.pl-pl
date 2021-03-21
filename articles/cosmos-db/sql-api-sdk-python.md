@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505073"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595694"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Zestaw Python SDK usługi Azure Cosmos DB na potrzeby interfejsu API SQL: Informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,17 +38,26 @@ ms.locfileid: "102505073"
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Strona| Link |
 |---|---|
 |**Pobierz zestaw SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](/python/api/azure-cosmos/)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instrukcje dotyczące instalacji zestawu SDK**|[Instrukcje dotyczące instalacji zestawu SDK języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu SDK języka Python](create-sql-api-python.md)|
 |**Bieżąca obsługiwana platforma**|[Python 2,7](https://www.python.org/downloads/) i [Python 3.5.3 +](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historia wersji
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**Poprawki błędów**
+- Naprawiono usterkę, w której token kontynuacji nie jest uznawany, gdy query_iterable jest używany do uzyskania wyników według strony.
+- Rozwiązano problem polegający na tym, że tokeny zasobów nie są honorowane na potrzeby operacji odczytu i usuwania dokumentów. 
+
+**Nowe funkcje**
+- Dodano obsługę przekazywania `partitionKey` podczas wykonywania zapytania dotyczącego źródła zmian.
+
+## <a name="410"></a>4.1.0
 
 - Dodano ostrzeżenie o zaniechaniu trybu indeksowania "z opóźnieniem". Zaplecze nie zezwala już na tworzenie kontenerów w tym trybie i ustawi ich spójność.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505073"
 - Dodano możliwość ustawienia czasu wygaśnięcia magazynu analitycznego podczas tworzenia nowego kontenera.
 
 **Poprawki błędów**
-- Stała obsługa Dicts jako dane wejściowe dla get_client interfejsów API.
+- Stała obsługa `dicts` jako dane wejściowe dla Get_client interfejsów API.
 - Stała zgodność z językiem Python 2/3 w iteratorach zapytań.
-- Błąd wskazówki dotyczącej ustalonego typu (problem #12570).
-- Naprawiono usterkę, w której nagłówki opcji nie zostały dodane do funkcji upsert_item. Problem #11791 — Dziękujemy @aalapatirvbd .
-- Naprawiono błąd wywoływany, gdy w elemencie jest używany identyfikator niebędący ciągiem. Teraz podnosi TypeError, a nie AttributeError (#11793 problemu).
+- Błąd wskazówki dotyczącej ustalonego typu.
+- Naprawiono usterkę, w której nagłówki opcji nie zostały dodane do funkcji upsert_item. 
+- Naprawiono błąd wywoływany, gdy w elemencie jest używany identyfikator niebędący ciągiem. Teraz podnosi TypeError, a nie AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Stabilna wersja.
 * Dodano HttpLoggingPolicy do potoku, aby umożliwić przekazywanie w niestandardowym rejestratorze dla nagłówków żądań i odpowiedzi.
@@ -80,8 +90,8 @@ ms.locfileid: "102505073"
 * Dodano obsługę różnych zapytań, przesunięcia i limitu.
 * Kontekst wykonywania zapytania dokumentu domyślnego został teraz użyty dla
 
-  * ChangeFeed zapytania
-  * zapytania o pojedynczej partycji (partitionkey, partitionKeyRangeId znajdują się w opcjach)
+  * Zapytania dotyczące zmiany kanałów informacyjnych
+  * zapytania o pojedynczej partycji ( `partitionkey` , `partitionKeyRangeId` dostępne w opcjach)
   * Zapytania niebędące dokumentami
 
 * Liczba błędów dla agregacji w wielu partycjach z opcją Włącz zapytanie między partycjami z ustawioną wartością prawda, ale nie ma słowa kluczowego "value"
@@ -324,6 +334,8 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
+| [4.2.0](#420) |Października 09, 2020 |--- |
+| [4.1.0](#410) |10 sierpnia 2020 |--- |
 | [4.0.0](#400) |20 maja 2020 |--- |
 | [3.0.2](#302) |LIS 15, 2018 |--- |
 | [3.0.1](#301) |04, 2018 |--- |

@@ -4,13 +4,14 @@ description: Przegląd Azure Monitor Agent (AMA), który gromadzi dane monitorow
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039601"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608218"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -59,6 +60,35 @@ W publicznej wersji zapoznawczej agenta Azure Monitor są stosowane następując
   - *. ingest.monitor.azure.com
   - *. control.monitor.azure.com
 
+
+## <a name="supported-regions"></a>Obsługiwane regiony
+Agent Azure Monitor obecnie obsługuje zasoby w następujących regionach:
+
+- Azja Wschodnia
+- Southeast Asia
+- Australia Środkowa
+- Australia Wschodnia
+- Australia Południowo-Wschodnia
+- Kanada Środkowa
+- Europa Północna
+- Europa Zachodnia
+- Francja Środkowa
+- Niemcy Środkowo-Zachodnie
+- Indie Środkowe
+- Japonia Wschodnia
+- Korea Środkowa
+- Północna Republika Południowej Afryki
+- Szwajcaria Północna
+- Południowe Zjednoczone Królestwo
+- Zachodnie Zjednoczone Królestwo
+- Central US
+- East US
+- Wschodnie stany USA 2
+- Północno-środkowe stany USA
+- South Central US
+- Zachodnie stany USA
+- Zachodnie stany USA 2
+- Zachodnio-środkowe stany USA
 
 ## <a name="coexistence-with-other-agents"></a>Współistnienie z innymi agentami
 Agent Azure Monitor może współistnieć z istniejącymi agentami, aby można było nadal korzystać z istniejących funkcji podczas oceny lub migracji. Jest to szczególnie ważne ze względu na ograniczenia w publicznej wersji zapoznawczej w obsłudze istniejących rozwiązań. Należy zachować ostrożność podczas zbierania zduplikowanych danych, ponieważ może to spowodować pochylenie wyników zapytania i pozyskanie dodatkowych opłat za pozyskiwanie i przechowywanie danych.

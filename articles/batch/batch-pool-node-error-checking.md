@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564409"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720155"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
 
@@ -136,14 +136,16 @@ Niektóre z tych plików są zapisywane tylko raz podczas tworzenia węzłów pu
 
 Inne pliki są zapisywane dla każdego zadania uruchamianego w węźle, na przykład stdout i stderr. Jeśli duża liczba zadań uruchomionych w tym samym węźle i/lub pliki zadań są zbyt duże, może to spowodować wypełnienie dysku tymczasowego.
 
-Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Należy wziąć pod uwagę podczas wybierania rozmiaru maszyny wirtualnej, aby upewnić się, że na dysku tymczasowym jest wystarczająca ilość miejsca.
+Ponadto po rozpoczęciu węzła na dysku systemu operacyjnego potrzeba niewielkiej ilości miejsca, aby utworzyć użytkowników.
+
+Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Należy wziąć pod uwagę podczas wybierania rozmiaru maszyny wirtualnej, aby zapewnić, że dysk tymczasowy ma wystarczającą ilość miejsca na potrzeby planowanego obciążenia.
 
 - W Azure Portal podczas dodawania puli zostanie wyświetlona pełna lista rozmiarów maszyn wirtualnych, w której jest dostępna kolumna "rozmiar dysku zasobu".
 - Artykuły opisujące wszystkie rozmiary maszyn wirtualnych mają tabele z kolumną "temp Storage"; na przykład [rozmiary maszyn wirtualnych zoptymalizowane pod kątem obliczeń](../virtual-machines/sizes-compute.md)
 
 W przypadku plików pisanych przez każde zadanie można określić czas przechowywania dla każdego zadania, które określa, jak długo pliki zadań są przechowywane przed automatycznym wyczyszczeniem. Czas przechowywania można zmniejszyć, aby zmniejszyć wymagania dotyczące magazynu.
 
-Jeśli na dysku tymczasowym wyczerpie się wolne miejsce (lub jest bardzo blisko wolnego miejsca), węzeł przejdzie w stan [niezdatny do użytku](/rest/api/batchservice/computenode/get#computenodestate) i zostanie zgłoszony błąd węzła, co oznacza, że dysk jest pełny.
+Jeśli dysk tymczasowy lub system operacyjny wyczerpie miejsce (lub jest bardzo blisko wolnego miejsca), węzeł przejdzie w stan [niezdatny do użytku](/rest/api/batchservice/computenode/get#computenodestate) i zostanie zgłoszony błąd węzła, informując o zapełnieniu dysku.
 
 Jeśli nie masz pewności, co zajmuje miejsce w węźle, spróbuj przeprowadzić komunikację zdalną z węzłem i przebadać ręcznie miejsce, gdzie został usunięty. Można również użyć [interfejsu API plików list usługi Batch](/rest/api/batchservice/file/listfromcomputenode) do sprawdzenia plików w folderach zarządzanych wsadowo (na przykład w danych wyjściowych zadania). Należy zauważyć, że ten interfejs API wyświetla listę tylko plików w katalogach zarządzanych przez usługi Batch. Jeśli zadania utworzone w innym miejscu, nie będą widoczne.
 

@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433254"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
@@ -142,7 +142,7 @@ Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych p
 
 Można usunąć wszystkie modele w wystąpieniu jednocześnie lub można wykonać je pojedynczo.
 
-Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pobrać przykładową aplikację używaną w [*samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllModels` funkcję w funkcji.
+Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pobrać przykładową aplikację używaną w [*samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Plik *CommandLoop. cs* wykonuje tę `CommandDeleteAllModels` funkcję w funkcji.
 
 Pozostała część tej sekcji przerywa usuwanie modelu w bardziej szczegółowy sposób i pokazuje, jak to zrobić dla pojedynczego modelu.
 

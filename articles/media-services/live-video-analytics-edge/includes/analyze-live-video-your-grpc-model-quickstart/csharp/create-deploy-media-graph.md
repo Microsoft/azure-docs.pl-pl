@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8a9149119bc754ff0715f2841925da01301faecd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750597"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
@@ -17,7 +17,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
     
     * C2D-Console-App. csproj — plik projektu dla Visual Studio Code.
     * operations.jslistę operacji, które program ma uruchomić.
-    * Program.cs — przykładowy kod programu. Ten kod:
+    * Program. cs — przykładowy kod programu. Ten kod:
 
         * Ładuje ustawienia aplikacji.
         * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie metod bezpośrednich.

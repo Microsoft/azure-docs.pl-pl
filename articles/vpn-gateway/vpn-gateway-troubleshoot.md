@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0718a1b211fe6365af30a330fe6a3742cff2ff63
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a74109594eec87dddf637542f6d85091ed49231b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84984426"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720257"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Rozwiązywanie problemów VPN Gateway
 
@@ -27,6 +27,8 @@ Połączenia VPN Gateway mogą się nie powieść z różnych powodów. Ten arty
 * [Połączenia punkt-lokacja](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>W tym artykule wymieniono typowe problemy z połączeniem punkt-lokacja, które mogą wystąpić. Omówiono w nim również potencjalne przyczyny i rozwiązania tych problemów.
 
 * [Połączenia typu lokacja-lokacja](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Po skonfigurowaniu połączenia sieci VPN typu lokacja-lokacja między siecią lokalną a siecią wirtualną platformy Azure połączenie sieci VPN nagle przestanie działać i nie można go ponownie połączyć. W tym artykule opisano kroki rozwiązywania problemów, które ułatwiają rozwiązanie tego problemu.
+
+* [Rozwiązywanie problemów z usługą Azure VPN Gateway przy użyciu dzienników diagnostycznych](troubleshoot-vpn-with-azure-diagnostics.md)<br>Korzystając z dzienników diagnostycznych, można rozwiązywać problemy z wieloma zdarzeniami związanymi z bramą sieci VPN, w tym aktywnością konfiguracji, łącznością tunelu sieci VPN, rejestrowaniem protokołu IPsec i wymianą tras BGP, w punkcie 
 
 ## <a name="next-steps"></a>Następne kroki
 

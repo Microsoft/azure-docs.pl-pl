@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033626"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
@@ -181,7 +181,7 @@ Przykładowy kod używa [zestawu SDK Microsoft Graph](/graph/sdks/sdks-overview)
 
 Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwierzytelniania. Rozwiązanie korzysta z pakietu NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) , który udostępnia otokę opartą na scenariuszu uwierzytelniania biblioteki uwierzytelniania firmy Microsoft (MSAL) do użycia z zestawem SDK Microsoft Graph.
 
-`RunAsync`Metoda w pliku _program.cs_ :
+`RunAsync`Metoda w pliku _program. cs_ :
 
 1. Odczytuje ustawienia aplikacji z _appsettings.jsw_ pliku
 1. Inicjuje dostawcę uwierzytelniania przy użyciu funkcji przepływu [przydzielenia poświadczeń klienta OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Za pomocą przepływu Przydziel poświadczenia klienta aplikacja może uzyskać token dostępu do wywołania interfejsu API Microsoft Graph.
@@ -203,7 +203,7 @@ Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwi
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-Zainicjowany *GraphServiceClient* jest następnie używany w _UserService.cs_ do wykonywania operacji zarządzania użytkownikami. Na przykład, aby uzyskać listę kont użytkowników w dzierżawie:
+Zainicjowany *GraphServiceClient* jest następnie używany w _UserService. cs_ do wykonywania operacji zarządzania użytkownikami. Na przykład, aby uzyskać listę kont użytkowników w dzierżawie:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)

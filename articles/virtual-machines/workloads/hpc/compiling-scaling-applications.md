@@ -5,19 +5,25 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470738"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721288"
 ---
 # <a name="scaling-hpc-applications"></a>Skalowanie aplikacji HPC
 
 Optymalna wydajność skalowania i skalowalności aplikacji HPC na platformie Azure wymaga dostrajania wydajności i optymalizacji dla określonego obciążenia. Ta sekcja i strony specyficzne dla serii maszyn wirtualnych oferują ogólne wskazówki dotyczące skalowania aplikacji.
+
+## <a name="application-setup"></a>Konfiguracja aplikacji
+[Repozytorium azurehpc](https://github.com/Azure/azurehpc) zawiera wiele przykładów:
+- Optymalne Konfigurowanie i uruchamianie [aplikacji](https://github.com/Azure/azurehpc/tree/master/apps) .
+- Konfiguracja [systemów plików i klastrów](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Samouczki](https://github.com/Azure/azurehpc/tree/master/tutorials) ułatwiające szybkie rozpoczęcie pracy z niektórymi typowymi przepływami.
 
 ## <a name="optimally-scaling-mpi"></a>Optymalne skalowanie MPI 
 
@@ -48,6 +54,9 @@ Poniższe sugestie dotyczą optymalnej wydajności, wydajności i spójności sk
 - W przypadku znacznie większych przebiegów skalowania zaleca się użycie UD lub transportów hybrydowych RC + UD. Wiele bibliotek MPI/bibliotek środowiska uruchomieniowego to wewnętrznie (na przykład UCX lub MVAPICH2). Sprawdź konfiguracje transportu w przypadku uruchamiania na dużą skalę.
 
 ## <a name="compiling-applications"></a>Kompilowanie aplikacji
+<br>
+<details>
+<summary>Kliknij, aby rozwinąć</summary>
 
 Chociaż nie jest to konieczne, Kompilowanie aplikacji z odpowiednimi flagami optymalizacji zapewnia najlepszą wydajność skalowania na maszynach wirtualnych z serii HB i HC.
 
@@ -96,6 +105,7 @@ W przypadku platformy HPC procesor AMD zaleca kompilatory w wersji 7,3 lub nowsz
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## <a name="next-steps"></a>Następne kroki
 

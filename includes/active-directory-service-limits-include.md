@@ -1,26 +1,26 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 9be85a7da67fa659e29d802d1f77fa09008f4428
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1102bcc18165d3bc705755f1bbb6faecddec4e91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371320"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612658"
 ---
 Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active Directory (Azure AD).
 
 | Kategoria | Limit |
 | --- | --- |
 | Dzierżawy | Pojedynczy użytkownik może należeć do maksymalnie 500 dzierżaw usługi Azure AD jako członka lub gościa.<br/>Pojedynczy użytkownik może utworzyć maksymalnie 200 katalogów. |
-| Domains | Możesz dodać maksymalnie 900 nazw domen zarządzanych. Jeśli skonfigurujesz wszystkie domeny dla Federacji z Active Directory lokalnym, możesz dodać nie więcej niż 450 nazw domen w każdej dzierżawie. |
+| Domains | Można dodać maksymalnie 5000 nazw domen zarządzanych. Jeśli skonfigurujesz wszystkie domeny dla Federacji z Active Directory lokalnym, możesz dodać nie więcej niż 2500 nazw domen w każdej dzierżawie. |
 |Zasoby |<ul><li>Maksymalnie 50 000 zasobów usługi Azure AD można utworzyć w jednej dzierżawie przez użytkowników wersji bezpłatnej Azure Active Directory. Jeśli masz co najmniej jedną zweryfikowaną domenę, domyślny limit przydziału usługi Azure AD dla Twojej organizacji zostanie rozszerzony do 300 000 zasobów usługi Azure AD. Przydział usługi Azure AD dla organizacji utworzonych przez samoobsługowe Tworzenie konta pozostaje 50 000 zasobów usługi Azure AD nawet po wykonaniu przejęcia przez administratora wewnętrznego, a organizacja zostanie przekonwertowana na zarządzaną dzierżawę z co najmniej jedną zweryfikowaną domeną. Ten limit usług nie jest związany z limitem warstwy cenowej wynoszącym 500 000 zasobów na stronie cennika usługi Azure AD. Aby przejść poza domyślny limit przydziału, musisz skontaktować się z pomoc techniczna firmy Microsoft.</li><li>Użytkownik niebędący administratorem może utworzyć maksymalnie 250 zasobów usługi Azure AD. Aktywne zasoby i usunięte zasoby, które są dostępne do przywrócenia liczby w ramach tego przydziału. Do przywrócenia dostępne są tylko usunięte zasoby usługi Azure AD, które zostały usunięte z mniej niż 30 dni temu. Usunięto zasoby usługi Azure AD, które nie są już dostępne, aby przywrócić liczbę przydziałów w ramach tego przydziału w ciągu 30 dni. Jeśli masz deweloperów, którzy mogą wielokrotnie przekroczyć ten limit przydziału w wyniku zwykłych obowiązków, możesz [utworzyć i przypisać rolę niestandardową](../articles/active-directory/roles/quickstart-app-registration-limits.md) z uprawnieniem do tworzenia nieograniczonej liczby rejestracji aplikacji.</li></ul> |
 | Rozszerzenia schematu |<ul><li>Rozszerzenia typu string mogą mieć maksymalnie 256 znaków. </li><li>Rozmiar rozszerzeń typu binary jest ograniczony do 256 bajtów.</li><li>Tylko 100 wartości rozszerzeń, między *wszystkimi* typami i *wszystkimi* aplikacjami, można zapisywać do dowolnego zasobu usługi Azure AD.</li><li>Jednostki User, Group, TenantDetail, Device, Application i ServcicePrincipal można rozszerzyć za pomocą jednowartościowych atrybutów typu String lub Binary.</li><li>Rozszerzenia schematu są dostępne tylko w interfejsie API programu Graph w wersji 1.21 — wersja zapoznawcza. Aby zarejestrować rozszerzenie, należy przyznać aplikacji prawa dostępu do zapisu.</li></ul> |
 | Aplikacje | <ul><li>Właścicielami jednej aplikacji może być maksymalnie 100 użytkowników.</li><li>Aplikacja Logowanie jednokrotne oparta na hasłach ma limit 48 użytkowników, co oznacza, że dla par nazw i haseł dla aplikacji istnieje limit 48 kluczy. Jeśli chcesz dodać dodatkowych użytkowników, zapoznaj się z instrukcjami rozwiązywania problemów w temacie [Rozwiązywanie problemów z logowaniem jednokrotnym na podstawie hasła w usłudze Azure AD](../articles/active-directory/manage-apps/troubleshoot-password-based-sso.md#i-cant-add-another-user-to-my-password-based-sso-app).</li></ul> |

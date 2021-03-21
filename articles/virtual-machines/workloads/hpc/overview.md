@@ -6,14 +6,14 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 07/29/2020
+ms.date: 03/18/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 15d05632e5ebf6e45a61adebbbbf647efca2a1a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 65b37a8c07e083f5e9809812e2d4446cc48717d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666894"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720597"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H i serii N
 
@@ -32,19 +32,19 @@ Aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnyc
 
 ### <a name="message-passing-interface"></a>Interfejs przekazywania komunikatów
 
-Seria H z obsługą wirtualizacji SR-IOV i serii N obsługują niemal wszystkie biblioteki i wersje MPI. Niektóre z najczęściej obsługiwanych bibliotek MPI to: Intel MPI, OpenMPI, MPICH, MVAPICH2, platform MPI i wszystkie czasowniki zdalnego bezpośredniego dostępu do pamięci (RDMA).
+Seria H z obsługą wirtualizacji SR-IOV i serii N obsługują niemal wszystkie biblioteki i wersje MPI. Najczęściej używanymi bibliotekami MPI są: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, platform MPI. Obsługiwane są wszystkie zlecenia zdalnego bezpośredniego dostępu do pamięci (RDMA).
 Zobacz [Konfigurowanie MPI](setup-mpi.md) , aby dowiedzieć się więcej o instalowaniu różnych obsługiwanych bibliotek MPI i ich optymalną konfigurację.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
 Pierwszym krokiem jest wybranie typu maszyn wirtualnych serii [H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) dla obciążenia w oparciu o specyfikacje maszyn wirtualnych i [funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances).
 Następnie skonfiguruj maszynę wirtualną przez włączenie funkcji InfiniBand. Istnieją różne metody do wykonania tej czynności, w tym używanie zoptymalizowanych obrazów maszyn wirtualnych ze sterownikami rozszerzania. Aby uzyskać szczegółowe informacje, zobacz [Optymalizacja dla systemu Linux](configure.md) i [Włączanie usługi InfiniBand](enable-infiniband.md) .
-Trzeci, w przypadku obciążeń węzła rozproszonego Wybieranie i Konfigurowanie MPI ma krytyczne znaczenie. Aby uzyskać szczegółowe informacje, zobacz [set up MPI](setup-mpi.md) .
-Czwarty, w celu zapewnienia wydajności i skalowalności, optymalnie konfiguruje obciążenia, postępując zgodnie ze wskazówkami dotyczącymi rodziny maszyn wirtualnych, takimi jak [Przegląd z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md).
+Trzeci, w przypadku obciążeń węzła rozproszonego Wybieranie i Konfigurowanie MPI jest odpowiednio krytyczne. Aby uzyskać szczegółowe informacje, zobacz [set up MPI](setup-mpi.md) .
+Czwarty, w celu zapewnienia wydajności i skalowalności, optymalnie konfiguruje obciążenia, postępując zgodnie ze wskazówkami dotyczącymi rodziny maszyn wirtualnych, takimi jak [Przegląd serii HBv3](hbv3-series-overview.md) oraz [Przegląd z serii HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [konfigurowaniu i optymalizowaniu](configure.md) maszyn wirtualnych z serii [H](../../sizes-hpc.md) i serii [N](../../sizes-gpu.md) .
-- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
-- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Zapoznaj się z omówieniem [HBv3](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
+- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

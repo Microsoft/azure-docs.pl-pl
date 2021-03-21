@@ -57,7 +57,7 @@ Plik. gitignore jest już skonfigurowany tak, aby uniknąć publikowania zawarto
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Analizowanie kodu, który przeprowadza transmisję strumieniową na żywo
 
-Ta sekcja bada funkcje zdefiniowane w pliku [program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) projektu *LiveEventWithDVR* .
+Ta sekcja bada funkcje zdefiniowane w pliku [program. cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) projektu *LiveEventWithDVR* .
 
 Przykład tworzy unikatowy sufiks dla każdego zasobu, co sprawia, że nie występują kolizje nazw, jeśli przykład zostanie uruchomiony wielokrotnie bez czyszczenia.
 

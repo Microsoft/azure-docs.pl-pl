@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95996563"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720342"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
+
+>[!IMPORTANT]
+> Jeśli używasz programu Connect z kompilacją z 2017 marca lub wcześniejszych, nie należy resetować hasła na koncie usługi, ponieważ system Windows niszczy klucze szyfrowania ze względów bezpieczeństwa. Nie można zmienić konta na inne konto bez ponownej instalacji Azure AD Connect. W przypadku uaktualnienia do kompilacji z 2017 kwietnia lub nowszej, jest ona obsługiwana, aby zmienić hasło konta usługi, ale nie można zmienić użytego konta. 
 
 Azure AD Connect w ramach usług synchronizacji program używa klucza szyfrowania do przechowywania haseł konta łącznika AD DS i konta usługi ADSync.  Te konta są szyfrowane, zanim zostaną zapisane w bazie danych programu. 
 

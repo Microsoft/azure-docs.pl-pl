@@ -4,10 +4,10 @@ description: Zapewnia najlepsze rozwiązania dotyczące konfigurowania rozproszo
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102550080"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Najlepsze rozwiązania dotyczące rozbudowanych i rozwijających się zasobów Azure DevTest Labs

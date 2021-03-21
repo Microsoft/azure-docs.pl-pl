@@ -4,10 +4,10 @@ description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowi
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608822"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 

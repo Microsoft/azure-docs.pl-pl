@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199496"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607895"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Wysyłanie komunikatów z chmury do urządzeń z Centrum IoT Hub
 
@@ -90,6 +90,8 @@ Jak wyjaśniono w [punktach końcowych](iot-hub-devguide-endpoints.md), usługa 
 | EnqueuedTime | Sygnatura czasowa wskazująca, kiedy wiadomość zwrotna została odebrana przez centrum |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+
+System wyśle opinię, gdy zadanie wsadowe osiągnie do 64 komunikatów lub w ciągu 15 sekund od ostatniego wysłania, w zależności od tego, co nastąpi wcześniej. 
 
 Treść jest serializowaną w formacie JSON tablicą rekordów, z których każdy ma następujące właściwości:
 

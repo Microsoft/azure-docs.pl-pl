@@ -3,17 +3,17 @@ title: Zarządzanie kosztami platformy Azure przy użyciu automatyzacji
 description: W tym artykule wyjaśniono, jak zarządzać kosztami platformy Azure za pomocą automatyzacji.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: a54b8243b5a680168b2e5806dd58c0fa4109728f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670277"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720121"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -47,7 +47,7 @@ Rozważ zastosowanie [interfejsu API szczegółów użycia](/rest/api/consumptio
 
 [Interfejs API szczegółów użycia](/rest/api/consumption/usageDetails) zapewnia łatwy sposób uzyskiwania nieprzetworzonych, niezagregowanych danych kosztów, które odnoszą się do rachunku za platformę Azure. Interfejs API jest przydatny, gdy organizacja potrzebuje rozwiązania pobierającego dane w sposób programistyczny. Rozważ użycie interfejsu API, jeśli chcesz analizować mniejsze zestawy danych kosztów. W przypadku większych zestawów danych powinno się jednak korzystać z innych rozwiązań wskazanych wcześniej. Dane szczegółów użycia są udostępniane dla poszczególnych liczników i dni. Są stosowane do obliczania rachunków miesięcznych. Ogólnie dostępna wersja tych interfejsów API to `2019-10-01`. Użyj wersji `2019-04-01-preview`, aby uzyskać dostęp do wersji zapoznawczej dla rezerwacji i zakupów w witrynie Azure Marketplace przy użyciu interfejsów API.
 
-Jeśli chcesz regularnie uzyskać duże ilości wyeksportowanych danych, zobacz temat szybkie [pobieranie dużych kosztów z eksportu](ingest-azure-usage-at-scale.md).
+Jeśli chcesz regularnie uzyskać duże ilości wyeksportowanych danych, zobacz "szybkie [pobieranie dużych kosztów" z eksportami](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Sugestie dotyczące interfejsu API szczegółów użycia
 
@@ -74,6 +74,10 @@ Działanie cen dla szczegółów użycia — w przypadku plików użycia pokazyw
   - Uwzględniona ilość — na przykład: Pierwszych 100 jednostek jest bezpłatnych, a następne kosztują 10 USD za jednostkę.
   - Rezerwacje
   - Zaokrąglenie, które występuje podczas obliczania — zaokrąglanie uwzględnia wykorzystanie ilości, ceny warstwowe/uwzględnione oraz skalowane ceny jednostkowe.
+
+### <a name="a-single-resource-might-have-multiple-records-for-a-single-day"></a>Pojedynczy zasób może zawierać wiele rekordów przez jeden dzień
+
+Dostawcy zasobów platformy Azure emitują użycie i opłaty do systemu rozliczeń i wypełniają `Additional Info` pole rekordów użycia. Czasami dostawcy zasobów mogą emitować użycie dla danego dnia i stemplować rekordy z różnymi centrami danych w `Additional Info` polu rekordów użycia. Może to spowodować, że wiele rekordów licznika/zasobu będzie zawierać w pliku użycia przez jeden dzień. W takiej sytuacji nie są naliczane opłaty. Wiele rekordów przedstawia pełen koszt licznika dla zasobu w danym dniu.
 
 ## <a name="example-usage-details-api-requests"></a>Przykładowe żądania do interfejsu API dotyczące szczegółów użycia
 
