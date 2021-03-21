@@ -8,10 +8,10 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009555"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Tworzenie i używanie wewnętrznego Load Balancer App Service Environment 
@@ -48,7 +48,7 @@ Pewnych zadań nie można realizować w przypadku używania środowiska ASE z we
 
 Aby utworzyć środowisko ASE z wewnętrznym modułem równoważenia obciążenia:
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  App Service Environment **sieci Web**  >  **App Service Environment**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  App Service Environment **sieci Web**  >  .
 
 2. Wybierz subskrypcję.
 
@@ -141,7 +141,7 @@ Aby dowiedzieć się więcej o sposobie konfigurowania ILB ASE za pomocą urząd
 
 ILB środowisk ASE, które zostały wprowadzone przed 2019 maja, wymagały ustawienia sufiksu domeny podczas tworzenia środowiska ASE. Wymagały one również przekazania domyślnego certyfikatu opartego na tym sufiksie domeny. Ponadto przy użyciu starszej wersji ILB ASE nie można przeprowadzić logowania jednokrotnego do konsoli kudu z aplikacjami w tym ILB ASE. Podczas konfigurowania systemu DNS dla starszej wersji środowiska ILB ASE należy ustawić symbol wieloznaczny A rekordu w strefie, która pasuje do sufiksu domeny. 
 
-## <a name="get-started"></a>Wprowadzenie ##
+## <a name="get-started"></a>Rozpoczęcie pracy ##
 
 * Aby rozpocząć pracę ze środowiskami ASE, zobacz [Wprowadzenie do środowisk App Service Environment][Intro]. 
 

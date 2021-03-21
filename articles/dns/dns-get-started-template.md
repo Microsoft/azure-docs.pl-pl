@@ -10,10 +10,10 @@ ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791005"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Szybki Start: Tworzenie strefy Azure DNS i rekordu przy użyciu szablonu ARM
@@ -22,7 +22,7 @@ W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Man
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
@@ -45,7 +45,7 @@ Dwa zasoby platformy Azure zostały zdefiniowane w szablonie:
 
 Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
@@ -66,7 +66,7 @@ Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, z
 
 1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej** .
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
 
 1. Wprowadź wartości.
 
@@ -80,7 +80,7 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
 
@@ -88,11 +88,11 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 1. Grupa zasobów powinna zawierać następujące zasoby:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Szablon Menedżer zasobów strefy Azure DNS dane wyjściowe wdrożenia programu PowerShell":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupa zasobów wdrożenia strefy DNS":::
 
 1. Wybierz strefę DNS z sufiksem, `azurequickstart.org` Aby sprawdzić, czy strefa została prawidłowo utworzona z `A` rekordem odwołującym się do wartości `1.2.3.4` i `1.2.3.5` .
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Szablon Menedżer zasobów strefy Azure DNS dane wyjściowe wdrożenia programu PowerShell":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Wdrożenie strefy DNS":::
 
 1. Skopiuj jedną z nazw serwerów nazw z poprzedniego kroku.
 
@@ -110,7 +110,7 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
    Powinien wyglądać podobnie do poniższego zrzutu ekranu:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Szablon Menedżer zasobów strefy Azure DNS dane wyjściowe wdrożenia programu PowerShell":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Polecenie nslookup strefy DNS":::
 
 Nazwa hosta jest `www.2lwynbseszpam.azurequickstart.org` rozpoznawana `1.2.3.4` `1.2.3.5` jako i, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 

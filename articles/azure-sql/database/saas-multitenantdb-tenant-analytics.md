@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: f12c823f609ac309d4b5ddbbaa7d5a076a7bb9ad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96447300"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analiza wielu dzierżawców z użyciem wyodrębnionych danych — aplikacji z wieloma dzierżawcami
@@ -64,7 +64,7 @@ Na koniec są badane zapytania dotyczące tabel schematu gwiazdy. Wyniki zapytan
 
 Zrozumienie, jak spójne każdy dzierżawca korzysta z usługi, oferuje możliwość tworzenia planów usług w celu zaspokojenia ich potrzeb. Ten samouczek zawiera podstawowe przykłady szczegółowych informacji, które mogą być wydobyć z danych dzierżawy.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -239,7 +239,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Gratulacje!
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Dodatkowe [samouczki, które kompilują się po aplikacji Wingtip SaaS](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Zadania elastyczne](./elastic-jobs-overview.md).

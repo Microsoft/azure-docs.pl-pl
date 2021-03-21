@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: f15d00f1050177c6255fb5528f03314153c3ed9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Samouczek: integracja Azure Active Directory z usługą ThirdLight
@@ -128,7 +128,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ThirdLight,
 
 1. W nowym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny ThirdLight jako administrator.
 
-1. Przejdź do **Configuration**  >  **SAML2 administracyjnego systemu**konfiguracji  >  **SAML2**:
+1. Przejdź do   >  **SAML2 administracyjnego systemu** konfiguracji  >  :
 
     ![Administrowanie systemami](./media/thirdlight-tutorial/ic805843.png "Administrowanie systemami")
 
@@ -138,7 +138,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ThirdLight,
 
     1. Wybierz pozycję **Włącz logowanie jednokrotne SAML2**.
 
-    1. W obszarze **Źródło metadanych dostawcy tożsamości**wybierz pozycję **Załaduj metadane dostawcy tożsamości z pliku XML**.
+    1. W obszarze **Źródło metadanych dostawcy tożsamości** wybierz pozycję **Załaduj metadane dostawcy tożsamości z pliku XML**.
 
     1. Otwórz plik metadanych pobrany z Azure Portal w poprzedniej sekcji. Skopiuj zawartość pliku i wklej ją do pola **XML metadanych dostawcy tożsamości** .
 
@@ -162,7 +162,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon@ \<yourcompanydomain> . \<extension> **. (Na przykład BrittaSimon@contoso.com .)
+    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon@ \<yourcompanydomain> . \<extension>**. (Na przykład BrittaSimon@contoso.com .)
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
@@ -221,7 +221,7 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka ThirdLight w panelu dostępu należy automatycznie zalogować się do wystąpienia ThirdLight, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

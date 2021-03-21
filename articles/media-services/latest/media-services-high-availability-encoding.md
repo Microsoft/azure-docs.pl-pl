@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 81feb5b95578cedea7bf368aa1e0d6c2e9117077
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456015"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Wysoka dostępność dzięki Media Services i wideo na żądanie (VOD)

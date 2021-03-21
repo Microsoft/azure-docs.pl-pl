@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć i skonfigurować laboratorium zajęć, 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434213"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Zarządzanie laboratoriami w Azure Lab Services 
@@ -91,12 +91,12 @@ Aby skonfigurować laboratorium na potrzeby zajęć w ramach konta laboratorium,
 
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
-| Mała | 2 | 3,5 GB | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
-| Średniaa | 4 | 7 GB | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analiz | 
+| Mały | 2 | 3,5 GB | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
+| Śred. | 4 | 7 GB | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analiz | 
 | Średni (Wirtualizacja zagnieżdżona) | 4 | 16 GB | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy. Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. <p>Tego rozmiaru można używać w scenariuszach, w których każdy student potrzebuje wielu maszyn wirtualnych. Wykładowcy mogą używać wirtualizacji zagnieżdżonej, aby skonfigurować kilka małych, zagnieżdżonych maszyn wirtualnych w ramach maszyny wirtualnej. </p> |
 | Mały procesor GPU (obliczenia) | 6 | 56 GB | <p>Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z mocy obliczeniowej i intensywnie korzystających z sieci, takich jak sztuczne inteligencje i aplikacje</p><p>Azure Lab Services automatycznie instaluje i konfiguruje niezbędne sterowniki procesora GPU podczas tworzenia laboratorium z obrazami procesora GPU. </p> | 
 | Mały procesor GPU (wizualizacja) | 6 | 56 GB | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. | 
-| Duża | 8 | 16 GB | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
+| Duży | 8 | 16 GB | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
 | Duże (Wirtualizacja zagnieżdżona) | 8 | 32 GB | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |  
 | Średni procesor GPU (wizualizacja) | 12 | 112 GB | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. | 
 

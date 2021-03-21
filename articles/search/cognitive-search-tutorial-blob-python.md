@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788087"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
@@ -45,7 +45,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. Otwórz ten [folder w usłudze OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) i w lewym górnym rogu, kliknij pozycję **Pobierz** , aby skopiować pliki do komputera. 
 
-1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko** . Istnieje 14 plików różnych typów. W tym ćwiczeniu należy użyć 7.
+1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko**. Istnieje 14 plików różnych typów. W tym ćwiczeniu należy użyć 7.
 
 ## <a name="1---create-services"></a>1 — Tworzenie usług
 
@@ -55,7 +55,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 ### <a name="start-with-azure-storage"></a>Rozpoczynanie pracy z usługą Azure Storage
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób** .
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób**.
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
@@ -63,13 +63,13 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
-   + **Grupa zasobów** . Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
+   + **Grupa zasobów**. Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
 
-   + **Nazwa konta magazynu** . Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus* . 
+   + **Nazwa konta magazynu**. Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
 
-   + **Lokalizacja** . Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
+   + **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
 
-   + **Rodzaj konta** . Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)* .
+   + **Rodzaj konta**. Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)*.
 
 1. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć usługę.
 
@@ -77,11 +77,11 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Kliknij pozycję **obiekty blob** usługa.
 
-1. Kliknij pozycję **+ kontener** , aby utworzyć kontener i nadaj mu nazwę *koło zębate-Search-demonstracyjn* .
+1. Kliknij pozycję **+ kontener** , aby utworzyć kontener i nadaj mu nazwę *koło zębate-Search-demonstracyjn*.
 
 1. Wybierz pozycję *koło zębate-Search-demonstracyjny* , a następnie kliknij pozycję **Przekaż** , aby otworzyć folder, w którym zapisano pliki do pobrania. Zaznacz wszystkie pliki niebędące obrazami. Należy mieć 7 plików. Kliknij przycisk **OK** , aby przekazać.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Utwórz konto magazynu" border="false":::
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Przekaż pliki przykładowe" border="false":::
 
 1. Przed opuszczeniem usługi Azure Storage należy uzyskać parametry połączenia, aby można było sformułować połączenie w usłudze Azure Wyszukiwanie poznawcze. 
 
@@ -117,7 +117,7 @@ Tak jak w przypadku usługi Azure Blob Storage, poświęć chwilę na zebranie k
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Utwórz konto magazynu" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Wszystkie żądania wymagają klucza API-Key w nagłówku każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia zaufanie dla każdego żądania, między aplikacją wysyłającą żądanie a usługą, która go obsługuje.
 
@@ -190,11 +190,11 @@ print(r.status_code)
 
 Na Azure Portal na stronie Pulpit nawigacyjny usługi wyszukiwania Sprawdź, czy na liście **źródła danych** jest wyświetlana wartość cogsrch-PR-DataSource. Kliknij przycisk **Odśwież** , aby zaktualizować stronę.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Kafelek źródła danych w portalu" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Krok 2. Tworzenie elementu zestawu umiejętności
 
-W tym kroku zdefiniujesz zestaw kroków wzbogacania, które zostaną zastosowane do danych. Każdy krok wzbogacania to *umiejętność* , a zestaw kroków wzbogacenia to *zestaw umiejętności* . W tym samouczku są stosowane [wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
+W tym kroku zdefiniujesz zestaw kroków wzbogacania, które zostaną zastosowane do danych. Każdy krok wzbogacania to *umiejętność*, a zestaw kroków wzbogacenia to *zestaw umiejętności*. W tym samouczku są stosowane [wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
 
 + [Rozpoznawanie jednostek](cognitive-search-skill-entity-recognition.md) do wyodrębniania nazw organizacji z zawartości kontenera obiektów BLOB.
 
@@ -303,7 +303,7 @@ Każda umiejętność jest wykonywana dla zawartości dokumentu. Podczas przetwa
 
 Graficzna reprezentacja zestawu umiejętności jest przedstawiona poniżej.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Zrozumienie zestawu umiejętności" border="false":::
 
 Wyniki mogą być mapowane na indeks, używany jako dane wejściowe do poziomu umiejętności podrzędnej, lub w obu przypadkach, podobnie jak w przypadku kodu języka. W indeksie kod języka jest przydatny do filtrowania. Kod języka jest używany jako dane wejściowe przez umiejętności analizy tekstu w celu określenia zasad podziału wyrazów przez reguły językowe.
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 W odpowiedzi Monitoruj `"lastResult"` dla nich `"status"` `"endTime"` wartości i. Należy okresowo uruchamiać skrypt, aby sprawdzić stan. Po zakończeniu indeksatora stan zostanie ustawiony na "powodzenie", zostanie określona wartość "endTime", a odpowiedź będzie zawierać wszelkie błędy i ostrzeżenia, które wystąpiły podczas wzbogacania.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Utworzono indeksator" border="false":::
 
 Ostrzeżenia często występują dla niektórych kombinacji plików źródłowych i umiejętności oraz nie zawsze wskazują istnienie problemu. Wiele ostrzeżeń jest niegroźnych. Na przykład w przypadku indeksowania pliku JPEG, który nie zawiera tekstu, na tym zrzucie ekranu zobaczysz ostrzeżenie.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Przykładowe ostrzeżenie indeksatora" border="false":::
 
 ## <a name="5---search"></a>5 — wyszukiwanie
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Wyniki powinny wyglądać podobnie do poniższego przykładu. Zrzut ekranu przedstawia tylko część odpowiedzi.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Indeks zapytania dla wszystkich pól" border="false":::
 
 Dane wyjściowe to schemat indeksu z nazwą, typem i atrybutami każdego pola.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Wyniki powinny wyglądać podobnie do poniższego przykładu. Zrzut ekranu przedstawia tylko część odpowiedzi.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Indeks zapytania dla zawartości organizacji" border="false":::
 
 Powtórz dla dodatkowych pól: `content` , `languageCode` , `keyPhrases` i `organizations` w tym ćwiczeniu. Istnieje możliwość zwrócenia wielu pól za pomocą elementu `$select` używającego listy wartości rozdzielonych przecinkami.
 
@@ -522,7 +522,7 @@ W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem
 
 Możesz użyć portalu, aby usunąć indeksy, indeksatory, źródła danych i umiejętności. Po usunięciu indeksatora można opcjonalnie selektywnie usunąć indeks, zestawu umiejętności i źródło danych.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Utwórz konto magazynu" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Usuwanie obiektów wyszukiwania w portalu" border="false":::
 
 Można je również usunąć za pomocą skryptu. Poniższy skrypt pokazuje, jak usunąć element zestawu umiejętności. 
 

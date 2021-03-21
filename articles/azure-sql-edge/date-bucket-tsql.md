@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073523"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -41,30 +41,30 @@ Część *daty* , która jest używana z parametrem "number". Np. Rok, miesiąc,
   
 |*Funkcja*|Skróty|  
 |---|---|
-|**dzień**|**DD** , **d**|  
-|**ciągu**|**tydz** , **ww**| 
-|**miesiąc**|**mm** , **m**|
-|**kwartale**|**QQ** , **q**|  
-|**czteroletniego**|**yy** , **rrrr**|  
+|**dzień**|**DD**, **d**|  
+|**ciągu**|**tydz**, **ww**| 
+|**miesiąc**|**mm**, **m**|
+|**kwartale**|**QQ**, **q**|  
+|**rok**|**yy**, **rrrr**|  
 |**wydajność**|**hh**|  
-|**minuta**|**mi** , **n**|  
-|**sekunda**|**SS** , **s**|  
+|**minuta**|**mi**, **n**|  
+|**sekunda**|**SS**, **s**|  
 |**milisekund**|**Arial**|  
 
 *Liczba*
 
-Liczba całkowita, która decyduje o szerokości zasobnika połączonego z argumentem *datePart* . Reprezentuje szerokość zasobników datapart z czasu pochodzenia. **`This argument cannot be a negative integer value`** . 
+Liczba całkowita, która decyduje o szerokości zasobnika połączonego z argumentem *datePart* . Reprezentuje szerokość zasobników datapart z czasu pochodzenia. **`This argument cannot be a negative integer value`**. 
 
-*date*
+*data*
 
 Wyrażenie, które może zostać rozpoznane jako jedna z następujących wartości:
 
-+ **date**
++ **data**
 + **datetime**
 + **datetimeoffset**
 + **datetime2**
 + **smalldatetime**
-+ **time**
++ **pierwszym**
 
 W przypadku *daty* program `DATE_BUCKET` przyjmuje wyrażenie kolumny, wyrażenie lub zmienną zdefiniowaną przez użytkownika, jeśli rozwiążą się one z dowolnym z wymienionych powyżej typów danych.
 
@@ -72,12 +72,12 @@ W przypadku *daty* program `DATE_BUCKET` przyjmuje wyrażenie kolumny, wyrażeni
 
 Opcjonalne wyrażenie, które może zostać rozpoznane jako jedna z następujących wartości:
 
-+ **date**
++ **data**
 + **datetime**
 + **datetimeoffset**
 + **datetime2**
 + **smalldatetime**
-+ **time**
++ **pierwszym**
 
 Typ danych dla `Origin` powinien być zgodny z typem danych `Date` parametru. 
 
@@ -125,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>Argument datepart
 
-**dzieńroku** , **Day** i **Weekday** zwracają tę samą wartość. Każdy *parametr datepart* i jego skróty zwracają tę samą wartość.
+**dzieńroku**, **Day** i **Weekday** zwracają tę samą wartość. Każdy *parametr datepart* i jego skróty zwracają tę samą wartość.
   
 ## <a name="number-argument"></a>Argument liczb
 
@@ -200,7 +200,7 @@ W tych przykładach różne typy wyrażeń są używane jako argumenty dla param
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>Określanie zmiennych zdefiniowanych przez użytkownika jako liczby i daty  
 
-Ten przykład określa zmienne zdefiniowane przez użytkownika jako argumenty dla *liczby* i *daty* :
+Ten przykład określa zmienne zdefiniowane przez użytkownika jako argumenty dla *liczby* i *daty*:
   
 ```sql
 DECLARE @days int = 365,
@@ -250,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>Określanie skalarnej funkcji systemowej jako daty
 
-Ten przykład określa `SYSDATETIME` dla *daty* . Zwracana wartość jest zależna od dnia i godziny wykonywania instrukcji:
+Ten przykład określa `SYSDATETIME` dla *daty*. Zwracana wartość jest zależna od dnia i godziny wykonywania instrukcji:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -267,7 +267,7 @@ Tutaj znajduje się zestaw wyników.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Określanie skalarnych podzapytań i funkcji skalarnych jako liczby i daty
 
-W tym przykładzie są wykorzystywane podzapytania skalarne, `MAX(OrderDate)` jako argumenty dla *liczby* i *daty* . `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` służy jako sztuczny argument parametru Number, aby pokazać, jak wybrać argument *liczbowy* z listy wartości.
+W tym przykładzie są wykorzystywane podzapytania skalarne, `MAX(OrderDate)` jako argumenty dla *liczby* i *daty*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` służy jako sztuczny argument parametru Number, aby pokazać, jak wybrać argument *liczbowy* z listy wartości.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -284,7 +284,7 @@ SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Określanie funkcji okna agregacji jako liczby
 
-Ten przykład używa funkcji okna agregacji jako argumentu dla *liczby* .
+Ten przykład używa funkcji okna agregacji jako argumentu dla *liczby*.
   
 ```sql
 Select 

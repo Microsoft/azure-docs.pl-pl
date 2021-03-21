@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
 ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485447"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL jest odpowiednia do uruchamiania krytycznych baz d
 | ------------ | ----------- |
 | <b>Serwer bazy danych PostgreSQL | Azure Database for PostgreSQL zapewnia zabezpieczenia, izolację, zabezpieczenia zasobów i funkcję szybkiego ponownego uruchamiania dla serwerów baz danych. Te funkcje ułatwiają wykonywanie operacji, takich jak skalowanie i odzyskiwanie serwera bazy danych, po awarii w kilka sekund. <br/> Modyfikacje danych na serwerze bazy danych zwykle występują w kontekście transakcji bazy danych. Wszystkie zmiany bazy danych są rejestrowane synchronicznie w postaci zapisu z wyprzedzeniem (WAL) w usłudze Azure Storage, która jest dołączona do serwera bazy danych. Podczas procesu tworzenia [punktu kontrolnego](https://www.postgresql.org/docs/11/sql-checkpoint.html) bazy danych strony danych z pamięci serwera bazy danych są również opróżniane do magazynu. |
 | <b>Magazyn zdalny | Wszystkie pliki danych fizycznych PostgreSQL i pliki WAL są przechowywane w usłudze Azure Storage, która jest poddana architekturze w celu przechowywania trzech kopii danych w obrębie regionu w celu zapewnienia nadmiarowości, dostępności i niezawodności danych. Warstwa magazynowania jest również niezależna od serwera bazy danych. Można go odłączyć od nieuszkodzonego serwera bazy danych i ponownie dołączyć do nowego serwera bazy danych w ciągu kilku sekund. Ponadto usługa Azure Storage ciągle monitoruje się pod kątem błędów magazynu. W przypadku wykrycia uszkodzenia bloku zostanie ono automatycznie naprawione przez utworzenie wystąpienia nowej kopii magazynu. |
-| <b>Punkt | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
+| <b>Brama | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
 
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
 Azure Database for PostgreSQL jest zaprojektowany w celu zapewnienia wysokiej dostępności podczas planowanych operacji przestojów. 
@@ -49,7 +49,7 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, w ciągu kilku sekund zostanie automatycznie zainicjowany nowy serwer bazy danych. Magazyn zdalny jest automatycznie dołączany do nowego serwera bazy danych. Aparat PostgreSQL wykonuje operację odzyskiwania przy użyciu plików WAL i Database, a następnie otwiera serwer baz danych, aby umożliwić klientom nawiązywanie połączeń. Niezatwierdzone transakcje są tracone i muszą być ponawiane przez aplikację. Nie można uniknąć nieplanowanych przestojów, Azure Database for PostgreSQL ogranicza przestoje przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka. 
 
 
-:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="Widok elastycznego skalowania w usłudze Azure PostgreSQL":::
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="Widok wysokiej dostępności w usłudze Azure PostgreSQL":::
 
 1. Serwery usługi Azure PostgreSQL z funkcją szybkiego skalowania.
 2. Brama, która działa jako serwer proxy do kierowania połączeń klienta do odpowiedniego serwera bazy danych

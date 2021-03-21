@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92787146"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych w celu skalowania w poziomie
@@ -72,7 +72,7 @@ W przypadku modelu z jedną dzierżawą Utwórz mapę **listy mapowania** fragme
 
 ![Mapowanie listy][1]
 
-Model wielu dzierżawców przypisuje kilka dzierżawców do pojedynczej bazy danych (i można dystrybuować grupy dzierżawców w wielu bazach danych). Użyj tego modelu, gdy oczekuje się, że każda dzierżawa będzie miała małe potrzeby w zakresie danych. W tym modelu Przypisz zakres dzierżawców do bazy danych przy użyciu **mapowania zakresu** .
+Model wielu dzierżawców przypisuje kilka dzierżawców do pojedynczej bazy danych (i można dystrybuować grupy dzierżawców w wielu bazach danych). Użyj tego modelu, gdy oczekuje się, że każda dzierżawa będzie miała małe potrzeby w zakresie danych. W tym modelu Przypisz zakres dzierżawców do bazy danych przy użyciu **mapowania zakresu**.
 
 ![Mapowanie zakresu][2]
 

@@ -13,10 +13,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96457615"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Zalecenia dotyczące zabezpieczeń dla wdrożenia usługi Azure Internet rzeczy (IoT)
@@ -51,12 +51,12 @@ Niektóre zalecenia zawarte w tym artykule mogą być automatycznie monitorowane
 | Zabezpieczanie komunikacji urządzeń | IoT Hub zabezpiecza połączenie z urządzeniami przy użyciu standardu Transport Layer Security (TLS), obsługując wersje 1,2 i 1,0. Aby zapewnić maksymalne bezpieczeństwo, użyj [protokołu TLS 1,2](https://tools.ietf.org/html/rfc5246) . | - |
 | Bezpieczna komunikacja z usługą | IoT Hub udostępnia punkty końcowe do nawiązywania połączeń z usługami zaplecza, takimi jak [usługa Azure Storage](../storage/index.yml) , lub [Event Hubs](../event-hubs/index.yml) przy użyciu tylko protokołu TLS, a punkt końcowy nie jest ujawniany na nieszyfrowanym kanale. Gdy te dane osiągną te usługi zaplecza do przechowywania lub analizy, należy zastosować odpowiednie metody zabezpieczeń i szyfrowania dla tej usługi oraz chronić poufne informacje w zapleczu. | - |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 | Zalecenie | Komentarze | Obsługiwane przez ASC |
 |-|----|--|
 | Ochrona dostępu do urządzeń | Aby uniknąć niepożądanego dostępu, przechowuj porty sprzętowe na urządzeniach jako minimum systemu operacyjnego. Ponadto mechanizmy kompilacji, aby zapobiec lub wykryć fizyczne manipulowanie urządzeniem. Przeczytaj temat [najlepsze rozwiązania z zakresu zabezpieczeń IoT](iot-security-best-practices.md) , aby uzyskać szczegółowe informacje. | - |
-| Tworzenie bezpiecznego sprzętu | Włączenie funkcji zabezpieczeń, takich jak zaszyfrowany magazyn lub moduł TPM (TPM), aby zapewnić lepszą ochronę urządzeń i infrastruktury. Zadbaj, aby system operacyjny i sterowniki sterownika były uaktualnione do najnowszych wersji, a jeśli miejsce zezwala, zainstaluj program antywirusowy i oprogramowanie chroniące przed złośliwym kodem. Przeczytaj temat [Architektura zabezpieczeń IoT](iot-security-architecture.md) , aby zrozumieć, jak może to pomóc w eliminowaniu kilku zagrożeń bezpieczeństwa. | - |
+| Tworzenie bezpiecznego sprzętu | Włączenie funkcji zabezpieczeń, takich jak zaszyfrowany magazyn lub Trusted Platform Module (TPM), aby zapewnić lepszą ochronę urządzeń i infrastruktury. Zadbaj, aby system operacyjny i sterowniki sterownika były uaktualnione do najnowszych wersji, a jeśli miejsce zezwala, zainstaluj program antywirusowy i oprogramowanie chroniące przed złośliwym kodem. Przeczytaj temat [Architektura zabezpieczeń IoT](iot-security-architecture.md) , aby zrozumieć, jak może to pomóc w eliminowaniu kilku zagrożeń bezpieczeństwa. | - |
 
 ## <a name="monitoring"></a>Monitorowanie
 

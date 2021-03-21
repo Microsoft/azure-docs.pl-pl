@@ -4,10 +4,10 @@ description: Ograniczanie dostępu do usługi Azure Container Registry przy uży
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93026228"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
@@ -37,7 +37,7 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 
 * Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i wypchnij przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr. 
 
-* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
+* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Na przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -53,7 +53,7 @@ W tej sekcji Skonfiguruj rejestr kontenerów w taki sposób, aby zezwalał na do
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Dodawanie punktu końcowego usługi do podsieci
 
-Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład jeśli nazwasz maszyny wirtualnej *myDockerVM* , domyślną nazwą sieci wirtualnej jest *myDockerVMVNET* , z podsiecią o nazwie *myDockerVMSubnet* . Sprawdź to przy użyciu polecenia [AZ Network VNET list][az-network-vnet-list] :
+Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład jeśli nazwasz maszyny wirtualnej *myDockerVM*, domyślną nazwą sieci wirtualnej jest *myDockerVMVNET*, z podsiecią o nazwie *myDockerVMSubnet*. Sprawdź to przy użyciu polecenia [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -151,7 +151,7 @@ Aby wyświetlić listę reguł sieci skonfigurowanych dla rejestru, uruchom nast
 az acr network-rule list --name mycontainerregistry 
 ```
 
-Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Przykład:
+Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Na przykład:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.

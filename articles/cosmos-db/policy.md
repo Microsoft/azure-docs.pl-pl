@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93080655"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
@@ -127,7 +127,7 @@ Zrzut ekranu przedstawia następujące wyniki oceny zgodności dla kont Azure Co
 - Zero z dwóch kont jest zgodnych z zasadami, które wymagają skonfigurowania konta dla wielu lokalizacji zapisu
 - Dwa konta są zgodne z zasadami, które zostały wdrożone w dozwolonych regionach platformy Azure.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Wyszukaj Azure Cosmos DB wbudowane definicje zasad":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Wyniki zgodności dla przypisań Azure Policy na liście":::
 
 Aby skorygować niezgodne zasoby, zobacz [jak skorygować zasoby przy użyciu Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: c1fff5b5b7f6450ad8d1977e55a1f6b255f3d668
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754321"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Najlepsze rozwiązania dotyczące tworzenia ocen
@@ -102,7 +102,7 @@ Poniżej przedstawiono sposób rozwiązywania niektórych typowych problemów ze
 
 ###  <a name="out-of-sync-assessments"></a>Oceny braku synchronizacji
 
-Jeśli dodasz lub usuniesz maszyny z grupy po utworzeniu oceny, utworzona Ocena zostanie oznaczona jako **niezsynchronizowana**. Uruchom ocenę ponownie, aby **Recalculate** odzwierciedlić zmiany grupy.
+Jeśli dodasz lub usuniesz maszyny z grupy po utworzeniu oceny, utworzona Ocena zostanie oznaczona jako **niezsynchronizowana**. Uruchom ocenę ponownie, abyodzwierciedlić zmiany grupy.
 
 ### <a name="outdated-assessments"></a>Nieaktualne oceny
 
@@ -117,7 +117,7 @@ Jeśli istnieją lokalne zmiany w maszynach wirtualnych, które znajdują się w
 - Zmiana rozmiaru dysku (przydzielono GB)
 - Aktualizacja właściwości karty sieciowej. Przykład: zmiany adresów MAC, Dodawanie adresów IP itp.
 
-Uruchom ocenę ponownie, aby **Recalculate** odzwierciedlić zmiany.
+Uruchom ocenę ponownie, abyodzwierciedlić zmiany.
 
 ### <a name="low-confidence-rating"></a>Ocena niskiej pewności
 

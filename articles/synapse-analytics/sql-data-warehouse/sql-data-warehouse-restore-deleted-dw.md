@@ -12,17 +12,17 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7264791654bf1b646338f0d429930b63f0cc3a06
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96449934"
 ---
 # <a name="restore-a-deleted-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Przywracanie usuniętej dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
 W tym artykule dowiesz się, jak przywrócić dedykowaną pulę SQL (dawniej SQL DW) przy użyciu Azure Portal lub programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

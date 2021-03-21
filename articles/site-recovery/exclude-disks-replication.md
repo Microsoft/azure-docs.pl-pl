@@ -4,10 +4,10 @@ description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008263"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
@@ -56,13 +56,13 @@ Przykłady zmian danych, które są doskonałymi kandydatami do wykluczenia, obe
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Przykład 1. Wykluczanie dysku bazy danych tempdb programu SQL Server
 
-Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródła SQL Server Windows VM- **bazy danych salesdb** _, dla którego chcemy wykluczyć bazę danych tempdb. 
+Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródła SQL Server maszyny wirtualnej z systemem Windows-* * bazy danych salesdb * * *, dla którego chcemy wykluczyć bazę danych tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
 
 Te dyski są dostępne w źródłowej bazy danych salesdb maszyny wirtualnej z systemem Windows.
 
-_ *Nazwa dysku** | **Dysk systemu operacyjnego gościa** | **Litera dysku** | **Typ danych dysku**
+**Nazwa dysku** | **Dysk systemu operacyjnego gościa** | **Litera dysku** | **Typ danych dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego.
 DB-Disk1| Dysk1 | D:\ | Baza danych systemu SQL i database1 użytkownika.

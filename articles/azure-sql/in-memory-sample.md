@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786585"
 ---
 # <a name="in-memory-sample"></a>Przykład In-Memory
@@ -74,7 +74,7 @@ Wynik **0** oznacza, że In-Memory nie jest obsługiwana i **1** oznacza, że je
 
 ### <a name="about-the-created-memory-optimized-items"></a>Informacje o utworzonych elementach zoptymalizowanych pod kątem pamięci
 
-**Tabele** : przykład zawiera następujące tabele zoptymalizowane pod kątem pamięci:
+**Tabele**: przykład zawiera następujące tabele zoptymalizowane pod kątem pamięci:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Wynik **0** oznacza, że In-Memory nie jest obsługiwana i **1** oznacza, że je
 - Demonstracja. DemoSalesOrderHeaderSeed
 - Demonstracja. DemoSalesOrderDetailSeed
 
-Tabele zoptymalizowane pod kątem pamięci można sprawdzić za pomocą **Eksplorator obiektów** w programie SSMS. Kliknij prawym przyciskiem myszy pozycję **tabele**  >  **Filter**  >  **Ustawienia filtru** filtr  >  **jest zoptymalizowane pod kątem pamięci** . Wartość jest równa 1.
+Tabele zoptymalizowane pod kątem pamięci można sprawdzić za pomocą **Eksplorator obiektów** w programie SSMS. Kliknij prawym przyciskiem myszy pozycję **tabele**  >    >  **Ustawienia filtru** filtr  >  **jest zoptymalizowane pod kątem pamięci**. Wartość jest równa 1.
 
 Lub można wykonywać zapytania dotyczące widoków wykazu, takich jak:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procedura składowana skompilowana w sposób macierzysty** : można sprawdzić SalesLT.usp_InsertSalesOrder_inmem za pomocą zapytania widoku wykazu:
+**Procedura składowana skompilowana w sposób macierzysty**: można sprawdzić SalesLT.usp_InsertSalesOrder_inmem za pomocą zapytania widoku wykazu:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk* . Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
+Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk*. Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Zainstaluj narzędzia RML i `ostress`
 
@@ -205,7 +205,7 @@ Po `ostress.exe` zakończeniu zapisuje czas wykonywania jako ostatni wiersz dany
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Zresetuj, Edytuj pod kątem *_ondisk* , a następnie uruchom ponownie
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Zresetuj, Edytuj pod kątem *_ondisk*, a następnie uruchom ponownie
 
 Po uruchomieniu *_inmem* wykonaj następujące czynności w celu uruchomienia *_ondisk* :
 
@@ -215,7 +215,7 @@ Po uruchomieniu *_inmem* wykonaj następujące czynności w celu uruchomienia *_
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edytuj wiersz polecenia ostress.exe, aby zastąpić wszystkie *_inmem* z *_ondisk* .
+2. Edytuj wiersz polecenia ostress.exe, aby zastąpić wszystkie *_inmem* z *_ondisk*.
 
 3. Ponownie uruchom ostress.exe po raz drugi i Przechwyć wynik trwania.
 

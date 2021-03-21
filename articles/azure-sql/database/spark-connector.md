@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
 ms.openlocfilehash: 2e01e74f5086f7f1eb7e85661fbd35f452d8dae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790206"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark
@@ -36,9 +36,9 @@ Repozytorium GitHub dla starego łącznika, który został wcześniej połączon
 | :-----------------------------------  | :----------------------- |
 | Apache Spark                          | 2.0.2 lub nowszy           |
 | Scala                                 | 2,10 lub nowszy            |
-| Sterownik JDBC firmy Microsoft dla SQL Server  | 6,2 lub nowszy             |
+| Sterownik JDBC firmy Microsoft dla programu SQL Server  | 6,2 lub nowszy             |
 | Microsoft SQL Server                  | SQL Server 2008 lub nowsza wersja |
-| Usługa Azure SQL Database                    | Obsługiwane                |
+| Azure SQL Database                    | Obsługiwane                |
 | Wystąpienie zarządzane Azure SQL            | Obsługiwane                |
 
 Łącznik platformy Spark używa SQL Server sterownika JDBC firmy Microsoft do przenoszenia danych między węzłami procesów roboczych Spark i bazami danych:

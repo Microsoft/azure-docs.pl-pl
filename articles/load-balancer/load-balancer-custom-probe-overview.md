@@ -1,5 +1,5 @@
 ---
-title: Sondy kondycji do skalowania i zapewnienia wysokiej dostępności dla usługi
+title: Sondy kondycji umożliwiające skalowanie i zapewnienie wysokiej dostępności usługi
 titleSuffix: Azure Load Balancer
 description: W tym artykule dowiesz się, jak używać sond kondycji do monitorowania wystąpień za Azure Load Balancer
 services: load-balancer
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96780947"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer

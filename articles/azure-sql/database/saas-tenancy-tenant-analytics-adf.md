@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: dc47c996748b126841cbeff1ea3f6f18f423951f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96457639"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
@@ -64,7 +64,7 @@ Na koniec są badane zapytania dotyczące tabel schematu gwiazdy. Wyniki zapytan
 
 Ten samouczek zawiera podstawowe przykłady szczegółowych informacji, które można wydobyć z danych biletów Wingtip. Zrozumienie, w jaki sposób każdy z miejsc używa usługi, może spowodować, że dostawca biletów Wingtip będzie myśleć o różnych planach usług przeznaczonych dla więcej lub mniej aktywnych miejsc, na przykład.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -274,6 +274,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Gratulacje!
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Dodatkowe [samouczki, które kompilują się po aplikacji Wingtip SaaS](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
