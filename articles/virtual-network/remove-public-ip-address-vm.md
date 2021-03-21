@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: allensu
 ms.openlocfilehash: 0665cbd7aa21575337999fb5c59478955c764048
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934190"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Usuń skojarzenie publicznego adresu IP z maszyny wirtualnej platformy Azure 
@@ -26,7 +26,7 @@ W tym artykule dowiesz się, jak usunąć skojarzenie publicznego adresu IP z ma
 
 Aby usunąć skojarzenie publicznego adresu IP z maszyny wirtualnej, można użyć [Azure Portal](#azure-portal), [interfejsu wiersza polecenia](#azure-cli) platformy Azure lub [programu PowerShell](#powershell) .
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do lub Wyszukaj maszynę wirtualną, z której chcesz usunąć skojarzenie publicznego adresu IP, a następnie wybierz ją.

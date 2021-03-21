@@ -4,10 +4,10 @@ description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzeni
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424669"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
@@ -46,7 +46,7 @@ Każdy zasób Application Insights jest dostarczany z metrykami, które są dost
 
 Aby ułatwić zmianę iKey, ponieważ kod przemieszcza się między etapami produkcyjnymi, należy odwołać się do klucza dynamicznie w kodzie zamiast używać wartości stałe/static.
 
-Ustaw klucz w metodzie inicjującej, na przykład global.aspx.cs w usłudze ASP.NET:
+Ustaw klucz w metodzie inicjującej, takiej jak Global. aspx. cs w usłudze ASP.NET:
 
 ```csharp
 protected void Application_Start()
@@ -123,7 +123,7 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 
     Etykieta kompilacji zawiera symbol zastępczy (AutoGen_...) podczas kompilowania przy użyciu programu Visual Studio. Ale w przypadku skompilowania przy użyciu programu MSBuild jest on wypełniony prawidłowym numerem wersji.
 
-    Aby umożliwić programowi MSBuild generowanie numerów wersji, ustaw wersję podobną do `1.0.*` AssemblyReference.cs
+    Aby umożliwić programowi MSBuild generowanie numerów wersji, ustaw wersję podobną do `1.0.*` elementu AssemblyReference. cs
 
 ## <a name="version-and-release-tracking"></a>Śledzenie wersji i wydania
 Aby śledzić wersje aplikacji, upewnij się, że plik `buildinfo.config` jest generowany przez proces aparatu Microsoft Build Engine. W `.csproj` pliku Dodaj następujące polecenie:  

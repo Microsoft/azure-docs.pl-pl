@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667498"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pula SQL bezserwerowa w usłudze Azure Synapse Analytics 
@@ -81,7 +81,7 @@ Obsługiwane T-SQL:
 
 Bezserwerowa Pula SQL nie ma lokalnego magazynu, tylko obiekty metadanych są przechowywane w bazach danych. W związku z tym język T-SQL dotyczący następujących pojęć nie jest obsługiwany:
 
-- Tabele
+- tabelami
 - Wyzwalacze
 - Zmaterializowane widoki
 - Instrukcje języka DDL inne niż powiązane z widokami i zabezpieczeniami

@@ -10,10 +10,10 @@ ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: d8db9257ad6eed98b39cd2c9a52351f013453365
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935230"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego (wersja zapoznawcza) dla dedykowanych pul SQL
@@ -151,4 +151,4 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w usłudze Azure Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Możliwości Machine Learning w usłudze Azure Synapse Analytics](what-is-machine-learning.md)
+- [Możliwości uczenia maszynowego w usłudze Azure Synapse Analytics](what-is-machine-learning.md)

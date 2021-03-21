@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 84213832e59c50c85d9731ced39bbce6264df47e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571030"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590912"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
 Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowanie dotyczące najnowszych nowych funkcji i ulepszeń. 
+
+## <a name="march-2021"></a>Marzec 2021 
+
+* [Automatyczne zmienianie rozmiarów woluminu docelowego replikacji między regionami](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    W relacji replikacji między regionami wolumin docelowy jest automatycznie zmieniany na podstawie rozmiaru woluminu źródłowego. W związku z tym nie trzeba oddzielnie zmieniać rozmiaru woluminu docelowego. To automatyczne zmianę rozmiarów jest stosowane, gdy woluminy znajdują się w aktywnej relacji replikacji lub gdy Komunikacja równorzędna replikacji zostanie przerwana z operacją ponownej synchronizacji. Aby ta funkcja działała, należy zapewnić wystarczającą wysokość w pulach pojemności dla woluminów źródłowych i docelowych.
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 

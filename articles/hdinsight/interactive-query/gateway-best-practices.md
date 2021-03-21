@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933117"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
@@ -53,9 +53,9 @@ Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, kt
 
 * Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable` . **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y**.
 
-* Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używania znaku **SELECT \** _. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
+* Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używać **opcji Select \***. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
 
-_ Spróbuj uruchomić zapytanie o zainteresowanie za pomocą platformy Apache Z usługi Beeline. Jeśli pobieranie wyników za pośrednictwem platformy Apache Z usługi Beeline trwa dłuższy czas, oczekiwanie na opóźnienia podczas pobierania tych samych wyników za pośrednictwem zewnętrznych narzędzi.
+* Spróbuj uruchomić zapytanie o zainteresowanie za pomocą platformy Apache Z usługi Beeline. Jeśli pobieranie wyników za pośrednictwem platformy Apache Z usługi Beeline trwa dłuższy czas, oczekiwanie na opóźnienia podczas pobierania tych samych wyników za pośrednictwem zewnętrznych narzędzi.
 
 * Przetestuj podstawowe zapytanie programu Hive, aby upewnić się, że można nawiązać połączenie z bramą usługi HDInsight. Spróbuj uruchomić podstawowe zapytanie z poziomu dwóch lub więcej zewnętrznych narzędzi, aby upewnić się, że żadne narzędzie nie działa w problemach.
 

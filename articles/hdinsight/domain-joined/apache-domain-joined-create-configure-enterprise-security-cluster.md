@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934049"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight
@@ -115,7 +115,7 @@ Użytkownicy będą synchronizowani z usługą Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Tworzenie katalogu usługi Azure AD
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wybierz pozycję **Utwórz zasób** i wpisz `directory` . Wybierz pozycję **Azure Active Directory**  >  **Utwórz**.
 1. W obszarze **Nazwa organizacji** wpisz `HDIFabrikam` .
 1. W polu **początkowa nazwa domeny** wprowadź `HDIFabrikamoutlook` .
@@ -205,14 +205,14 @@ Utwórz Active Directory administratora dzierżawy.
    ![Strona "Konfiguracja ukończona"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Po zakończeniu synchronizacji upewnij się, że użytkownicy utworzeni w katalogu IaaS są zsynchronizowani z usługą Azure AD.
-   1. Zaloguj się do witryny Azure Portal.
+   1. Zaloguj się w witrynie Azure Portal.
    1. Wybierz **Azure Active Directory**  >    >  **użytkowników** HDIFabrikam.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
 Tworzenie tożsamości zarządzanej przypisanej przez użytkownika, której można użyć do skonfigurowania Azure AD Domain Services (AD DS platformy Azure). Aby uzyskać więcej informacji, zobacz [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wybierz pozycję **Utwórz zasób** i wpisz `managed identity` . Wybierz pozycję **Zarządzanie tożsamościami zarządzanymi przez użytkownika**  >  .
 1. Wprowadź wartość w polu **nazwa zasobu** `HDIFabrikamManagedIdentity` .
 1. Wybierz subskrypcję.
@@ -244,7 +244,7 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD DS. Aby uzyskać w
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wybierz pozycję **Utwórz zasób**, wprowadź `Domain services` i wybierz pozycję **Azure AD Domain Services**  >  **Utwórz**.
 1. Na stronie **podstawowe** :
     1. W obszarze **Nazwa katalogu** wybierz utworzony katalog usługi Azure AD: **HDIFabrikam**.

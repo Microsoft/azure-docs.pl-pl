@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 641ed73f507d35d7af548d0164ef8e80979be217
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96530480"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Co to jest usługa Azure Virtual WAN?
@@ -116,7 +116,7 @@ Globalna komunikacja równorzędna sieci wirtualnych zapewnia mechanizm łączen
 
 Wirtualna sieć WAN platformy Azure zapewnia możliwość szyfrowania ruchu ExpressRoute. Technika zawiera zaszyfrowane przedziały między sieciami lokalnymi i sieciami wirtualnymi platformy Azure za pośrednictwem usługi ExpressRoute, bez przechodzenia przez publiczny Internet ani publicznych adresów IP. Aby uzyskać więcej informacji, zobacz [IPSec over ExpressRoute dla wirtualnej sieci WAN](vpn-over-expressroute.md).
 
-## <a name="locations"></a><a name="locations"></a>Lokalizacje
+## <a name="locations"></a><a name="locations"></a>Miejsce
 
 Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
 
@@ -128,7 +128,7 @@ Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela 
 
 * **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Jeśli w sekcji Routing znajduje się wstępnie istniejące trasy dla centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md). Zdecydowanie zaleca się wykonanie kroku usuwania dla wszystkich centrów w wirtualnej sieci WAN.
 
-## <a name="faq"></a><a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

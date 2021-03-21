@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: d4c9d2e290f6a8f07878a019b755c8add2ab69ea
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488448"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601503"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Dropbox Business z Azure Active Directory
 
@@ -186,4 +186,4 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu usługi Dropbox można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu usługi Dropbox można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

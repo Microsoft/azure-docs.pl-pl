@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734625"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655855"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Wizualizacje do analizy zmian aplikacji (wersja zapoznawcza)
 
@@ -22,11 +22,11 @@ Wyszukaj wartość Analiza zmian na pasku wyszukiwania na Azure Portal, aby uruc
 
 ![Zrzut ekranu przeszukiwania analizy zmian w Azure Portal](./media/change-analysis/search-change-analysis.png)
 
-Wszystkie zasoby w ramach wybranej subskrypcji są wyświetlane ze zmianami z ostatnich 24 godzin. Aby zoptymalizować wydajność ładowania strony, usługa wyświetla 10 zasobów jednocześnie. Wybierz następną stronę, aby wyświetlić więcej zasobów. Pracujemy nad usunięciem tego ograniczenia.
+Wszystkie zasoby w ramach wybranej subskrypcji są wyświetlane ze zmianami z ostatnich 24 godzin. Wszystkie zmiany są wyświetlane ze starą wartością i nową wartością w celu uzyskania wglądu w jeden rzut oka.
 
 ![Zrzut ekranu przedstawiający blok analizy zmian w Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Kliknij zasób, aby wyświetlić wszystkie jego zmiany. W razie potrzeby przechodzenie do szczegółów w celu wyświetlenia szczegółów i szczegółowych informacji o zmianach w formacie JSON.
+Kliknięcie zmiany w celu wyświetlenia pełnego fragmentu kodu Menedżer zasobów i innych właściwości.
 
 ![Zrzut ekranu przedstawiający szczegóły zmiany](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ Interfejs użytkownika obsługuje Wybieranie wielu subskrypcji w celu wyświetle
 
 ![Zrzut ekranu filtru subskrypcji, który obsługuje Wybieranie wielu subskrypcji](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Aplikacja sieci Web diagnozowanie i rozwiązywanie problemów
-
-W Azure Monitor analizy zmian są również wbudowane w funkcję **diagnozowania i rozwiązywania problemów** . Uzyskaj dostęp do tego środowiska na stronie **Przegląd** aplikacji App Service.
-
-![Zrzut ekranu przedstawiający przycisk "przegląd" i przycisk "diagnozowanie i rozwiązywanie problemów"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Analiza zmian aplikacji w narzędziu diagnozowanie i rozwiązywanie problemów
 
@@ -69,6 +64,13 @@ Analiza zmian aplikacji to autonomiczny detektor w aplikacji sieci Web diagnozow
 5. Dane dotyczące zmiany są również dostępne w obszarze Wybierz **aplikacje sieci Web** i wykrywacze **awarii aplikacji** . Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
 
      ![Zrzut ekranu przedstawiający widok różnic między zmianami](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Narzędzie diagnozowanie i rozwiązywanie problemów
+Analiza zmian jest dostępna jako karta wglądu w narzędziu diagnozowanie i rozwiązywanie problemów. Jeśli wystąpią problemy z zasobami, a w ciągu ostatnich 72 godzin wykryto zmiany, na karcie Insights zostanie wyświetlona liczba zmian. Kliknięcie przycisku Wyświetl szczegóły zmiany spowoduje przełączenie do widoku filtrowanego z autonomicznego interfejsu użytkownika analizy zmian.
+
+![Zrzut ekranu przedstawiający wyświetlanie informacji o zmianie w narzędziu diagnozowanie i rozwiązywanie problemów.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnozowanie i rozwiązywanie problemów z maszyną wirtualną
 

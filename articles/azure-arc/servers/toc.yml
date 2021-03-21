@@ -27,11 +27,11 @@
           href: security-overview.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Łączenie z usługą Azure Arc
+    - name: Wdrażanie
       items:
         - name: Omówienie agenta połączonej maszyny
           href: agent-overview.md
-        - name: Planowanie wdrożenia w skali
+        - name: Planowanie wdrożenia
           href: plan-at-scale-deployment.md
         - name: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
           href: onboard-portal.md
