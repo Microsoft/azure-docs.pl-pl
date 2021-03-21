@@ -11,10 +11,10 @@ ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
 ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94556237"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Uruchamianie kodu w języku Python w programie Azure Machine Learning Designer
@@ -58,7 +58,7 @@ Moduły wejściowe są opcjonalne, ponieważ można generować lub importować d
 
 Projektant udostępnia początkowy skrypt punktu wejścia, który umożliwia edytowanie i wprowadzanie własnego kodu w języku Python. 
 
-W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących się w zestawie danych samochodów, **cenie** i **mocy** , aby utworzyć nową kolumnę, **dolary na minutę**. Ta kolumna przedstawia, jak bardzo płacisz za każdą próbkę, która może być przydatną funkcją do podjęcia decyzji o tym, czy samochód jest dobrym rozwiązaniem dla pieniędzy. 
+W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących się w zestawie danych samochodów, **cenie** i **mocy**, aby utworzyć nową kolumnę, **dolary na minutę**. Ta kolumna przedstawia, jak bardzo płacisz za każdą próbkę, która może być przydatną funkcją do podjęcia decyzji o tym, czy samochód jest dobrym rozwiązaniem dla pieniędzy. 
 
 1. Wybierz moduł **skrypt języka Python** .
 
@@ -83,7 +83,7 @@ W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących si�
     
 1. Prześlij potok.
 
-Teraz masz zestaw danych z nową funkcją **dolarów/HP** , co może być przydatne w szkoleniu zalecenia dotyczącego samochodu. Jest to przykładowa Ekstrakcja funkcji i redukcja liczby wymiarów. 
+Teraz masz zestaw danych z nową funkcją **dolarów/HP**, co może być przydatne w szkoleniu zalecenia dotyczącego samochodu. Jest to przykładowa Ekstrakcja funkcji i redukcja liczby wymiarów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

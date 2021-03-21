@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501247"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Wdrażanie modelu z programu Visual Studio
@@ -39,7 +39,7 @@ Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa s
 
 ## <a name="to-deploy-from-visual-studio"></a>Aby wdrożyć z programu Visual Studio
 
-1. W programie Visual Studio > **Eksplorator rozwiązań**, kliknij prawym przyciskiem myszy > **Właściwości** projektu. Następnie na **Deployment**  >  **serwerze** wdrażania wklej nazwę serwera.   
+1. W programie Visual Studio > **Eksplorator rozwiązań**, kliknij prawym przyciskiem myszy > **Właściwości** projektu. Następnie na   >  **serwerze** wdrażania wklej nazwę serwera.   
    
     ![Wklejanie nazwy serwera we właściwościach serwera wdrażania](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy **Właściwości**, a następnie kliknij przycisk **Wdróż**. Może zostać wyświetlony monit o zalogowanie się do platformy Azure.

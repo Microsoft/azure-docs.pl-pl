@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96497932"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
@@ -195,7 +195,7 @@ Aby wdrożyć nowy zasób serwera w innym regionie, użyjesz **template.jsna** w
 
 3. Wybierz **Template Deployment**.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 

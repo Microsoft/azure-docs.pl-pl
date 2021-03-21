@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 62516218ed2c0249f829ad8d286e4ad8bbc471f8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932095"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure
@@ -44,7 +44,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt** odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz pozycję **Dalej**.
+1. W obszarze **Utwórz nowy projekt** odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz opcję **Dalej**.
 
 1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę projektu. W obszarze **Struktura** wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz przycisk **Utwórz**.
 
@@ -80,7 +80,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
    Parametry połączenia magazynu konfiguracji aplikacji są odczytywane ze zmiennej środowiskowej `ConnectionString` . Dodaj `Environment` konstruktora konfiguracji przed `MyConfigStore` `configBuilders` właściwością w `appSettings` sekcji.
 
-1. Otwórz *program.cs* i zaktualizuj metodę, `Main` Aby użyć konfiguracji aplikacji przez wywołanie `ConfigurationManager` .
+1. Otwórz *program programy. cs* i zaktualizuj `Main` metodę, aby użyć konfiguracji aplikacji przez wywołanie `ConfigurationManager` .
 
     ```csharp
     static void Main(string[] args)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282171"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Samouczek: hostowanie własnej domeny w usłudze Azure DNS
@@ -65,7 +65,7 @@ Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz znać serwer
 
 1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal wybierz pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** wybierz swoją strefę DNS. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wprowadzić nazwę Twojej domeny w polu **Filtruj według nazwy**, aby łatwo uzyskać dostęp do bramy aplikacji. 
 
-1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie do contoso.net strefy zostały przypisane serwery nazw *ns1-01.Azure-DNS.com*, *NS2-01.Azure-DNS.NET*, *NS3-01.Azure-DNS.org*i *NS4-01.Azure-DNS.info*:
+1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie do contoso.net strefy zostały przypisane serwery nazw *ns1-01.Azure-DNS.com*, *NS2-01.Azure-DNS.NET*, *NS3-01.Azure-DNS.org* i *NS4-01.Azure-DNS.info*:
 
    ![Lista serwerów nazw](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 

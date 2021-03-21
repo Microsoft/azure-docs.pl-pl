@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397811"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurowanie kompleksowego szyfrowania TLS przy użyciu usługi Application Gateway w programie PowerShell
 
 ## <a name="overview"></a>Omówienie
 
 Usługa Azure Application Gateway obsługuje kompleksowe szyfrowanie ruchu sieciowego. Application Gateway przerywa połączenie TLS/SSL w bramie aplikacji. Następnie Brama stosuje reguły routingu do ruchu, ponownie szyfruje pakiet i przekazuje pakiet do odpowiedniego serwera zaplecza na podstawie zdefiniowanych reguł routingu. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego.
 
-Application Gateway obsługuje definiowania niestandardowych opcji protokołu TLS. Obsługuje ona również wyłączanie następujących wersji protokołów: **TLSv 1.0** , **TLSv 1.1** i **TLSv 1.2** , a także Definiowanie mechanizmów szyfrowania, które mają być używane, oraz kolejności preferencji. Aby dowiedzieć się więcej na temat konfigurowalnych opcji protokołu TLS, zobacz [Omówienie zasad protokołu TLS](application-gateway-SSL-policy-overview.md).
+Application Gateway obsługuje definiowania niestandardowych opcji protokołu TLS. Obsługuje ona również wyłączanie następujących wersji protokołów: **TLSv 1.0**, **TLSv 1.1** i **TLSv 1.2**, a także Definiowanie mechanizmów szyfrowania, które mają być używane, oraz kolejności preferencji. Aby dowiedzieć się więcej na temat konfigurowalnych opcji protokołu TLS, zobacz [Omówienie zasad protokołu TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > Protokoły SSL 2,0 i SSL 3,0 są domyślnie wyłączone i nie można ich włączyć. Są one uznawane za niezabezpieczone i nie mogą być używane z Application Gateway.
@@ -38,7 +38,7 @@ W tym scenariuszu zostaną:
 * Utwórz dwie podsieci o nazwie **appgwsubnet** i **appsubnet**.
 * Utwórz małą bramę aplikacji obsługującą kompleksowe szyfrowanie TLS, które ograniczają wersje protokołu TLS i mechanizmy szyfrowania.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -202,7 +202,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Skonfiguruj rozmiar wystąpienia bramy aplikacji. Dostępne rozmiary to **standardowe \_ małe** , **standardowe i \_** **\_ duże**.  W celu uzyskania pojemności dostępne są wartości od **1** do **10**.
+10. Skonfiguruj rozmiar wystąpienia bramy aplikacji. Dostępne rozmiary to **standardowe \_ małe**, **standardowe i \_** **\_ duże**.  W celu uzyskania pojemności dostępne są wartości od **1** do **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -219,7 +219,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
     - **TLSV1_1**
     - **TLSV1_2**
     
-    W poniższym przykładzie ustawiono minimalną wersję protokołu do **TLSv1_2** i włącza **Protokół \_ TLS \_ \_ \_ \_ 128 \_ GCM \_ SHA256** , **tls \_ ECDHE \_ ECDSA \_ z \_ algorytmem AES \_ 256 \_ GCM \_ SHA384** i **TLS \_ \_ \_ \_ 128 \_ GCM \_** SHA256.
+    W poniższym przykładzie ustawiono minimalną wersję protokołu do **TLSv1_2** i włącza **Protokół \_ TLS \_ \_ \_ \_ 128 \_ GCM \_ SHA256**, **tls \_ ECDHE \_ ECDSA \_ z \_ algorytmem AES \_ 256 \_ GCM \_ SHA384** i **TLS \_ \_ \_ \_ 128 \_ GCM \_** SHA256.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom

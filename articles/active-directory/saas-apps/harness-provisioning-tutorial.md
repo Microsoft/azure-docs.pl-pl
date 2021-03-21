@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94353734"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu dla automatycznej aprowizacji użytkowników
@@ -90,7 +90,7 @@ Przed skonfigurowaniem programu do automatycznej aprowizacji użytkowników przy
 
     ![Przycisk "Nowa aplikacja"](common/add-new-app.png)
 
-1. W polu wyszukiwania wprowadź wartość **zespół** , wybierz pozycję **zespół** na liście wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
+1. W polu wyszukiwania wprowadź wartość **zespół**, wybierz pozycję **zespół** na liście wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
 
     ![Korzystanie z listy wyników](common/search-new-app.png)
 
@@ -154,7 +154,7 @@ Aby skonfigurować automatyczną obsługę administracyjną dla programu obsług
 
 1. Aby skonfigurować filtry określania zakresu, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. W obszarze **Ustawienia** , aby włączyć usługę Azure AD Provisioning dla programu, Przełącz przełącznik **stanu aprowizacji** na **włączony**.
+1. W obszarze **Ustawienia**, aby włączyć usługę Azure AD Provisioning dla programu, Przełącz przełącznik **stanu aprowizacji** na **włączony**.
 
     ![Przełącznik stanu aprowizacji jest przełączany do "on"](common/provisioning-toggle-on.png)
 

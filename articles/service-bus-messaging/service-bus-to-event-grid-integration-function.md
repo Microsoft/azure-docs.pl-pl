@@ -8,16 +8,16 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95819412"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>Samouczek: reagowanie na zdarzenia Azure Service Bus odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions
 W tym samouczku dowiesz się, jak odpowiedzieć na zdarzenia Azure Service Bus, które są odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Service Bus
 > * Przygotowanie przykładowej aplikacji do wysyłania wiadomości
@@ -37,8 +37,8 @@ Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/vs) i Uwzgl
 >[!NOTE]
 > Aby dowiedzieć się więcej o tworzeniu i wdrażaniu aplikacji Azure Functions, zobacz [tworzenie Azure Functions przy użyciu programu Visual Studio](../azure-functions/functions-develop-vs.md)
 
-1. Otwórz plik **ReceiveMessagesOnEvent.cs** z projektu **FunctionApp1** rozwiązania **SBEventGridIntegration. sln** . 
-1. Zamień na `<SERCICE BUS NAMESPACE - CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus. Powinna być taka sama jak ta, która była używana w pliku **program.cs** projektu **MessageSender** w tym samym rozwiązaniu. 
+1. Otwórz plik **ReceiveMessagesOnEvent. cs** z projektu **FunctionApp1** rozwiązania **SBEventGridIntegration. sln** . 
+1. Zamień na `<SERCICE BUS NAMESPACE - CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus. Powinna być taka sama jak ta, która była używana w pliku **program. cs** projektu **MessageSender** w tym samym rozwiązaniu. 
 1. Kliknij prawym przyciskiem myszy pozycję **FunctionApp1**, a następnie wybierz pozycję **Publikuj**. 
 1. Na stronie **Publikowanie** wybierz pozycję **Rozpocznij**. Te kroki mogą się różnić od tego, co widzisz, ale proces publikowania powinien wyglądać podobnie. 
 1. W kreatorze **publikowania** na stronie **Target** wybierz pozycję **Azure** for **Target**. 

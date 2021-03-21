@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462425"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurowanie laboratorium do uczenia zarządzania bazami danych dla relacyjnych baz danych
@@ -55,7 +55,7 @@ Oto przykład możliwego oszacowania kosztów dla tej klasy:
 
 Więcej szczegółowych informacji na temat cen można znaleźć w temacie [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 W tym artykule opisano kroki niezbędne do utworzenia laboratorium dla podstawowych pojęć związanych z zarządzaniem bazami danych przy użyciu programu MySQL i SQL Server. Możesz użyć podobnej konfiguracji dla innych klas baz danych.
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć defi
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359684"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”

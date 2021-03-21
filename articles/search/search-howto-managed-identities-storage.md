@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358375"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Konfigurowanie połączenia z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej
@@ -77,7 +77,7 @@ W przypadku indeksowania z konta magazynu źródło danych musi mieć następuj�
 * **uwierzytelniające**
     * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana tożsamość zarządzana. Tutaj utworzysz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji konta magazynu, grupę zasobów konta magazynu oraz nazwę konta magazynu.
     * Format tożsamości zarządzanej: 
-        * *ResourceId =/subscriptions/ **Identyfikator subskrypcji** /resourceGroups/ **nazwę grupy zasobów** /Providers/Microsoft.Storage/storageAccounts/ **nazwy konta magazynu** /;*
+        * *ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.Storage/storageAccounts/**nazwy konta magazynu**/;*
 * **kontener** określa nazwę kontenera lub tabeli na koncie magazynu. Domyślnie można pobrać wszystkie obiekty blob w kontenerze. Jeśli chcesz tylko indeksować obiekty blob w konkretnym katalogu wirtualnym, możesz określić ten katalog przy użyciu opcjonalnego parametru **zapytania** .
 
 Przykład sposobu tworzenia obiektu źródła danych obiektu BLOB przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):

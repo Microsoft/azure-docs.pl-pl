@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498850"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
@@ -87,7 +87,7 @@ Diagnozowanie i rozwiązywanie problemów w aplikacji rozproszonej hostowanej w 
 
 Należy stale monitorować usługi magazynu używane przez aplikację w przypadku wszelkich nieoczekiwanych zmian w zachowaniu (na przykład wolniejszych czasów odpowiedzi). Funkcja rejestrowania służy do zbierania bardziej szczegółowych danych i analizowania problemów. Informacje diagnostyczne uzyskane z monitorowania i rejestrowania ułatwiają określenie głównej przyczyny problemu, który wystąpił w aplikacji. Następnie możesz rozwiązać problem i ustalić odpowiednie kroki, aby je skorygować.
 
-[Analityka magazynu platformy Azure](../../storage/common/storage-analytics.md) wykonuje rejestrowanie i udostępnia dane metryk dla konta usługi Azure Storage. Zalecamy używanie tych danych do śledzenia żądań, analizowania trendów użycia i diagnozowania problemów z kontem magazynu.
+[Azure Storage Analytics](../../storage/common/storage-analytics.md) wykonuje rejestrowanie i udostępnia dane metryk dla konta usługi Azure Storage. Zalecamy używanie tych danych do śledzenia żądań, analizowania trendów użycia i diagnozowania problemów z kontem magazynu.
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>Zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie
 [Azure Security Center](../../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie, zapewniając lepszy wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne i działać z różnymi rozwiązaniami zabezpieczeń.

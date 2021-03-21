@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198510"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Odwołanie do pisania wyrażeń dla mapowań atrybutów w usłudze Azure AD
@@ -372,7 +372,7 @@ Zwraca wartość true, jeśli atrybut nie jest obecny lub jest ciągiem pustym.
  `Item([proxyAddresses], 1)` zwraca drugi element w atrybucie wielowartościowym.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Dołączanie
 **Funkcja:** Join (separator, Source1, SOURCE2,...)
 
 **Opis:** Join () jest podobny do dołączania (), z tą różnicą, że może połączyć wiele wartości ciągu **źródłowego** w jeden ciąg, a każda wartość zostanie oddzielona przez ciąg **separatora** .

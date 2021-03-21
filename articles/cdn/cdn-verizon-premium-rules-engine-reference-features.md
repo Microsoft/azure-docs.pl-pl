@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020419"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN z funkcji aparatu reguł Verizon Premium
@@ -29,7 +29,7 @@ Dostępne typy funkcji to:
 * [Komentarz](#comment)
 * [Nagłówki](#headers)
 * [Dzienniki](#logs)
-* [Optymalizacja](#optimize)
+* [Zoptymalizować](#optimize)
 * [Źródł](#origin)
 * [Specjalizacja](#specialty)
 * [Adres URL](#url)
@@ -113,7 +113,7 @@ Te funkcje są przeznaczone do dostosowywania danych przechowywanych w pierwotny
 
 **[Powrót do początku](#top)**
 
-### <a name="optimize"></a><a name="optimize"></a>Optymalizacja
+### <a name="optimize"></a><a name="optimize"></a>Zoptymalizować
 
 Te funkcje określają, czy żądanie zostanie poddane optymalizacji zapewnianej przez optymalizator brzegowy.
 
@@ -173,6 +173,6 @@ Najnowsze funkcje można znaleźć w [dokumentacji aparatu reguł Verizon](https
 
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Zastępowanie zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)
 - [Przegląd Azure CDN](cdn-overview.md)

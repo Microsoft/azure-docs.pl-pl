@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659458"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -118,7 +118,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **administratorLogin** i **fullyQu
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>Nawiązywanie połączenia z serwerem Azure Database for PostgreSQL przy użyciu PSQL
-Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również użyć PSQL w środowisku lokalnym, jeśli jest dostępny. Pusta baza danych, **Postgres**, jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
+Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Narzędzia psql można również używać w środowisku lokalnym, jeśli jest dostępne. Pusta baza danych, **Postgres**, jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres

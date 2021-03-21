@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
 ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94695558"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Rozwiązywanie typowych błędów wdrażania platformy Azure za pomocą Azure Load Balancer
@@ -36,7 +36,7 @@ W tym artykule opisano niektóre typowe błędy wdrażania Azure Load Balancer i
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Nie można mieć wielu modułów równoważenia obciążenia tego samego typu (wewnętrzny, publiczny). Można korzystać z maksymalnie jednej wewnętrznej i jednej Load Balancer publicznej. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Podstawowa Load Balancer nie jest obsługiwana w przypadku grup z wieloma położeniami dla zestawów skalowania maszyn wirtualnych lub wielodostępnego zestawu skalowania maszyn wirtualnych. Zamiast tego użyj usługa Load Balancer w warstwie Standardowa. |
 |MarketplacePurchaseEligibilityFailed | Przełącz się na poprawne konto administracyjne, aby włączyć zakupy ze względu na subskrypcję umowy EA. Więcej informacji znajduje się [tutaj](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
-|ResourceDeploymentFailure| Jeśli moduł równoważenia obciążenia jest w stanie niepowodzenia, wykonaj następujące kroki, aby przywrócić go z stanu niepowodzenia:<ol><li>Przejdź do https://resources.azure.com i zaloguj się przy użyciu poświadczeń Azure Portal.</li><li>Wybierz pozycję **Odczyt/zapis**.</li><li>Po lewej stronie rozwiń pozycję **subskrypcje**, a następnie rozwiń subskrypcję z Load Balancer, aby je zaktualizować.</li><li>Rozwiń węzeł **ResourceGroups**, a następnie rozwiń grupę zasobów z Load Balancer, aby ją zaktualizować.</li><li>Wybierz pozycję **Microsoft. Network**  >  **LoadBalancers**, a następnie wybierz Load Balancer do zaktualizowania, **LoadBalancer_1**.</li><li>Na stronie wyświetlanie **LoadBalancer_1** wybierz pozycję **Pobierz**  >  **edycję**.</li><li>Aktualizacja wartości **ProvisioningState** z **nie** **powiodła się.**</li><li>Wybierz pozycję **PUT**.</li></ol>|
+|ResourceDeploymentFailure| Jeśli moduł równoważenia obciążenia jest w stanie „niepowodzenie”, wykonaj następujące czynności, aby go przywrócić:<ol><li>Przejdź do https://resources.azure.com i zaloguj się przy użyciu poświadczeń Azure Portal.</li><li>Wybierz pozycję **Read/Write** (Odczyt/zapis).</li><li>Po lewej stronie rozwiń pozycję **Subscriptions** (Subskrypcje), a następnie rozwiń subskrypcję zawierającą moduł równoważenia obciążenia, który chcesz zaktualizować.</li><li>Rozwiń węzeł **ResourceGroups** (Grupy zasobów), a następnie rozwiń grupę zasobów zawierającą moduł równoważenia obciążenia, który chcesz zaktualizować.</li><li>Wybierz pozycję **Microsoft. Network**  >  **LoadBalancers**, a następnie wybierz Load Balancer do zaktualizowania, **LoadBalancer_1**.</li><li>Na stronie wyświetlanie **LoadBalancer_1** wybierz pozycję **Pobierz**  >  **edycję**.</li><li>Aktualizacja wartości **ProvisioningState** z **nie** **powiodła się.**</li><li>Wybierz pozycję **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Następne kroki

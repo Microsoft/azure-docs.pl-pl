@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783763"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Przewodnik po zabezpieczeniach Eksplorator usługi Azure Storage
@@ -81,7 +81,7 @@ Klucze konta magazynu udzielają nieograniczonego dostępu do usług i zasobów 
 
 Niektóre role platformy Azure przyznają uprawnienia do pobierania kluczy konta magazynu. Osoby mające te role mogą efektywnie obejść uprawnienia udzielone lub odrzucone przez kontrolę RBAC platformy Azure. Nie zaleca się udzielania tego uprawnienia, chyba że jest to konieczne.
 
-Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia ( **usługi > konta magazynu > wyłączyć użycie kluczy** ). Niektóre funkcje nie obsługują kontroli RBAC platformy Azure, na przykład podczas pracy z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
+Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia (**usługi > konta magazynu > wyłączyć użycie kluczy**). Niektóre funkcje nie obsługują kontroli RBAC platformy Azure, na przykład podczas pracy z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
 
 Aby uzyskać dostęp do zasobów magazynu, należy użyć kluczy, zalecamy następujące wytyczne:
 

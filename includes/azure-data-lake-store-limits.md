@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 7098f23e9b5b6f56fbbe761335afc65375aea680
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96509180"
 ---
 **Azure Data Lake Storage Gen2** nie jest dedykowanym typem konta usługi lub magazynu. Jest to Najnowsza wersja możliwości, która jest przeznaczona do analizy danych Big Data.  Te funkcje są dostępne w ramach konta magazynu ogólnego przeznaczenia w wersji 2 lub BlockBlobStorage i można je uzyskać, włączając funkcję **hierarchicznej przestrzeni nazw** konta. W przypadku elementów docelowych skalowania Zobacz te artykuły. 
@@ -22,7 +22,7 @@ ms.locfileid: "96509180"
 
 **Azure Data Lake Storage Gen1** to dedykowana usługa. Jest to całe korporacyjne repozytorium skalowania na potrzeby obciążeń analitycznych danych Big Data. Data Lake Storage Gen1 służy do przechwytywania danych dowolnego rozmiaru, typu i szybkości pozyskiwania w jednym miejscu na potrzeby analiz operacyjnych i poznawczych. Nie ma limitu ilości danych, które można przechowywać na koncie Data Lake Storage Gen1.
 
-| **Zasób** | **Limit** | **Komentarze** |
+| **Zasób** | **Granice** | **Komentarze** |
 | --- | --- | --- |
 | Maksymalna liczba kont Data Lake Storage Gen1 na subskrypcję na region |10 | Aby zażądać zwiększenia dla tego limitu, skontaktuj się z pomocą techniczną. |
 | Maksymalna liczba list kontroli dostępu dla pliku lub folderu |32 | Jest to sztywny limit. Używanie grup do zarządzania dostępem z mniejszą liczbą wpisów. |

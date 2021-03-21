@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98891301"
 ---
 # <a name="media-reserved-units"></a>Jednostki zarezerwowane multimediów
@@ -54,6 +54,6 @@ Opłaty są naliczane na podstawie liczby minut, w których zainicjowano alokacj
 [Skalowanie jednostek zarezerwowanych multimediów przy użyciu interfejsu wiersza polecenia](media-reserved-units-cli-how-to.md) 
  [Analizowanie wideo](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)

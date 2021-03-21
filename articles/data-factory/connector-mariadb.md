@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: f515738ad2af6b7779495b55226c10fef9272b13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385680"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Kopiowanie danych z MariaDB za pomocą Azure Data Factory
@@ -18,7 +18,7 @@ ms.locfileid: "100385680"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z MariaDB. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik MariaDB jest obsługiwany dla następujących działań:
 

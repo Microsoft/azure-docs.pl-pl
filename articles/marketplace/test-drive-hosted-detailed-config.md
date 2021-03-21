@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
 ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462955"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Szczegółowa konfiguracja dla hostowanych dysków testowych
@@ -37,7 +37,7 @@ W tym artykule opisano sposób konfigurowania hostowanego dysku testowego dla pr
     - **Maksymalne współbieżne dyski testowe** — liczba równoczesnych użytkowników, którzy mogą korzystać z aktywnego dysku testowego w tym samym czasie. Każdy użytkownik będzie korzystał z licencji usługi Dynamics, gdy ich dysk testowy jest aktywny, więc upewnij się, że masz co najmniej następującą liczbę dostępnych licencji Dynamics dla użytkowników wersji testowej. Zalecamy od 3 do 5.
     - **Czas trwania dysku testowego** — liczba godzin aktywności dysku testowego użytkownika. Po upływie tego czasu użytkownik zostanie wydzierżawiony z dzierżawy. Zalecamy 2-24 godzin w zależności od złożoności aplikacji. Użytkownik może zawsze zażądać innego dysku testowego, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
     - **Adres URL wystąpienia** — adres URL, do którego zostanie wysłany użytkownik dysku testowego po uruchomieniu testu. Jest to zazwyczaj adres URL wystąpienia programu Dynamics 365, na którym zainstalowano aplikację i przykładowe dane. Przykładowa wartość: `https://testdrive.crm.dynamics.com` .
-    - **Adres URL internetowego interfejsu API wystąpienia** — adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365. Pobierz tę wartość, logując się do wystąpienia systemu Microsoft Dynamics 365 i przechodząc do **ustawień ustawienia** internetowego  >  **Customization**  >  interfejsu API wystąpienia **zasobów deweloperskich**  >  **Instance Web API** i skopiuj adres (URL). Przykład wartość:
+    - **Adres URL internetowego interfejsu API wystąpienia** — adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365. Pobierz tę wartość, logując się do wystąpienia systemu Microsoft Dynamics 365 i przechodząc do **ustawień ustawienia** internetowego  >    >  interfejsu API wystąpienia **zasobów deweloperskich**  >   i skopiuj adres (URL). Przykład wartość:
 
         :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Przykład interfejsu API sieci Web wystąpienia.":::
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835071"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Looop na potrzeby automatycznego aprowizacji użytkowników
@@ -127,7 +127,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Looop**.
 
@@ -143,15 +143,15 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
    |externalId|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: użytkownik: obszar|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_1|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_2|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_3|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: employee_id|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Location|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Position|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: startAt|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: użytkownik: obszar|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_1|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_2|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_3|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: employee_id|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Location|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Position|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: startAt|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do łącznika meta Networks**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354720"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi firmy Symantec w sieci Web Security (WSS) do automatycznej aprowizacji użytkowników
@@ -52,11 +52,11 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem usługi firmy Symantec w sieci Web Security (WSS) do automatycznej aprowizacji użytkowników w usłudze Azure AD należy włączyć obsługę Standard scim przy użyciu usługi Symantec Web Security Service (WSS).
 
-1. Zaloguj się do [konsoli administracyjnej usługi zabezpieczeń sieci Web firmy Symantec](https://portal.threatpulse.com/login.jsp). Przejdź do **Solutions**  >  **usługi Solutions Service**.
+1. Zaloguj się do [konsoli administracyjnej usługi zabezpieczeń sieci Web firmy Symantec](https://portal.threatpulse.com/login.jsp). Przejdź do   >  **usługi Solutions Service**.
 
     ![Usługa zabezpieczeń internetowych firmy Symantec (WSS)](media/symantec-web-security-service/service.png)
 
-2. Przejdź do obszarze integracja z integracją z **obsługą**  >  **Integrations**  >  **nowej integracji**.
+2. Przejdź do obszarze integracja z integracją z **obsługą**  >    >  **nowej integracji**.
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
@@ -78,7 +78,7 @@ Aby skonfigurować usługę Symantec Web Security Service (WSS) do automatycznej
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Aby skonfigurować usługę Symantec Web Security Service (WSS) do automatycznej
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość **Symantec Web Security** , wybierz pozycję **Symantec Web Security Service** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **Symantec Web Security**, wybierz pozycję **Symantec Web Security Service** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Usługa Symantec Web Security Service (WSS) na liście wyników](common/search-new-app.png)
 
@@ -99,7 +99,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-symantec-web-security-service-wss-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze Microsoft Web Security Service (WSS) w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -123,7 +123,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy z usługą Symantec Web Security Service (WSS)**.
 

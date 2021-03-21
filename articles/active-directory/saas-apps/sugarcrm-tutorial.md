@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
 ms.openlocfilehash: 8c0bbebf9fdc9e8027b947beb037dde47b26b67b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644854"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą programu cukier CRM
@@ -130,7 +130,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do pozycji **Administracja**.
 
-    ![Administracja](./media/sugarcrm-tutorial/ic795888.png "Administrator")
+    ![Administracja](./media/sugarcrm-tutorial/ic795888.png "Administracja")
 
 1. W sekcji **Administracja** kliknij pozycję **Zarządzanie hasłami**.
 
@@ -162,7 +162,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do programu cukier
 
 1. Przejdź do pozycji **Administracja**.
 
-    ![Administracja](./media/sugarcrm-tutorial/ic795888.png "Administrator")
+    ![Administracja](./media/sugarcrm-tutorial/ic795888.png "Administracja")
 
 1. W sekcji **Administracja** kliknij pozycję **Zarządzanie użytkownikami**.
 

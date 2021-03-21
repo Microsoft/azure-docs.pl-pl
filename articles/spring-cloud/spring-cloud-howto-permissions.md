@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498646"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Jak używać uprawnień w chmurze Azure wiosennej
@@ -20,7 +20,7 @@ W tym artykule opisano sposób tworzenia ról niestandardowych delegowania upraw
 Zostaną zaimplementowane następujące role niestandardowe:
 
 * **Rola dewelopera**: 
-    * Wdrażanie
+    * Wdróż
     * Testowanie
     * Ponowne uruchamianie aplikacji
     * Można stosować i wprowadzać zmiany w konfiguracjach aplikacji w repozytorium git
@@ -54,7 +54,7 @@ Wykonaj następujące kroki, aby rozpocząć Definiowanie roli.
    ![Rozpoczęcie dodawania uprawnień](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Wyszukaj uprawnienia chmury Azure wiosny:
-7. W polu wyszukiwania Wyszukaj *aplikację Microsoft. app*.
+7. W polu wyszukiwania Wyszukaj ciąg *Microsoft.app*.
 Wybierz pozycję *Microsoft Azure wiosną*.
 
    ![Wybierz chmurę wiosenną platformy Azure](media/spring-cloud-permissions/spring-cloud-permissions.png)
