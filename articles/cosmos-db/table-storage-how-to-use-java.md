@@ -10,10 +10,10 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-java
 ms.openlocfilehash: a5da5e1717f897d2236fd73f0fff525e157f7a0e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093693"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka Java
@@ -626,7 +626,7 @@ catch (Exception e)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * [Zestaw SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]
 * [Dokumentacja zestawu SDK klienta usługi Azure Storage][Azure Storage Client SDK Reference]
-* [Usługa Azure Storage — interfejs API REST][Azure Storage REST API]
+* [Interfejs API REST usługi Azure Storage][Azure Storage REST API]
 * [Blog zespołu usługi Azure Storage][Azure Storage Team Blog]
 
 Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).

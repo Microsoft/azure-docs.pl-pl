@@ -10,10 +10,10 @@ services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032528"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure
@@ -72,7 +72,7 @@ Aby przeprowadzić zbiorczą rejestrację urządzeń w aplikacji:
     > [!NOTE]
     > Jeśli nie masz jeszcze szablonu urządzenia, możesz zaimportować urządzenia ze **wszystkich urządzeń** i zarejestrować je bez szablonu. Po zaimportowaniu urządzeń można migrować je do szablonu.
 
-1. Wybierz pozycję **Import** (Importuj).
+1. Wybierz pozycję **Importuj**.
 
     ![Importuj akcję](./media/howto-manage-devices/bulkimport1a.png)
 

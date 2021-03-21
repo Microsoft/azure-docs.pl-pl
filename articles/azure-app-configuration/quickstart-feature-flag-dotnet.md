@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: alkemper
 ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932051"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji .NET Framework
@@ -62,7 +62,7 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
     Microsoft.FeatureManagement
     ```
 
-1. Otwórz *program.cs* i Dodaj następujące instrukcje:
+1. Otwórz *program programy. cs* i Dodaj następujące instrukcje:
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 426e28048ae370919529ea710717a3a3867d999d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746256"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Korzystanie z przeglądów dostępu usługi Azure AD do zarządzania użytkownikami wykluczonymi z zasad dostępu warunkowego
@@ -63,7 +63,7 @@ Wykonaj następujące kroki, aby utworzyć nową grupę usługi Azure AD i zasad
 
 ### <a name="create-an-exclusion-group"></a>Tworzenie grupy wykluczeń
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. W lewym okienku nawigacji kliknij pozycję **Azure Active Directory** a następnie kliknij pozycję **grupy**.
 

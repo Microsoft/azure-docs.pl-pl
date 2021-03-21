@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895275"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
@@ -41,7 +41,7 @@ Aby uzyskać łatwe odwołanie, poniżej przedstawiono niektóre terminy i defin
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg), dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Cechy | Obiekt, który łączy geometrię z więcej informacji metadanych. |
+| Cecha | Obiekt, który łączy geometrię z więcej informacji metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład *Jednostka* jest klasą funkcji, a *pakiet Office* jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania

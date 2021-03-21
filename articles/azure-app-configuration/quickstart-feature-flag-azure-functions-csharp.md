@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
 ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724258"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji Azure Functions
@@ -53,7 +53,7 @@ Ten projekt będzie używać [iniekcji zależności w programie .net Azure Funct
    - [Microsoft. FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) w wersji 2.2.0 lub nowszej
    - [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) w wersji 1.1.0 lub nowszej 
 
-2. Dodaj nowy plik *Startup.cs* z poniższym kodem. Definiuje klasę o nazwie `Startup` implementującej `FunctionsStartup` klasę abstrakcyjną. Atrybut Assembly służy do określania nazwy typu używanej podczas uruchamiania Azure Functions.
+2. Dodaj nowy plik, *Start. cs*, z poniższym kodem. Definiuje klasę o nazwie `Startup` implementującej `FunctionsStartup` klasę abstrakcyjną. Atrybut Assembly służy do określania nazwy typu używanej podczas uruchamiania Azure Functions.
 
     ```csharp
     using System;
@@ -107,7 +107,7 @@ Ten projekt będzie używać [iniekcji zależności w programie .net Azure Funct
     }
     ```
 
-5. Otwórz *Function1.cs* i Dodaj następujące przestrzenie nazw.
+5. Otwórz *Function1. cs* i Dodaj następujące przestrzenie nazw.
 
     ```csharp
     using System.Linq;

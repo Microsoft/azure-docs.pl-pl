@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/25/2020
 ms.openlocfilehash: f4536beae18a50d3e1d42fc1593cf826c94418f8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033856"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -21,11 +21,11 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-W kopii programu Microsoft Azure IoT przykłady dla pobranego wcześniej repozytorium języka C# Otwórz plik projektu *Azure-IoT-Samples-CSharp-master\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* w programie Visual Studio. W projekcie **termostatu** otwórz pliki *program.cs* i *ThermostatSample.cs* , aby wyświetlić kod dla tego przykładu.
+W kopii programu Microsoft Azure IoT przykłady dla pobranego wcześniej repozytorium języka C# Otwórz plik projektu *Azure-IoT-Samples-CSharp-master\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* w programie Visual Studio. W projekcie **termostatu** Otwórz pliki *program. cs* i *ThermostatSample. cs* , aby wyświetlić kod dla tego przykładu.
 
 Po uruchomieniu przykładu w celu nawiązania połączenia z IoT Centralm program używa usługi Device Provisioning (DPS) do zarejestrowania urządzenia i wygenerowania parametrów połączenia. Przykład pobiera informacje o połączeniu z działem DPS wymagane ze środowiska.
 
-W *program.cs* `main` Metoda wywołuje `SetupDeviceClientAsync` :
+W programie *program. cs* `main` Metoda wywołuje `SetupDeviceClientAsync` :
 
 * Użyj identyfikatora modelu, `dtmi:com:example:Thermostat;1` gdy inicjuje on urządzenie w usłudze DPS. IoT Central używa identyfikatora modelu do identyfikowania lub generowania szablonu urządzenia dla tego urządzenia. Aby dowiedzieć się więcej, zobacz [kojarzenie urządzenia z szablonem urządzenia](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Utwórz wystąpienie **DeviceClient** , aby połączyć się z IoT Central.
@@ -57,7 +57,7 @@ private static async Task<DeviceClient> SetupDeviceClientAsync(Parameters parame
 
 Metoda Main tworzy następnie wystąpienie **ThermostatSample** i wywołuje `PerformOperationsAsync` metodę, aby obsłużyć interakcje z IoT Central.
 
-W *ThermostatSample.cs* `PerformOperationsAsync` Metoda:
+W *ThermostatSample. cs* `PerformOperationsAsync` Metoda:
 
 * Ustawia program obsługi, aby otrzymywać aktualizacje odpowiedniej temperatury docelowej.
 * Ustawia procedurę obsługi dla polecenia **getMaxMinReport** .

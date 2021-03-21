@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790410"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Jak przeprowadzić migrację bazy danych programu SQLite do Azure SQL Database bezserwerowego
@@ -21,7 +21,7 @@ ms.locfileid: "92790410"
 
 W przypadku wielu osób oprogramowanie SQLite zapewnia swoje pierwsze środowisko baz danych i programowanie SQL. W wielu systemach operacyjnych i popularnych aplikacjach aplikacja SQLite jest jednym z najpopularniejszych aparatów baz danych wdrożonych i używanych na świecie. Z tego powodu prawdopodobnie pierwszy aparat bazy danych jest używany przez wiele osób, ale często może się zakończyć jako centralna część projektów lub aplikacji. W takich przypadkach, gdy projekt lub aplikacja rozszerzają początkową implementację oprogramowania SQLite, deweloperzy mogą potrzebować migracji swoich danych do niezawodnego, scentralizowanego magazynu danych.
 
-Azure SQL Database bezserwerowy jest warstwą obliczeniową dla pojedynczych baz danych, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia, a następnie obciąża liczbę użytych obliczeń na sekundę. Warstwa obliczeniowa bezserwerowa również automatycznie wstrzymuje bazy danych w trakcie okresów nieaktywnych, gdy są naliczane opłaty za magazyn i automatycznie wznawiają bazy danych po powrocie działania.
+Azure SQL Database bezserwerowy jest warstwą obliczeniową dla pojedynczych baz danych, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia, a następnie obciąża liczbę użytych obliczeń na sekundę. Ponadto warstwa bezserwerowych usług obliczeniowych automatycznie wstrzymuje bazy danych w okresach nieaktywności, gdy są naliczane opłaty tylko za magazyn, oraz automatycznie wznawia bazy danych po ponownym pojawieniu się aktywności.
 
 Po wykonaniu poniższych kroków baza danych zostanie zmigrowana do Azure SQL Database bezserwerowym, co umożliwi udostępnienie bazy danych innym użytkownikom lub aplikacjom w chmurze, a tylko za to, czego używasz, przy minimalnych zmianach w kodzie aplikacji.
 
@@ -53,13 +53,13 @@ Po wykonaniu poniższych kroków baza danych zostanie zmigrowana do Azure SQL Da
     - Uruchamianie ADF (Tworzenie i monitorowanie z usługi w Azure Portal)
     - Kliknij kartę "autor" (niebieski ołówek) po lewej stronie
     - Kliknij pozycję połączenia (z lewej strony), a następnie środowiska Integration Runtime
-    - Dodaj nowe Integration Runtime Self-Hosted, nadaj mu nazwę, wybierz *opcję 2* .
+    - Dodaj nowe Integration Runtime Self-Hosted, nadaj mu nazwę, wybierz *opcję 2*.
 
 5. Utwórz nową połączoną usługę dla źródłowej bazy danych programu SQLite w Data Factory.
 
     ![Zrzut ekranu przedstawiający blok puste usługi połączone w Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. W obszarze **połączenia** w obszarze **połączona usługa** kliknij pozycję **Nowy** .
+6. W obszarze **połączenia** w obszarze **połączona usługa** kliknij pozycję **Nowy**.
 
 7. Wyszukaj i wybierz łącznik "ODBC"
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97095257"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Typy węzłów usługi Azure Service Fabric i zestawy skalowania maszyn wirtualnych
@@ -84,7 +84,7 @@ Poniżej przedstawiono opisy właściwości:
 | nicPrefixOverride | ciąg | Prefiks podsieci, taki jak "10.0.0.0/24" |
 | commonNames | ciąg [] | Typowe nazwy zainstalowanych certyfikatów klastra |
 | x509StoreName | ciąg | Nazwa magazynu, w którym znajduje się zainstalowany certyfikat klastra |
-| typeHandlerVersion | 1,1 | Wersja rozszerzenia. 1,0 klasycznej wersji rozszerzenia zaleca się uaktualnienie do 1,1 |
+| typeHandlerVersion | 1.1 | Wersja rozszerzenia. 1,0 klasycznej wersji rozszerzenia zaleca się uaktualnienie do 1,1 |
 | Ścieżka datapath | ciąg | Ścieżka do dysku używanego do zapisywania stanu Service Fabric usług systemowych i danych aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki

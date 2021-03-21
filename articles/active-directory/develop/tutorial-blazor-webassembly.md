@@ -9,10 +9,10 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
 ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552120"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly
@@ -102,7 +102,7 @@ Następnie Dodaj następujący **element** do pliku *. csproj* projektu w progra
 
 Następnie zmodyfikuj kod określony w następnych kilku krokach. Te zmiany spowodują dodanie [tokenów dostępu](access-tokens.md) do żądań wychodzących wysyłanych do interfejsu API Microsoft Graph. Ten wzorzec został szczegółowo omówiony w temacie [ASP.NET Core Blazor webassembly dodatkowe scenariusze zabezpieczeń](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-Najpierw utwórz nowy plik o nazwie *GraphAPIAuthorizationMessageHandler.cs* z poniższym kodem. Ta procedura obsługi będzie dodawać token dostępu dla `User.Read` `Mail.Read` zakresów i do żądań wychodzących do interfejsu API Microsoft Graph.
+Najpierw utwórz nowy plik o nazwie *GraphAPIAuthorizationMessageHandler. cs* z poniższym kodem. Ta procedura obsługi będzie dodawać token dostępu dla `User.Read` `Mail.Read` zakresów i do żądań wychodzących do interfejsu API Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -121,7 +121,7 @@ public class GraphAPIAuthorizationMessageHandler : AuthorizationMessageHandler
 }
 ```
 
-Następnie zastąp zawartość `Main` metody w *program.cs* następującym kodem. Ten kod wykorzystuje nowe `GraphAPIAuthorizationMessageHandler` i dodatkowe zakresy, które `User.Read` `Mail.Read` aplikacja będzie żądać, gdy użytkownik po raz pierwszy zaloguje się.
+Następnie zastąp zawartość `Main` metody w *programie program. cs* następującym kodem. Ten kod wykorzystuje nowe `GraphAPIAuthorizationMessageHandler` i dodatkowe zakresy, które `User.Read` `Mail.Read` aplikacja będzie żądać, gdy użytkownik po raz pierwszy zaloguje się.
 
 ```csharp
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

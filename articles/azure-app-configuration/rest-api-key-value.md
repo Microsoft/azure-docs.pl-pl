@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932561"
 ---
 # <a name="key-values"></a>Klucze/wartości
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Dopasowuje etykiety rozpoczynające się od **prod**|
 |`label=prod,test`|Dopasowuje etykiety **prod** lub **test** (ograniczone do 5 woluminów CSV)|
 
-**_Znaki zastrzeżone_* _
+***Znaki zastrzeżone***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Jeśli zarezerwowany znak jest częścią wartości, należy użyć znaku ucieczki przy użyciu `\{Reserved Character}` . Znaki niezastrzeżone mogą również zostać zmienione.
 
-***Sprawdzanie poprawności filtru** _
+***Sprawdzanie poprawności filtru***
 
 W przypadku błędu walidacji filtru odpowiedź jest HTTP `400` z szczegółowymi informacjami o błędzie:
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Przykłady**
+**Przykłady**
 
 - Wszystko
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/04/2021
 ms.author: alkohli
 ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898381"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack EDGE Pro FPGA 
@@ -88,7 +88,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz pozycję **Utwórz**. 
+7. Wybierz przycisk **Utwórz**. 
 
    ![Utwórz udział lokalny](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 

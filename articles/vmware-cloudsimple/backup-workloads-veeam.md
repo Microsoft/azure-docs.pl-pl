@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899341"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Tworzenie kopii zapasowych maszyn wirtualnych obciążeń w chmurze prywatnej CloudSimple przy użyciu Veeam B&R
@@ -98,7 +98,7 @@ Proces wdrażania obejmuje następujące kroki:
 8. [Konsola Veeam: Konfigurowanie kopii zapasowej Veeam & oprogramowanie do odzyskiwania](#veeam-console-install-veeam-backup-and-recovery-software)
 9. [Portal CloudSimple: Konfigurowanie uprawnień dostępu Veeam i cofanie eskalacji](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem wdrażania Veeam należy wykonać następujące czynności:
 
@@ -260,7 +260,7 @@ Utwórz regułę zapory za pomocą programu, aby umożliwić serwerowi Veeam kop
 
 Aby cofnąć eskalację uprawnień, zobacz Cofanie [eskalacji uprawnień](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 ### <a name="cloudsimple-references"></a>Odwołania CloudSimple
 

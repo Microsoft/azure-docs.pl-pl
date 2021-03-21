@@ -9,15 +9,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: fd5ee9085cf716128c5b3ae073f963c76d2bd17a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370266"
 ---
 # <a name="how-to-create-plans-for-your-azure-application-offer"></a>Jak utworzyć plany dla oferty aplikacji platformy Azure
 
-Oferty sprzedawane za pomocą komercyjnej witryny Marketplace firmy Microsoft muszą mieć co najmniej jeden plan, aby można było wystawić ofertę na rynku komercyjnym. Możesz tworzyć różne plany z różnymi opcjami w ramach tej samej oferty. Plany te (czasami określane jako jednostki SKU) mogą różnić się w zależności od typu planu ( _szablonu rozwiązania_ lub _aplikacji zarządzanej_ ), zysków lub odbiorców. Ogólne wskazówki dotyczące planów można znaleźć w temacie [plany i cenniki dla ofert komercyjnych w portalu Marketplace](plans-pricing.md).
+Oferty sprzedawane za pomocą komercyjnej witryny Marketplace firmy Microsoft muszą mieć co najmniej jeden plan, aby można było wystawić ofertę na rynku komercyjnym. Możesz tworzyć różne plany z różnymi opcjami w ramach tej samej oferty. Plany te (czasami określane jako jednostki SKU) mogą różnić się w zależności od typu planu (_szablonu rozwiązania_ lub _aplikacji zarządzanej_), zysków lub odbiorców. Ogólne wskazówki dotyczące planów można znaleźć w temacie [plany i cenniki dla ofert komercyjnych w portalu Marketplace](plans-pricing.md).
 
 ## <a name="create-a-plan"></a>Tworzenie planu
 

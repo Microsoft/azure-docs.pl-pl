@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: c19e1156f897873defaba4cebaabb904d034ead3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032749"
 ---
 # <a name="what-is-vpn-gateway"></a>Co to jest usługa VPN Gateway?
@@ -65,7 +65,7 @@ Podczas tworzenia bramy sieci wirtualnej określa się jednostkę SKU bramy do u
 
 Bramy sieci VPN można wdrożyć w Strefy dostępności platformy Azure. Zapewni to elastyczność, skalowalność i większą dostępność bram sieci wirtualnej. Wdrażanie bram w strefach dostępności platformy Azure fizycznie i logicznie dzieli bramy w danym regionie, chroniąc jednocześnie lokalną łączność sieci z platformą Azure przed błędami na poziomie strefy. Zobacz [temat strefy — nadmiarowe bramy sieci wirtualnej w strefy dostępności platformy Azure](about-zone-redundant-vnet-gateways.md).
 
-## <a name="pricing"></a><a name="pricing"></a>Cennik
+## <a name="pricing"></a><a name="pricing"></a>Ceny
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 

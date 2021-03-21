@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023027"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Dezaktywacja i usuwanie macierzy wirtualnej usługi StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-W przypadku dezaktywowania macierzy wirtualnej StorSimple należy przerwać połączenie między urządzeniem a odpowiednią usługą StorSimple Menedżer urządzeń. W tym samouczku wyjaśniono:
+W przypadku dezaktywowania macierzy wirtualnej StorSimple należy przerwać połączenie między urządzeniem a odpowiednią usługą StorSimple Device Manager. W tym samouczku wyjaśniono:
 
 * Dezaktywowanie urządzenia 
 * Usuwanie dezaktywowanego urządzenia
@@ -34,7 +34,7 @@ Informacje zawarte w tym artykule dotyczą tylko tablic wirtualnych StorSimple. 
 
 ## <a name="when-to-deactivate"></a>Kiedy należy dezaktywować?
 
-Dezaktywacja jest operacją TRWAŁą i nie można jej cofnąć. Nie można ponownie zarejestrować zdezaktywowanego urządzenia z usługą StorSimple Menedżer urządzeń. Może być konieczne dezaktywowanie i usuwanie macierzy wirtualnej StorSimple w następujących scenariuszach:
+Dezaktywacja jest operacją TRWAŁą i nie można jej cofnąć. Nie można ponownie zarejestrować zdezaktywowanego urządzenia z usługą StorSimple Device Manager. Może być konieczne dezaktywowanie i usuwanie macierzy wirtualnej StorSimple w następujących scenariuszach:
 
 * **Planowana praca w trybie failover** : urządzenie jest w trybie online i planujesz przełączenia urządzenia w tryb pracy awaryjnej. Jeśli planujesz uaktualnienie do większego urządzenia, może zajść potrzeba przełączenia urządzenia w tryb failover. Po przeniesieniu własności danych i zakończeniu przejścia w tryb failover urządzenie źródłowe zostanie automatycznie usunięte.
 * **Nieplanowana praca w trybie failover** : urządzenie jest w trybie offline i konieczne jest przełączenie na urządzenie. Ten scenariusz może wystąpić w przypadku awarii w centrum danych, a urządzenie podstawowe nie działa. Planowane jest przełączenie urządzenia w tryb failover na urządzenie pomocnicze. Po przeniesieniu własności danych i zakończeniu przejścia w tryb failover urządzenie źródłowe zostanie automatycznie usunięte.
@@ -73,7 +73,7 @@ Aby usunąć urządzenie, wykonaj następujące czynności.
 
 #### <a name="to-delete-the-device"></a>Aby usunąć urządzenie
 
-1. W Menedżer urządzeń StorSimple przejdź do pozycji **zarządzanie > urządzenia**. W bloku **urządzenia** wybierz dezaktywowane urządzenie, które chcesz usunąć.
+1. W Device Manager StorSimple przejdź do pozycji **zarządzanie > urządzenia**. W bloku **urządzenia** wybierz dezaktywowane urządzenie, które chcesz usunąć.
 2. W bloku **pulpitu nawigacyjnego urządzenia** kliknij pozycję **... Więcej** , a następnie kliknij przycisk **Usuń**.
    
    ![Wybierz urządzenie do usunięcia](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
@@ -90,4 +90,4 @@ Aby usunąć urządzenie, wykonaj następujące czynności.
 
 * Aby uzyskać informacje na temat sposobu pracy awaryjnej, przejdź do [trybu failover i odzyskiwanie po awarii macierzy wirtualnej StorSimple](storsimple-virtual-array-failover-dr.md).
 
-* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania wirtualną tablicą StorSimple](storsimple-virtual-array-manager-service-administration.md).
+* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Device Manager, przejdź do [korzystania z usługi StorSimple Device Manager w celu administrowania wirtualną tablicą StorSimple](storsimple-virtual-array-manager-service-administration.md).

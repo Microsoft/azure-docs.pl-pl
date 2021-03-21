@@ -11,10 +11,10 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97708470"
 ---
 # <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Używanie parametrów potoku do ponownego uczenia modeli w projektancie
@@ -91,7 +91,7 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
    > [!NOTE]
    > Można opublikować wiele potoków w jednym punkcie końcowym. Każdy potok w danym punkcie końcowym ma numer wersji, który można określić podczas wywoływania punktu końcowego potoku.
 
-1. Kliknij opcję **Opublikuj**.
+1. Kliknij pozycję **Opublikuj**.
 
 ## <a name="retrain-your-model"></a>Ponowne uczenie modelu
 

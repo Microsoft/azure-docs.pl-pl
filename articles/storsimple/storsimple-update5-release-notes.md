@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021048"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 Series Update 5 — informacje o wersji
@@ -33,7 +33,7 @@ Przed wdrożeniem aktualizacji w rozwiązaniu StorSimple należy zapoznać się 
 
 W aktualizacji Update 5 wprowadzono następujące ulepszenia dotyczące kluczy i poprawki błędów.
 
-* **Korzystanie z Azure Active Directory (AAD) do uwierzytelniania za pomocą usługi StorSimple Menedżer urządzeń** — od wersji Update 5, Azure Active Directory służy do uwierzytelniania za pomocą usługi StorSimple Menedżer urządzeń. Stary mechanizm uwierzytelniania będzie przestarzały w grudniu 2017. Wszyscy użytkownicy muszą zawierać nowe adresy URL uwierzytelniania w regułach zapory. Aby uzyskać więcej informacji, przejdź do [adresów URL uwierzytelniania wymienionych w temacie Wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
+* **Korzystanie z Azure Active Directory (AAD) do uwierzytelniania za pomocą usługi StorSimple Device Manager** — od wersji Update 5, Azure Active Directory służy do uwierzytelniania za pomocą usługi StorSimple Device Manager. Stary mechanizm uwierzytelniania będzie przestarzały w grudniu 2017. Wszyscy użytkownicy muszą zawierać nowe adresy URL uwierzytelniania w regułach zapory. Aby uzyskać więcej informacji, przejdź do [adresów URL uwierzytelniania wymienionych w temacie Wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
 
     Jeśli adres URL uwierzytelniania nie jest uwzględniony w regułach zapory, użytkownicy zobaczą alert krytyczny, że urządzenie StorSimple nie może uwierzytelnić się w usłudze. Jeśli użytkownicy zobaczą ten alert, muszą uwzględnić nowy adres URL uwierzytelniania. Aby uzyskać więcej informacji, przejdź do [StorSimple alerty sieciowe](storsimple-8000-manage-alerts.md#networking-alerts).
 

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2f4af4a36e719cbf15b3f0af77db81a32f2f2e42
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97896281"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Utwórz chmurę prywatną CloudSimple
@@ -31,7 +31,7 @@ Tworzenie chmury prywatnej pomaga sprostać różnym typowym potrzebom związany
 
 Podczas tworzenia chmury prywatnej otrzymujesz jeden klaster vSphere i wszystkie maszyny wirtualne zarządzania utworzone w tym klastrze.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby można było utworzyć chmurę prywatną, węzły muszą być obsługiwane. Aby uzyskać więcej informacji o węzłach aprowizacji, zobacz temat [udostępnianie węzłów dla rozwiązań VMware platformy Azure przez CloudSimple](create-nodes.md).
 

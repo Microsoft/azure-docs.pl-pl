@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899120"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>Dostęp do portalu vCenter w chmurze prywatnej
 
 Portal programu vCenter w chmurze prywatnej można uruchomić z portalu Azure Portal lub CloudSimple.  Portal vCenter umożliwia zarządzanie infrastrukturą VMware w chmurze prywatnej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Należy nawiązać połączenie sieciowe, a rozpoznawanie nazw DNS musi być włączone, aby można było uzyskać dostęp do portalu vCenter.  Możesz nawiązać połączenie sieciowe z chmurą prywatną, korzystając z dowolnej z poniższych opcji.
 

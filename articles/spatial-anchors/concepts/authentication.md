@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97722967"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
@@ -51,7 +51,7 @@ Zestaw SDK ma wbudowaną obsługę uwierzytelniania za pośrednictwem kluczy kon
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -128,7 +128,7 @@ Po wykonaniu tych kroków aplikacja powinna mieć możliwość uzyskania od MSAL
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
@@ -228,7 +228,7 @@ Token MR jest następnie zwracany do klienta. Aplikacja kliencka może następni
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accessToken = @"MyAccessToken";

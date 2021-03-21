@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890789"
 ---
 # <a name="interact-with-the-map"></a>Korzystanie z mapy
@@ -49,7 +49,7 @@ Poniższy kod dodaje zdarzenia mapy JavaScript do znacznika HTML. Wyróżnia tak
 
 W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 
-| Wydarzenie               | Opis |
+| Zdarzenie               | Opis |
 |---------------------|-------------|
 | `boxzoomend`        | Uruchamiany po zakończeniu interakcji "pole Powiększ".|
 | `boxzoomstart`      | Uruchamiany po rozpoczęciu interakcji "Box zoom".|

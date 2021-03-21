@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
 ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119025"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
@@ -351,7 +351,7 @@ Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 
 | Pakiet      | Wersja    | 
 |--------------|------------| 
-| askpass      | 1,1        | 
+| askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
 | base         | 3.5.1      | 
@@ -382,7 +382,7 @@ Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| evaluate     | 0,14       | 
+| evaluate     | 0.14       | 
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
@@ -421,7 +421,7 @@ Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 | Macierz       | 1.2 – 17     | 
 | methods      | 3.5.1      | 
 | mgcv         | 1.8 — 28     | 
-| mime         | 0,7        | 
+| mime         | 0.7        | 
 | ModelMetrics | ppkt      | 
 | modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
@@ -458,7 +458,7 @@ Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 | rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
-| rstudioapi   | 0,1        | 
+| rstudioapi   | 0.1        | 
 | rvest        | 0.3.4      | 
 | scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 

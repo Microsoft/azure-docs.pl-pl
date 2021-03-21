@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/16/2020
 ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659311"
 ---
 # <a name="preprocess-text"></a>Wstępne przetwarzanie tekstu
@@ -93,8 +93,8 @@ Poniżej przedstawiono kilka przykładów:
 
 | Konfigurowanie | Wynik wyjściowy |
 | --- | --- |
-|Ze wszystkimi wybranymi opcjami </br> Znaleźć </br> W przypadku przypadków takich jak "3test" w "3test 4test", Projektant usunął całe słowo "3test", ponieważ w tym kontekście część-mowę moduł tagujący określa ten token "3test" jako liczbę i zgodnie z częścią mowy, moduł usuwa go.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Ze wszystkimi wybranymi opcjami" border="True"::: |
-|Tylko z `Removing number` wybranym </br> Znaleźć </br> W przypadku takich przypadków, jak "3test", "4-we", Projektant tokenizatora nie podzielił tych przypadków i traktuje je jako całe tokeny. Nie spowoduje to usunięcia cyfr z tych wyrazów.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Wybrano tylko &quot;usuwanie numeru&quot;" border="True"::: |
+|Ze wszystkimi wybranymi opcjami </br> Wyjaśnienie: </br> W przypadku przypadków takich jak "3test" w "3test 4test", Projektant usunął całe słowo "3test", ponieważ w tym kontekście część-mowę moduł tagujący określa ten token "3test" jako liczbę i zgodnie z częścią mowy, moduł usuwa go.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Ze wszystkimi wybranymi opcjami" border="True"::: |
+|Tylko z `Removing number` wybranym </br> Wyjaśnienie: </br> W przypadku takich przypadków, jak "3test", "4-we", Projektant tokenizatora nie podzielił tych przypadków i traktuje je jako całe tokeny. Nie spowoduje to usunięcia cyfr z tych wyrazów.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Wybrano tylko &quot;usuwanie numeru&quot;" border="True"::: |
 
 Można również użyć wyrażenia regularnego do wyprowadzania dostosowanych wyników:
 

@@ -7,10 +7,10 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
 ms.openlocfilehash: 2b5c053847852cc6090ee94858a5be52275d62fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101725343"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
@@ -24,7 +24,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Klaster HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [świnie](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), usługa [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
+| [Usługa Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania Machine Learning Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
@@ -257,7 +257,7 @@ W tym rodzaju konfiguracji użytkownicy mogą rejestrować już istniejące śro
 Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczeniowych:
 
 * Azure HDInsight
-* Azure Batch
+* Usługa Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
 * Azure SQL DB, Azure Synapse Analytics, SQL Server

@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020283"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Samouczek: Konfigurowanie materiałów renderowania fizycznie opartych na protokole 3ds Max
@@ -161,7 +161,7 @@ Ta akcja tworzy wystąpienie obiektu, które można przenieść, obrócić lub s
 
 Przed przejściem do procesu eksportu należy wziąć pod uwagę, jak warto umieścić scenę/zasób do udostępnienia. Najlepiej, Jeśli przekażesz zasób do klientów lub członków zespołu, chcesz, aby mogli oni otworzyć i wyświetlić element zawartości, ponieważ powinien on być widoczny przy minimalnej liczbie Fuss. Ważne jest, aby zachować ścieżki tekstury zasobów względem pliku sceny. Jeśli ścieżki tekstury dla danego elementu zawartości wskazują dysk lokalny lub ścieżkę bezwzględną/lokalizację, nie będą ładowane do sceny, jeśli są otwarte na innym komputerze, nawet jeśli plik. Max znajduje się w tym samym folderze co tekstury. Zastosowanie ścieżek tekstury względem wartości 3ds Max rozwiązuje ten problem i jest dość proste.
 
-1. Na głównym pasku narzędzi przejdź do **File**  >  **Reference**  >  **pozycji** odwołanie do pliku. 
+1. Na głównym pasku narzędzi przejdź do   >    >  **pozycji** odwołanie do pliku. 
 
 1. W oknie śledzenia zasobów zobaczysz wszystkie lub większość tekstur, które zostały zastosowane do materiałów PBR wymienionych w kolumnie **mapy/cieniowanie** .
 
@@ -177,7 +177,7 @@ Możesz zauważyć, że nie wszystkie tekstury są wyświetlane w oknie śledzen
 
 1. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz polecenie **Ustaw ścieżkę**.
 
-1. W polu **Określ ścieżkę elementu zawartości** wybierz ścieżkę lokalną do tekstury i Zastąp ją opcją `.\` .  Wybierz pozycję **OK**. 
+1. W polu **Określ ścieżkę elementu zawartości** wybierz ścieżkę lokalną do tekstury i Zastąp ją opcją `.\` .  Wybierz przycisk **OK**. 
 
     Zostanie zaktualizowane okno śledzenia zasobów, jak pokazano na poniższym zrzucie ekranu. Ta aktualizacja może chwilę potrwać, w zależności od tego, ile tekstury jest w Twojej scenie, i od dużej sceny.
 ![Screensthot, który pokazuje zaktualizowane okno śledzenia zasobów.](media/3dsmax/resolve-textures.jpg)
@@ -227,7 +227,7 @@ Teraz, gdy wprowadziliśmy ścieżki tekstury względem, możemy przejść do FB
 
 1. Wybierz **przycisk OK** , aby zakończyć proces i zamknąć okno.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Ogólnie rzecz biorąc, ten typ materiału wygląda bardziej realistycznie, ponieważ jest oparty na rzeczywistej fizyki ziemskiej. Tworzy dodatkowy efekt immersyjny, aby sceny pojawiły się w świecie rzeczywistym.
 

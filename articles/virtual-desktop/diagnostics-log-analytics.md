@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 37990cc4322717f090c7a35c62512ba0e1a04293
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576148"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
@@ -29,7 +29,7 @@ Pulpit wirtualny systemu Windows używa [Azure monitor](../azure-monitor/overvie
     - Gdy użytkownicy inicjują i ukończą połączenia z usługą.
 - Rejestracja hosta:
     - Czy Host sesji został pomyślnie zarejestrowany w usłudze podczas łączenia?
-- Błędy
+- Błędy:
     - Czy użytkownicy napotykają jakiekolwiek problemy związane z określonymi działaniami? Ta funkcja może generować tabelę, która śledzi dane dotyczące aktywności, o ile informacje są łączone z działaniami.
 - Punkty kontrolne
     - Określone kroki w okresie istnienia działania, które zostały osiągnięte. Na przykład w trakcie sesji użytkownik był obciążany obciążeniem określonego hosta, wówczas użytkownik był zalogowany podczas połączenia i tak dalej.
@@ -91,7 +91,7 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics dostępu do Log Analytics obszaru roboczego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wyszukaj **log Analytics obszar roboczy**.
 

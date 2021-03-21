@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: effb193e54be7331c9dc2874a4a34ef55442ed30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021745"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v11 dla platformy .NET
@@ -54,7 +54,7 @@ W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką kliencką B
 
 Najpierw Utwórz aplikację .NET Core o nazwie *obiekt BLOB — szybki start*.
 
-1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie *obiekt BLOB — szybki start*. To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
+1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie *obiekt BLOB — szybki start*. To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program. cs*.
 
    ```console
    dotnet new console -n blob-quickstart
@@ -99,7 +99,7 @@ dotnet add package Microsoft.Azure.Storage.Blob
 
 Z katalogu projektu:
 
-1. Otwórz plik *program.cs* w edytorze
+1. Otwórz plik *program. cs* w edytorze
 2. Usuń `Console.WriteLine` instrukcję
 3. Dodaj `using` dyrektywy
 4. Utwórz `ProcessAsync` metodę, w której będzie znajdować się główny kod dla przykładu
