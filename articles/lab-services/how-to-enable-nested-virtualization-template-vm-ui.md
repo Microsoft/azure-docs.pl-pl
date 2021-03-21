@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647923"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Włącz zagnieżdżoną wirtualizację na maszynie wirtualnej szablonu Azure Lab Services ręcznie
@@ -154,7 +154,7 @@ Aby dodać zakres DHCP, należy wykonać poniższe czynności.  W tym artykule N
 15. Na stronie **Uaktywnij zakres** wybierz pozycję **tak, chcę uaktywnić ten zakres teraz**.  Kliknij przycisk **Dalej**.
 16. Na stronie **Kończenie pracy Kreatora nowych zakresów** kliknij przycisk **Zakończ**.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Teraz komputer z szablonem jest gotowy do tworzenia maszyn wirtualnych funkcji Hyper-V.   Aby uzyskać instrukcje dotyczące tworzenia maszyn wirtualnych funkcji Hyper-V, zobacz temat [Tworzenie maszyny wirtualnej w funkcji Hyper-v](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Zobacz również [Centrum oceny firmy Microsoft](https://www.microsoft.com/evalcenter/) , aby wyewidencjonować dostępne systemy operacyjne i oprogramowanie.
 

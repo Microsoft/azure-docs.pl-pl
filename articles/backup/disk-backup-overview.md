@@ -4,10 +4,10 @@ description: Poznaj rozwiązanie do tworzenia kopii zapasowych na dysku platform
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915512"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Omówienie usługi Kopia zapasowa Azure Disk (wersja zapoznawcza)
@@ -69,7 +69,7 @@ Rozważ użycie kopii zapasowej Azure Disk w scenariuszach, w których:
 
 - Obecnie kopia zapasowa Azure Disk obsługuje operacyjną kopię zapasową dysków zarządzanych, a kopie zapasowe nie są kopiowane do magazynu magazynu kopii zapasowych. Zapoznaj się z [matrycą pomocy technicznej](disk-backup-support-matrix.md), aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy oraz dostępność regionów.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Azure Backup oferuje rozwiązanie do zarządzania cyklem życia migawek do ochrony dysków platformy Azure. Migawki dysków utworzone przez Azure Backup są przechowywane w grupie zasobów w ramach subskrypcji platformy Azure i wiążą się z naliczeniem opłat za **Magazyn migawek** . Aby uzyskać więcej informacji na temat cen migawek, możesz odwiedzić stronę [cennika dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) . Ponieważ migawki nie są kopiowane do magazynu kopii zapasowych, Azure Backup nie nalicza opłaty za **chronione wystąpienie** , a koszt **magazynu kopii zapasowych** nie ma zastosowania. Ponadto migawki przyrostowe zajmują zmiany różnicowe od ostatniej migawki i są zawsze przechowywane w magazynie w warstwie Standardowa, niezależnie od typu magazynu dysków zarządzanych przez magazyn i są obciążane opłatami zgodnie z cennikiem magazynu w warstwie Standardowa. Dzięki temu tworzenie kopii zapasowej na dysku platformy Azure jest ekonomiczne.
 

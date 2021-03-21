@@ -4,10 +4,10 @@ description: Informacje na temat konfigurowania i zarządzania operacyjną kopi�
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: 0dc490842389ba9286799aef5d37c1cf7c1ba64e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051076"
 ---
 # <a name="configure-operational-backup-for-azure-blobs-in-preview"></a>Konfigurowanie operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)

@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696442"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w strefie dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
@@ -51,7 +51,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 Usługa Load Balancer w warstwie Standardowa obsługuje tylko standardowy publiczny adres IP. W przypadku tworzenia nowego publicznego adresu IP podczas tworzenia modułu równoważenia obciążenia jest on automatycznie konfigurowany jako standardowa jednostka SKU. Jest on również automatycznie konfigurowany jako strefowo nadmiarowy.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >    >  **Load Balancer**.
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
     | Ustawienie                 | Wartość                                              |
@@ -141,7 +141,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
     - **myBackendSubnet**. Upewnij się, że jest wybrana ta podsieć.
     - **myNetworkSecurityGroup** — jako nazwę sieciowej grupy zabezpieczeń (zapory), która już istnieje.
 5. Kliknij pozycję **Wyłączone**, aby wyłączyć diagnostykę rozruchu.
-6. Wybierz przycisk **OK**. Sprawdź ustawienia na stronie podsumowania. Następnie wybierz przycisk **Utwórz**.
+6. Wybierz przycisk **OK**. Sprawdź ustawienia na stronie podsumowania. Następnie wybierz pozycję **Utwórz**.
 7. Powtórz kroki od 1 do 6, aby utworzyć drugą maszynę wirtualną o nazwie **myVM2** w strefie 1. Wybierz **myVnet** jako sieć wirtualną. Wybierz **myVM2PIP** jako standardowy publiczny adres IP. Wybierz **myBackendSubnet** jako podsieć. Wybierz **myNetworkSecurityGroup** jako sieciową grupę zabezpieczeń.
 
     ![Tworzenie maszyn wirtualnych](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-machine.png) 

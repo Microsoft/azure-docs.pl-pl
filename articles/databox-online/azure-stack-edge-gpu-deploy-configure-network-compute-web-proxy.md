@@ -10,10 +10,10 @@ ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594606"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie sieci na potrzeby Azure Stack brzeg Pro z procesorem GPU
@@ -131,7 +131,7 @@ Jest to opcjonalna konfiguracja.
 > [!IMPORTANT]
 > * W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy skonfigurowanie uwierzytelniania serwera proxy sieci Web jako **none**. Uwierzytelnianie NTLM nie jest obsługiwane.
 > * Pliki proxy-autoconfig (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki sieci Web i inni agenci użytkowników mogą automatycznie wybierać odpowiedni serwer proxy (metoda dostępu) do pobierania danego adresu URL. 
-> * Przezroczyste serwery proxy działają dobrze w przypadku Azure Stack EDGE Pro. W przypadku nieprzezroczystych serwerów proxy, które przechwytuje i odczytują cały ruch (za pośrednictwem własnych certyfikatów zainstalowanych na serwerze proxy), należy przekazać klucz publiczny certyfikatu serwera proxy jako łańcuch podpisywania na urządzeniu Azure Stack EDGE Pro. Następnie można skonfigurować ustawienia serwera proxy na urządzeniu Azure Stack Edge. Aby uzyskać więcej informacji, zobacz [przenoszenie własnych certyfikatów i przekazywanie ich za pomocą lokalnego interfejsu użytkownika](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
+> * Przezroczyste serwery proxy dobrze współpracują z rozwiązaniem Azure Stack Edge Pro. W przypadku nieprzezroczystych serwerów proxy, które przechwytuje i odczytują cały ruch (za pośrednictwem własnych certyfikatów zainstalowanych na serwerze proxy), należy przekazać klucz publiczny certyfikatu serwera proxy jako łańcuch podpisywania na urządzeniu Azure Stack EDGE Pro. Następnie można skonfigurować ustawienia serwera proxy na urządzeniu Azure Stack Edge. Aby uzyskać więcej informacji, zobacz [przenoszenie własnych certyfikatów i przekazywanie ich za pomocą lokalnego interfejsu użytkownika](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
 <!--1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
@@ -142,7 +142,7 @@ Jest to opcjonalna konfiguracja.
 
     1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://host-IP address or FQDN:Port number` . Adresy URL HTTPS nie są obsługiwane.
 
-    2. W obszarze **uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
+    2. W obszarze **Uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
 
     3. Jeśli używasz uwierzytelniania, wprowadź nazwę użytkownika i hasło.
 

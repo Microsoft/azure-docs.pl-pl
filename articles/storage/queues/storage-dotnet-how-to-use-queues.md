@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d54b8f15c90aa8f6ffcc04453fee0349e501f47d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585755"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
@@ -69,7 +69,7 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących czterech
 - [Biblioteka kliencka Azure. Storage. Queues dla platformy .NET](https://www.nuget.org/packages/azure.storage.queues/): Ten pakiet umożliwia pracę z usługą Azure queue storage do przechowywania komunikatów, do których dostęp jest możliwy dla klienta.
 - [System.Configuration.ConfigurationManager Library for .NET](https://www.nuget.org/packages/system.configuration.configurationmanager/): Ten pakiet zapewnia dostęp do plików konfiguracji dla aplikacji klienckich.
 
-Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
+Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**
@@ -84,7 +84,7 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących trzech p
 - [Microsoft Azure queue storage biblioteki klienckiej dla platformy .NET](https://www.nuget.org/packages/microsoft.azure.storage.queue/): Ta biblioteka klienta umożliwia pracę z usługą Azure queue storage do przechowywania komunikatów, do których dostęp jest możliwy dla klienta.
 - [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/microsoft.azure.configurationmanager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
 
-Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
+Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**

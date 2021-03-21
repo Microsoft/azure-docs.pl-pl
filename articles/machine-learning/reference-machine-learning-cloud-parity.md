@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97725024"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning z niezależną międzychmurową parzystością
@@ -34,7 +34,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Cechy | Stan chmury publicznej  | US-Virginia | US-Arizona| 
+| Cecha | Stan chmury publicznej  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** | | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność                   | TAK                | TAK         |
@@ -147,7 +147,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet 
 
-| Cechy                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
+| Cecha                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** |    | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność               | TAK       | Nie dotyczy        |
@@ -233,7 +233,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
     |------------------|--------------------------------------------|--------------------------------------------|
     | Płaszczyzna zarządzania | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Płaszczyzna danych       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
-    | Usługa Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
+    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Przykładowy Notes może nie zadziałał, jeśli potrzebny jest dostęp do danych publicznych.
 * Zakresy adresów IP: polecenie interfejsu wiersza polecenia używane w instrukcjach [wymuszonego tunelowania sieci wirtualnej](how-to-secure-training-vnet.md#forced-tunneling) nie zwraca zakresów adresów IP. Zamiast tego należy użyć [zakresów adresów IP i usług platformy Azure dla Chin](https://www.microsoft.com//download/details.aspx?id=57062) .

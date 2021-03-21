@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585420"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
@@ -92,4 +92,4 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [Serwer proxy aplikacji platformy Azure](../../active-directory/manage-apps/application-proxy.md)| Uwierzytelniający fronton używany do zabezpieczania dostępu zdalnego aplikacji sieci Web hostowanych lokalnie. |
 |[Azure Firewall](../../firewall/overview.md)|Zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure.|
 |[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|W połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji program zapewnia ochronę przed atakami DDoS.|
-|[Punkty końcowe usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)|Rozszerza prywatną przestrzeń adresową sieci wirtualnej i tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia.|
+|[Punkty końcowe usługi dla sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md)|Rozszerza prywatną przestrzeń adresową sieci wirtualnej i tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia.|

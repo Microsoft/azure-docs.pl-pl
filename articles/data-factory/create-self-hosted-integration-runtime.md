@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389512"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
@@ -19,7 +19,7 @@ ms.locfileid: "100389512"
 
 Środowisko Integration Runtime (IR) to infrastruktura obliczeniowa, która Azure Data Factory używa do zapewniania możliwości integracji danych w różnych środowiskach sieciowych. Aby uzyskać szczegółowe informacje o IR, zobacz [Omówienie środowiska Integration Runtime](concepts-integration-runtime.md).
 
-Własne środowisko Integration Runtime może uruchamiać działania kopiowania między magazynem danych w chmurze i magazynem danych w sieci prywatnej. Może również wysyłać działania transformacji dotyczące zasobów obliczeniowych w sieci lokalnej lub sieci wirtualnej platformy Azure. Instalacja własnego środowiska Integration Runtime wymaga maszyny lokalnej lub maszyny wirtualnej znajdującej się w sieci prywatnej.  
+Własne środowisko Integration Runtime może uruchamiać działania kopiowania pomiędzy magazynem danych w chmurze a magazynem danych w sieci prywatnej. Może również wysyłać działania przekształcania do zasobów obliczeniowych w sieci prywatnej lub w sieci wirtualnej platformy Azure. Instalacja własnego środowiska Integration Runtime musi się odbyć na maszynie lokalnej lub na maszynie wirtualnej w sieci prywatnej.  
 
 W tym artykule opisano, jak można utworzyć i skonfigurować samoobsługowe środowisko IR.
 

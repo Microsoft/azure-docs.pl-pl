@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647906"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
@@ -226,7 +226,7 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 Zainstaluj inne aplikacje, które są często używane do uczenia się w aplikacji ze sklepu Windows. Sugestie obejmują aplikacje, takie jak [aplikacja Microsoft tablica](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)i [Minecraft Education Edition](https://education.minecraft.net/). Te aplikacje należy instalować ręcznie za pomocą Sklepu Windows lub za pomocą odpowiednich witryn sieci Web na maszynie wirtualnej szablonu.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 W tym artykule przedstawiono kroki opcjonalne umożliwiające przygotowanie maszyny wirtualnej szablonu systemu Windows dla efektywnej klasy.  Kroki obejmują zainstalowanie usługi OneDrive i zainstalowanie Microsoft 365, zainstalowanie aktualizacji dla systemu Windows i zainstalowanie aktualizacji dla Microsoft Store aplikacji.  Omówiono również sposób ustawiania aktualizacji dla harmonogramu, który najlepiej sprawdza się w przypadku danej klasy.  
 

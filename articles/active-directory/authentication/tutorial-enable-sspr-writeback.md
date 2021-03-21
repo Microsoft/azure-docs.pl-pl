@@ -12,10 +12,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97028057"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
@@ -120,7 +120,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, wybierz pozycję **Resetowanie hasła**, a następnie wybierz pozycję **integracja lokalna**.
-1. Ustawić opcję **zapisu hasła wstecz do katalogu lokalnego?** *Yes*
+1. Ustawić opcję **zapisu hasła wstecz do katalogu lokalnego?** 
 1. Ustaw opcję **Zezwalaj użytkownikom na odblokowywanie kont bez resetowania hasła?** na *tak*.
 
     ![Włącz Samoobsługowe resetowanie haseł w usłudze Azure AD na potrzeby zapisywania zwrotnego haseł](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
