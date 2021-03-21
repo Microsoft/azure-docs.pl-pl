@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
 ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91367856"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Przygotowywanie Azure Active Directory dzierżawy dla połączeń protokołu VPN użytkowników OpenVPN
@@ -46,7 +46,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 2. Następnie udziel zgody administratora na swoją organizację, dzięki czemu aplikacja sieci VPN platformy Azure będzie mogła się zalogować i odczytać profile użytkowników. Skopiuj i wklej adres URL odnoszący się do lokalizacji wdrożenia na pasku adresu przeglądarki:
 
-    Public
+    Publiczne
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -78,7 +78,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
     ![Zrzut ekranu przedstawia okno dialogowe z komunikatem żądania zaakceptowania dla organizacji i dodatkowych informacji.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-5. W ramach usługi Azure AD w **aplikacjach dla przedsiębiorstw**powinna zostać wyświetlona lista **sieci VPN platformy Azure** .
+5. W ramach usługi Azure AD w **aplikacjach dla przedsiębiorstw** powinna zostać wyświetlona lista **sieci VPN platformy Azure** .
 
     ![Sieć VPN platformy Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 

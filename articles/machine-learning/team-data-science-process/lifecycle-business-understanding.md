@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710333"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Informacje o firmie dotyczące etapów cyklu życia zespołu ds. analizy danych
@@ -44,7 +44,7 @@ W tym etapie są uwzględnione dwa podstawowe zadania:
    * **Identyfikowanie źródeł danych**: Znajdź odpowiednie dane, które pomagają odpowiedzieć na pytania, które definiują cele projektu.
 
 ### <a name="define-objectives"></a>Zdefiniuj cele
-1. Centralnym celem tego kroku jest zidentyfikowanie kluczowych zmiennych firmowych, które muszą być przewidywane w analizie. Nazywamy te zmienne jako *elementy docelowe modelu*i używamy metryk skojarzonych z nimi w celu ustalenia sukcesu projektu. Dwa przykłady takich celów to prognozy sprzedaży lub prawdopodobieństwo, że porządek jest fałszywy.
+1. Centralnym celem tego kroku jest zidentyfikowanie kluczowych zmiennych firmowych, które muszą być przewidywane w analizie. Nazywamy te zmienne jako *elementy docelowe modelu* i używamy metryk skojarzonych z nimi w celu ustalenia sukcesu projektu. Dwa przykłady takich celów to prognozy sprzedaży lub prawdopodobieństwo, że porządek jest fałszywy.
 
 2. Zdefiniuj cele projektu przez zaproszenie i uściślenie pytań "Ostre", które są istotne, specyficzne i jednoznaczne. Nauka danych to proces, który używa nazw i numerów, aby odpowiedzieć na takie pytania. Zazwyczaj używasz analizy danych lub uczenia maszynowego, aby odpowiedzieć na pięć typów pytań:
  

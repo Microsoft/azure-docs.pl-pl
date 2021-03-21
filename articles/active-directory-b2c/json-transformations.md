@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102119879"
 ---
 # <a name="json-claims-transformations"></a>Przekształcenia oświadczeń JSON
@@ -58,11 +58,11 @@ Poniższy przykład generuje ciąg JSON na podstawie wartości "e-mail" i "OTP" 
 Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do SendGrid (dostawca poczty e-mail innej firmy). Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
 
 - Oświadczenia wejściowe:
-  - **adres e-mail**, personalizacje typów roszczeń przekształceń  **. 0. do. 0. adres e-mail**: " someone@example.com "
+  - **adres e-mail**, typ "  **personalizations.0.to.0.email**" przekształcenia: " someone@example.com "
   - **uwierzytelnianie OTP** typu **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parametr wejściowy:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **z adresu e-mail**: " service@contoso.com "
+  - **from.email**: " service@contoso.com "
   - **personalizacje. 0. podmiot** "kod weryfikacyjny E-mail konta Contoso"
 - Zgłoszenie wyjściowe:
   - **elemencie requestbody**: wartość JSON
@@ -115,7 +115,7 @@ Poniższy przykład generuje ciąg JSON na podstawie wartości, a także ciągó
 Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do interfejsu API REST. Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
 
 - Oświadczenia wejściowe:
-  - **adres e-mail**, typ zgłoszenia transformacji  **customerEntity. email**: " john.s@contoso.com "
+  - **adres e-mail**, typ "  **customerEntity.email**" przekształcenia: " john.s@contoso.com "
   - **objectid**, typ **customerEntity. userObjectId** "01234567-89ab-cdef-0123-456789ABCDEF"
   - **podaną** wartośćname, typ zgłoszenia przekształcenia **customerEntity. FirstName** "Jan"
   - **nazwisko**, typ odszkodowania **customerEntity. LastName** "Kowalski"

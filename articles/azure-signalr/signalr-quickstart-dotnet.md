@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874546"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
@@ -34,7 +34,7 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą A
 
 Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
@@ -83,7 +83,7 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
     </configuration>
     ```
 
-1. W *Startup.cs*, zamiast wywoływania `MapSignalR()` , należy wywołać `MapAzureSignalR({YourApplicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
+1. W trakcie *uruchamiania. cs*, zamiast wywoływania `MapSignalR()` , należy wywołać `MapAzureSignalR({YourApplicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -117,7 +117,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W instrukcjach dla tego przewodnika Szybki start używana była grupa zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuwanie](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

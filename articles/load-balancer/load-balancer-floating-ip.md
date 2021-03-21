@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
 ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94699410"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer przestawna konfiguracja adresów IP
@@ -34,7 +34,7 @@ Niektóre scenariusze aplikacji wolą lub wymagają, aby ten sam port był używ
 Na poziomie platformy Azure Load Balancer zawsze działa w topologii przepływu DSR, niezależnie od tego, czy jest włączony swobodny adres IP. Oznacza to, że wychodząca część przepływu jest zawsze poprawnie zapisywana do przepływu bezpośrednio z powrotem do źródła.
 Bez zmiennoprzecinkowych adresów IP platforma Azure udostępnia tradycyjny schemat mapowania adresów IP na potrzeby łatwego użytkowania ("adres IP wystąpień maszyn wirtualnych"). Włączenie pływającego adresu IP powoduje zmianę mapowania adresów IP na adres IP frontonu usługi równoważenia obciążenia w celu zapewnienia dodatkowej elastyczności. Dowiedz się więcej [tutaj](load-balancer-multivip-overview.md).
 
-## <a name="limitations"></a><a name = "limitations"></a>Limity
+## <a name="limitations"></a><a name = "limitations"></a>Ograniczenia
 
 - Zmienny adres IP nie jest obecnie obsługiwany w konfiguracjach pomocniczych adresów IP na potrzeby scenariuszy równoważenia obciążenia
 

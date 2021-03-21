@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: be202a6016842ee82b3230c2841d416d3b53ea15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505583"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Rozwiązywanie problemów z agentem Application Insights (dawniej nazwany monitor stanu v2)
@@ -133,7 +133,7 @@ Zapoznaj się z dokumentacją [interfejsu API](status-monitor-v2-api-reference.m
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Zbieranie dzienników ETW przy użyciu narzędzia PerfView
 
-#### <a name="setup"></a>Konfigurowanie
+#### <a name="setup"></a>Konfiguracja
 
 1. Pobierz PerfView.exe i PerfView64.exe z usługi [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Rozpocznij PerfView64.exe.

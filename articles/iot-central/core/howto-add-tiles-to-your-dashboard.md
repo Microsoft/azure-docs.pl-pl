@@ -7,10 +7,10 @@ ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797013"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
@@ -56,7 +56,7 @@ W poniższej tabeli opisano różne typy kafelków, które można dodać do pulp
 | Kafelek             | Opis |
 | ---------------- | ----------- |
 | Znaczniki języka Markdown         | Kafelki promocji są kafelkami, które wyświetlają tekst nagłówka i opisu sformatowane przy użyciu promocji. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
-| Image (Obraz)            | Kafelki obrazu wyświetlają obraz niestandardowy i można go kliknąć. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
+| Obraz            | Kafelki obrazu wyświetlają obraz niestandardowy i można go kliknąć. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
 | Etykieta            | Kafelki etykiet wyświetlają niestandardowy tekst na pulpicie nawigacyjnym. Możesz wybrać rozmiar tekstu. Użyj kafelka etykiety, aby dodać odpowiednie informacje do pulpitu nawigacyjnego, takie opisy, szczegóły kontaktu lub pomoc.|
 | Liczba            | Liczba kafelków przedstawia liczbę urządzeń w grupie urządzeń.|
 | Mapa              | Kafelki mapy przedstawiają lokalizację co najmniej jednego urządzenia na mapie. Można również wyświetlić do 100 punktów historii lokalizacji urządzenia. Można na przykład wyświetlić przykładową trasę, w której znajduje się urządzenie w ubiegłym tygodniu.|

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763521"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Powiązanie wyzwalacza usługi sygnalizującej dla Azure Functions
@@ -165,7 +165,7 @@ def main(invocation) -> None:
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
@@ -178,7 +178,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu kontekstu wywołania wyzwalacza. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnalizującego, aby funkcja została wyzwolona.|
 |**kategorii**|**Kategoria**| Ta wartość musi być ustawiona jako kategoria komunikatów dla funkcji, która ma być wyzwalana. Kategoria może być jedną z następujących wartości: <ul><li>**połączenia**: w tym zdarzenia *połączone* i *rozłączone*</li><li>**komunikaty**: łącznie ze wszystkimi innymi zdarzeniami, z wyjątkiem kategorii *połączenia*</li></ul> |
-|**wydarzen**|**Wydarzenie**| Ta wartość musi być ustawiona jako zdarzenie komunikatów dla funkcji, która ma być wyzwalana. W przypadku kategorii *messages* , Event to *obiekt docelowy* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W kategorii *połączenia* jest używana tylko *połączona* i *rozłączona* . |
+|**wydarzen**|**Zdarzenie**| Ta wartość musi być ustawiona jako zdarzenie komunikatów dla funkcji, która ma być wyzwalana. W przypadku kategorii *messages* , Event to *obiekt docelowy* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W kategorii *połączenia* jest używana tylko *połączona* i *rozłączona* . |
 |**parameterNames**|**ParameterNames**| Obowiązkowe Lista nazw, które wiążą się z parametrami. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
@@ -196,7 +196,7 @@ InvocationContext zawiera całą zawartość wiadomości wysyłanej z usługi sy
 |Błąd| Dostępne dla zdarzenia *odłączonego* . Może być pusta, jeśli połączenie zostało zamknięte bez błędu lub zawiera komunikaty o błędach.|
 |Koncentrator| Nazwa centrum, do którego należy wiadomość.|
 |Kategoria| Kategoria komunikatu.|
-|Wydarzenie| Zdarzenie.|
+|Zdarzenie| Zdarzenie.|
 |ConnectionId| Identyfikator połączenia klienta, który wysyła komunikat.|
 |UserId| Tożsamość użytkownika klienta wysyłającego komunikat.|
 |Nagłówki| Nagłówki żądania.|

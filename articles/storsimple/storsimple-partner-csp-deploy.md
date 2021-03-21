@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021864"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Wdróż StorSimple wirtualną macierzy dla programu Cloud Solution Provider
 
 ## <a name="overview"></a>Omówienie
 
-StorSimple wirtualną macierzy można wdrożyć przez partnerów dostawcy rozwiązań w chmurze (CSP) dla swoich klientów. Partner programu CSP może utworzyć usługę StorSimple Menedżer urządzeń. Tej usługi można następnie użyć do wdrożenia i zarządzania macierzą wirtualną StorSimple oraz skojarzonymi udziałami, woluminami i kopiami zapasowymi.
+StorSimple wirtualną macierzy można wdrożyć przez partnerów dostawcy rozwiązań w chmurze (CSP) dla swoich klientów. Partner programu CSP może utworzyć usługę StorSimple Device Manager. Tej usługi można następnie użyć do wdrożenia i zarządzania macierzą wirtualną StorSimple oraz skojarzonymi udziałami, woluminami i kopiami zapasowymi.
 
 W tym artykule opisano, jak partner programu CSP może dodać klienta lub nową subskrypcję do istniejącego klienta, a następnie utworzyć usługę do wdrożenia macierzy wirtualnej StorSimple w dostawcy usług kryptograficznych.
 
@@ -68,9 +68,9 @@ Dodanie klienta powoduje automatyczne utworzenie subskrypcji. Aby dodać klienta
 
     ![Logowanie do witryny Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Aby utworzyć StorSimple Menedżer urządzeń, kliknij przycisk **+ Nowy** i Wyszukaj lub przejdź do **serii urządzeń wirtualnych StorSimple**. Aby uzyskać więcej informacji, przejdź do [wdrożenia usługi StorSimple Menedżer urządzeń](storsimple-virtual-array-manage-service.md).
+8. Aby utworzyć StorSimple Device Manager, kliknij przycisk **+ Nowy** i Wyszukaj lub przejdź do **serii urządzeń wirtualnych StorSimple**. Aby uzyskać więcej informacji, przejdź do [wdrożenia usługi StorSimple Device Manager](storsimple-virtual-array-manage-service.md).
 
-    ![Tworzenie usługi StorSimple Menedżer urządzeń](./media/storsimple-partner-csp-deploy/image8.png)
+    ![Tworzenie usługi StorSimple Device Manager](./media/storsimple-partner-csp-deploy/image8.png)
 
 
 ## <a name="add-a-subscription"></a>Dodawanie subskrypcji
@@ -97,9 +97,9 @@ W niektórych przypadkach użytkownik może mieć istniejącego klienta i musi d
 
     ![Logowanie do witryny Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Aby utworzyć StorSimple Menedżer urządzeń, kliknij przycisk **+ Nowy** i Wyszukaj lub przejdź do **serii urządzeń wirtualnych StorSimple**. Aby uzyskać więcej informacji, przejdź do [wdrożenia usługi StorSimple Menedżer urządzeń](storsimple-virtual-array-manage-service.md).
+8. Aby utworzyć StorSimple Device Manager, kliknij przycisk **+ Nowy** i Wyszukaj lub przejdź do **serii urządzeń wirtualnych StorSimple**. Aby uzyskać więcej informacji, przejdź do [wdrożenia usługi StorSimple Device Manager](storsimple-virtual-array-manage-service.md).
 
-    ![Tworzenie usługi StorSimple Menedżer urządzeń](./media/storsimple-partner-csp-deploy/image8.png)
+    ![Tworzenie usługi StorSimple Device Manager](./media/storsimple-partner-csp-deploy/image8.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

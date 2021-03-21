@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873509"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej
@@ -107,7 +107,7 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
     Ten klucz tajny jest dostępny z interfejsem API konfiguracji. Dwukropek (:) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Zobacz [Konfiguracja według środowiska](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Otwórz *Startup.cs* i zaktualizuj `ConfigureServices` metodę, aby użyć usługi Azure Signaling, wywołując `AddSignalR()` metody i `AddAzureSignalR()` :
+4. Otwórz *Start. cs* i zaktualizuj `ConfigureServices` metodę, aby użyć usługi Azure Signaling, wywołując `AddSignalR()` metody i `AddAzureSignalR()` :
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -119,7 +119,7 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
 
     Nie przekazując parametru do `AddAzureSignalR()` , ten kod używa domyślnego klucza konfiguracji dla parametrów połączenia zasobu usługi sygnalizującego. Domyślnym kluczem konfiguracji jest *Azure: sygnalizującer: ConnectionString*.
 
-5. W *Startup.cs* zaktualizuj metodę, `Configure` zastępując ją poniższym kodem.
+5. W programie *Start. cs* zaktualizuj `Configure` metodę, zastępując ją poniższym kodem.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -142,9 +142,9 @@ W przypadku centrum jest głównym składnikiem, który uwidacznia zestaw metod,
 
 Obie metody używają `Clients` interfejsu, który udostępnia zestaw SDK ASP.NET Core. Ten interfejs zapewnia dostęp do wszystkich połączonych klientów, dzięki czemu można wypchnąć zawartość do klientów.
 
-1. W katalogu projektu dodaj nowy folder o nazwie *Hub*. Dodaj nowy plik z kodem centrum o nazwie *ChatHub.cs* do nowego folderu.
+1. W katalogu projektu dodaj nowy folder o nazwie *Hub*. Dodaj nowy plik z kodem centrum o nazwie *ChatHub. cs* do nowego folderu.
 
-2. Dodaj następujący kod do *ChatHub.cs* , aby zdefiniować klasę Hub i zapisać plik.
+2. Dodaj następujący kod do *ChatHub. cs* , aby zdefiniować klasę Hub i zapisać plik.
 
     Zaktualizuj przestrzeń nazw dla tej klasy, jeśli użyto nazwy projektu, która różni się od *sygnalizującer. MVC*.
 

@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie agenta zabezpieczeń
+title: Uwierzytelnianie agenta zabezpieczeń (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Wykonaj uwierzytelnianie mikroagenta, używając dwóch możliwych metod.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
-ms.openlocfilehash: b0304bd191626adb71041fb0561862b988ee25cd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 018da32b90c7730f82eaa5aa2cd2b5c7a64719a6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124588"
 ---
-# <a name="micro-agent-authentication-methods"></a>Metody uwierzytelniania Micro Agent 
+# <a name="micro-agent-authentication-methods-preview"></a>Metody uwierzytelniania Micro Agent (wersja zapoznawcza)
 
 Istnieją dwie opcje uwierzytelniania w usłudze Defender dla programu IoT Micro Agent: 
 

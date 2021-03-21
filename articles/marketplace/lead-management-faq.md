@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/01/2020
 ms.openlocfilehash: 681498073a5f111e3babd50443623589ffeec02f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330924"
 ---
 # <a name="common-questions-and-troubleshooting-for-lead-configuration"></a>Często zadawane pytania i rozwiązywanie problemów z konfiguracją klienta
@@ -22,7 +22,7 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 #### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?
 
-Zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md) , aby zapoznać się z omówieniem sposobu łączenia systemu CRM z komercyjnymi ofertami portalu Marketplace. Jeśli wystąpi błąd, zapoznaj się z poniższymi wskazówkami dotyczącymi rozwiązywania problemów. Aby uzyskać pomoc techniczną, Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
+Zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md) , aby zapoznać się z omówieniem sposobu łączenia systemu CRM z komercyjnymi ofertami portalu Marketplace. Jeśli wystąpi błąd, zapoznaj się z poniższymi wskazówkami dotyczącymi rozwiązywania problemów. Aby uzyskać pomoc techniczną, Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ** oferty  >  **Konfiguracja zarządzania liderem**.
 
 #### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Czy muszę skonfigurować miejsce docelowe potencjalnego klienta w celu opublikowania oferty w portalu komercyjnym?
 
@@ -52,7 +52,7 @@ Wyszukaj `"MSFT_TEST"` w miejscu docelowym potencjalnego klienta. Poniżej znajd
 
 #### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Mam ofertę na żywo, ale dlaczego nie widzę żadnych potencjalnych klientów?
 
-Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest prawidłowe. Wyślemy Ci lidera testowego po wybraniu opcji **Publikuj** w ofercie w centrum partnerskim. Jeśli widzisz potencjalnego klienta testowego, połączenie jest prawidłowe. Możesz również przetestować połączenie z liderem, próbując uzyskać podgląd oferty w ramach kroku wersji zapoznawczej. Wybierz pozycję **Pobierz teraz**, **skontaktuj się z**nami lub **bezpłatną wersję próbną** na liście w portalu komercyjnym.
+Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest prawidłowe. Wyślemy Ci lidera testowego po wybraniu opcji **Publikuj** w ofercie w centrum partnerskim. Jeśli widzisz potencjalnego klienta testowego, połączenie jest prawidłowe. Możesz również przetestować połączenie z liderem, próbując uzyskać podgląd oferty w ramach kroku wersji zapoznawczej. Wybierz pozycję **Pobierz teraz**, **skontaktuj się z** nami lub **bezpłatną wersję próbną** na liście w portalu komercyjnym.
 
 Upewnij się również, że szukasz odpowiednich danych. Zapoznaj się z tematem informacje o [potencjalnych klientach](partner-center-portal/commercial-marketplace-get-customer-leads.md) , aby poznać dane potencjalnych klientów, które wysyłamy do miejsca docelowego potencjalnego klienta.
 
@@ -84,11 +84,11 @@ Ze względu na zasady dotyczące informacji osobistych nie można udostępniać 
 
 Dane generowania potencjalnego klienta są niskie. Jest ona mniejsza niż 1 GB dla niemal wszystkich wydawców. Koszt zależy od liczby odebranych potencjalnych klientów. Jeśli na przykład w miesiącu otrzymasz 1 000 potencjalnych klientów, koszt wynosi około 50 centów. Aby uzyskać więcej informacji o cenach magazynu, zobacz [Cennik usługi Azure Storage — Omówienie](https://azure.microsoft.com/pricing/details/storage/).
 
-Jeśli Twoje pytanie nie zostało odebrane, skontaktuj się z firmą pomoc techniczna firmy Microsoft za pomocą [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
+Jeśli Twoje pytanie nie zostało odebrane, skontaktuj się z firmą pomoc techniczna firmy Microsoft za pomocą [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ** oferty  >  **Konfiguracja zarządzania liderem**.
 
 #### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Otrzymuję powiadomienia e-mail po odebraniu nowych potencjalnych klientów. Jak skonfigurować kogoś innego do otrzymywania tych wiadomości e-mail?
 
-Uzyskaj dostęp do oferty w centrum partnerskim i przejdź do strony **Konfiguracja oferty** > **Zarządzanie potencjalnymi klientami**  >  **Edit**. Zaktualizuj adresy e-mail w polu **kontaktowy adres e-mail** .
+Uzyskaj dostęp do oferty w centrum partnerskim i przejdź do strony **Konfiguracja oferty** > **Zarządzanie potencjalnymi klientami**  >  . Zaktualizuj adresy e-mail w polu **kontaktowy adres e-mail** .
 
 ## <a name="troubleshooting-lead-configuration-errors"></a><a id="publishing-config-errors"></a> Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta
 
