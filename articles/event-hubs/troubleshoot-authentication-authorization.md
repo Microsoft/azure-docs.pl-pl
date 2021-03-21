@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemó
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92329614"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji — Event Hubs platformy Azure
@@ -41,7 +41,7 @@ Jeśli używasz [sygnatury dostępu współdzielonego](authenticate-shared-acces
 - Upewnij się, że używany klucz sygnatury dostępu współdzielonego jest poprawny. Jeśli nie, użyj odpowiedniego klucza SAS.
 - Sprawdź, czy klucz ma odpowiednie uprawnienia (wysyłanie, odbieranie lub zarządzanie). Jeśli nie, użyj klucza, który ma wymagane uprawnienie. 
 - Sprawdź, czy klucz wygasł. Zalecamy odnowienie sygnatury dostępu współdzielonego przed wygaśnięciem. W przypadku pochylenia zegara między klientem a węzłami usługi Event Hubs token uwierzytelniania może wygasnąć przed jego zapisaniem przez klienta. W przypadku bieżących kont implementacji rozchylony zegar do 5 minut, czyli klient odnawia token 5 minut przed jego wygaśnięciem. W związku z tym, jeśli skośność zegara jest większa niż 5 minut, klient może obserwować sporadyczne błędy uwierzytelniania.
-- Jeśli jest ustawiona wartość **czasu rozpoczęcia SAS** , w ciągu kilku minut mogą pojawić **się**sporadyczne błędy spowodowane pochyleniem zegara (różnice w bieżącym czasie na różnych komputerach). Ustaw godzinę rozpoczęcia na co najmniej 15 minut w przeszłości lub nie ustawiaj jej wcale. To samo ogólnie dotyczy czasu wygaśnięcia. 
+- Jeśli jest ustawiona wartość **czasu rozpoczęcia SAS** , w ciągu kilku minut mogą pojawić **się** sporadyczne błędy spowodowane pochyleniem zegara (różnice w bieżącym czasie na różnych komputerach). Ustaw godzinę rozpoczęcia na co najmniej 15 minut w przeszłości lub nie ustawiaj jej wcale. To samo ogólnie dotyczy czasu wygaśnięcia. 
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły: 
 

@@ -13,10 +13,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 60a29efc4d2daa9d1bc90f00e71094da382a83b9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686890"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
@@ -115,7 +115,7 @@ Aby zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji
 1. Wybierz **aplikacje mobilne i klasyczne**.
 1. W sekcji **identyfikatory URI przekierowania** wybierz pozycję **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Wybierz pozycję **Konfiguruj**.
-1. Przejdź do programu Visual Studio, Otwórz plik *App.XAML.cs* , a następnie zastąp ciąg `Enter_the_Application_Id_here` w poniższym fragmencie kodu identyfikatorem aplikacji, która została właśnie zarejestrowana i skopiowana.
+1. Przejdź do programu Visual Studio, Otwórz plik *App. XAML. cs* , a następnie zastąp ciąg `Enter_the_Application_Id_here` w poniższym fragmencie kodu identyfikatorem aplikacji, która została właśnie zarejestrowana i skopiowana.
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
@@ -125,7 +125,7 @@ Aby zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji
 
 W tym kroku utworzysz klasę do obsługi interakcji z MSAL, taką jak obsługa tokenów.
 
-1. Otwórz plik *App.XAML.cs* , a następnie Dodaj odwołanie do MSAL do klasy:
+1. Otwórz plik *App. XAML. cs* , a następnie Dodaj odwołanie do MSAL do klasy:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -188,7 +188,7 @@ Plik *MainWindow. XAML* powinien być automatycznie tworzony jako część szabl
 
 W tej sekcji użyjesz MSAL, aby uzyskać token dla interfejsu API Microsoft Graph.
 
-1. W pliku *MainWindow.XAML.cs* Dodaj odwołanie do MSAL do klasy:
+1. W pliku *MainWindow. XAML. cs* Dodaj odwołanie do MSAL do klasy:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -355,7 +355,7 @@ Mimo że aplikacja w tym przykładzie obsługuje pojedynczych użytkowników, MS
 
 ## <a name="display-basic-token-information"></a>Wyświetl podstawowe informacje o tokenie
 
-Aby wyświetlić podstawowe informacje o tokenie, Dodaj następującą metodę do pliku *MainWindow.XAML.cs* :
+Aby wyświetlić podstawowe informacje o tokenie, Dodaj następującą metodę do pliku *MainWindow. XAML. cs* :
 
 ```csharp
 /// <summary>

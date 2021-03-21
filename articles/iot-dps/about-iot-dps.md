@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94965378"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprowizowanie urządzeń za pomocą usługi Azure IoT Hub Device Provisioning Service
@@ -39,7 +39,7 @@ Wszystkie scenariusze wymienione w poprzedniej sekcji można wykonać przy użyc
 
 1. Producent urządzenia dodaje jego informacje o rejestracji do listy rejestracji w witrynie Azure Portal.
 2. Urządzenie kontaktuje się z punktem końcowym DPS ustawionym w fabryce. Urządzenie przekazuje informacje identyfikujące do punktu dystrybucji, aby potwierdzić jego tożsamość.
-3. Usługa DPS sprawdza poprawność tożsamości urządzenia, sprawdzając Identyfikator rejestracji i klucz związany z wpisem listy rejestracji przy użyciu żądania nonce ([moduł TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) lub standardowej weryfikacji x. 509 (x. 509).
+3. Usługa DPS sprawdza poprawność tożsamości urządzenia, sprawdzając Identyfikator rejestracji i klucz związany z wpisem listy rejestracji przy użyciu żądania nonce ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) lub standardowej weryfikacji x. 509 (x. 509).
 4. Usługa DPS rejestruje urządzenie w usłudze IoT Hub i wypełnia [stan odpowiedniej przędzy](../iot-hub/iot-hub-devguide-device-twins.md)urządzenia.
 5. Usługa IoT Hub zwraca informacje o IDENTYFIKATORze urządzenia do funkcji DPS.
 6. Usługa DPS zwraca informacje o połączeniu usługi IoT Hub z urządzeniem. Urządzenie może teraz rozpocząć przesyłanie danych bezpośrednio do centrum IoT.

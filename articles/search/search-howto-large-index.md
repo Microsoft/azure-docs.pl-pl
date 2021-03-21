@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358396"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Jak indeksować duże zestawy danych w usłudze Azure Wyszukiwanie poznawcze
@@ -45,7 +45,7 @@ Po spełnieniu warstwy, następnym krokiem może być zwiększenie liczby partyc
 
 ### <a name="review-index-schema"></a>Przegląd schematu indeksu
 
-Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Im więcej pól i ustawionych przez siebie właściwości (takich jak *Wyszukiwanie* , tworzenie i *filtrowanie* *),* przyczyniają się do zwiększenia czasu indeksowania. Ogólnie rzecz biorąc należy tworzyć i określać pola, które są potrzebne w indeksie wyszukiwania.
+Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Im więcej pól i ustawionych przez siebie właściwości (takich jak *Wyszukiwanie*, tworzenie i *filtrowanie* *),* przyczyniają się do zwiększenia czasu indeksowania. Ogólnie rzecz biorąc należy tworzyć i określać pola, które są potrzebne w indeksie wyszukiwania.
 
 > [!NOTE]
 > Aby zachować rozmiar dokumentu w dół, Unikaj dodawania danych innych niż Queryable do indeksu. Obrazy i inne dane binarne nie są bezpośrednio przeszukiwane i nie powinny być przechowywane w indeksie. Aby zintegrować dane niequeryablene z wynikami wyszukiwania, należy zdefiniować pole, które nie jest możliwe do przeszukania, które przechowuje odwołanie do tego zasobu.

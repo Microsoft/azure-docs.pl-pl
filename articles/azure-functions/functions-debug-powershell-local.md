@@ -7,10 +7,10 @@ ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422964"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debugowanie Azure Functions programu PowerShell lokalnie
@@ -111,7 +111,7 @@ Instalacja programu PowerShell Core obok siebie przy użyciu programu Windows Po
 
 1. Wybierz polecenie **PowerShell: Pokaż menu sesji**.
 
-1. Jeśli **Bieżąca sesja** nie jest w programie **PowerShell Core 6** , wybierz polecenie **Przełącz do: PowerShell Core 6**.
+1. Jeśli **Bieżąca sesja** nie jest w programie **PowerShell Core 6**, wybierz polecenie **Przełącz do: PowerShell Core 6**.
 
 Gdy plik programu PowerShell jest otwarty, zobaczysz wersję wyświetlaną w kolorze zielonym w prawym dolnym rogu okna. Wybranie tego tekstu spowoduje również wyświetlenie menu sesji. Aby dowiedzieć się więcej, zobacz [Wybieranie wersji programu PowerShell, która ma być używana z rozszerzeniem](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 

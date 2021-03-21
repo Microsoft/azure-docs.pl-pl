@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966568"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Samouczek: rejestrowanie urządzenia w usłudze IoT Hub przy użyciu klienta usługi Azure IoT Hub Provisioning Service (.NET)
@@ -63,7 +63,7 @@ Istnieją dwa sposoby rejestrowania urządzenia w usłudze Device Provisioning:
 
 1. W oknie **Menedżer pakietów NuGet** wybierz pozycję **Przeglądaj** i wyszukaj ciąg **microsoft.azure.devices.provisioning.service**. Zaznacz wpis i kliknij przycisk **Instaluj**, aby zainstalować pakiet **Microsoft.Azure.Devices.Provisioning.Service**, a następnie zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK usługi Azure IoT Device Provisioning](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) oraz jego zależności.
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
    
     ```csharp
     using Microsoft.Azure.Devices.Provisioning.Service;
@@ -146,7 +146,7 @@ Po pomyślnym zarejestrowaniu urządzenia powinno ono być widoczne w portalu w 
 
 1. W Eksploratorze rozwiązań programu Visual Studio otwórz projekt **DeviceProvisioning** utworzony powyżej. 
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** :
     
     ```csharp
     using System.Security.Cryptography.X509Certificates;

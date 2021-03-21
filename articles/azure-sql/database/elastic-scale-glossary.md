@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330465"
 ---
 # <a name="elastic-database-tools-glossary"></a>Słownik narzędzi Elastic Database
@@ -57,7 +57,7 @@ Poniżej przedstawiono reprezentację baz danych o pojedynczej **podzielonej na 
 
 **Podzielonej na fragmenty tabele**: tabele, które są podzielonej na fragmenty, czyli których dane są dystrybuowane w fragmentów w oparciu o ich wartości klucza fragmentowania. 
 
-**Klucz fragmentowania**: wartość kolumny, która określa, jak dane są dystrybuowane w fragmentów. Typ wartości może być jednym z następujących: **int**, **bigint**, **varbinary**lub **unikatowy**. 
+**Klucz fragmentowania**: wartość kolumny, która określa, jak dane są dystrybuowane w fragmentów. Typ wartości może być jednym z następujących: **int**, **bigint**, **varbinary** lub **unikatowy**. 
 
 **Zestaw fragmentu**: Kolekcja fragmentów, które są przypisane do tej samej mapy fragmentu w Menedżerze fragmentu map.  
 

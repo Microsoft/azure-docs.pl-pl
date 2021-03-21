@@ -10,15 +10,15 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 2cccb1fdfe775250f80da6cc2ecdcc4ddaa3d88e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95484087"
 ---
 # <a name="iot-plug-and-play-architecture"></a>Architektura technologii IoT Plug and Play
 
-Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
+Usługa IoT Plug and Play umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
 
 - _Właściwości_ reprezentujące stan tylko do odczytu lub do zapisu urządzenia lub innej jednostki. Na przykład numer seryjny urządzenia może być właściwością tylko do odczytu, a docelowa temperatura w termostatie może być właściwością umożliwiającą zapis.
 - Dane _telemetryczne_ , które są emitowane przez urządzenie, niezależnie od tego, czy dane są regularnym strumieniem odczytów czujnika, okazjonalnym błędem czy komunikatem informacyjnym.
@@ -38,7 +38,7 @@ Interfejs użytkownika sieci Web umożliwia zarządzanie modelami i interfejsami
 
 Repozytorium modelu ma wbudowaną kontrolę dostępu opartą na rolach, która pozwala ograniczyć dostęp do definicji interfejsu.
 
-## <a name="devices"></a>Devices
+## <a name="devices"></a>Urządzenia
 
 Konstruktor urządzeń implementuje kod do uruchomienia na urządzeniu inteligentnym IoT przy użyciu jednego z [zestawów SDK urządzeń usługi Azure IoT](./libraries-sdks.md). Zestawy SDK urządzeń pomagają konstruktorowi urządzeń:
 

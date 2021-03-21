@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
 ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98070921"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
@@ -112,7 +112,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-`-DjavaVersion`Parametr informuje środowisko uruchomieniowe funkcji, którego wersja języka Java ma używać. Użyj `-DjavaVersion=11` , jeśli chcesz, aby funkcje działały w języku Java 11. Jeśli nie określisz `-DjavaVersion` , Maven domyślnie Java 8. Aby uzyskać więcej informacji, zobacz [wersje Java](functions-reference-java.md#java-versions).
+`-DjavaVersion`Parametr informuje środowisko uruchomieniowe funkcji, którego wersja języka Java ma używać. Użyj polecenia `-DjavaVersion=11`, jeśli chcesz, aby funkcje działały w języku Java 11. Jeśli nie określisz `-DjavaVersion` , Maven domyślnie Java 8. Aby uzyskać więcej informacji, zobacz [wersje Java](functions-reference-java.md#java-versions).
 
 > [!IMPORTANT]
 > `JAVA_HOME`Aby można było ukończyć ten artykuł, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.

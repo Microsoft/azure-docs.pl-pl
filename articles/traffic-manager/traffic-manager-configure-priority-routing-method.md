@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
 ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92208060"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu priorytetowego w Traffic Manager
 
 W tym samouczku opisano, jak za pomocą usługi Azure Traffic Manager kierować ruchem użytkowników do określonych punktów końcowych przy użyciu metody routingu priorytet. W tej metodzie routingu zdefiniujesz kolejność każdego punktu końcowego, który przechodzi do konfiguracji profilu Traffic Manager. Ruch od użytkowników zostanie skierowany do punktu końcowego w kolejności, w jakiej są wyświetlane. Ta metoda routingu jest przydatna, gdy chcesz skonfigurować usługę do przełączania do trybu failover. Podstawowy punkt końcowy otrzymuje numer priorytetu "1" i będzie obsługiwać wszystkie żądania przychodzące. Punkty końcowe o niższym priorytecie będą pełnić rolę kopii zapasowych.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > - Utwórz profil Traffic Manager z użyciem priorytetowego routingu.
@@ -53,17 +53,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Wybierz pozycję **Utwórz** , aby wdrożyć profil Traffic Manager.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Utwórz priorytet profilu Traffic Manager":::
 
 ## <a name="add-endpoints"></a>Dodaj punkty końcowe
 
 1. Wybierz z listy profil Traffic Manager.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Lista profilów Traffic Manager":::
 
 1. Wybierz **punkty końcowe** w obszarze *Ustawienia* , a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy punkt końcowy.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Traffic Manager Dodaj punkty końcowe":::
 
 1. Wybierz lub wprowadź następujące ustawienia: 
 
@@ -78,11 +78,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Wybierz pozycję **Dodaj** , aby dodać punkt końcowy. Powtórz kroki 2 i 3, aby dodać dodatkowe punkty końcowe. Pamiętaj, aby ustawić odpowiedni numer priorytetu.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Dodaj punkt końcowy o priorytecie 1":::
 
 1. Na stronie **punkty końcowe** Sprawdź kolejność dla punktów końcowych. W przypadku wybrania metody routingu ruchu **priorytetowego** kolejność wybranych punktów końcowych jest ważna. Sprawdź kolejność priorytetów punktów końcowych.  Podstawowy punkt końcowy znajduje się na górze. Podwójne sprawdzenie kolejności wyświetlania. Wszystkie żądania będą kierowane do pierwszego punktu końcowego, a jeśli Traffic Manager wykryje, że jest w złej kondycji, ruch zostanie automatycznie przekierowany do następnego punktu końcowego. 
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Lista punktów końcowych priorytetów":::
 
 1. Aby zmienić kolejność priorytetów punktu końcowego, wybierz punkt końcowy, Zmień wartość priorytetu i wybierz pozycję **Zapisz** , aby zapisać ustawienia punktu końcowego.
 
@@ -90,11 +90,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1.  Na pasku wyszukiwania portalu Wyszukaj nazwę **profilu Traffic Manager** utworzonego w poprzedniej sekcji i wybierz profil usługi Traffic Manager w wyświetlonych wynikach.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Profil Traffic Manager wyszukiwania":::
 
 1.  Na stronie Przegląd **profilu Traffic Manager** zostanie wyświetlona nazwa DNS nowo utworzonego profilu Traffic Manager. Może to być używane przez dowolnego klienta (na przykład przez przechodzenie do niego przy użyciu przeglądarki sieci Web) do kierowania do prawego punktu końcowego określonego przez typ routingu. W takim przypadku wszystkie żądania są kierowane do pierwszego punktu końcowego, a jeśli Traffic Manager wykryje, że jest w złej kondycji, ruch automatycznie przejdzie w tryb failover do następnego punktu końcowego.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Nazwa DNS usługi Traffic Manager":::
 
 1. Po zakończeniu działania profilu Traffic Manager Edytuj rekord DNS na autorytatywnym serwerze DNS, aby wskazywał nazwę domeny firmowej na nazwę domeny Traffic Manager.
 
@@ -102,7 +102,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Jeśli profil Traffic Manager nie jest już potrzebny, zlokalizuj profil i wybierz pozycję **Usuń profil**.
 
-:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Tworzenie profilu Traffic Manager priorytetu":::
+:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Usuń profil priorytetu Traffic Manager":::
 
 ## <a name="next-steps"></a>Następne kroki
 

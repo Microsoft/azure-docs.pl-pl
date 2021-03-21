@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96454299"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Użyj uwierzytelniania Azure Active Directory
@@ -49,7 +49,7 @@ Korzystając z uwierzytelniania za pomocą usługi Azure AD, możesz zarządzać
 - Usługa Azure AD obsługuje podobne połączenia z narzędziami SQL Server Data Tools (SSDT), które używają interaktywnego uwierzytelniania usługi Active Directory. Aby uzyskać więcej informacji, zobacz [Azure Active Directory Support in SQL Server Data Tools (SSDT).](/sql/ssdt/azure-active-directory)
 
 > [!NOTE]  
-> Nawiązywanie połączenia z wystąpieniem SQL Server uruchomionym na maszynie wirtualnej platformy Azure (VM) nie jest obsługiwane przy użyciu konta Azure Active Directory. Zamiast tego użyj konta domeny usługi Active Directory.  
+> Nawiązywanie połączenia z wystąpieniem programu SQL Server uruchomionym na maszynie wirtualnej platformy Azure (VM) nie jest obsługiwane przy użyciu konta usługi Azure Active Directory. Zamiast tego użyj konta domeny usługi Active Directory.  
 
 Czynności konfiguracyjne obejmują następujące procedury w celu skonfigurowania i użycia uwierzytelniania Azure Active Directory.
 

@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945481"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
@@ -23,7 +23,7 @@ Akcje skryptu można stosować przy użyciu następujących metod:
 
 | Użyj tej metody, aby zastosować skrypt... | Podczas tworzenia klastra... | Na uruchomionym klastrze... |
 | --- |:---:|:---:|
-| Witryna Azure Portal |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Klasyczny interfejs wiersza polecenia platformy Azure |&nbsp; |✓ |
 | Zestaw SDK usługi HDInsight dla platformy .NET |✓ |✓ |
@@ -314,7 +314,7 @@ Poniżej przedstawiono kroki, które należy wykonać podczas przygotowywania do
 
 Za pomocą akcji skryptu można dostosować klastry usługi HDInsight przy użyciu następujących metod:
 
-* Witryna Azure Portal
+* Azure Portal
 * Azure PowerShell
 * Szablony usługi Azure Resource Manager
 * Zestaw SDK usługi HDInsight dla platformy .NET.

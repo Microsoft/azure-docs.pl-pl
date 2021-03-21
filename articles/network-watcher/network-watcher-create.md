@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962012"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Tworzenie wystąpienia usługi Azure Network Watcher
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Tworzenie Network Watcher w portalu
 
-Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher** sieci. Możesz wybrać wszystkie subskrypcje, dla których chcesz włączyć Network Watcher. Ta akcja tworzy Network Watcher w każdym dostępnym regionie.
+Przejdź do **wszystkich usług**  >    >  **Network Watcher** sieci. Możesz wybrać wszystkie subskrypcje, dla których chcesz włączyć Network Watcher. Ta akcja tworzy Network Watcher w każdym dostępnym regionie.
 
 ![Tworzenie obserwatora sieciowego](./media/network-watcher-create/figure1.png)
 
@@ -107,7 +107,7 @@ Aby utworzyć wystąpienie Network Watcher odwołaj się do tego [szablonu szybk
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Usuwanie Network Watcher w portalu
 
-Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher** sieci.
+Przejdź do **wszystkich usług**  >    >  **Network Watcher** sieci.
 
 Wybierz kartę Przegląd, jeśli jeszcze tego nie zrobiono. Użyj listy rozwijanej, aby wybrać subskrypcję, w której chcesz wyłączyć obserwatora sieciowego.
 Rozwiń listę regionów dla wybranej subskrypcji, klikając strzałkę. Dla każdego z nich należy użyć 3 kropek po prawej stronie, aby uzyskać dostęp do menu kontekstowego.

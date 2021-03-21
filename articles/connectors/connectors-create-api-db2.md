@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
 ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967406"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Dostęp do zasobów IBM DB2 i zarządzanie nimi przy użyciu Azure Logic Apps
@@ -87,10 +87,10 @@ Aby skonfigurować połączenie, podaj te szczegóły połączenia po wyświetle
 | **Server** (Serwer) | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server.cloudapp.net:50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
 | **Database** (Baza danych) | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
-| **Hasło** | Tak | Hasło do bazy danych |
+| **Password** (Hasło) | Tak | Hasło do bazy danych |
 ||||
 
-Przykład:
+Na przykład:
 
 ![Szczegóły połączenia dla baz danych opartych na chmurze](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -108,11 +108,11 @@ Przed utworzeniem połączenia należy zainstalować lokalną bramę danych. W p
 | **Database** (Baza danych) | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Authentication** | Tak | Typ uwierzytelniania dla połączenia, na przykład "podstawowa" <p><p>**Uwaga**: Wybierz tę wartość z listy, która zawiera podstawowe lub Windows (Kerberos). |
 | **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
-| **Hasło** | Tak | Hasło do bazy danych |
-| **Punkt** | Tak | Nazwa zainstalowanej lokalnej bramy danych <p><p>**Uwaga**: Wybierz tę wartość z listy, która obejmuje wszystkie zainstalowane bramy danych w ramach subskrypcji i grupy zasobów platformy Azure. |
+| **Password** (Hasło) | Tak | Hasło do bazy danych |
+| **Brama** | Tak | Nazwa zainstalowanej lokalnej bramy danych <p><p>**Uwaga**: Wybierz tę wartość z listy, która obejmuje wszystkie zainstalowane bramy danych w ramach subskrypcji i grupy zasobów platformy Azure. |
 ||||
 
-Przykład:
+Na przykład:
 
 ![Szczegóły połączenia dla lokalnych baz danych](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -239,7 +239,7 @@ Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wier
    | **Identyfikator regionu** | Tak | Identyfikator regionu do dodania, na przykład "102" |
    |||| 
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Wstaw wiersz (wersja zapoznawcza)" i przykładowymi wartościami właściwości.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -287,7 +287,7 @@ Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Akt
    | **Identyfikator regionu** | Tak | Nowy identyfikator regionu, taki jak "102" |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Aktualizuj wiersz (wersja zapoznawcza)", w której wybiera się tabelę.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -332,7 +332,7 @@ Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wie
    | **Identyfikator wiersza** | Tak | Identyfikator rekordu do usunięcia, na przykład "99999" |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu przedstawiający projektanta Logic Apps z akcją "Usuń wiersz (wersja zapoznawcza)", w której jest wybierana tabela do usunięcia.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 

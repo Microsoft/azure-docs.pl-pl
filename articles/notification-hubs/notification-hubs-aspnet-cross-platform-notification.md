@@ -17,10 +17,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313901"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Wysyłanie powiadomień na wielu platformach za pomocą usługi Azure Notification Hubs
@@ -41,7 +41,7 @@ W tej sekcji użyto przykładowego kodu skompilowanego w przypadku [wysyłania p
 
 Aby wysyłać powiadomienia na wielu platformach przy użyciu szablonów, wykonaj następujące czynności:
 
-1. W programie Visual Studio w **Eksplorator rozwiązań**rozwiń folder **Kontrolery** , a następnie otwórz plik *RegisterController.cs* .
+1. W programie Visual Studio w **Eksplorator rozwiązań** rozwiń folder **Kontrolery** , a następnie otwórz plik *RegisterController. cs* .
 
 1. Znajdź blok kodu w `Put` metodzie, która tworzy nową rejestrację, a następnie zastąp `switch` zawartość następującym kodem:
 
@@ -76,7 +76,7 @@ Aby wysyłać powiadomienia na wielu platformach przy użyciu szablonów, wykona
 
     Ten kod wywołuje metodę specyficzną dla platformy w celu utworzenia rejestracji szablonu zamiast natywnej rejestracji. Ponieważ rejestracje szablonów pochodzą z natywnych rejestracji, nie trzeba modyfikować istniejących rejestracji.
 
-1. W **Eksplorator rozwiązań**w folderze **controllers (kontrolery** ) Otwórz plik **NotificationsController.cs** . Zastąp metodę `Post` poniższym kodem:
+1. W **Eksplorator rozwiązań** w folderze **controllers (kontrolery** ) Otwórz plik **NotificationsController. cs** . Zastąp metodę `Post` poniższym kodem:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

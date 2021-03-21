@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781264"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Tworzenie liczników wydajności w celu śledzenia wydajności Menedżera mapy fragmentu
@@ -42,12 +42,12 @@ Aby utworzyć liczniki, wywołaj metodę CreatePerformanceCategoryAndCounters [k
 Za pomocą [tego](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) skryptu programu PowerShell można także wykonać metodę.
 Metoda tworzy następujące liczniki wydajności:  
 
-* **Mapowania buforowane** : liczba mapowań buforowanych dla mapy fragmentu.
-* **Operacje DDR/s** : częstotliwość operacji routingu zależnych od danych dla mapy fragmentu. Ten licznik jest aktualizowany, gdy wywołanie [OpenConnectionForKey ()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) powoduje pomyślne połączenie z miejscem docelowym fragmentu.
-* **Trafienia pamięci podręcznej wyszukiwania mapowania/s** : szybkość pomyślnych operacji wyszukiwania w pamięci podręcznej dla mapowań w mapie fragmentu.
-* **Chybienia w pamięci podręcznej wyszukiwania mapowania/s** : szybkość nieudanych operacji wyszukiwania w pamięci podręcznej dla mapowań w mapie fragmentu.
-* **Dodano lub Zaktualizowano mapowania w pamięci podręcznej/s** : szybkość, z jaką mapowania są dodawane lub aktualizowane w pamięci podręcznej dla mapy fragmentu.
-* **Mapowania usunięte z pamięci podręcznej/s** : szybkość, z jaką mapowania są usuwane z pamięci podręcznej dla mapy fragmentu.
+* **Mapowania buforowane**: liczba mapowań buforowanych dla mapy fragmentu.
+* **Operacje DDR/s**: częstotliwość operacji routingu zależnych od danych dla mapy fragmentu. Ten licznik jest aktualizowany, gdy wywołanie [OpenConnectionForKey ()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) powoduje pomyślne połączenie z miejscem docelowym fragmentu.
+* **Trafienia pamięci podręcznej wyszukiwania mapowania/s**: szybkość pomyślnych operacji wyszukiwania w pamięci podręcznej dla mapowań w mapie fragmentu.
+* **Chybienia w pamięci podręcznej wyszukiwania mapowania/s**: szybkość nieudanych operacji wyszukiwania w pamięci podręcznej dla mapowań w mapie fragmentu.
+* **Dodano lub Zaktualizowano mapowania w pamięci podręcznej/s**: szybkość, z jaką mapowania są dodawane lub aktualizowane w pamięci podręcznej dla mapy fragmentu.
+* **Mapowania usunięte z pamięci podręcznej/s**: szybkość, z jaką mapowania są usuwane z pamięci podręcznej dla mapy fragmentu.
 
 Liczniki wydajności są tworzone dla każdej buforowanej mapy fragmentu na proces.  
 
@@ -66,7 +66,7 @@ Liczniki wydajności zostaną zaktualizowane przez wszystkie operacje pamięci p
 * Tworzenie kategorii wydajności i liczników należy wykonać tylko raz przed utworzeniem obiektu ShardMapManager. Każde wykonanie polecenia CreatePerformanceCategoryAndCounters () czyści poprzednie liczniki (tracące dane zgłaszane przez wszystkie wystąpienia) i tworzy nowe.  
 * Wystąpienia liczników wydajności są tworzone dla poszczególnych procesów. Wszystkie awarie aplikacji lub usunięcie mapy fragmentu z pamięci podręcznej spowodują usunięcie wystąpień liczników wydajności.  
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 [Elastic Database features overview (Omówienie funkcji Elastic Database)](elastic-scale-introduction.md)  
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854567"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Użyj Time Series Insights, aby wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzenia
@@ -77,7 +77,7 @@ Poniższe kroki używają interfejsu wiersza polecenia platformy Azure w Azure C
     > [!NOTE]
     > Dodanie środowiska Time Series Insights do tej samej grupy zasobów co Akcelerator rozwiązania oznacza, że jest usuwany po usunięciu akceleratora rozwiązania.
 
-1. Kliknij przycisk **Utwórz**. Utworzenie środowiska może potrwać kilka minut.
+1. Kliknij pozycję **Utwórz**. Utworzenie środowiska może potrwać kilka minut.
 
 ## <a name="create-event-source"></a>Tworzenie źródła zdarzeń
 
@@ -110,7 +110,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 > [!NOTE]
 > Można [przyznać dodatkowym użytkownikom dostęp](../time-series-insights/concepts-access-policies.md#grant-data-access) do Eksploratora Time Series Insights.

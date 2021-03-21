@@ -4,13 +4,13 @@ description: Skonfiguruj Azure Load Balancer, aby otworzyć porty dla klastra Se
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319900"
 ---
-# <a name="open-ports-for-a-service-fabric-cluster"></a>Otwieranie portów dla klastra usługi Service Fabric
+# <a name="open-ports-for-a-service-fabric-cluster"></a>Open ports for a Service Fabric cluster (Otwieranie portów dla klastra usługi Service Fabric)
 
 Moduł równoważenia obciążenia wdrożony z klastrem Service Fabric platformy Azure kieruje ruch do aplikacji uruchomionej w węźle. Jeśli zmienisz aplikację w taki sposób, aby korzystała z innego portu, musisz uwidocznić ten port (lub skierować inny port) w Azure Load Balancer.
 

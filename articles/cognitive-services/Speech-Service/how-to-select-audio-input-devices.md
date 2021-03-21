@@ -12,10 +12,10 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
 ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026611"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Instrukcje: Wybieranie urządzenia wejściowego audio przy użyciu zestawu Speech SDK
@@ -390,7 +390,7 @@ W języku JavaScript można użyć metody [MediaDevices. enumerateDevices ()](ht
 > [!div class="nextstepaction"]
 > [Zapoznaj się z przykładami w usłudze GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Samouczek: tworzenie niestandardowego modelu akustycznego](./how-to-custom-speech-train-model.md)
 - [Samouczek: tworzenie niestandardowego modelu językowego](./how-to-custom-speech-train-model.md)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686601"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą BlueJeans dla usługi Azure AD
@@ -150,7 +150,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Wybierz pozycję **ADMIN (ADMINISTRATOR) \> GROUP SETTINGS (USTAWIENIA GRUPY) \> SECURITY (ZABEZPIECZENIA)**.
 
-    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator z ustawieniem Grupa i zabezpieczenia wybrane.](./media/bluejeans-tutorial/ic785868.png "Administrator")
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator z ustawieniem Grupa i zabezpieczenia wybrane.](./media/bluejeans-tutorial/ic785868.png "Administracja")
 
 3. W sekcji **SECURITY** (ZABEZPIECZENIA) wykonaj następujące czynności:
 
@@ -192,7 +192,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w BlueJeans dla 
 
 2. Wybierz pozycję **ADMIN (ADMINISTRATOR) \> MANAGE USERS (ZARZĄDZAJ UŻYTKOWNIKAMI) \> ADD USER (DODAJ UŻYTKOWNIKA)**.
 
-    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator, z opcją Zarządzaj użytkownikami i Dodaj wybranych użytkowników.](./media/bluejeans-tutorial/ic785877.png "Administrator")
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator, z opcją Zarządzaj użytkownikami i Dodaj wybranych użytkowników.](./media/bluejeans-tutorial/ic785877.png "Administracja")
 
     > [!IMPORTANT]
     > Karta **ADD USER** (DODAJ UŻYTKOWNIKA) jest dostępna tylko wtedy, gdy na **karcie SECUTIRY** (ZABEZPIECZENIA) nie zaznaczono pola wyboru **Enable automatic provisioning** (Włącz automatyczną aprowizację).

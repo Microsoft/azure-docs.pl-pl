@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357942"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie StarLeaf na potrzeby automatycznego aprowizacji użytkowników
@@ -54,7 +54,7 @@ Przed skonfigurowaniem usługi StarLeaf do automatycznego aprowizacji użytkowni
 
     ![Zrzut ekranu przedstawiający konsolę administracyjną StarLeaf z opcjami integracji i dodawania integracji o nazwie out.](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij przycisk **Zastosuj**.
+2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij pozycję **Zastosuj**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe Dodaj integrację z polami tekstowymi typu i nazwa o nazwie.](media/starleaf-provisioning-tutorial/image01.png)
 
@@ -72,7 +72,7 @@ Aby skonfigurować StarLeaf do automatycznego aprowizacji użytkowników w usłu
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -80,14 +80,14 @@ Aby skonfigurować StarLeaf do automatycznego aprowizacji użytkowników w usłu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **StarLeaf** , a następnie wybierz pozycję **StarLeaf** w panelu wyniki.
+4. W polu wyszukiwania wpisz **StarLeaf**, a następnie wybierz pozycję **StarLeaf** w panelu wyniki.
     ![StarLeaf na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Konfigurowanie automatycznej aprowizacji użytkowników do StarLeaf
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie StarLeaf na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -103,7 +103,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji poświadczenia administratora wprowadź odpowiednie **wartości w polach adres URL** i **token dostępu** **Standard scim Base** . **Secret Token** Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą StarLeaf. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi StarLeaf ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji poświadczenia administratora wprowadź odpowiednie **wartości w polach adres URL** i **token dostępu** **Standard scim Base** .  Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą StarLeaf. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi StarLeaf ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -111,7 +111,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do StarLeaf**.
 

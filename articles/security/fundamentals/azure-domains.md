@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
 ms.openlocfilehash: 372d03945c194ad4e34bc654f0b2dd5271b02d96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94409403"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Lista referencyjna domen platformy Azure (niepełna)
@@ -29,7 +29,7 @@ Ta strona jest częściową listą używanych domen platformy Azure. Niektóre z
 |---------|---------|
 |[Azure Access Control Service](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (wycofane)|*.accesscontrol.windows.net|
 |[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|*. graph.windows.net/*. onmicrosoft.com|
-|[Azure API Management](https://azure.microsoft.com/services/api-management/)|*. azure-api.net|
+|[Usługa Azure API Management](https://azure.microsoft.com/services/api-management/)|*. azure-api.net|
 |[Azure BizTalk Services](https://azure.microsoft.com/pricing/details/biztalk-services/) (wycofane)|*. biztalk.windows.net|
 |[Azure Blob Storage](../../storage/blobs/index.yml)|*.blob.core.windows.net|
 |[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) i [Azure Virtual Machines](../../virtual-machines/index.yml)|*. cloudapp.net|

@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895651"
 ---
 # <a name="secure-a-daemon-application"></a>Zabezpieczanie aplikacji demona
@@ -75,29 +75,29 @@ Zalety tożsamości zarządzanej:
 
 W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Azure nie są dostępne. W związku z tym należy skonfigurować jednostkę usługi za pomocą rejestracji aplikacji usługi Azure AD dla aplikacji demona.
 
-1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** .  
+1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.  
 
     > [!div class="mx-imgBorder"]
     > ![Rejestrowanie aplikacji](./media/how-to-manage-authentication/app-registration.png)
 
-2. Jeśli aplikacja została już zarejestrowana, przejdź do następnego kroku. Jeśli aplikacja nie została zarejestrowana, wprowadź **nazwę** , wybierz **Typ konta pomocy technicznej** , a następnie wybierz pozycję **zarejestruj** .  
+2. Jeśli aplikacja została już zarejestrowana, przejdź do następnego kroku. Jeśli aplikacja nie została zarejestrowana, wprowadź **nazwę**, wybierz **Typ konta pomocy technicznej**, a następnie wybierz pozycję **zarejestruj**.  
 
     > [!div class="mx-imgBorder"]
     > ![Szczegóły rejestracji aplikacji](./media/how-to-manage-authentication/app-create.png)
 
-3. Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie w obszarze **rejestracje aplikacji** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie** . W obszarze interfejsy API, które są **wykorzystywane przez moją organizację** , Wyszukaj i wybierz **Azure Maps** .
+3. Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie w obszarze **rejestracje aplikacji** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj i wybierz **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Dodawanie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps** , a następnie wybierz pozycję **Dodaj uprawnienia** .
+4. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
     > [!div class="mx-imgBorder"]
     > ![Wybieranie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/select-app-permissions.png)
 
 5. Wykonaj następujące kroki, aby utworzyć klucz tajny klienta lub skonfigurować certyfikat.
 
-    * Jeśli aplikacja używa uwierzytelniania serwera lub aplikacji, na stronie rejestracji aplikacji przejdź do pozycji **certyfikaty & wpisy tajne** . Następnie Przekaż certyfikat klucza publicznego lub Utwórz hasło, wybierając pozycję **Nowy wpis tajny klienta** .
+    * Jeśli aplikacja używa uwierzytelniania serwera lub aplikacji, na stronie rejestracji aplikacji przejdź do pozycji **certyfikaty & wpisy tajne**. Następnie Przekaż certyfikat klucza publicznego lub Utwórz hasło, wybierając pozycję **Nowy wpis tajny klienta**.
 
         > [!div class="mx-imgBorder"]
         > ![Tworzenie klucza tajnego klienta](./media/how-to-manage-authentication/app-keys.png)
@@ -109,12 +109,12 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Udziel dostępu opartego na rolach dla aplikacji demona do Azure Maps
 
-*Kontrolę dostępu opartą na rolach na platformie Azure (RBAC)* można przypisywać do co najmniej jednej definicji roli Azure Maps utworzonej tożsamości zarządzanej lub nazwy głównej usługi. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)** . Wybierz pozycję **role** , a następnie wyszukaj role zaczynające się od *Azure Maps* . Te role Azure Maps są rolami, do których można udzielić dostępu.
+*Kontrolę dostępu opartą na rolach na platformie Azure (RBAC)* można przypisywać do co najmniej jednej definicji roli Azure Maps utworzonej tożsamości zarządzanej lub nazwy głównej usługi. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl dostępne role](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Przejdź do swojego **konta Azure Maps** . Wybierz pozycję **Kontrola dostępu (IAM)** > **Przypisania ról** .
+1. Przejdź do swojego **konta Azure Maps**. Wybierz pozycję **Kontrola dostępu (IAM)** > **Przypisania ról**.
 
     > [!div class="mx-imgBorder"]
     > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -124,7 +124,7 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawia przydziały rzutowania z dodatkiem Dodaj.](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych** . W obszarze **Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika** zarządzaną tożsamością  /  **System assigned Managed identity** . Wybierz podmiot zabezpieczeń. Następnie wybierz pozycję **Zapisz** .
+3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika** zarządzaną tożsamością  /  . Wybierz podmiot zabezpieczeń. Następnie wybierz pozycję **Zapisz**.
 
     > [!div class="mx-imgBorder"]
     > ![Jak dodać przypisanie roli](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

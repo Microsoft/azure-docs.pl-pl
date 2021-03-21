@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946139"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
@@ -298,13 +298,13 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
 4. [Połącz](#connect-to-an-azure-account) się z kontem platformy Azure lub Połącz klaster, jeśli jeszcze tego nie zrobiono.
 
-5. Kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark: PySpark Batch** lub **Synapse: PySpark Batch** _.
+5. Kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark: PySpark Batch** lub * * Synapse: PySpark Batch * * *.
 
 6. Wybierz klaster/pulę platformy Spark, w której ma zostać przesłane zadanie PySpark:
 
    ![Przesyłanie danych wyjściowych wyników zadania w języku Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane w oknie _ *Output** w Visual Studio Code. Wyświetlany jest również adres URL interfejsu użytkownika platformy Spark i adres URL interfejsu użytkownika przędzy. Jeśli zadanie wsadowe zostanie przesłane do puli Apache Spark, zostanie również wyświetlony adres URL interfejsu użytkownika historii platformy Spark i adres URL interfejsu użytkownika aplikacji zadań platformy Spark. Możesz otworzyć adres URL w przeglądarce sieci Web, aby śledzić stan zadania.
+Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane w oknie **dane wyjściowe** w Visual Studio Code. Wyświetlany jest również adres URL interfejsu użytkownika platformy Spark i adres URL interfejsu użytkownika przędzy. Jeśli zadanie wsadowe zostanie przesłane do puli Apache Spark, zostanie również wyświetlony adres URL interfejsu użytkownika historii platformy Spark i adres URL interfejsu użytkownika aplikacji zadań platformy Spark. Możesz otworzyć adres URL w przeglądarce sieci Web, aby śledzić stan zadania.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integracja z usługą HDInsight Identity Broker (HIB)
 

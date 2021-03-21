@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 86150107273b247bef2c74e5b8c5272d7148587e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94332099"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool"></a>Przywracanie istniejącej dedykowanej puli SQL
@@ -44,7 +44,7 @@ Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej p
 
     Jeśli przywracasz geograficzną kopię zapasową, po prostu wybierz obszar roboczy znajdujący się w regionie źródłowym i dedykowaną pulę SQL, które chcesz przywrócić. 
 
-9. Wybierz pozycję **Recenzja + Utwórz**.
+9. Wybierz pozycję **Przejrzyj i utwórz**.
 
 ## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Przywracanie istniejącej dedykowanej puli SQL za pomocą Azure Portal
 
@@ -60,7 +60,7 @@ Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej p
 
     Jeśli chcesz przeprowadzić przywracanie geograficzne, wybierz obszar roboczy i dedykowaną pulę SQL, które chcesz odzyskać. 
 
-5. Wybierz pozycję **Recenzja + Utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020065"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Co to jest Azure Time Series Insights Gen1?
@@ -91,7 +91,7 @@ Aby rozpocząć, wykonaj następujące kroki.
 
 Wyświetlaj, analizuj i odnajduj trendy w danych przy użyciu Eksploratora Azure Time Series Insights.
 
-![Eksplorator Azure Time Series Insights](media/overview/time-series-insights-explorer-panel.png)
+![Eksplorator usługi Azure Time Series Insights](media/overview/time-series-insights-explorer-panel.png)
 
 Dowiedz się, jak używać [eksploratora Azure Time Series Insights](time-series-insights-explorer.md) i rysować szczegółowe dane na podstawie danych.
 
