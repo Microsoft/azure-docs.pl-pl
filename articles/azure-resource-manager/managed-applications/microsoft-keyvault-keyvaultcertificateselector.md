@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101225"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Microsoft. KeyVaultCertificateSelector — element interfejsu użytkownika
@@ -24,11 +24,11 @@ Użytkownik zobaczy opcję wybrania dostępnego certyfikatu.
 
 Po wybraniu opcji **Wybierz certyfikat** użytkownik może określić Magazyn kluczy i certyfikat z magazynu kluczy.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft. KeyVaultCertificateSelector — magazyn.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft. KeyVaultCertificateSelector — Wybieranie certyfikatu":::
 
 Formant zostanie zaktualizowany w celu wyświetlenia wybranego magazynu kluczy i nazwy certyfikatu.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft. KeyVaultCertificateSelector — magazyn.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft. KeyVaultCertificateSelector — Pokaż wybrany certyfikat":::
 
 ## <a name="schema"></a>Schemat
 

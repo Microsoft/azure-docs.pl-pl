@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
 ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532197"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Samouczek: Tworzenie aplikacji przy użyciu usługi frontonu Java API i stanowej usługi zaplecza na platformie Azure Service Fabric
@@ -55,7 +55,7 @@ Najpierw utwórz fronton internetowy aplikacji do głosowania. Internetowy inter
 
     ![Wybieranie usługi bezstanowej Java w oknie dialogowym nowej usługi](./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png) 
 
-4. Na stronie **Dodawanie usługi** wybierz pozycję **Usługa bezstanowa**i nadaj usłudze nazwę **VotingWeb**. Wybierz pozycję **Zakończ** , aby utworzyć projekt.
+4. Na stronie **Dodawanie usługi** wybierz pozycję **Usługa bezstanowa** i nadaj usłudze nazwę **VotingWeb**. Wybierz pozycję **Zakończ** , aby utworzyć projekt.
 
     ![Utwórz usługę bezstanową dla projektu Service Fabric]( ./media/service-fabric-tutorial-create-java-app/add-service-fabric-votingweb-service.png)
 

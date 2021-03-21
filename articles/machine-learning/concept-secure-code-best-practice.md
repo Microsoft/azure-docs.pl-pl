@@ -10,10 +10,10 @@ ms.author: cgronlun
 author: cjgronlund
 ms.date: 11/12/2019
 ms.openlocfilehash: 37cb70bdbd1e3c87eeb994e0959c6214822d22ad
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322981"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Najlepsze rozwiązania w zakresie kodu z Azure Machine Learning
@@ -29,8 +29,8 @@ Programowanie za pomocą Azure Machine Learning często obejmuje środowiska dew
 
 * [Skrypty między lokacjami (XSS)](https://owasp.org/www-community/attacks/xss/)
 
-    * __Iniekcja modelu dom__ : ten typ ataku może zmodyfikować interfejs użytkownika wyświetlany w przeglądarce. Na przykład zmieniając sposób zachowania przycisku Uruchom w Jupyter Notebook.
-    * __Token dostępu/pliki cookie__ : ataki XSS mogą również uzyskiwać dostęp do plików cookie magazynu lokalnego i przeglądarki. Token uwierzytelniania usługi Azure Active Directory (AAD) jest przechowywany w magazynie lokalnym. Atak typu XSS może używać tego tokenu do wykonywania wywołań interfejsu API w Twoim imieniu, a następnie wysyłania danych do zewnętrznego systemu lub interfejsu API.
+    * __Iniekcja modelu dom__: ten typ ataku może zmodyfikować interfejs użytkownika wyświetlany w przeglądarce. Na przykład zmieniając sposób zachowania przycisku Uruchom w Jupyter Notebook.
+    * __Token dostępu/pliki cookie__: ataki XSS mogą również uzyskiwać dostęp do plików cookie magazynu lokalnego i przeglądarki. Token uwierzytelniania usługi Azure Active Directory (AAD) jest przechowywany w magazynie lokalnym. Atak typu XSS może używać tego tokenu do wykonywania wywołań interfejsu API w Twoim imieniu, a następnie wysyłania danych do zewnętrznego systemu lub interfejsu API.
 
 * [Fałszerstwo żądania między lokacjami (CSRF)](https://owasp.org/www-community/attacks/csrf): Ten atak może zastąpić adres URL obrazu lub połączyć się z adresem URL złośliwego skryptu lub interfejsu API. Po załadowaniu obrazu lub kliknięciu linku zostanie wykonane wywołanie do adresu URL.
 
@@ -38,16 +38,16 @@ Programowanie za pomocą Azure Machine Learning często obejmuje środowiska dew
 
 Program Azure Machine Learning Studio udostępnia hostowane środowisko notesu w przeglądarce. Komórki w notesie mogą wyprowadzać dokumenty HTML lub fragmenty, które zawierają złośliwy kod.  Gdy dane wyjściowe są renderowane, kod może być wykonywany.
 
-__Możliwe zagrożenia__ :
+__Możliwe zagrożenia__:
 * Skrypty między lokacjami (XSS)
 * Fałszerstwo żądania między lokacjami (CSRF)
 
-Środki __zaradcze zapewniane przez Azure Machine Learning__ :
+Środki __zaradcze zapewniane przez Azure Machine Learning__:
 * __Dane wyjściowe komórki kodu__ są w trybie piaskownicy w elemencie iframe. Element IFRAME uniemożliwia skryptowi uzyskiwanie dostępu do nadrzędnego modelu DOM, plików cookie lub magazynu sesji.
 * Zawartość __komórki o promocji__ jest czyszczona przy użyciu biblioteki dompurify. Powoduje to zablokowanie złośliwych skryptów wykonywanych przy użyciu komórek z promocjią.
 * __Adres URL obrazu__ i __linki do promocji cenowych__ są wysyłane do należącego do punktu końcowego firmy Microsoft, który wyszukuje złośliwe wartości. W przypadku wykrycia złośliwej wartości punkt końcowy odrzuca żądanie.
 
-__Zalecane akcje__ :
+__Zalecane akcje__:
 * Upewnij się, że ufasz zawartości plików przed przekazaniem do Studio. Podczas przekazywania należy potwierdzić, że są przekazywane zaufane pliki.
 * Po wybraniu linku umożliwiającego otwarcie aplikacji zewnętrznej zostanie wyświetlony monit o zaufać aplikacji.
 
@@ -55,14 +55,14 @@ __Zalecane akcje__ :
 
 Wystąpienie obliczeniowe Azure Machine Learning hostuje __laboratorium__ __Jupyter__ i Jupyter. W przypadku używania obu komórek w notesie lub kodzie w programie można wyprowadzać dokumenty HTML lub fragmenty, które zawierają złośliwy kod. Gdy dane wyjściowe są renderowane, kod może być wykonywany. Te same zagrożenia mają zastosowanie również w przypadku używania __RStudio__ hostowanego w wystąpieniu obliczeniowym.
 
-__Możliwe zagrożenia__ :
+__Możliwe zagrożenia__:
 * Skrypty między lokacjami (XSS)
 * Fałszerstwo żądania między lokacjami (CSRF)
 
-Środki __zaradcze zapewniane przez Azure Machine Learning__ :
+Środki __zaradcze zapewniane przez Azure Machine Learning__:
 * Brak. Jupyter i Jupyter Lab to aplikacje Open Source hostowane w wystąpieniu obliczeniowym Azure Machine Learning.
 
-__Zalecane akcje__ :
+__Zalecane akcje__:
 * Upewnij się, że ufasz zawartości plików przed przekazaniem do Studio. Podczas przekazywania należy potwierdzić, że są przekazywane zaufane pliki.
 
 ## <a name="report-security-issues-or-concerns"></a>Zgłoś problemy z zabezpieczeniami lub wątpliwości 

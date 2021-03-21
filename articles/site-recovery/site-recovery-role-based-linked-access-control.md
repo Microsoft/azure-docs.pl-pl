@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: d3e1334f513e8ac587d639758d83ce080c5b4ab9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516906"
 ---
 # <a name="manage-site-recovery-access-with-azure-role-based-access-control-azure-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (Azure RBAC)
@@ -43,7 +43,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 
 | **Typ zasobu** | **Model wdrażania** | **Uprawnienie** |
 | --- | --- | --- |
-| Wystąpienia obliczeniowe | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
+| Compute | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Write |
 |  |  | Microsoft. COMPUTE/virtualMachines/Delete |
@@ -62,7 +62,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Klasyczny | Microsoft. ClassicNetwork/virtualNetworks/odczyt |
 |  |  | Microsoft. ClassicNetwork/virtualNetworks/Join/Action |
-| Magazyn | Resource Manager | Microsoft. Storage/storageAccounts/Read |
+| Storage | Resource Manager | Microsoft. Storage/storageAccounts/Read |
 |  |  | Microsoft. Storage/storageAccounts/ListKeys/akcja |
 |  | Klasyczny | Microsoft. ClassicStorage/storageAccounts/odczyt |
 |  |  | Microsoft. ClassicStorage/storageAccounts/listKeys/akcja |

@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
 ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012985"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Samouczek: dostęp i dostosowywanie portalu dla deweloperów
 
 *Portal dla deweloperów* to automatycznie generowana, w pełni dostosowywalna witryna sieci Web z dokumentacją interfejsów API. W przypadku, gdy konsumenci interfejsu API mogą odnajdywać interfejsy API, dowiedzieć się, jak ich używać, i zażądać dostępu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dostęp do zarządzanej wersji portalu dla deweloperów
@@ -144,5 +144,5 @@ Aby umożliwić odwiedzającym portalu testowanie interfejsów API za pomocą wb
 
 Dowiedz się więcej o portalu dla deweloperów:
 
-- [Portal deweloperów API Management platformy Azure — omówienie](api-management-howto-developer-portal.md)
+- [Portal deweloperów usługi Azure API Management — omówienie](api-management-howto-developer-portal.md)
 - [Przeprowadź migrację do nowego portalu dla deweloperów](developer-portal-deprecated-migration.md) z przestarzałego starszego portalu.

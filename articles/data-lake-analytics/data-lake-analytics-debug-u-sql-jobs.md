@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218021"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debuguj kod języka C# zdefiniowany przez użytkownika dla niezakończonych zadań U-SQL
@@ -103,7 +103,7 @@ Aby ponownie przesłać zadanie zakończone niepowodzeniem:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przewodnik programowania U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+- [Podręcznik programowania w języku U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL dla zadań Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [Testowanie i debugowanie zadań U-SQL przy użyciu uruchamiania lokalnego i zestawu SDK U-SQL usługi Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 - [Jak rozwiązywać problemy z nietypowym zadaniem cyklicznym](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

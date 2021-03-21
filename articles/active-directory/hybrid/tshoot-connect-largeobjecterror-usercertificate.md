@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861752"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: obsługa błędów Dużegoobject spowodowanych przez atrybut userCertificate
@@ -117,7 +117,7 @@ Nowa reguła synchronizacji musi mieć ten sam **Filtr określania zakresu** i *
 
     | Atrybut | Wartość | Szczegóły |
     | --- | --- | --- |
-    | Name | *Podaj nazwę* | Na przykład: *"do usługi AAD — niestandardowe zastąpienie dla userCertificate"* |
+    | Nazwa | *Podaj nazwę* | Na przykład: *"do usługi AAD — niestandardowe zastąpienie dla userCertificate"* |
     | Opis | *Podaj opis* | Na przykład, *"Jeśli atrybut userCertificate ma więcej niż 15 wartości, wyeksportuj null".* |
     | Połączony system | *Wybieranie łącznika usługi Azure AD* |
     | Typ połączonego obiektu systemu | **Użytkownicy** | |

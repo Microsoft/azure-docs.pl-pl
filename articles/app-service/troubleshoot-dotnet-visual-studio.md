@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101095712"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
@@ -174,7 +174,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
 1. Otwórz projekt sieci Web, który został utworzony w temacie [Rozpoczynanie pracy z zestawem SDK Azure WebJobs][GetStartedWJ].
 
-2. W projekcie ContosoAdsWebJob Otwórz *Functions.cs*.
+2. W projekcie ContosoAdsWebJob Otwórz pozycję *Functions. cs*.
 
 3. [Ustaw punkt przerwania](/visualstudio/debugger/) na pierwszej instrukcji w `GnerateThumbnail` metodzie.
 

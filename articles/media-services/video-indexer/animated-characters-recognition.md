@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: f1b19f178a60671108ec32ef6fbed1afe73a0cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854754"
 ---
 # <a name="animated-character-detection-preview"></a>Wykrywanie znaków animowanych (wersja zapoznawcza)
@@ -40,7 +40,7 @@ W zależności od typu konta Video Indexer dostępne są różne zestawy funkcji
 
 ### <a name="trial-vs-paid"></a>Wersja próbna a płatna
 
-|Funkcja|Wersja próbna|Święcona|
+|Funkcjonalność|Wersja próbna|Płatna|
 |---|---|---|
 |Konto Custom Vision|Zarządzane w tle przez Video Indexer. |Twoje konto Custom Vision jest połączone z Video Indexer.|
 |Liczba modeli animacji|Jeden|Do 100 modeli na konto (ograniczenie Custom Vision).|

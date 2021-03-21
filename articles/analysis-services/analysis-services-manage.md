@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078904"
 ---
 # <a name="manage-analysis-services"></a>Zarządzanie usługami Analysis Services
@@ -36,13 +36,13 @@ Aby uzyskać najnowsze funkcje i bezproblemowe środowisko podczas nawiązywania
 ### <a name="to-connect-with-ssms"></a>Aby nawiązać połączenie za pomocą programu SSMS
  W przypadku korzystania z programu SSMS przed nawiązaniem połączenia z serwerem po raz pierwszy upewnij się, że nazwa użytkownika jest uwzględniona w grupie Administratorzy Analysis Services. Aby dowiedzieć się więcej, zobacz temat [Administratorzy serwera i użytkownicy bazy danych](#server-administrators-and-database-users) w dalszej części tego artykułu.
 
-1. Przed nawiązaniem połączenia należy uzyskać nazwę serwera. Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa serwera** .
+1. Przed nawiązaniem połączenia należy uzyskać nazwę serwera. Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa serwera**.
    
     ![Pobieranie nazwy serwera z systemu Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. W programie SSMS wybierz pozycję **Eksplorator obiektów** , a następnie kliknij pozycję **Połącz** > **Analysis Services** .
+2. W programie SSMS wybierz pozycję **Eksplorator obiektów**, a następnie kliknij pozycję **Połącz** > **Analysis Services**.
 3. W oknie dialogowym **łączenie z serwerem** Wklej w polu Nazwa serwera, a następnie w obszarze **uwierzytelnianie** wybierz jeden z następujących typów uwierzytelniania:   
     > [!NOTE]
-    > Zalecany jest typ uwierzytelniania, **Active Directory uniwersalny z obsługą uwierzytelniania WIELOskładnikowego** .
+    > Zalecany jest typ uwierzytelniania, **Active Directory uniwersalny z obsługą uwierzytelniania WIELOskładnikowego**.
 
     > [!NOTE]
     > Jeśli zalogujesz się przy użyciu konta Microsoft, usługi Live ID, usługi Yahoo, usługi Gmail itp., pozostaw pole hasło puste. Po kliknięciu przycisku Połącz zostanie wyświetlony monit o podanie hasła.

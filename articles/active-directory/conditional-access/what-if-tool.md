@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077646"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
@@ -32,7 +32,7 @@ Narzędzie **What If** umożliwia szybkie ustalenie zasad, które mają zastosow
 
 ## <a name="how-it-works"></a>Jak to działa
 
-W **narzędziu dostępu warunkowego What If** należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Do tych ustawień należą:
+W **narzędziu dostępu warunkowego What If** należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. takie jak:
 
 - Użytkownik, który ma zostać przetestowany 
 - Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu

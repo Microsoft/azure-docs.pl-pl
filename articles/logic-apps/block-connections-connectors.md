@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310033"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blokuj połączenia utworzone przez łączniki w Azure Logic Apps
@@ -115,11 +115,11 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
 
    ![W Azure Portal, Znajdź i wybierz pozycję "zasady"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. W menu **zasady** w obszarze **Tworzenie**wybierz pozycję **definicje**  >  **+ Definicja zasad**.
+1. W menu **zasady** w obszarze **Tworzenie** wybierz pozycję **definicje**  >  **+ Definicja zasad**.
 
    ![Wybierz "Definicje" > "+ Definicja zasad"](./media/block-connections-connectors/add-new-policy-definition.png)
 
-1. W obszarze **Definicja zasad**podaj informacje dotyczące definicji zasad w oparciu o właściwości opisane w przykładzie:
+1. W obszarze **Definicja zasad** podaj informacje dotyczące definicji zasad w oparciu o właściwości opisane w przykładzie:
 
    ![Zrzut ekranu przedstawiający właściwości "Definicja zasad".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
@@ -129,10 +129,10 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączono** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
-1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
+1. W obszarze **reguła zasad** pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
 
    ```json
    {
@@ -236,11 +236,11 @@ Po utworzeniu połączenia wewnątrz aplikacji logiki to połączenie istnieje j
 
    ![W Azure Portal, Znajdź i wybierz pozycję "zasady"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. W menu **zasady** w obszarze **Tworzenie**wybierz pozycję **definicje**  >  **+ Definicja zasad**.
+1. W menu **zasady** w obszarze **Tworzenie** wybierz pozycję **definicje**  >  **+ Definicja zasad**.
 
    ![Wybierz "Definicje" > "+ Definicja zasad"](./media/block-connections-connectors/add-new-policy-definition.png)
 
-1. W obszarze **Definicja zasad**podaj informacje dotyczące definicji zasad na podstawie właściwości opisanych w przykładzie i Kontynuuj, używając usługi Instagram jako przykładu:
+1. W obszarze **Definicja zasad** podaj informacje dotyczące definicji zasad na podstawie właściwości opisanych w przykładzie i Kontynuuj, używając usługi Instagram jako przykładu:
 
    ![Właściwości definicji zasad](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
@@ -250,10 +250,10 @@ Po utworzeniu połączenia wewnątrz aplikacji logiki to połączenie istnieje j
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączono** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
-1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
+1. W obszarze **reguła zasad** pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
 
    ```json
    {
@@ -323,11 +323,11 @@ Następnie należy przypisać definicję zasad, w której chcesz wymusić zasady
 
    ![W Azure Portal, Znajdź i wybierz pozycję "zasady"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. W menu **zasady** w obszarze **Tworzenie**wybierz pozycję **przypisania**  >  **przypisywanie zasad**.
+1. W menu **zasady** w obszarze **Tworzenie** wybierz pozycję **przypisania**  >  **przypisywanie zasad**.
 
    ![Wybierz pozycję "przypisania" > "Przypisz"](./media/block-connections-connectors/add-new-policy-assignment.png)
 
-1. W obszarze **podstawowe**podaj następujące informacje dotyczące przypisywania zasad:
+1. W obszarze **podstawowe** podaj następujące informacje dotyczące przypisywania zasad:
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574051"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie metryk i dzienników w chmurze dla usługi Azure API Management Brama samoobsługowa
@@ -32,7 +32,7 @@ Funkcję można włączać lub wyłączać przy użyciu `telemetry.metrics.cloud
 
 | Pole  | Domyślne | Opis |
 | ------------- | ------------- | ------------- |
-| Telemetria. Metrics. Cloud  | `true` | Włącza rejestrowanie za Azure Monitor. Wartość może być `true` , `false` . |
+| telemetry.metrics.cloud  | `true` | Włącza rejestrowanie za Azure Monitor. Wartość może być `true` , `false` . |
 
 
 Oto Przykładowa konfiguracja:

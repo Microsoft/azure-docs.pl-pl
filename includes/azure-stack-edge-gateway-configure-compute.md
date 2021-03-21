@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/07/2021
 ms.author: alkohli
 ms.openlocfilehash: c51577882e75facb1d8eb03c7cfab82467c5ec51
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99524924"
 ---
 W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub za pośrednictwem Azure Portal.
@@ -27,7 +27,7 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
     |---------|---------|
     |Subskrypcja     |Wybierz subskrypcję dla zasobu IoT Hub. Możesz użyć tej samej subskrypcji, która jest używana przez zasób Azure Stack Edge.         |
     |Grupa zasobów     |Wybierz grupę zasobów dla zasobu IoT Hub. Możesz użyć tej samej grupy zasobów, która jest używana przez zasób Azure Stack Edge.         |
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób usługi IoT Hub używa tej samej subskrypcji i grupy zasobów, które są używane przez zasób usługi Azure Stack Edge.     |
     |Nazwa     |Zaakceptuj nazwę domyślną lub wprowadź nazwę dla zasobu IoT Hub.         |
 
    ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-gateway-configure-compute/configure-compute-3.png)

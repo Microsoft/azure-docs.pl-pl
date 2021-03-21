@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b639ee45bfa6356054d93a1b6fcc8a7959173acd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516090"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Samouczek: integracja MyWorkDrive z usługą Azure Active Directory
@@ -116,7 +116,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. W polu tekstowym **adres URL metadanych federacji aplikacji platformy Azure** wklej wartość **adresu URL metadanych federacji aplikacji** skopiowanego z Azure Portal.
 
-    d. Kliknij pozycję **Zapisz**
+    d. Kliknij pozycję **Zapisz**.
 
     > [!NOTE]
     > Aby uzyskać dodatkowe informacje, zobacz artykuł dotyczący [pomocy technicznej usługi Azure AD MyWorkDrive](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
@@ -131,7 +131,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

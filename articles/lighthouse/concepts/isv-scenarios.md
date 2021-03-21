@@ -4,10 +4,10 @@ description: Możliwości platformy Azure Lighthouse mogą być używane przez n
 ms.date: 12/18/2020
 ms.topic: conceptual
 ms.openlocfilehash: d6a12a51d360ad236563b871dbd94cc442ade434
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696385"
 ---
 # <a name="azure-lighthouse-in-isv-scenarios"></a>Azure Lighthouse w scenariuszach niezależnych dostawców oprogramowania

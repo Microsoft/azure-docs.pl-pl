@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
 ms.openlocfilehash: 5b4aadc506b2f4a251ccef5e9488066b609ba5a5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130531"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Firmowe konta służbowe i centrum partnerskie
@@ -24,7 +24,7 @@ Jeśli Twoja firma subskrybuje usługę firmy Microsoft w chmurze, taką jak Azu
 
 Wykonaj następujące kroki, aby sprawdzić:
 1. Zaloguj się do portalu administracyjnego platformy Azure pod adresem https://portal.azure.com .
-2. Wybierz pozycję **Azure Active Directory** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **niestandardowe nazwy domen** .
+2. Wybierz pozycję **Azure Active Directory** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **niestandardowe nazwy domen**.
 3. Jeśli masz już konto służbowe, nazwa domeny zostanie wyświetlona.
 
 Jeśli firma nie ma jeszcze konta służbowego, zostanie ona utworzona w trakcie procesu rejestracji Centrum partnerskiego.
@@ -38,7 +38,7 @@ Przed podjęciem decyzji o użyciu istniejącego konta służbowego należy wzi�
 Aby utworzyć nowe konto służbowe dla swojej firmy, wykonaj poniższe kroki. Może być konieczne zażądanie pomocy od osoby, która ma uprawnienia administracyjne na koncie Microsoft Azure Twojej firmy.
 
 1. Zaloguj się do witryny [Microsoft Azure Portal](https://portal.azure.com).
-2. W menu nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**  ->  **Użytkownicy** Azure Active Directory.
+2. W menu nawigacji po lewej stronie wybierz pozycję   ->  **Użytkownicy** Azure Active Directory.
 3. Wybierz pozycję **nowy użytkownik** i Utwórz nowe konto służbowe platformy Azure, wprowadzając nazwę i adres e-mail. Upewnij się, że **rola katalogu** jest ustawiona na **użytkownika** , a następnie zaznacz pole wyboru **Pokaż hasło** u dołu, aby wyświetlić i zanotować hasło generowane automatycznie.
 4. Wybierz pozycję **Utwórz** , aby zapisać nowego użytkownika.
 

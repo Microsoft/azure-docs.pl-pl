@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574123"
 ---
-# <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
+# <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie i usuwanie tabeli routingu
 
 Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure, sieciami wirtualnymi i sieciami lokalnymi. Jeśli chcesz zmienić domyślny Routing systemu Azure, możesz to zrobić, tworząc tabelę tras. Jeśli jesteś nowym sposobem routingu w sieciach wirtualnych, możesz dowiedzieć się więcej na jego temat w obszarze [routing ruchu w sieci wirtualnej](virtual-networks-udr-overview.md) lub przez zakończenie korzystania z [samouczka](tutorial-create-route-table-portal.md).
 

@@ -6,10 +6,10 @@ ms.date: 11/04/2020
 ms.author: inhenkel
 ms.custom: portal
 ms.openlocfilehash: c3a27218f03980e9b42a4a56fa739203c43754a0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013279"
 ---
 <!--Set the encryption on storage account in the portal-->
@@ -38,11 +38,11 @@ Domyślnie dane na koncie magazynu są szyfrowane przy użyciu kluczy zarządzan
         1. Nazwy krzywych we-eliptyczna: P-256, P-384, P-521 lub P-256 K
         1. Opcjonalnie można ustawić daty aktywacji i wygaśnięcia klucza.
         1. Wybierz pozycję **tak** , aby włączyć automatyczne obracanie kluczy.
-        1. Wybierz pozycję **Utwórz**.
+        1. Wybierz przycisk **Utwórz**.
     1. Aby zaimportować klucz, wybierz plik do przekazania, klikając w dowolnym miejscu w **polu Wybierz plik**.
         1. Podaj nazwę klucza w polu **Nazwa** .
         1. Opcjonalnie można ustawić daty aktywacji i wygaśnięcia klucza.
         1. Wybierz pozycję **tak** , aby włączyć automatyczne obracanie kluczy.
-        1. Wybierz pozycję **Utwórz**.
+        1. Wybierz przycisk **Utwórz**.
     1. Wybierz pozycję **Wybierz** , aby wybrać ten klucz, aby zaszyfrować konto magazynu. Nastąpi powrót do ekranu szyfrowania.
 1. **WAŻNE!** Wybierz pozycję **Zapisz** , aby zapisać ustawienia szyfrowania lub wszystkie dane zostały utracone.

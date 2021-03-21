@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5148084fa22266b1352046c7d8737b9804c5f4d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93311849"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Przenoszenie danych do i z usługi Azure Blob Storage
@@ -29,7 +29,7 @@ W poniższych artykułach opisano sposób przenoszenia danych do i z usługi Azu
 * [Azure Storage — Eksplorator](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AzCopy](../../storage/common/storage-use-azcopy-v10.md)
 * [Python](../../storage/blobs/storage-quickstart-blobs-python.md)
-* [SSIS](move-data-to-azure-blob-using-ssis.md)
+* [SSI](move-data-to-azure-blob-using-ssis.md)
 
 Która metoda jest Najlepsza dla Ciebie, zależy od danego scenariusza. [Scenariusze dotyczące zaawansowanej analizy w Azure Machine Learning](plan-sample-scenarios.md) artykule ułatwiają określenie potrzebnych zasobów dla różnych przepływów pracy analizy danych używanych w procesie zaawansowanego analizowania.
 

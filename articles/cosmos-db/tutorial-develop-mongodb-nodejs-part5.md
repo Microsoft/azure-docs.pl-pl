@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097808"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — łączenie z usługą Cosmos DB za pomocą wtyczki Mongoose
@@ -51,9 +51,9 @@ Wtyczka Mongoose to biblioteka modelowania danych obiektu (ODM) dla bazy danych 
     npm i mongoose --save
     ```
 
-1. W folderze **server** utwórz plik o nazwie **mongo.js** . Do tego pliku dodasz szczegóły połączenia z kontem usługi Azure Cosmos DB.
+1. W folderze **server** utwórz plik o nazwie **mongo.js**. Do tego pliku dodasz szczegóły połączenia z kontem usługi Azure Cosmos DB.
 
-1. Skopiuj następujący kod do pliku **mongo.js** . Ten kod zapewnia następujące funkcje:
+1. Skopiuj następujący kod do pliku **mongo.js**. Ten kod zapewnia następujące funkcje:
 
    * Wymaga wtyczki Mongoose.
    * Przesłania obietnicę Mongo w celu użycia podstawowej obietnicy wbudowanej w wersji ES6/ES2015 i nowszych.
@@ -85,9 +85,9 @@ Wtyczka Mongoose to biblioteka modelowania danych obiektu (ODM) dla bazy danych 
      };
      ```
     
-1. W okienku Eksploratora w obszarze **server** utwórz folder o nazwie **environment** . W folderze **environment** utwórz plik o nazwie **environment.js** .
+1. W okienku Eksploratora w obszarze **server** utwórz folder o nazwie **environment**. W folderze **environment** utwórz plik o nazwie **environment.js**.
 
-1. Z pliku mongo.js musimy uwzględnić wartości parametrów `dbName`, `key` i `cosmosPort`. Skopiuj następujący kod do pliku **environment.js** :
+1. Z pliku mongo.js musimy uwzględnić wartości parametrów `dbName`, `key` i `cosmosPort`. Skopiuj następujący kod do pliku **environment.js**:
 
     ```javascript
     // TODO: replace if yours are different
@@ -129,15 +129,15 @@ Teraz Twoja aplikacja ma wszystkie informacje niezbędne do łączenia się z us
 
 Następnie należy zdefiniować schemat danych, które mają być przechowywane w usłudze Azure Cosmos DB, definiując plik modelu. Wykonaj następujące kroki, aby utworzyć _model elementów hero_ definiujący schemat danych:
 
-1. W okienku Eksploratora w folderze **server** utwórz plik o nazwie **hero.model.js** .
+1. W okienku Eksploratora w folderze **server** utwórz plik o nazwie **hero.model.js**.
 
-1. Skopiuj poniższy kod do pliku **hero.model.js** . Ten kod zapewnia następujące funkcje:
+1. Skopiuj poniższy kod do pliku **hero.model.js**. Ten kod zapewnia następujące funkcje:
 
    * Wymaga wtyczki Mongoose.
    * Tworzy nowy schemat z identyfikatorem, nazwą i powiedzeniem.
    * Tworzy model przy użyciu schematu.
    * Eksportuje model. 
-   * Nadaje kolekcji nazwę **Heroes** (zamiast **Heros** , która jest nazwą domyślną kolekcji zgodną z regułami wtyczki Mongoose dotyczącymi nazw w liczbie mnogiej).
+   * Nadaje kolekcji nazwę **Heroes** (zamiast **Heros**, która jest nazwą domyślną kolekcji zgodną z regułami wtyczki Mongoose dotyczącymi nazw w liczbie mnogiej).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -162,11 +162,11 @@ Następnie należy zdefiniować schemat danych, które mają być przechowywane 
 
 ## <a name="create-a-hero-service"></a>Tworzenie usługi hero
 
-Po utworzeniu modelu elementów hero należy zdefiniować usługę do odczytywania danych i wykonywania operacji generowania listy, tworzenia, usuwania i aktualizacji. Wykonaj następujące kroki, aby utworzyć _usługę hero_ , która wykonuje zapytanie o dane w usłudze Azure Cosmos DB:
+Po utworzeniu modelu elementów hero należy zdefiniować usługę do odczytywania danych i wykonywania operacji generowania listy, tworzenia, usuwania i aktualizacji. Wykonaj następujące kroki, aby utworzyć _usługę hero_, która wykonuje zapytanie o dane w usłudze Azure Cosmos DB:
 
-1. W okienku Eksploratora w folderze **server** utwórz plik o nazwie **hero.service.js** .
+1. W okienku Eksploratora w folderze **server** utwórz plik o nazwie **hero.service.js**.
 
-1. Skopiuj poniższy kod do pliku **hero.service.js** . Ten kod zapewnia następujące funkcje:
+1. Skopiuj poniższy kod do pliku **hero.service.js**. Ten kod zapewnia następujące funkcje:
 
    * Pobiera utworzony przez Ciebie model.
    * Nawiązuje połączenie z bazą danych.
@@ -200,7 +200,7 @@ Po utworzeniu modelu elementów hero należy zdefiniować usługę do odczytywan
 
 ## <a name="configure-routes"></a>Konfigurowanie tras
 
-Następnie należy skonfigurować trasy, które będą obsługiwać adresy URL dla żądań pobierania, tworzenia, odczytu i usuwania. Metody routingu określają funkcje wywołań zwrotnych (nazywane również _funkcjami obsługi_ ). Te funkcje są wywoływane, gdy aplikacja otrzymuje żądanie dotyczące określonego punktu końcowego i metody HTTP. Wykonaj następujące kroki, aby dodać usługę hero oraz zdefiniować swoje trasy:
+Następnie należy skonfigurować trasy, które będą obsługiwać adresy URL dla żądań pobierania, tworzenia, odczytu i usuwania. Metody routingu określają funkcje wywołań zwrotnych (nazywane również _funkcjami obsługi_). Te funkcje są wywoływane, gdy aplikacja otrzymuje żądanie dotyczące określonego punktu końcowego i metody HTTP. Wykonaj następujące kroki, aby dodać usługę hero oraz zdefiniować swoje trasy:
 
 1. W programie Visual Studio Code w pliku **routes.js** wykomentuj funkcję `res.send`, która wysyła dane przykładowego elementu hero. Zamiast niej dodaj wiersz wywołujący funkcję `heroService.getHeroes`.
 
@@ -225,7 +225,7 @@ Następnie należy skonfigurować trasy, które będą obsługiwać adresy URL d
     function getHeroes(req, res) {
     ```
 
-Poświęćmy teraz chwilę na zapoznanie się z wcześniejszym kodem. Najpierw wchodzimy do pliku index.js, który konfiguruje serwer węzłów. Zwróć uwagę, że ten plik konfiguruje i definiuje Twoje trasy. Następnie plik routes.js komunikuje się z usługą hero i informuje ją o konieczności pobrania funkcji, takich jak **getHeroes** , oraz przekazania żądania i odpowiedzi. Plik hero.service.js pobiera model i nawiązuje połączenie z bazą danych Mongo. Następnie po wywołaniu wykonuje funkcję **getHeroes** i zwraca odpowiedź 200. 
+Poświęćmy teraz chwilę na zapoznanie się z wcześniejszym kodem. Najpierw wchodzimy do pliku index.js, który konfiguruje serwer węzłów. Zwróć uwagę, że ten plik konfiguruje i definiuje Twoje trasy. Następnie plik routes.js komunikuje się z usługą hero i informuje ją o konieczności pobrania funkcji, takich jak **getHeroes**, oraz przekazania żądania i odpowiedzi. Plik hero.service.js pobiera model i nawiązuje połączenie z bazą danych Mongo. Następnie po wywołaniu wykonuje funkcję **getHeroes** i zwraca odpowiedź 200. 
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
@@ -233,7 +233,7 @@ Następnie uruchom aplikację, wykonując poniższe kroki:
 
 1. W programie Visual Studio Code zapisz wszystkie zmiany. Po lewej stronie wybierz przycisk **Debuguj** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png"::: , a następnie wybierz przycisk **Rozpocznij debugowanie** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png"::: .
 
-1. Teraz przełącz się na przeglądarkę. Otwórz **Narzędzia deweloperskie** i **kartę Sieć** . Przejdź do `http://localhost:3000` , a zobaczysz naszą aplikację.
+1. Teraz przełącz się na przeglądarkę. Otwórz **Narzędzia deweloperskie** i **kartę Sieć**. Przejdź do `http://localhost:3000` , a zobaczysz naszą aplikację.
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Nowe konto usługi Azure Cosmos DB w witrynie Azure Portal":::
 
@@ -244,8 +244,8 @@ W aplikacji nie są jeszcze przechowywane żadne elementy hero. W następnej cz�
 Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby usunąć grupę zasobów, wykonaj następujące kroki:
 
  1. Przejdź do grupy zasobów, w której zostało utworzone konto usługi Azure Cosmos DB.
- 1. Wybierz pozycję **Usuń grupę zasobów** .
- 1. Potwierdź nazwę grupy zasobów do usunięcia i wybierz pozycję **Usuń** .
+ 1. Wybierz pozycję **Usuń grupę zasobów**.
+ 1. Potwierdź nazwę grupy zasobów do usunięcia i wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

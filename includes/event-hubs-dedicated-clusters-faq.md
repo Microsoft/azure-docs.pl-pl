@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92517002"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>Co można osiągnąć przy użyciu klastra?
@@ -35,7 +35,7 @@ Podczas testowania użyto następujących kryteriów:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>Czy mogę skalować w górę i w dół mój klaster?
 
-Po utworzeniu opłaty za klastry są naliczane co najmniej 4 godziny użytkowania. W wersji zapoznawczej środowiska samoobsługowego można przesłać [żądanie pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) do zespołu Event Hubs w ramach żądania limitu przydziału **technicznego**, aby skalować klaster w górę lub w dół w celu skalowania  >  **Quota**  >  klastra w górę lub w**dół** . Ukończenie żądania skalowania klastra może potrwać do 7 dni. 
+Po utworzeniu opłaty za klastry są naliczane co najmniej 4 godziny użytkowania. W wersji zapoznawczej środowiska samoobsługowego można przesłać [żądanie pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) do zespołu Event Hubs w ramach żądania limitu przydziału **technicznego**, aby skalować klaster w górę lub w dół w celu skalowania  >    >  klastra w górę lub w **dół** . Ukończenie żądania skalowania klastra może potrwać do 7 dni. 
 
 ### <a name="how-does-geo-dr-work-with-my-cluster"></a>Jak działa geograficzna usługa DR z moim klastrem?
 

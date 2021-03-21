@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df7dcf9859b6942662ae447af836f59985e2d11a
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99509506"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
@@ -174,8 +174,8 @@ Ta prosta aplikacja konsolowa języka C#/.NET wykonuje następujące zadania:
 
  Przed uruchomieniem programu Poświęć minutę na przeanalizowanie kodu i definicji indeksu i indeksatora dla tego przykładu. Odpowiedni kod znajduje się w dwóch plikach:
 
-  + **Hotel.cs** zawiera schemat definiujący indeks
-  + **Program.cs** zawiera funkcje, które tworzą indeks wyszukiwanie poznawcze platformy Azure, źródła danych i indeksatory, a następnie Ładuj połączone wyniki do indeksu.
+  + **Hotel. cs** zawiera schemat definiujący indeks
+  + **Program. cs** zawiera funkcje, które tworzą indeks wyszukiwanie poznawcze platformy Azure, źródła danych i indeksatory, a następnie ładuje połączone wyniki do indeksu.
 
 ### <a name="create-an-index"></a>Tworzenie indeksu
 
@@ -185,7 +185,7 @@ Model danych jest definiowany przez klasę hotelu, która również zawiera odwo
 
 Program usunie istniejący indeks o tej samej nazwie przed utworzeniem nowego, w przypadku, gdy chcesz uruchomić ten przykład więcej niż raz.
 
-Poniższe fragmenty kodu z pliku **Hotel.cs** przedstawiają pojedyncze pola, po których następuje odwołanie do innej klasy modelu danych, pomieszczenie [], które z kolei jest zdefiniowane w pliku **Room.cs** (niepokazywany).
+Poniższe fragmenty kodu z pliku **hotelu. cs** przedstawiają pojedyncze pola, po których następuje odwołanie do innej klasy modelu danych, pomieszczenie [], które z kolei jest zdefiniowane w pliku **pokoju. cs** (nie pokazano).
 
 ```csharp
 . . .
@@ -199,7 +199,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-W pliku **program.cs** , [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.Build` metodę, a następnie utworzony w następujący sposób:
+W pliku **program. cs** [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.Build` metodę, a następnie utworzony w następujący sposób:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)

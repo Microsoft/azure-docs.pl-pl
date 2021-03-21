@@ -10,10 +10,10 @@ ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525792"
 ---
 # <a name="scenario-any-to-any"></a>Scenariusz: dowolne
@@ -56,7 +56,7 @@ Te połączenia (domyślnie podczas tworzenia) są skojarzone z domyślną tabel
 
 :::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Rysunek 1":::
 
-## <a name="workflow"></a><a name="workflow"></a>Utworzonego
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Ten scenariusz jest domyślnie włączony dla standardowej wirtualnej sieci WAN. Jeśli ustawienia gałęzi do gałęzi są wyłączone w konfiguracji sieci WAN, która nie będzie mogła nawiązać połączenia między szprychami. Sieci VPN/ExpressRoute/użytkownika są traktowane jako szprychy gałęzie w wirtualnej sieci WAN
 

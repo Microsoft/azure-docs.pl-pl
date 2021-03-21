@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308228"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Jak wybrać algorytmy dla Azure Machine Learning
@@ -30,7 +30,7 @@ Typowym pytaniem jest "którego algorytmu uczenia maszynowego należy użyć?". 
 
 ## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Scenariusze biznesowe i arkusz Machine Learning Ściągawka algorytmu
 
-[Arkusz Azure Machine Learning Ściągawka Algorithm](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) pomaga z pierwszym uwzględnieniem: **co chcesz zrobić z danymi** ? Na Ściągawka algorytmu Machine Learning, Wyszukaj zadanie, które chcesz wykonać, a następnie Znajdź algorytm [Azure Machine Learning Designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) dla rozwiązania do analizy predykcyjnej. 
+[Arkusz Azure Machine Learning Ściągawka Algorithm](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) pomaga z pierwszym uwzględnieniem: **co chcesz zrobić z danymi**? Na Ściągawka algorytmu Machine Learning, Wyszukaj zadanie, które chcesz wykonać, a następnie Znajdź algorytm [Azure Machine Learning Designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) dla rozwiązania do analizy predykcyjnej. 
 
 Program Machine Learning Designer zapewnia kompleksowy portfel algorytmów, takich jak [Las decyzyjny wieloklasowe](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [systemy rekomendacji](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [regresja sieci neuronowych](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [wieloklasowa sieć neuronowych](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri)i [K-oznacza klastrowanie](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Każdy algorytm jest przeznaczony do rozwiązywania innego typu problemu uczenia maszynowego. Aby uzyskać pełną listę wraz z dokumentacją dotyczącą sposobu działania poszczególnych algorytmów i sposobu dostrajania parametrów w celu optymalizacji algorytmu, zobacz Opis [algorytmu Machine Learning projektanta i odwołania do modułu](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri) .
 
@@ -62,7 +62,7 @@ Poniższa tabela zawiera podsumowanie najważniejszych cech algorytmów z rodzin
 | [Wieloklasowa sieć neuronowych](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) |Dobrze |Umiarkowane |Nie |8 | |
 | [Jeden — i wiele klas](./algorithm-module-reference/one-vs-all-multiclass.md?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Zobacz właściwości wybranej metody dwuklasowej |
 | **Rodzina regresji** | | | | | |
-| [Regresja liniowa](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |Dobrze |Duża |Tak |4 | |
+| [regresja liniowa](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |Dobrze |Duża |Tak |4 | |
 | [Regresja lasu decyzyjnego](./algorithm-module-reference/decision-forest-regression.md?WT.mc_id=docs-article-lazzeri)|Doskonałe |Umiarkowane |Nie |5 | |
 | [Regresja drzewa decyzyjnej](./algorithm-module-reference/boosted-decision-tree-regression.md?WT.mc_id=docs-article-lazzeri) |Doskonałe |Umiarkowane |Nie |6 |Duże rozmiary pamięci |
 | [Regresja sieci neuronowych](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri) |Dobrze |Umiarkowane |Nie |8 | |
@@ -123,7 +123,7 @@ Algorytmy regresji liniowej zakładają, że trendy danych są zgodne z prostą 
 
 ![Granica klasy nieliniowej](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Granica klasy nieliniowej_* _: _Relying w algorytmie klasyfikacji liniowej spowodowałoby niską dokładność. *
+***Granica klasy nieliniowej** _: _Relying w algorytmie klasyfikacji liniowej spowodowałoby niską dokładność. *
 
 ![Dane z trendem nieliniowym](./media/how-to-select-algorithms/nonlinear-trend.png)
 
