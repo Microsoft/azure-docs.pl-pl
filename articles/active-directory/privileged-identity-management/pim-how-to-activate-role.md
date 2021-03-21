@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96511343"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktywowanie ról usługi Azure AD w usłudze PIM

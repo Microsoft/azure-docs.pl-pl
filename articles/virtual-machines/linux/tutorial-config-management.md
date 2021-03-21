@@ -17,17 +17,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552534"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Linux na platformie Azure
 
 Usługa Azure [Change Tracking](../../automation/change-tracking/overview.md) pozwala łatwo identyfikować zmiany, a [Update Management](../../automation/update-management/overview.md) umożliwia zarządzanie aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemem Linux systemu Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zarządzanie aktualizacjami systemu Linux

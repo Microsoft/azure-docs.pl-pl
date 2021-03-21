@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408128"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorowanie operacji IoT Hub (przestarzałe)
@@ -201,7 +201,7 @@ Aby nawiązać połączenie z punktem końcowym monitorowania, potrzebne są par
 
     ![Wartości punktów końcowych zgodnych z centrum zdarzeń](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Wybierz pozycję **zasady dostępu współdzielonego** , a następnie wybierz pozycję **Usługa**. Zanotuj wartość **klucza podstawowego** :
+3. Wybierz pozycję **zasady dostępu współdzielonego**, a następnie wybierz pozycję **Usługa**. Zanotuj wartość **klucza podstawowego** :
 
     ![Klucz podstawowy zasad dostępu współdzielonego usługi](./media/iot-hub-operations-monitoring/service-key.png)
 

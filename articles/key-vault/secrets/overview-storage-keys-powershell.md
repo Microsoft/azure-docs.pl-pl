@@ -10,10 +10,10 @@ manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3bced101516e91259ea9018fe3c4aa44f867cbe6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023112"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i Azure PowerShell
@@ -34,7 +34,7 @@ Korzystając z funkcji zarządzanego klucza konta magazynu, należy rozważyć n
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="service-principal-application-id"></a>Identyfikator aplikacji głównej usługi
+## <a name="service-principal-application-id"></a>Identyfikator aplikacji jednostki usługi
 
 Dzierżawa usługi Azure AD udostępnia każdą zarejestrowaną aplikację z jednostką [usługi](../../active-directory/develop/developer-glossary.md#service-principal-object). Jednostka usługi służy jako identyfikator aplikacji, który jest używany podczas konfigurowania autoryzacji w celu uzyskania dostępu do innych zasobów platformy Azure za pośrednictwem usługi Azure RBAC.
 

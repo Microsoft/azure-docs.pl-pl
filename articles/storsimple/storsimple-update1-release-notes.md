@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956691"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Aktualizacja 1,2 — informacje o wersji dla urządzenia z serii StorSimple 8000
@@ -64,7 +64,7 @@ Te funkcje zostały po raz pierwszy wydane z aktualizacją Update 1, która zost
 ## <a name="issues-fixed-in-update-12"></a>Problemy rozwiązane w aktualizacji 1,2
 Poniższa tabela zawiera podsumowanie problemów, które zostały rozwiązane w aktualizacjach 1,2, 1,1 i 1.    
 
-| Nie. | Obiekt feature | Problem | Rozwiązano w aktualizacji | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Cecha | Problem | Rozwiązano w aktualizacji | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- | --- |
 | 1 |program Windows PowerShell dla usługi StorSimple |Gdy użytkownik zdalnie uzyskał dostęp do urządzenia StorSimple przy użyciu program Windows PowerShell dla usługi StorSimple a następnie uruchomił kreatora instalacji, wystąpił błąd, gdy tylko dane wejściowe protokołu IP 0. Ta usterka została teraz naprawiona w aktualizacji Update 1. |Update 1 |Tak |Tak |
 | 2 |Resetowanie do ustawień fabrycznych |W niektórych przypadkach po przeprowadzeniu resetowania do ustawień fabrycznych urządzenie StorSimple zostało zablokowane i zostanie wyświetlony komunikat: **Resetowanie do fabryki jest w toku (faza 8)**. Ten proces wystąpił po naciśnięciu klawiszy CTRL + C, gdy polecenie cmdlet było w toku. Ta usterka została naprawiona. |Update 1 |Tak |Nie |
@@ -82,7 +82,7 @@ Poniższa tabela zawiera podsumowanie problemów, które zostały rozwiązane w 
 ## <a name="known-issues-in-update-12"></a>Znane problemy w aktualizacji 1,2
 Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej wersji.
 
-| Nie. | Obiekt feature | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Cecha | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Kworum dysku |W rzadkich przypadkach, jeśli większość dysków w obudowie EBOD urządzenia 8600 zostanie odłączona, co spowodowało brak kworum dysku, Pula magazynów będzie w trybie offline. Pozostanie ono w trybie offline, nawet jeśli dyski zostaną ponownie połączone. |Konieczne będzie ponowne uruchomienie urządzenia. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu wykonania następnych kroków. |Tak |Nie |
 | 2 |Niepoprawny identyfikator kontrolera |Gdy jest przeprowadzane Zastępowanie kontrolera, kontroler 0 może być wyświetlany jako kontroler 1. Podczas zastępowania kontrolera, gdy obraz jest ładowany z węzła równorzędnego, identyfikator kontrolera może początkowo być wyświetlany jako identyfikator kontrolera równorzędnego. W rzadkich przypadkach takie zachowanie może być również widoczne po ponownym uruchomieniu systemu. |Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika. Ta sytuacja zostanie rozwiązany po zakończeniu zastępowania kontrolera. |Tak |Nie |

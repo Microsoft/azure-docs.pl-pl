@@ -7,10 +7,10 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 779b66412319ec8422977a7e56570a4d16f89aa9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98071548"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB powiązanie danych wyjściowych dla Azure Functions 2. x i wyższych
@@ -670,7 +670,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |Bramamode|Brama|Tryb połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB. Dostępne są opcje `Direct` i `Gateway`|
 |Protokół|Schemat|Protokół połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB.  Przeczytaj [tutaj, aby uzyskać wyjaśnienie obu trybów](../cosmos-db/performance-tips.md#networking)|

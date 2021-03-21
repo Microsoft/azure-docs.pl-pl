@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500771"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Jakie typy dysków są dostępne na platformie Azure?
@@ -23,7 +23,7 @@ Usługa Azure Managed disks obecnie oferuje cztery typy dysków, a każdy typ je
 
 Poniższa tabela zawiera porównanie dysków twardych, dysków półprzewodnikowych (SSD), standardowego dysku SSD i standardowych dysków twardych na potrzeby dysków zarządzanych, które ułatwią podjęcie decyzji o tym, czego używać.
 
-| Szczegół | Dysk w warstwie Ultra | Dysk SSD w warstwie Premium | Dysk SSD w warstwie Standardowa | Dysk HDD w warstwie Standardowa |
+| Szczegóły | Dysk w warstwie Ultra | Dysk SSD w warstwie Premium | Dysk SSD w warstwie Standardowa | Dysk HDD w warstwie Standardowa |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Typ dysku   |SSD   |SSD   |SSD   |HDD   |
 |Scenariusz   |Obciążenia intensywnie korzystające z operacji we/wy, takie jak [SAP HANA](workloads/sap/hana-vm-operations-storage.md), baz danych najwyższej warstwy (na przykład SQL, Oracle) i innych obciążeń intensywnie korzystających z transakcji.   |Obciążenia produkcyjne i wrażliwe na wydajność   |Serwery internetowe, aplikacje dla przedsiębiorstw używane w niewielkim stopniu oraz tworzenie i testowanie rozwiązań   |Kopia zapasowa, rozwiązania niekrytyczne, rzadki dostęp   |

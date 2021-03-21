@@ -7,13 +7,13 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101679601"
 ---
-# <a name="device-update-for-iot-hub-agent-overview"></a>Aktualizacja urządzenia dla programu IoT Hub Agent — Omówienie
+# <a name="device-update-for-iot-hub-agent-overview"></a>Usługa Device Update dla agenta usługi IoT Hub — omówienie
 
 Agent aktualizacji urządzenia składa się z dwóch warstw koncepcyjnych:
 

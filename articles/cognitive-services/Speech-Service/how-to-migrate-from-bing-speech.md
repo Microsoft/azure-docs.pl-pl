@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
 ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499139"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrowanie z rozpoznawanie mowy Bing do usługi mowy
@@ -37,7 +37,7 @@ Pojedynczy klucz subskrypcji usługi mowy umożliwia dostęp do następujących 
 
 Usługa mowy jest w dużym stopniu podobna do rozpoznawanie mowy Bing, z następującymi różnicami.
 
-| Cechy | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
+| Cecha | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
 |--|--|--|--|
 | Zestaw SDK języka C# | :heavy_check_mark: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows 10, platforma uniwersalna systemu Windows (platformy UWP) i .NET Standard 2,0. |
 | ZESTAW SDK JĘZYKA C++ | : heavy_minus_sign: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows i Linux. |

@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: f441a1cf97c069c4755b436bbb8cb9268b469eb3
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199751"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
@@ -190,7 +190,7 @@ Ta aplikacja wysyła komunikaty dla każdej z różnych metod routingu komunikat
 
 Jeśli nie pobrano plików z repozytorium w części 1 tego samouczka, możesz pobrać je teraz z [symulacji urządzenia IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Wybranie tego linku spowoduje pobranie repozytorium z kilkoma aplikacjami. szukane rozwiązanie to IoT-Hub/samouczki/Routing/IoT_SimulatedDevice. sln. 
 
-Kliknij dwukrotnie plik rozwiązania (IoT_SimulatedDevice. sln), aby otworzyć kod w programie Visual Studio, a następnie otwórz Program.cs. Zastąp element `{your hub name}` nazwą hosta centrum IoT Hub. Format nazwy hosta centrum IoT Hub to **{nazwa-centrum-iot}.azure-devices.net**. W tym samouczku jest używana nazwa hosta centrum **ContosoTestHub.azure-devices.net**. Następnie zastąp ciąg `{your device key}` kluczem urządzenia, który został wcześniej zapisany podczas konfigurowania urządzenia symulowanego. 
+Kliknij dwukrotnie plik rozwiązania (IoT_SimulatedDevice. sln), aby otworzyć kod w programie Visual Studio, a następnie otwórz program. cs. Zastąp element `{your hub name}` nazwą hosta centrum IoT Hub. Format nazwy hosta centrum IoT Hub to **{nazwa-centrum-iot}.azure-devices.net**. W tym samouczku jest używana nazwa hosta centrum **ContosoTestHub.azure-devices.net**. Następnie zastąp ciąg `{your device key}` kluczem urządzenia, który został wcześniej zapisany podczas konfigurowania urządzenia symulowanego. 
 
    ```csharp
         static string s_myDeviceId = "Contoso-Test-Device";

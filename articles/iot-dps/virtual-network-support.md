@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
 ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94959785"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Obsługa usługi Azure IoT Hub Device Provisioning Service (DPS) dla sieci wirtualnych
@@ -154,5 +154,5 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o funkcjach zabezpieczeń DPS:
 
-* [Zabezpieczenia](./concepts-service.md#attestation-mechanism)
+* [Bezpieczeństwo](./concepts-service.md#attestation-mechanism)
 * [Obsługa protokołu TLS 1,2](tls-support.md)

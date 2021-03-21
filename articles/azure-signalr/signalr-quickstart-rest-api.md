@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874529"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
@@ -30,7 +30,7 @@ Czynności przedstawione w tym przewodniku Szybki start można wykonywać w syst
 
 Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
@@ -139,7 +139,7 @@ Wersja | Interfejs API stanu | Drzwi | Określona wersja
 
 Lista dostępnych interfejsów API dla każdej konkretnej wersji znajduje się na poniższej liście.
 
-Interfejs API | 1,0 — wersja zapoznawcza | 1,0
+Interfejs API | 1,0 — wersja zapoznawcza | 1.0
 --- | --- | ---
 [Rozgłoś do wszystkich](#broadcast) | **&#x2713;** | **&#x2713;**
 [Rozgłoś do grupy](#broadcast-group) | **&#x2713;** | **&#x2713;**

@@ -11,15 +11,15 @@ ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
 ms.openlocfilehash: dc6c7bd9e38aa21ab10f55fca2500b0c12194d43
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102620170"
 ---
 # <a name="integrate-multiple-immersive-reader-resources"></a>Integrowanie wielu zasobów czytników immersyjny
 
-W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W samouczku [Szybki Start](./quickstarts/client-libraries.md)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W samouczku [Szybki Start](./quickstarts/client-libraries.md)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wielu zasobów czytnika immersyjny w istniejącej grupie zasobów

@@ -15,10 +15,10 @@ ms.author: kumud
 ms.reviewer: kumud
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 4e23c6f25145724a5300c9e5cdcb55431fb0b4f2
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97028771"
 ---
 # <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
@@ -52,43 +52,43 @@ Istnieją ograniczenia dotyczące liczby reguł zabezpieczeń, które można utw
 
 Platforma Azure tworzy następujące reguły domyślne w każdej tworzonej grupie zabezpieczeń sieci:
 
-#### <a name="inbound"></a>Inbound
+#### <a name="inbound"></a>Przychodzący
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorytet|Źródło|Porty źródłowe|Miejsce docelowe|Porty docelowe|Protokół|Access|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Dowolne|Zezwalaj|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorytet|Źródło|Porty źródłowe|Miejsce docelowe|Porty docelowe|Protokół|Access|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Dowolne|Zezwalaj|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorytet|Źródło|Porty źródłowe|Miejsce docelowe|Porty docelowe|Protokół|Access|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Dowolne|Zablokuj|
 
-#### <a name="outbound"></a>Outbound
+#### <a name="outbound"></a>Wychodzący
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorytet|Źródło|Porty źródłowe| Miejsce docelowe | Porty docelowe | Protokół | Access |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Dowolne | Zezwalaj |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorytet|Źródło|Porty źródłowe| Miejsce docelowe | Porty docelowe | Protokół | Access |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Dowolne | Zezwalaj |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorytet|Źródło|Porty źródłowe| Miejsce docelowe | Porty docelowe | Protokół | Access |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Dowolne | Zablokuj |
 

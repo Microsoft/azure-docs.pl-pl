@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498153"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Wprowadzenie do podstawowych usług Azure Storage
@@ -41,7 +41,7 @@ Dostęp do każdej usługi uzyskuje się za pośrednictwem konta magazynu. Aby r
 
 Poniższa tabela zawiera porównanie plików, obiektów blob, dysków, kolejek i tabel oraz przykładowe scenariusze dla każdego z nich.
 
-| Cechy | Opis | Kiedy stosować |
+| Cecha | Opis | Kiedy stosować |
 |--------------|-------------|-------------|
 | **Azure Files** |Oferuje w pełni zarządzane udziały plików w chmurze, do których można uzyskać dostęp z dowolnego miejsca za pośrednictwem protokołu SMB (Industry Standard Server Message Block).<br><br>Udziały plików platformy Azure można instalować z lokalnych wdrożeń systemu Windows, Linux i macOS. | Chcesz "podnieść i przenieść" aplikację do chmury, która korzysta już z natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.<br/><br/>Chcesz zastąpić lub uzupełnić lokalne serwery plików lub urządzenia NAS.<br><br> Chcesz przechowywać narzędzia do tworzenia i debugowania, które muszą być dostępne z wielu maszyn wirtualnych. |
 | **Obiekty blob platformy Azure** | Umożliwia przechowywanie danych bez struktury i uzyskiwanie do nich dostępu w dużej skali w blokowych obiektach Blob.<br/><br/>Program obsługuje również [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie. | Chcesz, aby aplikacja obsługiwała scenariusze przesyłania strumieniowego i dostępu losowego.<br/><br/>Chcesz mieć możliwość dostępu do danych aplikacji z dowolnego miejsca.<br/><br/>Chcesz utworzyć przedsiębiorstwo Data Lake na platformie Azure i przeprowadzić analizę danych Big Data. |
@@ -91,7 +91,7 @@ Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i ch
 
 Aby uzyskać więcej informacji na temat usługi Azure Queues, zobacz [Wprowadzenie do usługi Azure Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Magazyn tabel
+## <a name="table-storage"></a>Table Storage
 
 Usługa Azure Table Storage jest teraz częścią usługi Azure Cosmos DB. Aby zapoznać się z dokumentacją usługi Azure Table Storage, przejdź do artykułu [Omówienie usługi Azure Table Storage](../tables/table-storage-overview.md). Oprócz istniejącej usługi Azure Table Storage dostępna jest nowa oferta interfejsu API tabel usługi Azure Cosmos DB, który zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko Premium, zobacz [Azure Cosmos DB interfejs API tabel](../../cosmos-db/table-introduction.md).
 
@@ -121,7 +121,7 @@ Każde żądanie do usługi Azure Storage musi być autoryzowane. Usługa Azure 
 
 Istnieją dwa podstawowe rodzaje szyfrowania dostępne dla podstawowych usług magazynu. Aby uzyskać więcej informacji na temat bezpieczeństwa i szyfrowania, zobacz [Azure Storage security guide (Przewodnik po zabezpieczeniach usługi Azure Storage)](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 
 Szyfrowanie usługi Azure Storage chroni i zabezpiecza dane zgodnie ze zobowiązaniami dotyczącymi zabezpieczeń i zgodności w organizacji. Usługa Azure Storage automatycznie szyfruje wszystkie dane przed utrwaleniem do konta magazynu i odszyfrowuje je przed pobraniem. Procesy szyfrowania, odszyfrowywania i zarządzania kluczami są niewidoczne dla użytkowników. Klienci mogą również zdecydować się na zarządzanie własnymi kluczami przy użyciu Azure Key Vault. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md).
 
@@ -137,7 +137,7 @@ Aby mieć pewność, że dane są trwałe, usługa Azure Storage przechowuje wie
 
 Jest dostępnych kilka opcji umożliwiających przenoszenie danych do usługi Azure Storage lub poza nią. Wybór opcji zależy od rozmiaru zestawu danych i przepustowości sieci. Aby uzyskać więcej informacji, zobacz [Wybieranie rozwiązania platformy Azure do transferu danych](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Przy podejmowaniu decyzji o sposobie przechowywania danych i uzyskiwania do nich dostępu należy również wziąć pod uwagę koszty związane z nimi. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -147,7 +147,7 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Dokumentacja bibliotek i interfejsów API danych usługi Azure Storage
 
-- [Usługa Azure Storage — interfejs API REST](/rest/api/storageservices/)
+- [Interfejs API REST usługi Azure Storage](/rest/api/storageservices/)
 - [Biblioteka klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
 - [Biblioteka klienta usługi Azure Storage dla środowiska Java/Android](/java/api/overview/azure/storage)
 - [Biblioteka klienta usługi Azure Storage dla Node.js](/javascript/api/overview/azure/storage-overview)

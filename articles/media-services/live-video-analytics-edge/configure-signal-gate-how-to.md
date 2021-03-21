@@ -4,10 +4,10 @@ description: Ten artykuł zawiera wskazówki dotyczące konfigurowania bramy syg
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410797"
 ---
 # <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Konfigurowanie bramy sygnałów dla nagrywania wideo opartego na zdarzeniach
@@ -58,35 +58,35 @@ Identyfikatory korelacji są ustawiane dla każdego zdarzenia. Te identyfikatory
 
 ### <a name="parameters-based-on-the-physical-time-that-events-arrive-at-the-signal-gate"></a>Parametry w oparciu o czas fizyczny, jaki zdarzenia docierają do bramy sygnału
 
-* **minimumActivationTime (najkrótszy możliwy czas nagrywania)** : minimalna liczba sekund, przez jaką procesor bramy sygnałów pozostaje otwarty po wyzwoleniu na otrzymywanie nowych zdarzeń, chyba że zostanie przerwany przez maximumActivationTime.
-* **maximumActivationTime (najdłuższy możliwy czas nagrywania)** : Maksymalna liczba sekund od zdarzenia początkowego, które procesor bramy sygnałów pozostanie otwarty po wyzwoleniu, aby otrzymywać nowe zdarzenia, niezależnie od tego, jakie zdarzenia są odbierane.
-* **activationSignalOffset** : liczba sekund między aktywacją procesora sygnalizującego i początkiem nagrań wideo. Zazwyczaj ta wartość jest ujemna, ponieważ zaczyna nagrywać przed zdarzeniem wyzwalającym.
-* **activationEvaluationWindow** : rozpoczynając od początkowego zdarzenia wyzwalania, liczba sekund, w ciągu których zdarzenie, które wystąpiło przed początkowym zdarzeniem, w czasie mediów musi dotrzeć do procesora sygnalizującego sygnał, zanim zostanie on pominięty i uznany za późne przyjęcie.
+* **minimumActivationTime (najkrótszy możliwy czas nagrywania)**: minimalna liczba sekund, przez jaką procesor bramy sygnałów pozostaje otwarty po wyzwoleniu na otrzymywanie nowych zdarzeń, chyba że zostanie przerwany przez maximumActivationTime.
+* **maximumActivationTime (najdłuższy możliwy czas nagrywania)**: Maksymalna liczba sekund od zdarzenia początkowego, które procesor bramy sygnałów pozostanie otwarty po wyzwoleniu, aby otrzymywać nowe zdarzenia, niezależnie od tego, jakie zdarzenia są odbierane.
+* **activationSignalOffset**: liczba sekund między aktywacją procesora sygnalizującego i początkiem nagrań wideo. Zazwyczaj ta wartość jest ujemna, ponieważ zaczyna nagrywać przed zdarzeniem wyzwalającym.
+* **activationEvaluationWindow**: rozpoczynając od początkowego zdarzenia wyzwalania, liczba sekund, w ciągu których zdarzenie, które wystąpiło przed początkowym zdarzeniem, w czasie mediów musi dotrzeć do procesora sygnalizującego sygnał, zanim zostanie on pominięty i uznany za późne przyjęcie.
 
 > [!NOTE]
 > *Późne przyjęcie* to każde zdarzenie, które dociera po przekazaniu okna oceny aktywacji, ale jest ono odbierane przed początkowym zdarzeniem w czasie mediów.
 
 ### <a name="limits-of-parameters"></a>Limity parametrów
 
-* **activationEvaluationWindow** : od 0 do 10 sekund
-* **activationSignalOffset** :-1 minutę do 1 minuty
-* **minimumActivationTime** : 1 sekunda
-* **maximumActivationTime** : 1 sekunda
+* **activationEvaluationWindow**: od 0 do 10 sekund
+* **activationSignalOffset**:-1 minutę do 1 minuty
+* **minimumActivationTime**: 1 sekunda
+* **maximumActivationTime**: 1 sekunda
 
 
 W przypadku użycia należy ustawić parametry w następujący sposób:
 
-* **activationEvaluationWindow** : *K* s
-* **activationSignalOffset** : *-X* s
-* **minimumActivationWindow** : *Y* s
-* **maximumActivationWindow** : *Z* s
+* **activationEvaluationWindow**: *K* s
+* **activationSignalOffset**: *-X* s
+* **minimumActivationWindow**: *Y* s
+* **maximumActivationWindow**: *Z* s
 
 
 Poniżej przedstawiono przykład sposobu, w jaki sekcja węzła **procesora sygnałów sygnalizacyjnych** będzie wyglądała w topologii wykresu multimedialnego dla następujących wartości parametrów:
-* **activationEvaluationWindow** : 1 sekunda
-* **activationSignalOffset** : – 5 sekund
-* **minimumActivationTime** : 20 sekund
-* **maximumActivationTime** : 40 sekund
+* **activationEvaluationWindow**: 1 sekunda
+* **activationSignalOffset**: – 5 sekund
+* **minimumActivationTime**: 20 sekund
+* **maximumActivationTime**: 40 sekund
 
 > [!IMPORTANT]
 > Dla każdej wartości parametru jest oczekiwany [format czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations
@@ -120,7 +120,7 @@ Teraz Rozważmy, jak ta konfiguracja procesora bramy sygnałów będzie zachowyw
 
 ### <a name="recording-scenarios"></a>Scenariusze rejestrowania
 
-**Jedno zdarzenie z jednego źródła ( *Normalna Aktywacja* )**
+**Jedno zdarzenie z jednego źródła (*Normalna Aktywacja*)**
 
 Procesor bramy sygnalizującej, który odbiera jedno zdarzenie w nagraniu rozpoczynającym się 5 sekund (sygnał aktywacji = 5 sekund), zanim zdarzenie zostanie odebrane na bramie. Pozostała część nagrania to 20 sekund (minimalny czas aktywacji = 20 sekund), ponieważ żadne inne zdarzenia nie docierają przed końcem minimalnego czasu aktywacji, aby ponownie wyzwolić bramę.
 
@@ -131,7 +131,7 @@ Przykładowy Diagram:
 * Czas trwania rejestrowania =-offset + minimumActivationTime = [E1 + offset, E1 + minimumActivationTime]
 
 
-**Dwa zdarzenia z jednego źródła ( *Aktywacja została ponownie wyzwolona* )**
+**Dwa zdarzenia z jednego źródła (*Aktywacja została ponownie wyzwolona*)**
 
 Procesor bramy sygnalizującej, który odbiera dwa zdarzenia, powoduje nagranie, które zaczyna się 5 sekund (przesunięcie sygnału aktywacji = 5 sekund), zanim zdarzenie zostanie odebrane na bramie. Ponadto zdarzenie 2 odbiera 5 sekund po zdarzeniu 1. Ponieważ zdarzenie 2 dociera przed końcem minimalnego czasu aktywacji dla zdarzenia 1 (20 sekund), Brama zostanie ponownie wyzwolona. Pozostała część nagrania to 20 sekund (minimalny czas aktywacji = 20 sekund), ponieważ żadne inne zdarzenia nie docierają przed końcem minimalnego czasu aktywacji z zdarzenia 2, aby ponownie wyzwolić bramę.
 
@@ -142,7 +142,7 @@ Przykładowy Diagram:
 * Czas trwania rejestrowania =-offset + (przybycie zdarzenia 2 — przybycie zdarzenia 1) + minimumActivationTime
 
 
-***N* zdarzeń z jednego źródła ( *Maksymalna aktywacja* )**
+***N* zdarzeń z jednego źródła (*Maksymalna aktywacja*)**
 
 Procesor bramy sygnalizującej, który odbiera *N* zdarzeń, powoduje nagranie, które zaczyna się 5 sekund (przesunięcie sygnału aktywacji = 5 sekund), zanim pierwsze zdarzenie zostanie odebrane na bramie. Po nadejściu każdego zdarzenia przed upływem minimalnego czasu aktywacji wynoszącego 20 sekund od poprzedniego zdarzenia Brama jest ciągle ponownie wyzwalana. Pozostanie otwarte do momentu, aż maksymalny czas aktywacji wynoszący 40 sekund po pierwszym zdarzeniu. Następnie Brama jest zamykana i nie akceptuje już żadnych nowych zdarzeń.
 

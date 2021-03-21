@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001290"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
-Transport Layer Security (TLS), wcześniej znany jako SSL (SSL), jest standardową technologią zabezpieczeń służącą do nawiązywania zaszyfrowanego połączenia między serwerem sieci Web a przeglądarką. Ten link zapewnia, że wszystkie dane przesyłane między serwerem sieci Web i przeglądarkami pozostają w trybie prywatnym i zaszyfrowanym. Brama Application Gateway obsługuje zarówno zakończenie protokołu TLS na bramie, jak i kompleksowe szyfrowanie TLS.
+Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), jest standardową technologią zabezpieczeń służącą do nawiązywania zaszyfrowanego połączenia między serwerem sieci Web a przeglądarką. Ten link zapewnia, że wszystkie dane przesyłane między serwerem sieci Web i przeglądarkami pozostają w trybie prywatnym i zaszyfrowanym. Brama Application Gateway obsługuje zarówno zakończenie protokołu TLS na bramie, jak i kompleksowe szyfrowanie TLS.
 
 ## <a name="tls-termination"></a>Zakończenie protokołu TLS
 

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie poświadczeniami konta magazynu macierzy wirtualnych StorSimple | Microsoft Docs
-description: Wyjaśnia, w jaki sposób można użyć strony StorSimple Menedżer urządzeń configure, aby dodać, edytować, usunąć lub obrócić klucze zabezpieczeń dla poświadczeń konta magazynu skojarzonych z wirtualną tablicą StorSimple.
+description: Wyjaśnia, w jaki sposób można użyć strony StorSimple Device Manager configure, aby dodać, edytować, usunąć lub obrócić klucze zabezpieczeń dla poświadczeń konta magazynu skojarzonych z wirtualną tablicą StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,21 +15,21 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023895"
 ---
-# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Użyj StorSimple Menedżer urządzeń do zarządzania poświadczeniami konta magazynu dla macierzy wirtualnej StorSimple
+# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Użyj StorSimple Device Manager do zarządzania poświadczeniami konta magazynu dla macierzy wirtualnej StorSimple
 
 ## <a name="overview"></a>Omówienie
-Sekcja **konfiguracji** bloku StorSimple Menedżer urządzeń w macierzy wirtualnej StorSimple przedstawia globalne parametry usługi, które można utworzyć w usłudze StorSimple Manager. Te parametry mogą być stosowane do wszystkich urządzeń podłączonych do usługi i obejmują:
+Sekcja **konfiguracji** bloku StorSimple Device Manager w macierzy wirtualnej StorSimple przedstawia globalne parametry usługi, które można utworzyć w usłudze StorSimple Manager. Te parametry mogą być stosowane do wszystkich urządzeń podłączonych do usługi i obejmują:
 
 * Poświadczenia konta magazynu
 * Rekordy kontroli dostępu
   
-  ![Pulpit nawigacyjny usługi Menedżer urządzeń](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
+  ![Pulpit nawigacyjny usługi Device Manager](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
 W tym samouczku wyjaśniono, jak można dodawać, edytować lub usuwać poświadczenia konta magazynu dla macierzy wirtualnej StorSimple. Informacje przedstawione w tym samouczku dotyczą tylko macierzy wirtualnej StorSimple. Aby uzyskać informacje na temat zarządzania kontami magazynu w serii 8000, zobacz [Korzystanie z usługi StorSimple Manager do zarządzania kontem magazynu](./storsimple-8000-manage-storage-accounts.md).
 
@@ -56,18 +56,18 @@ Istnieją trzy typy poświadczeń konta magazynu, które mogą być używane z u
 * **poświadczenia konta magazynu poza subskrypcją usługi** — są to poświadczenia konta usługi Azure Storage, które nie są skojarzone z usługą i mogą być dostępne przed utworzeniem usługi.
 
 ## <a name="add-a-storage-account-credential"></a>Dodawanie poświadczeń konta magazynu
-Poświadczenia konta magazynu można dodać do konfiguracji usługi StorSimple Menedżer urządzeń, podając unikatową przyjazną nazwę i poświadczenia dostępu, które są połączone z kontem magazynu. Istnieje również możliwość włączenia trybu Transport Layer Security (TLS), wcześniej znanego jako tryb SSL (SSL), aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między urządzeniem i chmurą.
+Poświadczenia konta magazynu można dodać do konfiguracji usługi StorSimple Device Manager, podając unikatową przyjazną nazwę i poświadczenia dostępu, które są połączone z kontem magazynu. Istnieje również możliwość włączenia trybu Transport Layer Security (TLS), wcześniej znanego jako tryb Secure Sockets Layer (SSL), aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między urządzeniem i chmurą.
 
 Można utworzyć wiele kont dla danego dostawcy usług w chmurze. Podczas zapisywania poświadczenia konta magazynu usługa próbuje skomunikować się z dostawcą usług w chmurze. Poświadczenia i materiały dostępu podane przez użytkownika są uwierzytelniane w tym momencie. Poświadczenia konta magazynu są tworzone tylko w przypadku pomyślnego uwierzytelnienia. Jeśli uwierzytelnianie nie powiedzie się, zostanie wyświetlony odpowiedni komunikat o błędzie.
 
 Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące procedury:
 
-* Aby dodać poświadczenia konta magazynu, które ma tę samą subskrypcję platformy Azure co usługa Menedżer urządzeń
-* Aby dodać poświadczenia konta usługi Azure Storage, które jest poza subskrypcją usługi Menedżer urządzeń
+* Aby dodać poświadczenia konta magazynu, które ma tę samą subskrypcję platformy Azure co usługa Device Manager
+* Aby dodać poświadczenia konta usługi Azure Storage, które jest poza subskrypcją usługi Device Manager
 
-#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Aby dodać poświadczenia konta magazynu, które ma tę samą subskrypcję platformy Azure co usługa Menedżer urządzeń
+#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Aby dodać poświadczenia konta magazynu, które ma tę samą subskrypcję platformy Azure co usługa Device Manager
 
-1. Przejdź do usługi Menedżer urządzeń, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
+1. Przejdź do usługi Device Manager, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
 2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** .
 3. Kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie konta magazynu** wykonaj następujące czynności:
@@ -79,10 +79,10 @@ Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące pro
    
         ![Dodawanie istniejącego poświadczenia konta magazynu](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
-#### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>Aby dodać poświadczenia konta usługi Azure Storage, które jest poza subskrypcją usługi Menedżer urządzeń
+#### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>Aby dodać poświadczenia konta usługi Azure Storage, które jest poza subskrypcją usługi Device Manager
 
-1. Przejdź do usługi Menedżer urządzeń, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
-2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Menedżer urządzeń.
+1. Przejdź do usługi Device Manager, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
+2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Device Manager.
 3. Kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie konta magazynu** wykonaj następujące czynności:
    
@@ -92,20 +92,20 @@ Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące pro
    
     3. W polu tekstowym **klucz dostępu do konta magazynu** Podaj podstawowy klucz dostępu dla poświadczeń konta usługi Azure Storage. Aby uzyskać ten klucz, przejdź do usługi Azure Storage, wybierz swoje poświadczenia konta magazynu, a następnie kliknij przycisk **Zarządzaj kluczami konta**. Teraz można skopiować podstawowy klucz dostępu.
    
-    4. Aby włączyć protokół TLS, kliknij przycisk **Włącz** , aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między usługą StorSimple Menedżer urządzeń i chmurą. Kliknij przycisk **Wyłącz** tylko wtedy, gdy Pracujesz w chmurze prywatnej.
+    4. Aby włączyć protokół TLS, kliknij przycisk **Włącz** , aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między usługą StorSimple Device Manager i chmurą. Kliknij przycisk **Wyłącz** tylko wtedy, gdy Pracujesz w chmurze prywatnej.
    
     5. Kliknij pozycję **Dodaj**. Po pomyślnym utworzeniu poświadczenia konta magazynu otrzymasz powiadomienie.
 
-5. Nowo utworzone poświadczenia konta magazynu są wyświetlane w bloku StorSimple Configure Menedżer urządzeń Service w obszarze **poświadczenia konta magazynu**.
+5. Nowo utworzone poświadczenia konta magazynu są wyświetlane w bloku StorSimple Configure Device Manager Service w obszarze **poświadczenia konta magazynu**.
    
-    ![Dodawanie poświadczeń konta magazynu poza subskrypcją usługi Menedżer urządzeń](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
+    ![Dodawanie poświadczeń konta magazynu poza subskrypcją usługi Device Manager](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## <a name="edit-a-storage-account-credential"></a>Edytuj poświadczenia konta magazynu
 Można edytować poświadczenia konta magazynu używanego przez urządzenie. Jeśli edytujesz poświadczenia konta magazynu, które jest aktualnie używane, pola dostępne do modyfikacji to klucz dostępu i tryb TLS dla poświadczeń konta magazynu. Możesz podać nowy klucz dostępu do magazynu lub zmodyfikować ustawienie **Włącz tryb SSL** i zapisać zaktualizowane ustawienia.
 
 #### <a name="to-edit-a-storage-account-credential"></a>Aby edytować poświadczenia konta magazynu
-1. Przejdź do usługi Menedżer urządzeń, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
-2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Menedżer urządzeń.
+1. Przejdź do usługi Device Manager, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
+2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Device Manager.
 3. Na tabelarycznej liście poświadczeń konta magazynu wybierz i kliknij dwukrotnie konto, które chcesz zmodyfikować.
 4. W bloku **Właściwości** poświadczeń konta magazynu wykonaj następujące czynności:
    
@@ -122,8 +122,8 @@ Można edytować poświadczenia konta magazynu używanego przez urządzenie. Je�
 > 
 
 #### <a name="to-delete-a-storage-account-credential"></a>Aby usunąć poświadczenia konta magazynu
-1. Przejdź do usługi Menedżer urządzeń, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
-2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Menedżer urządzeń.
+1. Przejdź do usługi Device Manager, wybierz i kliknij ją dwukrotnie. Spowoduje to otwarcie bloku **Przegląd** .
+2. Wybierz pozycję **poświadczenia konta magazynu** w sekcji **Konfiguracja** . Ta lista zawiera wszystkie istniejące poświadczenia konta magazynu skojarzone z usługą StorSimple Device Manager.
 3. Na tabelarycznej liście poświadczeń konta magazynu wybierz i kliknij dwukrotnie konto, które chcesz usunąć.
 4. W bloku **Właściwości** poświadczeń konta magazynu wykonaj następujące czynności:
    
@@ -133,9 +133,9 @@ Można edytować poświadczenia konta magazynu używanego przez urządzenie. Je�
       ![Usuwanie poświadczeń konta magazynu](./media/storsimple-virtual-array-manage-storage-accounts/ova-del-storageacct.png)
 
 ## <a name="synchronizing-storage-account-credential-keys"></a>Synchronizowanie kluczy poświadczeń konta magazynu
-Ze względów bezpieczeństwa kluczowe rotacja jest często wymagane w centrach danych. Administrator Microsoft Azure może ponownie wygenerować lub zmienić klucz podstawowy lub pomocniczy przez bezpośredni dostęp do poświadczeń konta magazynu (za pośrednictwem usługi Microsoft Azure Storage). Ta zmiana nie jest automatycznie widoczna dla usługi StorSimple Menedżer urządzeń.
+Ze względów bezpieczeństwa kluczowe rotacja jest często wymagane w centrach danych. Administrator Microsoft Azure może ponownie wygenerować lub zmienić klucz podstawowy lub pomocniczy przez bezpośredni dostęp do poświadczeń konta magazynu (za pośrednictwem usługi Microsoft Azure Storage). Ta zmiana nie jest automatycznie widoczna dla usługi StorSimple Device Manager.
 
-Aby poinformować usługę StorSimple Menedżer urządzeń o zmianie, musisz uzyskać dostęp do usługi StorSimple Menedżer urządzeń, uzyskać dostęp do poświadczenia konta magazynu, a następnie zsynchronizować klucz podstawowy lub pomocniczy (w zależności od tego, który został zmieniony). Następnie usługa pobiera najnowszy klucz, szyfruje klucze i wysyła zaszyfrowany klucz do urządzenia.
+Aby poinformować usługę StorSimple Device Manager o zmianie, musisz uzyskać dostęp do usługi StorSimple Device Manager, uzyskać dostęp do poświadczenia konta magazynu, a następnie zsynchronizować klucz podstawowy lub pomocniczy (w zależności od tego, który został zmieniony). Następnie usługa pobiera najnowszy klucz, szyfruje klucze i wysyła zaszyfrowany klucz do urządzenia.
 
 #### <a name="to-synchronize-keys-for-storage-account-credentials-in-the-same-subscription-as-the-service-azure-only"></a>Aby synchronizować klucze dla poświadczeń konta magazynu w tej samej subskrypcji co usługa (tylko platforma Azure)
 1. W bloku spocznik usługi wybierz swoją usługę, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **poświadczenia konta magazynu**.
@@ -146,7 +146,7 @@ Aby poinformować usługę StorSimple Menedżer urządzeń o zmianie, musisz uzy
    
     2. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Synchronizuj klucz** , aby zakończyć synchronizację.
     
-4. W usłudze StorSimple Menedżer urządzeń należy zaktualizować klucz, który został wcześniej zmieniony w usłudze Microsoft Azure Storage. W bloku **Synchronizuj klucz konta magazynu** , jeśli podstawowy klucz dostępu został zmieniony (ponownie wygenerowany), kliknij przycisk podstawowy, a następnie kliknij przycisk **Synchronizuj klucz**. Jeśli klucz pomocniczy został zmieniony, kliknij przycisk **pomocniczy**, a następnie kliknij przycisk **Synchronizuj klucz**.
+4. W usłudze StorSimple Device Manager należy zaktualizować klucz, który został wcześniej zmieniony w usłudze Microsoft Azure Storage. W bloku **Synchronizuj klucz konta magazynu** , jeśli podstawowy klucz dostępu został zmieniony (ponownie wygenerowany), kliknij przycisk podstawowy, a następnie kliknij przycisk **Synchronizuj klucz**. Jeśli klucz pomocniczy został zmieniony, kliknij przycisk **pomocniczy**, a następnie kliknij przycisk **Synchronizuj klucz**.
    
     ![Synchronizuj klucz dostępu](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 

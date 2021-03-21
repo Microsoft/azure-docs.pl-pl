@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375931"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class moduł drzewa podwyższania decyzji
@@ -38,9 +38,9 @@ Możesz przeszkolić model tego typu przy użyciu [modelu uczenia](././train-mod
   
 2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .
   
-    + **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
+    + **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
   
-    + **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
+    + **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
   
 3.  **Maksymalna liczba liści na drzewo** wskazuje maksymalną liczbę węzłów terminalu (liści), które można utworzyć w dowolnym drzewie.
   
@@ -58,16 +58,16 @@ Możesz przeszkolić model tego typu przy użyciu [modelu uczenia](././train-mod
   
      Jeśli wartość zostanie ustawiona na 1, tworzone jest tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i żadne dalsze iteracje nie są wykonywane.
   
-7.  W przypadku **liczby losowej inicjatora** , opcjonalnie wpisz nieujemną liczbę całkowitą do użycia jako losową wartość inicjatora. Określenie inicjatora zapewnia odtwarzalność w przebiegach, które mają te same dane i parametry.  
+7.  W przypadku **liczby losowej inicjatora**, opcjonalnie wpisz nieujemną liczbę całkowitą do użycia jako losową wartość inicjatora. Określenie inicjatora zapewnia odtwarzalność w przebiegach, które mają te same dane i parametry.  
   
      Losowy inicjator jest domyślnie ustawiony na wartość 0, co oznacza, że początkowa wartość inicjatora jest uzyskiwana z zegara systemowego.  Kolejne uruchomienia przy użyciu losowego inicjatora mogą mieć różne wyniki.
   
 
 9. Uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
