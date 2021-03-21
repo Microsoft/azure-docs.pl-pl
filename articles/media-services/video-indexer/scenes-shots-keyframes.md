@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041902"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Sceny, ujęcia i klatki kluczowe
@@ -46,7 +46,7 @@ Aby wyodrębnić ramki kluczowe o wysokiej rozdzielczości dla filmu wideo, nale
 
 #### <a name="with-the-video-indexer-website"></a>Z witryną Video Indexer
 
-Aby wyodrębnić ramki kluczowe przy użyciu witryny sieci Web Video Indexer, Przekaż i Indeksuj wideo. Po zakończeniu zadania indeksowania kliknij przycisk **Pobierz** i wybierz pozycję **artefakty (zip)** . Spowoduje to pobranie folderu artefaktów do komputera. 
+Aby wyodrębnić ramki kluczowe przy użyciu witryny sieci Web Video Indexer, Przekaż i Indeksuj wideo. Po zakończeniu zadania indeksowania kliknij przycisk **Pobierz** i wybierz pozycję **artefakty (zip)**. Spowoduje to pobranie folderu artefaktów do komputera. 
 
 ![Zrzut ekranu pokazujący listę rozwijaną "Pobierz" z wybranymi "artefaktami".](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  

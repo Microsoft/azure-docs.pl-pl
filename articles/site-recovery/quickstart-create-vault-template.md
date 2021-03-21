@@ -2,13 +2,13 @@
 title: Przewodnik Szybki Start dotyczący tworzenia magazynu usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager.
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager (szablon ARM).
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 ms.date: 04/29/2020
-ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92745885"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu ARM
@@ -17,7 +17,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania magazynu Recovery 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -40,9 +40,9 @@ Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Usta
 
 Aby uzyskać więcej szablonów Recovery Services platformy Azure, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Aby wdrożyć szablon, wymagana jest **subskrypcja** , **Grupa zasobów** i **Nazwa magazynu** .
+Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów** i **Nazwa magazynu** .
 
 1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz pozycję **Wdróż na platformie Azure** .
 
@@ -52,18 +52,18 @@ Aby wdrożyć szablon, wymagana jest **subskrypcja** , **Grupa zasobów** i **Na
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Szablon służący do tworzenia magazynu Recovery Services.":::
 
-   - **Subskrypcja** : wybierz subskrypcję platformy Azure.
-   - **Grupa zasobów** : wybierz istniejącą grupę lub wybierz pozycję **Utwórz nową** , aby dodać grupę.
-   - **Lokalizacja** : wartość domyślna lokalizacji grupy zasobów i jest niedostępna po wybraniu grupy zasobów.
-   - **Nazwa magazynu** : Podaj nazwę magazynu.
-   - **Zmień typ magazynu** : wartość domyślna to **false** . Wybierz **wartość true** tylko wtedy, gdy musisz zmienić typ magazynu dla magazynu.
-   - **Typ magazynu** magazynu: wartość domyślna to **GloballyRedundant** . Jeśli typ magazynu został ustawiony na **wartość true** , wybierz pozycję **LocallyRedundant** .
-   - **Lokalizacja** : funkcja `[resourceGroup().location]` Domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość taką jak **zachodnie** .
-   - Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej** .
+   - **Subskrypcja**: wybierz subskrypcję platformy Azure.
+   - **Grupa zasobów**: wybierz istniejącą grupę lub wybierz pozycję **Utwórz nową** , aby dodać grupę.
+   - **Lokalizacja**: wartość domyślna lokalizacji grupy zasobów i jest niedostępna po wybraniu grupy zasobów.
+   - **Nazwa magazynu**: Podaj nazwę magazynu.
+   - **Zmień typ magazynu**: wartość domyślna to **false**. Wybierz **wartość true** tylko wtedy, gdy musisz zmienić typ magazynu dla magazynu.
+   - **Typ magazynu** magazynu: wartość domyślna to **GloballyRedundant**. Jeśli typ magazynu został ustawiony na **wartość true**, wybierz pozycję **LocallyRedundant**.
+   - **Lokalizacja**: funkcja `[resourceGroup().location]` Domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość taką jak **zachodnie**.
+   - Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej**.
 
 1. Aby rozpocząć wdrażanie magazynu, wybierz przycisk **Kup** . Po pomyślnym wdrożeniu zostanie wyświetlone powiadomienie.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Szablon służący do tworzenia magazynu Recovery Services.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Wdrażanie magazynu powiodło się.":::
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 

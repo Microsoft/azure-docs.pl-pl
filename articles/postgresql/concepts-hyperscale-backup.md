@@ -8,15 +8,15 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485379"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
-Azure Database for PostgreSQL — funkcja Citus) automatycznie tworzy kopie zapasowe każdego węzła i zapisuje je w magazynie lokalnie nadmiarowy. Za pomocą kopii zapasowych można przywrócić klaster z Citus w określonym czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości działania, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
+Azure Database for PostgreSQL — funkcja Citus) automatycznie tworzy kopie zapasowe każdego węzła i zapisuje je w magazynie lokalnie nadmiarowy. Za pomocą kopii zapasowych można przywrócić klaster z Citus w określonym czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości biznesowej, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
@@ -44,7 +44,7 @@ W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduj
 ### <a name="point-in-time-restore-pitr"></a>Przywracanie do punktu w czasie (kopie)
 
 Klaster można przywrócić do dowolnego punktu w czasie w ciągu ostatnich 35 dni.
-Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Na przykład, gdy użytkownik przypadkowo usunie dane, porzuca istotną tabelę lub bazę danych lub jeśli przypadkowo zastąpi dobre dane przy użyciu nieprawidłowych danych.
+Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Gdy na przykład użytkownik przypadkowo usunie dane, porzuci ważną tabelę lub bazę danych bądź gdy aplikacja przypadkowo zastąpi dobre dane za pomocą nieprawidłowych danych.
 
 Proces przywracania powoduje utworzenie nowego klastra w tym samym regionie, subskrypcji i grupie zasobów platformy Azure co wersja oryginalna. Klaster ma oryginalną konfigurację: tę samą liczbę węzłów, liczbę rdzeni wirtualnych, rozmiar magazynu, role użytkowników, wersję PostgreSQL i wersję rozszerzenia Citus.
 

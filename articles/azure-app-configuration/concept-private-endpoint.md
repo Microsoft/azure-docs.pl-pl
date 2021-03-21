@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929847"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Używanie prywatnych punktów końcowych dla konfiguracji aplikacji platformy Azure
@@ -57,7 +57,7 @@ Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą być w stan
 > [!TIP]
 > W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS w celu rozpoznania nazwy magazynu w `privatelink` poddomenie na adres IP prywatnego punktu końcowego. Można to zrobić przez delegowanie `privatelink` poddomeny do prywatnej strefy DNS sieci wirtualnej lub skonfigurowanie strefy DNS na serwerze DNS i dodanie rekordu A DNS a.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Włączenie prywatnych punktów końcowych wymaga magazynu konfiguracji aplikacji [warstwy Standardowa](https://azure.microsoft.com/pricing/details/app-configuration/) .  Aby dowiedzieć się więcej o cenach łączy prywatnych, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 

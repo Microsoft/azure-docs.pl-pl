@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893424"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Słownik doradcy metryk wspólnego słownictwa i koncepcji
@@ -31,9 +31,9 @@ Strumieniowe źródło danych to to, co Doradca metryk pozyskiwanie ze źródła
 * zero lub więcej wymiarów
 * co najmniej jedna miara. 
 
-## <a name="metric"></a>Metryka
+## <a name="metric"></a>Metric
 
-Metryka to miara wymierna, która jest używana do monitorowania i oceniania stanu określonego procesu biznesowego. Może to być kombinacja wielu wartości szeregów czasowych podzielona na wymiary. Na przykład Metryka *kondycji sieci Web* może zawierać wymiary *liczby użytkowników* i *rynku en-us* .
+Metryka to miara wymierna, która jest używana do monitorowania i oceniania stanu określonego procesu biznesowego. Może to być kombinacja wielu wartości szeregów czasowych podzielona na wymiary. Na przykład Metryka *kondycji sieci Web* może zawierać wymiary *liczby użytkowników* i *rynku en-us*.
 
 ## <a name="dimension"></a>Wymiar
 
@@ -47,7 +47,7 @@ Co to jest Metryka wielowymiarowa? Użyjmy dwóch przykładów.
 
 Załóżmy, że masz dane dotyczące przychodów firmy. Dane szeregów czasowych mogą wyglądać następująco:
 
-| Timestamp | Kategoria | Do | Przychód |
+| Znacznik czasu | Kategoria | Do | Przychód |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Żywności | USA | 1000 |
 | 2020-6-1 | Ubrania | USA | 2000 |
@@ -60,7 +60,7 @@ W tym przykładzie *Kategoria* i *rynek* są wymiarami. *Przychód* to kluczowy 
 
 Załóżmy, że masz dane dotyczące liczby błędów zalogowanych w aplikacji. Dane szeregów czasowych mogą wyglądać następująco:
 
-| Timestamp | Składnik aplikacji | Region | Liczba błędów |
+| Znacznik czasu | Składnik aplikacji | Region (Region) | Liczba błędów |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Baza danych pracowników | ZACHODNIE UE | 9000 |
 | 2020-6-1 | Kolejka komunikatów | WSCHODNIE STANY USA | 1000 |
@@ -69,7 +69,7 @@ Załóżmy, że masz dane dotyczące liczby błędów zalogowanych w aplikacji. 
 
 W tym przykładzie *składnik aplikacji* i *region* są wymiarami. *Liczba błędów* to wskaźnik KPI, który można podzielić na różne kategorie i/lub rynki, a także może być zagregowany. Na przykład liczba błędów *kolejki komunikatów* we wszystkich regionach.
 
-## <a name="measure"></a>Miara
+## <a name="measure"></a>Measure
 
 Miara to podstawowy lub specyficzny dla jednostki termin oraz wartość wymierną metryki.
 
@@ -139,29 +139,29 @@ Klasyfikator metryk zapewnia kilka [metod wykrywania](how-tos/configure-metrics.
 
 Wykrywanie anomalii przy użyciu wielu algorytmów uczenia maszynowego.
 
-**Czułość** : wartość liczbowa umożliwiająca dostosowanie tolerancji wykrywania anomalii. Wizualnie, im wyższa wartość, tym węższe górne i dolne granice wokół szeregów czasowych.
+**Czułość**: wartość liczbowa umożliwiająca dostosowanie tolerancji wykrywania anomalii. Wizualnie, im wyższa wartość, tym węższe górne i dolne granice wokół szeregów czasowych.
 
 ### <a name="hard-threshold"></a>Próg sztywny
 
 Wartości poza górną lub dolną granicą są anomaliami.
 
-**Min** : Dolna granica
+**Min**: Dolna granica
 
-**Max** : górna granica
+**Max**: górna granica
 
 ### <a name="change-threshold"></a>Próg zmiany
 
 Użyj poprzedniej wartości punktu, aby określić, czy ten punkt jest anomalią.
 
-**Procent zmian** : w porównaniu do poprzedniego punktu, bieżący punkt jest anomalią, jeśli wartość procentowa zmiany jest większa niż ten parametr.
+**Procent zmian**: w porównaniu do poprzedniego punktu, bieżący punkt jest anomalią, jeśli wartość procentowa zmiany jest większa niż ten parametr.
 
-**Przejdź do punktów** : ile punktów należy wyszukać.
+**Przejdź do punktów**: ile punktów należy wyszukać.
 
 ### <a name="common-parameters"></a>Parametry wspólne
 
-**Kierunek** : punkt jest anomalią tylko wtedy, gdy odchylenie występuje w *górę* , *w dół* lub w *obu* tych przypadkach.
+**Kierunek**: punkt jest anomalią tylko wtedy, gdy odchylenie występuje w *górę*, *w dół* lub w *obu* tych przypadkach.
 
-**Nieprawidłowa anomalia do momentu** : punkt danych jest tylko anomalią, jeśli określony procent poprzednich punktów jest również anomalią.
+**Nieprawidłowa anomalia do momentu**: punkt danych jest tylko anomalią, jeśli określony procent poprzednich punktów jest również anomalią.
 
 ## <a name="alert-settings"></a>Ustawienia alertu
 
@@ -173,17 +173,17 @@ Możesz również utworzyć alert dla różnych metryk. Na przykład alert, któ
 
 Zakres alertu odnosi się do zakresu, do którego odnosi się ten alert. Do wyboru są cztery opcje:
 
-**Anomalie wszystkich serii** : alerty będą wyzwalane w przypadku anomalii we wszystkich seriach w ramach metryki.
+**Anomalie wszystkich serii**: alerty będą wyzwalane w przypadku anomalii we wszystkich seriach w ramach metryki.
 
-**Anomalie w grupie serii** : alerty będą wyzwalane tylko w przypadku anomalii w określonych wymiarach grupy serii. Liczba określonych wymiarów powinna być mniejsza niż łączna liczba wymiarów.
+**Anomalie w grupie serii**: alerty będą wyzwalane tylko w przypadku anomalii w określonych wymiarach grupy serii. Liczba określonych wymiarów powinna być mniejsza niż łączna liczba wymiarów.
 
-**Anomalie w ulubionej serii** : alerty będą wyzwalane tylko dla anomalii, które są dodawane jako Ulubione. Możesz wybrać grupę serii jako ulubioną dla każdego wykrycia konfiguracji.
+**Anomalie w ulubionej serii**: alerty będą wyzwalane tylko dla anomalii, które są dodawane jako Ulubione. Możesz wybrać grupę serii jako ulubioną dla każdego wykrycia konfiguracji.
 
-**Anomalie w pierwszych n wszystkich seriach** : alerty będą wyzwalane tylko w przypadku anomalii w pierwszych n seriach. Można ustawić parametry, aby określić liczbę sygnatur czasowych do uwzględnienia i ile anomalii musi znajdować się w nich w celu wysłania alertu.
+**Anomalie w pierwszych n wszystkich seriach**: alerty będą wyzwalane tylko w przypadku anomalii w pierwszych n seriach. Można ustawić parametry, aby określić liczbę sygnatur czasowych do uwzględnienia i ile anomalii musi znajdować się w nich w celu wysłania alertu.
 
 ### <a name="severity"></a>Ważność
 
-Ważność to Klasa wykorzystywana przez klasyfikatora metryki do opisywania ważności incydentu, w tym *wysokiej* , *średniej* i *niskiej* .
+Ważność to Klasa wykorzystywana przez klasyfikatora metryki do opisywania ważności incydentu, w tym *wysokiej*, *średniej* i *niskiej*.
 
 Obecnie klasyfikator metryk używa następujących czynników do mierzenia ważności alertu:
 1. Wartość proporcjonalna i ilość części anomalii w metryce.
@@ -200,7 +200,7 @@ Zachowanie funkcji odkładania można ustawić na poziomie poziomu metryki lub s
 
 ### <a name="ingestion-time-offset"></a>Przesunięcie czasu pozyskiwania
 
-Domyślnie dane są pozyskiwane według stopnia szczegółowości (na przykład *codzienne* ). Używając dodatniej liczby całkowitej, można opóźnić pozyskiwanie danych przez określoną wartość. Przy użyciu liczby ujemnej można doliczyć pozyskanie przez określoną wartość.
+Domyślnie dane są pozyskiwane według stopnia szczegółowości (na przykład *codzienne*). Używając dodatniej liczby całkowitej, można opóźnić pozyskiwanie danych przez określoną wartość. Przy użyciu liczby ujemnej można doliczyć pozyskanie przez określoną wartość.
 
 ### <a name="max-ingestion-per-minute"></a>Maksymalne pozyskanie na minutę
 
@@ -238,7 +238,7 @@ Gdy ta opcja jest ustawiona na zero, każde sygnatura czasowa z *niedostępnym* 
 
 ## <a name="data-feed-permissions"></a>Uprawnienia strumieniowego źródła danych
 
-Istnieją dwie role do zarządzania uprawnieniami strumieniowego źródła danych: *administrator* i *przeglądarka* . 
+Istnieją dwie role do zarządzania uprawnieniami strumieniowego źródła danych: *administrator* i *przeglądarka*. 
 
 * *Administrator* ma pełną kontrolę nad strumieniowym źródłem danych i metrykami. Umożliwiają one aktywację, wstrzymywanie, usuwanie strumieniowego źródła danych oraz aktualizowanie kanałów informacyjnych i konfiguracji. *Administrator* jest zazwyczaj właścicielem metryk.
 

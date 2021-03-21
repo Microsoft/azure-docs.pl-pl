@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835904"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Symulowanie wykrywania ryzyka w usłudze Identity Protection
@@ -93,7 +93,7 @@ Ta sekcja zawiera instrukcje dotyczące testowania użytkownika i zasad dotyczą
 Aby przetestować zasady zabezpieczeń dotyczące ryzyka użytkownika, wykonaj następujące czynności:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Overview**.
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  .
 1. Wybierz pozycję **Konfiguruj zasady ryzyka użytkownika**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
@@ -113,7 +113,7 @@ Aby przetestować zasady zabezpieczeń dotyczące ryzyka użytkownika, wykonaj n
 Aby przetestować zasady dotyczące ryzyka związanego z logowaniem, wykonaj następujące czynności:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Overview**.
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  .
 1. Wybierz pozycję **Konfiguruj zasady dotyczące ryzyka związanego z logowaniem**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
@@ -131,4 +131,4 @@ Aby przetestować zasady dotyczące ryzyka związanego z logowaniem, wykonaj nas
 
 - [Instrukcje: Konfigurowanie i Włączanie zasad ryzyka](howto-identity-protection-configure-risk-policies.md)
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](overview-identity-protection.md)
+- [Azure Active Directory Identity Protection](overview-identity-protection.md)

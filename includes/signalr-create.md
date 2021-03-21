@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93406638"
 ---
 1. Aby utworzyć zasób usługi Azure sygnalizujący, najpierw Zaloguj się do [Azure Portal](https://portal.azure.com). W lewym górnym rogu strony wybierz pozycję **+ Utwórz zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** wprowadź wartość **Usługa sygnalizująca**.
@@ -26,7 +26,7 @@ ms.locfileid: "93406638"
     | Nazwa zasobu | *testsignalr* | Podaj unikatową nazwę zasobu do użycia dla zasobu usługi SignalR. Nazwa musi być ciągiem od 1 do 63 znaków i zawierać tylko cyfry, litery i znak łącznika ( `-` ). Nazwa nie może rozpoczynać się ani kończyć znakiem łącznika, a kolejne znaki łącznika są nieprawidłowe.|
     | Subskrypcja | Wybierz subskrypcję |  Wybierz subskrypcję platformy Azure, której chcesz użyć do testowania usługi SignalR. Jeśli konto ma tylko jedną subskrypcję, zostanie automatycznie wybrane i lista rozwijana **subskrypcji** nie zostanie wyświetlona.|
     | Grupa zasobów | Tworzenie grupy zasobów o nazwie *SignalRTestResources*| Wybierz lub utwórz grupę zasobów dla zasobu usługi SignalR. Ta grupa jest przydatna do organizowania wielu zasobów, które mogą zostać usunięte w tym samym czasie przez usunięcie grupy zasobów. Więcej informacji można znaleźć w temacie [Using resource groups to manage your Azure resources](../articles/azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure). |
-    | Lokalizacja | *Wschodnie stany USA* | Użyj opcji **Lokalizacja** , aby określić lokalizację geograficzną, w której będzie hostowany zasób usługi SignalR. Aby uzyskać najlepszą wydajność, zalecamy utworzenie zasobu w tym samym regionie, co inne składniki aplikacji. |
+    | Lokalizacja | *Wschodnie stany USA* | Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowany zasób usługi SignalR. Aby uzyskać najlepszą wydajność, zalecamy utworzenie zasobu w tym samym regionie, co inne składniki aplikacji. |
     | Warstwa cenowa | *Bezpłatna* | Obecnie dostępne są opcje **bezpłatne** i **standardowe** . |
     | Przypnij do pulpitu nawigacyjnego | ✔ | Zaznacz to pole, aby zasób został przypięty do pulpitu nawigacyjnego, co ułatwia jego znalezienie. |
 

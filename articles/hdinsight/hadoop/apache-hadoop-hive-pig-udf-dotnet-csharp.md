@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946555"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
@@ -57,7 +57,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *HiveCSharp*, a następnie przejdź do lokalizacji lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
-5. W środowisku IDE programu Visual Studio Zastąp zawartość *program.cs* następującym kodem:
+5. W środowisku IDE programu Visual Studio Zastąp zawartość *programu program. cs* następującym kodem:
 
     ```csharp
     using System;
@@ -124,7 +124,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *PigUDF*, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
-5. W środowisku IDE programu Visual Studio Zastąp zawartość *program.cs* następującym kodem:
+5. W środowisku IDE programu Visual Studio Zastąp zawartość *programu program. cs* następującym kodem:
 
     ```csharp
     using System;

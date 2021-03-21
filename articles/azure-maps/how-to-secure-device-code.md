@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895634"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Zabezpieczanie urządzenia wejściowego z ograniczeniami przy użyciu usługi Azure AD i interfejsów API REST Azure Maps
@@ -30,27 +30,27 @@ W tym przewodniku omówiono sposób zabezpieczania publicznych aplikacji lub urz
 
 Utwórz aplikację opartą na urządzeniach w usłudze Azure AD, aby włączyć logowanie za pomocą usługi Azure AD. Ta aplikacja uzyska dostęp do Azure Maps interfejsów API REST.
 
-1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** .  
+1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.  
 
     > [!div class="mx-imgBorder"]
     > ![Rejestrowanie aplikacji](./media/how-to-manage-authentication/app-registration.png)
 
-2. Wprowadź **nazwę** , wybierz **konta w tym katalogu organizacji tylko** jako **obsługiwany typ konta** . W obszarze **identyfikatory URI przekierowania** określ opcję **Klient publiczny/natywny (Mobile & Desktop)** , a następnie Dodaj `https://login.microsoftonline.com/common/oauth2/nativeclient` do wartości. Aby uzyskać więcej informacji [, zobacz Aplikacja klasyczna usługi Azure AD, która wywołuje interfejsy API sieci Web: rejestrowanie aplikacji](../active-directory/develop/scenario-desktop-app-registration.md). Następnie **zarejestruj** aplikację.
+2. Wprowadź **nazwę**, wybierz **konta w tym katalogu organizacji tylko** jako **obsługiwany typ konta**. W obszarze **identyfikatory URI przekierowania** określ opcję **Klient publiczny/natywny (Mobile & Desktop)** , a następnie Dodaj `https://login.microsoftonline.com/common/oauth2/nativeclient` do wartości. Aby uzyskać więcej informacji [, zobacz Aplikacja klasyczna usługi Azure AD, która wywołuje interfejsy API sieci Web: rejestrowanie aplikacji](../active-directory/develop/scenario-desktop-app-registration.md). Następnie **zarejestruj** aplikację.
 
     > [!div class="mx-imgBorder"]
     > ![Dodaj szczegóły rejestracji aplikacji dla nazwy i identyfikatora URI przekierowania](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Przejdź do opcji **uwierzytelnianie** i Włącz **aplikację Traktuj jako klienta publicznego** . Spowoduje to włączenie uwierzytelniania kodu urządzenia w usłudze Azure AD.
+3. Przejdź do opcji **uwierzytelnianie** i Włącz **aplikację Traktuj jako klienta publicznego**. Spowoduje to włączenie uwierzytelniania kodu urządzenia w usłudze Azure AD.
     
     > [!div class="mx-imgBorder"]
     > ![Włącz rejestrację aplikacji jako klienta publicznego](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie** . W obszarze interfejsy API, które są **wykorzystywane przez moją organizację** , Wyszukaj i wybierz **Azure Maps** .
+4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj i wybierz **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Dodawanie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps** , a następnie wybierz pozycję **Dodaj uprawnienia** .
+5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
     > [!div class="mx-imgBorder"]
     > ![Wybieranie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/select-app-permissions.png)

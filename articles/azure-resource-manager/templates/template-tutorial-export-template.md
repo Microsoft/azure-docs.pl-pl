@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97106924"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Samouczek: korzystanie z wyeksportowanego szablonu z Azure Portal
@@ -36,7 +36,7 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Utwórz zasób**.
 1. W obszarze **Wyszukaj w portalu Marketplace** wprowadź **App Service plan**, a następnie wybierz pozycję **App Service plan**.  Nie wybieraj **planu App Service (klasyczny)**
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Wprowadź:
 
     - **Subskrypcja**: wybierz subskrypcję platformy Azure.
@@ -48,7 +48,7 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
     ![Portal szablonu Menedżer zasobów szablonu eksportu](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Wybierz pozycję **Przejrzyj i Utwórz**.
-1. Wybierz pozycję **Utwórz**. Utworzenie zasobu trwa kilka chwil.
+1. Wybierz przycisk **Utwórz**. Utworzenie zasobu trwa kilka chwil.
 
 ## <a name="export-template"></a>Eksportowanie szablonu
 

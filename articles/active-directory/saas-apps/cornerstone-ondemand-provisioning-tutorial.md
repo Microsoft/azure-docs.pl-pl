@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358460"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie OnDemand kamień dla automatycznej aprowizacji użytkowników
@@ -46,7 +46,7 @@ Aby dodać OnDemand kamień z portalu Marketplace, wykonaj następujące kroki.
 
     ![Ikona Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -76,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla OnDemandu kamień w usłudze Azure AD, wykonaj następujące kroki.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **kamień OnDemand**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **kamień OnDemand**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

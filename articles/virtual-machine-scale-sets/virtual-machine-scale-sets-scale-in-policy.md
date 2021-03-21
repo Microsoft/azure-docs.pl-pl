@@ -11,10 +11,10 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747801"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Korzystanie z niestandardowych zasad skalowania przy użyciu zestawów skalowania maszyn wirtualnych platformy Azure
@@ -53,11 +53,11 @@ Zasady skalowania są zdefiniowane w modelu zestawu skalowania maszyn wirtualnyc
 
 Zasady skalowania w poziomie można definiować w modelu zestawu skalowania maszyn wirtualnych w następujący sposób:
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
  
 Poniższe kroki definiują zasady skalowania podczas tworzenia nowego zestawu skalowania. 
  
-1. Przejdź do **zestawu skalowania maszyn wirtualnych** .
+1. Przejdź do **zestawu skalowania maszyn wirtualnych**.
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zestaw skalowania.
 1. Przejdź do karty **skalowanie** . 
 1. Znajdź sekcję **zasady skalowania w poziomie** .
@@ -83,7 +83,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z zasadami skalowania w poziomie ustawionym jako *OldestVM* .
+Utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z zasadami skalowania w poziomie ustawionym jako *OldestVM*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -96,7 +96,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniższy przykład dodaje zasady skalowania podczas tworzenia nowego zestawu skalowania. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania przy użyciu zasad skalowania jako *OldestVM* . 
+Poniższy przykład dodaje zasady skalowania podczas tworzenia nowego zestawu skalowania. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania przy użyciu zasad skalowania jako *OldestVM*. 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -131,14 +131,14 @@ Ten sam proces ma zastosowanie w przypadku używania "NewestVM" w powyższych za
 
 Modyfikacja zasad skalowania odbywa się zgodnie z tym samym procesem co zastosowanie zasad skalowania w poziomie. Na przykład jeśli w powyższym przykładzie chcesz zmienić zasady z "OldestVM" na "NewestVM", możesz to zrobić, wykonując następujące czynności:
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Możesz zmodyfikować zasady skalowania istniejącego zestawu skalowania za pomocą Azure Portal. 
  
 1. W istniejącym zestawie skalowania maszyn wirtualnych wybierz pozycję **skalowanie** z menu po lewej stronie.
 1. Wybierz kartę **zasady skalowania w poziomie** .
 1. Wybierz zasady skalowania z listy rozwijanej.
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** . 
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**. 
 
 ### <a name="using-api"></a>Używanie interfejsu API
 
@@ -208,29 +208,29 @@ W poniższych przykładach pokazano, jak zestaw skalowania maszyn wirtualnych b�
 
 ### <a name="oldestvm-scale-in-policy"></a>Zasady skalowania w OldestVM
 
-| Wydarzenie                 | Identyfikatory wystąpień w strefie 1  | Identyfikatory wystąpień w strefie 2  | Identyfikatory wystąpień w strefie 3  | Skalowanie w poziomie                                                                                                               |
+| Zdarzenie                 | Identyfikatory wystąpień w strefie 1  | Identyfikatory wystąpień w strefie 2  | Identyfikatory wystąpień w strefie 3  | Skalowanie w poziomie                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Wartość początkowa               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Skalowanie w poziomie              | 3, 4, 5, 10            | **_2_* _, 6, 9, 11      | 1, 7, 8                | Wybierz między Strefa 1 i 2, chociaż Strefa 3 ma najstarszą maszynę wirtualną. Usuń VM2 z Strefa 2, ponieważ jest najstarszą maszyną wirtualną w tej strefie.   |
-| Skalowanie w poziomie              | _*_3_*_ , 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Wybierz Strefa 1, mimo że Strefa 3 ma najstarszą maszynę wirtualną. Usuń VM3 z Strefa 1, ponieważ jest najstarszą maszyną wirtualną w tej strefie.                  |
-| Skalowanie w poziomie              | 4, 5, 10               | 6, 9, 11               | _*_1_*_ , 7, 8          | Strefy są zrównoważone. Usuń VM1 w Strefa 3, ponieważ jest najstarszą maszyną wirtualną w zestawie skalowania.                                               |
-| Skalowanie w poziomie              | _*_4_*_ , 5, 10         | 6, 9, 11               | 7, 8                   | Wybierz między Strefa 1 i Strefa 2. Usuń VM4 w Strefa 1 jak najstarsza maszyna wirtualna w obu strefach.                              |
-| Skalowanie w poziomie              | 5, 10                  | _*_6_*_ , 9, 11         | 7, 8                   | Wybierz Strefa 2, mimo że Strefa 1 ma najstarszą maszynę wirtualną. Usuń VM6 w Strefa 1, ponieważ jest najstarszą maszyną wirtualną w tej strefie.                    |
-| Skalowanie w poziomie              | _*_5_*_ , 10            | 9, 11                  | 7, 8                   | Strefy są zrównoważone. Usuń VM5 w Strefa 1, ponieważ jest najstarszą maszyną wirtualną w zestawie skalowania.                                                |
+| Skalowanie w poziomie              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Wybierz między Strefa 1 i 2, chociaż Strefa 3 ma najstarszą maszynę wirtualną. Usuń VM2 z Strefa 2, ponieważ jest najstarszą maszyną wirtualną w tej strefie.   |
+| Skalowanie w poziomie              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Wybierz Strefa 1, mimo że Strefa 3 ma najstarszą maszynę wirtualną. Usuń VM3 z Strefa 1, ponieważ jest najstarszą maszyną wirtualną w tej strefie.                  |
+| Skalowanie w poziomie              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Strefy są zrównoważone. Usuń VM1 w Strefa 3, ponieważ jest najstarszą maszyną wirtualną w zestawie skalowania.                                               |
+| Skalowanie w poziomie              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Wybierz między Strefa 1 i Strefa 2. Usuń VM4 w Strefa 1 jak najstarsza maszyna wirtualna w obu strefach.                              |
+| Skalowanie w poziomie              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Wybierz Strefa 2, mimo że Strefa 1 ma najstarszą maszynę wirtualną. Usuń VM6 w Strefa 1, ponieważ jest najstarszą maszyną wirtualną w tej strefie.                    |
+| Skalowanie w poziomie              | ***5***, 10            | 9, 11                  | 7, 8                   | Strefy są zrównoważone. Usuń VM5 w Strefa 1, ponieważ jest najstarszą maszyną wirtualną w zestawie skalowania.                                                |
 
 W przypadku zestawów skalowania maszyn wirtualnych niebędących strefami zasady wybierają najstarszą maszynę wirtualną w zestawie skalowania do usunięcia. Wszystkie chronione maszyny wirtualne zostaną pominięte do usunięcia.
 
 ### <a name="newestvm-scale-in-policy"></a>Zasady skalowania w NewestVM
 
-| Wydarzenie                 | Identyfikatory wystąpień w strefie 1  | Identyfikatory wystąpień w strefie 2  | Identyfikatory wystąpień w strefie 3  | Skalowanie w poziomie                                                                                                               |
+| Zdarzenie                 | Identyfikatory wystąpień w strefie 1  | Identyfikatory wystąpień w strefie 2  | Identyfikatory wystąpień w strefie 3  | Skalowanie w poziomie                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Wartość początkowa               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Skalowanie w poziomie              | 3, 4, 5, 10            | 2, 6, 9, _*_11_*_      | 1, 7, 8                | Wybierz między Strefa 1 i 2. Usuń MW11 z Strefa 2, ponieważ jest to najnowsza maszyna wirtualna w ramach obu tych stref.                                |
-| Skalowanie w poziomie              | 3, 4, 5, _*_10_*_      | 2, 6, 9                | 1, 7, 8                | Wybierz Strefa 1, ponieważ zawiera więcej maszyn wirtualnych niż pozostałe dwie strefy. Usuń MW10 z Strefa 1, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.          |
-| Skalowanie w poziomie              | 3, 4, 5                | 2, 6, _*_9_*_          | 1, 7, 8                | Strefy są zrównoważone. Usuń VM9 w Strefa 2, ponieważ jest to najnowsza maszyna wirtualna w zestawie skalowania.                                                |
-| Skalowanie w poziomie              | 3, 4, 5                | 2, 6                   | 1, 7, _*_8_*_          | Wybierz między Strefa 1 i Strefa 3. Usuń VM8 w Strefa 3, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.                                      |
-| Skalowanie w poziomie              | 3, 4, _*_5_*_          | 2, 6                   | 1, 7                   | Wybierz Strefa 1, mimo że Strefa 3 ma najnowszą maszynę wirtualną. Usuń VM5 w Strefa 1, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.                    |
-| Skalowanie w poziomie              | 3, 4                   | 2, 6                   | 1, _ *_7_**             | Strefy są zrównoważone. Usuń VM7 w Strefa 3, ponieważ jest to najnowsza maszyna wirtualna w zestawie skalowania.                                                |
+| Skalowanie w poziomie              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Wybierz między Strefa 1 i 2. Usuń MW11 z Strefa 2, ponieważ jest to najnowsza maszyna wirtualna w ramach obu tych stref.                                |
+| Skalowanie w poziomie              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Wybierz Strefa 1, ponieważ zawiera więcej maszyn wirtualnych niż pozostałe dwie strefy. Usuń MW10 z Strefa 1, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.          |
+| Skalowanie w poziomie              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Strefy są zrównoważone. Usuń VM9 w Strefa 2, ponieważ jest to najnowsza maszyna wirtualna w zestawie skalowania.                                                |
+| Skalowanie w poziomie              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Wybierz między Strefa 1 i Strefa 3. Usuń VM8 w Strefa 3, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.                                      |
+| Skalowanie w poziomie              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Wybierz Strefa 1, mimo że Strefa 3 ma najnowszą maszynę wirtualną. Usuń VM5 w Strefa 1, ponieważ jest to najnowsza maszyna wirtualna w tej strefie.                    |
+| Skalowanie w poziomie              | 3, 4                   | 2, 6                   | 1, ***7***             | Strefy są zrównoważone. Usuń VM7 w Strefa 3, ponieważ jest to najnowsza maszyna wirtualna w zestawie skalowania.                                                |
 
 W przypadku zestawów skalowania maszyn wirtualnych niebędących strefami zasady wybierają najnowszą maszynę wirtualną w zestawie skalowania do usunięcia. Wszystkie chronione maszyny wirtualne zostaną pominięte do usunięcia. 
 

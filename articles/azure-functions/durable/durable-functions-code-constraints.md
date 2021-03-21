@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726414"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Ograniczenia kodu funkcji programu Orchestrator
@@ -65,7 +65,7 @@ Zadania są wykonywane synchronicznie przy użyciu jednego wątku, dopóki cała
 
 W tej sekcji opisano zachowanie środowiska uruchomieniowego, które ułatwia zrozumienie, dlaczego nie można użyć funkcji programu Orchestrator `await` lub `yield` nietrwałego zadania. Istnieją dwie przyczyny: wątek dyspozytora nie może czekać na zakończenie zadania, a każde wywołanie zwrotne przez to zadanie może potencjalnie uszkodzić stan śledzenia funkcji programu Orchestrator. Niektóre testy środowiska uruchomieniowego są stosowane w celu ułatwienia wykrywania tych naruszeń.
 
-Aby dowiedzieć się więcej o tym, jak usługa trwałej struktury zadań wykonuje funkcje programu Orchestrator, zapoznaj się z [kodem źródłowym zadania trwałego w witrynie GitHub](https://github.com/Azure/durabletask). W szczególności zobacz [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) i [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Aby dowiedzieć się więcej o tym, jak usługa trwałej struktury zadań wykonuje funkcje programu Orchestrator, zapoznaj się z [kodem źródłowym zadania trwałego w witrynie GitHub](https://github.com/Azure/durabletask). W szczególności zobacz [TaskOrchestrationExecutor. cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) i [TaskOrchestrationContext. cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ## <a name="next-steps"></a>Następne kroki
 

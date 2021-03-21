@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: c02d69cd3d7d09f016fda44f835c7cc544f0ffff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100388383"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Kopiowanie danych z Greenplum za pomocą Azure Data Factory
@@ -18,7 +18,7 @@ ms.locfileid: "100388383"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z Greenplum. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik Greenplum jest obsługiwany dla następujących działań:
 

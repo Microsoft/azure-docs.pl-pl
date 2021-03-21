@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779326"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizowanie statystyk użycia przy użyciu zaawansowanych raportów HTTP usługi Azure CDN
@@ -33,7 +33,7 @@ W tym dokumencie wyjaśniono zaawansowane raportowanie protokołu HTTP w usłudz
     ![Przycisk zarządzania bloku profilu usługi CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Zostanie otwarty portal zarządzania sieci CDN.
-2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść wskaźnik myszy nad zaawansowanymi menu wysuwane **raporty http** .  Kliknij pozycję **http Large platform** .
+2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść wskaźnik myszy nad zaawansowanymi menu wysuwane **raporty http** .  Kliknij pozycję **http Large platform**.
    
     ![Portal zarządzania sieci CDN — Zaawansowane raporty — menu](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -199,7 +199,7 @@ Lewa strona grafu (oś y) wskazuje nazwę pliku dla każdego z pierwszych 10 ż�
 
 Bezpośrednio poniżej wykresu słupkowego zostaną wyświetlone następujące informacje dotyczące górnego 250 żądanych zasobów: ścieżki względnej (w tym nazwy pliku), liczby żądań, które spowodowały, że nie znaleziono kodu stanu 404, Łączna liczba przypadków, w których zażądano zasobu, oraz procent żądań, które 404 spowodowały, że nie znaleziono kodu stanu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](./cdn-verizon-premium-rules-engine.md)

@@ -12,10 +12,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
 ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359430"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana na potrzeby automatycznego aprowizacji użytkowników
@@ -54,7 +54,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika w usłudze Azure AD Asana
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** aplikacje dla  >    >  **wszystkich aplikacji** w przedsiębiorstwie.
 
 1. Jeśli już skonfigurowano Asana do logowania jednokrotnego, Wyszukaj wystąpienie elementu Asana przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Asana** w galerii aplikacji. Wybierz pozycję **Asana** z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -64,7 +64,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
     ![Inicjowanie obsługi Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w  **tokenie tajnym** :
+1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w  **tokenie tajnym**:
 
     a. Zaloguj się do usługi [Asana](https://app.asana.com) przy użyciu konta administratora.
 

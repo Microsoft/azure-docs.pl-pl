@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659900"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Konfigurowanie laboratorium na potrzeby analizy danych Big Data przy użyciu platformy Docker HortonWorks Data Platform
@@ -113,7 +113,7 @@ W przypadku klasy 25 studentów z upływem 20 godzin planowanego czasu zajęć i
 
 Więcej szczegółowych informacji na temat cen można znaleźć w temacie [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 W tym artykule opisano kroki niezbędne do utworzenia laboratorium dla klasy analizy danych Big Data, która korzysta z platformy danych Hortonworks wdrożonej z platformą Docker.  Konfiguracja tego typu klasy może być używana dla podobnych klas analizy danych.  Ta konfiguracja może być również stosowana do innych typów klas, które używają platformy Docker do wdrożenia.
 

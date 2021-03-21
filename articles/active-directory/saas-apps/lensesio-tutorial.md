@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z portalem Lenses.io DataOps
@@ -109,16 +109,16 @@ Aby dowiedzieć się, jak soczewki korzysta z mapowania członkostwa w grupie na
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension . Na przykład B.Simon@contoso.com.
    1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz hasło, które jest wyświetlane w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 **Aby utworzyć grupę:**
 
 1. Przejdź do **Azure Active Directory**, a następnie wybierz pozycję **grupy**.
 1. W górnej części ekranu wybierz pozycję **Nowa grupa**.
-1. We **właściwościach grupy**wykonaj następujące kroki:
+1. We **właściwościach grupy** wykonaj następujące kroki:
    1. W polu **Typ grupy** wybierz pozycję **zabezpieczenia**.
    1. W polu **Nazwa grupy** wpisz **LensesUsers**.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 1. Wybierz grupę **LensesUsers** i skopiuj **Identyfikator obiektu** (na przykład f8b5c1ec-45de-4abd-af5c-e874091fb5f7). Ten identyfikator zostanie użyty w soczewek, aby zamapować użytkowników grupy na odpowiednie [uprawnienia](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
 
 **Aby przypisać grupę do użytkownika testowego:**

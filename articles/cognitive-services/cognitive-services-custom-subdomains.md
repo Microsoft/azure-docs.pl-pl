@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032970"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Niestandardowe nazwy domen poddomen dla Cognitive Services
@@ -68,11 +68,11 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 > [!NOTE]
 > Usługa translator i interfejsy API wyszukiwania Bing używać globalnych punktów końcowych.
 
-| Typ punktu końcowego | Region | Punkt końcowy |
+| Typ punktu końcowego | Region (Region) | Punkt końcowy |
 |---------------|--------|----------|
 | Publiczne | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia Wschodnia | `https://australiaeast.api.cognitive.microsoft.com` |
-| | Brazil South | `https://brazilsouth.api.cognitive.microsoft.com` |
+| | Brazylia Południowa | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada Środkowa | `https://canadacentral.api.cognitive.microsoft.com` |
 | | Central US | `https://centralus.api.cognitive.microsoft.com` |
 | | Azja Wschodnia | `https://eastasia.api.cognitive.microsoft.com` |
@@ -80,7 +80,7 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 | | Wschodnie stany USA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Francja Środkowa | `https://francecentral.api.cognitive.microsoft.com` |
 | | Indie Środkowe | `https://centralindia.api.cognitive.microsoft.com` |
-| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
+| | Japonia Wschodnia | `https://japaneast.api.cognitive.microsoft.com` |
 | | Korea Środkowa | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Północno-środkowe stany USA | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europa Północna | `https://northeurope.api.cognitive.microsoft.com` |
@@ -96,7 +96,7 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 | Chiny | Chiny Wschodnie 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Chiny Północne | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest Cognitive Services?](./what-are-cognitive-services.md)
 * [Authentication](authentication.md)

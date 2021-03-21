@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199785"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Samouczek: korzystanie z wzbogacania komunikatów IoT Hub platformy Azure
@@ -279,7 +279,7 @@ W tym momencie wszystkie zasoby są skonfigurowane i skonfigurowano Routing komu
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Tworzenie i Konfigurowanie przy użyciu szablonu Menedżer zasobów
 Za pomocą szablonu Menedżer zasobów można tworzyć i konfigurować zasoby, routing komunikatów i wzbogacenia komunikatów.
 
-1. Zaloguj się do witryny Azure Portal. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu* i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
+1. Zaloguj się w witrynie Azure Portal. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu* i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
 
    ![Template deployment w Azure Portal](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -336,7 +336,7 @@ Teraz, gdy wzbogacanie komunikatów są skonfigurowane dla punktu końcowego, ur
 
 Aplikacja symulowanego urządzenia jest jedną z aplikacji w niespakowanym pobieraniu. Aplikacja wysyła komunikaty dla każdej z różnych metod routingu komunikatów w [samouczku routingu](tutorial-routing.md), który obejmuje usługę Azure Storage.
 
-Kliknij dwukrotnie plik rozwiązania **IoT_SimulatedDevice. sln** , aby otworzyć kod w programie Visual Studio, a następnie otwórz **program.cs**. Zastąp nazwę Centrum IoT Hub znacznikiem `{your hub name}` . Format nazwy hosta Centrum IoT to **{nazwa centrum}. Azure-Devices.NET**. W tym samouczku nazwa hosta centrum to ContosoTestHubMsgEn.azure-devices.net. Następnie zastąp klucz urządzenia zapisany wcześniej po uruchomieniu skryptu w celu utworzenia zasobów dla znacznika `{your device key}` .
+Kliknij dwukrotnie plik rozwiązania **IoT_SimulatedDevice. sln** , aby otworzyć kod w programie Visual Studio, a następnie otwórz **program. cs**. Zastąp nazwę Centrum IoT Hub znacznikiem `{your hub name}` . Format nazwy hosta Centrum IoT to **{nazwa centrum}. Azure-Devices.NET**. W tym samouczku nazwa hosta centrum to ContosoTestHubMsgEn.azure-devices.net. Następnie zastąp klucz urządzenia zapisany wcześniej po uruchomieniu skryptu w celu utworzenia zasobów dla znacznika `{your device key}` .
 
 Jeśli nie masz klucza urządzenia, możesz go pobrać z portalu. Po zalogowaniu przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, a następnie wybierz Centrum IoT Hub. Sprawdź w obszarze **urządzenia IoT** dla urządzenia testowego i wybierz urządzenie. Wybierz ikonę kopiowania obok **klucza podstawowego** , aby skopiować ją do Schowka.
 

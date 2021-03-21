@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021541"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Bezpieczne Instalowanie i obsługiwanie Azure Data Box Heavy
@@ -34,7 +34,7 @@ Poniżej znajdują się ikony, które będą znajdować się podczas przeglądan
 | ![Ostrzeżenie ikony ostrzeżenia ](./media/data-box-heavy-safety/warning-icon.png) **!** |Wskazuje niebezpieczną sytuację, która w przypadku braku problemów może skutkować drobną lub średnią szkodą. |
 | ![Powiadomienie o ikonie powiadomienia ](./media/data-box-heavy-safety/notice-icon.png) **:** |Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. |
 | ![Ikona porażenia elektryczną — ](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **zagrożenie elektryczne** |Wysokie napięcie. |
-| ![Duże wagi ikony o dużej grubości ](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **Heavy weight** | |
+| ![Duże wagi ikony o dużej grubości ](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png)  | |
 | ![Ikona elementów z obsługą użytkownika ](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **nie ma części z obsługą użytkownika** |Nie należy uzyskiwać dostępu, o ile nie jest prawidłowo szkolony. |
 | ![Ikona powiadomienia o bezpieczeństwie Odczytaj ](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **najpierw wszystkie instrukcje** | |
 | ![](./media/data-box-heavy-safety/tip-hazard-icon.png) **Niebezpieczeństwo Porada** ikony ostrzegawczej | |
@@ -48,7 +48,7 @@ Poniżej znajdują się ikony, które będą znajdować się podczas przeglądan
 * Odpowiedni sprzęt (na przykład gniazdo palet) i osobisty sprzęt ochronny (na przykład rękawice) muszą być używane podczas przesuwania i obsługi klatki.
 * Rampa musi być zabezpieczona przed usunięciem urządzenia, aby uniknąć urazów lub uszkodzenia właściwości.
 
-![Ikona ostrzeżenia porady ostrzegawcze ](./media/data-box-heavy-safety/warning-icon.png) ![ ikony zagrożeń ](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard**
+![Ikona ostrzeżenia porady ostrzegawcze ](./media/data-box-heavy-safety/warning-icon.png) ![ ikony zagrożeń ](./media/data-box-heavy-safety/tip-hazard-icon.png) 
 
 * Umieść sprzęt na płaskiej, sztywnej i stabilnej powierzchni, aby uniknąć potencjalnego zagrożenia poradami lub zgniataniem.
 * Przed rozpoczęciem inspekcji, włączania i obsługi sprzętu należy sprawdzić, czy rzuty są zablokowane.
@@ -88,7 +88,7 @@ Poniżej znajdują się ikony, które będą znajdować się podczas przeglądan
 
 ## <a name="electrical-precautions"></a>Środki bezpieczeństwa elektrycznego
 
-![Ikona ostrzeżenia ](./media/data-box-heavy-safety/warning-icon.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **WARNING!** .
+![Ikona ostrzeżenia ](./media/data-box-heavy-safety/warning-icon.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)  .
 
 * Zapewnienie bezpiecznego połączenia elektrycznego z przedłużaczem zasilacza. Kabel AC ma trójwymiarowy wtyk naziemny (wtyk, który ma numer PIN). Ten wtyk pasuje tylko do uziemionego gniazda zasilania. Nie obniżaj poziomu numeru PIN.
 * Mając na względzie, że wtyk odbiornika zasilania jest głównym urządzeniem odłączania, upewnij się, że są one zlokalizowane blisko urządzenia i są łatwo dostępne.
