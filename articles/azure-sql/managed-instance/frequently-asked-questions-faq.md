@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
 ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503202"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
@@ -216,7 +216,7 @@ Tak, możesz kupić magazyn dodatków niezależnie od obliczeń, w pewnym zakres
 
 Aby zoptymalizować wydajność magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu w ogólnego przeznaczenia](https://techcommunity.microsoft.com).
 
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+## <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
 
 **Czy magazyn kopii zapasowych jest odejmowany od magazynu wystąpienia zarządzanego?**
 

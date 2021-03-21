@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
 ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831930"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (Intel NUC)
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak zainstalować i skonfigurować środowisko uruchomieniowe IoT Edge na urządzeniu Intel NUC.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Aktualizowanie i Konfigurowanie IoT Edge
 > * Skonfiguruj bramę IoT Edge

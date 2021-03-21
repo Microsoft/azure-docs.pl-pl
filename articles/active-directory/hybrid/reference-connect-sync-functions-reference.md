@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98246710"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: informacje o funkcjach
@@ -625,7 +625,7 @@ Jeśli DN to "CN = Jan, OU = Atlanta, OU = GA, OU = US, DC = contoso, DC = com"
 Obie zwracają nam.
 
 ---
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 **Opis:**  
 Funkcja Error służy do zwrócenia błędu niestandardowego.
 
@@ -904,7 +904,7 @@ Funkcja ItemOrNull jest przydatna razem z funkcją Contains, ponieważ Ostatnia 
 Jeśli indeks jest poza zakresem, zwraca wartość null.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Dołączanie
 **Opis:**  
 Funkcja Join przyjmuje ciąg o wartości wielowartościowej i zwraca ciąg jednowartościowy z określonym separatorem wstawionym między poszczególnymi elementami.
 
@@ -1224,7 +1224,7 @@ Funkcja RTrim usuwa końcowe znaki białe z ciągu.
 Zwraca "test".
 
 ---
-### <a name="select"></a>Wybierz
+### <a name="select"></a>Wybierz pozycję
 **Opis:**  
 Przetwórz wszystkie wartości w atrybucie wielowartościowym (lub danych wyjściowych wyrażenia) w oparciu o określoną funkcję.
 

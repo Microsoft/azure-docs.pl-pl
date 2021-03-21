@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
 ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99833817"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
@@ -132,7 +132,7 @@ Twórz rozwiązania IoT, takie jak:
 
 Aplikacje IoT Central są w pełni hostowane przez firmę Microsoft, co zmniejsza koszty administracyjne związane z zarządzaniem aplikacjami. Administratorzy zarządzają dostępem do aplikacji przy użyciu [ról i uprawnień użytkownika](howto-administer.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Możesz utworzyć aplikację IoT Central przy użyciu 7-dniowej bezpłatnej wersji próbnej lub użyć planu cenowego w warstwie Standardowa.
 

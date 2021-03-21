@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 8e744e6a91eb6fbe23a6b45f95c39b1acfdcb61f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100617710"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Wprowadzenie do automatycznego skalowania według metryki niestandardowej na platformie Azure

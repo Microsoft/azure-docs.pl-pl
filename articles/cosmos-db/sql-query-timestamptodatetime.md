@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: af5e0eeb808835fd4f36a0eda79618f831248ad9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9a77ab0ac32d627d59e2cb0fa4a680f174a6833
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340774"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587240"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ TimestampToDateTime (<Timestamp>)
 
 ## <a name="arguments"></a>Argumenty
 
-*Timestamp*  
+*Znacznik czasu*  
 
 Podpisana wartość liczbowa, czyli bieżąca liczba milisekund, które upłynęły od epoki systemu UNIX. Innymi słowy, liczba milisekund, które upłynęły od 00:00:00 czwartek, 1 stycznia 1970.
 
@@ -36,17 +36,17 @@ Podpisana wartość liczbowa, czyli bieżąca liczba milisekund, które upłynę
 
 Zwraca wartość ciągu ISO 8601 daty i czasu UTC w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |Format|Opis|
-  |-|-|
-  |YYYY|rok czterocyfrowy|
-  |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
-  |DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
-  |T|Oznaczanie na początku elementów czasu|
-  |hh|godzina dwucyfrowy (od 00 do 23)|
-  |mm|minuty dwucyfrowe (od 00 do 59)|
-  |ss|dwa cyfry sekund (od 00 do 59)|
-  |. fffffff|siedem cyfr sekund|
-  |Z|Oznaczenie UTC (skoordynowany czas uniwersalny)||
+|Format|Opis|
+|-|-|
+|YYYY|rok czterocyfrowy|
+|MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
+|DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
+|T|Oznaczanie na początku elementów czasu|
+|hh|godzina dwucyfrowy (od 00 do 23)|
+|mm|minuty dwucyfrowe (od 00 do 59)|
+|ss|dwa cyfry sekund (od 00 do 59)|
+|. fffffff|siedem cyfr sekund|
+|Z|Oznaczenie UTC (skoordynowany czas uniwersalny)|
   
   Aby uzyskać więcej informacji na temat formatu ISO 8601, zobacz [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: victorh
 ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735078"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Samouczek: Tworzenie i Konfigurowanie bramy aplikacji na potrzeby hostowania wielu witryn sieci Web przy użyciu Azure Portal
 
 Azure Portal służy do [konfigurowania hostingu wielu witryn sieci Web](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pule adresów zaplecza przy użyciu maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na dwóch domenach, aby zapewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym samouczku są stosowane przykłady *www.contoso.com* i *www.fabrikam.com*.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bramy aplikacji

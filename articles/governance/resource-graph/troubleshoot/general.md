@@ -4,10 +4,10 @@ description: Dowiedz się, jak rozwiązywać problemy z różnymi zestawami SDK 
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 0d783b9cb4fa30e3c3e0ff82536b4878c29c7a0d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916706"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Rozwiązywanie problemów z błędami przy użyciu grafu zasobów platformy Azure

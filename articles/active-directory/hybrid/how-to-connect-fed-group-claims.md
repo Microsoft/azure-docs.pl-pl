@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349354"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
@@ -64,7 +64,7 @@ Jeśli jednak istniejąca aplikacja oczekuje na korzystanie z informacji o grupi
 
 ## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Wymagania wstępne dotyczące używania atrybutów grup synchronizowanych z Active Directory
 
-W przypadku użycia formatu ObjectId oświadczenia członkostwa w grupie mogą być emitowane w tokenach dla każdej grupy. Aby można było używać oświadczeń grup w formacie innym niż identyfikator ObjectId grupy, grupy muszą być synchronizowane z Active Directory przy użyciu Azure AD Connect.
+W przypadku użycia formatu ObjectId oświadczenia dotyczące członkostwa w grupie mogą być emitowane w tokenach dla każdej grupy. Aby można było używać oświadczeń grup w formacie innym niż identyfikator ObjectId grupy, grupy muszą być synchronizowane z Active Directory przy użyciu Azure AD Connect.
 
 Istnieją dwie kroki konfigurowania Azure Active Directory, aby emitować nazwy grup dla Active Directory grup.
 
@@ -148,7 +148,7 @@ Prawidłowe wartości:
 | **Dla zmiennej 'applicationgroup** | Emituje tylko te grupy, które są jawnie przypisane do aplikacji, a użytkownik jest członkiem |
 | **Dawaj** | Nie zwrócono żadnych grup. (Nie jest to przypadek-sensetive, więc nie działa i można go ustawić bezpośrednio w manifeście aplikacji). |
 
-   Przykład:
+   Na przykład:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

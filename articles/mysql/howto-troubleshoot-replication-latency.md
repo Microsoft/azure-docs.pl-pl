@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
 ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249775"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniami replikacji w usłudze Azure Database for MySQL
@@ -95,7 +95,7 @@ Oto typowe dane wyjściowe:
 
 Dane wyjściowe zawierają wiele informacji. Zwykle należy skoncentrować się na wierszach, które opisano w poniższej tabeli.
 
-|Metryka|Opis|
+|Metric|Opis|
 |---|---|
 |Slave_IO_State| Reprezentuje bieżący stan wątku we/wy. Zwykle stanem jest "Oczekiwanie na wysłanie zdarzenia przez kapitana", jeśli serwer źródłowy (główny) jest synchronizowany. Stan, taki jak "łączenie z głównym" oznacza, że replika utraciła połączenie z serwerem źródłowym. Upewnij się, że serwer źródłowy jest uruchomiony, lub sprawdź, czy Zapora blokuje połączenie.|
 |Master_Log_File| Reprezentuje binarny plik dziennika, do którego jest zapisywany serwer źródłowy.|
@@ -177,7 +177,7 @@ W poniższych sekcjach opisano typowe przyczyny tego rodzaju opóźnienia.
 
 #### <a name="no-primary-key-or-unique-key-on-a-table"></a>Brak klucza podstawowego lub unikatowego klucza w tabeli
 
-Azure Database for MySQL używa replikacji opartej na wierszach. Serwer źródłowy zapisuje zdarzenia w dzienniku binarnym, rejestrując zmiany w poszczególnych wierszach tabeli. Następnie wątek SQL replikuje te zmiany do odpowiednich wierszy tabeli na serwerze repliki. Gdy tabela nie ma klucza podstawowego lub klucza unikatowego, wątek SQL skanuje wszystkie wiersze w tabeli docelowej, aby zastosować zmiany. To skanowanie może spowodować opóźnienie replikacji.
+Azure Database for MySQL używa replikacji opartej na wierszach. Serwer źródłowy zapisuje zdarzenia w dzienniku binarnym, rejestrując zmiany w poszczególnych wierszach tabeli. Następnie wątek SQL replikuje te zmiany do odpowiednich wierszy tabeli na serwerze repliki. Gdy tabela nie ma klucza podstawowego lub klucza unikatowego, wątek SQL skanuje wszystkie wiersze w tabeli docelowej, aby zastosować zmiany. Takie skanowanie może spowodować opóźnienie replikacji.
 
 W programie MySQL klucz podstawowy jest skojarzonym indeksem, który zapewnia szybką wydajność zapytań, ponieważ nie może zawierać wartości NULL. W przypadku korzystania z aparatu magazynu InnoDB dane tabeli są fizycznie zorganizowane w celu wykonywania szybkich wyszukiwań i sortowania na podstawie klucza podstawowego.
 

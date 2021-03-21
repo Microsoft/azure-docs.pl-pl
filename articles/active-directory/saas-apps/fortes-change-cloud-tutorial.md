@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2020
+ms.date: 03/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 25d11d39570bbdf47addb4d6defe0b3135b25f59
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c80d61e367288edfc207fb0160b5d03152ad6ce4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92451448"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583789"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortes-change-cloud"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu usługi Forts Change Cloud
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować w chmurze zmiany chmury z Azure A
 * Kontrolka w usłudze Azure AD, która ma dostęp do usługi Forts Change Cloud.
 * Zezwól użytkownikom na automatyczne logowanie do platformy Fort Zmień chmurę za pomocą kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,26 +37,24 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Program Forts Change Cloud obsługuje usługę **SP i dostawcy tożsamości** zainicjowane przez usługę SSO
-* Po skonfigurowaniu usługi Forts Zmień chmurę można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Program Forts Change Cloud obsługuje usługę **SP i dostawcy tożsamości,** która zainicjowała Logowanie jednokrotne.
 
 ## <a name="adding-fortes-change-cloud-from-the-gallery"></a>Dodawanie usługi Forts Zmień chmurę z galerii
 
 Aby skonfigurować integrację z usługą Azure AD w chmurze, należy dodać do listy zarządzanych aplikacji SaaS usługi w chmurze Zmień chmurę.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Forts Change Cloud** w polu wyszukiwania.
 1. Wybierz pozycję **Forts Zmień** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-fortes-change-cloud"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla platformy Fort Zmień chmurę
+## <a name="configure-and-test-azure-ad-sso-for-fortes-change-cloud"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla systemu Fort Zmień chmurę
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą platformy Fort Zmień chmurę przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD a pokrewnym użytkownikiem w sieci Fort.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu systemu Fort Zmień chmurę, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu systemu Fort Zmień chmurę, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -71,21 +67,21 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **Fort Zmień** integrację aplikacji w chmurze Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie **Fort Zmień** integrację aplikacji w chmurze Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<identifier>.fortes-online.com/saml/metadata`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<UNIQUE_IDENTIFIER>.fortes-online.com/saml/metadata`
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<identifier>.fortes-online.com/saml/SSO`
+    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<UNIQUE_IDENTIFIER>.fortes-online.com/`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<identifier>.fortes-online.com/saml/SSO`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<UNIQUE_IDENTIFIER>.fortes-online.com/saml/SSO`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z firmą [Fort. Zmień zespół pomocy technicznej w chmurze](mailto:support@fortes.nl) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -117,15 +113,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Forts Zmień chmurę**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-fortes-change-cloud-sso"></a>Konfigurowanie usługi Fort Zmień Logowanie jednokrotne w chmurze
@@ -138,20 +128,20 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w czterdziestych zmian
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka zmiany w chmurze w panelu dostępu należy automatycznie zalogować się do usługi Fort w chmurze Zmień chmurę, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Fort w przypadku zmiany adresu URL logowania w chmurze, w którym można zainicjować przepływ logowania.  
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Przejdź do obszaru Fort Zmień adres URL logowania w chmurze bezpośrednio i zainicjuj tam przepływ logowania.
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do usługi Fort w chmurze Zmień chmurę, dla której skonfigurowano Logowanie jednokrotne 
 
-- [Wypróbuj usługę w chmurze Zmień chmurę za pomocą usługi Azure AD](https://aad.portal.azure.com/)
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu przycisku "Forts Change Cloud" w obszarze Moje aplikacje, jeśli skonfigurowano w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do usługi Fort w chmurze Zmień chmurę, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Następne kroki
 
-- [Jak chronić platformy Fort Zmień chmurę dzięki zaawansowanej widoczności i kontrolkom](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu usługi Forts Zmień chmurę można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

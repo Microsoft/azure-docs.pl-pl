@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98250059"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
@@ -27,7 +27,7 @@ Ten artykuł zawiera odpowiedzi na kilka często zadawanych pytań dotyczących 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Co się stało z Service Bus Relay usługą?
 Wcześniej nazwana usługa Service Bus Relay jest teraz nazywana [Azure Relay](service-bus-relay-tutorial.md). Można nadal używać tej usługi w zwykły sposób. Funkcja Połączenia hybrydowe to zaktualizowana wersja usługi, która została przesadzona z usługi Azure BizTalk Services. WCF Relay i Połączenia hybrydowe są nadal obsługiwane.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Ta sekcja zawiera odpowiedzi na kilka często zadawanych pytań dotyczących struktury cenowej przekaźnika. Zobaczysz również [często zadawane pytania dotyczące pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/) dotyczące ogólnych informacji o cenach platformy Azure. Aby uzyskać pełne informacje na temat cennika usługi Relay, zobacz [szczegóły cennika Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Jak naliczane są opłaty za Połączenia hybrydowe i WCF Relay?

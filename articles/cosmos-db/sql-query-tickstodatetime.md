@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: f40286a39694307ac43ecd60f6861d509f760990
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9adf525f4edb4104978bae32bbbef15ffb131f68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340803"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587257"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,17 +36,17 @@ Podpisana wartość liczbowa — bieżąca liczba taktów 100 w nanosekundach, k
 
 Zwraca wartość ciągu ISO 8601 daty i czasu UTC w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |Format|Opis|
-  |-|-|
-  |YYYY|rok czterocyfrowy|
-  |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
-  |DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
-  |T|Oznaczanie na początku elementów czasu|
-  |hh|godzina dwucyfrowy (od 00 do 23)|
-  |mm|minuty dwucyfrowe (od 00 do 59)|
-  |ss|dwa cyfry sekund (od 00 do 59)|
-  |. fffffff|siedem cyfr sekund|
-  |Z|Oznaczenie UTC (skoordynowany czas uniwersalny)||
+|Format|Opis|
+|-|-|
+|YYYY|rok czterocyfrowy|
+|MM|dwucyfrowy miesiąc (01 = styczeń itd.)|
+|DD|dwucyfrowy dzień miesiąca (od 01 do 31)|
+|T|Oznaczanie na początku elementów czasu|
+|hh|godzina dwucyfrowy (od 00 do 23)|
+|mm|minuty dwucyfrowe (od 00 do 59)|
+|ss|dwa cyfry sekund (od 00 do 59)|
+|. fffffff|siedem cyfr sekund|
+|Z|Oznaczenie UTC (skoordynowany czas uniwersalny)|
   
   Aby uzyskać więcej informacji na temat formatu ISO 8601, zobacz [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

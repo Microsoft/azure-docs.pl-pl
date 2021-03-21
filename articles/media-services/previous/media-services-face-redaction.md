@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7d416810f6a39fb36bfa3c5225301fe87fdd128c
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013469"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics
@@ -46,7 +46,7 @@ Spowoduje to wygenerowanie redagowane MP4 automatycznie bez żadnych ręcznych d
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MOV lub MP4 |
+| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MOV lub MP4 |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "połączony"}} |
 | Wyjściowy element zawartości |foo_redacted.mp4 |Film wideo z zastosowanym rozmyciem |
 
@@ -56,7 +56,7 @@ Spowoduje to wygenerowanie redagowane MP4 automatycznie bez żadnych ręcznych d
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4 |
+| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MPV lub MP4 |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Analizuj"}} |
 | Wyjściowy element zawartości |foo_annotations.jsna |Dane adnotacji lokalizacji czołowych w formacie JSON. Może to być edytowane przez użytkownika w celu zmodyfikowania pól związanych z rozmyciem. Zobacz przykład poniżej. |
 | Wyjściowy element zawartości |foo_thumb% 06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Przycięta jpg każdej wykrytej klasy, gdzie liczba wskazuje labelId |
@@ -122,7 +122,7 @@ Dane wyjściowe z przebiegu analizy nie obejmują oryginalnego wideo. Film wideo
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4. To samo wideo jak w kroku 1. |
+| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MPV lub MP4. To samo wideo jak w kroku 1. |
 | Zasób wejściowy |foo_annotations.jsna |plik metadanych adnotacji z fazy pierwszej, z opcjonalnymi modyfikacjami. |
 | Zasób wejściowy |foo_IDList.txt (opcjonalnie) |Opcjonalna lista oddzielonych od nowa linia identyfikatorów kroju do redagowania. Jeśli pole pozostanie puste, rozmycie wszystkie twarze. |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Zredaguj"}} |

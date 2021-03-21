@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523995"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Badanie wykryć czujników w spisie urządzeń
@@ -223,7 +223,7 @@ Aby wyeksportować plik CSV:
 
 - W prawym górnym menu spisu urządzeń wybierz pozycję :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . Raport CSV jest generowany i pobierany.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

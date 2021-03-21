@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start użyjesz interfejsu API REST do utwo
 ms.date: 01/29/2021
 ms.topic: quickstart
 ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99219981"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu API REST

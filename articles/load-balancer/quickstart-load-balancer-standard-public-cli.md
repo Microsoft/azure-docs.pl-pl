@@ -17,10 +17,10 @@ ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 2b22c00845b38d2edea2d78497fb4b46a51896d4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587132"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -937,7 +937,7 @@ Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testowanie modułu równoważenia obciążenia" border="true":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) , aby usunąć grupę zasobów, moduł równoważenia obciążenia i wszystkie powiązane zasoby.
 

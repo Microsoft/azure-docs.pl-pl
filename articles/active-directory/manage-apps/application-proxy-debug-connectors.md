@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: c656bfe7f9cc8923859a99f31210cd554aa66a41
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256970"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Problemy z debugowaniem łącznika serwera proxy aplikacji 

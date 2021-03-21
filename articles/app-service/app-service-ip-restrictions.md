@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502692"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
@@ -36,7 +36,7 @@ Możliwość ograniczenia dostępu do aplikacji sieci Web z sieci wirtualnej pla
 
 Aby dodać regułę ograniczeń dostępu do aplikacji, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 1. W okienku po lewej stronie wybierz pozycję **Sieć**.
 

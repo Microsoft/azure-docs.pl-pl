@@ -6,10 +6,10 @@ ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
 ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593989"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planowanie i zarządzanie kosztami Azure App Service
@@ -135,7 +135,7 @@ Korzystając z analizy kosztów, można wyświetlać App Service koszty na wykre
     
 Aby wyświetlić koszty App Service w analizie kosztów:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Otwórz zakres w Azure Portal a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów.
 3. Domyślnie koszt usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą App Service.
 

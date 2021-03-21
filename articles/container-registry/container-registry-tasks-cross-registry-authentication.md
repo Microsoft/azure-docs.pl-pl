@@ -4,10 +4,10 @@ description: Skonfiguruj zadanie Azure Container Registry (zadanie ACR), aby uzy
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915832"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Uwierzytelnianie między rejestrami w ACR zadania przy użyciu tożsamości zarządzanej przez platformę Azure 

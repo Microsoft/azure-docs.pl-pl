@@ -4,10 +4,10 @@ description: Przypisywanie wbudowanych zasad w Azure Policy do inspekcji zgodno�
 ms.topic: article
 ms.date: 03/01/2021
 ms.openlocfilehash: 0fed0c4132043e1eaed7e634e1f45b27f7c6e933
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014302"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Inspekcja zgodności rejestrów kontenerów platformy Azure przy użyciu Azure Policy

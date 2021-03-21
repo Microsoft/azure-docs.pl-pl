@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98251305"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Odczytywanie replik na serwerze elastycznym Azure Database for MySQL
@@ -116,7 +116,7 @@ Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w
 |:-|:-|
 | Replika na serwerze ze strefą — nadmiarowa HA włączona | Nieobsługiwane |
 | Replikacja odczytu między regionami | Nieobsługiwane |
-| Cennik | Koszt uruchomienia serwera repliki jest oparty na regionie, w którym jest uruchomiony serwer repliki |
+| Ceny | Koszt uruchomienia serwera repliki jest oparty na regionie, w którym jest uruchomiony serwer repliki |
 | Ponowne uruchamianie serwera źródłowego | Podczas tworzenia repliki dla źródła, które nie ma istniejących replik, źródło zostanie najpierw ponownie uruchomione w celu przygotowania się do replikacji. Weź pod uwagę i wykonaj te operacje w okresie poza szczytem |
 | Nowe repliki | Replika odczytu jest tworzona jako nowy Azure Database for MySQL elastyczny serwer. Nie można wykonać istniejącego serwera w replice. Nie można utworzyć repliki innej repliki odczytu |
 | Konfiguracja repliki | Replika jest tworzona przy użyciu tej samej konfiguracji serwera co źródło. Po utworzeniu repliki można zmienić kilka ustawień niezależnie od serwera źródłowego: generowanie obliczeń, rdzeni wirtualnych, magazyn i okres przechowywania kopii zapasowych. Warstwę obliczeniową można także zmienić niezależnie.<br> <br> **WAŻNE**  <br> -Przed zaktualizowaniem konfiguracji serwera źródłowego do nowych wartości, zaktualizuj konfigurację repliki do wartości równej lub wyższej. Dzięki temu replika może być na bieżąco ze zmianami wprowadzonymi w źródle. <br/> Ustawienia metody i parametrów łączności są dziedziczone z serwera źródłowego do repliki podczas tworzenia repliki. Następnie reguły repliki są niezależne. |
