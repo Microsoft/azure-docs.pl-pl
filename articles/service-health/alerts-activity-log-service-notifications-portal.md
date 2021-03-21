@@ -4,10 +4,10 @@ description: Informacje na temat używania Azure Portal do konfigurowania alert�
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 48126d923cb0baa33058c6fd55e48f31d793fade
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570180"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Tworzenie alertów dziennika aktywności dla powiadomień usługi przy użyciu Azure Portal

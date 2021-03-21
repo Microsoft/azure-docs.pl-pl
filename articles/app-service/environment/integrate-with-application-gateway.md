@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962081"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrate your ILB App Service Environment with the Azure Application Gateway (Integrowanie środowiska App Service Environment wewnętrznego modułu równoważenia obciążenia z usługą Azure Application Gateway) #
@@ -56,35 +56,35 @@ Nie można również umieścić bramy w podsieci używanej przez ILB App Service
 
 ## <a name="configuration-steps"></a>Kroki konfiguracji ##
 
-1. W Azure Portal przejdź do pozycji **Nowy**  >  **Network**  >  **Application Gateway**sieci.
+1. W Azure Portal przejdź do pozycji **Nowy**  >    >  **Application Gateway** sieci.
 
 2. W obszarze **podstawy** :
 
-   a. W polu **Nazwa**wprowadź nazwę Application Gateway.
+   a. W polu **Nazwa** wprowadź nazwę Application Gateway.
 
-   b. W obszarze **warstwa**wybierz pozycję **WAF**.
+   b. W obszarze **warstwa** wybierz pozycję **WAF**.
 
-   c. W polu **subskrypcja**wybierz tę samą subskrypcję, której używa App Service Environment Sieć wirtualna.
+   c. W polu **subskrypcja** wybierz tę samą subskrypcję, której używa App Service Environment Sieć wirtualna.
 
-   d. W obszarze **Grupa zasobów**Utwórz lub wybierz grupę zasobów.
+   d. W obszarze **Grupa zasobów** Utwórz lub wybierz grupę zasobów.
 
-   e. W polu **Lokalizacja**wybierz lokalizację sieci wirtualnej App Service Environment.
+   e. W polu **Lokalizacja** wybierz lokalizację sieci wirtualnej App Service Environment.
 
    ![Nowe podstawy tworzenia Application Gateway][2]
 
 3. W obszarze **Ustawienia** :
 
-   a. W obszarze **Sieć wirtualna**wybierz App Service Environment sieci wirtualnej.
+   a. W obszarze **Sieć wirtualna** wybierz App Service Environment sieci wirtualnej.
 
-   b. W obszarze **podsieć**wybierz podsieć, w której ma zostać wdrożona Application Gateway. Nie należy używać GatewaySubnet, ponieważ uniemożliwi to tworzenie bram sieci VPN.
+   b. W obszarze **podsieć** wybierz podsieć, w której ma zostać wdrożona Application Gateway. Nie należy używać GatewaySubnet, ponieważ uniemożliwi to tworzenie bram sieci VPN.
 
-   c. W obszarze **Typ adresu IP**wybierz pozycję **publiczny**.
+   c. W obszarze **Typ adresu IP** wybierz pozycję **publiczny**.
 
-   d. W obszarze **publiczny adres IP**wybierz publiczny adres IP. Jeśli go nie masz, utwórz go teraz.
+   d. W obszarze **publiczny adres IP** wybierz publiczny adres IP. Jeśli go nie masz, utwórz go teraz.
 
-   e. W obszarze **Protokół**wybierz pozycję **http** lub **https**. W przypadku konfigurowania protokołu HTTPS należy podać certyfikat PFX.
+   e. W obszarze **Protokół** wybierz pozycję **http** lub **https**. W przypadku konfigurowania protokołu HTTPS należy podać certyfikat PFX.
 
-   f. W przypadku **zapory aplikacji sieci Web**można włączyć zaporę i skonfigurować ją do **wykrywania** lub **zapobiegania** , jak jest to zgodne.
+   f. W przypadku **zapory aplikacji sieci Web** można włączyć zaporę i skonfigurować ją do **wykrywania** lub **zapobiegania** , jak jest to zgodne.
 
    ![Nowe ustawienia tworzenia Application Gateway][3]
     
@@ -98,7 +98,7 @@ Nie można również umieścić bramy w podsieci używanej przez ILB App Service
 
    ![Konfigurowanie sond kondycji][5]
     
-7. Po zakończeniu procesu konfigurowania sond kondycji wybierz pozycję **Ustawienia http**. Edytuj istniejące ustawienia, wybierz opcję **Użyj sondy niestandardowej**i wybierz skonfigurowaną sondę.
+7. Po zakończeniu procesu konfigurowania sond kondycji wybierz pozycję **Ustawienia http**. Edytuj istniejące ustawienia, wybierz opcję **Użyj sondy niestandardowej** i wybierz skonfigurowaną sondę.
 
    ![Skonfiguruj ustawienia protokołu HTTP][6]
     
@@ -106,7 +106,7 @@ Nie można również umieścić bramy w podsieci używanej przez ILB App Service
 
    ![Portal Application Gateway][7]
 
-9. Ustaw niestandardową nazwę domeny dla aplikacji w App Service Environment ILB. Przejdź do aplikacji w portalu, a następnie w obszarze **Ustawienia**wybierz pozycję **domeny niestandardowe**.
+9. Ustaw niestandardową nazwę domeny dla aplikacji w App Service Environment ILB. Przejdź do aplikacji w portalu, a następnie w obszarze **Ustawienia** wybierz pozycję **domeny niestandardowe**.
 
    ![Ustawianie niestandardowej nazwy domeny w aplikacji][8]
 

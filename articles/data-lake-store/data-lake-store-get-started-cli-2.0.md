@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103632"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -38,7 +38,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 
 ## <a name="authentication"></a>Authentication
 
-W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta Data Lake Storage Gen1 i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem**między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
+W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta Data Lake Storage Gen1 i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem** między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logowanie się do subskrypcji platformy Azure

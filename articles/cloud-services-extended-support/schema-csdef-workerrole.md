@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 8d55f17ba0fe42dab5ac9c7d2e3c09400b3d7029
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744489"
 ---
 # <a name="azure-cloud-services-extended-support-definition-workerrole-schema"></a>Schemat rola procesu roboczego definicji platformy Cloud Services Azure (rozszerzonej obsługi)
@@ -412,7 +412,7 @@ W poniższej tabeli opisano atrybuty `SourceDirectory` elementu.
 | --------- | ---- | ----------- |
 |path|ciąg|Wymagane. Ścieżka względna lub bezwzględna katalogu lokalnego, którego zawartość zostanie skopiowana na maszynę wirtualną platformy Azure. Rozszerzanie zmiennych środowiskowych w ścieżce katalogu jest obsługiwane.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Schemat definicji usługi w chmurze (obsługa rozszerzona)](schema-csdef-file.md).
 
 

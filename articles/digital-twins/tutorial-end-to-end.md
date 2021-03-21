@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634978"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577261"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -48,7 +48,7 @@ Aby obejść ten scenariusz, będziesz korzystać ze składników wstępnie pobr
 
 Poniżej przedstawiono składniki zaimplementowane w przykładowej aplikacji *AdtSampleApp* scenariusza:
 * Uwierzytelnianie urządzeń 
-* Przykłady użycia [zestawu SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) (znaleziono w *CommandLoop.cs*)
+* Przykłady użycia [zestawu SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) (znaleziono w *CommandLoop. cs*)
 * Interfejs konsoli do wywoływania interfejsu API Digital bliźniaczych reprezentacji platformy Azure
 * *SampleClientApp* — przykładowe rozwiązanie Azure Digital bliźniaczych reprezentacji
 * *SampleFunctionsApp* — aplikacja Azure Functions, która aktualizuje wykres usługi Azure Digital bliźniaczych reprezentacji w wyniku użycia telemetrii z IoT Hub i usługi Azure Digital bliźniaczych reprezentacji
@@ -121,35 +121,51 @@ Wróć do okna programu Visual Studio, w którym otwarty jest projekt _**AdtE2ES
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system z uprawnieniami dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.
+Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji i nazwy hosta wystąpienia. Skonfigurujesz te dalej.
 
-### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
+### <a name="configure-permissions-for-the-function-app"></a>Konfigurowanie uprawnień dla aplikacji funkcji
 
-Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tej tożsamości roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md).
+Istnieją dwa ustawienia, które należy ustawić dla aplikacji funkcji, aby uzyskać dostęp do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Oba te czynności można wykonać za pomocą poleceń w [Azure Cloud Shell](https://shell.azure.com). 
 
-W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Wypełnij symbole zastępcze szczegółami dotyczącymi zasobów (Pamiętaj, że adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest nazwą hosta poprzedzoną przez *https://*).
+#### <a name="assign-access-role"></a>Przypisywanie roli dostępu
+
+Pierwsze ustawienie daje aplikacji funkcji rolę **właściciela danych Digital bliźniaczych reprezentacji systemu Azure** w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md). 
+
+1. Użyj poniższego polecenia, aby wyświetlić szczegóły dotyczące tożsamości zarządzanej przez system dla funkcji. Zwróć uwagę na pole **principalId** w danych wyjściowych.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Jeśli wynik jest pusty zamiast wyświetlania szczegółów tożsamości, Utwórz nową tożsamość zarządzaną przez system dla funkcji za pomocą tego polecenia:
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > Następnie dane wyjściowe będą wyświetlały szczegóły tożsamości, w tym wartość **principalId** , która jest wymagana do następnego kroku. 
+
+1. Użyj wartości **principalId** w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli **Właściciel danych usługi Azure Digital Twins** dla wystąpienia usługi Azure Digital Twins.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli. Aplikacja funkcji ma teraz uprawnienia dostępu do danych w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+
+#### <a name="configure-application-settings"></a>Konfigurowanie ustawień aplikacji
+
+Drugie ustawienie powoduje utworzenie **zmiennej środowiskowej** dla funkcji z adresem URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Kod funkcji będzie używać tego do odwoływania się do wystąpienia. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [*Zarządzanie aplikacją funkcji*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+
+Uruchom poniższe polecenie, wypełniając symbole zastępcze szczegółowymi informacjami o zasobach.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 Dane wyjściowe to lista ustawień funkcji platformy Azure, która powinna zawierać wpis o nazwie **ADT_SERVICE_URL**.
 
-Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Wyszukaj pole **principalId** w danych wyjściowych.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Użyj wartości **principalId** z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli. Aplikacja funkcji ma teraz uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>Przetwarzaj symulowane dane telemetryczne z urządzenia IoT Hub
 
@@ -242,7 +258,7 @@ W nowym oknie programu Visual Studio Otwórz program (z folderu pobranego rozwi�
 >[!NOTE]
 > Teraz powinny być dostępne dwa okna programu Visual Studio — jeden z _**DeviceSimulator. sln**_ i jeden z wcześniejszych elementów z _**AdtE2ESample. sln**_.
 
-W okienku *Eksplorator rozwiązań* w tym nowym oknie programu Visual Studio wybierz pozycję _DeviceSimulator/**AzureIoTHub.cs**_ , aby otworzyć ją w oknie edycji. Zmień następujące wartości parametrów połączenia na zebrane powyżej wartości:
+W okienku *Eksplorator rozwiązań* w tym nowym oknie programu Visual Studio wybierz pozycję _DeviceSimulator/**AzureIoTHub. cs**_ , aby otworzyć ją w oknie edycji. Zmień następujące wartości parametrów połączenia na zebrane powyżej wartości:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>

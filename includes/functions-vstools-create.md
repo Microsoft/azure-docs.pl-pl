@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -9,19 +9,19 @@ ms.date: 06/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 164620bdcee7ac546468354f999dcb3ad96ecf4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84731039"
 ---
 Szablon projektu Azure Functions w programie Visual Studio tworzy projekt, który można opublikować w aplikacji funkcji na platformie Azure. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie, skalowanie i udostępnianie zasobów.
 
 1. Z menu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt**wprowadź *funkcje* w polu wyszukiwania, wybierz szablon **Azure Functions** , a następnie wybierz przycisk **dalej**.
+1. W obszarze **Utwórz nowy projekt** wprowadź *funkcje* w polu wyszukiwania, wybierz szablon **Azure Functions** , a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź **nazwę projektu** dla projektu, a następnie wybierz pozycję **Utwórz**. Nazwa aplikacji funkcji musi być prawidłową nazwą przestrzeni nazw C#, dlatego nie należy używać znaków podkreślenia, łączników ani znaków innych niż alfanumeryczne.
+1. W obszarze **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** dla projektu, a następnie wybierz pozycję **Utwórz**. Nazwa aplikacji funkcji musi być prawidłową nazwą przestrzeni nazw C#, dlatego nie należy używać znaków podkreślenia, łączników ani znaków innych niż alfanumeryczne.
 
 1. Aby **utworzyć nowe ustawienia aplikacji Azure Functions** , użyj wartości z poniższej tabeli:
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 049025a5d871f1dd26e5dab498756aa44d2ebfe2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693166"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587869"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Wprowadzenie do zabezpieczania kont usług platformy Azure
 
@@ -38,13 +38,13 @@ W przypadku usług hostowanych na platformie Azure zalecamy użycie tożsamości
 
 ## <a name="managed-identities"></a>Tożsamości zarządzane
 
-Tożsamości zarządzane są bezpiecznymi tożsamościami Azure Active Directory (Azure AD) utworzonymi w celu dostarczania tożsamości dla zasobów platformy Azure. Istnieją [dwa typy zarządzanych tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types): 
+Tożsamości zarządzane są bezpiecznymi tożsamościami Azure Active Directory (Azure AD) utworzonymi w celu dostarczania tożsamości dla zasobów platformy Azure. Istnieją [dwa typy zarządzanych tożsamości](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * Zarządzane tożsamości przypisane do systemu można przypisywać bezpośrednio do wystąpienia usługi. 
 
 * Tożsamości zarządzane przypisane przez użytkownika można utworzyć jako zasób autonomiczny. 
 
-Aby uzyskać więcej informacji, zobacz [Zabezpieczanie tożsamości zarządzanych](service-accounts-managed-identities.md). Aby uzyskać ogólne informacje o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Aby uzyskać więcej informacji, zobacz [Zabezpieczanie tożsamości zarządzanych](service-accounts-managed-identities.md). Aby uzyskać ogólne informacje o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md)
 
 ## <a name="service-principals"></a>Jednostki usługi
 
@@ -67,6 +67,3 @@ Aby uzyskać więcej informacji na temat zabezpieczania kont usług platformy Az
 [Zabezpieczanie podmiotów usługi](service-accounts-principal.md)
 
 [Zarządzanie kontami usług platformy Azure](service-accounts-governing-azure.md)
-
-
-

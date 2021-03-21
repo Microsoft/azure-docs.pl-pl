@@ -10,10 +10,10 @@ ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673813"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi w Azure Logic Apps
@@ -45,10 +45,10 @@ Można użyć wyzwalaczy, które monitorują zdarzenia na serwerze SFTP i udost�
   > Łącznik SFTP obsługuje te formaty kluczy prywatnych: OpenSSH, ssh.com i.
   >
   > Gdy tworzysz aplikację logiki, po dodaniu żądanego wyzwalacza SFTP lub akcji musisz podać informacje o połączeniu dla serwera SFTP. 
-  > Jeśli używasz klucza prywatnego SSH, upewnij się, że * **Skopiuj** _ klucz z pliku prywatnego klucza SSH, a następnie _*_Wklej_*_ ten klucz do szczegółów połączenia, _*_nie wprowadzaj ręcznie ani nie edytuj klucza_*_ , co może spowodować niepowodzenie połączenia. 
+  > Jeśli używasz klucza prywatnego SSH, pamiętaj, aby ***skopiować*** klucz z pliku prywatnego klucza SSH i ***wkleić*** go do szczegółów połączenia, ***nie wprowadzaj ręcznie ani nie edytuj klucza***, co może spowodować niepowodzenie połączenia. 
   > Aby uzyskać więcej informacji, zobacz kroki opisane w dalszej części tego artykułu.
 
-Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Aplikacja logiki, w której chcesz uzyskać dostęp do konta SFTP. Aby rozpocząć pracę z wyzwalaczem SFTP, [Utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji SFTP, uruchom aplikację logiki z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
 
@@ -74,9 +74,9 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
 
    -lub-
 
-   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok** . W polu wyszukiwania wprowadź ciąg "SFTP" jako filtr. Na liście Akcje wybierz żądaną akcję.
+   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. W polu wyszukiwania wprowadź ciąg "SFTP" jako filtr. Na liście Akcje wybierz żądaną akcję.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję** .
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. Podaj niezbędne szczegóły dotyczące połączenia.
 
@@ -89,13 +89,13 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
 
    1. Otwórz plik klucza prywatnego SSH w edytorze tekstu. W tych krokach użyto Notatnika jako przykładu.
 
-   1. W menu **Edycja** Notatnik wybierz pozycję **Zaznacz wszystko** .
+   1. W menu **Edycja** Notatnik wybierz pozycję **Zaznacz wszystko**.
 
-   1. Wybierz pozycję **Edytuj**  >  **kopię** .
+   1. Wybierz pozycję **Edytuj**  >  **kopię**.
 
-   1. W wyzwalaczu SFTP lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , który obsługuje wiele wierszy. **_Upewnij się, że wkleisz_* klucz. _*_Nie wprowadzaj ręcznie ani nie edytuj klucza_*_ .
+   1. W wyzwalaczu SFTP lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , który obsługuje wiele wierszy. **_Upewnij się, że wkleisz_*klawisz _. _*_nie wprowadzaj ręcznie ani nie edytuj klucza_**.
 
-1. Po zakończeniu wprowadzania szczegółów połączenia wybierz _ * Utwórz * *.
+1. Po zakończeniu wprowadzania szczegółów połączenia wybierz pozycję **Utwórz**.
 
 1. Podaj niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
@@ -107,7 +107,7 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
 
 Ten wyzwalacz uruchamia przepływ pracy aplikacji logiki, gdy na serwerze SFTP zostanie dodany lub zmieniony plik. Na przykład można dodać warunek, który sprawdza zawartość pliku i pobiera zawartość w zależności od tego, czy zawartość spełnia określony warunek. Następnie można dodać akcję, która pobiera zawartość pliku i umieszcza tę zawartość w folderze na serwerze SFTP.
 
-**Przykład przedsiębiorstwa** : ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
+**Przykład przedsiębiorstwa**: ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
 
 <a name="get-content"></a>
 

@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675348"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Pomóż uczniom pobierać narzędzia deweloperskie oprogramowania z Education Hub platformy Azure
@@ -26,7 +26,7 @@ Skontaktuj się z tą procedurą, aby pobrać narzędzia deweloperskie oprogramo
 1. Zaloguj się przy użyciu poświadczeń subskrypcji platformy Azure dla studentów.
 1. Wybierz dowolne narzędzia deweloperskie oprogramowania w Education Hub, aby otworzyć okienko pobierania.
 1. Przeczytaj informacje o oprogramowaniu, aby upewnić się, że oprogramowanie jest zgodne z systemem komputera.
-1. Po potwierdzeniu, że oprogramowanie jest zgodne z Twoim systemem, wybierz pozycję **Pobierz** .
+1. Po potwierdzeniu, że oprogramowanie jest zgodne z Twoim systemem, wybierz pozycję **Pobierz**.
 1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby pobrać i zainstalować oprogramowanie.
 
    Oferta Azure for Students umożliwia korzystanie z $100 środków przez 12 miesięcy. Obejmuje ona dostęp do ponad 25 bezpłatnych usług, w tym obliczeń, sieci, magazynu i baz danych. Wszelkie opłaty naliczane w tym okresie są potrącane od środków. 

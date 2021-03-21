@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135668"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure 
@@ -46,7 +46,7 @@ Jeśli używasz wersji usługi mobilności Site Recovery wcześniejszej niż 9.7
 Aby sprawdzić, czy Agent jest zainstalowany:
 
 1. Na maszynie wirtualnej platformy Azure w folderze C:\WindowsAzure\Packages powinien zostać wyświetlony plik WaAppAgent.exe.
-2. Kliknij prawym przyciskiem myszy plik, a następnie w oknie **Właściwości**wybierz kartę **szczegóły** .
+2. Kliknij prawym przyciskiem myszy plik, a następnie w oknie **Właściwości** wybierz kartę **szczegóły** .
 3. Sprawdź, czy w polu **Wersja produktu** jest wyświetlana wartość 2.6.1198.718 lub wyższa.
 
 [Dowiedz się więcej](../virtual-machines/extensions/agent-windows.md) o instalacji agenta dla systemu Windows.
@@ -76,7 +76,7 @@ Zainstaluj agenta [maszyny wirtualnej z systemem Linux na platformie Azure](../v
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - W przypadku systemu Linux Zaloguj się jako użytkownik główny. W terminalu przejdź do **/User/Local/ASR**i uruchom następujące polecenie:
+    - W przypadku systemu Linux Zaloguj się jako użytkownik główny. W terminalu przejdź do **/User/Local/ASR** i uruchom następujące polecenie:
         ```
         ./uninstall.sh -Y
         ```

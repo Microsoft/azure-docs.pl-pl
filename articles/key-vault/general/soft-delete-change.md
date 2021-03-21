@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: sudbalas
 ms.openlocfilehash: b96f2ca4f925846bd252e5cfd35088d832f5c216
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98572871"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy
@@ -64,7 +64,7 @@ Jeśli organizacja podlega wymaganiom dotyczącym zgodności i nie może zezwoli
 
 ### <a name="audit-your-key-vaults-to-check-if-soft-delete-is-enabled"></a>Przeprowadź inspekcję magazynów kluczy, aby sprawdzić, czy jest włączona funkcja usuwania nietrwałego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wyszukaj **Azure Policy**.
 1. Wybierz pozycję **definicje**.
 1. W obszarze **Kategoria** wybierz pozycję **Key Vault** w filtrze.
@@ -80,7 +80,7 @@ Teraz można filtrować i dowiedzieć się, które magazyny kluczy mają włącz
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wyszukaj swój magazyn kluczy.
 1. W obszarze **Ustawienia** wybierz pozycję **Właściwości** .
 1. W obszarze **usuwanie nietrwałe** zaznacz opcję **Włącz odzyskiwanie tego magazynu i jego obiektów** .
@@ -89,7 +89,7 @@ Teraz można filtrować i dowiedzieć się, które magazyny kluczy mają włącz
 
 ### <a name="grant-purge-access-policy-permissions-to-a-security-principal"></a>Przyznawanie uprawnień do przeczyszczania zasad dostępu do podmiotu zabezpieczeń
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Wyszukaj swój magazyn kluczy.
 1. Wybierz pozycję **zasady dostępu** w obszarze **Ustawienia**.
 1. Wybierz jednostkę usługi, do której chcesz udzielić dostępu.

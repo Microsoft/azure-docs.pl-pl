@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92124681"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Rozwiązywanie problemów związanych z Azure Data Box i Azure Data Box Heavy
@@ -104,7 +104,7 @@ Są to błędy związane z nazwami kontenerów i udziałów.
 - Na stronie łączenie i kopiowanie w lokalnym interfejsie użytkownika sieci Web Pobierz i Przejrzyj pliki błędów w celu zidentyfikowania nazw folderów zawierających problemy. 
 - Zmień nazwę katalogu lub kontenerów, aby upewnić się, że są one zgodne z konwencjami nazewnictwa platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [katalogów](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   i [kontenerów](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [katalogów](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) i [kontenerów](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Błędy limitu rozmiaru kontenera lub udziału
 
