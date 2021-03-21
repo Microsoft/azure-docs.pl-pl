@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972763"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów Microsoft 365
@@ -32,7 +32,7 @@ Domyślnie zasoby Microsoft 365 dla użytkowników znajdują się w tej samej lo
 Ustawiając atrybut **preferredDataLocation**, można zdefiniować geograficzną użytkownika. Użytkownik może Microsoft 365 zasoby, takie jak Skrzynka pocztowa i usługa OneDrive, w tym samym georegionie, w którym znajduje się użytkownik, i nadal mieć jedną dzierżawę dla całej organizacji.
 
 > [!IMPORTANT]
-> Wiele lokalizacji geograficznych jest obecnie dostępnych dla klientów z aktywną Umowa Enterprise i co najmniej 250 subskrypcji usług Microsoft 365 Services. Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać szczegółowe informacje.
+> Wiele lokalizacji geograficznych jest obecnie dostępnych dla klientów z aktywną Enterprise Agreement i co najmniej 250 subskrypcji usług Microsoft 365 Services. Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać szczegółowe informacje.
 >
 >
 
@@ -135,7 +135,7 @@ Domyślnie atrybut **preferredDataLocation** nie jest zaimportowany do obszaru �
 ## <a name="step-5-create-an-inbound-synchronization-rule"></a>Krok 5. Tworzenie reguły synchronizacji ruchu przychodzącego
 Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atrybutu z atrybutu Source w Active Directory lokalnym do magazynu Metaverse.
 
-1. Uruchom **Edytor reguł synchronizacji** , przechodząc do **START**  >  **edytora reguł synchronizacji**.
+1. Uruchom **Edytor reguł synchronizacji** , przechodząc do   >  **edytora reguł synchronizacji**.
 2. Ustaw **kierunek** filtrowania wyszukiwania na **ruch przychodzący**.
 3. Aby utworzyć nową regułę ruchu przychodzącego, wybierz pozycję **Dodaj nową regułę**.
 4. Na karcie **Opis** podaj następującą konfigurację:
@@ -155,7 +155,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizacja |
+    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Niezaznaczone | Aktualizacja |
 
 7. Aby utworzyć regułę ruchu przychodzącego, wybierz pozycję **Dodaj**.
 
@@ -192,7 +192,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Unchecked | Aktualizacja |
+    | Direct | preferredDataLocation | preferredDataLocation | Niezaznaczone | Aktualizacja |
 
 7. Zamknij **Dodaj** , aby utworzyć regułę wychodzącą.
 

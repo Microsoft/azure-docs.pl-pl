@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 490fa46deabc822e416705fe9bf9c5cdb58f8cd6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936779"
 ---
 # <a name="azure-functions-hosting-options"></a>Opcje hostingu Azure Functions
@@ -32,7 +32,7 @@ Poniżej znajduje się Podsumowanie korzyści płynących z trzech głównych pl
 | --- | --- |  
 |**[Plan Zużycie](consumption-plan.md)**| Skaluj automatycznie i płacisz tylko za zasoby obliczeniowe, gdy funkcje są uruchomione.<br/><br/>W planie zużycia wystąpienia hosta funkcji są dynamicznie dodawane i usuwane na podstawie liczby zdarzeń przychodzących.<br/><br/> ✔ Domyślnego planu hostingu.<br/>✔ Płacisz tylko wtedy, gdy funkcje są uruchomione.<br/>✔ Skaluje się automatycznie, nawet w okresach dużego obciążenia.|  
 |**[Plan Premium](functions-premium-plan.md)**|Automatyczne skalowanie na podstawie popytu przy użyciu wstępnie rozgrzanych procesów roboczych, które uruchamiają aplikacje bez opóźnień po stanie bezczynności, działają na bardziej wydajnych wystąpieniach i nawiązują połączenie z sieciami wirtualnymi. <br/><br/>Zapoznaj się z planem Azure Functions Premium w następujących sytuacjach: <br/><br/>✔ Aplikacje funkcji działają ciągle lub niemal ciągle.<br/>✔ Masz dużą liczbę małych wykonań i rachunku o dużym wykorzystaniu, ale co najmniej GB s w planie zużycia.<br/>✔ Potrzebujesz więcej opcji procesora lub pamięci niż to, co jest dostępne w ramach planu zużycia.<br/>✔ Kod musi być uruchomiony dłużej niż maksymalny dozwolony czas wykonywania w planie zużycia.<br/>✔ Wymagane są funkcje, które nie są dostępne w planie zużycia, takie jak łączność sieci wirtualnej.|  
-|**[Plan dedykowany](dedicated-plan.md)** |Uruchamiaj swoje funkcje w ramach planu App Service według regularnych [App Service stawek planu](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Najlepsze dla długotrwałych scenariuszy, w których nie można używać [Durable Functions](durable/durable-functions-overview.md) . Należy wziąć pod uwagę plan App Service w następujących sytuacjach:<br/><br/>✔ Masz istniejące, nieużywane maszyny wirtualne, na których działają już inne wystąpienia App Service.<br/>✔ Chcesz udostępnić niestandardowy obraz, na którym będą uruchamiane funkcje. <br/>✔ Skalowanie predykcyjne i koszty są wymagane.|  
+|**[Dedykowany plan](dedicated-plan.md)** |Uruchamiaj swoje funkcje w ramach planu App Service według regularnych [App Service stawek planu](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Najlepsze dla długotrwałych scenariuszy, w których nie można używać [Durable Functions](durable/durable-functions-overview.md) . Należy wziąć pod uwagę plan App Service w następujących sytuacjach:<br/><br/>✔ Masz istniejące, nieużywane maszyny wirtualne, na których działają już inne wystąpienia App Service.<br/>✔ Chcesz udostępnić niestandardowy obraz, na którym będą uruchamiane funkcje. <br/>✔ Skalowanie predykcyjne i koszty są wymagane.|  
 
 Tabele porównawcze w tym artykule zawierają również następujące opcje hostingu, które zapewniają największą ilość kontroli i izolację, w której można uruchamiać aplikacje funkcji.  
 
@@ -51,9 +51,9 @@ W poniższej tabeli przedstawiono obsługę obsługiwanego systemu operacyjnego 
 | --- | --- | --- | --- |
 | **[Plan Zużycie](consumption-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core | Brak pomocy technicznej  |
 | **[Plan Premium](functions-premium-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python  | 
-| **[Plan dedykowany](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
+| **[Dedykowany plan](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
 | **[ASE](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python | 
-| **[Kubernetes](functions-kubernetes-keda.md)** | n/d | n/d |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
+| **[Kubernetes](functions-kubernetes-keda.md)** | nie dotyczy | nie dotyczy |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
 
 <sup>1</sup> Linux to jedyny obsługiwany system operacyjny dla stosu środowiska uruchomieniowego języka Python. <br/>
 <sup>2</sup> system Windows to jedyny obsługiwany system operacyjny dla stosu środowiska uruchomieniowego programu PowerShell.<br/>
@@ -81,7 +81,7 @@ Poniższa tabela zawiera porównanie zachowań skalowania różnych planów host
 | -- | -- |
 | **[&nbsp;Plan zużycia](consumption-plan.md)** | Aplikacje mogą skalować do zera w razie bezczynności, co oznacza, że niektóre żądania mogą mieć dodatkowe opóźnienia przy uruchamianiu.  Plan zużycia ma pewne optymalizacje, aby ułatwić skrócenie czasu uruchamiania, w tym ściąganie z wbudowanych funkcji symboli zastępczych, które mają już uruchomiony host funkcji i procesy językowe. |
 | **[Plan Premium](functions-premium-plan.md)** | Bezterminowo podgrzewane wystąpienia, aby uniknąć dowolnego zimnego startu. |
-| **[Plan dedykowany](dedicated-plan.md)** | W przypadku uruchamiania w ramach dedykowanego planu hosty funkcji mogą działać w sposób ciągły, co oznacza, że zimne uruchomienie nie jest naprawdę problemem. |
+| **[Dedykowany plan](dedicated-plan.md)** | W przypadku uruchamiania w ramach dedykowanego planu hosty funkcji mogą działać w sposób ciągły, co oznacza, że zimne uruchomienie nie jest naprawdę problemem. |
 | **[ASE](dedicated-plan.md)** | W przypadku uruchamiania w ramach dedykowanego planu hosty funkcji mogą działać w sposób ciągły, co oznacza, że zimne uruchomienie nie jest naprawdę problemem. |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | W zależności od konfiguracji KEDA aplikacje można skonfigurować tak, aby uniknąć zimnego startu. Jeśli skonfigurowano do skalowania do zera, zimny start występuje dla nowych zdarzeń. 
 

@@ -10,10 +10,10 @@ ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
 ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026254"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Kompiluj IoT Central mostek urządzeń, aby połączyć inne chmury IoT z IoT Central
@@ -27,7 +27,7 @@ IoT Central mostka urządzenia to rozwiązanie Open Source w usłudze GitHub. Je
 -    Aplikacja funkcji platformy Azure
 -    Konto usługi Azure Storage
 -    Plan zużycia
--    W usłudze Azure Key Vault
+-    Azure Key Vault
 
 Aplikacja funkcji jest elementem krytycznym mostka urządzeń. Odbiera żądania HTTP POST z innych platform IoT lub wszelkich platform niestandardowych za pośrednictwem prostej integracji elementu webhook. Przedstawiono przykłady, które pokazują, jak nawiązać połączenie z chmurami SIGFOX, cząsteczek i TTN. Możesz łatwo rozszerzenie tego rozwiązania, aby nawiązać połączenie z Twoją niestandardową chmurą IoT, jeśli platforma może wysyłać żądania POST protokołu HTTP do aplikacji funkcji.
 Aplikacja funkcji przekształca dane w format akceptowany przez IoT Central i przekazuje je za pośrednictwem interfejsów API usługi DPS.
@@ -39,7 +39,7 @@ Jeśli aplikacja IoT Central rozpoznaje urządzenie według identyfikatora urzą
 ## <a name="how-do-i-set-it-up"></a>Jak mogę skonfigurować?
 Instrukcje są szczegółowo wymienione w pliku Readme w repozytorium GitHub. 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Zasoby platformy Azure będą hostowane w ramach subskrypcji platformy Azure. Więcej informacji o cenach można znaleźć w [pliku Readme](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## <a name="next-steps"></a>Następne kroki

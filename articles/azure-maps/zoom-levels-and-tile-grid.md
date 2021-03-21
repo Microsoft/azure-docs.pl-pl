@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913895"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Poziomy powiększenia i siatka kafelków
@@ -28,7 +28,7 @@ Aby zoptymalizować wydajność pobierania i wyświetlania mapy, mapa jest dziel
 
 Poziom powiększenia 1 używa czterech kafelków do renderowania świata: 2 x 2 kwadrat
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Układ kafelków mapy 2x2":::
 
 Każdy dodatkowy poziom powiększenia — dzieli kafelki z poprzedniego, tworząc siatkę<sup>z 2 powiększenia x 2</sup> <sup>powiększenia</sup>. Poziom powiększenia 22 to siatka 2<sup>22</sup> x 2<sup>22</sup>lub 4 194 304 x 4 194 304 (łącznie z 17 592 186 044 416 kafelków).
 
@@ -74,9 +74,9 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Ponieważ szerokość i wysokość mapy jest różna na każdym poziomie powiększenia, więc współrzędne pikseli. Piksel w lewym górnym rogu mapy zawsze ma współrzędne pikseli (0, 0). Piksel w prawym dolnym rogu mapy ma współrzędne pikseli *(szerokość-1, Wysokość-1)* lub odwołujące się do równań w poprzedniej sekcji *(tileSize \* 2 <sup>zoom</sup>-1, tileSize \* 2 <sup>zoom</sup>-1)* . Na przykład w przypadku używania kafelków z 512 kwadratowych na poziomie 2, współrzędne pikseli zakresu od (0, 0) do (2047, 2047), takie jak:
+Ponieważ szerokość i wysokość mapy jest różna na każdym poziomie powiększenia, więc współrzędne pikseli. Piksel w lewym górnym rogu mapy zawsze ma współrzędne pikseli (0, 0). Piksel w prawym dolnym rogu mapy ma współrzędne pikseli *(szerokość-1, Wysokość-1)* lub odwołujące się do równań w poprzedniej sekcji *(tileSize \* 2 <sup>zoom</sup>-1, tileSize \* 2 <sup>zoom</sup>-1)*. Na przykład w przypadku używania kafelków z 512 kwadratowych na poziomie 2, współrzędne pikseli zakresu od (0, 0) do (2047, 2047), takie jak:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mapa pokazująca wymiary pikseli":::
 
 W stopniach i poziomach szczegółowości danego typu i długości geograficznej, współrzędne XY są obliczane w następujący sposób:
 
@@ -102,7 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Każdy kafelek otrzymuje współrzędne XY względem zakresu od (0, 0) w lewym górnym rogu do *(2 <sup>powiększenia</sup>— 1, 2 <sup>powiększenie</sup>— 1)* w prawym dolnym rogu. Na przykład, na poziomie powiększenia 3, kafelek koordynuje zakres od (0, 0) do (7, 7) w następujący sposób:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mapa współrzędnych kafelka":::
 
 Mając na siebie parę współrzędnych pikseli wykresu, można łatwo określić współrzędne XY kafelka na kafelku zawierającym ten piksel:
 
@@ -116,13 +116,13 @@ Kafelki są wywoływane przez poziom powiększenia. Współrzędne x i y odpowia
 
 Podczas określania stopnia powiększenia, który ma być używany, pamiętaj, że każda lokalizacja znajduje się w stałej pozycji na kafelku. W związku z tym liczba kafelków wymaganych do wyświetlenia danego expanse terytorium zależy od określonego położenia siatki powiększenia na mapie światowej. Na przykład jeśli dwa punkty 900 metrów od siebie, *może* minąć tylko trzy kafelki, aby wyświetlić trasę między nimi na poziomie powiększenia 17. Jeśli jednak punkt zachodni znajduje się po prawej stronie jego kafelka oraz punkt wschodni po lewej stronie jego kafelka, może on przyjmować cztery kafelki:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Skalowanie pokazu powiększenia":::
 
 Po określeniu poziomu powiększenia można obliczyć wartości x i y. Lewy górny kafelek w każdej siatce powiększenia to x = 0, y = 0; prawy dolny kafelek to x = 2<sup>zoom-1</sup>, y = 2<sup>powiększenie-1</sup>.
 
 Oto siatka powiększenia dla poziomu powiększenia 1:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Siatka powiększenia dla poziomu powiększenia 1":::
 
 ## <a name="quadkey-indices"></a>Indeksy Quadkey
 
@@ -143,7 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 `Qquadkeys` mają kilka interesujących właściwości. Po pierwsze długość `quadkey` (liczba cyfr) jest równa poziomowi powiększenia odpowiedniego kafelka. Po drugie, `quadkey` każdy kafelek zaczyna się od `quadkey` jego kafelka nadrzędnego (zawierający kafelek na poprzednim poziomie). Jak pokazano w poniższym przykładzie, kafelek 2 jest elementem nadrzędnym kafelków od 20 do 23:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Kafelek mapy światowej":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Piramida kafelka Quadkey":::
 
 Na koniec `quadkeys` Podaj jednowymiarowy klucz indeksu, który zwykle zachowuje bliskość kafelków w obszarze wykresu. Innymi słowy, dwa kafelki, które mają znajdujące się w pobliżu współrzędne XY `quadkeys` są zwykle blisko siebie. Jest to ważne w przypadku optymalizowania wydajności bazy danych, ponieważ sąsiadujące kafelki są często żądane w grupach i pożądane jest zachowywanie tych kafelków na tych samych blokach dysków, aby zminimalizować liczbę operacji odczytu z dysku.
 

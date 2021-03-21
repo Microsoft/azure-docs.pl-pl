@@ -7,10 +7,10 @@ ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169978"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Przywracanie aplikacji na platformie Azure z migawki
@@ -48,7 +48,7 @@ Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **
     ![Zrzut ekranu pokazujący sposób określania miejsca docelowego przywracania.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > W przypadku wybrania opcji **Zastąp**wszystkie istniejące dane w bieżącym systemie plików aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK**upewnij się, że jest to co chcesz zrobić.
+   > W przypadku wybrania opcji **Zastąp** wszystkie istniejące dane w bieżącym systemie plików aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK** upewnij się, że jest to co chcesz zrobić.
    > 
    > 
       

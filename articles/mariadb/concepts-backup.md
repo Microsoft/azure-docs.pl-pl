@@ -3,14 +3,14 @@ title: Tworzenie kopii zapasowych i przywracanie Azure Database for MariaDB
 description: Dowiedz się więcej o automatycznych kopiach zapasowych i przywracaniu serwera Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 1d5fc158d2e37223e048c4106206ddba4602fabb
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659941"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MariaDB
@@ -21,7 +21,7 @@ Azure Database for MariaDB automatycznie tworzy kopie zapasowe serwera i przecho
 
 Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
-Te pliki kopii zapasowej nie są uwidaczniane przez użytkownika i nie można ich eksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MariaDB. Możesz użyć [mysqldump](howto-migrate-dump-restore.md) , aby skopiować bazę danych.
+Te pliki kopii zapasowej nie są uwidaczniane dla użytkownika i nie można ich wyeksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MariaDB. Możesz użyć [mysqldump](howto-migrate-dump-restore.md) , aby skopiować bazę danych.
 
 ### <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
 

@@ -4,10 +4,10 @@ description: Zawiera instrukcje umożliwiające szybkie konfigurowanie ciągłeg
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86517131"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Dodawanie ciągłego monitorowania do potoku wydania
@@ -20,7 +20,7 @@ W przypadku ciągłego monitorowania potoki wersji mogą zawierać dane monitoro
 
 1. W [usłudze Azure DevOps](https://dev.azure.com)wybierz organizację i projekt.
    
-1. W menu po lewej stronie projektu wybierz pozycję wersje **potoków**  >  **Releases**. 
+1. W menu po lewej stronie projektu wybierz pozycję wersje **potoków**  >  . 
    
 1. Rozwiń strzałkę obok pozycji **Nowy** i wybierz pozycję **Nowy potok wersji**. Lub, jeśli nie masz jeszcze potoku, wybierz pozycję **Nowy potok** na wyświetlonej stronie.
    
@@ -47,7 +47,7 @@ W przypadku ciągłego monitorowania potoki wersji mogą zawierać dane monitoro
 
 ## <a name="modify-alert-rules"></a>Modyfikuj reguły alertów
 
-**Wdrożenie Azure App Service z szablonem ciągłego monitorowania** ma cztery reguły alertów: **dostępność**, **żądania zakończone niepowodzeniem**, **czas odpowiedzi serwera**i **wyjątki serwera**. Możesz dodać więcej reguł lub zmienić ustawienia reguły, aby spełniały wymagania poziomu usługi. 
+**Wdrożenie Azure App Service z szablonem ciągłego monitorowania** ma cztery reguły alertów: **dostępność**, **żądania zakończone niepowodzeniem**, **czas odpowiedzi serwera** i **wyjątki serwera**. Możesz dodać więcej reguł lub zmienić ustawienia reguły, aby spełniały wymagania poziomu usługi. 
 
 Aby zmodyfikować ustawienia reguły alertu:
 
@@ -71,19 +71,19 @@ Po dodaniu bram wdrażania do potoku wydania alert przekraczający ustalone prog
 
 Aby dodać bramy wdrażania:
 
-1. Na stronie główny potok w obszarze **etapy**wybierz opcję **warunki przed wdrożeniem** lub postanowień **po wdrożeniu** , w zależności od tego, który etap wymaga bramy ciągłego monitorowania.
+1. Na stronie główny potok w obszarze **etapy** wybierz opcję **warunki przed wdrożeniem** lub postanowień **po wdrożeniu** , w zależności od tego, który etap wymaga bramy ciągłego monitorowania.
    
    ![Warunki przed wdrożeniem](media/continuous-monitoring/004.png)
    
 1. W okienku Konfiguracja **warunków przed wdrożeniem** Ustaw **bramy** na **włączone**.
    
-1. Obok pozycji **bramy wdrażania**wybierz pozycję **Dodaj**.
+1. Obok pozycji **bramy wdrażania** wybierz pozycję **Dodaj**.
    
 1. Wybierz pozycję **zapytanie Azure monitor alerty** z menu rozwijanego. Ta opcja umożliwia dostęp do alertów Azure Monitor i Application Insights.
    
    ![Alerty Azure Monitor zapytań](media/continuous-monitoring/005.png)
    
-1. W obszarze **Opcje oceny**wprowadź wartości dla ustawień, takie jak **czas między ponowną oceną bram** i **limit czasu, po którym bramy kończą się niepowodzeniem**. 
+1. W obszarze **Opcje oceny** wprowadź wartości dla ustawień, takie jak **czas między ponowną oceną bram** i **limit czasu, po którym bramy kończą się niepowodzeniem**. 
 
 ## <a name="view-release-logs"></a>Wyświetlanie dzienników wydań
 
@@ -93,7 +93,7 @@ W dziennikach wydań można zobaczyć zachowanie bramy wdrażania i inne kroki w
    
 1. Wybierz dowolne wydanie. 
    
-1. W obszarze **etapy**wybierz dowolny etap, aby wyświetlić podsumowanie wydania. 
+1. W obszarze **etapy** wybierz dowolny etap, aby wyświetlić podsumowanie wydania. 
    
 1. Aby wyświetlić dzienniki, wybierz pozycję **Wyświetl dzienniki** w podsumowaniu wersji, zaznacz hiperlink **zakończone powodzeniem** lub **niepowodzeniem** na dowolnym etapie lub umieść kursor na dowolnym etapie i wybierz pozycję **dzienniki**. 
    

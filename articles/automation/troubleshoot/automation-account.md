@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 03/24/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 06c15136e9d2fabdf50031c8b4be455cf2f7bbca
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896583"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Rozwiązywanie problemów z kontami Azure Automation

@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób korzystania z Azure Service Bus z ap
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 20800363327aefda073cd484dc737b28e60466a7
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632854"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Używanie Service Bus z platformy .NET z AMQP 1,0
@@ -86,7 +86,7 @@ Aby ułatwić współdziałanie z klientami non-.NET, należy używać tylko typ
 | Adresu |Opisany ciąg (patrz Poniższa tabela) |AMQP wartość |
 | DateTimeOffset |Opisany czas (patrz Poniższa tabela) |AMQP wartość |
 | przedział_czasu |Opisany czas (patrz poniżej) |AMQP wartość |
-| Strumień |binarny |AMQP dane (może być wielokrotne). Sekcje danych zawierają nieprzetworzone Bajty odczytane z obiektu Stream. |
+| Stream |binarny |AMQP dane (może być wielokrotne). Sekcje danych zawierają nieprzetworzone Bajty odczytane z obiektu Stream. |
 | Inny obiekt |binarny |AMQP dane (może być wielokrotne). Zawiera serializowaną wartość binarną obiektu, który używa elementu DataContractSerializer lub serializatora dostarczonego przez aplikację. |
 
 | Typ .NET | Zamapowane AMQP typu | Uwagi |

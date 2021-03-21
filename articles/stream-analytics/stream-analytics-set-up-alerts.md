@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
 ms.openlocfilehash: 7884f8baa24180fcb94f77a45c3457ba62d3f351
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018143"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurowanie alertów dla zadań Azure Stream Analytics
@@ -57,7 +57,7 @@ Poniższy przykład ilustruje sposób konfigurowania alertów w przypadku przej�
 
 Poniższe alerty są zalecane do monitorowania wydajności zadania Stream Analytics. Te metryki powinny być oceniane co minutę w ciągu ostatnich 5 minut.
 
-|Metryka|Warunek|Agregacja czasu|Próg|Akcje naprawcze|
+|Metric|Warunek|Agregacja czasu|Próg|Akcje naprawcze|
 |-|-|-|-|-|
 |Użycie SU%|Większe niż|Maksimum|80|Istnieje wiele czynników, które zwiększają wykorzystanie SU%. Możesz skalować przy użyciu zapytania przetwarzanie równoległe lub zwiększyć liczbę jednostek przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z przetwarzania równoległego zapytań w usłudze Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Błędy środowiska uruchomieniowego|Większe niż|Łącznie|0|Sprawdź dzienniki aktywności lub zasobów i wprowadź odpowiednie zmiany w danych wejściowych, kwerendzie lub wyjściowych.|

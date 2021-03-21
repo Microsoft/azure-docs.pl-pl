@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895567"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Często zadawane pytania dotyczące rozwiązania VMware według CloudSimple
@@ -131,7 +131,7 @@ CloudSimple stale monitoruje wszystkie składniki sprzętowe chmury prywatnej.  
 
 **Jak mogę wykonywać na dużą skalę przekazywanie lub migrację aplikacji i danych z lokalnego systemu?**
 
-CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne opcje:
+CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne są następujące opcje:
 
 * Oprogramowanie VMware HCX na potrzeby migracji zbiorczej danych.
 * Zimna migracja danych przy użyciu usługi Storage vMotion z lokalnego do CloudSimple.

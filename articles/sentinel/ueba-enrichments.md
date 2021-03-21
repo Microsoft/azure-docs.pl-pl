@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 01/04/2021
 ms.author: yelevin
 ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97901789"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Dokumentacja wzbogaceń UEBA platformy Azure
@@ -53,7 +53,7 @@ Pierwsze dwie tabele, szczegółowe informacje o **użytkowniku** i usługa **De
 | --- | --- | --- | --- |
 | **Przeglądarka**<br>*Browser* | Przeglądarka użyta w akcji. | Edge, Chrome |
 | **Rodzina urządzeń**<br>*(DeviceFamily)* | Rodzina urządzeń używana w akcji. | Windows |
-| **Typ urządzenia**<br>*Elementu DeviceType* | Typ urządzenia klienckiego używany w akcji | Klasyczna |
+| **Typ urządzenia**<br>*Elementu DeviceType* | Typ urządzenia klienckiego używany w akcji | Komputer |
 | **INTERNETOWE**<br>*INTERNETOWE* | Usługodawca internetowy używany w akcji. |  |
 | **System operacyjny**<br>*OperatingSystem* | System operacyjny używany w akcji. | Windows 10 |
 | **Opis wskaźnika zagrożenia firmy Intel**<br>*(ThreatIntelIndicatorDescription)* | Opis pokrytych wskaźników zagrożeń rozpoznanych na podstawie adresu IP użytego w akcji. | Host należy do botnet: azorult |
@@ -155,7 +155,7 @@ Pierwsze dwie tabele, szczegółowe informacje o **użytkowniku** i usługa **De
 | --- | --- | --- | --- |
 | **Akcja podczas ostatniego wykonywania użytkownika**<br>*(LastTimeUserPerformedAction)* | 180 | Czas ostatniego wykonania tej czynności przez użytkownika. | <Timestamp> |
 | **Podobna akcja nie została wykonana w przeszłości**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | Użytkownik nie wykonał żadnej akcji w tym samym dostawcy zasobów. | Prawda, FAŁSZ |
-| **Źródłowa lokalizacja adresu IP**<br>*(SourceIPLocation)* | *Nie dotyczy* | Kraj został rozpoznany ze źródłowego adresu IP akcji. | [Surrey, Anglia] |
+| **Źródłowa lokalizacja adresu IP**<br>*(SourceIPLocation)* | *NIE DOTYCZY* | Kraj został rozpoznany ze źródłowego adresu IP akcji. | [Surrey, Anglia] |
 | **Nietypowe duże ilości operacji**<br>*(UncommonHighVolumeOfOperations)* | 7 | Użytkownik wykonał szereg podobnych operacji w ramach tego samego dostawcy. | Prawda, FAŁSZ |
 | **Nietypowa liczba błędów dostępu warunkowego usługi Azure AD**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | Nie można uwierzytelnić nietypowej liczby użytkowników ze względu na dostęp warunkowy | Prawda, FAŁSZ |
 | **Dodaliśmy nietypową liczbę urządzeń**<br>*(UnusualNumberOfDevicesAdded)* | 5 | Użytkownik dodał nietypową liczbę urządzeń. | Prawda, FAŁSZ |

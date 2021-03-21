@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882284"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migracja urządzeń StorSimple 1200 do usługi Azure File Sync
@@ -210,13 +210,13 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
+> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkich***  grup synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby mieć tylko przestrzeń nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia RoboCopy w przypadku, gdy w systemie Windows Server po stronie serwera nie powiedzie się polecenie _. W takim przypadku szybkość pobierania jest prawdopodobnie lepsza niż szybkość przekazywania. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany.
+Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia *Robocopy po stronie* serwera systemu Windows. W takim przypadku szybkość pobierania jest prawdopodobnie lepsza niż szybkość przekazywania. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany.
 
 Zezwalaj na postęp synchronizacji i warstwowanie w chmurze Zwolnij miejsce na dysku. Można obserwować, że w Eksploratorze plików systemu Windows Server.
 

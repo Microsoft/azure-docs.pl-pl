@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtua
 ms.date: 01/05/2021
 ms.topic: conceptual
 ms.openlocfilehash: 9b1f83ad976aa3471430a912280fac25dc5c5c0c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97916188"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Włącz rozszerzenia maszyny wirtualnej platformy Azure przy użyciu Azure PowerShell

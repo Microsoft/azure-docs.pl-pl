@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 802f732e8d62f5df861be525316b3c31ab4d0655
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94957932"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Zarządzanie usługą StorSimple Data Manager w programie Azure Portal
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby utworzyć usługę StorSimple Data Manager.
 
    3. Wybierz istniejącą grupę zasobów lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-   4. Określ **lokalizację** usługi, która przechowuje Twoje konta magazynu i usługę StorSimple Data Manager. Usługa StorSimple Menedżer urządzeń, Usługa Data Manager i skojarzone konto magazynu powinny znajdować się w obsługiwanych regionach.
+   4. Określ **lokalizację** usługi, która przechowuje Twoje konta magazynu i usługę StorSimple Data Manager. Usługa StorSimple Device Manager, Usługa Data Manager i skojarzone konto magazynu powinny znajdować się w obsługiwanych regionach.
     
    5. Aby uzyskać link do tej usługi na pulpicie nawigacyjnym, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**.
     
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby utworzyć definicję zadania.
 
 6. Ponieważ jest to nowa usługa Data Manager, żadne repozytoria danych nie są konfigurowane. W obszarze **Konfiguruj źródło danych** Określ szczegóły urządzenia z serii StorSimple 8000 i interesujące Cię dane.
 
-   Aby dodać StorSimple Menedżer urządzeń jako repozytorium danych, kliknij pozycję **Dodaj nowe** na liście rozwijanej repozytorium danych, a następnie kliknij pozycję **Dodaj repozytorium danych**.
+   Aby dodać StorSimple Device Manager jako repozytorium danych, kliknij pozycję **Dodaj nowe** na liście rozwijanej repozytorium danych, a następnie kliknij pozycję **Dodaj repozytorium danych**.
 
     ![Dodaj nowe repozytorium danych](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
@@ -84,15 +84,15 @@ Wykonaj następujące kroki, aby utworzyć definicję zadania.
     
    2. Wprowadź przyjazną nazwę dla repozytorium danych źródłowych.
     
-   3. Z listy rozwijanej wybierz subskrypcję skojarzoną z usługą StorSimple Menedżer urządzeń.
+   3. Z listy rozwijanej wybierz subskrypcję skojarzoną z usługą StorSimple Device Manager.
     
-   4. Podaj nazwę Menedżer urządzeń StorSimple dla **zasobu**.
+   4. Podaj nazwę Device Manager StorSimple dla **zasobu**.
 
-   5. Wprowadź klucz **szyfrowania danych usługi** dla usługi StorSimple Menedżer urządzeń. 
+   5. Wprowadź klucz **szyfrowania danych usługi** dla usługi StorSimple Device Manager. 
 
       ![Skonfiguruj repozytorium danych źródłowych 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-      Po zakończeniu kliknij przycisk **OK** . Spowoduje to zapisanie repozytorium danych. Ponownie Użyj tego StorSimple Menedżer urządzeń w innych definicjach zadań bez konieczności ponownego wprowadzania tych parametrów. Po kliknięciu przycisku **OK** dla nowo utworzonego repozytorium danych źródłowych do wyświetlenia na liście rozwijanej trwa kilka sekund.
+      Po zakończeniu kliknij przycisk **OK** . Spowoduje to zapisanie repozytorium danych. Ponownie Użyj tego StorSimple Device Manager w innych definicjach zadań bez konieczności ponownego wprowadzania tych parametrów. Po kliknięciu przycisku **OK** dla nowo utworzonego repozytorium danych źródłowych do wyświetlenia na liście rozwijanej trwa kilka sekund.
 
 7. Z listy rozwijanej dla **repozytorium danych** wybierz utworzone repozytorium danych. 
 

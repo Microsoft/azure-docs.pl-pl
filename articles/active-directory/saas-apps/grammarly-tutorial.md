@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: 13b62646728eb03a7470d9bb57741bcb90cc24fb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92447725"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu gramatyki
@@ -123,7 +123,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-grammarly-sso"></a>Konfigurowanie gramatyki SSO
 
-Aby skonfigurować Logowanie jednokrotne na poziomie **gramatyki**, należy skopiować **adres URL logowania**, **Identyfikator usługi Azure AD**i pobrany **certyfikat (base64)** do panelu administratora gramatyki. [Dowiedz się, jak](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
+Aby skonfigurować Logowanie jednokrotne na poziomie **gramatyki**, należy skopiować **adres URL logowania**, **Identyfikator usługi Azure AD** i pobrany **certyfikat (base64)** do panelu administratora gramatyki. [Dowiedz się, jak](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### <a name="create-grammarly-test-user"></a>Tworzenie użytkownika testowego gramatyki
 
