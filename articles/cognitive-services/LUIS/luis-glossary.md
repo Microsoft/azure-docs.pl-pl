@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786948"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
@@ -287,13 +287,13 @@ W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizow
 |Nomalized wartość| Synonimy|
 |--|--|
 |Mały| nieco jeden, 8 uncji|
-|Średniaa| regularne, 12 uncji|
+|Śred.| regularne, 12 uncji|
 |Duży| Big, 16 uncji|
 |Xtra duże| największy jeden, 24 uncje|
 
 Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 
 [Testowanie](luis-concept-test.md) aplikacji Luis oznacza przeglądanie prognoz modeli.
 

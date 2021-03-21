@@ -15,10 +15,10 @@ ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979933"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
@@ -33,7 +33,7 @@ W tym samouczku pokazano, jak zaimplementować dynamiczne aktualizacje konfigura
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. [Visual Studio Code](https://code.visualstudio.com/) jest doskonałym rozwiązaniem dostępnym na platformach Windows, MacOS i Linux.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj swoją aplikację w celu zaktualizowania jej konfiguracji w odpowiedzi na zmiany w magazynie konfiguracji aplikacji.
@@ -66,7 +66,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Otwórz *program.cs* i zaktualizuj metodę, `CreateWebHostBuilder` Aby dodać `config.AddAzureAppConfiguration()` metodę.
+1. Otwórz *program. cs* i zaktualizuj metodę, `CreateWebHostBuilder` Aby dodać `config.AddAzureAppConfiguration()` metodę.
 
    #### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
 
@@ -142,7 +142,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
     Aby faktycznie wyzwolić operację odświeżania, należy skonfigurować oprogramowanie pośredniczące odświeżania dla aplikacji w celu odświeżenia danych konfiguracji, gdy wystąpi jakakolwiek zmiana. Zobaczysz, jak to zrobić w późniejszym kroku.
 
-2. Dodaj plik *Settings.cs* w katalogu controllers, który definiuje i implementuje nową `Settings` klasę. Zastąp przestrzeń nazw nazwą projektu. 
+2. Dodaj plik *Settings. cs* w katalogu controllers, który definiuje i implementuje nową `Settings` klasę. Zastąp przestrzeń nazw nazwą projektu. 
 
     ```csharp
     namespace TestAppConfig
@@ -157,7 +157,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     }
     ```
 
-3. Otwórz *Startup.cs* i Użyj `IServiceCollection.Configure<T>` metody, `ConfigureServices` Aby powiązać dane konfiguracji z `Settings` klasą.
+3. Otwórz *Start. cs* i Użyj `IServiceCollection.Configure<T>` `ConfigureServices` metody, aby powiązać dane konfiguracji z `Settings` klasą.
 
     #### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
 
@@ -291,7 +291,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
 ## <a name="use-the-latest-configuration-data"></a>Używanie najnowszych danych konfiguracji
 
-1. Otwórz *HomeController.cs* w katalogu controllers i Dodaj odwołanie do `Microsoft.Extensions.Options` pakietu.
+1. Otwórz *HomeController. cs* w katalogu controllers i Dodaj odwołanie do `Microsoft.Extensions.Options` pakietu.
 
     ```csharp
     using Microsoft.Extensions.Options;

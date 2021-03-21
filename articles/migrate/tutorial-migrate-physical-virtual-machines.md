@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
 ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626329"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
@@ -25,7 +25,7 @@ W tym artykule opisano sposób migrowania maszyn jako serwerów fizycznych na pl
 - Migrowanie maszyn wirtualnych działających w chmurach publicznych, takich jak Amazon Web Services (AWS) lub Google Cloud Platform (GCP).
 
 
-Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie do korzystania z platformy Azure z Azure Migrate: Migracja serwera.

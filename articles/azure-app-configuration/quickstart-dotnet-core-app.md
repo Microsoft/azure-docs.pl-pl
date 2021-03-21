@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 0ff80287971365b1477be319dc7a04760687f6a9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663404"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
@@ -64,7 +64,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools
     dotnet restore
     ```
 
-3. Otwórz *program.cs* i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
+3. Otwórz *program System. cs* i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

@@ -1,18 +1,18 @@
 ---
 title: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
-description: Aktywacja i konfiguracja konsoli zarządzania zapewniają, że czujniki są zarejestrowane na platformie Azure i wysyłają informacje do lokalnej konsoli zarządzania oraz że lokalna Konsola zarządzania wykonuje zadania zarządzania w połączonych czujników.
+description: Aktywowanie konsoli zarządzania gwarantuje, że czujniki są zarejestrowane na platformie Azure i wysyłają informacje do lokalnej konsoli zarządzania oraz że lokalna Konsola zarządzania wykonuje zadania zarządzania w połączonych czujników.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.service: defender-for-iot
+ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522584"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602760"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywowanie i konfigurowanie lokalnej konsoli zarządzania 
 
@@ -30,24 +30,32 @@ Aktywacja i konfiguracja lokalnej konsoli zarządzania zapewniają następujące
 
 Aby zalogować się do konsoli zarządzania:
 
-- Otwórz przeglądarkę internetową i wprowadź adres IP i hasło otrzymane dla lokalnej konsoli zarządzania podczas instalacji systemu. Jeśli nie pamiętasz hasła, wybierz opcję **Odzyskaj hasło** i zobacz [Odzyskiwanie hasła](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Podczas instalacji systemu przejdź do adresu IP otrzymanego w lokalnej konsoli zarządzania.
+ 
+1. Wprowadź nazwę użytkownika i hasło otrzymane dla lokalnej konsoli zarządzania podczas instalacji systemu. 
 
-## <a name="upload-an-activation-file"></a>Przekaż plik aktywacji
 
-Po pierwszym zalogowaniu Aktywuj lokalną konsolę zarządzania, pobierając plik aktywacji ze strony z **cennikiem** portalu usługi Azure Defender dla IoT. Ten plik zawiera zagregowane zatwierdzone urządzenia zdefiniowane podczas procesu dołączania. **Zatwierdzone urządzenia** wskazuje liczbę urządzeń, które usługa Defender for IoT będzie monitorować na subskrypcję.
+Jeśli nie pamiętasz hasła, wybierz opcję **Odzyskaj hasło**  i zobacz [Odzyskiwanie hasła](how-to-manage-the-on-premises-management-console.md#password-recovery) , aby uzyskać instrukcje dotyczące sposobu odzyskania hasła.
 
-Aby przekazać plik aktywacji:
+## <a name="get-and-upload-an-activation-file"></a>Pobieranie i przekazywanie pliku aktywacji
 
-1. Przejdź do strony **Cennik** usługi Defender for IoT.
+Po zalogowaniu się po raz pierwszy należy aktywować lokalną konsolę zarządzania przez pobranie i przekazanie pliku aktywacji. 
+
+Aby uzyskać plik aktywacji:
+
+1. Przejdź do strony **Cennik** portalu usługi Azure Defender dla IoT. 
+1. Wybierz subskrypcję, w której ma zostać skojarzona lokalna Konsola zarządzania.
 1. Wybierz pozycję **Pobierz plik aktywacji na karcie Konsola zarządzania** . Plik aktywacji zostanie pobrany.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Pobierz plik aktywacji.":::
 
-1. Wybierz pozycję **Ustawienia systemowe** z konsoli zarządzania.
-1. Wybierz pozycję **Aktywacja**.
-1. Wybierz pozycję **Wybierz plik** i wybierz zapisany plik.
+Aby przekazać plik aktywacji:
 
-Po początkowej aktywacji liczba monitorowanych urządzeń może przekroczyć liczbę zatwierdzonych urządzeń zdefiniowanych podczas dołączania. Taka sytuacja może wystąpić, jeśli na przykład łączysz więcej czujników z konsolą zarządzania. W przypadku niezgodności między liczbą monitorowanych urządzeń i liczbą zatwierdzonych urządzeń w konsoli zarządzania zostanie wyświetlone ostrzeżenie. W takim przypadku należy przekazać nowy plik aktywacji.
+1. Przejdź do strony **Ustawienia systemu** w lokalnej konsoli zarządzania.
+1. Wybierz ikonę **Aktywacja** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: .
+1. Wybierz pozycję **Wybierz plik**, a następnie wybierz pobrany plik.
+
+Po początkowej aktywacji liczba monitorowanych urządzeń może przekroczyć liczbę zatwierdzonych urządzeń zdefiniowanych podczas dołączania. Dzieje się tak, jeśli połączysz więcej czujników z konsolą zarządzania. Jeśli występuje rozbieżność między liczbą monitorowanych urządzeń i liczbą zatwierdzonych urządzeń, w konsoli zarządzania zostanie wyświetlone ostrzeżenie. Jeśli tak się stanie, Przekaż nowy plik aktywacji.
 
 ## <a name="set-up-a-certificate"></a>Konfigurowanie certyfikatu
 
@@ -73,7 +81,7 @@ Aby przekazać certyfikat:
 
 1. Po wyświetleniu monitu po zalogowaniu Zdefiniuj nazwę certyfikatu.
 1. Przekaż pliki CRT i Key.
-1. Wprowadź hasło i Przekaż plik PEM, jeśli jest to wymagane.
+1. Wprowadź hasło i w razie potrzeby Przekaż plik PEM.
 
 Po przekazaniu certyfikatu podpisanego przez urząd certyfikacji może być konieczne odświeżenie ekranu.
 
@@ -316,6 +324,6 @@ Aby cofnąć przypisanie i usunięcie czujnika:
 
 3. Aby usunąć nieprzypisany czujnik z lokacji, wybierz czujnik z listy nieprzypisanych czujników i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

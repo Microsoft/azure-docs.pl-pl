@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c2b55fd56677a15f444e1b568517bdf1c32c99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ad6d5308638b112afe2b51c4e149f876651e429d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200805"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592527"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Cisco WebEx
 
@@ -38,7 +38,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Cisco WebEx obsługuje logowanie jednokrotne zainicjowane przez usługę **SP** .
-* Cisco WebEx obsługuje [**Automatyczne Inicjowanie obsługi użytkowników**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+* Cisco WebEx obsługuje [**Automatyczne Inicjowanie obsługi użytkowników**](./cisco-webex-provisioning-tutorial.md).
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Dodawanie aplikacji Cisco Webex z galerii
 
@@ -159,7 +159,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-cisco-webex-test-user"></a>Tworzenie użytkownika testowego aplikacji Cisco Webex
 
-W tej sekcji użytkownik o nazwie B. Simon został utworzony w programie Cisco WebEx. Ta aplikacja obsługuje automatyczne Inicjowanie obsługi użytkowników, która umożliwia automatyczne Inicjowanie obsługi i cofanie aprowizacji na podstawie reguł firmy.  Firma Microsoft zaleca używanie automatycznej aprowizacji, gdy jest to możliwe. Zobacz, jak włączyć funkcję autoaprowizacji dla programu [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w programie Cisco WebEx. Ta aplikacja obsługuje automatyczne Inicjowanie obsługi użytkowników, która umożliwia automatyczne Inicjowanie obsługi i cofanie aprowizacji na podstawie reguł firmy.  Firma Microsoft zaleca używanie automatycznej aprowizacji, gdy jest to możliwe. Zobacz, jak włączyć funkcję autoaprowizacji dla programu [Cisco WebEx](./cisco-webex-provisioning-tutorial.md).
 
 Jeśli musisz ręcznie utworzyć użytkownika, wykonaj następujące czynności:
 
@@ -195,7 +195,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania Cisco WebEx i zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka Cisco WebEx w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania Cisco WebEx. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka Cisco WebEx w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania Cisco WebEx. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

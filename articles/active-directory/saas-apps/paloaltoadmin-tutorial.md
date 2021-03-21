@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 57b1d47fa40c0af4bced1e4169fe60cd759ee2f3
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Samouczek: integracja Azure Active Directory z programem Palo Alto Networks — interfejs użytkownika administratora
@@ -133,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -169,7 +169,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. Wyczyść pole wyboru **Validate Identity Provider Certificate** (Sprawdź poprawność certyfikatu dostawcy tożsamości).
 
-    d. Wybierz pozycję **OK**.
+    d. Wybierz przycisk **OK**.
 
     e. Aby zatwierdzić konfiguracje zapory, wybierz pozycję **Commit** (Zatwierdź).
 
@@ -183,7 +183,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
   
     a. W polu **Identity Provider SLO URL** (Adres URL wylogowania jednokrotnego dostawcy tożsamości) zastąp poprzednio zaimportowany adres URL wylogowania jednokrotnego następującym adresem URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
   
-    b. Wybierz pozycję **OK**.
+    b. Wybierz przycisk **OK**.
 
 7. W interfejsie użytkownika administratora zapory Palo Alto Networks wybierz pozycję **Device** (Urządzenie), a następnie wybierz pozycję **Admin Roles** (Role administratora).
 
@@ -218,7 +218,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     f. Zaznacz pole wyboru **All** (Wszystko) lub wybierz użytkowników i grupy, które mogą uwierzytelniać się za pomocą tego profilu.  
     Podczas uwierzytelniania użytkownika zapora dopasowuje skojarzoną nazwę użytkownika lub grupę do wpisów na tej liście. Jeśli nie dodasz wpisów, żaden użytkownik nie będzie mógł się uwierzytelnić.
 
-    przykład Wybierz pozycję **OK**.
+    przykład Wybierz przycisk **OK**.
 
 13. Aby umożliwić administratorom używanie logowania jednokrotnego SAML przy użyciu platformy Azure, wybierz pozycję  >  **Konfiguracja** urządzenia. W okienku **Setup** (Konfiguracja) wybierz kartę **Management** (Zarządzanie), a następnie w obszarze **Authentication Settings** (Ustawienia uwierzytelniania) wybierz przycisk **Settings** (Ustawienia), czyli koło zębate.
 
@@ -228,7 +228,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Pole Authentication Profile (Profil uwierzytelniania)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-15. Wybierz pozycję **OK**.
+15. Wybierz przycisk **OK**.
 
 16. Aby zatwierdzić konfigurację, wybierz pozycję **Commit** (Zatwierdź).
 

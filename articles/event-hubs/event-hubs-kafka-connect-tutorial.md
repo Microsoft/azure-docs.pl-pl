@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące korzystania z programu K
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935159"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integrowanie obsługi narzędzia Apache Kafka Connect w usłudze Azure Event Hubs
@@ -40,7 +40,7 @@ W tym samouczku wykonasz następujące kroki:
 Aby ukończyć ten przewodnik, upewnij się, że dysponujesz następującymi elementami:
 
 - Subskrypcja platformy Azure. Jeśli jej nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- [Narzędzia](https://www.git-scm.com/downloads)
+- [Usługa Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Platforma Kafka (wersja 1.1.1, Scala w wersji 2.11), dostępna na stronie [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Przeczytaj artykuł z wprowadzeniem [Usługa Event Hubs dla platformy Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)

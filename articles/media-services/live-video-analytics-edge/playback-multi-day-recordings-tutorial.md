@@ -4,10 +4,10 @@ description: W ramach tego samouczka nauczysz się używać interfejsów API us�
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99492792"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Samouczek: Odtwarzanie wielodniowych zapisów  
@@ -95,7 +95,7 @@ W odtwarzaczu zasobów AMS zostanie wyświetlony komunikat z prośbą o wprowadz
 
 Po wpisaniu nazwy zasobu i przesłaniania, kod odtwarzacza spowoduje załadowanie adresu URL przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [Przewodnik: odtwarzanie nagrań](playback-recordings-how-to.md). Jeśli zgodnie z zaleceniem nadal nastąpi nagrywanie do elementu zawartości, odtwarzacz wykryje to i podejmie próbę nawiązania odtwarzania z najnowszą częścią zapisanego wideo. Znacznik czasu (w formacie UTC) można zobaczyć w lewym górnym rogu odtwarzacza. Na poniższym zrzucie ekranu Zanotuj, jak przycisk "Live" jest wybrany.
 
-![Strumień](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
+![Stream](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  
 Po prawej stronie odtwarzacza można zobaczyć kontrolki, aby przeglądać archiwum. Lata, miesiące i daty w tym formancie są wypełniane przy użyciu interfejsu API availableMedia udokumentowanego w [podręczniku: odtwarzanie nagrań](playback-recordings-how-to.md).
 Po rozszerzeniu dnia, jeśli CVR samouczek jest uruchamiany przez kilka godzin, zobaczysz następujący wynik:

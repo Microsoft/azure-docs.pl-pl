@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99832627"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak przygotować urządzenie IoT Edge na maszynie wirtualnej platformy Azure. W wystąpieniu IoT Edge są uruchamiane moduły analizy wideo na żywo, które są używane przez szablon aplikacji Azure IoT Central Video Analytics — obiekt i ruch.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej platformy Azure z zainstalowanym środowiskiem uruchomieniowym Azure IoT Edge
 > * Przygotuj instalację IoT Edge, aby hostować moduł analizy wideo na żywo i połączyć się z IoT Central

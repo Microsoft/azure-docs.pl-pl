@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100547404"
 ---
 # <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Samouczek: zarządzanie dostępem do zasobów w usłudze Azure AD uprawnienia zarządzania
@@ -31,7 +31,7 @@ W tym samouczku będziesz używać banku Woodgrove jako administrator IT. Zażą
 
 ![Diagram przedstawiający Omówienie scenariusza.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie pakietu dostępu z grupą jako zasobem

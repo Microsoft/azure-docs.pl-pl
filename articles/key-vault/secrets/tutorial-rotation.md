@@ -12,10 +12,10 @@ ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99805233"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
@@ -248,7 +248,7 @@ Przejdź do adresu URL wdrożonej aplikacji:
 
 Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 - Samouczek: [rotacja zasobów przy użyciu dwóch zestawów poświadczeń](tutorial-rotation-dual.md)
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)

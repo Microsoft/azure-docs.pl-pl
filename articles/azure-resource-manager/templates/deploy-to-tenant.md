@@ -4,10 +4,10 @@ description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablon
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491490"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawców przy użyciu szablonów ARM

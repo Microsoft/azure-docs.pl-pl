@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
-ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/19/2021
+ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421315"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656910"
 ---
 # <a name="export-data-module"></a>Eksportuj moduł danych
 
@@ -45,13 +45,16 @@ Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w ob
     > [!NOTE]
     > Eksportowanie danych określonego typu danych do kolumny bazy danych SQL określonej jako inny typ danych nie jest obsługiwane. Tabela docelowa nie musi najpierw istnieć.
 
-1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe** , decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
+1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 
     Jest to domyślnie niezaznaczone, co oznacza, że moduł został wykonany z tymi samymi parametrami, system użyje danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
 
     W przypadku wybrania tej operacji system ponownie uruchomi moduł w celu ponownego wygenerowania danych wyjściowych.
 
-1. Zdefiniuj ścieżkę w magazynie danych, w której są dane. Ścieżka jest ścieżką względną. Puste ścieżki lub ścieżki URL są niedozwolone.
+1. Zdefiniuj ścieżkę w magazynie danych, w której są dane. Ścieżka jest ścieżką względną. Zrób to na `data/testoutput` przykład, co oznacza, że dane wejściowe **eksportu** są eksportowane do magazynu danych `data/testoutput` ustawionego w **ustawieniach danych wyjściowych** modułu.
+
+    > [!NOTE]
+    > Puste ścieżki lub **ścieżki URL** są niedozwolone.
 
 
 1. W polu **Format pliku** wybierz format, w którym mają być przechowywane dane.

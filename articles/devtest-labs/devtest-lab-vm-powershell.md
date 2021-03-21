@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać Azure DevTest Labs do tworzenia maszyn w
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f79b6ff92d633cf63477cddaabec918df352bec8
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499258"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Tworzenie maszyny wirtualnej za pomocą DevTest Labs przy użyciu Azure PowerShell

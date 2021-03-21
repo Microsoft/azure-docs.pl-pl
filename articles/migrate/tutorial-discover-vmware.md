@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041315"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware z Azure Migrate: Ocena serwera
@@ -20,7 +20,7 @@ W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia 
 
 W tym samouczku pokazano, jak odnajdywać serwery działające w środowisku VMware przy użyciu Azure Migrate: narzędzia do oceny serwera przy użyciu urządzenia z uproszczonym Azure Migrate. Urządzenie jest wdrażane jako serwer działający w vCenter Server, aby w sposób ciągły wykrywać serwery i ich metadane wydajności, aplikacje działające na serwerach, zależności serwera SQL Server i wystąpieniach i bazach danych.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure.
@@ -47,7 +47,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 **Serwery** | Wszystkie wersje systemów operacyjnych Windows i Linux są obsługiwane na potrzeby odnajdywania metadanych konfiguracji i wydajności. <br/><br/> Aby przeprowadzić odnajdywanie aplikacji na serwerach, obsługiwane są wszystkie wersje systemów operacyjnych Windows i Linux. Sprawdź wersje systemu operacyjnego obsługiwane [w przypadku analizy](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) zależności bez agentów.<br/><br/> Aby przeprowadzić odnajdywanie zainstalowanych aplikacji i analizy zależności bez agenta, należy zainstalować i uruchomić narzędzia VMware (nowsze niż 10.2.0) na serwerach. Na serwerach z systemem Windows musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.<br/><br/> Aby odnaleźć SQL Server wystąpienia i bazy danych, [zapoznaj się](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) z obsługiwanymi SQL Server wersjami i wydaniami, obsługiwane wersje systemu operacyjnego Windows i mechanizmy uwierzytelniania.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
@@ -274,7 +274,7 @@ W **kroku 3: zapewnianie poświadczeń serwera do wykonywania spisu oprogramowan
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia dla szczegółów serwera":::
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, wykonując poniższe kroki. Urządzenie podejmie próbę automatycznego mapowania poświadczeń do serwerów w celu wykonania funkcji odnajdywania.
 

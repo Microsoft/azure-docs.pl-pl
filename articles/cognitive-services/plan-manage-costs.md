@@ -8,10 +8,10 @@ ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699933"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planowanie i zarządzanie kosztami Cognitive Services platformy Azure
@@ -74,7 +74,7 @@ Korzystając z analizy kosztów, można wyświetlać Cognitive Services koszty n
 
 Aby wyświetlić koszty Cognitive Services w analizie kosztów:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Otwórz zakres w Azure Portal a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów.
 3. Domyślnie koszt usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą Cognitive Services.
 
