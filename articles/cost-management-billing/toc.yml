@@ -216,8 +216,6 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Programowe tworzenie subskrypcji MPA
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Tworzenie subskrypcji — szablon usługi ARM
-              href: manage/create-subscription-template.md
             - name: Programowe tworzenie subskrypcji — interfejsy API w wersji zapoznawczej
               href: manage/programmatically-create-subscription-preview.md
         - name: Zarządzanie subskrypcjami umowy Enterprise Agreement

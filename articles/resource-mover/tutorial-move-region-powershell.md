@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 02/21/2021
 ms.author: raynew
 ms.openlocfilehash: b728170521570ff0d83b67671109e82adb7fa7b0
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584426"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Przenoszenie zasobów między regionami w programie PowerShell
 
 W tym artykule opisano sposób przenoszenia zasobów platformy Azure do innego regionu platformy Azure przy użyciu programu PowerShell w środowisku [przenoszenia zasobów platformy Azure](overview.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne i wymagania.

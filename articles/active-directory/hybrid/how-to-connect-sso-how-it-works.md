@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100369649"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: głębokie szczegółowe
@@ -67,10 +67,6 @@ Przepływ logowania w przeglądarce sieci Web jest następujący:
 6. Active Directory lokalizuje konto komputera i zwraca bilet protokołu Kerberos do przeglądarki zaszyfrowanej przy użyciu klucza tajnego konta komputera.
 7. Przeglądarka przekazuje bilet Kerberos uzyskany z Active Directory do usługi Azure AD.
 8. Usługa Azure AD odszyfrowuje bilet protokołu Kerberos, który obejmuje tożsamość użytkownika zalogowanego na urządzeniu firmowym przy użyciu klucza współużytkowanego.
-
-   >[!NOTE]
-   >Usługa Azure AD podejmie próbę dopasowania nazwy UPN użytkownika z biletu protokołu Kerberos do obiektu użytkownika usługi Azure AD, który ma odpowiednią wartość w atrybucie userPrincipalName. Jeśli to się nie powiedzie, usługa Azure AD powróci do dopasowania samAccountName z biletu protokołu Kerberos do obiektu użytkownika usługi Azure AD, który ma odpowiednią wartość w atrybucie nazwy pospolitej onpremisessamaccountname.
-   
 9. Po dokonaniu oceny usługa Azure AD zwraca token z powrotem do aplikacji lub prosi użytkownika o wykonanie dodatkowych prób, takich jak Multi-Factor Authentication.
 10. Jeśli logowanie użytkownika zakończyło się pomyślnie, użytkownik będzie mógł uzyskać dostęp do aplikacji.
 

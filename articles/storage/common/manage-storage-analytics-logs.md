@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701709"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Włączanie dzienników Azure Storage Analytics i zarządzanie nimi (klasyczne)

@@ -7,18 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361489"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592000"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą kodu niestandardowego. Za pomocą działania elementu webhook kod klienci może wywoływać punkt końcowy i przekazać go do adresu URL wywołania zwrotnego. Uruchomienie potoku oczekuje na wywołanie wywołania zwrotnego przed przejściem do następnego działania.
+
+> [!IMPORTANT]
+> Działanie elementu webhook umożliwia teraz wypróbowanie powierzchni stanu błędu i komunikatów niestandardowych z powrotem do działania i potoku. Ustaw _reportStatusOnCallBack_ na true, a w ładunku wywołania zwrotnego Uwzględnij wartość _StatusCode_ i _błąd_ . Aby uzyskać więcej informacji, zobacz sekcję [dodatkowe uwagi](#additional-notes) .
 
 ## <a name="syntax"></a>Składnia
 
@@ -37,6 +40,7 @@ Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą k
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",

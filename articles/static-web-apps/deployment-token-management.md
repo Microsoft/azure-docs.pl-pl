@@ -8,10 +8,10 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 1/31/2021
 ms.openlocfilehash: fe1edb2693993d02a705039c18b04c8d1b7b9725
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746520"
 ---
 # <a name="reset-deployment-tokens-in-azure-static-web-apps-preview"></a>Zresetuj tokeny wdrażania w usłudze Azure static Web Apps (wersja zapoznawcza)

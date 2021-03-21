@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 3ab861caca0ef6f58c2c1bc722412774deb725ce
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936686"
 ---
 # <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Samouczek: wymagania wstępne dotyczące używania Cognitive Services w usłudze Azure Synapse Analytics
@@ -82,4 +82,4 @@ Teraz możesz przystąpić do kontynuowania pracy z jednym z samouczków dotycz�
 - [Samouczek: Analiza tonacji przy użyciu usługi Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Samouczek: wykrywanie anomalii w usłudze Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Samouczek: ocenianie modelu uczenia maszynowego w ramach dedykowanych pul SQL usługi Azure Synapse](tutorial-sql-pool-model-scoring-wizard.md).
-- [Możliwości Machine Learning w usłudze Azure Synapse Analytics](what-is-machine-learning.md)
+- [Możliwości uczenia maszynowego w usłudze Azure Synapse Analytics](what-is-machine-learning.md)

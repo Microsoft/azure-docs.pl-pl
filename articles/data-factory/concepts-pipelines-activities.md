@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364532"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w usłudze Azure Data Factory
@@ -56,10 +56,10 @@ Działanie przekształcania danych | Środowisko obliczeniowe
 [Działania Azure Machine Learning Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](transform-data-using-machine-learning.md) | Maszyna wirtualna platformy Azure
 [Procedura składowana](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics lub SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
-[Działanie niestandardowe](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Działanie niestandardowe](transform-data-using-dotnet-custom-activity.md) | Usługa Azure Batch
 [Notes usługi Databricks](transform-data-databricks-notebook.md) | Azure Databricks
-[Działanie pliku Jar usługi Databricks](transform-data-databricks-jar.md) | Azure Databricks
-[Działanie języka Python w usłudze Databricks](transform-data-databricks-python.md) | Azure Databricks
+[Aktywność jar](transform-data-databricks-jar.md) | Azure Databricks
+[Aktywność języka Python dla elementów datakostek](transform-data-databricks-python.md) | Azure Databricks
 
 Aby uzyskać więcej informacji, zobacz artykuł z [działaniami dotyczącymi przekształcania danych](transform-data.md).
 
@@ -75,7 +75,7 @@ Działanie sterowania | Opis
 [Pobierz metadane](control-flow-get-metadata-activity.md) | Działanie GetMetadata umożliwia pobieranie metadanych dowolnych danych z usługi Azure Data Factory.
 [Działanie If Condition](control-flow-if-condition-activity.md) | Działanie If Condition umożliwia tworzenie gałęzi na podstawie warunków, które są obliczane na wartość true lub false. Działanie If Condition pełni taką samą rolę, co instrukcja if w językach programowania. Oblicza zestaw działań, gdy warunek zostanie obliczony do `true` i inny zestaw działań, gdy warunek zostanie obliczony `false.`
 [Działanie wyszukiwania](control-flow-lookup-activity.md) | Działanie Lookup może być używane do odczytywania lub wyszukiwania rekordu/nazwy tabeli/wartości z dowolnego źródła zewnętrznego. Do tych danych wyjściowych mogą także odwoływać się kolejne działania.
-[Ustaw zmienną](control-flow-set-variable-activity.md) | Ustaw wartość istniejącej zmiennej.
+[Set-Variable](control-flow-set-variable-activity.md) | Ustaw wartość istniejącej zmiennej.
 [Działanie Until](control-flow-until-activity.md) | Wprowadza pętlę Do-Until, przypominającą strukturę pętli Do-Until w językach programowania. Służy do wykonywania zestawu działań w pętli do momentu, gdy warunek skojarzony z działaniem zostanie obliczony na wartość true. W usłudze Data Factory można określić wartość limitu czasu działania Until.
 [Działanie weryfikacji](control-flow-validation-activity.md) | Upewnij się, że potok kontynuuje wykonywanie tylko wtedy, gdy istnieje zestaw danych referencyjnych, spełnia określone kryteria lub osiągnięto limit czasu.
 [Działanie Wait](control-flow-wait-activity.md) | Gdy używasz działania oczekiwania w potoku, potok czeka przez określony czas przed kontynuowaniem wykonywania kolejnych działań.

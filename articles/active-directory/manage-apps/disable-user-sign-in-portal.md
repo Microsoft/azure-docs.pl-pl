@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259240"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Wyłącz logowania użytkowników dla aplikacji dla przedsiębiorstw w Azure Active Directory
@@ -33,8 +33,8 @@ Można łatwo wyłączyć aplikację przedsiębiorstwa, aby uniemożliwić użyt
 1. Wybierz pozycję **wszystkie usługi**, wpisz **Azure Active Directory** w polu tekstowym, a następnie wybierz klawisz **Enter**.
 1. W okienku **Azure Active Directory**  -   **_DirectoryName_*_ (czyli okienku usługi Azure AD dla katalogu, którym zarządzasz) wybierz pozycję _ aplikacje dla* przedsiębiorstw**.
 1. W okienku **aplikacje dla przedsiębiorstw — wszystkie aplikacje** zostanie wyświetlona lista aplikacji, którymi można zarządzać. Wybierz aplikację.
-1. W okienku **_nazwa_aplikacji_*_ (czyli okienku z nazwą wybranej aplikacji w tytule) wybierz pozycję _* właściwości**.
-1. W okienku **właściwości _nazwa_aplikacji_*_-_*** wybierz pozycję **nie** , aby **włączyć Logowanie użytkowników?**.
+1. W okienku ***nazwa_aplikacji** _ (czyli okienku z nazwą wybranej aplikacji w tytule) wybierz _ * właściwości * *.
+1. W okienku ***nazwa_aplikacji** _-_ *Właściwości** wybierz pozycję **nie** , aby **włączyć Logowanie użytkowników?**.
 1. Wybierz polecenie **Zapisz** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Wyłączenie aplikacji nieznajdującej się na liście przy użyciu programu Azure AD PowerShell

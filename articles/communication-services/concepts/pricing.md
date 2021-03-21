@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495797"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
@@ -27,7 +27,7 @@ Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatno
 
 Usługi komunikacyjne platformy Azure umożliwiają dodawanie połączeń głosowych i wideo oraz udostępnianie ekranu do aplikacji. Możesz osadzić środowisko w aplikacjach przy użyciu bibliotek JavaScript, zamierzenia C (Apple), Java (Android) lub .NET Client. Zapoznaj się z naszą [pełną listą dostępnych bibliotek klientów](./sdk-options.md).
 
-### <a name="pricing"></a>Cennik
+### <a name="pricing"></a>Ceny
 
 Połączenia i usługi udostępniania ekranu są płatne za minutę za każdy uczestnika w wysokości $0,004 miesięcznie dla wywołań grupowych. Aby poznać różne przepływy wywołań, które są możliwe, zapoznaj się z [tą stroną](./call-flows.md).
 

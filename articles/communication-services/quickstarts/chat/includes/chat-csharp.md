@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: mikben
 ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495437"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -28,7 +28,7 @@ Przed rozpoczęciem upewnij się, że:
 
 ### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `ChatQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `ChatQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program. cs**.
 
 ```console
 dotnet new console -o ChatQuickstart
@@ -66,7 +66,7 @@ Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md
 
 Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami dla aplikacji czatu, chociaż jest to zalecane. Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.md)
 
-Skopiuj następujące fragmenty kodu i wklej je do pliku źródłowego: **program.cs**
+Skopiuj następujące fragmenty kodu i wklej je do pliku źródłowego: **program. cs**
 ```csharp
 using Azure;
 using Azure.Communication;

@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431265"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582718"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -151,6 +151,8 @@ Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawią
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    Zdecydowanie zaleca się dołączenie w polu interfejsu API-Version. W przeciwnym razie może to spowodować nieoczekiwane zachowanie. 
+    
 * W polu **hasło** Użyj tokenu SAS. Format tokenu sygnatury dostępu współdzielonego jest taki sam jak dla protokołów HTTPS i AMQP:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`

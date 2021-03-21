@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259574"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
@@ -40,7 +40,7 @@ Hasła, zarówno okropnej IT, jak i bólu dla pracowników na całym świecie. T
 
 Nie ma więcej zarządzania hasłem. Bezpiecznie Uzyskuj dostęp do wszystkich potrzebnych zasobów przy użyciu poświadczeń firmowych. 
 
-|Cechy  | Opis | Zalecenie |
+|Cecha  | Opis | Zalecenie |
 |---------|---------|---------|
 |Logowanie jednokrotne|Oparte na standardach federacyjnego Logowanie jednokrotne przy użyciu zaufanych standardów branżowych.|Zawsze używaj protokołu [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) , aby włączyć logowanie jednokrotne, gdy aplikacja je obsługuje.|
 |Moje aplikacje|Zapewnianie użytkownikom prostego centrum w celu odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Umożliwiają im wydajniejsze korzystanie z funkcji samoobsługowych, takich jak żądanie dostępu do aplikacji i grup oraz zarządzanie dostępem do zasobów w imieniu innych użytkowników.| Wdróż [Moje aplikacje](my-apps-deployment-plan.md) w organizacji po zintegrowaniu aplikacji z usługą Azure AD na potrzeby logowania jednokrotnego.|
@@ -51,7 +51,7 @@ Nie ma więcej zarządzania hasłem. Bezpiecznie Uzyskuj dostęp do wszystkich p
 Większość aplikacji wymaga, aby użytkownik mógł zostać zainicjowany do aplikacji przed uzyskaniem dostępu do potrzebnych zasobów. Korzystanie z plików CSV lub skryptów złożonych może być kosztowne i trudne do zarządzania. Ponadto klienci muszą upewnić się, że konta są usuwane, gdy ktoś nie powinien już mieć dostępu. Skorzystaj z poniższych narzędzi, aby zautomatyzować obsługę administracyjną i anulować obsługę administracyjną. 
 
 
-|Cechy  |Opis|Zalecenie |
+|Cecha  |Opis|Zalecenie |
 |---------|---------|---------|
 |Inicjowanie obsługi Standard scim|[Standard scim](https://aka.ms/SCIMOverview) to najlepsze rozwiązanie w branży do automatyzowania aprowizacji użytkowników. Wszystkie aplikacje zgodne z standard scim można zintegrować z usługą Azure AD. Automatycznie twórz, Aktualizuj i usuwaj konta użytkowników bez konieczności zachowywania plików CSV, skryptów niestandardowych ani rozwiązań Premium.|Zapoznaj się z rosnącą listą [wstępnie zintegrowanych](../saas-apps/tutorial-list.md) aplikacji w galerii aplikacji usługi Azure AD|
 |Microsoft Graph|Skorzystaj z wdychania i głębokości danych, które usługa Azure AD ma wzbogacać swoją aplikację o dane, których potrzebuje.|Skorzystaj z [programu Microsoft Graph](https://developer.microsoft.com/graph/) , aby uzyskać dane z całego ekosystemu firmy Microsoft. |
@@ -60,7 +60,7 @@ Większość aplikacji wymaga, aby użytkownik mógł zostać zainicjowany do ap
 ## <a name="scenario-3-secure-your-applications"></a>Scenariusz 3: Zabezpieczanie aplikacji
 Tożsamość jest Linchpin dla bezpieczeństwa. Jeśli tożsamość zostanie naruszona, trudno jest niezwykle efekt programu Domino przed zbyt późnym użyciem. Średnio ponad 100 dni przed wykryciem naruszenia bezpieczeństwa przez organizacje. Skorzystaj z narzędzi oferowanych przez usługę Azure AD, aby zwiększyć stan zabezpieczeń aplikacji. 
 
-|Cechy  |Opis| Zalecenie |
+|Cecha  |Opis| Zalecenie |
 |---------|---------| ---------|
 |Usługa Azure AD MFA|Usługa Azure AD Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft do weryfikacji dwuetapowej. Przy użyciu zaakceptowanych przez administratora metod uwierzytelniania usługa Azure AD MFA pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania dotyczące prostego procesu logowania.| [Włącz usługę MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) dla użytkowników.  |
 |Dostęp warunkowy|Za pomocą dostępu warunkowego można zaimplementować zautomatyzowane decyzje dotyczące kontroli dostępu, które mogą uzyskiwać dostęp do aplikacji w chmurze na podstawie warunków.| Zapoznaj się z [ustawieniami domyślnymi zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) i [typowymi zasadami](../conditional-access/concept-conditional-access-policy-common.md) używanymi przez klientów. | 
@@ -69,7 +69,7 @@ Tożsamość jest Linchpin dla bezpieczeństwa. Jeśli tożsamość zostanie nar
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Scenariusz 4: zarządzanie dostępem do aplikacji
 Zarządzanie tożsamościami pomaga organizacjom w osiągnięciu równowagi między produktywnością — jak szybko można uzyskać dostęp do potrzebnych aplikacji, takich jak dołączanie do mojej organizacji? I zabezpieczenia — jak należy zmienić ich dostęp z upływem czasu, na przykład ze względu na zmiany stanu zatrudnienia osoby? 
 
-|Cechy  |Opis|Zalecenie |
+|Cecha  |Opis|Zalecenie |
 |---------|---------| ---------|
 |ELM|Zarządzanie prawami w usłudze Azure AD może pomóc użytkownikom zarówno w organizacji, jak i poza nią, efektywniejsze zarządzanie dostępem do aplikacji.| Zezwalaj użytkownikom innym niż Administratorzy na zarządzanie dostępem do aplikacji za pomocą [pakietów dostępu](../governance/entitlement-management-access-package-first.md).|
 |Przeglądy dostępu|Dostęp użytkownika do aplikacji może być regularnie przeglądany, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp.| [Przejrzyj dostęp](../governance/access-reviews-overview.md) do najbardziej poufnych aplikacji. |
@@ -79,7 +79,7 @@ Zarządzanie tożsamościami pomaga organizacjom w osiągnięciu równowagi mię
 ## <a name="scenario-5-hybrid-secure-access"></a>Scenariusz 5: bezpieczny dostęp do hybrydowego dostępu
 Tożsamość może być tylko płaszczyzną kontroli, jeśli może połączyć wszystko w aplikacjach w chmurze i lokalnych. Skorzystaj z narzędzi udostępnianych przez usługę Azure AD i jej partnerów, aby zabezpieczyć dostęp do starszych aplikacji opartych na uwierzytelnianiu.
 
-|Cechy  |Opis|Zalecenie |
+|Cecha  |Opis|Zalecenie |
 |---------|---------|---------|
 |Serwer proxy aplikacji|Obecnie pracownicy chcą pracować wydajnie w dowolnym miejscu i czasie, na dowolnym urządzeniu. Muszą oni uzyskiwać dostęp do aplikacji SaaS w chmurze i aplikacji firmowych w środowisku lokalnym. Serwer proxy aplikacji usługi Azure AD umożliwia ten niezawodny dostęp bez kosztownych i złożonych wirtualnych sieci prywatnych (VPN) lub stref zdemilitaryzowana (stref DMZ).|Skonfiguruj [dostęp zdalny](./application-proxy.md) do aplikacji Premium. |
 |F5, Akamai, rozwiązania Zscaler|Korzystając z istniejącego kontrolera sieci i dostarczania, można łatwo chronić starsze aplikacje, które nadal mają kluczowe znaczenie dla procesów firmy, ale nie można było chronić przed usługą Azure AD. Prawdopodobnie masz już wszystko, czego potrzebujesz, aby rozpocząć ochronę tych aplikacji.| Korzystasz z Akamai, Citrix, F5 lub rozwiązania Zscaler? Zapoznaj się z [wbudowanymi rozwiązaniami](./secure-hybrid-access.md). | 
