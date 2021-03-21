@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
 ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350232"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Samouczek: Tworzenie statycznej aplikacji internetowej z Blazor w usłudze Azure static Web Apps
@@ -103,11 +103,11 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
     - Wybierz pozycję **Blazor** z listy rozwijanej _kompilacje predefiniowane_ i Zachowaj wszystkie wartości domyślne.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
     :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Przycisk Utwórz":::
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606780"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 jako magazyn domyślny przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [Korzystanie z witryny Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Użyj Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Korzystanie z programu PowerShell (dla magazynu domyślnego)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Korzystanie z programu PowerShell (do dodatkowego magazynu)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Użyj Menedżer zasobów](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Możesz również użyć `hdfs dfs -put` polecenia, aby przekazać pliki do Data Lake Storage Gen1, a następnie użyć `hdfs dfs -ls` do sprawdzenia, czy pliki zostały pomyślnie przekazane.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Azure Portal: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2ece9ed5cb6eb6ea706db1ed615a64d001f2b17c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102423959"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Samouczek: Tworzenie aplikacji konsolowej .NET do zarządzania danymi w Azure Cosmos DB koncie interfejsu API SQL
@@ -79,7 +79,7 @@ Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Krok 3. Łączenie się z kontem usługi Azure Cosmos DB
 
-1. Zastąp odwołania na początku aplikacji C# w pliku *program.cs* , korzystając z następujących odwołań:
+1. Zastąp odwołania na początku aplikacji C# w pliku *program. cs* następującymi odwołaniami:
 
    ```csharp
    using System;
@@ -124,7 +124,7 @@ Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Pobierz klucze Azure Cosmos DB z Azure Portal":::
 
-1. W *program.cs*, Zastąp `<your endpoint URL>` wartość **identyfikatorem URI**. Zamień `<your primary key>` na wartość **klucza podstawowego**.
+1. W *programie program. cs* Zastąp `<your endpoint URL>` wartość **identyfikatorem URI**. Zamień `<your primary key>` na wartość **klucza podstawowego**.
 
 1. Poniżej metody **Main** Dodaj nowe zadanie asynchroniczne o nazwie **GetStartedDemoAsync**, które tworzy wystąpienie naszego nowego `CosmosClient` .
 
@@ -179,7 +179,7 @@ Baza danych jest logicznym kontenerem elementów podzielonym na partycje w konte
     }
     ```
 
-    Twoja *program.cs* powinna teraz wyglądać następująco, a punkt końcowy i wypełniony klucz podstawowy zostały wypełnione.
+    Twój *program. cs* powinien teraz wyglądać tak, jak w przypadku punktu końcowego i wypełnionego klucza podstawowego.
 
     ```csharp
     using System;
@@ -311,14 +311,14 @@ Najpierw Utwórzmy `Family` klasę reprezentującą obiekty przechowywane w Azur
 
 1. Wybierz kombinację klawiszy Ctrl + Shift + A, aby otworzyć **pozycję Dodaj nowy element**. Dodaj nową klasę `Family.cs` do projektu.
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Zrzut ekranu przedstawiający Dodawanie nowej klasy Family.cs do projektu":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Zrzut ekranu przedstawiający Dodawanie nowej klasy Family. cs do projektu":::
 
 1. Skopiuj i wklej `Family` klasy, `Parent` , `Child` , `Pet` i `Address` do `Family.cs` .
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 
-1. Wróć do *program.cs*, Dodaj `AddItemsToContainerAsync` metodę po `CreateContainerAsync` metodzie.
+1. Wróć do *programu w programie program. cs*, Dodaj `AddItemsToContainerAsync` metodę po `CreateContainerAsync` metodzie.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 

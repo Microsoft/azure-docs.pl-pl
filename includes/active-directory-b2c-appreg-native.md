@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/02/2020
 ms.author: mimart
 ms.openlocfilehash: 2ad6b90616077a6d18550e86692b109bda622af7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96025574"
 ---
 Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](../articles/active-directory-b2c/app-registrations-training-guide.md).
@@ -41,4 +41,4 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wprowadź **niestandardowy identyfikator URI przekierowania** z unikatowym schematem. Na przykład `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Istnieją dwie ważne kwestie do rozważenia podczas wybierania identyfikatora URI przekierowania:
     * **Unikatowy**: schemat identyfikatora URI przekierowania musi być unikatowy dla każdej aplikacji. W przykładzie `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` jest to schemat `com.onmicrosoft.contosob2c.exampleapp`. Należy przestrzegać tego wzorca. Jeśli dwie aplikacje mają ten sam schemat, użytkownik ma możliwość wyboru aplikacji. Jeśli użytkownik zdecyduje się nieprawidłowo, logowanie nie powiedzie się.
     * **Ukończono**: identyfikator URI przekierowania musi mieć zarówno schemat, jak i ścieżkę. Ścieżka musi zawierać co najmniej jeden ukośnik po nazwie domeny. Na przykład `//oauth/` działa, gdy `//oauth` nie powiedzie się. Nie dołączaj znaków specjalnych w identyfikatorze URI, na przykład podkreślenia.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.

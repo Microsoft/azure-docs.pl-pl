@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
 ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498935"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
@@ -135,13 +135,13 @@ Dobrym sposobem jest przetestowanie założeń dotyczących sposobu reagowania u
 
 Współpracujemy z [chmurą BreakingPoint](https://www.ixiacom.com/products/breakingpoint-cloud) , aby utworzyć interfejs, w którym klienci platformy Azure mogą generować ruch do publicznych punktów końcowych z włączonymi DDoS Protectionami dla symulacji. Możesz użyć symulacji [chmury BreakingPoint](https://www.ixiacom.com/products/breakingpoint-cloud) , aby:
 
-- Sprawdź, jak Azure DDoS Protection pomaga chronić zasoby platformy Azure przed atakami DDoS.
+- Sprawdzić, jak usługa Azure DDoS Protection pomaga chronić zasoby platformy Azure przed atakami DDoS.
 
-- Zoptymalizuj proces reagowania na zdarzenia w trakcie ataku DDoS.
+- Zoptymalizować proces reagowania na zdarzenia w trakcie ataku DDoS.
 
-- Zgodność dokumentu DDoS.
+- Dokumentować zgodność z zasadami dotyczącymi ataków DDoS.
 
-- Uczenie zespołów zabezpieczeń sieci.
+- Szkolić zespoły ds. bezpieczeństwa sieci.
 
 Cyberbezpieczeństwa wymaga stałej innowacji w ramach obrony. Ochrona Standardowa usługi Azure DDoS to najnowocześniejsza oferta z skutecznym rozwiązaniem, które pozwala wyeliminować coraz bardziej złożone ataki DDoS.
 

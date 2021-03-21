@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501162"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania wizualnego Bing
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania wizualnego Bing obsługuje więcej niż trzy dziesiątki krajów/regionów, wiele z więcej niż jednym językiem. Każde żądanie powinno zawierać kraj/region i język wyboru użytkownika. Wiedząc, że rynek użytkownika pomaga w usłudze Bing zwracać odpowiednie wyniki. Jeśli nie określisz kraju/regionu i języka, Bing najlepiej nadaje się do ustalenia kraju/regionu i języka użytkownika. Ze względu na to, że wyniki mogą zawierać linki do usługi Bing, wiedząc, że kraj/region i język mogą zapewnić preferowany, zlokalizowany interfejs użytkownika Bing, jeśli użytkownik kliknie linki Bing.
@@ -56,7 +56,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID|
+|Indonezja|ID (Identyfikator)|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -109,7 +109,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Holandia|Niderlandzki|nl-NL|
 |Nowa Zelandia|Angielski|EN-NZ|
 |Chiny|Chiński|zh-CN|
-|Polska|Polski|pl-PL|
+|Polska|polski|pl-PL|
 |Portugalia|Portugalski|pt-PT|
 |Filipiny|Angielski|EN-PH|
 |Rosja|Rosyjski|ru-RU|

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519063"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu Azure Portal

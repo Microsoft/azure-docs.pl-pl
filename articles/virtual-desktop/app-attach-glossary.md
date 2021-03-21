@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518672"
 ---
 # <a name="msix-app-attach-glossary"></a>Dołączanie słownika aplikacji MSIX
@@ -108,19 +108,19 @@ Deprzygotowywanie powiadamia system operacyjny, że pakiet lub aplikacja MSIX, k
 
 ## <a name="cim"></a>WSPÓLNYCH
 
-Model CIM to nowe rozszerzenie pliku skojarzone z systemem plików obrazów złożonych (CimFS). Instalowanie i Odinstalowywanie plików CIM jest szybsze, ponieważ pliki VHD. Model CIM zużywa również mniej czasu procesora i pamięci niż dysk VHD.
+. Model CIM to nowe rozszerzenie pliku skojarzone z systemem plików obrazów złożonych (CimFS). Instalowanie i Odinstalowywanie plików CIM jest szybsze, ponieważ pliki VHD. Model CIM zużywa również mniej czasu procesora i pamięci niż dysk VHD.
 
 Plik CIM jest plikiem z rozszerzeniem. Rozszerzenie CIM zawierające metadane i co najmniej sześć dodatkowych plików zawierających rzeczywiste dane. Pliki w pliku CIM nie mają rozszerzeń. Poniższa tabela zawiera listę przykładowych plików znalezionych w modelu CIM:
 
-| Nazwa pliku | Rozszerzenie | Rozmiar |
+| Nazwa pliku | Wewnętrzny | Rozmiar |
 |-----------|-----------|------|
 | VSC | WSPÓLNYCH | 1 KB |
-| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | Nie dotyczy | 27 KB |
-| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | Nie dotyczy | 20 KB |
-| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | Nie dotyczy | 42 KB |
-| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | Nie dotyczy | 428 KB |
-| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | Nie dotyczy | 217 KB |
-| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | Nie dotyczy | 264 132 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 264 132 KB |
 
 Poniższa tabela przedstawia porównanie wydajności między dyskami VHD i CimFS. Te liczby były wynikiem przebiegu testu z plikami 500 300 MB w każdym formacie uruchomionym na maszynie DSv4.
 

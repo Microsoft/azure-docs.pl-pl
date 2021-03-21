@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96601615"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Informacje o cenach usługi Azure Application Gateway i zapory aplikacji sieci Web
@@ -56,9 +56,9 @@ W poniższej tabeli przedstawiono przykładowe ceny oparte na migawce cen Wschod
 
 |              Typ Application Gateway             |  Koszty ($/godz.)  |
 | ------------------------------------------------- | ---------------|
-|                     Mała                         |    $0,025      |
-|                     Średniaa                        |    $0,07       |
-|                     Duża                         |    $0,32       |
+|                     Mały                         |    $0,025      |
+|                     Śred.                        |    $0,07       |
+|                     Duży                         |    $0,32       |
 
 Miesięczne oszacowania cen zostały wyznaczone dla 730 godzin użytkowania miesięcznie.
 
@@ -82,9 +82,9 @@ W poniższej tabeli przedstawiono przykładowe ceny na podstawie migawki cen Wsc
 
 |              Typ Application Gateway             |  Koszty ($/godz.)  |
 | ------------------------------------------------- | ---------------|
-|                     Mała                         |       Nie dotyczy       |
-|                     Średniaa                        |     $0,126     |
-|                     Duża                         |     $0,448     |
+|                     Mały                         |       NA       |
+|                     Śred.                        |     $0,126     |
+|                     Duży                         |     $0,448     |
 
 Miesięczne oszacowania cen zostały wyznaczone dla 730 godzin użytkowania miesięcznie.
 

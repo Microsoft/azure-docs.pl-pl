@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2ce552a13592c9d26ef70575f98b0b76ecc454ff
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97591995"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW)
@@ -26,7 +26,7 @@ Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej p
 
 **Sprawdź pojemność jednostek DTU.** Każda pula jest hostowana przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) (na przykład MyServer.Database.Windows.NET), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy serwer ma wystarczającą liczbę pozostałych limitów przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 1. Upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Mieć istniejący punkt przywracania, z którego chcesz przeprowadzić przywracanie. Jeśli chcesz utworzyć nowe przywracanie, zapoznaj się z [samouczkiem, aby utworzyć nowy punkt przywracania zdefiniowany przez użytkownika](sql-data-warehouse-restore-points.md).

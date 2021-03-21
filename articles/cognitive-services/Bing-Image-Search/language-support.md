@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350079"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania obrazów Bing
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania obrazów Bing obsługuje więcej niż trzy dziesiątki krajów/regionów, wiele z więcej niż jednym językiem. Określenie kraju/regionu z zapytaniem służy głównie do uściślenia wyników wyszukiwania w oparciu o zainteresowania w tym kraju/regionie. Ponadto wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing zgodnie z określonym krajem lub regionami lub językiem.
@@ -54,7 +54,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID|
+|Indonezja|ID (Identyfikator)|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -107,7 +107,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Holandia|Niderlandzki|nl-NL|
 |Nowa Zelandia|Angielski|EN-NZ|
 |Chiny|Chiński|zh-CN|
-|Polska|Polski|pl-PL|
+|Polska|polski|pl-PL|
 |Portugalia|Portugalski|pt-PT|
 |Filipiny|Angielski|EN-PH|
 |Rosja|Rosyjski|ru-RU|

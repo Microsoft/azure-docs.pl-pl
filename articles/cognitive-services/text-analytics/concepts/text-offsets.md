@@ -12,10 +12,10 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932369"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Przesunięcie tekstu w danych wyjściowych interfejs API analizy tekstu
@@ -50,7 +50,7 @@ Począwszy od interfejsu API w wersji 3,1-Preview. 1, wszystkie interfejs API an
 
 Jeśli `stringIndexType` żądane dopasowanie do wybranego środowiska programistycznego, wyodrębnianie podciągów można wykonać przy użyciu standardowych podciągów lub metod wycinka. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)

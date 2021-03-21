@@ -10,10 +10,10 @@ ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
 ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606338"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym
@@ -154,7 +154,7 @@ Po utworzeniu nowego dokumentu lub zmodyfikowaniu bieżącego dokumentu w konten
 
 3. Przejdź do **local.settings.js** w programie Visual Studio. Następnie należy użyć zarejestrowanych wcześniej wartości, aby wypełnić puste.  
 
-4. Przejdź do **ChangeFeedProcessor.cs**. W parametrach funkcji **Run** wykonaj następujące czynności:  
+4. Przejdź do **ChangeFeedProcessor. cs**. W parametrach funkcji **Run** wykonaj następujące czynności:  
 
    * Zastąp tekst **nazwą kolekcji w tym miejscu** nazwą kolekcji. Jeśli wykonano wcześniejsze instrukcje, nazwa kolekcji to changefeedlabcollection.  
    * Zamień tekst **kolekcji DZIERŻAW tutaj** na nazwę kolekcji dzierżaw. Jeśli wykonano wcześniejsze instrukcje, nazwa kolekcji dzierżawy jest **dzierżawy**.  

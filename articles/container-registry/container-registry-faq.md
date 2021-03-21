@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
 ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606287"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
@@ -350,7 +350,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    

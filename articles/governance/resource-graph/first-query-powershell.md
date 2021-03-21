@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki umożliwiające włąc
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 131bed4fe60035682a317e186f11561bc005b298
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98917677"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell

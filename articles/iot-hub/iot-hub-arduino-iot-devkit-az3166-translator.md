@@ -10,10 +10,10 @@ ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96024167"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Korzystanie z usługi IoT DevKit AZ3166 z usługami Azure Functions i Cognitive Services w celu tłumaczenia języka
@@ -31,7 +31,7 @@ Aby wykonać kroki opisane w tym samouczku, najpierw wykonaj następujące zadan
 ## <a name="create-azure-cognitive-service"></a>Tworzenie usługi poznawczej platformy Azure
 
 1. W Azure Portal kliknij pozycję **Utwórz zasób** i Wyszukaj pozycję **Speech**. Wypełnij formularz, aby utworzyć usługę rozpoznawania mowy.
-  ![Usługa rozpoznawania mowy](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
+  ![Usługa mowy](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
 1. Przejdź do właśnie utworzonej usługi mowy, kliknij pozycję **klucze** , aby skopiować i zanotować **Klucz1** do DevKit do niego dostęp.
   ![Kopiuj klucze](media/iot-hub-arduino-iot-devkit-az3166-translator/copy-keys.png)

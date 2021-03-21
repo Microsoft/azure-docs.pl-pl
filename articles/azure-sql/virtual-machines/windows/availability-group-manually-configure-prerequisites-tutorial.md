@@ -16,10 +16,10 @@ ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508762"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
@@ -92,7 +92,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
    | --- | --- |
    | **Nazwa** |autoHAVNET |
    | **Przestrzeń adresowa** |10.0.0.0/24 |
-   | **Nazwa podsieci** |Administrator |
+   | **Nazwa podsieci** |Administracja |
    | **Zakres adresów podsieci** |10.0.0.0/29 |
    | **Subskrypcja** |Określ subskrypcję, która ma zostać użyta. **Subskrypcja** jest pusta, jeśli masz tylko jedną subskrypcję. |
    | **Grupa zasobów** |Wybierz pozycję **Użyj istniejącej** i wybierz nazwę grupy zasobów. |

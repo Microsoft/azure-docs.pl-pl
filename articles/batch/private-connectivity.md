@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920007"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Używanie prywatnych punktów końcowych z kontami usługi Azure Batch
@@ -24,7 +24,7 @@ Link prywatny umożliwia użytkownikom dostęp do konta Azure Batch z poziomu si
 
 W tym artykule opisano kroki tworzenia prywatnego konta usługi Batch i uzyskiwania dostępu do niego przy użyciu prywatnego punktu końcowego.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć prywatne konto usługi Batch przy użyciu Azure Portal:
 
@@ -95,7 +95,7 @@ Użyj [prywatnej strefy DNS](../dns/private-dns-privatednszone.md) w podsieci, w
 
 Podczas tworzenia prywatnego punktu końcowego można zintegrować go z [prywatną strefą DNS](../dns/private-dns-privatednszone.md) na platformie Azure. Jeśli zdecydujesz się użyć [domeny niestandardowej](../dns/dns-custom-domain.md), musisz ją skonfigurować, aby dodać rekordy DNS dla wszystkich prywatnych adresów IP zarezerwowanych dla prywatnego punktu końcowego.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje dotyczące kosztów związanych z prywatnymi punktami końcowymi, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 

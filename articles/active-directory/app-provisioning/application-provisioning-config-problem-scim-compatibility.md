@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256902"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Znane problemy i rozwiązania z standard scim 2,0 zgodności protokołów aprowizacji użytkowników usługi Azure AD

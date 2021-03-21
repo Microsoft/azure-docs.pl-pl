@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: victorh
 ms.openlocfilehash: 8b1d1007e817bafe3d75f0f0d7c3fc6eb5470854
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729474"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Samouczek: Tworzenie zasad zapory aplikacji sieci Web na platformie Azure front-drzwi przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do hosta frontonu na platformie Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF

@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96530939"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Jak indeksować zaszyfrowane obiekty blob za pomocą indeksatorów obiektów blob i umiejętności na platformie Wyszukiwanie poznawcze Azure
@@ -115,9 +115,9 @@ Zainstaluj i skonfiguruj program ogłaszający.
 ### <a name="download-and-install-postman"></a>Pobierz i zainstaluj program Poster
 
 1. Pobierz [kod źródłowy kolekcji Poster](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
-1. Wybierz **File** pozycję  >  **Importuj** plik, aby zaimportować kod źródłowy do programu Poster.
+1. Wybierz pozycję  >  **Importuj** plik, aby zaimportować kod źródłowy do programu Poster.
 1. Wybierz kartę **kolekcje** , a następnie wybierz przycisk **...** (wielokropek).
-1. Wybierz pozycję **Edit** (Edytuj). 
+1. Wybierz pozycję **Edytuj**. 
    
    ![Aplikacja do publikowania po wyświetleniu nawigacji](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Przejdź do menu Edycja w programie Poster")
 1. W oknie dialogowym **Edycja** wybierz kartę **zmienne** . 

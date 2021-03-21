@@ -8,17 +8,17 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499474"
 ---
 # <a name="connect-with-excel"></a>Łączenie z programem Excel
 
 Po utworzeniu serwera i wdrożeniu modelu tabelarycznego klienci mogą nawiązywać połączenie i rozpocząć Eksplorowanie danych. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Konto, za pomocą którego logujesz się, musi należeć do roli bazy danych modelu z co najmniej uprawnieniami do odczytu. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md). 
 

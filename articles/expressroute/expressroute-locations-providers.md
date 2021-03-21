@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 53df5f0601ec567b20ced5b3bdbfa8af845b39ed
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 69c600384a7877f3534bae0b57f862187feb32ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574360"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581511"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -88,11 +88,11 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Środkowa | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Środkowa 2| 10G, 100G | Przechwytywanie zmian, Equinix |
 | **Kapsztad** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Zachodnia Republika Południowej Afryki | ° | BCX, Internet Solutions — Cloud Connect, Liquid Telecom, Teraco |
-| **Chennai** | Tata Communications | 2 | Indie Południowe | ° | Global CloudXchange (GCX), SIFY, Tata Communications, VodafoneIdea |
+| **Chennai** | Tata Communications | 2 | Indie Południowe | ° | BSNL, Global CloudXchange (GCX), SIFY, Tata Communications, VodafoneIdea |
 | **Chennai2** | Airtel | 2 | Indie Południowe | ° | Airtel |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | Północno-środkowe stany USA | 10G, 100G | Sieci aryaka Networks, w&T teleobligacje, Kolumbia Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, CoreSite, Equinix, międzychmurowe, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, przebieg, Telia — przewoźnik, Verizon, Zayo |
 | **Kopenhaga** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/d | ° | Interxion |
-| **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/d | 10G, 100G | Aryaka Networks Networks, w&T teleobligacje, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, kurierskiej sieci, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
+| **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/d | 10G, 100G | Aryaka Networks Networks, w&T teleobligacje, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrons, PacketFabric, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | Zachodnio-środkowe stany USA | n/d | CoreSite, Megaport, Zayo |
 | **Dubaj** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | Północne Zjednoczone Emiraty Arabskie | n/d | Etisalat Zjednoczone Emiraty Arabskie |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Północne Zjednoczone Emiraty Arabskie | n/d | DE-CIX, du datamena, Equinix, Megaport, pomarańczowy, Orixcom |
@@ -117,7 +117,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Mediolan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/d | ° | Colt, Equinix, Fastweb, IRIDEOS, Retelit |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) | 1 | n/d | 10G, 100G | Cologix, Megaport |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/d | 10G, 100G | Bell Canada, Cologix, Fibrenoire, Megaport, Telus, Zayo |
-| **Mumbaj** | Tata Communications | 2 | Indie Zachodnie | ° | DE-CIX, Global CloudXchange (GCX), zależność Jio, sify, Tata Communications, Verizon |
+| **Mumbaj** | Tata Communications | 2 | Indie Zachodnie | ° | BSNL, DE-CIX, Global CloudXchange (GCX), zależność Jio, sify, Tata Communications, Verizon |
 | **Mumbaj2** | Airtel | 2 | Indie Zachodnie | ° | Airtel, Sify, Vodafone Idea |
 | **Monachium** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/d | ° | DE-CIX |
 | **Nowy Jork** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | n/d | 10G, 100G | CenturyLink Cloud Connect, Colt, CoreSite, DE-CIX, Equinix, incloud, Megaport, Packet, Zayo |

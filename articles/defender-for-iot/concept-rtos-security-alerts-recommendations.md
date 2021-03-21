@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
 ms.openlocfilehash: d6dfeb01e174d71c926e9fcf7f5f1ee078524cf9
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103494278"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Usługa Defender-IoT-Micro-Agent na potrzeby alertów zabezpieczeń i zaleceń usługi Azure RTO (wersja zapoznawcza)

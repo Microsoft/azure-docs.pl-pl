@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005286"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu Blob Storage platformy Azure
@@ -53,7 +53,7 @@ Można dodawać, edytować lub usuwać zasady przy użyciu dowolnej z następuj�
 Zasady mogą być odczytywane lub zapisywane w całości. Aktualizacje częściowe nie są obsługiwane. 
 
 > [!NOTE]
-> Jeśli włączysz reguły zapory dla konta magazynu, żądania zarządzania cyklem życia mogą zostać zablokowane. Można odblokować te żądania, dostarczając wyjątki dla zaufanych usług firmy Microsoft. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [Konfigurowanie zapór i sieci wirtualnych](../common/storage-network-security.md#exceptions).
+> Jeśli włączysz reguły zapory dla konta magazynu, żądania zarządzania cyklem życia mogą zostać zablokowane. Można odblokować te żądania, określając wyjątki dla zaufanych usług firmy Microsoft. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [Konfigurowanie zapór i sieci wirtualnych](../common/storage-network-security.md#exceptions).
 
 W tym artykule pokazano, jak zarządzać zasadami przy użyciu portalu i metod programu PowerShell.
 
@@ -596,4 +596,4 @@ Dowiedz się, jak odzyskiwać dane po przypadkowym usunięciu:
 
 Dowiedz się, jak zarządzać danymi i znajdować je za pomocą indeksu obiektów blob:
 
-- [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB](storage-manage-find-blobs.md)
+- [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów blob](storage-manage-find-blobs.md)

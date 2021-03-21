@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/27/2020
 ms.author: alkohli
 ms.openlocfilehash: efa9e996cbfbc8954c294b4da8900b1d5bcbeeed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467385"
 ---
 Aby zweryfikować sieć VPN, można utworzyć konto magazynu, do którego można uzyskać dostęp tylko przez utworzoną sieć wirtualną. Wykonaj następujące kroki, aby utworzyć i skojarzyć to konto magazynu z utworzoną siecią wirtualną:

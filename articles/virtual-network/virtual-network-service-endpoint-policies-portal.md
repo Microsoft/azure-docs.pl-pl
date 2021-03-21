@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004963"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Tworzenie, zmienianie lub usuwanie zasad punktu końcowego usługi przy użyciu Azure Portal
 
 Zasady punktu końcowego usługi umożliwiają filtrowanie ruchu w sieci wirtualnej do określonych zasobów platformy Azure za pośrednictwem punktów końcowych usługi. Jeśli nie znasz zasad punktu końcowego usługi, zobacz [Omówienie zasad punktu końcowego usługi](virtual-network-service-endpoint-policies-overview.md) , aby dowiedzieć się więcej.
 
- Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+ Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad punktu końcowego usługi
@@ -71,7 +71,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
    - Klucz: Wybierz klucz dla zasad. Przykład: Dept     
    - Wartość: wprowadź parę wartości dla klucza. Ex: Finanse
 
-6. Wybierz pozycję **Recenzja + Utwórz**. Sprawdź poprawność informacji i kliknij przycisk **Utwórz**. Aby wprowadzić dalsze zmiany, kliknij przycisk **Wstecz**. 
+6. Wybierz pozycję **Przejrzyj i utwórz**. Sprawdź poprawność informacji i kliknij przycisk **Utwórz**. Aby wprowadzić dalsze zmiany, kliknij przycisk **Wstecz**. 
 
    ![Utwórz końcowe walidacje zasad punktu końcowego usługi](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   

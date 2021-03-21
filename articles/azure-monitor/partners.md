@@ -4,10 +4,10 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101022"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integracje partnerów w usłudze Azure Monitor
@@ -162,7 +162,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację monitorowania jakości usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Więcej tutaj
+Dowiedz się więcej
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
