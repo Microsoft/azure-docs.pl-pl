@@ -4,10 +4,10 @@ description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą us
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98702189"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
@@ -99,7 +99,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Przejdź do   >  **rejestracje aplikacji** Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 

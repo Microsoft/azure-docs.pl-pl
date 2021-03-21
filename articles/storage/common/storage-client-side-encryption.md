@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718526"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588260"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault Microsoft Azure Storage
 
@@ -132,7 +132,7 @@ Istnieją dwa niezbędne pakiety do integracji Key Vault:
 * Platforma Azure. Core zawiera `IKeyEncryptionKey` `IKeyEncryptionKeyResolver` interfejsy i. Biblioteka klienta usługi Storage dla platformy .NET definiuje już ją jako zależność.
 * Azure. Security. Keys. klucze (v4. x) zawierają Key Vault klienta REST, a także klientów kryptograficznych używanych z szyfrowaniem po stronie klienta.
 
-Key Vault jest zaprojektowana dla kluczy głównych o wysokiej wartości, a limity ograniczania dla Key Vault są z tego względu zaprojektowane. W przypadku usługi Azure. Security. Key 4.1.0 nie istnieje `IKeyEncryptionKeyResolver` implementacja, która obsługuje buforowanie kluczy. Powinna być konieczna pamięć podręczna z powodu ograniczania przepustowości, w [tym przykładzie](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) można dodać warstwę buforowania do `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` wystąpienia.
+Key Vault jest zaprojektowana dla kluczy głównych o wysokiej wartości, a limity ograniczania dla Key Vault są z tego względu zaprojektowane. W przypadku usługi Azure. Security. Key 4.1.0 nie istnieje `IKeyEncryptionKeyResolver` implementacja, która obsługuje buforowanie kluczy. Powinna być konieczna pamięć podręczna z powodu ograniczania przepustowości, w [tym przykładzie](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) można dodać warstwę buforowania do `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` wystąpienia.
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 

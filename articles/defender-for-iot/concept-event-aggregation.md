@@ -1,5 +1,5 @@
 ---
-title: Agregacja zdarzeń
+title: Agregacja zdarzeń (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Usługa Defender Security Agents zbiera dane i zdarzenia systemowe z urządzenia lokalnego oraz wysyła dane do chmury platformy Azure na potrzeby przetwarzania i analizy.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
-ms.openlocfilehash: 53811c20330d96b279eeb24e1aa90248b60fcb32
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120049"
 ---
-# <a name="event-aggregation"></a>Agregacja zdarzeń 
+# <a name="event-aggregation-preview"></a>Agregacja zdarzeń (wersja zapoznawcza)
 
 Usługa Defender Security Agents zbiera dane i zdarzenia systemowe z urządzenia lokalnego oraz wysyła dane do chmury platformy Azure na potrzeby przetwarzania i analizy. Usługa Defender for IoT Micro umożliwia zbieranie wielu typów zdarzeń urządzeń, w tym nowych procesów, oraz wszystkich nowych zdarzeń połączeń. Nowy proces i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy. Ta możliwość jest ważna w przypadku kompleksowych zabezpieczeń, jednak liczba komunikatów wysyłanych przez agentów zabezpieczeń może szybko spełnić wymagania lub przekroczyć limity przydziału IoT Hub i kosztów. Jednak te zdarzenia zawierają wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia. 
 

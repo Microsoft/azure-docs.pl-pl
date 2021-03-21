@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014622"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera
@@ -31,7 +31,7 @@ Ogólnie rzecz biorąc problemy z połączeniem do Azure Database for PostgreSQL
 * Błędy przejściowe (krótko-lub sporadyczne)
 * Błędy trwałe lub nieprzejściowe (błędy, które regularnie powtarzają się)
 
-## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów z błędami przejściowymi
+## <a name="troubleshoot-transient-errors"></a>Rozwiązywanie problemów dotyczących błędów przejściowych
 
 Błędy przejściowe występują, gdy konserwacja jest przeprowadzana, system napotyka błąd z sprzętem lub oprogramowaniem lub zmienia rdzeni wirtualnych lub warstwę usług serwera. Usługa Azure Database for PostgreSQL ma wbudowaną wysoką dostępność i została zaprojektowana z myślą o ograniczeniu tego rodzaju problemów automatycznie. Jednak aplikacja traci połączenie z serwerem przez krótki okres zwykle krótszy niż 60 sekund. Niektóre zdarzenia mogą sporadycznie podejmować środki zaradcze, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie.
 

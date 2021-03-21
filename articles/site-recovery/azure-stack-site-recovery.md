@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platform
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016912"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
@@ -286,7 +286,7 @@ Uruchom test pracy w trybie failover dla maszyny wirtualnej w następujący spos
 2. W tym instruktażu wybierzemy użycie **najnowszego przetworzonego** punktu odzyskiwania.
 3. W obszarze **test pracy w trybie failover** wybierz docelową sieć platformy Azure.
 4. Kliknij przycisk **OK**, aby rozpocząć tryb failover.
-5. Śledź postęp, klikając maszynę wirtualną, aby otworzyć jej właściwości. Można też kliknąć zadanie **test pracy w trybie failover** w obszarze Ustawienia *nazw magazynu*  >  **Settings**  >  **zadania**  > **Site Recovery zadania**.
+5. Śledź postęp, klikając maszynę wirtualną, aby otworzyć jej właściwości. Można też kliknąć zadanie **test pracy w trybie failover** w obszarze Ustawienia *nazw magazynu*  >    >  **zadania**  > **Site Recovery zadania**.
 6. Po zakończeniu trybu failover w obszarze Azure Portal > **Maszyny wirtualne** będzie widoczna replika maszyny wirtualnej platformy Azure. Sprawdź, czy maszyna wirtualna ma odpowiedni rozmiar, jest połączona z odpowiednią siecią i uruchomiona.
 7. Powinno być teraz możliwe nawiązanie połączenia ze zreplikowaną maszyną wirtualną na platformie Azure. [Dowiedz się więcej](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Aby usunąć maszyny wirtualne platformy Azure utworzone podczas testowego przełączania w tryb failover, kliknij pozycję **Wyczyść test pracy w trybie failover** na maszynie wirtualnej. W obszarze **uwagi** Zapisz wszelkie obserwacje związane z testem pracy w trybie failover.
@@ -316,7 +316,7 @@ Następnie uruchom tryb failover w następujący sposób:
 
 Gdy lokacja główna zostanie uruchomiona ponownie, możesz wrócić z powrotem z platformy Azure do Azure Stack. Aby to zrobić, wykonaj kroki opisane w [tym miejscu](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 W tym artykule zostały zreplikowane Azure Stack maszyny wirtualne na platformie Azure. W przypadku replikacji na miejscu zostało wykonane przechodzenie do trybu failover odzyskiwania po awarii, aby upewnić się, że w systemie Azure działa zgodnie z oczekiwaniami. W tym artykule uwzględniono również procedurę uruchamiania pełnej pracy w trybie failover na platformie Azure i powrotu po awarii do Azure Stack.
 

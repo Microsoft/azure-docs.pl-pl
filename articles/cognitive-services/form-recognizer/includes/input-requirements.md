@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
 ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467325"
 ---
 Aparat rozpoznawania formularzy działa na dokumentach wejściowych, które spełniają następujące wymagania:

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 346d58dbe06a29a4ba114ae788dee16e80b8f9df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101695485"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
@@ -177,7 +177,7 @@ Aby uzyskać więcej informacji na temat zgodności subskrypcji Red Hat, aktuali
 
 ### <a name="suse"></a>SUSE
 
-Aby użyć Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES i uzyskać informacje dotyczące przechodzenia z SLES PAYG do BYOS lub przechodzenia z SLES BYOS do PAYG, zobacz [SUSE Linux Enterprise i korzyść użycia hybrydowego platformy Azure](https://www.suse.com/support/kb/doc/?id=000019868). 
+Aby użyć Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES i uzyskać informacje dotyczące przechodzenia z SLES PAYG do BYOS lub przechodzenia z SLES BYOS do PAYG, zobacz [SUSE Linux Enterprise i korzyść użycia hybrydowego platformy Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 *P: Czy można użyć typu licencji `RHEL_BYOS` z SLES obrazem lub odwrotnie?*

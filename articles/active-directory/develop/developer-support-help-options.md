@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/09/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 22f6e1c8049acd5dbe548bc49955881e05f0ef0e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462766"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579046"
 ---
 # <a name="support-and-help-options-for-developers"></a>Pomoc techniczna i opcje pomocy dla deweloperów
 
@@ -44,17 +44,17 @@ Uzyskaj odpowiedzi na pytania dotyczące programowania aplikacji tożsamości be
 
 [Microsoft Q&A](/answers/products/) to zalecane źródło pomocy technicznej dla społeczności platformy Azure.
 
-Jeśli nie możesz znaleźć odpowiedzi na Twój problem, przeszukując pozycję Microsoft Q&A, Prześlij nowe pytanie. W przypadku [pytania o wysoką jakość](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)Użyj jednego z następujących tagów:
+Jeśli nie możesz znaleźć odpowiedzi na Twój problem, przeszukując pozycję Microsoft Q&A, Prześlij nowe pytanie. W przypadku [pytania o wysoką jakość](/answers/articles/24951/how-to-write-a-quality-question.html)Użyj jednego z następujących tagów:
 
 | Składnik/obszar| Tagi  |
 |------------|---------------------------|
-| Biblioteka uwierzytelniania usługi Active Directory (ADAL)                              | [ADAL](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| Biblioteka uwierzytelniania firmy Microsoft (MSAL)                                     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| Otwórz interfejs sieci Web dla oprogramowania pośredniczącego platformy .NET (OWIN)                               | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B/tożsamość zewnętrzna](../external-identities/what-is-b2b.md) | [[Azure-AD-B2B]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[Azure-AD-Graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| Wszystkie inne obszary uwierzytelniania i autoryzacji                            | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Biblioteka uwierzytelniania usługi Active Directory (ADAL)                              | [ADAL](/answers/topics/azure-ad-adal-deprecation.html)                |
+| Biblioteka uwierzytelniania firmy Microsoft (MSAL)                                     | [msal](/answers/topics/azure-ad-msal.html)                            |
+| Otwórz interfejs sieci Web dla oprogramowania pośredniczącego platformy .NET (OWIN)                               | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B/tożsamość zewnętrzna](../external-identities/what-is-b2b.md) | [[Azure-AD-B2B]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[Azure-AD-Graph]](/answers/topics/azure-ad-graph.html)                 |
+| Wszystkie inne obszary uwierzytelniania i autoryzacji                            | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>Utwórz problem w usłudze GitHub
 
@@ -98,10 +98,8 @@ Aby zażądać nowych funkcji, Opublikuj je na podstawie opinii na temat platfor
 
 - [Aktualizacje platformy Azure](https://azure.microsoft.com/updates/?category=identity): informacje o ważnych aktualizacjach produktów, planach i anonsach.
 
-- [Co nowego w witrynie docs](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Uzyskaj informacje na temat Nowości w dokumentacji platformy tożsamości firmy Microsoft.
+- [Co nowego w witrynie docs](./whats-new-docs.md): Uzyskaj informacje na temat Nowości w dokumentacji platformy tożsamości firmy Microsoft.
 
 - [Blog dotyczący tożsamości Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): pobieranie wiadomości i informacji o usłudze Azure AD.
 
 - [Społeczność Tech](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/).: Podziel się doświadczeniami, skontaktuj się z ekspertami i pouczy się.
-
-

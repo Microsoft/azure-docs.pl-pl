@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831727"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Samouczek: Dostosowywanie pulpitu nawigacyjnego operatora i zarządzanie urządzeniami w usłudze Azure IoT Central
@@ -23,7 +23,7 @@ ms.locfileid: "99831727"
 
 W tym samouczku, jako Konstruktor, dowiesz się, jak dostosować pulpit nawigacyjny operatora w aplikacji do analizy w Sklepie Azure IoT Central. Operatorzy aplikacji mogą korzystać z dostosowanego pulpitu nawigacyjnego, aby uruchamiać aplikację i zarządzać dołączonymi urządzeniami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Zmień nazwę pulpitu nawigacyjnego
 > * Dostosowywanie kafelków obrazów na pulpicie nawigacyjnym

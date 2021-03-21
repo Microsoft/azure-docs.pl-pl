@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób używania tożsamości zarządzanych
 ms.topic: article
 ms.date: 01/21/2021
 ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954314"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
@@ -125,7 +125,7 @@ Aby przypisać rolę do przestrzeni nazw Service Bus, przejdź do przestrzeni na
 ### <a name="run-the-app"></a>Uruchamianie aplikacji
 Teraz Zmodyfikuj domyślną stronę utworzonej aplikacji ASP.NET. Możesz użyć kodu aplikacji sieci Web z [tego repozytorium GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
-Domyślna strona. aspx to strona docelowa. Kod można znaleźć w pliku Default.aspx.cs. Wynikiem jest minimalna aplikacja sieci Web z kilkoma polami wprowadzania oraz za pomocą przycisków **Wyślij** i **Odbierz** łączących się z Service Bus wysyłania lub odbierania wiadomości.
+Domyślna strona. aspx to strona docelowa. Kod można znaleźć w pliku default. aspx. cs. Wynikiem jest minimalna aplikacja sieci Web z kilkoma polami wprowadzania oraz za pomocą przycisków **Wyślij** i **Odbierz** łączących się z Service Bus wysyłania lub odbierania wiadomości.
 
 Zauważ, jak obiekt [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) jest zainicjowany. Zamiast korzystać z dostawcy tokenów token dostępu współdzielonego (SAS), kod tworzy dostawcę tokenu dla tożsamości zarządzanej z `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` wywołaniem. W związku z tym nie ma żadnych wpisów tajnych do zachowania i używania. Przepływ tożsamości zarządzanej do Service Bus i uzgadnianie autoryzacji są automatycznie obsługiwane przez dostawcę tokenu. Jest to prostsze model niż używanie sygnatury dostępu współdzielonego.
 

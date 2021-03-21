@@ -1,13 +1,13 @@
 ---
-title: Co nowego? Informacje o wersji — Azure Event Grid
+title: Co nowego Informacje o wersji — Azure Event Grid
 description: Dowiedz się, co nowego w Azure Event Grid, takich jak Najnowsze informacje o wersji, znane problemy, poprawki błędów, przestarzałe funkcje i nadchodzące zmiany.
 ms.topic: overview
 ms.date: 07/23/2020
 ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350011"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Co nowego w Azure Event Grid?

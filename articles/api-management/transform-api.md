@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010235"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Samouczek: przekształcanie i ochrona interfejsu API
@@ -20,7 +20,7 @@ W tym samouczku pokazano, jak przekształcić interfejs API, aby nie ujawniał i
 
 W tym samouczku pokazano również, jak łatwo dodać ochronę dla interfejsu API zaplecza, konfigurując Limit szybkości za pomocą usługi Azure API Management. Na przykład możesz chcieć ograniczyć szybkość wywołań interfejsu API, aby interfejs API nie był używany przez deweloperów. Aby uzyskać więcej informacji, zobacz [zasady API Management](api-management-policies.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -93,7 +93,7 @@ W tej sekcji przedstawiono sposób ukrywania oryginalnych adresów URL, które s
 
 Aby zobaczyć oryginalną odpowiedź:
 
-1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  .
 1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
     Jak widać, odpowiedź zawiera oryginalne adresy URL zaplecza:
@@ -155,7 +155,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
 ### <a name="test-the-stripped-response-headers"></a>Testowanie usuniętych nagłówków odpowiedzi
 
-1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  .
 1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
     Jak widać, nagłówki zostały usunięte:
@@ -164,7 +164,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
 ### <a name="test-the-replaced-url"></a>Testowanie zamienionego adresu URL
 
-1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  .
 1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
     Jak widać, adres URL został zastąpiony.
@@ -173,7 +173,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
 ### <a name="test-the-rate-limit-throttling"></a>Testowanie limitu szybkości (ograniczania przepustowości)
 
-1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  .
 1. Wybierz operację **GetSpeakers**. Wybierz pozycję **Wyślij** trzy razy w wierszu.
 
     Po wysłaniu żądania trzy razy otrzymujesz **429 zbyt wiele** odpowiedzi na żądania.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
 ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505906"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Przewodnik planowania i implementacji platformy SAP BusinessObjects BI na platformie Azure
@@ -255,7 +255,7 @@ Usługa Azure Storage ma różne typy magazynów dostępne dla klientów i szcze
 
 ![Układ magazynu oprogramowania SAP BusinessObjects BI platform na platformie Azure](media/businessobjects-deployment-guide/businessobjects-storage-layout.png)
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 SAP BOBI to platforma raportowania i analizy analizy biznesowej, która nie przechowuje żadnych danych biznesowych. Dlatego system jest połączony z innymi serwerami baz danych z lokalizacji, w którym pobiera wszystkie dane, i zapewnia wgląd użytkownikom. Platforma Azure udostępnia infrastrukturę sieciową, która umożliwia mapowanie wszystkich scenariuszy, które mogą być realizowane przy użyciu platformy SAP BI, takich jak łączenie się z systemem lokalnym, systemami w różnych sieciach wirtualnych i innych. Aby uzyskać więcej informacji, sprawdź [Microsoft Azure sieci dla obciążeń SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 

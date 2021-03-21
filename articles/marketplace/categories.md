@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
 ms.openlocfilehash: 5042c6801678f94c749454dac28eec56fdcb7559
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94811044"
 ---
 # <a name="categories-and-subcategories-in-the-commercial-marketplace"></a>Kategorie i podkategorie w komercyjnej witrynie Marketplace
@@ -39,7 +39,7 @@ W tej tabeli przedstawiono podstawowe kategorie i podkategorie, które są mapow
 | baza danych | Jeziora dotyczące danych<br>programu Operations Manager<br>Bazy danych księgi/łańcucha bloków<br>Bazy danych NoSQL<br>Relacyjne bazy danych |
 | Narzędzia programistyczne | Usługa dla deweloperów<br>Skrypty<br>Narzędzia |
 | DevOps | Nie dotyczy |
-| Usługa dla deweloperów | Obsługa komunikatów |
+| Usługa dla deweloperów | Obsługa wiadomości |
 | Tożsamość | Zarządzanie dostępem |
 | Narzędzia do zarządzania & IT | Rozwiązania do zarządzania<br>Aplikacje biznesowe |
 | Internet rzeczy | Wizualizacja & analizy danych<br>Łączność IoT<br>Usługi IoT Core<br>Moduły IoT Edge<br>Rozwiązania IoT |

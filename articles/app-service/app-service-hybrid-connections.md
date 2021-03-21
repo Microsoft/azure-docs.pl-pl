@@ -8,10 +8,10 @@ ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594235"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
@@ -107,7 +107,7 @@ Wybierz połączenie hybrydowe, aby wyświetlić szczegóły. Możesz zobaczyć 
 
 Istnieje limit liczby punktów końcowych połączenia hybrydowego, które mogą być używane w planie App Service. Można jednak używać poszczególnych połączeń hybrydowych w ramach dowolnej liczby aplikacji w tym planie. Na przykład pojedyncze połączenie hybrydowe używane w pięciu oddzielnych aplikacjach w planie App Service jest traktowane jako jedno połączenie hybrydowe.
 
-### <a name="pricing"></a>Cennik ###
+### <a name="pricing"></a>Ceny ###
 
 Oprócz tego, że jest wymagane App Service planu SKU, istnieje dodatkowy koszt korzystania z Połączenia hybrydowe. Jest naliczana opłata za każdy odbiornik używany przez połączenie hybrydowe. Odbiornik jest Menedżer połączeń hybrydowych. Jeśli masz pięć Połączenia hybrydowe obsługiwanych przez dwóch menedżerów połączeń hybrydowych, które byłyby 10 odbiorników. Aby uzyskać więcej informacji, zobacz [Cennik usługi Service Bus][sbpricing].
 

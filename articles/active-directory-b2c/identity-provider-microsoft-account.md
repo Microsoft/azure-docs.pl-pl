@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: db6793389df0df169745ddd50551f836d06cf08c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 12e8222ad59aae31baa7a549519c97550b711703
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488758"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579947"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konto Microsoft przy użyciu Azure Active Directory B2C
 
@@ -68,6 +68,8 @@ Aby włączyć logowanie dla użytkowników za pomocą konto Microsoft w Azure A
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości firmy Microsoft do przepływu użytkownika 
+
+W tym momencie dostawca tożsamości firmy Microsoft został skonfigurowany, ale nie jest jeszcze dostępny na żadnej stronie logowania. Aby dodać dostawcę tożsamości firmy Microsoft do przepływu użytkownika:
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
 1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości firmy Microsoft.

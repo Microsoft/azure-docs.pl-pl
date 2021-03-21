@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: c2121f429b928d58a2df7b4e4663341cf600da3e
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214477"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
@@ -154,7 +154,7 @@ W programie Visual Studio Utwórz ASP.NET Core aplikację sieci Web o nazwie "He
 
    Pakiety są przeznaczone do odnajdowania usług steeltoe i biblioteki klienta chmury wiosennej na platformie Azure. `Zip`Zadanie jest przeznaczone do wdrożenia na platformie Azure. Po uruchomieniu `dotnet publish` polecenia generuje pliki binarne w folderze *publikowania* , a to zadanie Zips folder *publikacji* do pliku *zip* , który jest przekazywany do platformy Azure.
 
-3. W pliku *program.cs* Dodaj `using` dyrektywę i kod, który używa biblioteki klienckiej chmury wiosnowej platformy Azure:
+3. W pliku *program. cs* Dodaj `using` dyrektywę i kod, który używa biblioteki klienckiej chmury wiosnowej platformy Azure:
 
    ```csharp
    using Microsoft.Azure.SpringCloud.Client;
@@ -170,7 +170,7 @@ W programie Visual Studio Utwórz ASP.NET Core aplikację sieci Web o nazwie "He
                    });
    ```
 
-4. W pliku *Startup.cs* Dodaj `using` dyrektywę i kod, który korzysta z wykrywania usługi steeltoe na końcu `ConfigureServices` `Configure` metod i:
+4. W pliku *Startup. cs* Dodaj `using` dyrektywę i kod, który korzysta z odnajdywania usługi steeltoe na końcu `ConfigureServices` `Configure` metod i:
 
    ```csharp
    using Steeltoe.Discovery.Client;

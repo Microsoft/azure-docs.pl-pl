@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584301"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578264"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplikacja internetowa, która loguje użytkowników: Przenieś do środowiska produkcyjnego
 
@@ -48,6 +48,12 @@ Ten samouczek progresywny zawiera kod gotowy do użycia w środowisku produkcyjn
 - Konta służbowe lub osobiste konta Microsoft
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - Chmury narodowe
+
+## <a name="tutorial-nodejs-web-app"></a>Samouczek: Node.js aplikacji sieci Web
+
+Dowiedz się więcej na temat Node.js sieci Web w tym samouczku:
+
+[Samouczek: Logowanie użytkowników w aplikacji sieci Web Node.js & Express](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
 
 ## <a name="sample-code-java-web-app"></a>Przykładowy kod: aplikacja internetowa Java
 

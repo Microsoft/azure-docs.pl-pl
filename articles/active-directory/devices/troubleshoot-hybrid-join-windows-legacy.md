@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365807"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578043"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu 
 
@@ -39,7 +39,7 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które roz
 **Co należy wiedzieć:** 
 
 - Hybrydowe dołączanie usługi Azure AD dla urządzeń z systemem Windows o niższych działaniach działa nieco inaczej niż w systemie Windows 10. Wielu klientów nie zakłada, że potrzebują AD FS (dla domen federacyjnych) lub bezproblemowe skonfigurowanie logowania jednokrotnego (dla domen zarządzanych).
-- Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarkach Firefox i Microsoft Edge. Nie działa również w programie Internet Explorer, jeśli przeglądarka działa w trybie rozszerzonym chronionym.
+- Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarkach Firefox i Microsoft Edge. Nie działa również w programie Internet Explorer, jeśli przeglądarka działa w trybie rozszerzonym chronionym lub włączono konfigurację zwiększonych zabezpieczeń.
 - W przypadku klientów z domenami federacyjnymi, jeśli punkt połączenia usługi został skonfigurowany w taki sposób, że wskazuje nazwę domeny zarządzanej (na przykład contoso.onmicrosoft.com, a nie contoso.com), to sprzężenie hybrydowe usługi Azure AD dla urządzeń z systemem Windows nie będzie działało.
 - To samo urządzenie fizyczne pojawia się wiele razy w usłudze Azure AD, gdy wielu użytkowników domeny loguje się do hybrydowych urządzeń przyłączonych do usługi Azure AD.  Na przykład jeśli *JKowalski* i *jharnett* logowanie do urządzenia, dla każdego z nich zostanie utworzony osobna rejestracja (identyfikator urządzenia) na karcie Informacje o **użytkowniku** . 
 - Możesz również uzyskać wiele wpisów dla urządzenia na karcie Informacje o użytkowniku z powodu ponownej instalacji systemu operacyjnego lub ręcznego ponownego rejestrowania.

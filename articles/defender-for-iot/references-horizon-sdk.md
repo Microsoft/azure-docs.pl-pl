@@ -8,11 +8,11 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523366"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Odsektora bezwłasnościowego protokołu
@@ -820,7 +820,7 @@ W tej sekcji opisano pola konfiguracji JSON.
 | Nazwa pola | Opis | Możliwe wartości |
 |--|--|--|
 | **ID (Identyfikator)** | Reprezentuje pojedynczy identyfikator alertu. Musi być unikatowa w tym kontekście. | Wartość liczbowa 0-10000 |
-| **Komunikat** | Informacje wyświetlane użytkownikowi. To pole umożliwia korzystanie z różnych pól. | Użyj dowolnego pola z protokołu lub dowolnego protokołu niższej warstwy. |
+| **message** | Informacje wyświetlane użytkownikowi. To pole umożliwia korzystanie z różnych pól. | Użyj dowolnego pola z protokołu lub dowolnego protokołu niższej warstwy. |
 | **tytuły** | Tytuł alertu |  |
 | **expression** | Jeśli chcesz, aby ten alert został wystawiony. | Użyj dowolnego pola liczbowego znajdującego się w niższych warstwach lub bieżącej warstwie.</br></br> Każde pole powinno być otoką z `{}` , aby zestaw SDK wykrył go jako pole, obsługiwane operatory logiczne to</br> = = Równa się</br> <=-mniejsze niż lub równe</br> >=-więcej niż lub równe</br> > — więcej niż</br> <-mniejsze niż</br> ~ =-Nie równa się |
 
@@ -1640,6 +1640,6 @@ Aby monitorować:
 
 Wybierz przycisk Monitoruj dla wtyczki z przeglądu.
 
-## <a name="next-steps"></a>Następne kroki
+Następne kroki
 
 Konfigurowanie [interfejsu API usługi Horizon](references-horizon-api.md)

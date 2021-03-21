@@ -3,12 +3,12 @@ title: Uruchamianie aplikacji z pakietu ZIP
 description: Wdróż pakiet ZIP aplikacji z niepodzielną. Popraw przewidywalność i niezawodność zachowania aplikacji podczas procesu wdrażania ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 036dd8c86251af2ed5553939e74a0d85fc303ecb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008133"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577550"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Uruchom aplikację w Azure App Service bezpośrednio z pakietu ZIP
 
@@ -41,7 +41,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>Uruchom pakiet
 
-Najprostszym sposobem uruchomienia pakietu w App Service jest interfejs wiersza polecenia platformy Azure [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) . Przykład:
+Najprostszym sposobem uruchomienia pakietu w App Service jest interfejs wiersza polecenia platformy Azure [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) . Na przykład:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -67,10 +67,11 @@ Jeśli publikujesz zaktualizowany pakiet o tej samej nazwie w usłudze BLOB Stor
 
 - Uruchamianie bezpośrednio z pakietu sprawia, że `wwwroot` tylko do odczytu. Aplikacja otrzyma błąd, jeśli spróbuje zapisać pliki w tym katalogu.
 - Formaty TAR i GZIP nie są obsługiwane.
+- Plik ZIP może składać się z maksymalnie 1 GB
 - Ta funkcja jest niezgodna z [lokalną pamięcią podręczną](overview-local-cache.md).
 - W celu zwiększenia wydajności zimnej lokalizacji Użyj opcji zip ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 - [Ciągłe wdrażanie dla Azure App Service](deploy-continuous-deployment.md)
 - [Wdróż kod z plikiem ZIP lub WAR](deploy-zip.md)

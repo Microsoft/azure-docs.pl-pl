@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991234"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions powiązania SendGrid
@@ -353,7 +353,7 @@ Adnotacja [SendGridOutput](https://github.com/Azure/azure-functions-java-library
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne w  *function.jsw* pliku oraz `SendGrid` atrybut/adnotacja.
 
@@ -365,7 +365,7 @@ W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne 
 | apiKey | ApiKey | Nazwa ustawienia aplikacji, która zawiera klucz interfejsu API. Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to *AzureWebJobsSendGridApiKey*.| Nie |
 | na wartość| Działanie | Adres e-mail adresata. | Tak |
 | wniosek| Źródło | Adres e-mail nadawcy. |  Tak |
-| Temat| Temat | Temat wiadomości e-mail. | Tak |
+| subject| Temat | Temat wiadomości e-mail. | Tak |
 | tekst| Tekst | Zawartość wiadomości e-mail. | Tak |
 
 Właściwości opcjonalne mogą mieć wartości domyślne zdefiniowane w powiązaniu i dodawane lub zastępowane programowo.
