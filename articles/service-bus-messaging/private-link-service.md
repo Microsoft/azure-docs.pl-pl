@@ -6,10 +6,10 @@ ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
 ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427151"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
@@ -101,7 +101,7 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
 11. Na stronie **Przegląd i tworzenie** Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
     
     ![Tworzenie prywatnego punktu końcowego — przegląd i Tworzenie strony](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Upewnij się, że został utworzony prywatny punkt końcowy. Jeśli jesteś właścicielem zasobu i wybrano opcję **Połącz z zasobem platformy Azure w katalogu my** dla **metody połączenia** , połączenie punktu końcowego powinno być **zatwierdzane** domyślnie. Jeśli jest w stanie **oczekiwania** , zobacz sekcję [zarządzanie prywatnymi punktami końcowymi przy użyciu Azure Portal](#manage-private-endpoints-using-azure-portal) .
+12. Upewnij się, że został utworzony prywatny punkt końcowy. Jeśli jesteś właścicielem zasobu i wybrano opcję **Połącz z zasobem platformy Azure w katalogu my** dla **metody połączenia**, połączenie punktu końcowego powinno być **zatwierdzane** domyślnie. Jeśli jest w stanie **oczekiwania** , zobacz sekcję [zarządzanie prywatnymi punktami końcowymi przy użyciu Azure Portal](#manage-private-endpoints-using-azure-portal) .
 
     ![Utworzono prywatny punkt końcowy](./media/private-link-service/private-endpoint-created.png)
 
@@ -187,7 +187,7 @@ Istnieją cztery Stany aprowizacji:
 1. Zaloguj się w witrynie Azure Portal.
 1. Na pasku wyszukiwania wpisz w **Service Bus**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
-1. Wybierz kartę **Sieć** .
+1. Wybierz kartę **Sieć**.
 5. Przejdź do odpowiedniej sekcji poniżej w zależności od operacji, którą chcesz wykonać: Zatwierdź, Odrzuć lub Usuń. 
 
 ### <a name="approve-a-private-endpoint-connection"></a>Zatwierdź połączenie prywatnego punktu końcowego
@@ -197,7 +197,7 @@ Istnieją cztery Stany aprowizacji:
 3. Wybierz przycisk **Zatwierdź** .
 
     ![Zatwierdź prywatny punkt końcowy](./media/private-link-service/private-endpoint-approve.png)
-4. Na stronie **zatwierdzanie połączenia** wprowadź opcjonalny **komentarz** , a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
+4. Na stronie **zatwierdzanie połączenia** wprowadź opcjonalny **komentarz**, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 
     ![Zatwierdź stronę połączenia](./media/private-link-service/approve-connection-page.png)
 5. Powinien zostać wyświetlony stan połączenia na liście zmieniono na **zatwierdzone**. 
@@ -209,7 +209,7 @@ Istnieją cztery Stany aprowizacji:
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, czy jest to oczekujące żądanie lub istniejące połączenie, które zostało zatwierdzone wcześniej, wybierz połączenie punktu końcowego, a następnie kliknij przycisk **Odrzuć** .
 
     ![Przycisk Odrzuć](./media/private-link-service/private-endpoint-reject.png)
-2. Na stronie **Odrzuć połączenie** wprowadź opcjonalny komentarz, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
+2. Na stronie **Odrzuć połączenie** wprowadź opcjonalny komentarz, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 
     ![Odrzuć stronę połączenia](./media/private-link-service/reject-connection-page.png)
 3. Stan połączenia powinien zostać wyświetlony na liście zmieniono **odrzucone**. 
@@ -222,7 +222,7 @@ Istnieją cztery Stany aprowizacji:
 1. Aby usunąć połączenie z prywatnym punktem końcowym, wybierz je z listy i wybierz pozycję **Usuń** na pasku narzędzi. 
 
     ![Przycisk Usuń](./media/private-link-service/remove-endpoint.png)
-2. Na stronie **Usuwanie połączenia** wybierz pozycję **tak** , aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
+2. Na stronie **Usuwanie połączenia** wybierz pozycję **tak** , aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 
     ![Usuń stronę połączenia](./media/private-link-service/delete-connection-page.png)
 3. Powinien zostać wyświetlony stan zmieniono na **rozłączony**. Następnie punkt końcowy zostanie wyświetlony na liście. 
@@ -257,11 +257,11 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia dotyczące projektowania
 
-**Cennik** : Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
+**Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Ograniczenia** : Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
+**Ograniczenia**: Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
 
-**Maksymalna liczba prywatnych punktów końcowych na Service Bus przestrzeń nazw** : 120.
+**Maksymalna liczba prywatnych punktów końcowych na Service Bus przestrzeń nazw**: 120.
 
 Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../private-link/private-link-service-overview.md#limitations)
 

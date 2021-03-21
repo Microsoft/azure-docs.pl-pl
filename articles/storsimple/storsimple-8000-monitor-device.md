@@ -1,24 +1,24 @@
 ---
 title: Monitorowanie urządzenia z serii StorSimple 8000
-description: Opisuje, jak używać usługi StorSimple Menedżer urządzeń do monitorowania użycia, wydajności we/wy i wykorzystania pojemności.
+description: Opisuje, jak używać usługi StorSimple Device Manager do monitorowania użycia, wydajności we/wy i wykorzystania pojemności.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962437"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Monitorowanie urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
+# <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Monitorowanie urządzenia StorSimple przy użyciu usługi StorSimple Device Manager
 
 ## <a name="overview"></a>Omówienie
-Usługi StorSimple Menedżer urządzeń można użyć do monitorowania konkretnych urządzeń w ramach rozwiązania StorSimple. Wykresy niestandardowe można tworzyć na podstawie wydajności operacji we/wy, wykorzystania pojemności, przepustowości sieci i metryk wydajności urządzeń oraz przypinać je do pulpitu nawigacyjnego. Aby uzyskać więcej informacji, przejdź do obszaru [Dostosowywanie pulpitu nawigacyjnego portalu](../azure-portal/azure-portal-dashboards.md).
+Usługi StorSimple Device Manager można użyć do monitorowania konkretnych urządzeń w ramach rozwiązania StorSimple. Wykresy niestandardowe można tworzyć na podstawie wydajności operacji we/wy, wykorzystania pojemności, przepustowości sieci i metryk wydajności urządzeń oraz przypinać je do pulpitu nawigacyjnego. Aby uzyskać więcej informacji, przejdź do obszaru [Dostosowywanie pulpitu nawigacyjnego portalu](../azure-portal/azure-portal-dashboards.md).
 
-Aby wyświetlić informacje o monitorowaniu dla określonego urządzenia, w Azure Portal wybierz usługę StorSimple Menedżer urządzeń. Z listy urządzeń wybierz urządzenie, a następnie przejdź do pozycji **monitorowanie**. Następnie można zobaczyć wykresy **pojemności**, **użycia** i **wydajności** dla wybranego urządzenia.
+Aby wyświetlić informacje o monitorowaniu dla określonego urządzenia, w Azure Portal wybierz usługę StorSimple Device Manager. Z listy urządzeń wybierz urządzenie, a następnie przejdź do pozycji **monitorowanie**. Następnie można zobaczyć wykresy **pojemności**, **użycia** i **wydajności** dla wybranego urządzenia.
 
 ## <a name="capacity"></a>Pojemność
 **Pojemność** śledzi miejsce zainicjowane i miejsce pozostało na urządzeniu. Pozostała pojemność jest następnie wyświetlana jako przypięty lokalnie lub w warstwach.
@@ -139,5 +139,5 @@ Jeśli przejdziesz do wykresu przepływności interfejsu danych 1, inny interfej
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się [, jak korzystać z pulpitu nawigacyjnego urządzenia usługi StorSimple Menedżer urządzeń](./storsimple-8000-device-dashboard.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](./storsimple-8000-manager-service-administration.md).
+* Dowiedz się [, jak korzystać z pulpitu nawigacyjnego urządzenia usługi StorSimple Device Manager](./storsimple-8000-device-dashboard.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Device Manager](./storsimple-8000-manager-service-administration.md).

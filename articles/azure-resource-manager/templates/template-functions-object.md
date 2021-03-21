@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920445"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funkcje obiektów dla szablonów ARM
@@ -20,7 +20,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami w szablonie Az
 * [część wspólną](#intersection)
 * [kodu](#json)
 * [length](#length)
-* [wartość null](#null)
+* [null](#null)
 * [Unii](#union)
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
@@ -634,7 +634,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | stringLength | int | 13 |
 | objectLength | int | 4 |
 
-## <a name="null"></a>wartość null
+## <a name="null"></a>null
 
 `null()`
 

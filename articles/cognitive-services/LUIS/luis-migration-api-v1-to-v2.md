@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018756"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Przewodnik migracji interfejsu API V1 do wersji 2 dla aplikacji LUIS
@@ -136,8 +136,8 @@ LUIS sugeruje wyrażenia długości z istniejącego [punktu końcowego wyrażeni
 
 | Wersja | route |
 |--|--|
-|1|przykład **/Luis/v1.0/**/Apps/{AppID}/Entities/{EntityId}/**sample**|
-|1|przykład **/Luis/v1.0/**/Apps/{AppID}/Intents/{intentId}/**sample**|
+|1|przykład **/Luis/v1.0/**/Apps/{AppID}/Entities/{EntityId}/|
+|1|przykład **/Luis/v1.0/**/Apps/{AppID}/Intents/{intentId}/|
 |2|/Luis/**API**/v2.0/Apps/{AppID}/**wersje**/{versionId}/Entities/{EntityId}/**Sugeruj**|
 |2|/Luis/**API**/v2.0/Apps/{AppID}/**wersje**/{versionId}/Intents/{intentId}/**Sugeruj**|
 

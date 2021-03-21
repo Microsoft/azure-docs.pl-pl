@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94535405"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -103,7 +103,7 @@ Aby przywrócić lokalizację geograficzną serwera, w wierszu polecenia platfor
 ```azurecli-interactive
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-To polecenie tworzy nowy serwer o nazwie *mydemoserver-georestore* w regionie Wschodnie stany USA, który będzie należeć do *zasobu*. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej *mydemoserver* , która również znajduje się w *grupie zasobów* .
+To polecenie tworzy nowy serwer o nazwie *mydemoserver-georestore* w regionie Wschodnie stany USA, który będzie należeć do *zasobu*. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej *mydemoserver*, która również znajduje się w *grupie zasobów* .
 
 Jeśli chcesz utworzyć nowy serwer w innej grupie zasobów z istniejącego serwera, w `--source-server` parametrze należy zakwalifikować nazwę serwera, tak jak w poniższym przykładzie:
 

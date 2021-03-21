@@ -12,17 +12,17 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380984"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Struktura odpowiedzi interfejs API wyszukiwania w sieci Web Bing i typy odpowiedzi  
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Po wysłaniu wyszukiwanie w sieci Web Bing żądanie wyszukiwania zwraca [`SearchResponse`](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) obiekt w treści odpowiedzi. Obiekt zawiera pole dla każdej odpowiedzi wyznaczonej przez usługę Bing do zapytania. Ten przykład ilustruje obiekt odpowiedzi, jeśli Bing zwróci wszystkie odpowiedzi:
@@ -43,7 +43,7 @@ Po wysłaniu wyszukiwanie w sieci Web Bing żądanie wyszukiwania zwraca [`Searc
 }, ...
 ```
 
-Zwykle wyszukiwanie w sieci Web Bing zwraca podzestaw odpowiedzi. Na przykład jeśli termin kwerendy miał wartość *dinghies* , odpowiedź może obejmować `webPages` , `images` , i `rankingResponse` . O ile nie użyto [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) do odfiltrowania stron sieci Web, odpowiedź zawsze zawiera `webpages` odpowiedzi i `rankingResponse` .
+Zwykle wyszukiwanie w sieci Web Bing zwraca podzestaw odpowiedzi. Na przykład jeśli termin kwerendy miał wartość *dinghies*, odpowiedź może obejmować `webPages` , `images` , i `rankingResponse` . O ile nie użyto [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) do odfiltrowania stron sieci Web, odpowiedź zawsze zawiera `webpages` odpowiedzi i `rankingResponse` .
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -300,12 +300,12 @@ Wyrażenie matematyczne może zawierać następujące symbole:
 |+|Dodawanie|
 |-|Odejmowanie|
 |/|Dział|
-|*|Mnożenie|
+|*|Znak mnożenia|
 |^|Zasilanie|
 |!|Silnia|
 |.|Liczba dziesiętna|
 |()|Grupowanie pierwszeństwa|
-|[]|Function|
+|[]|Funkcja|
 
 Wyrażenie matematyczne może zawierać następujące stałe:
 
@@ -333,7 +333,7 @@ Wyrażenia matematyczne zawierające zmienne (na przykład 4x + 6 = 18, gdzie x 
 
 ## <a name="timezone-answer"></a>Odpowiedź strefy czasowej
 
-Jeśli użytkownik wprowadzi zapytanie o godzinę lub datę, odpowiedź może zawierać odpowiedź [strefy](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) czasowej. Ta odpowiedź obsługuje zapytania niejawne lub jawne. Niejawne zapytanie, na przykład *jego czas trwania?* , zwraca czas lokalny na podstawie lokalizacji użytkownika. Jawne zapytanie, na przykład *jaki jest czas w Seattle?* , zwraca czas lokalny dla Seattle, WA.
+Jeśli użytkownik wprowadzi zapytanie o godzinę lub datę, odpowiedź może zawierać odpowiedź [strefy](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) czasowej. Ta odpowiedź obsługuje zapytania niejawne lub jawne. Niejawne zapytanie, na przykład *jego czas trwania?*, zwraca czas lokalny na podstawie lokalizacji użytkownika. Jawne zapytanie, na przykład *jaki jest czas w Seattle?*, zwraca czas lokalny dla Seattle, WA.
 
 `timeZone`Odpowiedź zawiera nazwę lokalizacji, bieżącą datę i godzinę UTC w określonej lokalizacji oraz przesunięcie czasu UTC. Jeśli granica lokalizacji znajduje się w wielu strefach czasowych, odpowiedź zawiera bieżącą datę i godzinę UTC wszystkich stref czasowych w ramach granicy. Na przykład, ponieważ stan Florida jest w dwóch strefach czasowych, odpowiedź zawiera lokalną datę i godzinę obu stref czasowych.  
 
@@ -424,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>Odpowiedź SpellSuggestion
 
-Jeśli Bing określi, że użytkownik może chcieć wyszukać coś innego, odpowiedź zawiera obiekt [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) . Na przykład, jeśli użytkownik wyszukuje *pióro Carlos* , Bing może określić, że użytkownik prawdopodobnie przeszukał Carlos Pena zamiast tego (na podstawie przeszłych wyszukiwań innych osób z *Carlos piórem* ). Poniżej przedstawiono przykładową odpowiedź na pisownię.
+Jeśli Bing określi, że użytkownik może chcieć wyszukać coś innego, odpowiedź zawiera obiekt [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) . Na przykład, jeśli użytkownik wyszukuje *pióro Carlos*, Bing może określić, że użytkownik prawdopodobnie przeszukał Carlos Pena zamiast tego (na podstawie przeszłych wyszukiwań innych osób z *Carlos piórem*). Poniżej przedstawiono przykładową odpowiedź na pisownię.
 
 ```json
 "spellSuggestions": {

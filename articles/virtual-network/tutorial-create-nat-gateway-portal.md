@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 82b5892b027627871e5492e3c6cd3776a923632b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553446"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal
 
 W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną.
@@ -142,7 +142,7 @@ W tej sekcji utworzysz maszynę wirtualną służącą do testowania bramy trans
     | Nazwa maszyny wirtualnej | Wprowadź **myVM**. |
     | Region (Region) | Wybierz **(Europa) Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną nie wymaga nadmiarowości. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1**. |
     | Rozmiar | Wybierz **Standard_DS1_v2**. |
     | **Konto administratora** |   |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika dla maszyny wirtualnej. |

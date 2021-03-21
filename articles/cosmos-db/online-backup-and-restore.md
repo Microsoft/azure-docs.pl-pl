@@ -8,16 +8,16 @@ ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 2629e9c6e048620d9490a1e091a16c138fd1e615
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525436"
 ---
-# <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
+# <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB automatycznie pobiera kopie zapasowe danych w regularnych odstępach czasu. Automatyczne kopie zapasowe są wykonywane bez wpływu na wydajność ani dostępność operacji bazy danych. Wszystkie kopie zapasowe są przechowywane oddzielnie w usłudze magazynu. Automatyczne kopie zapasowe są przydatne w scenariuszach, w których przypadkowo usunięto lub Zaktualizowano konto, bazę danych lub kontener usługi Azure Cosmos, a następnie wymagane jest odzyskanie danych. Istnieją dwa tryby tworzenia kopii zapasowej:
+Usługa Azure Cosmos DB automatycznie tworzy kopie zapasowe danych w regularnych odstępach czasu. Automatyczne kopie zapasowe są wykonywane bez wpływu na wydajność i dostępność operacji bazy danych. Wszystkie kopie zapasowe są przechowywane oddzielnie w usłudze magazynu. Automatyczne kopie zapasowe są przydatne w przypadkach, w których przypadkowo usunięto lub zaktualizowano konto, bazę danych lub kontener usługi Azure Cosmos, a później okazało się konieczne odzyskanie danych. Istnieją dwa tryby tworzenia kopii zapasowej:
 
 * **Okresowy tryb tworzenia kopii zapasowej** — ten tryb jest domyślnym trybem tworzenia kopii zapasowych dla wszystkich istniejących kont. W tym trybie kopia zapasowa jest wykonywana w regularnych odstępach czasu, a dane są przywracane przez utworzenie żądania z zespołem pomocy technicznej. W tym trybie można skonfigurować interwał i przechowywanie kopii zapasowych dla Twojego konta. Maksymalny okres przechowywania jest dłuższy niż miesiąc. Minimalny interwał tworzenia kopii zapasowej może wynosić godzinę.  Aby dowiedzieć się więcej, zobacz artykuł [tryb okresowej kopii zapasowej](configure-periodic-backup-restore.md) .
 

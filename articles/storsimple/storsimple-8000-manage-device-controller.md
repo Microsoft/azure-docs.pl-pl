@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956997"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Zarządzanie kontrolerami urządzeń StorSimple
@@ -29,10 +29,10 @@ W tym samouczku opisano różne operacje, które mogą być wykonywane na kontro
 
 Ten samouczek zawiera instrukcje krok po kroku dotyczące zarządzania kontrolerami urządzeń przy użyciu:
 
-* Blok **kontrolerów** urządzenia w usłudze StorSimple Menedżer urządzeń.
+* Blok **kontrolerów** urządzenia w usłudze StorSimple Device Manager.
 * program Windows PowerShell dla usługi StorSimple.
 
-Zalecamy zarządzanie kontrolerami urządzeń za pośrednictwem usługi StorSimple Menedżer urządzeń. Jeśli akcja może zostać wykonana tylko przy użyciu program Windows PowerShell dla usługi StorSimple, samouczek zanotuje go.
+Zalecamy zarządzanie kontrolerami urządzeń za pośrednictwem usługi StorSimple Device Manager. Jeśli akcja może zostać wykonana tylko przy użyciu program Windows PowerShell dla usługi StorSimple, samouczek zanotuje go.
 
 Po przeczytaniu tego samouczka będziesz mieć możliwość:
 
@@ -49,12 +49,12 @@ Ponowne uruchomienie urządzenia nie przerywa pracy podłączonych inicjatorów 
 > * **Uruchomiony Kontroler nigdy nie powinien być fizycznie usunięty, ponieważ spowoduje to utratę nadmiarowości i zwiększone ryzyko przestoju.**
 > * Poniższa procedura dotyczy tylko urządzenia fizycznego StorSimple. Aby uzyskać informacje o sposobach uruchamiania, zatrzymywania i ponownego uruchamiania urządzenia w chmurze StorSimple, zobacz [Working with the Cloud urządzenie](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
-Można ponownie uruchomić lub zamknąć pojedynczy kontroler urządzenia za pomocą Azure Portal usługi StorSimple Menedżer urządzeń lub program Windows PowerShell dla usługi StorSimple.
+Można ponownie uruchomić lub zamknąć pojedynczy kontroler urządzenia za pomocą Azure Portal usługi StorSimple Device Manager lub program Windows PowerShell dla usługi StorSimple.
 
 Aby zarządzać kontrolerami urządzeń z poziomu Azure Portal, wykonaj następujące czynności.
 
 #### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Aby ponownie uruchomić lub zamknąć kontroler w Azure Portal
-1. W usłudze StorSimple Menedżer urządzeń przejdź do pozycji **urządzenia**. Wybierz urządzenie z listy urządzeń. 
+1. W usłudze StorSimple Device Manager przejdź do pozycji **urządzenia**. Wybierz urządzenie z listy urządzeń. 
 
     ![Wybierz urządzenie](./media/storsimple-8000-manage-device-controller/manage-controller1.png)
 
@@ -160,4 +160,4 @@ Ta sekcja zawiera podsumowanie niektórych często zadawanych pytań dotyczącyc
 
 ## <a name="next-steps"></a>Następne kroki
 * Jeśli wystąpią problemy z kontrolerami urządzeń StorSimple, których nie można rozwiązać za pomocą procedur wymienionych w tym samouczku, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
-* Aby dowiedzieć się więcej o korzystaniu z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Aby dowiedzieć się więcej o korzystaniu z usługi StorSimple Device Manager, przejdź do [korzystania z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

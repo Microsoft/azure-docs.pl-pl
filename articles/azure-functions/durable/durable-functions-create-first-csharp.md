@@ -7,10 +7,10 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008216"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Tworzenie pierwszej funkcji trwałej w języku C\#
@@ -88,7 +88,7 @@ Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekc
 
 Klasa zawierająca nowe funkcje jest dodawana do projektu. VS Code dodaje również parametry połączenia konta magazynu do *local.settings.jsna* i odwołanie do [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pakietu NuGet do pliku projektu *. csproj* .
 
-Otwórz nowy plik *HelloOrchestration.cs* , aby wyświetlić jego zawartość. Ta trwała funkcja jest prostym przykładem łączenia funkcji w łańcuch przy użyciu następujących metod:  
+Otwórz nowy plik *HelloOrchestration. cs* , aby wyświetlić jego zawartość. Ta trwała funkcja jest prostym przykładem łączenia funkcji w łańcuch przy użyciu następujących metod:  
 
 | Metoda | FunctionName | Opis |
 | -----  | ------------ | ----------- |
@@ -181,7 +181,7 @@ W celu ukończenia tego samouczka:
 
 Szablon projektu usługi Azure Functions umożliwia utworzenie projektu, który można opublikować w aplikacji funkcji na platformie Azure. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie, skalowanie i udostępnianie zasobów.
 
-1. W programie Visual Studio wybierz pozycję **Nowy**  >  **projekt** z menu **plik** .
+1. W programie Visual Studio wybierz pozycję **Nowy** > **Projekt** z menu **Plik**.
 
 1. W oknie dialogowym **Tworzenie nowego projektu** Wyszukaj `functions` , wybierz szablon **Azure Functions** i kliknij przycisk **dalej**. 
 
@@ -261,7 +261,7 @@ Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projekt
     }
     ```
 
-5. Aby zatrzymać debugowanie, naciśnij klawisze **Shift + F5**.
+5. Aby zatrzymać debugowanie, naciśnij klawisze **Shift+F5**.
 
 Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokalnym, możesz opublikować projekt na platformie Azure.
 

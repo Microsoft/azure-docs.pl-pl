@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485226"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: korzystanie z interfejsu wiersza polecenia platformy Azure, AZ Postgres up (wersja zapoznawcza) w celu utworzenia Azure Database for PostgreSQL-pojedynczego serwera
@@ -63,7 +63,7 @@ resource-group | Wygenerowano system | Nowa grupa zasobów platformy Azure.
 sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne} w skrócie. Wartość domyślna to Ogólnego przeznaczenia serwer 5 rdzeń z 2 rdzeni wirtualnych. Aby uzyskać więcej informacji o warstwach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) .
 backup-retention | 7 | Czas przechowywania kopii zapasowej. Jednostka to dni.
 geo-redundant-backup | Disabled | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
-location | zachodnie_stany_USA_2 | Lokalizacja platformy Azure dla serwera.
+location | westus2 | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Disabled | Czy na tym serwerze powinien być włączony protokół TLS/SSL.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
 Wersja | 10 | Wersja główna PostgreSQL.

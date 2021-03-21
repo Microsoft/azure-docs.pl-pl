@@ -3,16 +3,16 @@ title: Zarządzanie punktami końcowymi sieci wirtualnej — interfejs wiersza p
 description: W tym artykule opisano sposób tworzenia punktów końcowych i reguł usługi sieci wirtualnej Azure Database for MariaDB oraz zarządzania nimi przy użyciu wiersza polecenia platformy Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bee4af12b30b64409812d6758521a9ec29b2b61f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665093"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Tworzenie punktów końcowych usługi Azure Database for MariaDB sieci wirtualnej i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure

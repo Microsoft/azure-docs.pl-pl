@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć szablon laboratorium klasowego i zarzą
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434281"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Tworzenie szablonu klasy i zarządzanie nim w Azure Lab Services

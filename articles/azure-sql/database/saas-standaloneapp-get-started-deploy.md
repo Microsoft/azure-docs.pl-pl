@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793283"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Wdróż i Eksploruj autonomiczną aplikację z jedną dzierżawą, która używa Azure SQL Database
@@ -60,16 +60,16 @@ Wdróż aplikację dla trzech dostarczonych dzierżawców:
     > Pewne uwierzytelnianie i zapory serwera są celowo niezabezpieczone w celach demonstracyjnych. **Utwórz nową grupę zasobów** dla każdego wdrożenia aplikacji.  Nie należy używać istniejącej grupy zasobów. Nie należy używać tej aplikacji ani żadnych tworzonych przez nie zasobów dla środowiska produkcyjnego. Usuń wszystkie grupy zasobów po zakończeniu pracy z aplikacjami, aby zatrzymać powiązane rozliczenia.
 
     Najlepiej używać małych liter, cyfr i łączników w nazwach zasobów.
-    * W obszarze **Grupa zasobów** wybierz pozycję Utwórz nową, a następnie podaj nazwę z małymi literami dla grupy zasobów. **Wingtip-sa- \<venueName\> - \<user\>** jest zalecanym wzorcem.  W przypadku programu \<venueName\> Zastąp wartość Nazwa miejsca bez spacji. W przypadku programu \<user\> Zastąp wartość użytkownika poniżej.  W tym wzorcu nazwy grup zasobów mogą być *Wingtip-sa-contosoconcerthall-AF1* , *Wingtip-sa-dogwooddojo-AF1* , *Wingtip-sa-fabrikamjazzclub-AF1* .
+    * W obszarze **Grupa zasobów** wybierz pozycję Utwórz nową, a następnie podaj nazwę z małymi literami dla grupy zasobów. **Wingtip-sa- \<venueName\> - \<user\>** jest zalecanym wzorcem.  W przypadku programu \<venueName\> Zastąp wartość Nazwa miejsca bez spacji. W przypadku programu \<user\> Zastąp wartość użytkownika poniżej.  W tym wzorcu nazwy grup zasobów mogą być *Wingtip-sa-contosoconcerthall-AF1*, *Wingtip-sa-dogwooddojo-AF1*, *Wingtip-sa-fabrikamjazzclub-AF1*.
     * Z listy rozwijanej wybierz **lokalizację** .
 
-    * Dla **użytkownika** — zaleca się użycie krótkiej wartości, takiej jak inicjały oraz cyfra: na przykład *AF1* .
+    * Dla **użytkownika** — zaleca się użycie krótkiej wartości, takiej jak inicjały oraz cyfra: na przykład *AF1*.
 
 
-3. **Wdróż aplikację** .
+3. **Wdróż aplikację**.
 
     * Kliknij, aby zaakceptować warunki i postanowienia.
-    * Kliknij pozycję **Kup** .
+    * Kliknij pozycję **Kup**.
 
 4. Monitoruj stan wszystkich trzech wdrożeń, klikając pozycję **powiadomienia** (ikona dzwonka z prawej strony pola wyszukiwania). Wdrażanie aplikacji trwa około 5 minut.
 

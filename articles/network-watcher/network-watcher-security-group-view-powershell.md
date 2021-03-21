@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 2da4ebfa6a9ce64b03e6e1d29956f740f6cb3c1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94960636"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analizowanie zabezpieczeń maszyny wirtualnej za pomocą widoku grupy zabezpieczeń przy użyciu programu PowerShell
@@ -34,7 +34,7 @@ Widok grupy zabezpieczeń umożliwia skonfigurowanie skonfigurowanych i obowiąz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym scenariuszu należy uruchomić `Get-AzNetworkWatcherSecurityGroupView` polecenie cmdlet w celu pobrania informacji o regułach zabezpieczeń.
 

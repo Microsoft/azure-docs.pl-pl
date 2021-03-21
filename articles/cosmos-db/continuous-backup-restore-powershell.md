@@ -8,10 +8,10 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381838"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza) — Używanie Azure PowerShell

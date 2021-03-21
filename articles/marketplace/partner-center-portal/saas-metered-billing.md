@@ -8,10 +8,10 @@ ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92892757"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace
@@ -37,7 +37,7 @@ Zrozumienie hierarchii oferty jest ważne, gdy chodzi o Definiowanie oferty wraz
 
 - Każda oferta SaaS jest konfigurowana do sprzedaży przez firmę Microsoft.  Po opublikowaniu oferty nie można zmienić tej opcji.
 - Każda oferta SaaS, skonfigurowana do sprzedaży przez firmę Microsoft, może mieć jeden lub więcej planów.  Użytkownik subskrybuje ofertę SaaS, ale jest zakupiony przez firmę Microsoft w ramach planu.
-- Z każdym planem jest skojarzony model cen: **stawka ryczałtowa** lub **za użytkownika** . Wszystkie plany w ofercie muszą być skojarzone z tym samym modelem cen. Na przykład nie może istnieć oferta mająca plany dotyczące modelu cen ryczałtowych i innego modelu cen poszczególnych użytkowników.
+- Z każdym planem jest skojarzony model cen: **stawka ryczałtowa** lub **za użytkownika**. Wszystkie plany w ofercie muszą być skojarzone z tym samym modelem cen. Na przykład nie może istnieć oferta mająca plany dotyczące modelu cen ryczałtowych i innego modelu cen poszczególnych użytkowników.
 - W ramach każdego planu skonfigurowanego dla modelu rozliczania stawki ryczałtowej jest uwzględniana co najmniej jedna opłata cykliczna (która może być $0):
     - Cykliczna opłata **miesięczna** : zryczałtowany miesięczna opłata, która jest przedpłata za Miesięczny cykl w przypadku zakupu planu.
     - Cykliczna opłata **roczna** : ryczałtowa opłata roczna, która jest przedpłata za cykl roczny, gdy użytkownik zakupił plan.
@@ -73,12 +73,12 @@ Zgodnie z wybranym planem subskrypcja zakupu na platformie Azure dla klientów z
 
 Każdy wymiar rozliczeń definiuje jednostkę niestandardową, za pomocą której niezależnego dostawcy oprogramowania mogą emitować zdarzenia użycia.  Wymiary rozliczeń są również używane do komunikowania się z klientem przy użyciu oprogramowania.  Są one zdefiniowane w następujący sposób:
 
-- **ID** : odwołuje się do niezmiennego identyfikatora wymiaru podczas emitowania zdarzeń użycia.
-- **Nazwa wyświetlana** : Nazwa wyświetlana skojarzona z wymiarem, na przykład "wysłane wiadomości SMS".
-- **Jednostka miary** : Opis jednostki rozliczeniowej, na przykład "na wiadomość SMS" lub "na 100 wiadomości e-mail".
-- **Cena za jednostkę w USD** : Cena jednej jednostki wymiaru.  Może to być 0. 
-- **Miesięczna ilość uwzględniona w podstawowej** : liczba wymiarów uwzględnionych miesięcznie w przypadku klientów korzystających z cyklicznej opłaty miesięcznej musi być liczbą całkowitą. Może być równa 0 lub nieograniczona.
-- **Roczna ilość uwzględniona w podstawowej** : ilość wymiarów uwzględnionych w każdym roku w przypadku klientów, którzy płacili cykliczną opłatą roczną, musi być liczbą całkowitą. Może mieć wartość 0 lub nieograniczony.
+- **ID**: odwołuje się do niezmiennego identyfikatora wymiaru podczas emitowania zdarzeń użycia.
+- **Nazwa wyświetlana**: Nazwa wyświetlana skojarzona z wymiarem, na przykład "wysłane wiadomości SMS".
+- **Jednostka miary**: Opis jednostki rozliczeniowej, na przykład "na wiadomość SMS" lub "na 100 wiadomości e-mail".
+- **Cena za jednostkę w USD**: Cena jednej jednostki wymiaru.  Może to być 0. 
+- **Miesięczna ilość uwzględniona w podstawowej**: liczba wymiarów uwzględnionych miesięcznie w przypadku klientów korzystających z cyklicznej opłaty miesięcznej musi być liczbą całkowitą. Może być równa 0 lub nieograniczona.
+- **Roczna ilość uwzględniona w podstawowej**: ilość wymiarów uwzględnionych w każdym roku w przypadku klientów, którzy płacili cykliczną opłatą roczną, musi być liczbą całkowitą. Może mieć wartość 0 lub nieograniczony.
 
 Wymiary rozliczeń są współużytkowane przez wszystkie plany oferty.  Niektóre atrybuty mają zastosowanie do wymiaru we wszystkich planach, a inne atrybuty są specyficzne dla planu.
 

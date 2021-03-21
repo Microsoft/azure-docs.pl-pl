@@ -10,10 +10,10 @@ ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541848"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu programu Synapse Studio
@@ -103,7 +103,7 @@ Wykonaj poniższe kroki, aby usunąć dedykowaną pulę SQL z obszaru roboczego 
 Jeśli chcesz usunąć dedykowaną pulę SQL, wykonaj następujące czynności:
 
 1. Przejdź do pul SQL w centrum zarządzania w programie Synapse Studio.
-1. Wybierz wielokropek w dedykowanej puli SQL do usunięcia (w tym przypadku **contosoedw** ), aby wyświetlić polecenia dla dedykowanej puli SQL:
+1. Wybierz wielokropek w dedykowanej puli SQL do usunięcia (w tym przypadku **contosoedw**), aby wyświetlić polecenia dla dedykowanej puli SQL:
 
     ![Lista pul SQL z wybraną ostatnio utworzoną pulą.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Naciśnij klawisz **delete**.

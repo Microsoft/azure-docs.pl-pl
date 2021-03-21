@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 8072a941cd89290af3e25cc63c4fccccce705df9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95014666"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
@@ -153,7 +153,7 @@ Kliknij kartę preferowany język/struktura poniżej, aby zobaczyć przykład.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Przykład:
+W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -178,7 +178,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Przykład:
+W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -206,7 +206,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworz
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-W Node.js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Przykład:
+W Node.js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Na przykład:
 
 ```javascript
 // Requires npm install --save axios
@@ -233,7 +233,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Przykład:
+W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Na przykład:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -265,7 +265,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="python"></a>[Python](#tab/python)
 
-W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Przykład:
+W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Na przykład:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -296,7 +296,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Uruch
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu JSONClient. Przykład:
+W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu JSONClient. Na przykład:
 
 ```ruby
 clnt = JSONClient.new
@@ -313,7 +313,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [tworzenia aplika
 
 ---
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 [Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Odwołanie żądania HTTP/odpowiedzi dla Logic Apps](../connectors/connectors-native-reqres.md)  

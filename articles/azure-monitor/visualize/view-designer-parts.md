@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 6e971db01322fc031dd0fa8abe82f76a5b45d256
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045262"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
@@ -201,7 +201,7 @@ W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jes
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Kolor |Kolor tła nagłówka. |
 | **Nagłówek** | |
-| Image (Obraz) |Plik obrazu, który jest wyświetlany w nagłówku. |
+| Obraz |Plik obrazu, który jest wyświetlany w nagłówku. |
 | Etykieta |Tekst wyświetlany w nagłówku. |
 | **Nagłówek** |**> łącze** |
 | Etykieta |Tekst łącza. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95013648"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrowanie z interfejs API tłumaczenia mowy w usłudze Translator do usługi mowy
@@ -26,7 +26,7 @@ Ten artykuł służy do migrowania aplikacji z interfejs API tłumaczenia mowy w
 
 ## <a name="comparison-of-features"></a>Porównanie funkcji
 
-| Obiekt feature                                           | Interfejs API tłumaczenia mowy w usłudze Translator                                  | Usługa rozpoznawania mowy | Szczegóły                                                                                                                                                                                                                                                                            |
+| Cecha                                           | Interfejs API tłumaczenia mowy w usłudze Translator                                  | Usługa rozpoznawania mowy | Szczegóły                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tłumaczenie na tekst                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Tłumaczenie na mowę                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -39,7 +39,7 @@ Ten artykuł służy do migrowania aplikacji z interfejs API tłumaczenia mowy w
 | Połączenia obiektów WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Interfejs API języków                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Usługa mowy obsługuje te same Języki, które opisano w artykule [Skorowidz języka translatora]() . |
 | Filtr i znacznik niewulgarności                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| WAV/PCM jako dane wejściowe                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| . WAV/PCM jako dane wejściowe                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Inne typy plików jako dane wejściowe                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Wyniki częściowe                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Informacje o chronometrażu                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
@@ -64,7 +64,7 @@ Jeśli ty lub Twoja organizacja ma aplikacje w programowaniu lub środowisku pro
 * [Wypróbuj bezpłatnie usługę mowy](overview.md#try-the-speech-service-for-free)
 * [Szybki Start: Rozpoznawanie mowy w aplikacji platformy UWP przy użyciu zestawu Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest usługa mowy](overview.md)
 * [Dokumentacja usługi mowy i zestawu Speech SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android)

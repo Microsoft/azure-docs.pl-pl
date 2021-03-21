@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905178"
 ---
 # <a name="define-and-use-moderation-jobs-api-console"></a>Definiowanie i używanie zadań moderowania (konsola interfejsu API)
@@ -115,7 +115,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **
 
 ### <a name="examine-the-new-reviews"></a>Zbadaj nowe przeglądy
 
-Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj**  >  **Image** / **Text** / **wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego wywołania zwrotnego.
+Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj**  >   /  / **wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego wywołania zwrotnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

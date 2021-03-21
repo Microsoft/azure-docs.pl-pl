@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7b6ffd885e1be2dd59cea87cacd6e5fd5e0f8f49
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861174"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory Authentication Libraries (Biblioteki Azure Active Directory Authentication Libraries)

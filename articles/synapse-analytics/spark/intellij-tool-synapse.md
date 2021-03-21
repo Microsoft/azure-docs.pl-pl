@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675809"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
@@ -24,7 +24,7 @@ W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ twor
 - Uzyskaj dostęp do zasobów pul platformy Spark.
 - Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > - Korzystanie z wtyczki Azure Toolkit for IntelliJ

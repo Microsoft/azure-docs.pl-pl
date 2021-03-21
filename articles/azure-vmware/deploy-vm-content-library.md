@@ -4,10 +4,10 @@ description: Utwórz bibliotekę zawartości, aby wdrożyć maszynę wirtualną 
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382008"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure

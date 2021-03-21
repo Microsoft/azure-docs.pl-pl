@@ -9,10 +9,10 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 35e080e0fe45c18ad6a6d5392e0c78b116853c3e
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98027472"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
@@ -148,7 +148,7 @@ W przypadku sieci WAN udostępnianie wyników testów u dostawcy usług lub usł
 
 Po rozwiązaniu problemu z platformą Azure, gdy jest to możliwe, należy zapoznać się z [dokumentacją sieci platformy Azure][Network Docs] , a następnie w razie potrzeby [otworzyć bilet pomocy technicznej][Ticket Link].
 
-## <a name="references"></a>Materiały źródłowe
+## <a name="references"></a>Odwołania
 ### <a name="latencybandwidth-expectations"></a>Oczekiwania na opóźnienia/przepustowość
 >[!TIP]
 > Opóźnienie geograficzne (mile lub kilometry) między punktami końcowymi, które są testowane, to największy składnik opóźnienia. Chociaż występuje opóźnienie sprzętu (składniki fizyczne i wirtualne, liczba przeskoków itp.), Geografia została sprawdzona jako największy składnik ogólnego opóźnienia podczas pracy z połączeniami WAN. Należy również pamiętać, że odległość jest odległość między uruchomieniem włókna a odległością od osi liniowej lub mapy drogowej. Ta odległość jest trudno uzyskać z dokładnością niezwykle. W związku z tym ogólnie używamy kalkulatora odległości miast w Internecie i wiesz, że ta metoda jest miarowo niedokładnej miary, ale jest wystarczająca do ustawienia ogólnego oczekiwania.
@@ -179,7 +179,7 @@ Konfiguracja testu:
 >
 >
 
-| ExpressRoute<br/>Lokalizacja|Azure<br/>Region (Region) | Szacowany<br/>Odległość (km) | Opóźnienie|1 sesja<br/>Przepustowość | Maksimum<br/>Przepustowość |
+| ExpressRoute<br/>Lokalizacja|Azure<br/>Region (Region) | Szacowany<br/>Odległość (km) | Opóźnienie|1 sesja<br/>Szerokość pasma | Maksimum<br/>Szerokość pasma |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Zachodnie stany USA 2        |    191 km |   5 ms | 262,0 MB/s |  3,74 Gbits/s |
 | Seattle | Zachodnie stany USA          |  1 094 km |  18 MS |  82,3 MB/s |  3,70 Gbits/s |
@@ -188,7 +188,7 @@ Konfiguracja testu:
 | Seattle | Północno-środkowe stany USA |  2 792 km |  55 MS |  27,7 MB/s |  2,19 Gbits/s |
 | Seattle | Wschodnie stany USA 2        |  3 769 km |  73 MS |  21,3 MB/s |  1,79 Gbits/s |
 | Seattle | East US          |  3 699 km |  74 MS |  21,1 MB/s |  1,78 Gbits/s |
-| Seattle | Japan East       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
+| Seattle | Japonia Wschodnia       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
 | Seattle | Południowe Zjednoczone Królestwo         |  7 708 km | 146 MS |  10,6 MB/s |   896 MB/s |
 | Seattle | West Europe      |  7 834 km | 153 MS |  10,2 MB/s |   761 MB/s |
 | Seattle | Australia Wschodnia   | 12 484 km | 165 MS |   9,4 MB/s |   794 MB/s |

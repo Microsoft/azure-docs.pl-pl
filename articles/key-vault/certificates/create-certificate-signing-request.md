@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
 ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789030"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
@@ -104,7 +104,7 @@ Wykonaj następujące kroki, aby dodać certyfikat z urzędów certyfikacji, kt�
 ## <a name="add-more-information-to-the-csr"></a>Dodaj więcej informacji do CSR
 
 Jeśli chcesz dodać więcej informacji podczas tworzenia CSR, zdefiniuj je w polu **SubjectName**. Możesz chcieć dodać informacje, takie jak:
-- Country (Kraj)
+- Kraj
 - Miasto/miejscowość
 - Województwo
 - Organizacja

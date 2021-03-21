@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94412378"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cztery kroki do silnej wersji programu Identity Foundation z Azure Active Directory
@@ -83,7 +83,7 @@ W nowoczesnych przedsiębiorstwach działy IT często nie wiedzą o wszystkich a
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) może pomóc w zidentyfikowaniu użytecznych aplikacji, które są popularne dla użytkowników, którzy mogą zatwierdzono i dodać do galerii aplikacji dla przedsiębiorstw, aby użytkownicy mogli korzystać z takich funkcji, jak logowanie jednokrotne i dostęp warunkowy.
 
-<em>" **Cloud App Security** pomaga nam upewnić się, że nasze osoby prawidłowo korzystają z naszych aplikacji w chmurze i SaaS w sposób, który obsługuje podstawowe zasady zabezpieczeń, które pomagają chronić Accenture".</em> --- [John Blasi, dyrektor naczelny, bezpieczeństwo informacji, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** pomaga nam upewnić się, że nasze osoby prawidłowo korzystają z naszych aplikacji w chmurze i SaaS w sposób, który obsługuje podstawowe zasady zabezpieczeń, które pomagają chronić Accenture".</em> --- [John Blasi, dyrektor naczelny, bezpieczeństwo informacji, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Oprócz wykrywania cieniowania IT MCAS może również określać poziom ryzyka aplikacji, zapobiegać nieautoryzowanemu dostępowi do danych firmowych, możliwego wycieku danych i innym zagrożeniom związanym z bezpieczeństwem w aplikacjach.
 

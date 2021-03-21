@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
 ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94538499"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio
@@ -37,17 +37,17 @@ Wskaźnik CodeLens wyjątku pokazuje liczbę wyjątków, które wystąpiły w ci
 Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens wyjątków:
 
 * Wartość procentowa zmiany w liczbie wyjątków z ostatnich 24 godzin względem poprzednich 24 godzin
-* Wybierz polecenie **Przejdź do kodu** , aby przejść do kodu źródłowego dla funkcji wywołującej wyjątek
-* Wybierz polecenie **Wyszukaj** , aby wykonać zapytania do wszystkich wystąpień tego wyjątku, które wystąpiły w ciągu ostatnich 24 godzin
-* Wybierz polecenie **Trend** , aby wyświetlić wizualizację trendu dla wystąpień tego wyjątku w ciągu ostatnich 24 godzin
-* Wybierz polecenie **Wyświetl wszystkie wyjątki w tej aplikacji** , aby wykonać zapytania do wszystkich wyjątków, które wystąpiły w ciągu ostatnich 24 godzin
-* Wybierz polecenie **Eksploruj trendy wyjątków** , aby wyświetlić wizualizację trendu dla wszystkich wyjątków, które wystąpiły w ciągu ostatnich 24 godzin. 
+* Wybierz polecenie **Przejdź do kodu**, aby przejść do kodu źródłowego dla funkcji wywołującej wyjątek
+* Wybierz polecenie **Wyszukaj**, aby wykonać zapytania do wszystkich wystąpień tego wyjątku, które wystąpiły w ciągu ostatnich 24 godzin
+* Wybierz polecenie **Trend**, aby wyświetlić wizualizację trendu dla wystąpień tego wyjątku w ciągu ostatnich 24 godzin
+* Wybierz polecenie **Wyświetl wszystkie wyjątki w tej aplikacji**, aby wykonać zapytania do wszystkich wyjątków, które wystąpiły w ciągu ostatnich 24 godzin
+* Wybierz polecenie **Eksploruj trendy wyjątków**, aby wyświetlić wizualizację trendu dla wszystkich wyjątków, które wystąpiły w ciągu ostatnich 24 godzin. 
 
 > [!TIP]
 > Jeśli widzisz komunikat „Liczba wyjątków: 0” w funkcji CodeLens, ale wiesz, że powinny pojawić się wyjątki, upewnij się, że wybrano właściwy zasób usługi Application Insights w funkcji CodeLens. Aby wybrać inny zasób, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz polecenie **Application Insights > Wybierz źródło telemetrii**. Funkcja CodeLens jest wyświetlana tylko dla 15 najczęściej występujących wyjątków w aplikacji w ciągu ostatnich 24 godzin, dlatego jeśli wyjątek znajduje się na miejscu 16 lub dalszym, zobaczysz informację „Liczba wyjątków: 0”. Wyjątki od widoków platformy ASP.NET mogą nie pojawić się w metodach kontrolera, które wygenerowały te widoki.
 > 
 > [!TIP]
-> Jeśli widzisz komunikat „Liczba wyjątków: ?” w funkcji CodeLens, należy skojarzyć konto platformy Azure z programem Visual Studio lub może się okazać, że poświadczenie Twojego konta platformy Azure wygasło. W obu przypadkach kliknij pozycję „Liczba wyjątków: ?” i wybierz polecenie **Dodaj konto...** , aby wprowadzić poświadczenia.
+> Jeśli widzisz komunikat „Liczba wyjątków: ?” w funkcji CodeLens, należy skojarzyć konto platformy Azure z programem Visual Studio lub może się okazać, że poświadczenie Twojego konta platformy Azure wygasło. W obu przypadkach kliknij pozycję „Liczba wyjątków: ?” i wybierz polecenie **Dodaj konto...**, aby wprowadzić poświadczenia.
 > 
 > 
 
@@ -61,7 +61,7 @@ Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens żądań:
 * Wartość bezwzględna i procentowa zmian w liczbie żądań, żądań zakończonych niepowodzeniem lub średnim czasie odpowiedzi z ostatnich 24 godzin względem poprzednich 24 godzin
 * Niezawodność metody, obliczana jako procent żądań, które nie zakończyły się niepowodzeniem w ciągu ostatnich 24 godzin
 * Wybierz polecenie **Wyszukaj** dla żądań lub żądań zakończonych niepowodzeniem, aby wykonać zapytania do wszystkich żądań (zakończonych niepowodzeniem), które wystąpiły w ciągu ostatnich 24 godzin
-* Wybierz polecenie **Trend** , aby wyświetlić wizualizację trendu dla żądań, żądań zakończonych niepowodzeniem lub średniego czasu odpowiedzi w ciągu ostatnich 24 godzin.
+* Wybierz polecenie **Trend**, aby wyświetlić wizualizację trendu dla żądań, żądań zakończonych niepowodzeniem lub średniego czasu odpowiedzi w ciągu ostatnich 24 godzin.
 * Wybierz nazwę zasobu usługi Application Insights w lewym górnym rogu widoku szczegółów funkcji CodeLens, aby zmienić zasób, który jest źródłem danych tej funkcji.
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki

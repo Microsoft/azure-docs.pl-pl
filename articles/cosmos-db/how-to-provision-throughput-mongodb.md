@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 25eaa4a66fb4a73f976edbd30e6f82015ce84f6f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086129"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>Inicjowanie obsługi administracyjnej bazy danych, kontenera lub automatycznego skalowania na Azure Cosmos DB API dla zasobów MongoDB
@@ -28,13 +28,13 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [SQL API](how-to-provisio
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)lub Wybierz istniejące konto usługi Azure Cosmos.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa kolekcja** . Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa kolekcja**. Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową bazę danych, czy używasz istniejącej. Wybierz opcję **zainicjuj przepływność bazy danych** , jeśli chcesz udostępnić przepływność na poziomie bazy danych.
    * Wprowadź identyfikator kolekcji.
    * Wprowadź wartość klucza partycji (na przykład `/ItemID`).
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz pozycję **OK** .
+   * Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Zrzut ekranu przedstawiający Eksplorator danych, podczas tworzenia nowej kolekcji z przepływność na poziomie bazy danych":::
 

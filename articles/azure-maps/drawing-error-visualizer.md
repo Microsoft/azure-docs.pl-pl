@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903585"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Używanie wizualizatora błędów rysowania Azure Maps z twórcą (wersja zapoznawcza)
@@ -59,7 +59,7 @@ W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.c
 
 4. Pobierz wizualizator błędu pakietu rysowania, wysyłając `HTTP-GET` żądanie na `diagnosticPackageLocation` adres URL.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 W ramach pobranego spakowanego pakietu z linku znajdują się `diagnosticPackageLocation` dwa pliki.
 
